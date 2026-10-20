@@ -3,8 +3,8 @@ mod Windows {
     mod Win32 {
         #[guid(0x24394699_1f2c_4eb3_8cd7_0ec1da42a540)]
         interface IPlayToManagerInterop: IInspectable {
-            fn GetForWindow(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] appWindow: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] playToManager: *mut *mut void) -> HRESULT;
-            fn ShowPlayToUIForWindow(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] appWindow: HWND) -> HRESULT;
+            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[iid_is] #[retval] playToManager: *mut *mut void) -> HRESULT;
+            fn ShowPlayToUIForWindow(&self, appWindow: HWND) -> HRESULT;
         }
     }
 }

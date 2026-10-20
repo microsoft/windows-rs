@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        type BLUETOOTH_GATT_EVENT_HANDLE = *mut void;
+        type BLUETOOTH_GATT_EVENT_HANDLE = HANDLE;
         const BLUETOOTH_GATT_FLAG_CONNECTION_AUTHENTICATED: i32 = 2;
         const BLUETOOTH_GATT_FLAG_CONNECTION_ENCRYPTED: i32 = 1;
         const BLUETOOTH_GATT_FLAG_FORCE_READ_FROM_CACHE: i32 = 8;
@@ -12,12 +12,12 @@ mod Windows {
         const BLUETOOTH_GATT_FLAG_VALID_MASK: i32 = 127;
         const BLUETOOTH_GATT_FLAG_WRITE_WITHOUT_RESPONSE: i32 = 32;
         struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
-            ChangedAttributeHandle: USHORT,
-            CharacteristicValueDataSize: size_t,
+            ChangedAttributeHandle: u16,
+            CharacteristicValueDataSize: usize,
             CharacteristicValue: PBTH_LE_GATT_CHARACTERISTIC_VALUE,
         }
         struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
-            NumCharacteristics: USHORT,
+            NumCharacteristics: u16,
             Characteristics: [BTH_LE_GATT_CHARACTERISTIC; 1],
         }
         const BTHLEENUM_ATT_MTU_DEFAULT: i32 = 23;
@@ -156,10 +156,10 @@ mod Windows {
         const BTH_LE_GATT_ATTRIBUTE_TYPE_PRIMARY_SERVICE: i32 = 10240;
         const BTH_LE_GATT_ATTRIBUTE_TYPE_SECONDARY_SERVICE: i32 = 10241;
         struct BTH_LE_GATT_CHARACTERISTIC {
-            ServiceHandle: USHORT,
+            ServiceHandle: u16,
             CharacteristicUuid: BTH_LE_UUID,
-            AttributeHandle: USHORT,
-            CharacteristicValueHandle: USHORT,
+            AttributeHandle: u16,
+            CharacteristicValueHandle: u16,
             IsBroadcastable: BOOLEAN,
             IsReadable: BOOLEAN,
             IsWritable: BOOLEAN,
@@ -182,17 +182,16 @@ mod Windows {
         const BTH_LE_GATT_CHARACTERISTIC_TYPE_RECONNECTION_ADDRESS: i32 = 10755;
         const BTH_LE_GATT_CHARACTERISTIC_TYPE_SERVICE_CHANGED: i32 = 10757;
         struct BTH_LE_GATT_CHARACTERISTIC_VALUE {
-            DataSize: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DataSize", IsByteCount = true, MayBeNull = false)]
-            Data: [UCHAR; 1],
+            DataSize: u32,
+            Data: [u8; 1],
         }
         const BTH_LE_GATT_DEFAULT_MAX_INCLUDED_SERVICES_DEPTH: i32 = 3;
         struct BTH_LE_GATT_DESCRIPTOR {
-            ServiceHandle: USHORT,
-            CharacteristicHandle: USHORT,
+            ServiceHandle: u16,
+            CharacteristicHandle: u16,
             DescriptorType: BTH_LE_GATT_DESCRIPTOR_TYPE,
             DescriptorUuid: BTH_LE_UUID,
-            AttributeHandle: USHORT,
+            AttributeHandle: u16,
         }
         #[repr(i32)]
         enum BTH_LE_GATT_DESCRIPTOR_TYPE {
@@ -220,16 +219,15 @@ mod Windows {
                     IsBroadcast: BOOLEAN,
                 },
                 CharacteristicFormat: struct {
-                    Format: UCHAR,
-                    Exponent: UCHAR,
+                    Format: u8,
+                    Exponent: u8,
                     Unit: BTH_LE_UUID,
-                    NameSpace: UCHAR,
+                    NameSpace: u8,
                     Description: BTH_LE_UUID,
                 },
             },
-            DataSize: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DataSize", IsByteCount = true, MayBeNull = false)]
-            Data: [UCHAR; 1],
+            DataSize: u32,
+            Data: [u8; 1],
         }
         #[repr(i32)]
         enum BTH_LE_GATT_EVENT_TYPE {
@@ -238,14 +236,14 @@ mod Windows {
         type BTH_LE_GATT_RELIABLE_WRITE_CONTEXT = u64;
         struct BTH_LE_GATT_SERVICE {
             ServiceUuid: BTH_LE_UUID,
-            AttributeHandle: USHORT,
+            AttributeHandle: u16,
         }
         const BTH_LE_SERVICE_GAP: i32 = 6144;
         const BTH_LE_SERVICE_GATT: i32 = 6145;
         struct BTH_LE_UUID {
             IsShortUuid: BOOLEAN,
             Value: union {
-                ShortUuid: USHORT,
+                ShortUuid: u16,
                 LongUuid: GUID,
             },
         }
@@ -261,6 +259,6 @@ mod Windows {
         type PBTH_LE_GATT_RELIABLE_WRITE_CONTEXT = *mut u64;
         type PBTH_LE_GATT_SERVICE = *mut BTH_LE_GATT_SERVICE;
         type PBTH_LE_UUID = *mut BTH_LE_UUID;
-        extern fn PFNBLUETOOTH_GATT_EVENT_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventType: BTH_LE_GATT_EVENT_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventOutParameter: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Context: PVOID);
+        extern fn PFNBLUETOOTH_GATT_EVENT_CALLBACK(EventType: BTH_LE_GATT_EVENT_TYPE, #[in] EventOutParameter: *mut void, #[in] #[opt] Context: *mut void);
     }
 }

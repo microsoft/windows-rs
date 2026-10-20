@@ -2,21 +2,17 @@
 mod Windows {
     mod Win32 {
         struct CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
-            dwVersion: DWORD,
-            cbContactId: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbContactId", IsByteCount = true, MayBeNull = false)]
+            dwVersion: u32,
+            cbContactId: u32,
             pbContactId: PBYTE,
-            cbLinkId: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbLinkId", IsByteCount = true, MayBeNull = false)]
+            cbLinkId: u32,
             pbLinkId: PBYTE,
-            cbLinkSecret: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbLinkSecret", IsByteCount = true, MayBeNull = false)]
+            cbLinkSecret: u32,
             pbLinkSecret: PBYTE,
-            cbPublicKey: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbPublicKey", IsByteCount = true, MayBeNull = false)]
+            cbPublicKey: u32,
             pbPublicKey: PBYTE,
             pwszAuthenticatorName: PCWSTR,
-            wEncodedTunnelServerDomain: WORD,
+            wEncodedTunnelServerDomain: u16,
         }
         const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_CURRENT_VERSION: i32 = 1;
         const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_VERSION_1: i32 = 1;
@@ -53,50 +49,50 @@ mod Windows {
         type EXPERIMENTAL_PWEBAUTHN_PLUGIN_PERFROM_UV = *mut EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV;
         type EXPERIMENTAL_PWEBAUTHN_PLUGIN_UPDATE_AUTHENTICATOR_DETAILS = *mut EXPERIMENTAL_WEBAUTHN_PLUGIN_UPDATE_AUTHENTICATOR_DETAILS;
         struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_AUTHENTICATOR_OPTIONS {
-            dwVersion: DWORD,
-            lUp: LONG,
-            lUv: LONG,
-            lRequireResidentKey: LONG,
+            dwVersion: u32,
+            lUp: i32,
+            lUv: i32,
+            lRequireResidentKey: i32,
         }
         const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_AUTHENTICATOR_OPTIONS_CURRENT_VERSION: i32 = 1;
         const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_AUTHENTICATOR_OPTIONS_VERSION_1: i32 = 1;
         struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_ECC_PUBLIC_KEY {
-            dwVersion: DWORD,
-            lKty: LONG,
-            lAlg: LONG,
-            lCrv: LONG,
-            cbX: DWORD,
+            dwVersion: u32,
+            lKty: i32,
+            lAlg: i32,
+            lCrv: i32,
+            cbX: u32,
             pbX: PBYTE,
-            cbY: DWORD,
+            cbY: u32,
             pbY: PBYTE,
         }
         const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_ECC_PUBLIC_KEY_CURRENT_VERSION: i32 = 1;
         const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_ECC_PUBLIC_KEY_VERSION_1: i32 = 1;
         struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_GET_ASSERTION_REQUEST {
-            dwVersion: DWORD,
+            dwVersion: u32,
             pwszRpId: PCWSTR,
-            cbRpId: DWORD,
+            cbRpId: u32,
             pbRpId: PBYTE,
-            cbClientDataHash: DWORD,
+            cbClientDataHash: u32,
             pbClientDataHash: PBYTE,
             CredentialList: WEBAUTHN_CREDENTIAL_LIST,
-            cbCborExtensionsMap: DWORD,
+            cbCborExtensionsMap: u32,
             pbCborExtensionsMap: PBYTE,
             pAuthenticatorOptions: EXPERIMENTAL_PWEBAUTHN_CTAPCBOR_AUTHENTICATOR_OPTIONS,
             fEmptyPinAuth: BOOL,
-            cbPinAuth: DWORD,
+            cbPinAuth: u32,
             pbPinAuth: PBYTE,
             pHmacSaltExtension: EXPERIMENTAL_PWEBAUTHN_CTAPCBOR_HMAC_SALT_EXTENSION,
-            cbHmacSecretSaltValues: DWORD,
+            cbHmacSecretSaltValues: u32,
             pbHmacSecretSaltValues: PBYTE,
-            dwPinProtocol: DWORD,
-            lCredBlobExt: LONG,
-            lLargeBlobKeyExt: LONG,
-            dwCredLargeBlobOperation: DWORD,
-            cbCredLargeBlobCompressed: DWORD,
+            dwPinProtocol: u32,
+            lCredBlobExt: i32,
+            lLargeBlobKeyExt: i32,
+            dwCredLargeBlobOperation: u32,
+            cbCredLargeBlobCompressed: u32,
             pbCredLargeBlobCompressed: PBYTE,
-            dwCredLargeBlobOriginalSize: DWORD,
-            cbJsonExt: DWORD,
+            dwCredLargeBlobOriginalSize: u32,
+            cbJsonExt: u32,
             pbJsonExt: PBYTE,
         }
         const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_GET_ASSERTION_REQUEST_CURRENT_VERSION: i32 = 1;
@@ -104,88 +100,83 @@ mod Windows {
         struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_GET_ASSERTION_RESPONSE {
             WebAuthNAssertion: WEBAUTHN_ASSERTION,
             pUserInformation: PCWEBAUTHN_USER_ENTITY_INFORMATION,
-            dwNumberOfCredentials: DWORD,
-            lUserSelected: LONG,
-            cbLargeBlobKey: DWORD,
+            dwNumberOfCredentials: u32,
+            lUserSelected: i32,
+            cbLargeBlobKey: u32,
             pbLargeBlobKey: PBYTE,
-            cbUnsignedExtensionOutputs: DWORD,
+            cbUnsignedExtensionOutputs: u32,
             pbUnsignedExtensionOutputs: PBYTE,
         }
         struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_HMAC_SALT_EXTENSION {
-            dwVersion: DWORD,
+            dwVersion: u32,
             pKeyAgreement: EXPERIMENTAL_PWEBAUTHN_CTAPCBOR_ECC_PUBLIC_KEY,
-            cbEncryptedSalt: DWORD,
+            cbEncryptedSalt: u32,
             pbEncryptedSalt: PBYTE,
-            cbSaltAuth: DWORD,
+            cbSaltAuth: u32,
             pbSaltAuth: PBYTE,
         }
         const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_HMAC_SALT_EXTENSION_CURRENT_VERSION: i32 = 1;
         const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_HMAC_SALT_EXTENSION_VERSION_1: i32 = 1;
         struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_MAKE_CREDENTIAL_REQUEST {
-            dwVersion: DWORD,
-            cbRpId: DWORD,
+            dwVersion: u32,
+            cbRpId: u32,
             pbRpId: PBYTE,
-            cbClientDataHash: DWORD,
+            cbClientDataHash: u32,
             pbClientDataHash: PBYTE,
             pRpInformation: PCWEBAUTHN_RP_ENTITY_INFORMATION,
             pUserInformation: PCWEBAUTHN_USER_ENTITY_INFORMATION,
             WebAuthNCredentialParameters: WEBAUTHN_COSE_CREDENTIAL_PARAMETERS,
             CredentialList: WEBAUTHN_CREDENTIAL_LIST,
-            cbCborExtensionsMap: DWORD,
+            cbCborExtensionsMap: u32,
             pbCborExtensionsMap: PBYTE,
             pAuthenticatorOptions: EXPERIMENTAL_PWEBAUTHN_CTAPCBOR_AUTHENTICATOR_OPTIONS,
             fEmptyPinAuth: BOOL,
-            cbPinAuth: DWORD,
+            cbPinAuth: u32,
             pbPinAuth: PBYTE,
-            lHmacSecretExt: LONG,
+            lHmacSecretExt: i32,
             pHmacSecretMcExtension: EXPERIMENTAL_PWEBAUTHN_CTAPCBOR_HMAC_SALT_EXTENSION,
-            lPrfExt: LONG,
-            cbHmacSecretSaltValues: DWORD,
+            lPrfExt: i32,
+            cbHmacSecretSaltValues: u32,
             pbHmacSecretSaltValues: PBYTE,
-            dwCredProtect: DWORD,
-            dwPinProtocol: DWORD,
-            dwEnterpriseAttestation: DWORD,
-            cbCredBlobExt: DWORD,
+            dwCredProtect: u32,
+            dwPinProtocol: u32,
+            dwEnterpriseAttestation: u32,
+            cbCredBlobExt: u32,
             pbCredBlobExt: PBYTE,
-            lLargeBlobKeyExt: LONG,
-            dwLargeBlobSupport: DWORD,
-            lMinPinLengthExt: LONG,
-            cbJsonExt: DWORD,
+            lLargeBlobKeyExt: i32,
+            dwLargeBlobSupport: u32,
+            lMinPinLengthExt: i32,
+            cbJsonExt: u32,
             pbJsonExt: PBYTE,
         }
         const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_MAKE_CREDENTIAL_REQUEST_CURRENT_VERSION: i32 = 1;
         const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_MAKE_CREDENTIAL_REQUEST_VERSION_1: i32 = 1;
         struct EXPERIMENTAL_WEBAUTHN_PLUGIN_ADD_AUTHENTICATOR_OPTIONS {
-            pwszAuthenticatorName: LPCWSTR,
-            pwszPluginClsId: LPCWSTR,
-            pwszPluginRpId: LPCWSTR,
-            pwszLightThemeLogo: LPCWSTR,
-            pwszDarkThemeLogo: LPCWSTR,
-            cbAuthenticatorInfo: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbAuthenticatorInfo", IsByteCount = true, MayBeNull = false)]
+            pwszAuthenticatorName: PCWSTR,
+            pwszPluginClsId: PCWSTR,
+            pwszPluginRpId: PCWSTR,
+            pwszLightThemeLogo: PCWSTR,
+            pwszDarkThemeLogo: PCWSTR,
+            cbAuthenticatorInfo: u32,
             pbAuthenticatorInfo: PBYTE,
         }
         struct EXPERIMENTAL_WEBAUTHN_PLUGIN_ADD_AUTHENTICATOR_RESPONSE {
-            cbOpSignPubKey: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbOpSignPubKey", IsByteCount = true, MayBeNull = false)]
+            cbOpSignPubKey: u32,
             pbOpSignPubKey: PBYTE,
         }
         struct EXPERIMENTAL_WEBAUTHN_PLUGIN_CREDENTIAL_DETAILS {
-            cbCredentialId: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbCredentialId", IsByteCount = true, MayBeNull = false)]
+            cbCredentialId: u32,
             pbCredentialId: PBYTE,
             pwszRpId: PWSTR,
             pwszRpName: PWSTR,
-            cbUserId: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbUserId", IsByteCount = true, MayBeNull = false)]
+            cbUserId: u32,
             pbUserId: PBYTE,
             pwszUserName: PWSTR,
             pwszUserDisplayName: PWSTR,
         }
         struct EXPERIMENTAL_WEBAUTHN_PLUGIN_CREDENTIAL_DETAILS_LIST {
             pwszPluginClsId: PWSTR,
-            cCredentialDetails: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cCredentialDetails", IsByteCount = false, MayBeNull = false)]
+            cCredentialDetails: u32,
             pCredentialDetails: *mut EXPERIMENTAL_PWEBAUTHN_PLUGIN_CREDENTIAL_DETAILS,
         }
         struct EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV {
@@ -202,19 +193,17 @@ mod Windows {
             GetPubKey = 3,
         }
         struct EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV_RESPONSE {
-            cbResponse: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbResponse", IsByteCount = true, MayBeNull = false)]
+            cbResponse: u32,
             pbResponse: PBYTE,
         }
         extern fn EXPERIMENTAL_WEBAUTHN_PLUGIN_STATUS_CHANGE_CALLBACK(context: *mut void);
         struct EXPERIMENTAL_WEBAUTHN_PLUGIN_UPDATE_AUTHENTICATOR_DETAILS {
-            pwszAuthenticatorName: LPCWSTR,
-            pwszPluginClsId: LPCWSTR,
-            pwszNewPluginClsId: LPCWSTR,
-            pwszLightThemeLogo: LPCWSTR,
-            pwszDarkThemeLogo: LPCWSTR,
-            cbAuthenticatorInfo: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbAuthenticatorInfo", IsByteCount = true, MayBeNull = false)]
+            pwszAuthenticatorName: PCWSTR,
+            pwszPluginClsId: PCWSTR,
+            pwszNewPluginClsId: PCWSTR,
+            pwszLightThemeLogo: PCWSTR,
+            pwszDarkThemeLogo: PCWSTR,
+            cbAuthenticatorInfo: u32,
             pbAuthenticatorInfo: PBYTE,
         }
         type PCCTAPCBOR_HYBRID_STORAGE_LINKED_DATA = *const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA;
@@ -285,32 +274,25 @@ mod Windows {
         const WEBAUTHN_API_VERSION_8: i32 = 8;
         const WEBAUTHN_API_VERSION_9: i32 = 9;
         struct WEBAUTHN_ASSERTION {
-            dwVersion: DWORD,
-            cbAuthenticatorData: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbAuthenticatorData", IsByteCount = true, MayBeNull = false)]
+            dwVersion: u32,
+            cbAuthenticatorData: u32,
             pbAuthenticatorData: PBYTE,
-            cbSignature: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbSignature", IsByteCount = true, MayBeNull = false)]
+            cbSignature: u32,
             pbSignature: PBYTE,
             Credential: WEBAUTHN_CREDENTIAL,
-            cbUserId: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbUserId", IsByteCount = true, MayBeNull = false)]
+            cbUserId: u32,
             pbUserId: PBYTE,
             Extensions: WEBAUTHN_EXTENSIONS,
-            cbCredLargeBlob: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbCredLargeBlob", IsByteCount = true, MayBeNull = false)]
+            cbCredLargeBlob: u32,
             pbCredLargeBlob: PBYTE,
-            dwCredLargeBlobStatus: DWORD,
+            dwCredLargeBlobStatus: u32,
             pHmacSecret: PWEBAUTHN_HMAC_SECRET_SALT,
-            dwUsedTransport: DWORD,
-            cbUnsignedExtensionOutputs: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbUnsignedExtensionOutputs", IsByteCount = true, MayBeNull = false)]
+            dwUsedTransport: u32,
+            cbUnsignedExtensionOutputs: u32,
             pbUnsignedExtensionOutputs: PBYTE,
-            cbClientDataJSON: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbClientDataJSON", IsByteCount = true, MayBeNull = false)]
+            cbClientDataJSON: u32,
             pbClientDataJSON: PBYTE,
-            cbAuthenticationResponseJSON: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbAuthenticationResponseJSON", IsByteCount = true, MayBeNull = false)]
+            cbAuthenticationResponseJSON: u32,
             pbAuthenticationResponseJSON: PBYTE,
         }
         const WEBAUTHN_ASSERTION_CURRENT_VERSION: i32 = 6;
@@ -341,60 +323,52 @@ mod Windows {
         const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM_U2F_V2: i32 = 3;
         const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_PLATFORM: i32 = 1;
         struct WEBAUTHN_AUTHENTICATOR_DETAILS {
-            dwVersion: DWORD,
-            cbAuthenticatorId: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbAuthenticatorId", IsByteCount = true, MayBeNull = false)]
+            dwVersion: u32,
+            cbAuthenticatorId: u32,
             pbAuthenticatorId: PBYTE,
             pwszAuthenticatorName: PCWSTR,
-            cbAuthenticatorLogo: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbAuthenticatorLogo", IsByteCount = true, MayBeNull = false)]
+            cbAuthenticatorLogo: u32,
             pbAuthenticatorLogo: PBYTE,
             bLocked: BOOL,
         }
         const WEBAUTHN_AUTHENTICATOR_DETAILS_CURRENT_VERSION: i32 = 1;
         struct WEBAUTHN_AUTHENTICATOR_DETAILS_LIST {
-            cAuthenticatorDetails: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cAuthenticatorDetails", IsByteCount = false, MayBeNull = false)]
+            cAuthenticatorDetails: u32,
             ppAuthenticatorDetails: *mut PWEBAUTHN_AUTHENTICATOR_DETAILS,
         }
         struct WEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS {
-            dwVersion: DWORD,
+            dwVersion: u32,
         }
         const WEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS_CURRENT_VERSION: i32 = 1;
         const WEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS_VERSION_1: i32 = 1;
         const WEBAUTHN_AUTHENTICATOR_DETAILS_VERSION_1: i32 = 1;
         struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
-            dwVersion: DWORD,
-            dwTimeoutMilliseconds: DWORD,
+            dwVersion: u32,
+            dwTimeoutMilliseconds: u32,
             CredentialList: WEBAUTHN_CREDENTIALS,
             Extensions: WEBAUTHN_EXTENSIONS,
-            dwAuthenticatorAttachment: DWORD,
-            dwUserVerificationRequirement: DWORD,
-            dwFlags: DWORD,
+            dwAuthenticatorAttachment: u32,
+            dwUserVerificationRequirement: u32,
+            dwFlags: u32,
             pwszU2fAppId: PCWSTR,
             pbU2fAppId: *mut BOOL,
             pCancellationId: *mut GUID,
             pAllowCredentialList: PWEBAUTHN_CREDENTIAL_LIST,
-            dwCredLargeBlobOperation: DWORD,
-            cbCredLargeBlob: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbCredLargeBlob", IsByteCount = true, MayBeNull = false)]
+            dwCredLargeBlobOperation: u32,
+            cbCredLargeBlob: u32,
             pbCredLargeBlob: PBYTE,
             pHmacSecretSaltValues: PWEBAUTHN_HMAC_SECRET_SALT_VALUES,
             bBrowserInPrivateMode: BOOL,
             pLinkedDevice: PCTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
             bAutoFill: BOOL,
-            cbJsonExt: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbJsonExt", IsByteCount = true, MayBeNull = false)]
+            cbJsonExt: u32,
             pbJsonExt: PBYTE,
-            cCredentialHints: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cCredentialHints", IsByteCount = false, MayBeNull = false)]
-            ppwszCredentialHints: *mut LPCWSTR,
+            cCredentialHints: u32,
+            ppwszCredentialHints: *mut PCWSTR,
             pwszRemoteWebOrigin: PCWSTR,
-            cbPublicKeyCredentialRequestOptionsJSON: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbPublicKeyCredentialRequestOptionsJSON", IsByteCount = true, MayBeNull = false)]
+            cbPublicKeyCredentialRequestOptionsJSON: u32,
             pbPublicKeyCredentialRequestOptionsJSON: PBYTE,
-            cbAuthenticatorId: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbAuthenticatorId", IsByteCount = true, MayBeNull = false)]
+            cbAuthenticatorId: u32,
             pbAuthenticatorId: PBYTE,
         }
         const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: i32 = 9;
@@ -409,37 +383,33 @@ mod Windows {
         const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_9: i32 = 9;
         const WEBAUTHN_AUTHENTICATOR_HMAC_SECRET_VALUES_FLAG: i32 = 1048576;
         struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
-            dwVersion: DWORD,
-            dwTimeoutMilliseconds: DWORD,
+            dwVersion: u32,
+            dwTimeoutMilliseconds: u32,
             CredentialList: WEBAUTHN_CREDENTIALS,
             Extensions: WEBAUTHN_EXTENSIONS,
-            dwAuthenticatorAttachment: DWORD,
+            dwAuthenticatorAttachment: u32,
             bRequireResidentKey: BOOL,
-            dwUserVerificationRequirement: DWORD,
-            dwAttestationConveyancePreference: DWORD,
-            dwFlags: DWORD,
+            dwUserVerificationRequirement: u32,
+            dwAttestationConveyancePreference: u32,
+            dwFlags: u32,
             pCancellationId: *mut GUID,
             pExcludeCredentialList: PWEBAUTHN_CREDENTIAL_LIST,
-            dwEnterpriseAttestation: DWORD,
-            dwLargeBlobSupport: DWORD,
+            dwEnterpriseAttestation: u32,
+            dwLargeBlobSupport: u32,
             bPreferResidentKey: BOOL,
             bBrowserInPrivateMode: BOOL,
             bEnablePrf: BOOL,
             pLinkedDevice: PCTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
-            cbJsonExt: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbJsonExt", IsByteCount = true, MayBeNull = false)]
+            cbJsonExt: u32,
             pbJsonExt: PBYTE,
             pPRFGlobalEval: PWEBAUTHN_HMAC_SECRET_SALT,
-            cCredentialHints: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cCredentialHints", IsByteCount = false, MayBeNull = false)]
-            ppwszCredentialHints: *mut LPCWSTR,
+            cCredentialHints: u32,
+            ppwszCredentialHints: *mut PCWSTR,
             bThirdPartyPayment: BOOL,
             pwszRemoteWebOrigin: PCWSTR,
-            cbPublicKeyCredentialCreationOptionsJSON: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbPublicKeyCredentialCreationOptionsJSON", IsByteCount = true, MayBeNull = false)]
+            cbPublicKeyCredentialCreationOptionsJSON: u32,
             pbPublicKeyCredentialCreationOptionsJSON: PBYTE,
-            cbAuthenticatorId: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbAuthenticatorId", IsByteCount = true, MayBeNull = false)]
+            cbAuthenticatorId: u32,
             pbAuthenticatorId: PBYTE,
         }
         const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: i32 = 9;
@@ -453,29 +423,24 @@ mod Windows {
         const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_8: i32 = 8;
         const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_9: i32 = 9;
         struct WEBAUTHN_CLIENT_DATA {
-            dwVersion: DWORD,
-            cbClientDataJSON: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbClientDataJSON", IsByteCount = true, MayBeNull = false)]
+            dwVersion: u32,
+            cbClientDataJSON: u32,
             pbClientDataJSON: PBYTE,
-            pwszHashAlgId: LPCWSTR,
+            pwszHashAlgId: PCWSTR,
         }
         const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: i32 = 1;
         struct WEBAUTHN_COMMON_ATTESTATION {
-            dwVersion: DWORD,
+            dwVersion: u32,
             pwszAlg: PCWSTR,
-            lAlg: LONG,
-            cbSignature: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbSignature", IsByteCount = true, MayBeNull = false)]
+            lAlg: i32,
+            cbSignature: u32,
             pbSignature: PBYTE,
-            cX5c: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cX5c", IsByteCount = false, MayBeNull = false)]
+            cX5c: u32,
             pX5c: PWEBAUTHN_X5C,
             pwszVer: PCWSTR,
-            cbCertInfo: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbCertInfo", IsByteCount = true, MayBeNull = false)]
+            cbCertInfo: u32,
             pbCertInfo: PBYTE,
-            cbPubArea: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbPubArea", IsByteCount = true, MayBeNull = false)]
+            cbPubArea: u32,
             pbPubArea: PBYTE,
         }
         const WEBAUTHN_COMMON_ATTESTATION_CURRENT_VERSION: i32 = 1;
@@ -489,62 +454,52 @@ mod Windows {
         const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA384: i32 = -38;
         const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA512: i32 = -39;
         struct WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
-            dwVersion: DWORD,
-            pwszCredentialType: LPCWSTR,
-            lAlg: LONG,
+            dwVersion: u32,
+            pwszCredentialType: PCWSTR,
+            lAlg: i32,
         }
         struct WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
-            cCredentialParameters: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cCredentialParameters", IsByteCount = false, MayBeNull = false)]
+            cCredentialParameters: u32,
             pCredentialParameters: PWEBAUTHN_COSE_CREDENTIAL_PARAMETER,
         }
         const WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: i32 = 1;
         struct WEBAUTHN_CREDENTIAL {
-            dwVersion: DWORD,
-            cbId: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbId", IsByteCount = true, MayBeNull = false)]
+            dwVersion: u32,
+            cbId: u32,
             pbId: PBYTE,
             pwszCredentialType: PCWSTR,
         }
         struct WEBAUTHN_CREDENTIALS {
-            cCredentials: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cCredentials", IsByteCount = false, MayBeNull = false)]
+            cCredentials: u32,
             pCredentials: PWEBAUTHN_CREDENTIAL,
         }
         struct WEBAUTHN_CREDENTIAL_ATTESTATION {
-            dwVersion: DWORD,
+            dwVersion: u32,
             pwszFormatType: PCWSTR,
-            cbAuthenticatorData: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbAuthenticatorData", IsByteCount = true, MayBeNull = false)]
+            cbAuthenticatorData: u32,
             pbAuthenticatorData: PBYTE,
-            cbAttestation: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbAttestation", IsByteCount = true, MayBeNull = false)]
+            cbAttestation: u32,
             pbAttestation: PBYTE,
-            dwAttestationDecodeType: DWORD,
-            pvAttestationDecode: PVOID,
-            cbAttestationObject: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbAttestationObject", IsByteCount = true, MayBeNull = false)]
+            dwAttestationDecodeType: u32,
+            pvAttestationDecode: *mut void,
+            cbAttestationObject: u32,
             pbAttestationObject: PBYTE,
-            cbCredentialId: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbCredentialId", IsByteCount = true, MayBeNull = false)]
+            cbCredentialId: u32,
             pbCredentialId: PBYTE,
             Extensions: WEBAUTHN_EXTENSIONS,
-            dwUsedTransport: DWORD,
+            dwUsedTransport: u32,
             bEpAtt: BOOL,
             bLargeBlobSupported: BOOL,
             bResidentKey: BOOL,
             bPrfEnabled: BOOL,
-            cbUnsignedExtensionOutputs: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbUnsignedExtensionOutputs", IsByteCount = true, MayBeNull = false)]
+            cbUnsignedExtensionOutputs: u32,
             pbUnsignedExtensionOutputs: PBYTE,
             pHmacSecret: PWEBAUTHN_HMAC_SECRET_SALT,
             bThirdPartyPayment: BOOL,
-            dwTransports: DWORD,
-            cbClientDataJSON: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbClientDataJSON", IsByteCount = true, MayBeNull = false)]
+            dwTransports: u32,
+            cbClientDataJSON: u32,
             pbClientDataJSON: PBYTE,
-            cbRegistrationResponseJSON: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbRegistrationResponseJSON", IsByteCount = true, MayBeNull = false)]
+            cbRegistrationResponseJSON: u32,
             pbRegistrationResponseJSON: PBYTE,
         }
         const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: i32 = 8;
@@ -558,25 +513,22 @@ mod Windows {
         const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_8: i32 = 8;
         const WEBAUTHN_CREDENTIAL_CURRENT_VERSION: i32 = 1;
         struct WEBAUTHN_CREDENTIAL_DETAILS {
-            dwVersion: DWORD,
-            cbCredentialID: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbCredentialID", IsByteCount = true, MayBeNull = false)]
+            dwVersion: u32,
+            cbCredentialID: u32,
             pbCredentialID: PBYTE,
             pRpInformation: PWEBAUTHN_RP_ENTITY_INFORMATION,
             pUserInformation: PWEBAUTHN_USER_ENTITY_INFORMATION,
             bRemovable: BOOL,
             bBackedUp: BOOL,
             pwszAuthenticatorName: PCWSTR,
-            cbAuthenticatorLogo: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbAuthenticatorLogo", IsByteCount = true, MayBeNull = false)]
+            cbAuthenticatorLogo: u32,
             pbAuthenticatorLogo: PBYTE,
             bThirdPartyPayment: BOOL,
-            dwTransports: DWORD,
+            dwTransports: u32,
         }
         const WEBAUTHN_CREDENTIAL_DETAILS_CURRENT_VERSION: i32 = 4;
         struct WEBAUTHN_CREDENTIAL_DETAILS_LIST {
-            cCredentialDetails: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cCredentialDetails", IsByteCount = false, MayBeNull = false)]
+            cCredentialDetails: u32,
             ppCredentialDetails: *mut PWEBAUTHN_CREDENTIAL_DETAILS,
         }
         const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_1: i32 = 1;
@@ -584,12 +536,11 @@ mod Windows {
         const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_3: i32 = 3;
         const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_4: i32 = 4;
         struct WEBAUTHN_CREDENTIAL_EX {
-            dwVersion: DWORD,
-            cbId: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbId", IsByteCount = true, MayBeNull = false)]
+            dwVersion: u32,
+            cbId: u32,
             pbId: PBYTE,
-            pwszCredentialType: LPCWSTR,
-            dwTransports: DWORD,
+            pwszCredentialType: PCWSTR,
+            dwTransports: u32,
         }
         const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: i32 = 1;
         #[encoding("utf-16")]
@@ -599,15 +550,13 @@ mod Windows {
         #[encoding("utf-16")]
         const WEBAUTHN_CREDENTIAL_HINT_SECURITY_KEY: String = "security-key";
         struct WEBAUTHN_CREDENTIAL_LIST {
-            cCredentials: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cCredentials", IsByteCount = false, MayBeNull = false)]
+            cCredentials: u32,
             ppCredentials: *mut PWEBAUTHN_CREDENTIAL_EX,
         }
         #[encoding("utf-16")]
         const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: String = "public-key";
         struct WEBAUTHN_CRED_BLOB_EXTENSION {
-            cbCredBlob: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbCredBlob", IsByteCount = true, MayBeNull = false)]
+            cbCredBlob: u32,
             pbCredBlob: PBYTE,
         }
         const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_DELETE: i32 = 3;
@@ -625,12 +574,11 @@ mod Windows {
         const WEBAUTHN_CRED_LARGE_BLOB_STATUS_PLATFORM_ERROR: i32 = 8;
         const WEBAUTHN_CRED_LARGE_BLOB_STATUS_SUCCESS: i32 = 1;
         struct WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
-            dwCredProtect: DWORD,
+            dwCredProtect: u32,
             bRequireCredProtect: BOOL,
         }
         struct WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
-            cbCredID: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbCredID", IsByteCount = true, MayBeNull = false)]
+            cbCredID: u32,
             pbCredID: PBYTE,
             pHmacSecretSalt: PWEBAUTHN_HMAC_SECRET_SALT,
         }
@@ -659,13 +607,12 @@ mod Windows {
         const WEBAUTHN_ENTERPRISE_ATTESTATION_PLATFORM_MANAGED: i32 = 2;
         const WEBAUTHN_ENTERPRISE_ATTESTATION_VENDOR_FACILITATED: i32 = 1;
         struct WEBAUTHN_EXTENSION {
-            pwszExtensionIdentifier: LPCWSTR,
-            cbExtension: DWORD,
-            pvExtension: PVOID,
+            pwszExtensionIdentifier: PCWSTR,
+            cbExtension: u32,
+            pvExtension: *mut void,
         }
         struct WEBAUTHN_EXTENSIONS {
-            cExtensions: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cExtensions", IsByteCount = false, MayBeNull = false)]
+            cExtensions: u32,
             pExtensions: PWEBAUTHN_EXTENSION,
         }
         #[encoding("utf-16")]
@@ -677,8 +624,8 @@ mod Windows {
         #[encoding("utf-16")]
         const WEBAUTHN_EXTENSIONS_IDENTIFIER_MIN_PIN_LENGTH: String = "minPinLength";
         struct WEBAUTHN_GET_CREDENTIALS_OPTIONS {
-            dwVersion: DWORD,
-            pwszRpId: LPCWSTR,
+            dwVersion: u32,
+            pwszRpId: PCWSTR,
             bBrowserInPrivateMode: BOOL,
         }
         const WEBAUTHN_GET_CREDENTIALS_OPTIONS_CURRENT_VERSION: i32 = 1;
@@ -690,17 +637,14 @@ mod Windows {
         #[encoding("utf-16")]
         const WEBAUTHN_HASH_ALGORITHM_SHA_512: String = "SHA-512";
         struct WEBAUTHN_HMAC_SECRET_SALT {
-            cbFirst: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbFirst", IsByteCount = true, MayBeNull = false)]
+            cbFirst: u32,
             pbFirst: PBYTE,
-            cbSecond: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbSecond", IsByteCount = true, MayBeNull = false)]
+            cbSecond: u32,
             pbSecond: PBYTE,
         }
         struct WEBAUTHN_HMAC_SECRET_SALT_VALUES {
             pGlobalHmacSalt: PWEBAUTHN_HMAC_SECRET_SALT,
-            cCredWithHmacSecretSaltList: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cCredWithHmacSecretSaltList", IsByteCount = false, MayBeNull = false)]
+            cCredWithHmacSecretSaltList: u32,
             pCredWithHmacSecretSaltList: PWEBAUTHN_CRED_WITH_HMAC_SECRET_SALT,
         }
         const WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: i32 = 0;
@@ -708,7 +652,7 @@ mod Windows {
         const WEBAUTHN_LARGE_BLOB_SUPPORT_REQUIRED: i32 = 1;
         const WEBAUTHN_MAX_USER_ID_LENGTH: i32 = 64;
         struct WEBAUTHN_RP_ENTITY_INFORMATION {
-            dwVersion: DWORD,
+            dwVersion: u32,
             pwszId: PCWSTR,
             pwszName: PCWSTR,
             pwszIcon: PCWSTR,
@@ -716,9 +660,8 @@ mod Windows {
         const WEBAUTHN_RP_ENTITY_INFORMATION_CURRENT_VERSION: i32 = 1;
         const WEBAUTHN_RP_ENTITY_INFORMATION_VERSION_1: i32 = 1;
         struct WEBAUTHN_USER_ENTITY_INFORMATION {
-            dwVersion: DWORD,
-            cbId: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbId", IsByteCount = true, MayBeNull = false)]
+            dwVersion: u32,
+            cbId: u32,
             pbId: PBYTE,
             pwszName: PCWSTR,
             pwszIcon: PCWSTR,
@@ -735,39 +678,38 @@ mod Windows {
         const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_PREFERRED: i32 = 2;
         const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_REQUIRED: i32 = 1;
         struct WEBAUTHN_X5C {
-            cbData: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbData", IsByteCount = true, MayBeNull = false)]
+            cbData: u32,
             pbData: PBYTE,
         }
         #[library("webauthn.dll")]
-        extern fn WebAuthNAuthenticatorGetAssertion(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszRpId: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pWebAuthNClientData: PCWEBAUTHN_CLIENT_DATA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pWebAuthNGetAssertionOptions: PCWEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppWebAuthNAssertion: *mut PWEBAUTHN_ASSERTION) -> HRESULT;
+        extern fn WebAuthNAuthenticatorGetAssertion(hWnd: HWND, pwszRpId: PCWSTR, pWebAuthNClientData: PCWEBAUTHN_CLIENT_DATA, #[opt] pWebAuthNGetAssertionOptions: PCWEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppWebAuthNAssertion: *mut PWEBAUTHN_ASSERTION) -> HRESULT;
         #[library("webauthn.dll")]
-        extern fn WebAuthNAuthenticatorMakeCredential(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRpInformation: PCWEBAUTHN_RP_ENTITY_INFORMATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUserInformation: PCWEBAUTHN_USER_ENTITY_INFORMATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPubKeyCredParams: PCWEBAUTHN_COSE_CREDENTIAL_PARAMETERS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pWebAuthNClientData: PCWEBAUTHN_CLIENT_DATA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pWebAuthNMakeCredentialOptions: PCWEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppWebAuthNCredentialAttestation: *mut PWEBAUTHN_CREDENTIAL_ATTESTATION) -> HRESULT;
+        extern fn WebAuthNAuthenticatorMakeCredential(hWnd: HWND, pRpInformation: PCWEBAUTHN_RP_ENTITY_INFORMATION, pUserInformation: PCWEBAUTHN_USER_ENTITY_INFORMATION, pPubKeyCredParams: PCWEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pWebAuthNClientData: PCWEBAUTHN_CLIENT_DATA, #[opt] pWebAuthNMakeCredentialOptions: PCWEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppWebAuthNCredentialAttestation: *mut PWEBAUTHN_CREDENTIAL_ATTESTATION) -> HRESULT;
         #[library("webauthn.dll")]
-        extern fn WebAuthNCancelCurrentOperation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCancellationId: *const GUID) -> HRESULT;
+        extern fn WebAuthNCancelCurrentOperation(pCancellationId: *const GUID) -> HRESULT;
         #[library("webauthn.dll")]
-        extern fn WebAuthNDeletePlatformCredential(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbCredentialId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(0)] pbCredentialId: *const BYTE) -> HRESULT;
+        extern fn WebAuthNDeletePlatformCredential(cbCredentialId: u32, #[size_param(0)] pbCredentialId: *const u8) -> HRESULT;
         #[library("webauthn.dll")]
-        extern fn WebAuthNFreeAssertion(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pWebAuthNAssertion: PWEBAUTHN_ASSERTION);
+        extern fn WebAuthNFreeAssertion(pWebAuthNAssertion: PWEBAUTHN_ASSERTION);
         #[library("webauthn.dll")]
-        extern fn WebAuthNFreeAuthenticatorList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthenticatorDetailsList: PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST);
+        extern fn WebAuthNFreeAuthenticatorList(pAuthenticatorDetailsList: PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST);
         #[library("webauthn.dll")]
-        extern fn WebAuthNFreeCredentialAttestation(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pWebAuthNCredentialAttestation: PWEBAUTHN_CREDENTIAL_ATTESTATION);
+        extern fn WebAuthNFreeCredentialAttestation(#[opt] pWebAuthNCredentialAttestation: PWEBAUTHN_CREDENTIAL_ATTESTATION);
         #[library("webauthn.dll")]
-        extern fn WebAuthNFreePlatformCredentialList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCredentialDetailsList: PWEBAUTHN_CREDENTIAL_DETAILS_LIST);
+        extern fn WebAuthNFreePlatformCredentialList(pCredentialDetailsList: PWEBAUTHN_CREDENTIAL_DETAILS_LIST);
         #[library("webauthn.dll")]
-        extern fn WebAuthNGetApiVersionNumber() -> DWORD;
+        extern fn WebAuthNGetApiVersionNumber() -> u32;
         #[library("webauthn.dll")]
-        extern fn WebAuthNGetAuthenticatorList(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pWebAuthNGetAuthenticatorListOptions: PCWEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppAuthenticatorDetailsList: *mut PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST) -> HRESULT;
+        extern fn WebAuthNGetAuthenticatorList(#[opt] pWebAuthNGetAuthenticatorListOptions: PCWEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS, ppAuthenticatorDetailsList: *mut PWEBAUTHN_AUTHENTICATOR_DETAILS_LIST) -> HRESULT;
         #[library("webauthn.dll")]
-        extern fn WebAuthNGetCancellationId(#[out] pCancellationId: *mut GUID) -> HRESULT;
+        extern fn WebAuthNGetCancellationId(pCancellationId: *mut GUID) -> HRESULT;
         #[library("webauthn.dll")]
-        extern fn WebAuthNGetErrorName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hr: HRESULT) -> PCWSTR;
+        extern fn WebAuthNGetErrorName(hr: HRESULT) -> PCWSTR;
         #[library("webauthn.dll")]
-        extern fn WebAuthNGetPlatformCredentialList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGetCredentialsOptions: PCWEBAUTHN_GET_CREDENTIALS_OPTIONS, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppCredentialDetailsList: *mut PWEBAUTHN_CREDENTIAL_DETAILS_LIST) -> HRESULT;
+        extern fn WebAuthNGetPlatformCredentialList(pGetCredentialsOptions: PCWEBAUTHN_GET_CREDENTIALS_OPTIONS, ppCredentialDetailsList: *mut PWEBAUTHN_CREDENTIAL_DETAILS_LIST) -> HRESULT;
         #[library("webauthn.dll")]
-        extern fn WebAuthNGetW3CExceptionDOMError(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hr: HRESULT) -> HRESULT;
+        extern fn WebAuthNGetW3CExceptionDOMError(hr: HRESULT) -> HRESULT;
         #[library("webauthn.dll")]
-        extern fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(#[out] pbIsUserVerifyingPlatformAuthenticatorAvailable: *mut BOOL) -> HRESULT;
+        extern fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbIsUserVerifyingPlatformAuthenticatorAvailable: *mut BOOL) -> HRESULT;
     }
 }

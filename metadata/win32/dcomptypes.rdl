@@ -12,28 +12,28 @@ mod Windows {
             COMPOSITION_FRAME_ID_COMPLETED = 2,
         }
         struct COMPOSITION_FRAME_STATS {
-            startTime: UINT64,
-            targetTime: UINT64,
-            framePeriod: UINT64,
+            startTime: u64,
+            targetTime: u64,
+            framePeriod: u64,
         }
         struct COMPOSITION_STATS {
-            presentCount: UINT,
-            refreshCount: UINT,
-            virtualRefreshCount: UINT,
-            time: UINT64,
+            presentCount: u32,
+            refreshCount: u32,
+            virtualRefreshCount: u32,
+            time: u64,
         }
         const COMPOSITION_STATS_MAX_TARGETS: i32 = 256;
         struct COMPOSITION_TARGET_ID {
             displayAdapterLuid: LUID,
             renderAdapterLuid: LUID,
-            vidPnSourceId: UINT,
-            vidPnTargetId: UINT,
-            uniqueId: UINT,
+            vidPnSourceId: u32,
+            vidPnTargetId: u32,
+            uniqueId: u32,
         }
         struct COMPOSITION_TARGET_STATS {
-            outstandingPresents: UINT,
-            presentTime: UINT64,
-            vblankDuration: UINT64,
+            outstandingPresents: u32,
+            presentTime: u64,
+            vblankDuration: u64,
             presentedStats: COMPOSITION_STATS,
             completedStats: COMPOSITION_STATS,
         }

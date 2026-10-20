@@ -41,11 +41,11 @@ mod Windows {
         struct RM_FILTER_INFO {
             FilterAction: RM_FILTER_ACTION,
             FilterTrigger: RM_FILTER_TRIGGER,
-            cbNextOffset: DWORD,
+            cbNextOffset: u32,
             Anonymous: union {
-                strFilename: LPWSTR,
+                strFilename: PWSTR,
                 Process: RM_UNIQUE_PROCESS,
-                strServiceShortName: LPWSTR,
+                strServiceShortName: PWSTR,
             },
         }
         #[repr(i32)]
@@ -59,11 +59,11 @@ mod Windows {
         const RM_INVALID_TS_SESSION: i32 = -1;
         struct RM_PROCESS_INFO {
             Process: RM_UNIQUE_PROCESS,
-            strAppName: [WCHAR; 256],
-            strServiceShortName: [WCHAR; 64],
+            strAppName: [u16; 256],
+            strServiceShortName: [u16; 64],
             ApplicationType: RM_APP_TYPE,
-            AppStatus: ULONG,
-            TSSessionId: DWORD,
+            AppStatus: u32,
+            TSSessionId: u32,
             bRestartable: BOOL,
         }
         #[repr(i32)]
@@ -85,31 +85,31 @@ mod Windows {
             RmShutdownOnlyRegistered = 16,
         }
         struct RM_UNIQUE_PROCESS {
-            dwProcessId: DWORD,
+            dwProcessId: u32,
             ProcessStartTime: FILETIME,
         }
-        extern "C" fn RM_WRITE_STATUS_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nPercentComplete: UINT);
+        extern "C" fn RM_WRITE_STATUS_CALLBACK(nPercentComplete: u32);
         #[library("RstrtMgr.DLL")]
-        extern fn RmAddFilter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSessionHandle: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strModuleName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProcess: *mut RM_UNIQUE_PROCESS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strServiceShortName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FilterAction: RM_FILTER_ACTION) -> DWORD;
+        extern fn RmAddFilter(dwSessionHandle: u32, #[opt] strModuleName: PCWSTR, #[in] #[opt] pProcess: *mut RM_UNIQUE_PROCESS, #[opt] strServiceShortName: PCWSTR, FilterAction: RM_FILTER_ACTION) -> u32;
         #[library("RstrtMgr.DLL")]
-        extern fn RmCancelCurrentTask(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSessionHandle: DWORD) -> DWORD;
+        extern fn RmCancelCurrentTask(dwSessionHandle: u32) -> u32;
         #[library("RstrtMgr.DLL")]
-        extern fn RmEndSession(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSessionHandle: DWORD) -> DWORD;
+        extern fn RmEndSession(dwSessionHandle: u32) -> u32;
         #[library("RstrtMgr.DLL")]
-        extern fn RmGetFilterList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSessionHandle: DWORD, #[out] #[opt] #[size_param(2)] pbFilterBuf: PBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbFilterBuf: DWORD, #[out] cbFilterBufNeeded: LPDWORD) -> DWORD;
+        extern fn RmGetFilterList(dwSessionHandle: u32, #[size_param(2)] #[out] #[opt] pbFilterBuf: PBYTE, cbFilterBuf: u32, #[out] cbFilterBufNeeded: LPDWORD) -> u32;
         #[library("RstrtMgr.DLL")]
-        extern fn RmGetList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSessionHandle: DWORD, #[out] pnProcInfoNeeded: *mut UINT, #[in] #[out] pnProcInfo: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_opt_", "*pnProcInfo", "*pnProcInfo")] #[in] #[out] #[opt] rgAffectedApps: *mut RM_PROCESS_INFO, #[out] lpdwRebootReasons: LPDWORD) -> DWORD;
+        extern fn RmGetList(dwSessionHandle: u32, pnProcInfoNeeded: *mut u32, #[in] #[out] pnProcInfo: *mut u32, #[len_param(2)] #[in] #[out] #[opt] rgAffectedApps: *mut RM_PROCESS_INFO, #[out] lpdwRebootReasons: LPDWORD) -> u32;
         #[library("RstrtMgr.DLL")]
-        extern fn RmJoinSession(#[out] pSessionHandle: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "sizeof(GUID)*2+1", "sizeof(GUID)*2+1")] #[in] strSessionKey: *const WCHAR) -> DWORD;
+        extern fn RmJoinSession(pSessionHandle: *mut u32, strSessionKey: *const u16) -> u32;
         #[library("RstrtMgr.DLL")]
-        extern fn RmRegisterResources(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSessionHandle: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nFiles: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] rgsFileNames: *mut LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nApplications: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] rgApplications: *mut RM_UNIQUE_PROCESS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nServices: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] rgsServiceNames: *mut LPCWSTR) -> DWORD;
+        extern fn RmRegisterResources(dwSessionHandle: u32, nFiles: u32, #[len_param(1)] #[in] #[opt] rgsFileNames: *mut PCWSTR, nApplications: u32, #[len_param(3)] #[in] #[opt] rgApplications: *mut RM_UNIQUE_PROCESS, nServices: u32, #[len_param(5)] #[in] #[opt] rgsServiceNames: *mut PCWSTR) -> u32;
         #[library("RstrtMgr.DLL")]
-        extern fn RmRemoveFilter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSessionHandle: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strModuleName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProcess: *mut RM_UNIQUE_PROCESS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strServiceShortName: LPCWSTR) -> DWORD;
+        extern fn RmRemoveFilter(dwSessionHandle: u32, #[opt] strModuleName: PCWSTR, #[in] #[opt] pProcess: *mut RM_UNIQUE_PROCESS, #[opt] strServiceShortName: PCWSTR) -> u32;
         #[library("RstrtMgr.DLL")]
-        extern fn RmRestart(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSessionHandle: DWORD, #[reserved] dwRestartFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fnStatus: RM_WRITE_STATUS_CALLBACK) -> DWORD;
+        extern fn RmRestart(dwSessionHandle: u32, #[reserved] dwRestartFlags: u32, #[opt] fnStatus: RM_WRITE_STATUS_CALLBACK) -> u32;
         #[library("RstrtMgr.DLL")]
-        extern fn RmShutdown(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSessionHandle: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lActionFlags: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fnStatus: RM_WRITE_STATUS_CALLBACK) -> DWORD;
+        extern fn RmShutdown(dwSessionHandle: u32, lActionFlags: u32, #[opt] fnStatus: RM_WRITE_STATUS_CALLBACK) -> u32;
         #[library("RstrtMgr.DLL")]
-        extern fn RmStartSession(#[out] pSessionHandle: *mut DWORD, #[reserved] dwSessionFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "sizeof(GUID)*2+1", "sizeof(GUID)*2+1")] #[out] strSessionKey: *mut WCHAR) -> DWORD;
+        extern fn RmStartSession(pSessionHandle: *mut u32, #[reserved] dwSessionFlags: u32, strSessionKey: *mut u16) -> u32;
     }
 }

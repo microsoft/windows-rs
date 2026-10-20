@@ -1,11 +1,64 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        type APP_DEPRECATED_HRESULT = i32;
+        type APP_DEPRECATED_HRESULT = HRESULT;
+        struct CD3D11_BLEND_DESC {
+            Base: D3D11_BLEND_DESC,
+        }
+        struct CD3D11_BOX {
+            Base: D3D11_BOX,
+        }
+        struct CD3D11_BUFFER_DESC {
+            Base: D3D11_BUFFER_DESC,
+        }
+        struct CD3D11_COUNTER_DESC {
+            Base: D3D11_COUNTER_DESC,
+        }
+        struct CD3D11_DEFAULT {}
+        struct CD3D11_DEPTH_STENCIL_DESC {
+            Base: D3D11_DEPTH_STENCIL_DESC,
+        }
+        struct CD3D11_DEPTH_STENCIL_VIEW_DESC {
+            Base: D3D11_DEPTH_STENCIL_VIEW_DESC,
+        }
+        struct CD3D11_QUERY_DESC {
+            Base: D3D11_QUERY_DESC,
+        }
+        struct CD3D11_RASTERIZER_DESC {
+            Base: D3D11_RASTERIZER_DESC,
+        }
+        struct CD3D11_RECT {
+            Base: D3D11_RECT,
+        }
+        struct CD3D11_RENDER_TARGET_VIEW_DESC {
+            Base: D3D11_RENDER_TARGET_VIEW_DESC,
+        }
+        struct CD3D11_SAMPLER_DESC {
+            Base: D3D11_SAMPLER_DESC,
+        }
+        struct CD3D11_SHADER_RESOURCE_VIEW_DESC {
+            Base: D3D11_SHADER_RESOURCE_VIEW_DESC,
+        }
+        struct CD3D11_TEXTURE1D_DESC {
+            Base: D3D11_TEXTURE1D_DESC,
+        }
+        struct CD3D11_TEXTURE2D_DESC {
+            Base: D3D11_TEXTURE2D_DESC,
+        }
+        struct CD3D11_TEXTURE3D_DESC {
+            Base: D3D11_TEXTURE3D_DESC,
+        }
+        struct CD3D11_UNORDERED_ACCESS_VIEW_DESC {
+            Base: D3D11_UNORDERED_ACCESS_VIEW_DESC,
+        }
+        struct CD3D11_VIDEO_DEFAULT {}
+        struct CD3D11_VIEWPORT {
+            Base: D3D11_VIEWPORT,
+        }
         #[library("d3d11.dll")]
-        extern fn D3D11CreateDevice(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAdapter: IDXGIAdapter, DriverType: D3D_DRIVER_TYPE, Software: HMODULE, Flags: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] pFeatureLevels: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, SDKVersion: UINT, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppDevice: *mut ID3D11Device, #[out] #[opt] pFeatureLevel: *mut D3D_FEATURE_LEVEL, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppImmediateContext: *mut ID3D11DeviceContext) -> HRESULT;
+        extern fn D3D11CreateDevice(#[opt] pAdapter: IDXGIAdapter, DriverType: D3D_DRIVER_TYPE, Software: HMODULE, Flags: u32, #[len_param(5)] #[opt] pFeatureLevels: *const D3D_FEATURE_LEVEL, FeatureLevels: u32, SDKVersion: u32, #[opt] ppDevice: *mut ID3D11Device, #[opt] pFeatureLevel: *mut D3D_FEATURE_LEVEL, #[opt] ppImmediateContext: *mut ID3D11DeviceContext) -> HRESULT;
         #[library("d3d11.dll")]
-        extern fn D3D11CreateDeviceAndSwapChain(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAdapter: IDXGIAdapter, DriverType: D3D_DRIVER_TYPE, Software: HMODULE, Flags: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] pFeatureLevels: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, SDKVersion: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSwapChainDesc: *const DXGI_SWAP_CHAIN_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppSwapChain: *mut IDXGISwapChain, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppDevice: *mut ID3D11Device, #[out] #[opt] pFeatureLevel: *mut D3D_FEATURE_LEVEL, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppImmediateContext: *mut ID3D11DeviceContext) -> HRESULT;
+        extern fn D3D11CreateDeviceAndSwapChain(#[opt] pAdapter: IDXGIAdapter, DriverType: D3D_DRIVER_TYPE, Software: HMODULE, Flags: u32, #[len_param(5)] #[opt] pFeatureLevels: *const D3D_FEATURE_LEVEL, FeatureLevels: u32, SDKVersion: u32, #[opt] pSwapChainDesc: *const DXGI_SWAP_CHAIN_DESC, #[opt] ppSwapChain: *mut IDXGISwapChain, #[opt] ppDevice: *mut ID3D11Device, #[opt] pFeatureLevel: *mut D3D_FEATURE_LEVEL, #[opt] ppImmediateContext: *mut ID3D11DeviceContext) -> HRESULT;
         const D3D11_16BIT_INDEX_STRIP_CUT_VALUE: i32 = 65535;
         const D3D11_1_UAV_SLOT_COUNT: i32 = 64;
         const D3D11_2_TILED_RESOURCE_TILE_SIZE_IN_BYTES: i32 = 65536;
@@ -14,8 +67,8 @@ mod Windows {
         const D3D11_4_VIDEO_DECODER_MAX_HISTOGRAM_COMPONENTS: i32 = 4;
         const D3D11_8BIT_INDEX_STRIP_CUT_VALUE: i32 = 255;
         struct D3D11_AES_CTR_IV {
-            IV: UINT64,
-            Count: UINT64,
+            IV: u64,
+            Count: u64,
         }
         const D3D11_ANISOTROPIC_FILTERING_BIT: i32 = 64;
         const D3D11_APPEND_ALIGNED_ELEMENT: u32 = 4294967295;
@@ -45,20 +98,20 @@ mod Windows {
         const D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE: GUID = 0x06114bdb_3523_470a_8dca_fbc2845154f0;
         struct D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
             Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
-            StartSequenceQuery: UINT,
-            StartSequenceConfigure: UINT,
+            StartSequenceQuery: u32,
+            StartSequenceConfigure: u32,
         }
         struct D3D11_AUTHENTICATED_CONFIGURE_INPUT {
             omac: D3D11_OMAC,
             ConfigureType: GUID,
             hChannel: HANDLE,
-            SequenceNumber: UINT,
+            SequenceNumber: u32,
         }
         struct D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
             omac: D3D11_OMAC,
             ConfigureType: GUID,
             hChannel: HANDLE,
-            SequenceNumber: UINT,
+            SequenceNumber: u32,
             ReturnCode: HRESULT,
         }
         const D3D11_AUTHENTICATED_CONFIGURE_PROTECTION: GUID = 0x50455658_3f47_4362_bf99_bfdfcde9ed29;
@@ -80,27 +133,21 @@ mod Windows {
             D3D11_PROCESSIDTYPE_HANDLE = 2,
         }
         union D3D11_AUTHENTICATED_PROTECTION_FLAGS {
-            struct __MIDL___MIDL_itf_d3d11_0000_0034_0001 {
-                #[Windows::Win32::Metadata::NativeBitfield("OverlayOrFullscreenRequired", 1, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("ProtectionEnabled", 0, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 30, MemberType = UINT)]
-                _bitfield: u32,
-            }
-            Flags: D3D11_AUTHENTICATED_PROTECTION_FLAGS::__MIDL___MIDL_itf_d3d11_0000_0034_0001,
-            Value: UINT,
+            Flags: __MIDL___MIDL_itf_d3d11_0000_0034_0001,
+            Value: u32,
         }
         const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: GUID = 0x6214d9d2_432c_4abb_9fce_216eea269e3b;
         struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
             Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
-            EncryptionGuidCount: UINT,
+            EncryptionGuidCount: u32,
         }
         struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {
             Input: D3D11_AUTHENTICATED_QUERY_INPUT,
-            EncryptionGuidIndex: UINT,
+            EncryptionGuidIndex: u32,
         }
         struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {
             Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
-            EncryptionGuidIndex: UINT,
+            EncryptionGuidIndex: u32,
             EncryptionGuid: GUID,
         }
         struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
@@ -140,13 +187,13 @@ mod Windows {
         struct D3D11_AUTHENTICATED_QUERY_INPUT {
             QueryType: GUID,
             hChannel: HANDLE,
-            SequenceNumber: UINT,
+            SequenceNumber: u32,
         }
         struct D3D11_AUTHENTICATED_QUERY_OUTPUT {
             omac: D3D11_OMAC,
             QueryType: GUID,
             hChannel: HANDLE,
-            SequenceNumber: UINT,
+            SequenceNumber: u32,
             ReturnCode: HRESULT,
         }
         const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID: GUID = 0x839ddca3_9b4e_41e4_b053_892bd2a11ee7;
@@ -160,20 +207,20 @@ mod Windows {
             Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
             DeviceHandle: HANDLE,
             CryptoSessionHandle: HANDLE,
-            OutputIDCount: UINT,
+            OutputIDCount: u32,
         }
         struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
             Input: D3D11_AUTHENTICATED_QUERY_INPUT,
             DeviceHandle: HANDLE,
             CryptoSessionHandle: HANDLE,
-            OutputIDIndex: UINT,
+            OutputIDIndex: u32,
         }
         struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
             Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
             DeviceHandle: HANDLE,
             CryptoSessionHandle: HANDLE,
-            OutputIDIndex: UINT,
-            OutputID: UINT64,
+            OutputIDIndex: u32,
+            OutputID: u64,
         }
         const D3D11_AUTHENTICATED_QUERY_PROTECTION: GUID = 0xa84eb584_c495_48aa_b94d_8bd2d6fbce05;
         struct D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
@@ -184,22 +231,22 @@ mod Windows {
         const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: GUID = 0x0db207b3_9450_46a6_82de_1b96d44f9cf2;
         struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {
             Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
-            RestrictedSharedResourceProcessCount: UINT,
+            RestrictedSharedResourceProcessCount: u32,
         }
         struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {
             Input: D3D11_AUTHENTICATED_QUERY_INPUT,
-            ProcessIndex: UINT,
+            ProcessIndex: u32,
         }
         struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
             Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
-            ProcessIndex: UINT,
+            ProcessIndex: u32,
             ProcessIdentifier: D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE,
             ProcessHandle: HANDLE,
         }
         const D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT: GUID = 0x012f0bd6_e662_4474_befd_aa53e5143c6d;
         struct D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {
             Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
-            UnrestrictedProtectedSharedResourceCount: UINT,
+            UnrestrictedProtectedSharedResourceCount: u32,
         }
         #[repr(i32)]
         enum D3D11_BIND_FLAG {
@@ -248,54 +295,54 @@ mod Windows {
             D3D11_BLEND_OP_MAX = 5,
         }
         struct D3D11_BOX {
-            left: UINT,
-            top: UINT,
-            front: UINT,
-            right: UINT,
-            bottom: UINT,
-            back: UINT,
+            left: u32,
+            top: u32,
+            front: u32,
+            right: u32,
+            bottom: u32,
+            back: u32,
         }
         struct D3D11_BUFFEREX_SRV {
-            FirstElement: UINT,
-            NumElements: UINT,
-            Flags: UINT,
+            FirstElement: u32,
+            NumElements: u32,
+            Flags: u32,
         }
         #[repr(i32)]
         enum D3D11_BUFFEREX_SRV_FLAG {
             D3D11_BUFFEREX_SRV_FLAG_RAW = 1,
         }
         struct D3D11_BUFFER_DESC {
-            ByteWidth: UINT,
+            ByteWidth: u32,
             Usage: D3D11_USAGE,
-            BindFlags: UINT,
-            CPUAccessFlags: UINT,
-            MiscFlags: UINT,
-            StructureByteStride: UINT,
+            BindFlags: u32,
+            CPUAccessFlags: u32,
+            MiscFlags: u32,
+            StructureByteStride: u32,
         }
         struct D3D11_BUFFER_RTV {
             Anonymous: union {
-                FirstElement: UINT,
-                ElementOffset: UINT,
+                FirstElement: u32,
+                ElementOffset: u32,
             },
             Anonymous2: union {
-                NumElements: UINT,
-                ElementWidth: UINT,
+                NumElements: u32,
+                ElementWidth: u32,
             },
         }
         struct D3D11_BUFFER_SRV {
             Anonymous: union {
-                FirstElement: UINT,
-                ElementOffset: UINT,
+                FirstElement: u32,
+                ElementOffset: u32,
             },
             Anonymous2: union {
-                NumElements: UINT,
-                ElementWidth: UINT,
+                NumElements: u32,
+                ElementWidth: u32,
             },
         }
         struct D3D11_BUFFER_UAV {
-            FirstElement: UINT,
-            NumElements: UINT,
-            Flags: UINT,
+            FirstElement: u32,
+            NumElements: u32,
+            Flags: u32,
         }
         #[repr(i32)]
         enum D3D11_BUFFER_UAV_FLAG {
@@ -318,13 +365,13 @@ mod Windows {
             D3D11_BUS_IMPL_MODIFIER_NON_STANDARD = -2147483648,
         }
         struct D3D11_CLASS_INSTANCE_DESC {
-            InstanceId: UINT,
-            InstanceIndex: UINT,
-            TypeId: UINT,
-            ConstantBuffer: UINT,
-            BaseConstantBufferOffset: UINT,
-            BaseTexture: UINT,
-            BaseSampler: UINT,
+            InstanceId: u32,
+            InstanceIndex: u32,
+            TypeId: u32,
+            ConstantBuffer: u32,
+            BaseConstantBufferOffset: u32,
+            BaseTexture: u32,
+            BaseSampler: u32,
             Created: BOOL,
         }
         #[repr(i32)]
@@ -421,12 +468,12 @@ mod Windows {
         }
         struct D3D11_COUNTER_DESC {
             Counter: D3D11_COUNTER,
-            MiscFlags: UINT,
+            MiscFlags: u32,
         }
         struct D3D11_COUNTER_INFO {
             LastDeviceDependentCounter: D3D11_COUNTER,
-            NumSimultaneousCounters: UINT,
-            NumDetectableParallelUnits: UINT8,
+            NumSimultaneousCounters: u32,
+            NumDetectableParallelUnits: u8,
         }
         #[repr(i32)]
         enum D3D11_COUNTER_TYPE {
@@ -620,15 +667,15 @@ mod Windows {
             DepthWriteMask: D3D11_DEPTH_WRITE_MASK,
             DepthFunc: D3D11_COMPARISON_FUNC,
             StencilEnable: BOOL,
-            StencilReadMask: UINT8,
-            StencilWriteMask: UINT8,
+            StencilReadMask: u8,
+            StencilWriteMask: u8,
             FrontFace: D3D11_DEPTH_STENCILOP_DESC,
             BackFace: D3D11_DEPTH_STENCILOP_DESC,
         }
         struct D3D11_DEPTH_STENCIL_VIEW_DESC {
             Format: DXGI_FORMAT,
             ViewDimension: D3D11_DSV_DIMENSION,
-            Flags: UINT,
+            Flags: u32,
             Anonymous: union {
                 Texture1D: D3D11_TEX1D_DSV,
                 Texture1DArray: D3D11_TEX1D_ARRAY_DSV,
@@ -649,17 +696,17 @@ mod Windows {
             D3D11_DEVICE_CONTEXT_DEFERRED = 1,
         }
         struct D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
-            IndexCountPerInstance: UINT,
-            InstanceCount: UINT,
-            StartIndexLocation: UINT,
-            BaseVertexLocation: INT,
-            StartInstanceLocation: UINT,
+            IndexCountPerInstance: u32,
+            InstanceCount: u32,
+            StartIndexLocation: u32,
+            BaseVertexLocation: i32,
+            StartInstanceLocation: u32,
         }
         struct D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
-            VertexCountPerInstance: UINT,
-            InstanceCount: UINT,
-            StartVertexLocation: UINT,
-            StartInstanceLocation: UINT,
+            VertexCountPerInstance: u32,
+            InstanceCount: u32,
+            StartVertexLocation: u32,
+            StartInstanceLocation: u32,
         }
         #[repr(i32)]
         enum D3D11_DSV_DIMENSION {
@@ -701,9 +748,9 @@ mod Windows {
         const D3D11_DS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: i32 = 32;
         const D3D11_DS_OUTPUT_REGISTER_COUNT: i32 = 32;
         struct D3D11_ENCRYPTED_BLOCK_INFO {
-            NumEncryptedBytesAtBeginning: UINT,
-            NumBytesInSkipPattern: UINT,
-            NumBytesInEncryptPattern: UINT,
+            NumEncryptedBytesAtBeginning: u32,
+            NumBytesInSkipPattern: u32,
+            NumBytesInEncryptPattern: u32,
         }
         #[repr(i32)]
         enum D3D11_FEATURE {
@@ -801,25 +848,25 @@ mod Windows {
         }
         struct D3D11_FEATURE_DATA_FORMAT_SUPPORT {
             InFormat: DXGI_FORMAT,
-            OutFormatSupport: UINT,
+            OutFormatSupport: u32,
         }
         struct D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
             InFormat: DXGI_FORMAT,
-            OutFormatSupport2: UINT,
+            OutFormatSupport2: u32,
         }
         struct D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
-            MaxGPUVirtualAddressBitsPerResource: UINT,
-            MaxGPUVirtualAddressBitsPerProcess: UINT,
+            MaxGPUVirtualAddressBitsPerResource: u32,
+            MaxGPUVirtualAddressBitsPerProcess: u32,
         }
         struct D3D11_FEATURE_DATA_MARKER_SUPPORT {
             Profile: BOOL,
         }
         struct D3D11_FEATURE_DATA_SHADER_CACHE {
-            SupportFlags: UINT,
+            SupportFlags: u32,
         }
         struct D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {
-            PixelShaderMinPrecision: UINT,
-            AllOtherShaderStagesMinPrecision: UINT,
+            PixelShaderMinPrecision: u32,
+            AllOtherShaderStagesMinPrecision: u32,
         }
         struct D3D11_FEATURE_DATA_THREADING {
             DriverConcurrentCreates: BOOL,
@@ -1024,13 +1071,13 @@ mod Windows {
             D3D11_INPUT_PER_INSTANCE_DATA = 1,
         }
         struct D3D11_INPUT_ELEMENT_DESC {
-            SemanticName: LPCSTR,
-            SemanticIndex: UINT,
+            SemanticName: PCSTR,
+            SemanticIndex: u32,
             Format: DXGI_FORMAT,
-            InputSlot: UINT,
-            AlignedByteOffset: UINT,
+            InputSlot: u32,
+            AlignedByteOffset: u32,
             InputSlotClass: D3D11_INPUT_CLASSIFICATION,
-            InstanceDataStepRate: UINT,
+            InstanceDataStepRate: u32,
         }
         const D3D11_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295;
         const D3D11_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295;
@@ -1051,8 +1098,8 @@ mod Windows {
         }
         struct D3D11_MAPPED_SUBRESOURCE {
             pData: *mut void,
-            RowPitch: UINT,
-            DepthPitch: UINT,
+            RowPitch: u32,
+            DepthPitch: u32,
         }
         #[repr(i32)]
         enum D3D11_MAP_FLAG {
@@ -1077,7 +1124,7 @@ mod Windows {
         const D3D11_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4;
         const D3D11_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: i32 = 0;
         struct D3D11_OMAC {
-            Omac: [BYTE; 16],
+            Omac: [u8; 16],
         }
         const D3D11_PIXEL_ADDRESS_RANGE_BIT_COUNT: i32 = 15;
         const D3D11_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: i32 = 16;
@@ -1126,29 +1173,29 @@ mod Windows {
             D3D11_QUERY_SO_OVERFLOW_PREDICATE_STREAM3 = 15,
         }
         struct D3D11_QUERY_DATA_PIPELINE_STATISTICS {
-            IAVertices: UINT64,
-            IAPrimitives: UINT64,
-            VSInvocations: UINT64,
-            GSInvocations: UINT64,
-            GSPrimitives: UINT64,
-            CInvocations: UINT64,
-            CPrimitives: UINT64,
-            PSInvocations: UINT64,
-            HSInvocations: UINT64,
-            DSInvocations: UINT64,
-            CSInvocations: UINT64,
+            IAVertices: u64,
+            IAPrimitives: u64,
+            VSInvocations: u64,
+            GSInvocations: u64,
+            GSPrimitives: u64,
+            CInvocations: u64,
+            CPrimitives: u64,
+            PSInvocations: u64,
+            HSInvocations: u64,
+            DSInvocations: u64,
+            CSInvocations: u64,
         }
         struct D3D11_QUERY_DATA_SO_STATISTICS {
-            NumPrimitivesWritten: UINT64,
-            PrimitivesStorageNeeded: UINT64,
+            NumPrimitivesWritten: u64,
+            PrimitivesStorageNeeded: u64,
         }
         struct D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {
-            Frequency: UINT64,
+            Frequency: u64,
             Disjoint: BOOL,
         }
         struct D3D11_QUERY_DESC {
             Query: D3D11_QUERY,
-            MiscFlags: UINT,
+            MiscFlags: u32,
         }
         #[repr(i32)]
         enum D3D11_QUERY_MISC_FLAG {
@@ -1162,9 +1209,9 @@ mod Windows {
             FillMode: D3D11_FILL_MODE,
             CullMode: D3D11_CULL_MODE,
             FrontCounterClockwise: BOOL,
-            DepthBias: INT,
-            DepthBiasClamp: FLOAT,
-            SlopeScaledDepthBias: FLOAT,
+            DepthBias: i32,
+            DepthBiasClamp: f32,
+            SlopeScaledDepthBias: f32,
             DepthClipEnable: BOOL,
             ScissorEnable: BOOL,
             MultisampleEnable: BOOL,
@@ -1180,7 +1227,7 @@ mod Windows {
             SrcBlendAlpha: D3D11_BLEND,
             DestBlendAlpha: D3D11_BLEND,
             BlendOpAlpha: D3D11_BLEND_OP,
-            RenderTargetWriteMask: UINT8,
+            RenderTargetWriteMask: u8,
         }
         struct D3D11_RENDER_TARGET_VIEW_DESC {
             Format: DXGI_FORMAT,
@@ -1270,12 +1317,12 @@ mod Windows {
             AddressU: D3D11_TEXTURE_ADDRESS_MODE,
             AddressV: D3D11_TEXTURE_ADDRESS_MODE,
             AddressW: D3D11_TEXTURE_ADDRESS_MODE,
-            MipLODBias: FLOAT,
-            MaxAnisotropy: UINT,
+            MipLODBias: f32,
+            MaxAnisotropy: u32,
             ComparisonFunc: D3D11_COMPARISON_FUNC,
-            BorderColor: [FLOAT; 4],
-            MinLOD: FLOAT,
-            MaxLOD: FLOAT,
+            BorderColor: [f32; 4],
+            MinLOD: f32,
+            MaxLOD: f32,
         }
         const D3D11_SDK_VERSION: i32 = 7;
         #[repr(i32)]
@@ -1332,12 +1379,12 @@ mod Windows {
         const D3D11_SO_BUFFER_SLOT_COUNT: i32 = 4;
         const D3D11_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295;
         struct D3D11_SO_DECLARATION_ENTRY {
-            Stream: UINT,
-            SemanticName: LPCSTR,
-            SemanticIndex: UINT,
-            StartComponent: BYTE,
-            ComponentCount: BYTE,
-            OutputSlot: BYTE,
+            Stream: u32,
+            SemanticName: PCSTR,
+            SemanticIndex: u32,
+            StartComponent: u8,
+            ComponentCount: u8,
+            OutputSlot: u8,
         }
         const D3D11_SO_NO_RASTERIZED_STREAM: u32 = 4294967295;
         const D3D11_SO_OUTPUT_COMPONENT_COUNT: i32 = 128;
@@ -1381,8 +1428,8 @@ mod Windows {
         const D3D11_SUBPIXEL_FRACTIONAL_BIT_COUNT: i32 = 8;
         struct D3D11_SUBRESOURCE_DATA {
             pSysMem: *const void,
-            SysMemPitch: UINT,
-            SysMemSlicePitch: UINT,
+            SysMemPitch: u32,
+            SysMemSlicePitch: u32,
         }
         const D3D11_SUBTEXEL_FRACTIONAL_BIT_COUNT: i32 = 8;
         const D3D11_TESSELLATOR_MAX_EVEN_TESSELLATION_FACTOR: i32 = 64;
@@ -1393,166 +1440,166 @@ mod Windows {
         const D3D11_TESSELLATOR_MIN_ISOLINE_DENSITY_TESSELLATION_FACTOR: i32 = 1;
         const D3D11_TESSELLATOR_MIN_ODD_TESSELLATION_FACTOR: i32 = 1;
         struct D3D11_TEX1D_ARRAY_DSV {
-            MipSlice: UINT,
-            FirstArraySlice: UINT,
-            ArraySize: UINT,
+            MipSlice: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
         }
         struct D3D11_TEX1D_ARRAY_RTV {
-            MipSlice: UINT,
-            FirstArraySlice: UINT,
-            ArraySize: UINT,
+            MipSlice: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
         }
         struct D3D11_TEX1D_ARRAY_SRV {
-            MostDetailedMip: UINT,
-            MipLevels: UINT,
-            FirstArraySlice: UINT,
-            ArraySize: UINT,
+            MostDetailedMip: u32,
+            MipLevels: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
         }
         struct D3D11_TEX1D_ARRAY_UAV {
-            MipSlice: UINT,
-            FirstArraySlice: UINT,
-            ArraySize: UINT,
+            MipSlice: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
         }
         struct D3D11_TEX1D_DSV {
-            MipSlice: UINT,
+            MipSlice: u32,
         }
         struct D3D11_TEX1D_RTV {
-            MipSlice: UINT,
+            MipSlice: u32,
         }
         struct D3D11_TEX1D_SRV {
-            MostDetailedMip: UINT,
-            MipLevels: UINT,
+            MostDetailedMip: u32,
+            MipLevels: u32,
         }
         struct D3D11_TEX1D_UAV {
-            MipSlice: UINT,
+            MipSlice: u32,
         }
         struct D3D11_TEX2DMS_ARRAY_DSV {
-            FirstArraySlice: UINT,
-            ArraySize: UINT,
+            FirstArraySlice: u32,
+            ArraySize: u32,
         }
         struct D3D11_TEX2DMS_ARRAY_RTV {
-            FirstArraySlice: UINT,
-            ArraySize: UINT,
+            FirstArraySlice: u32,
+            ArraySize: u32,
         }
         struct D3D11_TEX2DMS_ARRAY_SRV {
-            FirstArraySlice: UINT,
-            ArraySize: UINT,
+            FirstArraySlice: u32,
+            ArraySize: u32,
         }
         struct D3D11_TEX2DMS_DSV {
-            UnusedField_NothingToDefine: UINT,
+            UnusedField_NothingToDefine: u32,
         }
         struct D3D11_TEX2DMS_RTV {
-            UnusedField_NothingToDefine: UINT,
+            UnusedField_NothingToDefine: u32,
         }
         struct D3D11_TEX2DMS_SRV {
-            UnusedField_NothingToDefine: UINT,
+            UnusedField_NothingToDefine: u32,
         }
         struct D3D11_TEX2D_ARRAY_DSV {
-            MipSlice: UINT,
-            FirstArraySlice: UINT,
-            ArraySize: UINT,
+            MipSlice: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
         }
         struct D3D11_TEX2D_ARRAY_RTV {
-            MipSlice: UINT,
-            FirstArraySlice: UINT,
-            ArraySize: UINT,
+            MipSlice: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
         }
         struct D3D11_TEX2D_ARRAY_SRV {
-            MostDetailedMip: UINT,
-            MipLevels: UINT,
-            FirstArraySlice: UINT,
-            ArraySize: UINT,
+            MostDetailedMip: u32,
+            MipLevels: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
         }
         struct D3D11_TEX2D_ARRAY_UAV {
-            MipSlice: UINT,
-            FirstArraySlice: UINT,
-            ArraySize: UINT,
+            MipSlice: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
         }
         struct D3D11_TEX2D_ARRAY_VPOV {
-            MipSlice: UINT,
-            FirstArraySlice: UINT,
-            ArraySize: UINT,
+            MipSlice: u32,
+            FirstArraySlice: u32,
+            ArraySize: u32,
         }
         struct D3D11_TEX2D_DSV {
-            MipSlice: UINT,
+            MipSlice: u32,
         }
         struct D3D11_TEX2D_RTV {
-            MipSlice: UINT,
+            MipSlice: u32,
         }
         struct D3D11_TEX2D_SRV {
-            MostDetailedMip: UINT,
-            MipLevels: UINT,
+            MostDetailedMip: u32,
+            MipLevels: u32,
         }
         struct D3D11_TEX2D_UAV {
-            MipSlice: UINT,
+            MipSlice: u32,
         }
         struct D3D11_TEX2D_VDOV {
-            ArraySlice: UINT,
+            ArraySlice: u32,
         }
         struct D3D11_TEX2D_VPIV {
-            MipSlice: UINT,
-            ArraySlice: UINT,
+            MipSlice: u32,
+            ArraySlice: u32,
         }
         struct D3D11_TEX2D_VPOV {
-            MipSlice: UINT,
+            MipSlice: u32,
         }
         struct D3D11_TEX3D_RTV {
-            MipSlice: UINT,
-            FirstWSlice: UINT,
-            WSize: UINT,
+            MipSlice: u32,
+            FirstWSlice: u32,
+            WSize: u32,
         }
         struct D3D11_TEX3D_SRV {
-            MostDetailedMip: UINT,
-            MipLevels: UINT,
+            MostDetailedMip: u32,
+            MipLevels: u32,
         }
         struct D3D11_TEX3D_UAV {
-            MipSlice: UINT,
-            FirstWSlice: UINT,
-            WSize: UINT,
+            MipSlice: u32,
+            FirstWSlice: u32,
+            WSize: u32,
         }
         struct D3D11_TEXCUBE_ARRAY_SRV {
-            MostDetailedMip: UINT,
-            MipLevels: UINT,
-            First2DArrayFace: UINT,
-            NumCubes: UINT,
+            MostDetailedMip: u32,
+            MipLevels: u32,
+            First2DArrayFace: u32,
+            NumCubes: u32,
         }
         struct D3D11_TEXCUBE_SRV {
-            MostDetailedMip: UINT,
-            MipLevels: UINT,
+            MostDetailedMip: u32,
+            MipLevels: u32,
         }
         const D3D11_TEXEL_ADDRESS_RANGE_BIT_COUNT: i32 = 16;
         struct D3D11_TEXTURE1D_DESC {
-            Width: UINT,
-            MipLevels: UINT,
-            ArraySize: UINT,
+            Width: u32,
+            MipLevels: u32,
+            ArraySize: u32,
             Format: DXGI_FORMAT,
             Usage: D3D11_USAGE,
-            BindFlags: UINT,
-            CPUAccessFlags: UINT,
-            MiscFlags: UINT,
+            BindFlags: u32,
+            CPUAccessFlags: u32,
+            MiscFlags: u32,
         }
         struct D3D11_TEXTURE2D_DESC {
-            Width: UINT,
-            Height: UINT,
-            MipLevels: UINT,
-            ArraySize: UINT,
+            Width: u32,
+            Height: u32,
+            MipLevels: u32,
+            ArraySize: u32,
             Format: DXGI_FORMAT,
             SampleDesc: DXGI_SAMPLE_DESC,
             Usage: D3D11_USAGE,
-            BindFlags: UINT,
-            CPUAccessFlags: UINT,
-            MiscFlags: UINT,
+            BindFlags: u32,
+            CPUAccessFlags: u32,
+            MiscFlags: u32,
         }
         struct D3D11_TEXTURE3D_DESC {
-            Width: UINT,
-            Height: UINT,
-            Depth: UINT,
-            MipLevels: UINT,
+            Width: u32,
+            Height: u32,
+            Depth: u32,
+            MipLevels: u32,
             Format: DXGI_FORMAT,
             Usage: D3D11_USAGE,
-            BindFlags: UINT,
-            CPUAccessFlags: UINT,
-            MiscFlags: UINT,
+            BindFlags: u32,
+            CPUAccessFlags: u32,
+            MiscFlags: u32,
         }
         #[repr(i32)]
         enum D3D11_TEXTURECUBE_FACE {
@@ -1632,25 +1679,24 @@ mod Windows {
             A: f32,
         }
         struct D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
-            Caps: UINT,
-            KeyExchangeTypeCount: UINT,
-            BlockAlignmentSize: UINT,
-            ProtectedMemorySize: ULONGLONG,
+            Caps: u32,
+            KeyExchangeTypeCount: u32,
+            BlockAlignmentSize: u32,
+            ProtectedMemorySize: u64,
         }
         struct D3D11_VIDEO_DECODER_BUFFER_DESC {
             BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
-            BufferIndex: UINT,
-            DataOffset: UINT,
-            DataSize: UINT,
-            FirstMBaddress: UINT,
-            NumMBsInBuffer: UINT,
-            Width: UINT,
-            Height: UINT,
-            Stride: UINT,
-            ReservedBits: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "IVSize", IsByteCount = false, MayBeNull = true)]
+            BufferIndex: u32,
+            DataOffset: u32,
+            DataSize: u32,
+            FirstMBaddress: u32,
+            NumMBsInBuffer: u32,
+            Width: u32,
+            Height: u32,
+            Stride: u32,
+            ReservedBits: u32,
             pIV: *mut void,
-            IVSize: UINT,
+            IVSize: u32,
             PartialEncryption: BOOL,
             EncryptedBlockInfo: D3D11_ENCRYPTED_BLOCK_INFO,
         }
@@ -1671,37 +1717,34 @@ mod Windows {
             guidConfigBitstreamEncryption: GUID,
             guidConfigMBcontrolEncryption: GUID,
             guidConfigResidDiffEncryption: GUID,
-            ConfigBitstreamRaw: UINT,
-            ConfigMBcontrolRasterOrder: UINT,
-            ConfigResidDiffHost: UINT,
-            ConfigSpatialResid8: UINT,
-            ConfigResid8Subtraction: UINT,
-            ConfigSpatialHost8or9Clipping: UINT,
-            ConfigSpatialResidInterleaved: UINT,
-            ConfigIntraResidUnsigned: UINT,
-            ConfigResidDiffAccelerator: UINT,
-            ConfigHostInverseScan: UINT,
-            ConfigSpecificIDCT: UINT,
-            Config4GroupedCoefs: UINT,
-            ConfigMinRenderTargetBuffCount: USHORT,
-            ConfigDecoderSpecific: USHORT,
+            ConfigBitstreamRaw: u32,
+            ConfigMBcontrolRasterOrder: u32,
+            ConfigResidDiffHost: u32,
+            ConfigSpatialResid8: u32,
+            ConfigResid8Subtraction: u32,
+            ConfigSpatialHost8or9Clipping: u32,
+            ConfigSpatialResidInterleaved: u32,
+            ConfigIntraResidUnsigned: u32,
+            ConfigResidDiffAccelerator: u32,
+            ConfigHostInverseScan: u32,
+            ConfigSpecificIDCT: u32,
+            Config4GroupedCoefs: u32,
+            ConfigMinRenderTargetBuffCount: u16,
+            ConfigDecoderSpecific: u16,
         }
         struct D3D11_VIDEO_DECODER_DESC {
             Guid: GUID,
-            SampleWidth: UINT,
-            SampleHeight: UINT,
+            SampleWidth: u32,
+            SampleHeight: u32,
             OutputFormat: DXGI_FORMAT,
         }
         struct D3D11_VIDEO_DECODER_EXTENSION {
-            Function: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "PrivateInputDataSize", IsByteCount = false, MayBeNull = false)]
+            Function: u32,
             pPrivateInputData: *mut void,
-            PrivateInputDataSize: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "PrivateOutputDataSize", IsByteCount = false, MayBeNull = false)]
+            PrivateInputDataSize: u32,
             pPrivateOutputData: *mut void,
-            PrivateOutputDataSize: UINT,
-            ResourceCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResourceCount", IsByteCount = false, MayBeNull = true)]
+            PrivateOutputDataSize: u32,
+            ResourceCount: u32,
             ppResourceList: *mut ID3D11Resource,
         }
         struct D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
@@ -1736,40 +1779,41 @@ mod Windows {
             D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS_ANAMORPHIC_SCALING = 128,
         }
         struct D3D11_VIDEO_PROCESSOR_CAPS {
-            DeviceCaps: UINT,
-            FeatureCaps: UINT,
-            FilterCaps: UINT,
-            InputFormatCaps: UINT,
-            AutoStreamCaps: UINT,
-            StereoCaps: UINT,
-            RateConversionCapsCount: UINT,
-            MaxInputStreams: UINT,
-            MaxStreamStates: UINT,
+            DeviceCaps: u32,
+            FeatureCaps: u32,
+            FilterCaps: u32,
+            InputFormatCaps: u32,
+            AutoStreamCaps: u32,
+            StereoCaps: u32,
+            RateConversionCapsCount: u32,
+            MaxInputStreams: u32,
+            MaxStreamStates: u32,
         }
         struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
-            #[Windows::Win32::Metadata::NativeBitfield("Nominal_Range", 4, 2, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("RGB_Range", 1, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Reserved", 6, 26, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Usage", 0, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("YCbCr_Matrix", 2, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("YCbCr_xvYCC", 3, 1, MemberType = UINT)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                Usage: 1,
+                RGB_Range: 1,
+                YCbCr_Matrix: 1,
+                YCbCr_xvYCC: 1,
+                Nominal_Range: 2,
+                Reserved: 26,
+            },
         }
         struct D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
             InputFrameFormat: D3D11_VIDEO_FRAME_FORMAT,
             InputFrameRate: DXGI_RATIONAL,
-            InputWidth: UINT,
-            InputHeight: UINT,
+            InputWidth: u32,
+            InputHeight: u32,
             OutputFrameRate: DXGI_RATIONAL,
-            OutputWidth: UINT,
-            OutputHeight: UINT,
+            OutputWidth: u32,
+            OutputHeight: u32,
             Usage: D3D11_VIDEO_USAGE,
         }
         struct D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
             CustomRate: DXGI_RATIONAL,
-            OutputFrames: UINT,
+            OutputFrames: u32,
             InputInterlaced: BOOL,
-            InputFramesOrFields: UINT,
+            InputFramesOrFields: u32,
         }
         #[repr(i32)]
         enum D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {
@@ -1835,7 +1879,7 @@ mod Windows {
             D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT_OUTPUT = 2,
         }
         struct D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
-            FourCC: UINT,
+            FourCC: u32,
             ViewDimension: D3D11_VPIV_DIMENSION,
             Anonymous: union {
                 Texture2D: D3D11_TEX2D_VPIV,
@@ -1883,11 +1927,11 @@ mod Windows {
             D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS_FRAME_RATE_CONVERSION = 32,
         }
         struct D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
-            PastFrames: UINT,
-            FutureFrames: UINT,
-            ProcessorCaps: UINT,
-            ITelecineCaps: UINT,
-            CustomRateCount: UINT,
+            PastFrames: u32,
+            FutureFrames: u32,
+            ProcessorCaps: u32,
+            ITelecineCaps: u32,
+            CustomRateCount: u32,
         }
         #[repr(i32)]
         enum D3D11_VIDEO_PROCESSOR_ROTATION {
@@ -1923,19 +1967,15 @@ mod Windows {
         }
         struct D3D11_VIDEO_PROCESSOR_STREAM {
             Enable: BOOL,
-            OutputIndex: UINT,
-            InputFrameOrField: UINT,
-            PastFrames: UINT,
-            FutureFrames: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "PastFrames", IsByteCount = false, MayBeNull = false)]
+            OutputIndex: u32,
+            InputFrameOrField: u32,
+            PastFrames: u32,
+            FutureFrames: u32,
             ppPastSurfaces: *mut ID3D11VideoProcessorInputView,
             pInputSurface: ID3D11VideoProcessorInputView,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "FutureFrames", IsByteCount = false, MayBeNull = false)]
             ppFutureSurfaces: *mut ID3D11VideoProcessorInputView,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "PastFrames", IsByteCount = false, MayBeNull = true)]
             ppPastSurfacesRight: *mut ID3D11VideoProcessorInputView,
             pInputSurfaceRight: ID3D11VideoProcessorInputView,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "FutureFrames", IsByteCount = false, MayBeNull = false)]
             ppFutureSurfacesRight: *mut ID3D11VideoProcessorInputView,
         }
         #[repr(i32)]
@@ -1945,12 +1985,12 @@ mod Windows {
             D3D11_VIDEO_USAGE_OPTIMAL_QUALITY = 2,
         }
         struct D3D11_VIEWPORT {
-            TopLeftX: FLOAT,
-            TopLeftY: FLOAT,
-            Width: FLOAT,
-            Height: FLOAT,
-            MinDepth: FLOAT,
-            MaxDepth: FLOAT,
+            TopLeftX: f32,
+            TopLeftY: f32,
+            Width: f32,
+            Height: f32,
+            MinDepth: f32,
+            MaxDepth: f32,
         }
         const D3D11_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: i32 = 15;
         const D3D11_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: i32 = 16;
@@ -1980,220 +2020,220 @@ mod Windows {
         const D3D11_WHQL_DRAW_VERTEX_COUNT_2_TO_EXP: i32 = 25;
         #[guid(0x4b35d0cd_1e15_4258_9c98_1b1333f6dd3b)]
         interface ID3D11Asynchronous: ID3D11DeviceChild {
-            fn GetDataSize(&self) -> UINT;
+            fn GetDataSize(&self) -> u32;
         }
         #[guid(0x3015a308_dcbd_47aa_a747_192486d14d4a)]
         interface ID3D11AuthenticatedChannel: ID3D11DeviceChild {
-            fn GetCertificateSize(&self, #[out] pCertificateSize: *mut UINT) -> HRESULT;
-            fn GetCertificate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CertificateSize: UINT, #[out] #[size_param(0)] pCertificate: *mut BYTE) -> HRESULT;
-            fn GetChannelHandle(&self, #[out] pChannelHandle: *mut HANDLE);
+            fn GetCertificateSize(&self, pCertificateSize: *mut u32) -> HRESULT;
+            fn GetCertificate(&self, CertificateSize: u32, #[size_param(0)] pCertificate: *mut u8) -> HRESULT;
+            fn GetChannelHandle(&self, pChannelHandle: *mut HANDLE);
         }
         #[guid(0x75b68faa_347d_4159_8f45_a0640f01cd9a)]
         interface ID3D11BlendState: ID3D11DeviceChild {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_BLEND_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_BLEND_DESC);
         }
         #[guid(0x48570b85_d1ee_4fcd_a250_eb350722b037)]
         interface ID3D11Buffer: ID3D11Resource {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_BUFFER_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_BUFFER_DESC);
         }
         #[guid(0xa6cd7faa_b0b7_4a2f_9436_8662a65797cb)]
         interface ID3D11ClassInstance: ID3D11DeviceChild {
-            fn GetClassLinkage(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppLinkage: *mut ID3D11ClassLinkage);
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_CLASS_INSTANCE_DESC);
-            fn GetInstanceName(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pBufferLength", "*pBufferLength")] #[out] #[opt] pInstanceName: LPSTR, #[in] #[out] pBufferLength: *mut SIZE_T);
-            fn GetTypeName(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pBufferLength", "*pBufferLength")] #[out] #[opt] pTypeName: LPSTR, #[in] #[out] pBufferLength: *mut SIZE_T);
+            fn GetClassLinkage(&self, ppLinkage: *mut ID3D11ClassLinkage);
+            fn GetDesc(&self, pDesc: *mut D3D11_CLASS_INSTANCE_DESC);
+            fn GetInstanceName(&self, #[len_param(1)] #[out] #[opt] pInstanceName: PSTR, #[in] #[out] pBufferLength: *mut usize);
+            fn GetTypeName(&self, #[len_param(1)] #[out] #[opt] pTypeName: PSTR, #[in] #[out] pBufferLength: *mut usize);
         }
         #[guid(0xddf57cba_9543_46e4_a12b_f207a0fe7fed)]
         interface ID3D11ClassLinkage: ID3D11DeviceChild {
-            fn GetClassInstance(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassInstanceName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InstanceIndex: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppInstance: *mut ID3D11ClassInstance) -> HRESULT;
-            fn CreateClassInstance(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassTypeName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ConstantBufferOffset: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ConstantVectorOffset: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TextureOffset: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SamplerOffset: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppInstance: *mut ID3D11ClassInstance) -> HRESULT;
+            fn GetClassInstance(&self, pClassInstanceName: PCSTR, InstanceIndex: u32, ppInstance: *mut ID3D11ClassInstance) -> HRESULT;
+            fn CreateClassInstance(&self, pClassTypeName: PCSTR, ConstantBufferOffset: u32, ConstantVectorOffset: u32, TextureOffset: u32, SamplerOffset: u32, ppInstance: *mut ID3D11ClassInstance) -> HRESULT;
         }
         #[guid(0xa24bc4d1_769e_43f7_8013_98ff566c18e2)]
         interface ID3D11CommandList: ID3D11DeviceChild {
-            fn GetContextFlags(&self) -> UINT;
+            fn GetContextFlags(&self) -> u32;
         }
         #[guid(0x4f5b196e_c2bd_495e_bd01_1fded38e4969)]
         interface ID3D11ComputeShader: ID3D11DeviceChild {}
         #[guid(0x6e8c49fb_a371_4770_b440_29086022b741)]
         interface ID3D11Counter: ID3D11Asynchronous {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_COUNTER_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_COUNTER_DESC);
         }
         #[guid(0x9b32f9ad_bdcc_40a6_a39d_d5c865845720)]
         interface ID3D11CryptoSession: ID3D11DeviceChild {
-            fn GetCryptoType(&self, #[out] pCryptoType: *mut GUID);
-            fn GetDecoderProfile(&self, #[out] pDecoderProfile: *mut GUID);
-            fn GetCertificateSize(&self, #[out] pCertificateSize: *mut UINT) -> HRESULT;
-            fn GetCertificate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CertificateSize: UINT, #[out] #[size_param(0)] pCertificate: *mut BYTE) -> HRESULT;
-            fn GetCryptoSessionHandle(&self, #[out] pCryptoSessionHandle: *mut HANDLE);
+            fn GetCryptoType(&self, pCryptoType: *mut GUID);
+            fn GetDecoderProfile(&self, pDecoderProfile: *mut GUID);
+            fn GetCertificateSize(&self, pCertificateSize: *mut u32) -> HRESULT;
+            fn GetCertificate(&self, CertificateSize: u32, #[size_param(0)] pCertificate: *mut u8) -> HRESULT;
+            fn GetCryptoSessionHandle(&self, pCryptoSessionHandle: *mut HANDLE);
         }
         #[guid(0x03823efb_8d8f_4e1c_9aa2_f64bb2cbfdf1)]
         interface ID3D11DepthStencilState: ID3D11DeviceChild {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_DEPTH_STENCIL_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_DEPTH_STENCIL_DESC);
         }
         #[guid(0x9fdac92a_1876_48c3_afad_25b94f84a9b6)]
         interface ID3D11DepthStencilView: ID3D11View {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_DEPTH_STENCIL_VIEW_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_DEPTH_STENCIL_VIEW_DESC);
         }
         #[guid(0xdb6f6ddb_ac77_4e88_8253_819df9bbf140)]
         interface ID3D11Device: IUnknown {
-            fn CreateBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_BUFFER_DESC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppBuffer: *mut ID3D11Buffer) -> HRESULT;
-            fn CreateTexture1D(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_TEXTURE1D_DESC, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(pDesc->MipLevels * pDesc->ArraySize)", "_Inexpressible_(pDesc->MipLevels * pDesc->ArraySize)")] #[in] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppTexture1D: *mut ID3D11Texture1D) -> HRESULT;
-            fn CreateTexture2D(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_TEXTURE2D_DESC, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(pDesc->MipLevels * pDesc->ArraySize)", "_Inexpressible_(pDesc->MipLevels * pDesc->ArraySize)")] #[in] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppTexture2D: *mut ID3D11Texture2D) -> HRESULT;
-            fn CreateTexture3D(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_TEXTURE3D_DESC, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(pDesc->MipLevels)", "_Inexpressible_(pDesc->MipLevels)")] #[in] #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppTexture3D: *mut ID3D11Texture3D) -> HRESULT;
-            fn CreateShaderResourceView(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D11Resource, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_SHADER_RESOURCE_VIEW_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppSRView: *mut ID3D11ShaderResourceView) -> HRESULT;
-            fn CreateUnorderedAccessView(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D11Resource, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_UNORDERED_ACCESS_VIEW_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppUAView: *mut ID3D11UnorderedAccessView) -> HRESULT;
-            fn CreateRenderTargetView(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D11Resource, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_RENDER_TARGET_VIEW_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppRTView: *mut ID3D11RenderTargetView) -> HRESULT;
-            fn CreateDepthStencilView(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D11Resource, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_DEPTH_STENCIL_VIEW_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppDepthStencilView: *mut ID3D11DepthStencilView) -> HRESULT;
-            fn CreateInputLayout(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pInputElementDescs: *const D3D11_INPUT_ELEMENT_DESC, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 32 )", "0,( 32 )")] NumElements: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] pShaderBytecodeWithInputSignature: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BytecodeLength: SIZE_T, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppInputLayout: *mut ID3D11InputLayout) -> HRESULT;
-            fn CreateVertexShader(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pShaderBytecode: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BytecodeLength: SIZE_T, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassLinkage: ID3D11ClassLinkage, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppVertexShader: *mut ID3D11VertexShader) -> HRESULT;
-            fn CreateGeometryShader(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pShaderBytecode: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BytecodeLength: SIZE_T, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassLinkage: ID3D11ClassLinkage, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppGeometryShader: *mut ID3D11GeometryShader) -> HRESULT;
-            fn CreateGeometryShaderWithStreamOutput(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pShaderBytecode: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BytecodeLength: SIZE_T, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] pSODeclaration: *const D3D11_SO_DECLARATION_ENTRY, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 4 ) * ( 128 )", "0,( 4 ) * ( 128 )")] NumEntries: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] pBufferStrides: *const UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 4 )", "0,( 4 )")] NumStrides: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RasterizedStream: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassLinkage: ID3D11ClassLinkage, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppGeometryShader: *mut ID3D11GeometryShader) -> HRESULT;
-            fn CreatePixelShader(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pShaderBytecode: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BytecodeLength: SIZE_T, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassLinkage: ID3D11ClassLinkage, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppPixelShader: *mut ID3D11PixelShader) -> HRESULT;
-            fn CreateHullShader(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pShaderBytecode: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BytecodeLength: SIZE_T, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassLinkage: ID3D11ClassLinkage, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppHullShader: *mut ID3D11HullShader) -> HRESULT;
-            fn CreateDomainShader(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pShaderBytecode: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BytecodeLength: SIZE_T, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassLinkage: ID3D11ClassLinkage, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppDomainShader: *mut ID3D11DomainShader) -> HRESULT;
-            fn CreateComputeShader(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pShaderBytecode: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BytecodeLength: SIZE_T, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassLinkage: ID3D11ClassLinkage, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppComputeShader: *mut ID3D11ComputeShader) -> HRESULT;
-            fn CreateClassLinkage(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppLinkage: *mut ID3D11ClassLinkage) -> HRESULT;
-            fn CreateBlendState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBlendStateDesc: *const D3D11_BLEND_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppBlendState: *mut ID3D11BlendState) -> HRESULT;
-            fn CreateDepthStencilState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDepthStencilDesc: *const D3D11_DEPTH_STENCIL_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppDepthStencilState: *mut ID3D11DepthStencilState) -> HRESULT;
-            fn CreateRasterizerState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRasterizerDesc: *const D3D11_RASTERIZER_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppRasterizerState: *mut ID3D11RasterizerState) -> HRESULT;
-            fn CreateSamplerState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSamplerDesc: *const D3D11_SAMPLER_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppSamplerState: *mut ID3D11SamplerState) -> HRESULT;
-            fn CreateQuery(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryDesc: *const D3D11_QUERY_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppQuery: *mut ID3D11Query) -> HRESULT;
-            fn CreatePredicate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPredicateDesc: *const D3D11_QUERY_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppPredicate: *mut ID3D11Predicate) -> HRESULT;
-            fn CreateCounter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCounterDesc: *const D3D11_COUNTER_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppCounter: *mut ID3D11Counter) -> HRESULT;
-            fn CreateDeferredContext(&self, ContextFlags: UINT, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppDeferredContext: *mut ID3D11DeviceContext) -> HRESULT;
-            fn OpenSharedResource(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hResource: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ReturnedInterface: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppResource: *mut *mut void) -> HRESULT;
-            fn CheckFormatSupport(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DXGI_FORMAT, #[out] pFormatSupport: *mut UINT) -> HRESULT;
-            fn CheckMultisampleQualityLevels(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DXGI_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SampleCount: UINT, #[out] pNumQualityLevels: *mut UINT) -> HRESULT;
-            fn CheckCounterInfo(&self, #[out] pCounterInfo: *mut D3D11_COUNTER_INFO);
-            fn CheckCounter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_COUNTER_DESC, #[out] pType: *mut D3D11_COUNTER_TYPE, #[out] pActiveCounters: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pNameLength", "*pNameLength")] #[out] #[opt] szName: LPSTR, #[in] #[out] #[opt] pNameLength: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pUnitsLength", "*pUnitsLength")] #[out] #[opt] szUnits: LPSTR, #[in] #[out] #[opt] pUnitsLength: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pDescriptionLength", "*pDescriptionLength")] #[out] #[opt] szDescription: LPSTR, #[in] #[out] #[opt] pDescriptionLength: *mut UINT) -> HRESULT;
-            fn CheckFeatureSupport(&self, Feature: D3D11_FEATURE, #[out] #[size_param(2)] pFeatureSupportData: *mut void, FeatureSupportDataSize: UINT) -> HRESULT;
-            fn GetPrivateData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guid: &GUID, #[in] #[out] pDataSize: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pDataSize", "*pDataSize")] #[out] #[opt] pData: *mut void) -> HRESULT;
-            fn SetPrivateData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guid: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataSize: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pData: *const void) -> HRESULT;
-            fn SetPrivateDataInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guid: &GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pData: IUnknown) -> HRESULT;
+            fn CreateBuffer(&self, pDesc: *const D3D11_BUFFER_DESC, #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] ppBuffer: *mut ID3D11Buffer) -> HRESULT;
+            fn CreateTexture1D(&self, pDesc: *const D3D11_TEXTURE1D_DESC, #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] ppTexture1D: *mut ID3D11Texture1D) -> HRESULT;
+            fn CreateTexture2D(&self, pDesc: *const D3D11_TEXTURE2D_DESC, #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] ppTexture2D: *mut ID3D11Texture2D) -> HRESULT;
+            fn CreateTexture3D(&self, pDesc: *const D3D11_TEXTURE3D_DESC, #[opt] pInitialData: *const D3D11_SUBRESOURCE_DATA, #[opt] ppTexture3D: *mut ID3D11Texture3D) -> HRESULT;
+            fn CreateShaderResourceView(&self, pResource: ID3D11Resource, #[opt] pDesc: *const D3D11_SHADER_RESOURCE_VIEW_DESC, #[opt] ppSRView: *mut ID3D11ShaderResourceView) -> HRESULT;
+            fn CreateUnorderedAccessView(&self, pResource: ID3D11Resource, #[opt] pDesc: *const D3D11_UNORDERED_ACCESS_VIEW_DESC, #[opt] ppUAView: *mut ID3D11UnorderedAccessView) -> HRESULT;
+            fn CreateRenderTargetView(&self, pResource: ID3D11Resource, #[opt] pDesc: *const D3D11_RENDER_TARGET_VIEW_DESC, #[opt] ppRTView: *mut ID3D11RenderTargetView) -> HRESULT;
+            fn CreateDepthStencilView(&self, pResource: ID3D11Resource, #[opt] pDesc: *const D3D11_DEPTH_STENCIL_VIEW_DESC, #[opt] ppDepthStencilView: *mut ID3D11DepthStencilView) -> HRESULT;
+            fn CreateInputLayout(&self, #[len_param(1)] pInputElementDescs: *const D3D11_INPUT_ELEMENT_DESC, NumElements: u32, #[len_param(3)] pShaderBytecodeWithInputSignature: *const void, BytecodeLength: usize, #[opt] ppInputLayout: *mut ID3D11InputLayout) -> HRESULT;
+            fn CreateVertexShader(&self, #[len_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] ppVertexShader: *mut ID3D11VertexShader) -> HRESULT;
+            fn CreateGeometryShader(&self, #[len_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] ppGeometryShader: *mut ID3D11GeometryShader) -> HRESULT;
+            fn CreateGeometryShaderWithStreamOutput(&self, #[len_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, #[len_param(3)] #[opt] pSODeclaration: *const D3D11_SO_DECLARATION_ENTRY, NumEntries: u32, #[len_param(5)] #[opt] pBufferStrides: *const u32, NumStrides: u32, RasterizedStream: u32, #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] ppGeometryShader: *mut ID3D11GeometryShader) -> HRESULT;
+            fn CreatePixelShader(&self, #[len_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] ppPixelShader: *mut ID3D11PixelShader) -> HRESULT;
+            fn CreateHullShader(&self, #[len_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] ppHullShader: *mut ID3D11HullShader) -> HRESULT;
+            fn CreateDomainShader(&self, #[len_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] ppDomainShader: *mut ID3D11DomainShader) -> HRESULT;
+            fn CreateComputeShader(&self, #[len_param(1)] pShaderBytecode: *const void, BytecodeLength: usize, #[opt] pClassLinkage: ID3D11ClassLinkage, #[opt] ppComputeShader: *mut ID3D11ComputeShader) -> HRESULT;
+            fn CreateClassLinkage(&self, ppLinkage: *mut ID3D11ClassLinkage) -> HRESULT;
+            fn CreateBlendState(&self, pBlendStateDesc: *const D3D11_BLEND_DESC, #[opt] ppBlendState: *mut ID3D11BlendState) -> HRESULT;
+            fn CreateDepthStencilState(&self, pDepthStencilDesc: *const D3D11_DEPTH_STENCIL_DESC, #[opt] ppDepthStencilState: *mut ID3D11DepthStencilState) -> HRESULT;
+            fn CreateRasterizerState(&self, pRasterizerDesc: *const D3D11_RASTERIZER_DESC, #[opt] ppRasterizerState: *mut ID3D11RasterizerState) -> HRESULT;
+            fn CreateSamplerState(&self, pSamplerDesc: *const D3D11_SAMPLER_DESC, #[opt] ppSamplerState: *mut ID3D11SamplerState) -> HRESULT;
+            fn CreateQuery(&self, pQueryDesc: *const D3D11_QUERY_DESC, #[opt] ppQuery: *mut ID3D11Query) -> HRESULT;
+            fn CreatePredicate(&self, pPredicateDesc: *const D3D11_QUERY_DESC, #[opt] ppPredicate: *mut ID3D11Predicate) -> HRESULT;
+            fn CreateCounter(&self, pCounterDesc: *const D3D11_COUNTER_DESC, #[opt] ppCounter: *mut ID3D11Counter) -> HRESULT;
+            fn CreateDeferredContext(&self, ContextFlags: u32, #[opt] ppDeferredContext: *mut ID3D11DeviceContext) -> HRESULT;
+            fn OpenSharedResource(&self, hResource: HANDLE, ReturnedInterface: *const GUID, #[iid_is] #[opt] ppResource: *mut *mut void) -> HRESULT;
+            fn CheckFormatSupport(&self, Format: DXGI_FORMAT, pFormatSupport: *mut u32) -> HRESULT;
+            fn CheckMultisampleQualityLevels(&self, Format: DXGI_FORMAT, SampleCount: u32, pNumQualityLevels: *mut u32) -> HRESULT;
+            fn CheckCounterInfo(&self, pCounterInfo: *mut D3D11_COUNTER_INFO);
+            fn CheckCounter(&self, pDesc: *const D3D11_COUNTER_DESC, pType: *mut D3D11_COUNTER_TYPE, pActiveCounters: *mut u32, #[len_param(4)] #[out] #[opt] szName: PSTR, #[in] #[out] #[opt] pNameLength: *mut u32, #[len_param(6)] #[out] #[opt] szUnits: PSTR, #[in] #[out] #[opt] pUnitsLength: *mut u32, #[len_param(8)] #[out] #[opt] szDescription: PSTR, #[in] #[out] #[opt] pDescriptionLength: *mut u32) -> HRESULT;
+            fn CheckFeatureSupport(&self, Feature: D3D11_FEATURE, #[size_param(2)] pFeatureSupportData: *mut void, FeatureSupportDataSize: u32) -> HRESULT;
+            fn GetPrivateData(&self, guid: *const GUID, #[in] #[out] pDataSize: *mut u32, #[size_param(1)] #[opt] pData: *mut void) -> HRESULT;
+            fn SetPrivateData(&self, guid: *const GUID, DataSize: u32, #[size_param(1)] #[opt] pData: *const void) -> HRESULT;
+            fn SetPrivateDataInterface(&self, guid: *const GUID, #[opt] pData: IUnknown) -> HRESULT;
             fn GetFeatureLevel(&self) -> D3D_FEATURE_LEVEL;
-            fn GetCreationFlags(&self) -> UINT;
+            fn GetCreationFlags(&self) -> u32;
             fn GetDeviceRemovedReason(&self) -> HRESULT;
-            fn GetImmediateContext(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppImmediateContext: *mut ID3D11DeviceContext);
-            fn SetExceptionMode(&self, RaiseFlags: UINT) -> HRESULT;
-            fn GetExceptionMode(&self) -> UINT;
+            fn GetImmediateContext(&self, ppImmediateContext: *mut ID3D11DeviceContext);
+            fn SetExceptionMode(&self, RaiseFlags: u32) -> HRESULT;
+            fn GetExceptionMode(&self) -> u32;
         }
         #[guid(0x1841e5c8_16b0_489b_bcc8_44cfb0d5deae)]
         interface ID3D11DeviceChild: IUnknown {
-            fn GetDevice(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDevice: *mut ID3D11Device);
-            fn GetPrivateData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guid: &GUID, #[in] #[out] pDataSize: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pDataSize", "*pDataSize")] #[out] #[opt] pData: *mut void) -> HRESULT;
-            fn SetPrivateData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guid: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataSize: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pData: *const void) -> HRESULT;
-            fn SetPrivateDataInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guid: &GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pData: IUnknown) -> HRESULT;
+            fn GetDevice(&self, ppDevice: *mut ID3D11Device);
+            fn GetPrivateData(&self, guid: *const GUID, #[in] #[out] pDataSize: *mut u32, #[size_param(1)] #[opt] pData: *mut void) -> HRESULT;
+            fn SetPrivateData(&self, guid: *const GUID, DataSize: u32, #[size_param(1)] #[opt] pData: *const void) -> HRESULT;
+            fn SetPrivateDataInterface(&self, guid: *const GUID, #[opt] pData: IUnknown) -> HRESULT;
         }
         #[guid(0xc0bfa96c_e089_44fb_8eaf_26f8796190da)]
         interface ID3D11DeviceContext: ID3D11DeviceChild {
-            fn VSSetConstantBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - 1", "0,( 14 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - StartSlot", "0,( 14 ) - StartSlot")] NumBuffers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppConstantBuffers: *const ID3D11Buffer);
-            fn PSSetShaderResources(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - 1", "0,( 128 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - StartSlot", "0,( 128 ) - StartSlot")] NumViews: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppShaderResourceViews: *const ID3D11ShaderResourceView);
-            fn PSSetShader(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPixelShader: ID3D11PixelShader, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] ppClassInstances: *const ID3D11ClassInstance, NumClassInstances: UINT);
-            fn PSSetSamplers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - 1", "0,( 16 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - StartSlot", "0,( 16 ) - StartSlot")] NumSamplers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppSamplers: *const ID3D11SamplerState);
-            fn VSSetShader(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVertexShader: ID3D11VertexShader, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] ppClassInstances: *const ID3D11ClassInstance, NumClassInstances: UINT);
-            fn DrawIndexed(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IndexCount: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartIndexLocation: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseVertexLocation: INT);
-            fn Draw(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VertexCount: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartVertexLocation: UINT);
-            fn Map(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Subresource: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MapType: D3D11_MAP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MapFlags: UINT, #[out] #[opt] pMappedResource: *mut D3D11_MAPPED_SUBRESOURCE) -> HRESULT;
-            fn Unmap(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Subresource: UINT);
-            fn PSSetConstantBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - 1", "0,( 14 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - StartSlot", "0,( 14 ) - StartSlot")] NumBuffers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppConstantBuffers: *const ID3D11Buffer);
-            fn IASetInputLayout(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputLayout: ID3D11InputLayout);
-            fn IASetVertexBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 32 ) - 1", "0,( 32 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 32 ) - StartSlot", "0,( 32 ) - StartSlot")] NumBuffers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppVertexBuffers: *const ID3D11Buffer, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pStrides: *const UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pOffsets: *const UINT);
-            fn IASetIndexBuffer(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pIndexBuffer: ID3D11Buffer, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DXGI_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Offset: UINT);
-            fn DrawIndexedInstanced(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IndexCountPerInstance: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InstanceCount: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartIndexLocation: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseVertexLocation: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartInstanceLocation: UINT);
-            fn DrawInstanced(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VertexCountPerInstance: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InstanceCount: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartVertexLocation: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartInstanceLocation: UINT);
-            fn GSSetConstantBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - 1", "0,( 14 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - StartSlot", "0,( 14 ) - StartSlot")] NumBuffers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppConstantBuffers: *const ID3D11Buffer);
-            fn GSSetShader(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pShader: ID3D11GeometryShader, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] ppClassInstances: *const ID3D11ClassInstance, NumClassInstances: UINT);
-            fn IASetPrimitiveTopology(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Topology: D3D11_PRIMITIVE_TOPOLOGY);
-            fn VSSetShaderResources(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - 1", "0,( 128 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - StartSlot", "0,( 128 ) - StartSlot")] NumViews: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppShaderResourceViews: *const ID3D11ShaderResourceView);
-            fn VSSetSamplers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - 1", "0,( 16 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - StartSlot", "0,( 16 ) - StartSlot")] NumSamplers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppSamplers: *const ID3D11SamplerState);
-            fn Begin(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAsync: ID3D11Asynchronous);
-            fn End(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAsync: ID3D11Asynchronous);
-            fn GetData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAsync: ID3D11Asynchronous, #[out] #[opt] #[size_param(2)] pData: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataSize: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GetDataFlags: UINT) -> HRESULT;
-            fn SetPredication(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPredicate: ID3D11Predicate, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PredicateValue: BOOL);
-            fn GSSetShaderResources(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - 1", "0,( 128 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - StartSlot", "0,( 128 ) - StartSlot")] NumViews: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppShaderResourceViews: *const ID3D11ShaderResourceView);
-            fn GSSetSamplers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - 1", "0,( 16 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - StartSlot", "0,( 16 ) - StartSlot")] NumSamplers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppSamplers: *const ID3D11SamplerState);
-            fn OMSetRenderTargets(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 8 )", "0,( 8 )")] NumViews: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] ppRenderTargetViews: *const ID3D11RenderTargetView, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDepthStencilView: ID3D11DepthStencilView);
-            fn OMSetRenderTargetsAndUnorderedAccessViews(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumRTVs: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] ppRenderTargetViews: *const ID3D11RenderTargetView, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDepthStencilView: ID3D11DepthStencilView, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 64 ) - 1", "0,( 64 ) - 1")] UAVStartSlot: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumUAVs: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] ppUnorderedAccessViews: *const ID3D11UnorderedAccessView, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] pUAVInitialCounts: *const UINT);
-            fn OMSetBlendState(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBlendState: ID3D11BlendState, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BlendFactor: *const FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SampleMask: UINT);
-            fn OMSetDepthStencilState(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDepthStencilState: ID3D11DepthStencilState, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StencilRef: UINT);
-            fn SOSetTargets(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 4 )", "0,( 4 )")] NumBuffers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] ppSOTargets: *const ID3D11Buffer, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pOffsets: *const UINT);
+            fn VSSetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D11Buffer);
+            fn PSSetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *const ID3D11ShaderResourceView);
+            fn PSSetShader(&self, #[opt] pPixelShader: ID3D11PixelShader, #[len_param(2)] #[opt] ppClassInstances: *const ID3D11ClassInstance, NumClassInstances: u32);
+            fn PSSetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *const ID3D11SamplerState);
+            fn VSSetShader(&self, #[opt] pVertexShader: ID3D11VertexShader, #[len_param(2)] #[opt] ppClassInstances: *const ID3D11ClassInstance, NumClassInstances: u32);
+            fn DrawIndexed(&self, IndexCount: u32, StartIndexLocation: u32, BaseVertexLocation: i32);
+            fn Draw(&self, VertexCount: u32, StartVertexLocation: u32);
+            fn Map(&self, pResource: ID3D11Resource, Subresource: u32, MapType: D3D11_MAP, MapFlags: u32, #[opt] pMappedResource: *mut D3D11_MAPPED_SUBRESOURCE) -> HRESULT;
+            fn Unmap(&self, pResource: ID3D11Resource, Subresource: u32);
+            fn PSSetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D11Buffer);
+            fn IASetInputLayout(&self, #[opt] pInputLayout: ID3D11InputLayout);
+            fn IASetVertexBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppVertexBuffers: *const ID3D11Buffer, #[len_param(1)] #[opt] pStrides: *const u32, #[len_param(1)] #[opt] pOffsets: *const u32);
+            fn IASetIndexBuffer(&self, #[opt] pIndexBuffer: ID3D11Buffer, Format: DXGI_FORMAT, Offset: u32);
+            fn DrawIndexedInstanced(&self, IndexCountPerInstance: u32, InstanceCount: u32, StartIndexLocation: u32, BaseVertexLocation: i32, StartInstanceLocation: u32);
+            fn DrawInstanced(&self, VertexCountPerInstance: u32, InstanceCount: u32, StartVertexLocation: u32, StartInstanceLocation: u32);
+            fn GSSetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D11Buffer);
+            fn GSSetShader(&self, #[opt] pShader: ID3D11GeometryShader, #[len_param(2)] #[opt] ppClassInstances: *const ID3D11ClassInstance, NumClassInstances: u32);
+            fn IASetPrimitiveTopology(&self, Topology: D3D11_PRIMITIVE_TOPOLOGY);
+            fn VSSetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *const ID3D11ShaderResourceView);
+            fn VSSetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *const ID3D11SamplerState);
+            fn Begin(&self, pAsync: ID3D11Asynchronous);
+            fn End(&self, pAsync: ID3D11Asynchronous);
+            fn GetData(&self, pAsync: ID3D11Asynchronous, #[size_param(2)] #[opt] pData: *mut void, DataSize: u32, GetDataFlags: u32) -> HRESULT;
+            fn SetPredication(&self, #[opt] pPredicate: ID3D11Predicate, PredicateValue: BOOL);
+            fn GSSetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *const ID3D11ShaderResourceView);
+            fn GSSetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *const ID3D11SamplerState);
+            fn OMSetRenderTargets(&self, NumViews: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *const ID3D11RenderTargetView, #[opt] pDepthStencilView: ID3D11DepthStencilView);
+            fn OMSetRenderTargetsAndUnorderedAccessViews(&self, NumRTVs: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *const ID3D11RenderTargetView, #[opt] pDepthStencilView: ID3D11DepthStencilView, UAVStartSlot: u32, NumUAVs: u32, #[len_param(4)] #[opt] ppUnorderedAccessViews: *const ID3D11UnorderedAccessView, #[len_param(4)] #[opt] pUAVInitialCounts: *const u32);
+            fn OMSetBlendState(&self, #[opt] pBlendState: ID3D11BlendState, #[opt] BlendFactor: *const f32, SampleMask: u32);
+            fn OMSetDepthStencilState(&self, #[opt] pDepthStencilState: ID3D11DepthStencilState, StencilRef: u32);
+            fn SOSetTargets(&self, NumBuffers: u32, #[len_param(0)] #[opt] ppSOTargets: *const ID3D11Buffer, #[len_param(0)] #[opt] pOffsets: *const u32);
             fn DrawAuto(&self);
-            fn DrawIndexedInstancedIndirect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBufferForArgs: ID3D11Buffer, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AlignedByteOffsetForArgs: UINT);
-            fn DrawInstancedIndirect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBufferForArgs: ID3D11Buffer, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AlignedByteOffsetForArgs: UINT);
-            fn Dispatch(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ThreadGroupCountX: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ThreadGroupCountY: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ThreadGroupCountZ: UINT);
-            fn DispatchIndirect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBufferForArgs: ID3D11Buffer, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AlignedByteOffsetForArgs: UINT);
-            fn RSSetState(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRasterizerState: ID3D11RasterizerState);
-            fn RSSetViewports(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 )", "0,( 16 )")] NumViewports: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pViewports: *const D3D11_VIEWPORT);
-            fn RSSetScissorRects(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 )", "0,( 16 )")] NumRects: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pRects: *const D3D11_RECT);
-            fn CopySubresourceRegion(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDstResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstSubresource: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstX: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstY: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstZ: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcSubresource: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcBox: *const D3D11_BOX);
-            fn CopyResource(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDstResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcResource: ID3D11Resource);
-            fn UpdateSubresource(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDstResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstSubresource: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDstBox: *const D3D11_BOX, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcData: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcRowPitch: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcDepthPitch: UINT);
-            fn CopyStructureCount(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDstBuffer: ID3D11Buffer, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstAlignedByteOffset: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcView: ID3D11UnorderedAccessView);
-            fn ClearRenderTargetView(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRenderTargetView: ID3D11RenderTargetView, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ColorRGBA: *const FLOAT);
-            fn ClearUnorderedAccessViewUint(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnorderedAccessView: ID3D11UnorderedAccessView, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Values: *const UINT);
-            fn ClearUnorderedAccessViewFloat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnorderedAccessView: ID3D11UnorderedAccessView, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Values: *const FLOAT);
-            fn ClearDepthStencilView(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDepthStencilView: ID3D11DepthStencilView, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClearFlags: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Depth: FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Stencil: UINT8);
-            fn GenerateMips(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pShaderResourceView: ID3D11ShaderResourceView);
-            fn SetResourceMinLOD(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D11Resource, MinLOD: FLOAT);
-            fn GetResourceMinLOD(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D11Resource) -> FLOAT;
-            fn ResolveSubresource(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDstResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DstSubresource: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcSubresource: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DXGI_FORMAT);
-            fn ExecuteCommandList(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCommandList: ID3D11CommandList, RestoreContextState: BOOL);
-            fn HSSetShaderResources(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - 1", "0,( 128 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - StartSlot", "0,( 128 ) - StartSlot")] NumViews: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppShaderResourceViews: *const ID3D11ShaderResourceView);
-            fn HSSetShader(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pHullShader: ID3D11HullShader, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] ppClassInstances: *const ID3D11ClassInstance, NumClassInstances: UINT);
-            fn HSSetSamplers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - 1", "0,( 16 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - StartSlot", "0,( 16 ) - StartSlot")] NumSamplers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppSamplers: *const ID3D11SamplerState);
-            fn HSSetConstantBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - 1", "0,( 14 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - StartSlot", "0,( 14 ) - StartSlot")] NumBuffers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppConstantBuffers: *const ID3D11Buffer);
-            fn DSSetShaderResources(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - 1", "0,( 128 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - StartSlot", "0,( 128 ) - StartSlot")] NumViews: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppShaderResourceViews: *const ID3D11ShaderResourceView);
-            fn DSSetShader(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDomainShader: ID3D11DomainShader, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] ppClassInstances: *const ID3D11ClassInstance, NumClassInstances: UINT);
-            fn DSSetSamplers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - 1", "0,( 16 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - StartSlot", "0,( 16 ) - StartSlot")] NumSamplers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppSamplers: *const ID3D11SamplerState);
-            fn DSSetConstantBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - 1", "0,( 14 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - StartSlot", "0,( 14 ) - StartSlot")] NumBuffers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppConstantBuffers: *const ID3D11Buffer);
-            fn CSSetShaderResources(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - 1", "0,( 128 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - StartSlot", "0,( 128 ) - StartSlot")] NumViews: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppShaderResourceViews: *const ID3D11ShaderResourceView);
-            fn CSSetUnorderedAccessViews(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 64 ) - 1", "0,( 64 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 64 ) - StartSlot", "0,( 64 ) - StartSlot")] NumUAVs: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppUnorderedAccessViews: *const ID3D11UnorderedAccessView, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pUAVInitialCounts: *const UINT);
-            fn CSSetShader(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pComputeShader: ID3D11ComputeShader, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] ppClassInstances: *const ID3D11ClassInstance, NumClassInstances: UINT);
-            fn CSSetSamplers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - 1", "0,( 16 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - StartSlot", "0,( 16 ) - StartSlot")] NumSamplers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppSamplers: *const ID3D11SamplerState);
-            fn CSSetConstantBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - 1", "0,( 14 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - StartSlot", "0,( 14 ) - StartSlot")] NumBuffers: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] ppConstantBuffers: *const ID3D11Buffer);
-            fn VSGetConstantBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - 1", "0,( 14 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - StartSlot", "0,( 14 ) - StartSlot")] NumBuffers: UINT, #[out] #[opt] #[len_param(1)] ppConstantBuffers: *mut ID3D11Buffer);
-            fn PSGetShaderResources(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - 1", "0,( 128 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - StartSlot", "0,( 128 ) - StartSlot")] NumViews: UINT, #[out] #[opt] #[len_param(1)] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn PSGetShader(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppPixelShader: *mut ID3D11PixelShader, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pNumClassInstances", "*pNumClassInstances")] #[out] #[opt] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[out] #[opt] pNumClassInstances: *mut UINT);
-            fn PSGetSamplers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - 1", "0,( 16 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - StartSlot", "0,( 16 ) - StartSlot")] NumSamplers: UINT, #[out] #[opt] #[len_param(1)] ppSamplers: *mut ID3D11SamplerState);
-            fn VSGetShader(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppVertexShader: *mut ID3D11VertexShader, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pNumClassInstances", "*pNumClassInstances")] #[out] #[opt] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[out] #[opt] pNumClassInstances: *mut UINT);
-            fn PSGetConstantBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - 1", "0,( 14 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - StartSlot", "0,( 14 ) - StartSlot")] NumBuffers: UINT, #[out] #[opt] #[len_param(1)] ppConstantBuffers: *mut ID3D11Buffer);
-            fn IAGetInputLayout(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppInputLayout: *mut ID3D11InputLayout);
-            fn IAGetVertexBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 32 ) - 1", "0,( 32 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 32 ) - StartSlot", "0,( 32 ) - StartSlot")] NumBuffers: UINT, #[out] #[opt] #[len_param(1)] ppVertexBuffers: *mut ID3D11Buffer, #[out] #[opt] #[len_param(1)] pStrides: *mut UINT, #[out] #[opt] #[len_param(1)] pOffsets: *mut UINT);
-            fn IAGetIndexBuffer(&self, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] pIndexBuffer: *mut ID3D11Buffer, #[out] #[opt] Format: *mut DXGI_FORMAT, #[out] #[opt] Offset: *mut UINT);
-            fn GSGetConstantBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - 1", "0,( 14 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - StartSlot", "0,( 14 ) - StartSlot")] NumBuffers: UINT, #[out] #[opt] #[len_param(1)] ppConstantBuffers: *mut ID3D11Buffer);
-            fn GSGetShader(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppGeometryShader: *mut ID3D11GeometryShader, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pNumClassInstances", "*pNumClassInstances")] #[out] #[opt] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[out] #[opt] pNumClassInstances: *mut UINT);
-            fn IAGetPrimitiveTopology(&self, #[out] pTopology: *mut D3D11_PRIMITIVE_TOPOLOGY);
-            fn VSGetShaderResources(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - 1", "0,( 128 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - StartSlot", "0,( 128 ) - StartSlot")] NumViews: UINT, #[out] #[opt] #[len_param(1)] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn VSGetSamplers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - 1", "0,( 16 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - StartSlot", "0,( 16 ) - StartSlot")] NumSamplers: UINT, #[out] #[opt] #[len_param(1)] ppSamplers: *mut ID3D11SamplerState);
-            fn GetPredication(&self, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppPredicate: *mut ID3D11Predicate, #[out] #[opt] pPredicateValue: *mut BOOL);
-            fn GSGetShaderResources(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - 1", "0,( 128 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - StartSlot", "0,( 128 ) - StartSlot")] NumViews: UINT, #[out] #[opt] #[len_param(1)] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn GSGetSamplers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - 1", "0,( 16 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - StartSlot", "0,( 16 ) - StartSlot")] NumSamplers: UINT, #[out] #[opt] #[len_param(1)] ppSamplers: *mut ID3D11SamplerState);
-            fn OMGetRenderTargets(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 8 )", "0,( 8 )")] NumViews: UINT, #[out] #[opt] #[len_param(0)] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppDepthStencilView: *mut ID3D11DepthStencilView);
-            fn OMGetRenderTargetsAndUnorderedAccessViews(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 8 )", "0,( 8 )")] NumRTVs: UINT, #[out] #[opt] #[len_param(0)] ppRenderTargetViews: *mut ID3D11RenderTargetView, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppDepthStencilView: *mut ID3D11DepthStencilView, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 8 ) - 1", "0,( 8 ) - 1")] UAVStartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 8 ) - UAVStartSlot", "0,( 8 ) - UAVStartSlot")] NumUAVs: UINT, #[out] #[opt] #[len_param(4)] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
-            fn OMGetBlendState(&self, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppBlendState: *mut ID3D11BlendState, #[out] #[opt] BlendFactor: *mut FLOAT, #[out] #[opt] pSampleMask: *mut UINT);
-            fn OMGetDepthStencilState(&self, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppDepthStencilState: *mut ID3D11DepthStencilState, #[out] #[opt] pStencilRef: *mut UINT);
-            fn SOGetTargets(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 4 )", "0,( 4 )")] NumBuffers: UINT, #[out] #[opt] #[len_param(0)] ppSOTargets: *mut ID3D11Buffer);
-            fn RSGetState(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppRasterizerState: *mut ID3D11RasterizerState);
-            fn RSGetViewports(&self, #[in] #[out] pNumViewports: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pNumViewports", "*pNumViewports")] #[out] #[opt] pViewports: *mut D3D11_VIEWPORT);
-            fn RSGetScissorRects(&self, #[in] #[out] pNumRects: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pNumRects", "*pNumRects")] #[out] #[opt] pRects: *mut D3D11_RECT);
-            fn HSGetShaderResources(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - 1", "0,( 128 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - StartSlot", "0,( 128 ) - StartSlot")] NumViews: UINT, #[out] #[opt] #[len_param(1)] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn HSGetShader(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppHullShader: *mut ID3D11HullShader, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pNumClassInstances", "*pNumClassInstances")] #[out] #[opt] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[out] #[opt] pNumClassInstances: *mut UINT);
-            fn HSGetSamplers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - 1", "0,( 16 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - StartSlot", "0,( 16 ) - StartSlot")] NumSamplers: UINT, #[out] #[opt] #[len_param(1)] ppSamplers: *mut ID3D11SamplerState);
-            fn HSGetConstantBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - 1", "0,( 14 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - StartSlot", "0,( 14 ) - StartSlot")] NumBuffers: UINT, #[out] #[opt] #[len_param(1)] ppConstantBuffers: *mut ID3D11Buffer);
-            fn DSGetShaderResources(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - 1", "0,( 128 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - StartSlot", "0,( 128 ) - StartSlot")] NumViews: UINT, #[out] #[opt] #[len_param(1)] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn DSGetShader(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppDomainShader: *mut ID3D11DomainShader, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pNumClassInstances", "*pNumClassInstances")] #[out] #[opt] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[out] #[opt] pNumClassInstances: *mut UINT);
-            fn DSGetSamplers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - 1", "0,( 16 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - StartSlot", "0,( 16 ) - StartSlot")] NumSamplers: UINT, #[out] #[opt] #[len_param(1)] ppSamplers: *mut ID3D11SamplerState);
-            fn DSGetConstantBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - 1", "0,( 14 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - StartSlot", "0,( 14 ) - StartSlot")] NumBuffers: UINT, #[out] #[opt] #[len_param(1)] ppConstantBuffers: *mut ID3D11Buffer);
-            fn CSGetShaderResources(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - 1", "0,( 128 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 128 ) - StartSlot", "0,( 128 ) - StartSlot")] NumViews: UINT, #[out] #[opt] #[len_param(1)] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
-            fn CSGetUnorderedAccessViews(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 64 ) - 1", "0,( 64 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 64 ) - StartSlot", "0,( 64 ) - StartSlot")] NumUAVs: UINT, #[out] #[opt] #[len_param(1)] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
-            fn CSGetShader(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppComputeShader: *mut ID3D11ComputeShader, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pNumClassInstances", "*pNumClassInstances")] #[out] #[opt] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[out] #[opt] pNumClassInstances: *mut UINT);
-            fn CSGetSamplers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - 1", "0,( 16 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 16 ) - StartSlot", "0,( 16 ) - StartSlot")] NumSamplers: UINT, #[out] #[opt] #[len_param(1)] ppSamplers: *mut ID3D11SamplerState);
-            fn CSGetConstantBuffers(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - 1", "0,( 14 ) - 1")] StartSlot: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,( 14 ) - StartSlot", "0,( 14 ) - StartSlot")] NumBuffers: UINT, #[out] #[opt] #[len_param(1)] ppConstantBuffers: *mut ID3D11Buffer);
+            fn DrawIndexedInstancedIndirect(&self, pBufferForArgs: ID3D11Buffer, AlignedByteOffsetForArgs: u32);
+            fn DrawInstancedIndirect(&self, pBufferForArgs: ID3D11Buffer, AlignedByteOffsetForArgs: u32);
+            fn Dispatch(&self, ThreadGroupCountX: u32, ThreadGroupCountY: u32, ThreadGroupCountZ: u32);
+            fn DispatchIndirect(&self, pBufferForArgs: ID3D11Buffer, AlignedByteOffsetForArgs: u32);
+            fn RSSetState(&self, #[opt] pRasterizerState: ID3D11RasterizerState);
+            fn RSSetViewports(&self, NumViewports: u32, #[len_param(0)] #[opt] pViewports: *const D3D11_VIEWPORT);
+            fn RSSetScissorRects(&self, NumRects: u32, #[len_param(0)] #[opt] pRects: *const D3D11_RECT);
+            fn CopySubresourceRegion(&self, pDstResource: ID3D11Resource, DstSubresource: u32, DstX: u32, DstY: u32, DstZ: u32, pSrcResource: ID3D11Resource, SrcSubresource: u32, #[opt] pSrcBox: *const D3D11_BOX);
+            fn CopyResource(&self, pDstResource: ID3D11Resource, pSrcResource: ID3D11Resource);
+            fn UpdateSubresource(&self, pDstResource: ID3D11Resource, DstSubresource: u32, #[opt] pDstBox: *const D3D11_BOX, pSrcData: *const void, SrcRowPitch: u32, SrcDepthPitch: u32);
+            fn CopyStructureCount(&self, pDstBuffer: ID3D11Buffer, DstAlignedByteOffset: u32, pSrcView: ID3D11UnorderedAccessView);
+            fn ClearRenderTargetView(&self, pRenderTargetView: ID3D11RenderTargetView, ColorRGBA: *const f32);
+            fn ClearUnorderedAccessViewUint(&self, pUnorderedAccessView: ID3D11UnorderedAccessView, Values: *const u32);
+            fn ClearUnorderedAccessViewFloat(&self, pUnorderedAccessView: ID3D11UnorderedAccessView, Values: *const f32);
+            fn ClearDepthStencilView(&self, pDepthStencilView: ID3D11DepthStencilView, ClearFlags: u32, Depth: f32, Stencil: u8);
+            fn GenerateMips(&self, pShaderResourceView: ID3D11ShaderResourceView);
+            fn SetResourceMinLOD(&self, pResource: ID3D11Resource, MinLOD: f32);
+            fn GetResourceMinLOD(&self, pResource: ID3D11Resource) -> f32;
+            fn ResolveSubresource(&self, pDstResource: ID3D11Resource, DstSubresource: u32, pSrcResource: ID3D11Resource, SrcSubresource: u32, Format: DXGI_FORMAT);
+            fn ExecuteCommandList(&self, pCommandList: ID3D11CommandList, RestoreContextState: BOOL);
+            fn HSSetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *const ID3D11ShaderResourceView);
+            fn HSSetShader(&self, #[opt] pHullShader: ID3D11HullShader, #[len_param(2)] #[opt] ppClassInstances: *const ID3D11ClassInstance, NumClassInstances: u32);
+            fn HSSetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *const ID3D11SamplerState);
+            fn HSSetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D11Buffer);
+            fn DSSetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *const ID3D11ShaderResourceView);
+            fn DSSetShader(&self, #[opt] pDomainShader: ID3D11DomainShader, #[len_param(2)] #[opt] ppClassInstances: *const ID3D11ClassInstance, NumClassInstances: u32);
+            fn DSSetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *const ID3D11SamplerState);
+            fn DSSetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D11Buffer);
+            fn CSSetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *const ID3D11ShaderResourceView);
+            fn CSSetUnorderedAccessViews(&self, StartSlot: u32, NumUAVs: u32, #[len_param(1)] #[opt] ppUnorderedAccessViews: *const ID3D11UnorderedAccessView, #[len_param(1)] #[opt] pUAVInitialCounts: *const u32);
+            fn CSSetShader(&self, #[opt] pComputeShader: ID3D11ComputeShader, #[len_param(2)] #[opt] ppClassInstances: *const ID3D11ClassInstance, NumClassInstances: u32);
+            fn CSSetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *const ID3D11SamplerState);
+            fn CSSetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *const ID3D11Buffer);
+            fn VSGetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer);
+            fn PSGetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
+            fn PSGetShader(&self, ppPixelShader: *mut ID3D11PixelShader, #[len_param(2)] #[opt] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[out] #[opt] pNumClassInstances: *mut u32);
+            fn PSGetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *mut ID3D11SamplerState);
+            fn VSGetShader(&self, ppVertexShader: *mut ID3D11VertexShader, #[len_param(2)] #[opt] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[out] #[opt] pNumClassInstances: *mut u32);
+            fn PSGetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer);
+            fn IAGetInputLayout(&self, ppInputLayout: *mut ID3D11InputLayout);
+            fn IAGetVertexBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppVertexBuffers: *mut ID3D11Buffer, #[len_param(1)] #[opt] pStrides: *mut u32, #[len_param(1)] #[opt] pOffsets: *mut u32);
+            fn IAGetIndexBuffer(&self, pIndexBuffer: *mut ID3D11Buffer, #[opt] Format: *mut DXGI_FORMAT, #[opt] Offset: *mut u32);
+            fn GSGetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer);
+            fn GSGetShader(&self, ppGeometryShader: *mut ID3D11GeometryShader, #[len_param(2)] #[opt] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[out] #[opt] pNumClassInstances: *mut u32);
+            fn IAGetPrimitiveTopology(&self, pTopology: *mut D3D11_PRIMITIVE_TOPOLOGY);
+            fn VSGetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
+            fn VSGetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *mut ID3D11SamplerState);
+            fn GetPredication(&self, ppPredicate: *mut ID3D11Predicate, #[opt] pPredicateValue: *mut BOOL);
+            fn GSGetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
+            fn GSGetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *mut ID3D11SamplerState);
+            fn OMGetRenderTargets(&self, NumViews: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *mut ID3D11RenderTargetView, ppDepthStencilView: *mut ID3D11DepthStencilView);
+            fn OMGetRenderTargetsAndUnorderedAccessViews(&self, NumRTVs: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *mut ID3D11RenderTargetView, ppDepthStencilView: *mut ID3D11DepthStencilView, UAVStartSlot: u32, NumUAVs: u32, #[len_param(4)] #[opt] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
+            fn OMGetBlendState(&self, ppBlendState: *mut ID3D11BlendState, #[opt] BlendFactor: *mut f32, #[opt] pSampleMask: *mut u32);
+            fn OMGetDepthStencilState(&self, ppDepthStencilState: *mut ID3D11DepthStencilState, #[opt] pStencilRef: *mut u32);
+            fn SOGetTargets(&self, NumBuffers: u32, #[len_param(0)] #[opt] ppSOTargets: *mut ID3D11Buffer);
+            fn RSGetState(&self, ppRasterizerState: *mut ID3D11RasterizerState);
+            fn RSGetViewports(&self, #[in] #[out] pNumViewports: *mut u32, #[len_param(0)] #[opt] pViewports: *mut D3D11_VIEWPORT);
+            fn RSGetScissorRects(&self, #[in] #[out] pNumRects: *mut u32, #[len_param(0)] #[opt] pRects: *mut D3D11_RECT);
+            fn HSGetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
+            fn HSGetShader(&self, ppHullShader: *mut ID3D11HullShader, #[len_param(2)] #[opt] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[out] #[opt] pNumClassInstances: *mut u32);
+            fn HSGetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *mut ID3D11SamplerState);
+            fn HSGetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer);
+            fn DSGetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
+            fn DSGetShader(&self, ppDomainShader: *mut ID3D11DomainShader, #[len_param(2)] #[opt] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[out] #[opt] pNumClassInstances: *mut u32);
+            fn DSGetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *mut ID3D11SamplerState);
+            fn DSGetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer);
+            fn CSGetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *mut ID3D11ShaderResourceView);
+            fn CSGetUnorderedAccessViews(&self, StartSlot: u32, NumUAVs: u32, #[len_param(1)] #[opt] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
+            fn CSGetShader(&self, ppComputeShader: *mut ID3D11ComputeShader, #[len_param(2)] #[opt] ppClassInstances: *mut ID3D11ClassInstance, #[in] #[out] #[opt] pNumClassInstances: *mut u32);
+            fn CSGetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *mut ID3D11SamplerState);
+            fn CSGetConstantBuffers(&self, StartSlot: u32, NumBuffers: u32, #[len_param(1)] #[opt] ppConstantBuffers: *mut ID3D11Buffer);
             fn ClearState(&self);
             fn Flush(&self);
             fn GetType(&self) -> D3D11_DEVICE_CONTEXT_TYPE;
-            fn GetContextFlags(&self) -> UINT;
-            fn FinishCommandList(&self, RestoreDeferredContextState: BOOL, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppCommandList: *mut ID3D11CommandList) -> HRESULT;
+            fn GetContextFlags(&self) -> u32;
+            fn FinishCommandList(&self, RestoreDeferredContextState: BOOL, #[opt] ppCommandList: *mut ID3D11CommandList) -> HRESULT;
         }
         #[guid(0xf582c508_0f36_490c_9977_31eece268cfa)]
         interface ID3D11DomainShader: ID3D11DeviceChild {}
@@ -2209,208 +2249,174 @@ mod Windows {
         interface ID3D11Predicate: ID3D11Query {}
         #[guid(0xd6c00747_87b7_425e_b84d_44d108560afd)]
         interface ID3D11Query: ID3D11Asynchronous {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_QUERY_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_QUERY_DESC);
         }
         #[guid(0x9bb4ab81_ab1a_4d8f_b506_fc04200b6ee7)]
         interface ID3D11RasterizerState: ID3D11DeviceChild {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_RASTERIZER_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_RASTERIZER_DESC);
         }
         #[guid(0xdfdba067_0b8d_4865_875b_d7b4516cc164)]
         interface ID3D11RenderTargetView: ID3D11View {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_RENDER_TARGET_VIEW_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_RENDER_TARGET_VIEW_DESC);
         }
         #[guid(0xdc8e63f3_d12b_4952_b47b_5e45026a862d)]
         interface ID3D11Resource: ID3D11DeviceChild {
-            fn GetType(&self, #[out] pResourceDimension: *mut D3D11_RESOURCE_DIMENSION);
-            fn SetEvictionPriority(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EvictionPriority: UINT);
-            fn GetEvictionPriority(&self) -> UINT;
+            fn GetType(&self, pResourceDimension: *mut D3D11_RESOURCE_DIMENSION);
+            fn SetEvictionPriority(&self, EvictionPriority: u32);
+            fn GetEvictionPriority(&self) -> u32;
         }
         #[guid(0xda6fea51_564c_4487_9810_f0d0f9b4e3a5)]
         interface ID3D11SamplerState: ID3D11DeviceChild {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_SAMPLER_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_SAMPLER_DESC);
         }
         #[guid(0xb0e06fe0_8192_4e1a_b1ca_36d7414710b2)]
         interface ID3D11ShaderResourceView: ID3D11View {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_SHADER_RESOURCE_VIEW_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_SHADER_RESOURCE_VIEW_DESC);
         }
         #[guid(0xf8fb5c27_c6b3_4f75_a4c8_439af2ef564c)]
         interface ID3D11Texture1D: ID3D11Resource {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_TEXTURE1D_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_TEXTURE1D_DESC);
         }
         #[guid(0x6f15aaf2_d208_4e89_9ab4_489535d34f9c)]
         interface ID3D11Texture2D: ID3D11Resource {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_TEXTURE2D_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_TEXTURE2D_DESC);
         }
         #[guid(0x037e866e_f56d_4357_a8af_9dabbe6e250e)]
         interface ID3D11Texture3D: ID3D11Resource {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_TEXTURE3D_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_TEXTURE3D_DESC);
         }
         #[guid(0x28acf509_7f5c_48f6_8611_f316010a6380)]
         interface ID3D11UnorderedAccessView: ID3D11View {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC);
         }
         #[guid(0x3b301d64_d678_4289_8897_22f8928b72f3)]
         interface ID3D11VertexShader: ID3D11DeviceChild {}
         #[guid(0x61f21c45_3c0e_4a74_9cea_67100d9ad5e4)]
         interface ID3D11VideoContext: ID3D11DeviceChild {
-            fn GetDecoderBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDecoder: ID3D11VideoDecoder, Type: D3D11_VIDEO_DECODER_BUFFER_TYPE, #[out] pBufferSize: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pBufferSize", "*pBufferSize")] #[out] ppBuffer: *mut *mut void) -> HRESULT;
-            fn ReleaseDecoderBuffer(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDecoder: ID3D11VideoDecoder, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: D3D11_VIDEO_DECODER_BUFFER_TYPE) -> HRESULT;
-            fn DecoderBeginFrame(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDecoder: ID3D11VideoDecoder, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pView: ID3D11VideoDecoderOutputView, ContentKeySize: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pContentKey: *const void) -> HRESULT;
-            fn DecoderEndFrame(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDecoder: ID3D11VideoDecoder) -> HRESULT;
-            fn SubmitDecoderBuffers(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDecoder: ID3D11VideoDecoder, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumBuffers: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pBufferDesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC) -> HRESULT;
-            fn DecoderExtension(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDecoder: ID3D11VideoDecoder, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExtensionData: *const D3D11_VIDEO_DECODER_EXTENSION) -> APP_DEPRECATED_HRESULT;
-            fn VideoProcessorSetOutputTargetRect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enable: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRect: *const RECT);
-            fn VideoProcessorSetOutputBackgroundColor(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] YCbCr: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pColor: *const D3D11_VIDEO_COLOR);
-            fn VideoProcessorSetOutputColorSpace(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pColorSpace: *const D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
-            fn VideoProcessorSetOutputAlphaFillMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AlphaFillMode: D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT);
-            fn VideoProcessorSetOutputConstriction(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enable: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: SIZE);
-            fn VideoProcessorSetOutputStereoMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enable: BOOL);
-            fn VideoProcessorSetOutputExtension(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExtensionGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataSize: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pData: *mut void) -> APP_DEPRECATED_HRESULT;
-            fn VideoProcessorGetOutputTargetRect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[out] Enabled: *mut BOOL, #[out] pRect: *mut RECT);
-            fn VideoProcessorGetOutputBackgroundColor(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[out] pYCbCr: *mut BOOL, #[out] pColor: *mut D3D11_VIDEO_COLOR);
-            fn VideoProcessorGetOutputColorSpace(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[out] pColorSpace: *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
-            fn VideoProcessorGetOutputAlphaFillMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[out] pAlphaFillMode: *mut D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, #[out] pStreamIndex: *mut UINT);
-            fn VideoProcessorGetOutputConstriction(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[out] pEnabled: *mut BOOL, #[out] pSize: *mut SIZE);
-            fn VideoProcessorGetOutputStereoMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[out] pEnabled: *mut BOOL);
-            fn VideoProcessorGetOutputExtension(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExtensionGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataSize: UINT, #[out] #[size_param(2)] pData: *mut void) -> APP_DEPRECATED_HRESULT;
-            fn VideoProcessorSetStreamFrameFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FrameFormat: D3D11_VIDEO_FRAME_FORMAT);
-            fn VideoProcessorSetStreamColorSpace(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pColorSpace: *const D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
-            fn VideoProcessorSetStreamOutputRate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OutputRate: D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RepeatFrame: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCustomRate: *const DXGI_RATIONAL);
-            fn VideoProcessorSetStreamSourceRect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enable: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRect: *const RECT);
-            fn VideoProcessorSetStreamDestRect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enable: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRect: *const RECT);
-            fn VideoProcessorSetStreamAlpha(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enable: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Alpha: FLOAT);
-            fn VideoProcessorSetStreamPalette(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Count: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pEntries: *const UINT);
-            fn VideoProcessorSetStreamPixelAspectRatio(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enable: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSourceAspectRatio: *const DXGI_RATIONAL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDestinationAspectRatio: *const DXGI_RATIONAL);
-            fn VideoProcessorSetStreamLumaKey(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enable: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Lower: FLOAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Upper: FLOAT);
-            fn VideoProcessorSetStreamStereoFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enable: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LeftViewFrame0: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BaseViewFrame0: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FlipMode: D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MonoOffset: i32);
-            fn VideoProcessorSetStreamAutoProcessingMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enable: BOOL);
-            fn VideoProcessorSetStreamFilter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Filter: D3D11_VIDEO_PROCESSOR_FILTER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enable: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Level: i32);
-            fn VideoProcessorSetStreamExtension(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExtensionGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataSize: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pData: *mut void) -> APP_DEPRECATED_HRESULT;
-            fn VideoProcessorGetStreamFrameFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[out] pFrameFormat: *mut D3D11_VIDEO_FRAME_FORMAT);
-            fn VideoProcessorGetStreamColorSpace(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[out] pColorSpace: *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
-            fn VideoProcessorGetStreamOutputRate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[out] pOutputRate: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, #[out] pRepeatFrame: *mut BOOL, #[out] pCustomRate: *mut DXGI_RATIONAL);
-            fn VideoProcessorGetStreamSourceRect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[out] pEnabled: *mut BOOL, #[out] pRect: *mut RECT);
-            fn VideoProcessorGetStreamDestRect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[out] pEnabled: *mut BOOL, #[out] pRect: *mut RECT);
-            fn VideoProcessorGetStreamAlpha(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[out] pEnabled: *mut BOOL, #[out] pAlpha: *mut FLOAT);
-            fn VideoProcessorGetStreamPalette(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Count: UINT, #[out] #[len_param(2)] pEntries: *mut UINT);
-            fn VideoProcessorGetStreamPixelAspectRatio(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[out] pEnabled: *mut BOOL, #[out] pSourceAspectRatio: *mut DXGI_RATIONAL, #[out] pDestinationAspectRatio: *mut DXGI_RATIONAL);
-            fn VideoProcessorGetStreamLumaKey(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[out] pEnabled: *mut BOOL, #[out] pLower: *mut FLOAT, #[out] pUpper: *mut FLOAT);
-            fn VideoProcessorGetStreamStereoFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[out] pEnable: *mut BOOL, #[out] pFormat: *mut D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, #[out] pLeftViewFrame0: *mut BOOL, #[out] pBaseViewFrame0: *mut BOOL, #[out] pFlipMode: *mut D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, #[out] MonoOffset: *mut i32);
-            fn VideoProcessorGetStreamAutoProcessingMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[out] pEnabled: *mut BOOL);
-            fn VideoProcessorGetStreamFilter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Filter: D3D11_VIDEO_PROCESSOR_FILTER, #[out] pEnabled: *mut BOOL, #[out] pLevel: *mut i32);
-            fn VideoProcessorGetStreamExtension(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExtensionGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataSize: UINT, #[out] #[size_param(3)] pData: *mut void) -> APP_DEPRECATED_HRESULT;
-            fn VideoProcessorBlt(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pView: ID3D11VideoProcessorOutputView, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OutputFrame: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamCount: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] pStreams: *const D3D11_VIDEO_PROCESSOR_STREAM) -> HRESULT;
-            fn NegotiateCryptoSessionKeyExchange(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCryptoSession: ID3D11CryptoSession, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataSize: UINT, #[in] #[out] #[size_param(1)] pData: *mut void) -> HRESULT;
-            fn EncryptionBlt(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCryptoSession: ID3D11CryptoSession, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcSurface: ID3D11Texture2D, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDstSurface: ID3D11Texture2D, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IVSize: UINT, #[Windows::Win32::Metadata::NativeSal("1.1", "_Inout_opt_bytecount_", "IVSize", "IVSize")] pIV: *mut void);
-            fn DecryptionBlt(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCryptoSession: ID3D11CryptoSession, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSrcSurface: ID3D11Texture2D, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDstSurface: ID3D11Texture2D, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEncryptedBlockInfo: *mut D3D11_ENCRYPTED_BLOCK_INFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ContentKeySize: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pContentKey: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IVSize: UINT, #[Windows::Win32::Metadata::NativeSal("1.1", "_Inout_opt_bytecount_", "IVSize", "IVSize")] pIV: *mut void);
-            fn StartSessionKeyRefresh(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCryptoSession: ID3D11CryptoSession, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RandomNumberSize: UINT, #[out] #[size_param(1)] pRandomNumber: *mut void);
-            fn FinishSessionKeyRefresh(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCryptoSession: ID3D11CryptoSession);
-            fn GetEncryptionBltKey(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCryptoSession: ID3D11CryptoSession, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] KeySize: UINT, #[out] #[size_param(1)] pReadbackKey: *mut void) -> HRESULT;
-            fn NegotiateAuthenticatedChannelKeyExchange(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pChannel: ID3D11AuthenticatedChannel, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataSize: UINT, #[in] #[out] #[size_param(1)] pData: *mut void) -> HRESULT;
-            fn QueryAuthenticatedChannel(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pChannel: ID3D11AuthenticatedChannel, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InputSize: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pInput: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OutputSize: UINT, #[out] #[size_param(3)] pOutput: *mut void) -> HRESULT;
-            fn ConfigureAuthenticatedChannel(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pChannel: ID3D11AuthenticatedChannel, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InputSize: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pInput: *const void, #[out] pOutput: *mut D3D11_AUTHENTICATED_CONFIGURE_OUTPUT) -> HRESULT;
-            fn VideoProcessorSetStreamRotation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Enable: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Rotation: D3D11_VIDEO_PROCESSOR_ROTATION);
-            fn VideoProcessorGetStreamRotation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D11VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamIndex: UINT, #[out] pEnable: *mut BOOL, #[out] pRotation: *mut D3D11_VIDEO_PROCESSOR_ROTATION);
+            fn GetDecoderBuffer(&self, pDecoder: ID3D11VideoDecoder, Type: D3D11_VIDEO_DECODER_BUFFER_TYPE, pBufferSize: *mut u32, ppBuffer: *mut *mut void) -> HRESULT;
+            fn ReleaseDecoderBuffer(&self, pDecoder: ID3D11VideoDecoder, Type: D3D11_VIDEO_DECODER_BUFFER_TYPE) -> HRESULT;
+            fn DecoderBeginFrame(&self, pDecoder: ID3D11VideoDecoder, pView: ID3D11VideoDecoderOutputView, ContentKeySize: u32, #[size_param(2)] #[opt] pContentKey: *const void) -> HRESULT;
+            fn DecoderEndFrame(&self, pDecoder: ID3D11VideoDecoder) -> HRESULT;
+            fn SubmitDecoderBuffers(&self, pDecoder: ID3D11VideoDecoder, NumBuffers: u32, #[len_param(1)] pBufferDesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC) -> HRESULT;
+            fn DecoderExtension(&self, pDecoder: ID3D11VideoDecoder, pExtensionData: *const D3D11_VIDEO_DECODER_EXTENSION) -> APP_DEPRECATED_HRESULT;
+            fn VideoProcessorSetOutputTargetRect(&self, pVideoProcessor: ID3D11VideoProcessor, Enable: BOOL, #[opt] pRect: *const RECT);
+            fn VideoProcessorSetOutputBackgroundColor(&self, pVideoProcessor: ID3D11VideoProcessor, YCbCr: BOOL, pColor: *const D3D11_VIDEO_COLOR);
+            fn VideoProcessorSetOutputColorSpace(&self, pVideoProcessor: ID3D11VideoProcessor, pColorSpace: *const D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
+            fn VideoProcessorSetOutputAlphaFillMode(&self, pVideoProcessor: ID3D11VideoProcessor, AlphaFillMode: D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, StreamIndex: u32);
+            fn VideoProcessorSetOutputConstriction(&self, pVideoProcessor: ID3D11VideoProcessor, Enable: BOOL, Size: SIZE);
+            fn VideoProcessorSetOutputStereoMode(&self, pVideoProcessor: ID3D11VideoProcessor, Enable: BOOL);
+            fn VideoProcessorSetOutputExtension(&self, pVideoProcessor: ID3D11VideoProcessor, pExtensionGuid: *const GUID, DataSize: u32, #[in] pData: *mut void) -> APP_DEPRECATED_HRESULT;
+            fn VideoProcessorGetOutputTargetRect(&self, pVideoProcessor: ID3D11VideoProcessor, Enabled: *mut BOOL, pRect: *mut RECT);
+            fn VideoProcessorGetOutputBackgroundColor(&self, pVideoProcessor: ID3D11VideoProcessor, pYCbCr: *mut BOOL, pColor: *mut D3D11_VIDEO_COLOR);
+            fn VideoProcessorGetOutputColorSpace(&self, pVideoProcessor: ID3D11VideoProcessor, pColorSpace: *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
+            fn VideoProcessorGetOutputAlphaFillMode(&self, pVideoProcessor: ID3D11VideoProcessor, pAlphaFillMode: *mut D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, pStreamIndex: *mut u32);
+            fn VideoProcessorGetOutputConstriction(&self, pVideoProcessor: ID3D11VideoProcessor, pEnabled: *mut BOOL, pSize: *mut SIZE);
+            fn VideoProcessorGetOutputStereoMode(&self, pVideoProcessor: ID3D11VideoProcessor, pEnabled: *mut BOOL);
+            fn VideoProcessorGetOutputExtension(&self, pVideoProcessor: ID3D11VideoProcessor, pExtensionGuid: *const GUID, DataSize: u32, #[size_param(2)] pData: *mut void) -> APP_DEPRECATED_HRESULT;
+            fn VideoProcessorSetStreamFrameFormat(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, FrameFormat: D3D11_VIDEO_FRAME_FORMAT);
+            fn VideoProcessorSetStreamColorSpace(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pColorSpace: *const D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
+            fn VideoProcessorSetStreamOutputRate(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, OutputRate: D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, RepeatFrame: BOOL, #[opt] pCustomRate: *const DXGI_RATIONAL);
+            fn VideoProcessorSetStreamSourceRect(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, #[opt] pRect: *const RECT);
+            fn VideoProcessorSetStreamDestRect(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, #[opt] pRect: *const RECT);
+            fn VideoProcessorSetStreamAlpha(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, Alpha: f32);
+            fn VideoProcessorSetStreamPalette(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Count: u32, #[len_param(2)] #[opt] pEntries: *const u32);
+            fn VideoProcessorSetStreamPixelAspectRatio(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, #[opt] pSourceAspectRatio: *const DXGI_RATIONAL, #[opt] pDestinationAspectRatio: *const DXGI_RATIONAL);
+            fn VideoProcessorSetStreamLumaKey(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, Lower: f32, Upper: f32);
+            fn VideoProcessorSetStreamStereoFormat(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, Format: D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, LeftViewFrame0: BOOL, BaseViewFrame0: BOOL, FlipMode: D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, MonoOffset: i32);
+            fn VideoProcessorSetStreamAutoProcessingMode(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL);
+            fn VideoProcessorSetStreamFilter(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Filter: D3D11_VIDEO_PROCESSOR_FILTER, Enable: BOOL, Level: i32);
+            fn VideoProcessorSetStreamExtension(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pExtensionGuid: *const GUID, DataSize: u32, #[in] pData: *mut void) -> APP_DEPRECATED_HRESULT;
+            fn VideoProcessorGetStreamFrameFormat(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pFrameFormat: *mut D3D11_VIDEO_FRAME_FORMAT);
+            fn VideoProcessorGetStreamColorSpace(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pColorSpace: *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
+            fn VideoProcessorGetStreamOutputRate(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pOutputRate: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, pRepeatFrame: *mut BOOL, pCustomRate: *mut DXGI_RATIONAL);
+            fn VideoProcessorGetStreamSourceRect(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL, pRect: *mut RECT);
+            fn VideoProcessorGetStreamDestRect(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL, pRect: *mut RECT);
+            fn VideoProcessorGetStreamAlpha(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL, pAlpha: *mut f32);
+            fn VideoProcessorGetStreamPalette(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Count: u32, #[len_param(2)] pEntries: *mut u32);
+            fn VideoProcessorGetStreamPixelAspectRatio(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL, pSourceAspectRatio: *mut DXGI_RATIONAL, pDestinationAspectRatio: *mut DXGI_RATIONAL);
+            fn VideoProcessorGetStreamLumaKey(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL, pLower: *mut f32, pUpper: *mut f32);
+            fn VideoProcessorGetStreamStereoFormat(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnable: *mut BOOL, pFormat: *mut D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, pLeftViewFrame0: *mut BOOL, pBaseViewFrame0: *mut BOOL, pFlipMode: *mut D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, MonoOffset: *mut i32);
+            fn VideoProcessorGetStreamAutoProcessingMode(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL);
+            fn VideoProcessorGetStreamFilter(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Filter: D3D11_VIDEO_PROCESSOR_FILTER, pEnabled: *mut BOOL, pLevel: *mut i32);
+            fn VideoProcessorGetStreamExtension(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pExtensionGuid: *const GUID, DataSize: u32, #[size_param(3)] pData: *mut void) -> APP_DEPRECATED_HRESULT;
+            fn VideoProcessorBlt(&self, pVideoProcessor: ID3D11VideoProcessor, pView: ID3D11VideoProcessorOutputView, OutputFrame: u32, StreamCount: u32, #[len_param(3)] pStreams: *const D3D11_VIDEO_PROCESSOR_STREAM) -> HRESULT;
+            fn NegotiateCryptoSessionKeyExchange(&self, pCryptoSession: ID3D11CryptoSession, DataSize: u32, #[size_param(1)] #[in] #[out] pData: *mut void) -> HRESULT;
+            fn EncryptionBlt(&self, pCryptoSession: ID3D11CryptoSession, pSrcSurface: ID3D11Texture2D, pDstSurface: ID3D11Texture2D, IVSize: u32, pIV: *mut void);
+            fn DecryptionBlt(&self, pCryptoSession: ID3D11CryptoSession, pSrcSurface: ID3D11Texture2D, pDstSurface: ID3D11Texture2D, #[in] #[opt] pEncryptedBlockInfo: *mut D3D11_ENCRYPTED_BLOCK_INFO, ContentKeySize: u32, #[size_param(4)] #[opt] pContentKey: *const void, IVSize: u32, pIV: *mut void);
+            fn StartSessionKeyRefresh(&self, pCryptoSession: ID3D11CryptoSession, RandomNumberSize: u32, #[size_param(1)] pRandomNumber: *mut void);
+            fn FinishSessionKeyRefresh(&self, pCryptoSession: ID3D11CryptoSession);
+            fn GetEncryptionBltKey(&self, pCryptoSession: ID3D11CryptoSession, KeySize: u32, #[size_param(1)] pReadbackKey: *mut void) -> HRESULT;
+            fn NegotiateAuthenticatedChannelKeyExchange(&self, pChannel: ID3D11AuthenticatedChannel, DataSize: u32, #[size_param(1)] #[in] #[out] pData: *mut void) -> HRESULT;
+            fn QueryAuthenticatedChannel(&self, pChannel: ID3D11AuthenticatedChannel, InputSize: u32, #[size_param(1)] pInput: *const void, OutputSize: u32, #[size_param(3)] pOutput: *mut void) -> HRESULT;
+            fn ConfigureAuthenticatedChannel(&self, pChannel: ID3D11AuthenticatedChannel, InputSize: u32, #[size_param(1)] pInput: *const void, pOutput: *mut D3D11_AUTHENTICATED_CONFIGURE_OUTPUT) -> HRESULT;
+            fn VideoProcessorSetStreamRotation(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, Rotation: D3D11_VIDEO_PROCESSOR_ROTATION);
+            fn VideoProcessorGetStreamRotation(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnable: *mut BOOL, pRotation: *mut D3D11_VIDEO_PROCESSOR_ROTATION);
         }
         #[guid(0x3c9c5b51_995d_48d1_9b8d_fa5caeded65c)]
         interface ID3D11VideoDecoder: ID3D11DeviceChild {
-            fn GetCreationParameters(&self, #[out] pVideoDesc: *mut D3D11_VIDEO_DECODER_DESC, #[out] pConfig: *mut D3D11_VIDEO_DECODER_CONFIG) -> HRESULT;
-            fn GetDriverHandle(&self, #[out] pDriverHandle: *mut HANDLE) -> HRESULT;
+            fn GetCreationParameters(&self, pVideoDesc: *mut D3D11_VIDEO_DECODER_DESC, pConfig: *mut D3D11_VIDEO_DECODER_CONFIG) -> HRESULT;
+            fn GetDriverHandle(&self, pDriverHandle: *mut HANDLE) -> HRESULT;
         }
         #[guid(0xc2931aea_2a85_4f20_860f_fba1fd256e18)]
         interface ID3D11VideoDecoderOutputView: ID3D11View {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC);
         }
         #[guid(0x10ec4d5b_975a_4689_b9e4_d0aac30fe333)]
         interface ID3D11VideoDevice: IUnknown {
-            fn CreateVideoDecoder(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoDesc: *const D3D11_VIDEO_DECODER_DESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pConfig: *const D3D11_VIDEO_DECODER_CONFIG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppDecoder: *mut ID3D11VideoDecoder) -> HRESULT;
-            fn CreateVideoProcessor(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEnum: ID3D11VideoProcessorEnumerator, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RateConversionIndex: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppVideoProcessor: *mut ID3D11VideoProcessor) -> HRESULT;
-            fn CreateAuthenticatedChannel(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ChannelType: D3D11_AUTHENTICATED_CHANNEL_TYPE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppAuthenticatedChannel: *mut ID3D11AuthenticatedChannel) -> HRESULT;
-            fn CreateCryptoSession(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCryptoType: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDecoderProfile: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pKeyExchangeType: *const GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppCryptoSession: *mut ID3D11CryptoSession) -> HRESULT;
-            fn CreateVideoDecoderOutputView(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppVDOVView: *mut ID3D11VideoDecoderOutputView) -> HRESULT;
-            fn CreateVideoProcessorInputView(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEnum: ID3D11VideoProcessorEnumerator, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppVPIView: *mut ID3D11VideoProcessorInputView) -> HRESULT;
-            fn CreateVideoProcessorOutputView(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D11Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEnum: ID3D11VideoProcessorEnumerator, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppVPOView: *mut ID3D11VideoProcessorOutputView) -> HRESULT;
-            fn CreateVideoProcessorEnumerator(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppEnum: *mut ID3D11VideoProcessorEnumerator) -> HRESULT;
-            fn GetVideoDecoderProfileCount(&self) -> UINT;
-            fn GetVideoDecoderProfile(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: UINT, #[out] pDecoderProfile: *mut GUID) -> HRESULT;
-            fn CheckVideoDecoderFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDecoderProfile: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DXGI_FORMAT, #[out] pSupported: *mut BOOL) -> HRESULT;
-            fn GetVideoDecoderConfigCount(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_VIDEO_DECODER_DESC, #[out] pCount: *mut UINT) -> HRESULT;
-            fn GetVideoDecoderConfig(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D11_VIDEO_DECODER_DESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: UINT, #[out] pConfig: *mut D3D11_VIDEO_DECODER_CONFIG) -> HRESULT;
-            fn GetContentProtectionCaps(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCryptoType: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDecoderProfile: *const GUID, #[out] pCaps: *mut D3D11_VIDEO_CONTENT_PROTECTION_CAPS) -> HRESULT;
-            fn CheckCryptoKeyExchange(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCryptoType: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDecoderProfile: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: UINT, #[out] pKeyExchangeType: *mut GUID) -> HRESULT;
-            fn SetPrivateData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guid: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataSize: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pData: *const void) -> HRESULT;
-            fn SetPrivateDataInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guid: &GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pData: IUnknown) -> HRESULT;
+            fn CreateVideoDecoder(&self, pVideoDesc: *const D3D11_VIDEO_DECODER_DESC, pConfig: *const D3D11_VIDEO_DECODER_CONFIG, ppDecoder: *mut ID3D11VideoDecoder) -> HRESULT;
+            fn CreateVideoProcessor(&self, pEnum: ID3D11VideoProcessorEnumerator, RateConversionIndex: u32, ppVideoProcessor: *mut ID3D11VideoProcessor) -> HRESULT;
+            fn CreateAuthenticatedChannel(&self, ChannelType: D3D11_AUTHENTICATED_CHANNEL_TYPE, ppAuthenticatedChannel: *mut ID3D11AuthenticatedChannel) -> HRESULT;
+            fn CreateCryptoSession(&self, pCryptoType: *const GUID, #[opt] pDecoderProfile: *const GUID, pKeyExchangeType: *const GUID, ppCryptoSession: *mut ID3D11CryptoSession) -> HRESULT;
+            fn CreateVideoDecoderOutputView(&self, pResource: ID3D11Resource, pDesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, #[opt] ppVDOVView: *mut ID3D11VideoDecoderOutputView) -> HRESULT;
+            fn CreateVideoProcessorInputView(&self, pResource: ID3D11Resource, pEnum: ID3D11VideoProcessorEnumerator, pDesc: *const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC, #[opt] ppVPIView: *mut ID3D11VideoProcessorInputView) -> HRESULT;
+            fn CreateVideoProcessorOutputView(&self, pResource: ID3D11Resource, pEnum: ID3D11VideoProcessorEnumerator, pDesc: *const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC, #[opt] ppVPOView: *mut ID3D11VideoProcessorOutputView) -> HRESULT;
+            fn CreateVideoProcessorEnumerator(&self, pDesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC, ppEnum: *mut ID3D11VideoProcessorEnumerator) -> HRESULT;
+            fn GetVideoDecoderProfileCount(&self) -> u32;
+            fn GetVideoDecoderProfile(&self, Index: u32, pDecoderProfile: *mut GUID) -> HRESULT;
+            fn CheckVideoDecoderFormat(&self, pDecoderProfile: *const GUID, Format: DXGI_FORMAT, pSupported: *mut BOOL) -> HRESULT;
+            fn GetVideoDecoderConfigCount(&self, pDesc: *const D3D11_VIDEO_DECODER_DESC, pCount: *mut u32) -> HRESULT;
+            fn GetVideoDecoderConfig(&self, pDesc: *const D3D11_VIDEO_DECODER_DESC, Index: u32, pConfig: *mut D3D11_VIDEO_DECODER_CONFIG) -> HRESULT;
+            fn GetContentProtectionCaps(&self, #[opt] pCryptoType: *const GUID, #[opt] pDecoderProfile: *const GUID, pCaps: *mut D3D11_VIDEO_CONTENT_PROTECTION_CAPS) -> HRESULT;
+            fn CheckCryptoKeyExchange(&self, pCryptoType: *const GUID, #[opt] pDecoderProfile: *const GUID, Index: u32, pKeyExchangeType: *mut GUID) -> HRESULT;
+            fn SetPrivateData(&self, guid: *const GUID, DataSize: u32, #[size_param(1)] #[opt] pData: *const void) -> HRESULT;
+            fn SetPrivateDataInterface(&self, guid: *const GUID, #[opt] pData: IUnknown) -> HRESULT;
         }
         #[guid(0x1d7b0652_185f_41c6_85ce_0c5be3d4ae6c)]
         interface ID3D11VideoProcessor: ID3D11DeviceChild {
-            fn GetContentDesc(&self, #[out] pDesc: *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC);
-            fn GetRateConversionCaps(&self, #[out] pCaps: *mut D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS);
+            fn GetContentDesc(&self, pDesc: *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC);
+            fn GetRateConversionCaps(&self, pCaps: *mut D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS);
         }
         #[guid(0x31627037_53ab_4200_9061_05faa9ab45f9)]
         interface ID3D11VideoProcessorEnumerator: ID3D11DeviceChild {
-            fn GetVideoProcessorContentDesc(&self, #[out] pContentDesc: *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC) -> HRESULT;
-            fn CheckVideoProcessorFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DXGI_FORMAT, #[out] pFlags: *mut UINT) -> HRESULT;
-            fn GetVideoProcessorCaps(&self, #[out] pCaps: *mut D3D11_VIDEO_PROCESSOR_CAPS) -> HRESULT;
-            fn GetVideoProcessorRateConversionCaps(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TypeIndex: UINT, #[out] pCaps: *mut D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS) -> HRESULT;
-            fn GetVideoProcessorCustomRate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TypeIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CustomRateIndex: UINT, #[out] pRate: *mut D3D11_VIDEO_PROCESSOR_CUSTOM_RATE) -> HRESULT;
-            fn GetVideoProcessorFilterRange(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Filter: D3D11_VIDEO_PROCESSOR_FILTER, #[out] pRange: *mut D3D11_VIDEO_PROCESSOR_FILTER_RANGE) -> HRESULT;
+            fn GetVideoProcessorContentDesc(&self, pContentDesc: *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC) -> HRESULT;
+            fn CheckVideoProcessorFormat(&self, Format: DXGI_FORMAT, pFlags: *mut u32) -> HRESULT;
+            fn GetVideoProcessorCaps(&self, pCaps: *mut D3D11_VIDEO_PROCESSOR_CAPS) -> HRESULT;
+            fn GetVideoProcessorRateConversionCaps(&self, TypeIndex: u32, pCaps: *mut D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS) -> HRESULT;
+            fn GetVideoProcessorCustomRate(&self, TypeIndex: u32, CustomRateIndex: u32, pRate: *mut D3D11_VIDEO_PROCESSOR_CUSTOM_RATE) -> HRESULT;
+            fn GetVideoProcessorFilterRange(&self, Filter: D3D11_VIDEO_PROCESSOR_FILTER, pRange: *mut D3D11_VIDEO_PROCESSOR_FILTER_RANGE) -> HRESULT;
         }
         #[guid(0x11ec5a5f_51dc_4945_ab34_6e8c21300ea5)]
         interface ID3D11VideoProcessorInputView: ID3D11View {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC);
         }
         #[guid(0xa048285e_25a9_4527_bd93_d68b68c44254)]
         interface ID3D11VideoProcessorOutputView: ID3D11View {
-            fn GetDesc(&self, #[out] pDesc: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC);
+            fn GetDesc(&self, pDesc: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC);
         }
         #[guid(0x839d1216_bb2e_412b_b7f4_a9dbebe08ed1)]
         interface ID3D11View: ID3D11DeviceChild {
-            fn GetResource(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResource: *mut ID3D11Resource);
+            fn GetResource(&self, ppResource: *mut ID3D11Resource);
         }
-        const IID_ID3D11Asynchronous: GUID = 0x4b35d0cd_1e15_4258_9c98_1b1333f6dd3b;
-        const IID_ID3D11AuthenticatedChannel: GUID = 0x3015a308_dcbd_47aa_a747_192486d14d4a;
-        const IID_ID3D11BlendState: GUID = 0x75b68faa_347d_4159_8f45_a0640f01cd9a;
-        const IID_ID3D11Buffer: GUID = 0x48570b85_d1ee_4fcd_a250_eb350722b037;
-        const IID_ID3D11ClassInstance: GUID = 0xa6cd7faa_b0b7_4a2f_9436_8662a65797cb;
-        const IID_ID3D11ClassLinkage: GUID = 0xddf57cba_9543_46e4_a12b_f207a0fe7fed;
-        const IID_ID3D11CommandList: GUID = 0xa24bc4d1_769e_43f7_8013_98ff566c18e2;
-        const IID_ID3D11ComputeShader: GUID = 0x4f5b196e_c2bd_495e_bd01_1fded38e4969;
-        const IID_ID3D11Counter: GUID = 0x6e8c49fb_a371_4770_b440_29086022b741;
-        const IID_ID3D11CryptoSession: GUID = 0x9b32f9ad_bdcc_40a6_a39d_d5c865845720;
-        const IID_ID3D11DepthStencilState: GUID = 0x03823efb_8d8f_4e1c_9aa2_f64bb2cbfdf1;
-        const IID_ID3D11DepthStencilView: GUID = 0x9fdac92a_1876_48c3_afad_25b94f84a9b6;
-        const IID_ID3D11Device: GUID = 0xdb6f6ddb_ac77_4e88_8253_819df9bbf140;
-        const IID_ID3D11DeviceChild: GUID = 0x1841e5c8_16b0_489b_bcc8_44cfb0d5deae;
-        const IID_ID3D11DeviceContext: GUID = 0xc0bfa96c_e089_44fb_8eaf_26f8796190da;
-        const IID_ID3D11DomainShader: GUID = 0xf582c508_0f36_490c_9977_31eece268cfa;
-        const IID_ID3D11GeometryShader: GUID = 0x38325b96_effb_4022_ba02_2e795b70275c;
-        const IID_ID3D11HullShader: GUID = 0x8e5c6061_628a_4c8e_8264_bbe45cb3d5dd;
-        const IID_ID3D11InputLayout: GUID = 0xe4819ddc_4cf0_4025_bd26_5de82a3e07b7;
-        const IID_ID3D11PixelShader: GUID = 0xea82e40d_51dc_4f33_93d4_db7c9125ae8c;
-        const IID_ID3D11Predicate: GUID = 0x9eb576dd_9f77_4d86_81aa_8bab5fe490e2;
-        const IID_ID3D11Query: GUID = 0xd6c00747_87b7_425e_b84d_44d108560afd;
-        const IID_ID3D11RasterizerState: GUID = 0x9bb4ab81_ab1a_4d8f_b506_fc04200b6ee7;
-        const IID_ID3D11RenderTargetView: GUID = 0xdfdba067_0b8d_4865_875b_d7b4516cc164;
-        const IID_ID3D11Resource: GUID = 0xdc8e63f3_d12b_4952_b47b_5e45026a862d;
-        const IID_ID3D11SamplerState: GUID = 0xda6fea51_564c_4487_9810_f0d0f9b4e3a5;
-        const IID_ID3D11ShaderResourceView: GUID = 0xb0e06fe0_8192_4e1a_b1ca_36d7414710b2;
-        const IID_ID3D11Texture1D: GUID = 0xf8fb5c27_c6b3_4f75_a4c8_439af2ef564c;
-        const IID_ID3D11Texture2D: GUID = 0x6f15aaf2_d208_4e89_9ab4_489535d34f9c;
-        const IID_ID3D11Texture3D: GUID = 0x037e866e_f56d_4357_a8af_9dabbe6e250e;
-        const IID_ID3D11UnorderedAccessView: GUID = 0x28acf509_7f5c_48f6_8611_f316010a6380;
-        const IID_ID3D11VertexShader: GUID = 0x3b301d64_d678_4289_8897_22f8928b72f3;
-        const IID_ID3D11VideoContext: GUID = 0x61f21c45_3c0e_4a74_9cea_67100d9ad5e4;
-        const IID_ID3D11VideoDecoder: GUID = 0x3c9c5b51_995d_48d1_9b8d_fa5caeded65c;
-        const IID_ID3D11VideoDecoderOutputView: GUID = 0xc2931aea_2a85_4f20_860f_fba1fd256e18;
-        const IID_ID3D11VideoDevice: GUID = 0x10ec4d5b_975a_4689_b9e4_d0aac30fe333;
-        const IID_ID3D11VideoProcessor: GUID = 0x1d7b0652_185f_41c6_85ce_0c5be3d4ae6c;
-        const IID_ID3D11VideoProcessorEnumerator: GUID = 0x31627037_53ab_4200_9061_05faa9ab45f9;
-        const IID_ID3D11VideoProcessorInputView: GUID = 0x11ec5a5f_51dc_4945_ab34_6e8c21300ea5;
-        const IID_ID3D11VideoProcessorOutputView: GUID = 0xa048285e_25a9_4527_bd93_d68b68c44254;
-        const IID_ID3D11View: GUID = 0x839d1216_bb2e_412b_b7f4_a9dbebe08ed1;
-        extern fn PFN_D3D11_CREATE_DEVICE(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: IDXGIAdapter, param1: D3D_DRIVER_TYPE, param2: HMODULE, param3: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] param4: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, param6: UINT, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] param7: *mut ID3D11Device, #[out] #[opt] param8: *mut D3D_FEATURE_LEVEL, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] param9: *mut ID3D11DeviceContext) -> HRESULT;
-        extern fn PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: IDXGIAdapter, param1: D3D_DRIVER_TYPE, param2: HMODULE, param3: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] param4: *const D3D_FEATURE_LEVEL, FeatureLevels: UINT, param6: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param7: *const DXGI_SWAP_CHAIN_DESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] param8: *mut IDXGISwapChain, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] param9: *mut ID3D11Device, #[out] #[opt] param10: *mut D3D_FEATURE_LEVEL, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] param11: *mut ID3D11DeviceContext) -> HRESULT;
+        extern fn PFN_D3D11_CREATE_DEVICE(#[opt] param0: IDXGIAdapter, param1: D3D_DRIVER_TYPE, param2: HMODULE, param3: u32, #[len_param(5)] #[opt] param4: *const D3D_FEATURE_LEVEL, FeatureLevels: u32, param6: u32, param7: *mut ID3D11Device, #[opt] param8: *mut D3D_FEATURE_LEVEL, param9: *mut ID3D11DeviceContext) -> HRESULT;
+        extern fn PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(#[opt] param0: IDXGIAdapter, param1: D3D_DRIVER_TYPE, param2: HMODULE, param3: u32, #[len_param(5)] #[opt] param4: *const D3D_FEATURE_LEVEL, FeatureLevels: u32, param6: u32, #[opt] param7: *const DXGI_SWAP_CHAIN_DESC, param8: *mut IDXGISwapChain, param9: *mut ID3D11Device, #[opt] param10: *mut D3D_FEATURE_LEVEL, param11: *mut ID3D11DeviceContext) -> HRESULT;
         const _FACD3D11: i32 = 2172;
         const _FACD3D11DEBUG: i32 = 2173;
+        struct __MIDL___MIDL_itf_d3d11_0000_0034_0001 {
+            _bitfield: u32 {
+                ProtectionEnabled: 1,
+                OverlayOrFullscreenRequired: 1,
+                Reserved: 30,
+            },
+        }
     }
 }

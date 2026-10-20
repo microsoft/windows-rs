@@ -2,31 +2,31 @@
 mod Windows {
     mod Win32 {
         #[library("dxgi.dll")]
-        extern fn CreateDXGIFactory(riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppFactory: *mut *mut void) -> HRESULT;
+        extern fn CreateDXGIFactory(riid: *const GUID, #[iid_is] ppFactory: *mut *mut void) -> HRESULT;
         #[library("dxgi.dll")]
-        extern fn CreateDXGIFactory1(riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppFactory: *mut *mut void) -> HRESULT;
+        extern fn CreateDXGIFactory1(riid: *const GUID, #[iid_is] ppFactory: *mut *mut void) -> HRESULT;
         struct DXGI_ADAPTER_DESC {
-            Description: [WCHAR; 128],
-            VendorId: UINT,
-            DeviceId: UINT,
-            SubSysId: UINT,
-            Revision: UINT,
-            DedicatedVideoMemory: SIZE_T,
-            DedicatedSystemMemory: SIZE_T,
-            SharedSystemMemory: SIZE_T,
+            Description: [u16; 128],
+            VendorId: u32,
+            DeviceId: u32,
+            SubSysId: u32,
+            Revision: u32,
+            DedicatedVideoMemory: usize,
+            DedicatedSystemMemory: usize,
+            SharedSystemMemory: usize,
             AdapterLuid: LUID,
         }
         struct DXGI_ADAPTER_DESC1 {
-            Description: [WCHAR; 128],
-            VendorId: UINT,
-            DeviceId: UINT,
-            SubSysId: UINT,
-            Revision: UINT,
-            DedicatedVideoMemory: SIZE_T,
-            DedicatedSystemMemory: SIZE_T,
-            SharedSystemMemory: SIZE_T,
+            Description: [u16; 128],
+            VendorId: u32,
+            DeviceId: u32,
+            SubSysId: u32,
+            Revision: u32,
+            DedicatedVideoMemory: usize,
+            DedicatedSystemMemory: usize,
+            SharedSystemMemory: usize,
             AdapterLuid: LUID,
-            Flags: UINT,
+            Flags: u32,
         }
         #[repr(i32)]
         enum DXGI_ADAPTER_FLAG {
@@ -35,27 +35,22 @@ mod Windows {
             DXGI_ADAPTER_FLAG_SOFTWARE = 2,
             DXGI_ADAPTER_FLAG_FORCE_DWORD = -1,
         }
-        const DXGI_CPU_ACCESS_DYNAMIC: i32 = 1;
-        const DXGI_CPU_ACCESS_FIELD: i32 = 15;
-        const DXGI_CPU_ACCESS_NONE: i32 = 0;
-        const DXGI_CPU_ACCESS_READ_WRITE: i32 = 2;
-        const DXGI_CPU_ACCESS_SCRATCH: i32 = 3;
         struct DXGI_DISPLAY_COLOR_SPACE {
-            PrimaryCoordinates: [[FLOAT; 2]; 8],
-            WhitePoints: [[FLOAT; 2]; 16],
+            PrimaryCoordinates: [[f32; 2]; 8],
+            WhitePoints: [[f32; 2]; 16],
         }
         const DXGI_ENUM_MODES_INTERLACED: u32 = 1;
         const DXGI_ENUM_MODES_SCALING: u32 = 2;
         struct DXGI_FRAME_STATISTICS {
-            PresentCount: UINT,
-            PresentRefreshCount: UINT,
-            SyncRefreshCount: UINT,
+            PresentCount: u32,
+            PresentRefreshCount: u32,
+            SyncRefreshCount: u32,
             SyncQPCTime: LARGE_INTEGER,
             SyncGPUTime: LARGE_INTEGER,
         }
         struct DXGI_MAPPED_RECT {
-            Pitch: INT,
-            pBits: *mut BYTE,
+            Pitch: i32,
+            pBits: *mut u8,
         }
         const DXGI_MAP_DISCARD: u32 = 4;
         const DXGI_MAP_READ: u32 = 1;
@@ -66,7 +61,7 @@ mod Windows {
         const DXGI_MWA_NO_WINDOW_CHANGES: i32 = 1;
         const DXGI_MWA_VALID: i32 = 7;
         struct DXGI_OUTPUT_DESC {
-            DeviceName: [WCHAR; 32],
+            DeviceName: [u16; 32],
             DesktopCoordinates: RECT,
             AttachedToDesktop: BOOL,
             Rotation: DXGI_MODE_ROTATION,
@@ -96,8 +91,8 @@ mod Windows {
             Handle: HANDLE,
         }
         struct DXGI_SURFACE_DESC {
-            Width: UINT,
-            Height: UINT,
+            Width: u32,
+            Height: u32,
             Format: DXGI_FORMAT,
             SampleDesc: DXGI_SAMPLE_DESC,
         }
@@ -105,11 +100,11 @@ mod Windows {
             BufferDesc: DXGI_MODE_DESC,
             SampleDesc: DXGI_SAMPLE_DESC,
             BufferUsage: DXGI_USAGE,
-            BufferCount: UINT,
+            BufferCount: u32,
             OutputWindow: HWND,
             Windowed: BOOL,
             SwapEffect: DXGI_SWAP_EFFECT,
-            Flags: UINT,
+            Flags: u32,
         }
         #[repr(i32)]
         enum DXGI_SWAP_CHAIN_FLAG {
@@ -145,115 +140,101 @@ mod Windows {
         const DXGI_USAGE_UNORDERED_ACCESS: u32 = 1024;
         #[guid(0x2411e7e1_12ac_4ccf_bd14_9798e8534dc0)]
         interface IDXGIAdapter: IDXGIObject {
-            fn EnumOutputs(&self, Output: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppOutput: *mut IDXGIOutput) -> HRESULT;
-            fn GetDesc(&self, #[out] pDesc: *mut DXGI_ADAPTER_DESC) -> HRESULT;
-            fn CheckInterfaceSupport(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceName: &GUID, #[out] pUMDVersion: *mut LARGE_INTEGER) -> HRESULT;
+            fn EnumOutputs(&self, Output: u32, #[in] #[out] ppOutput: *mut IDXGIOutput) -> HRESULT;
+            fn GetDesc(&self, pDesc: *mut DXGI_ADAPTER_DESC) -> HRESULT;
+            fn CheckInterfaceSupport(&self, InterfaceName: *const GUID, pUMDVersion: *mut LARGE_INTEGER) -> HRESULT;
         }
         #[guid(0x29038f61_3839_4626_91fd_086879011a05)]
         interface IDXGIAdapter1: IDXGIAdapter {
-            fn GetDesc1(&self, #[out] pDesc: *mut DXGI_ADAPTER_DESC1) -> HRESULT;
+            fn GetDesc1(&self, pDesc: *mut DXGI_ADAPTER_DESC1) -> HRESULT;
         }
         #[guid(0x54ec77fa_1377_44e6_8c32_88fd5f44c84c)]
         interface IDXGIDevice: IDXGIObject {
-            fn GetAdapter(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] pAdapter: *mut IDXGIAdapter) -> HRESULT;
-            fn CreateSurface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const DXGI_SURFACE_DESC, NumSurfaces: UINT, Usage: DXGI_USAGE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSharedResource: *const DXGI_SHARED_RESOURCE, #[out] #[len_param(1)] ppSurface: *mut IDXGISurface) -> HRESULT;
-            fn QueryResourceResidency(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] ppResources: *const IUnknown, #[out] #[len_param(2)] pResidencyStatus: *mut DXGI_RESIDENCY, NumResources: UINT) -> HRESULT;
-            fn SetGPUThreadPriority(&self, Priority: INT) -> HRESULT;
-            fn GetGPUThreadPriority(&self, #[out] #[retval] pPriority: *mut INT) -> HRESULT;
+            fn GetAdapter(&self, pAdapter: *mut IDXGIAdapter) -> HRESULT;
+            fn CreateSurface(&self, pDesc: *const DXGI_SURFACE_DESC, NumSurfaces: u32, Usage: DXGI_USAGE, #[opt] pSharedResource: *const DXGI_SHARED_RESOURCE, #[len_param(1)] ppSurface: *mut IDXGISurface) -> HRESULT;
+            fn QueryResourceResidency(&self, #[len_param(2)] ppResources: *const IUnknown, #[len_param(2)] pResidencyStatus: *mut DXGI_RESIDENCY, NumResources: u32) -> HRESULT;
+            fn SetGPUThreadPriority(&self, Priority: i32) -> HRESULT;
+            fn GetGPUThreadPriority(&self, #[retval] pPriority: *mut i32) -> HRESULT;
         }
         #[guid(0x77db970f_6276_48ba_ba28_070143b4392c)]
         interface IDXGIDevice1: IDXGIDevice {
-            fn SetMaximumFrameLatency(&self, MaxLatency: UINT) -> HRESULT;
-            fn GetMaximumFrameLatency(&self, #[out] pMaxLatency: *mut UINT) -> HRESULT;
+            fn SetMaximumFrameLatency(&self, MaxLatency: u32) -> HRESULT;
+            fn GetMaximumFrameLatency(&self, pMaxLatency: *mut u32) -> HRESULT;
         }
         #[guid(0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6)]
         interface IDXGIDeviceSubObject: IDXGIObject {
-            fn GetDevice(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppDevice: *mut *mut void) -> HRESULT;
+            fn GetDevice(&self, riid: *const GUID, #[iid_is] #[retval] ppDevice: *mut *mut void) -> HRESULT;
         }
         #[guid(0x7b7166ec_21c7_44ae_b21a_c9ae321ae369)]
         interface IDXGIFactory: IDXGIObject {
-            fn EnumAdapters(&self, Adapter: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppAdapter: *mut IDXGIAdapter) -> HRESULT;
-            fn MakeWindowAssociation(&self, WindowHandle: HWND, Flags: UINT) -> HRESULT;
-            fn GetWindowAssociation(&self, #[out] pWindowHandle: *mut HWND) -> HRESULT;
-            fn CreateSwapChain(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDevice: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *mut DXGI_SWAP_CHAIN_DESC, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppSwapChain: *mut IDXGISwapChain) -> HRESULT;
-            fn CreateSoftwareAdapter(&self, Module: HMODULE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppAdapter: *mut IDXGIAdapter) -> HRESULT;
+            fn EnumAdapters(&self, Adapter: u32, ppAdapter: *mut IDXGIAdapter) -> HRESULT;
+            fn MakeWindowAssociation(&self, WindowHandle: HWND, Flags: u32) -> HRESULT;
+            fn GetWindowAssociation(&self, pWindowHandle: *mut HWND) -> HRESULT;
+            fn CreateSwapChain(&self, pDevice: IUnknown, #[in] pDesc: *mut DXGI_SWAP_CHAIN_DESC, ppSwapChain: *mut IDXGISwapChain) -> HRESULT;
+            fn CreateSoftwareAdapter(&self, Module: HMODULE, ppAdapter: *mut IDXGIAdapter) -> HRESULT;
         }
         #[guid(0x770aae78_f26f_4dba_a829_253c83d1b387)]
         interface IDXGIFactory1: IDXGIFactory {
-            fn EnumAdapters1(&self, Adapter: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppAdapter: *mut IDXGIAdapter1) -> HRESULT;
+            fn EnumAdapters1(&self, Adapter: u32, ppAdapter: *mut IDXGIAdapter1) -> HRESULT;
             fn IsCurrent(&self) -> BOOL;
         }
         #[guid(0x9d8e1289_d7b3_465f_8126_250e349af85d)]
         interface IDXGIKeyedMutex: IDXGIDeviceSubObject {
-            fn AcquireSync(&self, Key: UINT64, dwMilliseconds: DWORD) -> HRESULT;
-            fn ReleaseSync(&self, Key: UINT64) -> HRESULT;
+            fn AcquireSync(&self, Key: u64, dwMilliseconds: u32) -> HRESULT;
+            fn ReleaseSync(&self, Key: u64) -> HRESULT;
         }
         #[guid(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e)]
         interface IDXGIObject: IUnknown {
-            fn SetPrivateData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: &GUID, DataSize: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pData: *const void) -> HRESULT;
-            fn SetPrivateDataInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: &GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnknown: IUnknown) -> HRESULT;
-            fn GetPrivateData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: &GUID, #[in] #[out] pDataSize: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*pDataSize", "*pDataSize")] #[out] pData: *mut void) -> HRESULT;
-            fn GetParent(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppParent: *mut *mut void) -> HRESULT;
+            fn SetPrivateData(&self, Name: *const GUID, DataSize: u32, #[size_param(1)] pData: *const void) -> HRESULT;
+            fn SetPrivateDataInterface(&self, Name: *const GUID, #[opt] pUnknown: IUnknown) -> HRESULT;
+            fn GetPrivateData(&self, Name: *const GUID, #[in] #[out] pDataSize: *mut u32, #[size_param(1)] pData: *mut void) -> HRESULT;
+            fn GetParent(&self, riid: *const GUID, #[iid_is] #[retval] ppParent: *mut *mut void) -> HRESULT;
         }
         #[guid(0xae02eedb_c735_4690_8d52_5a8dc20213aa)]
         interface IDXGIOutput: IDXGIObject {
-            fn GetDesc(&self, #[out] pDesc: *mut DXGI_OUTPUT_DESC) -> HRESULT;
-            fn GetDisplayModeList(&self, EnumFormat: DXGI_FORMAT, Flags: UINT, #[in] #[out] pNumModes: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*pNumModes,*pNumModes", "*pNumModes,*pNumModes")] #[out] #[opt] pDesc: *mut DXGI_MODE_DESC) -> HRESULT;
-            fn FindClosestMatchingMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pModeToMatch: *const DXGI_MODE_DESC, #[out] pClosestMatch: *mut DXGI_MODE_DESC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pConcernedDevice: IUnknown) -> HRESULT;
+            fn GetDesc(&self, pDesc: *mut DXGI_OUTPUT_DESC) -> HRESULT;
+            fn GetDisplayModeList(&self, EnumFormat: DXGI_FORMAT, Flags: u32, #[in] #[out] pNumModes: *mut u32, #[len_param(2)] #[opt] pDesc: *mut DXGI_MODE_DESC) -> HRESULT;
+            fn FindClosestMatchingMode(&self, pModeToMatch: *const DXGI_MODE_DESC, pClosestMatch: *mut DXGI_MODE_DESC, #[opt] pConcernedDevice: IUnknown) -> HRESULT;
             fn WaitForVBlank(&self) -> HRESULT;
-            fn TakeOwnership(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDevice: IUnknown, Exclusive: BOOL) -> HRESULT;
+            fn TakeOwnership(&self, pDevice: IUnknown, Exclusive: BOOL) -> HRESULT;
             fn ReleaseOwnership(&self);
-            fn GetGammaControlCapabilities(&self, #[out] pGammaCaps: *mut DXGI_GAMMA_CONTROL_CAPABILITIES) -> HRESULT;
-            fn SetGammaControl(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pArray: *const DXGI_GAMMA_CONTROL) -> HRESULT;
-            fn GetGammaControl(&self, #[out] pArray: *mut DXGI_GAMMA_CONTROL) -> HRESULT;
-            fn SetDisplaySurface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pScanoutSurface: IDXGISurface) -> HRESULT;
-            fn GetDisplaySurfaceData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDestination: IDXGISurface) -> HRESULT;
-            fn GetFrameStatistics(&self, #[out] pStats: *mut DXGI_FRAME_STATISTICS) -> HRESULT;
+            fn GetGammaControlCapabilities(&self, pGammaCaps: *mut DXGI_GAMMA_CONTROL_CAPABILITIES) -> HRESULT;
+            fn SetGammaControl(&self, pArray: *const DXGI_GAMMA_CONTROL) -> HRESULT;
+            fn GetGammaControl(&self, pArray: *mut DXGI_GAMMA_CONTROL) -> HRESULT;
+            fn SetDisplaySurface(&self, pScanoutSurface: IDXGISurface) -> HRESULT;
+            fn GetDisplaySurfaceData(&self, pDestination: IDXGISurface) -> HRESULT;
+            fn GetFrameStatistics(&self, pStats: *mut DXGI_FRAME_STATISTICS) -> HRESULT;
         }
         #[guid(0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b)]
         interface IDXGIResource: IDXGIDeviceSubObject {
-            fn GetSharedHandle(&self, #[out] pSharedHandle: *mut HANDLE) -> HRESULT;
+            fn GetSharedHandle(&self, pSharedHandle: *mut HANDLE) -> HRESULT;
             fn GetUsage(&self, pUsage: *mut DXGI_USAGE) -> HRESULT;
-            fn SetEvictionPriority(&self, EvictionPriority: UINT) -> HRESULT;
-            fn GetEvictionPriority(&self, #[out] #[retval] pEvictionPriority: *mut UINT) -> HRESULT;
+            fn SetEvictionPriority(&self, EvictionPriority: u32) -> HRESULT;
+            fn GetEvictionPriority(&self, #[retval] pEvictionPriority: *mut u32) -> HRESULT;
         }
         #[guid(0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec)]
         interface IDXGISurface: IDXGIDeviceSubObject {
-            fn GetDesc(&self, #[out] pDesc: *mut DXGI_SURFACE_DESC) -> HRESULT;
-            fn Map(&self, #[out] pLockedRect: *mut DXGI_MAPPED_RECT, MapFlags: UINT) -> HRESULT;
+            fn GetDesc(&self, pDesc: *mut DXGI_SURFACE_DESC) -> HRESULT;
+            fn Map(&self, pLockedRect: *mut DXGI_MAPPED_RECT, MapFlags: u32) -> HRESULT;
             fn Unmap(&self) -> HRESULT;
         }
         #[guid(0x4ae63092_6327_4c1b_80ae_bfe12ea32b86)]
         interface IDXGISurface1: IDXGISurface {
-            fn GetDC(&self, Discard: BOOL, #[out] phdc: *mut HDC) -> HRESULT;
-            fn ReleaseDC(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDirtyRect: *mut RECT) -> HRESULT;
+            fn GetDC(&self, Discard: BOOL, phdc: *mut HDC) -> HRESULT;
+            fn ReleaseDC(&self, #[in] #[opt] pDirtyRect: *mut RECT) -> HRESULT;
         }
         #[guid(0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a)]
         interface IDXGISwapChain: IDXGIDeviceSubObject {
-            fn Present(&self, SyncInterval: UINT, Flags: UINT) -> HRESULT;
-            fn GetBuffer(&self, Buffer: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppSurface: *mut *mut void) -> HRESULT;
-            fn SetFullscreenState(&self, Fullscreen: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTarget: IDXGIOutput) -> HRESULT;
-            fn GetFullscreenState(&self, #[out] #[opt] pFullscreen: *mut BOOL, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = true)] ppTarget: *mut IDXGIOutput) -> HRESULT;
-            fn GetDesc(&self, #[out] pDesc: *mut DXGI_SWAP_CHAIN_DESC) -> HRESULT;
-            fn ResizeBuffers(&self, BufferCount: UINT, Width: UINT, Height: UINT, NewFormat: DXGI_FORMAT, SwapChainFlags: UINT) -> HRESULT;
-            fn ResizeTarget(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pNewTargetParameters: *const DXGI_MODE_DESC) -> HRESULT;
-            fn GetContainingOutput(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppOutput: *mut IDXGIOutput) -> HRESULT;
-            fn GetFrameStatistics(&self, #[out] pStats: *mut DXGI_FRAME_STATISTICS) -> HRESULT;
-            fn GetLastPresentCount(&self, #[out] pLastPresentCount: *mut UINT) -> HRESULT;
+            fn Present(&self, SyncInterval: u32, Flags: u32) -> HRESULT;
+            fn GetBuffer(&self, Buffer: u32, riid: *const GUID, #[iid_is] #[in] #[out] ppSurface: *mut *mut void) -> HRESULT;
+            fn SetFullscreenState(&self, Fullscreen: BOOL, #[opt] pTarget: IDXGIOutput) -> HRESULT;
+            fn GetFullscreenState(&self, #[opt] pFullscreen: *mut BOOL, #[opt] ppTarget: *mut IDXGIOutput) -> HRESULT;
+            fn GetDesc(&self, pDesc: *mut DXGI_SWAP_CHAIN_DESC) -> HRESULT;
+            fn ResizeBuffers(&self, BufferCount: u32, Width: u32, Height: u32, NewFormat: DXGI_FORMAT, SwapChainFlags: u32) -> HRESULT;
+            fn ResizeTarget(&self, pNewTargetParameters: *const DXGI_MODE_DESC) -> HRESULT;
+            fn GetContainingOutput(&self, ppOutput: *mut IDXGIOutput) -> HRESULT;
+            fn GetFrameStatistics(&self, pStats: *mut DXGI_FRAME_STATISTICS) -> HRESULT;
+            fn GetLastPresentCount(&self, pLastPresentCount: *mut u32) -> HRESULT;
         }
-        const IID_IDXGIAdapter: GUID = 0x2411e7e1_12ac_4ccf_bd14_9798e8534dc0;
-        const IID_IDXGIAdapter1: GUID = 0x29038f61_3839_4626_91fd_086879011a05;
-        const IID_IDXGIDevice: GUID = 0x54ec77fa_1377_44e6_8c32_88fd5f44c84c;
-        const IID_IDXGIDevice1: GUID = 0x77db970f_6276_48ba_ba28_070143b4392c;
-        const IID_IDXGIDeviceSubObject: GUID = 0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6;
-        const IID_IDXGIFactory: GUID = 0x7b7166ec_21c7_44ae_b21a_c9ae321ae369;
-        const IID_IDXGIFactory1: GUID = 0x770aae78_f26f_4dba_a829_253c83d1b387;
-        const IID_IDXGIKeyedMutex: GUID = 0x9d8e1289_d7b3_465f_8126_250e349af85d;
-        const IID_IDXGIObject: GUID = 0xaec22fb8_76f3_4639_9be0_28eb43a67a2e;
-        const IID_IDXGIOutput: GUID = 0xae02eedb_c735_4690_8d52_5a8dc20213aa;
-        const IID_IDXGIResource: GUID = 0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b;
-        const IID_IDXGISurface: GUID = 0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec;
-        const IID_IDXGISurface1: GUID = 0x4ae63092_6327_4c1b_80ae_bfe12ea32b86;
-        const IID_IDXGISwapChain: GUID = 0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a;
     }
 }

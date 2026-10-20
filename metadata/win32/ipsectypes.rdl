@@ -2,48 +2,48 @@
 mod Windows {
     mod Win32 {
         struct IPSEC_ADDRESS_INFO0 {
-            numV4Addresses: UINT32,
-            v4Addresses: *mut UINT32,
-            numV6Addresses: UINT32,
+            numV4Addresses: u32,
+            v4Addresses: *mut u32,
+            numV6Addresses: u32,
             v6Addresses: *mut FWP_BYTE_ARRAY16,
         }
         struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
-            invalidSpisOnInbound: UINT32,
-            decryptionFailuresOnInbound: UINT32,
-            authenticationFailuresOnInbound: UINT32,
-            udpEspValidationFailuresOnInbound: UINT32,
-            replayCheckFailuresOnInbound: UINT32,
-            invalidClearTextInbound: UINT32,
-            saNotInitializedOnInbound: UINT32,
-            receiveOverIncorrectSaInbound: UINT32,
-            secureReceivesNotMatchingFilters: UINT32,
+            invalidSpisOnInbound: u32,
+            decryptionFailuresOnInbound: u32,
+            authenticationFailuresOnInbound: u32,
+            udpEspValidationFailuresOnInbound: u32,
+            replayCheckFailuresOnInbound: u32,
+            invalidClearTextInbound: u32,
+            saNotInitializedOnInbound: u32,
+            receiveOverIncorrectSaInbound: u32,
+            secureReceivesNotMatchingFilters: u32,
         }
         struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
-            invalidSpisOnInbound: UINT32,
-            decryptionFailuresOnInbound: UINT32,
-            authenticationFailuresOnInbound: UINT32,
-            udpEspValidationFailuresOnInbound: UINT32,
-            replayCheckFailuresOnInbound: UINT32,
-            invalidClearTextInbound: UINT32,
-            saNotInitializedOnInbound: UINT32,
-            receiveOverIncorrectSaInbound: UINT32,
-            secureReceivesNotMatchingFilters: UINT32,
-            totalDropPacketsInbound: UINT32,
+            invalidSpisOnInbound: u32,
+            decryptionFailuresOnInbound: u32,
+            authenticationFailuresOnInbound: u32,
+            udpEspValidationFailuresOnInbound: u32,
+            replayCheckFailuresOnInbound: u32,
+            invalidClearTextInbound: u32,
+            saNotInitializedOnInbound: u32,
+            receiveOverIncorrectSaInbound: u32,
+            secureReceivesNotMatchingFilters: u32,
+            totalDropPacketsInbound: u32,
         }
         struct IPSEC_AGGREGATE_SA_STATISTICS0 {
-            activeSas: UINT32,
-            pendingSaNegotiations: UINT32,
-            totalSasAdded: UINT32,
-            totalSasDeleted: UINT32,
-            successfulRekeys: UINT32,
-            activeTunnels: UINT32,
-            offloadedSas: UINT32,
+            activeSas: u32,
+            pendingSaNegotiations: u32,
+            totalSasAdded: u32,
+            totalSasDeleted: u32,
+            successfulRekeys: u32,
+            activeTunnels: u32,
+            offloadedSas: u32,
         }
         struct IPSEC_AH_DROP_PACKET_STATISTICS0 {
-            invalidSpisOnInbound: UINT32,
-            authenticationFailuresOnInbound: UINT32,
-            replayCheckFailuresOnInbound: UINT32,
-            saNotInitializedOnInbound: UINT32,
+            invalidSpisOnInbound: u32,
+            authenticationFailuresOnInbound: u32,
+            replayCheckFailuresOnInbound: u32,
+            saNotInitializedOnInbound: u32,
         }
         struct IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
             authTransform: IPSEC_AUTH_TRANSFORM0,
@@ -111,67 +111,67 @@ mod Windows {
         const IPSEC_DOSP_FLAG_FILTER_BLOCK: i32 = 16;
         const IPSEC_DOSP_FLAG_FILTER_EXEMPT: i32 = 32;
         struct IPSEC_DOSP_OPTIONS0 {
-            stateIdleTimeoutSeconds: UINT32,
-            perIPRateLimitQueueIdleTimeoutSeconds: UINT32,
-            ipV6IPsecUnauthDscp: UINT8,
-            ipV6IPsecUnauthRateLimitBytesPerSec: UINT32,
-            ipV6IPsecUnauthPerIPRateLimitBytesPerSec: UINT32,
-            ipV6IPsecAuthDscp: UINT8,
-            ipV6IPsecAuthRateLimitBytesPerSec: UINT32,
-            icmpV6Dscp: UINT8,
-            icmpV6RateLimitBytesPerSec: UINT32,
-            ipV6FilterExemptDscp: UINT8,
-            ipV6FilterExemptRateLimitBytesPerSec: UINT32,
-            defBlockExemptDscp: UINT8,
-            defBlockExemptRateLimitBytesPerSec: UINT32,
-            maxStateEntries: UINT32,
-            maxPerIPRateLimitQueues: UINT32,
-            flags: UINT32,
-            numPublicIFLuids: UINT32,
-            publicIFLuids: *mut UINT64,
-            numInternalIFLuids: UINT32,
-            internalIFLuids: *mut UINT64,
+            stateIdleTimeoutSeconds: u32,
+            perIPRateLimitQueueIdleTimeoutSeconds: u32,
+            ipV6IPsecUnauthDscp: u8,
+            ipV6IPsecUnauthRateLimitBytesPerSec: u32,
+            ipV6IPsecUnauthPerIPRateLimitBytesPerSec: u32,
+            ipV6IPsecAuthDscp: u8,
+            ipV6IPsecAuthRateLimitBytesPerSec: u32,
+            icmpV6Dscp: u8,
+            icmpV6RateLimitBytesPerSec: u32,
+            ipV6FilterExemptDscp: u8,
+            ipV6FilterExemptRateLimitBytesPerSec: u32,
+            defBlockExemptDscp: u8,
+            defBlockExemptRateLimitBytesPerSec: u32,
+            maxStateEntries: u32,
+            maxPerIPRateLimitQueues: u32,
+            flags: u32,
+            numPublicIFLuids: u32,
+            publicIFLuids: *mut u64,
+            numInternalIFLuids: u32,
+            internalIFLuids: *mut u64,
             publicV6AddrMask: FWP_V6_ADDR_AND_MASK,
             internalV6AddrMask: FWP_V6_ADDR_AND_MASK,
         }
         const IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE: i32 = 0;
         struct IPSEC_DOSP_STATE0 {
-            publicHostV6Addr: [UINT8; 16],
-            internalHostV6Addr: [UINT8; 16],
-            totalInboundIPv6IPsecAuthPackets: UINT64,
-            totalOutboundIPv6IPsecAuthPackets: UINT64,
-            durationSecs: UINT32,
+            publicHostV6Addr: [u8; 16],
+            internalHostV6Addr: [u8; 16],
+            totalInboundIPv6IPsecAuthPackets: u64,
+            totalOutboundIPv6IPsecAuthPackets: u64,
+            durationSecs: u32,
         }
         struct IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
             publicV6AddrMask: FWP_V6_ADDR_AND_MASK,
             internalV6AddrMask: FWP_V6_ADDR_AND_MASK,
         }
         struct IPSEC_DOSP_STATISTICS0 {
-            totalStateEntriesCreated: UINT64,
-            currentStateEntries: UINT64,
-            totalInboundAllowedIPv6IPsecUnauthPkts: UINT64,
-            totalInboundRatelimitDiscardedIPv6IPsecUnauthPkts: UINT64,
-            totalInboundPerIPRatelimitDiscardedIPv6IPsecUnauthPkts: UINT64,
-            totalInboundOtherDiscardedIPv6IPsecUnauthPkts: UINT64,
-            totalInboundAllowedIPv6IPsecAuthPkts: UINT64,
-            totalInboundRatelimitDiscardedIPv6IPsecAuthPkts: UINT64,
-            totalInboundOtherDiscardedIPv6IPsecAuthPkts: UINT64,
-            totalInboundAllowedICMPv6Pkts: UINT64,
-            totalInboundRatelimitDiscardedICMPv6Pkts: UINT64,
-            totalInboundAllowedIPv6FilterExemptPkts: UINT64,
-            totalInboundRatelimitDiscardedIPv6FilterExemptPkts: UINT64,
-            totalInboundDiscardedIPv6FilterBlockPkts: UINT64,
-            totalInboundAllowedDefBlockExemptPkts: UINT64,
-            totalInboundRatelimitDiscardedDefBlockExemptPkts: UINT64,
-            totalInboundDiscardedDefBlockPkts: UINT64,
-            currentInboundIPv6IPsecUnauthPerIPRateLimitQueues: UINT64,
+            totalStateEntriesCreated: u64,
+            currentStateEntries: u64,
+            totalInboundAllowedIPv6IPsecUnauthPkts: u64,
+            totalInboundRatelimitDiscardedIPv6IPsecUnauthPkts: u64,
+            totalInboundPerIPRatelimitDiscardedIPv6IPsecUnauthPkts: u64,
+            totalInboundOtherDiscardedIPv6IPsecUnauthPkts: u64,
+            totalInboundAllowedIPv6IPsecAuthPkts: u64,
+            totalInboundRatelimitDiscardedIPv6IPsecAuthPkts: u64,
+            totalInboundOtherDiscardedIPv6IPsecAuthPkts: u64,
+            totalInboundAllowedICMPv6Pkts: u64,
+            totalInboundRatelimitDiscardedICMPv6Pkts: u64,
+            totalInboundAllowedIPv6FilterExemptPkts: u64,
+            totalInboundRatelimitDiscardedIPv6FilterExemptPkts: u64,
+            totalInboundDiscardedIPv6FilterBlockPkts: u64,
+            totalInboundAllowedDefBlockExemptPkts: u64,
+            totalInboundRatelimitDiscardedDefBlockExemptPkts: u64,
+            totalInboundDiscardedDefBlockPkts: u64,
+            currentInboundIPv6IPsecUnauthPerIPRateLimitQueues: u64,
         }
         struct IPSEC_ESP_DROP_PACKET_STATISTICS0 {
-            invalidSpisOnInbound: UINT32,
-            decryptionFailuresOnInbound: UINT32,
-            authenticationFailuresOnInbound: UINT32,
-            replayCheckFailuresOnInbound: UINT32,
-            saNotInitializedOnInbound: UINT32,
+            invalidSpisOnInbound: u32,
+            decryptionFailuresOnInbound: u32,
+            authenticationFailuresOnInbound: u32,
+            replayCheckFailuresOnInbound: u32,
+            saNotInitializedOnInbound: u32,
         }
         #[repr(i32)]
         enum IPSEC_FAILURE_POINT {
@@ -199,19 +199,19 @@ mod Windows {
         struct IPSEC_ID0 {
             mmTargetName: *mut u16,
             emTargetName: *mut u16,
-            numTokens: UINT32,
+            numTokens: u32,
             tokens: *mut IPSEC_TOKEN0,
-            explicitCredentials: UINT64,
-            logonId: UINT64,
+            explicitCredentials: u64,
+            logonId: u64,
         }
         struct IPSEC_KEYING_POLICY0 {
-            numKeyMods: UINT32,
+            numKeyMods: u32,
             keyModKeys: *mut GUID,
         }
         struct IPSEC_KEYING_POLICY1 {
-            numKeyMods: UINT32,
+            numKeyMods: u32,
             keyModKeys: *mut GUID,
-            flags: UINT32,
+            flags: u32,
         }
         const IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH: i32 = 1;
         struct IPSEC_KEYMODULE_STATE0 {
@@ -221,8 +221,8 @@ mod Windows {
         struct IPSEC_KEY_MANAGER0 {
             keyManagerKey: GUID,
             displayData: FWPM_DISPLAY_DATA0,
-            flags: UINT32,
-            keyDictationTimeoutHint: UINT8,
+            flags: u32,
+            keyDictationTimeoutHint: u8,
         }
         const IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY: i32 = 1;
         #[repr(i32)]
@@ -261,7 +261,7 @@ mod Windows {
         const IPSEC_POLICY_FLAG_TUNNEL_BYPASS_ICMPV6: i32 = 4096;
         struct IPSEC_PROPOSAL0 {
             lifetime: IPSEC_SA_LIFETIME0,
-            numSaTransforms: UINT32,
+            numSaTransforms: u32,
             saTransforms: *mut IPSEC_SA_TRANSFORM0,
             pfsGroup: IPSEC_PFS_GROUP,
         }
@@ -285,42 +285,42 @@ mod Windows {
             authKey: FWP_BYTE_BLOB,
         }
         struct IPSEC_SA_BUNDLE0 {
-            flags: UINT32,
+            flags: u32,
             lifetime: IPSEC_SA_LIFETIME0,
-            idleTimeoutSeconds: UINT32,
-            ndAllowClearTimeoutSeconds: UINT32,
+            idleTimeoutSeconds: u32,
+            ndAllowClearTimeoutSeconds: u32,
             ipsecId: *mut IPSEC_ID0,
-            napContext: UINT32,
-            qmSaId: UINT32,
-            numSAs: UINT32,
+            napContext: u32,
+            qmSaId: u32,
+            numSAs: u32,
             saList: *mut IPSEC_SA0,
             keyModuleState: *mut IPSEC_KEYMODULE_STATE0,
             ipVersion: FWP_IP_VERSION,
             Anonymous: union {
-                peerV4PrivateAddress: UINT32,
+                peerV4PrivateAddress: u32,
             },
-            mmSaId: UINT64,
+            mmSaId: u64,
             pfsGroup: IPSEC_PFS_GROUP,
         }
         struct IPSEC_SA_BUNDLE1 {
-            flags: UINT32,
+            flags: u32,
             lifetime: IPSEC_SA_LIFETIME0,
-            idleTimeoutSeconds: UINT32,
-            ndAllowClearTimeoutSeconds: UINT32,
+            idleTimeoutSeconds: u32,
+            ndAllowClearTimeoutSeconds: u32,
             ipsecId: *mut IPSEC_ID0,
-            napContext: UINT32,
-            qmSaId: UINT32,
-            numSAs: UINT32,
+            napContext: u32,
+            qmSaId: u32,
+            numSAs: u32,
             saList: *mut IPSEC_SA0,
             keyModuleState: *mut IPSEC_KEYMODULE_STATE0,
             ipVersion: FWP_IP_VERSION,
             Anonymous: union {
-                peerV4PrivateAddress: UINT32,
+                peerV4PrivateAddress: u32,
             },
-            mmSaId: UINT64,
+            mmSaId: u64,
             pfsGroup: IPSEC_PFS_GROUP,
             saLookupContext: GUID,
-            qmFilterId: UINT64,
+            qmFilterId: u64,
         }
         const IPSEC_SA_BUNDLE_FLAG_ALLOW_NULL_TARGET_NAME_MATCH: i32 = 512;
         const IPSEC_SA_BUNDLE_FLAG_ASSUME_UDP_CONTEXT_OUTBOUND: i32 = 2048;
@@ -354,18 +354,18 @@ mod Windows {
             cipherKey: FWP_BYTE_BLOB,
         }
         struct IPSEC_SA_CONTEXT0 {
-            saContextId: UINT64,
+            saContextId: u64,
             inboundSa: *mut IPSEC_SA_DETAILS0,
             outboundSa: *mut IPSEC_SA_DETAILS0,
         }
         struct IPSEC_SA_CONTEXT1 {
-            saContextId: UINT64,
+            saContextId: u64,
             inboundSa: *mut IPSEC_SA_DETAILS1,
             outboundSa: *mut IPSEC_SA_DETAILS1,
         }
         struct IPSEC_SA_CONTEXT_CHANGE0 {
             changeType: IPSEC_SA_CONTEXT_EVENT_TYPE0,
-            saContextId: UINT64,
+            saContextId: u64,
         }
         struct IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
             localSubNet: FWP_CONDITION_VALUE0,
@@ -379,7 +379,7 @@ mod Windows {
         }
         struct IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
             enumTemplate: *mut IPSEC_SA_CONTEXT_ENUM_TEMPLATE0,
-            flags: UINT32,
+            flags: u32,
             sessionKey: GUID,
         }
         struct IPSEC_SA_DETAILS0 {
@@ -407,13 +407,13 @@ mod Windows {
             saDirection: FWP_DIRECTION,
         }
         struct IPSEC_SA_IDLE_TIMEOUT0 {
-            idleTimeoutSeconds: UINT32,
-            idleTimeoutSecondsFailOver: UINT32,
+            idleTimeoutSeconds: u32,
+            idleTimeoutSecondsFailOver: u32,
         }
         struct IPSEC_SA_LIFETIME0 {
-            lifetimeSeconds: UINT32,
-            lifetimeKilobytes: UINT32,
-            lifetimePackets: UINT32,
+            lifetimeSeconds: u32,
+            lifetimeKilobytes: u32,
+            lifetimePackets: u32,
         }
         type IPSEC_SA_SPI = u32;
         struct IPSEC_SA_TRANSFORM0 {
@@ -470,78 +470,78 @@ mod Windows {
         struct IPSEC_TRAFFIC0 {
             ipVersion: FWP_IP_VERSION,
             Anonymous: union {
-                localV4Address: UINT32,
-                localV6Address: [UINT8; 16],
+                localV4Address: u32,
+                localV6Address: [u8; 16],
             },
             Anonymous2: union {
-                remoteV4Address: UINT32,
-                remoteV6Address: [UINT8; 16],
+                remoteV4Address: u32,
+                remoteV6Address: [u8; 16],
             },
             trafficType: IPSEC_TRAFFIC_TYPE,
             Anonymous3: union {
-                ipsecFilterId: UINT64,
-                tunnelPolicyId: UINT64,
+                ipsecFilterId: u64,
+                tunnelPolicyId: u64,
             },
-            remotePort: UINT16,
+            remotePort: u16,
         }
         struct IPSEC_TRAFFIC1 {
             ipVersion: FWP_IP_VERSION,
             Anonymous: union {
-                localV4Address: UINT32,
-                localV6Address: [UINT8; 16],
+                localV4Address: u32,
+                localV6Address: [u8; 16],
             },
             Anonymous2: union {
-                remoteV4Address: UINT32,
-                remoteV6Address: [UINT8; 16],
+                remoteV4Address: u32,
+                remoteV6Address: [u8; 16],
             },
             trafficType: IPSEC_TRAFFIC_TYPE,
             Anonymous3: union {
-                ipsecFilterId: UINT64,
-                tunnelPolicyId: UINT64,
+                ipsecFilterId: u64,
+                tunnelPolicyId: u64,
             },
-            remotePort: UINT16,
-            localPort: UINT16,
-            ipProtocol: UINT8,
-            localIfLuid: UINT64,
-            realIfProfileId: UINT32,
+            remotePort: u16,
+            localPort: u16,
+            ipProtocol: u8,
+            localIfLuid: u64,
+            realIfProfileId: u32,
         }
         struct IPSEC_TRAFFIC_SELECTOR0 {
-            protocolId: UINT8,
-            portStart: UINT16,
-            portEnd: UINT16,
+            protocolId: u8,
+            portStart: u16,
+            portEnd: u16,
             ipVersion: FWP_IP_VERSION,
             Anonymous: union {
-                startV4Address: UINT32,
-                startV6Address: [UINT8; 16],
+                startV4Address: u32,
+                startV6Address: [u8; 16],
             },
             Anonymous2: union {
-                endV4Address: UINT32,
-                endV6Address: [UINT8; 16],
+                endV4Address: u32,
+                endV6Address: [u8; 16],
             },
         }
         struct IPSEC_TRAFFIC_SELECTOR_POLICY0 {
-            flags: UINT32,
-            numLocalTrafficSelectors: UINT32,
+            flags: u32,
+            numLocalTrafficSelectors: u32,
             localTrafficSelectors: *mut IPSEC_TRAFFIC_SELECTOR0,
-            numRemoteTrafficSelectors: UINT32,
+            numRemoteTrafficSelectors: u32,
             remoteTrafficSelectors: *mut IPSEC_TRAFFIC_SELECTOR0,
         }
         struct IPSEC_TRAFFIC_STATISTICS0 {
-            encryptedByteCount: UINT64,
-            authenticatedAHByteCount: UINT64,
-            authenticatedESPByteCount: UINT64,
-            transportByteCount: UINT64,
-            tunnelByteCount: UINT64,
-            offloadByteCount: UINT64,
+            encryptedByteCount: u64,
+            authenticatedAHByteCount: u64,
+            authenticatedESPByteCount: u64,
+            transportByteCount: u64,
+            tunnelByteCount: u64,
+            offloadByteCount: u64,
         }
         struct IPSEC_TRAFFIC_STATISTICS1 {
-            encryptedByteCount: UINT64,
-            authenticatedAHByteCount: UINT64,
-            authenticatedESPByteCount: UINT64,
-            transportByteCount: UINT64,
-            tunnelByteCount: UINT64,
-            offloadByteCount: UINT64,
-            totalSuccessfulPackets: UINT64,
+            encryptedByteCount: u64,
+            authenticatedAHByteCount: u64,
+            authenticatedESPByteCount: u64,
+            transportByteCount: u64,
+            tunnelByteCount: u64,
+            offloadByteCount: u64,
+            totalSuccessfulPackets: u64,
         }
         #[repr(i32)]
         enum IPSEC_TRAFFIC_TYPE {
@@ -559,114 +559,114 @@ mod Windows {
             IPSEC_TRANSFORM_TYPE_MAX = 6,
         }
         struct IPSEC_TRANSPORT_POLICY0 {
-            numIpsecProposals: UINT32,
+            numIpsecProposals: u32,
             ipsecProposals: *mut IPSEC_PROPOSAL0,
-            flags: UINT32,
-            ndAllowClearTimeoutSeconds: UINT32,
+            flags: u32,
+            ndAllowClearTimeoutSeconds: u32,
             saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
             emPolicy: *mut IKEEXT_EM_POLICY0,
         }
         struct IPSEC_TRANSPORT_POLICY1 {
-            numIpsecProposals: UINT32,
+            numIpsecProposals: u32,
             ipsecProposals: *mut IPSEC_PROPOSAL0,
-            flags: UINT32,
-            ndAllowClearTimeoutSeconds: UINT32,
+            flags: u32,
+            ndAllowClearTimeoutSeconds: u32,
             saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
             emPolicy: *mut IKEEXT_EM_POLICY1,
         }
         struct IPSEC_TRANSPORT_POLICY2 {
-            numIpsecProposals: UINT32,
+            numIpsecProposals: u32,
             ipsecProposals: *mut IPSEC_PROPOSAL0,
-            flags: UINT32,
-            ndAllowClearTimeoutSeconds: UINT32,
+            flags: u32,
+            ndAllowClearTimeoutSeconds: u32,
             saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
             emPolicy: *mut IKEEXT_EM_POLICY2,
         }
         struct IPSEC_TUNNEL_ENDPOINT0 {
             ipVersion: FWP_IP_VERSION,
             Anonymous: union {
-                v4Address: UINT32,
-                v6Address: [UINT8; 16],
+                v4Address: u32,
+                v6Address: [u8; 16],
             },
         }
         struct IPSEC_TUNNEL_ENDPOINTS0 {
             ipVersion: FWP_IP_VERSION,
             Anonymous: union {
-                localV4Address: UINT32,
-                localV6Address: [UINT8; 16],
+                localV4Address: u32,
+                localV6Address: [u8; 16],
             },
             Anonymous2: union {
-                remoteV4Address: UINT32,
-                remoteV6Address: [UINT8; 16],
+                remoteV4Address: u32,
+                remoteV6Address: [u8; 16],
             },
         }
         struct IPSEC_TUNNEL_ENDPOINTS1 {
             ipVersion: FWP_IP_VERSION,
             Anonymous: union {
-                localV4Address: UINT32,
-                localV6Address: [UINT8; 16],
+                localV4Address: u32,
+                localV6Address: [u8; 16],
             },
             Anonymous2: union {
-                remoteV4Address: UINT32,
-                remoteV6Address: [UINT8; 16],
+                remoteV4Address: u32,
+                remoteV6Address: [u8; 16],
             },
-            localIfLuid: UINT64,
+            localIfLuid: u64,
         }
         struct IPSEC_TUNNEL_ENDPOINTS2 {
             ipVersion: FWP_IP_VERSION,
             Anonymous: union {
-                localV4Address: UINT32,
-                localV6Address: [UINT8; 16],
+                localV4Address: u32,
+                localV6Address: [u8; 16],
             },
             Anonymous2: union {
-                remoteV4Address: UINT32,
-                remoteV6Address: [UINT8; 16],
+                remoteV4Address: u32,
+                remoteV6Address: [u8; 16],
             },
-            localIfLuid: UINT64,
+            localIfLuid: u64,
             remoteFqdn: *mut u16,
-            numAddresses: UINT32,
+            numAddresses: u32,
             remoteAddresses: *mut IPSEC_TUNNEL_ENDPOINT0,
         }
         struct IPSEC_TUNNEL_POLICY0 {
-            flags: UINT32,
-            numIpsecProposals: UINT32,
+            flags: u32,
+            numIpsecProposals: u32,
             ipsecProposals: *mut IPSEC_PROPOSAL0,
             tunnelEndpoints: IPSEC_TUNNEL_ENDPOINTS0,
             saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
             emPolicy: *mut IKEEXT_EM_POLICY0,
         }
         struct IPSEC_TUNNEL_POLICY1 {
-            flags: UINT32,
-            numIpsecProposals: UINT32,
+            flags: u32,
+            numIpsecProposals: u32,
             ipsecProposals: *mut IPSEC_PROPOSAL0,
             tunnelEndpoints: IPSEC_TUNNEL_ENDPOINTS1,
             saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
             emPolicy: *mut IKEEXT_EM_POLICY1,
         }
         struct IPSEC_TUNNEL_POLICY2 {
-            flags: UINT32,
-            numIpsecProposals: UINT32,
+            flags: u32,
+            numIpsecProposals: u32,
             ipsecProposals: *mut IPSEC_PROPOSAL0,
             tunnelEndpoints: IPSEC_TUNNEL_ENDPOINTS2,
             saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
             emPolicy: *mut IKEEXT_EM_POLICY2,
-            fwdPathSaLifetime: UINT32,
+            fwdPathSaLifetime: u32,
         }
         struct IPSEC_TUNNEL_POLICY3 {
-            flags: UINT32,
-            numIpsecProposals: UINT32,
+            flags: u32,
+            numIpsecProposals: u32,
             ipsecProposals: *mut IPSEC_PROPOSAL0,
             tunnelEndpoints: IPSEC_TUNNEL_ENDPOINTS2,
             saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
             emPolicy: *mut IKEEXT_EM_POLICY2,
-            fwdPathSaLifetime: UINT32,
-            compartmentId: UINT32,
-            numTrafficSelectorPolicy: UINT32,
+            fwdPathSaLifetime: u32,
+            compartmentId: u32,
+            numTrafficSelectorPolicy: u32,
             trafficSelectorPolicies: *mut IPSEC_TRAFFIC_SELECTOR_POLICY0,
         }
         struct IPSEC_V4_UDP_ENCAPSULATION0 {
-            localUdpEncapPort: UINT16,
-            remoteUdpEncapPort: UINT16,
+            localUdpEncapPort: u16,
+            remoteUdpEncapPort: u16,
         }
     }
 }

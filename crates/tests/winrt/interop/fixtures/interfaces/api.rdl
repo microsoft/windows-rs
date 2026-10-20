@@ -1,0 +1,29 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Interfaces {
+    // A non-default interface of `Widget`, the default interface of `Square`, and implemented by
+    // the clients.
+    interface IShape {
+        fn Area(&self) -> i32;
+    }
+
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+        IShape,
+    }
+
+    // A class whose default interface is not exclusive to it, so a `Square` is an `IShape`
+    // without a cast.
+    #[Activatable(1)]
+    class Square {
+        IShape,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // Returns `shape`, so clients get back the object they passed.
+        fn Echo(&self, shape: IShape) -> IShape;
+    }
+}

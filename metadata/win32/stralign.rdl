@@ -1,14 +1,32 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[arch(X64 | Arm64)]
+        type PUWSTR_C = *const u16;
         const _STRALIGN_USE_SECURE_CRT: i32 = 1;
-        #[library("USER32.dll", import = "CharUpperA")]
-        extern fn ua_CharUpper(#[in] #[out] lpsz: LPSTR) -> LPSTR;
-        #[library("KERNEL32.dll", import = "lstrcmpA")]
-        extern fn ua_lstrcmp(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString2: LPCSTR) -> i32;
-        #[library("KERNEL32.dll", import = "lstrcmpiA")]
-        extern fn ua_lstrcmpi(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString2: LPCSTR) -> i32;
-        #[library("KERNEL32.dll", import = "lstrlenA")]
-        extern fn ua_lstrlen(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString: LPCSTR) -> i32;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn uaw_lstrcmpW(String1: PCUWSTR, String2: PCUWSTR) -> i32;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn uaw_lstrcmpiW(String1: PCUWSTR, String2: PCUWSTR) -> i32;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn uaw_lstrlenW(String: LPCUWSTR) -> i32;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern "C" fn uaw_wcschr(String: PCUWSTR, Character: u16) -> PUWSTR;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern "C" fn uaw_wcscpy(#[out] Destination: PUWSTR, Source: PCUWSTR) -> PUWSTR;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern "C" fn uaw_wcsicmp(String1: PCUWSTR, String2: PCUWSTR) -> i32;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern "C" fn uaw_wcslen(String: PCUWSTR) -> usize;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern "C" fn uaw_wcsrchr(String: PCUWSTR, Character: u16) -> PUWSTR;
     }
 }

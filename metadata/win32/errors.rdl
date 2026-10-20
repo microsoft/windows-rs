@@ -1,15 +1,13 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        extern fn AMGETERRORTEXTPROC(param0: HRESULT, param1: *mut i8, param2: DWORD) -> BOOL;
-        extern fn AMGETERRORTEXTPROCA(param0: HRESULT, param1: *mut i8, param2: DWORD) -> BOOL;
-        extern fn AMGETERRORTEXTPROCW(param0: HRESULT, param1: *mut WCHAR, param2: DWORD) -> BOOL;
-        #[library("QUARTZ.dll", import = "AMGetErrorTextA")]
-        extern fn AMGetErrorText(hr: HRESULT, #[out] #[len_param(2)] pbuffer: LPSTR, MaxLen: DWORD) -> DWORD;
+        type AMGETERRORTEXTPROC = AMGETERRORTEXTPROCA;
+        extern fn AMGETERRORTEXTPROCA(param0: HRESULT, param1: *mut i8, param2: u32) -> BOOL;
+        extern fn AMGETERRORTEXTPROCW(param0: HRESULT, param1: *mut u16, param2: u32) -> BOOL;
         #[library("QUARTZ.dll")]
-        extern fn AMGetErrorTextA(hr: HRESULT, #[out] #[len_param(2)] pbuffer: LPSTR, MaxLen: DWORD) -> DWORD;
+        extern fn AMGetErrorTextA(hr: HRESULT, #[len_param(2)] #[out] pbuffer: PSTR, MaxLen: u32) -> u32;
         #[library("QUARTZ.dll")]
-        extern fn AMGetErrorTextW(hr: HRESULT, #[out] #[len_param(2)] pbuffer: LPWSTR, MaxLen: DWORD) -> DWORD;
+        extern fn AMGetErrorTextW(hr: HRESULT, #[len_param(2)] #[out] pbuffer: PWSTR, MaxLen: u32) -> u32;
         const MAX_ERROR_TEXT_LEN: i32 = 160;
         const VFW_FIRST_CODE: i32 = 512;
     }

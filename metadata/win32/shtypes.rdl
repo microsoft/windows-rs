@@ -2,8 +2,8 @@
 mod Windows {
     mod Win32 {
         struct COMDLG_FILTERSPEC {
-            pszName: LPCWSTR,
-            pszSpec: LPCWSTR,
+            pszName: PCWSTR,
+            pszSpec: PCWSTR,
         }
         #[repr(i32)]
         enum DEVICE_SCALE_FACTOR {
@@ -27,16 +27,16 @@ mod Windows {
         }
         type ELEMENTID = GUID;
         type FOLDERTYPEID = GUID;
-        #[packed(1)]
         struct ITEMIDLIST {
             mkid: SHITEMID,
         }
         type ITEMIDLIST_ABSOLUTE = ITEMIDLIST;
         type ITEMIDLIST_RELATIVE = ITEMIDLIST;
         type ITEMID_CHILD = ITEMIDLIST;
+        type KF_REDIRECT_FLAGS = u32;
         type KNOWNFOLDERID = GUID;
         type LPCITEMIDLIST = *const ITEMIDLIST;
-        type LPCSHCOLUMNID = *const PROPERTYKEY;
+        type LPCSHCOLUMNID = *const SHCOLUMNID;
         type LPCSHITEMID = *const SHITEMID;
         type LPITEMIDLIST = *mut ITEMIDLIST;
         type LPSHELLDETAILS = *mut SHELLDETAILS;
@@ -102,15 +102,14 @@ mod Windows {
         }
         #[packed(1)]
         struct SHITEMID {
-            cb: USHORT,
-            abID: [BYTE; 1],
+            cb: u16,
+            abID: [u8; 1],
         }
-        #[packed(8)]
         struct STRRET {
-            uType: UINT,
-            Anonymous: #[packed(8)] union {
-                pOleStr: LPWSTR,
-                uOffset: UINT,
+            uType: u32,
+            Anonymous: union {
+                pOleStr: PWSTR,
+                uOffset: u32,
                 cStr: [i8; 260],
             },
         }
@@ -121,7 +120,6 @@ mod Windows {
             STRRET_CSTR = 2,
         }
         type TASKOWNERID = GUID;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wirePIDL = *mut BYTE_BLOB;
     }
 }

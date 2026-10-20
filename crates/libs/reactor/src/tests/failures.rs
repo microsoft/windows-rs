@@ -151,7 +151,7 @@ fn adapter_apply_failure_poisons_the_runtime() {
 #[test]
 fn graph_transaction_drop_rolls_back_during_unwind() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(TextBox::new("Before")).unwrap();
+    runtime.update(TextBox::new().text("Before")).unwrap();
     let root = runtime.graph().root().unwrap();
     let mut graph = runtime.graph().clone();
     let before = graph.clone();
@@ -167,13 +167,13 @@ fn graph_transaction_drop_rolls_back_during_unwind() {
 #[test]
 fn before_apply_unwind_rolls_back_and_keeps_runtime_usable() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(TextBox::new("Before")).unwrap();
+    runtime.update(TextBox::new().text("Before")).unwrap();
     let root = runtime.graph().root().unwrap();
     let before = runtime.graph().clone();
 
     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
         runtime
-            .update_subtree_before_apply(root, TextBox::new("Changed"), || {
+            .update_subtree_before_apply(root, TextBox::new().text("Changed"), || {
                 panic!("test before_apply unwind");
             })
             .unwrap();
@@ -181,7 +181,9 @@ fn before_apply_unwind_rolls_back_and_keeps_runtime_usable() {
 
     assert!(result.is_err());
     assert_eq!(runtime.graph(), &before);
-    runtime.update_subtree(root, TextBox::new("After")).unwrap();
+    runtime
+        .update_subtree(root, TextBox::new().text("After"))
+        .unwrap();
 }
 
 #[derive(Default)]
@@ -230,13 +232,13 @@ fn adapter_validation_unwind_rolls_back_and_poisons_runtime() {
     });
 
     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-        runtime.update(TextBox::new("Text")).unwrap();
+        runtime.update(TextBox::new().text("Text")).unwrap();
     }));
 
     assert!(result.is_err());
     assert_eq!(runtime.graph().root(), None);
     assert_eq!(
-        runtime.update(TextBox::new("Text")),
+        runtime.update(TextBox::new().text("Text")),
         Err(UpdateError::Poisoned)
     );
 }
@@ -249,13 +251,13 @@ fn adapter_application_unwind_rolls_back_and_poisons_runtime() {
     });
 
     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-        runtime.update(TextBox::new("Text")).unwrap();
+        runtime.update(TextBox::new().text("Text")).unwrap();
     }));
 
     assert!(result.is_err());
     assert_eq!(runtime.graph().root(), None);
     assert_eq!(
-        runtime.update(TextBox::new("Text")),
+        runtime.update(TextBox::new().text("Text")),
         Err(UpdateError::Poisoned)
     );
 }
@@ -485,6 +487,237 @@ fn adapter_unwinds_clear_all_retained_references() {
     }
 }
 
+fn assert_adapter_unwind(result: std::thread::Result<()>, validation: bool) {
+    let panic = result.unwrap_err();
+    let message = panic
+        .downcast_ref::<&str>()
+        .copied()
+        .or_else(|| panic.downcast_ref::<String>().map(String::as_str));
+    assert_eq!(
+        message,
+        Some(if validation {
+            "test adapter validation unwind"
+        } else {
+            "test adapter application unwind"
+        })
+    );
+}
+
+#[test]
+fn subtree_adapter_unwinds_clear_detached_and_retained_references() {
+    for replace in [false, true] {
+        for validation in [true, false] {
+            let nested: ElementRef = ElementRef::default();
+            let row: ElementRef = ElementRef::default();
+            let outside: ElementRef = ElementRef::default();
+            let replacement: ElementRef = ElementRef::default();
+            let mut runtime = Runtime::new(PanicAdapter::default());
+            runtime
+                .update(Grid::new().keyed_children([
+                    keyed(
+                        "target",
+                        referenced_failure_subtree(Some(("nested", &nested)), &row),
+                    ),
+                    keyed("outside", Button::new().element_ref(&outside)),
+                ]))
+                .unwrap();
+            let root = runtime.graph().root().unwrap();
+            let target = runtime
+                .graph()
+                .children(root, RelationId::Children)
+                .unwrap()[0];
+            let collection = runtime
+                .graph()
+                .children(target, RelationId::Children)
+                .unwrap()[1];
+            runtime
+                .adapter_mut()
+                .inner
+                .queue_realization(RealizationRequest::Realize {
+                    collection,
+                    container: RealizedContainer(1),
+                    index: 0,
+                    source_revision: 0,
+                });
+            runtime.dispatch_native_events().unwrap();
+            assert!(nested.get().is_some());
+            assert!(row.get().is_some());
+            assert!(outside.get().is_some());
+            let view = if replace {
+                Grid::new().keyed_children([keyed(
+                    "replacement",
+                    Button::new().element_ref(&replacement),
+                )])
+            } else {
+                referenced_failure_subtree(Some(("nested", &nested)), &row).width(1.0)
+            };
+            runtime.adapter_mut().panic_validate = validation;
+            runtime.adapter_mut().panic_apply = !validation;
+            let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                runtime.update_subtree(target, view).unwrap();
+            }));
+            assert_adapter_unwind(result, validation);
+            assert_eq!(nested.get(), None);
+            assert_eq!(row.get(), None);
+            assert_eq!(outside.get(), None);
+            assert_eq!(replacement.get(), None);
+            assert_eq!(runtime.graph().root(), Some(root));
+            assert_eq!(runtime.prepare_update(), Err(UpdateError::Poisoned));
+        }
+    }
+}
+
+#[test]
+fn adapter_unwind_preserves_unpublished_reference_from_another_runtime() {
+    for validation in [true, false] {
+        let outside: ElementRef = ElementRef::default();
+        let original: ElementRef = ElementRef::default();
+        let mut other = Runtime::new(RecordingAdapter::new());
+        other.update(Button::new().element_ref(&outside)).unwrap();
+        let mut runtime = Runtime::new(PanicAdapter::default());
+        runtime
+            .update(Button::new().element_ref(&original))
+            .unwrap();
+        let object = original.get().unwrap();
+        assert_eq!(outside.get(), Some(object));
+        runtime.adapter_mut().panic_validate = validation;
+        runtime.adapter_mut().panic_apply = !validation;
+        let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            runtime
+                .update(Button::new().element_ref(&outside).width(1.0))
+                .unwrap();
+        }));
+        assert_adapter_unwind(result, validation);
+        assert_eq!(original.get(), None);
+        assert_eq!(outside.get(), Some(object));
+        assert_eq!(other.focus(&outside), Ok(true));
+        assert_eq!(runtime.prepare_update(), Err(UpdateError::Poisoned));
+    }
+}
+
+#[test]
+fn adapter_errors_preserve_unpublished_reference_from_another_runtime() {
+    for validation in [true, false] {
+        let outside: ElementRef = ElementRef::default();
+        let original: ElementRef = ElementRef::default();
+        let mut other = Runtime::new(RecordingAdapter::new());
+        other.update(Button::new().element_ref(&outside)).unwrap();
+        let mut runtime = Runtime::new(ControlledFailureAdapter::default());
+        runtime
+            .update(Button::new().element_ref(&original))
+            .unwrap();
+        let object = original.get().unwrap();
+        assert_eq!(outside.get(), Some(object));
+        runtime.adapter_mut().fail_validate = validation;
+        runtime.adapter_mut().fail_apply = !validation;
+        assert!(matches!(
+            runtime.update(Button::new().element_ref(&outside).width(1.0)),
+            Err(UpdateError::Adapter(()))
+        ));
+        assert_eq!(original.get(), None);
+        assert_eq!(outside.get(), Some(object));
+        assert_eq!(other.focus(&outside), Ok(true));
+        assert_eq!(runtime.prepare_update(), Err(UpdateError::Poisoned));
+    }
+}
+
+#[test]
+fn virtual_adapter_unwinds_clear_all_published_references() {
+    for operation in ["realize", "recycle", "cancel"] {
+        for validation in [true, false] {
+            let outside: ElementRef = ElementRef::default();
+            let row: ElementRef = ElementRef::default();
+            let mut runtime = Runtime::new(PanicAdapter::default());
+            runtime
+                .update(referenced_virtual_view(&outside, &row))
+                .unwrap();
+            let root = runtime.graph().root().unwrap();
+            let collection = runtime
+                .graph()
+                .children(root, RelationId::Children)
+                .unwrap()[1];
+            runtime
+                .adapter_mut()
+                .inner
+                .queue_realization(RealizationRequest::Realize {
+                    collection,
+                    container: RealizedContainer(1),
+                    index: 0,
+                    source_revision: 0,
+                });
+            runtime.dispatch_native_events().unwrap();
+            assert!(outside.get().is_some());
+            assert!(row.get().is_some());
+            let request = match operation {
+                "realize" => RealizationRequest::Realize {
+                    collection,
+                    container: RealizedContainer(2),
+                    index: 0,
+                    source_revision: 0,
+                },
+                "recycle" => RealizationRequest::Recycle {
+                    collection,
+                    container: RealizedContainer(1),
+                    source_revision: 0,
+                },
+                "cancel" => RealizationRequest::Cancel {
+                    collection,
+                    container: RealizedContainer(2),
+                    source_revision: 0,
+                },
+                _ => unreachable!(),
+            };
+            runtime.adapter_mut().inner.queue_realization(request);
+            runtime.adapter_mut().panic_validate = validation;
+            runtime.adapter_mut().panic_apply = !validation;
+            let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                runtime.dispatch_native_events().unwrap();
+            }));
+            assert_adapter_unwind(result, validation);
+            assert_eq!(outside.get(), None);
+            assert_eq!(row.get(), None);
+            assert_eq!(runtime.prepare_update(), Err(UpdateError::Poisoned));
+        }
+    }
+}
+
+#[test]
+fn retirement_adapter_unwinds_clear_remaining_references() {
+    for validation in [true, false] {
+        let outside: ElementRef = ElementRef::default();
+        let mut runtime = Runtime::new(PanicAdapter::default());
+        runtime
+            .update(Grid::new().keyed_children([
+                keyed(
+                    "retiring",
+                    Button::new().exit_fade(Duration::from_millis(100)),
+                ),
+                keyed("outside", Button::new().element_ref(&outside)),
+            ]))
+            .unwrap();
+        let root = runtime.graph().root().unwrap();
+        let retiring = runtime
+            .graph()
+            .children(root, RelationId::Children)
+            .unwrap()[0];
+        runtime
+            .update(
+                Grid::new().keyed_children([keyed("outside", Button::new().element_ref(&outside))]),
+            )
+            .unwrap();
+        assert!(outside.get().is_some());
+        assert!(runtime.adapter_mut().inner.complete_retirement(retiring));
+        runtime.adapter_mut().panic_validate = validation;
+        runtime.adapter_mut().panic_apply = !validation;
+        let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            runtime.dispatch_native_events().unwrap();
+        }));
+        assert_adapter_unwind(result, validation);
+        assert_eq!(outside.get(), None);
+        assert_eq!(runtime.prepare_update(), Err(UpdateError::Poisoned));
+    }
+}
+
 #[derive(Default)]
 struct CompletionFailAdapter {
     inner: RecordingAdapter,
@@ -524,19 +757,26 @@ impl Adapter for CompletionFailAdapter {
 
 #[test]
 fn retirement_completion_errors_poison_the_runtime() {
+    let outside: ElementRef = ElementRef::default();
     let mut runtime = Runtime::new(CompletionFailAdapter::default());
     runtime
-        .update(Grid::new().keyed_children([keyed(
-            "retiring",
-            Button::new().exit_fade(Duration::from_millis(100)),
-        )]))
+        .update(Grid::new().keyed_children([
+            keyed(
+                "retiring",
+                Button::new().exit_fade(Duration::from_millis(100)),
+            ),
+            keyed("outside", Button::new().element_ref(&outside)),
+        ]))
         .unwrap();
     let root = runtime.graph().root().unwrap();
     let retiring = runtime
         .graph()
         .children(root, RelationId::Children)
         .unwrap()[0];
-    runtime.update(Grid::new()).unwrap();
+    runtime
+        .update(Grid::new().keyed_children([keyed("outside", Button::new().element_ref(&outside))]))
+        .unwrap();
+    assert!(outside.get().is_some());
     runtime.adapter_mut().fail_completion = true;
     assert!(runtime.adapter_mut().inner.complete_retirement(retiring));
 
@@ -544,5 +784,6 @@ fn retirement_completion_errors_poison_the_runtime() {
         runtime.dispatch_native_events(),
         Err(UpdateError::Adapter(()))
     );
+    assert_eq!(outside.get(), None);
     assert_eq!(runtime.update(Grid::new()), Err(UpdateError::Poisoned));
 }

@@ -85,6 +85,23 @@ name = "AutomationHeadingLevel"
 owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
 native = "HeadingLevel"
 
+[[attached_properties]]
+name = "AutomationHelpText"
+owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
+native = "HelpText"
+default = ""
+
+[[attached_properties]]
+name = "AutomationFullDescription"
+owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
+native = "FullDescription"
+default = ""
+
+[[attached_properties]]
+name = "AutomationLiveSetting"
+owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
+native = "LiveSetting"
+
 [[visual_properties]]
 name = "Width"
 owner = "Microsoft.UI.Xaml.FrameworkElement"
@@ -147,6 +164,17 @@ name = "FontWeight"
 value = "FontWeight"
 
 [[objects.properties]]
+name = "FontFamily"
+adapter = "font_family"
+
+[[objects.properties]]
+name = "CharacterSpacing"
+
+[[objects.properties]]
+name = "LineHeight"
+validation = "finite_non_negative"
+
+[[objects.properties]]
 name = "Foreground"
 adapter = "theme_brush"
 
@@ -168,6 +196,9 @@ name = "TextTrimming"
 name = "MaxLines"
 validation = "non_negative"
 
+[[objects.properties]]
+name = "TextAlignment"
+
 [[objects]]
 name = "TextBox"
 enabled = true
@@ -178,13 +209,18 @@ handwritten = true
 name = "Text"
 controlled = "TextChanged"
 feedback = "exact"
-required = true
 
 [[objects.properties]]
 name = "PlaceholderText"
 
 [[objects.properties]]
 name = "AcceptsReturn"
+
+[[objects.properties]]
+name = "IsReadOnly"
+
+[[objects.properties]]
+name = "TextAlignment"
 
 [[objects.properties]]
 name = "TextWrapping"
@@ -319,6 +355,15 @@ name = "ScaleTransition"
 adapter = "implicit_scale_transition"
 
 [[objects.properties]]
+name = "Translation"
+adapter = "implicit_translation"
+validation = "finite"
+
+[[objects.properties]]
+name = "TranslationTransition"
+adapter = "implicit_translation_transition"
+
+[[objects.properties]]
 name = "CapturePointerOnPress"
 adapter = "pointer_capture"
 
@@ -402,6 +447,7 @@ name = "DragLeave"
 [[objects.events]]
 name = "Drop"
 adapter = "dropped_data"
+active_properties = ["drop_policy"]
 
 [[objects]]
 name = "Grid"
@@ -813,6 +859,13 @@ name = "Value"
 adapter = "number_box_value"
 controlled = "ValueChanged"
 feedback = "normalized"
+
+[[objects.properties]]
+name = "SmallChange"
+validation = "finite"
+
+[[objects.properties]]
+name = "SpinButtonPlacementMode"
 
 [[objects.relations]]
 name = "Header"
@@ -1292,6 +1345,14 @@ name = "FontIcon"
 [[objects.properties]]
 name = "Glyph"
 
+[[objects.properties]]
+name = "FontSize"
+validation = "finite_positive"
+
+[[objects.properties]]
+name = "Foreground"
+adapter = "theme_brush"
+
 [[objects]]
 name = "BitmapIcon"
 
@@ -1725,6 +1786,20 @@ name = "CalendarDatePicker"
 enabled = true
 
 [[objects.properties]]
+name = "MinDate"
+adapter = "datetime"
+
+[[objects.properties]]
+name = "MaxDate"
+adapter = "datetime"
+
+[[objects.properties]]
+name = "Date"
+adapter = "optional_datetime"
+controlled = "DateChanged"
+feedback = "normalized"
+
+[[objects.properties]]
 name = "PlaceholderText"
 
 [[objects.properties]]
@@ -1741,6 +1816,7 @@ name = "Header"
 
 [[objects.events]]
 name = "DateChanged"
+observes = "Date"
 payload = "NewDate"
 payload_adapter = "optional_datetime"
 
@@ -1778,6 +1854,9 @@ name = "IsSecondaryButtonEnabled"
 [[objects.properties]]
 name = "Title"
 adapter = "inspectable_string"
+
+[[objects.properties]]
+name = "DefaultButton"
 
 [[objects.relations]]
 name = "Content"

@@ -86,7 +86,8 @@ impl Component for FunctionComponentSample {
                 View::component::<Greeting>(GreetingInput {
                     name: self.name.clone(),
                 }),
-                TextBox::new(self.name.clone())
+                TextBox::new()
+                    .text(self.name.clone())
                     .placeholder_text("Type a name...")
                     .on_text_changed(context.forward())
                     .header("Your name"),

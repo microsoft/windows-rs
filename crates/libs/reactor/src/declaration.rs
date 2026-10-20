@@ -72,6 +72,7 @@ pub struct ImageSource(ImageSourceValue);
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum ImageSourceValue {
     Encoded(EncodedImage),
+    Svg(EncodedImage),
     Uri(Rc<str>),
 }
 
@@ -88,6 +89,10 @@ impl ImageSource {
 
     pub fn encoded(value: EncodedImage) -> Self {
         Self(ImageSourceValue::Encoded(value))
+    }
+
+    pub fn svg(value: EncodedImage) -> Self {
+        Self(ImageSourceValue::Svg(value))
     }
 
     pub(crate) fn value(&self) -> &ImageSourceValue {
@@ -143,6 +148,10 @@ impl Icon {
 
     pub fn image_data(data: EncodedImage) -> Self {
         Self::image(ImageSource::encoded(data))
+    }
+
+    pub fn image_svg(data: EncodedImage) -> Self {
+        Self::image(ImageSource::svg(data))
     }
 
     pub fn path(data: impl Into<Rc<str>>) -> Self {
@@ -1095,6 +1104,7 @@ pub enum PropertyValue {
     ButtonStyle(ButtonStyle),
     Color(Color),
     CornerRadius(CornerRadius),
+    DateTime(DateTime),
     Duration(Duration),
     DragDropPolicy(Rc<DragDropPolicy>),
     F64(f64),
@@ -1106,12 +1116,14 @@ pub enum PropertyValue {
     KeyAccelerators(KeyAccelerators),
     OptionalF64(Option<f64>),
     OptionalBool(Option<bool>),
+    OptionalDateTime(Option<DateTime>),
     ResourceOverrides(ResourceOverrides),
     RichText(RichText),
     SelectionIndex(Option<usize>),
     StringList(Rc<[Rc<str>]>),
     ThemeTransitions(Rc<[ThemeTransition]>),
     Thickness(Thickness),
+    Vector2([f64; 2]),
     Enum {
         kind: &'static str,
         variant: &'static str,

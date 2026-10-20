@@ -1,8 +1,8 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        extern fn LPTIMECALLBACK(uTimerID: UINT, uMsg: UINT, dwUser: DWORD_PTR, dw1: DWORD_PTR, dw2: DWORD_PTR);
-        extern fn TIMECALLBACK(uTimerID: UINT, uMsg: UINT, dwUser: DWORD_PTR, dw1: DWORD_PTR, dw2: DWORD_PTR);
+        extern fn LPTIMECALLBACK(uTimerID: u32, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
+        extern fn TIMECALLBACK(uTimerID: u32, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
         const TIME_CALLBACK_EVENT_PULSE: i32 = 32;
         const TIME_CALLBACK_EVENT_SET: i32 = 16;
         const TIME_CALLBACK_FUNCTION: i32 = 0;
@@ -10,8 +10,8 @@ mod Windows {
         const TIME_ONESHOT: i32 = 0;
         const TIME_PERIODIC: i32 = 1;
         #[library("WINMM.dll")]
-        extern fn timeKillEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uTimerID: UINT) -> MMRESULT;
+        extern fn timeKillEvent(uTimerID: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn timeSetEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDelay: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uResolution: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fptc: LPTIMECALLBACK, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUser: DWORD_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuEvent: UINT) -> MMRESULT;
+        extern fn timeSetEvent(uDelay: u32, uResolution: u32, fptc: LPTIMECALLBACK, dwUser: usize, fuEvent: u32) -> MMRESULT;
     }
 }

@@ -137,7 +137,8 @@ impl Component for OrderedText {
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
         input.rendered.replace(self.text.clone());
-        TextBox::new(self.text.clone())
+        TextBox::new()
+            .text(self.text.clone())
             .on_text_changed(self.callback.clone())
             .into()
     }
@@ -432,6 +433,76 @@ fn injected_services_preserve_task_and_timer_statuses() {
         ComponentTaskStatus::Delivered
     );
     assert!(!input.timer.lock().unwrap().as_ref().unwrap().is_rejected());
+}
+
+#[test]
+fn dropping_host_cancels_work_and_releases_component_ownership() {
+    let services = Arc::new(TestServices::default());
+    let input = ServiceProbeInput::default();
+    let cleanup = Arc::new(AtomicUsize::new(0));
+    let context = Rc::new(Context::new(0));
+    let weak_context = Rc::downgrade(&context);
+    let mut host = ComponentHost::mount_with_services(
+        RecordingAdapter::default(),
+        services.clone(),
+        [
+            component::<ServiceProbe>("probe", input.clone()),
+            component::<Counter>(
+                "counter",
+                CounterInput {
+                    cleanup: Arc::clone(&cleanup),
+                    value: 0,
+                },
+            ),
+            component::<ContextReader>(
+                "context",
+                ContextInput {
+                    context: Rc::clone(&context),
+                    renders: Arc::new(AtomicUsize::new(0)),
+                    subscribe: true,
+                },
+            ),
+        ],
+    )
+    .unwrap();
+    let sender = host.sender::<ServiceProbe>(&Key::from("probe")).unwrap();
+    let completion = sender.completion();
+    let reference = host.reference(&Key::from("probe")).unwrap();
+    assert!(reference.get().is_some());
+    assert!(sender.send(ServiceProbeMessage::Background));
+    assert!(sender.send(ServiceProbeMessage::Timer));
+    assert_eq!(host.drain(2).unwrap().dispatched, 2);
+    host.set_context(&context, 1).unwrap();
+    drop(context);
+    let state = host.test_state();
+    assert_eq!(state.tasks, 2);
+    assert_eq!(state.effects, 1);
+    assert_eq!(state.context_consumers, 1);
+    let timer = Arc::clone(&services.timers.lock().unwrap()[0].0);
+    assert!(sender.send(ServiceProbeMessage::TimerComplete));
+
+    drop(host);
+
+    assert_eq!(reference.get(), None);
+    assert_eq!(cleanup.load(Ordering::Relaxed), 1);
+    assert!(weak_context.upgrade().is_none());
+    assert!(timer.cancelled.load(Ordering::Acquire));
+    assert!(!sender.send(ServiceProbeMessage::TimerComplete));
+    assert!(!completion.complete(ServiceProbeMessage::BackgroundComplete));
+    for delivered in [false, true] {
+        if delivered {
+            services.run_background();
+            services.fire_timer();
+        }
+        assert_eq!(
+            input.task.lock().unwrap().as_ref().unwrap().status(),
+            ComponentTaskStatus::Cancelled
+        );
+        assert_eq!(
+            input.timer.lock().unwrap().as_ref().unwrap().status(),
+            ComponentTaskStatus::Cancelled
+        );
+    }
 }
 
 #[test]

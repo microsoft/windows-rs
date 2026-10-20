@@ -11,25 +11,25 @@ mod Windows {
             RO_INIT_SINGLETHREADED = 0,
             RO_INIT_MULTITHREADED = 1,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        type RO_REGISTRATION_COOKIE = *mut _RO_REGISTRATION_COOKIE;
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
-        extern fn RoActivateInstance(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] activatableClassId: HSTRING, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] instance: *mut IInspectable) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn RoActivateInstance(activatableClassId: HSTRING, instance: *mut IInspectable) -> HRESULT;
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
-        extern fn RoGetActivationFactory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] activatableClassId: HSTRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] factory: *mut *mut void) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn RoGetActivationFactory(activatableClassId: HSTRING, iid: *const GUID, #[iid_is] factory: *mut *mut void) -> HRESULT;
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
-        extern fn RoGetApartmentIdentifier(#[out] apartmentIdentifier: *mut UINT64) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn RoGetApartmentIdentifier(apartmentIdentifier: *mut u64) -> HRESULT;
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
-        extern fn RoInitialize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] initType: RO_INIT_TYPE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn RoInitialize(initType: RO_INIT_TYPE) -> HRESULT;
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
-        extern fn RoRegisterForApartmentShutdown(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] callbackObject: IApartmentShutdown, #[out] apartmentIdentifier: *mut UINT64, #[out] regCookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> HRESULT;
+        extern fn RoRegisterActivationFactories(#[len_param(2)] #[in] activatableClassIds: *mut HSTRING, #[len_param(2)] #[in] activationFactoryCallbacks: *mut PFNGETACTIVATIONFACTORY, count: u32, cookie: *mut RO_REGISTRATION_COOKIE) -> HRESULT;
+        #[library("api-ms-win-core-winrt-l1-1-0.dll")]
+        extern fn RoRegisterForApartmentShutdown(callbackObject: IApartmentShutdown, apartmentIdentifier: *mut u64, regCookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> HRESULT;
+        #[library("api-ms-win-core-winrt-l1-1-0.dll")]
+        extern fn RoRevokeActivationFactories(cookie: RO_REGISTRATION_COOKIE);
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
         extern fn RoUninitialize();
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("api-ms-win-core-winrt-l1-1-0.dll")]
-        extern fn RoUnregisterForApartmentShutdown(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] regCookie: APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> HRESULT;
+        extern fn RoUnregisterForApartmentShutdown(regCookie: APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> HRESULT;
+        struct _RO_REGISTRATION_COOKIE {}
     }
 }

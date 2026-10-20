@@ -58,13 +58,13 @@ mod Windows {
         const PIDSI_THUMBNAIL: i32 = 17;
         const PIDSI_TITLE: i32 = 2;
         const PIDSI_WORDCOUNT: i32 = 15;
-        #[packed(8)]
         struct SERIALIZEDPROPERTYVALUE {
-            dwType: DWORD,
-            rgb: [BYTE; 1],
+            dwType: u32,
+            rgb: [u8; 1],
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "1", "1")]
         #[library("ole32.dll")]
-        extern fn StgConvertVariantToProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvar: *const PROPVARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CodePage: USHORT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcb", "*pcb")] #[out] #[opt] pprop: *mut SERIALIZEDPROPERTYVALUE, #[in] #[out] pcb: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pid: PROPID, #[reserved] fReserved: BOOLEAN, #[in] #[out] #[opt] pcIndirect: *mut ULONG) -> *mut SERIALIZEDPROPERTYVALUE;
+        extern fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, CodePage: u16, pvar: *mut PROPVARIANT, #[in] pma: *mut void) -> BOOLEAN;
+        #[library("ole32.dll")]
+        extern fn StgConvertVariantToProperty(pvar: *const PROPVARIANT, CodePage: u16, #[size_param(3)] #[opt] pprop: *mut SERIALIZEDPROPERTYVALUE, #[in] #[out] pcb: *mut u32, pid: PROPID, #[reserved] fReserved: BOOLEAN, #[in] #[out] #[opt] pcIndirect: *mut u32) -> *mut SERIALIZEDPROPERTYVALUE;
     }
 }

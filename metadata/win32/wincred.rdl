@@ -3,80 +3,79 @@ mod Windows {
     mod Win32 {
         const BACK_BUTTON_IDENTIFY_AUTH_PACKAGE: u32 = 3402629121;
         struct BINARY_BLOB_CREDENTIAL_INFO {
-            cbBlob: ULONG,
+            cbBlob: u32,
             pbBlob: LPBYTE,
         }
         struct CERT_CREDENTIAL_INFO {
-            cbSize: ULONG,
-            rgbHashOfCert: [UCHAR; 20],
+            cbSize: u32,
+            rgbHashOfCert: [u8; 20],
         }
         const CERT_HASH_LENGTH: i32 = 20;
         type CREDENTIAL = CREDENTIALA;
         struct CREDENTIALA {
-            Flags: DWORD,
-            Type: DWORD,
-            TargetName: LPSTR,
-            Comment: LPSTR,
+            Flags: u32,
+            Type: u32,
+            TargetName: PSTR,
+            Comment: PSTR,
             LastWritten: FILETIME,
-            CredentialBlobSize: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "CredentialBlobSize", IsByteCount = true, MayBeNull = false)]
+            CredentialBlobSize: u32,
             CredentialBlob: LPBYTE,
-            Persist: DWORD,
-            AttributeCount: DWORD,
+            Persist: u32,
+            AttributeCount: u32,
             Attributes: PCREDENTIAL_ATTRIBUTEA,
-            TargetAlias: LPSTR,
-            UserName: LPSTR,
+            TargetAlias: PSTR,
+            UserName: PSTR,
         }
         struct CREDENTIALW {
-            Flags: DWORD,
-            Type: DWORD,
-            TargetName: LPWSTR,
-            Comment: LPWSTR,
+            Flags: u32,
+            Type: u32,
+            TargetName: PWSTR,
+            Comment: PWSTR,
             LastWritten: FILETIME,
-            CredentialBlobSize: DWORD,
+            CredentialBlobSize: u32,
             CredentialBlob: LPBYTE,
-            Persist: DWORD,
-            AttributeCount: DWORD,
+            Persist: u32,
+            AttributeCount: u32,
             Attributes: PCREDENTIAL_ATTRIBUTEW,
-            TargetAlias: LPWSTR,
-            UserName: LPWSTR,
+            TargetAlias: PWSTR,
+            UserName: PWSTR,
         }
         type CREDENTIAL_ATTRIBUTE = CREDENTIAL_ATTRIBUTEA;
         struct CREDENTIAL_ATTRIBUTEA {
-            Keyword: LPSTR,
-            Flags: DWORD,
-            ValueSize: DWORD,
+            Keyword: PSTR,
+            Flags: u32,
+            ValueSize: u32,
             Value: LPBYTE,
         }
         struct CREDENTIAL_ATTRIBUTEW {
-            Keyword: LPWSTR,
-            Flags: DWORD,
-            ValueSize: DWORD,
+            Keyword: PWSTR,
+            Flags: u32,
+            ValueSize: u32,
             Value: LPBYTE,
         }
         type CREDENTIAL_TARGET_INFORMATION = CREDENTIAL_TARGET_INFORMATIONA;
         struct CREDENTIAL_TARGET_INFORMATIONA {
-            TargetName: LPSTR,
-            NetbiosServerName: LPSTR,
-            DnsServerName: LPSTR,
-            NetbiosDomainName: LPSTR,
-            DnsDomainName: LPSTR,
-            DnsTreeName: LPSTR,
-            PackageName: LPSTR,
-            Flags: ULONG,
-            CredTypeCount: DWORD,
+            TargetName: PSTR,
+            NetbiosServerName: PSTR,
+            DnsServerName: PSTR,
+            NetbiosDomainName: PSTR,
+            DnsDomainName: PSTR,
+            DnsTreeName: PSTR,
+            PackageName: PSTR,
+            Flags: u32,
+            CredTypeCount: u32,
             CredTypes: LPDWORD,
         }
         struct CREDENTIAL_TARGET_INFORMATIONW {
-            TargetName: LPWSTR,
-            NetbiosServerName: LPWSTR,
-            DnsServerName: LPWSTR,
-            NetbiosDomainName: LPWSTR,
-            DnsDomainName: LPWSTR,
-            DnsTreeName: LPWSTR,
-            PackageName: LPWSTR,
-            Flags: ULONG,
-            CredTypeCount: DWORD,
+            TargetName: PWSTR,
+            NetbiosServerName: PWSTR,
+            DnsServerName: PWSTR,
+            NetbiosDomainName: PWSTR,
+            DnsDomainName: PWSTR,
+            DnsTreeName: PWSTR,
+            PackageName: PWSTR,
+            Flags: u32,
+            CredTypeCount: u32,
             CredTypes: LPDWORD,
         }
         const CREDUIWIN_AUTHPACKAGE_ONLY: i32 = 16;
@@ -113,14 +112,14 @@ mod Windows {
         const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: i32 = 212664322;
         type CREDUI_INFO = CREDUI_INFOA;
         struct CREDUI_INFOA {
-            cbSize: DWORD,
+            cbSize: u32,
             hwndParent: HWND,
             pszMessageText: PCSTR,
             pszCaptionText: PCSTR,
             hbmBanner: HBITMAP,
         }
         struct CREDUI_INFOW {
-            cbSize: DWORD,
+            cbSize: u32,
             hwndParent: HWND,
             pszMessageText: PCWSTR,
             pszCaptionText: PCWSTR,
@@ -328,169 +327,123 @@ mod Windows {
         const CRED_UNPROTECT_ALLOW_TO_SYSTEM: i32 = 2;
         const CRED_UNPROTECT_AS_SELF: i32 = 1;
         const CRED_UNPROTECT_VALID_FLAGS: i32 = 3;
-        #[library("ADVAPI32.dll", import = "CredDeleteA")]
-        extern fn CredDelete(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[reserved] Flags: DWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredDeleteA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[reserved] Flags: DWORD) -> BOOL;
+        extern fn CredDeleteA(TargetName: PCSTR, Type: u32, #[reserved] Flags: u32) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredDeleteW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[reserved] Flags: DWORD) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredEnumerateA")]
-        extern fn CredEnumerate(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Filter: LPCSTR, #[reserved] Flags: DWORD, #[out] Count: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*Count", "*Count")] #[out] Credential: *mut *mut PCREDENTIALA) -> BOOL;
+        extern fn CredDeleteW(TargetName: PCWSTR, Type: u32, #[reserved] Flags: u32) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredEnumerateA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Filter: LPCSTR, #[reserved] Flags: DWORD, #[out] Count: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*Count", "*Count")] #[out] Credential: *mut *mut PCREDENTIALA) -> BOOL;
+        extern fn CredEnumerateA(#[opt] Filter: PCSTR, #[reserved] Flags: u32, Count: *mut u32, Credential: *mut *mut PCREDENTIALA) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredEnumerateW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Filter: LPCWSTR, #[reserved] Flags: DWORD, #[out] Count: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*Count", "*Count")] #[out] Credential: *mut *mut PCREDENTIALW) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredFindBestCredentialA")]
-        extern fn CredFindBestCredential(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] Credential: *mut PCREDENTIALA) -> BOOL;
+        extern fn CredEnumerateW(#[opt] Filter: PCWSTR, #[reserved] Flags: u32, Count: *mut u32, Credential: *mut *mut PCREDENTIALW) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredFindBestCredentialA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] Credential: *mut PCREDENTIALA) -> BOOL;
+        extern fn CredFindBestCredentialA(TargetName: PCSTR, Type: u32, Flags: u32, Credential: *mut PCREDENTIALA) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredFindBestCredentialW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] Credential: *mut PCREDENTIALW) -> BOOL;
+        extern fn CredFindBestCredentialW(TargetName: PCWSTR, Type: u32, Flags: u32, Credential: *mut PCREDENTIALW) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredFree(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Buffer: PVOID);
+        extern fn CredFree(#[in] Buffer: *mut void);
         #[library("ADVAPI32.dll")]
-        extern fn CredGetSessionTypes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaximumPersistCount: DWORD, #[out] #[len_param(0)] MaximumPersist: LPDWORD) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredGetTargetInfoA")]
-        extern fn CredGetTargetInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] TargetInfo: *mut PCREDENTIAL_TARGET_INFORMATIONA) -> BOOL;
+        extern fn CredGetSessionTypes(MaximumPersistCount: u32, #[len_param(0)] #[out] MaximumPersist: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredGetTargetInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] TargetInfo: *mut PCREDENTIAL_TARGET_INFORMATIONA) -> BOOL;
+        extern fn CredGetTargetInfoA(TargetName: PCSTR, Flags: u32, TargetInfo: *mut PCREDENTIAL_TARGET_INFORMATIONA) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredGetTargetInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] TargetInfo: *mut PCREDENTIAL_TARGET_INFORMATIONW) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredIsMarshaledCredentialA")]
-        extern fn CredIsMarshaledCredential(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MarshaledCredential: LPCSTR) -> BOOL;
+        extern fn CredGetTargetInfoW(TargetName: PCWSTR, Flags: u32, TargetInfo: *mut PCREDENTIAL_TARGET_INFORMATIONW) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredIsMarshaledCredentialA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MarshaledCredential: LPCSTR) -> BOOL;
+        extern fn CredIsMarshaledCredentialA(MarshaledCredential: PCSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredIsMarshaledCredentialW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MarshaledCredential: LPCWSTR) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredIsProtectedA")]
-        extern fn CredIsProtected(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszProtectedCredentials: LPSTR, #[out] pProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
+        extern fn CredIsMarshaledCredentialW(MarshaledCredential: PCWSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredIsProtectedA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszProtectedCredentials: LPSTR, #[out] pProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
+        extern fn CredIsProtectedA(pszProtectedCredentials: PCSTR, pProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredIsProtectedW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszProtectedCredentials: LPWSTR, #[out] pProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredMarshalCredentialA")]
-        extern fn CredMarshalCredential(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CredType: CRED_MARSHAL_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Credential: PVOID, #[out] MarshaledCredential: *mut LPSTR) -> BOOL;
+        extern fn CredIsProtectedW(pszProtectedCredentials: PCWSTR, pProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredMarshalCredentialA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CredType: CRED_MARSHAL_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Credential: PVOID, #[out] MarshaledCredential: *mut LPSTR) -> BOOL;
+        extern fn CredMarshalCredentialA(CredType: CRED_MARSHAL_TYPE, #[in] Credential: *mut void, MarshaledCredential: *mut PSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredMarshalCredentialW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CredType: CRED_MARSHAL_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Credential: PVOID, #[out] MarshaledCredential: *mut LPWSTR) -> BOOL;
-        #[library("credui.dll", import = "CredPackAuthenticationBufferA")]
-        extern fn CredPackAuthenticationBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUserName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPassword: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbPackedCredentials", "*pcbPackedCredentials")] #[out] #[opt] pPackedCredentials: PBYTE, #[in] #[out] pcbPackedCredentials: *mut DWORD) -> BOOL;
+        extern fn CredMarshalCredentialW(CredType: CRED_MARSHAL_TYPE, #[in] Credential: *mut void, MarshaledCredential: *mut PWSTR) -> BOOL;
         #[library("credui.dll")]
-        extern fn CredPackAuthenticationBufferA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUserName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPassword: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbPackedCredentials", "*pcbPackedCredentials")] #[out] #[opt] pPackedCredentials: PBYTE, #[in] #[out] pcbPackedCredentials: *mut DWORD) -> BOOL;
+        extern fn CredPackAuthenticationBufferA(dwFlags: u32, pszUserName: PCSTR, pszPassword: PCSTR, #[size_param(4)] #[out] #[opt] pPackedCredentials: PBYTE, #[in] #[out] pcbPackedCredentials: *mut u32) -> BOOL;
         #[library("credui.dll")]
-        extern fn CredPackAuthenticationBufferW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUserName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPassword: LPWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbPackedCredentials", "*pcbPackedCredentials")] #[out] #[opt] pPackedCredentials: PBYTE, #[in] #[out] pcbPackedCredentials: *mut DWORD) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredProtectA")]
-        extern fn CredProtect(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fAsSelf: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pszCredentials: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchCredentials: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchMaxChars", "*pcchMaxChars")] #[out] pszProtectedCredentials: LPSTR, #[in] #[out] pcchMaxChars: *mut DWORD, #[out] #[opt] ProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
+        extern fn CredPackAuthenticationBufferW(dwFlags: u32, pszUserName: PCWSTR, pszPassword: PCWSTR, #[size_param(4)] #[out] #[opt] pPackedCredentials: PBYTE, #[in] #[out] pcbPackedCredentials: *mut u32) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredProtectA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fAsSelf: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pszCredentials: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchCredentials: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchMaxChars", "*pcchMaxChars")] #[out] pszProtectedCredentials: LPSTR, #[in] #[out] pcchMaxChars: *mut DWORD, #[out] #[opt] ProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return", "return")]
+        extern fn CredProtectA(fAsSelf: BOOL, #[len_param(2)] pszCredentials: PCSTR, cchCredentials: u32, #[len_param(4)] #[out] pszProtectedCredentials: PSTR, #[in] #[out] pcchMaxChars: *mut u32, #[opt] ProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredProtectW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fAsSelf: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pszCredentials: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchCredentials: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*pcchMaxChars,*pcchMaxChars", "*pcchMaxChars,*pcchMaxChars")] #[out] pszProtectedCredentials: LPWSTR, #[in] #[out] pcchMaxChars: *mut DWORD, #[out] #[opt] ProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredReadA")]
-        extern fn CredRead(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[reserved] Flags: DWORD, #[out] Credential: *mut PCREDENTIALA) -> BOOL;
+        extern fn CredProtectW(fAsSelf: BOOL, #[len_param(2)] pszCredentials: PCWSTR, cchCredentials: u32, #[len_param(4)] #[out] pszProtectedCredentials: PWSTR, #[in] #[out] pcchMaxChars: *mut u32, #[opt] ProtectionType: *mut CRED_PROTECTION_TYPE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredReadA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[reserved] Flags: DWORD, #[out] Credential: *mut PCREDENTIALA) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredReadDomainCredentialsA")]
-        extern fn CredReadDomainCredentials(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetInfo: PCREDENTIAL_TARGET_INFORMATIONA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] Count: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*Count", "*Count")] #[out] Credential: *mut *mut PCREDENTIALA) -> BOOL;
+        extern fn CredReadA(TargetName: PCSTR, Type: u32, #[reserved] Flags: u32, Credential: *mut PCREDENTIALA) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredReadDomainCredentialsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetInfo: PCREDENTIAL_TARGET_INFORMATIONA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] Count: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*Count", "*Count")] #[out] Credential: *mut *mut PCREDENTIALA) -> BOOL;
+        extern fn CredReadDomainCredentialsA(TargetInfo: PCREDENTIAL_TARGET_INFORMATIONA, Flags: u32, Count: *mut u32, Credential: *mut *mut PCREDENTIALA) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredReadDomainCredentialsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetInfo: PCREDENTIAL_TARGET_INFORMATIONW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] Count: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*Count", "*Count")] #[out] Credential: *mut *mut PCREDENTIALW) -> BOOL;
+        extern fn CredReadDomainCredentialsW(TargetInfo: PCREDENTIAL_TARGET_INFORMATIONW, Flags: u32, Count: *mut u32, Credential: *mut *mut PCREDENTIALW) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredReadW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[reserved] Flags: DWORD, #[out] Credential: *mut PCREDENTIALW) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredRenameA")]
-        extern fn CredRename(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OldTargetName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NewTargetName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[reserved] Flags: DWORD) -> BOOL;
+        extern fn CredReadW(TargetName: PCWSTR, Type: u32, #[reserved] Flags: u32, Credential: *mut PCREDENTIALW) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredRenameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OldTargetName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NewTargetName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[reserved] Flags: DWORD) -> BOOL;
+        extern fn CredRenameA(OldTargetName: PCSTR, NewTargetName: PCSTR, Type: u32, #[reserved] Flags: u32) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredRenameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OldTargetName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NewTargetName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: DWORD, #[reserved] Flags: DWORD) -> BOOL;
-        #[library("credui.dll", import = "CredUICmdLinePromptForCredentialsA")]
-        extern fn CredUICmdLinePromptForCredentials(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCSTR, #[reserved] pContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthError: DWORD, #[in] #[out] #[len_param(4)] UserName: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulUserBufferSize: ULONG, #[in] #[out] #[len_param(6)] pszPassword: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulPasswordBufferSize: ULONG, #[in] #[out] #[opt] pfSave: PBOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
+        extern fn CredRenameW(OldTargetName: PCWSTR, NewTargetName: PCWSTR, Type: u32, #[reserved] Flags: u32) -> BOOL;
         #[library("credui.dll")]
-        extern fn CredUICmdLinePromptForCredentialsA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCSTR, #[reserved] pContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthError: DWORD, #[in] #[out] #[len_param(4)] UserName: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulUserBufferSize: ULONG, #[in] #[out] #[len_param(6)] pszPassword: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulPasswordBufferSize: ULONG, #[in] #[out] #[opt] pfSave: PBOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
+        extern fn CredUICmdLinePromptForCredentialsA(#[opt] pszTargetName: PCSTR, #[reserved] pContext: PCtxtHandle, dwAuthError: u32, #[len_param(4)] #[in] #[out] UserName: PSTR, ulUserBufferSize: u32, #[len_param(6)] #[in] #[out] pszPassword: PSTR, ulPasswordBufferSize: u32, #[in] #[out] #[opt] pfSave: PBOOL, dwFlags: u32) -> u32;
         #[library("credui.dll")]
-        extern fn CredUICmdLinePromptForCredentialsW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCWSTR, #[reserved] pContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthError: DWORD, #[in] #[out] #[len_param(4)] UserName: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulUserBufferSize: ULONG, #[in] #[out] #[len_param(6)] pszPassword: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulPasswordBufferSize: ULONG, #[in] #[out] #[opt] pfSave: PBOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
-        #[library("credui.dll", import = "CredUIConfirmCredentialsA")]
-        extern fn CredUIConfirmCredentials(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bConfirm: BOOL) -> DWORD;
+        extern fn CredUICmdLinePromptForCredentialsW(#[opt] pszTargetName: PCWSTR, #[reserved] pContext: PCtxtHandle, dwAuthError: u32, #[len_param(4)] #[in] #[out] UserName: PWSTR, ulUserBufferSize: u32, #[len_param(6)] #[in] #[out] pszPassword: PWSTR, ulPasswordBufferSize: u32, #[in] #[out] #[opt] pfSave: PBOOL, dwFlags: u32) -> u32;
         #[library("credui.dll")]
-        extern fn CredUIConfirmCredentialsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bConfirm: BOOL) -> DWORD;
+        extern fn CredUIConfirmCredentialsA(pszTargetName: PCSTR, bConfirm: BOOL) -> u32;
         #[library("credui.dll")]
-        extern fn CredUIConfirmCredentialsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bConfirm: BOOL) -> DWORD;
-        #[library("credui.dll", import = "CredUIParseUserNameA")]
-        extern fn CredUIParseUserName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] userName: PCSTR, #[out] #[len_param(2)] user: *mut CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] userBufferSize: ULONG, #[out] #[len_param(4)] domain: *mut CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] domainBufferSize: ULONG) -> DWORD;
+        extern fn CredUIConfirmCredentialsW(pszTargetName: PCWSTR, bConfirm: BOOL) -> u32;
         #[library("credui.dll")]
-        extern fn CredUIParseUserNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] userName: PCSTR, #[out] #[len_param(2)] user: *mut CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] userBufferSize: ULONG, #[out] #[len_param(4)] domain: *mut CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] domainBufferSize: ULONG) -> DWORD;
+        extern fn CredUIParseUserNameA(userName: PCSTR, #[len_param(2)] user: *mut i8, userBufferSize: u32, #[len_param(4)] domain: *mut i8, domainBufferSize: u32) -> u32;
         #[library("credui.dll")]
-        extern fn CredUIParseUserNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserName: PCWSTR, #[out] #[len_param(2)] user: *mut WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] userBufferSize: ULONG, #[out] #[len_param(4)] domain: *mut WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] domainBufferSize: ULONG) -> DWORD;
-        #[library("credui.dll", import = "CredUIPromptForCredentialsA")]
-        extern fn CredUIPromptForCredentials(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUiInfo: PCREDUI_INFOA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCSTR, #[reserved] pContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthError: DWORD, #[in] #[out] #[len_param(5)] pszUserName: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulUserNameBufferSize: ULONG, #[in] #[out] #[len_param(7)] pszPassword: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulPasswordBufferSize: ULONG, #[in] #[out] #[opt] save: *mut BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
+        extern fn CredUIParseUserNameW(UserName: PCWSTR, #[len_param(2)] user: *mut u16, userBufferSize: u32, #[len_param(4)] domain: *mut u16, domainBufferSize: u32) -> u32;
         #[library("credui.dll")]
-        extern fn CredUIPromptForCredentialsA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUiInfo: PCREDUI_INFOA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCSTR, #[reserved] pContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthError: DWORD, #[in] #[out] #[len_param(5)] pszUserName: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulUserNameBufferSize: ULONG, #[in] #[out] #[len_param(7)] pszPassword: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulPasswordBufferSize: ULONG, #[in] #[out] #[opt] save: *mut BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
+        extern fn CredUIPromptForCredentialsA(#[opt] pUiInfo: PCREDUI_INFOA, #[opt] pszTargetName: PCSTR, #[reserved] pContext: PCtxtHandle, dwAuthError: u32, #[len_param(5)] #[in] #[out] pszUserName: PSTR, ulUserNameBufferSize: u32, #[len_param(7)] #[in] #[out] pszPassword: PSTR, ulPasswordBufferSize: u32, #[in] #[out] #[opt] save: *mut BOOL, dwFlags: u32) -> u32;
         #[library("credui.dll")]
-        extern fn CredUIPromptForCredentialsW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUiInfo: PCREDUI_INFOW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTargetName: PCWSTR, #[reserved] pContext: PCtxtHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthError: DWORD, #[in] #[out] #[len_param(5)] pszUserName: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulUserNameBufferSize: ULONG, #[in] #[out] #[len_param(7)] pszPassword: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulPasswordBufferSize: ULONG, #[in] #[out] #[opt] save: *mut BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
-        #[library("credui.dll", import = "CredUIPromptForWindowsCredentialsA")]
-        extern fn CredUIPromptForWindowsCredentials(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUiInfo: PCREDUI_INFOA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthError: DWORD, #[in] #[out] pulAuthPackage: *mut ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pvInAuthBuffer: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulInAuthBufferSize: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_to_", "*pulOutAuthBufferSize, *pulOutAuthBufferSize", "*pulOutAuthBufferSize, *pulOutAuthBufferSize")] #[out] ppvOutAuthBuffer: *mut LPVOID, #[out] pulOutAuthBufferSize: *mut ULONG, #[in] #[out] #[opt] pfSave: *mut BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
+        extern fn CredUIPromptForCredentialsW(#[opt] pUiInfo: PCREDUI_INFOW, #[opt] pszTargetName: PCWSTR, #[reserved] pContext: PCtxtHandle, dwAuthError: u32, #[len_param(5)] #[in] #[out] pszUserName: PWSTR, ulUserNameBufferSize: u32, #[len_param(7)] #[in] #[out] pszPassword: PWSTR, ulPasswordBufferSize: u32, #[in] #[out] #[opt] save: *mut BOOL, dwFlags: u32) -> u32;
         #[library("credui.dll")]
-        extern fn CredUIPromptForWindowsCredentialsA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUiInfo: PCREDUI_INFOA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthError: DWORD, #[in] #[out] pulAuthPackage: *mut ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pvInAuthBuffer: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulInAuthBufferSize: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_to_", "*pulOutAuthBufferSize, *pulOutAuthBufferSize", "*pulOutAuthBufferSize, *pulOutAuthBufferSize")] #[out] ppvOutAuthBuffer: *mut LPVOID, #[out] pulOutAuthBufferSize: *mut ULONG, #[in] #[out] #[opt] pfSave: *mut BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
+        extern fn CredUIPromptForWindowsCredentialsA(#[opt] pUiInfo: PCREDUI_INFOA, dwAuthError: u32, #[in] #[out] pulAuthPackage: *mut u32, #[size_param(4)] #[opt] pvInAuthBuffer: LPCVOID, ulInAuthBufferSize: u32, ppvOutAuthBuffer: *mut *mut void, pulOutAuthBufferSize: *mut u32, #[in] #[out] #[opt] pfSave: *mut BOOL, dwFlags: u32) -> u32;
         #[library("credui.dll")]
-        extern fn CredUIPromptForWindowsCredentialsW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUiInfo: PCREDUI_INFOW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAuthError: DWORD, #[in] #[out] pulAuthPackage: *mut ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pvInAuthBuffer: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulInAuthBufferSize: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_to_", "*pulOutAuthBufferSize, *pulOutAuthBufferSize", "*pulOutAuthBufferSize, *pulOutAuthBufferSize")] #[out] ppvOutAuthBuffer: *mut LPVOID, #[out] pulOutAuthBufferSize: *mut ULONG, #[in] #[out] #[opt] pfSave: *mut BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> DWORD;
+        extern fn CredUIPromptForWindowsCredentialsW(#[opt] pUiInfo: PCREDUI_INFOW, dwAuthError: u32, #[in] #[out] pulAuthPackage: *mut u32, #[size_param(4)] #[opt] pvInAuthBuffer: LPCVOID, ulInAuthBufferSize: u32, ppvOutAuthBuffer: *mut *mut void, pulOutAuthBufferSize: *mut u32, #[in] #[out] #[opt] pfSave: *mut BOOL, dwFlags: u32) -> u32;
         #[library("credui.dll")]
-        extern fn CredUIReadSSOCredW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRealm: PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszUsername: *mut PWSTR) -> DWORD;
+        extern fn CredUIReadSSOCredW(#[opt] pszRealm: PCWSTR, ppszUsername: *mut PWSTR) -> u32;
         #[library("credui.dll")]
-        extern fn CredUIStoreSSOCredW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRealm: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUsername: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPassword: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bPersist: BOOL) -> DWORD;
-        #[library("credui.dll", import = "CredUnPackAuthenticationBufferA")]
-        extern fn CredUnPackAuthenticationBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pAuthBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbAuthBuffer: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchlMaxUserName", "*pcchlMaxUserName")] #[out] #[opt] pszUserName: LPSTR, #[in] #[out] pcchlMaxUserName: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchMaxDomainName", "*pcchMaxDomainName")] #[out] #[opt] pszDomainName: LPSTR, #[in] #[out] #[opt] pcchMaxDomainName: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchMaxPassword", "*pcchMaxPassword")] #[out] #[opt] pszPassword: LPSTR, #[in] #[out] pcchMaxPassword: *mut DWORD) -> BOOL;
+        extern fn CredUIStoreSSOCredW(#[opt] pszRealm: PCWSTR, pszUsername: PCWSTR, pszPassword: PCWSTR, bPersist: BOOL) -> u32;
         #[library("credui.dll")]
-        extern fn CredUnPackAuthenticationBufferA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pAuthBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbAuthBuffer: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchlMaxUserName", "*pcchlMaxUserName")] #[out] #[opt] pszUserName: LPSTR, #[in] #[out] pcchlMaxUserName: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchMaxDomainName", "*pcchMaxDomainName")] #[out] #[opt] pszDomainName: LPSTR, #[in] #[out] #[opt] pcchMaxDomainName: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchMaxPassword", "*pcchMaxPassword")] #[out] #[opt] pszPassword: LPSTR, #[in] #[out] pcchMaxPassword: *mut DWORD) -> BOOL;
+        extern fn CredUnPackAuthenticationBufferA(dwFlags: u32, #[size_param(2)] #[in] pAuthBuffer: *mut void, cbAuthBuffer: u32, #[len_param(4)] #[out] #[opt] pszUserName: PSTR, #[in] #[out] pcchlMaxUserName: *mut u32, #[len_param(6)] #[out] #[opt] pszDomainName: PSTR, #[in] #[out] #[opt] pcchMaxDomainName: *mut u32, #[len_param(8)] #[out] #[opt] pszPassword: PSTR, #[in] #[out] pcchMaxPassword: *mut u32) -> BOOL;
         #[library("credui.dll")]
-        extern fn CredUnPackAuthenticationBufferW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pAuthBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbAuthBuffer: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchMaxUserName", "*pcchMaxUserName")] #[out] #[opt] pszUserName: LPWSTR, #[in] #[out] pcchMaxUserName: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchMaxDomainName", "*pcchMaxDomainName")] #[out] #[opt] pszDomainName: LPWSTR, #[in] #[out] #[opt] pcchMaxDomainName: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchMaxPassword", "*pcchMaxPassword")] #[out] #[opt] pszPassword: LPWSTR, #[in] #[out] pcchMaxPassword: *mut DWORD) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredUnmarshalCredentialA")]
-        extern fn CredUnmarshalCredential(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MarshaledCredential: LPCSTR, #[out] CredType: PCRED_MARSHAL_TYPE, #[out] Credential: *mut PVOID) -> BOOL;
+        extern fn CredUnPackAuthenticationBufferW(dwFlags: u32, #[size_param(2)] #[in] pAuthBuffer: *mut void, cbAuthBuffer: u32, #[len_param(4)] #[out] #[opt] pszUserName: PWSTR, #[in] #[out] pcchMaxUserName: *mut u32, #[len_param(6)] #[out] #[opt] pszDomainName: PWSTR, #[in] #[out] #[opt] pcchMaxDomainName: *mut u32, #[len_param(8)] #[out] #[opt] pszPassword: PWSTR, #[in] #[out] pcchMaxPassword: *mut u32) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredUnmarshalCredentialA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MarshaledCredential: LPCSTR, #[out] CredType: PCRED_MARSHAL_TYPE, #[out] Credential: *mut PVOID) -> BOOL;
+        extern fn CredUnmarshalCredentialA(MarshaledCredential: PCSTR, #[out] CredType: PCRED_MARSHAL_TYPE, Credential: *mut *mut void) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredUnmarshalCredentialW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MarshaledCredential: LPCWSTR, #[out] CredType: PCRED_MARSHAL_TYPE, #[out] Credential: *mut PVOID) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredUnprotectA")]
-        extern fn CredUnprotect(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fAsSelf: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pszProtectedCredentials: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchProtectedCredentials: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchMaxChars", "*pcchMaxChars")] #[out] #[opt] pszCredentials: LPSTR, #[in] #[out] pcchMaxChars: *mut DWORD) -> BOOL;
+        extern fn CredUnmarshalCredentialW(MarshaledCredential: PCWSTR, #[out] CredType: PCRED_MARSHAL_TYPE, Credential: *mut *mut void) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredUnprotectA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fAsSelf: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pszProtectedCredentials: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchProtectedCredentials: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchMaxChars", "*pcchMaxChars")] #[out] #[opt] pszCredentials: LPSTR, #[in] #[out] pcchMaxChars: *mut DWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return", "return")]
+        extern fn CredUnprotectA(fAsSelf: BOOL, #[len_param(2)] pszProtectedCredentials: PCSTR, cchProtectedCredentials: u32, #[len_param(4)] #[out] #[opt] pszCredentials: PSTR, #[in] #[out] pcchMaxChars: *mut u32) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredUnprotectW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fAsSelf: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pszProtectedCredentials: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchProtectedCredentials: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*pcchMaxChars,*pcchMaxChars", "*pcchMaxChars,*pcchMaxChars")] #[out] #[opt] pszCredentials: LPWSTR, #[in] #[out] pcchMaxChars: *mut DWORD) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredWriteA")]
-        extern fn CredWrite(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Credential: PCREDENTIALA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
+        extern fn CredUnprotectW(fAsSelf: BOOL, #[len_param(2)] pszProtectedCredentials: PCWSTR, cchProtectedCredentials: u32, #[len_param(4)] #[out] #[opt] pszCredentials: PWSTR, #[in] #[out] pcchMaxChars: *mut u32) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredWriteA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Credential: PCREDENTIALA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CredWriteDomainCredentialsA")]
-        extern fn CredWriteDomainCredentials(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetInfo: PCREDENTIAL_TARGET_INFORMATIONA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Credential: PCREDENTIALA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
+        extern fn CredWriteA(Credential: PCREDENTIALA, Flags: u32) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredWriteDomainCredentialsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetInfo: PCREDENTIAL_TARGET_INFORMATIONA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Credential: PCREDENTIALA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
+        extern fn CredWriteDomainCredentialsA(TargetInfo: PCREDENTIAL_TARGET_INFORMATIONA, Credential: PCREDENTIALA, Flags: u32) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredWriteDomainCredentialsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TargetInfo: PCREDENTIAL_TARGET_INFORMATIONW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Credential: PCREDENTIALW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
+        extern fn CredWriteDomainCredentialsW(TargetInfo: PCREDENTIAL_TARGET_INFORMATIONW, Credential: PCREDENTIALW, Flags: u32) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CredWriteW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Credential: PCREDENTIALW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
+        extern fn CredWriteW(Credential: PCREDENTIALW, Flags: u32) -> BOOL;
         const NERR_BASE: i32 = 2100;
         const NERR_PasswordExpired: i32 = 2242;
         type PBINARY_BLOB_CREDENTIAL_INFO = *mut BINARY_BLOB_CREDENTIAL_INFO;
         type PCERT_CREDENTIAL_INFO = *mut CERT_CREDENTIAL_INFO;
-        type PCREDENTIAL = *mut CREDENTIALA;
+        type PCREDENTIAL = PCREDENTIALA;
         type PCREDENTIALA = *mut CREDENTIALA;
         type PCREDENTIALW = *mut CREDENTIALW;
-        type PCREDENTIAL_ATTRIBUTE = *mut CREDENTIAL_ATTRIBUTEA;
+        type PCREDENTIAL_ATTRIBUTE = PCREDENTIAL_ATTRIBUTEA;
         type PCREDENTIAL_ATTRIBUTEA = *mut CREDENTIAL_ATTRIBUTEA;
         type PCREDENTIAL_ATTRIBUTEW = *mut CREDENTIAL_ATTRIBUTEW;
-        type PCREDENTIAL_TARGET_INFORMATION = *mut CREDENTIAL_TARGET_INFORMATIONA;
+        type PCREDENTIAL_TARGET_INFORMATION = PCREDENTIAL_TARGET_INFORMATIONA;
         type PCREDENTIAL_TARGET_INFORMATIONA = *mut CREDENTIAL_TARGET_INFORMATIONA;
         type PCREDENTIAL_TARGET_INFORMATIONW = *mut CREDENTIAL_TARGET_INFORMATIONW;
-        type PCREDUI_INFO = *mut CREDUI_INFOA;
+        type PCREDUI_INFO = PCREDUI_INFOA;
         type PCREDUI_INFOA = *mut CREDUI_INFOA;
         type PCREDUI_INFOW = *mut CREDUI_INFOW;
         type PCRED_MARSHAL_TYPE = *mut CRED_MARSHAL_TYPE;
         type PCRED_PROTECTION_TYPE = *mut CRED_PROTECTION_TYPE;
         type PUSERNAME_TARGET_CREDENTIAL_INFO = *mut USERNAME_TARGET_CREDENTIAL_INFO;
         struct USERNAME_TARGET_CREDENTIAL_INFO {
-            UserName: LPWSTR,
+            UserName: PWSTR,
         }
     }
 }

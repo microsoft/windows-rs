@@ -1,0 +1,25 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Strings {
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    // Strings are counted UTF-16, so they may hold embedded nulls and unpaired surrogates. WinRT does
+    // not distinguish null and empty strings.
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // The number of UTF-16 code units in `value`.
+        fn Length(&self, value: String) -> u32;
+        fn Echo(&self, value: String) -> String;
+        fn Repeat(&self, value: String, count: u32) -> String;
+
+        // Returns "héllo 😀", created by the component.
+        fn Greeting(&self) -> String;
+
+        // Starts empty.
+        Text: String;
+    }
+}

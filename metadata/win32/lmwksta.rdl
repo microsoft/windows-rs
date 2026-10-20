@@ -44,23 +44,21 @@ mod Windows {
         type LPWKSTA_USER_INFO_1 = *mut WKSTA_USER_INFO_1;
         type LPWKSTA_USER_INFO_1101 = *mut WKSTA_USER_INFO_1101;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaGetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_buffer_", "_Inexpressible_(\"size varies with level\")", "_Inexpressible_(\"size varies with level\")")] #[out] #[opt] bufptr: *mut LPBYTE) -> DWORD;
+        extern fn NetWkstaGetInfo(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaSetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buffer: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
+        extern fn NetWkstaSetInfo(#[opt] servername: PCWSTR, level: u32, buffer: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaTransportAdd(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPTSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_In_reads_bytes_(sizeof(WKSTA_TRANSPORT_INFO_0))", "level == 0, _In_reads_bytes_(sizeof(WKSTA_TRANSPORT_INFO_0))")] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
+        extern fn NetWkstaTransportAdd(#[opt] servername: LPTSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaTransportDel(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transportname: LPWSTR, ucond: DWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == NERR_Success || return == 234L", "return == NERR_Success || return == 234L")]
+        extern fn NetWkstaTransportDel(#[opt] servername: PCWSTR, #[opt] transportname: PCWSTR, ucond: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaTransportEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPTSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_Outptr_result_bytebuffer_(*entriesread * sizeof(WKSTA_TRANSPORT_INFO_0))", "level == 0, _Outptr_result_bytebuffer_(*entriesread * sizeof(WKSTA_TRANSPORT_INFO_0))")] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> DWORD;
+        extern fn NetWkstaTransportEnum(#[opt] servername: LPTSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaUserEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, level: DWORD, #[out] #[opt] bufptr: *mut LPBYTE, prefmaxlen: DWORD, #[out] #[opt] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resumehandle: LPDWORD) -> DWORD;
+        extern fn NetWkstaUserEnum(#[opt] servername: PCWSTR, level: u32, #[opt] bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] #[opt] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resumehandle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaUserGetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] reserved: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[out] bufptr: *mut LPBYTE) -> DWORD;
+        extern fn NetWkstaUserGetInfo(#[opt] reserved: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetWkstaUserSetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] reserved: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
+        extern fn NetWkstaUserSetInfo(#[opt] reserved: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         type PWKSTA_INFO_100 = *mut WKSTA_INFO_100;
         type PWKSTA_INFO_101 = *mut WKSTA_INFO_101;
         type PWKSTA_INFO_1010 = *mut WKSTA_INFO_1010;
@@ -117,79 +115,79 @@ mod Windows {
         const WKSTA_ERRLOGSZ_PARMNUM: i32 = 27;
         const WKSTA_FORCECORECREATEMODE_PARMNUM: i32 = 60;
         struct WKSTA_INFO_100 {
-            wki100_platform_id: DWORD,
-            wki100_computername: LPWSTR,
-            wki100_langroup: LPWSTR,
-            wki100_ver_major: DWORD,
-            wki100_ver_minor: DWORD,
+            wki100_platform_id: u32,
+            wki100_computername: PWSTR,
+            wki100_langroup: PWSTR,
+            wki100_ver_major: u32,
+            wki100_ver_minor: u32,
         }
         struct WKSTA_INFO_101 {
-            wki101_platform_id: DWORD,
-            wki101_computername: LPWSTR,
-            wki101_langroup: LPWSTR,
-            wki101_ver_major: DWORD,
-            wki101_ver_minor: DWORD,
-            wki101_lanroot: LPWSTR,
+            wki101_platform_id: u32,
+            wki101_computername: PWSTR,
+            wki101_langroup: PWSTR,
+            wki101_ver_major: u32,
+            wki101_ver_minor: u32,
+            wki101_lanroot: PWSTR,
         }
         struct WKSTA_INFO_1010 {
-            wki1010_char_wait: DWORD,
+            wki1010_char_wait: u32,
         }
         struct WKSTA_INFO_1011 {
-            wki1011_collection_time: DWORD,
+            wki1011_collection_time: u32,
         }
         struct WKSTA_INFO_1012 {
-            wki1012_maximum_collection_count: DWORD,
+            wki1012_maximum_collection_count: u32,
         }
         struct WKSTA_INFO_1013 {
-            wki1013_keep_conn: DWORD,
+            wki1013_keep_conn: u32,
         }
         struct WKSTA_INFO_1018 {
-            wki1018_sess_timeout: DWORD,
+            wki1018_sess_timeout: u32,
         }
         struct WKSTA_INFO_102 {
-            wki102_platform_id: DWORD,
-            wki102_computername: LPWSTR,
-            wki102_langroup: LPWSTR,
-            wki102_ver_major: DWORD,
-            wki102_ver_minor: DWORD,
-            wki102_lanroot: LPWSTR,
-            wki102_logged_on_users: DWORD,
+            wki102_platform_id: u32,
+            wki102_computername: PWSTR,
+            wki102_langroup: PWSTR,
+            wki102_ver_major: u32,
+            wki102_ver_minor: u32,
+            wki102_lanroot: PWSTR,
+            wki102_logged_on_users: u32,
         }
         struct WKSTA_INFO_1023 {
-            wki1023_siz_char_buf: DWORD,
+            wki1023_siz_char_buf: u32,
         }
         struct WKSTA_INFO_1027 {
-            wki1027_errlog_sz: DWORD,
+            wki1027_errlog_sz: u32,
         }
         struct WKSTA_INFO_1028 {
-            wki1028_print_buf_time: DWORD,
+            wki1028_print_buf_time: u32,
         }
         struct WKSTA_INFO_1032 {
-            wki1032_wrk_heuristics: DWORD,
+            wki1032_wrk_heuristics: u32,
         }
         struct WKSTA_INFO_1033 {
-            wki1033_max_threads: DWORD,
+            wki1033_max_threads: u32,
         }
         struct WKSTA_INFO_1041 {
-            wki1041_lock_quota: DWORD,
+            wki1041_lock_quota: u32,
         }
         struct WKSTA_INFO_1042 {
-            wki1042_lock_increment: DWORD,
+            wki1042_lock_increment: u32,
         }
         struct WKSTA_INFO_1043 {
-            wki1043_lock_maximum: DWORD,
+            wki1043_lock_maximum: u32,
         }
         struct WKSTA_INFO_1044 {
-            wki1044_pipe_increment: DWORD,
+            wki1044_pipe_increment: u32,
         }
         struct WKSTA_INFO_1045 {
-            wki1045_pipe_maximum: DWORD,
+            wki1045_pipe_maximum: u32,
         }
         struct WKSTA_INFO_1046 {
-            wki1046_dormant_file_limit: DWORD,
+            wki1046_dormant_file_limit: u32,
         }
         struct WKSTA_INFO_1047 {
-            wki1047_cache_file_timeout: DWORD,
+            wki1047_cache_file_timeout: u32,
         }
         struct WKSTA_INFO_1048 {
             wki1048_use_opportunistic_locking: BOOL,
@@ -234,74 +232,74 @@ mod Windows {
             wki1061_use_512_byte_max_transfer: BOOL,
         }
         struct WKSTA_INFO_1062 {
-            wki1062_read_ahead_throughput: DWORD,
+            wki1062_read_ahead_throughput: u32,
         }
         struct WKSTA_INFO_302 {
-            wki302_char_wait: DWORD,
-            wki302_collection_time: DWORD,
-            wki302_maximum_collection_count: DWORD,
-            wki302_keep_conn: DWORD,
-            wki302_keep_search: DWORD,
-            wki302_max_cmds: DWORD,
-            wki302_num_work_buf: DWORD,
-            wki302_siz_work_buf: DWORD,
-            wki302_max_wrk_cache: DWORD,
-            wki302_sess_timeout: DWORD,
-            wki302_siz_error: DWORD,
-            wki302_num_alerts: DWORD,
-            wki302_num_services: DWORD,
-            wki302_errlog_sz: DWORD,
-            wki302_print_buf_time: DWORD,
-            wki302_num_char_buf: DWORD,
-            wki302_siz_char_buf: DWORD,
-            wki302_wrk_heuristics: LPWSTR,
-            wki302_mailslots: DWORD,
-            wki302_num_dgram_buf: DWORD,
+            wki302_char_wait: u32,
+            wki302_collection_time: u32,
+            wki302_maximum_collection_count: u32,
+            wki302_keep_conn: u32,
+            wki302_keep_search: u32,
+            wki302_max_cmds: u32,
+            wki302_num_work_buf: u32,
+            wki302_siz_work_buf: u32,
+            wki302_max_wrk_cache: u32,
+            wki302_sess_timeout: u32,
+            wki302_siz_error: u32,
+            wki302_num_alerts: u32,
+            wki302_num_services: u32,
+            wki302_errlog_sz: u32,
+            wki302_print_buf_time: u32,
+            wki302_num_char_buf: u32,
+            wki302_siz_char_buf: u32,
+            wki302_wrk_heuristics: PWSTR,
+            wki302_mailslots: u32,
+            wki302_num_dgram_buf: u32,
         }
         struct WKSTA_INFO_402 {
-            wki402_char_wait: DWORD,
-            wki402_collection_time: DWORD,
-            wki402_maximum_collection_count: DWORD,
-            wki402_keep_conn: DWORD,
-            wki402_keep_search: DWORD,
-            wki402_max_cmds: DWORD,
-            wki402_num_work_buf: DWORD,
-            wki402_siz_work_buf: DWORD,
-            wki402_max_wrk_cache: DWORD,
-            wki402_sess_timeout: DWORD,
-            wki402_siz_error: DWORD,
-            wki402_num_alerts: DWORD,
-            wki402_num_services: DWORD,
-            wki402_errlog_sz: DWORD,
-            wki402_print_buf_time: DWORD,
-            wki402_num_char_buf: DWORD,
-            wki402_siz_char_buf: DWORD,
-            wki402_wrk_heuristics: LPWSTR,
-            wki402_mailslots: DWORD,
-            wki402_num_dgram_buf: DWORD,
-            wki402_max_threads: DWORD,
+            wki402_char_wait: u32,
+            wki402_collection_time: u32,
+            wki402_maximum_collection_count: u32,
+            wki402_keep_conn: u32,
+            wki402_keep_search: u32,
+            wki402_max_cmds: u32,
+            wki402_num_work_buf: u32,
+            wki402_siz_work_buf: u32,
+            wki402_max_wrk_cache: u32,
+            wki402_sess_timeout: u32,
+            wki402_siz_error: u32,
+            wki402_num_alerts: u32,
+            wki402_num_services: u32,
+            wki402_errlog_sz: u32,
+            wki402_print_buf_time: u32,
+            wki402_num_char_buf: u32,
+            wki402_siz_char_buf: u32,
+            wki402_wrk_heuristics: PWSTR,
+            wki402_mailslots: u32,
+            wki402_num_dgram_buf: u32,
+            wki402_max_threads: u32,
         }
         struct WKSTA_INFO_502 {
-            wki502_char_wait: DWORD,
-            wki502_collection_time: DWORD,
-            wki502_maximum_collection_count: DWORD,
-            wki502_keep_conn: DWORD,
-            wki502_max_cmds: DWORD,
-            wki502_sess_timeout: DWORD,
-            wki502_siz_char_buf: DWORD,
-            wki502_max_threads: DWORD,
-            wki502_lock_quota: DWORD,
-            wki502_lock_increment: DWORD,
-            wki502_lock_maximum: DWORD,
-            wki502_pipe_increment: DWORD,
-            wki502_pipe_maximum: DWORD,
-            wki502_cache_file_timeout: DWORD,
-            wki502_dormant_file_limit: DWORD,
-            wki502_read_ahead_throughput: DWORD,
-            wki502_num_mailslot_buffers: DWORD,
-            wki502_num_srv_announce_buffers: DWORD,
-            wki502_max_illegal_datagram_events: DWORD,
-            wki502_illegal_datagram_event_reset_frequency: DWORD,
+            wki502_char_wait: u32,
+            wki502_collection_time: u32,
+            wki502_maximum_collection_count: u32,
+            wki502_keep_conn: u32,
+            wki502_max_cmds: u32,
+            wki502_sess_timeout: u32,
+            wki502_siz_char_buf: u32,
+            wki502_max_threads: u32,
+            wki502_lock_quota: u32,
+            wki502_lock_increment: u32,
+            wki502_lock_maximum: u32,
+            wki502_pipe_increment: u32,
+            wki502_pipe_maximum: u32,
+            wki502_cache_file_timeout: u32,
+            wki502_dormant_file_limit: u32,
+            wki502_read_ahead_throughput: u32,
+            wki502_num_mailslot_buffers: u32,
+            wki502_num_srv_announce_buffers: u32,
+            wki502_max_illegal_datagram_events: u32,
+            wki502_illegal_datagram_event_reset_frequency: u32,
             wki502_log_election_packets: BOOL,
             wki502_use_opportunistic_locking: BOOL,
             wki502_use_unlock_behind: BOOL,
@@ -348,10 +346,10 @@ mod Windows {
         const WKSTA_SIZERROR_PARMNUM: i32 = 19;
         const WKSTA_SIZWORKBUF_PARMNUM: i32 = 29;
         struct WKSTA_TRANSPORT_INFO_0 {
-            wkti0_quality_of_service: DWORD,
-            wkti0_number_of_vcs: DWORD,
-            wkti0_transport_name: LPWSTR,
-            wkti0_transport_address: LPWSTR,
+            wkti0_quality_of_service: u32,
+            wkti0_number_of_vcs: u32,
+            wkti0_transport_name: PWSTR,
+            wkti0_transport_address: PWSTR,
             wkti0_wan_ish: BOOL,
         }
         const WKSTA_USE512BYTESMAXTRANSFER_PARMNUM: i32 = 61;
@@ -362,16 +360,16 @@ mod Windows {
         const WKSTA_USERAWREAD_PARMNUM: i32 = 54;
         const WKSTA_USERAWWRITE_PARMNUM: i32 = 55;
         struct WKSTA_USER_INFO_0 {
-            wkui0_username: LPWSTR,
+            wkui0_username: PWSTR,
         }
         struct WKSTA_USER_INFO_1 {
-            wkui1_username: LPWSTR,
-            wkui1_logon_domain: LPWSTR,
-            wkui1_oth_domains: LPWSTR,
-            wkui1_logon_server: LPWSTR,
+            wkui1_username: PWSTR,
+            wkui1_logon_domain: PWSTR,
+            wkui1_oth_domains: PWSTR,
+            wkui1_logon_server: PWSTR,
         }
         struct WKSTA_USER_INFO_1101 {
-            wkui1101_oth_domains: LPWSTR,
+            wkui1101_oth_domains: PWSTR,
         }
         const WKSTA_USEUNLOCKBEHIND_PARMNUM: i32 = 49;
         const WKSTA_USEWRITERAWWITHDATA_PARMNUM: i32 = 56;

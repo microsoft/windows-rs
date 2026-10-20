@@ -3,9 +3,7 @@ mod Windows {
     mod Win32 {
         #[guid(0x6d5140c1_7436_11ce_8034_00aa006009fa)]
         interface IServiceProvider: IUnknown {
-            fn QueryService(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidService: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObject: *mut *mut void) -> HRESULT;
+            fn QueryService(&self, guidService: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
         }
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
-        type LPSERVICEPROVIDER = IServiceProvider;
     }
 }

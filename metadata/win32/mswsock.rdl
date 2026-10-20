@@ -2,32 +2,32 @@
 mod Windows {
     mod Win32 {
         #[library("MSWSOCK.dll")]
-        extern fn AcceptEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sListenSocket: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sAcceptSocket: SOCKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "dwReceiveDataLength+dwLocalAddressLength+dwRemoteAddressLength", "dwReceiveDataLength+dwLocalAddressLength+dwRemoteAddressLength")] #[out] lpOutputBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReceiveDataLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLocalAddressLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwRemoteAddressLength: DWORD, #[out] lpdwBytesReceived: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn AcceptEx(sListenSocket: SOCKET, sAcceptSocket: SOCKET, lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, #[out] lpdwBytesReceived: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
         const DE_REUSE_SOCKET: i32 = 2;
         #[library("MSWSOCK.dll")]
-        extern fn GetAcceptExSockaddrs(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "dwReceiveDataLength+dwLocalAddressLength+dwRemoteAddressLength", "dwReceiveDataLength+dwLocalAddressLength+dwRemoteAddressLength")] #[in] lpOutputBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReceiveDataLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLocalAddressLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwRemoteAddressLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*LocalSockaddrLength", "*LocalSockaddrLength")] #[out] LocalSockaddr: *mut *mut SOCKADDR, #[out] LocalSockaddrLength: LPINT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*RemoteSockaddrLength", "*RemoteSockaddrLength")] #[out] RemoteSockaddr: *mut *mut SOCKADDR, #[out] RemoteSockaddrLength: LPINT);
-        extern fn LPFN_ACCEPTEX(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sListenSocket: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sAcceptSocket: SOCKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "dwReceiveDataLength+dwLocalAddressLength+dwRemoteAddressLength", "dwReceiveDataLength+dwLocalAddressLength+dwRemoteAddressLength")] #[out] lpOutputBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReceiveDataLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLocalAddressLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwRemoteAddressLength: DWORD, #[out] lpdwBytesReceived: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
-        extern fn LPFN_CONNECTEX(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] name: *const SOCKADDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] namelen: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] lpSendBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSendDataLength: DWORD, #[out] lpdwBytesSent: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
-        extern fn LPFN_DISCONNECTEX(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] s: SOCKET, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReserved: DWORD) -> BOOL;
-        extern fn LPFN_GETACCEPTEXSOCKADDRS(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "dwReceiveDataLength+dwLocalAddressLength+dwRemoteAddressLength", "dwReceiveDataLength+dwLocalAddressLength+dwRemoteAddressLength")] #[in] lpOutputBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReceiveDataLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLocalAddressLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwRemoteAddressLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*LocalSockaddrLength", "*LocalSockaddrLength")] #[out] LocalSockaddr: *mut *mut SOCKADDR, #[out] LocalSockaddrLength: LPINT, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*RemoteSockaddrLength", "*RemoteSockaddrLength")] #[out] RemoteSockaddr: *mut *mut SOCKADDR, #[out] RemoteSockaddrLength: LPINT);
-        extern fn LPFN_RIOCLOSECOMPLETIONQUEUE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CQ: RIO_CQ);
-        extern fn LPFN_RIOCREATECOMPLETIONQUEUE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QueueSize: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NotificationCompletion: PRIO_NOTIFICATION_COMPLETION) -> RIO_CQ;
-        extern fn LPFN_RIOCREATEREQUESTQUEUE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Socket: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxOutstandingReceive: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxReceiveDataBuffers: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxOutstandingSend: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxSendDataBuffers: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ReceiveCQ: RIO_CQ, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SendCQ: RIO_CQ, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SocketContext: PVOID) -> RIO_RQ;
-        extern fn LPFN_RIODEQUEUECOMPLETION(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CQ: RIO_CQ, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "ArraySize,return", "ArraySize,return")] #[out] #[len_param(2)] Array: PRIORESULT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ArraySize: ULONG) -> ULONG;
-        extern fn LPFN_RIODEREGISTERBUFFER(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferId: RIO_BUFFERID);
-        extern fn LPFN_RIONOTIFY(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CQ: RIO_CQ) -> INT;
-        extern fn LPFN_RIORECEIVE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SocketQueue: RIO_RQ, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pData: PRIO_BUF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataBufferCount: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RequestContext: PVOID) -> BOOL;
-        extern fn LPFN_RIORECEIVEEX(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SocketQueue: RIO_RQ, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pData: PRIO_BUF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataBufferCount: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLocalAddress: PRIO_BUF, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRemoteAddress: PRIO_BUF, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pControlContext: PRIO_BUF, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFlags: PRIO_BUF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RequestContext: PVOID) -> i32;
-        extern fn LPFN_RIOREGISTERBUFFER(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataBuffer: PCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataLength: DWORD) -> RIO_BUFFERID;
-        extern fn LPFN_RIORESIZECOMPLETIONQUEUE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CQ: RIO_CQ, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QueueSize: DWORD) -> BOOL;
-        extern fn LPFN_RIORESIZEREQUESTQUEUE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RQ: RIO_RQ, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxOutstandingReceive: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaxOutstandingSend: DWORD) -> BOOL;
-        extern fn LPFN_RIOSEND(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SocketQueue: RIO_RQ, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pData: PRIO_BUF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataBufferCount: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RequestContext: PVOID) -> BOOL;
-        extern fn LPFN_RIOSENDEX(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SocketQueue: RIO_RQ, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pData: PRIO_BUF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DataBufferCount: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLocalAddress: PRIO_BUF, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRemoteAddress: PRIO_BUF, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pControlContext: PRIO_BUF, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFlags: PRIO_BUF, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RequestContext: PVOID) -> BOOL;
-        extern fn LPFN_TRANSMITFILE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSocket: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nNumberOfBytesToWrite: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nNumberOfBytesPerSend: DWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTransmitBuffers: LPTRANSMIT_FILE_BUFFERS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReserved: DWORD) -> BOOL;
-        extern fn LPFN_TRANSMITPACKETS(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSocket: SOCKET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPacketArray: LPTRANSMIT_PACKETS_ELEMENT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nElementCount: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nSendSize: DWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
-        extern fn LPFN_WSAPOLL(#[in] #[out] fdarray: LPWSAPOLLFD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nfds: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: INT) -> INT;
-        extern fn LPFN_WSARECVMSG(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] s: SOCKET, #[in] #[out] lpMsg: LPWSAMSG, #[out] #[opt] lpdwNumberOfBytesRecvd: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> INT;
-        extern fn LPFN_WSASENDMSG(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpMsg: LPWSAMSG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] #[opt] lpNumberOfBytesSent: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> INT;
+        extern fn GetAcceptExSockaddrs(#[in] lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, LocalSockaddr: *mut *mut SOCKADDR, #[out] LocalSockaddrLength: LPINT, RemoteSockaddr: *mut *mut SOCKADDR, #[out] RemoteSockaddrLength: LPINT);
+        extern fn LPFN_ACCEPTEX(sListenSocket: SOCKET, sAcceptSocket: SOCKET, lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, #[out] lpdwBytesReceived: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn LPFN_CONNECTEX(s: SOCKET, #[size_param(2)] name: *const SOCKADDR, namelen: i32, #[size_param(4)] #[in] #[opt] lpSendBuffer: *mut void, dwSendDataLength: u32, #[out] lpdwBytesSent: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn LPFN_DISCONNECTEX(s: SOCKET, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, dwFlags: u32, dwReserved: u32) -> BOOL;
+        extern fn LPFN_GETACCEPTEXSOCKADDRS(#[in] lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, LocalSockaddr: *mut *mut SOCKADDR, #[out] LocalSockaddrLength: LPINT, RemoteSockaddr: *mut *mut SOCKADDR, #[out] RemoteSockaddrLength: LPINT);
+        extern fn LPFN_RIOCLOSECOMPLETIONQUEUE(CQ: RIO_CQ);
+        extern fn LPFN_RIOCREATECOMPLETIONQUEUE(QueueSize: u32, #[opt] NotificationCompletion: PRIO_NOTIFICATION_COMPLETION) -> RIO_CQ;
+        extern fn LPFN_RIOCREATEREQUESTQUEUE(Socket: SOCKET, MaxOutstandingReceive: u32, MaxReceiveDataBuffers: u32, MaxOutstandingSend: u32, MaxSendDataBuffers: u32, ReceiveCQ: RIO_CQ, SendCQ: RIO_CQ, #[in] #[opt] SocketContext: *mut void) -> RIO_RQ;
+        extern fn LPFN_RIODEQUEUECOMPLETION(CQ: RIO_CQ, #[len_param(2)] #[out] Array: PRIORESULT, ArraySize: u32) -> u32;
+        extern fn LPFN_RIODEREGISTERBUFFER(BufferId: RIO_BUFFERID);
+        extern fn LPFN_RIONOTIFY(CQ: RIO_CQ) -> i32;
+        extern fn LPFN_RIORECEIVE(SocketQueue: RIO_RQ, #[len_param(2)] pData: PRIO_BUF, DataBufferCount: u32, Flags: u32, #[in] #[opt] RequestContext: *mut void) -> BOOL;
+        extern fn LPFN_RIORECEIVEEX(SocketQueue: RIO_RQ, #[len_param(2)] pData: PRIO_BUF, DataBufferCount: u32, #[opt] pLocalAddress: PRIO_BUF, #[opt] pRemoteAddress: PRIO_BUF, #[opt] pControlContext: PRIO_BUF, #[opt] pFlags: PRIO_BUF, Flags: u32, #[in] #[opt] RequestContext: *mut void) -> i32;
+        extern fn LPFN_RIOREGISTERBUFFER(DataBuffer: PCHAR, DataLength: u32) -> RIO_BUFFERID;
+        extern fn LPFN_RIORESIZECOMPLETIONQUEUE(CQ: RIO_CQ, QueueSize: u32) -> BOOL;
+        extern fn LPFN_RIORESIZEREQUESTQUEUE(RQ: RIO_RQ, MaxOutstandingReceive: u32, MaxOutstandingSend: u32) -> BOOL;
+        extern fn LPFN_RIOSEND(SocketQueue: RIO_RQ, #[len_param(2)] pData: PRIO_BUF, DataBufferCount: u32, Flags: u32, #[in] #[opt] RequestContext: *mut void) -> BOOL;
+        extern fn LPFN_RIOSENDEX(SocketQueue: RIO_RQ, #[len_param(2)] pData: PRIO_BUF, DataBufferCount: u32, #[opt] pLocalAddress: PRIO_BUF, #[opt] pRemoteAddress: PRIO_BUF, #[opt] pControlContext: PRIO_BUF, #[opt] pFlags: PRIO_BUF, Flags: u32, #[in] #[opt] RequestContext: *mut void) -> BOOL;
+        extern fn LPFN_TRANSMITFILE(hSocket: SOCKET, hFile: HANDLE, nNumberOfBytesToWrite: u32, nNumberOfBytesPerSend: u32, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[opt] lpTransmitBuffers: LPTRANSMIT_FILE_BUFFERS, dwReserved: u32) -> BOOL;
+        extern fn LPFN_TRANSMITPACKETS(hSocket: SOCKET, #[opt] lpPacketArray: LPTRANSMIT_PACKETS_ELEMENT, nElementCount: u32, nSendSize: u32, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, dwFlags: u32) -> BOOL;
+        extern fn LPFN_WSAPOLL(#[in] #[out] fdarray: LPWSAPOLLFD, nfds: u32, timeout: i32) -> i32;
+        extern fn LPFN_WSARECVMSG(s: SOCKET, #[in] #[out] lpMsg: LPWSAMSG, #[out] #[opt] lpdwNumberOfBytesRecvd: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        extern fn LPFN_WSASENDMSG(s: SOCKET, lpMsg: LPWSAMSG, dwFlags: u32, #[out] #[opt] lpNumberOfBytesSent: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
         type LPNLA_BLOB = *mut NLA_BLOB;
         type LPTRANSMIT_FILE_BUFFERS = *mut TRANSMIT_FILE_BUFFERS;
         type LPTRANSMIT_PACKETS_ELEMENT = *mut TRANSMIT_PACKETS_ELEMENT;
@@ -37,18 +37,18 @@ mod Windows {
         struct NLA_BLOB {
             header: struct {
                 r#type: NLA_BLOB_DATA_TYPE,
-                dwSize: DWORD,
-                nextOffset: DWORD,
+                dwSize: u32,
+                nextOffset: u32,
             },
             data: union {
-                rawData: [CHAR; 1],
+                rawData: [i8; 1],
                 interfaceData: struct {
-                    dwType: DWORD,
-                    dwSpeed: DWORD,
-                    adapterName: [CHAR; 1],
+                    dwType: u32,
+                    dwSpeed: u32,
+                    adapterName: [i8; 1],
                 },
                 locationData: struct {
-                    information: [CHAR; 1],
+                    information: [i8; 1],
                 },
                 connectivity: struct {
                     r#type: NLA_CONNECTIVITY_TYPE,
@@ -56,11 +56,11 @@ mod Windows {
                 },
                 ICS: struct {
                     remote: struct {
-                        speed: DWORD,
-                        r#type: DWORD,
-                        state: DWORD,
-                        machineName: [WCHAR; 256],
-                        sharedAdapterName: [WCHAR; 256],
+                        speed: u32,
+                        r#type: u32,
+                        state: u32,
+                        machineName: [u16; 256],
+                        sharedAdapterName: [u16; 256],
                     },
                 },
             },
@@ -97,7 +97,7 @@ mod Windows {
         type PTRANSMIT_FILE_BUFFERS = *mut TRANSMIT_FILE_BUFFERS;
         type PTRANSMIT_PACKETS_ELEMENT = *mut TRANSMIT_PACKETS_ELEMENT;
         struct RIO_EXTENSION_FUNCTION_TABLE {
-            cbSize: DWORD,
+            cbSize: u32,
             RIOReceive: LPFN_RIORECEIVE,
             RIOReceiveEx: LPFN_RIORECEIVEEX,
             RIOSend: LPFN_RIOSEND,
@@ -121,8 +121,8 @@ mod Windows {
                 },
                 Iocp: struct {
                     IocpHandle: HANDLE,
-                    CompletionKey: PVOID,
-                    Overlapped: PVOID,
+                    CompletionKey: *mut void,
+                    Overlapped: *mut void,
                 },
             },
         }
@@ -172,36 +172,35 @@ mod Windows {
         const TP_USE_KERNEL_APC: i32 = 32;
         const TP_USE_SYSTEM_THREAD: i32 = 16;
         struct TRANSMIT_FILE_BUFFERS {
-            Head: LPVOID,
-            HeadLength: DWORD,
-            Tail: LPVOID,
-            TailLength: DWORD,
+            Head: *mut void,
+            HeadLength: u32,
+            Tail: *mut void,
+            TailLength: u32,
         }
         struct TRANSMIT_PACKETS_ELEMENT {
-            dwElFlags: ULONG,
-            cLength: ULONG,
+            dwElFlags: u32,
+            cLength: u32,
             Anonymous: union {
                 Anonymous: struct {
                     nFileOffset: LARGE_INTEGER,
                     hFile: HANDLE,
                 },
-                pBuffer: PVOID,
+                pBuffer: *mut void,
             },
         }
         #[library("MSWSOCK.dll")]
-        extern fn TransmitFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSocket: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nNumberOfBytesToWrite: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nNumberOfBytesPerSend: DWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTransmitBuffers: LPTRANSMIT_FILE_BUFFERS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReserved: DWORD) -> BOOL;
+        extern fn TransmitFile(hSocket: SOCKET, hFile: HANDLE, nNumberOfBytesToWrite: u32, nNumberOfBytesPerSend: u32, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[opt] lpTransmitBuffers: LPTRANSMIT_FILE_BUFFERS, dwReserved: u32) -> BOOL;
         struct WSAPOLLDATA {
             result: i32,
-            fds: ULONG,
-            timeout: INT,
+            fds: u32,
+            timeout: i32,
             fdArray: [WSAPOLLFD; 0],
         }
-        #[Windows::Win32::Metadata::NativeDeprecated("Use WSARecv() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
         #[library("MSWSOCK.dll")]
-        extern fn WSARecvEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "len,return", "len,return")] #[out] #[size_param(2)] buf: *mut CHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] len: INT, #[in] #[out] flags: *mut INT) -> INT;
+        extern fn WSARecvEx(s: SOCKET, #[size_param(2)] buf: *mut i8, len: i32, #[in] #[out] flags: *mut i32) -> i32;
         struct WSASENDMSG {
             lpMsg: LPWSAMSG,
-            dwFlags: DWORD,
+            dwFlags: u32,
             lpNumberOfBytesSent: LPDWORD,
             lpOverlapped: LPWSAOVERLAPPED,
             lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE,

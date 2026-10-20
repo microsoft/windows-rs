@@ -10,103 +10,101 @@ mod Windows {
         }
         struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
             VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
-            MemoryPoolL0Size: UINT64,
-            MemoryPoolL1Size: UINT64,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
         }
         struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
             VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
             Protected: BOOL,
-            MemoryPoolL0Size: UINT64,
-            MemoryPoolL1Size: UINT64,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
         }
         struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
             DecodeSample: D3D12_VIDEO_SAMPLE,
             OutputFormat: D3D12_VIDEO_FORMAT,
             FrameRate: DXGI_RATIONAL,
-            BitRate: UINT,
+            BitRate: u32,
             SupportFlags: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS,
             ScaleSupport: D3D12_VIDEO_SCALE_SUPPORT,
         }
         struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
-            FormatCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "FormatCount", ReadableFieldName = "FormatCount", IsByteCount = false, MayBeNull = false)]
+            FormatCount: u32,
             pOutputFormats: *mut DXGI_FORMAT,
         }
         struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
-            FormatCount: UINT,
+            FormatCount: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             DecodeProfile: GUID,
-            Width: UINT,
-            Height: UINT,
+            Width: u32,
+            Height: u32,
             DecodeFormat: DXGI_FORMAT,
             Components: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS,
-            BinCount: UINT,
-            CounterBitDepth: UINT,
+            BinCount: u32,
+            CounterBitDepth: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
-            NodeIndex: UINT,
-            ProfileCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ProfileCount", ReadableFieldName = "ProfileCount", IsByteCount = false, MayBeNull = false)]
+            NodeIndex: u32,
+            ProfileCount: u32,
             pProfiles: *mut GUID,
         }
         struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
-            NodeIndex: UINT,
-            ProfileCount: UINT,
+            NodeIndex: u32,
+            ProfileCount: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
             SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
         }
         struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
-            Width: UINT,
-            Height: UINT,
+            Width: u32,
+            Height: u32,
             DecodeFormat: DXGI_FORMAT,
             FrameRate: DXGI_RATIONAL,
-            BitRate: UINT,
+            BitRate: u32,
             SupportFlags: D3D12_VIDEO_DECODE_SUPPORT_FLAGS,
             ConfigurationFlags: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS,
             DecodeTier: D3D12_VIDEO_DECODE_TIER,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             IsSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             IsSupported: BOOL,
             CodecSupportLimits: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             IsSupported: BOOL,
             PictureSupport: D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_DIRTY_REGIONS {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
             MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
             MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
             SupportFlags: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS,
-            MapSourcePreferenceRanking: UINT,
+            MapSourcePreferenceRanking: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
@@ -116,7 +114,7 @@ mod Windows {
             IsSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
@@ -126,24 +124,24 @@ mod Windows {
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
             HeapDesc: D3D12_VIDEO_ENCODER_HEAP_DESC,
             IsSupported: BOOL,
-            MemoryPoolL0Size: UINT64,
-            MemoryPoolL1Size: UINT64,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE1 {
             HeapDesc: D3D12_VIDEO_ENCODER_HEAP_DESC1,
             IsSupported: BOOL,
-            MemoryPoolL0Size: UINT64,
-            MemoryPoolL1Size: UINT64,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             Format: DXGI_FORMAT,
             IsSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
@@ -151,37 +149,36 @@ mod Windows {
             IsSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_MOTION_SEARCH {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
             MotionSearchMode: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE,
             MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
             BidirectionalRefFrameEnabled: BOOL,
             SupportFlags: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS,
-            MaxMotionHints: UINT,
-            MinDeviation: UINT,
-            MaxDeviation: UINT,
-            MapSourcePreferenceRanking: UINT,
+            MaxMotionHints: u32,
+            MinDeviation: u32,
+            MaxDeviation: u32,
+            MapSourcePreferenceRanking: u32,
             MotionUnitPrecisionSupport: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
-            ResolutionRatiosCount: UINT,
+            ResolutionRatiosCount: u32,
             IsSupported: BOOL,
             MinResolutionSupported: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
             MaxResolutionSupported: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
-            ResolutionWidthMultipleRequirement: UINT,
-            ResolutionHeightMultipleRequirement: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResolutionRatiosCount", ReadableFieldName = "ResolutionRatiosCount", IsByteCount = false, MayBeNull = false)]
+            ResolutionWidthMultipleRequirement: u32,
+            ResolutionHeightMultipleRequirement: u32,
             pResolutionRatios: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
-            ResolutionRatiosCount: UINT,
+            ResolutionRatiosCount: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             IsSupported: BOOL,
@@ -189,15 +186,15 @@ mod Windows {
             MaxSupportedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_QPMAP_INPUT {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
             MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
             IsSupported: BOOL,
-            MapSourcePreferenceRanking: UINT,
-            BlockSize: UINT,
+            MapSourcePreferenceRanking: u32,
+            BlockSize: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
@@ -209,88 +206,88 @@ mod Windows {
             QPMap: D3D12_VIDEO_ENCODER_QPMAP_CONFIGURATION,
             DirtyRegions: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_CONFIGURATION,
             MotionSearch: D3D12_VIDEO_ENCODER_MOTION_SEARCH_CONFIGURATION,
-            Pow2DownscaleFactor: UINT,
+            Pow2DownscaleFactor: u32,
             SupportFlags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             RateControlMode: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE,
             IsSupported: BOOL,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_DIRTY_REGIONS {
             DirtyRegionsSupportFlags: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS,
-            MapSourcePreferenceRanking: UINT,
+            MapSourcePreferenceRanking: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_FRAME_ANALYSIS {
             SupportFlags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
-            MaxSubregionsNumber: UINT,
-            MaxIntraRefreshFrameDuration: UINT,
-            SubregionBlockPixelsSize: UINT,
-            QPMapRegionPixelsSize: UINT,
+            MaxSubregionsNumber: u32,
+            MaxIntraRefreshFrameDuration: u32,
+            SubregionBlockPixelsSize: u32,
+            QPMapRegionPixelsSize: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS1 {
-            MaxSubregionsNumber: UINT,
-            MaxIntraRefreshFrameDuration: UINT,
-            SubregionBlockPixelsSize: UINT,
-            QPMapRegionPixelsSize: UINT,
+            MaxSubregionsNumber: u32,
+            MaxIntraRefreshFrameDuration: u32,
+            SubregionBlockPixelsSize: u32,
+            QPMapRegionPixelsSize: u32,
             QPMap: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_QPMAP,
             DirtyRegions: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_DIRTY_REGIONS,
             MotionSearch: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_MOTION_SEARCH,
             FrameAnalysis: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_FRAME_ANALYSIS,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_MOTION_SEARCH {
-            MaxMotionHints: UINT,
-            MinDeviation: UINT,
-            MaxDeviation: UINT,
-            MapSourcePreferenceRanking: UINT,
+            MaxMotionHints: u32,
+            MinDeviation: u32,
+            MaxDeviation: u32,
+            MapSourcePreferenceRanking: u32,
             MotionUnitPrecisionSupportFlags: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS,
             SupportFlags: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_QPMAP {
-            MapSourcePreferenceRanking: UINT,
+            MapSourcePreferenceRanking: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
             MapType: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE,
             IsSupported: BOOL,
-            MaxResolvedBufferAllocationSize: UINT64,
+            MaxResolvedBufferAllocationSize: u64,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             InputFormat: DXGI_FORMAT,
             PictureTargetResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
             IsSupported: BOOL,
-            CompressedBitstreamBufferAccessAlignment: UINT,
-            EncoderMetadataBufferAccessAlignment: UINT,
-            MaxEncoderOutputMetadataBufferSize: UINT,
+            CompressedBitstreamBufferAccessAlignment: u32,
+            EncoderMetadataBufferAccessAlignment: u32,
+            MaxEncoderOutputMetadataBufferSize: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS1 {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             InputFormat: DXGI_FORMAT,
             PictureTargetResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
             IsSupported: BOOL,
-            CompressedBitstreamBufferAccessAlignment: UINT,
-            EncoderMetadataBufferAccessAlignment: UINT,
-            MaxEncoderOutputMetadataBufferSize: UINT,
+            CompressedBitstreamBufferAccessAlignment: u32,
+            EncoderMetadataBufferAccessAlignment: u32,
+            MaxEncoderOutputMetadataBufferSize: u32,
             OptionalMetadata: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS,
             CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
             EncoderOutputMetadataQPMapTextureDimensions: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
             EncoderOutputMetadataSATDMapTextureDimensions: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
             EncoderOutputMetadataBitAllocationMapTextureDimensions: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
-            EncoderOutputMetadataFramePSNRComponentsNumber: UINT,
-            EncoderOutputMetadataSubregionsPSNRComponentsNumber: UINT,
-            EncoderOutputMetadataSubregionsPSNRResolvedMetadataBufferSize: UINT,
+            EncoderOutputMetadataFramePSNRComponentsNumber: u32,
+            EncoderOutputMetadataSubregionsPSNRComponentsNumber: u32,
+            EncoderOutputMetadataSubregionsPSNRResolvedMetadataBufferSize: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             InputFormat: DXGI_FORMAT,
             CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
@@ -298,18 +295,17 @@ mod Windows {
             RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
             IntraRefresh: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
             SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
-            ResolutionsListCount: UINT,
+            ResolutionsListCount: u32,
             pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
-            MaxReferenceFramesInDPB: UINT,
+            MaxReferenceFramesInDPB: u32,
             ValidationFlags: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS,
             SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
             SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResolutionsListCount", ReadableFieldName = "ResolutionsListCount", IsByteCount = false, MayBeNull = false)]
             pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             InputFormat: DXGI_FORMAT,
             CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
@@ -317,20 +313,19 @@ mod Windows {
             RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
             IntraRefresh: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
             SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
-            ResolutionsListCount: UINT,
+            ResolutionsListCount: u32,
             pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
-            MaxReferenceFramesInDPB: UINT,
+            MaxReferenceFramesInDPB: u32,
             ValidationFlags: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS,
             SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
             SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResolutionsListCount", ReadableFieldName = "ResolutionsListCount", IsByteCount = false, MayBeNull = false)]
             pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS,
             SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
-            MaxQualityVsSpeed: UINT,
+            MaxQualityVsSpeed: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT2 {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             Codec: D3D12_VIDEO_ENCODER_CODEC,
             InputFormat: DXGI_FORMAT,
             CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
@@ -338,131 +333,125 @@ mod Windows {
             RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
             IntraRefresh: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
             SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
-            ResolutionsListCount: UINT,
+            ResolutionsListCount: u32,
             pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
-            MaxReferenceFramesInDPB: UINT,
+            MaxReferenceFramesInDPB: u32,
             ValidationFlags: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS,
             SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
             SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResolutionsListCount", ReadableFieldName = "ResolutionsListCount", IsByteCount = false, MayBeNull = false)]
             pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS1,
             SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
-            MaxQualityVsSpeed: UINT,
+            MaxQualityVsSpeed: u32,
             QPMap: D3D12_VIDEO_ENCODER_QPMAP_CONFIGURATION,
             DirtyRegions: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_CONFIGURATION,
             MotionSearch: D3D12_VIDEO_ENCODER_MOTION_SEARCH_CONFIGURATION,
             FrameAnalysis: D3D12_VIDEO_ENCODER_FRAME_ANALYSIS_CONFIGURATION,
         }
         struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
-            NodeIndex: UINT,
-            CommandCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "CommandCount", ReadableFieldName = "CommandCount", IsByteCount = false, MayBeNull = false)]
+            NodeIndex: u32,
+            CommandCount: u32,
             pCommandInfos: *mut D3D12_VIDEO_EXTENSION_COMMAND_INFO,
         }
         struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
-            NodeIndex: UINT,
-            CommandCount: UINT,
+            NodeIndex: u32,
+            CommandCount: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
             CommandId: GUID,
             Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
-            ParameterCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ParameterCount", ReadableFieldName = "ParameterCount", IsByteCount = false, MayBeNull = false)]
+            ParameterCount: u32,
             pParameterInfos: *mut D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO,
         }
         struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
             CommandId: GUID,
             Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
-            ParameterCount: UINT,
-            ParameterPacking: UINT,
+            ParameterCount: u32,
+            ParameterPacking: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             CommandId: GUID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_full_", "CreationParametersDataSizeInBytes", "CreationParametersDataSizeInBytes")]
             pCreationParameters: *const void,
-            CreationParametersSizeInBytes: SIZE_T,
-            MemoryPoolL0Size: UINT64,
-            MemoryPoolL1Size: UINT64,
+            CreationParametersSizeInBytes: usize,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
         }
         struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             CommandId: GUID,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "InputDataSizeInBytes", ReadableFieldName = "InputDataSizeInBytes", IsByteCount = true, MayBeNull = true)]
             pInputData: *const void,
-            InputDataSizeInBytes: SIZE_T,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "OutputDataSizeInBytes", ReadableFieldName = "OutputDataSizeInBytes", IsByteCount = true, MayBeNull = true)]
+            InputDataSizeInBytes: usize,
             pOutputData: *mut void,
-            OutputDataSizeInBytes: SIZE_T,
+            OutputDataSizeInBytes: usize,
         }
         struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             VideoDecodeSupport: BOOL,
             VideoProcessSupport: BOOL,
             VideoEncodeSupport: BOOL,
         }
         struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             InputFormat: DXGI_FORMAT,
             BlockSizeFlags: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS,
             PrecisionFlags: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS,
             SizeRange: D3D12_VIDEO_SIZE_RANGE,
         }
         struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
         }
         struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             InputFormat: DXGI_FORMAT,
             BlockSize: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE,
             Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
             SizeRange: D3D12_VIDEO_SIZE_RANGE,
             Protected: BOOL,
-            MotionVectorHeapMemoryPoolL0Size: UINT64,
-            MotionVectorHeapMemoryPoolL1Size: UINT64,
-            MotionEstimatorMemoryPoolL0Size: UINT64,
-            MotionEstimatorMemoryPoolL1Size: UINT64,
+            MotionVectorHeapMemoryPoolL0Size: u64,
+            MotionVectorHeapMemoryPoolL1Size: u64,
+            MotionEstimatorMemoryPoolL0Size: u64,
+            MotionEstimatorMemoryPoolL1Size: u64,
         }
         struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
-            NodeMask: UINT,
+            NodeMask: u32,
             pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
-            NumInputStreamDescs: UINT,
+            NumInputStreamDescs: u32,
             pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC,
-            MemoryPoolL0Size: UINT64,
-            MemoryPoolL1Size: UINT64,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
         }
         struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
-            NodeMask: UINT,
+            NodeMask: u32,
             pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
-            NumInputStreamDescs: UINT,
+            NumInputStreamDescs: u32,
             pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC,
             Protected: BOOL,
-            MemoryPoolL0Size: UINT64,
-            MemoryPoolL1Size: UINT64,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
         }
         struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
-            NodeIndex: UINT,
-            MaxInputStreams: UINT,
+            NodeIndex: u32,
+            MaxInputStreams: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
         }
         struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             DeinterlaceMode: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
             Filters: D3D12_VIDEO_PROCESS_FILTER_FLAGS,
             FeatureSupport: D3D12_VIDEO_PROCESS_FEATURE_FLAGS,
             InputFrameRate: DXGI_RATIONAL,
             OutputFrameRate: DXGI_RATIONAL,
             EnableAutoProcessing: BOOL,
-            PastFrames: UINT,
-            FutureFrames: UINT,
+            PastFrames: u32,
+            FutureFrames: u32,
         }
         struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
-            NodeIndex: UINT,
+            NodeIndex: u32,
             InputSample: D3D12_VIDEO_SAMPLE,
             InputFieldType: D3D12_VIDEO_FIELD_TYPE,
             InputStereoFormat: D3D12_VIDEO_FRAME_STEREO_FORMAT,
@@ -532,39 +521,39 @@ mod Windows {
             D3D12_FEATURE_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS = 57,
         }
         struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
-            Status: UINT64,
-            NumMacroblocksAffected: UINT64,
+            Status: u64,
+            NumMacroblocksAffected: u64,
             FrameRate: DXGI_RATIONAL,
-            BitRate: UINT,
+            BitRate: u32,
         }
         struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
             pMotionVectorHeap: ID3D12VideoMotionVectorHeap,
-            PixelWidth: UINT,
-            PixelHeight: UINT,
+            PixelWidth: u32,
+            PixelHeight: u32,
         }
         struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
             pMotionVectorTexture2D: ID3D12Resource,
             MotionVectorCoordinate: D3D12_RESOURCE_COORDINATE,
         }
         struct D3D12_RESOURCE_COORDINATE {
-            X: UINT64,
-            Y: UINT,
-            Z: UINT,
-            SubresourceIndex: UINT,
+            X: u64,
+            Y: u32,
+            Z: u32,
+            SubresourceIndex: u32,
         }
         struct D3D12_VIDEO_DECODER_DESC {
-            NodeMask: UINT,
+            NodeMask: u32,
             Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
         }
         struct D3D12_VIDEO_DECODER_HEAP_DESC {
-            NodeMask: UINT,
+            NodeMask: u32,
             Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
-            DecodeWidth: UINT,
-            DecodeHeight: UINT,
+            DecodeWidth: u32,
+            DecodeHeight: u32,
             Format: DXGI_FORMAT,
             FrameRate: DXGI_RATIONAL,
-            BitRate: UINT,
-            MaxDecodePictureBufferCount: UINT,
+            BitRate: u32,
+            MaxDecodePictureBufferCount: u32,
         }
         #[repr(i32)]
         enum D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
@@ -575,15 +564,16 @@ mod Windows {
         }
         struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
             pBuffer: ID3D12Resource,
-            Offset: UINT64,
-            Size: UINT64,
+            Offset: u64,
+            Size: u64,
         }
         struct D3D12_VIDEO_DECODE_CONFIGURATION {
             DecodeProfile: GUID,
             BitstreamEncryption: D3D12_BITSTREAM_ENCRYPTION_TYPE,
             InterlaceType: D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
             D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_NONE = 0,
             D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_HEIGHT_ALIGNMENT_MULTIPLE_32_REQUIRED = 1,
@@ -594,28 +584,28 @@ mod Windows {
         struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
             Enable: BOOL,
             pReferenceTexture2D: ID3D12Resource,
-            ReferenceSubresource: UINT,
+            ReferenceSubresource: u32,
             OutputColorSpace: DXGI_COLOR_SPACE_TYPE,
             DecodeColorSpace: DXGI_COLOR_SPACE_TYPE,
         }
         struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
             Enable: BOOL,
             pReferenceTexture2D: ID3D12Resource,
-            ReferenceSubresource: UINT,
+            ReferenceSubresource: u32,
             OutputColorSpace: DXGI_COLOR_SPACE_TYPE,
             DecodeColorSpace: DXGI_COLOR_SPACE_TYPE,
-            OutputWidth: UINT,
-            OutputHeight: UINT,
+            OutputWidth: u32,
+            OutputHeight: u32,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
             D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAG_NONE = 0,
             D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAG_SUPPORTED = 1,
         }
         struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
             Type: D3D12_VIDEO_DECODE_ARGUMENT_TYPE,
-            Size: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "Size", ReadableFieldName = "Size", IsByteCount = true, MayBeNull = false)]
+            Size: u32,
             pData: *mut void,
         }
         #[repr(i32)]
@@ -628,7 +618,8 @@ mod Windows {
             D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_B = 2,
             D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_A = 3,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
             D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_NONE = 0,
             D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_Y = 1,
@@ -640,24 +631,24 @@ mod Windows {
             D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_A = 8,
         }
         struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
-            NumFrameArguments: UINT,
+            NumFrameArguments: u32,
             FrameArguments: [D3D12_VIDEO_DECODE_FRAME_ARGUMENT; 10],
             ReferenceFrames: D3D12_VIDEO_DECODE_REFERENCE_FRAMES,
             CompressedBitstream: D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM,
             pHeap: ID3D12VideoDecoderHeap,
         }
         struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
-            Offset: UINT64,
+            Offset: u64,
             pBuffer: ID3D12Resource,
         }
         struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
             pOutputTexture2D: ID3D12Resource,
-            OutputSubresource: UINT,
+            OutputSubresource: u32,
             ConversionArguments: D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS,
         }
         struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
             pOutputTexture2D: ID3D12Resource,
-            OutputSubresource: UINT,
+            OutputSubresource: u32,
             ConversionArguments: D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1,
             Histograms: [D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM; 4],
         }
@@ -699,12 +690,9 @@ mod Windows {
         const D3D12_VIDEO_DECODE_PROFILE_VP9: GUID = 0x463707f8_a1d0_4585_876d_83aa6d60b89e;
         const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: GUID = 0xa4c749ef_6ecf_48aa_8448_50a7a1165ff7;
         struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
-            NumTexture2Ds: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumTexture2Ds", ReadableFieldName = "NumTexture2Ds", IsByteCount = false, MayBeNull = false)]
+            NumTexture2Ds: u32,
             ppTexture2Ds: *mut ID3D12Resource,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumTexture2Ds", ReadableFieldName = "NumTexture2Ds", IsByteCount = false, MayBeNull = false)]
-            pSubresources: *mut UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumTexture2Ds", ReadableFieldName = "NumTexture2Ds", IsByteCount = false, MayBeNull = true)]
+            pSubresources: *mut u32,
             ppHeaps: *mut ID3D12VideoDecoderHeap,
         }
         #[repr(i32)]
@@ -715,7 +703,8 @@ mod Windows {
             D3D12_VIDEO_DECODE_STATUS_RESTART = 3,
             D3D12_VIDEO_DECODE_STATUS_RATE_EXCEEDED = 4,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
             D3D12_VIDEO_DECODE_SUPPORT_FLAG_NONE = 0,
             D3D12_VIDEO_DECODE_SUPPORT_FLAG_SUPPORTED = 1,
@@ -728,16 +717,16 @@ mod Windows {
             D3D12_VIDEO_DECODE_TIER_3 = 3,
         }
         struct D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
-            CdefBits: UINT64,
-            CdefDampingMinus3: UINT64,
-            CdefYPriStrength: [UINT64; 8],
-            CdefUVPriStrength: [UINT64; 8],
-            CdefYSecStrength: [UINT64; 8],
-            CdefUVSecStrength: [UINT64; 8],
+            CdefBits: u64,
+            CdefDampingMinus3: u64,
+            CdefYPriStrength: [u64; 8],
+            CdefUVPriStrength: [u64; 8],
+            CdefYSecStrength: [u64; 8],
+            CdefUVSecStrength: [u64; 8],
         }
         struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
             FeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
-            OrderHintBitsMinus1: UINT,
+            OrderHintBitsMinus1: u32,
         }
         struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {
             SupportedFeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
@@ -748,15 +737,16 @@ mod Windows {
             SupportedTxModes: [D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS; 4],
             SegmentationBlockSize: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE,
             PostEncodeValuesFlags: D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS,
-            MaxTemporalLayers: UINT,
-            MaxSpatialLayers: UINT,
+            MaxTemporalLayers: u32,
+            MaxSpatialLayers: u32,
         }
         #[repr(i32)]
         enum D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE {
             D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE_SINGLE_REFERENCE = 0,
             D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE_COMPOUND_REFERENCE = 1,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
             D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_128x128_SUPERBLOCK = 1,
@@ -790,17 +780,18 @@ mod Windows {
             Use128SuperBlocks: BOOL,
             TilesConfiguration: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES,
             ValidationFlags: D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS,
-            MinTileRows: UINT,
-            MaxTileRows: UINT,
-            MinTileCols: UINT,
-            MaxTileCols: UINT,
-            MinTileWidth: UINT,
-            MaxTileWidth: UINT,
-            MinTileArea: UINT,
-            MaxTileArea: UINT,
-            TileSizeBytesMinus1: UINT,
+            MinTileRows: u32,
+            MaxTileRows: u32,
+            MinTileCols: u32,
+            MaxTileCols: u32,
+            MinTileWidth: u32,
+            MaxTileWidth: u32,
+            MinTileArea: u32,
+            MaxTileArea: u32,
+            TileSizeBytesMinus1: u32,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS {
             D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_NOT_SPECIFIED = 1,
@@ -819,7 +810,8 @@ mod Windows {
             D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_INTRA_ONLY_FRAME = 2,
             D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_SWITCH_FRAME = 3,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
             D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAG_KEY_FRAME = 1,
@@ -835,7 +827,8 @@ mod Windows {
             D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_BILINEAR = 3,
             D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_SWITCHABLE = 4,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
             D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_EIGHTTAP = 1,
@@ -882,27 +875,27 @@ mod Windows {
             InterpolationFilter: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS,
             FrameRestorationConfig: D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG,
             TxMode: D3D12_VIDEO_ENCODER_AV1_TX_MODE,
-            SuperResDenominator: UINT,
-            OrderHint: UINT,
-            PictureIndex: UINT,
-            TemporalLayerIndexPlus1: UINT,
-            SpatialLayerIndexPlus1: UINT,
+            SuperResDenominator: u32,
+            OrderHint: u32,
+            PictureIndex: u32,
+            TemporalLayerIndexPlus1: u32,
+            SpatialLayerIndexPlus1: u32,
             ReferenceFramesReconPictureDescriptors: [D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR; 8],
-            ReferenceIndices: [UINT; 7],
-            PrimaryRefFrame: UINT,
-            RefreshFrameFlags: UINT,
+            ReferenceIndices: [u32; 7],
+            PrimaryRefFrame: u32,
+            RefreshFrameFlags: u32,
             LoopFilter: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG,
             LoopFilterDelta: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG,
             Quantization: D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG,
             QuantizationDelta: D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG,
             CDEF: D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG,
-            QPMapValuesCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "QPMapValuesCount", ReadableFieldName = "QPMapValuesCount", IsByteCount = false, MayBeNull = false)]
-            pRateControlQPMap: *mut INT16,
+            QPMapValuesCount: u32,
+            pRateControlQPMap: *mut i16,
             CustomSegmentation: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG,
             CustomSegmentsMap: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
             D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ENABLE_ERROR_RESILIENT_MODE = 1,
@@ -922,24 +915,25 @@ mod Windows {
             D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ALLOW_HIGH_PRECISION_MV = 16384,
         }
         struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {
-            RowCount: UINT64,
-            ColCount: UINT64,
-            RowHeights: [UINT64; 64],
-            ColWidths: [UINT64; 64],
-            ContextUpdateTileId: UINT64,
+            RowCount: u64,
+            ColCount: u64,
+            RowHeights: [u64; 64],
+            ColWidths: [u64; 64],
+            ContextUpdateTileId: u64,
         }
         struct D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
-            CompoundPredictionType: UINT64,
+            CompoundPredictionType: u64,
             LoopFilter: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG,
             LoopFilterDelta: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG,
             Quantization: D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG,
             QuantizationDelta: D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG,
             CDEF: D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG,
             SegmentationConfig: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG,
-            PrimaryRefFrame: UINT64,
-            ReferenceIndices: [UINT64; 7],
+            PrimaryRefFrame: u64,
+            ReferenceIndices: [u64; 7],
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
             D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_QUANTIZATION = 1,
@@ -959,17 +953,17 @@ mod Windows {
             D3D12_VIDEO_ENCODER_AV1_PROFILE_PROFESSIONAL = 2,
         }
         struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
-            ReconstructedPictureResourceIndex: UINT,
-            TemporalLayerIndexPlus1: UINT,
-            SpatialLayerIndexPlus1: UINT,
+            ReconstructedPictureResourceIndex: u32,
+            TemporalLayerIndexPlus1: u32,
+            SpatialLayerIndexPlus1: u32,
             FrameType: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE,
             WarpedMotionInfo: D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO,
-            OrderHint: UINT,
-            PictureIndex: UINT,
+            OrderHint: u32,
+            PictureIndex: u32,
         }
         struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {
             TransformationType: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION,
-            TransformationMatrix: [INT; 8],
+            TransformationMatrix: [i32; 8],
             InvalidAffineSet: BOOL,
         }
         #[repr(i32)]
@@ -979,7 +973,8 @@ mod Windows {
             D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_ROTZOOM = 2,
             D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_AFFINE = 3,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS {
             D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAG_IDENTITY = 1,
@@ -991,7 +986,8 @@ mod Windows {
             FrameRestorationType: [D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE; 3],
             LoopRestorationPixelSize: [D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE; 3],
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
             D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAG_NOT_SUPPORTED = 0,
             D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAG_32x32 = 1,
@@ -1023,15 +1019,15 @@ mod Windows {
             D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_64x64 = 4,
         }
         struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
-            UpdateMap: UINT64,
-            TemporalUpdate: UINT64,
-            UpdateData: UINT64,
-            NumSegments: UINT64,
+            UpdateMap: u64,
+            TemporalUpdate: u64,
+            UpdateData: u64,
+            NumSegments: u64,
             SegmentsData: [D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA; 8],
         }
         struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {
-            SegmentsMapByteSize: UINT,
-            pSegmentsMap: *mut UINT8,
+            SegmentsMapByteSize: u32,
+            pSegmentsMap: *mut u8,
         }
         #[repr(i32)]
         enum D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE {
@@ -1045,7 +1041,8 @@ mod Windows {
             D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_SKIP = 7,
             D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_GLOBALMV = 8,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
             D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_DISABLED = 1,
@@ -1059,12 +1056,12 @@ mod Windows {
             D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_GLOBALMV = 256,
         }
         struct D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
-            EnabledFeatures: UINT64,
-            FeatureValue: [INT64; 8],
+            EnabledFeatures: u64,
+            FeatureValue: [i64; 8],
         }
         struct D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
-            IntraDistance: UINT,
-            InterFramePeriod: UINT,
+            IntraDistance: u32,
+            InterFramePeriod: u32,
         }
         #[repr(i32)]
         enum D3D12_VIDEO_ENCODER_AV1_TIER {
@@ -1077,7 +1074,8 @@ mod Windows {
             D3D12_VIDEO_ENCODER_AV1_TX_MODE_LARGEST = 1,
             D3D12_VIDEO_ENCODER_AV1_TX_MODE_SELECT = 2,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
             D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAG_ONLY4x4 = 1,
@@ -1091,45 +1089,45 @@ mod Windows {
             D3D12_VIDEO_ENCODER_CODEC_AV1 = 2,
         }
         struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
-            LoopFilterLevel: [UINT64; 2],
-            LoopFilterLevelU: UINT64,
-            LoopFilterLevelV: UINT64,
-            LoopFilterSharpnessLevel: UINT64,
-            LoopFilterDeltaEnabled: UINT64,
-            UpdateRefDelta: UINT64,
-            RefDeltas: [INT64; 8],
-            UpdateModeDelta: UINT64,
-            ModeDeltas: [INT64; 2],
+            LoopFilterLevel: [u64; 2],
+            LoopFilterLevelU: u64,
+            LoopFilterLevelV: u64,
+            LoopFilterSharpnessLevel: u64,
+            LoopFilterDeltaEnabled: u64,
+            UpdateRefDelta: u64,
+            RefDeltas: [i64; 8],
+            UpdateModeDelta: u64,
+            ModeDeltas: [i64; 2],
         }
         struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {
-            DeltaLFPresent: UINT64,
-            DeltaLFMulti: UINT64,
-            DeltaLFRes: UINT64,
+            DeltaLFPresent: u64,
+            DeltaLFMulti: u64,
+            DeltaLFRes: u64,
         }
         struct D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
             PredictionMode: D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE,
-            MaxUniqueReferencesPerFrame: UINT,
+            MaxUniqueReferencesPerFrame: u32,
             SupportedFrameTypes: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS,
             SupportedReferenceWarpedMotionFlags: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS,
         }
         struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
-            BaseQIndex: UINT64,
-            YDCDeltaQ: INT64,
-            UDCDeltaQ: INT64,
-            UACDeltaQ: INT64,
-            VDCDeltaQ: INT64,
-            VACDeltaQ: INT64,
-            UsingQMatrix: UINT64,
-            QMY: UINT64,
-            QMU: UINT64,
-            QMV: UINT64,
+            BaseQIndex: u64,
+            YDCDeltaQ: i64,
+            UDCDeltaQ: i64,
+            UACDeltaQ: i64,
+            VDCDeltaQ: i64,
+            VACDeltaQ: i64,
+            UsingQMatrix: u64,
+            QMY: u64,
+            QMU: u64,
+            QMV: u64,
         }
         struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {
-            DeltaQPresent: UINT64,
-            DeltaQRes: UINT64,
+            DeltaQPresent: u64,
+            DeltaQRes: u64,
         }
         struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
-            DataSize: UINT,
+            DataSize: u32,
             Anonymous: union {
                 pH264Config: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264,
                 pHEVCConfig: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC,
@@ -1147,7 +1145,8 @@ mod Windows {
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_TEMPORAL = 1,
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_SPATIAL = 2,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_USE_CONSTRAINED_INTRAPREDICTION = 1,
@@ -1165,7 +1164,8 @@ mod Windows {
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_5_DISABLE_CHROMA_BLOCK_EDGES_AND_LUMA_BOUNDARIES = 5,
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_6_DISABLE_CHROMA_BLOCK_EDGES_AND_USE_LUMA_TWO_STAGE_DEBLOCKING = 6,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_0_ALL_LUMA_CHROMA_SLICE_BLOCK_EDGES_ALWAYS_FILTERED = 1,
@@ -1182,8 +1182,8 @@ mod Windows {
             MaxLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
             MinLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
             MaxLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
-            max_transform_hierarchy_depth_inter: UCHAR,
-            max_transform_hierarchy_depth_intra: UCHAR,
+            max_transform_hierarchy_depth_inter: u8,
+            max_transform_hierarchy_depth_intra: u8,
         }
         #[repr(i32)]
         enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE {
@@ -1192,7 +1192,8 @@ mod Windows {
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_32x32 = 2,
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_64x64 = 3,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_DISABLE_LOOP_FILTER_ACROSS_SLICES = 1,
@@ -1221,7 +1222,7 @@ mod Windows {
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_32x32 = 3,
         }
         struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
-            DataSize: UINT,
+            DataSize: u32,
             Anonymous: union {
                 pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264,
                 pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC,
@@ -1233,7 +1234,8 @@ mod Windows {
             SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS,
             DisableDeblockingFilterSupportedModes: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_CABAC_ENCODING_SUPPORT = 1,
@@ -1251,8 +1253,8 @@ mod Windows {
             MaxLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
             MinLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
             MaxLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
-            max_transform_hierarchy_depth_inter: UCHAR,
-            max_transform_hierarchy_depth_intra: UCHAR,
+            max_transform_hierarchy_depth_inter: u8,
+            max_transform_hierarchy_depth_intra: u8,
         }
         struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC1 {
             SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS,
@@ -1260,18 +1262,19 @@ mod Windows {
             MaxLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
             MinLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
             MaxLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
-            max_transform_hierarchy_depth_inter: UCHAR,
-            max_transform_hierarchy_depth_intra: UCHAR,
-            allowed_diff_cu_chroma_qp_offset_depth_values: UINT,
-            allowed_log2_sao_offset_scale_luma_values: UINT,
-            allowed_log2_sao_offset_scale_chroma_values: UINT,
-            allowed_log2_max_transform_skip_block_size_minus2_values: UINT,
-            allowed_chroma_qp_offset_list_len_minus1_values: UINT,
-            allowed_cb_qp_offset_list_values: [UINT; 6],
-            allowed_cr_qp_offset_list_values: [UINT; 6],
+            max_transform_hierarchy_depth_inter: u8,
+            max_transform_hierarchy_depth_intra: u8,
+            allowed_diff_cu_chroma_qp_offset_depth_values: u32,
+            allowed_log2_sao_offset_scale_luma_values: u32,
+            allowed_log2_sao_offset_scale_chroma_values: u32,
+            allowed_log2_max_transform_skip_block_size_minus2_values: u32,
+            allowed_chroma_qp_offset_list_len_minus1_values: u32,
+            allowed_cb_qp_offset_list_values: [u32; 6],
+            allowed_cr_qp_offset_list_values: [u32; 6],
             SupportFlags1: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_BFRAME_LTR_COMBINED_SUPPORT = 1,
@@ -1305,16 +1308,17 @@ mod Windows {
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CROSS_COMPONENT_PREDICTION_ENABLED_FLAG_SUPPORT = 268435456,
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CROSS_COMPONENT_PREDICTION_ENABLED_FLAG_REQUIRED = 536870912,
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CHROMA_QP_OFFSET_LIST_ENABLED_FLAG_SUPPORT = 1073741824,
-            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CHROMA_QP_OFFSET_LIST_ENABLED_FLAG_REQUIRED = -2147483648,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CHROMA_QP_OFFSET_LIST_ENABLED_FLAG_REQUIRED = 2147483648,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1 {
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG1_NONE = 0,
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG1_SEPARATE_COLOUR_PLANE_SUPPORT = 1,
             D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG1_SEPARATE_COLOUR_PLANE_REQUIRED = 2,
         }
         struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
-            DataSize: UINT,
+            DataSize: u32,
             Anonymous: union {
                 pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264,
                 pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC,
@@ -1322,22 +1326,22 @@ mod Windows {
             },
         }
         struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
-            MaxL0ReferencesForP: UINT,
-            MaxL0ReferencesForB: UINT,
-            MaxL1ReferencesForB: UINT,
-            MaxLongTermReferences: UINT,
-            MaxDPBCapacity: UINT,
+            MaxL0ReferencesForP: u32,
+            MaxL0ReferencesForB: u32,
+            MaxL1ReferencesForB: u32,
+            MaxLongTermReferences: u32,
+            MaxDPBCapacity: u32,
         }
         struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
-            MaxL0ReferencesForP: UINT,
-            MaxL0ReferencesForB: UINT,
-            MaxL1ReferencesForB: UINT,
-            MaxLongTermReferences: UINT,
-            MaxDPBCapacity: UINT,
+            MaxL0ReferencesForP: u32,
+            MaxL0ReferencesForB: u32,
+            MaxL1ReferencesForB: u32,
+            MaxLongTermReferences: u32,
+            MaxDPBCapacity: u32,
         }
         struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
             pBuffer: ID3D12Resource,
-            FrameStartOffset: UINT64,
+            FrameStartOffset: u64,
         }
         struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1 {
             NotificationMode: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE,
@@ -1352,7 +1356,7 @@ mod Windows {
             D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE_SUBREGIONS = 1,
         }
         struct D3D12_VIDEO_ENCODER_DESC {
-            NodeMask: UINT,
+            NodeMask: u32,
             Flags: D3D12_VIDEO_ENCODER_FLAGS,
             EncodeCodec: D3D12_VIDEO_ENCODER_CODEC,
             EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
@@ -1363,10 +1367,9 @@ mod Windows {
         struct D3D12_VIDEO_ENCODER_DIRTY_RECT_INFO {
             FullFrameIdentical: BOOL,
             MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
-            NumDirtyRects: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumDirtyRects", ReadableFieldName = "NumDirtyRects", IsByteCount = false, MayBeNull = false)]
+            NumDirtyRects: u32,
             pDirtyRects: *mut RECT,
-            SourceDPBFrameReference: UINT,
+            SourceDPBFrameReference: u32,
         }
         struct D3D12_VIDEO_ENCODER_DIRTY_REGIONS {
             MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
@@ -1385,7 +1388,8 @@ mod Windows {
             D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE_DIRTY = 0,
             D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE_SKIP = 1,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
             D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_REPEAT_FRAME = 1,
@@ -1396,15 +1400,15 @@ mod Windows {
             SequenceControlDesc: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC,
             PictureControlDesc: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC,
             pInputFrame: ID3D12Resource,
-            InputFrameSubresource: UINT,
-            CurrentFrameBitstreamMetadataSize: UINT,
+            InputFrameSubresource: u32,
+            CurrentFrameBitstreamMetadataSize: u32,
         }
         struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1 {
             SequenceControlDesc: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC,
             PictureControlDesc: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC1,
             pInputFrame: ID3D12Resource,
-            InputFrameSubresource: UINT,
-            CurrentFrameBitstreamMetadataSize: UINT,
+            InputFrameSubresource: u32,
+            CurrentFrameBitstreamMetadataSize: u32,
             OptionalMetadata: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS,
         }
         struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
@@ -1418,7 +1422,8 @@ mod Windows {
             EncoderOutputMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
             FrameAnalysisReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
             D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_NO_ERROR = 0,
             D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_CODEC_PICTURE_CONTROL_NOT_SUPPORTED = 1,
@@ -1429,20 +1434,21 @@ mod Windows {
         }
         struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
             pBuffer: ID3D12Resource,
-            Offset: UINT64,
+            Offset: u64,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_FLAGS {
             D3D12_VIDEO_ENCODER_FLAG_NONE = 0,
         }
         struct D3D12_VIDEO_ENCODER_FRAME_ANALYSIS {
             pDownscaledFrame: ID3D12Resource,
-            Subresource: UINT64,
+            Subresource: u64,
             DownscaledReferences: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
         }
         struct D3D12_VIDEO_ENCODER_FRAME_ANALYSIS_CONFIGURATION {
             Enabled: BOOL,
-            Pow2DownscaleFactor: UINT,
+            Pow2DownscaleFactor: u32,
         }
         #[repr(i32)]
         enum D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION {
@@ -1450,7 +1456,8 @@ mod Windows {
             D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_HALF_PIXEL = 1,
             D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_QUARTER_PIXEL = 2,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
             D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_FULL_PIXEL = 1,
@@ -1465,7 +1472,7 @@ mod Windows {
         }
         struct D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG {
             MotionSearchMode: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE,
-            SearchDeviationLimit: UINT,
+            SearchDeviationLimit: u32,
         }
         struct D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS {
             MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
@@ -1475,7 +1482,7 @@ mod Windows {
             },
         }
         struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
-            DataSize: UINT,
+            DataSize: u32,
             Anonymous: union {
                 pAV1Support: *mut D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT,
             },
@@ -1492,9 +1499,9 @@ mod Windows {
             D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_AUTO = 7,
         }
         struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
-            bSize: UINT64,
-            bStartOffset: UINT64,
-            bHeaderSize: UINT64,
+            bSize: u64,
+            bStartOffset: u64,
+            bHeaderSize: u64,
         }
         #[repr(i32)]
         enum D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
@@ -1511,27 +1518,26 @@ mod Windows {
             D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_IDR_FRAME = 3,
         }
         struct D3D12_VIDEO_ENCODER_HEAP_DESC {
-            NodeMask: UINT,
+            NodeMask: u32,
             Flags: D3D12_VIDEO_ENCODER_HEAP_FLAGS,
             EncodeCodec: D3D12_VIDEO_ENCODER_CODEC,
             EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             EncodeLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
-            ResolutionsListCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResolutionsListCount", ReadableFieldName = "ResolutionsListCount", IsByteCount = false, MayBeNull = false)]
+            ResolutionsListCount: u32,
             pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
         }
         struct D3D12_VIDEO_ENCODER_HEAP_DESC1 {
-            NodeMask: UINT,
+            NodeMask: u32,
             Flags: D3D12_VIDEO_ENCODER_HEAP_FLAGS,
             EncodeCodec: D3D12_VIDEO_ENCODER_CODEC,
             EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
             EncodeLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
-            ResolutionsListCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResolutionsListCount", ReadableFieldName = "ResolutionsListCount", IsByteCount = false, MayBeNull = false)]
+            ResolutionsListCount: u32,
             pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
-            Pow2DownscaleFactor: UINT,
+            Pow2DownscaleFactor: u32,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_HEAP_FLAGS {
             D3D12_VIDEO_ENCODER_HEAP_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_HEAP_FLAG_ALLOW_SUBREGION_NOTIFICATION_ARRAY_OF_BUFFERS = 1,
@@ -1551,19 +1557,15 @@ mod Windows {
             FullFrameIdentical: BOOL,
             MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
             pDirtyRegionsMap: ID3D12Resource,
-            SourceDPBFrameReference: UINT,
+            SourceDPBFrameReference: u32,
         }
         struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_MOTION_VECTORS {
             MotionSearchModeConfiguration: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG,
-            NumHintsPerPixel: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumHintsPerPixel", ReadableFieldName = "NumHintsPerPixel", IsByteCount = false, MayBeNull = false)]
+            NumHintsPerPixel: u32,
             ppMotionVectorMaps: *mut ID3D12Resource,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumHintsPerPixel", ReadableFieldName = "NumHintsPerPixel", IsByteCount = false, MayBeNull = false)]
-            pMotionVectorMapsSubresources: *mut UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumHintsPerPixel", ReadableFieldName = "NumHintsPerPixel", IsByteCount = false, MayBeNull = false)]
+            pMotionVectorMapsSubresources: *mut u32,
             ppMotionVectorMapsMetadata: *mut ID3D12Resource,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumHintsPerPixel", ReadableFieldName = "NumHintsPerPixel", IsByteCount = false, MayBeNull = false)]
-            pMotionVectorMapsMetadataSubresources: *mut UINT,
+            pMotionVectorMapsMetadataSubresources: *mut u32,
             MotionUnitPrecision: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION,
             PictureControlConfiguration: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1,
         }
@@ -1593,7 +1595,7 @@ mod Windows {
         }
         struct D3D12_VIDEO_ENCODER_INTRA_REFRESH {
             Mode: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
-            IntraRefreshDuration: UINT,
+            IntraRefreshDuration: u32,
         }
         #[repr(i32)]
         enum D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
@@ -1640,7 +1642,7 @@ mod Windows {
             D3D12_VIDEO_ENCODER_LEVELS_HEVC_62 = 12,
         }
         struct D3D12_VIDEO_ENCODER_LEVEL_SETTING {
-            DataSize: UINT,
+            DataSize: u32,
             Anonymous: union {
                 pH264LevelSetting: *mut D3D12_VIDEO_ENCODER_LEVELS_H264,
                 pHEVCLevelSetting: *mut D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC,
@@ -1665,7 +1667,8 @@ mod Windows {
             MotionSearchMode: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE,
             BidirectionalRefFrameEnabled: BOOL,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
             D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_SUPPORTED = 1,
@@ -1673,11 +1676,10 @@ mod Windows {
             D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_GPU_TEXTURE_MULTIPLE_REFERENCES = 4,
         }
         struct D3D12_VIDEO_ENCODER_MOVEREGION_INFO {
-            NumMoveRegions: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumMoveRegions", ReadableFieldName = "NumMoveRegions", IsByteCount = false, MayBeNull = false)]
+            NumMoveRegions: u32,
             pMoveRegions: *mut D3D12_VIDEO_ENCODER_MOVE_RECT,
             MotionSearchModeConfiguration: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG,
-            SourceDPBFrameReference: UINT,
+            SourceDPBFrameReference: u32,
             MotionUnitPrecision: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION,
             Flags: D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS,
         }
@@ -1690,7 +1692,8 @@ mod Windows {
             SourcePoint: POINT,
             DestRect: RECT,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
             D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_QP_MAP = 1,
@@ -1700,21 +1703,21 @@ mod Windows {
             D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_SUBREGIONS_PSNR = 16,
         }
         struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
-            EncodeErrorFlags: UINT64,
+            EncodeErrorFlags: u64,
             EncodeStats: D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS,
-            EncodedBitstreamWrittenBytesCount: UINT64,
-            WrittenSubregionsCount: UINT64,
+            EncodedBitstreamWrittenBytesCount: u64,
+            WrittenSubregionsCount: u64,
         }
         struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
-            AverageQP: UINT64,
-            IntraCodingUnitsCount: UINT64,
-            InterCodingUnitsCount: UINT64,
-            SkipCodingUnitsCount: UINT64,
-            AverageMotionEstimationXDirection: UINT64,
-            AverageMotionEstimationYDirection: UINT64,
+            AverageQP: u64,
+            IntraCodingUnitsCount: u64,
+            InterCodingUnitsCount: u64,
+            SkipCodingUnitsCount: u64,
+            AverageMotionEstimationXDirection: u64,
+            AverageMotionEstimationYDirection: u64,
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
-            DataSize: UINT,
+            DataSize: u32,
             Anonymous: union {
                 pH264PicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264,
                 pHEVCPicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC,
@@ -1723,7 +1726,7 @@ mod Windows {
             },
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1 {
-            DataSize: UINT,
+            DataSize: u32,
             Anonymous: union {
                 pH264PicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264,
                 pHEVCPicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC2,
@@ -1733,144 +1736,121 @@ mod Windows {
         struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
             Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS,
             FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264,
-            pic_parameter_set_id: UINT,
-            idr_pic_id: UINT,
-            PictureOrderCountNumber: UINT,
-            FrameDecodingOrderNumber: UINT,
-            TemporalLayerIndex: UINT,
-            List0ReferenceFramesCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List0ReferenceFramesCount", ReadableFieldName = "List0ReferenceFramesCount", IsByteCount = false, MayBeNull = false)]
-            pList0ReferenceFrames: *mut UINT,
-            List1ReferenceFramesCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List1ReferenceFramesCount", ReadableFieldName = "List1ReferenceFramesCount", IsByteCount = false, MayBeNull = false)]
-            pList1ReferenceFrames: *mut UINT,
-            ReferenceFramesReconPictureDescriptorsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ReferenceFramesReconPictureDescriptorsCount", ReadableFieldName = "ReferenceFramesReconPictureDescriptorsCount", IsByteCount = false, MayBeNull = false)]
+            pic_parameter_set_id: u32,
+            idr_pic_id: u32,
+            PictureOrderCountNumber: u32,
+            FrameDecodingOrderNumber: u32,
+            TemporalLayerIndex: u32,
+            List0ReferenceFramesCount: u32,
+            pList0ReferenceFrames: *mut u32,
+            List1ReferenceFramesCount: u32,
+            pList1ReferenceFrames: *mut u32,
+            ReferenceFramesReconPictureDescriptorsCount: u32,
             pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264,
-            adaptive_ref_pic_marking_mode_flag: UCHAR,
-            RefPicMarkingOperationsCommandsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "RefPicMarkingOperationsCommandsCount", ReadableFieldName = "RefPicMarkingOperationsCommandsCount", IsByteCount = false, MayBeNull = false)]
+            adaptive_ref_pic_marking_mode_flag: u8,
+            RefPicMarkingOperationsCommandsCount: u32,
             pRefPicMarkingOperationsCommands: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION,
-            List0RefPicModificationsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List0RefPicModificationsCount", ReadableFieldName = "List0RefPicModificationsCount", IsByteCount = false, MayBeNull = false)]
+            List0RefPicModificationsCount: u32,
             pList0RefPicModifications: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION,
-            List1RefPicModificationsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List1RefPicModificationsCount", ReadableFieldName = "List1RefPicModificationsCount", IsByteCount = false, MayBeNull = false)]
+            List1RefPicModificationsCount: u32,
             pList1RefPicModifications: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION,
-            QPMapValuesCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "QPMapValuesCount", ReadableFieldName = "QPMapValuesCount", IsByteCount = false, MayBeNull = false)]
-            pRateControlQPMap: *mut INT8,
+            QPMapValuesCount: u32,
+            pRateControlQPMap: *mut i8,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
             D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_REQUEST_INTRA_CONSTRAINED_SLICES = 1,
             D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_REQUEST_NUM_REF_IDX_ACTIVE_OVERRIDE_FLAG_SLICE = 2,
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
-            modification_of_pic_nums_idc: UCHAR,
-            abs_diff_pic_num_minus1: UINT,
-            long_term_pic_num: UINT,
+            modification_of_pic_nums_idc: u8,
+            abs_diff_pic_num_minus1: u32,
+            long_term_pic_num: u32,
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
-            memory_management_control_operation: UCHAR,
-            difference_of_pic_nums_minus1: UINT,
-            long_term_pic_num: UINT,
-            long_term_frame_idx: UINT,
-            max_long_term_frame_idx_plus1: UINT,
+            memory_management_control_operation: u8,
+            difference_of_pic_nums_minus1: u32,
+            long_term_pic_num: u32,
+            long_term_frame_idx: u32,
+            max_long_term_frame_idx_plus1: u32,
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
             Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
             FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
-            slice_pic_parameter_set_id: UINT,
-            PictureOrderCountNumber: UINT,
-            TemporalLayerIndex: UINT,
-            List0ReferenceFramesCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List0ReferenceFramesCount", ReadableFieldName = "List0ReferenceFramesCount", IsByteCount = false, MayBeNull = false)]
-            pList0ReferenceFrames: *mut UINT,
-            List1ReferenceFramesCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List1ReferenceFramesCount", ReadableFieldName = "List1ReferenceFramesCount", IsByteCount = false, MayBeNull = false)]
-            pList1ReferenceFrames: *mut UINT,
-            ReferenceFramesReconPictureDescriptorsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ReferenceFramesReconPictureDescriptorsCount", ReadableFieldName = "ReferenceFramesReconPictureDescriptorsCount", IsByteCount = false, MayBeNull = false)]
+            slice_pic_parameter_set_id: u32,
+            PictureOrderCountNumber: u32,
+            TemporalLayerIndex: u32,
+            List0ReferenceFramesCount: u32,
+            pList0ReferenceFrames: *mut u32,
+            List1ReferenceFramesCount: u32,
+            pList1ReferenceFrames: *mut u32,
+            ReferenceFramesReconPictureDescriptorsCount: u32,
             pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
-            List0RefPicModificationsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List0RefPicModificationsCount", ReadableFieldName = "List0RefPicModificationsCount", IsByteCount = false, MayBeNull = false)]
-            pList0RefPicModifications: *mut UINT,
-            List1RefPicModificationsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List1RefPicModificationsCount", ReadableFieldName = "List1RefPicModificationsCount", IsByteCount = false, MayBeNull = false)]
-            pList1RefPicModifications: *mut UINT,
-            QPMapValuesCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "QPMapValuesCount", ReadableFieldName = "QPMapValuesCount", IsByteCount = false, MayBeNull = false)]
-            pRateControlQPMap: *mut INT8,
+            List0RefPicModificationsCount: u32,
+            pList0RefPicModifications: *mut u32,
+            List1RefPicModificationsCount: u32,
+            pList1RefPicModifications: *mut u32,
+            QPMapValuesCount: u32,
+            pRateControlQPMap: *mut i8,
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC1 {
             Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
             FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
-            slice_pic_parameter_set_id: UINT,
-            PictureOrderCountNumber: UINT,
-            TemporalLayerIndex: UINT,
-            List0ReferenceFramesCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List0ReferenceFramesCount", ReadableFieldName = "List0ReferenceFramesCount", IsByteCount = false, MayBeNull = false)]
-            pList0ReferenceFrames: *mut UINT,
-            List1ReferenceFramesCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List1ReferenceFramesCount", ReadableFieldName = "List1ReferenceFramesCount", IsByteCount = false, MayBeNull = false)]
-            pList1ReferenceFrames: *mut UINT,
-            ReferenceFramesReconPictureDescriptorsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ReferenceFramesReconPictureDescriptorsCount", ReadableFieldName = "ReferenceFramesReconPictureDescriptorsCount", IsByteCount = false, MayBeNull = false)]
+            slice_pic_parameter_set_id: u32,
+            PictureOrderCountNumber: u32,
+            TemporalLayerIndex: u32,
+            List0ReferenceFramesCount: u32,
+            pList0ReferenceFrames: *mut u32,
+            List1ReferenceFramesCount: u32,
+            pList1ReferenceFrames: *mut u32,
+            ReferenceFramesReconPictureDescriptorsCount: u32,
             pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
-            List0RefPicModificationsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List0RefPicModificationsCount", ReadableFieldName = "List0RefPicModificationsCount", IsByteCount = false, MayBeNull = false)]
-            pList0RefPicModifications: *mut UINT,
-            List1RefPicModificationsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List1RefPicModificationsCount", ReadableFieldName = "List1RefPicModificationsCount", IsByteCount = false, MayBeNull = false)]
-            pList1RefPicModifications: *mut UINT,
-            QPMapValuesCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "QPMapValuesCount", ReadableFieldName = "QPMapValuesCount", IsByteCount = false, MayBeNull = false)]
-            pRateControlQPMap: *mut INT8,
-            diff_cu_chroma_qp_offset_depth: UCHAR,
-            log2_sao_offset_scale_luma: UCHAR,
-            log2_sao_offset_scale_chroma: UCHAR,
-            log2_max_transform_skip_block_size_minus2: UCHAR,
-            chroma_qp_offset_list_len_minus1: UCHAR,
-            cb_qp_offset_list: [CHAR; 6],
-            cr_qp_offset_list: [CHAR; 6],
+            List0RefPicModificationsCount: u32,
+            pList0RefPicModifications: *mut u32,
+            List1RefPicModificationsCount: u32,
+            pList1RefPicModifications: *mut u32,
+            QPMapValuesCount: u32,
+            pRateControlQPMap: *mut i8,
+            diff_cu_chroma_qp_offset_depth: u8,
+            log2_sao_offset_scale_luma: u8,
+            log2_sao_offset_scale_chroma: u8,
+            log2_max_transform_skip_block_size_minus2: u8,
+            chroma_qp_offset_list_len_minus1: u8,
+            cb_qp_offset_list: [i8; 6],
+            cr_qp_offset_list: [i8; 6],
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC2 {
             Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
             FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
-            slice_pic_parameter_set_id: UINT,
-            PictureOrderCountNumber: UINT,
-            TemporalLayerIndex: UINT,
-            List0ReferenceFramesCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List0ReferenceFramesCount", ReadableFieldName = "List0ReferenceFramesCount", IsByteCount = false, MayBeNull = false)]
-            pList0ReferenceFrames: *mut UINT,
-            List1ReferenceFramesCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List1ReferenceFramesCount", ReadableFieldName = "List1ReferenceFramesCount", IsByteCount = false, MayBeNull = false)]
-            pList1ReferenceFrames: *mut UINT,
-            ReferenceFramesReconPictureDescriptorsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ReferenceFramesReconPictureDescriptorsCount", ReadableFieldName = "ReferenceFramesReconPictureDescriptorsCount", IsByteCount = false, MayBeNull = false)]
+            slice_pic_parameter_set_id: u32,
+            PictureOrderCountNumber: u32,
+            TemporalLayerIndex: u32,
+            List0ReferenceFramesCount: u32,
+            pList0ReferenceFrames: *mut u32,
+            List1ReferenceFramesCount: u32,
+            pList1ReferenceFrames: *mut u32,
+            ReferenceFramesReconPictureDescriptorsCount: u32,
             pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
-            List0RefPicModificationsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List0RefPicModificationsCount", ReadableFieldName = "List0RefPicModificationsCount", IsByteCount = false, MayBeNull = false)]
-            pList0RefPicModifications: *mut UINT,
-            List1RefPicModificationsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "List1RefPicModificationsCount", ReadableFieldName = "List1RefPicModificationsCount", IsByteCount = false, MayBeNull = false)]
-            pList1RefPicModifications: *mut UINT,
-            QPMapValuesCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "QPMapValuesCount", ReadableFieldName = "QPMapValuesCount", IsByteCount = false, MayBeNull = false)]
-            pRateControlQPMap: *mut INT8,
-            diff_cu_chroma_qp_offset_depth: UCHAR,
-            log2_sao_offset_scale_luma: UCHAR,
-            log2_sao_offset_scale_chroma: UCHAR,
-            log2_max_transform_skip_block_size_minus2: UCHAR,
-            chroma_qp_offset_list_len_minus1: UCHAR,
-            cb_qp_offset_list: [CHAR; 6],
-            cr_qp_offset_list: [CHAR; 6],
-            num_ref_idx_l0_active_minus1: UINT,
-            num_ref_idx_l1_active_minus1: UINT,
+            List0RefPicModificationsCount: u32,
+            pList0RefPicModifications: *mut u32,
+            List1RefPicModificationsCount: u32,
+            pList1RefPicModifications: *mut u32,
+            QPMapValuesCount: u32,
+            pRateControlQPMap: *mut i8,
+            diff_cu_chroma_qp_offset_depth: u8,
+            log2_sao_offset_scale_luma: u8,
+            log2_sao_offset_scale_chroma: u8,
+            log2_max_transform_skip_block_size_minus2: u8,
+            chroma_qp_offset_list_len_minus1: u8,
+            cb_qp_offset_list: [i8; 6],
+            cr_qp_offset_list: [i8; 6],
+            num_ref_idx_l0_active_minus1: u32,
+            num_ref_idx_l1_active_minus1: u32,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
             D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_REQUEST_INTRA_CONSTRAINED_SLICES = 1,
@@ -1879,13 +1859,13 @@ mod Windows {
             D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_CHROMA_QP_OFFSET_LIST = 8,
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
-            IntraRefreshFrameIndex: UINT,
+            IntraRefreshFrameIndex: u32,
             Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS,
             PictureControlCodecData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA,
             ReferenceFrames: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC1 {
-            IntraRefreshFrameIndex: UINT,
+            IntraRefreshFrameIndex: u32,
             Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS,
             PictureControlCodecData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1,
             ReferenceFrames: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
@@ -1894,7 +1874,8 @@ mod Windows {
             QuantizationTextureMap: D3D12_VIDEO_ENCODER_QUANTIZATION_OPAQUE_MAP,
             FrameAnalysis: D3D12_VIDEO_ENCODER_FRAME_ANALYSIS,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
             D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_USED_AS_REFERENCE_PICTURE = 1,
@@ -1903,7 +1884,7 @@ mod Windows {
             D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_ENABLE_MOTION_VECTORS_INPUT = 8,
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
-            DataSize: UINT,
+            DataSize: u32,
             Anonymous: union {
                 pSlicesPartition_H264: *const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
                 pSlicesPartition_HEVC: *const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
@@ -1912,22 +1893,22 @@ mod Windows {
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
             Anonymous: union {
-                MaxBytesPerSlice: UINT,
-                NumberOfCodingUnitsPerSlice: UINT,
-                NumberOfRowsPerSlice: UINT,
-                NumberOfSlicesPerFrame: UINT,
+                MaxBytesPerSlice: u32,
+                NumberOfCodingUnitsPerSlice: u32,
+                NumberOfRowsPerSlice: u32,
+                NumberOfSlicesPerFrame: u32,
             },
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
-            Width: UINT,
-            Height: UINT,
+            Width: u32,
+            Height: u32,
         }
         struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
-            WidthRatio: UINT,
-            HeightRatio: UINT,
+            WidthRatio: u32,
+            HeightRatio: u32,
         }
         struct D3D12_VIDEO_ENCODER_PROFILE_DESC {
-            DataSize: UINT,
+            DataSize: u32,
             Anonymous: union {
                 pH264Profile: *mut D3D12_VIDEO_ENCODER_PROFILE_H264,
                 pHEVCProfile: *mut D3D12_VIDEO_ENCODER_PROFILE_HEVC,
@@ -1966,29 +1947,29 @@ mod Windows {
             TargetFrameRate: DXGI_RATIONAL,
         }
         struct D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {
-            QualityVsSpeed: UINT,
+            QualityVsSpeed: u32,
         }
         struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
-            InitialQP: UINT,
-            MinQP: UINT,
-            MaxQP: UINT,
-            MaxFrameBitSize: UINT64,
-            TargetBitRate: UINT64,
-            VBVCapacity: UINT64,
-            InitialVBVFullness: UINT64,
+            InitialQP: u32,
+            MinQP: u32,
+            MaxQP: u32,
+            MaxFrameBitSize: u64,
+            TargetBitRate: u64,
+            VBVCapacity: u64,
+            InitialVBVFullness: u64,
         }
         struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
-            InitialQP: UINT,
-            MinQP: UINT,
-            MaxQP: UINT,
-            MaxFrameBitSize: UINT64,
-            TargetBitRate: UINT64,
-            VBVCapacity: UINT64,
-            InitialVBVFullness: UINT64,
-            QualityVsSpeed: UINT,
+            InitialQP: u32,
+            MinQP: u32,
+            MaxQP: u32,
+            MaxFrameBitSize: u64,
+            TargetBitRate: u64,
+            VBVCapacity: u64,
+            InitialVBVFullness: u64,
+            QualityVsSpeed: u32,
         }
         struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
-            DataSize: UINT,
+            DataSize: u32,
             Anonymous: union {
                 pConfiguration_CQP: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP,
                 pConfiguration_CBR: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR,
@@ -2002,17 +1983,18 @@ mod Windows {
             },
         }
         struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
-            ConstantQP_FullIntracodedFrame: UINT,
-            ConstantQP_InterPredictedFrame_PrevRefOnly: UINT,
-            ConstantQP_InterPredictedFrame_BiDirectionalRef: UINT,
+            ConstantQP_FullIntracodedFrame: u32,
+            ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
+            ConstantQP_InterPredictedFrame_BiDirectionalRef: u32,
         }
         struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
-            ConstantQP_FullIntracodedFrame: UINT,
-            ConstantQP_InterPredictedFrame_PrevRefOnly: UINT,
-            ConstantQP_InterPredictedFrame_BiDirectionalRef: UINT,
-            QualityVsSpeed: UINT,
+            ConstantQP_FullIntracodedFrame: u32,
+            ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
+            ConstantQP_InterPredictedFrame_BiDirectionalRef: u32,
+            QualityVsSpeed: u32,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
             D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_DELTA_QP = 1,
@@ -2025,7 +2007,8 @@ mod Windows {
             D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_QUALITY_VS_SPEED = 128,
             D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_SPATIAL_ADAPTIVE_QP = 256,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
             D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_INTRACODED_FRAME_SUPPORTED = 1,
@@ -2045,65 +2028,65 @@ mod Windows {
             D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_QVBR = 4,
         }
         struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
-            InitialQP: UINT,
-            MinQP: UINT,
-            MaxQP: UINT,
-            MaxFrameBitSize: UINT64,
-            TargetAvgBitRate: UINT64,
-            PeakBitRate: UINT64,
-            ConstantQualityTarget: UINT,
+            InitialQP: u32,
+            MinQP: u32,
+            MaxQP: u32,
+            MaxFrameBitSize: u64,
+            TargetAvgBitRate: u64,
+            PeakBitRate: u64,
+            ConstantQualityTarget: u32,
         }
         struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
-            InitialQP: UINT,
-            MinQP: UINT,
-            MaxQP: UINT,
-            MaxFrameBitSize: UINT64,
-            TargetAvgBitRate: UINT64,
-            PeakBitRate: UINT64,
-            ConstantQualityTarget: UINT,
-            VBVCapacity: UINT64,
-            InitialVBVFullness: UINT64,
-            QualityVsSpeed: UINT,
+            InitialQP: u32,
+            MinQP: u32,
+            MaxQP: u32,
+            MaxFrameBitSize: u64,
+            TargetAvgBitRate: u64,
+            PeakBitRate: u64,
+            ConstantQualityTarget: u32,
+            VBVCapacity: u64,
+            InitialVBVFullness: u64,
+            QualityVsSpeed: u32,
         }
         struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
-            InitialQP: UINT,
-            MinQP: UINT,
-            MaxQP: UINT,
-            MaxFrameBitSize: UINT64,
-            TargetAvgBitRate: UINT64,
-            PeakBitRate: UINT64,
-            VBVCapacity: UINT64,
-            InitialVBVFullness: UINT64,
+            InitialQP: u32,
+            MinQP: u32,
+            MaxQP: u32,
+            MaxFrameBitSize: u64,
+            TargetAvgBitRate: u64,
+            PeakBitRate: u64,
+            VBVCapacity: u64,
+            InitialVBVFullness: u64,
         }
         struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
-            InitialQP: UINT,
-            MinQP: UINT,
-            MaxQP: UINT,
-            MaxFrameBitSize: UINT64,
-            TargetAvgBitRate: UINT64,
-            PeakBitRate: UINT64,
-            VBVCapacity: UINT64,
-            InitialVBVFullness: UINT64,
-            QualityVsSpeed: UINT,
+            InitialQP: u32,
+            MinQP: u32,
+            MaxQP: u32,
+            MaxFrameBitSize: u64,
+            TargetAvgBitRate: u64,
+            PeakBitRate: u64,
+            VBVCapacity: u64,
+            InitialVBVFullness: u64,
+            QualityVsSpeed: u32,
         }
         struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
             pReconstructedPicture: ID3D12Resource,
-            ReconstructedPictureSubresource: UINT,
+            ReconstructedPictureSubresource: u32,
         }
         struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
-            ReconstructedPictureResourceIndex: UINT,
+            ReconstructedPictureResourceIndex: u32,
             IsLongTermReference: BOOL,
-            LongTermPictureIdx: UINT,
-            PictureOrderCountNumber: UINT,
-            FrameDecodingOrderNumber: UINT,
-            TemporalLayerIndex: UINT,
+            LongTermPictureIdx: u32,
+            PictureOrderCountNumber: u32,
+            FrameDecodingOrderNumber: u32,
+            TemporalLayerIndex: u32,
         }
         struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
-            ReconstructedPictureResourceIndex: UINT,
+            ReconstructedPictureResourceIndex: u32,
             IsRefUsedByCurrentPic: BOOL,
             IsLongTermReference: BOOL,
-            PictureOrderCountNumber: UINT,
-            TemporalLayerIndex: UINT,
+            PictureOrderCountNumber: u32,
+            TemporalLayerIndex: u32,
         }
         struct D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS {
             SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
@@ -2153,7 +2136,8 @@ mod Windows {
             FrameSubregionsLayoutData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
             CodecGopSequence: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
             D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_RESOLUTION_CHANGE = 1,
@@ -2163,7 +2147,7 @@ mod Windows {
             D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_GOP_SEQUENCE_CHANGE = 16,
         }
         struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
-            DataSize: UINT,
+            DataSize: u32,
             Anonymous: union {
                 pH264GroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264,
                 pHEVCGroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC,
@@ -2171,33 +2155,34 @@ mod Windows {
             },
         }
         struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
-            GOPLength: UINT,
-            PPicturePeriod: UINT,
-            pic_order_cnt_type: UCHAR,
-            log2_max_frame_num_minus4: UCHAR,
-            log2_max_pic_order_cnt_lsb_minus4: UCHAR,
+            GOPLength: u32,
+            PPicturePeriod: u32,
+            pic_order_cnt_type: u8,
+            log2_max_frame_num_minus4: u8,
+            log2_max_pic_order_cnt_lsb_minus4: u8,
         }
         struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
-            GOPLength: UINT,
-            PPicturePeriod: UINT,
-            log2_max_pic_order_cnt_lsb_minus4: UCHAR,
+            GOPLength: u32,
+            PPicturePeriod: u32,
+            log2_max_pic_order_cnt_lsb_minus4: u8,
         }
         struct D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM {
             BufferMode: D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE,
-            ExpectedSubregionCount: UINT,
-            pSubregionBitstreamsBaseOffsets: *mut UINT64,
+            ExpectedSubregionCount: u32,
+            pSubregionBitstreamsBaseOffsets: *mut u64,
             ppSubregionBitstreams: *mut ID3D12Resource,
             ppSubregionSizes: *mut ID3D12Resource,
             ppSubregionOffsets: *mut ID3D12Resource,
             ppSubregionFences: *mut ID3D12Fence,
-            pSubregionFenceValues: *mut UINT64,
+            pSubregionFenceValues: *mut u64,
         }
         #[repr(i32)]
         enum D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE {
             D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE_ARRAY_OF_BUFFERS = 0,
             D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE_SINGLE_BUFFER = 1,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
             D3D12_VIDEO_ENCODER_SUPPORT_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_SUPPORT_FLAG_GENERAL_SUPPORT_OK = 1,
@@ -2230,7 +2215,8 @@ mod Windows {
             D3D12_VIDEO_ENCODER_TIER_HEVC_MAIN = 0,
             D3D12_VIDEO_ENCODER_TIER_HEVC_HIGH = 1,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
             D3D12_VIDEO_ENCODER_VALIDATION_FLAG_NONE = 0,
             D3D12_VIDEO_ENCODER_VALIDATION_FLAG_CODEC_NOT_SUPPORTED = 1,
@@ -2249,29 +2235,28 @@ mod Windows {
             D3D12_VIDEO_ENCODER_VALIDATION_FLAG_FRAME_ANALYSIS_NOT_SUPPORTED = 65536,
         }
         struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
-            NumTexture2Ds: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumTexture2Ds", ReadableFieldName = "NumTexture2Ds", IsByteCount = false, MayBeNull = false)]
+            NumTexture2Ds: u32,
             ppTexture2Ds: *mut ID3D12Resource,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumTexture2Ds", ReadableFieldName = "NumTexture2Ds", IsByteCount = false, MayBeNull = false)]
-            pSubresources: *mut UINT,
+            pSubresources: *mut u32,
         }
         struct D3D12_VIDEO_EXTENSION_COMMAND_DESC {
-            NodeMask: UINT,
+            NodeMask: u32,
             CommandId: GUID,
         }
         struct D3D12_VIDEO_EXTENSION_COMMAND_INFO {
             CommandId: GUID,
-            Name: LPCWSTR,
+            Name: PCWSTR,
             CommandListSupportFlags: D3D12_COMMAND_LIST_SUPPORT_FLAGS,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
             D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_NONE = 0,
             D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_READ = 1,
             D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_WRITE = 2,
         }
         struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
-            Name: LPCWSTR,
+            Name: PCWSTR,
             Type: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE,
             Flags: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS,
         }
@@ -2323,7 +2308,7 @@ mod Windows {
             D3D12_VIDEO_FRAME_STEREO_FORMAT_SEPARATE = 4,
         }
         struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
-            NodeMask: UINT,
+            NodeMask: u32,
             InputFormat: DXGI_FORMAT,
             BlockSize: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE,
             Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
@@ -2331,9 +2316,9 @@ mod Windows {
         }
         struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
             pInputTexture2D: ID3D12Resource,
-            InputSubresourceIndex: UINT,
+            InputSubresourceIndex: u32,
             pReferenceTexture2D: ID3D12Resource,
-            ReferenceSubresourceIndex: UINT,
+            ReferenceSubresourceIndex: u32,
             pHintMotionVectorHeap: ID3D12VideoMotionVectorHeap,
         }
         struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
@@ -2344,7 +2329,8 @@ mod Windows {
             D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_8X8 = 0,
             D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_16X16 = 1,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
             D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_NONE = 0,
             D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_8X8 = 1,
@@ -2354,13 +2340,14 @@ mod Windows {
         enum D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {
             D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_QUARTER_PEL = 0,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
             D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG_NONE = 0,
             D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG_QUARTER_PEL = 1,
         }
         struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
-            NodeMask: UINT,
+            NodeMask: u32,
             InputFormat: DXGI_FORMAT,
             BlockSize: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE,
             Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
@@ -2368,7 +2355,7 @@ mod Windows {
         }
         struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
             Enable: BOOL,
-            Alpha: FLOAT,
+            Alpha: f32,
         }
         #[repr(i32)]
         enum D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
@@ -2377,7 +2364,8 @@ mod Windows {
             D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_DESTINATION = 2,
             D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_SOURCE_STREAM = 3,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
             D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_NONE = 0,
             D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_DENOISE = 1,
@@ -2388,15 +2376,17 @@ mod Windows {
             D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_IMAGE_STABILIZATION = 32,
             D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_SUPER_RESOLUTION = 64,
             D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_ANAMORPHIC_SCALING = 128,
-            D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_CUSTOM = -2147483648,
+            D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_CUSTOM = 2147483648,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
             D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_NONE = 0,
             D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_BOB = 1,
-            D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_CUSTOM = -2147483648,
+            D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_CUSTOM = 2147483648,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
             D3D12_VIDEO_PROCESS_FEATURE_FLAG_NONE = 0,
             D3D12_VIDEO_PROCESS_FEATURE_FLAG_ALPHA_FILL = 1,
@@ -2418,7 +2408,8 @@ mod Windows {
             D3D12_VIDEO_PROCESS_FILTER_ANAMORPHIC_SCALING = 6,
             D3D12_VIDEO_PROCESS_FILTER_STEREO_ADJUSTMENT = 7,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_PROCESS_FILTER_FLAGS {
             D3D12_VIDEO_PROCESS_FILTER_FLAG_NONE = 0,
             D3D12_VIDEO_PROCESS_FILTER_FLAG_BRIGHTNESS = 1,
@@ -2431,14 +2422,14 @@ mod Windows {
             D3D12_VIDEO_PROCESS_FILTER_FLAG_STEREO_ADJUSTMENT = 128,
         }
         struct D3D12_VIDEO_PROCESS_FILTER_RANGE {
-            Minimum: INT,
-            Maximum: INT,
-            Default: INT,
-            Multiplier: FLOAT,
+            Minimum: i32,
+            Maximum: i32,
+            Default: i32,
+            Multiplier: f32,
         }
         struct D3D12_VIDEO_PROCESS_INPUT_STREAM {
             pTexture2D: ID3D12Resource,
-            Subresource: UINT,
+            Subresource: u32,
             ReferenceSet: D3D12_VIDEO_PROCESS_REFERENCE_SET,
         }
         struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
@@ -2446,7 +2437,7 @@ mod Windows {
             Transform: D3D12_VIDEO_PROCESS_TRANSFORM,
             Flags: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS,
             RateInfo: D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE,
-            FilterLevels: [INT; 32],
+            FilterLevels: [i32; 32],
             AlphaBlending: D3D12_VIDEO_PROCESS_ALPHA_BLENDING,
         }
         struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
@@ -2454,7 +2445,7 @@ mod Windows {
             Transform: D3D12_VIDEO_PROCESS_TRANSFORM,
             Flags: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS,
             RateInfo: D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE,
-            FilterLevels: [INT; 32],
+            FilterLevels: [i32; 32],
             AlphaBlending: D3D12_VIDEO_PROCESS_ALPHA_BLENDING,
             FieldType: D3D12_VIDEO_FIELD_TYPE,
         }
@@ -2473,24 +2464,25 @@ mod Windows {
             DeinterlaceMode: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
             EnableAlphaBlending: BOOL,
             LumaKey: D3D12_VIDEO_PROCESS_LUMA_KEY,
-            NumPastFrames: UINT,
-            NumFutureFrames: UINT,
+            NumPastFrames: u32,
+            NumFutureFrames: u32,
             EnableAutoProcessing: BOOL,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
             D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_NONE = 0,
             D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_DISCONTINUITY = 1,
             D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_REPEAT = 2,
         }
         struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
-            OutputIndex: UINT,
-            InputFrameOrField: UINT,
+            OutputIndex: u32,
+            InputFrameOrField: u32,
         }
         struct D3D12_VIDEO_PROCESS_LUMA_KEY {
             Enable: BOOL,
-            Lower: FLOAT,
-            Upper: FLOAT,
+            Lower: f32,
+            Upper: f32,
         }
         #[repr(i32)]
         enum D3D12_VIDEO_PROCESS_ORIENTATION {
@@ -2505,7 +2497,7 @@ mod Windows {
         }
         struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
             pTexture2D: ID3D12Resource,
-            Subresource: UINT,
+            Subresource: u32,
         }
         struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
             OutputStream: [D3D12_VIDEO_PROCESS_OUTPUT_STREAM; 2],
@@ -2515,20 +2507,21 @@ mod Windows {
             Format: DXGI_FORMAT,
             ColorSpace: DXGI_COLOR_SPACE_TYPE,
             AlphaFillMode: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE,
-            AlphaFillModeSourceStreamIndex: UINT,
-            BackgroundColor: [FLOAT; 4],
+            AlphaFillModeSourceStreamIndex: u32,
+            BackgroundColor: [f32; 4],
             FrameRate: DXGI_RATIONAL,
             EnableStereo: BOOL,
         }
         struct D3D12_VIDEO_PROCESS_REFERENCE_SET {
-            NumPastFrames: UINT,
+            NumPastFrames: u32,
             ppPastFrames: *mut ID3D12Resource,
-            pPastSubresources: *mut UINT,
-            NumFutureFrames: UINT,
+            pPastSubresources: *mut u32,
+            NumFutureFrames: u32,
             ppFutureFrames: *mut ID3D12Resource,
-            pFutureSubresources: *mut UINT,
+            pFutureSubresources: *mut u32,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
             D3D12_VIDEO_PROCESS_SUPPORT_FLAG_NONE = 0,
             D3D12_VIDEO_PROCESS_SUPPORT_FLAG_SUPPORTED = 1,
@@ -2538,21 +2531,23 @@ mod Windows {
             DestinationRectangle: D3D12_RECT,
             Orientation: D3D12_VIDEO_PROCESS_ORIENTATION,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
             D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_NONE = 0,
             D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_SUPPORTED = 1,
         }
         struct D3D12_VIDEO_SAMPLE {
-            Width: UINT,
-            Height: UINT,
+            Width: u32,
+            Height: u32,
             Format: D3D12_VIDEO_FORMAT,
         }
         struct D3D12_VIDEO_SCALE_SUPPORT {
             OutputSizeRange: D3D12_VIDEO_SIZE_RANGE,
             Flags: D3D12_VIDEO_SCALE_SUPPORT_FLAGS,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
             D3D12_VIDEO_SCALE_SUPPORT_FLAG_NONE = 0,
             D3D12_VIDEO_SCALE_SUPPORT_FLAG_POW2_ONLY = 1,
@@ -2560,41 +2555,41 @@ mod Windows {
             D3D12_VIDEO_SCALE_SUPPORT_FLAG_DPB_ENCODER_RESOURCES = 4,
         }
         struct D3D12_VIDEO_SIZE_RANGE {
-            MaxWidth: UINT,
-            MaxHeight: UINT,
-            MinWidth: UINT,
-            MinHeight: UINT,
+            MaxWidth: u32,
+            MaxHeight: u32,
+            MinWidth: u32,
+            MinHeight: u32,
         }
         #[guid(0x3b60536e_ad29_4e64_a269_f853837e5e53)]
         interface ID3D12VideoDecodeCommandList: ID3D12CommandList {
             fn Close(&self) -> HRESULT;
-            fn Reset(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAllocator: ID3D12CommandAllocator) -> HRESULT;
+            fn Reset(&self, pAllocator: ID3D12CommandAllocator) -> HRESULT;
             fn ClearState(&self);
-            fn ResourceBarrier(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumBarriers: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pBarriers: *const D3D12_RESOURCE_BARRIER);
-            fn DiscardResource(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D12Resource, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRegion: *const D3D12_DISCARD_REGION);
-            fn BeginQuery(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryHeap: ID3D12QueryHeap, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: D3D12_QUERY_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: UINT);
-            fn EndQuery(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryHeap: ID3D12QueryHeap, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: D3D12_QUERY_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: UINT);
-            fn ResolveQueryData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryHeap: ID3D12QueryHeap, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: D3D12_QUERY_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumQueries: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDestinationBuffer: ID3D12Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AlignedDestinationBufferOffset: UINT64);
-            fn SetPredication(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBuffer: ID3D12Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AlignedBufferOffset: UINT64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Operation: D3D12_PREDICATION_OP);
-            fn SetMarker(&self, Metadata: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pData: *const void, Size: UINT);
-            fn BeginEvent(&self, Metadata: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pData: *const void, Size: UINT);
+            fn ResourceBarrier(&self, NumBarriers: u32, #[len_param(0)] pBarriers: *const D3D12_RESOURCE_BARRIER);
+            fn DiscardResource(&self, pResource: ID3D12Resource, #[opt] pRegion: *const D3D12_DISCARD_REGION);
+            fn BeginQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
+            fn EndQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
+            fn ResolveQueryData(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, StartIndex: u32, NumQueries: u32, pDestinationBuffer: ID3D12Resource, AlignedDestinationBufferOffset: u64);
+            fn SetPredication(&self, #[opt] pBuffer: ID3D12Resource, AlignedBufferOffset: u64, Operation: D3D12_PREDICATION_OP);
+            fn SetMarker(&self, Metadata: u32, #[size_param(2)] #[opt] pData: *const void, Size: u32);
+            fn BeginEvent(&self, Metadata: u32, #[size_param(2)] #[opt] pData: *const void, Size: u32);
             fn EndEvent(&self);
-            fn DecodeFrame(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDecoder: ID3D12VideoDecoder, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputArguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputArguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
-            fn WriteBufferImmediate(&self, Count: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
+            fn DecodeFrame(&self, pDecoder: ID3D12VideoDecoder, pOutputArguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pInputArguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
+            fn WriteBufferImmediate(&self, Count: u32, #[len_param(0)] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[len_param(0)] #[opt] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
         }
         #[guid(0xd52f011b_b56e_453c_a05a_a7f311c8f472)]
         interface ID3D12VideoDecodeCommandList1: ID3D12VideoDecodeCommandList {
-            fn DecodeFrame1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDecoder: ID3D12VideoDecoder, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputArguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputArguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
+            fn DecodeFrame1(&self, pDecoder: ID3D12VideoDecoder, pOutputArguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pInputArguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
         }
         #[guid(0x6e120880_c114_4153_8036_d247051e1729)]
         interface ID3D12VideoDecodeCommandList2: ID3D12VideoDecodeCommandList1 {
-            fn SetProtectedResourceSession(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProtectedResourceSession: ID3D12ProtectedResourceSession);
-            fn InitializeExtensionCommand(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pInitializationParameters: *const void, InitializationParametersSizeInBytes: SIZE_T);
-            fn ExecuteExtensionCommand(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: SIZE_T);
+            fn SetProtectedResourceSession(&self, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession);
+            fn InitializeExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pInitializationParameters: *const void, InitializationParametersSizeInBytes: usize);
+            fn ExecuteExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: usize);
         }
         #[guid(0x2aee8c37_9562_42da_8abf_61efeb2e4513)]
         interface ID3D12VideoDecodeCommandList3: ID3D12VideoDecodeCommandList2 {
-            fn Barrier(&self, NumBarrierGroups: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pBarrierGroups: *const D3D12_BARRIER_GROUP);
+            fn Barrier(&self, NumBarrierGroups: u32, #[len_param(0)] pBarrierGroups: *const D3D12_BARRIER_GROUP);
         }
         #[guid(0xc59b6bdc_7720_4074_a136_17a156037470)]
         interface ID3D12VideoDecoder: ID3D12Pageable {
@@ -2602,7 +2597,7 @@ mod Windows {
         }
         #[guid(0x79a2e5fb_ccd2_469a_9fde_195d10951f7e)]
         interface ID3D12VideoDecoder1: ID3D12VideoDecoder {
-            fn GetProtectedResourceSession(&self, riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] #[opt] ppProtectedSession: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0946b7c9_ebf6_4047_bb73_8683e27dbb1f)]
         interface ID3D12VideoDecoderHeap: ID3D12Pageable {
@@ -2610,79 +2605,79 @@ mod Windows {
         }
         #[guid(0xda1d98c5_539f_41b2_bf6b_1198a03b6d26)]
         interface ID3D12VideoDecoderHeap1: ID3D12VideoDecoderHeap {
-            fn GetProtectedResourceSession(&self, riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] #[opt] ppProtectedSession: *mut *mut void) -> HRESULT;
         }
         #[guid(0x1f052807_0b46_4acc_8a89_364f793718a4)]
         interface ID3D12VideoDevice: IUnknown {
-            fn CheckFeatureSupport(&self, FeatureVideo: D3D12_FEATURE_VIDEO, #[in] #[out] #[size_param(2)] pFeatureSupportData: *mut void, FeatureSupportDataSize: UINT) -> HRESULT;
-            fn CreateVideoDecoder(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D12_VIDEO_DECODER_DESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppVideoDecoder: *mut *mut void) -> HRESULT;
-            fn CreateVideoDecoderHeap(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoDecoderHeapDesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppVideoDecoderHeap: *mut *mut void) -> HRESULT;
-            fn CreateVideoProcessor(&self, NodeMask: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, NumInputStreamDescs: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppVideoProcessor: *mut *mut void) -> HRESULT;
+            fn CheckFeatureSupport(&self, FeatureVideo: D3D12_FEATURE_VIDEO, #[size_param(2)] #[in] #[out] pFeatureSupportData: *mut void, FeatureSupportDataSize: u32) -> HRESULT;
+            fn CreateVideoDecoder(&self, pDesc: *const D3D12_VIDEO_DECODER_DESC, riid: *const GUID, #[iid_is] ppVideoDecoder: *mut *mut void) -> HRESULT;
+            fn CreateVideoDecoderHeap(&self, pVideoDecoderHeapDesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: *const GUID, #[iid_is] ppVideoDecoderHeap: *mut *mut void) -> HRESULT;
+            fn CreateVideoProcessor(&self, NodeMask: u32, pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, NumInputStreamDescs: u32, #[len_param(2)] pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const GUID, #[iid_is] ppVideoProcessor: *mut *mut void) -> HRESULT;
         }
         #[guid(0x981611ad_a144_4c83_9890_f30e26d658ab)]
         interface ID3D12VideoDevice1: ID3D12VideoDevice {
-            fn CreateVideoMotionEstimator(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProtectedResourceSession: ID3D12ProtectedResourceSession, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppVideoMotionEstimator: *mut *mut void) -> HRESULT;
-            fn CreateVideoMotionVectorHeap(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProtectedResourceSession: ID3D12ProtectedResourceSession, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppVideoMotionVectorHeap: *mut *mut void) -> HRESULT;
+            fn CreateVideoMotionEstimator(&self, pDesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, riid: *const GUID, #[iid_is] ppVideoMotionEstimator: *mut *mut void) -> HRESULT;
+            fn CreateVideoMotionVectorHeap(&self, pDesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, riid: *const GUID, #[iid_is] ppVideoMotionVectorHeap: *mut *mut void) -> HRESULT;
         }
         #[guid(0xf019ac49_f838_4a95_9b17_579437c8f513)]
         interface ID3D12VideoDevice2: ID3D12VideoDevice1 {
-            fn CreateVideoDecoder1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D12_VIDEO_DECODER_DESC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProtectedResourceSession: ID3D12ProtectedResourceSession, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppVideoDecoder: *mut *mut void) -> HRESULT;
-            fn CreateVideoDecoderHeap1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoDecoderHeapDesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProtectedResourceSession: ID3D12ProtectedResourceSession, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppVideoDecoderHeap: *mut *mut void) -> HRESULT;
-            fn CreateVideoProcessor1(&self, NodeMask: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, NumInputStreamDescs: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProtectedResourceSession: ID3D12ProtectedResourceSession, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppVideoProcessor: *mut *mut void) -> HRESULT;
-            fn CreateVideoExtensionCommand(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pCreationParameters: *const void, CreationParametersDataSizeInBytes: SIZE_T, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProtectedResourceSession: ID3D12ProtectedResourceSession, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppVideoExtensionCommand: *mut *mut void) -> HRESULT;
-            fn ExecuteExtensionCommand(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: SIZE_T, #[out] #[size_param(4)] pOutputData: *mut void, OutputDataSizeInBytes: SIZE_T) -> HRESULT;
+            fn CreateVideoDecoder1(&self, pDesc: *const D3D12_VIDEO_DECODER_DESC, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, riid: *const GUID, #[iid_is] ppVideoDecoder: *mut *mut void) -> HRESULT;
+            fn CreateVideoDecoderHeap1(&self, pVideoDecoderHeapDesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, riid: *const GUID, #[iid_is] ppVideoDecoderHeap: *mut *mut void) -> HRESULT;
+            fn CreateVideoProcessor1(&self, NodeMask: u32, pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, NumInputStreamDescs: u32, #[len_param(2)] pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, riid: *const GUID, #[iid_is] ppVideoProcessor: *mut *mut void) -> HRESULT;
+            fn CreateVideoExtensionCommand(&self, pDesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, #[size_param(2)] pCreationParameters: *const void, CreationParametersDataSizeInBytes: usize, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, riid: *const GUID, #[iid_is] ppVideoExtensionCommand: *mut *mut void) -> HRESULT;
+            fn ExecuteExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: usize, #[size_param(4)] pOutputData: *mut void, OutputDataSizeInBytes: usize) -> HRESULT;
         }
         #[guid(0x4243adb4_3a32_4666_973c_0ccc5625dc44)]
         interface ID3D12VideoDevice3: ID3D12VideoDevice2 {
-            fn CreateVideoEncoder(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D12_VIDEO_ENCODER_DESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppVideoEncoder: *mut *mut void) -> HRESULT;
-            fn CreateVideoEncoderHeap(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppVideoEncoderHeap: *mut *mut void) -> HRESULT;
+            fn CreateVideoEncoder(&self, pDesc: *const D3D12_VIDEO_ENCODER_DESC, riid: *const GUID, #[iid_is] ppVideoEncoder: *mut *mut void) -> HRESULT;
+            fn CreateVideoEncoderHeap(&self, pDesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC, riid: *const GUID, #[iid_is] ppVideoEncoderHeap: *mut *mut void) -> HRESULT;
         }
         #[guid(0xe59ad09e_f1ae_42bb_8983_9f6e5586c4eb)]
         interface ID3D12VideoDevice4: ID3D12VideoDevice3 {
-            fn CreateVideoEncoderHeap1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC1, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppVideoEncoderHeap: *mut *mut void) -> HRESULT;
+            fn CreateVideoEncoderHeap1(&self, pDesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC1, riid: *const GUID, #[iid_is] ppVideoEncoderHeap: *mut *mut void) -> HRESULT;
         }
         #[guid(0x8455293a_0cbd_4831_9b39_fbdbab724723)]
         interface ID3D12VideoEncodeCommandList: ID3D12CommandList {
             fn Close(&self) -> HRESULT;
-            fn Reset(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAllocator: ID3D12CommandAllocator) -> HRESULT;
+            fn Reset(&self, pAllocator: ID3D12CommandAllocator) -> HRESULT;
             fn ClearState(&self);
-            fn ResourceBarrier(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumBarriers: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pBarriers: *const D3D12_RESOURCE_BARRIER);
-            fn DiscardResource(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D12Resource, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRegion: *const D3D12_DISCARD_REGION);
-            fn BeginQuery(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryHeap: ID3D12QueryHeap, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: D3D12_QUERY_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: UINT);
-            fn EndQuery(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryHeap: ID3D12QueryHeap, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: D3D12_QUERY_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: UINT);
-            fn ResolveQueryData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryHeap: ID3D12QueryHeap, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: D3D12_QUERY_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumQueries: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDestinationBuffer: ID3D12Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AlignedDestinationBufferOffset: UINT64);
-            fn SetPredication(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBuffer: ID3D12Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AlignedBufferOffset: UINT64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Operation: D3D12_PREDICATION_OP);
-            fn SetMarker(&self, Metadata: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pData: *const void, Size: UINT);
-            fn BeginEvent(&self, Metadata: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pData: *const void, Size: UINT);
+            fn ResourceBarrier(&self, NumBarriers: u32, #[len_param(0)] pBarriers: *const D3D12_RESOURCE_BARRIER);
+            fn DiscardResource(&self, pResource: ID3D12Resource, #[opt] pRegion: *const D3D12_DISCARD_REGION);
+            fn BeginQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
+            fn EndQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
+            fn ResolveQueryData(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, StartIndex: u32, NumQueries: u32, pDestinationBuffer: ID3D12Resource, AlignedDestinationBufferOffset: u64);
+            fn SetPredication(&self, #[opt] pBuffer: ID3D12Resource, AlignedBufferOffset: u64, Operation: D3D12_PREDICATION_OP);
+            fn SetMarker(&self, Metadata: u32, #[size_param(2)] #[opt] pData: *const void, Size: u32);
+            fn BeginEvent(&self, Metadata: u32, #[size_param(2)] #[opt] pData: *const void, Size: u32);
             fn EndEvent(&self);
-            fn EstimateMotion(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMotionEstimator: ID3D12VideoMotionEstimator, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputArguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputArguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT);
+            fn EstimateMotion(&self, pMotionEstimator: ID3D12VideoMotionEstimator, pOutputArguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pInputArguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT);
             fn ResolveMotionVectorHeap(&self, pOutputArguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pInputArguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT);
-            fn WriteBufferImmediate(&self, Count: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
-            fn SetProtectedResourceSession(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProtectedResourceSession: ID3D12ProtectedResourceSession);
+            fn WriteBufferImmediate(&self, Count: u32, #[len_param(0)] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[len_param(0)] #[opt] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
+            fn SetProtectedResourceSession(&self, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession);
         }
         #[guid(0x94971eca_2bdb_4769_88cf_3675ea757ebc)]
         interface ID3D12VideoEncodeCommandList1: ID3D12VideoEncodeCommandList {
-            fn InitializeExtensionCommand(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pInitializationParameters: *const void, InitializationParametersSizeInBytes: SIZE_T);
-            fn ExecuteExtensionCommand(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: SIZE_T);
+            fn InitializeExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pInitializationParameters: *const void, InitializationParametersSizeInBytes: usize);
+            fn ExecuteExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: usize);
         }
         #[guid(0x895491e2_e701_46a9_9a1f_8d3480ed867a)]
         interface ID3D12VideoEncodeCommandList2: ID3D12VideoEncodeCommandList1 {
-            fn EncodeFrame(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEncoder: ID3D12VideoEncoder, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pHeap: ID3D12VideoEncoderHeap, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputArguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputArguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS);
-            fn ResolveEncoderOutputMetadata(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS);
+            fn EncodeFrame(&self, pEncoder: ID3D12VideoEncoder, pHeap: ID3D12VideoEncoderHeap, pInputArguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, pOutputArguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS);
+            fn ResolveEncoderOutputMetadata(&self, pInputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, pOutputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS);
         }
         #[guid(0x7f027b22_1515_4e85_aa0d_026486580576)]
         interface ID3D12VideoEncodeCommandList3: ID3D12VideoEncodeCommandList2 {
-            fn Barrier(&self, NumBarrierGroups: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pBarrierGroups: *const D3D12_BARRIER_GROUP);
+            fn Barrier(&self, NumBarrierGroups: u32, #[len_param(0)] pBarrierGroups: *const D3D12_BARRIER_GROUP);
         }
         #[guid(0x69aeb5b7_55f2_4012_8b73_3a88d65a204c)]
         interface ID3D12VideoEncodeCommandList4: ID3D12VideoEncodeCommandList3 {
-            fn EncodeFrame1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEncoder: ID3D12VideoEncoder, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pHeap: ID3D12VideoEncoderHeap1, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputArguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputArguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1);
-            fn ResolveEncoderOutputMetadata1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1);
-            fn ResolveInputParamLayout(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS);
+            fn EncodeFrame1(&self, pEncoder: ID3D12VideoEncoder, pHeap: ID3D12VideoEncoderHeap1, pInputArguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1, pOutputArguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1);
+            fn ResolveEncoderOutputMetadata1(&self, pInputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, pOutputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1);
+            fn ResolveInputParamLayout(&self, pInputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, pOutputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS);
         }
         #[guid(0x2e0d212d_8df9_44a6_a770_bb289b182737)]
         interface ID3D12VideoEncoder: ID3D12Pageable {
-            fn GetNodeMask(&self) -> UINT;
+            fn GetNodeMask(&self) -> u32;
             fn GetEncoderFlags(&self) -> D3D12_VIDEO_ENCODER_FLAGS;
             fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC;
             fn GetCodecProfile(&self, #[in] #[out] dstProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> HRESULT;
@@ -2692,104 +2687,74 @@ mod Windows {
         }
         #[guid(0x22b35d96_876a_44c0_b25e_fb8c9c7f1c4a)]
         interface ID3D12VideoEncoderHeap: ID3D12Pageable {
-            fn GetNodeMask(&self) -> UINT;
+            fn GetNodeMask(&self) -> u32;
             fn GetEncoderHeapFlags(&self) -> D3D12_VIDEO_ENCODER_HEAP_FLAGS;
             fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC;
             fn GetCodecProfile(&self, #[in] #[out] dstProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> HRESULT;
             fn GetCodecLevel(&self, #[in] #[out] dstLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING) -> HRESULT;
-            fn GetResolutionListCount(&self) -> UINT;
-            fn GetResolutionList(&self, ResolutionsListCount: UINT, #[out] #[len_param(0)] pResolutionList: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> HRESULT;
+            fn GetResolutionListCount(&self) -> u32;
+            fn GetResolutionList(&self, ResolutionsListCount: u32, #[len_param(0)] pResolutionList: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> HRESULT;
         }
         #[guid(0xea8f1968_4aa0_43a4_9d30_ba86ec84d4f9)]
         interface ID3D12VideoEncoderHeap1: ID3D12VideoEncoderHeap {
-            fn GetPow2DownscaleFactor(&self) -> UINT;
+            fn GetPow2DownscaleFactor(&self) -> u32;
         }
         #[guid(0x554e41e8_ae8e_4a8c_b7d2_5b4f274a30e4)]
         interface ID3D12VideoExtensionCommand: ID3D12Pageable {
             fn GetDesc(&self) -> D3D12_VIDEO_EXTENSION_COMMAND_DESC;
-            fn GetProtectedResourceSession(&self, riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] #[opt] ppProtectedSession: *mut *mut void) -> HRESULT;
         }
         #[guid(0x33fdae0e_098b_428f_87bb_34b695de08f8)]
         interface ID3D12VideoMotionEstimator: ID3D12Pageable {
             fn GetDesc(&self) -> D3D12_VIDEO_MOTION_ESTIMATOR_DESC;
-            fn GetProtectedResourceSession(&self, riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] #[opt] ppProtectedSession: *mut *mut void) -> HRESULT;
         }
         #[guid(0x5be17987_743a_4061_834b_23d22daea505)]
         interface ID3D12VideoMotionVectorHeap: ID3D12Pageable {
             fn GetDesc(&self) -> D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC;
-            fn GetProtectedResourceSession(&self, riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] #[opt] ppProtectedSession: *mut *mut void) -> HRESULT;
         }
         #[guid(0xaeb2543a_167f_4682_acc8_d159ed4a6209)]
         interface ID3D12VideoProcessCommandList: ID3D12CommandList {
             fn Close(&self) -> HRESULT;
-            fn Reset(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAllocator: ID3D12CommandAllocator) -> HRESULT;
+            fn Reset(&self, pAllocator: ID3D12CommandAllocator) -> HRESULT;
             fn ClearState(&self);
-            fn ResourceBarrier(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumBarriers: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pBarriers: *const D3D12_RESOURCE_BARRIER);
-            fn DiscardResource(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D12Resource, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRegion: *const D3D12_DISCARD_REGION);
-            fn BeginQuery(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryHeap: ID3D12QueryHeap, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: D3D12_QUERY_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: UINT);
-            fn EndQuery(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryHeap: ID3D12QueryHeap, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: D3D12_QUERY_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Index: UINT);
-            fn ResolveQueryData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pQueryHeap: ID3D12QueryHeap, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Type: D3D12_QUERY_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumQueries: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDestinationBuffer: ID3D12Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AlignedDestinationBufferOffset: UINT64);
-            fn SetPredication(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBuffer: ID3D12Resource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AlignedBufferOffset: UINT64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Operation: D3D12_PREDICATION_OP);
-            fn SetMarker(&self, Metadata: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pData: *const void, Size: UINT);
-            fn BeginEvent(&self, Metadata: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pData: *const void, Size: UINT);
+            fn ResourceBarrier(&self, NumBarriers: u32, #[len_param(0)] pBarriers: *const D3D12_RESOURCE_BARRIER);
+            fn DiscardResource(&self, pResource: ID3D12Resource, #[opt] pRegion: *const D3D12_DISCARD_REGION);
+            fn BeginQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
+            fn EndQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
+            fn ResolveQueryData(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, StartIndex: u32, NumQueries: u32, pDestinationBuffer: ID3D12Resource, AlignedDestinationBufferOffset: u64);
+            fn SetPredication(&self, #[opt] pBuffer: ID3D12Resource, AlignedBufferOffset: u64, Operation: D3D12_PREDICATION_OP);
+            fn SetMarker(&self, Metadata: u32, #[size_param(2)] #[opt] pData: *const void, Size: u32);
+            fn BeginEvent(&self, Metadata: u32, #[size_param(2)] #[opt] pData: *const void, Size: u32);
             fn EndEvent(&self);
-            fn ProcessFrames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D12VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputArguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, NumInputStreams: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pInputArguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS);
-            fn WriteBufferImmediate(&self, Count: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
+            fn ProcessFrames(&self, pVideoProcessor: ID3D12VideoProcessor, pOutputArguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, NumInputStreams: u32, #[len_param(2)] pInputArguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS);
+            fn WriteBufferImmediate(&self, Count: u32, #[len_param(0)] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[len_param(0)] #[opt] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
         }
         #[guid(0x542c5c4d_7596_434f_8c93_4efa6766f267)]
         interface ID3D12VideoProcessCommandList1: ID3D12VideoProcessCommandList {
-            fn ProcessFrames1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoProcessor: ID3D12VideoProcessor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputArguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, NumInputStreams: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pInputArguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1);
+            fn ProcessFrames1(&self, pVideoProcessor: ID3D12VideoProcessor, pOutputArguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, NumInputStreams: u32, #[len_param(2)] pInputArguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1);
         }
         #[guid(0xdb525ae4_6ad6_473c_baa7_59b2e37082e4)]
         interface ID3D12VideoProcessCommandList2: ID3D12VideoProcessCommandList1 {
-            fn SetProtectedResourceSession(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProtectedResourceSession: ID3D12ProtectedResourceSession);
-            fn InitializeExtensionCommand(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pInitializationParameters: *const void, InitializationParametersSizeInBytes: SIZE_T);
-            fn ExecuteExtensionCommand(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExtensionCommand: ID3D12VideoExtensionCommand, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: SIZE_T);
+            fn SetProtectedResourceSession(&self, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession);
+            fn InitializeExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pInitializationParameters: *const void, InitializationParametersSizeInBytes: usize);
+            fn ExecuteExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: usize);
         }
         #[guid(0x1a0a4ca4_9f08_40ce_9558_b411fd2666ff)]
         interface ID3D12VideoProcessCommandList3: ID3D12VideoProcessCommandList2 {
-            fn Barrier(&self, NumBarrierGroups: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pBarrierGroups: *const D3D12_BARRIER_GROUP);
+            fn Barrier(&self, NumBarrierGroups: u32, #[len_param(0)] pBarrierGroups: *const D3D12_BARRIER_GROUP);
         }
         #[guid(0x304fdb32_bede_410a_8545_943ac6a46138)]
         interface ID3D12VideoProcessor: ID3D12Pageable {
-            fn GetNodeMask(&self) -> UINT;
-            fn GetNumInputStreamDescs(&self) -> UINT;
-            fn GetInputStreamDescs(&self, NumInputStreamDescs: UINT, #[out] #[len_param(0)] pInputStreamDescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> HRESULT;
+            fn GetNodeMask(&self) -> u32;
+            fn GetNumInputStreamDescs(&self) -> u32;
+            fn GetInputStreamDescs(&self, NumInputStreamDescs: u32, #[len_param(0)] pInputStreamDescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> HRESULT;
             fn GetOutputStreamDesc(&self) -> D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC;
         }
         #[guid(0xf3cfe615_553f_425c_86d8_ee8c1b1fb01c)]
         interface ID3D12VideoProcessor1: ID3D12VideoProcessor {
-            fn GetProtectedResourceSession(&self, riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] #[opt] ppProtectedSession: *mut *mut void) -> HRESULT;
         }
-        const IID_ID3D12VideoDecodeCommandList: GUID = 0x3b60536e_ad29_4e64_a269_f853837e5e53;
-        const IID_ID3D12VideoDecodeCommandList1: GUID = 0xd52f011b_b56e_453c_a05a_a7f311c8f472;
-        const IID_ID3D12VideoDecodeCommandList2: GUID = 0x6e120880_c114_4153_8036_d247051e1729;
-        const IID_ID3D12VideoDecodeCommandList3: GUID = 0x2aee8c37_9562_42da_8abf_61efeb2e4513;
-        const IID_ID3D12VideoDecoder: GUID = 0xc59b6bdc_7720_4074_a136_17a156037470;
-        const IID_ID3D12VideoDecoder1: GUID = 0x79a2e5fb_ccd2_469a_9fde_195d10951f7e;
-        const IID_ID3D12VideoDecoderHeap: GUID = 0x0946b7c9_ebf6_4047_bb73_8683e27dbb1f;
-        const IID_ID3D12VideoDecoderHeap1: GUID = 0xda1d98c5_539f_41b2_bf6b_1198a03b6d26;
-        const IID_ID3D12VideoDevice: GUID = 0x1f052807_0b46_4acc_8a89_364f793718a4;
-        const IID_ID3D12VideoDevice1: GUID = 0x981611ad_a144_4c83_9890_f30e26d658ab;
-        const IID_ID3D12VideoDevice2: GUID = 0xf019ac49_f838_4a95_9b17_579437c8f513;
-        const IID_ID3D12VideoDevice3: GUID = 0x4243adb4_3a32_4666_973c_0ccc5625dc44;
-        const IID_ID3D12VideoDevice4: GUID = 0xe59ad09e_f1ae_42bb_8983_9f6e5586c4eb;
-        const IID_ID3D12VideoEncodeCommandList: GUID = 0x8455293a_0cbd_4831_9b39_fbdbab724723;
-        const IID_ID3D12VideoEncodeCommandList1: GUID = 0x94971eca_2bdb_4769_88cf_3675ea757ebc;
-        const IID_ID3D12VideoEncodeCommandList2: GUID = 0x895491e2_e701_46a9_9a1f_8d3480ed867a;
-        const IID_ID3D12VideoEncodeCommandList3: GUID = 0x7f027b22_1515_4e85_aa0d_026486580576;
-        const IID_ID3D12VideoEncodeCommandList4: GUID = 0x69aeb5b7_55f2_4012_8b73_3a88d65a204c;
-        const IID_ID3D12VideoEncoder: GUID = 0x2e0d212d_8df9_44a6_a770_bb289b182737;
-        const IID_ID3D12VideoEncoderHeap: GUID = 0x22b35d96_876a_44c0_b25e_fb8c9c7f1c4a;
-        const IID_ID3D12VideoEncoderHeap1: GUID = 0xea8f1968_4aa0_43a4_9d30_ba86ec84d4f9;
-        const IID_ID3D12VideoExtensionCommand: GUID = 0x554e41e8_ae8e_4a8c_b7d2_5b4f274a30e4;
-        const IID_ID3D12VideoMotionEstimator: GUID = 0x33fdae0e_098b_428f_87bb_34b695de08f8;
-        const IID_ID3D12VideoMotionVectorHeap: GUID = 0x5be17987_743a_4061_834b_23d22daea505;
-        const IID_ID3D12VideoProcessCommandList: GUID = 0xaeb2543a_167f_4682_acc8_d159ed4a6209;
-        const IID_ID3D12VideoProcessCommandList1: GUID = 0x542c5c4d_7596_434f_8c93_4efa6766f267;
-        const IID_ID3D12VideoProcessCommandList2: GUID = 0xdb525ae4_6ad6_473c_baa7_59b2e37082e4;
-        const IID_ID3D12VideoProcessCommandList3: GUID = 0x1a0a4ca4_9f08_40ce_9558_b411fd2666ff;
-        const IID_ID3D12VideoProcessor: GUID = 0x304fdb32_bede_410a_8545_943ac6a46138;
-        const IID_ID3D12VideoProcessor1: GUID = 0xf3cfe615_553f_425c_86d8_ee8c1b1fb01c;
     }
 }

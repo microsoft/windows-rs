@@ -1,13 +1,6 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[arch(X86)]
-        struct BinaryParam {
-            Buffer: *mut void,
-            Size: i16,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
         struct BinaryParam {
             Buffer: *mut void,
             Size: i16,
@@ -27,16 +20,14 @@ mod Windows {
             eeptNone = 6,
             eeptBinary = 7,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn I_RpcAsyncAbortCall(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAsync: PRPC_ASYNC_STATE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ExceptionCode: u32) -> RPC_STATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn I_RpcAsyncAbortCall(pAsync: PRPC_ASYNC_STATE, ExceptionCode: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcAsyncSetHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Message: PRPC_MESSAGE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
+        extern fn I_RpcAsyncSetHandle(Message: PRPC_MESSAGE, pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcBindingInqClientTokenAttributes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[out] #[opt] TokenId: *mut LUID, #[out] #[opt] AuthenticationId: *mut LUID, #[out] #[opt] ModifiedId: *mut LUID) -> RPC_STATUS;
+        extern fn I_RpcBindingInqClientTokenAttributes(Binding: RPC_BINDING_HANDLE, #[opt] TokenId: *mut LUID, #[opt] AuthenticationId: *mut LUID, #[opt] ModifiedId: *mut LUID) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcExceptionFilter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ExceptionCode: u32) -> i32;
+        extern fn I_RpcExceptionFilter(ExceptionCode: u32) -> i32;
         const MaxNumberOfEEInfoParams: i32 = 4;
         extern fn PFN_RPCNOTIFICATION_ROUTINE(pAsync: *mut RPC_ASYNC_STATE, Context: *mut void, Event: RPC_ASYNC_EVENT);
         type PRPC_ASYNC_NOTIFICATION_INFO = *mut RPC_ASYNC_NOTIFICATION_INFO;
@@ -51,7 +42,6 @@ mod Windows {
             RpcClientDisconnect = 3,
             RpcClientCancel = 4,
         }
-        #[arch(X86)]
         union RPC_ASYNC_NOTIFICATION_INFO {
             APC: struct {
                 NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
@@ -59,38 +49,17 @@ mod Windows {
             },
             IOC: struct {
                 hIOPort: HANDLE,
-                dwNumberOfBytesTransferred: DWORD,
-                dwCompletionKey: DWORD_PTR,
+                dwNumberOfBytesTransferred: u32,
+                dwCompletionKey: usize,
                 lpOverlapped: LPOVERLAPPED,
             },
             HWND: struct {
                 hWnd: HWND,
-                Msg: UINT,
+                Msg: u32,
             },
             hEvent: HANDLE,
             NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        union RPC_ASYNC_NOTIFICATION_INFO {
-            APC: #[packed(8)] struct {
-                NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
-                hThread: HANDLE,
-            },
-            IOC: #[packed(8)] struct {
-                hIOPort: HANDLE,
-                dwNumberOfBytesTransferred: DWORD,
-                dwCompletionKey: DWORD_PTR,
-                lpOverlapped: LPOVERLAPPED,
-            },
-            HWND: #[packed(8)] struct {
-                hWnd: HWND,
-                Msg: UINT,
-            },
-            hEvent: HANDLE,
-            NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
-        }
-        #[arch(X86)]
         struct RPC_ASYNC_STATE {
             Size: u32,
             Signature: u32,
@@ -102,29 +71,13 @@ mod Windows {
             Event: RPC_ASYNC_EVENT,
             NotificationType: RPC_NOTIFICATION_TYPES,
             u: RPC_ASYNC_NOTIFICATION_INFO,
-            Reserved: [LONG_PTR; 4],
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct RPC_ASYNC_STATE {
-            Size: u32,
-            Signature: u32,
-            Lock: i32,
-            Flags: u32,
-            StubInfo: *mut void,
-            UserInfo: *mut void,
-            RuntimeInfo: *mut void,
-            Event: RPC_ASYNC_EVENT,
-            NotificationType: RPC_NOTIFICATION_TYPES,
-            u: RPC_ASYNC_NOTIFICATION_INFO,
-            Reserved: [LONG_PTR; 4],
+            Reserved: [isize; 4],
         }
         #[arch(X64 | Arm64)]
         const RPC_ASYNC_VERSION_1_0: u64 = 112;
         #[arch(X86)]
         const RPC_ASYNC_VERSION_1_0: u32 = 68;
         type RPC_CALL_ATTRIBUTES = RPC_CALL_ATTRIBUTES_V3_A;
-        #[arch(X86)]
         struct RPC_CALL_ATTRIBUTES_V1_A {
             Version: u32,
             Flags: u32,
@@ -136,20 +89,6 @@ mod Windows {
             AuthenticationService: u32,
             NullSession: BOOL,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct RPC_CALL_ATTRIBUTES_V1_A {
-            Version: u32,
-            Flags: u32,
-            ServerPrincipalNameBufferLength: u32,
-            ServerPrincipalName: *mut u8,
-            ClientPrincipalNameBufferLength: u32,
-            ClientPrincipalName: *mut u8,
-            AuthenticationLevel: u32,
-            AuthenticationService: u32,
-            NullSession: BOOL,
-        }
-        #[arch(X86)]
         struct RPC_CALL_ATTRIBUTES_V1_W {
             Version: u32,
             Flags: u32,
@@ -161,20 +100,6 @@ mod Windows {
             AuthenticationService: u32,
             NullSession: BOOL,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct RPC_CALL_ATTRIBUTES_V1_W {
-            Version: u32,
-            Flags: u32,
-            ServerPrincipalNameBufferLength: u32,
-            ServerPrincipalName: *mut u16,
-            ClientPrincipalNameBufferLength: u32,
-            ClientPrincipalName: *mut u16,
-            AuthenticationLevel: u32,
-            AuthenticationService: u32,
-            NullSession: BOOL,
-        }
-        #[arch(X86)]
         struct RPC_CALL_ATTRIBUTES_V2_A {
             Version: u32,
             Flags: u32,
@@ -193,31 +118,8 @@ mod Windows {
             CallType: RpcCallType,
             CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
             OpNum: u16,
-            InterfaceUuid: UUID,
+            InterfaceUuid: GUID,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct RPC_CALL_ATTRIBUTES_V2_A {
-            Version: u32,
-            Flags: u32,
-            ServerPrincipalNameBufferLength: u32,
-            ServerPrincipalName: *mut u8,
-            ClientPrincipalNameBufferLength: u32,
-            ClientPrincipalName: *mut u8,
-            AuthenticationLevel: u32,
-            AuthenticationService: u32,
-            NullSession: BOOL,
-            KernelModeCaller: BOOL,
-            ProtocolSequence: u32,
-            IsClientLocal: u32,
-            ClientPID: HANDLE,
-            CallStatus: u32,
-            CallType: RpcCallType,
-            CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
-            OpNum: u16,
-            InterfaceUuid: UUID,
-        }
-        #[arch(X86)]
         struct RPC_CALL_ATTRIBUTES_V2_W {
             Version: u32,
             Flags: u32,
@@ -236,31 +138,8 @@ mod Windows {
             CallType: RpcCallType,
             CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
             OpNum: u16,
-            InterfaceUuid: UUID,
+            InterfaceUuid: GUID,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct RPC_CALL_ATTRIBUTES_V2_W {
-            Version: u32,
-            Flags: u32,
-            ServerPrincipalNameBufferLength: u32,
-            ServerPrincipalName: *mut u16,
-            ClientPrincipalNameBufferLength: u32,
-            ClientPrincipalName: *mut u16,
-            AuthenticationLevel: u32,
-            AuthenticationService: u32,
-            NullSession: BOOL,
-            KernelModeCaller: BOOL,
-            ProtocolSequence: u32,
-            IsClientLocal: RpcCallClientLocality,
-            ClientPID: HANDLE,
-            CallStatus: u32,
-            CallType: RpcCallType,
-            CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
-            OpNum: u16,
-            InterfaceUuid: UUID,
-        }
-        #[arch(X86)]
         struct RPC_CALL_ATTRIBUTES_V3_A {
             Version: u32,
             Flags: u32,
@@ -279,35 +158,10 @@ mod Windows {
             CallType: RpcCallType,
             CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
             OpNum: u16,
-            InterfaceUuid: UUID,
+            InterfaceUuid: GUID,
             ClientIdentifierBufferLength: u32,
             ClientIdentifier: *mut u8,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct RPC_CALL_ATTRIBUTES_V3_A {
-            Version: u32,
-            Flags: u32,
-            ServerPrincipalNameBufferLength: u32,
-            ServerPrincipalName: *mut u8,
-            ClientPrincipalNameBufferLength: u32,
-            ClientPrincipalName: *mut u8,
-            AuthenticationLevel: u32,
-            AuthenticationService: u32,
-            NullSession: BOOL,
-            KernelModeCaller: BOOL,
-            ProtocolSequence: u32,
-            IsClientLocal: u32,
-            ClientPID: HANDLE,
-            CallStatus: u32,
-            CallType: RpcCallType,
-            CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
-            OpNum: u16,
-            InterfaceUuid: UUID,
-            ClientIdentifierBufferLength: u32,
-            ClientIdentifier: *mut u8,
-        }
-        #[arch(X86)]
         struct RPC_CALL_ATTRIBUTES_V3_W {
             Version: u32,
             Flags: u32,
@@ -326,44 +180,11 @@ mod Windows {
             CallType: RpcCallType,
             CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
             OpNum: u16,
-            InterfaceUuid: UUID,
-            ClientIdentifierBufferLength: u32,
-            ClientIdentifier: *mut u8,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct RPC_CALL_ATTRIBUTES_V3_W {
-            Version: u32,
-            Flags: u32,
-            ServerPrincipalNameBufferLength: u32,
-            ServerPrincipalName: *mut u16,
-            ClientPrincipalNameBufferLength: u32,
-            ClientPrincipalName: *mut u16,
-            AuthenticationLevel: u32,
-            AuthenticationService: u32,
-            NullSession: BOOL,
-            KernelModeCaller: BOOL,
-            ProtocolSequence: u32,
-            IsClientLocal: RpcCallClientLocality,
-            ClientPID: HANDLE,
-            CallStatus: u32,
-            CallType: RpcCallType,
-            CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
-            OpNum: u16,
-            InterfaceUuid: UUID,
+            InterfaceUuid: GUID,
             ClientIdentifierBufferLength: u32,
             ClientIdentifier: *mut u8,
         }
         const RPC_CALL_ATTRIBUTES_VERSION: i32 = 3;
-        #[arch(X86)]
-        struct RPC_CALL_LOCAL_ADDRESS_V1 {
-            Version: u32,
-            Buffer: *mut void,
-            BufferSize: u32,
-            AddressFormat: RpcLocalAddressFormat,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
         struct RPC_CALL_LOCAL_ADDRESS_V1 {
             Version: u32,
             Buffer: *mut void,
@@ -375,74 +196,34 @@ mod Windows {
         const RPC_C_INFINITE_TIMEOUT: u32 = 4294967295;
         const RPC_C_NOTIFY_ON_SEND_COMPLETE: i32 = 1;
         const RPC_EEINFO_VERSION: i32 = 1;
-        #[arch(X86)]
         struct RPC_EE_INFO_PARAM {
             ParameterType: ExtendedErrorParamTypes,
             u: union {
-                AnsiString: LPSTR,
-                UnicodeString: LPWSTR,
+                AnsiString: PSTR,
+                UnicodeString: PWSTR,
                 LVal: i32,
                 SVal: i16,
-                PVal: ULONGLONG,
+                PVal: u64,
                 BVal: BinaryParam,
             },
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct RPC_EE_INFO_PARAM {
-            ParameterType: ExtendedErrorParamTypes,
-            u: #[packed(8)] union {
-                AnsiString: LPSTR,
-                UnicodeString: LPWSTR,
-                LVal: i32,
-                SVal: i16,
-                PVal: ULONGLONG,
-                BVal: BinaryParam,
-            },
-        }
-        #[arch(X86)]
         struct RPC_ERROR_ENUM_HANDLE {
-            Signature: ULONG,
+            Signature: u32,
             CurrentPos: *mut void,
             Head: *mut void,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct RPC_ERROR_ENUM_HANDLE {
-            Signature: ULONG,
-            CurrentPos: *mut void,
-            Head: *mut void,
-        }
-        #[arch(X86)]
         struct RPC_EXTENDED_ERROR_INFO {
-            Version: ULONG,
-            ComputerName: LPWSTR,
-            ProcessID: ULONG,
+            Version: u32,
+            ComputerName: PWSTR,
+            ProcessID: u32,
             u: union {
                 SystemTime: SYSTEMTIME,
                 FileTime: FILETIME,
             },
-            GeneratingComponent: ULONG,
-            Status: ULONG,
-            DetectionLocation: USHORT,
-            Flags: USHORT,
-            NumberOfParameters: i32,
-            Parameters: [RPC_EE_INFO_PARAM; 4],
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct RPC_EXTENDED_ERROR_INFO {
-            Version: ULONG,
-            ComputerName: LPWSTR,
-            ProcessID: ULONG,
-            u: #[packed(8)] union {
-                SystemTime: SYSTEMTIME,
-                FileTime: FILETIME,
-            },
-            GeneratingComponent: ULONG,
-            Status: ULONG,
-            DetectionLocation: USHORT,
-            Flags: USHORT,
+            GeneratingComponent: u32,
+            Status: u32,
+            DetectionLocation: u16,
+            Flags: u16,
             NumberOfParameters: i32,
             Parameters: [RPC_EE_INFO_PARAM; 4],
         }
@@ -468,28 +249,22 @@ mod Windows {
         const RPC_QUERY_IS_CLIENT_LOCAL: i32 = 32;
         const RPC_QUERY_NO_AUTH_REQUIRED: i32 = 64;
         const RPC_QUERY_SERVER_PRINCIPAL_NAME: i32 = 2;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("RPCRT4.dll")]
-        extern fn RpcAsyncAbortCall(#[in] #[out] pAsync: PRPC_ASYNC_STATE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ExceptionCode: u32) -> RPC_STATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn RpcAsyncAbortCall(#[in] #[out] pAsync: PRPC_ASYNC_STATE, ExceptionCode: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcAsyncCancelCall(#[in] #[out] pAsync: PRPC_ASYNC_STATE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fAbort: BOOL) -> RPC_STATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn RpcAsyncCancelCall(#[in] #[out] pAsync: PRPC_ASYNC_STATE, fAbort: BOOL) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcAsyncCompleteCall(#[in] #[out] pAsync: PRPC_ASYNC_STATE, #[out] #[opt] Reply: *mut void) -> RPC_STATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn RpcAsyncCompleteCall(#[in] #[out] pAsync: PRPC_ASYNC_STATE, #[opt] Reply: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcAsyncGetCallStatus(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn RpcAsyncGetCallStatus(pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcAsyncInitializeHandle(#[out] #[size_param(1)] pAsync: PRPC_ASYNC_STATE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: u32) -> RPC_STATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn RpcAsyncInitializeHandle(#[size_param(1)] #[out] pAsync: PRPC_ASYNC_STATE, Size: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcAsyncRegisterInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
+        extern fn RpcAsyncRegisterInfo(pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingBind(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAsync: PRPC_ASYNC_STATE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfSpec: RPC_IF_HANDLE) -> RPC_STATUS;
+        extern fn RpcBindingBind(#[opt] pAsync: PRPC_ASYNC_STATE, Binding: RPC_BINDING_HANDLE, IfSpec: RPC_IF_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingUnbind(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcBindingUnbind(Binding: RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[repr(i32)]
         enum RpcCallClientLocality {
             rcclInvalid = 0,
@@ -505,27 +280,27 @@ mod Windows {
             rctGuaranteed = 3,
         }
         #[library("RPCRT4.dll")]
-        extern fn RpcErrorAddRecord(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ErrorInfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
+        extern fn RpcErrorAddRecord(#[in] ErrorInfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcErrorClearInformation();
         #[library("RPCRT4.dll")]
         extern fn RpcErrorEndEnumeration(#[in] #[out] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcErrorGetNextRecord(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CopyStrings: BOOL, #[out] ErrorInfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
+        extern fn RpcErrorGetNextRecord(#[in] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE, CopyStrings: BOOL, ErrorInfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcErrorGetNumberOfRecords(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE, #[out] Records: *mut i32) -> RPC_STATUS;
+        extern fn RpcErrorGetNumberOfRecords(#[in] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE, Records: *mut i32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcErrorLoadErrorInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] ErrorBlob: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BlobSize: size_t, #[out] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
+        extern fn RpcErrorLoadErrorInfo(#[size_param(1)] #[in] ErrorBlob: *mut void, BlobSize: usize, EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcErrorResetEnumeration(#[in] #[out] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcErrorSaveErrorInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*BlobSize", "*BlobSize")] #[out] ErrorBlob: *mut PVOID, #[out] BlobSize: *mut size_t) -> RPC_STATUS;
+        extern fn RpcErrorSaveErrorInfo(#[in] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE, ErrorBlob: *mut *mut void, BlobSize: *mut usize) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcErrorStartEnumeration(#[out] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
+        extern fn RpcErrorStartEnumeration(EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcFreeAuthorizationContext(#[in] #[out] pAuthzClientContext: *mut PVOID) -> RPC_STATUS;
+        extern fn RpcFreeAuthorizationContext(#[in] #[out] pAuthzClientContext: *mut *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcGetAuthorizationContextForClient(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientBinding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImpersonateOnReturn: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved1: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExpirationTime: PLARGE_INTEGER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved2: LUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved3: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Reserved4: PVOID, #[out] pAuthzClientContext: *mut PVOID) -> RPC_STATUS;
+        extern fn RpcGetAuthorizationContextForClient(#[opt] ClientBinding: RPC_BINDING_HANDLE, ImpersonateOnReturn: BOOL, #[in] #[opt] Reserved1: *mut void, #[opt] pExpirationTime: PLARGE_INTEGER, Reserved2: LUID, Reserved3: u32, #[in] #[opt] Reserved4: *mut void, pAuthzClientContext: *mut *mut void) -> RPC_STATUS;
         #[repr(i32)]
         enum RpcLocalAddressFormat {
             rlafInvalid = 0,
@@ -533,19 +308,17 @@ mod Windows {
             rlafIPv6 = 2,
         }
         const RpcNotificationCallStatusChange: RPC_NOTIFICATIONS = 1;
-        #[library("RPCRT4.dll", import = "RpcServerInqCallAttributesA")]
-        extern fn RpcServerInqCallAttributes(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientBinding: RPC_BINDING_HANDLE, #[in] #[out] RpcCallAttributes: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInqCallAttributesA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientBinding: RPC_BINDING_HANDLE, #[in] #[out] RpcCallAttributes: *mut void) -> RPC_STATUS;
+        extern fn RpcServerInqCallAttributesA(#[opt] ClientBinding: RPC_BINDING_HANDLE, #[in] #[out] RpcCallAttributes: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerInqCallAttributesW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientBinding: RPC_BINDING_HANDLE, #[in] #[out] RpcCallAttributes: *mut void) -> RPC_STATUS;
+        extern fn RpcServerInqCallAttributesW(#[opt] ClientBinding: RPC_BINDING_HANDLE, #[in] #[out] RpcCallAttributes: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerSubscribeForNotification(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Notification: RPC_NOTIFICATIONS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NotificationType: RPC_NOTIFICATION_TYPES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NotificationInfo: *mut RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS;
+        extern fn RpcServerSubscribeForNotification(#[opt] Binding: RPC_BINDING_HANDLE, Notification: RPC_NOTIFICATIONS, NotificationType: RPC_NOTIFICATION_TYPES, #[in] NotificationInfo: *mut RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerUnsubscribeForNotification(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Binding: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Notification: RPC_NOTIFICATIONS, #[out] NotificationsQueued: *mut u32) -> RPC_STATUS;
+        extern fn RpcServerUnsubscribeForNotification(#[opt] Binding: RPC_BINDING_HANDLE, Notification: RPC_NOTIFICATIONS, NotificationsQueued: *mut u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcSsContextLockExclusive(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerBindingHandle: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> RPC_STATUS;
+        extern fn RpcSsContextLockExclusive(#[opt] ServerBindingHandle: RPC_BINDING_HANDLE, #[in] UserContext: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcSsContextLockShared(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerBindingHandle: RPC_BINDING_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID) -> RPC_STATUS;
+        extern fn RpcSsContextLockShared(ServerBindingHandle: RPC_BINDING_HANDLE, #[in] UserContext: *mut void) -> RPC_STATUS;
     }
 }

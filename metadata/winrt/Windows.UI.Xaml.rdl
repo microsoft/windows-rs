@@ -2,6 +2,7 @@
 mod Windows {
     mod UI {
         mod Xaml {
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IAdaptiveTriggerFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11,6 +12,7 @@ mod Windows {
             class AdaptiveTrigger: StateTriggerBase {
                 IAdaptiveTrigger,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IApplicationFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -127,6 +129,7 @@ mod Windows {
             class BringIntoViewRequestedEventArgs: RoutedEventArgs {
                 IBringIntoViewRequestedEventArgs,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IBrushTransitionFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -135,6 +138,7 @@ mod Windows {
             class BrushTransition {
                 IBrushTransition,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IColorPaletteResourcesFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -169,6 +173,7 @@ mod Windows {
             class DataContextChangedEventArgs {
                 IDataContextChangedEventArgs,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IDataTemplateFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -179,6 +184,7 @@ mod Windows {
                 IDataTemplate,
                 IElementFactory,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IDataTemplateKeyFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -196,6 +202,7 @@ mod Windows {
                 IDebugSettings3,
                 IDebugSettings4,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IDependencyObjectFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -205,6 +212,7 @@ mod Windows {
                 IDependencyObject,
                 IDependencyObject2,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IDependencyObjectCollectionFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -237,6 +245,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             delegate fn DependencyPropertyChangedEventHandler(sender: Object, e: DependencyPropertyChangedEventArgs);
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IDispatcherTimerFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -319,6 +328,7 @@ mod Windows {
             class EffectiveViewportChangedEventArgs {
                 IEffectiveViewportChangedEventArgs,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IElementFactoryGetArgsFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -327,6 +337,7 @@ mod Windows {
             class ElementFactoryGetArgs {
                 IElementFactoryGetArgs,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IElementFactoryRecycleArgsFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -410,6 +421,7 @@ mod Windows {
             class EventTrigger: TriggerBase {
                 IEventTrigger,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IExceptionRoutedEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -519,6 +531,7 @@ mod Windows {
                 Inferior = 4,
                 Ruby = 5,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IFrameworkElementFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -540,6 +553,7 @@ mod Windows {
                 IFrameworkElementOverrides,
                 IFrameworkElementOverrides2,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IFrameworkTemplateFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2026,18 +2040,18 @@ mod Windows {
                 DropEvent: RoutedEvent;
                 #[get]
                 AllowDropProperty: DependencyProperty;
-                #[special]
+                #[get]
                 #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                fn get_OpacityProperty(&self) -> DependencyProperty;
-                #[special]
+                OpacityProperty: DependencyProperty;
+                #[get]
                 #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                fn get_ClipProperty(&self) -> DependencyProperty;
-                #[special]
+                ClipProperty: DependencyProperty;
+                #[get]
                 #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                fn get_RenderTransformProperty(&self) -> DependencyProperty;
-                #[special]
+                RenderTransformProperty: DependencyProperty;
+                #[get]
                 #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                fn get_ProjectionProperty(&self) -> DependencyProperty;
+                ProjectionProperty: DependencyProperty;
                 #[get]
                 RenderTransformOriginProperty: DependencyProperty;
                 #[get]
@@ -2084,9 +2098,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(UIElement)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IUIElementStatics3 {
-                #[special]
+                #[get]
                 #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                fn get_Transform3DProperty(&self) -> DependencyProperty;
+                Transform3DProperty: DependencyProperty;
                 #[get]
                 CanDragProperty: DependencyProperty;
                 fn TryStartDirectManipulation(&self, value: Input::Pointer) -> bool;
@@ -2441,6 +2455,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             delegate fn PropertyChangedCallback(d: DependencyObject, e: DependencyPropertyChangedEventArgs);
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IPropertyMetadataFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2466,6 +2481,7 @@ mod Windows {
             class RectHelper {
                 IRectHelper,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IResourceDictionaryFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2482,6 +2498,7 @@ mod Windows {
             class RoutedEvent {
                 IRoutedEvent,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IRoutedEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2494,6 +2511,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             delegate fn RoutedEventHandler(sender: Object, e: RoutedEventArgs);
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IScalarTransitionFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2512,6 +2530,7 @@ mod Windows {
                 ISetter,
                 ISetter2,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(ISetterBaseFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2558,6 +2577,7 @@ mod Windows {
             class StateTrigger: StateTriggerBase {
                 IStateTrigger,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IStateTriggerBaseFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2682,6 +2702,7 @@ mod Windows {
             class ThicknessHelper {
                 IThicknessHelper,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(ITriggerActionFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2699,6 +2720,7 @@ mod Windows {
                 super::super::Foundation::Collections::IVector<TriggerAction>,
                 super::super::Foundation::Collections::IIterable<TriggerAction>,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(ITriggerBaseFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2714,6 +2736,7 @@ mod Windows {
                 super::super::Foundation::Collections::IVector<TriggerBase>,
                 super::super::Foundation::Collections::IIterable<TriggerBase>,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IUIElementFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2746,6 +2769,7 @@ mod Windows {
                 super::Composition::IAnimationObject,
                 super::Composition::IVisualElement,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IUIElementWeakCollectionFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2766,6 +2790,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             delegate fn UnhandledExceptionEventHandler(sender: Object, e: UnhandledExceptionEventArgs);
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IVector3TransitionFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2830,6 +2855,7 @@ mod Windows {
             class VisualStateGroup: DependencyObject {
                 IVisualStateGroup,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IVisualStateManagerFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2841,6 +2867,7 @@ mod Windows {
                 IVisualStateManagerProtected,
                 IVisualStateManagerOverrides,
             }
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IVisualTransitionFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

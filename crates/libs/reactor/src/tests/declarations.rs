@@ -1,6 +1,211 @@
 use super::*;
 
 #[test]
+fn font_icon_font_size_requires_finite_positive_values() {
+    for value in [0.0, -1.0, f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+        assert!(std::panic::catch_unwind(|| FontIcon::new().font_size(value)).is_err());
+    }
+    FontIcon::new().font_size(16.0);
+}
+
+#[test]
+fn text_block_alignment_shares_the_text_box_contract_and_clears() {
+    assert_eq!(
+        property_contract(ObjectType::TextBlock, PropertyId::TextAlignment),
+        property_contract(ObjectType::TextBox, PropertyId::TextAlignment)
+    );
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(TextBlock::new().text_alignment(TextAlignment::Center))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    assert!(
+        runtime
+            .update(TextBlock::new().text_alignment(TextAlignment::Center))
+            .unwrap()
+            .is_empty()
+    );
+    let mutations = runtime
+        .update(TextBlock::new().text_alignment(TextAlignment::Right))
+        .unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object, set, clear }]
+            if *object == root && clear.is_empty()
+                && set.as_ref() == [Property {
+                    id: PropertyId::TextAlignment,
+                    value: TextAlignment::Right.property_value(),
+                }]
+    ));
+    let mutations = runtime.update(TextBlock::new()).unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object, set, clear }]
+            if *object == root && set.is_empty() && clear.as_ref() == [PropertyId::TextAlignment]
+    ));
+    assert!(runtime.update(TextBlock::new()).unwrap().is_empty());
+}
+
+#[test]
+fn text_block_typography_updates_and_clears_without_replacement() {
+    let first = || {
+        TextBlock::new()
+            .font_family("Consolas")
+            .character_spacing(-50)
+            .line_height(24.0)
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(first()).unwrap();
+    let root = runtime.graph().root().unwrap();
+    for (id, value) in [
+        (
+            PropertyId::FontFamily,
+            PropertyValue::String("Consolas".into()),
+        ),
+        (PropertyId::CharacterSpacing, PropertyValue::I32(-50)),
+        (PropertyId::LineHeight, PropertyValue::F64(24.0)),
+    ] {
+        assert!(
+            runtime
+                .graph()
+                .properties(root)
+                .unwrap()
+                .contains(&Property { id, value })
+        );
+    }
+    assert!(runtime.update(first()).unwrap().is_empty());
+    let mutations = runtime
+        .update(
+            TextBlock::new()
+                .font_family(String::from("Arial"))
+                .character_spacing(200)
+                .line_height(0.0),
+        )
+        .unwrap();
+    let [Mutation::SetProperties { object, set, clear }] = mutations.as_slice() else {
+        panic!("expected a retained property update");
+    };
+    assert_eq!(*object, root);
+    assert!(clear.is_empty());
+    assert_eq!(set.len(), 3);
+    for (id, value) in [
+        (
+            PropertyId::FontFamily,
+            PropertyValue::String("Arial".into()),
+        ),
+        (PropertyId::CharacterSpacing, PropertyValue::I32(200)),
+        (PropertyId::LineHeight, PropertyValue::F64(0.0)),
+    ] {
+        assert!(set.contains(&Property { id, value }));
+    }
+    let mutations = runtime.update(TextBlock::new()).unwrap();
+    let [Mutation::SetProperties { object, set, clear }] = mutations.as_slice() else {
+        panic!("expected a retained property clear");
+    };
+    assert_eq!(*object, root);
+    assert!(set.is_empty());
+    assert_eq!(clear.len(), 3);
+    for id in [
+        PropertyId::FontFamily,
+        PropertyId::CharacterSpacing,
+        PropertyId::LineHeight,
+    ] {
+        assert!(clear.contains(&id));
+    }
+    assert!(runtime.update(TextBlock::new()).unwrap().is_empty());
+}
+
+#[test]
+fn text_block_line_height_requires_finite_non_negative_values() {
+    for value in [-1.0, f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+        assert!(std::panic::catch_unwind(|| TextBlock::new().line_height(value)).is_err());
+    }
+    for value in [0.0, 0.5, 24.0] {
+        TextBlock::new().line_height(value);
+    }
+}
+
+#[test]
+fn number_box_small_change_requires_finite_values() {
+    for value in [f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+        assert!(std::panic::catch_unwind(|| NumberBox::new().small_change(value)).is_err());
+    }
+    for value in [-0.5, 0.0, 0.25, 2.0] {
+        NumberBox::new().small_change(value);
+    }
+}
+
+#[test]
+fn calendar_date_properties_order_update_and_clear() {
+    let min = DateTime::from_unix_secs(1_700_000_000);
+    let max = DateTime::from_unix_secs(1_800_000_000);
+    let date = DateTime::from_unix_secs(1_750_000_000);
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(
+            CalendarDatePicker::new()
+                .date(date)
+                .max_date(max)
+                .min_date(min),
+        )
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    assert_eq!(
+        runtime.graph().properties(root).unwrap(),
+        [
+            Property {
+                id: PropertyId::MinDate,
+                value: PropertyValue::DateTime(min),
+            },
+            Property {
+                id: PropertyId::MaxDate,
+                value: PropertyValue::DateTime(max),
+            },
+            Property {
+                id: PropertyId::Date,
+                value: PropertyValue::OptionalDateTime(Some(date)),
+            },
+        ]
+    );
+    assert!(
+        runtime
+            .update(
+                CalendarDatePicker::new()
+                    .min_date(min)
+                    .max_date(max)
+                    .date(Some(date))
+            )
+            .unwrap()
+            .is_empty()
+    );
+    let mutations = runtime
+        .update(CalendarDatePicker::new().date(None))
+        .unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object, set, clear }]
+            if *object == root
+                && set.as_ref() == [Property {
+                    id: PropertyId::Date,
+                    value: PropertyValue::OptionalDateTime(None),
+                }]
+                && clear.as_ref() == [PropertyId::MinDate, PropertyId::MaxDate]
+    ));
+    let mutations = runtime.update(CalendarDatePicker::new()).unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object, set, clear }]
+            if *object == root && set.is_empty() && clear.as_ref() == [PropertyId::Date]
+    ));
+    assert!(
+        runtime
+            .update(CalendarDatePicker::new())
+            .unwrap()
+            .is_empty()
+    );
+}
+
+#[test]
 fn navigation_view_flags_set_update_and_clear_independently() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     let view = NavigationView::new()
@@ -246,7 +451,8 @@ fn shared_value_builders_cover_the_public_family() {
             ),
             keyed(
                 "input",
-                TextBox::new("Text")
+                TextBox::new()
+                    .text("Text")
                     .background(Color::rgb(7, 8, 9))
                     .border_brush(ThemeBrush::Accent)
                     .border_thickness(Thickness::uniform(2.0)),
@@ -401,11 +607,43 @@ fn icon_slots_record_set_update_clear_and_unchanged_updates() {
 }
 
 #[test]
+fn text_box_text_builder_sets_replaces_and_clears() {
+    assert_eq!(TextBox::new(), TextBox::default());
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(TextBox::new()).unwrap();
+    let object = runtime.graph().root().unwrap();
+    assert!(runtime.graph().properties(object).unwrap().is_empty());
+
+    let text_box = TextBox::new().text("First").text("Last");
+    let mutations = runtime.update(text_box.clone()).unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object: target, set, clear }]
+            if *target == object && clear.is_empty() && set.as_ref() == [
+                Property {
+                    id: PropertyId::Text,
+                    value: PropertyValue::String(Rc::from("Last")),
+                },
+            ]
+    ));
+    assert!(runtime.update(text_box).unwrap().is_empty());
+
+    let mutations = runtime.update(TextBox::new()).unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object: target, set, clear }]
+            if *target == object && set.is_empty() && clear.as_ref() == [PropertyId::Text]
+    ));
+    assert!(runtime.update(TextBox::default()).unwrap().is_empty());
+}
+
+#[test]
 fn text_box_appearance_records_set_and_clear() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(
-            TextBox::new("Text")
+            TextBox::new()
+                .text("Text")
                 .placeholder_text("Enter text")
                 .accepts_return(true)
                 .text_wrapping(TextWrapping::Wrap),
@@ -438,7 +676,7 @@ fn text_box_appearance_records_set_and_clear() {
         ]
     );
 
-    let mutations = runtime.update(TextBox::new("Text")).unwrap();
+    let mutations = runtime.update(TextBox::new().text("Text")).unwrap();
     let Mutation::SetProperties { set, clear, .. } = &mutations[0] else {
         panic!("expected property mutation");
     };
@@ -454,7 +692,75 @@ fn text_box_appearance_records_set_and_clear() {
 }
 
 #[test]
+fn text_box_read_only_and_alignment_update_and_clear() {
+    let view = || {
+        TextBox::new()
+            .text("Text")
+            .is_read_only(true)
+            .text_alignment(TextAlignment::Center)
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(view()).unwrap();
+    let object = runtime.graph().root().unwrap();
+    assert!(runtime.update(view()).unwrap().is_empty());
+
+    let mutations = runtime
+        .update(
+            TextBox::new()
+                .text("Text")
+                .is_read_only(false)
+                .text_alignment(TextAlignment::Right),
+        )
+        .unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object: target, set, clear }]
+            if *target == object && clear.is_empty() && set.as_ref() == [
+                Property {
+                    id: PropertyId::IsReadOnly,
+                    value: PropertyValue::Bool(false),
+                },
+                Property {
+                    id: PropertyId::TextAlignment,
+                    value: TextAlignment::Right.property_value(),
+                },
+            ]
+    ));
+    let mutations = runtime.update(TextBox::new().text("Text")).unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::SetProperties { object: target, set, clear }]
+            if *target == object && set.is_empty()
+                && clear.as_ref() == [PropertyId::IsReadOnly, PropertyId::TextAlignment]
+    ));
+    assert!(
+        runtime
+            .update(TextBox::new().text("Text"))
+            .unwrap()
+            .is_empty()
+    );
+}
+
+#[test]
 fn shared_value_validation_rejects_invalid_inputs() {
+    for (x, y) in [
+        (f64::NAN, 0.0),
+        (0.0, f64::INFINITY),
+        (f64::MAX, 0.0),
+        (0.0, -f64::MAX),
+    ] {
+        assert!(std::panic::catch_unwind(|| Border::new().translation(x, y)).is_err());
+        assert!(
+            validate_property(
+                ObjectType::Border,
+                &Property {
+                    id: PropertyId::Translation,
+                    value: PropertyValue::Vector2([x, y]),
+                }
+            )
+            .is_err()
+        );
+    }
     assert!(HyperlinkButton::new().navigate_uri("not a uri").is_err());
     assert!(BitmapIcon::new().uri_source("").is_err());
     assert!(
@@ -468,6 +774,54 @@ fn shared_value_validation_rejects_invalid_inputs() {
             ResourceOverrides::new().set("Bad", Thickness::uniform(f64::NAN));
         })
         .is_err()
+    );
+}
+
+#[test]
+fn translation_updates_both_axes_and_clears_independently() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    let view = || {
+        Border::new()
+            .translation(-120.0, 40.0)
+            .translation_transition(Duration::from_secs(1))
+    };
+    runtime.update(view()).unwrap();
+    assert!(runtime.update(view()).unwrap().is_empty());
+    assert!(
+        runtime
+            .update(
+                Border::new()
+                    .translation_transition(Duration::from_secs(1))
+                    .translation(-120.0, 40.0),
+            )
+            .unwrap()
+            .is_empty()
+    );
+    let mutations = runtime
+        .update(
+            Border::new()
+                .translation(80.0, -20.0)
+                .translation_transition(Duration::from_secs(1)),
+        )
+        .unwrap();
+    assert!(
+        matches!(mutations.as_slice(), [Mutation::SetProperties { set, clear, .. }]
+        if clear.is_empty() && set.as_ref() == [Property {
+            id: PropertyId::Translation,
+            value: PropertyValue::Vector2([80.0, -20.0]),
+        }])
+    );
+    let mutations = runtime
+        .update(Border::new().translation_transition(Duration::from_secs(1)))
+        .unwrap();
+    assert!(
+        matches!(mutations.as_slice(), [Mutation::SetProperties { set, clear, .. }]
+        if set.is_empty() && clear.as_ref() == [PropertyId::Translation])
+    );
+    let mutations = runtime.update(Border::new()).unwrap();
+    assert!(
+        matches!(mutations.as_slice(), [Mutation::SetProperties { set, clear, .. }]
+        if set.is_empty() && clear.as_ref() == [PropertyId::TranslationTransition])
     );
 }
 
@@ -559,7 +913,8 @@ fn shared_visual_properties_apply_to_handwritten_objects() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(
-            TextBox::new("Text")
+            TextBox::new()
+                .text("Text")
                 .width(240.0)
                 .margin(Thickness::uniform(12.0)),
         )
@@ -577,7 +932,7 @@ fn shared_visual_properties_apply_to_handwritten_objects() {
     );
 
     assert_eq!(
-        runtime.update(TextBox::new("Text")).unwrap(),
+        runtime.update(TextBox::new().text("Text")).unwrap(),
         [Mutation::SetProperties {
             object: text_box,
             set: Rc::from([]),
@@ -682,6 +1037,31 @@ fn button_content_and_click_use_generated_contracts() {
     ));
     assert_eq!(runtime.dispatch_native_events().unwrap(), 1);
     assert_eq!(calls.get(), 1);
+}
+
+#[test]
+fn svg_sources_preserve_format_and_byte_value_identity() {
+    let bytes = EncodedImage::from_static(b"<svg/>");
+    let svg = ImageSource::svg(bytes.clone());
+    assert_ne!(svg, ImageSource::encoded(bytes.clone()));
+    assert_eq!(svg, ImageSource::svg(EncodedImage::new(b"<svg/>".to_vec())));
+    assert_eq!(Icon::image_svg(bytes.clone()), Icon::image(svg.clone()));
+    let views: [View; 2] = [
+        Image::new().source_svg(bytes.clone()).into(),
+        ImageIcon::new().source_svg(bytes).into(),
+    ];
+    for view in views {
+        let mut runtime = Runtime::new(RecordingAdapter::default());
+        runtime.update(view).unwrap();
+        assert_eq!(
+            runtime
+                .graph()
+                .properties(runtime.graph().root().unwrap())
+                .unwrap()[0]
+                .value,
+            PropertyValue::ImageSource(svg.clone())
+        );
+    }
 }
 
 #[test]

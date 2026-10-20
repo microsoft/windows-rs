@@ -61,7 +61,7 @@ fn typed_references_cover_all_imperative_controls() {
     let webview = ElementRef::<WebView2>::new();
     let swap_chain = ElementRef::<SwapChainPanel>::new();
 
-    let _: View = TextBox::new("").element_ref(&text_box).into();
+    let _: View = TextBox::new().text("").element_ref(&text_box).into();
     let _: View = Grid::new().element_ref(&grid).into();
     let _: View = Image::new().element_ref(&image).into();
     let _: View = WebView2::new().element_ref(&webview).into();
@@ -74,7 +74,7 @@ fn typed_element_reference_queues_focus() {
     let result = Rc::new(Cell::new(None));
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
-        .update(TextBox::new("").element_ref(&reference))
+        .update(TextBox::new().text("").element_ref(&reference))
         .unwrap();
     let completed = Rc::clone(&result);
     assert!(reference.request_focus_result(move |value| {
@@ -82,6 +82,64 @@ fn typed_element_reference_queues_focus() {
     }));
     runtime.dispatch_native_events().unwrap();
     assert_eq!(result.get(), Some(Ok(true)));
+}
+
+#[test]
+fn element_reference_queues_automation_notification() {
+    let commands = Rc::new(RefCell::new(Vec::new()));
+    let reference = ElementRef::<Button>::new();
+    let result = Rc::new(Cell::new(None));
+    assert!(
+        !reference.request_notification(AutomationNotification::new("unbound")),
+        "unbound references must not queue notifications"
+    );
+    let mut runtime = Runtime::new(HoldingImperativeAdapter {
+        inner: RecordingAdapter::default(),
+        commands: Rc::clone(&commands),
+    });
+    runtime
+        .update(Button::new().element_ref(&reference))
+        .unwrap();
+    let completed = Rc::clone(&result);
+    assert!(
+        reference.request_notification_result(
+            AutomationNotification::new("Saved")
+                .kind(AutomationNotificationKind::ActionCompleted)
+                .processing(AutomationNotificationProcessing::All)
+                .activity_id("save"),
+            move |value| completed.set(Some(value)),
+        )
+    );
+    runtime.dispatch_native_events().unwrap();
+
+    let ImperativeRequest::Notify {
+        notification,
+        completion,
+        ..
+    } = commands.borrow_mut().remove(0)
+    else {
+        panic!("expected notification request");
+    };
+    assert_eq!(&*notification.text, "Saved");
+    assert_eq!(&*notification.activity_id, "save");
+    assert_eq!(
+        notification.kind,
+        AutomationNotificationKind::ActionCompleted
+    );
+    assert_eq!(
+        notification.processing,
+        AutomationNotificationProcessing::All
+    );
+    completion.call(Ok(()));
+    assert_eq!(result.get(), Some(Ok(())));
+
+    let defaults = AutomationNotification::new("Default");
+    assert_eq!(defaults.kind, AutomationNotificationKind::Other);
+    assert_eq!(
+        defaults.processing,
+        AutomationNotificationProcessing::MostRecent
+    );
+    assert!(defaults.activity_id.is_empty());
 }
 
 #[test]
@@ -426,7 +484,7 @@ fn references_survive_keyed_replacement_and_clear_on_destruction() {
     runtime
         .update(Grid::new().keyed_children([keyed(
             "focused",
-            TextBox::new("replacement").element_ref(&reference),
+            TextBox::new().text("replacement").element_ref(&reference),
         )]))
         .unwrap();
     let replacement = runtime

@@ -143,7 +143,7 @@ impl ISmsBinaryMessage_Vtbl {
         unsafe extern "system" fn SetData<Identity: ISmsBinaryMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value_array_size: u32, value: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISmsBinaryMessage_Impl::SetData(this, core::slice::from_raw_parts(core::mem::transmute_copy(&value), value_array_size as usize)).into()
+                ISmsBinaryMessage_Impl::SetData(this, windows_core::imp::array_slice(core::mem::transmute_copy(&value), value_array_size)).into()
             }
         }
         Self {
@@ -236,31 +236,31 @@ impl ISmsDevice {
             (windows_core::Interface::vtable(self).DeviceStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SmsMessageReceived<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn SmsMessageReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) + Send + 'static,
     {
-        let eventhandler = <SmsMessageReceivedEventHandler>::new(move |a0, a1| {
-            eventhandler(a0, a1);
+        let handler = <SmsMessageReceivedEventHandler>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).SmsMessageReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).SmsMessageReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSmsMessageReceived))
         }
     }
-    pub fn SmsDeviceStatusChanged<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn SmsDeviceStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<SmsDevice>) + Send + 'static,
     {
-        let eventhandler = <SmsDeviceStatusChangedEventHandler>::new(move |a0| {
-            eventhandler(a0);
+        let handler = <SmsDeviceStatusChangedEventHandler>::new(move |a0| {
+            handler(a0);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).SmsDeviceStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).SmsDeviceStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSmsDeviceStatusChanged))
         }
     }
@@ -275,10 +275,10 @@ pub trait ISmsDevice_Impl: windows_core::IUnknownImpl {
     fn CellularClass(&self) -> windows_core::Result<CellularClass>;
     fn MessageStore(&self) -> windows_core::Result<SmsDeviceMessageStore>;
     fn DeviceStatus(&self) -> windows_core::Result<SmsDeviceStatus>;
-    fn SmsMessageReceived(&self, eventHandler: windows_core::Ref<SmsMessageReceivedEventHandler>) -> windows_core::Result<i64>;
-    fn RemoveSmsMessageReceived(&self, eventCookie: i64) -> windows_core::Result<()>;
-    fn SmsDeviceStatusChanged(&self, eventHandler: windows_core::Ref<SmsDeviceStatusChangedEventHandler>) -> windows_core::Result<i64>;
-    fn RemoveSmsDeviceStatusChanged(&self, eventCookie: i64) -> windows_core::Result<()>;
+    fn SmsMessageReceived(&self, handler: windows_core::Ref<SmsMessageReceivedEventHandler>) -> windows_core::Result<i64>;
+    fn RemoveSmsMessageReceived(&self, token: i64) -> windows_core::Result<()>;
+    fn SmsDeviceStatusChanged(&self, handler: windows_core::Ref<SmsDeviceStatusChangedEventHandler>) -> windows_core::Result<i64>;
+    fn RemoveSmsDeviceStatusChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ISmsDevice_Vtbl {
     pub const fn new<Identity: ISmsDevice_Impl, const OFFSET: isize>() -> Self {
@@ -357,10 +357,10 @@ impl ISmsDevice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SmsMessageReceived<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SmsMessageReceived<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISmsDevice_Impl::SmsMessageReceived(this, core::mem::transmute_copy(&eventhandler)) {
+                match ISmsDevice_Impl::SmsMessageReceived(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -369,16 +369,16 @@ impl ISmsDevice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveSmsMessageReceived<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveSmsMessageReceived<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISmsDevice_Impl::RemoveSmsMessageReceived(this, eventcookie).into()
+                ISmsDevice_Impl::RemoveSmsMessageReceived(this, token).into()
             }
         }
-        unsafe extern "system" fn SmsDeviceStatusChanged<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SmsDeviceStatusChanged<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISmsDevice_Impl::SmsDeviceStatusChanged(this, core::mem::transmute_copy(&eventhandler)) {
+                match ISmsDevice_Impl::SmsDeviceStatusChanged(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -387,10 +387,10 @@ impl ISmsDevice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveSmsDeviceStatusChanged<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveSmsDeviceStatusChanged<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISmsDevice_Impl::RemoveSmsDeviceStatusChanged(this, eventcookie).into()
+                ISmsDevice_Impl::RemoveSmsDeviceStatusChanged(this, token).into()
             }
         }
         Self {
@@ -1666,31 +1666,31 @@ impl SmsDevice {
             (windows_core::Interface::vtable(self).DeviceStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SmsMessageReceived<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn SmsMessageReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<SmsMessageReceivedEventArgs>) + Send + 'static,
     {
-        let eventhandler = <SmsMessageReceivedEventHandler>::new(move |a0, a1| {
-            eventhandler(a0, a1);
+        let handler = <SmsMessageReceivedEventHandler>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).SmsMessageReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).SmsMessageReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSmsMessageReceived))
         }
     }
-    pub fn SmsDeviceStatusChanged<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn SmsDeviceStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>) + Send + 'static,
     {
-        let eventhandler = <SmsDeviceStatusChangedEventHandler>::new(move |a0| {
-            eventhandler(a0);
+        let handler = <SmsDeviceStatusChangedEventHandler>::new(move |a0| {
+            handler(a0);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).SmsDeviceStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).SmsDeviceStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSmsDeviceStatusChanged))
         }
     }

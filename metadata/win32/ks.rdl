@@ -1,6 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        const GUID_NULL: GUID = 0x00000000_0000_0000_0000_000000000000;
         const IOCTL_KS_DISABLE_EVENT: i32 = 3080203;
         const IOCTL_KS_ENABLE_EVENT: i32 = 3080199;
         const IOCTL_KS_METHOD: i32 = 3080207;
@@ -22,23 +23,23 @@ mod Windows {
         const KSALLOCATOR_FLAG_PARTIAL_READ_SUPPORT: i32 = 16;
         struct KSALLOCATOR_FRAMING {
             Anonymous: union {
-                OptionsFlags: ULONG,
-                RequirementsFlags: ULONG,
+                OptionsFlags: u32,
+                RequirementsFlags: u32,
             },
-            PoolType: ULONG,
-            Frames: ULONG,
-            FrameSize: ULONG,
+            PoolType: u32,
+            Frames: u32,
+            FrameSize: u32,
             Anonymous2: union {
-                FileAlignment: ULONG,
-                FramePitch: LONG,
+                FileAlignment: u32,
+                FramePitch: i32,
             },
-            Reserved: ULONG,
+            Reserved: u32,
         }
         struct KSALLOCATOR_FRAMING_EX {
-            CountItems: ULONG,
-            PinFlags: ULONG,
+            CountItems: u32,
+            PinFlags: u32,
             OutputCompression: KS_COMPRESSION,
-            PinWeight: ULONG,
+            PinWeight: u32,
             FramingItem: [KS_FRAMING_ITEM; 1],
         }
         const KSALLOCATOR_OPTIONF_COMPATIBLE: i32 = 1;
@@ -50,10 +51,10 @@ mod Windows {
         const KSALLOCATOR_REQUIREMENTF_PREFERENCES_ONLY: u32 = 2147483648;
         const KSALLOCATOR_REQUIREMENTF_SYSTEM_MEMORY: i32 = 2;
         const KSALLOCATOR_REQUIREMENTF_SYSTEM_MEMORY_CUSTOM_ALLOCATION: i32 = 16;
-        const KSALL_NODES: ULONG = 4294967295;
+        const KSALL_NODES: u32 = 4294967295;
         struct KSATTRIBUTE {
-            Size: ULONG,
-            Flags: ULONG,
+            Size: u32,
+            Flags: u32,
             Attribute: GUID,
         }
         const KSATTRIBUTE_REQUIRED: i32 = 1;
@@ -77,31 +78,19 @@ mod Windows {
         const KSCATEGORY_SPLITTER: GUID = 0x0a4252a0_7e70_11d0_a5d6_28db04c10000;
         const KSCATEGORY_VIDEO_CAMERA: GUID = 0xe5323777_f976_4f5b_9b55_b94699c46e44;
         struct KSCLOCK_CREATE {
-            CreateFlags: ULONG,
+            CreateFlags: u32,
         }
         struct KSCOMPONENTID {
             Manufacturer: GUID,
             Product: GUID,
             Component: GUID,
             Name: GUID,
-            Version: ULONG,
-            Revision: ULONG,
+            Version: u32,
+            Revision: u32,
         }
         struct KSCORRELATED_TIME {
-            Time: LONGLONG,
-            SystemTime: LONGLONG,
-        }
-        union KSDATAFORMAT {
-            Anonymous: struct {
-                FormatSize: ULONG,
-                Flags: ULONG,
-                SampleSize: ULONG,
-                Reserved: ULONG,
-                MajorFormat: GUID,
-                SubFormat: GUID,
-                Specifier: GUID,
-            },
-            Alignment: LONGLONG,
+            Time: i64,
+            SystemTime: i64,
         }
         const KSDATAFORMAT_ATTRIBUTES: i32 = 2;
         const KSDATAFORMAT_BIT_ATTRIBUTES: i32 = 1;
@@ -109,13 +98,21 @@ mod Windows {
         const KSDATAFORMAT_SPECIFIER_FILEHANDLE: GUID = 0x65e8773c_8f56_11d0_a3b9_00a0c9223196;
         const KSDATAFORMAT_SPECIFIER_FILENAME: GUID = 0xaa797b40_e974_11cf_a5d6_28db04c10000;
         const KSDATAFORMAT_SPECIFIER_NONE: GUID = 0x0f6417d6_c318_11d0_a43f_00a0c9223196;
-        const KSDATAFORMAT_SPECIFIER_WILDCARD: GUID = 0x00000000_0000_0000_0000_000000000000;
         const KSDATAFORMAT_SUBTYPE_NONE: GUID = 0xe436eb8e_524f_11ce_9f53_0020af0ba770;
-        const KSDATAFORMAT_SUBTYPE_WILDCARD: GUID = 0x00000000_0000_0000_0000_000000000000;
         const KSDATAFORMAT_TEMPORAL_COMPRESSION: i32 = 1;
         const KSDATAFORMAT_TYPE_STREAM: GUID = 0xe436eb83_524f_11ce_9f53_0020af0ba770;
-        const KSDATAFORMAT_TYPE_WILDCARD: GUID = 0x00000000_0000_0000_0000_000000000000;
-        type KSDATARANGE = KSDATAFORMAT;
+        union KSDATARANGE {
+            Anonymous: struct {
+                FormatSize: u32,
+                Flags: u32,
+                SampleSize: u32,
+                Reserved: u32,
+                MajorFormat: GUID,
+                SubFormat: GUID,
+                Specifier: GUID,
+            },
+            Alignment: i64,
+        }
         const KSDATARANGE_ATTRIBUTES: i32 = 2;
         const KSDATARANGE_BIT_ATTRIBUTES: i32 = 1;
         const KSDATARANGE_BIT_REQUIRED_ATTRIBUTES: i32 = 2;
@@ -135,25 +132,25 @@ mod Windows {
             KSDEVICE_THERMAL_STATE_HIGH = 1,
         }
         struct KSERROR {
-            Context: PVOID,
-            Status: ULONG,
+            Context: *mut void,
+            Status: u32,
         }
         type KSEVENT = KSIDENTIFIER;
         struct KSEVENTDATA {
-            NotificationType: ULONG,
+            NotificationType: u32,
             Anonymous: union {
                 EventHandle: struct {
                     Event: HANDLE,
-                    Reserved: [ULONG_PTR; 2],
+                    Reserved: [usize; 2],
                 },
                 SemaphoreHandle: struct {
                     Semaphore: HANDLE,
-                    Reserved: ULONG,
-                    Adjustment: LONG,
+                    Reserved: u32,
+                    Adjustment: i32,
                 },
                 Alignment: struct {
-                    Unused: PVOID,
-                    Alignment: [LONG_PTR; 2],
+                    Unused: *mut void,
+                    Alignment: [isize; 2],
                 },
             },
         }
@@ -198,12 +195,12 @@ mod Windows {
         }
         struct KSEVENT_TIME_INTERVAL {
             EventData: KSEVENTDATA,
-            TimeBase: LONGLONG,
-            Interval: LONGLONG,
+            TimeBase: i64,
+            Interval: i64,
         }
         struct KSEVENT_TIME_MARK {
             EventData: KSEVENTDATA,
-            MarkTime: LONGLONG,
+            MarkTime: i64,
         }
         const KSEVENT_TYPE_BASICSUPPORT: i32 = 512;
         const KSEVENT_TYPE_ENABLE: i32 = 1;
@@ -218,32 +215,32 @@ mod Windows {
         }
         struct KSE_NODE {
             Event: KSEVENT,
-            NodeId: ULONG,
-            Reserved: ULONG,
+            NodeId: u32,
+            Reserved: u32,
         }
         struct KSE_PIN {
             Event: KSEVENT,
-            PinId: ULONG,
-            Reserved: ULONG,
+            PinId: u32,
+            Reserved: u32,
         }
-        const KSFILTER_NODE: ULONG = 4294967295;
+        const KSFILTER_NODE: u32 = 4294967295;
         struct KSFRAMETIME {
-            Duration: LONGLONG,
-            FrameFlags: ULONG,
-            Reserved: ULONG,
+            Duration: i64,
+            FrameFlags: u32,
+            Reserved: u32,
         }
         const KSFRAMETIME_VARIABLESIZE: i32 = 1;
         struct KSIDENTIFIER {
             Anonymous: union {
                 Anonymous: struct {
                     Set: GUID,
-                    Id: ULONG,
-                    Flags: ULONG,
+                    Id: u32,
+                    Flags: u32,
                 },
-                Alignment: LONGLONG,
+                Alignment: i64,
             },
         }
-        const KSINSTANCE_INDETERMINATE: ULONG = 4294967295;
+        const KSINSTANCE_INDETERMINATE: u32 = 4294967295;
         const KSINTERFACESETID_FileIo: GUID = 0x8c6f932c_e771_11d0_b8ff_00a0c9223196;
         const KSINTERFACESETID_Standard: GUID = 0x1a8766a0_62ce_11cf_a5d6_28db04c10000;
         #[repr(i32)]
@@ -257,19 +254,17 @@ mod Windows {
             KSINTERFACE_STANDARD_CONTROL = 2,
         }
         struct KSINTERVAL {
-            TimeBase: LONGLONG,
-            Interval: LONGLONG,
+            TimeBase: i64,
+            Interval: i64,
         }
         const KSMEDIUMSETID_Standard: GUID = 0x4747b320_62ce_11cf_a5d6_28db04c10000;
         const KSMEDIUM_STANDARD_DEVIO: i32 = 0;
         const KSMEDIUM_TYPE_ANYINSTANCE: i32 = 0;
         const KSMEMORY_TYPE_DEVICE_UNKNOWN: GUID = 0x091bb639_603f_11d1_b067_00a0c9062802;
-        const KSMEMORY_TYPE_DONT_CARE: GUID = 0x00000000_0000_0000_0000_000000000000;
         const KSMEMORY_TYPE_KERNEL_NONPAGED: GUID = 0x4a6d5fc4_7895_11d1_b069_00a0c9062802;
         const KSMEMORY_TYPE_KERNEL_PAGED: GUID = 0xd833f8f8_7894_11d1_b069_00a0c9062802;
         const KSMEMORY_TYPE_SYSTEM: GUID = 0x091bb638_603f_11d1_b067_00a0c9062802;
         const KSMEMORY_TYPE_USER: GUID = 0x8cb0fc28_7893_11d1_b069_00a0c9062802;
-        const KSMEMORY_TYPE_WILDCARD: GUID = 0x00000000_0000_0000_0000_000000000000;
         type KSMETHOD = KSIDENTIFIER;
         const KSMETHODSETID_StreamAllocator: GUID = 0xcf6e4341_ec87_11cf_a130_0020afd156e4;
         const KSMETHODSETID_StreamIo: GUID = 0x65d003ca_1523_11d2_b27a_00a0c9223196;
@@ -303,13 +298,13 @@ mod Windows {
         const KSMFT_CATEGORY_VIDEO_ENCODER: GUID = 0xf79eac7d_e545_4387_bdee_d647d7bde42a;
         const KSMFT_CATEGORY_VIDEO_PROCESSOR: GUID = 0x302ea3fc_aa5f_47f9_9f7a_c2188bb16302;
         struct KSMULTIPLE_ITEM {
-            Size: ULONG,
-            Count: ULONG,
+            Size: u32,
+            Count: u32,
         }
         struct KSM_NODE {
             Method: KSMETHOD,
-            NodeId: ULONG,
-            Reserved: ULONG,
+            NodeId: u32,
+            Reserved: u32,
         }
         const KSNAME_Allocator: GUID = 0x642f5d00_4791_11d0_a5d6_28db04c10000;
         const KSNAME_Clock: GUID = 0x53172480_4791_11d0_a5d6_28db04c10000;
@@ -317,12 +312,12 @@ mod Windows {
         const KSNAME_Pin: GUID = 0x146f1a80_4791_11d0_a5d6_28db04c10000;
         const KSNAME_TopologyNode: GUID = 0x0621061a_ee75_11d0_b915_00a0c9223196;
         struct KSNODE_CREATE {
-            CreateFlags: ULONG,
-            Node: ULONG,
+            CreateFlags: u32,
+            Node: u32,
         }
         struct KSPIN_CINSTANCES {
-            PossibleCount: ULONG,
-            CurrentCount: ULONG,
+            PossibleCount: u32,
+            CurrentCount: u32,
         }
         #[repr(i32)]
         enum KSPIN_COMMUNICATION {
@@ -335,7 +330,7 @@ mod Windows {
         struct KSPIN_CONNECT {
             Interface: KSPIN_INTERFACE,
             Medium: KSPIN_MEDIUM,
-            PinId: ULONG,
+            PinId: u32,
             PinToHandle: HANDLE,
             Priority: KSPRIORITY,
         }
@@ -354,25 +349,25 @@ mod Windows {
         }
         struct KSPIN_MDL_CACHING_NOTIFICATION {
             Event: KSPIN_MDL_CACHING_EVENT,
-            Buffer: PVOID,
+            Buffer: *mut void,
         }
         struct KSPIN_MDL_CACHING_NOTIFICATION32 {
             Event: KSPIN_MDL_CACHING_EVENT,
-            Buffer: ULONG,
+            Buffer: u32,
         }
         type KSPIN_MEDIUM = KSIDENTIFIER;
         struct KSPIN_PHYSICALCONNECTION {
-            Size: ULONG,
-            Pin: ULONG,
-            SymbolicLinkName: [WCHAR; 1],
+            Size: u32,
+            Pin: u32,
+            SymbolicLinkName: [u16; 1],
         }
         #[repr(i32)]
         enum KSPPROPERTY_ALLOCATOR_MDLCACHING {
             KSPROPERTY_ALLOCATOR_CLEANUP_CACHEDMDLPAGES = 1,
         }
         struct KSPRIORITY {
-            PriorityClass: ULONG,
-            PrioritySubClass: ULONG,
+            PriorityClass: u32,
+            PrioritySubClass: u32,
         }
         const KSPRIORITY_EXCLUSIVE: u32 = 4294967295;
         const KSPRIORITY_HIGH: u32 = 2147483648;
@@ -381,18 +376,18 @@ mod Windows {
         type KSPROPERTY = KSIDENTIFIER;
         union KSPROPERTY_BOUNDS_LONG {
             Anonymous: struct {
-                SignedMinimum: LONG,
-                SignedMaximum: LONG,
+                SignedMinimum: i32,
+                SignedMaximum: i32,
             },
             Anonymous2: struct {
-                UnsignedMinimum: ULONG,
-                UnsignedMaximum: ULONG,
+                UnsignedMinimum: u32,
+                UnsignedMaximum: u32,
             },
         }
         union KSPROPERTY_BOUNDS_LONGLONG {
             Anonymous: struct {
-                SignedMinimum: LONGLONG,
-                SignedMaximum: LONGLONG,
+                SignedMinimum: i64,
+                SignedMaximum: i64,
             },
             Anonymous2: struct {
                 UnsignedMinimum: DWORDLONG,
@@ -420,19 +415,19 @@ mod Windows {
             KSPROPERTY_CONNECTION_STARTAT = 7,
         }
         struct KSPROPERTY_DESCRIPTION {
-            AccessFlags: ULONG,
-            DescriptionSize: ULONG,
+            AccessFlags: u32,
+            DescriptionSize: u32,
             PropTypeSet: KSIDENTIFIER,
-            MembersListCount: ULONG,
-            Reserved: ULONG,
+            MembersListCount: u32,
+            Reserved: u32,
         }
         #[repr(i32)]
         enum KSPROPERTY_GENERAL {
             KSPROPERTY_GENERAL_COMPONENTID = 0,
         }
         struct KSPROPERTY_MEDIAAVAILABLE {
-            Earliest: LONGLONG,
-            Latest: LONGLONG,
+            Earliest: i64,
+            Latest: i64,
         }
         #[repr(i32)]
         enum KSPROPERTY_MEDIASEEKING {
@@ -448,10 +443,10 @@ mod Windows {
             KSPROPERTY_MEDIASEEKING_CONVERTTIMEFORMAT = 9,
         }
         struct KSPROPERTY_MEMBERSHEADER {
-            MembersFlags: ULONG,
-            MembersSize: ULONG,
-            MembersCount: ULONG,
-            Flags: ULONG,
+            MembersFlags: u32,
+            MembersSize: u32,
+            MembersCount: u32,
+            Flags: u32,
         }
         const KSPROPERTY_MEMBER_FLAG_BASICSUPPORT_MULTICHANNEL: i32 = 2;
         const KSPROPERTY_MEMBER_FLAG_BASICSUPPORT_UNIFORM: i32 = 4;
@@ -483,8 +478,8 @@ mod Windows {
         const KSPROPERTY_PIN_FLAGS_ATTRIBUTE_RANGE_AWARE: i32 = 1;
         const KSPROPERTY_PIN_FLAGS_MASK: i32 = 1;
         struct KSPROPERTY_POSITIONS {
-            Current: LONGLONG,
-            Stop: LONGLONG,
+            Current: i64,
+            Stop: i64,
             CurrentFlags: KS_SEEKING_FLAGS,
             StopFlags: KS_SEEKING_FLAGS,
         }
@@ -495,17 +490,17 @@ mod Windows {
         }
         struct KSPROPERTY_SERIAL {
             PropTypeSet: KSIDENTIFIER,
-            Id: ULONG,
-            PropertyLength: ULONG,
+            Id: u32,
+            PropertyLength: u32,
         }
         #[packed(1)]
         struct KSPROPERTY_SERIALHDR {
             PropertySet: GUID,
-            Count: ULONG,
+            Count: u32,
         }
         struct KSPROPERTY_STEPPING_LONG {
-            SteppingDelta: ULONG,
-            Reserved: ULONG,
+            SteppingDelta: u32,
+            Reserved: u32,
             Bounds: KSPROPERTY_BOUNDS_LONG,
         }
         struct KSPROPERTY_STEPPING_LONGLONG {
@@ -568,43 +563,43 @@ mod Windows {
         const KSPROPTYPESETID_General: GUID = 0x97e99ba0_bdea_11cf_a5d6_28db04c10000;
         struct KSP_NODE {
             Property: KSPROPERTY,
-            NodeId: ULONG,
-            Reserved: ULONG,
+            NodeId: u32,
+            Reserved: u32,
         }
         struct KSP_PIN {
             Property: KSPROPERTY,
-            PinId: ULONG,
+            PinId: u32,
             Anonymous: union {
-                Reserved: ULONG,
-                Flags: ULONG,
+                Reserved: u32,
+                Flags: u32,
             },
         }
         struct KSP_TIMEFORMAT {
             Property: KSPROPERTY,
             SourceFormat: GUID,
             TargetFormat: GUID,
-            Time: LONGLONG,
+            Time: i64,
         }
         struct KSQUALITY {
-            Context: PVOID,
-            Proportion: ULONG,
-            DeltaTime: LONGLONG,
+            Context: *mut void,
+            Proportion: u32,
+            DeltaTime: i64,
         }
         struct KSQUALITY_MANAGER {
             QualityManager: HANDLE,
-            Context: PVOID,
+            Context: *mut void,
         }
         struct KSQUERYBUFFER {
             Event: KSEVENT,
             EventData: PKSEVENTDATA,
-            Reserved: PVOID,
+            Reserved: *mut void,
         }
         struct KSRATE {
-            PresentationStart: LONGLONG,
-            Duration: LONGLONG,
+            PresentationStart: i64,
+            Duration: i64,
             Interface: KSPIN_INTERFACE,
-            Rate: LONG,
-            Flags: ULONG,
+            Rate: i32,
+            Flags: u32,
         }
         struct KSRATE_CAPABILITY {
             Property: KSPROPERTY,
@@ -613,13 +608,13 @@ mod Windows {
         const KSRATE_NOPRESENTATIONDURATION: i32 = 2;
         const KSRATE_NOPRESENTATIONSTART: i32 = 1;
         struct KSRELATIVEEVENT {
-            Size: ULONG,
-            Flags: ULONG,
+            Size: u32,
+            Flags: u32,
             Anonymous: union {
                 ObjectHandle: HANDLE,
-                ObjectPointer: PVOID,
+                ObjectPointer: *mut void,
             },
-            Reserved: PVOID,
+            Reserved: *mut void,
             Event: KSEVENT,
             EventData: KSEVENTDATA,
         }
@@ -631,8 +626,8 @@ mod Windows {
             KSRESET_END = 1,
         }
         struct KSRESOLUTION {
-            Granularity: LONGLONG,
-            Error: LONGLONG,
+            Granularity: i64,
+            Error: i64,
         }
         #[repr(i32)]
         enum KSSTATE {
@@ -643,38 +638,36 @@ mod Windows {
         }
         struct KSSTREAMALLOCATOR_STATUS {
             Framing: KSALLOCATOR_FRAMING,
-            AllocatedFrames: ULONG,
-            Reserved: ULONG,
+            AllocatedFrames: u32,
+            Reserved: u32,
         }
         struct KSSTREAMALLOCATOR_STATUS_EX {
             Framing: KSALLOCATOR_FRAMING_EX,
-            AllocatedFrames: ULONG,
-            Reserved: ULONG,
+            AllocatedFrames: u32,
+            Reserved: u32,
         }
         #[arch(X64 | Arm64)]
         struct KSSTREAM_HEADER {
-            Size: ULONG,
-            TypeSpecificFlags: ULONG,
+            Size: u32,
+            TypeSpecificFlags: u32,
             PresentationTime: KSTIME,
-            Duration: LONGLONG,
-            FrameExtent: ULONG,
-            DataUsed: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "FrameExtent", IsByteCount = true, MayBeNull = false)]
-            Data: PVOID,
-            OptionsFlags: ULONG,
-            Reserved: ULONG,
+            Duration: i64,
+            FrameExtent: u32,
+            DataUsed: u32,
+            Data: *mut void,
+            OptionsFlags: u32,
+            Reserved: u32,
         }
         #[arch(X86)]
         struct KSSTREAM_HEADER {
-            Size: ULONG,
-            TypeSpecificFlags: ULONG,
+            Size: u32,
+            TypeSpecificFlags: u32,
             PresentationTime: KSTIME,
-            Duration: LONGLONG,
-            FrameExtent: ULONG,
-            DataUsed: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "FrameExtent", IsByteCount = true, MayBeNull = false)]
-            Data: PVOID,
-            OptionsFlags: ULONG,
+            Duration: i64,
+            FrameExtent: u32,
+            DataUsed: u32,
+            Data: *mut void,
+            OptionsFlags: u32,
         }
         const KSSTREAM_HEADER_OPTIONSF_BUFFEREDTRANSFER: i32 = 1024;
         const KSSTREAM_HEADER_OPTIONSF_DATADISCONTINUITY: i32 = 4;
@@ -696,32 +689,31 @@ mod Windows {
         const KSSTREAM_HEADER_OPTIONSF_VRAM_DATA_TRANSFER: i32 = 2048;
         const KSSTREAM_HEADER_TRACK_COMPLETION_NUMBERS: i32 = 131072;
         struct KSSTREAM_METADATA_INFO {
-            BufferSize: ULONG,
-            UsedSize: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "BufferSize", IsByteCount = true, MayBeNull = false)]
-            Data: PVOID,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "BufferSize", IsByteCount = true, MayBeNull = false)]
-            SystemVa: PVOID,
-            Flags: ULONG,
-            Reserved: ULONG,
+            BufferSize: u32,
+            UsedSize: u32,
+            Data: *mut void,
+            SystemVa: *mut void,
+            Flags: u32,
+            Reserved: u32,
         }
         struct KSSTREAM_UVC_METADATA {
             StartOfFrameTimestamp: KSSTREAM_UVC_METADATATYPE_TIMESTAMP,
             EndOfFrameTimestamp: KSSTREAM_UVC_METADATATYPE_TIMESTAMP,
         }
         struct KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
-            PresentationTimeStamp: ULONG,
-            SourceClockReference: ULONG,
+            PresentationTimeStamp: u32,
+            SourceClockReference: u32,
             Anonymous: union {
                 Anonymous: struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("Counter", 0, 11, MemberType = USHORT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 11, 5, MemberType = USHORT)]
-                    _bitfield: u16,
+                    _bitfield: u16 {
+                        Counter: 11,
+                        Reserved: 5,
+                    },
                 },
-                SCRToken: USHORT,
+                SCRToken: u16,
             },
-            Reserved0: USHORT,
-            Reserved1: ULONG,
+            Reserved0: u16,
+            Reserved1: u32,
         }
         const KSSTREAM_UVC_SECURE_ATTRIBUTE_SIZE: i32 = 8192;
         #[encoding("utf-16")]
@@ -737,65 +729,60 @@ mod Windows {
         #[encoding("utf-16")]
         const KSSTRING_TopologyNode: String = "{0621061A-EE75-11D0-B915-00A0C9223196}";
         struct KSTIME {
-            Time: LONGLONG,
-            Numerator: ULONG,
-            Denominator: ULONG,
+            Time: i64,
+            Numerator: u32,
+            Denominator: u32,
         }
         const KSTIME_FORMAT_BYTE: GUID = 0x7b785571_8c82_11cf_bc0c_00aa00ac74f6;
         const KSTIME_FORMAT_FIELD: GUID = 0x7b785573_8c82_11cf_bc0c_00aa00ac74f6;
         const KSTIME_FORMAT_FRAME: GUID = 0x7b785570_8c82_11cf_bc0c_00aa00ac74f6;
         const KSTIME_FORMAT_MEDIA_TIME: GUID = 0x7b785574_8c82_11cf_bc0c_00aa00ac74f6;
-        const KSTIME_FORMAT_NONE: GUID = 0x00000000_0000_0000_0000_000000000000;
         const KSTIME_FORMAT_SAMPLE: GUID = 0x7b785572_8c82_11cf_bc0c_00aa00ac74f6;
         struct KSTOPOLOGY {
-            CategoriesCount: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "CategoriesCount", IsByteCount = false, MayBeNull = false)]
+            CategoriesCount: u32,
             Categories: *const GUID,
-            TopologyNodesCount: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "TopologyNodesCount", IsByteCount = false, MayBeNull = false)]
+            TopologyNodesCount: u32,
             TopologyNodes: *const GUID,
-            TopologyConnectionsCount: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "TopologyConnectionsCount", IsByteCount = false, MayBeNull = false)]
+            TopologyConnectionsCount: u32,
             TopologyConnections: *const KSTOPOLOGY_CONNECTION,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "TopologyNodesCount", IsByteCount = false, MayBeNull = false)]
             TopologyNodesNames: *const GUID,
-            Reserved: ULONG,
+            Reserved: u32,
         }
         struct KSTOPOLOGY_CONNECTION {
-            FromNode: ULONG,
-            FromNodePin: ULONG,
-            ToNode: ULONG,
-            ToNodePin: ULONG,
+            FromNode: u32,
+            FromNodePin: u32,
+            ToNode: u32,
+            ToNodePin: u32,
         }
         struct KS_COMPRESSION {
-            RatioNumerator: ULONG,
-            RatioDenominator: ULONG,
-            RatioConstantMargin: ULONG,
+            RatioNumerator: u32,
+            RatioDenominator: u32,
+            RatioConstantMargin: u32,
         }
         struct KS_FRAMING_ITEM {
             MemoryType: GUID,
             BusType: GUID,
-            MemoryFlags: ULONG,
-            BusFlags: ULONG,
-            Flags: ULONG,
-            Frames: ULONG,
+            MemoryFlags: u32,
+            BusFlags: u32,
+            Flags: u32,
+            Frames: u32,
             Anonymous: union {
-                FileAlignment: ULONG,
-                FramePitch: LONG,
+                FileAlignment: u32,
+                FramePitch: i32,
             },
-            MemoryTypeWeight: ULONG,
+            MemoryTypeWeight: u32,
             PhysicalRange: KS_FRAMING_RANGE,
             FramingRange: KS_FRAMING_RANGE_WEIGHTED,
         }
         struct KS_FRAMING_RANGE {
-            MinFrameSize: ULONG,
-            MaxFrameSize: ULONG,
-            Stepping: ULONG,
+            MinFrameSize: u32,
+            MaxFrameSize: u32,
+            Stepping: u32,
         }
         struct KS_FRAMING_RANGE_WEIGHTED {
             Range: KS_FRAMING_RANGE,
-            InPlaceWeight: ULONG,
-            NotInPlaceWeight: ULONG,
+            InPlaceWeight: u32,
+            NotInPlaceWeight: u32,
         }
         #[repr(i32)]
         enum KS_SEEKING_CAPABILITIES {
@@ -817,36 +804,27 @@ mod Windows {
             KS_SEEKING_SeekToKeyFrame = 4,
             KS_SEEKING_ReturnTime = 8,
         }
-        const KS_TYPE_DONT_CARE: GUID = 0x00000000_0000_0000_0000_000000000000;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ksuser.dll")]
-        extern fn KsCreateAllocator(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ConnectionHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AllocatorFraming: PKSALLOCATOR_FRAMING, #[out] AllocatorHandle: PHANDLE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn KsCreateAllocator(ConnectionHandle: HANDLE, AllocatorFraming: PKSALLOCATOR_FRAMING, #[out] AllocatorHandle: PHANDLE) -> u32;
         #[library("ksuser.dll")]
-        extern fn KsCreateAllocator2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ConnectionHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AllocatorFraming: PKSALLOCATOR_FRAMING, #[out] AllocatorHandle: PHANDLE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn KsCreateAllocator2(ConnectionHandle: HANDLE, AllocatorFraming: PKSALLOCATOR_FRAMING, #[out] AllocatorHandle: PHANDLE) -> HRESULT;
         #[library("ksuser.dll")]
-        extern fn KsCreateClock(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ConnectionHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClockCreate: PKSCLOCK_CREATE, #[out] ClockHandle: PHANDLE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn KsCreateClock(ConnectionHandle: HANDLE, ClockCreate: PKSCLOCK_CREATE, #[out] ClockHandle: PHANDLE) -> u32;
         #[library("ksuser.dll")]
-        extern fn KsCreateClock2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ConnectionHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClockCreate: PKSCLOCK_CREATE, #[out] ClockHandle: PHANDLE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn KsCreateClock2(ConnectionHandle: HANDLE, ClockCreate: PKSCLOCK_CREATE, #[out] ClockHandle: PHANDLE) -> HRESULT;
         #[library("ksuser.dll")]
-        extern fn KsCreatePin(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FilterHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Connect: PKSPIN_CONNECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredAccess: ACCESS_MASK, #[out] ConnectionHandle: PHANDLE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn KsCreatePin(FilterHandle: HANDLE, Connect: PKSPIN_CONNECT, DesiredAccess: ACCESS_MASK, #[out] ConnectionHandle: PHANDLE) -> u32;
         #[library("ksuser.dll")]
-        extern fn KsCreatePin2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FilterHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Connect: PKSPIN_CONNECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredAccess: ACCESS_MASK, #[out] ConnectionHandle: PHANDLE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn KsCreatePin2(FilterHandle: HANDLE, Connect: PKSPIN_CONNECT, DesiredAccess: ACCESS_MASK, #[out] ConnectionHandle: PHANDLE) -> HRESULT;
         #[library("ksuser.dll")]
-        extern fn KsCreateTopologyNode(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParentHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NodeCreate: PKSNODE_CREATE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredAccess: ACCESS_MASK, #[out] NodeHandle: PHANDLE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn KsCreateTopologyNode(ParentHandle: HANDLE, NodeCreate: PKSNODE_CREATE, DesiredAccess: ACCESS_MASK, #[out] NodeHandle: PHANDLE) -> u32;
         #[library("ksuser.dll")]
-        extern fn KsCreateTopologyNode2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParentHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NodeCreate: PKSNODE_CREATE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredAccess: ACCESS_MASK, #[out] NodeHandle: PHANDLE) -> HRESULT;
+        extern fn KsCreateTopologyNode2(ParentHandle: HANDLE, NodeCreate: PKSNODE_CREATE, DesiredAccess: ACCESS_MASK, #[out] NodeHandle: PHANDLE) -> HRESULT;
         union MF_MDL_SHARED_PAYLOAD_KEY {
             combined: struct {
-                pHandle: ULONG,
-                fHandle: ULONG,
-                uPayload: ULONG64,
+                pHandle: u32,
+                fHandle: u32,
+                uPayload: u64,
             },
             GMDLHandle: GUID,
         }
@@ -857,8 +835,8 @@ mod Windows {
         type PKSCLOCK_CREATE = *mut KSCLOCK_CREATE;
         type PKSCOMPONENTID = *mut KSCOMPONENTID;
         type PKSCORRELATED_TIME = *mut KSCORRELATED_TIME;
-        type PKSDATAFORMAT = *mut KSDATAFORMAT;
-        type PKSDATARANGE = *mut KSDATAFORMAT;
+        type PKSDATAFORMAT = *mut KSDATARANGE;
+        type PKSDATARANGE = *mut KSDATARANGE;
         type PKSDEGRADE = *mut KSIDENTIFIER;
         type PKSERROR = *mut KSERROR;
         type PKSEVENT = *mut KSIDENTIFIER;

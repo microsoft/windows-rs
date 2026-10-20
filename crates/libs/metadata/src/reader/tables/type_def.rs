@@ -55,6 +55,30 @@ impl<'a> TypeDef<'a> {
         self.equal_range(0, self.pos() + 1)
     }
 
+    pub fn properties(&self) -> RowIterator<'a, Property<'a>> {
+        // PropertyMap is not a sorted table, so find the type's row by scanning.
+        self.map_rows::<PropertyMap>()
+            .find(|map| map.parent() == *self)
+            .map_or_else(|| self.empty_rows(), |map| map.properties())
+    }
+
+    pub fn events(&self) -> RowIterator<'a, Event<'a>> {
+        // EventMap is not a sorted table, so find the type's row by scanning.
+        self.map_rows::<EventMap>()
+            .find(|map| map.parent() == *self)
+            .map_or_else(|| self.empty_rows(), |map| map.events())
+    }
+
+    fn map_rows<R: AsRow<'a>>(&self) -> RowIterator<'a, R> {
+        let row = self.to_row();
+        RowIterator::new(row.index, row.file, self.file().rows(R::TABLE))
+    }
+
+    fn empty_rows<R: AsRow<'a>>(&self) -> RowIterator<'a, R> {
+        let row = self.to_row();
+        RowIterator::new(row.index, row.file, 0..0)
+    }
+
     pub fn class_layout(&self) -> Option<ClassLayout<'a>> {
         self.equal_range(2, self.pos() + 1).next()
     }

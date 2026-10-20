@@ -6,8 +6,8 @@ mod Windows {
         const CLSID_DirectInputDevice: GUID = 0x25e609e1_b259_11cf_bfc7_444553540000;
         const CLSID_DirectInputDevice8: GUID = 0x25e609e5_b259_11cf_bfc7_444553540000;
         struct CPOINT {
-            lP: LONG,
-            dwLog: DWORD,
+            lP: i32,
+            dwLog: u32,
         }
         const DI8DEVCLASS_ALL: i32 = 0;
         const DI8DEVCLASS_DEVICE: i32 = 1;
@@ -86,61 +86,61 @@ mod Windows {
         const DI8DEVTYPE_SUPPLEMENTAL: i32 = 28;
         type DIACTION = DIACTIONA;
         struct DIACTIONA {
-            uAppData: UINT_PTR,
-            dwSemantic: DWORD,
-            dwFlags: DWORD,
+            uAppData: usize,
+            dwSemantic: u32,
+            dwFlags: u32,
             Anonymous: union {
-                lptszActionName: LPCSTR,
-                uResIdString: UINT,
+                lptszActionName: PCSTR,
+                uResIdString: u32,
             },
             guidInstance: GUID,
-            dwObjID: DWORD,
-            dwHow: DWORD,
+            dwObjID: u32,
+            dwHow: u32,
         }
         type DIACTIONFORMAT = DIACTIONFORMATA;
         struct DIACTIONFORMATA {
-            dwSize: DWORD,
-            dwActionSize: DWORD,
-            dwDataSize: DWORD,
-            dwNumActions: DWORD,
+            dwSize: u32,
+            dwActionSize: u32,
+            dwDataSize: u32,
+            dwNumActions: u32,
             rgoAction: LPDIACTIONA,
             guidActionMap: GUID,
-            dwGenre: DWORD,
-            dwBufferSize: DWORD,
-            lAxisMin: LONG,
-            lAxisMax: LONG,
+            dwGenre: u32,
+            dwBufferSize: u32,
+            lAxisMin: i32,
+            lAxisMax: i32,
             hInstString: HINSTANCE,
             ftTimeStamp: FILETIME,
-            dwCRC: DWORD,
-            tszActionMap: [CHAR; 260],
+            dwCRC: u32,
+            tszActionMap: [i8; 260],
         }
         struct DIACTIONFORMATW {
-            dwSize: DWORD,
-            dwActionSize: DWORD,
-            dwDataSize: DWORD,
-            dwNumActions: DWORD,
+            dwSize: u32,
+            dwActionSize: u32,
+            dwDataSize: u32,
+            dwNumActions: u32,
             rgoAction: LPDIACTIONW,
             guidActionMap: GUID,
-            dwGenre: DWORD,
-            dwBufferSize: DWORD,
-            lAxisMin: LONG,
-            lAxisMax: LONG,
+            dwGenre: u32,
+            dwBufferSize: u32,
+            lAxisMin: i32,
+            lAxisMax: i32,
             hInstString: HINSTANCE,
             ftTimeStamp: FILETIME,
-            dwCRC: DWORD,
-            tszActionMap: [WCHAR; 260],
+            dwCRC: u32,
+            tszActionMap: [u16; 260],
         }
         struct DIACTIONW {
-            uAppData: UINT_PTR,
-            dwSemantic: DWORD,
-            dwFlags: DWORD,
+            uAppData: usize,
+            dwSemantic: u32,
+            dwFlags: u32,
             Anonymous: union {
-                lptszActionName: LPCWSTR,
-                uResIdString: UINT,
+                lptszActionName: PCWSTR,
+                uResIdString: u32,
             },
             guidInstance: GUID,
-            dwObjID: DWORD,
-            dwHow: DWORD,
+            dwObjID: u32,
+            dwHow: u32,
         }
         const DIAFTS_NEWDEVICEHIGH: u32 = 4294967295;
         const DIAFTS_NEWDEVICELOW: u32 = 4294967295;
@@ -984,7 +984,7 @@ mod Windows {
         const DICD_DEFAULT: i32 = 0;
         const DICD_EDIT: i32 = 1;
         struct DICOLORSET {
-            dwSize: DWORD,
+            dwSize: u32,
             cTextFore: D3DCOLOR,
             cTextHighlight: D3DCOLOR,
             cCalloutLine: D3DCOLOR,
@@ -995,41 +995,41 @@ mod Windows {
             cAreaFill: D3DCOLOR,
         }
         struct DICONDITION {
-            lOffset: LONG,
-            lPositiveCoefficient: LONG,
-            lNegativeCoefficient: LONG,
-            dwPositiveSaturation: DWORD,
-            dwNegativeSaturation: DWORD,
-            lDeadBand: LONG,
+            lOffset: i32,
+            lPositiveCoefficient: i32,
+            lNegativeCoefficient: i32,
+            dwPositiveSaturation: u32,
+            dwNegativeSaturation: u32,
+            lDeadBand: i32,
         }
         type DICONFIGUREDEVICESPARAMS = DICONFIGUREDEVICESPARAMSA;
         struct DICONFIGUREDEVICESPARAMSA {
-            dwSize: DWORD,
-            dwcUsers: DWORD,
-            lptszUserNames: LPSTR,
-            dwcFormats: DWORD,
+            dwSize: u32,
+            dwcUsers: u32,
+            lptszUserNames: PSTR,
+            dwcFormats: u32,
             lprgFormats: LPDIACTIONFORMATA,
             hwnd: HWND,
             dics: DICOLORSET,
             lpUnkDDSTarget: IUnknown,
         }
         struct DICONFIGUREDEVICESPARAMSW {
-            dwSize: DWORD,
-            dwcUsers: DWORD,
-            lptszUserNames: LPWSTR,
-            dwcFormats: DWORD,
+            dwSize: u32,
+            dwcUsers: u32,
+            lptszUserNames: PWSTR,
+            dwcFormats: u32,
             lprgFormats: LPDIACTIONFORMATW,
             hwnd: HWND,
             dics: DICOLORSET,
             lpUnkDDSTarget: IUnknown,
         }
         struct DICONSTANTFORCE {
-            lMagnitude: LONG,
+            lMagnitude: i32,
         }
         struct DICUSTOMFORCE {
-            cChannels: DWORD,
-            dwSamplePeriod: DWORD,
-            cSamples: DWORD,
+            cChannels: u32,
+            dwSamplePeriod: u32,
+            cSamples: u32,
             rglForceData: LPLONG,
         }
         const DIDAL_BOTTOMALIGNED: i32 = 8;
@@ -1039,11 +1039,11 @@ mod Windows {
         const DIDAL_RIGHTALIGNED: i32 = 2;
         const DIDAL_TOPALIGNED: i32 = 4;
         struct DIDATAFORMAT {
-            dwSize: DWORD,
-            dwObjSize: DWORD,
-            dwFlags: DWORD,
-            dwDataSize: DWORD,
-            dwNumObjs: DWORD,
+            dwSize: u32,
+            dwObjSize: u32,
+            dwFlags: u32,
+            dwDataSize: u32,
+            dwNumObjs: u32,
             rgodf: LPDIOBJECTDATAFORMAT,
         }
         const DIDBAM_DEFAULT: i32 = 0;
@@ -1066,176 +1066,176 @@ mod Windows {
         const DIDC_SATURATION: i32 = 2048;
         const DIDC_STARTDELAY: i32 = 32768;
         struct DIDEVCAPS {
-            dwSize: DWORD,
-            dwFlags: DWORD,
-            dwDevType: DWORD,
-            dwAxes: DWORD,
-            dwButtons: DWORD,
-            dwPOVs: DWORD,
-            dwFFSamplePeriod: DWORD,
-            dwFFMinTimeResolution: DWORD,
-            dwFirmwareRevision: DWORD,
-            dwHardwareRevision: DWORD,
-            dwFFDriverVersion: DWORD,
+            dwSize: u32,
+            dwFlags: u32,
+            dwDevType: u32,
+            dwAxes: u32,
+            dwButtons: u32,
+            dwPOVs: u32,
+            dwFFSamplePeriod: u32,
+            dwFFMinTimeResolution: u32,
+            dwFirmwareRevision: u32,
+            dwHardwareRevision: u32,
+            dwFFDriverVersion: u32,
         }
         struct DIDEVCAPS_DX3 {
-            dwSize: DWORD,
-            dwFlags: DWORD,
-            dwDevType: DWORD,
-            dwAxes: DWORD,
-            dwButtons: DWORD,
-            dwPOVs: DWORD,
+            dwSize: u32,
+            dwFlags: u32,
+            dwDevType: u32,
+            dwAxes: u32,
+            dwButtons: u32,
+            dwPOVs: u32,
         }
         type DIDEVICEIMAGEINFO = DIDEVICEIMAGEINFOA;
         struct DIDEVICEIMAGEINFOA {
-            tszImagePath: [CHAR; 260],
-            dwFlags: DWORD,
-            dwViewID: DWORD,
+            tszImagePath: [i8; 260],
+            dwFlags: u32,
+            dwViewID: u32,
             rcOverlay: RECT,
-            dwObjID: DWORD,
-            dwcValidPts: DWORD,
+            dwObjID: u32,
+            dwcValidPts: u32,
             rgptCalloutLine: [POINT; 5],
             rcCalloutRect: RECT,
-            dwTextAlign: DWORD,
+            dwTextAlign: u32,
         }
         type DIDEVICEIMAGEINFOHEADER = DIDEVICEIMAGEINFOHEADERA;
         struct DIDEVICEIMAGEINFOHEADERA {
-            dwSize: DWORD,
-            dwSizeImageInfo: DWORD,
-            dwcViews: DWORD,
-            dwcButtons: DWORD,
-            dwcAxes: DWORD,
-            dwcPOVs: DWORD,
-            dwBufferSize: DWORD,
-            dwBufferUsed: DWORD,
+            dwSize: u32,
+            dwSizeImageInfo: u32,
+            dwcViews: u32,
+            dwcButtons: u32,
+            dwcAxes: u32,
+            dwcPOVs: u32,
+            dwBufferSize: u32,
+            dwBufferUsed: u32,
             lprgImageInfoArray: LPDIDEVICEIMAGEINFOA,
         }
         struct DIDEVICEIMAGEINFOHEADERW {
-            dwSize: DWORD,
-            dwSizeImageInfo: DWORD,
-            dwcViews: DWORD,
-            dwcButtons: DWORD,
-            dwcAxes: DWORD,
-            dwcPOVs: DWORD,
-            dwBufferSize: DWORD,
-            dwBufferUsed: DWORD,
+            dwSize: u32,
+            dwSizeImageInfo: u32,
+            dwcViews: u32,
+            dwcButtons: u32,
+            dwcAxes: u32,
+            dwcPOVs: u32,
+            dwBufferSize: u32,
+            dwBufferUsed: u32,
             lprgImageInfoArray: LPDIDEVICEIMAGEINFOW,
         }
         struct DIDEVICEIMAGEINFOW {
-            tszImagePath: [WCHAR; 260],
-            dwFlags: DWORD,
-            dwViewID: DWORD,
+            tszImagePath: [u16; 260],
+            dwFlags: u32,
+            dwViewID: u32,
             rcOverlay: RECT,
-            dwObjID: DWORD,
-            dwcValidPts: DWORD,
+            dwObjID: u32,
+            dwcValidPts: u32,
             rgptCalloutLine: [POINT; 5],
             rcCalloutRect: RECT,
-            dwTextAlign: DWORD,
+            dwTextAlign: u32,
         }
         type DIDEVICEINSTANCE = DIDEVICEINSTANCEA;
         struct DIDEVICEINSTANCEA {
-            dwSize: DWORD,
+            dwSize: u32,
             guidInstance: GUID,
             guidProduct: GUID,
-            dwDevType: DWORD,
-            tszInstanceName: [CHAR; 260],
-            tszProductName: [CHAR; 260],
+            dwDevType: u32,
+            tszInstanceName: [i8; 260],
+            tszProductName: [i8; 260],
             guidFFDriver: GUID,
-            wUsagePage: WORD,
-            wUsage: WORD,
+            wUsagePage: u16,
+            wUsage: u16,
         }
         struct DIDEVICEINSTANCEW {
-            dwSize: DWORD,
+            dwSize: u32,
             guidInstance: GUID,
             guidProduct: GUID,
-            dwDevType: DWORD,
-            tszInstanceName: [WCHAR; 260],
-            tszProductName: [WCHAR; 260],
+            dwDevType: u32,
+            tszInstanceName: [u16; 260],
+            tszProductName: [u16; 260],
             guidFFDriver: GUID,
-            wUsagePage: WORD,
-            wUsage: WORD,
+            wUsagePage: u16,
+            wUsage: u16,
         }
         type DIDEVICEINSTANCE_DX3 = DIDEVICEINSTANCE_DX3A;
         struct DIDEVICEINSTANCE_DX3A {
-            dwSize: DWORD,
+            dwSize: u32,
             guidInstance: GUID,
             guidProduct: GUID,
-            dwDevType: DWORD,
-            tszInstanceName: [CHAR; 260],
-            tszProductName: [CHAR; 260],
+            dwDevType: u32,
+            tszInstanceName: [i8; 260],
+            tszProductName: [i8; 260],
         }
         struct DIDEVICEINSTANCE_DX3W {
-            dwSize: DWORD,
+            dwSize: u32,
             guidInstance: GUID,
             guidProduct: GUID,
-            dwDevType: DWORD,
-            tszInstanceName: [WCHAR; 260],
-            tszProductName: [WCHAR; 260],
+            dwDevType: u32,
+            tszInstanceName: [u16; 260],
+            tszProductName: [u16; 260],
         }
         struct DIDEVICEOBJECTDATA {
-            dwOfs: DWORD,
-            dwData: DWORD,
-            dwTimeStamp: DWORD,
-            dwSequence: DWORD,
-            uAppData: UINT_PTR,
+            dwOfs: u32,
+            dwData: u32,
+            dwTimeStamp: u32,
+            dwSequence: u32,
+            uAppData: usize,
         }
         struct DIDEVICEOBJECTDATA_DX3 {
-            dwOfs: DWORD,
-            dwData: DWORD,
-            dwTimeStamp: DWORD,
-            dwSequence: DWORD,
+            dwOfs: u32,
+            dwData: u32,
+            dwTimeStamp: u32,
+            dwSequence: u32,
         }
         type DIDEVICEOBJECTINSTANCE = DIDEVICEOBJECTINSTANCEA;
         struct DIDEVICEOBJECTINSTANCEA {
-            dwSize: DWORD,
+            dwSize: u32,
             guidType: GUID,
-            dwOfs: DWORD,
-            dwType: DWORD,
-            dwFlags: DWORD,
-            tszName: [CHAR; 260],
-            dwFFMaxForce: DWORD,
-            dwFFForceResolution: DWORD,
-            wCollectionNumber: WORD,
-            wDesignatorIndex: WORD,
-            wUsagePage: WORD,
-            wUsage: WORD,
-            dwDimension: DWORD,
-            wExponent: WORD,
-            wReportId: WORD,
+            dwOfs: u32,
+            dwType: u32,
+            dwFlags: u32,
+            tszName: [i8; 260],
+            dwFFMaxForce: u32,
+            dwFFForceResolution: u32,
+            wCollectionNumber: u16,
+            wDesignatorIndex: u16,
+            wUsagePage: u16,
+            wUsage: u16,
+            dwDimension: u32,
+            wExponent: u16,
+            wReportId: u16,
         }
         struct DIDEVICEOBJECTINSTANCEW {
-            dwSize: DWORD,
+            dwSize: u32,
             guidType: GUID,
-            dwOfs: DWORD,
-            dwType: DWORD,
-            dwFlags: DWORD,
-            tszName: [WCHAR; 260],
-            dwFFMaxForce: DWORD,
-            dwFFForceResolution: DWORD,
-            wCollectionNumber: WORD,
-            wDesignatorIndex: WORD,
-            wUsagePage: WORD,
-            wUsage: WORD,
-            dwDimension: DWORD,
-            wExponent: WORD,
-            wReportId: WORD,
+            dwOfs: u32,
+            dwType: u32,
+            dwFlags: u32,
+            tszName: [u16; 260],
+            dwFFMaxForce: u32,
+            dwFFForceResolution: u32,
+            wCollectionNumber: u16,
+            wDesignatorIndex: u16,
+            wUsagePage: u16,
+            wUsage: u16,
+            dwDimension: u32,
+            wExponent: u16,
+            wReportId: u16,
         }
         type DIDEVICEOBJECTINSTANCE_DX3 = DIDEVICEOBJECTINSTANCE_DX3A;
         struct DIDEVICEOBJECTINSTANCE_DX3A {
-            dwSize: DWORD,
+            dwSize: u32,
             guidType: GUID,
-            dwOfs: DWORD,
-            dwType: DWORD,
-            dwFlags: DWORD,
-            tszName: [CHAR; 260],
+            dwOfs: u32,
+            dwType: u32,
+            dwFlags: u32,
+            tszName: [i8; 260],
         }
         struct DIDEVICEOBJECTINSTANCE_DX3W {
-            dwSize: DWORD,
+            dwSize: u32,
             guidType: GUID,
-            dwOfs: DWORD,
-            dwType: DWORD,
-            dwFlags: DWORD,
-            tszName: [WCHAR; 260],
+            dwOfs: u32,
+            dwType: u32,
+            dwFlags: u32,
+            tszName: [u16; 260],
         }
         const DIDEVTYPE_HID: i32 = 65536;
         const DIDFT_ABSAXIS: i32 = 2;
@@ -1291,61 +1291,61 @@ mod Windows {
         const DIEDFL_INCLUDEHIDDEN: i32 = 262144;
         const DIEDFL_INCLUDEPHANTOMS: i32 = 131072;
         struct DIEFFECT {
-            dwSize: DWORD,
-            dwFlags: DWORD,
-            dwDuration: DWORD,
-            dwSamplePeriod: DWORD,
-            dwGain: DWORD,
-            dwTriggerButton: DWORD,
-            dwTriggerRepeatInterval: DWORD,
-            cAxes: DWORD,
+            dwSize: u32,
+            dwFlags: u32,
+            dwDuration: u32,
+            dwSamplePeriod: u32,
+            dwGain: u32,
+            dwTriggerButton: u32,
+            dwTriggerRepeatInterval: u32,
+            cAxes: u32,
             rgdwAxes: LPDWORD,
             rglDirection: LPLONG,
             lpEnvelope: LPDIENVELOPE,
-            cbTypeSpecificParams: DWORD,
-            lpvTypeSpecificParams: LPVOID,
-            dwStartDelay: DWORD,
+            cbTypeSpecificParams: u32,
+            lpvTypeSpecificParams: *mut void,
+            dwStartDelay: u32,
         }
         type DIEFFECTINFO = DIEFFECTINFOA;
         struct DIEFFECTINFOA {
-            dwSize: DWORD,
+            dwSize: u32,
             guid: GUID,
-            dwEffType: DWORD,
-            dwStaticParams: DWORD,
-            dwDynamicParams: DWORD,
-            tszName: [CHAR; 260],
+            dwEffType: u32,
+            dwStaticParams: u32,
+            dwDynamicParams: u32,
+            tszName: [i8; 260],
         }
         struct DIEFFECTINFOW {
-            dwSize: DWORD,
+            dwSize: u32,
             guid: GUID,
-            dwEffType: DWORD,
-            dwStaticParams: DWORD,
-            dwDynamicParams: DWORD,
-            tszName: [WCHAR; 260],
+            dwEffType: u32,
+            dwStaticParams: u32,
+            dwDynamicParams: u32,
+            tszName: [u16; 260],
         }
         struct DIEFFECT_DX5 {
-            dwSize: DWORD,
-            dwFlags: DWORD,
-            dwDuration: DWORD,
-            dwSamplePeriod: DWORD,
-            dwGain: DWORD,
-            dwTriggerButton: DWORD,
-            dwTriggerRepeatInterval: DWORD,
-            cAxes: DWORD,
+            dwSize: u32,
+            dwFlags: u32,
+            dwDuration: u32,
+            dwSamplePeriod: u32,
+            dwGain: u32,
+            dwTriggerButton: u32,
+            dwTriggerRepeatInterval: u32,
+            cAxes: u32,
             rgdwAxes: LPDWORD,
             rglDirection: LPLONG,
             lpEnvelope: LPDIENVELOPE,
-            cbTypeSpecificParams: DWORD,
-            lpvTypeSpecificParams: LPVOID,
+            cbTypeSpecificParams: u32,
+            lpvTypeSpecificParams: *mut void,
         }
         type DIEFFECT_DX6 = DIEFFECT;
         struct DIEFFESCAPE {
-            dwSize: DWORD,
-            dwCommand: DWORD,
-            lpvInBuffer: LPVOID,
-            cbInBuffer: DWORD,
-            lpvOutBuffer: LPVOID,
-            cbOutBuffer: DWORD,
+            dwSize: u32,
+            dwCommand: u32,
+            lpvInBuffer: *mut void,
+            cbInBuffer: u32,
+            lpvOutBuffer: *mut void,
+            cbOutBuffer: u32,
         }
         const DIEFF_CARTESIAN: i32 = 16;
         const DIEFF_OBJECTIDS: i32 = 1;
@@ -1371,11 +1371,11 @@ mod Windows {
         const DIENUM_CONTINUE: i32 = 1;
         const DIENUM_STOP: i32 = 0;
         struct DIENVELOPE {
-            dwSize: DWORD,
-            dwAttackLevel: DWORD,
-            dwAttackTime: DWORD,
-            dwFadeLevel: DWORD,
-            dwFadeTime: DWORD,
+            dwSize: u32,
+            dwAttackLevel: u32,
+            dwAttackTime: u32,
+            dwFadeLevel: u32,
+            dwFadeTime: u32,
         }
         const DIEP_ALLPARAMS: i32 = 1023;
         const DIEP_ALLPARAMS_DX5: i32 = 511;
@@ -1430,10 +1430,10 @@ mod Windows {
         const DIFEF_INCLUDENONSTANDARD: i32 = 1;
         const DIFEF_MODIFYIFNEEDED: i32 = 16;
         struct DIFILEEFFECT {
-            dwSize: DWORD,
+            dwSize: u32,
             GuidEffect: GUID,
             lpDiEffect: LPCDIEFFECT,
-            szFriendlyName: [CHAR; 260],
+            szFriendlyName: [i8; 260],
         }
         const DIGDD_PEEK: i32 = 1;
         const DIGFFS_ACTUATORSOFF: i32 = 32;
@@ -1479,86 +1479,86 @@ mod Windows {
         const DIHATSWITCH_SPACESIM_GLANCE: i32 = 117458433;
         const DIHATSWITCH_STRATEGYR_GLANCE: i32 = 184567297;
         const DIHATSWITCH_TPS_GLANCE: i32 = 167790081;
-        const DIJOFS_BUTTON0: LONG = 48;
-        const DIJOFS_BUTTON1: LONG = 49;
-        const DIJOFS_BUTTON10: LONG = 58;
-        const DIJOFS_BUTTON11: LONG = 59;
-        const DIJOFS_BUTTON12: LONG = 60;
-        const DIJOFS_BUTTON13: LONG = 61;
-        const DIJOFS_BUTTON14: LONG = 62;
-        const DIJOFS_BUTTON15: LONG = 63;
-        const DIJOFS_BUTTON16: LONG = 64;
-        const DIJOFS_BUTTON17: LONG = 65;
-        const DIJOFS_BUTTON18: LONG = 66;
-        const DIJOFS_BUTTON19: LONG = 67;
-        const DIJOFS_BUTTON2: LONG = 50;
-        const DIJOFS_BUTTON20: LONG = 68;
-        const DIJOFS_BUTTON21: LONG = 69;
-        const DIJOFS_BUTTON22: LONG = 70;
-        const DIJOFS_BUTTON23: LONG = 71;
-        const DIJOFS_BUTTON24: LONG = 72;
-        const DIJOFS_BUTTON25: LONG = 73;
-        const DIJOFS_BUTTON26: LONG = 74;
-        const DIJOFS_BUTTON27: LONG = 75;
-        const DIJOFS_BUTTON28: LONG = 76;
-        const DIJOFS_BUTTON29: LONG = 77;
-        const DIJOFS_BUTTON3: LONG = 51;
-        const DIJOFS_BUTTON30: LONG = 78;
-        const DIJOFS_BUTTON31: LONG = 79;
-        const DIJOFS_BUTTON4: LONG = 52;
-        const DIJOFS_BUTTON5: LONG = 53;
-        const DIJOFS_BUTTON6: LONG = 54;
-        const DIJOFS_BUTTON7: LONG = 55;
-        const DIJOFS_BUTTON8: LONG = 56;
-        const DIJOFS_BUTTON9: LONG = 57;
-        const DIJOFS_RX: LONG = 12;
-        const DIJOFS_RY: LONG = 16;
-        const DIJOFS_RZ: LONG = 20;
-        const DIJOFS_X: LONG = 0;
-        const DIJOFS_Y: LONG = 4;
-        const DIJOFS_Z: LONG = 8;
+        const DIJOFS_BUTTON0: i32 = 48;
+        const DIJOFS_BUTTON1: i32 = 49;
+        const DIJOFS_BUTTON10: i32 = 58;
+        const DIJOFS_BUTTON11: i32 = 59;
+        const DIJOFS_BUTTON12: i32 = 60;
+        const DIJOFS_BUTTON13: i32 = 61;
+        const DIJOFS_BUTTON14: i32 = 62;
+        const DIJOFS_BUTTON15: i32 = 63;
+        const DIJOFS_BUTTON16: i32 = 64;
+        const DIJOFS_BUTTON17: i32 = 65;
+        const DIJOFS_BUTTON18: i32 = 66;
+        const DIJOFS_BUTTON19: i32 = 67;
+        const DIJOFS_BUTTON2: i32 = 50;
+        const DIJOFS_BUTTON20: i32 = 68;
+        const DIJOFS_BUTTON21: i32 = 69;
+        const DIJOFS_BUTTON22: i32 = 70;
+        const DIJOFS_BUTTON23: i32 = 71;
+        const DIJOFS_BUTTON24: i32 = 72;
+        const DIJOFS_BUTTON25: i32 = 73;
+        const DIJOFS_BUTTON26: i32 = 74;
+        const DIJOFS_BUTTON27: i32 = 75;
+        const DIJOFS_BUTTON28: i32 = 76;
+        const DIJOFS_BUTTON29: i32 = 77;
+        const DIJOFS_BUTTON3: i32 = 51;
+        const DIJOFS_BUTTON30: i32 = 78;
+        const DIJOFS_BUTTON31: i32 = 79;
+        const DIJOFS_BUTTON4: i32 = 52;
+        const DIJOFS_BUTTON5: i32 = 53;
+        const DIJOFS_BUTTON6: i32 = 54;
+        const DIJOFS_BUTTON7: i32 = 55;
+        const DIJOFS_BUTTON8: i32 = 56;
+        const DIJOFS_BUTTON9: i32 = 57;
+        const DIJOFS_RX: i32 = 12;
+        const DIJOFS_RY: i32 = 16;
+        const DIJOFS_RZ: i32 = 20;
+        const DIJOFS_X: i32 = 0;
+        const DIJOFS_Y: i32 = 4;
+        const DIJOFS_Z: i32 = 8;
         struct DIJOYSTATE {
-            lX: LONG,
-            lY: LONG,
-            lZ: LONG,
-            lRx: LONG,
-            lRy: LONG,
-            lRz: LONG,
-            rglSlider: [LONG; 2],
-            rgdwPOV: [DWORD; 4],
-            rgbButtons: [BYTE; 32],
+            lX: i32,
+            lY: i32,
+            lZ: i32,
+            lRx: i32,
+            lRy: i32,
+            lRz: i32,
+            rglSlider: [i32; 2],
+            rgdwPOV: [u32; 4],
+            rgbButtons: [u8; 32],
         }
         struct DIJOYSTATE2 {
-            lX: LONG,
-            lY: LONG,
-            lZ: LONG,
-            lRx: LONG,
-            lRy: LONG,
-            lRz: LONG,
-            rglSlider: [LONG; 2],
-            rgdwPOV: [DWORD; 4],
-            rgbButtons: [BYTE; 128],
-            lVX: LONG,
-            lVY: LONG,
-            lVZ: LONG,
-            lVRx: LONG,
-            lVRy: LONG,
-            lVRz: LONG,
-            rglVSlider: [LONG; 2],
-            lAX: LONG,
-            lAY: LONG,
-            lAZ: LONG,
-            lARx: LONG,
-            lARy: LONG,
-            lARz: LONG,
-            rglASlider: [LONG; 2],
-            lFX: LONG,
-            lFY: LONG,
-            lFZ: LONG,
-            lFRx: LONG,
-            lFRy: LONG,
-            lFRz: LONG,
-            rglFSlider: [LONG; 2],
+            lX: i32,
+            lY: i32,
+            lZ: i32,
+            lRx: i32,
+            lRy: i32,
+            lRz: i32,
+            rglSlider: [i32; 2],
+            rgdwPOV: [u32; 4],
+            rgbButtons: [u8; 128],
+            lVX: i32,
+            lVY: i32,
+            lVZ: i32,
+            lVRx: i32,
+            lVRy: i32,
+            lVRz: i32,
+            rglVSlider: [i32; 2],
+            lAX: i32,
+            lAY: i32,
+            lAZ: i32,
+            lARx: i32,
+            lARy: i32,
+            lARz: i32,
+            rglASlider: [i32; 2],
+            lFX: i32,
+            lFY: i32,
+            lFZ: i32,
+            lFRx: i32,
+            lFRy: i32,
+            lFRz: i32,
+            rglFSlider: [i32; 2],
         }
         const DIKEYBOARD_0: u32 = 2164261899;
         const DIKEYBOARD_1: u32 = 2164261890;
@@ -1864,28 +1864,28 @@ mod Windows {
         const DIK_Y: i32 = 21;
         const DIK_YEN: i32 = 125;
         const DIK_Z: i32 = 44;
-        const DIMOFS_BUTTON0: LONG = 12;
-        const DIMOFS_BUTTON1: LONG = 13;
-        const DIMOFS_BUTTON2: LONG = 14;
-        const DIMOFS_BUTTON3: LONG = 15;
-        const DIMOFS_BUTTON4: LONG = 16;
-        const DIMOFS_BUTTON5: LONG = 17;
-        const DIMOFS_BUTTON6: LONG = 18;
-        const DIMOFS_BUTTON7: LONG = 19;
-        const DIMOFS_X: LONG = 0;
-        const DIMOFS_Y: LONG = 4;
-        const DIMOFS_Z: LONG = 8;
+        const DIMOFS_BUTTON0: i32 = 12;
+        const DIMOFS_BUTTON1: i32 = 13;
+        const DIMOFS_BUTTON2: i32 = 14;
+        const DIMOFS_BUTTON3: i32 = 15;
+        const DIMOFS_BUTTON4: i32 = 16;
+        const DIMOFS_BUTTON5: i32 = 17;
+        const DIMOFS_BUTTON6: i32 = 18;
+        const DIMOFS_BUTTON7: i32 = 19;
+        const DIMOFS_X: i32 = 0;
+        const DIMOFS_Y: i32 = 4;
+        const DIMOFS_Z: i32 = 8;
         struct DIMOUSESTATE {
-            lX: LONG,
-            lY: LONG,
-            lZ: LONG,
-            rgbButtons: [BYTE; 4],
+            lX: i32,
+            lY: i32,
+            lZ: i32,
+            rgbButtons: [u8; 4],
         }
         struct DIMOUSESTATE2 {
-            lX: LONG,
-            lY: LONG,
-            lZ: LONG,
-            rgbButtons: [BYTE; 8],
+            lX: i32,
+            lY: i32,
+            lZ: i32,
+            rgbButtons: [u8; 8],
         }
         const DIMOUSE_BUTTON0: u32 = 2181039116;
         const DIMOUSE_BUTTON1: u32 = 2181039117;
@@ -1902,15 +1902,15 @@ mod Windows {
         const DIMOUSE_YAXISAB: u32 = 2181038596;
         struct DIOBJECTDATAFORMAT {
             pguid: *const GUID,
-            dwOfs: DWORD,
-            dwType: DWORD,
-            dwFlags: DWORD,
+            dwOfs: u32,
+            dwType: u32,
+            dwFlags: u32,
         }
         struct DIPERIODIC {
-            dwMagnitude: DWORD,
-            lOffset: LONG,
-            dwPhase: DWORD,
-            dwPeriod: DWORD,
+            dwMagnitude: u32,
+            lOffset: i32,
+            dwPhase: u32,
+            dwPeriod: u32,
         }
         const DIPH_BYID: i32 = 2;
         const DIPH_BYOFFSET: i32 = 1;
@@ -1926,55 +1926,55 @@ mod Windows {
         const DIPROPAXISMODE_REL: i32 = 1;
         struct DIPROPCAL {
             diph: DIPROPHEADER,
-            lMin: LONG,
-            lCenter: LONG,
-            lMax: LONG,
+            lMin: i32,
+            lCenter: i32,
+            lMax: i32,
         }
         const DIPROPCALIBRATIONMODE_COOKED: i32 = 0;
         const DIPROPCALIBRATIONMODE_RAW: i32 = 1;
         struct DIPROPCALPOV {
             diph: DIPROPHEADER,
-            lMin: [LONG; 5],
-            lMax: [LONG; 5],
+            lMin: [i32; 5],
+            lMax: [i32; 5],
         }
         struct DIPROPCPOINTS {
             diph: DIPROPHEADER,
-            dwCPointsNum: DWORD,
+            dwCPointsNum: u32,
             cp: [CPOINT; 8],
         }
         struct DIPROPDWORD {
             diph: DIPROPHEADER,
-            dwData: DWORD,
+            dwData: u32,
         }
         struct DIPROPGUIDANDPATH {
             diph: DIPROPHEADER,
             guidClass: GUID,
-            wszPath: [WCHAR; 260],
+            wszPath: [u16; 260],
         }
         struct DIPROPHEADER {
-            dwSize: DWORD,
-            dwHeaderSize: DWORD,
-            dwObj: DWORD,
-            dwHow: DWORD,
+            dwSize: u32,
+            dwHeaderSize: u32,
+            dwObj: u32,
+            dwHow: u32,
         }
         struct DIPROPPOINTER {
             diph: DIPROPHEADER,
-            uData: UINT_PTR,
+            uData: usize,
         }
         struct DIPROPRANGE {
             diph: DIPROPHEADER,
-            lMin: LONG,
-            lMax: LONG,
+            lMin: i32,
+            lMax: i32,
         }
-        const DIPROPRANGE_NOMAX: LONG = 2147483647;
-        const DIPROPRANGE_NOMIN: LONG = -2147483648;
+        const DIPROPRANGE_NOMAX: i32 = 2147483647;
+        const DIPROPRANGE_NOMIN: i32 = -2147483648;
         struct DIPROPSTRING {
             diph: DIPROPHEADER,
-            wsz: [WCHAR; 260],
+            wsz: [u16; 260],
         }
         struct DIRAMPFORCE {
-            lStart: LONG,
-            lEnd: LONG,
+            lStart: i32,
+            lEnd: i32,
         }
         const DIRECTINPUT_HEADER_VERSION: i32 = 2048;
         const DIRECTINPUT_VERSION: i32 = 2048;
@@ -2061,7 +2061,7 @@ mod Windows {
         const DI_TRUNCATEDANDRESTARTED: HRESULT = 12;
         const DI_WRITEPROTECT: HRESULT = 19;
         #[library("DINPUT8.dll")]
-        extern fn DirectInput8Create(hinst: HINSTANCE, dwVersion: DWORD, riidltf: &IID, ppvOut: *mut LPVOID, punkOuter: LPUNKNOWN) -> HRESULT;
+        extern fn DirectInput8Create(hinst: HINSTANCE, dwVersion: u32, riidltf: *const GUID, ppvOut: *mut *mut void, punkOuter: IUnknown) -> HRESULT;
         const GUID_Button: GUID = 0xa36d02f0_c9f3_11cf_bfc7_444553540000;
         const GUID_ConstantForce: GUID = 0x13541c20_8e33_11d0_9ad0_00a0c9a06e35;
         const GUID_CustomForce: GUID = 0x13541c2b_8e33_11d0_9ad0_00a0c9a06e35;
@@ -2092,827 +2092,207 @@ mod Windows {
         const GUID_XAxis: GUID = 0xa36d02e0_c9f3_11cf_bfc7_444553540000;
         const GUID_YAxis: GUID = 0xa36d02e1_c9f3_11cf_bfc7_444553540000;
         const GUID_ZAxis: GUID = 0xa36d02e2_c9f3_11cf_bfc7_444553540000;
-        #[no_guid]
+        #[guid(0x5944e662_aa8a_11cf_bfc7_444553540000)]
         interface IDirectInput2A: IDirectInputA {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDevice(&self, param0: &GUID, param1: *mut LPDIRECTINPUTDEVICEA, param2: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumDevices(&self, param0: DWORD, param1: LPDIENUMDEVICESCALLBACKA, param2: LPVOID, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceStatus(&self, param0: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FindDevice(&self, param0: &GUID, param1: LPCSTR, param2: LPGUID) -> HRESULT;
+            fn FindDevice(&self, param0: *const GUID, param1: PCSTR, param2: LPGUID) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0x5944e663_aa8a_11cf_bfc7_444553540000)]
         interface IDirectInput2W: IDirectInputW {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDevice(&self, param0: &GUID, param1: *mut LPDIRECTINPUTDEVICEW, param2: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumDevices(&self, param0: DWORD, param1: LPDIENUMDEVICESCALLBACKW, param2: LPVOID, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceStatus(&self, param0: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FindDevice(&self, param0: &GUID, param1: LPCWSTR, param2: LPGUID) -> HRESULT;
+            fn FindDevice(&self, param0: *const GUID, param1: PCWSTR, param2: LPGUID) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0x9a4cb684_236d_11d3_8e9d_00c04f6844ae)]
         interface IDirectInput7A: IDirectInput2A {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDevice(&self, param0: &GUID, param1: *mut LPDIRECTINPUTDEVICEA, param2: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumDevices(&self, param0: DWORD, param1: LPDIENUMDEVICESCALLBACKA, param2: LPVOID, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceStatus(&self, param0: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FindDevice(&self, param0: &GUID, param1: LPCSTR, param2: LPGUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDeviceEx(&self, param0: &GUID, param1: &IID, param2: *mut LPVOID, param3: LPUNKNOWN) -> HRESULT;
+            fn CreateDeviceEx(&self, param0: *const GUID, param1: *const GUID, param2: *mut *mut void, param3: IUnknown) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0x9a4cb685_236d_11d3_8e9d_00c04f6844ae)]
         interface IDirectInput7W: IDirectInput2W {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDevice(&self, param0: &GUID, param1: *mut LPDIRECTINPUTDEVICEW, param2: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumDevices(&self, param0: DWORD, param1: LPDIENUMDEVICESCALLBACKW, param2: LPVOID, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceStatus(&self, param0: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FindDevice(&self, param0: &GUID, param1: LPCWSTR, param2: LPGUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDeviceEx(&self, param0: &GUID, param1: &IID, param2: *mut LPVOID, param3: LPUNKNOWN) -> HRESULT;
+            fn CreateDeviceEx(&self, param0: *const GUID, param1: *const GUID, param2: *mut *mut void, param3: IUnknown) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0xbf798030_483a_4da2_aa99_5d64ed369700)]
         interface IDirectInput8A: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDevice(&self, param0: &GUID, param1: *mut LPDIRECTINPUTDEVICE8A, param2: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumDevices(&self, param0: DWORD, param1: LPDIENUMDEVICESCALLBACKA, param2: LPVOID, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceStatus(&self, param0: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FindDevice(&self, param0: &GUID, param1: LPCSTR, param2: LPGUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumDevicesBySemantics(&self, param0: LPCSTR, param1: LPDIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: LPVOID, param4: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSA, param2: DWORD, param3: LPVOID) -> HRESULT;
+            fn CreateDevice(&self, param0: *const GUID, param1: *mut IDirectInputDevice8A, param2: IUnknown) -> HRESULT;
+            fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut void, param3: u32) -> HRESULT;
+            fn GetDeviceStatus(&self, param0: *const GUID) -> HRESULT;
+            fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn Initialize(&self, param0: HINSTANCE, param1: u32) -> HRESULT;
+            fn FindDevice(&self, param0: *const GUID, param1: PCSTR, param2: LPGUID) -> HRESULT;
+            fn EnumDevicesBySemantics(&self, param0: PCSTR, param1: LPDIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut void, param4: u32) -> HRESULT;
+            fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut void) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0xbf798031_483a_4da2_aa99_5d64ed369700)]
         interface IDirectInput8W: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDevice(&self, param0: &GUID, param1: *mut LPDIRECTINPUTDEVICE8W, param2: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumDevices(&self, param0: DWORD, param1: LPDIENUMDEVICESCALLBACKW, param2: LPVOID, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceStatus(&self, param0: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FindDevice(&self, param0: &GUID, param1: LPCWSTR, param2: LPGUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumDevicesBySemantics(&self, param0: LPCWSTR, param1: LPDIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: LPVOID, param4: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSW, param2: DWORD, param3: LPVOID) -> HRESULT;
+            fn CreateDevice(&self, param0: *const GUID, param1: *mut IDirectInputDevice8W, param2: IUnknown) -> HRESULT;
+            fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut void, param3: u32) -> HRESULT;
+            fn GetDeviceStatus(&self, param0: *const GUID) -> HRESULT;
+            fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn Initialize(&self, param0: HINSTANCE, param1: u32) -> HRESULT;
+            fn FindDevice(&self, param0: *const GUID, param1: PCWSTR, param2: LPGUID) -> HRESULT;
+            fn EnumDevicesBySemantics(&self, param0: PCWSTR, param1: LPDIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: *mut void, param4: u32) -> HRESULT;
+            fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut void) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0x89521360_aa8a_11cf_bfc7_444553540000)]
         interface IDirectInputA: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDevice(&self, param0: &GUID, param1: *mut LPDIRECTINPUTDEVICEA, param2: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumDevices(&self, param0: DWORD, param1: LPDIENUMDEVICESCALLBACKA, param2: LPVOID, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceStatus(&self, param0: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD) -> HRESULT;
+            fn CreateDevice(&self, param0: *const GUID, param1: *mut IDirectInputDeviceA, param2: IUnknown) -> HRESULT;
+            fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut void, param3: u32) -> HRESULT;
+            fn GetDeviceStatus(&self, param0: *const GUID) -> HRESULT;
+            fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn Initialize(&self, param0: HINSTANCE, param1: u32) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0x5944e682_c92e_11cf_bfc7_444553540000)]
         interface IDirectInputDevice2A: IDirectInputDeviceA {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetProperty(&self, param0: &GUID, param1: LPDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetProperty(&self, param0: &GUID, param1: LPCDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Acquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Unacquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceState(&self, param0: DWORD, param1: LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceData(&self, param0: DWORD, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(11u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(12u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetEventNotification(&self, param0: HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(13u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCooperativeLevel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(14u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEA, param1: DWORD, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(15u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEA) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(16u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(17u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD, param2: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateEffect(&self, param0: &GUID, param1: LPCDIEFFECT, param2: *mut LPDIRECTINPUTEFFECT, param3: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOA, param1: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateEffect(&self, param0: *const GUID, param1: LPCDIEFFECT, param2: *mut IDirectInputEffect, param3: IUnknown) -> HRESULT;
+            fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut void, param2: u32) -> HRESULT;
+            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOA, param1: *const GUID) -> HRESULT;
             fn GetForceFeedbackState(&self, param0: LPDWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SendForceFeedbackCommand(&self, param0: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SendForceFeedbackCommand(&self, param0: u32) -> HRESULT;
+            fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut void, param2: u32) -> HRESULT;
             fn Escape(&self, param0: LPDIEFFESCAPE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Poll(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SendDeviceData(&self, param0: DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
+            fn SendDeviceData(&self, param0: u32, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0x5944e683_c92e_11cf_bfc7_444553540000)]
         interface IDirectInputDevice2W: IDirectInputDeviceW {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetProperty(&self, param0: &GUID, param1: LPDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetProperty(&self, param0: &GUID, param1: LPCDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Acquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Unacquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceState(&self, param0: DWORD, param1: LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceData(&self, param0: DWORD, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(11u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(12u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetEventNotification(&self, param0: HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(13u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCooperativeLevel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(14u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEW, param1: DWORD, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(15u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEW) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(16u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(17u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD, param2: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateEffect(&self, param0: &GUID, param1: LPCDIEFFECT, param2: *mut LPDIRECTINPUTEFFECT, param3: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOW, param1: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateEffect(&self, param0: *const GUID, param1: LPCDIEFFECT, param2: *mut IDirectInputEffect, param3: IUnknown) -> HRESULT;
+            fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut void, param2: u32) -> HRESULT;
+            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOW, param1: *const GUID) -> HRESULT;
             fn GetForceFeedbackState(&self, param0: LPDWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SendForceFeedbackCommand(&self, param0: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SendForceFeedbackCommand(&self, param0: u32) -> HRESULT;
+            fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut void, param2: u32) -> HRESULT;
             fn Escape(&self, param0: LPDIEFFESCAPE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Poll(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SendDeviceData(&self, param0: DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
+            fn SendDeviceData(&self, param0: u32, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae)]
         interface IDirectInputDevice7A: IDirectInputDevice2A {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetProperty(&self, param0: &GUID, param1: LPDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetProperty(&self, param0: &GUID, param1: LPCDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Acquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Unacquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceState(&self, param0: DWORD, param1: LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceData(&self, param0: DWORD, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(11u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(12u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetEventNotification(&self, param0: HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(13u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCooperativeLevel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(14u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEA, param1: DWORD, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(15u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEA) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(16u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(17u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD, param2: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(18u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateEffect(&self, param0: &GUID, param1: LPCDIEFFECT, param2: *mut LPDIRECTINPUTEFFECT, param3: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(19u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(20u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOA, param1: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(21u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetForceFeedbackState(&self, param0: LPDWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(22u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SendForceFeedbackCommand(&self, param0: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(23u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(24u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Escape(&self, param0: LPDIEFFESCAPE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(25u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Poll(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(26u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SendDeviceData(&self, param0: DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumEffectsInFile(&self, param0: LPCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: LPVOID, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn WriteEffectToFile(&self, param0: LPCSTR, param1: DWORD, param2: LPDIFILEEFFECT, param3: DWORD) -> HRESULT;
+            fn EnumEffectsInFile(&self, param0: PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut void, param3: u32) -> HRESULT;
+            fn WriteEffectToFile(&self, param0: PCSTR, param1: u32, param2: LPDIFILEEFFECT, param3: u32) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae)]
         interface IDirectInputDevice7W: IDirectInputDevice2W {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetProperty(&self, param0: &GUID, param1: LPDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetProperty(&self, param0: &GUID, param1: LPCDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Acquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Unacquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceState(&self, param0: DWORD, param1: LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceData(&self, param0: DWORD, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(11u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(12u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetEventNotification(&self, param0: HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(13u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCooperativeLevel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(14u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEW, param1: DWORD, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(15u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEW) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(16u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(17u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD, param2: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(18u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateEffect(&self, param0: &GUID, param1: LPCDIEFFECT, param2: *mut LPDIRECTINPUTEFFECT, param3: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(19u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(20u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOW, param1: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(21u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetForceFeedbackState(&self, param0: LPDWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(22u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SendForceFeedbackCommand(&self, param0: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(23u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(24u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Escape(&self, param0: LPDIEFFESCAPE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(25u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Poll(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(26u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SendDeviceData(&self, param0: DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumEffectsInFile(&self, param0: LPCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: LPVOID, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn WriteEffectToFile(&self, param0: LPCWSTR, param1: DWORD, param2: LPDIFILEEFFECT, param3: DWORD) -> HRESULT;
+            fn EnumEffectsInFile(&self, param0: PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut void, param3: u32) -> HRESULT;
+            fn WriteEffectToFile(&self, param0: PCWSTR, param1: u32, param2: LPDIFILEEFFECT, param3: u32) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0x54d41080_dc15_4833_a41b_748f73a38179)]
         interface IDirectInputDevice8A: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetProperty(&self, param0: &GUID, param1: LPDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetProperty(&self, param0: &GUID, param1: LPCDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut void, param2: u32) -> HRESULT;
+            fn GetProperty(&self, param0: *const GUID, param1: LPDIPROPHEADER) -> HRESULT;
+            fn SetProperty(&self, param0: *const GUID, param1: LPCDIPROPHEADER) -> HRESULT;
             fn Acquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Unacquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceState(&self, param0: DWORD, param1: LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceData(&self, param0: DWORD, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDeviceState(&self, param0: u32, param1: *mut void) -> HRESULT;
+            fn GetDeviceData(&self, param0: u32, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
             fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetEventNotification(&self, param0: HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCooperativeLevel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEA, param1: DWORD, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> HRESULT;
             fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEA) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD, param2: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateEffect(&self, param0: &GUID, param1: LPCDIEFFECT, param2: *mut LPDIRECTINPUTEFFECT, param3: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOA, param1: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn Initialize(&self, param0: HINSTANCE, param1: u32, param2: *const GUID) -> HRESULT;
+            fn CreateEffect(&self, param0: *const GUID, param1: LPCDIEFFECT, param2: *mut IDirectInputEffect, param3: IUnknown) -> HRESULT;
+            fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut void, param2: u32) -> HRESULT;
+            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOA, param1: *const GUID) -> HRESULT;
             fn GetForceFeedbackState(&self, param0: LPDWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SendForceFeedbackCommand(&self, param0: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SendForceFeedbackCommand(&self, param0: u32) -> HRESULT;
+            fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut void, param2: u32) -> HRESULT;
             fn Escape(&self, param0: LPDIEFFESCAPE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Poll(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SendDeviceData(&self, param0: DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumEffectsInFile(&self, param0: LPCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: LPVOID, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn WriteEffectToFile(&self, param0: LPCSTR, param1: DWORD, param2: LPDIFILEEFFECT, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn BuildActionMap(&self, param0: LPDIACTIONFORMATA, param1: LPCSTR, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetActionMap(&self, param0: LPDIACTIONFORMATA, param1: LPCSTR, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SendDeviceData(&self, param0: u32, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
+            fn EnumEffectsInFile(&self, param0: PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut void, param3: u32) -> HRESULT;
+            fn WriteEffectToFile(&self, param0: PCSTR, param1: u32, param2: LPDIFILEEFFECT, param3: u32) -> HRESULT;
+            fn BuildActionMap(&self, param0: LPDIACTIONFORMATA, param1: PCSTR, param2: u32) -> HRESULT;
+            fn SetActionMap(&self, param0: LPDIACTIONFORMATA, param1: PCSTR, param2: u32) -> HRESULT;
             fn GetImageInfo(&self, param0: LPDIDEVICEIMAGEINFOHEADERA) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0x54d41081_dc15_4833_a41b_748f73a38179)]
         interface IDirectInputDevice8W: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetProperty(&self, param0: &GUID, param1: LPDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetProperty(&self, param0: &GUID, param1: LPCDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut void, param2: u32) -> HRESULT;
+            fn GetProperty(&self, param0: *const GUID, param1: LPDIPROPHEADER) -> HRESULT;
+            fn SetProperty(&self, param0: *const GUID, param1: LPCDIPROPHEADER) -> HRESULT;
             fn Acquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Unacquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceState(&self, param0: DWORD, param1: LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceData(&self, param0: DWORD, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDeviceState(&self, param0: u32, param1: *mut void) -> HRESULT;
+            fn GetDeviceData(&self, param0: u32, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
             fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetEventNotification(&self, param0: HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCooperativeLevel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEW, param1: DWORD, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> HRESULT;
             fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEW) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD, param2: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateEffect(&self, param0: &GUID, param1: LPCDIEFFECT, param2: *mut LPDIRECTINPUTEFFECT, param3: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOW, param1: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn Initialize(&self, param0: HINSTANCE, param1: u32, param2: *const GUID) -> HRESULT;
+            fn CreateEffect(&self, param0: *const GUID, param1: LPCDIEFFECT, param2: *mut IDirectInputEffect, param3: IUnknown) -> HRESULT;
+            fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut void, param2: u32) -> HRESULT;
+            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOW, param1: *const GUID) -> HRESULT;
             fn GetForceFeedbackState(&self, param0: LPDWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SendForceFeedbackCommand(&self, param0: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SendForceFeedbackCommand(&self, param0: u32) -> HRESULT;
+            fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut void, param2: u32) -> HRESULT;
             fn Escape(&self, param0: LPDIEFFESCAPE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Poll(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SendDeviceData(&self, param0: DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumEffectsInFile(&self, param0: LPCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: LPVOID, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn WriteEffectToFile(&self, param0: LPCWSTR, param1: DWORD, param2: LPDIFILEEFFECT, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn BuildActionMap(&self, param0: LPDIACTIONFORMATW, param1: LPCWSTR, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetActionMap(&self, param0: LPDIACTIONFORMATW, param1: LPCWSTR, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SendDeviceData(&self, param0: u32, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
+            fn EnumEffectsInFile(&self, param0: PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut void, param3: u32) -> HRESULT;
+            fn WriteEffectToFile(&self, param0: PCWSTR, param1: u32, param2: LPDIFILEEFFECT, param3: u32) -> HRESULT;
+            fn BuildActionMap(&self, param0: LPDIACTIONFORMATW, param1: PCWSTR, param2: u32) -> HRESULT;
+            fn SetActionMap(&self, param0: LPDIACTIONFORMATW, param1: PCWSTR, param2: u32) -> HRESULT;
             fn GetImageInfo(&self, param0: LPDIDEVICEIMAGEINFOHEADERW) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0x5944e680_c92e_11cf_bfc7_444553540000)]
         interface IDirectInputDeviceA: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetProperty(&self, param0: &GUID, param1: LPDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetProperty(&self, param0: &GUID, param1: LPCDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut void, param2: u32) -> HRESULT;
+            fn GetProperty(&self, param0: *const GUID, param1: LPDIPROPHEADER) -> HRESULT;
+            fn SetProperty(&self, param0: *const GUID, param1: LPCDIPROPHEADER) -> HRESULT;
             fn Acquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Unacquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceState(&self, param0: DWORD, param1: LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceData(&self, param0: DWORD, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDeviceState(&self, param0: u32, param1: *mut void) -> HRESULT;
+            fn GetDeviceData(&self, param0: u32, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
             fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetEventNotification(&self, param0: HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCooperativeLevel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEA, param1: DWORD, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> HRESULT;
             fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEA) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD, param2: &GUID) -> HRESULT;
+            fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn Initialize(&self, param0: HINSTANCE, param1: u32, param2: *const GUID) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0x5944e681_c92e_11cf_bfc7_444553540000)]
         interface IDirectInputDeviceW: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: LPVOID, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetProperty(&self, param0: &GUID, param1: LPDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetProperty(&self, param0: &GUID, param1: LPCDIPROPHEADER) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut void, param2: u32) -> HRESULT;
+            fn GetProperty(&self, param0: *const GUID, param1: LPDIPROPHEADER) -> HRESULT;
+            fn SetProperty(&self, param0: *const GUID, param1: LPCDIPROPHEADER) -> HRESULT;
             fn Acquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Unacquire(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceState(&self, param0: DWORD, param1: LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceData(&self, param0: DWORD, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDeviceState(&self, param0: u32, param1: *mut void) -> HRESULT;
+            fn GetDeviceData(&self, param0: u32, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
             fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetEventNotification(&self, param0: HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCooperativeLevel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEW, param1: DWORD, param2: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> HRESULT;
             fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEW) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD, param2: &GUID) -> HRESULT;
+            fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn Initialize(&self, param0: HINSTANCE, param1: u32, param2: *const GUID) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35)]
         interface IDirectInputEffect: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD, param2: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Initialize(&self, param0: HINSTANCE, param1: u32, param2: *const GUID) -> HRESULT;
             fn GetEffectGuid(&self, param0: LPGUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetParameters(&self, param0: LPDIEFFECT, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetParameters(&self, param0: LPCDIEFFECT, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Start(&self, param0: DWORD, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetParameters(&self, param0: LPDIEFFECT, param1: u32) -> HRESULT;
+            fn SetParameters(&self, param0: LPCDIEFFECT, param1: u32) -> HRESULT;
+            fn Start(&self, param0: u32, param1: u32) -> HRESULT;
             fn Stop(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetEffectStatus(&self, param0: LPDWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Download(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Unload(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Escape(&self, param0: LPDIEFFESCAPE) -> HRESULT;
         }
-        #[no_guid]
+        #[guid(0x89521361_aa8a_11cf_bfc7_444553540000)]
         interface IDirectInputW: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDevice(&self, param0: &GUID, param1: *mut LPDIRECTINPUTDEVICEW, param2: LPUNKNOWN) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumDevices(&self, param0: DWORD, param1: LPDIENUMDEVICESCALLBACKW, param2: LPVOID, param3: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceStatus(&self, param0: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Initialize(&self, param0: HINSTANCE, param1: DWORD) -> HRESULT;
+            fn CreateDevice(&self, param0: *const GUID, param1: *mut IDirectInputDeviceW, param2: IUnknown) -> HRESULT;
+            fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut void, param3: u32) -> HRESULT;
+            fn GetDeviceStatus(&self, param0: *const GUID) -> HRESULT;
+            fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
+            fn Initialize(&self, param0: HINSTANCE, param1: u32) -> HRESULT;
         }
-        const IID_IDirectInput2A: GUID = 0x5944e662_aa8a_11cf_bfc7_444553540000;
-        const IID_IDirectInput2W: GUID = 0x5944e663_aa8a_11cf_bfc7_444553540000;
-        const IID_IDirectInput7A: GUID = 0x9a4cb684_236d_11d3_8e9d_00c04f6844ae;
-        const IID_IDirectInput7W: GUID = 0x9a4cb685_236d_11d3_8e9d_00c04f6844ae;
-        const IID_IDirectInput8A: GUID = 0xbf798030_483a_4da2_aa99_5d64ed369700;
-        const IID_IDirectInput8W: GUID = 0xbf798031_483a_4da2_aa99_5d64ed369700;
-        const IID_IDirectInputA: GUID = 0x89521360_aa8a_11cf_bfc7_444553540000;
-        const IID_IDirectInputDevice2A: GUID = 0x5944e682_c92e_11cf_bfc7_444553540000;
-        const IID_IDirectInputDevice2W: GUID = 0x5944e683_c92e_11cf_bfc7_444553540000;
-        const IID_IDirectInputDevice7A: GUID = 0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae;
-        const IID_IDirectInputDevice7W: GUID = 0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae;
-        const IID_IDirectInputDevice8A: GUID = 0x54d41080_dc15_4833_a41b_748f73a38179;
-        const IID_IDirectInputDevice8W: GUID = 0x54d41081_dc15_4833_a41b_748f73a38179;
-        const IID_IDirectInputDeviceA: GUID = 0x5944e680_c92e_11cf_bfc7_444553540000;
-        const IID_IDirectInputDeviceW: GUID = 0x5944e681_c92e_11cf_bfc7_444553540000;
-        const IID_IDirectInputEffect: GUID = 0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35;
-        const IID_IDirectInputW: GUID = 0x89521361_aa8a_11cf_bfc7_444553540000;
         const JOY_HWS_AUTOLOAD: i32 = 268435456;
         const JOY_HWS_GAMEPORTBUSBUSY: i32 = 1;
         const JOY_HWS_ISANALOGPORTDRIVER: i32 = 134217728;
@@ -2922,42 +2302,42 @@ mod Windows {
         const JOY_HWS_NODEVNODE: i32 = 536870912;
         const JOY_PASSDRIVERDATA: i32 = 268435456;
         const JOY_US_VOLATILE: i32 = 8;
-        type LPCDIACTION = *const DIACTIONA;
+        type LPCDIACTION = LPCDIACTIONA;
         type LPCDIACTIONA = *const DIACTIONA;
-        type LPCDIACTIONFORMAT = *const DIACTIONFORMATA;
+        type LPCDIACTIONFORMAT = LPCDIACTIONFORMATA;
         type LPCDIACTIONFORMATA = *const DIACTIONFORMATA;
         type LPCDIACTIONFORMATW = *const DIACTIONFORMATW;
         type LPCDIACTIONW = *const DIACTIONW;
         type LPCDICOLORSET = *const DICOLORSET;
         type LPCDICONDITION = *const DICONDITION;
-        type LPCDICONFIGUREDEVICESPARAMS = *const DICONFIGUREDEVICESPARAMSA;
+        type LPCDICONFIGUREDEVICESPARAMS = LPCDICONFIGUREDEVICESPARAMSA;
         type LPCDICONFIGUREDEVICESPARAMSA = *const DICONFIGUREDEVICESPARAMSA;
         type LPCDICONFIGUREDEVICESPARAMSW = *const DICONFIGUREDEVICESPARAMSW;
         type LPCDICONSTANTFORCE = *const DICONSTANTFORCE;
         type LPCDICUSTOMFORCE = *const DICUSTOMFORCE;
         type LPCDIDATAFORMAT = *const DIDATAFORMAT;
-        type LPCDIDEVICEIMAGEINFO = *const DIDEVICEIMAGEINFOA;
+        type LPCDIDEVICEIMAGEINFO = LPCDIDEVICEIMAGEINFOA;
         type LPCDIDEVICEIMAGEINFOA = *const DIDEVICEIMAGEINFOA;
-        type LPCDIDEVICEIMAGEINFOHEADER = *const DIDEVICEIMAGEINFOHEADERA;
+        type LPCDIDEVICEIMAGEINFOHEADER = LPCDIDEVICEIMAGEINFOHEADERA;
         type LPCDIDEVICEIMAGEINFOHEADERA = *const DIDEVICEIMAGEINFOHEADERA;
         type LPCDIDEVICEIMAGEINFOHEADERW = *const DIDEVICEIMAGEINFOHEADERW;
         type LPCDIDEVICEIMAGEINFOW = *const DIDEVICEIMAGEINFOW;
-        type LPCDIDEVICEINSTANCE = *const DIDEVICEINSTANCEA;
+        type LPCDIDEVICEINSTANCE = LPCDIDEVICEINSTANCEA;
         type LPCDIDEVICEINSTANCEA = *const DIDEVICEINSTANCEA;
         type LPCDIDEVICEINSTANCEW = *const DIDEVICEINSTANCEW;
-        type LPCDIDEVICEINSTANCE_DX3 = *const DIDEVICEINSTANCE_DX3A;
+        type LPCDIDEVICEINSTANCE_DX3 = *const DIDEVICEINSTANCE_DX3;
         type LPCDIDEVICEINSTANCE_DX3A = *const DIDEVICEINSTANCE_DX3A;
         type LPCDIDEVICEINSTANCE_DX3W = *const DIDEVICEINSTANCE_DX3W;
         type LPCDIDEVICEOBJECTDATA = *const DIDEVICEOBJECTDATA;
         type LPCDIDEVICEOBJECTDATA_DX = *const DIDEVICEOBJECTDATA_DX3;
-        type LPCDIDEVICEOBJECTINSTANCE = *const DIDEVICEOBJECTINSTANCEA;
+        type LPCDIDEVICEOBJECTINSTANCE = *const DIDEVICEOBJECTINSTANCE;
         type LPCDIDEVICEOBJECTINSTANCEA = *const DIDEVICEOBJECTINSTANCEA;
         type LPCDIDEVICEOBJECTINSTANCEW = *const DIDEVICEOBJECTINSTANCEW;
-        type LPCDIDEVICEOBJECTINSTANCE_DX3 = *const DIDEVICEOBJECTINSTANCE_DX3A;
+        type LPCDIDEVICEOBJECTINSTANCE_DX3 = *const DIDEVICEOBJECTINSTANCE_DX3;
         type LPCDIDEVICEOBJECTINSTANCE_DX3A = *const DIDEVICEOBJECTINSTANCE_DX3A;
         type LPCDIDEVICEOBJECTINSTANCE_DX3W = *const DIDEVICEOBJECTINSTANCE_DX3W;
         type LPCDIEFFECT = *const DIEFFECT;
-        type LPCDIEFFECTINFO = *const DIEFFECTINFOA;
+        type LPCDIEFFECTINFO = *const DIEFFECTINFO;
         type LPCDIEFFECTINFOA = *const DIEFFECTINFOA;
         type LPCDIEFFECTINFOW = *const DIEFFECTINFOW;
         type LPCDIEFFECT_DX5 = *const DIEFFECT_DX5;
@@ -2975,16 +2355,16 @@ mod Windows {
         type LPCDIPROPRANGE = *const DIPROPRANGE;
         type LPCDIPROPSTRING = *const DIPROPSTRING;
         type LPCDIRAMPFORCE = *const DIRAMPFORCE;
-        type LPDIACTION = *mut DIACTIONA;
+        type LPDIACTION = LPDIACTIONA;
         type LPDIACTIONA = *mut DIACTIONA;
-        type LPDIACTIONFORMAT = *mut DIACTIONFORMATA;
+        type LPDIACTIONFORMAT = LPDIACTIONFORMATA;
         type LPDIACTIONFORMATA = *mut DIACTIONFORMATA;
         type LPDIACTIONFORMATW = *mut DIACTIONFORMATW;
         type LPDIACTIONW = *mut DIACTIONW;
         type LPDICOLORSET = *mut DICOLORSET;
         type LPDICONDITION = *mut DICONDITION;
-        extern fn LPDICONFIGUREDEVICESCALLBACK(param0: IUnknown, param1: LPVOID) -> BOOL;
-        type LPDICONFIGUREDEVICESPARAMS = *mut DICONFIGUREDEVICESPARAMSA;
+        extern fn LPDICONFIGUREDEVICESCALLBACK(param0: IUnknown, param1: *mut void) -> BOOL;
+        type LPDICONFIGUREDEVICESPARAMS = LPDICONFIGUREDEVICESPARAMSA;
         type LPDICONFIGUREDEVICESPARAMSA = *mut DICONFIGUREDEVICESPARAMSA;
         type LPDICONFIGUREDEVICESPARAMSW = *mut DICONFIGUREDEVICESPARAMSW;
         type LPDICONSTANTFORCE = *mut DICONSTANTFORCE;
@@ -2992,43 +2372,43 @@ mod Windows {
         type LPDIDATAFORMAT = *mut DIDATAFORMAT;
         type LPDIDEVCAPS = *mut DIDEVCAPS;
         type LPDIDEVCAPS_DX3 = *mut DIDEVCAPS_DX3;
-        type LPDIDEVICEIMAGEINFO = *mut DIDEVICEIMAGEINFOA;
+        type LPDIDEVICEIMAGEINFO = LPDIDEVICEIMAGEINFOA;
         type LPDIDEVICEIMAGEINFOA = *mut DIDEVICEIMAGEINFOA;
-        type LPDIDEVICEIMAGEINFOHEADER = *mut DIDEVICEIMAGEINFOHEADERA;
+        type LPDIDEVICEIMAGEINFOHEADER = LPDIDEVICEIMAGEINFOHEADERA;
         type LPDIDEVICEIMAGEINFOHEADERA = *mut DIDEVICEIMAGEINFOHEADERA;
         type LPDIDEVICEIMAGEINFOHEADERW = *mut DIDEVICEIMAGEINFOHEADERW;
         type LPDIDEVICEIMAGEINFOW = *mut DIDEVICEIMAGEINFOW;
-        type LPDIDEVICEINSTANCE = *mut DIDEVICEINSTANCEA;
+        type LPDIDEVICEINSTANCE = LPDIDEVICEINSTANCEA;
         type LPDIDEVICEINSTANCEA = *mut DIDEVICEINSTANCEA;
         type LPDIDEVICEINSTANCEW = *mut DIDEVICEINSTANCEW;
-        type LPDIDEVICEINSTANCE_DX3 = *mut DIDEVICEINSTANCE_DX3A;
+        type LPDIDEVICEINSTANCE_DX3 = LPDIDEVICEINSTANCE_DX3A;
         type LPDIDEVICEINSTANCE_DX3A = *mut DIDEVICEINSTANCE_DX3A;
         type LPDIDEVICEINSTANCE_DX3W = *mut DIDEVICEINSTANCE_DX3W;
         type LPDIDEVICEOBJECTDATA = *mut DIDEVICEOBJECTDATA;
         type LPDIDEVICEOBJECTDATA_DX3 = *mut DIDEVICEOBJECTDATA_DX3;
-        type LPDIDEVICEOBJECTINSTANCE = *mut DIDEVICEOBJECTINSTANCEA;
+        type LPDIDEVICEOBJECTINSTANCE = LPDIDEVICEOBJECTINSTANCEA;
         type LPDIDEVICEOBJECTINSTANCEA = *mut DIDEVICEOBJECTINSTANCEA;
         type LPDIDEVICEOBJECTINSTANCEW = *mut DIDEVICEOBJECTINSTANCEW;
-        type LPDIDEVICEOBJECTINSTANCE_DX3 = *mut DIDEVICEOBJECTINSTANCE_DX3A;
+        type LPDIDEVICEOBJECTINSTANCE_DX3 = LPDIDEVICEOBJECTINSTANCE_DX3A;
         type LPDIDEVICEOBJECTINSTANCE_DX3A = *mut DIDEVICEOBJECTINSTANCE_DX3A;
         type LPDIDEVICEOBJECTINSTANCE_DX3W = *mut DIDEVICEOBJECTINSTANCE_DX3W;
         type LPDIEFFECT = *mut DIEFFECT;
-        type LPDIEFFECTINFO = *mut DIEFFECTINFOA;
+        type LPDIEFFECTINFO = LPDIEFFECTINFOA;
         type LPDIEFFECTINFOA = *mut DIEFFECTINFOA;
         type LPDIEFFECTINFOW = *mut DIEFFECTINFOW;
         type LPDIEFFECT_DX5 = *mut DIEFFECT_DX5;
-        type LPDIEFFECT_DX6 = *mut DIEFFECT;
+        type LPDIEFFECT_DX6 = LPDIEFFECT;
         type LPDIEFFESCAPE = *mut DIEFFESCAPE;
-        extern fn LPDIENUMCREATEDEFFECTOBJECTSCALLBACK(param0: LPDIRECTINPUTEFFECT, param1: LPVOID) -> BOOL;
-        extern fn LPDIENUMDEVICEOBJECTSCALLBACKA(param0: LPCDIDEVICEOBJECTINSTANCEA, param1: LPVOID) -> BOOL;
-        extern fn LPDIENUMDEVICEOBJECTSCALLBACKW(param0: LPCDIDEVICEOBJECTINSTANCEW, param1: LPVOID) -> BOOL;
-        extern fn LPDIENUMDEVICESBYSEMANTICSCBA(param0: LPCDIDEVICEINSTANCEA, param1: LPDIRECTINPUTDEVICE8A, param2: DWORD, param3: DWORD, param4: LPVOID) -> BOOL;
-        extern fn LPDIENUMDEVICESBYSEMANTICSCBW(param0: LPCDIDEVICEINSTANCEW, param1: LPDIRECTINPUTDEVICE8W, param2: DWORD, param3: DWORD, param4: LPVOID) -> BOOL;
-        extern fn LPDIENUMDEVICESCALLBACKA(param0: LPCDIDEVICEINSTANCEA, param1: LPVOID) -> BOOL;
-        extern fn LPDIENUMDEVICESCALLBACKW(param0: LPCDIDEVICEINSTANCEW, param1: LPVOID) -> BOOL;
-        extern fn LPDIENUMEFFECTSCALLBACKA(param0: LPCDIEFFECTINFOA, param1: LPVOID) -> BOOL;
-        extern fn LPDIENUMEFFECTSCALLBACKW(param0: LPCDIEFFECTINFOW, param1: LPVOID) -> BOOL;
-        extern fn LPDIENUMEFFECTSINFILECALLBACK(param0: LPCDIFILEEFFECT, param1: LPVOID) -> BOOL;
+        extern fn LPDIENUMCREATEDEFFECTOBJECTSCALLBACK(param0: IDirectInputEffect, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMDEVICEOBJECTSCALLBACKA(param0: LPCDIDEVICEOBJECTINSTANCEA, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMDEVICEOBJECTSCALLBACKW(param0: LPCDIDEVICEOBJECTINSTANCEW, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMDEVICESBYSEMANTICSCBA(param0: LPCDIDEVICEINSTANCEA, param1: IDirectInputDevice8A, param2: u32, param3: u32, param4: *mut void) -> BOOL;
+        extern fn LPDIENUMDEVICESBYSEMANTICSCBW(param0: LPCDIDEVICEINSTANCEW, param1: IDirectInputDevice8W, param2: u32, param3: u32, param4: *mut void) -> BOOL;
+        extern fn LPDIENUMDEVICESCALLBACKA(param0: LPCDIDEVICEINSTANCEA, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMDEVICESCALLBACKW(param0: LPCDIDEVICEINSTANCEW, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMEFFECTSCALLBACKA(param0: LPCDIEFFECTINFOA, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMEFFECTSCALLBACKW(param0: LPCDIEFFECTINFOW, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMEFFECTSINFILECALLBACK(param0: LPCDIFILEEFFECT, param1: *mut void) -> BOOL;
         type LPDIENVELOPE = *mut DIENVELOPE;
         type LPDIFILEEFFECT = *mut DIFILEEFFECT;
         type LPDIJOYSTATE = *mut DIJOYSTATE;
@@ -3047,33 +2427,10 @@ mod Windows {
         type LPDIPROPRANGE = *mut DIPROPRANGE;
         type LPDIPROPSTRING = *mut DIPROPSTRING;
         type LPDIRAMPFORCE = *mut DIRAMPFORCE;
-        type LPDIRECTINPUT = IDirectInputA;
-        type LPDIRECTINPUT2 = IDirectInput2A;
-        type LPDIRECTINPUT2A = IDirectInput2A;
-        type LPDIRECTINPUT2W = IDirectInput2W;
-        type LPDIRECTINPUT7 = IDirectInput7A;
-        type LPDIRECTINPUT7A = IDirectInput7A;
-        type LPDIRECTINPUT7W = IDirectInput7W;
-        type LPDIRECTINPUT8 = IDirectInput8A;
-        type LPDIRECTINPUT8A = IDirectInput8A;
-        type LPDIRECTINPUT8W = IDirectInput8W;
-        type LPDIRECTINPUTA = IDirectInputA;
-        type LPDIRECTINPUTDEVICE = IDirectInputDeviceA;
-        type LPDIRECTINPUTDEVICE2 = IDirectInputDevice2A;
-        type LPDIRECTINPUTDEVICE2A = IDirectInputDevice2A;
-        type LPDIRECTINPUTDEVICE2W = IDirectInputDevice2W;
-        type LPDIRECTINPUTDEVICE7 = IDirectInputDevice7A;
-        type LPDIRECTINPUTDEVICE7A = IDirectInputDevice7A;
-        type LPDIRECTINPUTDEVICE7W = IDirectInputDevice7W;
-        type LPDIRECTINPUTDEVICE8 = IDirectInputDevice8A;
-        type LPDIRECTINPUTDEVICE8A = IDirectInputDevice8A;
-        type LPDIRECTINPUTDEVICE8W = IDirectInputDevice8W;
-        type LPDIRECTINPUTDEVICEA = IDirectInputDeviceA;
-        type LPDIRECTINPUTDEVICEW = IDirectInputDeviceW;
-        type LPDIRECTINPUTEFFECT = IDirectInputEffect;
-        type LPDIRECTINPUTW = IDirectInputW;
         extern fn LPFNSHOWJOYCPL(hWnd: HWND);
         const MAXCPOINTSNUM: i32 = 8;
         type PCPOINT = *mut CPOINT;
+        #[library("WINMM.dll")]
+        extern fn joyConfigChanged(dwFlags: u32) -> MMRESULT;
     }
 }

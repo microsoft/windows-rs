@@ -2,6 +2,7 @@
 mod Windows {
     mod UI {
         mod Input {
+            #[unsealed]
             #[Windows::Foundation::Metadata::Composable(IAttachableInputObjectFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -679,7 +680,10 @@ mod Windows {
             interface IRadialControllerMenuItem {
                 #[get]
                 DisplayText: String;
-                Tag: Object;
+                #[special]
+                fn get_Tag(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
+                #[special]
+                fn put_Tag(&self, #[Windows::Foundation::Metadata::Variant] value: Object);
                 event Invoked: super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, Object>;
             }
             #[guid(0x249e0887_d842_4524_9df8_e0d647edc887)]

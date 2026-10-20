@@ -4,21 +4,21 @@ mod Windows {
         const AM_MEDIA_TYPE_REPRESENTATION: GUID = 0xe2e42ad2_132c_491e_a268_3c7c2dca181f;
         const CLSID_MFSourceResolver: GUID = 0x90eab60f_e43a_4188_bcc4_e47fdf04868c;
         struct CapturedMetadataExposureCompensation {
-            Flags: UINT64,
-            Value: INT32,
+            Flags: u64,
+            Value: i32,
         }
         struct CapturedMetadataISOGains {
-            AnalogGain: FLOAT,
-            DigitalGain: FLOAT,
+            AnalogGain: f32,
+            DigitalGain: f32,
         }
         struct CapturedMetadataWhiteBalanceGains {
-            R: FLOAT,
-            G: FLOAT,
-            B: FLOAT,
+            R: f32,
+            G: f32,
+            B: f32,
         }
         struct DIRTYRECT_INFO {
-            FrameNumber: UINT,
-            NumDirtyRects: UINT,
+            FrameNumber: u32,
+            NumDirtyRects: u32,
             DirtyRects: [RECT; 1],
         }
         struct DigitalWindowSetting {
@@ -35,58 +35,58 @@ mod Windows {
         }
         const FORMAT_MFVideoFormat: GUID = 0xaed4ab2d_7326_43cb_9464_c879cab9c43d;
         struct FaceCharacterization {
-            BlinkScoreLeft: ULONG,
-            BlinkScoreRight: ULONG,
-            FacialExpression: ULONG,
-            FacialExpressionScore: ULONG,
+            BlinkScoreLeft: u32,
+            BlinkScoreRight: u32,
+            FacialExpression: u32,
+            FacialExpressionScore: u32,
         }
         struct FaceCharacterizationBlobHeader {
-            Size: ULONG,
-            Count: ULONG,
+            Size: u32,
+            Count: u32,
         }
         struct FaceRectInfo {
             Region: RECT,
-            confidenceLevel: LONG,
+            confidenceLevel: i32,
         }
         struct FaceRectInfoBlobHeader {
-            Size: ULONG,
-            Count: ULONG,
+            Size: u32,
+            Count: u32,
         }
         struct HistogramBlobHeader {
-            Size: ULONG,
-            Histograms: ULONG,
+            Size: u32,
+            Histograms: u32,
         }
         struct HistogramDataHeader {
-            Size: ULONG,
-            ChannelMask: ULONG,
-            Linear: ULONG,
+            Size: u32,
+            ChannelMask: u32,
+            Linear: u32,
         }
         struct HistogramGrid {
-            Width: ULONG,
-            Height: ULONG,
+            Width: u32,
+            Height: u32,
             Region: RECT,
         }
         struct HistogramHeader {
-            Size: ULONG,
-            Bins: ULONG,
-            FourCC: ULONG,
-            ChannelMasks: ULONG,
+            Size: u32,
+            Bins: u32,
+            FourCC: u32,
+            ChannelMasks: u32,
             Grid: HistogramGrid,
         }
         struct InputQPSettings {
-            minBlockSize: UINT32,
-            maxBlockSize: UINT32,
-            stepsBlockSize: UINT32,
+            minBlockSize: u32,
+            maxBlockSize: u32,
+            stepsBlockSize: u32,
             dataType: eAVEncVideoQPMapElementDataType,
-            minValue: INT16,
-            maxValue: INT16,
-            steps: UINT16,
+            minValue: i16,
+            maxValue: i16,
+            steps: u16,
         }
         struct MACROBLOCK_DATA {
-            flags: UINT32,
-            motionVectorX: INT16,
-            motionVectorY: INT16,
-            QPDelta: INT32,
+            flags: u32,
+            motionVectorX: i16,
+            motionVectorY: i16,
+            QPDelta: i32,
         }
         const MACROBLOCK_FLAG_DIRTY: i32 = 2;
         const MACROBLOCK_FLAG_HAS_MOTION_VECTOR: i32 = 16;
@@ -94,6 +94,14 @@ mod Windows {
         const MACROBLOCK_FLAG_MOTION: i32 = 4;
         const MACROBLOCK_FLAG_SKIP: i32 = 1;
         const MACROBLOCK_FLAG_VIDEO: i32 = 8;
+        struct MFASYNCRESULT {
+            Base: IMFAsyncResult,
+            overlapped: OVERLAPPED,
+            pCallback: IMFAsyncCallback,
+            hrStatusResult: HRESULT,
+            dwBytesTransferred: u32,
+            hEvent: HANDLE,
+        }
         #[repr(i32)]
         enum MFASYNC_WORKQUEUE_TYPE {
             MF_STANDARD_WORKQUEUE = 0,
@@ -101,25 +109,16 @@ mod Windows {
             MF_MULTITHREADED_WORKQUEUE = 2,
         }
         #[library("MFPlat.DLL")]
-        extern fn MFAddPeriodicCallback(Callback: MFPERIODICCALLBACK, pContext: IUnknown, #[out] #[opt] pdwKey: *mut DWORD) -> HRESULT;
+        extern fn MFAddPeriodicCallback(Callback: MFPERIODICCALLBACK, pContext: IUnknown, #[opt] pdwKey: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFAllocateSerialWorkQueue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwWorkQueue: DWORD, #[out] pdwWorkQueue: *mut DWORD) -> HRESULT;
+        extern fn MFAllocateSerialWorkQueue(dwWorkQueue: u32, pdwWorkQueue: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFAllocateWorkQueue(#[out] pdwWorkQueue: *mut DWORD) -> HRESULT;
+        extern fn MFAllocateWorkQueue(pdwWorkQueue: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFAllocateWorkQueueEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] WorkQueueType: MFASYNC_WORKQUEUE_TYPE, #[out] pdwWorkQueue: *mut DWORD) -> HRESULT;
-        const MFAudioFormat_AAC: GUID = 0x00001610_0000_0010_8000_00aa00389b71;
+        extern fn MFAllocateWorkQueueEx(WorkQueueType: MFASYNC_WORKQUEUE_TYPE, pdwWorkQueue: *mut u32) -> HRESULT;
         const MFAudioFormat_AAC_HDCP: GUID = 0x419bce76_8b72_400f_adeb_84b57d63484d;
-        const MFAudioFormat_ADTS: GUID = 0x00001600_0000_0010_8000_00aa00389b71;
         const MFAudioFormat_ADTS_HDCP: GUID = 0xda4963a3_14d8_4dcf_92b7_193eb84363db;
-        const MFAudioFormat_ALAC: GUID = 0x00006c61_0000_0010_8000_00aa00389b71;
-        const MFAudioFormat_AMR_NB: GUID = 0x00007361_0000_0010_8000_00aa00389b71;
-        const MFAudioFormat_AMR_WB: GUID = 0x00007362_0000_0010_8000_00aa00389b71;
-        const MFAudioFormat_AMR_WP: GUID = 0x00007363_0000_0010_8000_00aa00389b71;
-        const MFAudioFormat_Base: GUID = 0x00000000_0000_0010_8000_00aa00389b71;
         const MFAudioFormat_Base_HDCP: GUID = 0x3884b5bc_e277_43fd_983d_038aa8d9b605;
-        const MFAudioFormat_DRM: GUID = 0x00000009_0000_0010_8000_00aa00389b71;
-        const MFAudioFormat_DTS: GUID = 0x00000008_0000_0010_8000_00aa00389b71;
         const MFAudioFormat_DTS_HD: GUID = 0xa2e58eb7_0fa9_48bb_a40c_fa0e156d0645;
         const MFAudioFormat_DTS_LBR: GUID = 0xc2fe6f0a_4e3c_4df1_9b60_50863091e4b9;
         const MFAudioFormat_DTS_RAW: GUID = 0xe06d8033_db46_11cf_b4d1_00805f6cbbea;
@@ -128,65 +127,50 @@ mod Windows {
         const MFAudioFormat_DTS_XLL: GUID = 0x45b37c1b_8c70_4e59_a7be_a1e42c81c80d;
         const MFAudioFormat_Dolby_AC3: GUID = 0xe06d802c_db46_11cf_b4d1_00805f6cbbea;
         const MFAudioFormat_Dolby_AC3_HDCP: GUID = 0x97663a80_8ffb_4445_a6ba_792d908f497f;
-        const MFAudioFormat_Dolby_AC3_SPDIF: GUID = 0x00000092_0000_0010_8000_00aa00389b71;
-        const MFAudioFormat_Dolby_AC4: GUID = 0x0000ac40_0000_0010_8000_00aa00389b71;
         const MFAudioFormat_Dolby_AC4_V1: GUID = 0x36b7927c_3d87_4a2a_9196_a21ad9e935e6;
         const MFAudioFormat_Dolby_AC4_V1_ES: GUID = 0x9d8dccc6_d156_4fb8_979c_a85be7d21dfa;
         const MFAudioFormat_Dolby_AC4_V2: GUID = 0x7998b2a0_17dd_49b6_8dfa_9b278552a2ac;
         const MFAudioFormat_Dolby_AC4_V2_ES: GUID = 0x7e58c9f9_b070_45f4_8ccd_a99a0417c1ac;
         const MFAudioFormat_Dolby_DDPlus: GUID = 0xa7fb87af_2d02_42fb_a4d4_05cd93843bdd;
-        const MFAudioFormat_FLAC: GUID = 0x0000f1ac_0000_0010_8000_00aa00389b71;
-        const MFAudioFormat_Float: GUID = 0x00000003_0000_0010_8000_00aa00389b71;
         const MFAudioFormat_Float_SpatialObjects: GUID = 0xfa39cd94_bc64_4ab1_9b71_dcd09d5a7e7a;
         const MFAudioFormat_IAMF: GUID = 0x78a8eba0_f446_4851_a55d_5372280e6b0b;
         const MFAudioFormat_LPCM: GUID = 0xe06d8032_db46_11cf_b4d1_00805f6cbbea;
-        const MFAudioFormat_MP3: GUID = 0x00000055_0000_0010_8000_00aa00389b71;
-        const MFAudioFormat_MPEG: GUID = 0x00000050_0000_0010_8000_00aa00389b71;
         const MFAudioFormat_MPEGH: GUID = 0x7c13c441_ebf8_4931_b678_800b19242236;
         const MFAudioFormat_MPEGH_ES: GUID = 0x19ee97fe_1be0_4255_a876_e99f53a42ae3;
-        const MFAudioFormat_MSP1: GUID = 0x0000000a_0000_0010_8000_00aa00389b71;
-        const MFAudioFormat_Opus: GUID = 0x0000704f_0000_0010_8000_00aa00389b71;
-        const MFAudioFormat_PCM: GUID = 0x00000001_0000_0010_8000_00aa00389b71;
         const MFAudioFormat_PCM_HDCP: GUID = 0xa5e7ff01_8411_4acc_a865_5f4941288d80;
         const MFAudioFormat_Vorbis: GUID = 0x8d2fd10b_5841_4a6b_8905_588fec1aded9;
-        const MFAudioFormat_WMASPDIF: GUID = 0x00000164_0000_0010_8000_00aa00389b71;
-        const MFAudioFormat_WMAudioV8: GUID = 0x00000161_0000_0010_8000_00aa00389b71;
-        const MFAudioFormat_WMAudioV9: GUID = 0x00000162_0000_0010_8000_00aa00389b71;
-        const MFAudioFormat_WMAudio_Lossless: GUID = 0x00000163_0000_0010_8000_00aa00389b71;
         #[library("MFPlat.DLL")]
-        extern fn MFAverageTimePerFrameToFrameRate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] unAverageTimePerFrame: UINT64, #[out] punNumerator: *mut UINT32, #[out] punDenominator: *mut UINT32) -> HRESULT;
+        extern fn MFAverageTimePerFrameToFrameRate(unAverageTimePerFrame: u64, punNumerator: *mut u32, punDenominator: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFBeginCreateFile(AccessMode: MF_FILE_ACCESSMODE, OpenMode: MF_FILE_OPENMODE, fFlags: MF_FILE_FLAGS, pwszFilePath: LPCWSTR, pCallback: IMFAsyncCallback, pState: IUnknown, #[out] ppCancelCookie: *mut IUnknown) -> HRESULT;
+        extern fn MFBeginCreateFile(AccessMode: MF_FILE_ACCESSMODE, OpenMode: MF_FILE_OPENMODE, fFlags: MF_FILE_FLAGS, pwszFilePath: PCWSTR, pCallback: IMFAsyncCallback, pState: IUnknown, ppCancelCookie: *mut IUnknown) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFBeginRegisterWorkQueueWithMMCSS(dwWorkQueueId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wszClass: LPCWSTR, dwTaskId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDoneCallback: IMFAsyncCallback, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDoneState: IUnknown) -> HRESULT;
+        extern fn MFBeginRegisterWorkQueueWithMMCSS(dwWorkQueueId: u32, wszClass: PCWSTR, dwTaskId: u32, pDoneCallback: IMFAsyncCallback, pDoneState: IUnknown) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFBeginRegisterWorkQueueWithMMCSSEx(dwWorkQueueId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wszClass: LPCWSTR, dwTaskId: DWORD, lPriority: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDoneCallback: IMFAsyncCallback, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDoneState: IUnknown) -> HRESULT;
+        extern fn MFBeginRegisterWorkQueueWithMMCSSEx(dwWorkQueueId: u32, wszClass: PCWSTR, dwTaskId: u32, lPriority: i32, pDoneCallback: IMFAsyncCallback, pDoneState: IUnknown) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFBeginUnregisterWorkQueueWithMMCSS(dwWorkQueueId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDoneCallback: IMFAsyncCallback, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDoneState: IUnknown) -> HRESULT;
-        const MFBinaryFormat_Base: GUID = 0x00000000_bf10_48b4_bc18_593dc1db950f;
-        const MFBinaryFormat_GPMD: GUID = 0x67706d64_bf10_48b4_bc18_593dc1db950f;
+        extern fn MFBeginUnregisterWorkQueueWithMMCSS(dwWorkQueueId: u32, pDoneCallback: IMFAsyncCallback, pDoneState: IUnknown) -> HRESULT;
         const MFCAPTURE_METADATA_SCANLINE_VERTICAL: i32 = 4;
         const MFCAPTURE_METADATA_SCAN_BOTTOM_TOP: i32 = 2;
         const MFCAPTURE_METADATA_SCAN_RIGHT_LEFT: i32 = 1;
         #[library("MFPlat.DLL")]
-        extern fn MFCalculateBitmapImageSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pBMIH: *const BITMAPINFOHEADER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBufSize: UINT32, #[out] pcbImageSize: *mut UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pbKnown: *mut BOOL) -> HRESULT;
+        extern fn MFCalculateBitmapImageSize(#[size_param(1)] pBMIH: *const BITMAPINFOHEADER, cbBufSize: u32, pcbImageSize: *mut u32, #[opt] pbKnown: *mut BOOL) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCalculateImageSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidSubtype: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] unWidth: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] unHeight: UINT32, #[out] pcbImageSize: *mut UINT32) -> HRESULT;
+        extern fn MFCalculateImageSize(guidSubtype: *const GUID, unWidth: u32, unHeight: u32, pcbImageSize: *mut u32) -> HRESULT;
         struct MFCameraExtrinsic_CalibratedTransform {
             CalibrationId: GUID,
             Position: MF_FLOAT3,
             Orientation: MF_QUATERNION,
         }
         struct MFCameraExtrinsics {
-            TransformCount: UINT32,
+            TransformCount: u32,
             CalibratedTransforms: [MFCameraExtrinsic_CalibratedTransform; 1],
         }
         struct MFCameraIntrinsic_DistortionModel {
-            Radial_k1: FLOAT,
-            Radial_k2: FLOAT,
-            Radial_k3: FLOAT,
-            Tangential_p1: FLOAT,
-            Tangential_p2: FLOAT,
+            Radial_k1: f32,
+            Radial_k2: f32,
+            Radial_k3: f32,
+            Tangential_p1: f32,
+            Tangential_p2: f32,
         }
         struct MFCameraIntrinsic_PinholeCameraModel {
             FocalLength: MF_FLOAT2,
@@ -197,109 +181,109 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCancelWorkItem(Key: MFWORKITEM_KEY) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCombineSamples(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSample: IMFSample, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSampleToAdd: IMFSample, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMaxMergedDurationInMS: DWORD, #[out] pMerged: *mut BOOL) -> HRESULT;
+        extern fn MFCombineSamples(pSample: IMFSample, pSampleToAdd: IMFSample, dwMaxMergedDurationInMS: u32, pMerged: *mut BOOL) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCompareFullToPartialMediaType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFTypeFull: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFTypePartial: IMFMediaType) -> BOOL;
+        extern fn MFCompareFullToPartialMediaType(pMFTypeFull: IMFMediaType, pMFTypePartial: IMFMediaType) -> BOOL;
         #[library("MFPlat.DLL")]
-        extern fn MFConvertColorInfoFromDXVA(#[in] #[out] pToFormat: *mut MFVIDEOFORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFromDXVA: DWORD) -> HRESULT;
+        extern fn MFConvertColorInfoFromDXVA(#[in] #[out] pToFormat: *mut MFVIDEOFORMAT, dwFromDXVA: u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFConvertColorInfoToDXVA(#[out] pdwToDXVA: *mut DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFromFormat: *const MFVIDEOFORMAT) -> HRESULT;
+        extern fn MFConvertColorInfoToDXVA(pdwToDXVA: *mut u32, pFromFormat: *const MFVIDEOFORMAT) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFConvertFromFP16Array(#[out] #[len_param(2)] pDest: *mut f32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pSrc: *const WORD, dwCount: DWORD) -> HRESULT;
+        extern fn MFConvertFromFP16Array(#[len_param(2)] pDest: *mut f32, #[len_param(2)] pSrc: *const u16, dwCount: u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFConvertToFP16Array(#[out] #[len_param(2)] pDest: *mut WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pSrc: *const f32, dwCount: DWORD) -> HRESULT;
+        extern fn MFConvertToFP16Array(#[len_param(2)] pDest: *mut u16, #[len_param(2)] pSrc: *const f32, dwCount: u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCopyImage(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "_Inexpressible_(abs(lDestStride) * dwLines)", "_Inexpressible_(abs(lDestStride) * dwLines)")] #[out] pDest: *mut BYTE, lDestStride: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "_Inexpressible_(abs(lSrcStride) * dwLines)", "_Inexpressible_(abs(lSrcStride) * dwLines)")] #[in] pSrc: *const BYTE, lSrcStride: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "<=,_Inexpressible_((((abs(lSrcStride)) < (abs(lDestStride))) ? (abs(lSrcStride)) : (abs(lDestStride))))", "<=,_Inexpressible_((((abs(lSrcStride)) < (abs(lDestStride))) ? (abs(lSrcStride)) : (abs(lDestStride))))")] dwWidthInBytes: DWORD, dwLines: DWORD) -> HRESULT;
+        extern fn MFCopyImage(pDest: *mut u8, lDestStride: i32, pSrc: *const u8, lSrcStride: i32, dwWidthInBytes: u32, dwLines: u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreate2DMediaBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwWidth: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwHeight: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFourCC: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fBottomUp: BOOL, #[out] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreate2DMediaBuffer(dwWidth: u32, dwHeight: u32, dwFourCC: u32, fBottomUp: BOOL, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateAMMediaTypeFromMFMediaType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFType: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidFormatBlockType: GUID, #[in] #[out] ppAMType: *mut *mut AM_MEDIA_TYPE) -> HRESULT;
+        extern fn MFCreateAMMediaTypeFromMFMediaType(pMFType: IMFMediaType, guidFormatBlockType: GUID, #[in] #[out] ppAMType: *mut *mut AM_MEDIA_TYPE) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateAlignedMemoryBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbMaxLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbAligment: DWORD, #[out] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreateAlignedMemoryBuffer(cbMaxLength: u32, cbAligment: u32, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateAsyncResult(punkObject: IUnknown, pCallback: IMFAsyncCallback, punkState: IUnknown, #[out] ppAsyncResult: *mut IMFAsyncResult) -> HRESULT;
+        extern fn MFCreateAsyncResult(punkObject: IUnknown, pCallback: IMFAsyncCallback, punkState: IUnknown, ppAsyncResult: *mut IMFAsyncResult) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateAttributes(#[out] ppMFAttributes: *mut IMFAttributes, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cInitialSize: UINT32) -> HRESULT;
+        extern fn MFCreateAttributes(ppMFAttributes: *mut IMFAttributes, cInitialSize: u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateAudioMediaType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAudioFormat: *const WAVEFORMATEX, #[out] ppIAudioMediaType: *mut IMFAudioMediaType) -> HRESULT;
+        extern fn MFCreateAudioMediaType(pAudioFormat: *const WAVEFORMATEX, ppIAudioMediaType: *mut IMFAudioMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateCollection(#[out] ppIMFCollection: *mut IMFCollection) -> HRESULT;
+        extern fn MFCreateCollection(ppIMFCollection: *mut IMFCollection) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateDXGICrossAdapterBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkDevice: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMediaType: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSubresource: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreateDXGICrossAdapterBuffer(riid: *const GUID, punkDevice: IUnknown, pMediaType: IMFMediaType, uSubresource: u32, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateDXGIDeviceManager(#[out] resetToken: *mut UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDeviceManager: *mut IMFDXGIDeviceManager) -> HRESULT;
+        extern fn MFCreateDXGIDeviceManager(resetToken: *mut u32, ppDeviceManager: *mut IMFDXGIDeviceManager) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateDXGISurfaceBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkSurface: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSubresourceIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fBottomUpWhenLinear: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreateDXGISurfaceBuffer(riid: *const GUID, punkSurface: IUnknown, uSubresourceIndex: u32, fBottomUpWhenLinear: BOOL, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateDXSurfaceBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkSurface: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fBottomUpWhenLinear: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreateDXSurfaceBuffer(riid: *const GUID, punkSurface: IUnknown, fBottomUpWhenLinear: BOOL, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateEventQueue(#[out] ppMediaEventQueue: *mut IMFMediaEventQueue) -> HRESULT;
+        extern fn MFCreateEventQueue(ppMediaEventQueue: *mut IMFMediaEventQueue) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateFile(AccessMode: MF_FILE_ACCESSMODE, OpenMode: MF_FILE_OPENMODE, fFlags: MF_FILE_FLAGS, pwszFileURL: LPCWSTR, #[out] ppIByteStream: *mut IMFByteStream) -> HRESULT;
+        extern fn MFCreateFile(AccessMode: MF_FILE_ACCESSMODE, OpenMode: MF_FILE_OPENMODE, fFlags: MF_FILE_FLAGS, pwszFileURL: PCWSTR, ppIByteStream: *mut IMFByteStream) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateLegacyMediaBufferOnMFMediaBuffer(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSample: IMFSample, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFMediaBuffer: IMFMediaBuffer, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbOffset: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppMediaBuffer: *mut IMediaBuffer) -> HRESULT;
+        extern fn MFCreateLegacyMediaBufferOnMFMediaBuffer(#[opt] pSample: IMFSample, pMFMediaBuffer: IMFMediaBuffer, cbOffset: u32, ppMediaBuffer: *mut IMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMFByteStreamWrapper(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStream: IMFByteStream, #[out] ppStreamWrapper: *mut IMFByteStream) -> HRESULT;
+        extern fn MFCreateMFByteStreamWrapper(pStream: IMFByteStream, ppStreamWrapper: *mut IMFByteStream) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMFVideoFormatFromMFMediaType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFType: IMFMediaType, #[out] ppMFVF: *mut *mut MFVIDEOFORMAT, #[out] #[opt] pcbSize: *mut UINT32) -> HRESULT;
+        extern fn MFCreateMFVideoFormatFromMFMediaType(pMFType: IMFMediaType, ppMFVF: *mut *mut MFVIDEOFORMAT, #[opt] pcbSize: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMediaBufferFromMediaType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMediaType: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] llDuration: LONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMinLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMinAlignment: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreateMediaBufferFromMediaType(pMediaType: IMFMediaType, llDuration: i64, dwMinLength: u32, dwMinAlignment: u32, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMediaBufferWrapper(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBuffer: IMFMediaBuffer, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbOffset: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLength: DWORD, #[out] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreateMediaBufferWrapper(pBuffer: IMFMediaBuffer, cbOffset: u32, dwLength: u32, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMediaEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] met: MediaEventType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidExtendedType: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hrStatus: HRESULT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvValue: *const PROPVARIANT, #[out] ppEvent: *mut IMFMediaEvent) -> HRESULT;
+        extern fn MFCreateMediaEvent(met: MediaEventType, guidExtendedType: *const GUID, hrStatus: HRESULT, #[opt] pvValue: *const PROPVARIANT, ppEvent: *mut IMFMediaEvent) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMediaExtensionActivate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szActivatableClassId: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pConfiguration: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObject: *mut LPVOID) -> HRESULT;
+        extern fn MFCreateMediaExtensionActivate(szActivatableClassId: PCWSTR, #[opt] pConfiguration: IUnknown, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMediaType(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppMFType: *mut IMFMediaType) -> HRESULT;
+        extern fn MFCreateMediaType(ppMFType: *mut IMFMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMediaTypeFromRepresentation(guidRepresentation: GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvRepresentation: LPVOID, #[out] ppIMediaType: *mut IMFMediaType) -> HRESULT;
+        extern fn MFCreateMediaTypeFromRepresentation(guidRepresentation: GUID, #[in] pvRepresentation: *mut void, ppIMediaType: *mut IMFMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMemoryBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbMaxLength: DWORD, #[out] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreateMemoryBuffer(cbMaxLength: u32, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMuxStreamAttributes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAttributesToMux: IMFCollection, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppMuxAttribs: *mut IMFAttributes) -> HRESULT;
+        extern fn MFCreateMuxStreamAttributes(pAttributesToMux: IMFCollection, ppMuxAttribs: *mut IMFAttributes) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMuxStreamMediaType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMediaTypesToMux: IMFCollection, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppMuxMediaType: *mut IMFMediaType) -> HRESULT;
+        extern fn MFCreateMuxStreamMediaType(pMediaTypesToMux: IMFCollection, ppMuxMediaType: *mut IMFMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMuxStreamSample(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSamplesToMux: IMFCollection, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppMuxSample: *mut IMFSample) -> HRESULT;
+        extern fn MFCreateMuxStreamSample(pSamplesToMux: IMFCollection, ppMuxSample: *mut IMFSample) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateSample(#[out] ppIMFSample: *mut IMFSample) -> HRESULT;
+        extern fn MFCreateSample(ppIMFSample: *mut IMFSample) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateTempFile(AccessMode: MF_FILE_ACCESSMODE, OpenMode: MF_FILE_OPENMODE, fFlags: MF_FILE_FLAGS, #[out] ppIByteStream: *mut IMFByteStream) -> HRESULT;
+        extern fn MFCreateTempFile(AccessMode: MF_FILE_ACCESSMODE, OpenMode: MF_FILE_OPENMODE, fFlags: MF_FILE_FLAGS, ppIByteStream: *mut IMFByteStream) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateVideoMediaType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoFormat: *const MFVIDEOFORMAT, #[out] ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
+        extern fn MFCreateVideoMediaType(pVideoFormat: *const MFVIDEOFORMAT, ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateVideoMediaTypeFromBitMapInfoHeader(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pbmihBitMapInfoHeader: *const BITMAPINFOHEADER, dwPixelAspectRatioX: DWORD, dwPixelAspectRatioY: DWORD, InterlaceMode: MFVideoInterlaceMode, VideoFlags: QWORD, qwFramesPerSecondNumerator: QWORD, qwFramesPerSecondDenominator: QWORD, dwMaxBitRate: DWORD, #[out] ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
+        extern fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihBitMapInfoHeader: *const BITMAPINFOHEADER, dwPixelAspectRatioX: u32, dwPixelAspectRatioY: u32, InterlaceMode: MFVideoInterlaceMode, VideoFlags: u64, qwFramesPerSecondNumerator: u64, qwFramesPerSecondDenominator: u64, dwMaxBitRate: u32, ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pbmihBitMapInfoHeader: *const BITMAPINFOHEADER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBitMapInfoHeader: UINT32, dwPixelAspectRatioX: DWORD, dwPixelAspectRatioY: DWORD, InterlaceMode: MFVideoInterlaceMode, VideoFlags: QWORD, dwFramesPerSecondNumerator: DWORD, dwFramesPerSecondDenominator: DWORD, dwMaxBitRate: DWORD, #[out] ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
+        extern fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(#[size_param(1)] pbmihBitMapInfoHeader: *const BITMAPINFOHEADER, cbBitMapInfoHeader: u32, dwPixelAspectRatioX: u32, dwPixelAspectRatioY: u32, InterlaceMode: MFVideoInterlaceMode, VideoFlags: u64, dwFramesPerSecondNumerator: u32, dwFramesPerSecondDenominator: u32, dwMaxBitRate: u32, ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateVideoMediaTypeFromSubtype(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAMSubtype: *const GUID, #[out] ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
+        extern fn MFCreateVideoMediaTypeFromSubtype(pAMSubtype: *const GUID, ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateVideoSampleAllocatorEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSampleAllocator: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoSampleAllocatorEx(riid: *const GUID, ppSampleAllocator: *mut *mut void) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateWICBitmapBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkSurface: IUnknown, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        extern fn MFCreateWICBitmapBuffer(riid: *const GUID, punkSurface: IUnknown, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateWaveFormatExFromMFMediaType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFType: IMFMediaType, #[out] ppWF: *mut *mut WAVEFORMATEX, #[out] #[opt] pcbSize: *mut UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeDefaultArgument("MFWaveFormatExConvertFlag_Normal")] Flags: UINT32) -> HRESULT;
+        extern fn MFCreateWaveFormatExFromMFMediaType(pMFType: IMFMediaType, ppWF: *mut *mut WAVEFORMATEX, #[opt] pcbSize: *mut u32, Flags: u32) -> HRESULT;
         #[repr(i32)]
         enum MFDepthMeasurement {
             DistanceToFocalPlane = 0,
             DistanceToOpticalCenter = 1,
         }
         #[library("MFPlat.DLL")]
-        extern fn MFEndCreateFile(pResult: IMFAsyncResult, #[out] ppFile: *mut IMFByteStream) -> HRESULT;
+        extern fn MFEndCreateFile(pResult: IMFAsyncResult, ppFile: *mut IMFByteStream) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFEndRegisterWorkQueueWithMMCSS(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResult: IMFAsyncResult, #[out] pdwTaskId: *mut DWORD) -> HRESULT;
+        extern fn MFEndRegisterWorkQueueWithMMCSS(pResult: IMFAsyncResult, pdwTaskId: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFEndUnregisterWorkQueueWithMMCSS(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResult: IMFAsyncResult) -> HRESULT;
+        extern fn MFEndUnregisterWorkQueueWithMMCSS(pResult: IMFAsyncResult) -> HRESULT;
         struct MFFOLDDOWN_MATRIX {
-            cbSize: UINT32,
-            cSrcChannels: UINT32,
-            cDstChannels: UINT32,
-            dwChannelMask: UINT32,
-            Coeff: [LONG; 64],
+            cbSize: u32,
+            cSrcChannels: u32,
+            cDstChannels: u32,
+            dwChannelMask: u32,
+            Coeff: [i32; 64],
         }
         #[library("MFPlat.DLL")]
-        extern fn MFFrameRateToAverageTimePerFrame(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] unNumerator: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] unDenominator: UINT32, #[out] punAverageTimePerFrame: *mut UINT64) -> HRESULT;
+        extern fn MFFrameRateToAverageTimePerFrame(unNumerator: u32, unDenominator: u32, punAverageTimePerFrame: *mut u64) -> HRESULT;
         #[repr(i32)]
         enum MFFrameSourceTypes {
             MFFrameSourceTypes_Color = 1,
@@ -309,76 +293,76 @@ mod Windows {
             MFFrameSourceTypes_Custom = 128,
         }
         #[library("MFPlat.DLL")]
-        extern fn MFGetAttributesAsBlob(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAttributes: IMFAttributes, #[out] #[size_param(2)] pBuf: *mut UINT8, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBufSize: UINT) -> HRESULT;
+        extern fn MFGetAttributesAsBlob(pAttributes: IMFAttributes, #[size_param(2)] pBuf: *mut u8, cbBufSize: u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetAttributesAsBlobSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAttributes: IMFAttributes, #[out] pcbBufSize: *mut UINT32) -> HRESULT;
+        extern fn MFGetAttributesAsBlobSize(pAttributes: IMFAttributes, pcbBufSize: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetContentProtectionSystemCLSID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidProtectionSystemID: &GUID, #[out] pclsid: *mut CLSID) -> HRESULT;
+        extern fn MFGetContentProtectionSystemCLSID(guidProtectionSystemID: *const GUID, pclsid: *mut GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetDXGIDeviceManageMode(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeviceManager: IUnknown, #[out] mode: *mut MF_DXGI_DEVICE_MANAGER_MODE) -> HRESULT;
+        extern fn MFGetDXGIDeviceManageMode(pDeviceManager: IUnknown, mode: *mut MF_DXGI_DEVICE_MANAGER_MODE) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetMFTMerit(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pMFT: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbVerifier: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] verifier: *const BYTE, #[out] merit: *mut DWORD) -> HRESULT;
+        extern fn MFGetMFTMerit(pMFT: IUnknown, cbVerifier: u32, #[size_param(1)] verifier: *const u8, merit: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetPlaneSize(format: DWORD, dwWidth: DWORD, dwHeight: DWORD, #[out] pdwPlaneSize: *mut DWORD) -> HRESULT;
+        extern fn MFGetPlaneSize(format: u32, dwWidth: u32, dwHeight: u32, pdwPlaneSize: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetPluginControl(#[out] ppPluginControl: *mut IMFPluginControl) -> HRESULT;
+        extern fn MFGetPluginControl(ppPluginControl: *mut IMFPluginControl) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetStrideForBitmapInfoHeader(format: DWORD, dwWidth: DWORD, #[out] pStride: *mut LONG) -> HRESULT;
+        extern fn MFGetStrideForBitmapInfoHeader(format: u32, dwWidth: u32, pStride: *mut i32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetTimerPeriodicity(#[out] Periodicity: *mut DWORD) -> HRESULT;
+        extern fn MFGetTimerPeriodicity(Periodicity: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetUncompressedVideoFormat(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoFormat: *const MFVIDEOFORMAT) -> DWORD;
+        extern fn MFGetUncompressedVideoFormat(pVideoFormat: *const MFVIDEOFORMAT) -> u32;
         #[library("MFPlat.DLL")]
-        extern fn MFGetWorkQueueMMCSSClass(dwWorkQueueId: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*pcchClass,*pcchClass", "*pcchClass,*pcchClass")] #[out] #[opt] pwszClass: LPWSTR, #[in] #[out] pcchClass: *mut DWORD) -> HRESULT;
+        extern fn MFGetWorkQueueMMCSSClass(dwWorkQueueId: u32, #[len_param(2)] #[out] #[opt] pwszClass: PWSTR, #[in] #[out] pcchClass: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetWorkQueueMMCSSPriority(dwWorkQueueId: DWORD, #[out] lPriority: *mut LONG) -> HRESULT;
+        extern fn MFGetWorkQueueMMCSSPriority(dwWorkQueueId: u32, lPriority: *mut i32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetWorkQueueMMCSSTaskId(dwWorkQueueId: DWORD, #[out] pdwTaskId: LPDWORD) -> HRESULT;
+        extern fn MFGetWorkQueueMMCSSTaskId(dwWorkQueueId: u32, #[out] pdwTaskId: LPDWORD) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFHeapAlloc(nSize: size_t, dwFlags: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFile: *mut i8, line: i32, eat: EAllocationType) -> *mut void;
+        extern fn MFHeapAlloc(nSize: usize, dwFlags: u32, #[in] #[opt] pszFile: *mut i8, line: i32, eat: EAllocationType) -> *mut void;
         #[library("MFPlat.DLL")]
         extern fn MFHeapFree(pv: *mut void);
         const MFImageFormat_JPEG: GUID = 0x19e4a5aa_5662_4fc5_a0c0_1758028e1057;
         const MFImageFormat_RGB32: GUID = 0x00000016_0000_0010_8000_00aa00389b71;
         #[library("MFPlat.DLL")]
-        extern fn MFInitAMMediaTypeFromMFMediaType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFType: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidFormatBlockType: GUID, #[in] #[out] pAMType: *mut AM_MEDIA_TYPE) -> HRESULT;
+        extern fn MFInitAMMediaTypeFromMFMediaType(pMFType: IMFMediaType, guidFormatBlockType: GUID, #[in] #[out] pAMType: *mut AM_MEDIA_TYPE) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitAttributesFromBlob(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAttributes: IMFAttributes, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pBuf: *const UINT8, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBufSize: UINT) -> HRESULT;
+        extern fn MFInitAttributesFromBlob(pAttributes: IMFAttributes, #[size_param(2)] pBuf: *const u8, cbBufSize: u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromAMMediaType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFType: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAMType: *const AM_MEDIA_TYPE) -> HRESULT;
+        extern fn MFInitMediaTypeFromAMMediaType(pMFType: IMFMediaType, pAMType: *const AM_MEDIA_TYPE) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromMFVideoFormat(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFType: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pMFVF: *const MFVIDEOFORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBufSize: UINT32) -> HRESULT;
+        extern fn MFInitMediaTypeFromMFVideoFormat(pMFType: IMFMediaType, #[size_param(2)] pMFVF: *const MFVIDEOFORMAT, cbBufSize: u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromMPEG1VideoInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFType: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pMP1VI: *const MPEG1VIDEOINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBufSize: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pSubtype: *const GUID) -> HRESULT;
+        extern fn MFInitMediaTypeFromMPEG1VideoInfo(pMFType: IMFMediaType, #[size_param(2)] pMP1VI: *const MPEG1VIDEOINFO, cbBufSize: u32, #[opt] pSubtype: *const GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromMPEG2VideoInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFType: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pMP2VI: *const MPEG2VIDEOINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBufSize: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pSubtype: *const GUID) -> HRESULT;
+        extern fn MFInitMediaTypeFromMPEG2VideoInfo(pMFType: IMFMediaType, #[size_param(2)] pMP2VI: *const MPEG2VIDEOINFO, cbBufSize: u32, #[opt] pSubtype: *const GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromVideoInfoHeader(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFType: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pVIH: *const VIDEOINFOHEADER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBufSize: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pSubtype: *const GUID) -> HRESULT;
+        extern fn MFInitMediaTypeFromVideoInfoHeader(pMFType: IMFMediaType, #[size_param(2)] pVIH: *const VIDEOINFOHEADER, cbBufSize: u32, #[opt] pSubtype: *const GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromVideoInfoHeader2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFType: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pVIH2: *const VIDEOINFOHEADER2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBufSize: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pSubtype: *const GUID) -> HRESULT;
+        extern fn MFInitMediaTypeFromVideoInfoHeader2(pMFType: IMFMediaType, #[size_param(2)] pVIH2: *const VIDEOINFOHEADER2, cbBufSize: u32, #[opt] pSubtype: *const GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromWaveFormatEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMFType: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pWaveFormat: *const WAVEFORMATEX, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBufSize: UINT32) -> HRESULT;
+        extern fn MFInitMediaTypeFromWaveFormatEx(pMFType: IMFMediaType, #[size_param(2)] pWaveFormat: *const WAVEFORMATEX, cbBufSize: u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitVideoFormat(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoFormat: *mut MFVIDEOFORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#type: MFStandardVideoFormat) -> HRESULT;
+        extern fn MFInitVideoFormat(#[in] pVideoFormat: *mut MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitVideoFormat_RGB(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoFormat: *mut MFVIDEOFORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwWidth: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwHeight: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] D3Dfmt: DWORD) -> HRESULT;
+        extern fn MFInitVideoFormat_RGB(#[in] pVideoFormat: *mut MFVIDEOFORMAT, dwWidth: u32, dwHeight: u32, D3Dfmt: u32) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFInvokeCallback(pAsyncResult: IMFAsyncResult) -> HRESULT;
         #[library("EVR.dll")]
-        extern fn MFIsFormatYUV(Format: DWORD) -> BOOL;
+        extern fn MFIsFormatYUV(Format: u32) -> BOOL;
         #[library("MFPlat.DLL")]
-        extern fn MFLockDXGIDeviceManager(#[out] #[opt] pResetToken: *mut UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppManager: *mut IMFDXGIDeviceManager) -> HRESULT;
+        extern fn MFLockDXGIDeviceManager(#[opt] pResetToken: *mut u32, ppManager: *mut IMFDXGIDeviceManager) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFLockPlatform() -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFLockSharedWorkQueue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wszClass: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BasePriority: LONG, #[in] #[out] pdwTaskId: *mut DWORD, #[out] pID: *mut DWORD) -> HRESULT;
+        extern fn MFLockSharedWorkQueue(wszClass: PCWSTR, BasePriority: i32, #[in] #[out] pdwTaskId: *mut u32, pID: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFLockWorkQueue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwWorkQueue: DWORD) -> HRESULT;
+        extern fn MFLockWorkQueue(dwWorkQueue: u32) -> HRESULT;
         const MFMPEG4Format_Base: GUID = 0x00000000_767a_494d_b478_f29d25dc9037;
         #[library("MFPlat.DLL")]
-        extern fn MFMapDX9FormatToDXGIFormat(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dx9: DWORD) -> DXGI_FORMAT;
+        extern fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> DXGI_FORMAT;
         #[library("MFPlat.DLL")]
-        extern fn MFMapDXGIFormatToDX9Format(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dx11: DXGI_FORMAT) -> DWORD;
+        extern fn MFMapDXGIFormatToDX9Format(dx11: DXGI_FORMAT) -> u32;
         const MFMediaType_Audio: GUID = 0x73647561_0000_0010_8000_00aa00389b71;
         const MFMediaType_Binary: GUID = 0x72178c25_e45b_11d5_bc2a_00b0d0f3f4ab;
         const MFMediaType_Default: GUID = 0x81a412e6_8103_4b06_857f_1862781024ac;
@@ -396,33 +380,33 @@ mod Windows {
         const MFMediaType_Video: GUID = 0x73646976_0000_0010_8000_00aa00389b71;
         extern "C" fn MFPERIODICCALLBACK(pContext: IUnknown);
         struct MFPinholeCameraIntrinsic_IntrinsicModel {
-            Width: UINT32,
-            Height: UINT32,
+            Width: u32,
+            Height: u32,
             CameraModel: MFCameraIntrinsic_PinholeCameraModel,
             DistortionModel: MFCameraIntrinsic_DistortionModel,
         }
         struct MFPinholeCameraIntrinsics {
-            IntrinsicModelCount: UINT32,
+            IntrinsicModelCount: u32,
             IntrinsicModels: [MFPinholeCameraIntrinsic_IntrinsicModel; 1],
         }
         #[library("MFPlat.DLL")]
-        extern fn MFPutWaitingWorkItem(hEvent: HANDLE, Priority: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResult: IMFAsyncResult, #[out] #[opt] pKey: *mut MFWORKITEM_KEY) -> HRESULT;
+        extern fn MFPutWaitingWorkItem(hEvent: HANDLE, Priority: i32, pResult: IMFAsyncResult, #[opt] pKey: *mut MFWORKITEM_KEY) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFPutWorkItem(dwQueue: DWORD, pCallback: IMFAsyncCallback, pState: IUnknown) -> HRESULT;
+        extern fn MFPutWorkItem(dwQueue: u32, pCallback: IMFAsyncCallback, pState: IUnknown) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFPutWorkItem2(dwQueue: DWORD, Priority: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCallback: IMFAsyncCallback, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pState: IUnknown) -> HRESULT;
+        extern fn MFPutWorkItem2(dwQueue: u32, Priority: i32, pCallback: IMFAsyncCallback, #[opt] pState: IUnknown) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFPutWorkItemEx(dwQueue: DWORD, pResult: IMFAsyncResult) -> HRESULT;
+        extern fn MFPutWorkItemEx(dwQueue: u32, pResult: IMFAsyncResult) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFPutWorkItemEx2(dwQueue: DWORD, Priority: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResult: IMFAsyncResult) -> HRESULT;
+        extern fn MFPutWorkItemEx2(dwQueue: u32, Priority: i32, pResult: IMFAsyncResult) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFRegisterLocalByteStreamHandler(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFileExtension: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szMimeType: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pActivate: IMFActivate) -> HRESULT;
+        extern fn MFRegisterLocalByteStreamHandler(szFileExtension: PCWSTR, szMimeType: PCWSTR, pActivate: IMFActivate) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFRegisterLocalSchemeHandler(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScheme: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pActivate: IMFActivate) -> HRESULT;
+        extern fn MFRegisterLocalSchemeHandler(szScheme: PCWSTR, pActivate: IMFActivate) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFRegisterPlatformWithMMCSS(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wszClass: PCWSTR, #[in] #[out] pdwTaskId: *mut DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lPriority: LONG) -> HRESULT;
+        extern fn MFRegisterPlatformWithMMCSS(wszClass: PCWSTR, #[in] #[out] pdwTaskId: *mut u32, lPriority: i32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFRemovePeriodicCallback(dwKey: DWORD) -> HRESULT;
+        extern fn MFRemovePeriodicCallback(dwKey: u32) -> HRESULT;
         const MFSESSIONCAP_DOES_NOT_USE_NETWORK: i32 = 64;
         const MFSESSIONCAP_PAUSE: i32 = 4;
         const MFSESSIONCAP_RATE_FORWARD: i32 = 16;
@@ -439,9 +423,9 @@ mod Windows {
             MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_AES_CBC = 2,
         }
         struct MFSampleExtensionPsnrYuv {
-            psnrY: FLOAT,
-            psnrU: FLOAT,
-            psnrV: FLOAT,
+            psnrY: f32,
+            psnrU: f32,
+            psnrV: f32,
         }
         const MFSampleExtension_3DVideo: GUID = 0xf86f97a4_dd54_4e2e_9a5e_55fc2d74a005;
         const MFSampleExtension_3DVideo_SampleFormat: GUID = 0x08671772_e36f_4cff_97b3_d72e20987a48;
@@ -520,15 +504,15 @@ mod Windows {
         const MFSampleExtension_VideoEncodeQPMap: GUID = 0x2c68a331_b712_49ca_860a_3a1d58237d88;
         const MFSampleExtension_VideoEncodeSatdMap: GUID = 0xadf61d96_c2d3_4b57_a138_dde4d351eaa9;
         #[library("MFPlat.DLL")]
-        extern fn MFScheduleWorkItem(pCallback: IMFAsyncCallback, pState: IUnknown, Timeout: INT64, #[out] #[opt] pKey: *mut MFWORKITEM_KEY) -> HRESULT;
+        extern fn MFScheduleWorkItem(pCallback: IMFAsyncCallback, pState: IUnknown, Timeout: i64, #[opt] pKey: *mut MFWORKITEM_KEY) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFScheduleWorkItemEx(pResult: IMFAsyncResult, Timeout: INT64, #[out] #[opt] pKey: *mut MFWORKITEM_KEY) -> HRESULT;
+        extern fn MFScheduleWorkItemEx(pResult: IMFAsyncResult, Timeout: i64, #[opt] pKey: *mut MFWORKITEM_KEY) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFShutdown() -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFSplitSample(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSample: IMFSample, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] pOutputSamples: *mut IMFSample, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOutputSampleMaxCount: DWORD, #[out] pdwOutputSampleCount: *mut DWORD) -> HRESULT;
+        extern fn MFSplitSample(pSample: IMFSample, #[len_param(2)] pOutputSamples: *mut IMFSample, dwOutputSampleMaxCount: u32, pdwOutputSampleCount: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFStartup(Version: ULONG, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] dwFlags: DWORD) -> HRESULT;
+        extern fn MFStartup(Version: u32, dwFlags: u32) -> HRESULT;
         const MFStreamExtension_CameraExtrinsics: GUID = 0x686196d0_13e2_41d9_9638_ef032c272a52;
         const MFStreamExtension_PinholeCameraIntrinsics: GUID = 0xdbac0455_0ec8_4aef_9c32_7a3ee3456f53;
         const MFStreamFormat_MPEG2Program: GUID = 0x263067d1_d330_45dc_b669_34d986e4e3e1;
@@ -543,25 +527,25 @@ mod Windows {
         const MFSubtitleFormat_WebVTT: GUID = 0xc886d215_f485_40bb_8db6_fadbc619a45d;
         const MFSubtitleFormat_XML: GUID = 0x2006f94f_29ca_4195_b8db_00ded8ff0c97;
         #[library("MFPlat.DLL")]
-        extern fn MFTEnum(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidCategory: GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputType: *mut MFT_REGISTER_TYPE_INFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputType: *mut MFT_REGISTER_TYPE_INFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAttributes: IMFAttributes, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcMFTs", "*pcMFTs")] #[out] ppclsidMFT: *mut *mut CLSID, #[out] pcMFTs: *mut UINT32) -> HRESULT;
+        extern fn MFTEnum(guidCategory: GUID, Flags: u32, #[in] #[opt] pInputType: *mut MFT_REGISTER_TYPE_INFO, #[in] #[opt] pOutputType: *mut MFT_REGISTER_TYPE_INFO, #[opt] pAttributes: IMFAttributes, ppclsidMFT: *mut *mut GUID, pcMFTs: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTEnum2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidCategory: GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputType: *const MFT_REGISTER_TYPE_INFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputType: *const MFT_REGISTER_TYPE_INFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAttributes: IMFAttributes, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pnumMFTActivate", "*pnumMFTActivate")] #[out] pppMFTActivate: *mut *mut IMFActivate, #[out] pnumMFTActivate: *mut UINT32) -> HRESULT;
+        extern fn MFTEnum2(guidCategory: GUID, Flags: u32, #[opt] pInputType: *const MFT_REGISTER_TYPE_INFO, #[opt] pOutputType: *const MFT_REGISTER_TYPE_INFO, #[opt] pAttributes: IMFAttributes, pppMFTActivate: *mut *mut IMFActivate, pnumMFTActivate: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTEnumEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidCategory: GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInputType: *const MFT_REGISTER_TYPE_INFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOutputType: *const MFT_REGISTER_TYPE_INFO, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pnumMFTActivate", "*pnumMFTActivate")] #[out] pppMFTActivate: *mut *mut IMFActivate, #[out] pnumMFTActivate: *mut UINT32) -> HRESULT;
+        extern fn MFTEnumEx(guidCategory: GUID, Flags: u32, #[opt] pInputType: *const MFT_REGISTER_TYPE_INFO, #[opt] pOutputType: *const MFT_REGISTER_TYPE_INFO, pppMFTActivate: *mut *mut IMFActivate, pnumMFTActivate: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTGetInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clsidMFT: CLSID, #[out] #[opt] pszName: *mut LPWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_buffer_", "*pcInputTypes", "*pcInputTypes")] #[out] #[opt] ppInputTypes: *mut *mut MFT_REGISTER_TYPE_INFO, #[out] #[opt] pcInputTypes: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_buffer_", "*pcOutputTypes", "*pcOutputTypes")] #[out] #[opt] ppOutputTypes: *mut *mut MFT_REGISTER_TYPE_INFO, #[out] #[opt] pcOutputTypes: *mut UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppAttributes: *mut IMFAttributes) -> HRESULT;
+        extern fn MFTGetInfo(clsidMFT: GUID, #[opt] pszName: *mut PWSTR, ppInputTypes: *mut *mut MFT_REGISTER_TYPE_INFO, #[opt] pcInputTypes: *mut u32, ppOutputTypes: *mut *mut MFT_REGISTER_TYPE_INFO, #[opt] pcOutputTypes: *mut u32, ppAttributes: *mut IMFAttributes) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTRegister(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clsidMFT: CLSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidCategory: GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cInputTypes: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] pInputTypes: *mut MFT_REGISTER_TYPE_INFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cOutputTypes: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] pOutputTypes: *mut MFT_REGISTER_TYPE_INFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAttributes: IMFAttributes) -> HRESULT;
+        extern fn MFTRegister(clsidMFT: GUID, guidCategory: GUID, pszName: PCWSTR, Flags: u32, cInputTypes: u32, #[len_param(4)] #[in] #[opt] pInputTypes: *mut MFT_REGISTER_TYPE_INFO, cOutputTypes: u32, #[len_param(6)] #[in] #[opt] pOutputTypes: *mut MFT_REGISTER_TYPE_INFO, #[opt] pAttributes: IMFAttributes) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTRegisterLocal(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassFactory: IClassFactory, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidCategory: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cInputTypes: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] pInputTypes: *const MFT_REGISTER_TYPE_INFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cOutputTypes: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] pOutputTypes: *const MFT_REGISTER_TYPE_INFO) -> HRESULT;
+        extern fn MFTRegisterLocal(pClassFactory: IClassFactory, guidCategory: *const GUID, pszName: PCWSTR, Flags: u32, cInputTypes: u32, #[len_param(4)] #[opt] pInputTypes: *const MFT_REGISTER_TYPE_INFO, cOutputTypes: u32, #[len_param(6)] #[opt] pOutputTypes: *const MFT_REGISTER_TYPE_INFO) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTRegisterLocalByCLSID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clisdMFT: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guidCategory: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cInputTypes: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] pInputTypes: *const MFT_REGISTER_TYPE_INFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cOutputTypes: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] pOutputTypes: *const MFT_REGISTER_TYPE_INFO) -> HRESULT;
+        extern fn MFTRegisterLocalByCLSID(clisdMFT: *const GUID, guidCategory: *const GUID, pszName: PCWSTR, Flags: u32, cInputTypes: u32, #[len_param(4)] #[opt] pInputTypes: *const MFT_REGISTER_TYPE_INFO, cOutputTypes: u32, #[len_param(6)] #[opt] pOutputTypes: *const MFT_REGISTER_TYPE_INFO) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTUnregister(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clsidMFT: CLSID) -> HRESULT;
+        extern fn MFTUnregister(clsidMFT: GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTUnregisterLocal(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClassFactory: IClassFactory) -> HRESULT;
+        extern fn MFTUnregisterLocal(#[opt] pClassFactory: IClassFactory) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTUnregisterLocalByCLSID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clsidMFT: CLSID) -> HRESULT;
+        extern fn MFTUnregisterLocalByCLSID(clsidMFT: GUID) -> HRESULT;
         const MFT_CATEGORY_AUDIO_DECODER: GUID = 0x9ea73fb4_ef7a_4559_8d5d_719d8f0426c7;
         const MFT_CATEGORY_AUDIO_EFFECT: GUID = 0x11064c48_3648_4ed0_932e_05ce8ac811b7;
         const MFT_CATEGORY_AUDIO_ENCODER: GUID = 0x91c64bd0_f91e_4d8c_9276_db248279d975;
@@ -584,13 +568,13 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFUnlockPlatform() -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFUnlockWorkQueue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwWorkQueue: DWORD) -> HRESULT;
+        extern fn MFUnlockWorkQueue(dwWorkQueue: u32) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFUnregisterPlatformFromMMCSS() -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFUnwrapMediaType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pWrap: IMFMediaType, #[out] ppOrig: *mut IMFMediaType) -> HRESULT;
+        extern fn MFUnwrapMediaType(pWrap: IMFMediaType, ppOrig: *mut IMFMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFValidateMediaTypeSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FormatType: GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pBlock: *mut UINT8, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSize: UINT32) -> HRESULT;
+        extern fn MFValidateMediaTypeSize(FormatType: GUID, #[size_param(2)] #[in] #[opt] pBlock: *mut u8, cbSize: u32) -> HRESULT;
         #[repr(i32)]
         enum MFVideo3DFormat {
             MFVideo3DSampleFormat_BaseView = 0,
@@ -609,83 +593,11 @@ mod Windows {
             MFVideoDRMFlag_AnalogProtected = 1,
             MFVideoDRMFlag_DigitallyProtected = 2,
         }
-        const MFVideoFormat_420O: GUID = 0x4f303234_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_A16B16G16R16F: GUID = 0x00000071_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_A2R10G10B10: GUID = 0x0000001f_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_AI44: GUID = 0x34344941_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_APV: GUID = 0x20565041_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_ARGB32: GUID = 0x00000015_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_AV1: GUID = 0x31305641_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_AYUV: GUID = 0x56555941_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_Base: GUID = 0x00000000_0000_0010_8000_00aa00389b71;
         const MFVideoFormat_Base_HDCP: GUID = 0xeac3b9d5_bd14_4237_8f1f_bab428e49312;
-        const MFVideoFormat_D16: GUID = 0x00000050_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_DV25: GUID = 0x35327664_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_DV50: GUID = 0x30357664_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_DVC: GUID = 0x20637664_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_DVH1: GUID = 0x31687664_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_DVHD: GUID = 0x64687664_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_DVSD: GUID = 0x64737664_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_DVSL: GUID = 0x6c737664_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_H263: GUID = 0x33363248_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_H264: GUID = 0x34363248_0000_0010_8000_00aa00389b71;
         const MFVideoFormat_H264_ES: GUID = 0x3f40f4f0_5622_4ff8_b6d8_a17a584bee5e;
         const MFVideoFormat_H264_HDCP: GUID = 0x5d0ce9dd_9817_49da_bdfd_f5f5b98f18a6;
-        const MFVideoFormat_H265: GUID = 0x35363248_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_HEVC: GUID = 0x43564548_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_HEVC_ES: GUID = 0x53564548_0000_0010_8000_00aa00389b71;
         const MFVideoFormat_HEVC_HDCP: GUID = 0x3cfe0fe6_05c4_47dc_9d70_4bdb2959720f;
-        const MFVideoFormat_I420: GUID = 0x30323449_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_I422: GUID = 0x32323449_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_I444: GUID = 0x34343449_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_IYUV: GUID = 0x56555949_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_L16: GUID = 0x00000051_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_L8: GUID = 0x00000032_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_M4S2: GUID = 0x3253344d_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_MJPG: GUID = 0x47504a4d_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_MP43: GUID = 0x3334504d_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_MP4S: GUID = 0x5334504d_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_MP4V: GUID = 0x5634504d_0000_0010_8000_00aa00389b71;
         const MFVideoFormat_MPEG2: GUID = 0xe06d8026_db46_11cf_b4d1_00805f6cbbea;
-        const MFVideoFormat_MPG1: GUID = 0x3147504d_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_MSS1: GUID = 0x3153534d_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_MSS2: GUID = 0x3253534d_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_NV11: GUID = 0x3131564e_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_NV12: GUID = 0x3231564e_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_NV21: GUID = 0x3132564e_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_ORAW: GUID = 0x5741524f_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_P010: GUID = 0x30313050_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_P016: GUID = 0x36313050_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_P210: GUID = 0x30313250_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_P216: GUID = 0x36313250_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_RGB24: GUID = 0x00000014_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_RGB32: GUID = 0x00000016_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_RGB555: GUID = 0x00000018_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_RGB565: GUID = 0x00000017_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_RGB8: GUID = 0x00000029_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_Theora: GUID = 0x6f656874_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_UYVY: GUID = 0x59565955_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_VP10: GUID = 0x30315056_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_VP80: GUID = 0x30385056_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_VP90: GUID = 0x30395056_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_WMV1: GUID = 0x31564d57_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_WMV2: GUID = 0x32564d57_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_WMV3: GUID = 0x33564d57_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_WVC1: GUID = 0x31435657_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_Y210: GUID = 0x30313259_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_Y216: GUID = 0x36313259_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_Y410: GUID = 0x30313459_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_Y416: GUID = 0x36313459_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_Y41P: GUID = 0x50313459_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_Y41T: GUID = 0x54313459_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_Y42T: GUID = 0x54323459_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_YUY2: GUID = 0x32595559_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_YV12: GUID = 0x32315659_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_YVU9: GUID = 0x39555659_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_YVYU: GUID = 0x55595659_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_v210: GUID = 0x30313276_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_v216: GUID = 0x36313276_0000_0010_8000_00aa00389b71;
-        const MFVideoFormat_v410: GUID = 0x30313476_0000_0010_8000_00aa00389b71;
         #[repr(i32)]
         enum MFVideoPadFlags {
             MFVideoPadFlag_PAD_TO_None = 0,
@@ -712,7 +624,7 @@ mod Windows {
             MFWaveFormatExConvertFlag_ForceExtensible = 1,
         }
         #[library("MFPlat.DLL")]
-        extern fn MFWrapMediaType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOrig: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MajorType: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubType: &GUID, #[out] ppWrap: *mut IMFMediaType) -> HRESULT;
+        extern fn MFWrapMediaType(pOrig: IMFMediaType, MajorType: *const GUID, SubType: *const GUID, ppWrap: *mut IMFMediaType) -> HRESULT;
         const MF_1024_BYTE_ALIGNMENT: i32 = 1023;
         const MF_128_BYTE_ALIGNMENT: i32 = 127;
         const MF_16_BYTE_ALIGNMENT: i32 = 15;
@@ -792,13 +704,13 @@ mod Windows {
         const MF_E_DXGI_NEW_VIDEO_DEVICE: HRESULT = -2147217407;
         const MF_E_DXGI_VIDEO_DEVICE_LOCKED: HRESULT = -2147217406;
         struct MF_FLOAT2 {
-            x: FLOAT,
-            y: FLOAT,
+            x: f32,
+            y: f32,
         }
         struct MF_FLOAT3 {
-            x: FLOAT,
-            y: FLOAT,
-            z: FLOAT,
+            x: f32,
+            y: f32,
+            z: f32,
         }
         const MF_HISTOGRAM_CHANNEL_B: i32 = 8;
         const MF_HISTOGRAM_CHANNEL_Cb: i32 = 16;
@@ -937,10 +849,10 @@ mod Windows {
         const MF_MT_WRAPPED_TYPE: GUID = 0x4d3f7b23_d02f_4e6c_9bee_e4bf2c6c695d;
         const MF_MT_YUV_MATRIX: GUID = 0x3e23d450_2c75_4d25_a00e_b91670d12327;
         struct MF_QUATERNION {
-            x: FLOAT,
-            y: FLOAT,
-            z: FLOAT,
-            w: FLOAT,
+            x: f32,
+            y: f32,
+            z: f32,
+            w: f32,
         }
         const MF_SDK_VERSION: i32 = 2;
         const MF_SD_AMBISONICS_SAMPLE3D_DESCRIPTION: GUID = 0xf715cf3e_a964_4c3f_94ae_9d6ba7264641;
@@ -957,10 +869,10 @@ mod Windows {
         const MF_VIDEO_MAX_MB_PER_SEC: GUID = 0xe3f2e203_d445_4b8c_9211_ae390d3ba017;
         const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: GUID = 0xc6052a80_6d9c_40a3_9db8_f027a25c9ab9;
         #[library("MFPlat.DLL")]
-        extern fn MFllMulDiv(a: LONGLONG, b: LONGLONG, c: LONGLONG, d: LONGLONG) -> LONGLONG;
+        extern fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64;
         struct MOVEREGION_INFO {
-            FrameNumber: UINT,
-            NumMoveRegions: UINT,
+            FrameNumber: u32,
+            NumMoveRegions: u32,
             MoveRegions: [MOVE_RECT; 1],
         }
         struct MOVE_RECT {
@@ -973,7 +885,7 @@ mod Windows {
             subtype: GUID,
             bFixedSizeSamples: BOOL,
             bTemporalCompression: BOOL,
-            lSampleSize: ULONG,
+            lSampleSize: u32,
             formattype: GUID,
         }
         struct MT_CUSTOM_VIDEO_PRIMARIES {
@@ -987,14 +899,14 @@ mod Windows {
             fWy: f32,
         }
         struct MetadataTimeStamps {
-            Flags: ULONG,
-            Device: LONGLONG,
-            Presentation: LONGLONG,
+            Flags: u32,
+            Device: i64,
+            Presentation: i64,
         }
         type PROI_AREA = *mut ROI_AREA;
         struct ROI_AREA {
             rect: RECT,
-            QPDelta: INT32,
+            QPDelta: i32,
         }
         type VIDEOINFOHEADER2 = tagVIDEOINFOHEADER2;
         #[repr(i32)]

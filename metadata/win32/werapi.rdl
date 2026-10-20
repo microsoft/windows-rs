@@ -3,16 +3,16 @@ mod Windows {
     mod Win32 {
         #[encoding("utf-16")]
         const APPCRASH_EVENT: String = "APPCRASH";
-        type HREPORT = *mut void;
+        type HREPORT = HANDLE;
         type HREPORTSTORE = *mut void;
         #[encoding("utf-16")]
         const PACKAGED_APPCRASH_EVENT: String = "MoAppCrash";
         type PCWER_DUMP_CUSTOM_OPTIONS_V3 = *const WER_DUMP_CUSTOM_OPTIONS_V3;
         type PCWER_REPORT_INFORMATION_V4 = *const WER_REPORT_INFORMATION_V4;
         type PCWER_REPORT_INFORMATION_V5 = *const WER_REPORT_INFORMATION_V5;
-        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, #[out] pbIsCustomDebugger: PBOOL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pchDebuggerLaunch", "*pchDebuggerLaunch")] #[out] pwszDebuggerLaunch: PWSTR, #[in] #[out] pchDebuggerLaunch: PDWORD, #[out] pbIsDebuggerAutolaunch: PBOOL) -> HRESULT;
-        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_EVENT(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, #[out] pbOwnershipClaimed: *mut BOOL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pchSize", "*pchSize")] #[out] pwszEventName: PWSTR, #[in] #[out] pchSize: PDWORD, #[out] pdwSignatureCount: PDWORD) -> HRESULT;
-        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pchName", "*pchName")] #[out] pwszName: PWSTR, #[in] #[out] pchName: PDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pchValue", "*pchValue")] #[out] pwszValue: PWSTR, #[in] #[out] pchValue: PDWORD) -> HRESULT;
+        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(#[in] pContext: *mut void, pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, #[out] pbIsCustomDebugger: PBOOL, #[len_param(4)] #[out] pwszDebuggerLaunch: PWSTR, #[in] #[out] pchDebuggerLaunch: PDWORD, #[out] pbIsDebuggerAutolaunch: PBOOL) -> HRESULT;
+        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_EVENT(#[in] pContext: *mut void, pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, pbOwnershipClaimed: *mut BOOL, #[len_param(4)] #[out] pwszEventName: PWSTR, #[in] #[out] pchSize: PDWORD, #[out] pdwSignatureCount: PDWORD) -> HRESULT;
+        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(#[in] pContext: *mut void, pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, dwIndex: u32, #[len_param(4)] #[out] pwszName: PWSTR, #[in] #[out] pchName: PDWORD, #[len_param(6)] #[out] pwszValue: PWSTR, #[in] #[out] pchValue: PDWORD) -> HRESULT;
         type PHREPORTSTORE = *mut *mut void;
         type PWER_DUMP_CUSTOM_OPTIONS = *mut WER_DUMP_CUSTOM_OPTIONS;
         type PWER_DUMP_CUSTOM_OPTIONS_V2 = *mut WER_DUMP_CUSTOM_OPTIONS_V2;
@@ -48,50 +48,50 @@ mod Windows {
         const WER_DUMP_AUXILIARY: i32 = 2;
         const WER_DUMP_AUX_PROMOTE: i32 = 4;
         struct WER_DUMP_CUSTOM_OPTIONS {
-            dwSize: DWORD,
-            dwMask: DWORD,
-            dwDumpFlags: DWORD,
+            dwSize: u32,
+            dwMask: u32,
+            dwDumpFlags: u32,
             bOnlyThisThread: BOOL,
-            dwExceptionThreadFlags: DWORD,
-            dwOtherThreadFlags: DWORD,
-            dwExceptionThreadExFlags: DWORD,
-            dwOtherThreadExFlags: DWORD,
-            dwPreferredModuleFlags: DWORD,
-            dwOtherModuleFlags: DWORD,
-            wzPreferredModuleList: [WCHAR; 256],
+            dwExceptionThreadFlags: u32,
+            dwOtherThreadFlags: u32,
+            dwExceptionThreadExFlags: u32,
+            dwOtherThreadExFlags: u32,
+            dwPreferredModuleFlags: u32,
+            dwOtherModuleFlags: u32,
+            wzPreferredModuleList: [u16; 256],
         }
         struct WER_DUMP_CUSTOM_OPTIONS_V2 {
-            dwSize: DWORD,
-            dwMask: DWORD,
-            dwDumpFlags: DWORD,
+            dwSize: u32,
+            dwMask: u32,
+            dwDumpFlags: u32,
             bOnlyThisThread: BOOL,
-            dwExceptionThreadFlags: DWORD,
-            dwOtherThreadFlags: DWORD,
-            dwExceptionThreadExFlags: DWORD,
-            dwOtherThreadExFlags: DWORD,
-            dwPreferredModuleFlags: DWORD,
-            dwOtherModuleFlags: DWORD,
-            wzPreferredModuleList: [WCHAR; 256],
-            dwPreferredModuleResetFlags: DWORD,
-            dwOtherModuleResetFlags: DWORD,
+            dwExceptionThreadFlags: u32,
+            dwOtherThreadFlags: u32,
+            dwExceptionThreadExFlags: u32,
+            dwOtherThreadExFlags: u32,
+            dwPreferredModuleFlags: u32,
+            dwOtherModuleFlags: u32,
+            wzPreferredModuleList: [u16; 256],
+            dwPreferredModuleResetFlags: u32,
+            dwOtherModuleResetFlags: u32,
         }
         struct WER_DUMP_CUSTOM_OPTIONS_V3 {
-            dwSize: DWORD,
-            dwMask: DWORD,
-            dwDumpFlags: DWORD,
+            dwSize: u32,
+            dwMask: u32,
+            dwDumpFlags: u32,
             bOnlyThisThread: BOOL,
-            dwExceptionThreadFlags: DWORD,
-            dwOtherThreadFlags: DWORD,
-            dwExceptionThreadExFlags: DWORD,
-            dwOtherThreadExFlags: DWORD,
-            dwPreferredModuleFlags: DWORD,
-            dwOtherModuleFlags: DWORD,
-            wzPreferredModuleList: [WCHAR; 256],
-            dwPreferredModuleResetFlags: DWORD,
-            dwOtherModuleResetFlags: DWORD,
-            pvDumpKey: PVOID,
+            dwExceptionThreadFlags: u32,
+            dwOtherThreadFlags: u32,
+            dwExceptionThreadExFlags: u32,
+            dwOtherThreadExFlags: u32,
+            dwPreferredModuleFlags: u32,
+            dwOtherModuleFlags: u32,
+            wzPreferredModuleList: [u16; 256],
+            dwPreferredModuleResetFlags: u32,
+            dwOtherModuleResetFlags: u32,
+            pvDumpKey: *mut void,
             hSnapshot: HANDLE,
-            dwThreadID: DWORD,
+            dwThreadID: u32,
         }
         const WER_DUMP_MASK_DUMPTYPE: i32 = 1;
         const WER_DUMP_MASK_ONLY_THISTHREAD: i32 = 2;
@@ -187,54 +187,54 @@ mod Windows {
             WerRegFileTypeMax = 3,
         }
         struct WER_REPORT_INFORMATION {
-            dwSize: DWORD,
+            dwSize: u32,
             hProcess: HANDLE,
-            wzConsentKey: [WCHAR; 64],
-            wzFriendlyEventName: [WCHAR; 128],
-            wzApplicationName: [WCHAR; 128],
-            wzApplicationPath: [WCHAR; 260],
-            wzDescription: [WCHAR; 512],
+            wzConsentKey: [u16; 64],
+            wzFriendlyEventName: [u16; 128],
+            wzApplicationName: [u16; 128],
+            wzApplicationPath: [u16; 260],
+            wzDescription: [u16; 512],
             hwndParent: HWND,
         }
         struct WER_REPORT_INFORMATION_V3 {
-            dwSize: DWORD,
+            dwSize: u32,
             hProcess: HANDLE,
-            wzConsentKey: [WCHAR; 64],
-            wzFriendlyEventName: [WCHAR; 128],
-            wzApplicationName: [WCHAR; 128],
-            wzApplicationPath: [WCHAR; 260],
-            wzDescription: [WCHAR; 512],
+            wzConsentKey: [u16; 64],
+            wzFriendlyEventName: [u16; 128],
+            wzApplicationName: [u16; 128],
+            wzApplicationPath: [u16; 260],
+            wzDescription: [u16; 512],
             hwndParent: HWND,
-            wzNamespacePartner: [WCHAR; 64],
-            wzNamespaceGroup: [WCHAR; 64],
+            wzNamespacePartner: [u16; 64],
+            wzNamespaceGroup: [u16; 64],
         }
         struct WER_REPORT_INFORMATION_V4 {
-            dwSize: DWORD,
+            dwSize: u32,
             hProcess: HANDLE,
-            wzConsentKey: [WCHAR; 64],
-            wzFriendlyEventName: [WCHAR; 128],
-            wzApplicationName: [WCHAR; 128],
-            wzApplicationPath: [WCHAR; 260],
-            wzDescription: [WCHAR; 512],
+            wzConsentKey: [u16; 64],
+            wzFriendlyEventName: [u16; 128],
+            wzApplicationName: [u16; 128],
+            wzApplicationPath: [u16; 260],
+            wzDescription: [u16; 512],
             hwndParent: HWND,
-            wzNamespacePartner: [WCHAR; 64],
-            wzNamespaceGroup: [WCHAR; 64],
-            rgbApplicationIdentity: [BYTE; 16],
+            wzNamespacePartner: [u16; 64],
+            wzNamespaceGroup: [u16; 64],
+            rgbApplicationIdentity: [u8; 16],
             hSnapshot: HANDLE,
             hDeleteFilesImpersonationToken: HANDLE,
         }
         struct WER_REPORT_INFORMATION_V5 {
-            dwSize: DWORD,
+            dwSize: u32,
             hProcess: HANDLE,
-            wzConsentKey: [WCHAR; 64],
-            wzFriendlyEventName: [WCHAR; 128],
-            wzApplicationName: [WCHAR; 128],
-            wzApplicationPath: [WCHAR; 260],
-            wzDescription: [WCHAR; 512],
+            wzConsentKey: [u16; 64],
+            wzFriendlyEventName: [u16; 128],
+            wzApplicationName: [u16; 128],
+            wzApplicationPath: [u16; 260],
+            wzDescription: [u16; 512],
             hwndParent: HWND,
-            wzNamespacePartner: [WCHAR; 64],
-            wzNamespaceGroup: [WCHAR; 64],
-            rgbApplicationIdentity: [BYTE; 16],
+            wzNamespacePartner: [u16; 64],
+            wzNamespaceGroup: [u16; 64],
+            rgbApplicationIdentity: [u8; 16],
             hSnapshot: HANDLE,
             hDeleteFilesImpersonationToken: HANDLE,
             submitResultMax: WER_SUBMIT_RESULT,
@@ -244,43 +244,43 @@ mod Windows {
             BucketId: GUID,
             ReportId: GUID,
             CreationTime: FILETIME,
-            SizeInBytes: ULONGLONG,
+            SizeInBytes: u64,
         }
         struct WER_REPORT_METADATA_V2 {
             Signature: WER_REPORT_SIGNATURE,
             BucketId: GUID,
             ReportId: GUID,
             CreationTime: FILETIME,
-            SizeInBytes: ULONGLONG,
-            CabId: [WCHAR; 260],
-            ReportStatus: DWORD,
+            SizeInBytes: u64,
+            CabId: [u16; 260],
+            ReportStatus: u32,
             ReportIntegratorId: GUID,
-            NumberOfFiles: DWORD,
-            SizeOfFileNames: DWORD,
-            FileNames: *mut WCHAR,
+            NumberOfFiles: u32,
+            SizeOfFileNames: u32,
+            FileNames: *mut u16,
         }
         struct WER_REPORT_METADATA_V3 {
             Signature: WER_REPORT_SIGNATURE,
             BucketId: GUID,
             ReportId: GUID,
             CreationTime: FILETIME,
-            SizeInBytes: ULONGLONG,
-            CabId: [WCHAR; 260],
-            ReportStatus: DWORD,
+            SizeInBytes: u64,
+            CabId: [u16; 260],
+            ReportStatus: u32,
             ReportIntegratorId: GUID,
-            NumberOfFiles: DWORD,
-            SizeOfFileNames: DWORD,
-            FileNames: *mut WCHAR,
-            FriendlyEventName: [WCHAR; 128],
-            ApplicationName: [WCHAR; 128],
-            ApplicationPath: [WCHAR; 260],
-            Description: [WCHAR; 512],
-            BucketIdString: [WCHAR; 260],
-            LegacyBucketId: ULONGLONG,
+            NumberOfFiles: u32,
+            SizeOfFileNames: u32,
+            FileNames: *mut u16,
+            FriendlyEventName: [u16; 128],
+            ApplicationName: [u16; 128],
+            ApplicationPath: [u16; 260],
+            Description: [u16; 512],
+            BucketIdString: [u16; 260],
+            LegacyBucketId: u64,
         }
         type WER_REPORT_PARAMETER = _WER_REPORT_PARAMETER;
         struct WER_REPORT_SIGNATURE {
-            EventName: [WCHAR; 65],
+            EventName: [u16; 65],
             Parameters: [WER_REPORT_PARAMETER; 10],
         }
         #[repr(i32)]
@@ -313,14 +313,14 @@ mod Windows {
         #[encoding("ansi")]
         const WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION: String = "OutOfProcessExceptionEventSignatureCallback";
         struct WER_RUNTIME_EXCEPTION_INFORMATION {
-            dwSize: DWORD,
+            dwSize: u32,
             hProcess: HANDLE,
             hThread: HANDLE,
             exceptionRecord: EXCEPTION_RECORD,
             context: CONTEXT,
             pwszReportId: PCWSTR,
             bIsFatal: BOOL,
-            dwReserved: DWORD,
+            dwReserved: u32,
         }
         const WER_SUBMIT_ADD_REGISTERED_DATA: i32 = 16;
         const WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY: i32 = 4096;
@@ -356,154 +356,82 @@ mod Windows {
         const WER_SUBMIT_SHOW_DEBUG: i32 = 8;
         const WER_SUBMIT_START_MINIMIZED: i32 = 512;
         #[library("wer.dll")]
-        extern fn WerAddExcludedApplication(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzExeName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bAllUsers: BOOL) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
+        extern fn WerAddExcludedApplication(pwzExeName: PCWSTR, bAllUsers: BOOL) -> HRESULT;
         #[library("wer.dll")]
-        #[arch(X64 | Arm64)]
-        extern "C" fn WerFreeString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszStr: PCWSTR);
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[library("wer.dll")]
-        #[arch(X86)]
-        extern fn WerFreeString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszStr: PCWSTR);
+        extern "C" fn WerFreeString(pwszStr: PCWSTR);
         #[library("KERNEL32.dll")]
-        extern fn WerGetFlags(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] pdwFlags: PDWORD) -> HRESULT;
+        extern fn WerGetFlags(hProcess: HANDLE, #[out] pdwFlags: PDWORD) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerRegisterAdditionalProcess(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] processId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] captureExtraInfoForThreadId: DWORD) -> HRESULT;
+        extern fn WerRegisterAdditionalProcess(processId: u32, captureExtraInfoForThreadId: u32) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerRegisterAppLocalDump(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] localAppDataRelativePath: PCWSTR) -> HRESULT;
+        extern fn WerRegisterAppLocalDump(localAppDataRelativePath: PCWSTR) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerRegisterCustomMetadata(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] key: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: PCWSTR) -> HRESULT;
+        extern fn WerRegisterCustomMetadata(key: PCWSTR, value: PCWSTR) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerRegisterExcludedMemoryBlock(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] address: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] size: DWORD) -> HRESULT;
+        extern fn WerRegisterExcludedMemoryBlock(address: *const void, size: u32) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerRegisterFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzFile: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] regFileType: WER_REGISTER_FILE_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HRESULT;
+        extern fn WerRegisterFile(pwzFile: PCWSTR, regFileType: WER_REGISTER_FILE_TYPE, dwFlags: u32) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerRegisterMemoryBlock(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvAddress: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: DWORD) -> HRESULT;
+        extern fn WerRegisterMemoryBlock(#[in] pvAddress: *mut void, dwSize: u32) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerRegisterRuntimeExceptionModule(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszOutOfProcessCallbackDll: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pContext: PVOID) -> HRESULT;
+        extern fn WerRegisterRuntimeExceptionModule(pwszOutOfProcessCallbackDll: PCWSTR, #[in] pContext: *mut void) -> HRESULT;
         #[library("wer.dll")]
-        extern fn WerRemoveExcludedApplication(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzExeName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bAllUsers: BOOL) -> HRESULT;
+        extern fn WerRemoveExcludedApplication(pwzExeName: PCWSTR, bAllUsers: BOOL) -> HRESULT;
         #[library("wer.dll")]
-        extern fn WerReportAddDump(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportHandle: HREPORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dumpType: WER_DUMP_TYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExceptionParam: PWER_EXCEPTION_INFORMATION, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDumpCustomOptions: PWER_DUMP_CUSTOM_OPTIONS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HRESULT;
+        extern fn WerReportAddDump(hReportHandle: HREPORT, hProcess: HANDLE, #[opt] hThread: HANDLE, dumpType: WER_DUMP_TYPE, #[opt] pExceptionParam: PWER_EXCEPTION_INFORMATION, #[opt] pDumpCustomOptions: PWER_DUMP_CUSTOM_OPTIONS, dwFlags: u32) -> HRESULT;
         #[library("wer.dll")]
-        extern fn WerReportAddFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportHandle: HREPORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzPath: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] repFileType: WER_FILE_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFileFlags: DWORD) -> HRESULT;
+        extern fn WerReportAddFile(hReportHandle: HREPORT, pwzPath: PCWSTR, repFileType: WER_FILE_TYPE, dwFileFlags: u32) -> HRESULT;
         #[library("wer.dll")]
-        extern fn WerReportCloseHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportHandle: HREPORT) -> HRESULT;
+        extern fn WerReportCloseHandle(hReportHandle: HREPORT) -> HRESULT;
         #[library("wer.dll")]
-        extern fn WerReportCreate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzEventType: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] repType: WER_REPORT_TYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReportInformation: PWER_REPORT_INFORMATION, #[out] phReportHandle: *mut HREPORT) -> HRESULT;
+        extern fn WerReportCreate(pwzEventType: PCWSTR, repType: WER_REPORT_TYPE, #[opt] pReportInformation: PWER_REPORT_INFORMATION, phReportHandle: *mut HREPORT) -> HRESULT;
         #[library("wer.dll")]
-        extern fn WerReportSetParameter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportHandle: HREPORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwparamID: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzValue: PCWSTR) -> HRESULT;
+        extern fn WerReportSetParameter(hReportHandle: HREPORT, dwparamID: u32, #[opt] pwzName: PCWSTR, pwzValue: PCWSTR) -> HRESULT;
         #[library("wer.dll")]
-        extern fn WerReportSetUIOption(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportHandle: HREPORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] repUITypeID: WER_REPORT_UI, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzValue: PCWSTR) -> HRESULT;
+        extern fn WerReportSetUIOption(hReportHandle: HREPORT, repUITypeID: WER_REPORT_UI, pwzValue: PCWSTR) -> HRESULT;
         #[library("wer.dll")]
-        extern fn WerReportSubmit(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportHandle: HREPORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] consent: WER_CONSENT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] #[opt] pSubmitResult: PWER_SUBMIT_RESULT) -> HRESULT;
+        extern fn WerReportSubmit(hReportHandle: HREPORT, consent: WER_CONSENT, dwFlags: u32, #[out] #[opt] pSubmitResult: PWER_SUBMIT_RESULT) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerSetFlags(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
+        extern fn WerSetFlags(dwFlags: u32) -> HRESULT;
         #[library("wer.dll")]
-        #[arch(X64 | Arm64)]
-        extern "C" fn WerStoreClose(#[Windows::Win32::Metadata::NativeSal("2", "_Post_invalid_", "", "")] #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE);
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
+        extern "C" fn WerStoreClose(#[opt] hReportStore: HREPORTSTORE);
         #[library("wer.dll")]
-        #[arch(X86)]
-        extern fn WerStoreClose(#[Windows::Win32::Metadata::NativeSal("2", "_Post_invalid_", "", "")] #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE);
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
+        extern "C" fn WerStoreGetFirstReportKey(hReportStore: HREPORTSTORE, ppszReportKey: *mut PCWSTR) -> HRESULT;
         #[library("wer.dll")]
-        #[arch(X64 | Arm64)]
-        extern "C" fn WerStoreGetFirstReportKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_z_", "", "")] ppszReportKey: *mut PCWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
+        extern "C" fn WerStoreGetNextReportKey(hReportStore: HREPORTSTORE, ppszReportKey: *mut PCWSTR) -> HRESULT;
         #[library("wer.dll")]
-        #[arch(X86)]
-        extern fn WerStoreGetFirstReportKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_z_", "", "")] ppszReportKey: *mut PCWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
+        extern "C" fn WerStoreGetReportCount(hReportStore: HREPORTSTORE, pdwReportCount: *mut u32) -> HRESULT;
         #[library("wer.dll")]
-        #[arch(X64 | Arm64)]
-        extern "C" fn WerStoreGetNextReportKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_z_", "", "")] ppszReportKey: *mut PCWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
+        extern "C" fn WerStoreGetSizeOnDisk(hReportStore: HREPORTSTORE, pqwSizeInBytes: *mut u64) -> HRESULT;
         #[library("wer.dll")]
-        #[arch(X86)]
-        extern fn WerStoreGetNextReportKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_z_", "", "")] ppszReportKey: *mut PCWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
+        extern "C" fn WerStoreOpen(repStoreType: REPORT_STORE_TYPES, #[out] phReportStore: PHREPORTSTORE) -> HRESULT;
         #[library("wer.dll")]
-        #[arch(X64 | Arm64)]
-        extern "C" fn WerStoreGetReportCount(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[out] pdwReportCount: *mut DWORD) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[library("wer.dll")]
-        #[arch(X86)]
-        extern fn WerStoreGetReportCount(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[out] pdwReportCount: *mut DWORD) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[library("wer.dll")]
-        #[arch(X64 | Arm64)]
-        extern "C" fn WerStoreGetSizeOnDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[out] pqwSizeInBytes: *mut ULONGLONG) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[library("wer.dll")]
-        #[arch(X86)]
-        extern fn WerStoreGetSizeOnDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[out] pqwSizeInBytes: *mut ULONGLONG) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[library("wer.dll")]
-        #[arch(X64 | Arm64)]
-        extern "C" fn WerStoreOpen(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] repStoreType: REPORT_STORE_TYPES, #[out] phReportStore: PHREPORTSTORE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[library("wer.dll")]
-        #[arch(X86)]
-        extern fn WerStoreOpen(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] repStoreType: REPORT_STORE_TYPES, #[out] phReportStore: PHREPORTSTORE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[library("wer.dll")]
-        #[arch(X64 | Arm64)]
         extern "C" fn WerStorePurge() -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
         #[library("wer.dll")]
-        #[arch(X86)]
-        extern fn WerStorePurge() -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
+        extern "C" fn WerStoreQueryReportMetadataV1(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V1) -> HRESULT;
         #[library("wer.dll")]
-        #[arch(X64 | Arm64)]
-        extern "C" fn WerStoreQueryReportMetadataV1(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V1) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
+        extern "C" fn WerStoreQueryReportMetadataV2(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V2) -> HRESULT;
         #[library("wer.dll")]
-        #[arch(X86)]
-        extern fn WerStoreQueryReportMetadataV1(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V1) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
+        extern "C" fn WerStoreQueryReportMetadataV3(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V3) -> HRESULT;
         #[library("wer.dll")]
-        #[arch(X64 | Arm64)]
-        extern "C" fn WerStoreQueryReportMetadataV2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V2) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[library("wer.dll")]
-        #[arch(X86)]
-        extern fn WerStoreQueryReportMetadataV2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V2) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[library("wer.dll")]
-        #[arch(X64 | Arm64)]
-        extern "C" fn WerStoreQueryReportMetadataV3(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V3) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[library("wer.dll")]
-        #[arch(X86)]
-        extern fn WerStoreQueryReportMetadataV3(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V3) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[library("wer.dll")]
-        #[arch(X64 | Arm64)]
-        extern "C" fn WerStoreUploadReport(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszReportKey: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] #[opt] pSubmitResult: PWER_SUBMIT_RESULT) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("L", "__control_entrypoint", "DllExport", "DllExport")]
-        #[library("wer.dll")]
-        #[arch(X86)]
-        extern fn WerStoreUploadReport(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReportStore: HREPORTSTORE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszReportKey: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] #[opt] pSubmitResult: PWER_SUBMIT_RESULT) -> HRESULT;
+        extern "C" fn WerStoreUploadReport(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, dwFlags: u32, #[out] #[opt] pSubmitResult: PWER_SUBMIT_RESULT) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerUnregisterAdditionalProcess(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] processId: DWORD) -> HRESULT;
+        extern fn WerUnregisterAdditionalProcess(processId: u32) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn WerUnregisterAppLocalDump() -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerUnregisterCustomMetadata(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] key: PCWSTR) -> HRESULT;
+        extern fn WerUnregisterCustomMetadata(key: PCWSTR) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerUnregisterExcludedMemoryBlock(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] address: *const void) -> HRESULT;
+        extern fn WerUnregisterExcludedMemoryBlock(address: *const void) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerUnregisterFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwzFilePath: PCWSTR) -> HRESULT;
+        extern fn WerUnregisterFile(pwzFilePath: PCWSTR) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerUnregisterMemoryBlock(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvAddress: PVOID) -> HRESULT;
+        extern fn WerUnregisterMemoryBlock(#[in] pvAddress: *mut void) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerUnregisterRuntimeExceptionModule(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszOutOfProcessCallbackDll: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pContext: PVOID) -> HRESULT;
+        extern fn WerUnregisterRuntimeExceptionModule(pwszOutOfProcessCallbackDll: PCWSTR, #[in] pContext: *mut void) -> HRESULT;
         struct _WER_REPORT_PARAMETER {
-            Name: [WCHAR; 129],
-            Value: [WCHAR; 260],
+            Name: [u16; 129],
+            Value: [u16; 260],
         }
     }
 }

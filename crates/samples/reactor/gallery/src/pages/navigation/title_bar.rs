@@ -24,7 +24,6 @@ impl Component for TitleBarPage {
                         "Live TitleBar",
                         "The gallery title bar above is the live control. Its buttons, search box, \
                          title, and subtitle are all declarative.",
-                        "TitleBar::new().title(title).subtitle(subtitle).content(content)",
                     ),
                 ),
                 KeyedView::new(
@@ -33,7 +32,6 @@ impl Component for TitleBarPage {
                         "Preferred Height",
                         "TitleBar automatically replaces the system title bar. Standard height is \
                          the default; the gallery requests tall system chrome.",
-                        "TitleBar::new().preferred_height(WindowTitleBarHeight::Tall)",
                     ),
                 ),
             ],

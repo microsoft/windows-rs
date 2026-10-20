@@ -39,37 +39,37 @@ mod Windows {
         }
         #[guid(0xd1a34ef2_cad8_4635_a3d2_fcda8d3f3caf)]
         interface IBitmapData: IUnknown {
-            fn CopyBytesTo(&self, sourceOffsetInBytes: u32, maxBytesToCopy: u32, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 1, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 1, IsByteCount = false, Dereference = false)] pvBytes: *mut byte, #[out] numberOfBytesCopied: *mut u32) -> HRESULT;
-            fn GetStride(&self, #[out] pStride: *mut u32) -> HRESULT;
-            fn GetBitmapDescription(&self, #[out] pBitmapDescription: *mut BitmapDescription) -> HRESULT;
-            fn GetSourceBitmapDescription(&self, #[out] pBitmapDescription: *mut BitmapDescription) -> HRESULT;
+            fn CopyBytesTo(&self, sourceOffsetInBytes: u32, maxBytesToCopy: u32, pvBytes: *mut byte, numberOfBytesCopied: *mut u32) -> HRESULT;
+            fn GetStride(&self, pStride: *mut u32) -> HRESULT;
+            fn GetBitmapDescription(&self, pBitmapDescription: *mut BitmapDescription) -> HRESULT;
+            fn GetSourceBitmapDescription(&self, pBitmapDescription: *mut BitmapDescription) -> HRESULT;
         }
         #[guid(0xa593b11a_d17f_48bb_8f66_83910731c8a5)]
         interface IVisualTreeService: IUnknown {
-            fn AdviseVisualTreeChange(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pCallback: IVisualTreeServiceCallback) -> HRESULT;
-            fn UnadviseVisualTreeChange(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pCallback: IVisualTreeServiceCallback) -> HRESULT;
-            fn GetEnums(&self, #[out] pCount: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*pCount", "*pCount")] ppEnums: *mut *mut EnumType) -> HRESULT;
-            fn CreateInstance(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] typeName: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR, #[out] #[retval] pInstanceHandle: *mut InstanceHandle) -> HRESULT;
-            fn GetPropertyValuesChain(&self, instanceHandle: InstanceHandle, #[out] pSourceCount: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*pSourceCount", "*pSourceCount")] ppPropertySources: *mut *mut PropertyChainSource, #[out] pPropertyCount: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*pPropertyCount", "*pPropertyCount")] ppPropertyValues: *mut *mut PropertyChainValue) -> HRESULT;
+            fn AdviseVisualTreeChange(&self, pCallback: IVisualTreeServiceCallback) -> HRESULT;
+            fn UnadviseVisualTreeChange(&self, pCallback: IVisualTreeServiceCallback) -> HRESULT;
+            fn GetEnums(&self, pCount: *mut u32, ppEnums: *mut *mut EnumType) -> HRESULT;
+            fn CreateInstance(&self, typeName: BSTR, value: BSTR, #[retval] pInstanceHandle: *mut InstanceHandle) -> HRESULT;
+            fn GetPropertyValuesChain(&self, instanceHandle: InstanceHandle, pSourceCount: *mut u32, ppPropertySources: *mut *mut PropertyChainSource, pPropertyCount: *mut u32, ppPropertyValues: *mut *mut PropertyChainValue) -> HRESULT;
             fn SetProperty(&self, instanceHandle: InstanceHandle, value: InstanceHandle, propertyIndex: u32) -> HRESULT;
             fn ClearProperty(&self, instanceHandle: InstanceHandle, propertyIndex: u32) -> HRESULT;
-            fn GetCollectionCount(&self, instanceHandle: InstanceHandle, #[out] pCollectionSize: *mut u32) -> HRESULT;
-            fn GetCollectionElements(&self, instanceHandle: InstanceHandle, startIndex: u32, #[in] #[out] pElementCount: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*pElementCount", "*pElementCount")] ppElementValues: *mut *mut CollectionElementValue) -> HRESULT;
+            fn GetCollectionCount(&self, instanceHandle: InstanceHandle, pCollectionSize: *mut u32) -> HRESULT;
+            fn GetCollectionElements(&self, instanceHandle: InstanceHandle, startIndex: u32, #[in] #[out] pElementCount: *mut u32, ppElementValues: *mut *mut CollectionElementValue) -> HRESULT;
             fn AddChild(&self, parent: InstanceHandle, child: InstanceHandle, index: u32) -> HRESULT;
             fn RemoveChild(&self, parent: InstanceHandle, index: u32) -> HRESULT;
             fn ClearChildren(&self, parent: InstanceHandle) -> HRESULT;
         }
         #[guid(0x130f5136_ec43_4f61_89c7_9801a36d2e95)]
         interface IVisualTreeService2: IVisualTreeService {
-            fn GetPropertyIndex(&self, object: InstanceHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyName: LPCWSTR, #[out] pPropertyIndex: *mut u32) -> HRESULT;
-            fn GetProperty(&self, object: InstanceHandle, propertyIndex: u32, #[out] pValue: *mut InstanceHandle) -> HRESULT;
+            fn GetPropertyIndex(&self, object: InstanceHandle, propertyName: PCWSTR, pPropertyIndex: *mut u32) -> HRESULT;
+            fn GetProperty(&self, object: InstanceHandle, propertyIndex: u32, pValue: *mut InstanceHandle) -> HRESULT;
             fn ReplaceResource(&self, resourceDictionary: InstanceHandle, key: InstanceHandle, newValue: InstanceHandle) -> HRESULT;
-            fn RenderTargetBitmap(&self, handle: InstanceHandle, options: RenderTargetBitmapOptions, maxPixelWidth: u32, maxPixelHeight: u32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppBitmapData: *mut IBitmapData) -> HRESULT;
+            fn RenderTargetBitmap(&self, handle: InstanceHandle, options: RenderTargetBitmapOptions, maxPixelWidth: u32, maxPixelHeight: u32, ppBitmapData: *mut IBitmapData) -> HRESULT;
         }
         #[guid(0x0e79c6e0_85a0_4be8_b41a_655cf1fd19bd)]
         interface IVisualTreeService3: IVisualTreeService2 {
-            fn ResolveResource(&self, resourceContext: InstanceHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] resourceName: LPCWSTR, resourceType: ResourceType, propertyIndex: u32) -> HRESULT;
-            fn GetDictionaryItem(&self, dictionaryHandle: InstanceHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] resourceName: LPCWSTR, resourceIsImplicitStyle: BOOL, #[out] resourceHandle: *mut InstanceHandle) -> HRESULT;
+            fn ResolveResource(&self, resourceContext: InstanceHandle, resourceName: PCWSTR, resourceType: ResourceType, propertyIndex: u32) -> HRESULT;
+            fn GetDictionaryItem(&self, dictionaryHandle: InstanceHandle, resourceName: PCWSTR, resourceIsImplicitStyle: BOOL, resourceHandle: *mut InstanceHandle) -> HRESULT;
             fn AddDictionaryItem(&self, dictionaryHandle: InstanceHandle, resourceKey: InstanceHandle, resourceHandle: InstanceHandle) -> HRESULT;
             fn RemoveDictionaryItem(&self, dictionaryHandle: InstanceHandle, resourceKey: InstanceHandle) -> HRESULT;
         }
@@ -79,22 +79,21 @@ mod Windows {
         }
         #[guid(0xbad9eb88_ae77_4397_b948_5fa2db0a19ea)]
         interface IVisualTreeServiceCallback2: IVisualTreeServiceCallback {
-            fn OnElementStateChanged(&self, element: InstanceHandle, elementState: VisualElementState, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] context: LPCWSTR) -> HRESULT;
+            fn OnElementStateChanged(&self, element: InstanceHandle, elementState: VisualElementState, context: PCWSTR) -> HRESULT;
         }
         #[guid(0x18c9e2b6_3f43_4116_9f2b_ff935d7770d2)]
         interface IXamlDiagnostics: IUnknown {
-            fn GetDispatcher(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDispatcher: *mut IInspectable) -> HRESULT;
-            fn GetUiLayer(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppLayer: *mut IInspectable) -> HRESULT;
-            fn GetApplication(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppApplication: *mut IInspectable) -> HRESULT;
-            fn GetIInspectableFromHandle(&self, instanceHandle: InstanceHandle, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppInstance: *mut IInspectable) -> HRESULT;
-            fn GetHandleFromIInspectable(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInstance: IInspectable, #[out] #[retval] pHandle: *mut InstanceHandle) -> HRESULT;
-            fn HitTest(&self, rect: RECT, #[out] pCount: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*pCount", "*pCount")] ppInstanceHandles: *mut *mut InstanceHandle) -> HRESULT;
-            fn RegisterInstance(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInstance: IInspectable, #[out] #[retval] pInstanceHandle: *mut InstanceHandle) -> HRESULT;
-            fn GetInitializationData(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pInitializationData: *mut BSTR) -> HRESULT;
+            fn GetDispatcher(&self, #[retval] ppDispatcher: *mut IInspectable) -> HRESULT;
+            fn GetUiLayer(&self, #[retval] ppLayer: *mut IInspectable) -> HRESULT;
+            fn GetApplication(&self, #[retval] ppApplication: *mut IInspectable) -> HRESULT;
+            fn GetIInspectableFromHandle(&self, instanceHandle: InstanceHandle, #[retval] ppInstance: *mut IInspectable) -> HRESULT;
+            fn GetHandleFromIInspectable(&self, pInstance: IInspectable, #[retval] pHandle: *mut InstanceHandle) -> HRESULT;
+            fn HitTest(&self, rect: RECT, pCount: *mut u32, ppInstanceHandles: *mut *mut InstanceHandle) -> HRESULT;
+            fn RegisterInstance(&self, pInstance: IInspectable, #[retval] pInstanceHandle: *mut InstanceHandle) -> HRESULT;
+            fn GetInitializationData(&self, #[retval] pInitializationData: *mut BSTR) -> HRESULT;
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("Windows.UI.Xaml.dll")]
-        extern "C" fn InitializeXamlDiagnosticsEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] endPointName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pid: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wszDllXamlDiagnostics: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wszTAPDllName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] tapClsid: CLSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wszInitializationData: LPCWSTR) -> HRESULT;
+        extern "C" fn InitializeXamlDiagnosticsEx(endPointName: PCWSTR, pid: u32, wszDllXamlDiagnostics: PCWSTR, wszTAPDllName: PCWSTR, tapClsid: GUID, wszInitializationData: PCWSTR) -> HRESULT;
         type InstanceHandle = u64;
         #[repr(i32)]
         enum MetadataBit {

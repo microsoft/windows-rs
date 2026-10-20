@@ -60,34 +60,34 @@ mod Windows {
                 Arguments: String;
                 #[get]
                 Arguments: String;
-                #[special]
+                #[set]
                 #[Windows::Foundation::Metadata::Deprecated("ShortName may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayName.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn put_ShortName(&self, value: String);
-                #[special]
+                ShortName: String;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ShortName may be altered or unavailable for releases after Windows 8.1. Instead, use DisplayName.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_ShortName(&self) -> String;
+                ShortName: String;
                 #[set]
                 DisplayName: String;
                 #[get]
                 DisplayName: String;
-                #[special]
+                #[set]
                 #[Windows::Foundation::Metadata::Deprecated("Logo may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.Square150x150Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn put_Logo(&self, value: super::super::Foundation::Uri);
-                #[special]
+                Logo: super::super::Foundation::Uri;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Logo may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.Square150x150Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_Logo(&self) -> super::super::Foundation::Uri;
-                #[special]
+                Logo: super::super::Foundation::Uri;
+                #[set]
                 #[Windows::Foundation::Metadata::Deprecated("SmallLogo may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.Square30x30Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn put_SmallLogo(&self, value: super::super::Foundation::Uri);
-                #[special]
+                SmallLogo: super::super::Foundation::Uri;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SmallLogo may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.Square30x30Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_SmallLogo(&self) -> super::super::Foundation::Uri;
-                #[special]
+                SmallLogo: super::super::Foundation::Uri;
+                #[set]
                 #[Windows::Foundation::Metadata::Deprecated("WideLogo may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.Wide310x150Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn put_WideLogo(&self, value: super::super::Foundation::Uri);
-                #[special]
+                WideLogo: super::super::Foundation::Uri;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("WideLogo may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.Wide310x150Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_WideLogo(&self) -> super::super::Foundation::Uri;
+                WideLogo: super::super::Foundation::Uri;
                 #[set]
                 LockScreenBadgeLogo: super::super::Foundation::Uri;
                 #[get]
@@ -96,24 +96,24 @@ mod Windows {
                 LockScreenDisplayBadgeAndTileText: bool;
                 #[get]
                 LockScreenDisplayBadgeAndTileText: bool;
-                #[special]
+                #[set]
                 #[Windows::Foundation::Metadata::Deprecated("TileOptions may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.ShowNameOnSquare150x150Logo, VisualElements.ShowNameOnWide310x150Logo, and RoamingEnabled.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn put_TileOptions(&self, value: TileOptions);
-                #[special]
+                TileOptions: TileOptions;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("TileOptions may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.ShowNameOnSquare150x150Logo, VisualElements.ShowNameOnWide310x150Logo, and RoamingEnabled.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_TileOptions(&self) -> TileOptions;
-                #[special]
+                TileOptions: TileOptions;
+                #[set]
                 #[Windows::Foundation::Metadata::Deprecated("TileOptions may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.ShowNameOnSquare150x150Logo, VisualElements.ShowNameOnWide310x150Logo, and RoamingEnabled.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn put_ForegroundText(&self, value: ForegroundText);
-                #[special]
+                ForegroundText: ForegroundText;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ForegroundText may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.ForegroundText.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_ForegroundText(&self) -> ForegroundText;
-                #[special]
+                ForegroundText: ForegroundText;
+                #[set]
                 #[Windows::Foundation::Metadata::Deprecated("BackgroundColor may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.BackgroundColor.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn put_BackgroundColor(&self, value: super::Color);
-                #[special]
+                BackgroundColor: super::Color;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("BackgroundColor may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.BackgroundColor.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_BackgroundColor(&self) -> super::Color;
+                BackgroundColor: super::Color;
                 #[Windows::Foundation::Metadata::Overload("RequestCreateAsync")]
                 fn RequestCreateAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("RequestCreateAsyncWithPoint")]
@@ -183,18 +183,18 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTileVisualElements)]
             interface ISecondaryTileVisualElements {
-                #[special]
+                #[set]
                 #[Windows::Foundation::Metadata::Deprecated("SecondaryTileVisualElements.Square30x30Logo may be altered or unavailable for release after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn put_Square30x30Logo(&self, value: super::super::Foundation::Uri);
-                #[special]
+                Square30x30Logo: super::super::Foundation::Uri;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SecondaryTileVisualElements.Square30x30Logo may be altered or unavailable for release after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_Square30x30Logo(&self) -> super::super::Foundation::Uri;
-                #[special]
+                Square30x30Logo: super::super::Foundation::Uri;
+                #[set]
                 #[Windows::Foundation::Metadata::Deprecated("SecondaryTileVisualElements.Square70x70Logo may be altered or unavailable for release after Windows Phone 8.1.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn put_Square70x70Logo(&self, value: super::super::Foundation::Uri);
-                #[special]
+                Square70x70Logo: super::super::Foundation::Uri;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("SecondaryTileVisualElements.Square70x70Logo may be altered or unavailable for release after Windows Phone 8.1.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_Square70x70Logo(&self) -> super::super::Foundation::Uri;
+                Square70x70Logo: super::super::Foundation::Uri;
                 #[set]
                 Square150x150Logo: super::super::Foundation::Uri;
                 #[get]

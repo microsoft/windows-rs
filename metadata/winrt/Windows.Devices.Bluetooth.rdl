@@ -362,9 +362,9 @@ mod Windows {
                 ClassOfDevice: BluetoothClassOfDevice;
                 #[get]
                 SdpRecords: super::super::Foundation::Collections::IVectorView<super::super::Storage::Streams::IBuffer>;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use GetRfcommServicesAsync instead of RfcommServices.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                fn get_RfcommServices(&self) -> super::super::Foundation::Collections::IVectorView<Rfcomm::RfcommDeviceService>;
+                RfcommServices: super::super::Foundation::Collections::IVectorView<Rfcomm::RfcommDeviceService>;
                 #[get]
                 ConnectionStatus: BluetoothConnectionStatus;
                 #[get]
@@ -621,9 +621,9 @@ mod Windows {
                 DeviceId: String;
                 #[get]
                 Name: String;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use GetGattServicesAsync instead of GattServices.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                fn get_GattServices(&self) -> super::super::Foundation::Collections::IVectorView<GenericAttributeProfile::GattDeviceService>;
+                GattServices: super::super::Foundation::Collections::IVectorView<GenericAttributeProfile::GattDeviceService>;
                 #[get]
                 ConnectionStatus: BluetoothConnectionStatus;
                 #[get]

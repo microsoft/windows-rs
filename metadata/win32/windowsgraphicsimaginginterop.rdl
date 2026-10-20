@@ -1,15 +1,14 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const CLSID_SoftwareBitmapNativeFactory: GUID = 0x84e65691_8602_4a84_be46_708be9cd4b74;
         #[guid(0x94bc8415_04ea_4b2e_af13_4de95aa898eb)]
         interface ISoftwareBitmapNative: IInspectable {
-            fn GetData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut LPVOID) -> HRESULT;
+            fn GetData(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0xc3c181ec_2914_4791_af02_02d224a10b43)]
         interface ISoftwareBitmapNativeFactory: IInspectable {
-            fn CreateFromWICBitmap(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] data: IWICBitmap, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] forceReadOnly: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut LPVOID) -> HRESULT;
-            fn CreateFromMF2DBuffer2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] data: IMF2DBuffer2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] subtype: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] width: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] height: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] forceReadOnly: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] minDisplayAperture: *const MFVideoArea, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut LPVOID) -> HRESULT;
+            fn CreateFromWICBitmap(&self, data: IWICBitmap, forceReadOnly: BOOL, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateFromMF2DBuffer2(&self, data: IMF2DBuffer2, subtype: *const GUID, width: u32, height: u32, forceReadOnly: BOOL, #[opt] minDisplayAperture: *const MFVideoArea, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         }
     }
 }

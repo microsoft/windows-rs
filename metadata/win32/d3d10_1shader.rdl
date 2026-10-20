@@ -2,71 +2,71 @@
 mod Windows {
     mod Win32 {
         struct D3D10_SHADER_DEBUG_FILE_INFO {
-            FileName: UINT,
-            FileNameLen: UINT,
-            FileData: UINT,
-            FileLen: UINT,
+            FileName: u32,
+            FileNameLen: u32,
+            FileData: u32,
+            FileLen: u32,
         }
         struct D3D10_SHADER_DEBUG_INFO {
-            Size: UINT,
-            Creator: UINT,
-            EntrypointName: UINT,
-            ShaderTarget: UINT,
-            CompileFlags: UINT,
-            Files: UINT,
-            FileInfo: UINT,
-            Instructions: UINT,
-            InstructionInfo: UINT,
-            Variables: UINT,
-            VariableInfo: UINT,
-            InputVariables: UINT,
-            InputVariableInfo: UINT,
-            Tokens: UINT,
-            TokenInfo: UINT,
-            Scopes: UINT,
-            ScopeInfo: UINT,
-            ScopeVariables: UINT,
-            ScopeVariableInfo: UINT,
-            UintOffset: UINT,
-            StringOffset: UINT,
+            Size: u32,
+            Creator: u32,
+            EntrypointName: u32,
+            ShaderTarget: u32,
+            CompileFlags: u32,
+            Files: u32,
+            FileInfo: u32,
+            Instructions: u32,
+            InstructionInfo: u32,
+            Variables: u32,
+            VariableInfo: u32,
+            InputVariables: u32,
+            InputVariableInfo: u32,
+            Tokens: u32,
+            TokenInfo: u32,
+            Scopes: u32,
+            ScopeInfo: u32,
+            ScopeVariables: u32,
+            ScopeVariableInfo: u32,
+            UintOffset: u32,
+            StringOffset: u32,
         }
         struct D3D10_SHADER_DEBUG_INPUT_INFO {
-            Var: UINT,
+            Var: u32,
             InitialRegisterSet: D3D10_SHADER_DEBUG_REGTYPE,
-            InitialBank: UINT,
-            InitialRegister: UINT,
-            InitialComponent: UINT,
-            InitialValue: UINT,
+            InitialBank: u32,
+            InitialRegister: u32,
+            InitialComponent: u32,
+            InitialValue: u32,
         }
         struct D3D10_SHADER_DEBUG_INST_INFO {
-            Id: UINT,
-            Opcode: UINT,
-            uOutputs: UINT,
+            Id: u32,
+            Opcode: u32,
+            uOutputs: u32,
             pOutputs: [D3D10_SHADER_DEBUG_OUTPUTREG_INFO; 2],
-            TokenId: UINT,
-            NestingLevel: UINT,
-            Scopes: UINT,
-            ScopeInfo: UINT,
-            AccessedVars: UINT,
-            AccessedVarsInfo: UINT,
+            TokenId: u32,
+            NestingLevel: u32,
+            Scopes: u32,
+            ScopeInfo: u32,
+            AccessedVars: u32,
+            AccessedVarsInfo: u32,
         }
         struct D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
             OutputRegisterSet: D3D10_SHADER_DEBUG_REGTYPE,
-            OutputReg: UINT,
-            TempArrayReg: UINT,
-            OutputComponents: [UINT; 4],
+            OutputReg: u32,
+            TempArrayReg: u32,
+            OutputComponents: [u32; 4],
             OutputVars: [D3D10_SHADER_DEBUG_OUTPUTVAR; 4],
-            IndexReg: UINT,
-            IndexComp: UINT,
+            IndexReg: u32,
+            IndexComp: u32,
         }
         struct D3D10_SHADER_DEBUG_OUTPUTVAR {
-            Var: UINT,
-            uValueMin: UINT,
-            uValueMax: UINT,
-            iValueMin: INT,
-            iValueMax: INT,
-            fValueMin: FLOAT,
-            fValueMax: FLOAT,
+            Var: u32,
+            uValueMin: u32,
+            uValueMax: u32,
+            iValueMin: i32,
+            iValueMax: i32,
+            fValueMin: f32,
+            fValueMax: f32,
             bNaNPossible: BOOL,
             bInfPossible: BOOL,
         }
@@ -100,31 +100,31 @@ mod Windows {
             D3D10_SHADER_DEBUG_SCOPE_FORCE_DWORD = 2147483647,
         }
         struct D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
-            TokenId: UINT,
+            TokenId: u32,
             VarType: D3D10_SHADER_DEBUG_VARTYPE,
             Class: D3D10_SHADER_VARIABLE_CLASS,
-            Rows: UINT,
-            Columns: UINT,
-            StructMemberScope: UINT,
-            uArrayIndices: UINT,
-            ArrayElements: UINT,
-            ArrayStrides: UINT,
-            uVariables: UINT,
-            uFirstVariable: UINT,
+            Rows: u32,
+            Columns: u32,
+            StructMemberScope: u32,
+            uArrayIndices: u32,
+            ArrayElements: u32,
+            ArrayStrides: u32,
+            uVariables: u32,
+            uFirstVariable: u32,
         }
         struct D3D10_SHADER_DEBUG_SCOPE_INFO {
             ScopeType: D3D10_SHADER_DEBUG_SCOPETYPE,
-            Name: UINT,
-            uNameLen: UINT,
-            uVariables: UINT,
-            VariableData: UINT,
+            Name: u32,
+            uNameLen: u32,
+            uVariables: u32,
+            VariableData: u32,
         }
         struct D3D10_SHADER_DEBUG_TOKEN_INFO {
-            File: UINT,
-            Line: UINT,
-            Column: UINT,
-            TokenLength: UINT,
-            TokenId: UINT,
+            File: u32,
+            Line: u32,
+            Column: u32,
+            TokenLength: u32,
+            TokenId: u32,
         }
         #[repr(i32)]
         enum D3D10_SHADER_DEBUG_VARTYPE {
@@ -133,56 +133,30 @@ mod Windows {
             D3D10_SHADER_DEBUG_VAR_FORCE_DWORD = 2147483647,
         }
         struct D3D10_SHADER_DEBUG_VAR_INFO {
-            TokenId: UINT,
+            TokenId: u32,
             Type: D3D10_SHADER_VARIABLE_TYPE,
-            Register: UINT,
-            Component: UINT,
-            ScopeVar: UINT,
-            ScopeVarOffset: UINT,
+            Register: u32,
+            Component: u32,
+            ScopeVar: u32,
+            ScopeVarOffset: u32,
         }
-        #[no_guid]
+        #[guid(0xc3457783_a846_47ce_9520_cea6f66e7447)]
         interface ID3D10ShaderReflection1: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, iid: &IID, ppv: *mut LPVOID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDesc(&self, #[out] pDesc: *mut D3D10_SHADER_DESC) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetConstantBufferByIndex(&self, Index: UINT) -> ID3D10ShaderReflectionConstantBuffer;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetConstantBufferByName(&self, Name: LPCSTR) -> ID3D10ShaderReflectionConstantBuffer;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetResourceBindingDesc(&self, ResourceIndex: UINT, #[out] pDesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetInputParameterDesc(&self, ParameterIndex: UINT, #[out] pDesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetOutputParameterDesc(&self, ParameterIndex: UINT, #[out] pDesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetVariableByName(&self, Name: LPCSTR) -> ID3D10ShaderReflectionVariable;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetResourceBindingDescByName(&self, Name: LPCSTR, #[out] pDesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetMovInstructionCount(&self, #[out] pCount: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetMovcInstructionCount(&self, #[out] pCount: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetConversionInstructionCount(&self, #[out] pCount: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetBitwiseInstructionCount(&self, #[out] pCount: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetGSInputPrimitive(&self, #[out] pPrim: *mut D3D10_PRIMITIVE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn IsLevel9Shader(&self, #[out] pbLevel9Shader: *mut BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn IsSampleFrequencyShader(&self, #[out] pbSampleFrequency: *mut BOOL) -> HRESULT;
+            fn GetDesc(&self, pDesc: *mut D3D10_SHADER_DESC) -> HRESULT;
+            fn GetConstantBufferByIndex(&self, Index: u32) -> ID3D10ShaderReflectionConstantBuffer;
+            fn GetConstantBufferByName(&self, Name: PCSTR) -> ID3D10ShaderReflectionConstantBuffer;
+            fn GetResourceBindingDesc(&self, ResourceIndex: u32, pDesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            fn GetInputParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            fn GetOutputParameterDesc(&self, ParameterIndex: u32, pDesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> HRESULT;
+            fn GetVariableByName(&self, Name: PCSTR) -> ID3D10ShaderReflectionVariable;
+            fn GetResourceBindingDescByName(&self, Name: PCSTR, pDesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> HRESULT;
+            fn GetMovInstructionCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetMovcInstructionCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetConversionInstructionCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetBitwiseInstructionCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetGSInputPrimitive(&self, pPrim: *mut D3D10_PRIMITIVE) -> HRESULT;
+            fn IsLevel9Shader(&self, pbLevel9Shader: *mut BOOL) -> HRESULT;
+            fn IsSampleFrequencyShader(&self, pbSampleFrequency: *mut BOOL) -> HRESULT;
         }
-        const IID_ID3D10ShaderReflection1: GUID = 0xc3457783_a846_47ce_9520_cea6f66e7447;
-        type LPD3D10SHADERREFLECTION1 = ID3D10ShaderReflection1;
     }
 }

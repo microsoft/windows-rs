@@ -30,7 +30,7 @@ mod Windows {
             WCM_CONNECTION_COST_APPROACHINGDATALIMIT = 524288,
         }
         struct WCM_CONNECTION_COST_DATA {
-            ConnectionCost: DWORD,
+            ConnectionCost: u32,
             CostSource: WCM_CONNECTION_COST_SOURCE,
         }
         #[repr(i32)]
@@ -42,12 +42,12 @@ mod Windows {
         }
         struct WCM_DATAPLAN_STATUS {
             UsageData: WCM_USAGE_DATA,
-            DataLimitInMegabytes: DWORD,
-            InboundBandwidthInKbps: DWORD,
-            OutboundBandwidthInKbps: DWORD,
+            DataLimitInMegabytes: u32,
+            InboundBandwidthInKbps: u32,
+            OutboundBandwidthInKbps: u32,
             BillingCycle: WCM_BILLING_CYCLE_INFO,
-            MaxTransferSizeInMegabytes: DWORD,
-            Reserved: DWORD,
+            MaxTransferSizeInMegabytes: u32,
+            Reserved: u32,
         }
         const WCM_MAX_PROFILE_NAME: i32 = 256;
         #[repr(i32)]
@@ -64,13 +64,12 @@ mod Windows {
             fIsGroupPolicy: BOOL,
         }
         struct WCM_PROFILE_INFO {
-            strProfileName: [WCHAR; 256],
+            strProfileName: [u16; 256],
             AdapterGUID: GUID,
             Media: WCM_MEDIA_TYPE,
         }
         struct WCM_PROFILE_INFO_LIST {
-            dwNumberOfItems: DWORD,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "dwNumberOfItems", IsByteCount = false, MayBeNull = false)]
+            dwNumberOfItems: u32,
             ProfileInfo: [WCM_PROFILE_INFO; 1],
         }
         #[repr(i32)]
@@ -84,28 +83,28 @@ mod Windows {
             wcm_intf_property_hotspot_profile = 6,
         }
         struct WCM_TIME_INTERVAL {
-            wYear: WORD,
-            wMonth: WORD,
-            wDay: WORD,
-            wHour: WORD,
-            wMinute: WORD,
-            wSecond: WORD,
-            wMilliseconds: WORD,
+            wYear: u16,
+            wMonth: u16,
+            wDay: u16,
+            wHour: u16,
+            wMinute: u16,
+            wSecond: u16,
+            wMilliseconds: u16,
         }
         const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295;
         struct WCM_USAGE_DATA {
-            UsageInMegabytes: DWORD,
+            UsageInMegabytes: u32,
             LastSyncTime: FILETIME,
         }
         #[library("wcmapi.dll")]
-        extern fn WcmFreeMemory(#[Windows::Win32::Metadata::NativeSal("L", "__deallocate", "Mem", "Mem")] pMemory: *mut void);
+        extern fn WcmFreeMemory(pMemory: *mut void);
         #[library("wcmapi.dll")]
-        extern fn WcmGetProfileList(#[reserved] pReserved: *mut void, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppProfileList: *mut *mut WCM_PROFILE_INFO_LIST) -> DWORD;
+        extern fn WcmGetProfileList(#[reserved] pReserved: *mut void, ppProfileList: *mut *mut WCM_PROFILE_INFO_LIST) -> u32;
         #[library("wcmapi.dll")]
-        extern fn WcmQueryProperty(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterface: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strProfileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Property: WCM_PROPERTY, #[reserved] pReserved: *mut void, #[out] pdwDataSize: PDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pdwDataSize", "*pdwDataSize")] #[out] ppData: *mut PBYTE) -> DWORD;
+        extern fn WcmQueryProperty(#[opt] pInterface: *const GUID, #[opt] strProfileName: PCWSTR, Property: WCM_PROPERTY, #[reserved] pReserved: *mut void, #[out] pdwDataSize: PDWORD, ppData: *mut PBYTE) -> u32;
         #[library("wcmapi.dll")]
-        extern fn WcmSetProfileList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProfileList: *mut WCM_PROFILE_INFO_LIST, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPosition: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fIgnoreUnknownProfiles: BOOL, #[reserved] pReserved: *mut void) -> DWORD;
+        extern fn WcmSetProfileList(#[in] pProfileList: *mut WCM_PROFILE_INFO_LIST, dwPosition: u32, fIgnoreUnknownProfiles: BOOL, #[reserved] pReserved: *mut void) -> u32;
         #[library("wcmapi.dll")]
-        extern fn WcmSetProperty(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterface: *const GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] strProfileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Property: WCM_PROPERTY, #[reserved] pReserved: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDataSize: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] pbData: *const BYTE) -> DWORD;
+        extern fn WcmSetProperty(#[opt] pInterface: *const GUID, #[opt] strProfileName: PCWSTR, Property: WCM_PROPERTY, #[reserved] pReserved: *mut void, dwDataSize: u32, #[len_param(4)] #[opt] pbData: *const u8) -> u32;
     }
 }

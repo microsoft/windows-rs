@@ -6,10 +6,10 @@ mod Windows {
         const BPPF_NOCLIP: i32 = 2;
         const BPPF_NONCLIENT: i32 = 4;
         struct BP_ANIMATIONPARAMS {
-            cbSize: DWORD,
-            dwFlags: DWORD,
+            cbSize: u32,
+            dwFlags: u32,
             style: BP_ANIMATIONSTYLE,
-            dwDuration: DWORD,
+            dwDuration: u32,
         }
         #[repr(i32)]
         enum BP_ANIMATIONSTYLE {
@@ -26,35 +26,34 @@ mod Windows {
             BPBF_TOPDOWNMONODIB = 3,
         }
         struct BP_PAINTPARAMS {
-            cbSize: DWORD,
-            dwFlags: DWORD,
+            cbSize: u32,
+            dwFlags: u32,
             prcExclude: *const RECT,
             pBlendFunction: *const BLENDFUNCTION,
         }
         #[library("UxTheme.dll")]
-        extern fn BeginBufferedAnimation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdcTarget: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prcTarget: *const RECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFormat: BP_BUFFERFORMAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPaintParams: *mut BP_PAINTPARAMS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAnimationParams: *mut BP_ANIMATIONPARAMS, #[out] phdcFrom: *mut HDC, #[out] phdcTo: *mut HDC) -> HANIMATIONBUFFER;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn BeginBufferedAnimation(hwnd: HWND, hdcTarget: HDC, prcTarget: *const RECT, dwFormat: BP_BUFFERFORMAT, #[in] #[opt] pPaintParams: *mut BP_PAINTPARAMS, #[in] pAnimationParams: *mut BP_ANIMATIONPARAMS, phdcFrom: *mut HDC, phdcTo: *mut HDC) -> HANIMATIONBUFFER;
         #[library("UxTheme.dll")]
-        extern fn BeginBufferedPaint(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdcTarget: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prcTarget: *const RECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFormat: BP_BUFFERFORMAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPaintParams: *mut BP_PAINTPARAMS, #[out] phdc: *mut HDC) -> HPAINTBUFFER;
+        extern fn BeginBufferedPaint(hdcTarget: HDC, prcTarget: *const RECT, dwFormat: BP_BUFFERFORMAT, #[in] #[opt] pPaintParams: *mut BP_PAINTPARAMS, phdc: *mut HDC) -> HPAINTBUFFER;
         #[library("UxTheme.dll")]
-        extern fn BeginPanningFeedback(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND) -> BOOL;
+        extern fn BeginPanningFeedback(hwnd: HWND) -> BOOL;
         #[library("UxTheme.dll")]
-        extern fn BufferedPaintClear(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hBufferedPaint: HPAINTBUFFER, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prc: *const RECT) -> HRESULT;
+        extern fn BufferedPaintClear(hBufferedPaint: HPAINTBUFFER, #[opt] prc: *const RECT) -> HRESULT;
         #[library("UxTheme.dll")]
         extern fn BufferedPaintInit() -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn BufferedPaintRenderAnimation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdcTarget: HDC) -> BOOL;
+        extern fn BufferedPaintRenderAnimation(hwnd: HWND, hdcTarget: HDC) -> BOOL;
         #[library("UxTheme.dll")]
-        extern fn BufferedPaintSetAlpha(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hBufferedPaint: HPAINTBUFFER, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prc: *const RECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] alpha: BYTE) -> HRESULT;
+        extern fn BufferedPaintSetAlpha(hBufferedPaint: HPAINTBUFFER, #[opt] prc: *const RECT, alpha: u8) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn BufferedPaintStopAllAnimations(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND) -> HRESULT;
+        extern fn BufferedPaintStopAllAnimations(hwnd: HWND) -> HRESULT;
         #[library("UxTheme.dll")]
         extern fn BufferedPaintUnInit() -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn CloseThemeData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME) -> HRESULT;
+        extern fn CloseThemeData(hTheme: HTHEME) -> HRESULT;
         struct DTBGOPTS {
-            dwSize: DWORD,
-            dwFlags: DWORD,
+            dwSize: u32,
+            dwFlags: u32,
             rcClip: RECT,
         }
         const DTBG_CLIPRECT: i32 = 1;
@@ -69,8 +68,8 @@ mod Windows {
         const DTPB_USEERASEBKGND: i32 = 4;
         const DTPB_WINDOWDC: i32 = 1;
         struct DTTOPTS {
-            dwSize: DWORD,
-            dwFlags: DWORD,
+            dwSize: u32,
+            dwFlags: u32,
             crText: COLORREF,
             crBorder: COLORREF,
             crShadow: COLORREF,
@@ -90,7 +89,7 @@ mod Windows {
         const DTT_BORDERSIZE: u32 = 32;
         const DTT_CALCRECT: u32 = 512;
         const DTT_CALLBACK: u32 = 4096;
-        extern fn DTT_CALLBACK_PROC(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[out] #[len_param(2)] pszText: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: i32, #[in] #[out] prc: LPRECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LPARAM) -> i32;
+        extern fn DTT_CALLBACK_PROC(hdc: HDC, #[len_param(2)] #[in] #[out] pszText: PWSTR, cchText: i32, #[in] #[out] prc: LPRECT, dwFlags: u32, lParam: LPARAM) -> i32;
         const DTT_COLORPROP: u32 = 128;
         const DTT_COMPOSITED: u32 = 8192;
         const DTT_FLAGS2VALIDBITS: i32 = 1;
@@ -104,21 +103,21 @@ mod Windows {
         const DTT_TEXTCOLOR: u32 = 1;
         const DTT_VALIDBITS: u32 = 12287;
         #[library("UxTheme.dll")]
-        extern fn DrawThemeBackground(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRect: LPCRECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pClipRect: LPCRECT) -> HRESULT;
+        extern fn DrawThemeBackground(hTheme: HTHEME, hdc: HDC, iPartId: i32, iStateId: i32, pRect: LPCRECT, #[opt] pClipRect: LPCRECT) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn DrawThemeBackgroundEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRect: LPCRECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOptions: *const DTBGOPTS) -> HRESULT;
+        extern fn DrawThemeBackgroundEx(hTheme: HTHEME, hdc: HDC, iPartId: i32, iStateId: i32, pRect: LPCRECT, #[opt] pOptions: *const DTBGOPTS) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn DrawThemeEdge(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDestRect: LPCRECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uEdge: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: UINT, #[out] #[opt] pContentRect: LPRECT) -> HRESULT;
+        extern fn DrawThemeEdge(hTheme: HTHEME, hdc: HDC, iPartId: i32, iStateId: i32, pDestRect: LPCRECT, uEdge: u32, uFlags: u32, #[out] #[opt] pContentRect: LPRECT) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn DrawThemeIcon(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRect: LPCRECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] himl: HIMAGELIST, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iImageIndex: i32) -> HRESULT;
+        extern fn DrawThemeIcon(hTheme: HTHEME, hdc: HDC, iPartId: i32, iStateId: i32, pRect: LPCRECT, himl: HIMAGELIST, iImageIndex: i32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn DrawThemeParentBackground(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prc: *const RECT) -> HRESULT;
+        extern fn DrawThemeParentBackground(hwnd: HWND, hdc: HDC, #[opt] prc: *const RECT) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn DrawThemeParentBackgroundEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prc: *const RECT) -> HRESULT;
+        extern fn DrawThemeParentBackgroundEx(hwnd: HWND, hdc: HDC, dwFlags: u32, #[opt] prc: *const RECT) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn DrawThemeText(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] pszText: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTextFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTextFlags2: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRect: LPCRECT) -> HRESULT;
+        extern fn DrawThemeText(hTheme: HTHEME, hdc: HDC, iPartId: i32, iStateId: i32, #[len_param(5)] pszText: PCWSTR, cchText: i32, dwTextFlags: u32, dwTextFlags2: u32, pRect: LPCRECT) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn DrawThemeTextEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] pszText: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTextFlags: DWORD, #[in] #[out] pRect: LPRECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOptions: *const DTTOPTS) -> HRESULT;
+        extern fn DrawThemeTextEx(hTheme: HTHEME, hdc: HDC, iPartId: i32, iStateId: i32, #[len_param(5)] pszText: PCWSTR, cchText: i32, dwTextFlags: u32, #[in] #[out] pRect: LPRECT, #[opt] pOptions: *const DTTOPTS) -> HRESULT;
         const ETDT_DISABLE: i32 = 1;
         const ETDT_ENABLE: i32 = 2;
         const ETDT_ENABLEAEROWIZARDTAB: i32 = 10;
@@ -127,100 +126,100 @@ mod Windows {
         const ETDT_USETABTEXTURE: i32 = 4;
         const ETDT_VALIDBITS: i32 = 15;
         #[library("UxTheme.dll")]
-        extern fn EnableThemeDialogTexture(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HRESULT;
+        extern fn EnableThemeDialogTexture(hwnd: HWND, dwFlags: u32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn EnableTheming(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fEnable: BOOL) -> HRESULT;
+        extern fn EnableTheming(fEnable: BOOL) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn EndBufferedAnimation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hbpAnimation: HANIMATIONBUFFER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fUpdateTarget: BOOL) -> HRESULT;
+        extern fn EndBufferedAnimation(hbpAnimation: HANIMATIONBUFFER, fUpdateTarget: BOOL) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn EndBufferedPaint(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hBufferedPaint: HPAINTBUFFER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fUpdateTarget: BOOL) -> HRESULT;
+        extern fn EndBufferedPaint(hBufferedPaint: HPAINTBUFFER, fUpdateTarget: BOOL) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn EndPanningFeedback(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fAnimateBack: BOOL) -> BOOL;
+        extern fn EndPanningFeedback(hwnd: HWND, fAnimateBack: BOOL) -> BOOL;
         const GBF_COPY: i32 = 2;
         const GBF_DIRECT: i32 = 1;
         const GBF_VALIDBITS: i32 = 3;
         #[library("UxTheme.dll")]
-        extern fn GetBufferedPaintBits(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hBufferedPaint: HPAINTBUFFER, #[out] ppbBuffer: *mut *mut RGBQUAD, #[out] pcxRow: *mut i32) -> HRESULT;
+        extern fn GetBufferedPaintBits(hBufferedPaint: HPAINTBUFFER, ppbBuffer: *mut *mut RGBQUAD, pcxRow: *mut i32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetBufferedPaintDC(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hBufferedPaint: HPAINTBUFFER) -> HDC;
+        extern fn GetBufferedPaintDC(hBufferedPaint: HPAINTBUFFER) -> HDC;
         #[library("UxTheme.dll")]
-        extern fn GetBufferedPaintTargetDC(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hBufferedPaint: HPAINTBUFFER) -> HDC;
+        extern fn GetBufferedPaintTargetDC(hBufferedPaint: HPAINTBUFFER) -> HDC;
         #[library("UxTheme.dll")]
-        extern fn GetBufferedPaintTargetRect(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hBufferedPaint: HPAINTBUFFER, #[out] prc: *mut RECT) -> HRESULT;
+        extern fn GetBufferedPaintTargetRect(hBufferedPaint: HPAINTBUFFER, prc: *mut RECT) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetCurrentThemeName(#[out] #[len_param(1)] pszThemeFileName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMaxNameChars: i32, #[out] #[opt] #[len_param(3)] pszColorBuff: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMaxColorChars: i32, #[out] #[opt] #[len_param(5)] pszSizeBuff: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMaxSizeChars: i32) -> HRESULT;
+        extern fn GetCurrentThemeName(#[len_param(1)] #[out] pszThemeFileName: PWSTR, cchMaxNameChars: i32, #[len_param(3)] #[out] #[opt] pszColorBuff: PWSTR, cchMaxColorChars: i32, #[len_param(5)] #[out] #[opt] pszSizeBuff: PWSTR, cchMaxSizeChars: i32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeAnimationProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStoryboardId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iTargetId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eProperty: TA_PROPERTY, #[out] #[opt] #[size_param(5)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 6, IsByteCount = true, Dereference = true)] pvProperty: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSize: DWORD, #[out] pcbSizeOut: *mut DWORD) -> HRESULT;
+        extern fn GetThemeAnimationProperty(hTheme: HTHEME, iStoryboardId: i32, iTargetId: i32, eProperty: TA_PROPERTY, #[size_param(5)] #[opt] pvProperty: *mut void, cbSize: u32, pcbSizeOut: *mut u32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeAnimationTransform(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStoryboardId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iTargetId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTransformIndex: DWORD, #[out] #[opt] #[size_param(5)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 6, IsByteCount = true, Dereference = true)] pTransform: *mut TA_TRANSFORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSize: DWORD, #[out] pcbSizeOut: *mut DWORD) -> HRESULT;
+        extern fn GetThemeAnimationTransform(hTheme: HTHEME, iStoryboardId: i32, iTargetId: i32, dwTransformIndex: u32, #[size_param(5)] #[opt] pTransform: *mut TA_TRANSFORM, cbSize: u32, pcbSizeOut: *mut u32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeAppProperties() -> DWORD;
+        extern fn GetThemeAppProperties() -> u32;
         #[library("UxTheme.dll")]
-        extern fn GetThemeBackgroundContentRect(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBoundingRect: LPCRECT, #[out] pContentRect: LPRECT) -> HRESULT;
+        extern fn GetThemeBackgroundContentRect(hTheme: HTHEME, #[opt] hdc: HDC, iPartId: i32, iStateId: i32, pBoundingRect: LPCRECT, #[out] pContentRect: LPRECT) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeBackgroundExtent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pContentRect: LPCRECT, #[out] pExtentRect: LPRECT) -> HRESULT;
+        extern fn GetThemeBackgroundExtent(hTheme: HTHEME, #[opt] hdc: HDC, iPartId: i32, iStateId: i32, pContentRect: LPCRECT, #[out] pExtentRect: LPRECT) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeBackgroundRegion(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRect: LPCRECT, #[out] pRegion: *mut HRGN) -> HRESULT;
+        extern fn GetThemeBackgroundRegion(hTheme: HTHEME, #[opt] hdc: HDC, iPartId: i32, iStateId: i32, pRect: LPCRECT, pRegion: *mut HRGN) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeBitmap(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: ULONG, #[out] phBitmap: *mut HBITMAP) -> HRESULT;
+        extern fn GetThemeBitmap(hTheme: HTHEME, iPartId: i32, iStateId: i32, iPropId: i32, dwFlags: u32, phBitmap: *mut HBITMAP) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeBool(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] pfVal: *mut BOOL) -> HRESULT;
+        extern fn GetThemeBool(hTheme: HTHEME, iPartId: i32, iStateId: i32, iPropId: i32, pfVal: *mut BOOL) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeColor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] pColor: *mut COLORREF) -> HRESULT;
+        extern fn GetThemeColor(hTheme: HTHEME, iPartId: i32, iStateId: i32, iPropId: i32, pColor: *mut COLORREF) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeDocumentationProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszThemeName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPropertyName: LPCWSTR, #[out] #[len_param(3)] pszValueBuff: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMaxValChars: i32) -> HRESULT;
+        extern fn GetThemeDocumentationProperty(pszThemeName: PCWSTR, pszPropertyName: PCWSTR, #[len_param(3)] #[out] pszValueBuff: PWSTR, cchMaxValChars: i32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeEnumValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] piVal: *mut i32) -> HRESULT;
+        extern fn GetThemeEnumValue(hTheme: HTHEME, iPartId: i32, iStateId: i32, iPropId: i32, piVal: *mut i32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeFilename(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] #[len_param(5)] pszThemeFileName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMaxBuffChars: i32) -> HRESULT;
+        extern fn GetThemeFilename(hTheme: HTHEME, iPartId: i32, iStateId: i32, iPropId: i32, #[len_param(5)] #[out] pszThemeFileName: PWSTR, cchMaxBuffChars: i32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeFont(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] pFont: *mut LOGFONTW) -> HRESULT;
+        extern fn GetThemeFont(hTheme: HTHEME, #[opt] hdc: HDC, iPartId: i32, iStateId: i32, iPropId: i32, pFont: *mut LOGFONTW) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeInt(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] piVal: *mut i32) -> HRESULT;
+        extern fn GetThemeInt(hTheme: HTHEME, iPartId: i32, iStateId: i32, iPropId: i32, piVal: *mut i32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeIntList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] pIntList: *mut INTLIST) -> HRESULT;
+        extern fn GetThemeIntList(hTheme: HTHEME, iPartId: i32, iStateId: i32, iPropId: i32, pIntList: *mut INTLIST) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeMargins(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prc: LPCRECT, #[out] pMargins: *mut MARGINS) -> HRESULT;
+        extern fn GetThemeMargins(hTheme: HTHEME, #[opt] hdc: HDC, iPartId: i32, iStateId: i32, iPropId: i32, #[opt] prc: LPCRECT, pMargins: *mut MARGINS) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeMetric(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] piVal: *mut i32) -> HRESULT;
+        extern fn GetThemeMetric(hTheme: HTHEME, #[opt] hdc: HDC, iPartId: i32, iStateId: i32, iPropId: i32, piVal: *mut i32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemePartSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prc: LPCRECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eSize: THEMESIZE, #[out] psz: *mut SIZE) -> HRESULT;
+        extern fn GetThemePartSize(hTheme: HTHEME, #[opt] hdc: HDC, iPartId: i32, iStateId: i32, #[opt] prc: LPCRECT, eSize: THEMESIZE, psz: *mut SIZE) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemePosition(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] pPoint: *mut POINT) -> HRESULT;
+        extern fn GetThemePosition(hTheme: HTHEME, iPartId: i32, iStateId: i32, iPropId: i32, pPoint: *mut POINT) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemePropertyOrigin(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] pOrigin: *mut PROPERTYORIGIN) -> HRESULT;
+        extern fn GetThemePropertyOrigin(hTheme: HTHEME, iPartId: i32, iStateId: i32, iPropId: i32, pOrigin: *mut PROPERTYORIGIN) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeRect(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] pRect: LPRECT) -> HRESULT;
+        extern fn GetThemeRect(hTheme: HTHEME, iPartId: i32, iStateId: i32, iPropId: i32, #[out] pRect: LPRECT) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeStream(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] ppvStream: *mut *mut void, #[out] #[opt] pcbStream: *mut DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hInst: HINSTANCE) -> HRESULT;
+        extern fn GetThemeStream(hTheme: HTHEME, iPartId: i32, iStateId: i32, iPropId: i32, ppvStream: *mut *mut void, #[opt] pcbStream: *mut u32, #[opt] hInst: HINSTANCE) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] #[len_param(5)] pszBuff: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMaxBuffChars: i32) -> HRESULT;
+        extern fn GetThemeString(hTheme: HTHEME, iPartId: i32, iStateId: i32, iPropId: i32, #[len_param(5)] #[out] pszBuff: PWSTR, cchMaxBuffChars: i32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeSysBool(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iBoolId: i32) -> BOOL;
+        extern fn GetThemeSysBool(#[opt] hTheme: HTHEME, iBoolId: i32) -> BOOL;
         #[library("UxTheme.dll")]
-        extern fn GetThemeSysColor(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iColorId: i32) -> COLORREF;
+        extern fn GetThemeSysColor(#[opt] hTheme: HTHEME, iColorId: i32) -> COLORREF;
         #[library("UxTheme.dll")]
-        extern fn GetThemeSysColorBrush(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iColorId: i32) -> HBRUSH;
+        extern fn GetThemeSysColorBrush(#[opt] hTheme: HTHEME, iColorId: i32) -> HBRUSH;
         #[library("UxTheme.dll")]
-        extern fn GetThemeSysFont(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iFontId: i32, #[out] plf: *mut LOGFONTW) -> HRESULT;
+        extern fn GetThemeSysFont(#[opt] hTheme: HTHEME, iFontId: i32, plf: *mut LOGFONTW) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeSysInt(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iIntId: i32, #[out] piValue: *mut i32) -> HRESULT;
+        extern fn GetThemeSysInt(hTheme: HTHEME, iIntId: i32, piValue: *mut i32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeSysSize(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iSizeId: i32) -> i32;
+        extern fn GetThemeSysSize(#[opt] hTheme: HTHEME, iSizeId: i32) -> i32;
         #[library("UxTheme.dll")]
-        extern fn GetThemeSysString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStringId: i32, #[out] #[len_param(3)] pszStringBuff: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMaxStringChars: i32) -> HRESULT;
+        extern fn GetThemeSysString(hTheme: HTHEME, iStringId: i32, #[len_param(3)] #[out] pszStringBuff: PWSTR, cchMaxStringChars: i32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeTextExtent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] pszText: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchCharCount: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTextFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBoundingRect: LPCRECT, #[out] pExtentRect: LPRECT) -> HRESULT;
+        extern fn GetThemeTextExtent(hTheme: HTHEME, hdc: HDC, iPartId: i32, iStateId: i32, #[len_param(5)] pszText: PCWSTR, cchCharCount: i32, dwTextFlags: u32, #[opt] pBoundingRect: LPCRECT, #[out] pExtentRect: LPRECT) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeTextMetrics(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[out] ptm: *mut TEXTMETRICW) -> HRESULT;
+        extern fn GetThemeTextMetrics(hTheme: HTHEME, hdc: HDC, iPartId: i32, iStateId: i32, ptm: *mut TEXTMETRICW) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeTimingFunction(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iTimingFunctionId: i32, #[out] #[opt] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] pTimingFunction: *mut TA_TIMINGFUNCTION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSize: DWORD, #[out] pcbSizeOut: *mut DWORD) -> HRESULT;
+        extern fn GetThemeTimingFunction(hTheme: HTHEME, iTimingFunctionId: i32, #[size_param(3)] #[opt] pTimingFunction: *mut TA_TIMINGFUNCTION, cbSize: u32, pcbSizeOut: *mut u32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeTransitionDuration(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateIdFrom: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateIdTo: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPropId: i32, #[out] pdwDuration: *mut DWORD) -> HRESULT;
+        extern fn GetThemeTransitionDuration(hTheme: HTHEME, iPartId: i32, iStateIdFrom: i32, iStateIdTo: i32, iPropId: i32, pdwDuration: *mut u32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetWindowTheme(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND) -> HTHEME;
-        type HANIMATIONBUFFER = *mut void;
-        type HPAINTBUFFER = *mut void;
+        extern fn GetWindowTheme(hwnd: HWND) -> HTHEME;
+        type HANIMATIONBUFFER = HANDLE;
+        type HPAINTBUFFER = HANDLE;
         const HTTB_BACKGROUNDSEG: i32 = 0;
         const HTTB_CAPTION: i32 = 4;
         const HTTB_FIXEDBORDER: i32 = 2;
@@ -232,7 +231,7 @@ mod Windows {
         const HTTB_SIZINGTEMPLATE: i32 = 256;
         const HTTB_SYSTEMSIZINGMARGINS: i32 = 512;
         #[library("UxTheme.dll")]
-        extern fn HitTestThemeBackground(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hdc: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRect: LPCRECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hrgn: HRGN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ptTest: POINT, #[out] pwHitTestCode: *mut WORD) -> HRESULT;
+        extern fn HitTestThemeBackground(hTheme: HTHEME, #[opt] hdc: HDC, iPartId: i32, iStateId: i32, dwOptions: u32, pRect: LPCRECT, #[opt] hrgn: HRGN, ptTest: POINT, pwHitTestCode: *mut u16) -> HRESULT;
         struct INTLIST {
             iValueCount: i32,
             iValues: [i32; 402],
@@ -244,11 +243,11 @@ mod Windows {
         #[library("UxTheme.dll")]
         extern fn IsThemeActive() -> BOOL;
         #[library("UxTheme.dll")]
-        extern fn IsThemeBackgroundPartiallyTransparent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32) -> BOOL;
+        extern fn IsThemeBackgroundPartiallyTransparent(hTheme: HTHEME, iPartId: i32, iStateId: i32) -> BOOL;
         #[library("UxTheme.dll")]
-        extern fn IsThemeDialogTextureEnabled(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND) -> BOOL;
+        extern fn IsThemeDialogTextureEnabled(hwnd: HWND) -> BOOL;
         #[library("UxTheme.dll")]
-        extern fn IsThemePartDefined(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTheme: HTHEME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPartId: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iStateId: i32) -> BOOL;
+        extern fn IsThemePartDefined(hTheme: HTHEME, iPartId: i32, iStateId: i32) -> BOOL;
         struct MARGINS {
             cxLeftWidth: i32,
             cxRightWidth: i32,
@@ -262,11 +261,11 @@ mod Windows {
         const OTD_NONCLIENT: i32 = 2;
         const OTD_VALIDBITS: i32 = 3;
         #[library("UxTheme.dll")]
-        extern fn OpenThemeData(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszClassList: LPCWSTR) -> HTHEME;
+        extern fn OpenThemeData(#[opt] hwnd: HWND, pszClassList: PCWSTR) -> HTHEME;
         #[library("UxTheme.dll")]
-        extern fn OpenThemeDataEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszClassList: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HTHEME;
+        extern fn OpenThemeDataEx(#[opt] hwnd: HWND, pszClassList: PCWSTR, dwFlags: u32) -> HTHEME;
         #[library("UxTheme.dll")]
-        extern fn OpenThemeDataForDpi(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszClassList: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dpi: UINT) -> HTHEME;
+        extern fn OpenThemeDataForDpi(#[opt] hwnd: HWND, pszClassList: PCWSTR, dpi: u32) -> HTHEME;
         type PBP_ANIMATIONPARAMS = *mut BP_ANIMATIONPARAMS;
         type PBP_PAINTPARAMS = *mut BP_PAINTPARAMS;
         type PDTBGOPTS = *mut DTBGOPTS;
@@ -301,12 +300,11 @@ mod Windows {
         #[encoding("utf-16")]
         const SZ_THDOCPROP_TOOLTIP: String = "ToolTip";
         #[library("UxTheme.dll")]
-        extern fn SetThemeAppProperties(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD);
+        extern fn SetThemeAppProperties(dwFlags: u32);
         #[library("UxTheme.dll")]
-        extern fn SetWindowTheme(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubAppName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszSubIdList: LPCWSTR) -> HRESULT;
+        extern fn SetWindowTheme(hwnd: HWND, #[opt] pszSubAppName: PCWSTR, #[opt] pszSubIdList: PCWSTR) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn SetWindowThemeAttribute(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eAttribute: WINDOWTHEMEATTRIBUTETYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pvAttribute: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbAttribute: DWORD) -> HRESULT;
-        #[packed(8)]
+        extern fn SetWindowThemeAttribute(hwnd: HWND, eAttribute: WINDOWTHEMEATTRIBUTETYPE, #[size_param(3)] #[in] pvAttribute: *mut void, cbAttribute: u32) -> HRESULT;
         struct TA_CUBIC_BEZIER {
             header: TA_TIMINGFUNCTION,
             rX0: f32,
@@ -323,7 +321,8 @@ mod Windows {
             TAP_STAGGERDELAYFACTOR = 4,
             TAP_ZORDER = 5,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum TA_PROPERTY_FLAG {
             TAPF_NONE = 0,
             TAPF_HASSTAGGER = 1,
@@ -332,7 +331,6 @@ mod Windows {
             TAPF_HASBACKGROUND = 8,
             TAPF_HASPERSPECTIVE = 16,
         }
-        #[packed(8)]
         struct TA_TIMINGFUNCTION {
             eTimingFunctionType: TA_TIMINGFUNCTION_TYPE,
         }
@@ -341,15 +339,13 @@ mod Windows {
             TTFT_UNDEFINED = 0,
             TTFT_CUBIC_BEZIER = 1,
         }
-        #[packed(8)]
         struct TA_TRANSFORM {
             eTransformType: TA_TRANSFORM_TYPE,
-            dwTimingFunctionId: DWORD,
-            dwStartTime: DWORD,
-            dwDurationTime: DWORD,
+            dwTimingFunctionId: u32,
+            dwStartTime: u32,
+            dwDurationTime: u32,
             eFlags: TA_TRANSFORM_FLAG,
         }
-        #[packed(8)]
         struct TA_TRANSFORM_2D {
             header: TA_TRANSFORM,
             rX: f32,
@@ -359,7 +355,6 @@ mod Windows {
             rOriginX: f32,
             rOriginY: f32,
         }
-        #[packed(8)]
         struct TA_TRANSFORM_CLIP {
             header: TA_TRANSFORM,
             rLeft: f32,
@@ -371,14 +366,14 @@ mod Windows {
             rInitialRight: f32,
             rInitialBottom: f32,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum TA_TRANSFORM_FLAG {
             TATF_NONE = 0,
             TATF_TARGETVALUES_USER = 1,
             TATF_HASINITIALVALUES = 2,
             TATF_HASORIGINVALUES = 4,
         }
-        #[packed(8)]
         struct TA_TRANSFORM_OPACITY {
             header: TA_TRANSFORM,
             rOpacity: f32,
@@ -398,14 +393,14 @@ mod Windows {
             TS_DRAW = 2,
         }
         #[library("UxTheme.dll")]
-        extern fn UpdatePanningFeedback(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lTotalOverpanOffsetX: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lTotalOverpanOffsetY: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fInInertia: BOOL) -> BOOL;
+        extern fn UpdatePanningFeedback(hwnd: HWND, lTotalOverpanOffsetX: i32, lTotalOverpanOffsetY: i32, fInInertia: BOOL) -> BOOL;
         #[repr(i32)]
         enum WINDOWTHEMEATTRIBUTETYPE {
             WTA_NONCLIENT = 1,
         }
         struct WTA_OPTIONS {
-            dwFlags: DWORD,
-            dwMask: DWORD,
+            dwFlags: u32,
+            dwMask: u32,
         }
         const WTNCA_NODRAWCAPTION: i32 = 1;
         const WTNCA_NODRAWICON: i32 = 2;

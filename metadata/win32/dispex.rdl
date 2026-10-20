@@ -3,48 +3,41 @@ mod Windows {
     mod Win32 {
         const DISPATCH_CONSTRUCT: i32 = 16384;
         const DISPID_STARTENUM: i32 = -1;
-        const DISPID_THIS: i32 = -613;
         #[guid(0xc5598e60_b307_11d1_b27d_006008c3fbfb)]
         interface ICanHandleException: IUnknown {
-            fn CanHandleException(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pExcepInfo: *mut EXCEPINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pvar: *mut VARIANT) -> HRESULT;
+            fn CanHandleException(&self, #[in] pExcepInfo: *mut EXCEPINFO, #[in] pvar: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xa6ef9861_c720_11d0_9337_00a0c90dcaa9)]
         interface IDispError: IUnknown {
-            fn QueryErrorInfo(&self, guidErrorType: GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppde: *mut IDispError) -> HRESULT;
-            fn GetNext(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppde: *mut IDispError) -> HRESULT;
-            fn GetHresult(&self, #[out] phr: *mut HRESULT) -> HRESULT;
-            fn GetSource(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pbstrSource: *mut BSTR) -> HRESULT;
-            fn GetHelpInfo(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pbstrFileName: *mut BSTR, #[out] pdwContext: *mut DWORD) -> HRESULT;
-            fn GetDescription(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pbstrDescription: *mut BSTR) -> HRESULT;
+            fn QueryErrorInfo(&self, guidErrorType: GUID, ppde: *mut IDispError) -> HRESULT;
+            fn GetNext(&self, ppde: *mut IDispError) -> HRESULT;
+            fn GetHresult(&self, phr: *mut HRESULT) -> HRESULT;
+            fn GetSource(&self, pbstrSource: *mut BSTR) -> HRESULT;
+            fn GetHelpInfo(&self, pbstrFileName: *mut BSTR, pdwContext: *mut u32) -> HRESULT;
+            fn GetDescription(&self, pbstrDescription: *mut BSTR) -> HRESULT;
         }
         #[guid(0xa6ef9860_c720_11d0_9337_00a0c90dcaa9)]
         interface IDispatchEx: IDispatch {
-            fn GetDispID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrName: BSTR, grfdex: DWORD, #[out] pid: *mut DISPID) -> HRESULT;
-            fn InvokeEx(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] id: DISPID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lcid: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wFlags: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pdp: *mut DISPPARAMS, #[out] #[opt] pvarRes: *mut VARIANT, #[out] #[opt] pei: *mut EXCEPINFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pspCaller: IServiceProvider) -> HRESULT;
-            fn DeleteMemberByName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrName: BSTR, grfdex: DWORD) -> HRESULT;
+            fn GetDispID(&self, bstrName: BSTR, grfdex: u32, pid: *mut DISPID) -> HRESULT;
+            fn InvokeEx(&self, id: DISPID, lcid: LCID, wFlags: u16, #[in] pdp: *mut DISPPARAMS, #[opt] pvarRes: *mut VARIANT, #[opt] pei: *mut EXCEPINFO, #[opt] pspCaller: IServiceProvider) -> HRESULT;
+            fn DeleteMemberByName(&self, bstrName: BSTR, grfdex: u32) -> HRESULT;
             fn DeleteMemberByDispID(&self, id: DISPID) -> HRESULT;
-            fn GetMemberProperties(&self, id: DISPID, grfdexFetch: DWORD, #[out] pgrfdex: *mut DWORD) -> HRESULT;
-            fn GetMemberName(&self, id: DISPID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pbstrName: *mut BSTR) -> HRESULT;
-            fn GetNextDispID(&self, grfdex: DWORD, id: DISPID, #[out] pid: *mut DISPID) -> HRESULT;
-            fn GetNameSpaceParent(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppunk: *mut IUnknown) -> HRESULT;
+            fn GetMemberProperties(&self, id: DISPID, grfdexFetch: u32, pgrfdex: *mut u32) -> HRESULT;
+            fn GetMemberName(&self, id: DISPID, pbstrName: *mut BSTR) -> HRESULT;
+            fn GetNextDispID(&self, grfdex: u32, id: DISPID, pid: *mut DISPID) -> HRESULT;
+            fn GetNameSpaceParent(&self, ppunk: *mut IUnknown) -> HRESULT;
         }
-        const IID_ICanHandleException: GUID = 0xc5598e60_b307_11d1_b27d_006008c3fbfb;
-        const IID_IDispError: GUID = 0xa6ef9861_c720_11d0_9337_00a0c90dcaa9;
-        const IID_IDispatchEx: GUID = 0xa6ef9860_c720_11d0_9337_00a0c90dcaa9;
-        const IID_IObjectIdentity: GUID = 0xca04b7e6_0d21_11d1_8cc5_00c04fc2b085;
-        const IID_IProvideRuntimeContext: GUID = 0x10e2414a_ec59_49d2_bc51_5add2c36febc;
-        const IID_IVariantChangeType: GUID = 0xa6ef9862_c720_11d0_9337_00a0c90dcaa9;
         #[guid(0xca04b7e6_0d21_11d1_8cc5_00c04fc2b085)]
         interface IObjectIdentity: IUnknown {
-            fn IsEqualObject(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] punk: IUnknown) -> HRESULT;
+            fn IsEqualObject(&self, punk: IUnknown) -> HRESULT;
         }
         #[guid(0x10e2414a_ec59_49d2_bc51_5add2c36febc)]
         interface IProvideRuntimeContext: IUnknown {
-            fn GetCurrentSourceContext(&self, #[out] pdwContext: *mut DWORD_PTR, #[out] pfExecutingGlobalCode: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetCurrentSourceContext(&self, pdwContext: *mut usize, pfExecutingGlobalCode: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xa6ef9862_c720_11d0_9337_00a0c90dcaa9)]
         interface IVariantChangeType: IUnknown {
-            fn ChangeType(&self, #[in] #[out] #[opt] pvarDst: *mut VARIANT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pvarSrc: *mut VARIANT, lcid: LCID, vtNew: VARTYPE) -> HRESULT;
+            fn ChangeType(&self, #[in] #[out] pvarDst: *mut VARIANT, #[in] pvarSrc: *mut VARIANT, lcid: LCID, vtNew: VARTYPE) -> HRESULT;
         }
         const SID_GetCaller: GUID = 0x4717cc40_bcb9_11d0_9336_00a0c90dcaa9;
         const SID_ProvideRuntimeContext: GUID = 0x74a5040c_dd0c_48f0_ac85_194c3259180a;

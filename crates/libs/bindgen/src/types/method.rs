@@ -157,7 +157,7 @@ impl Method {
 
                 if param.is_input_only() {
                     if param.is_winrt_array() {
-                        quote! { core::slice::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
+                        quote! { windows_core::imp::array_slice(core::mem::transmute_copy(&#name), #abi_size_name) }
                     } else if param.is_primitive(reader) {
                         quote! { #name }
                     } else if param.is_const_ref()
@@ -169,7 +169,7 @@ impl Method {
                         quote! { core::mem::transmute(&#name) }
                     }
                 } else if param.is_winrt_array() {
-                    quote! { core::slice::from_raw_parts_mut(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
+                    quote! { windows_core::imp::array_slice_mut(core::mem::transmute_copy(&#name), #abi_size_name) }
                 } else if param.is_winrt_array_ref() {
                     quote! { &mut windows_core::imp::array_proxy(core::mem::transmute_copy(&#name), #abi_size_name) }
                 } else {
@@ -431,9 +431,10 @@ impl Method {
 
         let args = if kind == InterfaceKind::Composable {
             // Composable factories take `outer` and an out-pointer for `inner` as the last
-            // two parameters before the result. The non-aggregating entry passes nulls.
+            // two parameters before the result. Without an outer, factories still return the
+            // inner object, so pass a temporary that releases it after the call.
             quote! {
-                #(#typed_args,)* core::ptr::null_mut(), core::ptr::null_mut(), #return_arg
+                #(#typed_args,)* core::ptr::null_mut(), &mut None::<windows_core::IInspectable> as *mut _ as _, #return_arg
             }
         } else {
             quote! {

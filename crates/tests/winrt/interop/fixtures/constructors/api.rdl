@@ -1,0 +1,48 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Constructors {
+    #[Activatable(1)]
+    #[Activatable(IWidgetFactory, 1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        #[get]
+        Value: i32;
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidgetFactory {
+        fn WithValue(&self, value: i32) -> Widget;
+    }
+
+    // A composable class's constructors take the outer object of a derived class, if any.
+    #[unsealed]
+    #[Composable(IBaseFactory, Public, 1)]
+    #[Static(IBaseStatics, 1)]
+    class Base {
+        IBase,
+    }
+
+    // The number of live `Base` objects, so clients can check that constructors do not leak.
+    #[ExclusiveTo(Base)]
+    interface IBaseStatics {
+        #[get]
+        Instances: i32;
+    }
+
+    #[ExclusiveTo(Base)]
+    interface IBase {
+        #[get]
+        Value: i32;
+    }
+
+    #[ExclusiveTo(Base)]
+    interface IBaseFactory {
+        fn CreateInstance(&self, outer: Object, inner: &mut Object) -> Base;
+        fn WithValue(&self, value: i32, outer: Object, inner: &mut Object) -> Base;
+    }
+}

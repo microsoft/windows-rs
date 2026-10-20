@@ -1,0 +1,23 @@
+use Windows::Foundation::*;
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Boxing {
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // Unboxes a value boxed by the client: "i32 1", "String a", or "null".
+        fn Describe(&self, value: Object) -> String;
+
+        // Values boxed by the component.
+        fn BoxInt32(&self, value: i32) -> Object;
+        fn BoxString(&self, value: String) -> Object;
+
+        // A nullable value, initially null.
+        Optional: IReference<i32>;
+    }
+}

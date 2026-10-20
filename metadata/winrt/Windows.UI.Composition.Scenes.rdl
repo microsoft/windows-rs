@@ -246,6 +246,7 @@ mod Windows {
                 class SceneBoundingBox: SceneObject {
                     ISceneBoundingBox,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISceneComponentFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
@@ -271,6 +272,7 @@ mod Windows {
                 enum SceneComponentType {
                     MeshRendererComponent = 0,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISceneMaterialFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
@@ -280,6 +282,7 @@ mod Windows {
                 class SceneMaterial: SceneObject {
                     ISceneMaterial,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISceneMaterialInputFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
@@ -353,6 +356,7 @@ mod Windows {
                     ISceneNodeCollection,
                     super::super::super::Foundation::Collections::IIterable<SceneNode>,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISceneObjectFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
@@ -362,6 +366,7 @@ mod Windows {
                 class SceneObject: super::CompositionObject {
                     ISceneObject,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IScenePbrMaterialFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
@@ -371,6 +376,7 @@ mod Windows {
                 class ScenePbrMaterial: SceneMaterial {
                     IScenePbrMaterial,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISceneRendererComponentFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]

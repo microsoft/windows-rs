@@ -15,7 +15,7 @@ mod Windows {
         struct COMPRESS_ALLOCATION_ROUTINES {
             Allocate: PFN_COMPRESS_ALLOCATE,
             Free: PFN_COMPRESS_FREE,
-            UserContext: PVOID,
+            UserContext: *mut void,
         }
         #[repr(i32)]
         enum COMPRESS_INFORMATION_CLASS {
@@ -25,34 +25,34 @@ mod Windows {
         }
         const COMPRESS_RAW: i32 = 536870912;
         #[library("Cabinet.dll")]
-        extern fn CloseCompressor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressorHandle: COMPRESSOR_HANDLE) -> BOOL;
+        extern fn CloseCompressor(CompressorHandle: COMPRESSOR_HANDLE) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn CloseDecompressor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DecompressorHandle: DECOMPRESSOR_HANDLE) -> BOOL;
+        extern fn CloseDecompressor(DecompressorHandle: DECOMPRESSOR_HANDLE) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn Compress(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressorHandle: COMPRESSOR_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] UncompressedData: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UncompressedDataSize: SIZE_T, #[out] #[opt] #[size_param(4)] CompressedBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressedBufferSize: SIZE_T, #[out] CompressedDataSize: PSIZE_T) -> BOOL;
+        extern fn Compress(CompressorHandle: COMPRESSOR_HANDLE, #[size_param(2)] #[opt] UncompressedData: LPCVOID, UncompressedDataSize: usize, #[size_param(4)] #[opt] CompressedBuffer: *mut void, CompressedBufferSize: usize, #[out] CompressedDataSize: PSIZE_T) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn CreateCompressor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Algorithm: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AllocationRoutines: PCOMPRESS_ALLOCATION_ROUTINES, #[out] CompressorHandle: PCOMPRESSOR_HANDLE) -> BOOL;
+        extern fn CreateCompressor(Algorithm: u32, #[opt] AllocationRoutines: PCOMPRESS_ALLOCATION_ROUTINES, #[out] CompressorHandle: PCOMPRESSOR_HANDLE) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn CreateDecompressor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Algorithm: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AllocationRoutines: PCOMPRESS_ALLOCATION_ROUTINES, #[out] DecompressorHandle: PDECOMPRESSOR_HANDLE) -> BOOL;
-        type DECOMPRESSOR_HANDLE = *mut COMPRESSOR_HANDLE__;
+        extern fn CreateDecompressor(Algorithm: u32, #[opt] AllocationRoutines: PCOMPRESS_ALLOCATION_ROUTINES, #[out] DecompressorHandle: PDECOMPRESSOR_HANDLE) -> BOOL;
+        type DECOMPRESSOR_HANDLE = COMPRESSOR_HANDLE;
         #[library("Cabinet.dll")]
-        extern fn Decompress(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DecompressorHandle: DECOMPRESSOR_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] CompressedData: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressedDataSize: SIZE_T, #[out] #[opt] #[size_param(4)] UncompressedBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UncompressedBufferSize: SIZE_T, #[out] #[opt] UncompressedDataSize: PSIZE_T) -> BOOL;
-        type PCOMPRESSOR_HANDLE = *mut *mut COMPRESSOR_HANDLE__;
+        extern fn Decompress(DecompressorHandle: DECOMPRESSOR_HANDLE, #[size_param(2)] #[opt] CompressedData: LPCVOID, CompressedDataSize: usize, #[size_param(4)] #[opt] UncompressedBuffer: *mut void, UncompressedBufferSize: usize, #[out] #[opt] UncompressedDataSize: PSIZE_T) -> BOOL;
+        type PCOMPRESSOR_HANDLE = *mut COMPRESSOR_HANDLE;
         type PCOMPRESS_ALLOCATION_ROUTINES = *mut COMPRESS_ALLOCATION_ROUTINES;
-        type PDECOMPRESSOR_HANDLE = *mut *mut COMPRESSOR_HANDLE__;
-        extern "C" fn PFN_COMPRESS_ALLOCATE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: SIZE_T) -> PVOID;
-        extern "C" fn PFN_COMPRESS_FREE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Memory: PVOID);
+        type PDECOMPRESSOR_HANDLE = *mut COMPRESSOR_HANDLE;
+        extern "C" fn PFN_COMPRESS_ALLOCATE(#[in] UserContext: *mut void, Size: usize) -> *mut void;
+        extern "C" fn PFN_COMPRESS_FREE(#[in] UserContext: *mut void, #[in] Memory: *mut void);
         #[library("Cabinet.dll")]
-        extern fn QueryCompressorInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressorHandle: COMPRESSOR_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[out] #[size_param(3)] CompressInformation: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressInformationSize: SIZE_T) -> BOOL;
+        extern fn QueryCompressorInformation(CompressorHandle: COMPRESSOR_HANDLE, CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[size_param(3)] CompressInformation: *mut void, CompressInformationSize: usize) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn QueryDecompressorInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DecompressorHandle: DECOMPRESSOR_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[out] #[size_param(3)] CompressInformation: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressInformationSize: SIZE_T) -> BOOL;
+        extern fn QueryDecompressorInformation(DecompressorHandle: DECOMPRESSOR_HANDLE, CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[size_param(3)] CompressInformation: *mut void, CompressInformationSize: usize) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn ResetCompressor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressorHandle: COMPRESSOR_HANDLE) -> BOOL;
+        extern fn ResetCompressor(CompressorHandle: COMPRESSOR_HANDLE) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn ResetDecompressor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DecompressorHandle: DECOMPRESSOR_HANDLE) -> BOOL;
+        extern fn ResetDecompressor(DecompressorHandle: DECOMPRESSOR_HANDLE) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn SetCompressorInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressorHandle: COMPRESSOR_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] CompressInformation: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressInformationSize: SIZE_T) -> BOOL;
+        extern fn SetCompressorInformation(CompressorHandle: COMPRESSOR_HANDLE, CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[size_param(3)] CompressInformation: LPCVOID, CompressInformationSize: usize) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn SetDecompressorInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DecompressorHandle: DECOMPRESSOR_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] CompressInformation: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompressInformationSize: SIZE_T) -> BOOL;
+        extern fn SetDecompressorInformation(DecompressorHandle: DECOMPRESSOR_HANDLE, CompressInformationClass: COMPRESS_INFORMATION_CLASS, #[size_param(3)] CompressInformation: LPCVOID, CompressInformationSize: usize) -> BOOL;
     }
 }

@@ -1,6 +1,0 @@
-#[win32]
-mod Windows {
-    mod Win32 {
-        const __SAL_H_FULL_VER: i32 = 140050727;
-    }
-}

@@ -352,12 +352,17 @@ class ClassName : BaseClassName {
 
 Classes can extend a base class. The first interface in the list is the default interface.
 
+Classes are sealed unless marked `#[unsealed]`, and a class can only extend an unsealed class.
+`#[unsealed]` sets the metadata type's flags rather than adding a custom attribute. A class without
+interfaces, such as a static class, is also marked abstract because it has no instances.
+
 Example:
 
 ```rust
 #[winrt]
 mod Contoso {
     mod Sprockets {
+        #[unsealed]
         class Sprocket {
             ISprocket,
         }

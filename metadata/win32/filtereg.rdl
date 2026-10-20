@@ -2,20 +2,20 @@
 mod Windows {
     mod Win32 {
         struct FILTERED_DATA_SOURCES {
-            pwcsExtension: *const WCHAR,
-            pwcsMime: *const WCHAR,
-            pClsid: *const CLSID,
-            pwcsOverride: *const WCHAR,
+            pwcsExtension: *const u16,
+            pwcsMime: *const u16,
+            pClsid: *const GUID,
+            pwcsOverride: *const u16,
         }
         #[guid(0xc7310722_ac80_11d1_8df3_00c04fb6ef4f)]
         interface ILoadFilter: IUnknown {
-            fn LoadIFilter(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwcsPath: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pFilteredSources: *mut FILTERED_DATA_SOURCES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pUnkOuter: IUnknown, fUseDefault: BOOL, #[in] #[out] #[opt] pFilterClsid: *mut CLSID, #[in] #[out] #[opt] SearchDecSize: *mut i32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_ecount_part_opt", "( *SearchDecSize + 1 ),( *SearchDecSize + 1 )", "( *SearchDecSize + 1 ),( *SearchDecSize + 1 )")] pwcsSearchDesc: *mut *mut WCHAR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppIFilt: *mut IFilter) -> HRESULT;
-            fn LoadIFilterFromStorage(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pStg: IStorage, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pUnkOuter: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwcsOverride: LPCWSTR, fUseDefault: BOOL, #[in] #[out] #[opt] pFilterClsid: *mut CLSID, #[in] #[out] #[opt] SearchDecSize: *mut i32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_ecount_part_opt", "( *SearchDecSize + 1 ),( *SearchDecSize + 1 )", "( *SearchDecSize + 1 ),( *SearchDecSize + 1 )")] pwcsSearchDesc: *mut *mut WCHAR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppIFilt: *mut IFilter) -> HRESULT;
-            fn LoadIFilterFromStream(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pStm: IStream, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pFilteredSources: *mut FILTERED_DATA_SOURCES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pUnkOuter: IUnknown, fUseDefault: BOOL, #[in] #[out] #[opt] pFilterClsid: *mut CLSID, #[in] #[out] #[opt] SearchDecSize: *mut i32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_ecount_part_opt", "( *SearchDecSize + 1 ),( *SearchDecSize + 1 )", "( *SearchDecSize + 1 ),( *SearchDecSize + 1 )")] pwcsSearchDesc: *mut *mut WCHAR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppIFilt: *mut IFilter) -> HRESULT;
+            fn LoadIFilter(&self, pwcsPath: PCWSTR, #[in] pFilteredSources: *mut FILTERED_DATA_SOURCES, pUnkOuter: IUnknown, fUseDefault: BOOL, #[in] #[out] pFilterClsid: *mut GUID, #[in] #[out] SearchDecSize: *mut i32, #[in] #[out] pwcsSearchDesc: *mut *mut u16, #[in] #[out] ppIFilt: *mut IFilter) -> HRESULT;
+            fn LoadIFilterFromStorage(&self, pStg: IStorage, pUnkOuter: IUnknown, pwcsOverride: PCWSTR, fUseDefault: BOOL, #[in] #[out] pFilterClsid: *mut GUID, #[in] #[out] SearchDecSize: *mut i32, #[in] #[out] pwcsSearchDesc: *mut *mut u16, #[in] #[out] ppIFilt: *mut IFilter) -> HRESULT;
+            fn LoadIFilterFromStream(&self, pStm: IStream, #[in] pFilteredSources: *mut FILTERED_DATA_SOURCES, pUnkOuter: IUnknown, fUseDefault: BOOL, #[in] #[out] pFilterClsid: *mut GUID, #[in] #[out] SearchDecSize: *mut i32, #[in] #[out] pwcsSearchDesc: *mut *mut u16, #[in] #[out] ppIFilt: *mut IFilter) -> HRESULT;
         }
         #[guid(0x40bdbd34_780b_48d3_9bb6_12ebd4ad2e75)]
         interface ILoadFilterWithPrivateComActivation: ILoadFilter {
-            fn LoadIFilterWithPrivateComActivation(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] filteredSources: *mut FILTERED_DATA_SOURCES, useDefault: BOOL, #[out] filterClsid: *mut CLSID, #[out] isFilterPrivateComActivated: *mut BOOL, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] filterObj: *mut IFilter) -> HRESULT;
+            fn LoadIFilterWithPrivateComActivation(&self, #[in] filteredSources: *mut FILTERED_DATA_SOURCES, useDefault: BOOL, filterClsid: *mut GUID, isFilterPrivateComActivated: *mut BOOL, #[in] #[out] filterObj: *mut IFilter) -> HRESULT;
         }
     }
 }

@@ -70,8 +70,6 @@ impl Component for FlipViewPage {
                             ))
                             .opacity(0.6),
                     )),
-                    r#"FlipView::new().selected_index(selected).on_selection_changed(...)
-    .items([...])"#,
                 ),
             )],
         )

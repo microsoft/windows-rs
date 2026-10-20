@@ -54,7 +54,6 @@ impl Component for SliderPage {
                                 .text(format!("Volume: {:.0}%", self.volume))
                                 .opacity(0.6),
                         )),
-                        "Slider::new().minimum(0.0).maximum(100.0).value(volume)",
                     ),
                 ),
                 KeyedView::new(
@@ -75,7 +74,6 @@ impl Component for SliderPage {
                                     .on_value_changed(context.callback(Message::Brightness)),
                                 format!("Brightness: {:.0}%", self.brightness),
                             )),
-                        "Slider::new().orientation(Orientation::Vertical).height(140.0)",
                     ),
                 ),
                 KeyedView::new(
@@ -93,7 +91,6 @@ impl Component for SliderPage {
                                 .text(format!("Target: {:.1} C", self.temperature))
                                 .opacity(0.6),
                         )),
-                        "Slider::new().minimum(16.0).maximum(30.0).step_frequency(0.5)",
                     ),
                 ),
             ],

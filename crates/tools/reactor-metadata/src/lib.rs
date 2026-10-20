@@ -95,30 +95,33 @@ impl MetadataResolver {
     /// Load all `.winmd` files from `winmd_dir`, add the default Windows metadata, and build the
     /// resolver.
     pub fn load(winmd_dir: &Path) -> Self {
-        let read_dir = |dir: &Path| -> Vec<File> {
-            std::fs::read_dir(dir)
-                .unwrap_or_else(|_| panic!("cannot read winmd directory {}", dir.display()))
-                .filter_map(|e| e.ok())
-                .filter(|e| {
-                    e.path()
-                        .extension()
-                        .is_some_and(|ext| ext.eq_ignore_ascii_case("winmd"))
-                })
-                .filter_map(|e| File::read(e.path()))
-                .collect()
-        };
-
-        let mut files = read_dir(winmd_dir);
-        files.extend(
-            [windows_default::WINRT, windows_default::WIN32]
-                .into_iter()
-                .map(|bytes| File::new(bytes.to_vec()).unwrap()),
-        );
-
+        let mut files = Vec::new();
+        for entry in std::fs::read_dir(winmd_dir).unwrap_or_else(|error| {
+            panic!(
+                "cannot read winmd directory {}: {error}",
+                winmd_dir.display()
+            )
+        }) {
+            let path = entry.unwrap().path();
+            if path
+                .extension()
+                .is_some_and(|ext| ext.eq_ignore_ascii_case("winmd"))
+            {
+                files.push(
+                    File::read(&path)
+                        .unwrap_or_else(|| panic!("cannot read winmd file {}", path.display())),
+                );
+            }
+        }
         assert!(
             !files.is_empty(),
             "no .winmd files found in {}",
             winmd_dir.display()
+        );
+        files.extend(
+            [windows_default::WINRT, windows_default::WIN32]
+                .into_iter()
+                .map(|bytes| File::new(bytes.to_vec()).unwrap()),
         );
 
         let index = Index::new(files);

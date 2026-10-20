@@ -2,17 +2,17 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn AddSIDToBoundaryDescriptor(#[in] #[out] BoundaryDescriptor: *mut HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RequiredSid: PSID) -> BOOL;
+        extern fn AddSIDToBoundaryDescriptor(#[in] #[out] BoundaryDescriptor: *mut HANDLE, RequiredSid: PSID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ClosePrivateNamespace(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Handle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: ULONG) -> BOOLEAN;
+        extern fn ClosePrivateNamespace(Handle: HANDLE, Flags: u32) -> BOOLEAN;
         #[library("KERNEL32.dll")]
-        extern fn CreateBoundaryDescriptorW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Name: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: ULONG) -> HANDLE;
+        extern fn CreateBoundaryDescriptorW(Name: PCWSTR, Flags: u32) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreatePrivateNamespaceW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpPrivateNamespaceAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBoundaryDescriptor: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAliasPrefix: LPCWSTR) -> HANDLE;
+        extern fn CreatePrivateNamespaceW(#[opt] lpPrivateNamespaceAttributes: LPSECURITY_ATTRIBUTES, #[in] lpBoundaryDescriptor: *mut void, lpAliasPrefix: PCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn DeleteBoundaryDescriptor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BoundaryDescriptor: HANDLE);
+        extern fn DeleteBoundaryDescriptor(BoundaryDescriptor: HANDLE);
         #[library("KERNEL32.dll")]
-        extern fn OpenPrivateNamespaceW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBoundaryDescriptor: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAliasPrefix: LPCWSTR) -> HANDLE;
+        extern fn OpenPrivateNamespaceW(#[in] lpBoundaryDescriptor: *mut void, lpAliasPrefix: PCWSTR) -> HANDLE;
         const PRIVATE_NAMESPACE_FLAG_DESTROY: i32 = 1;
     }
 }

@@ -1,48 +1,28 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[encoding("ansi")]
-        const D3D10_APPNAME_STRING: String = "Name";
-        #[encoding("ansi")]
-        const D3D10_APPSIZE_STRING: String = "Size";
-        #[encoding("ansi")]
-        const D3D10_BREAKON_CATEGORY: String = "BreakOn_CATEGORY_%s";
-        #[encoding("ansi")]
-        const D3D10_BREAKON_ID_DECIMAL: String = "BreakOn_ID_%d";
-        #[encoding("ansi")]
-        const D3D10_BREAKON_ID_STRING: String = "BreakOn_ID_%s";
-        #[encoding("ansi")]
-        const D3D10_BREAKON_SEVERITY: String = "BreakOn_SEVERITY_%s";
         const D3D10_DEBUG_FEATURE_FINISH_PER_RENDER_OP: i32 = 2;
         const D3D10_DEBUG_FEATURE_FLUSH_PER_RENDER_OP: i32 = 1;
         const D3D10_DEBUG_FEATURE_PRESENT_PER_RENDER_OP: i32 = 4;
-        #[encoding("ansi")]
-        const D3D10_ENABLE_BREAK_ON_MESSAGE: String = "EnableBreakOnMessage";
-        #[encoding("ansi")]
-        const D3D10_INFOQUEUE_STORAGE_FILTER_OVERRIDE: String = "InfoQueueStorageFilterOverride";
         const D3D10_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: i32 = 1024;
         struct D3D10_INFO_QUEUE_FILTER {
             AllowList: D3D10_INFO_QUEUE_FILTER_DESC,
             DenyList: D3D10_INFO_QUEUE_FILTER_DESC,
         }
         struct D3D10_INFO_QUEUE_FILTER_DESC {
-            NumCategories: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumCategories", IsByteCount = false, MayBeNull = false)]
+            NumCategories: u32,
             pCategoryList: *mut D3D10_MESSAGE_CATEGORY,
-            NumSeverities: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumSeverities", IsByteCount = false, MayBeNull = false)]
+            NumSeverities: u32,
             pSeverityList: *mut D3D10_MESSAGE_SEVERITY,
-            NumIDs: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumIDs", IsByteCount = false, MayBeNull = false)]
+            NumIDs: u32,
             pIDList: *mut D3D10_MESSAGE_ID,
         }
         struct D3D10_MESSAGE {
             Category: D3D10_MESSAGE_CATEGORY,
             Severity: D3D10_MESSAGE_SEVERITY,
             ID: D3D10_MESSAGE_ID,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DescriptionByteLength", IsByteCount = false, MayBeNull = false)]
             pDescription: *const i8,
-            DescriptionByteLength: SIZE_T,
+            DescriptionByteLength: usize,
         }
         #[repr(i32)]
         enum D3D10_MESSAGE_CATEGORY {
@@ -576,68 +556,54 @@ mod Windows {
             D3D10_MESSAGE_SEVERITY_INFO = 3,
             D3D10_MESSAGE_SEVERITY_MESSAGE = 4,
         }
-        #[encoding("ansi")]
-        const D3D10_MUTE_CATEGORY: String = "Mute_CATEGORY_%s";
-        #[encoding("ansi")]
-        const D3D10_MUTE_DEBUG_OUTPUT: String = "MuteDebugOutput";
-        #[encoding("ansi")]
-        const D3D10_MUTE_ID_DECIMAL: String = "Mute_ID_%d";
-        #[encoding("ansi")]
-        const D3D10_MUTE_ID_STRING: String = "Mute_ID_%s";
-        #[encoding("ansi")]
-        const D3D10_MUTE_SEVERITY: String = "Mute_SEVERITY_%s";
-        #[encoding("ansi")]
-        const D3D10_REGKEY_PATH: String = "Software\\Microsoft\\Direct3D";
         const D3D10_SDK_LAYERS_VERSION: i32 = 11;
-        #[encoding("ansi")]
-        const D3D10_UNMUTE_SEVERITY_INFO: String = "Unmute_SEVERITY_INFO";
         const DXGI_DEBUG_D3D10: GUID = 0x243b4c52_3606_4d3a_99d7_a7e7b33ed706;
         #[guid(0x9b7e4e01_342c_4106_a19f_4f2704f689f0)]
         interface ID3D10Debug: IUnknown {
-            fn SetFeatureMask(&self, Mask: UINT) -> HRESULT;
-            fn GetFeatureMask(&self) -> UINT;
-            fn SetPresentPerRenderOpDelay(&self, Milliseconds: UINT) -> HRESULT;
-            fn GetPresentPerRenderOpDelay(&self) -> UINT;
-            fn SetSwapChain(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSwapChain: IDXGISwapChain) -> HRESULT;
-            fn GetSwapChain(&self, #[out] ppSwapChain: *mut IDXGISwapChain) -> HRESULT;
+            fn SetFeatureMask(&self, Mask: u32) -> HRESULT;
+            fn GetFeatureMask(&self) -> u32;
+            fn SetPresentPerRenderOpDelay(&self, Milliseconds: u32) -> HRESULT;
+            fn GetPresentPerRenderOpDelay(&self) -> u32;
+            fn SetSwapChain(&self, #[opt] pSwapChain: IDXGISwapChain) -> HRESULT;
+            fn GetSwapChain(&self, ppSwapChain: *mut IDXGISwapChain) -> HRESULT;
             fn Validate(&self) -> HRESULT;
         }
         #[guid(0x1b940b17_2642_4d1f_ab1f_b99bad0c395f)]
         interface ID3D10InfoQueue: IUnknown {
-            fn SetMessageCountLimit(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageCountLimit: UINT64) -> HRESULT;
+            fn SetMessageCountLimit(&self, MessageCountLimit: u64) -> HRESULT;
             fn ClearStoredMessages(&self);
-            fn GetMessageA(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageIndex: UINT64, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pMessageByteLength", "*pMessageByteLength")] #[out] #[opt] pMessage: *mut D3D10_MESSAGE, #[in] #[out] pMessageByteLength: *mut SIZE_T) -> HRESULT;
-            fn GetNumMessagesAllowedByStorageFilter(&self) -> UINT64;
-            fn GetNumMessagesDeniedByStorageFilter(&self) -> UINT64;
-            fn GetNumStoredMessages(&self) -> UINT64;
-            fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> UINT64;
-            fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> UINT64;
-            fn GetMessageCountLimit(&self) -> UINT64;
-            fn AddStorageFilterEntries(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFilter: *mut D3D10_INFO_QUEUE_FILTER) -> HRESULT;
-            fn GetStorageFilter(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pFilterByteLength", "*pFilterByteLength")] #[out] #[opt] pFilter: *mut D3D10_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetMessage(&self, MessageIndex: u64, #[size_param(2)] #[opt] pMessage: *mut D3D10_MESSAGE, #[in] #[out] pMessageByteLength: *mut usize) -> HRESULT;
+            fn GetNumMessagesAllowedByStorageFilter(&self) -> u64;
+            fn GetNumMessagesDeniedByStorageFilter(&self) -> u64;
+            fn GetNumStoredMessages(&self) -> u64;
+            fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> u64;
+            fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> u64;
+            fn GetMessageCountLimit(&self) -> u64;
+            fn AddStorageFilterEntries(&self, #[in] pFilter: *mut D3D10_INFO_QUEUE_FILTER) -> HRESULT;
+            fn GetStorageFilter(&self, #[size_param(1)] #[opt] pFilter: *mut D3D10_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut usize) -> HRESULT;
             fn ClearStorageFilter(&self);
             fn PushEmptyStorageFilter(&self) -> HRESULT;
             fn PushCopyOfStorageFilter(&self) -> HRESULT;
-            fn PushStorageFilter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFilter: *mut D3D10_INFO_QUEUE_FILTER) -> HRESULT;
+            fn PushStorageFilter(&self, #[in] pFilter: *mut D3D10_INFO_QUEUE_FILTER) -> HRESULT;
             fn PopStorageFilter(&self);
-            fn GetStorageFilterStackSize(&self) -> UINT;
-            fn AddRetrievalFilterEntries(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFilter: *mut D3D10_INFO_QUEUE_FILTER) -> HRESULT;
-            fn GetRetrievalFilter(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pFilterByteLength", "*pFilterByteLength")] #[out] #[opt] pFilter: *mut D3D10_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetStorageFilterStackSize(&self) -> u32;
+            fn AddRetrievalFilterEntries(&self, #[in] pFilter: *mut D3D10_INFO_QUEUE_FILTER) -> HRESULT;
+            fn GetRetrievalFilter(&self, #[size_param(1)] #[opt] pFilter: *mut D3D10_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut usize) -> HRESULT;
             fn ClearRetrievalFilter(&self);
             fn PushEmptyRetrievalFilter(&self) -> HRESULT;
             fn PushCopyOfRetrievalFilter(&self) -> HRESULT;
-            fn PushRetrievalFilter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFilter: *mut D3D10_INFO_QUEUE_FILTER) -> HRESULT;
+            fn PushRetrievalFilter(&self, #[in] pFilter: *mut D3D10_INFO_QUEUE_FILTER) -> HRESULT;
             fn PopRetrievalFilter(&self);
-            fn GetRetrievalFilterStackSize(&self) -> UINT;
-            fn AddMessage(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Category: D3D10_MESSAGE_CATEGORY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Severity: D3D10_MESSAGE_SEVERITY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ID: D3D10_MESSAGE_ID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDescription: LPCSTR) -> HRESULT;
-            fn AddApplicationMessage(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Severity: D3D10_MESSAGE_SEVERITY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDescription: LPCSTR) -> HRESULT;
-            fn SetBreakOnCategory(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Category: D3D10_MESSAGE_CATEGORY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bEnable: BOOL) -> HRESULT;
-            fn SetBreakOnSeverity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Severity: D3D10_MESSAGE_SEVERITY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bEnable: BOOL) -> HRESULT;
-            fn SetBreakOnID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ID: D3D10_MESSAGE_ID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bEnable: BOOL) -> HRESULT;
-            fn GetBreakOnCategory(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Category: D3D10_MESSAGE_CATEGORY) -> BOOL;
-            fn GetBreakOnSeverity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Severity: D3D10_MESSAGE_SEVERITY) -> BOOL;
-            fn GetBreakOnID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ID: D3D10_MESSAGE_ID) -> BOOL;
-            fn SetMuteDebugOutput(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bMute: BOOL);
+            fn GetRetrievalFilterStackSize(&self) -> u32;
+            fn AddMessage(&self, Category: D3D10_MESSAGE_CATEGORY, Severity: D3D10_MESSAGE_SEVERITY, ID: D3D10_MESSAGE_ID, pDescription: PCSTR) -> HRESULT;
+            fn AddApplicationMessage(&self, Severity: D3D10_MESSAGE_SEVERITY, pDescription: PCSTR) -> HRESULT;
+            fn SetBreakOnCategory(&self, Category: D3D10_MESSAGE_CATEGORY, bEnable: BOOL) -> HRESULT;
+            fn SetBreakOnSeverity(&self, Severity: D3D10_MESSAGE_SEVERITY, bEnable: BOOL) -> HRESULT;
+            fn SetBreakOnID(&self, ID: D3D10_MESSAGE_ID, bEnable: BOOL) -> HRESULT;
+            fn GetBreakOnCategory(&self, Category: D3D10_MESSAGE_CATEGORY) -> BOOL;
+            fn GetBreakOnSeverity(&self, Severity: D3D10_MESSAGE_SEVERITY) -> BOOL;
+            fn GetBreakOnID(&self, ID: D3D10_MESSAGE_ID) -> BOOL;
+            fn SetMuteDebugOutput(&self, bMute: BOOL);
             fn GetMuteDebugOutput(&self) -> BOOL;
         }
         #[guid(0x9b7e4e02_342c_4106_a19f_4f2704f689f0)]
@@ -645,8 +611,5 @@ mod Windows {
             fn SetUseRef(&self, UseRef: BOOL) -> BOOL;
             fn GetUseRef(&self) -> BOOL;
         }
-        const IID_ID3D10Debug: GUID = 0x9b7e4e01_342c_4106_a19f_4f2704f689f0;
-        const IID_ID3D10InfoQueue: GUID = 0x1b940b17_2642_4d1f_ab1f_b99bad0c395f;
-        const IID_ID3D10SwitchToRef: GUID = 0x9b7e4e02_342c_4106_a19f_4f2704f689f0;
     }
 }

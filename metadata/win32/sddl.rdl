@@ -1,361 +1,39 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
-        #[library("ADVAPI32.dll", import = "ConvertSecurityDescriptorToStringSecurityDescriptorA")]
-        extern fn ConvertSecurityDescriptorToStringSecurityDescriptor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RequestedStringSDRevision: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityInformation: SECURITY_INFORMATION, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringSecurityDescriptor: *mut LPSTR, #[out] #[opt] StringSecurityDescriptorLen: PULONG) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("ADVAPI32.dll")]
-        extern fn ConvertSecurityDescriptorToStringSecurityDescriptorA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RequestedStringSDRevision: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityInformation: SECURITY_INFORMATION, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringSecurityDescriptor: *mut LPSTR, #[out] #[opt] StringSecurityDescriptorLen: PULONG) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn ConvertSecurityDescriptorToStringSecurityDescriptorA(SecurityDescriptor: PSECURITY_DESCRIPTOR, RequestedStringSDRevision: u32, SecurityInformation: SECURITY_INFORMATION, StringSecurityDescriptor: *mut PSTR, #[out] #[opt] StringSecurityDescriptorLen: PULONG) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn ConvertSecurityDescriptorToStringSecurityDescriptorW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RequestedStringSDRevision: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityInformation: SECURITY_INFORMATION, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringSecurityDescriptor: *mut LPWSTR, #[out] #[opt] StringSecurityDescriptorLen: PULONG) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
-        #[library("ADVAPI32.dll", import = "ConvertSidToStringSidA")]
-        extern fn ConvertSidToStringSid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Sid: PSID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringSid: *mut LPSTR) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn ConvertSecurityDescriptorToStringSecurityDescriptorW(SecurityDescriptor: PSECURITY_DESCRIPTOR, RequestedStringSDRevision: u32, SecurityInformation: SECURITY_INFORMATION, StringSecurityDescriptor: *mut PWSTR, #[out] #[opt] StringSecurityDescriptorLen: PULONG) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn ConvertSidToStringSidA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Sid: PSID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringSid: *mut LPSTR) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn ConvertSidToStringSidA(Sid: PSID, StringSid: *mut PSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn ConvertSidToStringSidW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Sid: PSID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] StringSid: *mut LPWSTR) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
-        #[library("ADVAPI32.dll", import = "ConvertStringSecurityDescriptorToSecurityDescriptorA")]
-        extern fn ConvertStringSecurityDescriptorToSecurityDescriptor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringSecurityDescriptor: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringSDRevision: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[out] #[opt] SecurityDescriptorSize: PULONG) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn ConvertSidToStringSidW(Sid: PSID, StringSid: *mut PWSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn ConvertStringSecurityDescriptorToSecurityDescriptorA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringSecurityDescriptor: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringSDRevision: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[out] #[opt] SecurityDescriptorSize: PULONG) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn ConvertStringSecurityDescriptorToSecurityDescriptorA(StringSecurityDescriptor: PCSTR, StringSDRevision: u32, SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[out] #[opt] SecurityDescriptorSize: PULONG) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn ConvertStringSecurityDescriptorToSecurityDescriptorW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringSecurityDescriptor: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringSDRevision: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[out] #[opt] SecurityDescriptorSize: PULONG) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
-        #[library("ADVAPI32.dll", import = "ConvertStringSidToSidA")]
-        extern fn ConvertStringSidToSid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringSid: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Sid: *mut PSID) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn ConvertStringSecurityDescriptorToSecurityDescriptorW(StringSecurityDescriptor: PCWSTR, StringSDRevision: u32, SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[out] #[opt] SecurityDescriptorSize: PULONG) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn ConvertStringSidToSidA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringSid: LPCSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Sid: *mut PSID) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn ConvertStringSidToSidA(StringSid: PCSTR, Sid: *mut PSID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn ConvertStringSidToSidW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StringSid: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Sid: *mut PSID) -> BOOL;
-        #[encoding("ansi")]
-        const SDDL_ACCESS_ALLOWED: String = "A";
-        #[encoding("ansi")]
-        const SDDL_ACCESS_CONTROL_ASSISTANCE_OPS: String = "AA";
-        #[encoding("ansi")]
-        const SDDL_ACCESS_DENIED: String = "D";
-        #[encoding("ansi")]
-        const SDDL_ACCESS_FILTER: String = "FL";
-        #[encoding("ansi")]
-        const SDDL_ACCOUNT_OPERATORS: String = "AO";
-        #[encoding("ansi")]
-        const SDDL_ACE_BEGIN: String = "(";
+        extern fn ConvertStringSidToSidW(StringSid: PCWSTR, Sid: *mut PSID) -> BOOL;
         const SDDL_ACE_BEGINC: i8 = 40;
-        #[encoding("ansi")]
-        const SDDL_ACE_COND_ATTRIBUTE_PREFIX: String = "@";
-        #[encoding("ansi")]
-        const SDDL_ACE_COND_BEGIN: String = "(";
         const SDDL_ACE_COND_BEGINC: i8 = 40;
-        #[encoding("ansi")]
-        const SDDL_ACE_COND_BLOB_PREFIX: String = "#";
         const SDDL_ACE_COND_BLOB_PREFIXC: i8 = 35;
         const SDDL_ACE_COND_COMPOSITEVALUE_BEGINC: i8 = 123;
         const SDDL_ACE_COND_COMPOSITEVALUE_ENDC: i8 = 125;
         const SDDL_ACE_COND_COMPOSITEVALUE_SEPERATORC: i8 = 44;
-        #[encoding("ansi")]
-        const SDDL_ACE_COND_DEVICE_ATTRIBUTE_PREFIX: String = "@DEVICE.";
-        #[encoding("ansi")]
-        const SDDL_ACE_COND_END: String = ")";
         const SDDL_ACE_COND_ENDC: i8 = 41;
-        #[encoding("ansi")]
-        const SDDL_ACE_COND_RESOURCE_ATTRIBUTE_PREFIX: String = "@RESOURCE.";
         const SDDL_ACE_COND_SID_BEGINC: i8 = 40;
         const SDDL_ACE_COND_SID_ENDC: i8 = 41;
-        #[encoding("ansi")]
-        const SDDL_ACE_COND_SID_PREFIX: String = "SID";
         const SDDL_ACE_COND_STRING_BEGINC: i8 = 34;
         const SDDL_ACE_COND_STRING_ENDC: i8 = 34;
-        #[encoding("ansi")]
-        const SDDL_ACE_COND_TOKEN_ATTRIBUTE_PREFIX: String = "@TOKEN.";
-        #[encoding("ansi")]
-        const SDDL_ACE_COND_USER_ATTRIBUTE_PREFIX: String = "@USER.";
-        #[encoding("ansi")]
-        const SDDL_ACE_END: String = ")";
         const SDDL_ACE_ENDC: i8 = 41;
-        #[encoding("ansi")]
-        const SDDL_ALARM: String = "AL";
-        #[encoding("ansi")]
-        const SDDL_ALIAS_PREW2KCOMPACC: String = "RU";
         const SDDL_ALIAS_SIZE: i32 = 2;
-        #[encoding("ansi")]
-        const SDDL_ALL_APP_PACKAGES: String = "AC";
-        #[encoding("ansi")]
-        const SDDL_ANONYMOUS: String = "AN";
-        #[encoding("ansi")]
-        const SDDL_AUDIT: String = "AU";
-        #[encoding("ansi")]
-        const SDDL_AUDIT_FAILURE: String = "FA";
-        #[encoding("ansi")]
-        const SDDL_AUDIT_SUCCESS: String = "SA";
-        #[encoding("ansi")]
-        const SDDL_AUTHENTICATED_USERS: String = "AU";
-        #[encoding("ansi")]
-        const SDDL_AUTHORITY_ASSERTED: String = "AS";
-        #[encoding("ansi")]
-        const SDDL_AUTO_INHERITED: String = "AI";
-        #[encoding("ansi")]
-        const SDDL_AUTO_INHERIT_REQ: String = "AR";
-        #[encoding("ansi")]
-        const SDDL_BACKUP_OPERATORS: String = "BO";
-        #[encoding("ansi")]
-        const SDDL_BLOB: String = "TX";
-        #[encoding("ansi")]
-        const SDDL_BOOLEAN: String = "TB";
-        #[encoding("ansi")]
-        const SDDL_BUILTIN_ADMINISTRATORS: String = "BA";
-        #[encoding("ansi")]
-        const SDDL_BUILTIN_GUESTS: String = "BG";
-        #[encoding("ansi")]
-        const SDDL_BUILTIN_USERS: String = "BU";
-        #[encoding("ansi")]
-        const SDDL_CALLBACK_ACCESS_ALLOWED: String = "XA";
-        #[encoding("ansi")]
-        const SDDL_CALLBACK_ACCESS_DENIED: String = "XD";
-        #[encoding("ansi")]
-        const SDDL_CALLBACK_AUDIT: String = "XU";
-        #[encoding("ansi")]
-        const SDDL_CALLBACK_OBJECT_ACCESS_ALLOWED: String = "ZA";
-        #[encoding("ansi")]
-        const SDDL_CERTSVC_DCOM_ACCESS: String = "CD";
-        #[encoding("ansi")]
-        const SDDL_CERT_SERV_ADMINISTRATORS: String = "CA";
-        #[encoding("ansi")]
-        const SDDL_CLONEABLE_CONTROLLERS: String = "CN";
-        #[encoding("ansi")]
-        const SDDL_CONTAINER_INHERIT: String = "CI";
-        #[encoding("ansi")]
-        const SDDL_CONTROL_ACCESS: String = "CR";
-        #[encoding("ansi")]
-        const SDDL_CREATE_CHILD: String = "CC";
-        #[encoding("ansi")]
-        const SDDL_CREATOR_GROUP: String = "CG";
-        #[encoding("ansi")]
-        const SDDL_CREATOR_OWNER: String = "CO";
-        #[encoding("ansi")]
-        const SDDL_CRITICAL: String = "CR";
-        #[encoding("ansi")]
-        const SDDL_CRYPTO_OPERATORS: String = "CY";
-        #[encoding("ansi")]
-        const SDDL_CUA_USERS: String = "CU";
-        #[encoding("ansi")]
-        const SDDL_DACL: String = "D";
-        #[encoding("ansi")]
-        const SDDL_DELETE_CHILD: String = "DC";
-        #[encoding("ansi")]
-        const SDDL_DELETE_TREE: String = "DT";
-        #[encoding("ansi")]
-        const SDDL_DELIMINATOR: String = ":";
         const SDDL_DELIMINATORC: i8 = 58;
-        #[encoding("ansi")]
-        const SDDL_DOMAIN_ADMINISTRATORS: String = "DA";
-        #[encoding("ansi")]
-        const SDDL_DOMAIN_COMPUTERS: String = "DC";
-        #[encoding("ansi")]
-        const SDDL_DOMAIN_DOMAIN_CONTROLLERS: String = "DD";
-        #[encoding("ansi")]
-        const SDDL_DOMAIN_GUESTS: String = "DG";
-        #[encoding("ansi")]
-        const SDDL_DOMAIN_USERS: String = "DU";
-        #[encoding("ansi")]
-        const SDDL_ENTERPRISE_ADMINS: String = "EA";
-        #[encoding("ansi")]
-        const SDDL_ENTERPRISE_DOMAIN_CONTROLLERS: String = "ED";
-        #[encoding("ansi")]
-        const SDDL_ENTERPRISE_KEY_ADMINS: String = "EK";
-        #[encoding("ansi")]
-        const SDDL_ENTERPRISE_RO_DCs: String = "RO";
-        #[encoding("ansi")]
-        const SDDL_EVENT_LOG_READERS: String = "ER";
-        #[encoding("ansi")]
-        const SDDL_EVERYONE: String = "WD";
-        #[encoding("ansi")]
-        const SDDL_FILE_ALL: String = "FA";
-        #[encoding("ansi")]
-        const SDDL_FILE_EXECUTE: String = "FX";
-        #[encoding("ansi")]
-        const SDDL_FILE_READ: String = "FR";
-        #[encoding("ansi")]
-        const SDDL_FILE_WRITE: String = "FW";
-        #[encoding("ansi")]
-        const SDDL_GENERIC_ALL: String = "GA";
-        #[encoding("ansi")]
-        const SDDL_GENERIC_EXECUTE: String = "GX";
-        #[encoding("ansi")]
-        const SDDL_GENERIC_READ: String = "GR";
-        #[encoding("ansi")]
-        const SDDL_GENERIC_WRITE: String = "GW";
-        #[encoding("ansi")]
-        const SDDL_GROUP: String = "G";
-        #[encoding("ansi")]
-        const SDDL_GROUP_POLICY_ADMINS: String = "PA";
-        #[encoding("ansi")]
-        const SDDL_HYPER_V_ADMINS: String = "HA";
-        #[encoding("ansi")]
-        const SDDL_IIS_USERS: String = "IS";
-        #[encoding("ansi")]
-        const SDDL_INHERITED: String = "ID";
-        #[encoding("ansi")]
-        const SDDL_INHERIT_ONLY: String = "IO";
-        #[encoding("ansi")]
-        const SDDL_INT: String = "TI";
-        #[encoding("ansi")]
-        const SDDL_INTERACTIVE: String = "IU";
-        #[encoding("ansi")]
-        const SDDL_KEY_ADMINS: String = "KA";
-        #[encoding("ansi")]
-        const SDDL_KEY_ALL: String = "KA";
-        #[encoding("ansi")]
-        const SDDL_KEY_EXECUTE: String = "KX";
-        #[encoding("ansi")]
-        const SDDL_KEY_READ: String = "KR";
-        #[encoding("ansi")]
-        const SDDL_KEY_WRITE: String = "KW";
-        #[encoding("ansi")]
-        const SDDL_LIST_CHILDREN: String = "LC";
-        #[encoding("ansi")]
-        const SDDL_LIST_OBJECT: String = "LO";
-        #[encoding("ansi")]
-        const SDDL_LOCAL_ADMIN: String = "LA";
-        #[encoding("ansi")]
-        const SDDL_LOCAL_GUEST: String = "LG";
-        #[encoding("ansi")]
-        const SDDL_LOCAL_SERVICE: String = "LS";
-        #[encoding("ansi")]
-        const SDDL_LOCAL_SYSTEM: String = "SY";
-        #[encoding("ansi")]
-        const SDDL_MANDATORY_LABEL: String = "ML";
-        #[encoding("ansi")]
-        const SDDL_ML_HIGH: String = "HI";
-        #[encoding("ansi")]
-        const SDDL_ML_LOW: String = "LW";
-        #[encoding("ansi")]
-        const SDDL_ML_MEDIUM: String = "ME";
-        #[encoding("ansi")]
-        const SDDL_ML_MEDIUM_PLUS: String = "MP";
-        #[encoding("ansi")]
-        const SDDL_ML_SYSTEM: String = "SI";
-        #[encoding("ansi")]
-        const SDDL_NETWORK: String = "NU";
-        #[encoding("ansi")]
-        const SDDL_NETWORK_CONFIGURATION_OPS: String = "NO";
-        #[encoding("ansi")]
-        const SDDL_NETWORK_SERVICE: String = "NS";
-        #[encoding("ansi")]
-        const SDDL_NO_EXECUTE_UP: String = "NX";
-        #[encoding("ansi")]
-        const SDDL_NO_PROPAGATE: String = "NP";
-        #[encoding("ansi")]
-        const SDDL_NO_READ_UP: String = "NR";
-        #[encoding("ansi")]
-        const SDDL_NO_WRITE_UP: String = "NW";
-        #[encoding("ansi")]
-        const SDDL_NULL_ACL: String = "NO_ACCESS_CONTROL";
-        #[encoding("ansi")]
-        const SDDL_OBJECT_ACCESS_ALLOWED: String = "OA";
-        #[encoding("ansi")]
-        const SDDL_OBJECT_ACCESS_DENIED: String = "OD";
-        #[encoding("ansi")]
-        const SDDL_OBJECT_ALARM: String = "OL";
-        #[encoding("ansi")]
-        const SDDL_OBJECT_AUDIT: String = "OU";
-        #[encoding("ansi")]
-        const SDDL_OBJECT_INHERIT: String = "OI";
-        #[encoding("ansi")]
-        const SDDL_OPENSSH_USERS: String = "SH";
-        #[encoding("ansi")]
-        const SDDL_OWNER: String = "O";
-        #[encoding("ansi")]
-        const SDDL_OWNER_RIGHTS: String = "OW";
-        #[encoding("ansi")]
-        const SDDL_PERFLOG_USERS: String = "LU";
-        #[encoding("ansi")]
-        const SDDL_PERFMON_USERS: String = "MU";
-        #[encoding("ansi")]
-        const SDDL_PERSONAL_SELF: String = "PS";
-        #[encoding("ansi")]
-        const SDDL_POWER_USERS: String = "PU";
-        #[encoding("ansi")]
-        const SDDL_PRINTER_OPERATORS: String = "PO";
-        #[encoding("ansi")]
-        const SDDL_PROCESS_TRUST_LABEL: String = "TL";
-        #[encoding("ansi")]
-        const SDDL_PROTECTED: String = "P";
-        #[encoding("ansi")]
-        const SDDL_PROTECTED_USERS: String = "AP";
-        #[encoding("ansi")]
-        const SDDL_RAS_SERVERS: String = "RS";
-        #[encoding("ansi")]
-        const SDDL_RDS_ENDPOINT_SERVERS: String = "ES";
-        #[encoding("ansi")]
-        const SDDL_RDS_MANAGEMENT_SERVERS: String = "MS";
-        #[encoding("ansi")]
-        const SDDL_RDS_REMOTE_ACCESS_SERVERS: String = "RA";
-        #[encoding("ansi")]
-        const SDDL_READ_CONTROL: String = "RC";
-        #[encoding("ansi")]
-        const SDDL_READ_PROPERTY: String = "RP";
-        #[encoding("ansi")]
-        const SDDL_REMOTE_DESKTOP: String = "RD";
-        #[encoding("ansi")]
-        const SDDL_REMOTE_MANAGEMENT_USERS: String = "RM";
-        #[encoding("ansi")]
-        const SDDL_REPLICATOR: String = "RE";
-        #[encoding("ansi")]
-        const SDDL_RESOURCE_ATTRIBUTE: String = "RA";
-        #[encoding("ansi")]
-        const SDDL_RESTRICTED_CODE: String = "RC";
         const SDDL_REVISION: i32 = 1;
         const SDDL_REVISION_1: i32 = 1;
-        #[encoding("ansi")]
-        const SDDL_SACL: String = "S";
-        #[encoding("ansi")]
-        const SDDL_SCHEMA_ADMINISTRATORS: String = "SA";
-        #[encoding("ansi")]
-        const SDDL_SCOPED_POLICY_ID: String = "SP";
-        #[encoding("ansi")]
-        const SDDL_SELF_WRITE: String = "SW";
-        #[encoding("ansi")]
-        const SDDL_SEPERATOR: String = ";";
         const SDDL_SEPERATORC: i8 = 59;
-        #[encoding("ansi")]
-        const SDDL_SERVER_OPERATORS: String = "SO";
-        #[encoding("ansi")]
-        const SDDL_SERVICE: String = "SU";
-        #[encoding("ansi")]
-        const SDDL_SERVICE_ASSERTED: String = "SS";
-        #[encoding("ansi")]
-        const SDDL_SID: String = "TD";
-        #[encoding("ansi")]
-        const SDDL_SPACE: String = " ";
         const SDDL_SPACEC: i8 = 32;
-        #[encoding("ansi")]
-        const SDDL_STANDARD_DELETE: String = "SD";
-        #[encoding("ansi")]
-        const SDDL_TRUST_PROTECTED_FILTER: String = "TP";
-        #[encoding("ansi")]
-        const SDDL_UINT: String = "TU";
-        #[encoding("ansi")]
-        const SDDL_USER_MODE_DRIVERS: String = "UD";
-        #[encoding("ansi")]
-        const SDDL_USER_MODE_HARDWARE_OPERATORS: String = "HO";
-        #[encoding("ansi")]
-        const SDDL_WRITE_DAC: String = "WD";
-        #[encoding("ansi")]
-        const SDDL_WRITE_OWNER: String = "WO";
-        #[encoding("ansi")]
-        const SDDL_WRITE_PROPERTY: String = "WP";
-        #[encoding("ansi")]
-        const SDDL_WRITE_RESTRICTED_CODE: String = "WR";
-        #[encoding("ansi")]
-        const SDDL_WSTRING: String = "TS";
     }
 }

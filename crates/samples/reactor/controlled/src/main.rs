@@ -34,7 +34,8 @@ impl Component for Controlled {
         StackPanel::new()
             .spacing(8.0)
             .children((
-                TextBox::new(self.text.clone())
+                TextBox::new()
+                    .text(self.text.clone())
                     .placeholder_text("Type here")
                     .on_text_changed(context.callback(Message::Text)),
                 self.text.clone(),

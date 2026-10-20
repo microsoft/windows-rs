@@ -1,9 +1,9 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_On_failure_", "_At_(*activatableClassIds, _Post_ _Null_)", "_At_(*activatableClassIds, _Post_ _Null_)")]
         #[library("api-ms-win-core-winrt-registration-l1-1-0.dll")]
-        extern fn RoGetServerActivatableClasses(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] serverName: HSTRING, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return >= 0,_Outptr_result_buffer_(*count)", "return >= 0, _Outptr_result_buffer_(*count)")] activatableClassIds: *mut *mut HSTRING, #[out] count: *mut DWORD) -> HRESULT;
+        extern fn RoGetActivatableClassRegistration(activatableClassId: HSTRING, activatableClassRegistration: *mut IActivatableClassRegistration) -> HRESULT;
+        #[library("api-ms-win-core-winrt-registration-l1-1-0.dll")]
+        extern fn RoGetServerActivatableClasses(serverName: HSTRING, activatableClassIds: *mut *mut HSTRING, count: *mut u32) -> HRESULT;
     }
 }

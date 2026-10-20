@@ -48,36 +48,36 @@ mod Windows {
         const SESSION_TICKET_INFO_V0: i32 = 0;
         const SESSION_TICKET_INFO_VERSION: i32 = 0;
         struct SecPkgCred_CipherStrengths {
-            dwMinimumCipherStrength: DWORD,
-            dwMaximumCipherStrength: DWORD,
+            dwMinimumCipherStrength: u32,
+            dwMaximumCipherStrength: u32,
         }
         struct SecPkgCred_ClientCertPolicy {
-            dwFlags: DWORD,
+            dwFlags: u32,
             guidPolicyId: GUID,
-            dwCertFlags: DWORD,
-            dwUrlRetrievalTimeout: DWORD,
+            dwCertFlags: u32,
+            dwUrlRetrievalTimeout: u32,
             fCheckRevocationFreshnessTime: BOOL,
-            dwRevocationFreshnessTime: DWORD,
+            dwRevocationFreshnessTime: u32,
             fOmitUsageCheck: BOOL,
-            pwszSslCtlStoreName: LPWSTR,
-            pwszSslCtlIdentifier: LPWSTR,
+            pwszSslCtlStoreName: PWSTR,
+            pwszSslCtlIdentifier: PWSTR,
         }
         struct SecPkgCred_SessionTicketKey {
-            TicketInfoVersion: DWORD,
-            KeyId: [BYTE; 16],
-            KeyingMaterial: [BYTE; 64],
-            KeyingMaterialSize: BYTE,
+            TicketInfoVersion: u32,
+            KeyId: [u8; 16],
+            KeyingMaterial: [u8; 64],
+            KeyingMaterialSize: u8,
         }
         struct SecPkgCred_SessionTicketKeys {
-            cSessionTicketKeys: DWORD,
+            cSessionTicketKeys: u32,
             pSessionTicketKeys: PSecPkgCred_SessionTicketKey,
         }
         struct SecPkgCred_SupportedAlgs {
-            cSupportedAlgs: DWORD,
+            cSupportedAlgs: u32,
             palgSupportedAlgs: *mut ALG_ID,
         }
         struct SecPkgCred_SupportedProtocols {
-            grbitProtocol: DWORD,
+            grbitProtocol: u32,
         }
     }
 }

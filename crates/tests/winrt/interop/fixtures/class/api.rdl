@@ -1,0 +1,15 @@
+#[winrt]
+mod Class {
+    #[Windows::Foundation::Metadata::Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
+    interface IWidget {
+        fn Add(&self, left: i32, right: i32) -> i32;
+        Name: String;
+        #[get]
+        Count: i32;
+    }
+}

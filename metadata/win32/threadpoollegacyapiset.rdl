@@ -1,27 +1,21 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn ChangeTimerQueueTimer(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TimerQueue: HANDLE, #[in] #[out] Timer: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DueTime: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Period: ULONG) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn ChangeTimerQueueTimer(#[opt] TimerQueue: HANDLE, #[in] #[out] Timer: HANDLE, DueTime: u32, Period: u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn CreateTimerQueue() -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateTimerQueueTimer(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] phNewTimer: PHANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TimerQueue: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: WAITORTIMERCALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Parameter: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DueTime: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Period: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: ULONG) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn CreateTimerQueueTimer(phNewTimer: PHANDLE, #[opt] TimerQueue: HANDLE, Callback: WAITORTIMERCALLBACK, #[in] #[opt] Parameter: *mut void, DueTime: u32, Period: u32, Flags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DeleteTimerQueue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TimerQueue: HANDLE) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn DeleteTimerQueue(TimerQueue: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DeleteTimerQueueEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TimerQueue: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompletionEvent: HANDLE) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn DeleteTimerQueueEx(TimerQueue: HANDLE, #[opt] CompletionEvent: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DeleteTimerQueueTimer(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TimerQueue: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Timer: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompletionEvent: HANDLE) -> BOOL;
+        extern fn DeleteTimerQueueTimer(#[opt] TimerQueue: HANDLE, Timer: HANDLE, #[opt] CompletionEvent: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn QueueUserWorkItem(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Function: LPTHREAD_START_ROUTINE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Context: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: ULONG) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn QueueUserWorkItem(Function: LPTHREAD_START_ROUTINE, #[in] #[opt] Context: *mut void, Flags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn UnregisterWaitEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] WaitHandle: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompletionEvent: HANDLE) -> BOOL;
+        extern fn UnregisterWaitEx(WaitHandle: HANDLE, #[opt] CompletionEvent: HANDLE) -> BOOL;
     }
 }

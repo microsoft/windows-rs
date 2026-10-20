@@ -75,13 +75,9 @@ cargo check -p windows-reactor --quiet
 # Unit tests (headless, fast)
 cargo test -p windows-reactor --all-features --quiet
 
-# Integration tests (launches WinUI window)
-cargo run -p test-reactor-selftest
-cargo run -p test-reactor-selftest -- --headless    # CI mode
-cargo run -p test-reactor-integration --bin application_menu
-cargo run -p test-reactor-integration --bin canvas_integration
-cargo run -p test-reactor-integration --bin webview_integration
-cargo run -p test-reactor-integration --bin window_state
+# Public API tests (x64 interactive desktop; Cargo deploys the runtime)
+cargo test -p test-reactor
+cargo test -p test-reactor --test ui window::
 
 # Clippy
 cargo clippy -p windows-reactor --all-targets
@@ -143,7 +139,7 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 
 ### Reactor architecture
 
-- WinUI backend ownership is split across `crates/libs/reactor/src/native/winui.rs` and
+- WinUI backend ownership is split across `crates/libs/reactor/src/native/winui/mod.rs` and
   `crates/libs/reactor/src/native/winui/`.
 - The TOML config (`crates/tools/reactor/src/schema.toml`) declares 79 WinUI controls. Keys are
   WinUI metadata names; the tool infers types, setter patterns, and event handlers from `.winmd`
@@ -160,15 +156,27 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 
 ## Conventions
 
+- **Module layout**: When a module has a directory, put its entry point in `name/mod.rs`, not
+  `name.rs` beside the `name/` directory. The workspace enables Clippy's `self_named_module_files`
+  lint to enforce this for modules with external submodules.
 - **Panics**: Use `panic!` only for invariant violations. Use `diag::` helpers for missing features
   (warn in debug, no-op in release).
 - **`.unwrap()` over `.expect("...")`** - the panic hook provides full context.
 - **No `thread_local!` in app code** - keep state in components and pass shared values through typed
   contexts. `thread_local!` is reserved for framework plumbing.
-- **Test naming**: Reactor unit tests live in `windows-reactor`; live WinUI coverage lives in
-  `test-reactor-selftest`. Public application and companion-crate fixtures live in
-  `test-reactor-integration` without the Reactor `test` feature. Build that package separately
-  from privileged tests to avoid Cargo feature unification. Canvas tests use WARP rendering.
+- **Test naming**: Reactor unit tests live in `windows-reactor`. Public behavioral coverage belongs
+  in `test-reactor`. Prefer a small set of high-value contracts over exhaustive UIA matrices or
+  preserving every legacy assertion. Do not add separate runners or test scripts. Keep library tests
+  headless rather than adding ignored native fixtures. The functional crate participates in workspace
+  tests and uses `windows-reactor-setup` in its build script. Live UI cases run on x64; setup's
+  filesystem and multiprocess tests run on all Windows architectures.
+  Run the crate alone when checking default features rather than the workspace's unified
+  features.
+  Canvas tests use WARP rendering.
+- **Reactor test documentation**: Keep testing instructions in `crates/tests/libs/reactor/readme.md`,
+  not `docs/crates/windows-reactor.md`. `cargo test -p test-reactor` must run the automated suite
+  without ignored-test flags. Generate its native bindings with `windows-bindgen` in `build.rs`
+  rather than depending on the `windows` crate.
 
 ## Documentation
 
@@ -218,6 +226,13 @@ These rules were established while cleaning up the docs and code comments and ap
 Enduring record of known issues so they are not lost between sessions. Add findings here; remove or
 mark done as they are addressed. Cite code by file + symbol name, not line number - line numbers go
 stale fast.
+
+### Native menu theme propagation
+
+Investigate `crates/libs/reactor/src/native/transient_menu.rs` `MenuThemeState::refresh` and
+`show_pending`. A CI run observed a flyout item remaining Light while its anchor reported Dark.
+The cause is unconfirmed. The headless preference and callback tests do not establish native theme
+propagation; investigate the behavior before adding a focused public-API regression case.
 
 ### Repo-wide dead-code / quality audit (2026-07)
 

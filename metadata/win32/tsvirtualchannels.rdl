@@ -2,31 +2,19 @@
 mod Windows {
     mod Win32 {
         struct BITMAP_RENDERER_STATISTICS {
-            dwFramesDelivered: DWORD,
-            dwFramesDropped: DWORD,
+            dwFramesDelivered: u32,
+            dwFramesDropped: u32,
         }
         const E_DUPLICATE_WINDOW_HINT: HRESULT = -2147024713;
         const E_MAPPEDRENDERER_SHUTDOWN: HRESULT = -2147019873;
-        const IID_IWTSBitmapRenderService: GUID = 0xea326091_05fe_40c1_b49c_3d2ef4626a0e;
-        const IID_IWTSBitmapRenderer: GUID = 0x5b7acc97_f3c9_46f7_8c5b_fa685d3441b1;
-        const IID_IWTSBitmapRendererCallback: GUID = 0xd782928e_fe4e_4e77_ae90_9cd0b3e3b353;
-        const IID_IWTSListener: GUID = 0xa1230206_9a39_4d58_8674_cdb4dff4e73b;
-        const IID_IWTSListenerCallback: GUID = 0xa1230203_d6a7_11d8_b9fd_000bdbd1f198;
-        const IID_IWTSPlugin: GUID = 0xa1230201_1439_4e62_a414_190d0ac3d40e;
-        const IID_IWTSPluginServiceProvider: GUID = 0xd3e07363_087c_476c_86a7_dbb15f46ddb4;
-        const IID_IWTSVirtualChannel: GUID = 0xa1230207_d6a7_11d8_b9fd_000bdbd1f198;
-        const IID_IWTSVirtualChannelCallback: GUID = 0xa1230204_d6a7_11d8_b9fd_000bdbd1f198;
-        const IID_IWTSVirtualChannelManager: GUID = 0xa1230205_d6a7_11d8_b9fd_000bdbd1f198;
-        const IID_IWTSWindowChangedCallback: GUID = 0xe8a47fd3_1af5_4d7f_8e15_515ccae1c00c;
-        const IID_IWTSWindowInfoService: GUID = 0x2a002c7b_0120_4d04_bfb1_3c73110c8581;
         #[guid(0xea326091_05fe_40c1_b49c_3d2ef4626a0e)]
         interface IWTSBitmapRenderService: IUnknown {
-            fn GetMappedRenderer(&self, mappingId: UINT64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pMappedRendererCallback: IWTSBitmapRendererCallback, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppMappedRenderer: *mut IWTSBitmapRenderer) -> HRESULT;
+            fn GetMappedRenderer(&self, mappingId: u64, pMappedRendererCallback: IWTSBitmapRendererCallback, ppMappedRenderer: *mut IWTSBitmapRenderer) -> HRESULT;
         }
         #[guid(0x5b7acc97_f3c9_46f7_8c5b_fa685d3441b1)]
         interface IWTSBitmapRenderer: IUnknown {
-            fn Render(&self, imageFormat: GUID, dwWidth: DWORD, dwHeight: DWORD, cbStride: LONG, cbImageBuffer: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(4)] pImageBuffer: *mut BYTE) -> HRESULT;
-            fn GetRendererStatistics(&self, #[out] pStatistics: *mut BITMAP_RENDERER_STATISTICS) -> HRESULT;
+            fn Render(&self, imageFormat: GUID, dwWidth: u32, dwHeight: u32, cbStride: i32, cbImageBuffer: u32, #[in] pImageBuffer: *mut u8) -> HRESULT;
+            fn GetRendererStatistics(&self, pStatistics: *mut BITMAP_RENDERER_STATISTICS) -> HRESULT;
             fn RemoveMapping(&self) -> HRESULT;
         }
         #[guid(0xd782928e_fe4e_4e77_ae90_9cd0b3e3b353)]
@@ -35,52 +23,50 @@ mod Windows {
         }
         #[guid(0xa1230206_9a39_4d58_8674_cdb4dff4e73b)]
         interface IWTSListener: IUnknown {
-            fn GetConfiguration(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppPropertyBag: *mut IPropertyBag) -> HRESULT;
+            fn GetConfiguration(&self, ppPropertyBag: *mut IPropertyBag) -> HRESULT;
         }
         #[guid(0xa1230203_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSListenerCallback: IUnknown {
-            fn OnNewChannelConnection(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pChannel: IWTSVirtualChannel, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] data: BSTR, #[out] pbAccept: *mut BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCallback: *mut IWTSVirtualChannelCallback) -> HRESULT;
+            fn OnNewChannelConnection(&self, pChannel: IWTSVirtualChannel, data: BSTR, pbAccept: *mut BOOL, ppCallback: *mut IWTSVirtualChannelCallback) -> HRESULT;
         }
         #[guid(0xa1230201_1439_4e62_a414_190d0ac3d40e)]
         interface IWTSPlugin: IUnknown {
-            fn Initialize(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pChannelMgr: IWTSVirtualChannelManager) -> HRESULT;
+            fn Initialize(&self, pChannelMgr: IWTSVirtualChannelManager) -> HRESULT;
             fn Connected(&self) -> HRESULT;
-            fn Disconnected(&self, dwDisconnectCode: DWORD) -> HRESULT;
+            fn Disconnected(&self, dwDisconnectCode: u32) -> HRESULT;
             fn Terminated(&self) -> HRESULT;
         }
         #[guid(0xd3e07363_087c_476c_86a7_dbb15f46ddb4)]
         interface IWTSPluginServiceProvider: IUnknown {
-            fn GetService(&self, ServiceId: GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppunkObject: *mut IUnknown) -> HRESULT;
+            fn GetService(&self, ServiceId: GUID, ppunkObject: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xa1230207_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSVirtualChannel: IUnknown {
-            fn Write(&self, cbSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(0)] pBuffer: *mut BYTE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pReserved: IUnknown) -> HRESULT;
+            fn Write(&self, cbSize: u32, #[in] pBuffer: *mut u8, pReserved: IUnknown) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xa1230204_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSVirtualChannelCallback: IUnknown {
-            fn OnDataReceived(&self, cbSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(0)] pBuffer: *mut BYTE) -> HRESULT;
+            fn OnDataReceived(&self, cbSize: u32, #[in] pBuffer: *mut u8) -> HRESULT;
             fn OnClose(&self) -> HRESULT;
         }
         #[guid(0xa1230205_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSVirtualChannelManager: IUnknown {
-            fn CreateListener(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszChannelName: *const i8, uFlags: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pListenerCallback: IWTSListenerCallback, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppListener: *mut IWTSListener) -> HRESULT;
+            fn CreateListener(&self, pszChannelName: *const i8, uFlags: u32, pListenerCallback: IWTSListenerCallback, ppListener: *mut IWTSListener) -> HRESULT;
         }
         #[guid(0xe8a47fd3_1af6_4d7f_8e15_515ccae1c00c)]
         interface IWTSWindowChangedCallback: IUnknown {
-            fn WindowChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] windowInfo: *const WTSWindowInfo) -> HRESULT;
+            fn WindowChanged(&self, windowInfo: *const WTSWindowInfo) -> HRESULT;
         }
         #[guid(0x2a002c7b_0120_4d04_bfb1_3c73110c8581)]
         interface IWTSWindowInfoService: IUnknown {
-            fn GetWindowInfo(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] remoteHwnd: HWND, #[out] windowInfo: *mut WTSWindowInfo) -> HRESULT;
-            fn GetRdpClientProcessId(&self, #[out] #[retval] processId: *mut u32) -> HRESULT;
-            fn GetRdpSessionType(&self, #[out] #[retval] sessionType: *mut RdpSessionType) -> HRESULT;
-            fn SubscribeWindowChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] remoteHwnd: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] windowChanged: IWTSWindowChangedCallback) -> HRESULT;
-            fn UnsubscribeWindowChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] remoteHwnd: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] windowChanged: IWTSWindowChangedCallback) -> HRESULT;
+            fn GetWindowInfo(&self, remoteHwnd: HWND, windowInfo: *mut WTSWindowInfo) -> HRESULT;
+            fn GetRdpClientProcessId(&self, #[retval] processId: *mut u32) -> HRESULT;
+            fn GetRdpSessionType(&self, #[retval] sessionType: *mut RdpSessionType) -> HRESULT;
+            fn SubscribeWindowChanged(&self, remoteHwnd: HWND, windowChanged: IWTSWindowChangedCallback) -> HRESULT;
+            fn UnsubscribeWindowChanged(&self, remoteHwnd: HWND, windowChanged: IWTSWindowChangedCallback) -> HRESULT;
         }
         type PBITMAP_RENDERER_STATISTICS = *mut BITMAP_RENDERER_STATISTICS;
-        const RDCLIENT_BITMAP_RENDER_SERVICE: GUID = 0xe4cc08cb_942e_4b19_8504_bd5a89a747f5;
-        const RDCLIENT_WINDOW_INFO_SERVICE: GUID = 0xa9a17a6b_cdb3_4e81_b5c8_bd63822a8d6c;
         #[repr(i32)]
         enum RdpSessionType {
             Desktop = 0,

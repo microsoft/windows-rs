@@ -39,11 +39,11 @@ mod Windows {
         const C3_SYMBOL: i32 = 8;
         const C3_VOWELMARK: i32 = 4;
         type CALID = u32;
-        extern fn CALINFO_ENUMPROCA(param0: LPSTR) -> BOOL;
-        extern fn CALINFO_ENUMPROCEXA(param0: LPSTR, param1: CALID) -> BOOL;
-        extern fn CALINFO_ENUMPROCEXEX(param0: LPWSTR, param1: CALID, param2: LPWSTR, param3: LPARAM) -> BOOL;
-        extern fn CALINFO_ENUMPROCEXW(param0: LPWSTR, param1: CALID) -> BOOL;
-        extern fn CALINFO_ENUMPROCW(param0: LPWSTR) -> BOOL;
+        extern fn CALINFO_ENUMPROCA(param0: PSTR) -> BOOL;
+        extern fn CALINFO_ENUMPROCEXA(param0: PSTR, param1: CALID) -> BOOL;
+        extern fn CALINFO_ENUMPROCEXEX(param0: PWSTR, param1: CALID, param2: PWSTR, param3: LPARAM) -> BOOL;
+        extern fn CALINFO_ENUMPROCEXW(param0: PWSTR, param1: CALID) -> BOOL;
+        extern fn CALINFO_ENUMPROCW(param0: PWSTR) -> BOOL;
         type CALTYPE = u32;
         const CAL_GREGORIAN: i32 = 1;
         const CAL_GREGORIAN_ARABIC: i32 = 10;
@@ -124,29 +124,29 @@ mod Windows {
         const CAL_THAI: i32 = 7;
         const CAL_UMALQURA: i32 = 23;
         const CAL_USE_CP_ACP: i32 = 1073741824;
-        extern fn CODEPAGE_ENUMPROCA(param0: LPSTR) -> BOOL;
-        extern fn CODEPAGE_ENUMPROCW(param0: LPWSTR) -> BOOL;
+        extern fn CODEPAGE_ENUMPROCA(param0: PSTR) -> BOOL;
+        extern fn CODEPAGE_ENUMPROCW(param0: PWSTR) -> BOOL;
         struct CPINFO {
-            MaxCharSize: UINT,
-            DefaultChar: [BYTE; 2],
-            LeadByte: [BYTE; 12],
+            MaxCharSize: u32,
+            DefaultChar: [u8; 2],
+            LeadByte: [u8; 12],
         }
         type CPINFOEX = CPINFOEXA;
         struct CPINFOEXA {
-            MaxCharSize: UINT,
-            DefaultChar: [BYTE; 2],
-            LeadByte: [BYTE; 12],
-            UnicodeDefaultChar: WCHAR,
-            CodePage: UINT,
-            CodePageName: [CHAR; 260],
+            MaxCharSize: u32,
+            DefaultChar: [u8; 2],
+            LeadByte: [u8; 12],
+            UnicodeDefaultChar: u16,
+            CodePage: u32,
+            CodePageName: [i8; 260],
         }
         struct CPINFOEXW {
-            MaxCharSize: UINT,
-            DefaultChar: [BYTE; 2],
-            LeadByte: [BYTE; 12],
-            UnicodeDefaultChar: WCHAR,
-            CodePage: UINT,
-            CodePageName: [WCHAR; 260],
+            MaxCharSize: u32,
+            DefaultChar: [u8; 2],
+            LeadByte: [u8; 12],
+            UnicodeDefaultChar: u16,
+            CodePage: u32,
+            CodePageName: [u16; 260],
         }
         const CP_ACP: i32 = 0;
         const CP_INSTALLED: i32 = 1;
@@ -277,36 +277,34 @@ mod Windows {
         const CT_CTYPE3: i32 = 4;
         type CURRENCYFMT = CURRENCYFMTA;
         struct CURRENCYFMTA {
-            NumDigits: UINT,
-            LeadingZero: UINT,
-            Grouping: UINT,
-            lpDecimalSep: LPSTR,
-            lpThousandSep: LPSTR,
-            NegativeOrder: UINT,
-            PositiveOrder: UINT,
-            lpCurrencySymbol: LPSTR,
+            NumDigits: u32,
+            LeadingZero: u32,
+            Grouping: u32,
+            lpDecimalSep: PSTR,
+            lpThousandSep: PSTR,
+            NegativeOrder: u32,
+            PositiveOrder: u32,
+            lpCurrencySymbol: PSTR,
         }
         struct CURRENCYFMTW {
-            NumDigits: UINT,
-            LeadingZero: UINT,
-            Grouping: UINT,
-            lpDecimalSep: LPWSTR,
-            lpThousandSep: LPWSTR,
-            NegativeOrder: UINT,
-            PositiveOrder: UINT,
-            lpCurrencySymbol: LPWSTR,
+            NumDigits: u32,
+            LeadingZero: u32,
+            Grouping: u32,
+            lpDecimalSep: PWSTR,
+            lpThousandSep: PWSTR,
+            NegativeOrder: u32,
+            PositiveOrder: u32,
+            lpCurrencySymbol: PWSTR,
         }
-        #[library("KERNEL32.dll", import = "CompareStringA")]
-        extern fn CompareString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCmpFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpString1: PCNZCH, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchCount1: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] lpString2: PCNZCH, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchCount2: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn CompareStringA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCmpFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpString1: PCNZCH, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchCount1: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] lpString2: PCNZCH, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchCount2: i32) -> i32;
+        extern fn CompareStringA(Locale: LCID, dwCmpFlags: u32, #[len_param(3)] lpString1: PCNZCH, cchCount1: i32, #[len_param(5)] lpString2: PCNZCH, cchCount2: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn ConvertDefaultLocale(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID) -> LCID;
-        extern fn DATEFMT_ENUMPROCA(param0: LPSTR) -> BOOL;
-        extern fn DATEFMT_ENUMPROCEXA(param0: LPSTR, param1: CALID) -> BOOL;
-        extern fn DATEFMT_ENUMPROCEXEX(param0: LPWSTR, param1: CALID, param2: LPARAM) -> BOOL;
-        extern fn DATEFMT_ENUMPROCEXW(param0: LPWSTR, param1: CALID) -> BOOL;
-        extern fn DATEFMT_ENUMPROCW(param0: LPWSTR) -> BOOL;
+        extern fn ConvertDefaultLocale(Locale: LCID) -> LCID;
+        extern fn DATEFMT_ENUMPROCA(param0: PSTR) -> BOOL;
+        extern fn DATEFMT_ENUMPROCEXA(param0: PSTR, param1: CALID) -> BOOL;
+        extern fn DATEFMT_ENUMPROCEXEX(param0: PWSTR, param1: CALID, param2: LPARAM) -> BOOL;
+        extern fn DATEFMT_ENUMPROCEXW(param0: PWSTR, param1: CALID) -> BOOL;
+        extern fn DATEFMT_ENUMPROCW(param0: PWSTR) -> BOOL;
         const DATE_AUTOLAYOUT: i32 = 64;
         const DATE_LONGDATE: i32 = 2;
         const DATE_LTRREADING: i32 = 16;
@@ -316,105 +314,83 @@ mod Windows {
         const DATE_USE_ALT_CALENDAR: i32 = 4;
         const DATE_YEARMONTH: i32 = 8;
         const ENUM_ALL_CALENDARS: u32 = 4294967295;
-        #[library("KERNEL32.dll", import = "EnumCalendarInfoA")]
-        extern fn EnumCalendarInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCalInfoEnumProc: CALINFO_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumCalendarInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCalInfoEnumProc: CALINFO_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE) -> BOOL;
-        #[library("KERNEL32.dll", import = "EnumCalendarInfoExA")]
-        extern fn EnumCalendarInfoEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCalInfoEnumProcEx: CALINFO_ENUMPROCEXA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE) -> BOOL;
+        extern fn EnumCalendarInfoA(lpCalInfoEnumProc: CALINFO_ENUMPROCA, Locale: LCID, Calendar: CALID, CalType: CALTYPE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumCalendarInfoExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCalInfoEnumProcEx: CALINFO_ENUMPROCEXA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE) -> BOOL;
+        extern fn EnumCalendarInfoExA(lpCalInfoEnumProcEx: CALINFO_ENUMPROCEXA, Locale: LCID, Calendar: CALID, CalType: CALTYPE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumCalendarInfoExEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCalInfoEnumProcExEx: CALINFO_ENUMPROCEXEX, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpReserved: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LPARAM) -> BOOL;
+        extern fn EnumCalendarInfoExEx(pCalInfoEnumProcExEx: CALINFO_ENUMPROCEXEX, #[opt] lpLocaleName: PCWSTR, Calendar: CALID, #[opt] lpReserved: PCWSTR, CalType: CALTYPE, lParam: LPARAM) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumCalendarInfoExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCalInfoEnumProcEx: CALINFO_ENUMPROCEXW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE) -> BOOL;
+        extern fn EnumCalendarInfoExW(lpCalInfoEnumProcEx: CALINFO_ENUMPROCEXW, Locale: LCID, Calendar: CALID, CalType: CALTYPE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumCalendarInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCalInfoEnumProc: CALINFO_ENUMPROCW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE) -> BOOL;
-        #[library("KERNEL32.dll", import = "EnumDateFormatsA")]
-        extern fn EnumDateFormats(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDateFmtEnumProc: DATEFMT_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn EnumCalendarInfoW(lpCalInfoEnumProc: CALINFO_ENUMPROCW, Locale: LCID, Calendar: CALID, CalType: CALTYPE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumDateFormatsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDateFmtEnumProc: DATEFMT_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
-        #[library("KERNEL32.dll", import = "EnumDateFormatsExA")]
-        extern fn EnumDateFormatsEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDateFmtEnumProcEx: DATEFMT_ENUMPROCEXA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn EnumDateFormatsA(lpDateFmtEnumProc: DATEFMT_ENUMPROCA, Locale: LCID, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumDateFormatsExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDateFmtEnumProcEx: DATEFMT_ENUMPROCEXA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn EnumDateFormatsExA(lpDateFmtEnumProcEx: DATEFMT_ENUMPROCEXA, Locale: LCID, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumDateFormatsExEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDateFmtEnumProcExEx: DATEFMT_ENUMPROCEXEX, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LPARAM) -> BOOL;
+        extern fn EnumDateFormatsExEx(lpDateFmtEnumProcExEx: DATEFMT_ENUMPROCEXEX, #[opt] lpLocaleName: PCWSTR, dwFlags: u32, lParam: LPARAM) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumDateFormatsExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDateFmtEnumProcEx: DATEFMT_ENUMPROCEXW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn EnumDateFormatsExW(lpDateFmtEnumProcEx: DATEFMT_ENUMPROCEXW, Locale: LCID, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumDateFormatsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDateFmtEnumProc: DATEFMT_ENUMPROCW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
-        #[library("KERNEL32.dll", import = "EnumLanguageGroupLocalesA")]
-        extern fn EnumLanguageGroupLocales(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLangGroupLocaleEnumProc: LANGGROUPLOCALE_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LanguageGroup: LGRPID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LONG_PTR) -> BOOL;
+        extern fn EnumDateFormatsW(lpDateFmtEnumProc: DATEFMT_ENUMPROCW, Locale: LCID, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumLanguageGroupLocalesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLangGroupLocaleEnumProc: LANGGROUPLOCALE_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LanguageGroup: LGRPID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LONG_PTR) -> BOOL;
+        extern fn EnumLanguageGroupLocalesA(lpLangGroupLocaleEnumProc: LANGGROUPLOCALE_ENUMPROCA, LanguageGroup: LGRPID, dwFlags: u32, lParam: isize) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumLanguageGroupLocalesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLangGroupLocaleEnumProc: LANGGROUPLOCALE_ENUMPROCW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LanguageGroup: LGRPID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LONG_PTR) -> BOOL;
-        #[library("KERNEL32.dll", import = "EnumSystemCodePagesA")]
-        extern fn EnumSystemCodePages(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCodePageEnumProc: CODEPAGE_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn EnumLanguageGroupLocalesW(lpLangGroupLocaleEnumProc: LANGGROUPLOCALE_ENUMPROCW, LanguageGroup: LGRPID, dwFlags: u32, lParam: isize) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumSystemCodePagesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCodePageEnumProc: CODEPAGE_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn EnumSystemCodePagesA(lpCodePageEnumProc: CODEPAGE_ENUMPROCA, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumSystemCodePagesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCodePageEnumProc: CODEPAGE_ENUMPROCW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn EnumSystemCodePagesW(lpCodePageEnumProc: CODEPAGE_ENUMPROCW, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumSystemGeoID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GeoClass: GEOCLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ParentGeoId: GEOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpGeoEnumProc: GEO_ENUMPROC) -> BOOL;
+        extern fn EnumSystemGeoID(GeoClass: GEOCLASS, ParentGeoId: GEOID, lpGeoEnumProc: GEO_ENUMPROC) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumSystemGeoNames(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] geoClass: GEOCLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] geoEnumProc: GEO_ENUMNAMEPROC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] data: LPARAM) -> BOOL;
-        #[library("KERNEL32.dll", import = "EnumSystemLanguageGroupsA")]
-        extern fn EnumSystemLanguageGroups(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLanguageGroupEnumProc: LANGUAGEGROUP_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LONG_PTR) -> BOOL;
+        extern fn EnumSystemGeoNames(geoClass: GEOCLASS, geoEnumProc: GEO_ENUMNAMEPROC, #[opt] data: LPARAM) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumSystemLanguageGroupsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLanguageGroupEnumProc: LANGUAGEGROUP_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LONG_PTR) -> BOOL;
+        extern fn EnumSystemLanguageGroupsA(lpLanguageGroupEnumProc: LANGUAGEGROUP_ENUMPROCA, dwFlags: u32, lParam: isize) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumSystemLanguageGroupsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLanguageGroupEnumProc: LANGUAGEGROUP_ENUMPROCW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LONG_PTR) -> BOOL;
-        #[library("KERNEL32.dll", import = "EnumSystemLocalesA")]
-        extern fn EnumSystemLocales(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleEnumProc: LOCALE_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn EnumSystemLanguageGroupsW(lpLanguageGroupEnumProc: LANGUAGEGROUP_ENUMPROCW, dwFlags: u32, lParam: isize) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumSystemLocalesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleEnumProc: LOCALE_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn EnumSystemLocalesA(lpLocaleEnumProc: LOCALE_ENUMPROCA, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumSystemLocalesEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleEnumProcEx: LOCALE_ENUMPROCEX, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LPARAM, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpReserved: LPVOID) -> BOOL;
+        extern fn EnumSystemLocalesEx(lpLocaleEnumProcEx: LOCALE_ENUMPROCEX, dwFlags: u32, lParam: LPARAM, #[in] #[opt] lpReserved: *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumSystemLocalesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleEnumProc: LOCALE_ENUMPROCW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
-        #[library("KERNEL32.dll", import = "EnumTimeFormatsA")]
-        extern fn EnumTimeFormats(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTimeFmtEnumProc: TIMEFMT_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn EnumSystemLocalesW(lpLocaleEnumProc: LOCALE_ENUMPROCW, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumTimeFormatsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTimeFmtEnumProc: TIMEFMT_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn EnumTimeFormatsA(lpTimeFmtEnumProc: TIMEFMT_ENUMPROCA, Locale: LCID, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumTimeFormatsEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTimeFmtEnumProcEx: TIMEFMT_ENUMPROCEX, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LPARAM) -> BOOL;
+        extern fn EnumTimeFormatsEx(lpTimeFmtEnumProcEx: TIMEFMT_ENUMPROCEX, #[opt] lpLocaleName: PCWSTR, dwFlags: u32, lParam: LPARAM) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumTimeFormatsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTimeFmtEnumProc: TIMEFMT_ENUMPROCW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
-        #[library("KERNEL32.dll", import = "EnumUILanguagesA")]
-        extern fn EnumUILanguages(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUILanguageEnumProc: UILANGUAGE_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LONG_PTR) -> BOOL;
+        extern fn EnumTimeFormatsW(lpTimeFmtEnumProc: TIMEFMT_ENUMPROCW, Locale: LCID, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumUILanguagesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUILanguageEnumProc: UILANGUAGE_ENUMPROCA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LONG_PTR) -> BOOL;
+        extern fn EnumUILanguagesA(lpUILanguageEnumProc: UILANGUAGE_ENUMPROCA, dwFlags: u32, lParam: isize) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn EnumUILanguagesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUILanguageEnumProc: UILANGUAGE_ENUMPROCW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LONG_PTR) -> BOOL;
+        extern fn EnumUILanguagesW(lpUILanguageEnumProc: UILANGUAGE_ENUMPROCW, dwFlags: u32, lParam: isize) -> BOOL;
         struct FILEMUIINFO {
-            dwSize: DWORD,
-            dwVersion: DWORD,
-            dwFileType: DWORD,
-            pChecksum: [BYTE; 16],
-            pServiceChecksum: [BYTE; 16],
-            dwLanguageNameOffset: DWORD,
-            dwTypeIDMainSize: DWORD,
-            dwTypeIDMainOffset: DWORD,
-            dwTypeNameMainOffset: DWORD,
-            dwTypeIDMUISize: DWORD,
-            dwTypeIDMUIOffset: DWORD,
-            dwTypeNameMUIOffset: DWORD,
-            abBuffer: [BYTE; 8],
+            dwSize: u32,
+            dwVersion: u32,
+            dwFileType: u32,
+            pChecksum: [u8; 16],
+            pServiceChecksum: [u8; 16],
+            dwLanguageNameOffset: u32,
+            dwTypeIDMainSize: u32,
+            dwTypeIDMainOffset: u32,
+            dwTypeNameMainOffset: u32,
+            dwTypeIDMUISize: u32,
+            dwTypeIDMUIOffset: u32,
+            dwTypeNameMUIOffset: u32,
+            abBuffer: [u8; 8],
         }
         const FIND_ENDSWITH: i32 = 2097152;
         const FIND_FROMEND: i32 = 8388608;
         const FIND_FROMSTART: i32 = 4194304;
         const FIND_STARTSWITH: i32 = 1048576;
         #[library("KERNEL32.dll")]
-        extern fn FindNLSString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFindNLSStringFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpStringSource: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchSource: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] lpStringValue: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchValue: i32, #[out] #[opt] pcchFound: LPINT) -> i32;
+        extern fn FindNLSString(Locale: LCID, dwFindNLSStringFlags: u32, #[len_param(3)] lpStringSource: PCWSTR, cchSource: i32, #[len_param(5)] lpStringValue: PCWSTR, cchValue: i32, #[out] #[opt] pcchFound: LPINT) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn FindNLSStringEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFindNLSStringFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpStringSource: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchSource: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] lpStringValue: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchValue: i32, #[out] #[opt] pcchFound: LPINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpVersionInformation: LPNLSVERSIONINFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpReserved: LPVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sortHandle: LPARAM) -> i32;
-        #[library("KERNEL32.dll", import = "FoldStringA")]
-        extern fn FoldString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMapFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] lpSrcStr: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchSrc: i32, #[out] #[opt] #[len_param(4)] lpDestStr: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32) -> i32;
+        extern fn FindNLSStringEx(#[opt] lpLocaleName: PCWSTR, dwFindNLSStringFlags: u32, #[len_param(3)] lpStringSource: PCWSTR, cchSource: i32, #[len_param(5)] lpStringValue: PCWSTR, cchValue: i32, #[out] #[opt] pcchFound: LPINT, #[opt] lpVersionInformation: LPNLSVERSIONINFO, #[in] #[opt] lpReserved: *mut void, #[opt] sortHandle: LPARAM) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn FoldStringA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMapFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] lpSrcStr: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchSrc: i32, #[out] #[opt] #[len_param(4)] lpDestStr: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32) -> i32;
+        extern fn FoldStringA(dwMapFlags: u32, #[len_param(2)] lpSrcStr: PCSTR, cchSrc: i32, #[len_param(4)] #[out] #[opt] lpDestStr: PSTR, cchDest: i32) -> i32;
         type GEOCLASS = u32;
         type GEOID = i32;
         const GEOID_NOT_AVAILABLE: i32 = -1;
@@ -424,110 +400,95 @@ mod Windows {
         const GEO_NAME_USER_DEFAULT: i32 = 0;
         const GSS_ALLOW_INHERITED_COMMON: i32 = 1;
         #[library("KERNEL32.dll")]
-        extern fn GetACP() -> UINT;
+        extern fn GetACP() -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetCPInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CodePage: UINT, #[out] lpCPInfo: LPCPINFO) -> BOOL;
-        #[library("KERNEL32.dll", import = "GetCPInfoExA")]
-        extern fn GetCPInfoEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CodePage: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] lpCPInfoEx: LPCPINFOEXA) -> BOOL;
+        extern fn GetCPInfo(CodePage: u32, #[out] lpCPInfo: LPCPINFO) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetCPInfoExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CodePage: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] lpCPInfoEx: LPCPINFOEXA) -> BOOL;
+        extern fn GetCPInfoExA(CodePage: u32, dwFlags: u32, #[out] lpCPInfoEx: LPCPINFOEXA) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetCPInfoExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CodePage: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] lpCPInfoEx: LPCPINFOEXW) -> BOOL;
-        #[library("KERNEL32.dll", import = "GetCalendarInfoA")]
-        extern fn GetCalendarInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE, #[out] #[opt] #[len_param(4)] lpCalData: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchData: i32, #[out] #[opt] lpValue: LPDWORD) -> i32;
+        extern fn GetCPInfoExW(CodePage: u32, dwFlags: u32, #[out] lpCPInfoEx: LPCPINFOEXW) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetCalendarInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE, #[out] #[opt] #[len_param(4)] lpCalData: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchData: i32, #[out] #[opt] lpValue: LPDWORD) -> i32;
+        extern fn GetCalendarInfoA(Locale: LCID, Calendar: CALID, CalType: CALTYPE, #[len_param(4)] #[out] #[opt] lpCalData: PSTR, cchData: i32, #[out] #[opt] lpValue: LPDWORD) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCalendarInfoEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpReserved: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE, #[out] #[opt] #[len_param(5)] lpCalData: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchData: i32, #[out] #[opt] lpValue: LPDWORD) -> i32;
+        extern fn GetCalendarInfoEx(#[opt] lpLocaleName: PCWSTR, Calendar: CALID, #[opt] lpReserved: PCWSTR, CalType: CALTYPE, #[len_param(5)] #[out] #[opt] lpCalData: PWSTR, cchData: i32, #[out] #[opt] lpValue: LPDWORD) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCalendarInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE, #[out] #[opt] #[len_param(4)] lpCalData: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchData: i32, #[out] #[opt] lpValue: LPDWORD) -> i32;
-        #[library("KERNEL32.dll", import = "GetCurrencyFormatA")]
-        extern fn GetCurrencyFormat(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpValue: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFormat: *const CURRENCYFMTA, #[out] #[opt] #[len_param(5)] lpCurrencyStr: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchCurrency: i32) -> i32;
+        extern fn GetCalendarInfoW(Locale: LCID, Calendar: CALID, CalType: CALTYPE, #[len_param(4)] #[out] #[opt] lpCalData: PWSTR, cchData: i32, #[out] #[opt] lpValue: LPDWORD) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrencyFormatA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpValue: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFormat: *const CURRENCYFMTA, #[out] #[opt] #[len_param(5)] lpCurrencyStr: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchCurrency: i32) -> i32;
+        extern fn GetCurrencyFormatA(Locale: LCID, dwFlags: u32, lpValue: PCSTR, #[opt] lpFormat: *const CURRENCYFMTA, #[len_param(5)] #[out] #[opt] lpCurrencyStr: PSTR, cchCurrency: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrencyFormatEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpValue: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFormat: *const CURRENCYFMTW, #[out] #[opt] #[len_param(5)] lpCurrencyStr: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchCurrency: i32) -> i32;
+        extern fn GetCurrencyFormatEx(#[opt] lpLocaleName: PCWSTR, dwFlags: u32, lpValue: PCWSTR, #[opt] lpFormat: *const CURRENCYFMTW, #[len_param(5)] #[out] #[opt] lpCurrencyStr: PWSTR, cchCurrency: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrencyFormatW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpValue: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFormat: *const CURRENCYFMTW, #[out] #[opt] #[len_param(5)] lpCurrencyStr: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchCurrency: i32) -> i32;
+        extern fn GetCurrencyFormatW(Locale: LCID, dwFlags: u32, lpValue: PCWSTR, #[opt] lpFormat: *const CURRENCYFMTW, #[len_param(5)] #[out] #[opt] lpCurrencyStr: PWSTR, cchCurrency: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetDurationFormat(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDuration: *const SYSTEMTIME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ullDuration: ULONGLONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFormat: LPCWSTR, #[out] #[opt] #[len_param(6)] lpDurationStr: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDuration: i32) -> i32;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return!=0", "return!=0")]
+        extern fn GetDurationFormat(Locale: LCID, dwFlags: u32, #[opt] lpDuration: *const SYSTEMTIME, ullDuration: u64, #[opt] lpFormat: PCWSTR, #[len_param(6)] #[out] #[opt] lpDurationStr: PWSTR, cchDuration: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetFileMUIInfo(dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcwszFilePath: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_to_opt_", "*pcbFileMUIInfo,*pcbFileMUIInfo", "*pcbFileMUIInfo,*pcbFileMUIInfo")] #[in] #[out] #[opt] pFileMUIInfo: PFILEMUIINFO, #[in] #[out] pcbFileMUIInfo: *mut DWORD) -> BOOL;
+        extern fn GetFileMUIInfo(dwFlags: u32, pcwszFilePath: PCWSTR, #[size_param(3)] #[in] #[out] #[opt] pFileMUIInfo: PFILEMUIINFO, #[in] #[out] pcbFileMUIInfo: *mut u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetFileMUIPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcwszFilePath: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_opt_", "*pcchLanguage", "*pcchLanguage")] #[in] #[out] #[opt] pwszLanguage: PWSTR, #[in] #[out] pcchLanguage: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchFileMUIPath", "*pcchFileMUIPath")] #[out] #[opt] pwszFileMUIPath: PWSTR, #[in] #[out] pcchFileMUIPath: PULONG, #[in] #[out] pululEnumerator: PULONGLONG) -> BOOL;
-        #[library("KERNEL32.dll", import = "GetGeoInfoA")]
-        extern fn GetGeoInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Location: GEOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GeoType: GEOTYPE, #[out] #[opt] #[len_param(3)] lpGeoData: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchData: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LangId: LANGID) -> i32;
+        extern fn GetFileMUIPath(dwFlags: u32, pcwszFilePath: PCWSTR, #[len_param(3)] #[in] #[out] #[opt] pwszLanguage: PWSTR, #[in] #[out] pcchLanguage: PULONG, #[len_param(5)] #[out] #[opt] pwszFileMUIPath: PWSTR, #[in] #[out] pcchFileMUIPath: PULONG, #[in] #[out] pululEnumerator: PULONGLONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetGeoInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Location: GEOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GeoType: GEOTYPE, #[out] #[opt] #[len_param(3)] lpGeoData: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchData: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LangId: LANGID) -> i32;
+        extern fn GetGeoInfoA(Location: GEOID, GeoType: GEOTYPE, #[len_param(3)] #[out] #[opt] lpGeoData: PSTR, cchData: i32, LangId: LANGID) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetGeoInfoEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] location: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] geoType: GEOTYPE, #[out] #[opt] #[len_param(3)] geoData: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] geoDataCount: i32) -> i32;
+        extern fn GetGeoInfoEx(location: PWSTR, geoType: GEOTYPE, #[len_param(3)] #[out] #[opt] geoData: PWSTR, geoDataCount: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetGeoInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Location: GEOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GeoType: GEOTYPE, #[out] #[opt] #[len_param(3)] lpGeoData: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchData: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LangId: LANGID) -> i32;
-        #[library("KERNEL32.dll", import = "GetLocaleInfoA")]
-        extern fn GetLocaleInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LCType: LCTYPE, #[out] #[opt] #[len_param(3)] lpLCData: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchData: i32) -> i32;
+        extern fn GetGeoInfoW(Location: GEOID, GeoType: GEOTYPE, #[len_param(3)] #[out] #[opt] lpGeoData: PWSTR, cchData: i32, LangId: LANGID) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetLocaleInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LCType: LCTYPE, #[out] #[opt] #[len_param(3)] lpLCData: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchData: i32) -> i32;
+        extern fn GetLocaleInfoA(Locale: LCID, LCType: LCTYPE, #[len_param(3)] #[out] #[opt] lpLCData: PSTR, cchData: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetLocaleInfoEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LCType: LCTYPE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchData,return", "cchData,return")] #[out] #[opt] #[len_param(3)] lpLCData: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchData: i32) -> i32;
+        extern fn GetLocaleInfoEx(#[opt] lpLocaleName: PCWSTR, LCType: LCTYPE, #[len_param(3)] #[out] #[opt] lpLCData: PWSTR, cchData: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetLocaleInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LCType: LCTYPE, #[out] #[opt] #[len_param(3)] lpLCData: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchData: i32) -> i32;
+        extern fn GetLocaleInfoW(Locale: LCID, LCType: LCTYPE, #[len_param(3)] #[out] #[opt] lpLCData: PWSTR, cchData: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetNLSVersion(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Function: NLS_FUNCTION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[out] lpVersionInformation: LPNLSVERSIONINFO) -> BOOL;
+        extern fn GetNLSVersion(Function: NLS_FUNCTION, Locale: LCID, #[in] #[out] lpVersionInformation: LPNLSVERSIONINFO) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetNLSVersionEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] function: NLS_FUNCTION, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleName: LPCWSTR, #[in] #[out] lpVersionInformation: LPNLSVERSIONINFOEX) -> BOOL;
-        #[library("KERNEL32.dll", import = "GetNumberFormatA")]
-        extern fn GetNumberFormat(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpValue: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFormat: *const NUMBERFMTA, #[out] #[opt] #[len_param(5)] lpNumberStr: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchNumber: i32) -> i32;
+        extern fn GetNLSVersionEx(function: NLS_FUNCTION, #[opt] lpLocaleName: PCWSTR, #[in] #[out] lpVersionInformation: LPNLSVERSIONINFOEX) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetNumberFormatA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpValue: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFormat: *const NUMBERFMTA, #[out] #[opt] #[len_param(5)] lpNumberStr: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchNumber: i32) -> i32;
+        extern fn GetNumberFormatA(Locale: LCID, dwFlags: u32, lpValue: PCSTR, #[opt] lpFormat: *const NUMBERFMTA, #[len_param(5)] #[out] #[opt] lpNumberStr: PSTR, cchNumber: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetNumberFormatEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpValue: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFormat: *const NUMBERFMTW, #[out] #[opt] #[len_param(5)] lpNumberStr: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchNumber: i32) -> i32;
+        extern fn GetNumberFormatEx(#[opt] lpLocaleName: PCWSTR, dwFlags: u32, lpValue: PCWSTR, #[opt] lpFormat: *const NUMBERFMTW, #[len_param(5)] #[out] #[opt] lpNumberStr: PWSTR, cchNumber: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetNumberFormatW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpValue: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFormat: *const NUMBERFMTW, #[out] #[opt] #[len_param(5)] lpNumberStr: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchNumber: i32) -> i32;
+        extern fn GetNumberFormatW(Locale: LCID, dwFlags: u32, lpValue: PCWSTR, #[opt] lpFormat: *const NUMBERFMTW, #[len_param(5)] #[out] #[opt] lpNumberStr: PWSTR, cchNumber: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetOEMCP() -> UINT;
+        extern fn GetOEMCP() -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessPreferredUILanguages(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] pulNumLanguages: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchLanguagesBuffer", "*pcchLanguagesBuffer")] #[out] #[opt] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
+        extern fn GetProcessPreferredUILanguages(dwFlags: u32, #[out] pulNumLanguages: PULONG, #[len_param(3)] #[out] #[opt] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetStringScripts(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpString: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchString: i32, #[out] #[opt] #[len_param(4)] lpScripts: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchScripts: i32) -> i32;
+        extern fn GetStringScripts(dwFlags: u32, lpString: PCWSTR, cchString: i32, #[len_param(4)] #[out] #[opt] lpScripts: PWSTR, cchScripts: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetStringTypeA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInfoType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpSrcStr: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchSrc: i32, #[out] lpCharType: LPWORD) -> BOOL;
-        #[library("KERNEL32.dll", import = "GetStringTypeExA")]
-        extern fn GetStringTypeEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInfoType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpSrcStr: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchSrc: i32, #[out] #[len_param(3)] lpCharType: LPWORD) -> BOOL;
+        extern fn GetStringTypeA(Locale: LCID, dwInfoType: u32, #[len_param(3)] lpSrcStr: PCSTR, cchSrc: i32, #[out] lpCharType: LPWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetStringTypeExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInfoType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpSrcStr: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchSrc: i32, #[out] #[len_param(3)] lpCharType: LPWORD) -> BOOL;
+        extern fn GetStringTypeExA(Locale: LCID, dwInfoType: u32, #[len_param(3)] lpSrcStr: PCSTR, cchSrc: i32, #[len_param(3)] #[out] lpCharType: LPWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetSystemDefaultLCID() -> LCID;
         #[library("KERNEL32.dll")]
         extern fn GetSystemDefaultLangID() -> LANGID;
         #[library("KERNEL32.dll")]
-        extern fn GetSystemDefaultLocaleName(#[out] #[len_param(1)] lpLocaleName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchLocaleName: i32) -> i32;
+        extern fn GetSystemDefaultLocaleName(#[len_param(1)] #[out] lpLocaleName: PWSTR, cchLocaleName: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn GetSystemDefaultUILanguage() -> LANGID;
         #[library("KERNEL32.dll")]
-        extern fn GetSystemPreferredUILanguages(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] pulNumLanguages: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchLanguagesBuffer", "*pcchLanguagesBuffer")] #[out] #[opt] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
+        extern fn GetSystemPreferredUILanguages(dwFlags: u32, #[out] pulNumLanguages: PULONG, #[len_param(3)] #[out] #[opt] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetThreadLocale() -> LCID;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadPreferredUILanguages(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] pulNumLanguages: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchLanguagesBuffer", "*pcchLanguagesBuffer")] #[out] #[opt] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
+        extern fn GetThreadPreferredUILanguages(dwFlags: u32, #[out] pulNumLanguages: PULONG, #[len_param(3)] #[out] #[opt] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetThreadUILanguage() -> LANGID;
         #[library("KERNEL32.dll")]
-        extern fn GetUILanguageInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwmszLanguage: PCZZWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchFallbackLanguages", "*pcchFallbackLanguages")] #[out] #[opt] pwszFallbackLanguages: PZZWSTR, #[in] #[out] #[opt] pcchFallbackLanguages: PDWORD, #[out] pAttributes: PDWORD) -> BOOL;
+        extern fn GetUILanguageInfo(dwFlags: u32, pwmszLanguage: PCZZWSTR, #[len_param(3)] #[out] #[opt] pwszFallbackLanguages: PZZWSTR, #[in] #[out] #[opt] pcchFallbackLanguages: PDWORD, #[out] pAttributes: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetUserDefaultGeoName(#[out] #[len_param(1)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = false, OnSuccess = true)] geoName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] geoNameCount: i32) -> i32;
+        extern fn GetUserDefaultGeoName(#[len_param(1)] #[out] geoName: PWSTR, geoNameCount: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn GetUserDefaultLCID() -> LCID;
         #[library("KERNEL32.dll")]
         extern fn GetUserDefaultLangID() -> LANGID;
         #[library("KERNEL32.dll")]
-        extern fn GetUserDefaultLocaleName(#[out] #[len_param(1)] lpLocaleName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchLocaleName: i32) -> i32;
+        extern fn GetUserDefaultLocaleName(#[len_param(1)] #[out] lpLocaleName: PWSTR, cchLocaleName: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn GetUserDefaultUILanguage() -> LANGID;
         #[library("KERNEL32.dll")]
-        extern fn GetUserGeoID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GeoClass: GEOCLASS) -> GEOID;
+        extern fn GetUserGeoID(GeoClass: GEOCLASS) -> GEOID;
         #[library("KERNEL32.dll")]
-        extern fn GetUserPreferredUILanguages(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] pulNumLanguages: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchLanguagesBuffer", "*pcchLanguagesBuffer")] #[out] #[opt] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
+        extern fn GetUserPreferredUILanguages(dwFlags: u32, #[out] pulNumLanguages: PULONG, #[len_param(3)] #[out] #[opt] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
         const HIGH_SURROGATE_END: i32 = 56319;
         const HIGH_SURROGATE_START: i32 = 55296;
         type HSAVEDUILANGUAGES = *mut HSAVEDUILANGUAGES__;
@@ -539,35 +500,35 @@ mod Windows {
         const IDN_RAW_PUNYCODE: i32 = 8;
         const IDN_USE_STD3_ASCII_RULES: i32 = 2;
         #[library("Normaliz.dll")]
-        extern fn IdnToAscii(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] lpUnicodeCharStr: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchUnicodeChar: i32, #[out] #[opt] #[len_param(4)] lpASCIICharStr: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchASCIIChar: i32) -> i32;
+        extern fn IdnToAscii(dwFlags: u32, #[len_param(2)] lpUnicodeCharStr: PCWSTR, cchUnicodeChar: i32, #[len_param(4)] #[out] #[opt] lpASCIICharStr: PWSTR, cchASCIIChar: i32) -> i32;
         #[library("Normaliz.dll")]
-        extern fn IdnToNameprepUnicode(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] lpUnicodeCharStr: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchUnicodeChar: i32, #[out] #[opt] #[len_param(4)] lpNameprepCharStr: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchNameprepChar: i32) -> i32;
+        extern fn IdnToNameprepUnicode(dwFlags: u32, #[len_param(2)] lpUnicodeCharStr: PCWSTR, cchUnicodeChar: i32, #[len_param(4)] #[out] #[opt] lpNameprepCharStr: PWSTR, cchNameprepChar: i32) -> i32;
         #[library("Normaliz.dll")]
-        extern fn IdnToUnicode(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] lpASCIICharStr: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchASCIIChar: i32, #[out] #[opt] #[len_param(4)] lpUnicodeCharStr: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchUnicodeChar: i32) -> i32;
+        extern fn IdnToUnicode(dwFlags: u32, #[len_param(2)] lpASCIICharStr: PCWSTR, cchASCIIChar: i32, #[len_param(4)] #[out] #[opt] lpUnicodeCharStr: PWSTR, cchUnicodeChar: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn IsDBCSLeadByte(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TestChar: BYTE) -> BOOL;
+        extern fn IsDBCSLeadByte(TestChar: u8) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn IsDBCSLeadByteEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CodePage: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TestChar: BYTE) -> BOOL;
+        extern fn IsDBCSLeadByteEx(CodePage: u32, TestChar: u8) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn IsNLSDefinedString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Function: NLS_FUNCTION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpVersionInformation: LPNLSVERSIONINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] lpString: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchStr: INT) -> BOOL;
+        extern fn IsNLSDefinedString(Function: NLS_FUNCTION, dwFlags: u32, lpVersionInformation: LPNLSVERSIONINFO, #[len_param(4)] lpString: PCWSTR, cchStr: i32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn IsNormalizedString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NormForm: NORM_FORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] lpString: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cwLength: i32) -> BOOL;
+        extern fn IsNormalizedString(NormForm: NORM_FORM, #[len_param(2)] lpString: PCWSTR, cwLength: i32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn IsValidCodePage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CodePage: UINT) -> BOOL;
+        extern fn IsValidCodePage(CodePage: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn IsValidLanguageGroup(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LanguageGroup: LGRPID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn IsValidLanguageGroup(LanguageGroup: LGRPID, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn IsValidLocale(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn IsValidLocale(Locale: LCID, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn IsValidLocaleName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleName: LPCWSTR) -> BOOL;
+        extern fn IsValidLocaleName(lpLocaleName: PCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn IsValidNLSVersion(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] function: NLS_FUNCTION, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpVersionInformation: LPNLSVERSIONINFOEX) -> DWORD;
-        extern fn LANGGROUPLOCALE_ENUMPROCA(param0: LGRPID, param1: LCID, param2: LPSTR, param3: LONG_PTR) -> BOOL;
-        extern fn LANGGROUPLOCALE_ENUMPROCW(param0: LGRPID, param1: LCID, param2: LPWSTR, param3: LONG_PTR) -> BOOL;
-        extern fn LANGUAGEGROUP_ENUMPROCA(param0: LGRPID, param1: LPSTR, param2: LPSTR, param3: DWORD, param4: LONG_PTR) -> BOOL;
-        extern fn LANGUAGEGROUP_ENUMPROCW(param0: LGRPID, param1: LPWSTR, param2: LPWSTR, param3: DWORD, param4: LONG_PTR) -> BOOL;
+        extern fn IsValidNLSVersion(function: NLS_FUNCTION, #[opt] lpLocaleName: PCWSTR, lpVersionInformation: LPNLSVERSIONINFOEX) -> u32;
+        extern fn LANGGROUPLOCALE_ENUMPROCA(param0: LGRPID, param1: LCID, param2: PSTR, param3: isize) -> BOOL;
+        extern fn LANGGROUPLOCALE_ENUMPROCW(param0: LGRPID, param1: LCID, param2: PWSTR, param3: isize) -> BOOL;
+        extern fn LANGUAGEGROUP_ENUMPROCA(param0: LGRPID, param1: PSTR, param2: PSTR, param3: u32, param4: isize) -> BOOL;
+        extern fn LANGUAGEGROUP_ENUMPROCW(param0: LGRPID, param1: PWSTR, param2: PWSTR, param3: u32, param4: isize) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn LCIDToLocaleName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[out] #[opt] #[len_param(2)] lpName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchName: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> i32;
+        extern fn LCIDToLocaleName(Locale: LCID, #[len_param(2)] #[out] #[opt] lpName: PWSTR, cchName: i32, dwFlags: u32) -> i32;
         const LCID_ALTERNATE_SORTS: i32 = 4;
         const LCID_INSTALLED: i32 = 1;
         const LCID_SUPPORTED: i32 = 2;
@@ -585,17 +546,12 @@ mod Windows {
         const LCMAP_TITLECASE: i32 = 768;
         const LCMAP_TRADITIONAL_CHINESE: i32 = 67108864;
         const LCMAP_UPPERCASE: i32 = 512;
-        #[library("KERNEL32.dll", import = "LCMapStringA")]
-        extern fn LCMapString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMapFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpSrcStr: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchSrc: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(cchDest)", "_Inexpressible_(cchDest)")] #[out] #[opt] lpDestStr: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn LCMapStringA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMapFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpSrcStr: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchSrc: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(cchDest)", "_Inexpressible_(cchDest)")] #[out] #[opt] lpDestStr: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32) -> i32;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(dwMapFlags & (LCMAP_SORTKEY | LCMAP_BYTEREV | LCMAP_HASH | LCMAP_SORTHANDLE)) != 0,_At_((LPBYTE) lpDestStr, _Out_writes_bytes_opt_(cchDest))", "(dwMapFlags & (0x00000400 | 0x00000800 | 0x00040000 | 0x20000000)) != 0, _At_((LPBYTE) lpDestStr, _Out_writes_bytes_opt_(cchDest))")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cchDest != -1,_At_((WCHAR *) lpDestStr, _Out_writes_opt_(cchDest))", "cchDest != -1, _At_((WCHAR *) lpDestStr, _Out_writes_opt_(cchDest))")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cchSrc != -1,_At_((WCHAR *) lpSrcStr, _Out_writes_opt_(cchSrc))", "cchSrc != -1, _At_((WCHAR *) lpSrcStr, _Out_writes_opt_(cchSrc))")]
+        extern fn LCMapStringA(Locale: LCID, dwMapFlags: u32, #[len_param(3)] lpSrcStr: PCSTR, cchSrc: i32, #[out] #[opt] lpDestStr: PSTR, cchDest: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn LCMapStringEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMapFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpSrcStr: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchSrc: i32, #[out] #[opt] #[len_param(5)] lpDestStr: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpVersionInformation: LPNLSVERSIONINFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpReserved: LPVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sortHandle: LPARAM) -> i32;
+        extern fn LCMapStringEx(#[opt] lpLocaleName: PCWSTR, dwMapFlags: u32, #[len_param(3)] lpSrcStr: PCWSTR, cchSrc: i32, #[len_param(5)] #[out] #[opt] lpDestStr: PWSTR, cchDest: i32, #[opt] lpVersionInformation: LPNLSVERSIONINFO, #[in] #[opt] lpReserved: *mut void, #[opt] sortHandle: LPARAM) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn LCMapStringW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMapFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] lpSrcStr: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchSrc: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(cchDest)", "_Inexpressible_(cchDest)")] #[out] #[opt] lpDestStr: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32) -> i32;
+        extern fn LCMapStringW(Locale: LCID, dwMapFlags: u32, #[len_param(3)] lpSrcStr: PCWSTR, cchSrc: i32, #[out] #[opt] lpDestStr: PWSTR, cchDest: i32) -> i32;
         type LCTYPE = u32;
         type LGRPID = u32;
         const LGRPID_ARABIC: i32 = 13;
@@ -623,9 +579,9 @@ mod Windows {
         const LOCALE_ALL: i32 = 0;
         const LOCALE_ALLOW_NEUTRAL_NAMES: i32 = 134217728;
         const LOCALE_ALTERNATE_SORTS: i32 = 4;
-        extern fn LOCALE_ENUMPROCA(param0: LPSTR) -> BOOL;
-        extern fn LOCALE_ENUMPROCEX(param0: LPWSTR, param1: DWORD, param2: LPARAM) -> BOOL;
-        extern fn LOCALE_ENUMPROCW(param0: LPWSTR) -> BOOL;
+        extern fn LOCALE_ENUMPROCA(param0: PSTR) -> BOOL;
+        extern fn LOCALE_ENUMPROCEX(param0: PWSTR, param1: u32, param2: LPARAM) -> BOOL;
+        extern fn LOCALE_ENUMPROCW(param0: PWSTR) -> BOOL;
         const LOCALE_FONTSIGNATURE: i32 = 88;
         const LOCALE_ICALENDARTYPE: i32 = 4105;
         const LOCALE_ICENTURY: i32 = 36;
@@ -801,19 +757,19 @@ mod Windows {
         const LOW_SURROGATE_END: i32 = 57343;
         const LOW_SURROGATE_START: i32 = 56320;
         type LPCPINFO = *mut CPINFO;
-        type LPCPINFOEX = *mut CPINFOEXA;
+        type LPCPINFOEX = LPCPINFOEXA;
         type LPCPINFOEXA = *mut CPINFOEXA;
         type LPCPINFOEXW = *mut CPINFOEXW;
-        type LPCURRENCYFMT = *mut CURRENCYFMTA;
+        type LPCURRENCYFMT = LPCURRENCYFMTA;
         type LPCURRENCYFMTA = *mut CURRENCYFMTA;
         type LPCURRENCYFMTW = *mut CURRENCYFMTW;
         type LPNLSVERSIONINFO = *mut NLSVERSIONINFO;
         type LPNLSVERSIONINFOEX = *mut NLSVERSIONINFOEX;
-        type LPNUMBERFMT = *mut NUMBERFMTA;
+        type LPNUMBERFMT = LPNUMBERFMTA;
         type LPNUMBERFMTA = *mut NUMBERFMTA;
         type LPNUMBERFMTW = *mut NUMBERFMTW;
         #[library("KERNEL32.dll")]
-        extern fn LocaleNameToLCID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> LCID;
+        extern fn LocaleNameToLCID(lpName: PCWSTR, dwFlags: u32) -> LCID;
         const MAP_COMPOSITE: i32 = 64;
         const MAP_EXPAND_LIGATURES: i32 = 8192;
         const MAP_FOLDCZONE: i32 = 16;
@@ -859,17 +815,17 @@ mod Windows {
         const MUI_USE_SEARCH_ALL_LANGUAGES: i32 = 64;
         const MUI_VERIFY_FILE_EXISTS: i32 = 4;
         struct NLSVERSIONINFO {
-            dwNLSVersionInfoSize: DWORD,
-            dwNLSVersion: DWORD,
-            dwDefinedVersion: DWORD,
-            dwEffectiveId: DWORD,
+            dwNLSVersionInfoSize: u32,
+            dwNLSVersion: u32,
+            dwDefinedVersion: u32,
+            dwEffectiveId: u32,
             guidCustomVersion: GUID,
         }
         struct NLSVERSIONINFOEX {
-            dwNLSVersionInfoSize: DWORD,
-            dwNLSVersion: DWORD,
-            dwDefinedVersion: DWORD,
-            dwEffectiveId: DWORD,
+            dwNLSVersionInfoSize: u32,
+            dwNLSVersion: u32,
+            dwDefinedVersion: u32,
+            dwEffectiveId: u32,
             guidCustomVersion: GUID,
         }
         type NLS_FUNCTION = u32;
@@ -889,30 +845,30 @@ mod Windows {
         const NORM_LINGUISTIC_CASING: i32 = 134217728;
         type NUMBERFMT = NUMBERFMTA;
         struct NUMBERFMTA {
-            NumDigits: UINT,
-            LeadingZero: UINT,
-            Grouping: UINT,
-            lpDecimalSep: LPSTR,
-            lpThousandSep: LPSTR,
-            NegativeOrder: UINT,
+            NumDigits: u32,
+            LeadingZero: u32,
+            Grouping: u32,
+            lpDecimalSep: PSTR,
+            lpThousandSep: PSTR,
+            NegativeOrder: u32,
         }
         struct NUMBERFMTW {
-            NumDigits: UINT,
-            LeadingZero: UINT,
-            Grouping: UINT,
-            lpDecimalSep: LPWSTR,
-            lpThousandSep: LPWSTR,
-            NegativeOrder: UINT,
+            NumDigits: u32,
+            LeadingZero: u32,
+            Grouping: u32,
+            lpDecimalSep: PWSTR,
+            lpThousandSep: PWSTR,
+            NegativeOrder: u32,
         }
         #[library("KERNEL32.dll")]
-        extern fn NormalizeString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NormForm: NORM_FORM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] lpSrcString: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cwSrcLength: i32, #[out] #[opt] #[len_param(4)] lpDstString: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cwDstLength: i32) -> i32;
+        extern fn NormalizeString(NormForm: NORM_FORM, #[len_param(2)] lpSrcString: PCWSTR, cwSrcLength: i32, #[len_param(4)] #[out] #[opt] lpDstString: PWSTR, cwDstLength: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn NotifyUILanguageChange(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcwstrNewLanguage: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcwstrPreviousLanguage: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReserved: DWORD, #[out] #[opt] pdwStatusRtrn: PDWORD) -> BOOL;
+        extern fn NotifyUILanguageChange(dwFlags: u32, #[opt] pcwstrNewLanguage: PCWSTR, #[opt] pcwstrPreviousLanguage: PCWSTR, dwReserved: u32, #[out] #[opt] pdwStatusRtrn: PDWORD) -> BOOL;
         type PFILEMUIINFO = *mut FILEMUIINFO;
         #[library("KERNEL32.dll")]
-        extern fn ResolveLocaleName(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNameToResolve: LPCWSTR, #[out] #[opt] #[len_param(2)] lpLocaleName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchLocaleName: i32) -> i32;
+        extern fn ResolveLocaleName(#[opt] lpNameToResolve: PCWSTR, #[len_param(2)] #[out] #[opt] lpLocaleName: PWSTR, cchLocaleName: i32) -> i32;
         #[library("KernelBase.dll")]
-        extern fn RestoreThreadPreferredUILanguages(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] snapshot: HSAVEDUILANGUAGES);
+        extern fn RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES);
         const SORTING_PARADIGM_ICU: i32 = 16777216;
         const SORTING_PARADIGM_NLS: i32 = 0;
         const SORT_DIGITSASNUMBERS: i32 = 8;
@@ -948,44 +904,40 @@ mod Windows {
         enum SYSNLS_FUNCTION {
             COMPARE_STRING = 1,
         }
-        #[library("KERNEL32.dll", import = "SetCalendarInfoA")]
-        extern fn SetCalendarInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCalData: LPCSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetCalendarInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCalData: LPCSTR) -> BOOL;
+        extern fn SetCalendarInfoA(Locale: LCID, Calendar: CALID, CalType: CALTYPE, lpCalData: PCSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetCalendarInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Calendar: CALID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CalType: CALTYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCalData: LPCWSTR) -> BOOL;
-        #[library("KERNEL32.dll", import = "SetLocaleInfoA")]
-        extern fn SetLocaleInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LCType: LCTYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLCData: LPCSTR) -> BOOL;
+        extern fn SetCalendarInfoW(Locale: LCID, Calendar: CALID, CalType: CALTYPE, lpCalData: PCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetLocaleInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LCType: LCTYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLCData: LPCSTR) -> BOOL;
+        extern fn SetLocaleInfoA(Locale: LCID, LCType: LCTYPE, lpLCData: PCSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetLocaleInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LCType: LCTYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLCData: LPCWSTR) -> BOOL;
+        extern fn SetLocaleInfoW(Locale: LCID, LCType: LCTYPE, lpLCData: PCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProcessPreferredUILanguages(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszLanguagesBuffer: PCZZWSTR, #[out] #[opt] pulNumLanguages: PULONG) -> BOOL;
+        extern fn SetProcessPreferredUILanguages(dwFlags: u32, #[opt] pwszLanguagesBuffer: PCZZWSTR, #[out] #[opt] pulNumLanguages: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadLocale(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Locale: LCID) -> BOOL;
+        extern fn SetThreadLocale(Locale: LCID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadPreferredUILanguages(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszLanguagesBuffer: PCZZWSTR, #[out] #[opt] pulNumLanguages: PULONG) -> BOOL;
+        extern fn SetThreadPreferredUILanguages(dwFlags: u32, #[opt] pwszLanguagesBuffer: PCZZWSTR, #[out] #[opt] pulNumLanguages: PULONG) -> BOOL;
         #[library("KernelBase.dll")]
-        extern fn SetThreadPreferredUILanguages2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] languages: PCZZWSTR, #[out] #[opt] numLanguagesSet: PULONG, #[out] #[opt] snapshot: *mut HSAVEDUILANGUAGES) -> BOOL;
+        extern fn SetThreadPreferredUILanguages2(flags: u32, #[opt] languages: PCZZWSTR, #[out] #[opt] numLanguagesSet: PULONG, #[opt] snapshot: *mut HSAVEDUILANGUAGES) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadUILanguage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LangId: LANGID) -> LANGID;
+        extern fn SetThreadUILanguage(LangId: LANGID) -> LANGID;
         #[library("KERNEL32.dll")]
-        extern fn SetUserGeoID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] GeoId: GEOID) -> BOOL;
+        extern fn SetUserGeoID(GeoId: GEOID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetUserGeoName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] geoName: PWSTR) -> BOOL;
-        extern fn TIMEFMT_ENUMPROCA(param0: LPSTR) -> BOOL;
-        extern fn TIMEFMT_ENUMPROCEX(param0: LPWSTR, param1: LPARAM) -> BOOL;
-        extern fn TIMEFMT_ENUMPROCW(param0: LPWSTR) -> BOOL;
+        extern fn SetUserGeoName(geoName: PWSTR) -> BOOL;
+        extern fn TIMEFMT_ENUMPROCA(param0: PSTR) -> BOOL;
+        extern fn TIMEFMT_ENUMPROCEX(param0: PWSTR, param1: LPARAM) -> BOOL;
+        extern fn TIMEFMT_ENUMPROCW(param0: PWSTR) -> BOOL;
         const TIME_FORCE24HOURFORMAT: i32 = 8;
         const TIME_NOMINUTESORSECONDS: i32 = 1;
         const TIME_NOSECONDS: i32 = 2;
         const TIME_NOTIMEMARKER: i32 = 4;
-        extern fn UILANGUAGE_ENUMPROCA(param0: LPSTR, param1: LONG_PTR) -> BOOL;
-        extern fn UILANGUAGE_ENUMPROCW(param0: LPWSTR, param1: LONG_PTR) -> BOOL;
+        extern fn UILANGUAGE_ENUMPROCA(param0: PSTR, param1: isize) -> BOOL;
+        extern fn UILANGUAGE_ENUMPROCW(param0: PWSTR, param1: isize) -> BOOL;
         const VS_ALLOW_LATIN: i32 = 1;
         #[library("KERNEL32.dll")]
-        extern fn VerifyScripts(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpLocaleScripts: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchLocaleScripts: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTestScripts: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchTestScripts: i32) -> BOOL;
+        extern fn VerifyScripts(dwFlags: u32, lpLocaleScripts: PCWSTR, cchLocaleScripts: i32, lpTestScripts: PCWSTR, cchTestScripts: i32) -> BOOL;
         const WC_COMPOSITECHECK: i32 = 512;
         const WC_DEFAULTCHAR: i32 = 64;
         const WC_DISCARDNS: i32 = 16;

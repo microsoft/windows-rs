@@ -41,7 +41,6 @@ impl Component for ThemePage {
                                     .corner_radius(8.0)
                                     .content("Solid background"),
                             )),
-                        "Border::new().background(ThemeBrush::CardBackground)",
                     ),
                 ),
                 KeyedView::new(
@@ -55,7 +54,6 @@ impl Component for ThemePage {
                             TextBlock::new().text("Secondary text").opacity(0.7),
                             TextBlock::new().text("Tertiary text").opacity(0.5),
                         )),
-                        "TextBlock::new().text(value).opacity(0.7)",
                     ),
                 ),
             ],

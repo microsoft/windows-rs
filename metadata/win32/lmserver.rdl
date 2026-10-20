@@ -110,38 +110,26 @@ mod Windows {
         type LPSERVER_TRANSPORT_INFO_2 = *mut SERVER_TRANSPORT_INFO_2;
         type LPSERVER_TRANSPORT_INFO_3 = *mut SERVER_TRANSPORT_INFO_3;
         const MAJOR_VERSION_MASK: i32 = 15;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("NETAPI32.dll")]
-        extern fn NetServerComputerNameAdd(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EmulatedDomainName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EmulatedServerName: LPWSTR) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetServerComputerNameAdd(#[opt] ServerName: PCWSTR, #[opt] EmulatedDomainName: PCWSTR, EmulatedServerName: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerComputerNameDel(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServerName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EmulatedServerName: LPWSTR) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0 || return == 234L", "return == 0 || return == 234L")]
+        extern fn NetServerComputerNameDel(#[opt] ServerName: PCWSTR, EmulatedServerName: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerDiskEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "(sizeof(TCHAR) * 3 * (*entriesread)) + sizeof(TCHAR)", "(sizeof(TCHAR) * 3 * (*entriesread)) + sizeof(TCHAR)")] #[out] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> DWORD;
+        extern fn NetServerDiskEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(entriesread)", "_Inexpressible_(entriesread)")] #[out] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servertype: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] domain: LPCWSTR, #[out] #[opt] resume_handle: LPDWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn NetServerEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, servertype: u32, #[opt] domain: PCWSTR, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerGetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 100,_Outptr_result_bytebuffer_(sizeof(SERVER_INFO_100))", "level == 100, _Outptr_result_bytebuffer_(sizeof(SERVER_INFO_100))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 101,_Outptr_result_bytebuffer_(sizeof(SERVER_INFO_101))", "level == 101, _Outptr_result_bytebuffer_(sizeof(SERVER_INFO_101))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 102,_Outptr_result_bytebuffer_(sizeof(SERVER_INFO_102))", "level == 102, _Outptr_result_bytebuffer_(sizeof(SERVER_INFO_102))")] bufptr: *mut LPBYTE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetServerGetInfo(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerSetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 100,_In_reads_bytes_(sizeof(SERVER_INFO_100))", "level == 100, _In_reads_bytes_(sizeof(SERVER_INFO_100))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1005,_In_reads_bytes_(sizeof(SERVER_INFO_1005))", "level == 1005, _In_reads_bytes_(sizeof(SERVER_INFO_1005))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 101,_In_reads_bytes_(sizeof(SERVER_INFO_101))", "level == 101, _In_reads_bytes_(sizeof(SERVER_INFO_101))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1010,_In_reads_bytes_(sizeof(SERVER_INFO_1010))", "level == 1010, _In_reads_bytes_(sizeof(SERVER_INFO_1010))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1016,_In_reads_bytes_(sizeof(SERVER_INFO_1016))", "level == 1016, _In_reads_bytes_(sizeof(SERVER_INFO_1016))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1017,_In_reads_bytes_(sizeof(SERVER_INFO_1017))", "level == 1017, _In_reads_bytes_(sizeof(SERVER_INFO_1017))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1018,_In_reads_bytes_(sizeof(SERVER_INFO_1018))", "level == 1018, _In_reads_bytes_(sizeof(SERVER_INFO_1018))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 102,_In_reads_bytes_(sizeof(SERVER_INFO_102))", "level == 102, _In_reads_bytes_(sizeof(SERVER_INFO_102))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 402,_In_reads_bytes_(sizeof(SERVER_INFO_402))", "level == 402, _In_reads_bytes_(sizeof(SERVER_INFO_402))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 403,_In_reads_bytes_(sizeof(SERVER_INFO_403))", "level == 403, _In_reads_bytes_(sizeof(SERVER_INFO_403))")] buf: LPBYTE, #[out] #[opt] ParmError: LPDWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetServerSetInfo(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] ParmError: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerTransportAdd(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "sizeof(SERVER_TRANSPORT_INFO_0)", "sizeof(SERVER_TRANSPORT_INFO_0)")] #[in] bufptr: LPBYTE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetServerTransportAdd(#[opt] servername: PCWSTR, level: u32, bufptr: LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerTransportAddEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_In_reads_bytes_(sizeof(SERVER_TRANSPORT_INFO_0))", "level == 0, _In_reads_bytes_(sizeof(SERVER_TRANSPORT_INFO_0))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1,_In_reads_bytes_(sizeof(SERVER_TRANSPORT_INFO_1))", "level == 1, _In_reads_bytes_(sizeof(SERVER_TRANSPORT_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_In_reads_bytes_(sizeof(SERVER_TRANSPORT_INFO_2))", "level == 2, _In_reads_bytes_(sizeof(SERVER_TRANSPORT_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 3,_In_reads_bytes_(sizeof(SERVER_TRANSPORT_INFO_3))", "level == 3, _In_reads_bytes_(sizeof(SERVER_TRANSPORT_INFO_3))")] bufptr: LPBYTE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetServerTransportAddEx(#[opt] servername: PCWSTR, level: u32, bufptr: LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerTransportDel(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_In_reads_bytes_(sizeof(SERVER_TRANSPORT_INFO_0))", "level == 0, _In_reads_bytes_(sizeof(SERVER_TRANSPORT_INFO_0))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1,_In_reads_bytes_(sizeof(SERVER_TRANSPORT_INFO_1))", "level == 1, _In_reads_bytes_(sizeof(SERVER_TRANSPORT_INFO_1))")] bufptr: LPBYTE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0 || return == 234L", "return == 0 || return == 234L")]
+        extern fn NetServerTransportDel(#[opt] servername: PCWSTR, level: u32, bufptr: LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerTransportEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_Outptr_result_bytebuffer_(*entriesread * sizeof(SERVER_TRANSPORT_INFO_0))", "level == 0, _Outptr_result_bytebuffer_(*entriesread * sizeof(SERVER_TRANSPORT_INFO_0))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1,_Outptr_result_bytebuffer_(*entriesread * sizeof(SERVER_TRANSPORT_INFO_1))", "level == 1, _Outptr_result_bytebuffer_(*entriesread * sizeof(SERVER_TRANSPORT_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_Outptr_result_bytebuffer_(*entriesread * sizeof(SERVER_TRANSPORT_INFO_2))", "level == 2, _Outptr_result_bytebuffer_(*entriesread * sizeof(SERVER_TRANSPORT_INFO_2))")] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> DWORD;
+        extern fn NetServerTransportEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         type PSERVER_INFO_100 = *mut SERVER_INFO_100;
         type PSERVER_INFO_1005 = *mut SERVER_INFO_1005;
         type PSERVER_INFO_101 = *mut SERVER_INFO_101;
@@ -251,92 +239,92 @@ mod Windows {
         type PSERVER_TRANSPORT_INFO_2 = *mut SERVER_TRANSPORT_INFO_2;
         type PSERVER_TRANSPORT_INFO_3 = *mut SERVER_TRANSPORT_INFO_3;
         struct SERVER_INFO_100 {
-            sv100_platform_id: DWORD,
-            sv100_name: LPWSTR,
+            sv100_platform_id: u32,
+            sv100_name: PWSTR,
         }
         struct SERVER_INFO_1005 {
-            sv1005_comment: LPWSTR,
+            sv1005_comment: PWSTR,
         }
         struct SERVER_INFO_101 {
-            sv101_platform_id: DWORD,
-            sv101_name: LPWSTR,
-            sv101_version_major: DWORD,
-            sv101_version_minor: DWORD,
-            sv101_type: DWORD,
-            sv101_comment: LPWSTR,
+            sv101_platform_id: u32,
+            sv101_name: PWSTR,
+            sv101_version_major: u32,
+            sv101_version_minor: u32,
+            sv101_type: u32,
+            sv101_comment: PWSTR,
         }
         struct SERVER_INFO_1010 {
-            sv1010_disc: LONG,
+            sv1010_disc: i32,
         }
         struct SERVER_INFO_1016 {
             sv1016_hidden: BOOL,
         }
         struct SERVER_INFO_1017 {
-            sv1017_announce: DWORD,
+            sv1017_announce: u32,
         }
         struct SERVER_INFO_1018 {
-            sv1018_anndelta: DWORD,
+            sv1018_anndelta: u32,
         }
         struct SERVER_INFO_102 {
-            sv102_platform_id: DWORD,
-            sv102_name: LPWSTR,
-            sv102_version_major: DWORD,
-            sv102_version_minor: DWORD,
-            sv102_type: DWORD,
-            sv102_comment: LPWSTR,
-            sv102_users: DWORD,
-            sv102_disc: LONG,
+            sv102_platform_id: u32,
+            sv102_name: PWSTR,
+            sv102_version_major: u32,
+            sv102_version_minor: u32,
+            sv102_type: u32,
+            sv102_comment: PWSTR,
+            sv102_users: u32,
+            sv102_disc: i32,
             sv102_hidden: BOOL,
-            sv102_announce: DWORD,
-            sv102_anndelta: DWORD,
-            sv102_licenses: DWORD,
-            sv102_userpath: LPWSTR,
+            sv102_announce: u32,
+            sv102_anndelta: u32,
+            sv102_licenses: u32,
+            sv102_userpath: PWSTR,
         }
         struct SERVER_INFO_103 {
-            sv103_platform_id: DWORD,
-            sv103_name: LPWSTR,
-            sv103_version_major: DWORD,
-            sv103_version_minor: DWORD,
-            sv103_type: DWORD,
-            sv103_comment: LPWSTR,
-            sv103_users: DWORD,
-            sv103_disc: LONG,
+            sv103_platform_id: u32,
+            sv103_name: PWSTR,
+            sv103_version_major: u32,
+            sv103_version_minor: u32,
+            sv103_type: u32,
+            sv103_comment: PWSTR,
+            sv103_users: u32,
+            sv103_disc: i32,
             sv103_hidden: BOOL,
-            sv103_announce: DWORD,
-            sv103_anndelta: DWORD,
-            sv103_licenses: DWORD,
-            sv103_userpath: LPWSTR,
-            sv103_capabilities: DWORD,
+            sv103_announce: u32,
+            sv103_anndelta: u32,
+            sv103_licenses: u32,
+            sv103_userpath: PWSTR,
+            sv103_capabilities: u32,
         }
         struct SERVER_INFO_1107 {
-            sv1107_users: DWORD,
+            sv1107_users: u32,
         }
         struct SERVER_INFO_1501 {
-            sv1501_sessopens: DWORD,
+            sv1501_sessopens: u32,
         }
         struct SERVER_INFO_1502 {
-            sv1502_sessvcs: DWORD,
+            sv1502_sessvcs: u32,
         }
         struct SERVER_INFO_1503 {
-            sv1503_opensearch: DWORD,
+            sv1503_opensearch: u32,
         }
         struct SERVER_INFO_1506 {
-            sv1506_maxworkitems: DWORD,
+            sv1506_maxworkitems: u32,
         }
         struct SERVER_INFO_1509 {
-            sv1509_maxrawbuflen: DWORD,
+            sv1509_maxrawbuflen: u32,
         }
         struct SERVER_INFO_1510 {
-            sv1510_sessusers: DWORD,
+            sv1510_sessusers: u32,
         }
         struct SERVER_INFO_1511 {
-            sv1511_sessconns: DWORD,
+            sv1511_sessconns: u32,
         }
         struct SERVER_INFO_1512 {
-            sv1512_maxnonpagedmemoryusage: DWORD,
+            sv1512_maxnonpagedmemoryusage: u32,
         }
         struct SERVER_INFO_1513 {
-            sv1513_maxpagedmemoryusage: DWORD,
+            sv1513_maxpagedmemoryusage: u32,
         }
         struct SERVER_INFO_1514 {
             sv1514_enablesoftcompat: BOOL,
@@ -351,40 +339,40 @@ mod Windows {
             sv1518_lmannounce: BOOL,
         }
         struct SERVER_INFO_1520 {
-            sv1520_maxcopyreadlen: DWORD,
+            sv1520_maxcopyreadlen: u32,
         }
         struct SERVER_INFO_1521 {
-            sv1521_maxcopywritelen: DWORD,
+            sv1521_maxcopywritelen: u32,
         }
         struct SERVER_INFO_1522 {
-            sv1522_minkeepsearch: DWORD,
+            sv1522_minkeepsearch: u32,
         }
         struct SERVER_INFO_1523 {
-            sv1523_maxkeepsearch: DWORD,
+            sv1523_maxkeepsearch: u32,
         }
         struct SERVER_INFO_1524 {
-            sv1524_minkeepcomplsearch: DWORD,
+            sv1524_minkeepcomplsearch: u32,
         }
         struct SERVER_INFO_1525 {
-            sv1525_maxkeepcomplsearch: DWORD,
+            sv1525_maxkeepcomplsearch: u32,
         }
         struct SERVER_INFO_1528 {
-            sv1528_scavtimeout: DWORD,
+            sv1528_scavtimeout: u32,
         }
         struct SERVER_INFO_1529 {
-            sv1529_minrcvqueue: DWORD,
+            sv1529_minrcvqueue: u32,
         }
         struct SERVER_INFO_1530 {
-            sv1530_minfreeworkitems: DWORD,
+            sv1530_minfreeworkitems: u32,
         }
         struct SERVER_INFO_1533 {
-            sv1533_maxmpxct: DWORD,
+            sv1533_maxmpxct: u32,
         }
         struct SERVER_INFO_1534 {
-            sv1534_oplockbreakwait: DWORD,
+            sv1534_oplockbreakwait: u32,
         }
         struct SERVER_INFO_1535 {
-            sv1535_oplockbreakresponsewait: DWORD,
+            sv1535_oplockbreakresponsewait: u32,
         }
         struct SERVER_INFO_1536 {
             sv1536_enableoplocks: BOOL,
@@ -408,160 +396,160 @@ mod Windows {
             sv1542_maxfreeconnections: BOOL,
         }
         struct SERVER_INFO_1543 {
-            sv1543_initsesstable: DWORD,
+            sv1543_initsesstable: u32,
         }
         struct SERVER_INFO_1544 {
-            sv1544_initconntable: DWORD,
+            sv1544_initconntable: u32,
         }
         struct SERVER_INFO_1545 {
-            sv1545_initfiletable: DWORD,
+            sv1545_initfiletable: u32,
         }
         struct SERVER_INFO_1546 {
-            sv1546_initsearchtable: DWORD,
+            sv1546_initsearchtable: u32,
         }
         struct SERVER_INFO_1547 {
-            sv1547_alertschedule: DWORD,
+            sv1547_alertschedule: u32,
         }
         struct SERVER_INFO_1548 {
-            sv1548_errorthreshold: DWORD,
+            sv1548_errorthreshold: u32,
         }
         struct SERVER_INFO_1549 {
-            sv1549_networkerrorthreshold: DWORD,
+            sv1549_networkerrorthreshold: u32,
         }
         struct SERVER_INFO_1550 {
-            sv1550_diskspacethreshold: DWORD,
+            sv1550_diskspacethreshold: u32,
         }
         struct SERVER_INFO_1552 {
-            sv1552_maxlinkdelay: DWORD,
+            sv1552_maxlinkdelay: u32,
         }
         struct SERVER_INFO_1553 {
-            sv1553_minlinkthroughput: DWORD,
+            sv1553_minlinkthroughput: u32,
         }
         struct SERVER_INFO_1554 {
-            sv1554_linkinfovalidtime: DWORD,
+            sv1554_linkinfovalidtime: u32,
         }
         struct SERVER_INFO_1555 {
-            sv1555_scavqosinfoupdatetime: DWORD,
+            sv1555_scavqosinfoupdatetime: u32,
         }
         struct SERVER_INFO_1556 {
-            sv1556_maxworkitemidletime: DWORD,
+            sv1556_maxworkitemidletime: u32,
         }
         struct SERVER_INFO_1557 {
-            sv1557_maxrawworkitems: DWORD,
+            sv1557_maxrawworkitems: u32,
         }
         struct SERVER_INFO_1560 {
-            sv1560_producttype: DWORD,
+            sv1560_producttype: u32,
         }
         struct SERVER_INFO_1561 {
-            sv1561_serversize: DWORD,
+            sv1561_serversize: u32,
         }
         struct SERVER_INFO_1562 {
-            sv1562_connectionlessautodisc: DWORD,
+            sv1562_connectionlessautodisc: u32,
         }
         struct SERVER_INFO_1563 {
-            sv1563_sharingviolationretries: DWORD,
+            sv1563_sharingviolationretries: u32,
         }
         struct SERVER_INFO_1564 {
-            sv1564_sharingviolationdelay: DWORD,
+            sv1564_sharingviolationdelay: u32,
         }
         struct SERVER_INFO_1565 {
-            sv1565_maxglobalopensearch: DWORD,
+            sv1565_maxglobalopensearch: u32,
         }
         struct SERVER_INFO_1566 {
             sv1566_removeduplicatesearches: BOOL,
         }
         struct SERVER_INFO_1567 {
-            sv1567_lockviolationretries: DWORD,
+            sv1567_lockviolationretries: u32,
         }
         struct SERVER_INFO_1568 {
-            sv1568_lockviolationoffset: DWORD,
+            sv1568_lockviolationoffset: u32,
         }
         struct SERVER_INFO_1569 {
-            sv1569_lockviolationdelay: DWORD,
+            sv1569_lockviolationdelay: u32,
         }
         struct SERVER_INFO_1570 {
-            sv1570_mdlreadswitchover: DWORD,
+            sv1570_mdlreadswitchover: u32,
         }
         struct SERVER_INFO_1571 {
-            sv1571_cachedopenlimit: DWORD,
+            sv1571_cachedopenlimit: u32,
         }
         struct SERVER_INFO_1572 {
-            sv1572_criticalthreads: DWORD,
+            sv1572_criticalthreads: u32,
         }
         struct SERVER_INFO_1573 {
-            sv1573_restrictnullsessaccess: DWORD,
+            sv1573_restrictnullsessaccess: u32,
         }
         struct SERVER_INFO_1574 {
-            sv1574_enablewfw311directipx: DWORD,
+            sv1574_enablewfw311directipx: u32,
         }
         struct SERVER_INFO_1575 {
-            sv1575_otherqueueaffinity: DWORD,
+            sv1575_otherqueueaffinity: u32,
         }
         struct SERVER_INFO_1576 {
-            sv1576_queuesamplesecs: DWORD,
+            sv1576_queuesamplesecs: u32,
         }
         struct SERVER_INFO_1577 {
-            sv1577_balancecount: DWORD,
+            sv1577_balancecount: u32,
         }
         struct SERVER_INFO_1578 {
-            sv1578_preferredaffinity: DWORD,
+            sv1578_preferredaffinity: u32,
         }
         struct SERVER_INFO_1579 {
-            sv1579_maxfreerfcbs: DWORD,
+            sv1579_maxfreerfcbs: u32,
         }
         struct SERVER_INFO_1580 {
-            sv1580_maxfreemfcbs: DWORD,
+            sv1580_maxfreemfcbs: u32,
         }
         struct SERVER_INFO_1581 {
-            sv1581_maxfreemlcbs: DWORD,
+            sv1581_maxfreemlcbs: u32,
         }
         struct SERVER_INFO_1582 {
-            sv1582_maxfreepagedpoolchunks: DWORD,
+            sv1582_maxfreepagedpoolchunks: u32,
         }
         struct SERVER_INFO_1583 {
-            sv1583_minpagedpoolchunksize: DWORD,
+            sv1583_minpagedpoolchunksize: u32,
         }
         struct SERVER_INFO_1584 {
-            sv1584_maxpagedpoolchunksize: DWORD,
+            sv1584_maxpagedpoolchunksize: u32,
         }
         struct SERVER_INFO_1585 {
             sv1585_sendsfrompreferredprocessor: BOOL,
         }
         struct SERVER_INFO_1586 {
-            sv1586_maxthreadsperqueue: DWORD,
+            sv1586_maxthreadsperqueue: u32,
         }
         struct SERVER_INFO_1587 {
-            sv1587_cacheddirectorylimit: DWORD,
+            sv1587_cacheddirectorylimit: u32,
         }
         struct SERVER_INFO_1588 {
-            sv1588_maxcopylength: DWORD,
+            sv1588_maxcopylength: u32,
         }
         struct SERVER_INFO_1590 {
-            sv1590_enablecompression: DWORD,
+            sv1590_enablecompression: u32,
         }
         struct SERVER_INFO_1591 {
-            sv1591_autosharewks: DWORD,
+            sv1591_autosharewks: u32,
         }
         struct SERVER_INFO_1592 {
-            sv1592_autosharewks: DWORD,
+            sv1592_autosharewks: u32,
         }
         struct SERVER_INFO_1593 {
-            sv1593_enablesecuritysignature: DWORD,
+            sv1593_enablesecuritysignature: u32,
         }
         struct SERVER_INFO_1594 {
-            sv1594_requiresecuritysignature: DWORD,
+            sv1594_requiresecuritysignature: u32,
         }
         struct SERVER_INFO_1595 {
-            sv1595_minclientbuffersize: DWORD,
+            sv1595_minclientbuffersize: u32,
         }
         struct SERVER_INFO_1596 {
-            sv1596_ConnectionNoSessionsTimeout: DWORD,
+            sv1596_ConnectionNoSessionsTimeout: u32,
         }
         struct SERVER_INFO_1597 {
-            sv1597_IdleThreadTimeOut: DWORD,
+            sv1597_IdleThreadTimeOut: u32,
         }
         struct SERVER_INFO_1598 {
-            sv1598_enableW9xsecuritysignature: DWORD,
+            sv1598_enableW9xsecuritysignature: u32,
         }
         struct SERVER_INFO_1599 {
             sv1598_enforcekerberosreauthentication: BOOLEAN,
@@ -570,94 +558,94 @@ mod Windows {
             sv1598_disabledos: BOOLEAN,
         }
         struct SERVER_INFO_1601 {
-            sv1598_lowdiskspaceminimum: DWORD,
+            sv1598_lowdiskspaceminimum: u32,
         }
         struct SERVER_INFO_1602 {
             sv_1598_disablestrictnamechecking: BOOL,
         }
         struct SERVER_INFO_402 {
-            sv402_ulist_mtime: DWORD,
-            sv402_glist_mtime: DWORD,
-            sv402_alist_mtime: DWORD,
-            sv402_alerts: LPWSTR,
-            sv402_security: DWORD,
-            sv402_numadmin: DWORD,
-            sv402_lanmask: DWORD,
-            sv402_guestacct: LPWSTR,
-            sv402_chdevs: DWORD,
-            sv402_chdevq: DWORD,
-            sv402_chdevjobs: DWORD,
-            sv402_connections: DWORD,
-            sv402_shares: DWORD,
-            sv402_openfiles: DWORD,
-            sv402_sessopens: DWORD,
-            sv402_sessvcs: DWORD,
-            sv402_sessreqs: DWORD,
-            sv402_opensearch: DWORD,
-            sv402_activelocks: DWORD,
-            sv402_numreqbuf: DWORD,
-            sv402_sizreqbuf: DWORD,
-            sv402_numbigbuf: DWORD,
-            sv402_numfiletasks: DWORD,
-            sv402_alertsched: DWORD,
-            sv402_erroralert: DWORD,
-            sv402_logonalert: DWORD,
-            sv402_accessalert: DWORD,
-            sv402_diskalert: DWORD,
-            sv402_netioalert: DWORD,
-            sv402_maxauditsz: DWORD,
-            sv402_srvheuristics: LPWSTR,
+            sv402_ulist_mtime: u32,
+            sv402_glist_mtime: u32,
+            sv402_alist_mtime: u32,
+            sv402_alerts: PWSTR,
+            sv402_security: u32,
+            sv402_numadmin: u32,
+            sv402_lanmask: u32,
+            sv402_guestacct: PWSTR,
+            sv402_chdevs: u32,
+            sv402_chdevq: u32,
+            sv402_chdevjobs: u32,
+            sv402_connections: u32,
+            sv402_shares: u32,
+            sv402_openfiles: u32,
+            sv402_sessopens: u32,
+            sv402_sessvcs: u32,
+            sv402_sessreqs: u32,
+            sv402_opensearch: u32,
+            sv402_activelocks: u32,
+            sv402_numreqbuf: u32,
+            sv402_sizreqbuf: u32,
+            sv402_numbigbuf: u32,
+            sv402_numfiletasks: u32,
+            sv402_alertsched: u32,
+            sv402_erroralert: u32,
+            sv402_logonalert: u32,
+            sv402_accessalert: u32,
+            sv402_diskalert: u32,
+            sv402_netioalert: u32,
+            sv402_maxauditsz: u32,
+            sv402_srvheuristics: PWSTR,
         }
         struct SERVER_INFO_403 {
-            sv403_ulist_mtime: DWORD,
-            sv403_glist_mtime: DWORD,
-            sv403_alist_mtime: DWORD,
-            sv403_alerts: LPWSTR,
-            sv403_security: DWORD,
-            sv403_numadmin: DWORD,
-            sv403_lanmask: DWORD,
-            sv403_guestacct: LPWSTR,
-            sv403_chdevs: DWORD,
-            sv403_chdevq: DWORD,
-            sv403_chdevjobs: DWORD,
-            sv403_connections: DWORD,
-            sv403_shares: DWORD,
-            sv403_openfiles: DWORD,
-            sv403_sessopens: DWORD,
-            sv403_sessvcs: DWORD,
-            sv403_sessreqs: DWORD,
-            sv403_opensearch: DWORD,
-            sv403_activelocks: DWORD,
-            sv403_numreqbuf: DWORD,
-            sv403_sizreqbuf: DWORD,
-            sv403_numbigbuf: DWORD,
-            sv403_numfiletasks: DWORD,
-            sv403_alertsched: DWORD,
-            sv403_erroralert: DWORD,
-            sv403_logonalert: DWORD,
-            sv403_accessalert: DWORD,
-            sv403_diskalert: DWORD,
-            sv403_netioalert: DWORD,
-            sv403_maxauditsz: DWORD,
-            sv403_srvheuristics: LPWSTR,
-            sv403_auditedevents: DWORD,
-            sv403_autoprofile: DWORD,
-            sv403_autopath: LPWSTR,
+            sv403_ulist_mtime: u32,
+            sv403_glist_mtime: u32,
+            sv403_alist_mtime: u32,
+            sv403_alerts: PWSTR,
+            sv403_security: u32,
+            sv403_numadmin: u32,
+            sv403_lanmask: u32,
+            sv403_guestacct: PWSTR,
+            sv403_chdevs: u32,
+            sv403_chdevq: u32,
+            sv403_chdevjobs: u32,
+            sv403_connections: u32,
+            sv403_shares: u32,
+            sv403_openfiles: u32,
+            sv403_sessopens: u32,
+            sv403_sessvcs: u32,
+            sv403_sessreqs: u32,
+            sv403_opensearch: u32,
+            sv403_activelocks: u32,
+            sv403_numreqbuf: u32,
+            sv403_sizreqbuf: u32,
+            sv403_numbigbuf: u32,
+            sv403_numfiletasks: u32,
+            sv403_alertsched: u32,
+            sv403_erroralert: u32,
+            sv403_logonalert: u32,
+            sv403_accessalert: u32,
+            sv403_diskalert: u32,
+            sv403_netioalert: u32,
+            sv403_maxauditsz: u32,
+            sv403_srvheuristics: PWSTR,
+            sv403_auditedevents: u32,
+            sv403_autoprofile: u32,
+            sv403_autopath: PWSTR,
         }
         struct SERVER_INFO_502 {
-            sv502_sessopens: DWORD,
-            sv502_sessvcs: DWORD,
-            sv502_opensearch: DWORD,
-            sv502_sizreqbuf: DWORD,
-            sv502_initworkitems: DWORD,
-            sv502_maxworkitems: DWORD,
-            sv502_rawworkitems: DWORD,
-            sv502_irpstacksize: DWORD,
-            sv502_maxrawbuflen: DWORD,
-            sv502_sessusers: DWORD,
-            sv502_sessconns: DWORD,
-            sv502_maxpagedmemoryusage: DWORD,
-            sv502_maxnonpagedmemoryusage: DWORD,
+            sv502_sessopens: u32,
+            sv502_sessvcs: u32,
+            sv502_opensearch: u32,
+            sv502_sizreqbuf: u32,
+            sv502_initworkitems: u32,
+            sv502_maxworkitems: u32,
+            sv502_rawworkitems: u32,
+            sv502_irpstacksize: u32,
+            sv502_maxrawbuflen: u32,
+            sv502_sessusers: u32,
+            sv502_sessconns: u32,
+            sv502_maxpagedmemoryusage: u32,
+            sv502_maxnonpagedmemoryusage: u32,
             sv502_enablesoftcompat: BOOL,
             sv502_enableforcedlogoff: BOOL,
             sv502_timesource: BOOL,
@@ -665,186 +653,186 @@ mod Windows {
             sv502_lmannounce: BOOL,
         }
         struct SERVER_INFO_503 {
-            sv503_sessopens: DWORD,
-            sv503_sessvcs: DWORD,
-            sv503_opensearch: DWORD,
-            sv503_sizreqbuf: DWORD,
-            sv503_initworkitems: DWORD,
-            sv503_maxworkitems: DWORD,
-            sv503_rawworkitems: DWORD,
-            sv503_irpstacksize: DWORD,
-            sv503_maxrawbuflen: DWORD,
-            sv503_sessusers: DWORD,
-            sv503_sessconns: DWORD,
-            sv503_maxpagedmemoryusage: DWORD,
-            sv503_maxnonpagedmemoryusage: DWORD,
+            sv503_sessopens: u32,
+            sv503_sessvcs: u32,
+            sv503_opensearch: u32,
+            sv503_sizreqbuf: u32,
+            sv503_initworkitems: u32,
+            sv503_maxworkitems: u32,
+            sv503_rawworkitems: u32,
+            sv503_irpstacksize: u32,
+            sv503_maxrawbuflen: u32,
+            sv503_sessusers: u32,
+            sv503_sessconns: u32,
+            sv503_maxpagedmemoryusage: u32,
+            sv503_maxnonpagedmemoryusage: u32,
             sv503_enablesoftcompat: BOOL,
             sv503_enableforcedlogoff: BOOL,
             sv503_timesource: BOOL,
             sv503_acceptdownlevelapis: BOOL,
             sv503_lmannounce: BOOL,
-            sv503_domain: LPWSTR,
-            sv503_maxcopyreadlen: DWORD,
-            sv503_maxcopywritelen: DWORD,
-            sv503_minkeepsearch: DWORD,
-            sv503_maxkeepsearch: DWORD,
-            sv503_minkeepcomplsearch: DWORD,
-            sv503_maxkeepcomplsearch: DWORD,
-            sv503_threadcountadd: DWORD,
-            sv503_numblockthreads: DWORD,
-            sv503_scavtimeout: DWORD,
-            sv503_minrcvqueue: DWORD,
-            sv503_minfreeworkitems: DWORD,
-            sv503_xactmemsize: DWORD,
-            sv503_threadpriority: DWORD,
-            sv503_maxmpxct: DWORD,
-            sv503_oplockbreakwait: DWORD,
-            sv503_oplockbreakresponsewait: DWORD,
+            sv503_domain: PWSTR,
+            sv503_maxcopyreadlen: u32,
+            sv503_maxcopywritelen: u32,
+            sv503_minkeepsearch: u32,
+            sv503_maxkeepsearch: u32,
+            sv503_minkeepcomplsearch: u32,
+            sv503_maxkeepcomplsearch: u32,
+            sv503_threadcountadd: u32,
+            sv503_numblockthreads: u32,
+            sv503_scavtimeout: u32,
+            sv503_minrcvqueue: u32,
+            sv503_minfreeworkitems: u32,
+            sv503_xactmemsize: u32,
+            sv503_threadpriority: u32,
+            sv503_maxmpxct: u32,
+            sv503_oplockbreakwait: u32,
+            sv503_oplockbreakresponsewait: u32,
             sv503_enableoplocks: BOOL,
             sv503_enableoplockforceclose: BOOL,
             sv503_enablefcbopens: BOOL,
             sv503_enableraw: BOOL,
             sv503_enablesharednetdrives: BOOL,
-            sv503_minfreeconnections: DWORD,
-            sv503_maxfreeconnections: DWORD,
+            sv503_minfreeconnections: u32,
+            sv503_maxfreeconnections: u32,
         }
         struct SERVER_INFO_598 {
-            sv598_maxrawworkitems: DWORD,
-            sv598_maxthreadsperqueue: DWORD,
-            sv598_producttype: DWORD,
-            sv598_serversize: DWORD,
-            sv598_connectionlessautodisc: DWORD,
-            sv598_sharingviolationretries: DWORD,
-            sv598_sharingviolationdelay: DWORD,
-            sv598_maxglobalopensearch: DWORD,
-            sv598_removeduplicatesearches: DWORD,
-            sv598_lockviolationoffset: DWORD,
-            sv598_lockviolationdelay: DWORD,
-            sv598_mdlreadswitchover: DWORD,
-            sv598_cachedopenlimit: DWORD,
-            sv598_otherqueueaffinity: DWORD,
+            sv598_maxrawworkitems: u32,
+            sv598_maxthreadsperqueue: u32,
+            sv598_producttype: u32,
+            sv598_serversize: u32,
+            sv598_connectionlessautodisc: u32,
+            sv598_sharingviolationretries: u32,
+            sv598_sharingviolationdelay: u32,
+            sv598_maxglobalopensearch: u32,
+            sv598_removeduplicatesearches: u32,
+            sv598_lockviolationoffset: u32,
+            sv598_lockviolationdelay: u32,
+            sv598_mdlreadswitchover: u32,
+            sv598_cachedopenlimit: u32,
+            sv598_otherqueueaffinity: u32,
             sv598_restrictnullsessaccess: BOOL,
             sv598_enablewfw311directipx: BOOL,
-            sv598_queuesamplesecs: DWORD,
-            sv598_balancecount: DWORD,
-            sv598_preferredaffinity: DWORD,
-            sv598_maxfreerfcbs: DWORD,
-            sv598_maxfreemfcbs: DWORD,
-            sv598_maxfreelfcbs: DWORD,
-            sv598_maxfreepagedpoolchunks: DWORD,
-            sv598_minpagedpoolchunksize: DWORD,
-            sv598_maxpagedpoolchunksize: DWORD,
+            sv598_queuesamplesecs: u32,
+            sv598_balancecount: u32,
+            sv598_preferredaffinity: u32,
+            sv598_maxfreerfcbs: u32,
+            sv598_maxfreemfcbs: u32,
+            sv598_maxfreelfcbs: u32,
+            sv598_maxfreepagedpoolchunks: u32,
+            sv598_minpagedpoolchunksize: u32,
+            sv598_maxpagedpoolchunksize: u32,
             sv598_sendsfrompreferredprocessor: BOOL,
-            sv598_cacheddirectorylimit: DWORD,
-            sv598_maxcopylength: DWORD,
+            sv598_cacheddirectorylimit: u32,
+            sv598_maxcopylength: u32,
             sv598_enablecompression: BOOL,
             sv598_autosharewks: BOOL,
             sv598_autoshareserver: BOOL,
             sv598_enablesecuritysignature: BOOL,
             sv598_requiresecuritysignature: BOOL,
-            sv598_minclientbuffersize: DWORD,
+            sv598_minclientbuffersize: u32,
             sv598_serverguid: GUID,
-            sv598_ConnectionNoSessionsTimeout: DWORD,
-            sv598_IdleThreadTimeOut: DWORD,
+            sv598_ConnectionNoSessionsTimeout: u32,
+            sv598_IdleThreadTimeOut: u32,
             sv598_enableW9xsecuritysignature: BOOL,
             sv598_enforcekerberosreauthentication: BOOL,
             sv598_disabledos: BOOL,
-            sv598_lowdiskspaceminimum: DWORD,
+            sv598_lowdiskspaceminimum: u32,
             sv598_disablestrictnamechecking: BOOL,
             sv598_enableauthenticateusersharing: BOOL,
         }
         struct SERVER_INFO_599 {
-            sv599_sessopens: DWORD,
-            sv599_sessvcs: DWORD,
-            sv599_opensearch: DWORD,
-            sv599_sizreqbuf: DWORD,
-            sv599_initworkitems: DWORD,
-            sv599_maxworkitems: DWORD,
-            sv599_rawworkitems: DWORD,
-            sv599_irpstacksize: DWORD,
-            sv599_maxrawbuflen: DWORD,
-            sv599_sessusers: DWORD,
-            sv599_sessconns: DWORD,
-            sv599_maxpagedmemoryusage: DWORD,
-            sv599_maxnonpagedmemoryusage: DWORD,
+            sv599_sessopens: u32,
+            sv599_sessvcs: u32,
+            sv599_opensearch: u32,
+            sv599_sizreqbuf: u32,
+            sv599_initworkitems: u32,
+            sv599_maxworkitems: u32,
+            sv599_rawworkitems: u32,
+            sv599_irpstacksize: u32,
+            sv599_maxrawbuflen: u32,
+            sv599_sessusers: u32,
+            sv599_sessconns: u32,
+            sv599_maxpagedmemoryusage: u32,
+            sv599_maxnonpagedmemoryusage: u32,
             sv599_enablesoftcompat: BOOL,
             sv599_enableforcedlogoff: BOOL,
             sv599_timesource: BOOL,
             sv599_acceptdownlevelapis: BOOL,
             sv599_lmannounce: BOOL,
-            sv599_domain: LPWSTR,
-            sv599_maxcopyreadlen: DWORD,
-            sv599_maxcopywritelen: DWORD,
-            sv599_minkeepsearch: DWORD,
-            sv599_maxkeepsearch: DWORD,
-            sv599_minkeepcomplsearch: DWORD,
-            sv599_maxkeepcomplsearch: DWORD,
-            sv599_threadcountadd: DWORD,
-            sv599_numblockthreads: DWORD,
-            sv599_scavtimeout: DWORD,
-            sv599_minrcvqueue: DWORD,
-            sv599_minfreeworkitems: DWORD,
-            sv599_xactmemsize: DWORD,
-            sv599_threadpriority: DWORD,
-            sv599_maxmpxct: DWORD,
-            sv599_oplockbreakwait: DWORD,
-            sv599_oplockbreakresponsewait: DWORD,
+            sv599_domain: PWSTR,
+            sv599_maxcopyreadlen: u32,
+            sv599_maxcopywritelen: u32,
+            sv599_minkeepsearch: u32,
+            sv599_maxkeepsearch: u32,
+            sv599_minkeepcomplsearch: u32,
+            sv599_maxkeepcomplsearch: u32,
+            sv599_threadcountadd: u32,
+            sv599_numblockthreads: u32,
+            sv599_scavtimeout: u32,
+            sv599_minrcvqueue: u32,
+            sv599_minfreeworkitems: u32,
+            sv599_xactmemsize: u32,
+            sv599_threadpriority: u32,
+            sv599_maxmpxct: u32,
+            sv599_oplockbreakwait: u32,
+            sv599_oplockbreakresponsewait: u32,
             sv599_enableoplocks: BOOL,
             sv599_enableoplockforceclose: BOOL,
             sv599_enablefcbopens: BOOL,
             sv599_enableraw: BOOL,
             sv599_enablesharednetdrives: BOOL,
-            sv599_minfreeconnections: DWORD,
-            sv599_maxfreeconnections: DWORD,
-            sv599_initsesstable: DWORD,
-            sv599_initconntable: DWORD,
-            sv599_initfiletable: DWORD,
-            sv599_initsearchtable: DWORD,
-            sv599_alertschedule: DWORD,
-            sv599_errorthreshold: DWORD,
-            sv599_networkerrorthreshold: DWORD,
-            sv599_diskspacethreshold: DWORD,
-            sv599_reserved: DWORD,
-            sv599_maxlinkdelay: DWORD,
-            sv599_minlinkthroughput: DWORD,
-            sv599_linkinfovalidtime: DWORD,
-            sv599_scavqosinfoupdatetime: DWORD,
-            sv599_maxworkitemidletime: DWORD,
+            sv599_minfreeconnections: u32,
+            sv599_maxfreeconnections: u32,
+            sv599_initsesstable: u32,
+            sv599_initconntable: u32,
+            sv599_initfiletable: u32,
+            sv599_initsearchtable: u32,
+            sv599_alertschedule: u32,
+            sv599_errorthreshold: u32,
+            sv599_networkerrorthreshold: u32,
+            sv599_diskspacethreshold: u32,
+            sv599_reserved: u32,
+            sv599_maxlinkdelay: u32,
+            sv599_minlinkthroughput: u32,
+            sv599_linkinfovalidtime: u32,
+            sv599_scavqosinfoupdatetime: u32,
+            sv599_maxworkitemidletime: u32,
         }
         struct SERVER_TRANSPORT_INFO_0 {
-            svti0_numberofvcs: DWORD,
-            svti0_transportname: LPWSTR,
+            svti0_numberofvcs: u32,
+            svti0_transportname: PWSTR,
             svti0_transportaddress: LPBYTE,
-            svti0_transportaddresslength: DWORD,
-            svti0_networkaddress: LPWSTR,
+            svti0_transportaddresslength: u32,
+            svti0_networkaddress: PWSTR,
         }
         struct SERVER_TRANSPORT_INFO_1 {
-            svti1_numberofvcs: DWORD,
-            svti1_transportname: LPWSTR,
+            svti1_numberofvcs: u32,
+            svti1_transportname: PWSTR,
             svti1_transportaddress: LPBYTE,
-            svti1_transportaddresslength: DWORD,
-            svti1_networkaddress: LPWSTR,
-            svti1_domain: LPWSTR,
+            svti1_transportaddresslength: u32,
+            svti1_networkaddress: PWSTR,
+            svti1_domain: PWSTR,
         }
         struct SERVER_TRANSPORT_INFO_2 {
-            svti2_numberofvcs: DWORD,
-            svti2_transportname: LPWSTR,
+            svti2_numberofvcs: u32,
+            svti2_transportname: PWSTR,
             svti2_transportaddress: LPBYTE,
-            svti2_transportaddresslength: DWORD,
-            svti2_networkaddress: LPWSTR,
-            svti2_domain: LPWSTR,
-            svti2_flags: ULONG,
+            svti2_transportaddresslength: u32,
+            svti2_networkaddress: PWSTR,
+            svti2_domain: PWSTR,
+            svti2_flags: u32,
         }
         struct SERVER_TRANSPORT_INFO_3 {
-            svti3_numberofvcs: DWORD,
-            svti3_transportname: LPWSTR,
+            svti3_numberofvcs: u32,
+            svti3_transportname: PWSTR,
             svti3_transportaddress: LPBYTE,
-            svti3_transportaddresslength: DWORD,
-            svti3_networkaddress: LPWSTR,
-            svti3_domain: LPWSTR,
-            svti3_flags: ULONG,
-            svti3_passwordlength: DWORD,
-            svti3_password: [BYTE; 256],
+            svti3_transportaddresslength: u32,
+            svti3_networkaddress: PWSTR,
+            svti3_domain: PWSTR,
+            svti3_flags: u32,
+            svti3_passwordlength: u32,
+            svti3_password: [u8; 256],
         }
         const SRV_HASH_GENERATION_ACTIVE: i32 = 2;
         const SRV_SUPPORT_HASH_GENERATION: i32 = 1;
@@ -1138,6 +1126,6 @@ mod Windows {
         const SW_AUTOPROF_LOAD_MASK: i32 = 1;
         const SW_AUTOPROF_SAVE_MASK: i32 = 2;
         #[library("ADVAPI32.dll")]
-        extern fn SetServiceBits(hServiceStatus: SERVICE_STATUS_HANDLE, dwServiceBits: DWORD, bSetBitsOn: BOOL, bUpdateImmediately: BOOL) -> BOOL;
+        extern fn SetServiceBits(hServiceStatus: SERVICE_STATUS_HANDLE, dwServiceBits: u32, bSetBitsOn: BOOL, bUpdateImmediately: BOOL) -> BOOL;
     }
 }

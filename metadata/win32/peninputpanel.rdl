@@ -60,38 +60,63 @@ mod Windows {
         const HandwrittenTextInsertion: GUID = 0x9f074ee2_e6e9_4d8a_a047_eb5b5c3c55da;
         #[guid(0x56fdea97_ecd6_43e7_aa3a_816be7785860)]
         interface IHandwrittenTextInsertion: IUnknown {
-            fn InsertRecognitionResultsArray(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] psaAlternates: *mut SAFEARRAY, locale: LCID, fAlternateContainsAutoSpacingInformation: BOOL) -> HRESULT;
-            fn InsertInkRecognitionResult(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pIInkRecoResult: IInkRecognitionResult, locale: LCID, fAlternateContainsAutoSpacingInformation: BOOL) -> HRESULT;
+            fn InsertRecognitionResultsArray(&self, #[in] psaAlternates: *mut SAFEARRAY, locale: LCID, fAlternateContainsAutoSpacingInformation: BOOL) -> HRESULT;
+            fn InsertInkRecognitionResult(&self, pIInkRecoResult: IInkRecognitionResult, locale: LCID, fAlternateContainsAutoSpacingInformation: BOOL) -> HRESULT;
         }
         #[guid(0x4af81847_fdc4_4fc3_ad0b_422479c1b935)]
         interface IInputPanelWindowHandle: IUnknown {
-            fn get_AttachedEditWindow32(&self, #[out] #[retval] AttachedEditWindow: *mut LONG32) -> HRESULT;
-            fn put_AttachedEditWindow32(&self, AttachedEditWindow: LONG32) -> HRESULT;
-            fn get_AttachedEditWindow64(&self, #[out] #[retval] AttachedEditWindow: *mut LONG64) -> HRESULT;
-            fn put_AttachedEditWindow64(&self, AttachedEditWindow: LONG64) -> HRESULT;
+            #[special]
+            fn get_AttachedEditWindow32(&self, #[retval] AttachedEditWindow: *mut i32) -> HRESULT;
+            #[special]
+            fn put_AttachedEditWindow32(&self, AttachedEditWindow: i32) -> HRESULT;
+            #[special]
+            fn get_AttachedEditWindow64(&self, #[retval] AttachedEditWindow: *mut i64) -> HRESULT;
+            #[special]
+            fn put_AttachedEditWindow64(&self, AttachedEditWindow: i64) -> HRESULT;
         }
         #[guid(0xfa7a4083_5747_4040_a182_0b0e9fd4fac7)]
         interface IPenInputPanel: IDispatch {
-            fn get_Busy(&self, #[out] #[retval] Busy: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Factoid(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Factoid: *mut BSTR) -> HRESULT;
-            fn put_Factoid(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Factoid: BSTR) -> HRESULT;
-            fn get_AttachedEditWindow(&self, #[out] #[retval] AttachedEditWindow: *mut LONG32) -> HRESULT;
-            fn put_AttachedEditWindow(&self, AttachedEditWindow: LONG32) -> HRESULT;
-            fn get_CurrentPanel(&self, #[out] #[retval] CurrentPanel: *mut PanelType) -> HRESULT;
+            #[special]
+            fn get_Busy(&self, #[retval] Busy: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Factoid(&self, #[retval] Factoid: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Factoid(&self, Factoid: BSTR) -> HRESULT;
+            #[special]
+            fn get_AttachedEditWindow(&self, #[retval] AttachedEditWindow: *mut i32) -> HRESULT;
+            #[special]
+            fn put_AttachedEditWindow(&self, AttachedEditWindow: i32) -> HRESULT;
+            #[special]
+            fn get_CurrentPanel(&self, #[retval] CurrentPanel: *mut PanelType) -> HRESULT;
+            #[special]
             fn put_CurrentPanel(&self, CurrentPanel: PanelType) -> HRESULT;
-            fn get_DefaultPanel(&self, #[out] #[retval] pDefaultPanel: *mut PanelType) -> HRESULT;
+            #[special]
+            fn get_DefaultPanel(&self, #[retval] pDefaultPanel: *mut PanelType) -> HRESULT;
+            #[special]
             fn put_DefaultPanel(&self, DefaultPanel: PanelType) -> HRESULT;
-            fn get_Visible(&self, #[out] #[retval] Visible: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Visible(&self, #[retval] Visible: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_Visible(&self, Visible: VARIANT_BOOL) -> HRESULT;
-            fn get_Top(&self, #[out] #[retval] Top: *mut i32) -> HRESULT;
-            fn get_Left(&self, #[out] #[retval] Left: *mut i32) -> HRESULT;
-            fn get_Width(&self, #[out] #[retval] Width: *mut i32) -> HRESULT;
-            fn get_Height(&self, #[out] #[retval] Height: *mut i32) -> HRESULT;
-            fn get_VerticalOffset(&self, #[out] #[retval] VerticalOffset: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Top(&self, #[retval] Top: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Left(&self, #[retval] Left: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Width(&self, #[retval] Width: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Height(&self, #[retval] Height: *mut i32) -> HRESULT;
+            #[special]
+            fn get_VerticalOffset(&self, #[retval] VerticalOffset: *mut i32) -> HRESULT;
+            #[special]
             fn put_VerticalOffset(&self, VerticalOffset: i32) -> HRESULT;
-            fn get_HorizontalOffset(&self, #[out] #[retval] HorizontalOffset: *mut i32) -> HRESULT;
+            #[special]
+            fn get_HorizontalOffset(&self, #[retval] HorizontalOffset: *mut i32) -> HRESULT;
+            #[special]
             fn put_HorizontalOffset(&self, HorizontalOffset: i32) -> HRESULT;
-            fn get_AutoShow(&self, #[out] #[retval] pAutoShow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AutoShow(&self, #[retval] pAutoShow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_AutoShow(&self, AutoShow: VARIANT_BOOL) -> HRESULT;
             fn MoveTo(&self, Left: i32, Top: i32) -> HRESULT;
             fn CommitPendingInput(&self) -> HRESULT;
@@ -100,31 +125,50 @@ mod Windows {
         }
         #[guid(0x6b6a65a5_6af3_46c2_b6ea_56cd1f80df71)]
         interface ITextInputPanel: IUnknown {
-            fn get_AttachedEditWindow(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] AttachedEditWindow: *mut HWND) -> HRESULT;
-            fn put_AttachedEditWindow(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] AttachedEditWindow: HWND) -> HRESULT;
-            fn get_CurrentInteractionMode(&self, #[out] #[retval] CurrentInteractionMode: *mut InteractionMode) -> HRESULT;
-            fn get_DefaultInPlaceState(&self, #[out] #[retval] State: *mut InPlaceState) -> HRESULT;
+            #[special]
+            fn get_AttachedEditWindow(&self, #[retval] AttachedEditWindow: *mut HWND) -> HRESULT;
+            #[special]
+            fn put_AttachedEditWindow(&self, AttachedEditWindow: HWND) -> HRESULT;
+            #[special]
+            fn get_CurrentInteractionMode(&self, #[retval] CurrentInteractionMode: *mut InteractionMode) -> HRESULT;
+            #[special]
+            fn get_DefaultInPlaceState(&self, #[retval] State: *mut InPlaceState) -> HRESULT;
+            #[special]
             fn put_DefaultInPlaceState(&self, State: InPlaceState) -> HRESULT;
-            fn get_CurrentInPlaceState(&self, #[out] #[retval] State: *mut InPlaceState) -> HRESULT;
-            fn get_DefaultInputArea(&self, #[out] #[retval] Area: *mut PanelInputArea) -> HRESULT;
+            #[special]
+            fn get_CurrentInPlaceState(&self, #[retval] State: *mut InPlaceState) -> HRESULT;
+            #[special]
+            fn get_DefaultInputArea(&self, #[retval] Area: *mut PanelInputArea) -> HRESULT;
+            #[special]
             fn put_DefaultInputArea(&self, Area: PanelInputArea) -> HRESULT;
-            fn get_CurrentInputArea(&self, #[out] #[retval] Area: *mut PanelInputArea) -> HRESULT;
-            fn get_CurrentCorrectionMode(&self, #[out] #[retval] Mode: *mut CorrectionMode) -> HRESULT;
-            fn get_PreferredInPlaceDirection(&self, #[out] #[retval] Direction: *mut InPlaceDirection) -> HRESULT;
+            #[special]
+            fn get_CurrentInputArea(&self, #[retval] Area: *mut PanelInputArea) -> HRESULT;
+            #[special]
+            fn get_CurrentCorrectionMode(&self, #[retval] Mode: *mut CorrectionMode) -> HRESULT;
+            #[special]
+            fn get_PreferredInPlaceDirection(&self, #[retval] Direction: *mut InPlaceDirection) -> HRESULT;
+            #[special]
             fn put_PreferredInPlaceDirection(&self, Direction: InPlaceDirection) -> HRESULT;
-            fn get_ExpandPostInsertionCorrection(&self, #[out] #[retval] Expand: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_ExpandPostInsertionCorrection(&self, #[retval] Expand: *mut BOOL) -> HRESULT;
+            #[special]
             fn put_ExpandPostInsertionCorrection(&self, Expand: BOOL) -> HRESULT;
-            fn get_InPlaceVisibleOnFocus(&self, #[out] #[retval] Visible: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_InPlaceVisibleOnFocus(&self, #[retval] Visible: *mut BOOL) -> HRESULT;
+            #[special]
             fn put_InPlaceVisibleOnFocus(&self, Visible: BOOL) -> HRESULT;
-            fn get_InPlaceBoundingRectangle(&self, #[out] #[retval] BoundingRectangle: *mut RECT) -> HRESULT;
-            fn get_PopUpCorrectionHeight(&self, #[out] #[retval] Height: *mut i32) -> HRESULT;
-            fn get_PopDownCorrectionHeight(&self, #[out] #[retval] Height: *mut i32) -> HRESULT;
+            #[special]
+            fn get_InPlaceBoundingRectangle(&self, #[retval] BoundingRectangle: *mut RECT) -> HRESULT;
+            #[special]
+            fn get_PopUpCorrectionHeight(&self, #[retval] Height: *mut i32) -> HRESULT;
+            #[special]
+            fn get_PopDownCorrectionHeight(&self, #[retval] Height: *mut i32) -> HRESULT;
             fn CommitPendingInput(&self) -> HRESULT;
             fn SetInPlaceVisibility(&self, Visible: BOOL) -> HRESULT;
             fn SetInPlacePosition(&self, xPosition: i32, yPosition: i32, position: CorrectionPosition) -> HRESULT;
             fn SetInPlaceHoverTargetPosition(&self, xPosition: i32, yPosition: i32) -> HRESULT;
-            fn Advise(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] EventSink: ITextInputPanelEventSink, EventMask: DWORD) -> HRESULT;
-            fn Unadvise(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] EventSink: ITextInputPanelEventSink) -> HRESULT;
+            fn Advise(&self, EventSink: ITextInputPanelEventSink, EventMask: u32) -> HRESULT;
+            fn Unadvise(&self, EventSink: ITextInputPanelEventSink) -> HRESULT;
         }
         #[guid(0x27560408_8e64_4fe1_804e_421201584b31)]
         interface ITextInputPanelEventSink: IUnknown {
@@ -138,12 +182,12 @@ mod Windows {
             fn CorrectionModeChanged(&self, oldCorrectionMode: CorrectionMode, newCorrectionMode: CorrectionMode) -> HRESULT;
             fn InPlaceVisibilityChanging(&self, oldVisible: BOOL, newVisible: BOOL) -> HRESULT;
             fn InPlaceVisibilityChanged(&self, oldVisible: BOOL, newVisible: BOOL) -> HRESULT;
-            fn TextInserting(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Ink: *mut SAFEARRAY) -> HRESULT;
-            fn TextInserted(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Ink: *mut SAFEARRAY) -> HRESULT;
+            fn TextInserting(&self, #[in] Ink: *mut SAFEARRAY) -> HRESULT;
+            fn TextInserted(&self, #[in] Ink: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x9f424568_1920_48cc_9811_a993cbf5adba)]
         interface ITextInputPanelRunInfo: IUnknown {
-            fn IsTipRunning(&self, #[out] pfRunning: *mut BOOL) -> HRESULT;
+            fn IsTipRunning(&self, pfRunning: *mut BOOL) -> HRESULT;
         }
         #[repr(i32)]
         enum InPlaceDirection {
@@ -166,14 +210,6 @@ mod Windows {
         }
         #[encoding("utf-16")]
         const MICROSOFT_PENINPUT_PANEL_PROPERTY_T: String = "Microsoft PenInputPanel 1.5";
-        #[encoding("utf-16")]
-        const MICROSOFT_TIP_COMBOBOXLIST_PROPERTY: String = "Microsoft TIP ComboBox List Window Identifier";
-        #[encoding("utf-16")]
-        const MICROSOFT_TIP_NO_INSERT_BUTTON_PROPERTY: String = "Microsoft TIP No Insert Option";
-        #[encoding("utf-16")]
-        const MICROSOFT_TIP_OPENING_MSG: String = "TabletInputPanelOpening";
-        #[encoding("utf-16")]
-        const MICROSOFT_URL_EXPERIENCE_PROPERTY: String = "Microsoft TIP URL Experience";
         #[repr(i32)]
         enum PanelInputArea {
             PanelInputArea_Auto = 0,

@@ -1,53 +1,37 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[library("VERSION.dll", import = "GetFileVersionInfoA")]
-        extern fn GetFileVersionInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lptstrFilename: LPCSTR, #[reserved] dwHandle: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLen: DWORD, #[out] #[size_param(2)] lpData: LPVOID) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lptstrFilename: LPCSTR, #[reserved] dwHandle: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLen: DWORD, #[out] #[size_param(2)] lpData: LPVOID) -> BOOL;
-        #[library("VERSION.dll", import = "GetFileVersionInfoExA")]
-        extern fn GetFileVersionInfoEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwstrFilename: LPCSTR, #[reserved] dwHandle: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLen: DWORD, #[out] #[size_param(3)] lpData: LPVOID) -> BOOL;
+        extern fn GetFileVersionInfoA(lptstrFilename: PCSTR, #[reserved] dwHandle: u32, dwLen: u32, #[size_param(2)] lpData: *mut void) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwstrFilename: LPCSTR, #[reserved] dwHandle: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLen: DWORD, #[out] #[size_param(3)] lpData: LPVOID) -> BOOL;
+        extern fn GetFileVersionInfoExA(dwFlags: u32, lpwstrFilename: PCSTR, #[reserved] dwHandle: u32, dwLen: u32, #[size_param(3)] lpData: *mut void) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwstrFilename: LPCWSTR, #[reserved] dwHandle: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLen: DWORD, #[out] #[size_param(3)] lpData: LPVOID) -> BOOL;
-        #[library("VERSION.dll", import = "GetFileVersionInfoSizeA")]
-        extern fn GetFileVersionInfoSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lptstrFilename: LPCSTR, #[out] #[opt] lpdwHandle: LPDWORD) -> DWORD;
+        extern fn GetFileVersionInfoExW(dwFlags: u32, lpwstrFilename: PCWSTR, #[reserved] dwHandle: u32, dwLen: u32, #[size_param(3)] lpData: *mut void) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoSizeA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lptstrFilename: LPCSTR, #[out] #[opt] lpdwHandle: LPDWORD) -> DWORD;
-        #[library("VERSION.dll", import = "GetFileVersionInfoSizeExA")]
-        extern fn GetFileVersionInfoSizeEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwstrFilename: LPCSTR, #[out] lpdwHandle: LPDWORD) -> DWORD;
+        extern fn GetFileVersionInfoSizeA(lptstrFilename: PCSTR, #[out] #[opt] lpdwHandle: LPDWORD) -> u32;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoSizeExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwstrFilename: LPCSTR, #[out] lpdwHandle: LPDWORD) -> DWORD;
+        extern fn GetFileVersionInfoSizeExA(dwFlags: u32, lpwstrFilename: PCSTR, #[out] lpdwHandle: LPDWORD) -> u32;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoSizeExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwstrFilename: LPCWSTR, #[out] lpdwHandle: LPDWORD) -> DWORD;
+        extern fn GetFileVersionInfoSizeExW(dwFlags: u32, lpwstrFilename: PCWSTR, #[out] lpdwHandle: LPDWORD) -> u32;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoSizeW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lptstrFilename: LPCWSTR, #[out] #[opt] lpdwHandle: LPDWORD) -> DWORD;
+        extern fn GetFileVersionInfoSizeW(lptstrFilename: PCWSTR, #[out] #[opt] lpdwHandle: LPDWORD) -> u32;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lptstrFilename: LPCWSTR, #[reserved] dwHandle: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLen: DWORD, #[out] #[size_param(2)] lpData: LPVOID) -> BOOL;
-        #[library("VERSION.dll", import = "VerFindFileA")]
-        extern fn VerFindFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFileName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szWinDir: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAppDir: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*puCurDirLen", "*puCurDirLen")] #[out] szCurDir: LPSTR, #[in] #[out] puCurDirLen: PUINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*puDestDirLen", "*puDestDirLen")] #[out] szDestDir: LPSTR, #[in] #[out] puDestDirLen: PUINT) -> DWORD;
+        extern fn GetFileVersionInfoW(lptstrFilename: PCWSTR, #[reserved] dwHandle: u32, dwLen: u32, #[size_param(2)] lpData: *mut void) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn VerFindFileA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFileName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szWinDir: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAppDir: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*puCurDirLen", "*puCurDirLen")] #[out] szCurDir: LPSTR, #[in] #[out] puCurDirLen: PUINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*puDestDirLen", "*puDestDirLen")] #[out] szDestDir: LPSTR, #[in] #[out] puDestDirLen: PUINT) -> DWORD;
+        extern fn VerFindFileA(uFlags: u32, szFileName: PCSTR, #[opt] szWinDir: PCSTR, szAppDir: PCSTR, #[len_param(5)] #[out] szCurDir: PSTR, #[in] #[out] puCurDirLen: PUINT, #[len_param(7)] #[out] szDestDir: PSTR, #[in] #[out] puDestDirLen: PUINT) -> u32;
         #[library("VERSION.dll")]
-        extern fn VerFindFileW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFileName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szWinDir: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAppDir: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*puCurDirLen", "*puCurDirLen")] #[out] szCurDir: LPWSTR, #[in] #[out] puCurDirLen: PUINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*puDestDirLen", "*puDestDirLen")] #[out] szDestDir: LPWSTR, #[in] #[out] puDestDirLen: PUINT) -> DWORD;
-        #[library("VERSION.dll", import = "VerInstallFileA")]
-        extern fn VerInstallFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSrcFileName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szDestFileName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSrcDir: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szDestDir: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCurDir: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*puTmpFileLen", "*puTmpFileLen")] #[out] szTmpFile: LPSTR, #[in] #[out] puTmpFileLen: PUINT) -> DWORD;
+        extern fn VerFindFileW(uFlags: u32, szFileName: PCWSTR, #[opt] szWinDir: PCWSTR, szAppDir: PCWSTR, #[len_param(5)] #[out] szCurDir: PWSTR, #[in] #[out] puCurDirLen: PUINT, #[len_param(7)] #[out] szDestDir: PWSTR, #[in] #[out] puDestDirLen: PUINT) -> u32;
         #[library("VERSION.dll")]
-        extern fn VerInstallFileA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSrcFileName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szDestFileName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSrcDir: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szDestDir: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCurDir: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*puTmpFileLen", "*puTmpFileLen")] #[out] szTmpFile: LPSTR, #[in] #[out] puTmpFileLen: PUINT) -> DWORD;
+        extern fn VerInstallFileA(uFlags: u32, szSrcFileName: PCSTR, szDestFileName: PCSTR, szSrcDir: PCSTR, szDestDir: PCSTR, szCurDir: PCSTR, #[len_param(7)] #[out] szTmpFile: PSTR, #[in] #[out] puTmpFileLen: PUINT) -> u32;
         #[library("VERSION.dll")]
-        extern fn VerInstallFileW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSrcFileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szDestFileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSrcDir: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szDestDir: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCurDir: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*puTmpFileLen", "*puTmpFileLen")] #[out] szTmpFile: LPWSTR, #[in] #[out] puTmpFileLen: PUINT) -> DWORD;
-        #[library("KERNEL32.dll", import = "VerLanguageNameA")]
-        extern fn VerLanguageName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wLang: DWORD, #[out] #[len_param(2)] szLang: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchLang: DWORD) -> DWORD;
+        extern fn VerInstallFileW(uFlags: u32, szSrcFileName: PCWSTR, szDestFileName: PCWSTR, szSrcDir: PCWSTR, szDestDir: PCWSTR, szCurDir: PCWSTR, #[len_param(7)] #[out] szTmpFile: PWSTR, #[in] #[out] puTmpFileLen: PUINT) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn VerLanguageNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wLang: DWORD, #[out] #[len_param(2)] szLang: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchLang: DWORD) -> DWORD;
+        extern fn VerLanguageNameA(wLang: u32, #[len_param(2)] #[out] szLang: PSTR, cchLang: u32) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn VerLanguageNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wLang: DWORD, #[out] #[len_param(2)] szLang: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchLang: DWORD) -> DWORD;
-        #[library("VERSION.dll", import = "VerQueryValueA")]
-        extern fn VerQueryValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBlock: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSubBlock: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")")] #[out] lplpBuffer: *mut LPVOID, #[out] puLen: PUINT) -> BOOL;
+        extern fn VerLanguageNameW(wLang: u32, #[len_param(2)] #[out] szLang: PWSTR, cchLang: u32) -> u32;
         #[library("VERSION.dll")]
-        extern fn VerQueryValueA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBlock: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSubBlock: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")")] #[out] lplpBuffer: *mut LPVOID, #[out] puLen: PUINT) -> BOOL;
+        extern fn VerQueryValueA(pBlock: LPCVOID, lpSubBlock: PCSTR, lplpBuffer: *mut *mut void, #[out] puLen: PUINT) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn VerQueryValueW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBlock: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSubBlock: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")")] #[out] lplpBuffer: *mut LPVOID, #[out] puLen: PUINT) -> BOOL;
+        extern fn VerQueryValueW(pBlock: LPCVOID, lpSubBlock: PCWSTR, lplpBuffer: *mut *mut void, #[out] puLen: PUINT) -> BOOL;
     }
 }

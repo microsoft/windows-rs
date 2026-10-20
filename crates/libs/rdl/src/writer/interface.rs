@@ -73,70 +73,72 @@ fn write_members(
                 .flags()
                 .contains(metadata::MethodAttributes::SpecialName)
         {
-            let name = method.name();
+            let sig = method.signature(generics);
 
-            if let Some(prop_name) = name.strip_prefix("get_") {
-                let put_name = format!("put_{prop_name}");
-                let j = find_unconsumed(&methods, &consumed, i, &put_name);
-
-                let sig = method.signature(generics);
-
-                let no_attrs = method.attributes().next().is_none();
-
-                if let Some(j) = j {
-                    let put_no_attrs = methods[j].attributes().next().is_none();
-                    // Combine only adjacent get_/put_ pairs with matching types.
-                    let put_sig = methods[j].signature(generics);
-                    let types_match = put_sig.types.first() == Some(&sig.return_type);
-                    if no_attrs && put_no_attrs && types_match && (i + 1..j).all(|k| consumed[k]) {
-                        let ty = write_type(namespace, &sig.return_type);
-                        let prop_ident = write_ident(prop_name);
-                        consumed[i] = true;
-                        consumed[j] = true;
-                        tokens.push(quote! { #prop_ident: #ty; });
-                        continue;
-                    }
-                }
-                if no_attrs {
+            // The shorthand regenerates accessor signatures, so it only applies to methods with
+            // the accessor shape and no parameter or return metadata.
+            match shorthand_kind(method, &sig) {
+                Some((AccessorKind::Get, prop_name)) => {
                     let ty = write_type(namespace, &sig.return_type);
                     let prop_ident = write_ident(prop_name);
+                    let attrs = write_accessor_attributes(namespace, method)?;
+
+                    // Combine only adjacent get_/put_ pairs with matching types and attributes.
+                    if let Some(j) =
+                        find_unconsumed(&methods, &consumed, i, &format!("put_{prop_name}"))
+                    {
+                        let put_sig = methods[j].signature(generics);
+                        if matches!(
+                            shorthand_kind(&methods[j], &put_sig),
+                            Some((AccessorKind::Set, _))
+                        ) && put_sig.types[0] == sig.return_type
+                            && (i + 1..j).all(|k| consumed[k])
+                            && write_accessor_attributes(namespace, &methods[j])?.to_string()
+                                == attrs.to_string()
+                        {
+                            consumed[i] = true;
+                            consumed[j] = true;
+                            tokens.push(quote! { #attrs #prop_ident: #ty; });
+                            continue;
+                        }
+                    }
                     consumed[i] = true;
-                    tokens.push(quote! { #[get] #prop_ident: #ty; });
+                    tokens.push(quote! { #[get] #attrs #prop_ident: #ty; });
                     continue;
                 }
-            } else if let Some(prop_name) = name.strip_prefix("put_") {
-                let no_attrs = method.attributes().next().is_none();
-                if no_attrs {
-                    let sig = method.signature(generics);
-                    if let Some(ty) = sig.types.first() {
-                        let ty = write_type(namespace, ty);
-                        let prop_ident = write_ident(prop_name);
-                        consumed[i] = true;
-                        tokens.push(quote! { #[set] #prop_ident: #ty; });
-                        continue;
-                    }
+                Some((AccessorKind::Set, prop_name)) => {
+                    let ty = write_type(namespace, &sig.types[0]);
+                    let prop_ident = write_ident(prop_name);
+                    let attrs = write_accessor_attributes(namespace, method)?;
+                    consumed[i] = true;
+                    tokens.push(quote! { #[set] #attrs #prop_ident: #ty; });
+                    continue;
                 }
-            } else if let Some(event_name) = name.strip_prefix("add_") {
-                let remove_name = format!("remove_{event_name}");
-                let j = find_unconsumed(&methods, &consumed, i, &remove_name);
-
-                let no_attrs = method.attributes().next().is_none();
-
-                if let Some(j) = j {
-                    let remove_no_attrs = methods[j].attributes().next().is_none();
-                    // Event shorthand requires adjacent add_/remove_ methods.
-                    if no_attrs && remove_no_attrs && (i + 1..j).all(|k| consumed[k]) {
-                        let sig = method.signature(generics);
-                        if let Some(handler_ty) = sig.types.first() {
-                            let handler_ty = write_type(namespace, handler_ty);
+                Some((AccessorKind::Add, event_name)) => {
+                    // Event shorthand requires adjacent add_/remove_ methods with matching
+                    // attributes.
+                    if let Some(j) =
+                        find_unconsumed(&methods, &consumed, i, &format!("remove_{event_name}"))
+                    {
+                        let attrs = write_accessor_attributes(namespace, method)?;
+                        if (i + 1..j).all(|k| consumed[k])
+                            && matches!(
+                                shorthand_kind(&methods[j], &methods[j].signature(generics)),
+                                Some((AccessorKind::Remove, _))
+                            )
+                            && write_accessor_attributes(namespace, &methods[j])?.to_string()
+                                == attrs.to_string()
+                        {
+                            let handler_ty = write_type(namespace, &sig.types[0]);
                             let event_ident = write_ident(event_name);
                             consumed[i] = true;
                             consumed[j] = true;
-                            tokens.push(quote! { #event_kw #event_ident: #handler_ty; });
+                            tokens.push(quote! { #attrs #event_kw #event_ident: #handler_ty; });
                             continue;
                         }
                     }
                 }
+                _ => {}
             }
         }
 
@@ -145,6 +147,42 @@ fn write_members(
     }
 
     Ok(tokens)
+}
+
+fn shorthand_kind<'a>(
+    method: &metadata::reader::MethodDef<'a>,
+    sig: &metadata::Signature,
+) -> Option<(AccessorKind, &'a str)> {
+    accessor_kind(method.name(), &sig.types, &sig.return_type)
+        .filter(|_| has_plain_params(method, sig))
+}
+
+// The reader regenerates shorthand accessors with input parameters and no parameter or return
+// metadata, so methods with any of these stay explicit.
+fn has_plain_params(method: &metadata::reader::MethodDef, sig: &metadata::Signature) -> bool {
+    let Ok(params) = method.params_by_sequence(sig.types.len()) else {
+        return false;
+    };
+    params
+        .return_param()
+        .is_none_or(|param| param.attributes().next().is_none())
+        && params.params().iter().flatten().all(|param| {
+            param.attributes().next().is_none()
+                && !param.is_optional()
+                && matches!(
+                    param.direction(),
+                    metadata::reader::ParamDirection::Unspecified
+                        | metadata::reader::ParamDirection::Input
+                )
+        })
+}
+
+fn write_accessor_attributes(
+    namespace: &str,
+    item: &metadata::reader::MethodDef,
+) -> Result<TokenStream, Error> {
+    let attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    Ok(quote! { #(#attrs)* })
 }
 
 fn find_unconsumed(

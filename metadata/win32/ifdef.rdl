@@ -10,12 +10,11 @@ mod Windows {
         }
         type IF_COUNTED_STRING = IF_COUNTED_STRING_LH;
         struct IF_COUNTED_STRING_LH {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "0,(256 + 1) * sizeof(WCHAR)", "0,(256 + 1) * sizeof(WCHAR)")]
-            Length: USHORT,
-            String: [WCHAR; 257],
+            Length: u16,
+            String: [u16; 257],
         }
-        type IF_INDEX = u32;
-        type IF_LUID = NET_LUID_LH;
+        type IF_INDEX = NET_IFINDEX;
+        type IF_LUID = NET_LUID;
         const IF_MAX_PHYS_ADDRESS_LENGTH: i32 = 32;
         const IF_MAX_STRING_SIZE: i32 = 256;
         #[repr(i32)]
@@ -30,43 +29,42 @@ mod Windows {
         }
         type IF_PHYSICAL_ADDRESS = IF_PHYSICAL_ADDRESS_LH;
         struct IF_PHYSICAL_ADDRESS_LH {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "0,32", "0,32")]
-            Length: USHORT,
-            Address: [UCHAR; 32],
+            Length: u16,
+            Address: [u8; 32],
         }
         struct NDIS_INTERFACE_INFORMATION {
             ifOperStatus: NET_IF_OPER_STATUS,
-            ifOperStatusFlags: ULONG,
+            ifOperStatusFlags: u32,
             MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
             MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
-            ifMtu: ULONG,
+            ifMtu: u32,
             ifPromiscuousMode: BOOLEAN,
             ifDeviceWakeUpEnable: BOOLEAN,
-            XmitLinkSpeed: ULONG64,
-            RcvLinkSpeed: ULONG64,
-            ifLastChange: ULONG64,
-            ifCounterDiscontinuityTime: ULONG64,
-            ifInUnknownProtos: ULONG64,
-            ifInDiscards: ULONG64,
-            ifInErrors: ULONG64,
-            ifHCInOctets: ULONG64,
-            ifHCInUcastPkts: ULONG64,
-            ifHCInMulticastPkts: ULONG64,
-            ifHCInBroadcastPkts: ULONG64,
-            ifHCOutOctets: ULONG64,
-            ifHCOutUcastPkts: ULONG64,
-            ifHCOutMulticastPkts: ULONG64,
-            ifHCOutBroadcastPkts: ULONG64,
-            ifOutErrors: ULONG64,
-            ifOutDiscards: ULONG64,
-            ifHCInUcastOctets: ULONG64,
-            ifHCInMulticastOctets: ULONG64,
-            ifHCInBroadcastOctets: ULONG64,
-            ifHCOutUcastOctets: ULONG64,
-            ifHCOutMulticastOctets: ULONG64,
-            ifHCOutBroadcastOctets: ULONG64,
+            XmitLinkSpeed: u64,
+            RcvLinkSpeed: u64,
+            ifLastChange: u64,
+            ifCounterDiscontinuityTime: u64,
+            ifInUnknownProtos: u64,
+            ifInDiscards: u64,
+            ifInErrors: u64,
+            ifHCInOctets: u64,
+            ifHCInUcastPkts: u64,
+            ifHCInMulticastPkts: u64,
+            ifHCInBroadcastPkts: u64,
+            ifHCOutOctets: u64,
+            ifHCOutUcastPkts: u64,
+            ifHCOutMulticastPkts: u64,
+            ifHCOutBroadcastPkts: u64,
+            ifOutErrors: u64,
+            ifOutDiscards: u64,
+            ifHCInUcastOctets: u64,
+            ifHCInMulticastOctets: u64,
+            ifHCInBroadcastOctets: u64,
+            ifHCOutUcastOctets: u64,
+            ifHCOutMulticastOctets: u64,
+            ifHCOutBroadcastOctets: u64,
             CompartmentId: NET_IF_COMPARTMENT_ID,
-            SupportedStatistics: ULONG,
+            SupportedStatistics: u32,
         }
         type NET_IFINDEX = u32;
         const NET_IFINDEX_UNSPECIFIED: NET_IFINDEX = 0;
@@ -88,8 +86,8 @@ mod Windows {
         }
         type NET_IF_ALIAS = NET_IF_ALIAS_LH;
         struct NET_IF_ALIAS_LH {
-            ifAliasLength: USHORT,
-            ifAliasOffset: USHORT,
+            ifAliasLength: u16,
+            ifAliasOffset: u16,
         }
         type NET_IF_COMPARTMENT_ID = u32;
         const NET_IF_COMPARTMENT_ID_PRIMARY: NET_IF_COMPARTMENT_ID = 1;
@@ -111,7 +109,7 @@ mod Windows {
             NET_IF_DIRECTION_RECEIVEONLY = 2,
             NET_IF_DIRECTION_MAXIMUM = 3,
         }
-        const NET_IF_LINK_SPEED_UNKNOWN: ULONG64 = 18446744073709551615;
+        const NET_IF_LINK_SPEED_UNKNOWN: u64 = 18446744073709551615;
         #[repr(i32)]
         enum NET_IF_MEDIA_CONNECT_STATE {
             MediaConnectStateUnknown = 0,
@@ -147,8 +145,8 @@ mod Windows {
         type NET_IF_RCV_ADDRESS = NET_IF_RCV_ADDRESS_LH;
         struct NET_IF_RCV_ADDRESS_LH {
             ifRcvAddressType: NET_IF_RCV_ADDRESS_TYPE,
-            ifRcvAddressLength: USHORT,
-            ifRcvAddressOffset: USHORT,
+            ifRcvAddressLength: u16,
+            ifRcvAddressOffset: u16,
         }
         #[repr(i32)]
         enum NET_IF_RCV_ADDRESS_TYPE {
@@ -158,26 +156,27 @@ mod Windows {
         }
         type NET_LUID = NET_LUID_LH;
         union NET_LUID_LH {
-            Value: ULONG64,
+            Value: u64,
             Info: struct {
-                #[Windows::Win32::Metadata::NativeBitfield("IfType", 48, 16, MemberType = ULONG64)]
-                #[Windows::Win32::Metadata::NativeBitfield("NetLuidIndex", 24, 24, MemberType = ULONG64)]
-                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 0, 24, MemberType = ULONG64)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    Reserved: 24,
+                    NetLuidIndex: 24,
+                    IfType: 16,
+                },
             },
         }
         type NET_PHYSICAL_LOCATION = NET_PHYSICAL_LOCATION_LH;
         struct NET_PHYSICAL_LOCATION_LH {
-            BusNumber: ULONG,
-            SlotNumber: ULONG,
-            FunctionNumber: ULONG,
+            BusNumber: u32,
+            SlotNumber: u32,
+            FunctionNumber: u32,
         }
         const NET_SITEID_MAXSYSTEM: i32 = 268435455;
         const NET_SITEID_MAXUSER: i32 = 134217727;
         const NET_SITEID_UNSPECIFIED: i32 = 0;
-        const NIIF_BUS_NUMBER_UNKNOWN: ULONG = 4294967295;
+        const NIIF_BUS_NUMBER_UNKNOWN: u32 = 4294967295;
         const NIIF_FILTER_INTERFACE: i32 = 2;
-        const NIIF_FUNCTION_NUMBER_UNKNOWN: ULONG = 4294967295;
+        const NIIF_FUNCTION_NUMBER_UNKNOWN: u32 = 4294967295;
         const NIIF_HARDWARE_INTERFACE: i32 = 1;
         const NIIF_NDIS_ENDPOINT_INTERFACE: i32 = 64;
         const NIIF_NDIS_ISCSI_INTERFACE: i32 = 128;
@@ -186,21 +185,21 @@ mod Windows {
         const NIIF_NDIS_RESERVED3: i32 = 16;
         const NIIF_NDIS_RESERVED4: i32 = 256;
         const NIIF_NDIS_WDM_INTERFACE: i32 = 32;
-        const NIIF_SLOT_NUMBER_UNKNOWN: ULONG = 4294967295;
-        const NIIF_WAN_TUNNEL_TYPE_UNKNOWN: ULONG = 4294967295;
+        const NIIF_SLOT_NUMBER_UNKNOWN: u32 = 4294967295;
+        const NIIF_WAN_TUNNEL_TYPE_UNKNOWN: u32 = 4294967295;
         type PIF_ADMINISTRATIVE_STATE = *mut IF_ADMINISTRATIVE_STATE;
-        type PIF_COUNTED_STRING = *mut IF_COUNTED_STRING_LH;
+        type PIF_COUNTED_STRING = *mut IF_COUNTED_STRING;
         type PIF_COUNTED_STRING_LH = *mut IF_COUNTED_STRING_LH;
-        type PIF_INDEX = *mut u32;
-        type PIF_LUID = *mut NET_LUID_LH;
-        type PIF_PHYSICAL_ADDRESS = *mut IF_PHYSICAL_ADDRESS_LH;
+        type PIF_INDEX = *mut NET_IFINDEX;
+        type PIF_LUID = *mut NET_LUID;
+        type PIF_PHYSICAL_ADDRESS = *mut IF_PHYSICAL_ADDRESS;
         type PIF_PHYSICAL_ADDRESS_LH = *mut IF_PHYSICAL_ADDRESS_LH;
         type PNDIS_INTERFACE_INFORMATION = *mut NDIS_INTERFACE_INFORMATION;
         type PNET_IFINDEX = *mut u32;
         type PNET_IFTYPE = *mut u16;
         type PNET_IF_ACCESS_TYPE = *mut NET_IF_ACCESS_TYPE;
         type PNET_IF_ADMIN_STATUS = *mut NET_IF_ADMIN_STATUS;
-        type PNET_IF_ALIAS = *mut NET_IF_ALIAS_LH;
+        type PNET_IF_ALIAS = *mut NET_IF_ALIAS;
         type PNET_IF_ALIAS_LH = *mut NET_IF_ALIAS_LH;
         type PNET_IF_COMPARTMENT_ID = *mut u32;
         type PNET_IF_COMPARTMENT_SCOPE = *mut u32;
@@ -211,12 +210,12 @@ mod Windows {
         type PNET_IF_NETWORK_GUID = *mut GUID;
         type PNET_IF_OBJECT_ID = *mut u32;
         type PNET_IF_OPER_STATUS = *mut NET_IF_OPER_STATUS;
-        type PNET_IF_RCV_ADDRESS = *mut NET_IF_RCV_ADDRESS_LH;
+        type PNET_IF_RCV_ADDRESS = *mut NET_IF_RCV_ADDRESS;
         type PNET_IF_RCV_ADDRESS_LH = *mut NET_IF_RCV_ADDRESS_LH;
         type PNET_IF_RCV_ADDRESS_TYPE = *mut NET_IF_RCV_ADDRESS_TYPE;
-        type PNET_LUID = *mut NET_LUID_LH;
+        type PNET_LUID = *mut NET_LUID;
         type PNET_LUID_LH = *mut NET_LUID_LH;
-        type PNET_PHYSICAL_LOCATION = *mut NET_PHYSICAL_LOCATION_LH;
+        type PNET_PHYSICAL_LOCATION = *mut NET_PHYSICAL_LOCATION;
         type PNET_PHYSICAL_LOCATION_LH = *mut NET_PHYSICAL_LOCATION_LH;
         type PTUNNEL_TYPE = *mut TUNNEL_TYPE;
         #[repr(i32)]

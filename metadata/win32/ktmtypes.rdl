@@ -14,26 +14,25 @@ mod Windows {
         const ENLISTMENT_OBJECT_PATH: String = "\\Enlistment\\";
         const ENLISTMENT_SUPERIOR: i32 = 1;
         struct KCRM_MARSHAL_HEADER {
-            VersionMajor: ULONG,
-            VersionMinor: ULONG,
-            NumProtocols: ULONG,
-            Unused: ULONG,
+            VersionMajor: u32,
+            VersionMinor: u32,
+            NumProtocols: u32,
+            Unused: u32,
         }
         struct KCRM_PROTOCOL_BLOB {
             ProtocolId: CRM_PROTOCOL_ID,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "0,0xffffffffUL/2", "0,0xffffffffUL/2")]
-            StaticInfoLength: ULONG,
-            TransactionIdInfoLength: ULONG,
-            Unused1: ULONG,
-            Unused2: ULONG,
+            StaticInfoLength: u32,
+            TransactionIdInfoLength: u32,
+            Unused1: u32,
+            Unused2: u32,
         }
         struct KCRM_TRANSACTION_BLOB {
             UOW: UOW,
             TmIdentity: GUID,
-            IsolationLevel: ULONG,
-            IsolationFlags: ULONG,
-            Timeout: ULONG,
-            Description: [WCHAR; 64],
+            IsolationLevel: u32,
+            IsolationFlags: u32,
+            Timeout: u32,
+            Description: [u16; 64],
         }
         const KTM_MARSHAL_BLOB_VERSION_MAJOR: i32 = 1;
         const KTM_MARSHAL_BLOB_VERSION_MINOR: i32 = 1;
@@ -83,21 +82,21 @@ mod Windows {
         const TRANSACTION_MANAGER_VOLATILE: i32 = 1;
         const TRANSACTION_MAXIMUM_OPTION: i32 = 1;
         struct TRANSACTION_NOTIFICATION {
-            TransactionKey: PVOID,
-            TransactionNotification: ULONG,
+            TransactionKey: *mut void,
+            TransactionNotification: u32,
             TmVirtualClock: LARGE_INTEGER,
-            ArgumentLength: ULONG,
+            ArgumentLength: u32,
         }
         struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
-            MarshalCookie: ULONG,
+            MarshalCookie: u32,
             UOW: GUID,
         }
         type TRANSACTION_NOTIFICATION_PROMOTE_ARGUMENT = TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT;
         struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
-            PropagationCookie: ULONG,
+            PropagationCookie: u32,
             UOW: GUID,
             TmIdentity: GUID,
-            BufferLength: ULONG,
+            BufferLength: u32,
         }
         struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
             EnlistmentId: GUID,
@@ -108,7 +107,7 @@ mod Windows {
         }
         struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
             TmIdentity: GUID,
-            Flags: ULONG,
+            Flags: u32,
         }
         const TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED: i32 = 1;
         const TRANSACTION_NOTIFY_COMMIT: i32 = 4;

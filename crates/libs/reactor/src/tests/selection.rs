@@ -1,6 +1,58 @@
 use super::*;
 
 #[test]
+fn selection_observations_preserve_declaration_ownership() {
+    let values = Rc::new(RefCell::new(Vec::new()));
+    let received = Rc::clone(&values);
+    let callback = Callback::new(move |value| received.borrow_mut().push(value));
+    let view = |selected| {
+        let item = ListBoxItem::new().tag("item");
+        ListBox::new()
+            .items((match selected {
+                Some(selected) => item.is_selected(selected),
+                None => item,
+            },))
+            .on_selected_tag_changed(callback.clone())
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(view(None)).unwrap();
+    let owner = runtime.graph().root().unwrap();
+    let item = runtime.graph().children(owner, RelationId::Items).unwrap()[0];
+    let observation = Observation::SetSelection {
+        object: owner,
+        selected: Some(item),
+    };
+    runtime.adapter_mut().queue_native_event(
+        Some(observation.clone()),
+        Some(EventDispatch::new(
+            owner,
+            EventId::SelectionChanged,
+            EventValue::Selection(callback.clone()),
+            EventPayload::Selection(SelectionChange {
+                item: Some(item),
+                value: Some(Rc::from("item")),
+            }),
+        )),
+    );
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 1);
+    assert_eq!(*values.borrow(), [Some(Rc::from("item"))]);
+    assert!(runtime.update(view(None)).unwrap().is_empty());
+
+    runtime.update(view(Some(false))).unwrap();
+    runtime.adapter_mut().observe(observation.clone());
+    runtime.dispatch_native_events().unwrap();
+    assert!(runtime.update(view(Some(true))).unwrap().is_empty());
+    assert!(matches!(
+        runtime.update(view(None)).unwrap().as_slice(),
+        [Mutation::SetProperties { object, set, clear }]
+            if *object == item && set.is_empty() && clear.as_ref() == [PropertyId::IsSelected]
+    ));
+    runtime.adapter_mut().observe(observation);
+    runtime.dispatch_native_events().unwrap();
+    assert!(runtime.update(view(None)).unwrap().is_empty());
+}
+
+#[test]
 fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
     let selected_values = Rc::new(RefCell::new(Vec::new()));
     let selected_values_for_callback = Rc::clone(&selected_values);
@@ -42,6 +94,16 @@ fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
         )),
     );
 
+    let graph = runtime.graph().clone();
+    let queued = runtime.adapter().clone();
+    for _ in 0..2 {
+        assert_eq!(
+            runtime.prepare_update(),
+            Err(UpdateError::PendingNativeEvent)
+        );
+        assert_eq!(runtime.graph(), &graph);
+        assert_eq!(runtime.adapter(), &queued);
+    }
     assert_eq!(runtime.dispatch_native_events().unwrap(), 1);
     assert_eq!(
         runtime.graph().properties(before[0]).unwrap(),
@@ -115,7 +177,7 @@ fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
         Some(EventDispatch::new(
             owner,
             EventId::SelectionChanged,
-            EventValue::Selection(callback),
+            EventValue::Selection(callback.clone()),
             EventPayload::Selection(SelectionChange {
                 item: Some(before[1]),
                 value: Some(Rc::from("stale")),
@@ -137,6 +199,27 @@ fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
             },
         ]
     );
+
+    runtime
+        .update(
+            ListBox::new()
+                .keyed_items([
+                    keyed("first", ListBoxItem::new().tag("first").is_selected(false)),
+                    keyed("replacement", ListBoxItem::new().is_selected(true)),
+                ])
+                .on_selected_tag_changed(callback),
+        )
+        .unwrap();
+    let replacement = runtime.graph().children(owner, RelationId::Items).unwrap()[1];
+    assert_eq!(replacement.index(), before[1].index());
+    assert_ne!(replacement.generation(), before[1].generation());
+    let graph = runtime.graph().clone();
+    runtime.adapter_mut().observe(Observation::SetSelection {
+        object: owner,
+        selected: Some(before[1]),
+    });
+    runtime.prepare_update().unwrap();
+    assert_eq!(runtime.graph(), &graph);
 }
 
 #[test]

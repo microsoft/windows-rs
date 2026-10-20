@@ -2,23 +2,21 @@
 mod Windows {
     mod Win32 {
         const CERT_CREDENTIAL_PROVIDER_ID: i32 = -509;
-        #[packed(8)]
         struct CERT_SELECTUI_INPUT {
             hStore: HCERTSTORE,
             prgpChain: *mut PCCERT_CHAIN_CONTEXT,
-            cChain: DWORD,
+            cChain: u32,
         }
         const CRYPTUI_ACCEPT_DECLINE_STYLE: i32 = 64;
         const CRYPTUI_CACHE_ONLY_URL_RETRIEVAL: i32 = 262144;
         const CRYPTUI_CERT_MGR_PUBLISHER_TAB: i32 = 4;
         const CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG: i32 = 32768;
-        #[packed(8)]
         struct CRYPTUI_CERT_MGR_STRUCT {
-            dwSize: DWORD,
+            dwSize: u32,
             hwndParent: HWND,
-            dwFlags: DWORD,
-            pwszTitle: LPCWSTR,
-            pszInitUsageOID: LPCSTR,
+            dwFlags: u32,
+            pwszTitle: PCWSTR,
+            pszInitUsageOID: PCSTR,
         }
         const CRYPTUI_CERT_MGR_TAB_MASK: i32 = 15;
         const CRYPTUI_DISABLE_ADDTOSTORE: i32 = 16;
@@ -36,7 +34,6 @@ mod Windows {
         const CRYPTUI_HIDE_DETAILPAGE: i32 = 2;
         const CRYPTUI_HIDE_HIERARCHYPAGE: i32 = 1;
         const CRYPTUI_IGNORE_UNTRUSTED_ROOT: i32 = 128;
-        #[packed(8)]
         struct CRYPTUI_INITDIALOG_STRUCT {
             lParam: LPARAM,
             pCertContext: PCCERT_CONTEXT,
@@ -48,145 +45,135 @@ mod Windows {
         const CRYPTUI_SELECT_ISSUEDBY_COLUMN: i32 = 2;
         const CRYPTUI_SELECT_ISSUEDTO_COLUMN: i32 = 1;
         const CRYPTUI_SELECT_LOCATION_COLUMN: i32 = 16;
-        #[packed(8)]
         struct CRYPTUI_VIEWCERTIFICATE_STRUCTA {
-            dwSize: DWORD,
+            dwSize: u32,
             hwndParent: HWND,
-            dwFlags: DWORD,
-            szTitle: LPCSTR,
+            dwFlags: u32,
+            szTitle: PCSTR,
             pCertContext: PCCERT_CONTEXT,
-            rgszPurposes: *mut LPCSTR,
-            cPurposes: DWORD,
-            Anonymous: #[packed(8)] union {
+            rgszPurposes: *mut PCSTR,
+            cPurposes: u32,
+            Anonymous: union {
                 pCryptProviderData: *const CRYPT_PROVIDER_DATA,
                 hWVTStateData: HANDLE,
             },
             fpCryptProviderDataTrustedUsage: BOOL,
-            idxSigner: DWORD,
-            idxCert: DWORD,
+            idxSigner: u32,
+            idxCert: u32,
             fCounterSigner: BOOL,
-            idxCounterSigner: DWORD,
-            cStores: DWORD,
+            idxCounterSigner: u32,
+            cStores: u32,
             rghStores: *mut HCERTSTORE,
-            cPropSheetPages: DWORD,
+            cPropSheetPages: u32,
             rgPropSheetPages: LPCPROPSHEETPAGEA,
-            nStartPage: DWORD,
+            nStartPage: u32,
         }
-        #[packed(8)]
         struct CRYPTUI_VIEWCERTIFICATE_STRUCTW {
-            dwSize: DWORD,
+            dwSize: u32,
             hwndParent: HWND,
-            dwFlags: DWORD,
-            szTitle: LPCWSTR,
+            dwFlags: u32,
+            szTitle: PCWSTR,
             pCertContext: PCCERT_CONTEXT,
-            rgszPurposes: *mut LPCSTR,
-            cPurposes: DWORD,
-            Anonymous: #[packed(8)] union {
+            rgszPurposes: *mut PCSTR,
+            cPurposes: u32,
+            Anonymous: union {
                 pCryptProviderData: *const CRYPT_PROVIDER_DATA,
                 hWVTStateData: HANDLE,
             },
             fpCryptProviderDataTrustedUsage: BOOL,
-            idxSigner: DWORD,
-            idxCert: DWORD,
+            idxSigner: u32,
+            idxCert: u32,
             fCounterSigner: BOOL,
-            idxCounterSigner: DWORD,
-            cStores: DWORD,
+            idxCounterSigner: u32,
+            cStores: u32,
             rghStores: *mut HCERTSTORE,
-            cPropSheetPages: DWORD,
+            cPropSheetPages: u32,
             rgPropSheetPages: LPCPROPSHEETPAGEW,
-            nStartPage: DWORD,
+            nStartPage: u32,
         }
         const CRYPTUI_WARN_REMOTE_TRUST: i32 = 4096;
         const CRYPTUI_WARN_UNTRUSTED_ROOT: i32 = 1024;
         const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN: i32 = 1;
         const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN_NO_ROOT: i32 = 2;
-        #[packed(8)]
         struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
-            dwSize: DWORD,
+            dwSize: u32,
             pGuidSubject: *mut GUID,
-            cbBlob: DWORD,
-            pbBlob: *mut BYTE,
-            pwszDisplayName: LPCWSTR,
+            cbBlob: u32,
+            pbBlob: *mut u8,
+            pwszDisplayName: PCWSTR,
         }
         const CRYPTUI_WIZ_DIGITAL_SIGN_CERT: i32 = 1;
-        #[packed(8)]
         struct CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
-            dwSize: DWORD,
-            pwszSigningCertFileName: LPWSTR,
-            dwPvkChoice: DWORD,
-            Anonymous: #[packed(8)] union {
+            dwSize: u32,
+            pwszSigningCertFileName: PWSTR,
+            dwPvkChoice: u32,
+            Anonymous: union {
                 pPvkFileInfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO,
                 pPvkProvInfo: PCRYPT_KEY_PROV_INFO,
             },
         }
         const CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL: i32 = 1;
-        #[packed(8)]
         struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
-            dwSize: DWORD,
-            cbBlob: DWORD,
-            pbBlob: *mut BYTE,
+            dwSize: u32,
+            cbBlob: u32,
+            pbBlob: *mut u8,
         }
         const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: i32 = 2;
-        #[packed(8)]
         struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
-            dwSize: DWORD,
-            dwAttrFlags: DWORD,
-            pwszDescription: LPCWSTR,
-            pwszMoreInfoLocation: LPCWSTR,
-            pszHashAlg: LPCSTR,
-            pwszSigningCertDisplayString: LPCWSTR,
+            dwSize: u32,
+            dwAttrFlags: u32,
+            pwszDescription: PCWSTR,
+            pwszMoreInfoLocation: PCWSTR,
+            pszHashAlg: PCSTR,
+            pwszSigningCertDisplayString: PCWSTR,
             hAdditionalCertStore: HCERTSTORE,
             psAuthenticated: PCRYPT_ATTRIBUTES,
             psUnauthenticated: PCRYPT_ATTRIBUTES,
         }
         const CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES: i32 = 4;
         const CRYPTUI_WIZ_DIGITAL_SIGN_INDIVIDUAL: i32 = 2;
-        #[packed(8)]
         struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
-            dwSize: DWORD,
-            dwSubjectChoice: DWORD,
-            Anonymous: #[packed(8)] union {
-                pwszFileName: LPCWSTR,
+            dwSize: u32,
+            dwSubjectChoice: u32,
+            Anonymous: union {
+                pwszFileName: PCWSTR,
                 pSignBlobInfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO,
             },
-            dwSigningCertChoice: DWORD,
-            Anonymous2: #[packed(8)] union {
+            dwSigningCertChoice: u32,
+            Anonymous2: union {
                 pSigningCertContext: PCCERT_CONTEXT,
                 pSigningCertStore: PCCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO,
                 pSigningCertPvkInfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO,
             },
-            pwszTimestampURL: LPCWSTR,
-            dwAdditionalCertChoice: DWORD,
+            pwszTimestampURL: PCWSTR,
+            dwAdditionalCertChoice: u32,
             pSignExtInfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO,
         }
         const CRYPTUI_WIZ_DIGITAL_SIGN_PVK: i32 = 3;
         const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE: i32 = 1;
-        #[packed(8)]
         struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
-            dwSize: DWORD,
-            pwszPvkFileName: LPWSTR,
-            pwszProvName: LPWSTR,
-            dwProvType: DWORD,
+            dwSize: u32,
+            pwszPvkFileName: PWSTR,
+            pwszProvName: PWSTR,
+            dwProvType: u32,
         }
         const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_PROV: i32 = 2;
         const CRYPTUI_WIZ_DIGITAL_SIGN_STORE: i32 = 2;
-        #[packed(8)]
         struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
-            dwSize: DWORD,
-            cCertStore: DWORD,
+            dwSize: u32,
+            cCertStore: u32,
             rghCertStore: *mut HCERTSTORE,
             pFilterCallback: PFNCFILTERPROC,
             pvCallbackData: *mut void,
         }
         const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_BLOB: i32 = 2;
         const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_FILE: i32 = 1;
-        #[packed(8)]
         struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
-            dwSize: DWORD,
-            dwExportFormat: DWORD,
+            dwSize: u32,
+            dwExportFormat: u32,
             fExportChain: BOOL,
             fExportPrivateKeys: BOOL,
-            pwszPassword: LPCWSTR,
+            pwszPassword: PCWSTR,
             fStrongEncryption: BOOL,
         }
         const CRYPTUI_WIZ_EXPORT_CERT_CONTEXT: i32 = 1;
@@ -201,18 +188,17 @@ mod Windows {
         const CRYPTUI_WIZ_EXPORT_FORMAT_PFX: i32 = 2;
         const CRYPTUI_WIZ_EXPORT_FORMAT_PKCS7: i32 = 3;
         const CRYPTUI_WIZ_EXPORT_FORMAT_SERIALIZED_CERT_STORE: i32 = 5;
-        #[packed(8)]
         struct CRYPTUI_WIZ_EXPORT_INFO {
-            dwSize: DWORD,
-            pwszExportFileName: LPCWSTR,
-            dwSubjectChoice: DWORD,
-            Anonymous: #[packed(8)] union {
+            dwSize: u32,
+            pwszExportFileName: PCWSTR,
+            dwSubjectChoice: u32,
+            Anonymous: union {
                 pCertContext: PCCERT_CONTEXT,
                 pCTLContext: PCCTL_CONTEXT,
                 pCRLContext: PCCRL_CONTEXT,
                 hCertStore: HCERTSTORE,
             },
-            cStores: DWORD,
+            cStores: u32,
             rghStores: *mut HCERTSTORE,
         }
         const CRYPTUI_WIZ_IMPORT_ALLOW_CERT: i32 = 131072;
@@ -220,19 +206,18 @@ mod Windows {
         const CRYPTUI_WIZ_IMPORT_ALLOW_CTL: i32 = 524288;
         const CRYPTUI_WIZ_IMPORT_NO_CHANGE_DEST_STORE: i32 = 65536;
         const CRYPTUI_WIZ_IMPORT_REMOTE_DEST_STORE: i32 = 4194304;
-        #[packed(8)]
         struct CRYPTUI_WIZ_IMPORT_SRC_INFO {
-            dwSize: DWORD,
-            dwSubjectChoice: DWORD,
-            Anonymous: #[packed(8)] union {
-                pwszFileName: LPCWSTR,
+            dwSize: u32,
+            dwSubjectChoice: u32,
+            Anonymous: union {
+                pwszFileName: PCWSTR,
                 pCertContext: PCCERT_CONTEXT,
                 pCTLContext: PCCTL_CONTEXT,
                 pCRLContext: PCCRL_CONTEXT,
                 hCertStore: HCERTSTORE,
             },
-            dwFlags: DWORD,
-            pwszPassword: LPCWSTR,
+            dwFlags: u32,
+            pwszPassword: PCWSTR,
         }
         const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_CONTEXT: i32 = 2;
         const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_STORE: i32 = 5;
@@ -243,36 +228,25 @@ mod Windows {
         const CRYPTUI_WIZ_IMPORT_TO_LOCALMACHINE: i32 = 1048576;
         const CRYPTUI_WIZ_NO_UI: i32 = 1;
         #[library("CRYPTUI.dll")]
-        extern fn CertSelectionGetSerializedBlob(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcsi: PCERT_SELECTUI_INPUT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppOutBuffer: *mut *mut void, #[out] pulOutBufferSize: *mut ULONG) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 1", "return == 1")]
+        extern fn CertSelectionGetSerializedBlob(pcsi: PCERT_SELECTUI_INPUT, ppOutBuffer: *mut *mut void, pulOutBufferSize: *mut u32) -> HRESULT;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIDlgCertMgr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCryptUICertMgr: PCCRYPTUI_CERT_MGR_STRUCT) -> BOOL;
+        extern fn CryptUIDlgCertMgr(pCryptUICertMgr: PCCRYPTUI_CERT_MGR_STRUCT) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIDlgSelectCertificateFromStore(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCertStore: HCERTSTORE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszTitle: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszDisplayString: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDontUseColumn: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvReserved: *mut void) -> PCCERT_CONTEXT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 1", "return == 1")]
-        #[library("CRYPTUI.dll", import = "CryptUIDlgViewCertificateA")]
-        extern fn CryptUIDlgViewCertificate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCertViewInfo: PCCRYPTUI_VIEWCERTIFICATE_STRUCTA, #[out] pfPropertiesChanged: *mut BOOL) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 1", "return == 1")]
+        extern fn CryptUIDlgSelectCertificateFromStore(hCertStore: HCERTSTORE, #[opt] hwnd: HWND, #[opt] pwszTitle: PCWSTR, #[opt] pwszDisplayString: PCWSTR, dwDontUseColumn: u32, dwFlags: u32, #[in] pvReserved: *mut void) -> PCCERT_CONTEXT;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIDlgViewCertificateA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCertViewInfo: PCCRYPTUI_VIEWCERTIFICATE_STRUCTA, #[out] pfPropertiesChanged: *mut BOOL) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 1", "return == 1")]
+        extern fn CryptUIDlgViewCertificateA(pCertViewInfo: PCCRYPTUI_VIEWCERTIFICATE_STRUCTA, pfPropertiesChanged: *mut BOOL) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIDlgViewCertificateW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCertViewInfo: PCCRYPTUI_VIEWCERTIFICATE_STRUCTW, #[out] pfPropertiesChanged: *mut BOOL) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 1", "return == 1")]
+        extern fn CryptUIDlgViewCertificateW(pCertViewInfo: PCCRYPTUI_VIEWCERTIFICATE_STRUCTW, pfPropertiesChanged: *mut BOOL) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIDlgViewContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContextType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvContext: *const void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszTitle: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvReserved: *mut void) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 1", "return == 1")]
+        extern fn CryptUIDlgViewContext(dwContextType: u32, pvContext: *const void, #[opt] hwnd: HWND, #[opt] pwszTitle: PCWSTR, dwFlags: u32, #[in] pvReserved: *mut void) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIWizDigitalSign(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszWizardTitle: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDigitalSignInfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSignContext: *mut PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 1", "return == 1")]
+        extern fn CryptUIWizDigitalSign(dwFlags: u32, #[opt] hwndParent: HWND, #[opt] pwszWizardTitle: PCWSTR, pDigitalSignInfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppSignContext: *mut PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIWizExport(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszWizardTitle: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pExportInfo: PCCRYPTUI_WIZ_EXPORT_INFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvoid: *mut void) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 1", "return == 1")]
+        extern fn CryptUIWizExport(dwFlags: u32, #[opt] hwndParent: HWND, #[opt] pwszWizardTitle: PCWSTR, pExportInfo: PCCRYPTUI_WIZ_EXPORT_INFO, #[in] #[opt] pvoid: *mut void) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIWizFreeDigitalSignContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSignContext: PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 1", "return == 1")]
+        extern fn CryptUIWizFreeDigitalSignContext(pSignContext: PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIWizImport(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszWizardTitle: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pImportSrc: PCCRYPTUI_WIZ_IMPORT_SRC_INFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDestCertStore: HCERTSTORE) -> BOOL;
+        extern fn CryptUIWizImport(dwFlags: u32, #[opt] hwndParent: HWND, #[opt] pwszWizardTitle: PCWSTR, #[opt] pImportSrc: PCCRYPTUI_WIZ_IMPORT_SRC_INFO, #[opt] hDestCertStore: HCERTSTORE) -> BOOL;
         type PCCRYPTUI_CERT_MGR_STRUCT = *const CRYPTUI_CERT_MGR_STRUCT;
         type PCCRYPTUI_VIEWCERTIFICATE_STRUCTA = *const CRYPTUI_VIEWCERTIFICATE_STRUCTA;
         type PCCRYPTUI_VIEWCERTIFICATE_STRUCTW = *const CRYPTUI_VIEWCERTIFICATE_STRUCTW;

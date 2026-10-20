@@ -21,7 +21,7 @@ mod Windows {
             BITS_FILE_PROPERTY_ID_HTTP_RESPONSE_HEADERS = 1,
         }
         union BITS_FILE_PROPERTY_VALUE {
-            String: LPWSTR,
+            String: PWSTR,
         }
         #[repr(i32)]
         enum BITS_JOB_PROPERTY_ID {
@@ -35,10 +35,10 @@ mod Windows {
             BITS_JOB_PROPERTY_ON_DEMAND_MODE = 10,
         }
         union BITS_JOB_PROPERTY_VALUE {
-            Dword: DWORD,
+            Dword: u32,
             ClsID: GUID,
             Enable: BOOL,
-            Uint64: UINT64,
+            Uint64: u64,
             Target: BG_AUTH_TARGET,
         }
         #[repr(i32)]
@@ -53,12 +53,12 @@ mod Windows {
         #[guid(0x85c1657f_dafc_40e8_8834_df18ea25717e)]
         interface IBackgroundCopyFile5: IBackgroundCopyFile4 {
             fn SetProperty(&self, PropertyId: BITS_FILE_PROPERTY_ID, PropertyValue: BITS_FILE_PROPERTY_VALUE) -> HRESULT;
-            fn GetProperty(&self, PropertyId: BITS_FILE_PROPERTY_ID, #[out] PropertyValue: *mut BITS_FILE_PROPERTY_VALUE) -> HRESULT;
+            fn GetProperty(&self, PropertyId: BITS_FILE_PROPERTY_ID, PropertyValue: *mut BITS_FILE_PROPERTY_VALUE) -> HRESULT;
         }
         #[guid(0xe847030c_bbba_4657_af6d_484aa42bf1fe)]
         interface IBackgroundCopyJob5: IBackgroundCopyJob4 {
             fn SetProperty(&self, PropertyId: BITS_JOB_PROPERTY_ID, PropertyValue: BITS_JOB_PROPERTY_VALUE) -> HRESULT;
-            fn GetProperty(&self, PropertyId: BITS_JOB_PROPERTY_ID, #[out] PropertyValue: *mut BITS_JOB_PROPERTY_VALUE) -> HRESULT;
+            fn GetProperty(&self, PropertyId: BITS_JOB_PROPERTY_ID, PropertyValue: *mut BITS_JOB_PROPERTY_VALUE) -> HRESULT;
         }
     }
 }

@@ -2,28 +2,28 @@
 mod Windows {
     mod Win32 {
         struct D3D11_COMPUTE_SHADER_TRACE_DESC {
-            Invocation: UINT64,
-            ThreadIDInGroup: [UINT; 3],
-            ThreadGroupID: [UINT; 3],
+            Invocation: u64,
+            ThreadIDInGroup: [u32; 3],
+            ThreadGroupID: [u32; 3],
         }
         struct D3D11_DOMAIN_SHADER_TRACE_DESC {
-            Invocation: UINT64,
+            Invocation: u64,
         }
         struct D3D11_GEOMETRY_SHADER_TRACE_DESC {
-            Invocation: UINT64,
+            Invocation: u64,
         }
         struct D3D11_HULL_SHADER_TRACE_DESC {
-            Invocation: UINT64,
+            Invocation: u64,
         }
         struct D3D11_PIXEL_SHADER_TRACE_DESC {
-            Invocation: UINT64,
-            X: INT,
-            Y: INT,
-            SampleMask: UINT64,
+            Invocation: u64,
+            X: i32,
+            Y: i32,
+            SampleMask: u64,
         }
         struct D3D11_SHADER_TRACE_DESC {
             Type: D3D11_SHADER_TYPE,
-            Flags: UINT,
+            Flags: u32,
             Anonymous: union {
                 VertexShaderTraceDesc: D3D11_VERTEX_SHADER_TRACE_DESC,
                 HullShaderTraceDesc: D3D11_HULL_SHADER_TRACE_DESC,
@@ -69,11 +69,11 @@ mod Windows {
         struct D3D11_TRACE_REGISTER {
             RegType: D3D11_TRACE_REGISTER_TYPE,
             Anonymous: union {
-                Index1D: UINT16,
-                Index2D: [UINT16; 2],
+                Index1D: u16,
+                Index2D: [u16; 2],
             },
-            OperandIndex: UINT8,
-            Flags: UINT8,
+            OperandIndex: u8,
+            Flags: u8,
         }
         const D3D11_TRACE_REGISTER_FLAGS_RELATIVE_INDEXING: i32 = 1;
         #[repr(i32)]
@@ -117,22 +117,22 @@ mod Windows {
         }
         struct D3D11_TRACE_STATS {
             TraceDesc: D3D11_SHADER_TRACE_DESC,
-            NumInvocationsInStamp: UINT8,
-            TargetStampIndex: UINT8,
-            NumTraceSteps: UINT,
+            NumInvocationsInStamp: u8,
+            TargetStampIndex: u8,
+            NumTraceSteps: u32,
             InputMask: [D3D11_TRACE_COMPONENT_MASK; 32],
             OutputMask: [D3D11_TRACE_COMPONENT_MASK; 32],
-            NumTemps: UINT16,
-            MaxIndexableTempIndex: UINT16,
-            IndexableTempSize: [UINT16; 4096],
-            ImmediateConstantBufferSize: UINT16,
-            PixelPosition: [[UINT; 2]; 4],
-            PixelCoverageMask: [UINT64; 4],
-            PixelDiscardedMask: [UINT64; 4],
-            PixelCoverageMaskAfterShader: [UINT64; 4],
-            PixelCoverageMaskAfterA2CSampleMask: [UINT64; 4],
-            PixelCoverageMaskAfterA2CSampleMaskDepth: [UINT64; 4],
-            PixelCoverageMaskAfterA2CSampleMaskDepthStencil: [UINT64; 4],
+            NumTemps: u16,
+            MaxIndexableTempIndex: u16,
+            IndexableTempSize: [u16; 4096],
+            ImmediateConstantBufferSize: u16,
+            PixelPosition: [[u32; 2]; 4],
+            PixelCoverageMask: [u64; 4],
+            PixelDiscardedMask: [u64; 4],
+            PixelCoverageMaskAfterShader: [u64; 4],
+            PixelCoverageMaskAfterA2CSampleMask: [u64; 4],
+            PixelCoverageMaskAfterA2CSampleMaskDepth: [u64; 4],
+            PixelCoverageMaskAfterA2CSampleMaskDepthStencil: [u64; 4],
             PSOutputsDepth: BOOL,
             PSOutputsMask: BOOL,
             GSInputPrimitive: D3D11_TRACE_GS_INPUT_PRIMITIVE,
@@ -141,37 +141,37 @@ mod Windows {
             DSInputPatchConstantMask: [D3D11_TRACE_COMPONENT_MASK; 32],
         }
         struct D3D11_TRACE_STEP {
-            ID: UINT,
+            ID: u32,
             InstructionActive: BOOL,
-            NumRegistersWritten: UINT8,
-            NumRegistersRead: UINT8,
+            NumRegistersWritten: u8,
+            NumRegistersRead: u8,
             MiscOperations: D3D11_TRACE_MISC_OPERATIONS_MASK,
-            OpcodeType: UINT,
-            CurrentGlobalCycle: UINT64,
+            OpcodeType: u32,
+            CurrentGlobalCycle: u64,
         }
         struct D3D11_TRACE_VALUE {
-            Bits: [UINT; 4],
+            Bits: [u32; 4],
             ValidMask: D3D11_TRACE_COMPONENT_MASK,
         }
         struct D3D11_VERTEX_SHADER_TRACE_DESC {
-            Invocation: UINT64,
+            Invocation: u64,
         }
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DDisassemble11Trace(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pSrcData: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SrcDataSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTrace: ID3D11ShaderTrace, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StartStep: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumSteps: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppDisassembly: *mut ID3D10Blob) -> HRESULT;
+        extern fn D3DDisassemble11Trace(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, pTrace: ID3D11ShaderTrace, StartStep: u32, NumSteps: u32, Flags: u32, ppDisassembly: *mut ID3D10Blob) -> HRESULT;
         #[guid(0x36b013e6_2811_4845_baa7_d623fe0df104)]
         interface ID3D11ShaderTrace: IUnknown {
-            fn TraceReady(&self, #[out] #[opt] pTestCount: *mut UINT64) -> HRESULT;
+            fn TraceReady(&self, #[opt] pTestCount: *mut u64) -> HRESULT;
             fn ResetTrace(&self);
-            fn GetTraceStats(&self, #[out] pTraceStats: *mut D3D11_TRACE_STATS) -> HRESULT;
-            fn PSSelectStamp(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] stampIndex: UINT) -> HRESULT;
-            fn GetInitialRegisterContents(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRegister: *mut D3D11_TRACE_REGISTER, #[out] pValue: *mut D3D11_TRACE_VALUE) -> HRESULT;
-            fn GetStep(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] stepIndex: UINT, #[out] pTraceStep: *mut D3D11_TRACE_STEP) -> HRESULT;
-            fn GetWrittenRegister(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] stepIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] writtenRegisterIndex: UINT, #[out] pRegister: *mut D3D11_TRACE_REGISTER, #[out] pValue: *mut D3D11_TRACE_VALUE) -> HRESULT;
-            fn GetReadRegister(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] stepIndex: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] readRegisterIndex: UINT, #[out] pRegister: *mut D3D11_TRACE_REGISTER, #[out] pValue: *mut D3D11_TRACE_VALUE) -> HRESULT;
+            fn GetTraceStats(&self, pTraceStats: *mut D3D11_TRACE_STATS) -> HRESULT;
+            fn PSSelectStamp(&self, stampIndex: u32) -> HRESULT;
+            fn GetInitialRegisterContents(&self, #[in] pRegister: *mut D3D11_TRACE_REGISTER, pValue: *mut D3D11_TRACE_VALUE) -> HRESULT;
+            fn GetStep(&self, stepIndex: u32, pTraceStep: *mut D3D11_TRACE_STEP) -> HRESULT;
+            fn GetWrittenRegister(&self, stepIndex: u32, writtenRegisterIndex: u32, pRegister: *mut D3D11_TRACE_REGISTER, pValue: *mut D3D11_TRACE_VALUE) -> HRESULT;
+            fn GetReadRegister(&self, stepIndex: u32, readRegisterIndex: u32, pRegister: *mut D3D11_TRACE_REGISTER, pValue: *mut D3D11_TRACE_VALUE) -> HRESULT;
         }
         #[guid(0x1fbad429_66ab_41cc_9617_667ac10e4459)]
         interface ID3D11ShaderTraceFactory: IUnknown {
-            fn CreateShaderTrace(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pShader: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTraceDesc: *mut D3D11_SHADER_TRACE_DESC, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppShaderTrace: *mut ID3D11ShaderTrace) -> HRESULT;
+            fn CreateShaderTrace(&self, pShader: IUnknown, #[in] pTraceDesc: *mut D3D11_SHADER_TRACE_DESC, ppShaderTrace: *mut ID3D11ShaderTrace) -> HRESULT;
         }
     }
 }

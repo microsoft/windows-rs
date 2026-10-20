@@ -4,50 +4,43 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetProcessHeap() -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessHeaps(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumberOfHeaps: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "NumberOfHeaps,return", "NumberOfHeaps,return")] #[out] #[len_param(0)] ProcessHeaps: PHANDLE) -> DWORD;
+        extern fn GetProcessHeaps(NumberOfHeaps: u32, #[len_param(0)] #[out] ProcessHeaps: PHANDLE) -> u32;
         struct HEAP_SUMMARY {
-            cb: DWORD,
-            cbAllocated: SIZE_T,
-            cbCommitted: SIZE_T,
-            cbReserved: SIZE_T,
-            cbMaxReserve: SIZE_T,
+            cb: u32,
+            cbAllocated: usize,
+            cbCommitted: usize,
+            cbReserved: usize,
+            cbMaxReserve: usize,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwBytes", "dwBytes")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn HeapAlloc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hHeap: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwBytes: SIZE_T) -> LPVOID;
+        extern fn HeapAlloc(hHeap: HANDLE, dwFlags: u32, dwBytes: usize) -> *mut void;
         #[library("KERNEL32.dll")]
-        extern fn HeapCompact(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hHeap: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> SIZE_T;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn HeapCompact(hHeap: HANDLE, dwFlags: u32) -> usize;
         #[library("KERNEL32.dll")]
-        extern fn HeapCreate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInitialSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMaximumSize: SIZE_T) -> HANDLE;
+        extern fn HeapCreate(flOptions: u32, dwInitialSize: usize, dwMaximumSize: usize) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn HeapDestroy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hHeap: HANDLE) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn HeapDestroy(hHeap: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn HeapFree(#[in] #[out] hHeap: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] #[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] lpMem: LPVOID) -> BOOL;
+        extern fn HeapFree(#[in] #[out] hHeap: HANDLE, dwFlags: u32, lpMem: *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn HeapLock(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hHeap: HANDLE) -> BOOL;
+        extern fn HeapLock(hHeap: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn HeapQueryInformation(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HeapHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HeapInformationClass: HEAP_INFORMATION_CLASS, #[out] #[opt] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] HeapInformation: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HeapInformationLength: SIZE_T, #[out] #[opt] ReturnLength: PSIZE_T) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwBytes", "dwBytes")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn HeapQueryInformation(#[opt] HeapHandle: HANDLE, HeapInformationClass: HEAP_INFORMATION_CLASS, #[size_param(3)] #[opt] HeapInformation: *mut void, HeapInformationLength: usize, #[out] #[opt] ReturnLength: PSIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn HeapReAlloc(#[in] #[out] hHeap: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] lpMem: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwBytes: SIZE_T) -> LPVOID;
+        extern fn HeapReAlloc(#[in] #[out] hHeap: HANDLE, dwFlags: u32, lpMem: *mut void, dwBytes: usize) -> *mut void;
         #[library("KERNEL32.dll")]
-        extern fn HeapSetInformation(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HeapHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HeapInformationClass: HEAP_INFORMATION_CLASS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] HeapInformation: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HeapInformationLength: SIZE_T) -> BOOL;
+        extern fn HeapSetInformation(#[opt] HeapHandle: HANDLE, HeapInformationClass: HEAP_INFORMATION_CLASS, #[size_param(3)] #[in] #[opt] HeapInformation: *mut void, HeapInformationLength: usize) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn HeapSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hHeap: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpMem: LPCVOID) -> SIZE_T;
+        extern fn HeapSize(hHeap: HANDLE, dwFlags: u32, lpMem: LPCVOID) -> usize;
         #[library("KERNEL32.dll")]
-        extern fn HeapSummary(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hHeap: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] lpSummary: LPHEAP_SUMMARY) -> BOOL;
+        extern fn HeapSummary(hHeap: HANDLE, dwFlags: u32, #[out] lpSummary: LPHEAP_SUMMARY) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn HeapUnlock(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hHeap: HANDLE) -> BOOL;
+        extern fn HeapUnlock(hHeap: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn HeapValidate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hHeap: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpMem: LPCVOID) -> BOOL;
+        extern fn HeapValidate(hHeap: HANDLE, dwFlags: u32, #[opt] lpMem: LPCVOID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn HeapWalk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hHeap: HANDLE, #[in] #[out] lpEntry: LPPROCESS_HEAP_ENTRY) -> BOOL;
-        type LPHEAP_SUMMARY = *mut HEAP_SUMMARY;
+        extern fn HeapWalk(hHeap: HANDLE, #[in] #[out] lpEntry: LPPROCESS_HEAP_ENTRY) -> BOOL;
+        type LPHEAP_SUMMARY = PHEAP_SUMMARY;
         type PHEAP_SUMMARY = *mut HEAP_SUMMARY;
     }
 }

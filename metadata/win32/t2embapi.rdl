@@ -73,10 +73,10 @@ mod Windows {
         const LICENSE_PREVIEWPRINT: i32 = 4;
         extern "C" fn READEMBEDPROC(param0: *mut void, param1: *mut void, param2: u32) -> u32;
         #[library("t2embed.dll")]
-        extern fn TTCharToUnicode(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDC: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pucCharCodes: *mut UCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulCharCodeSize: ULONG, #[out] #[len_param(4)] pusShortCodes: *mut USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulShortCodeSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulFlags: ULONG) -> LONG;
+        extern fn TTCharToUnicode(hDC: HDC, #[len_param(2)] #[in] pucCharCodes: *mut u8, ulCharCodeSize: u32, #[len_param(4)] pusShortCodes: *mut u16, ulShortCodeSize: u32, ulFlags: u32) -> i32;
         const TTDELETE_DONTREMOVEFONT: i32 = 1;
         #[library("t2embed.dll")]
-        extern fn TTDeleteEmbeddedFont(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFontReference: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulFlags: ULONG, #[out] pulStatus: *mut ULONG) -> LONG;
+        extern fn TTDeleteEmbeddedFont(hFontReference: HANDLE, ulFlags: u32, pulStatus: *mut u32) -> i32;
         struct TTEMBEDINFO {
             usStructSize: u16,
             usRootStrSize: u16,
@@ -93,23 +93,23 @@ mod Windows {
         const TTEMBED_WEBOBJECT: i32 = 128;
         const TTEMBED_XORENCRYPTDATA: i32 = 268435456;
         #[library("t2embed.dll")]
-        extern fn TTEmbedFont(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDC: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulFlags: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulCharSet: ULONG, #[out] pulPrivStatus: *mut ULONG, #[out] pulStatus: *mut ULONG, lpfnWriteToStream: WRITEEMBEDPROC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpvWriteStream: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(8)] pusCharCodeSet: *mut USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] usCharCodeCount: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] usLanguage: USHORT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTTEmbedInfo: *mut TTEMBEDINFO) -> LONG;
+        extern fn TTEmbedFont(hDC: HDC, ulFlags: u32, ulCharSet: u32, pulPrivStatus: *mut u32, pulStatus: *mut u32, lpfnWriteToStream: WRITEEMBEDPROC, #[in] lpvWriteStream: *mut void, #[len_param(8)] #[in] pusCharCodeSet: *mut u16, usCharCodeCount: u16, usLanguage: u16, #[in] #[opt] pTTEmbedInfo: *mut TTEMBEDINFO) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTEmbedFontEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDC: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulFlags: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulCharSet: ULONG, #[out] pulPrivStatus: *mut ULONG, #[out] pulStatus: *mut ULONG, lpfnWriteToStream: WRITEEMBEDPROC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpvWriteStream: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(8)] pulCharCodeSet: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] usCharCodeCount: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] usLanguage: USHORT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTTEmbedInfo: *mut TTEMBEDINFO) -> LONG;
+        extern fn TTEmbedFontEx(hDC: HDC, ulFlags: u32, ulCharSet: u32, pulPrivStatus: *mut u32, pulStatus: *mut u32, lpfnWriteToStream: WRITEEMBEDPROC, #[in] lpvWriteStream: *mut void, #[len_param(8)] #[in] pulCharCodeSet: *mut u32, usCharCodeCount: u16, usLanguage: u16, #[in] #[opt] pTTEmbedInfo: *mut TTEMBEDINFO) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTEmbedFontFromFileA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDC: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFontFileName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] usTTCIndex: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulFlags: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulCharSet: ULONG, #[out] pulPrivStatus: *mut ULONG, #[out] pulStatus: *mut ULONG, lpfnWriteToStream: WRITEEMBEDPROC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpvWriteStream: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(10)] pusCharCodeSet: *mut USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] usCharCodeCount: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] usLanguage: USHORT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTTEmbedInfo: *mut TTEMBEDINFO) -> LONG;
+        extern fn TTEmbedFontFromFileA(hDC: HDC, szFontFileName: PCSTR, usTTCIndex: u16, ulFlags: u32, ulCharSet: u32, pulPrivStatus: *mut u32, pulStatus: *mut u32, lpfnWriteToStream: WRITEEMBEDPROC, #[in] lpvWriteStream: *mut void, #[len_param(10)] #[in] pusCharCodeSet: *mut u16, usCharCodeCount: u16, usLanguage: u16, #[in] #[opt] pTTEmbedInfo: *mut TTEMBEDINFO) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTEnableEmbeddingForFacename(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpszFacename: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bEnable: BOOL) -> LONG;
+        extern fn TTEnableEmbeddingForFacename(lpszFacename: PCSTR, bEnable: BOOL) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTGetEmbeddedFontInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulFlags: ULONG, #[out] pulPrivStatus: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulPrivs: ULONG, #[out] pulStatus: *mut ULONG, lpfnReadFromStream: READEMBEDPROC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpvReadStream: LPVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTTLoadInfo: *mut TTLOADINFO) -> LONG;
+        extern fn TTGetEmbeddedFontInfo(ulFlags: u32, pulPrivStatus: *mut u32, ulPrivs: u32, pulStatus: *mut u32, lpfnReadFromStream: READEMBEDPROC, #[in] lpvReadStream: *mut void, #[in] #[opt] pTTLoadInfo: *mut TTLOADINFO) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTGetEmbeddingType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDC: HDC, #[out] pulEmbedType: *mut ULONG) -> LONG;
+        extern fn TTGetEmbeddingType(hDC: HDC, pulEmbedType: *mut u32) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTGetNewFontName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phFontReference: *mut HANDLE, #[out] #[len_param(2)] wzWinFamilyName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMaxWinName: LONG, #[out] #[len_param(4)] szMacFamilyName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchMaxMacName: LONG) -> LONG;
+        extern fn TTGetNewFontName(#[in] phFontReference: *mut HANDLE, #[len_param(2)] #[out] wzWinFamilyName: PWSTR, cchMaxWinName: i32, #[len_param(4)] #[out] szMacFamilyName: PSTR, cchMaxMacName: i32) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTIsEmbeddingEnabled(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDC: HDC, #[out] pbEnabled: *mut BOOL) -> LONG;
+        extern fn TTIsEmbeddingEnabled(hDC: HDC, pbEnabled: *mut BOOL) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTIsEmbeddingEnabledForFacename(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpszFacename: LPCSTR, #[out] pbEnabled: *mut BOOL) -> LONG;
+        extern fn TTIsEmbeddingEnabledForFacename(lpszFacename: PCSTR, pbEnabled: *mut BOOL) -> i32;
         struct TTLOADINFO {
             usStructSize: u16,
             usRefStrSize: u16,
@@ -121,11 +121,11 @@ mod Windows {
         const TTLOAD_FONT_SUBSETTED: i32 = 1;
         const TTLOAD_PRIVATE: i32 = 1;
         #[library("t2embed.dll")]
-        extern fn TTLoadEmbeddedFont(#[out] phFontReference: *mut HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulFlags: ULONG, #[out] pulPrivStatus: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulPrivs: ULONG, #[out] pulStatus: *mut ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpfnReadFromStream: READEMBEDPROC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpvReadStream: LPVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szWinFamilyName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szMacFamilyName: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTTLoadInfo: *mut TTLOADINFO) -> LONG;
+        extern fn TTLoadEmbeddedFont(phFontReference: *mut HANDLE, ulFlags: u32, pulPrivStatus: *mut u32, ulPrivs: u32, pulStatus: *mut u32, lpfnReadFromStream: READEMBEDPROC, #[in] lpvReadStream: *mut void, #[opt] szWinFamilyName: PCWSTR, #[opt] szMacFamilyName: PCSTR, #[in] #[opt] pTTLoadInfo: *mut TTLOADINFO) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTRunValidationTests(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDC: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTestParam: *mut TTVALIDATIONTESTSPARAMS) -> LONG;
+        extern fn TTRunValidationTests(hDC: HDC, #[in] pTestParam: *mut TTVALIDATIONTESTSPARAMS) -> i32;
         #[library("t2embed.dll")]
-        extern fn TTRunValidationTestsEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDC: HDC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTestParam: *mut TTVALIDATIONTESTSPARAMSEX) -> LONG;
+        extern fn TTRunValidationTestsEx(hDC: HDC, #[in] pTestParam: *mut TTVALIDATIONTESTSPARAMSEX) -> i32;
         struct TTVALIDATIONTESTSPARAMS {
             ulStructSize: u32,
             lTestFromSize: i32,

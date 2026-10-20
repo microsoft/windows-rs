@@ -28,22 +28,22 @@ mod Windows {
         }
         #[guid(0x0fc988d4_c935_4b97_a973_46282ea175c8)]
         interface ICondition: IPersistStream {
-            fn GetConditionType(&self, #[out] #[retval] pNodeType: *mut CONDITION_TYPE) -> HRESULT;
-            fn GetSubConditions(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn GetComparisonInfo(&self, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppszPropertyName: *mut LPWSTR, #[out] #[opt] pcop: *mut CONDITION_OPERATION, #[out] #[opt] ppropvar: *mut PROPVARIANT) -> HRESULT;
-            fn GetValueType(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszValueTypeName: *mut LPWSTR) -> HRESULT;
-            fn GetValueNormalization(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszNormalization: *mut LPWSTR) -> HRESULT;
-            fn GetInputTerms(&self, #[out] #[opt] ppPropertyTerm: *mut IRichChunk, #[out] #[opt] ppOperationTerm: *mut IRichChunk, #[out] #[opt] ppValueTerm: *mut IRichChunk) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppc: *mut ICondition) -> HRESULT;
+            fn GetConditionType(&self, #[retval] pNodeType: *mut CONDITION_TYPE) -> HRESULT;
+            fn GetSubConditions(&self, riid: *const GUID, #[iid_is] #[retval] ppv: *mut *mut void) -> HRESULT;
+            fn GetComparisonInfo(&self, ppszPropertyName: *mut PWSTR, #[opt] pcop: *mut CONDITION_OPERATION, #[opt] ppropvar: *mut PROPVARIANT) -> HRESULT;
+            fn GetValueType(&self, #[retval] ppszValueTypeName: *mut PWSTR) -> HRESULT;
+            fn GetValueNormalization(&self, #[retval] ppszNormalization: *mut PWSTR) -> HRESULT;
+            fn GetInputTerms(&self, #[opt] ppPropertyTerm: *mut IRichChunk, #[opt] ppOperationTerm: *mut IRichChunk, #[opt] ppValueTerm: *mut IRichChunk) -> HRESULT;
+            fn Clone(&self, #[retval] ppc: *mut ICondition) -> HRESULT;
         }
         #[guid(0x0db8851d_2e5b_47eb_9208_d28c325a01d7)]
         interface ICondition2: ICondition {
-            fn GetLocale(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszLocaleName: *mut LPWSTR) -> HRESULT;
-            fn GetLeafConditionInfo(&self, #[out] #[opt] ppropkey: *mut PROPERTYKEY, #[out] #[opt] pcop: *mut CONDITION_OPERATION, #[out] #[opt] ppropvar: *mut PROPVARIANT) -> HRESULT;
+            fn GetLocale(&self, ppszLocaleName: *mut PWSTR) -> HRESULT;
+            fn GetLeafConditionInfo(&self, #[opt] ppropkey: *mut PROPERTYKEY, #[opt] pcop: *mut CONDITION_OPERATION, #[opt] ppropvar: *mut PROPVARIANT) -> HRESULT;
         }
         #[guid(0x4fdef69c_dbc9_454e_9910_b34f3c64b510)]
         interface IRichChunk: IUnknown {
-            fn GetData(&self, #[out] #[opt] pFirstPos: *mut ULONG, #[out] #[opt] pLength: *mut ULONG, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppsz: *mut LPWSTR, #[out] #[opt] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetData(&self, #[opt] pFirstPos: *mut u32, #[opt] pLength: *mut u32, ppsz: *mut PWSTR, #[opt] pValue: *mut PROPVARIANT) -> HRESULT;
         }
     }
 }

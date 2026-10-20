@@ -355,6 +355,9 @@ suite is in `test_canvas`:
 cargo test -p test_canvas
 ```
 
+Use `RenderTarget` for off-screen drawing tests. Repeated presents on a composition swap chain
+without a visual consumer can leave WARP waiting for queued work during device destruction.
+
 Reactor integration behavior is also covered by Reactor's recording and live surface tests. The
 Composition Canvas sample covers the system bridge, and the Stacker Reactor sample covers the
 lifted bridge.

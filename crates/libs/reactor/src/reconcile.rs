@@ -420,6 +420,17 @@ pub struct NativeEvent {
 }
 
 impl NativeEvent {
+    pub(crate) fn preview_prefix(events: &mut Vec<Self>, pending: impl Iterator<Item = Self>) {
+        for event in pending {
+            let boundary =
+                event.event.is_some() || event.realization.is_some() || event.retirement.is_some();
+            events.push(event);
+            if boundary {
+                break;
+            }
+        }
+    }
+
     pub fn new(observation: Option<Observation>, event: Option<EventDispatch>) -> Self {
         Self {
             observation,
@@ -689,35 +700,16 @@ impl RetainedGraph {
             .map(|dialog| (dialog.object, dialog.open))
     }
 
-    fn references(&self) -> Vec<(ElementRef, ObjectId)> {
+    fn clear_references(&self) {
         #[cfg(test)]
         self.full_reference_scans
             .0
             .set(self.full_reference_scans.0.get() + 1);
-        self.objects
-            .iter()
-            .enumerate()
-            .filter_map(|(index, slot)| {
-                let index = u32::try_from(index).ok()?;
-                slot.object.as_ref()?.reference.as_ref().map(|reference| {
-                    (
-                        reference.clone(),
-                        ObjectId {
-                            index,
-                            generation: slot.generation,
-                        },
-                    )
-                })
-            })
-            .collect()
-    }
-
-    fn clear_references(&mut self) {
-        for (index, slot) in self.objects.iter_mut().enumerate() {
-            let Some(object) = slot.object.as_mut() else {
+        for (index, slot) in self.objects.iter().enumerate() {
+            let Some(object) = slot.object.as_ref() else {
                 continue;
             };
-            if let Some(reference) = object.reference.take()
+            if let Some(reference) = object.reference.as_ref()
                 && let Ok(index) = u32::try_from(index)
             {
                 reference.clear(ObjectId {
@@ -730,6 +722,85 @@ impl RetainedGraph {
 
     pub fn root(&self) -> Option<ObjectId> {
         self.root
+    }
+
+    fn validate_observation(&self, observation: &Observation) -> Result<bool, GraphError> {
+        match observation {
+            Observation::SetProperty { object, property } => {
+                let Some(retained) = self.get(*object) else {
+                    return Ok(false);
+                };
+                validate_property(retained.kind, property)?;
+                Ok(true)
+            }
+            Observation::SetSelection { object, selected } => {
+                let Some(owner) = self.get(*object) else {
+                    return Ok(false);
+                };
+                let Some(contract) = selection_contract(owner.kind) else {
+                    return Err(GraphError::InvalidSelection(owner.kind));
+                };
+                Ok(selected.is_none_or(|selected| {
+                    self.kind(selected) == Some(contract.item)
+                        && contract.relations.iter().any(|relation| {
+                            self.children(*object, *relation)
+                                .is_some_and(|children| children.contains(&selected))
+                        })
+                }))
+            }
+        }
+    }
+
+    fn apply_observation(&mut self, observation: Observation) -> Result<(), GraphError> {
+        if !self.validate_observation(&observation)? {
+            return Ok(());
+        }
+        match observation {
+            Observation::SetProperty { object, property } => {
+                let retained = self.get_mut(object);
+                let property_id = property.id;
+                // Observing a native value does not make the declaration own that property.
+                if retained
+                    .properties
+                    .iter()
+                    .any(|current| current.id == property_id)
+                {
+                    retained
+                        .properties
+                        .upsert(|current| current.id == property_id, property);
+                }
+            }
+            Observation::SetSelection { object, selected } => {
+                let contract = selection_contract(self.get(object).unwrap().kind).unwrap();
+                let children = contract
+                    .relations
+                    .iter()
+                    .flat_map(|relation| {
+                        self.children(object, *relation)
+                            .unwrap_or_default()
+                            .iter()
+                            .copied()
+                    })
+                    .collect::<Vec<_>>();
+                for child in children {
+                    let child_object = self.get_mut(child);
+                    if child_object
+                        .properties
+                        .iter()
+                        .any(|property| property.id == contract.selected_property)
+                    {
+                        child_object.properties.upsert(
+                            |property| property.id == contract.selected_property,
+                            Property {
+                                id: contract.selected_property,
+                                value: PropertyValue::Bool(Some(child) == selected),
+                            },
+                        );
+                    }
+                }
+            }
+        }
+        Ok(())
     }
 
     pub(crate) fn virtual_realization(
@@ -1284,6 +1355,11 @@ impl RetainedGraph {
 /// `pop_native_event` calls return. Preview and `validate` must not change backend state.
 /// `apply` may change backend state; an error from `apply` poisons the owning [`Runtime`]
 /// because partial native mutation cannot be rolled back.
+///
+/// WinUI and the recording adapter preview through the next callback, realization request,
+/// or retirement completion. That operation and its preceding observations are validated
+/// together before consuming any of the prefix. Later work is validated after the operation
+/// and its resulting updates, which can change retained state and the native event queue.
 pub trait Adapter {
     type Error;
 
@@ -1502,67 +1578,6 @@ impl<'a> GraphTransaction<'a> {
         }
     }
 
-    fn apply_observation(&mut self, observation: Observation) -> Result<(), GraphError> {
-        match observation {
-            Observation::SetProperty { object, property } => {
-                let Some(retained) = self.graph.get(object) else {
-                    return Ok(());
-                };
-                validate_property(retained.kind, &property)?;
-                let property_id = property.id;
-                self.get_mut(object)
-                    .properties
-                    .upsert(|current| current.id == property_id, property);
-            }
-            Observation::SetSelection { object, selected } => {
-                let Some(owner) = self.graph.get(object) else {
-                    return Ok(());
-                };
-                let Some(contract) = selection_contract(owner.kind) else {
-                    return Err(GraphError::InvalidSelection(owner.kind));
-                };
-                if selected.is_some_and(|selected| {
-                    self.graph.kind(selected) != Some(contract.item)
-                        || !contract.relations.iter().any(|relation| {
-                            self.graph
-                                .children(object, *relation)
-                                .is_some_and(|children| children.contains(&selected))
-                        })
-                }) {
-                    return Ok(());
-                }
-                let children = contract
-                    .relations
-                    .iter()
-                    .flat_map(|relation| {
-                        self.graph
-                            .children(object, *relation)
-                            .unwrap_or_default()
-                            .iter()
-                            .copied()
-                    })
-                    .collect::<Vec<_>>();
-                for child in children {
-                    let child_object = self.get_mut(child);
-                    if child_object
-                        .properties
-                        .iter()
-                        .any(|property| property.id == contract.selected_property)
-                    {
-                        child_object.properties.upsert(
-                            |property| property.id == contract.selected_property,
-                            Property {
-                                id: contract.selected_property,
-                                value: PropertyValue::Bool(Some(child) == selected),
-                            },
-                        );
-                    }
-                }
-            }
-        }
-        Ok(())
-    }
-
     fn rollback_entries(&mut self) {
         for undo in self.undo.drain(..).rev() {
             match undo {
@@ -1593,6 +1608,13 @@ impl<'a> GraphTransaction<'a> {
         self.armed = false;
     }
 
+    fn rollback_for_native_unwind(&mut self) {
+        // Restore detached references and their original generations before clearing bindings.
+        self.rollback_entries();
+        self.armed = false;
+        self.graph.clear_references();
+    }
+
     fn commit(mut self) {
         self.armed = false;
     }
@@ -1614,30 +1636,28 @@ impl Drop for GraphTransaction<'_> {
     }
 }
 
-struct ReferenceUnwindGuard {
-    references: Vec<(ElementRef, ObjectId)>,
-    armed: bool,
+struct ReferenceUnwindGuard<F: FnOnce()> {
+    cleanup: Option<F>,
 }
 
-impl ReferenceUnwindGuard {
-    fn new(references: Vec<(ElementRef, ObjectId)>) -> Self {
+impl<F: FnOnce()> ReferenceUnwindGuard<F> {
+    fn new(cleanup: F) -> Self {
         Self {
-            references,
-            armed: true,
+            cleanup: Some(cleanup),
         }
     }
 
     fn disarm(mut self) {
-        self.armed = false;
+        self.cleanup = None;
     }
 }
 
-impl Drop for ReferenceUnwindGuard {
+impl<F: FnOnce()> Drop for ReferenceUnwindGuard<F> {
     fn drop(&mut self) {
-        if self.armed && std::thread::panicking() {
-            for (reference, object) in &self.references {
-                reference.clear(*object);
-            }
+        if std::thread::panicking()
+            && let Some(cleanup) = self.cleanup.take()
+        {
+            cleanup();
         }
     }
 }
@@ -1645,9 +1665,9 @@ impl Drop for ReferenceUnwindGuard {
 fn validate_adapter<A: Adapter>(
     adapter: &A,
     mutations: &[Mutation],
-    references: &[(ElementRef, ObjectId)],
+    cleanup: impl FnOnce(),
 ) -> Result<(), A::Error> {
-    let guard = ReferenceUnwindGuard::new(references.to_vec());
+    let guard = ReferenceUnwindGuard::new(cleanup);
     let result = adapter.validate(mutations);
     guard.disarm();
     result
@@ -1656,9 +1676,9 @@ fn validate_adapter<A: Adapter>(
 fn apply_adapter<A: Adapter>(
     adapter: &mut A,
     mutations: &[Mutation],
-    references: &[(ElementRef, ObjectId)],
+    cleanup: impl FnOnce(),
 ) -> Result<(), A::Error> {
-    let guard = ReferenceUnwindGuard::new(references.to_vec());
+    let guard = ReferenceUnwindGuard::new(cleanup);
     let result = adapter.apply(mutations);
     guard.disarm();
     result
@@ -1728,22 +1748,14 @@ impl<A: Adapter> Runtime<A> {
         stats
     }
 
-    fn poison_and_discard(&mut self, references: &[(ElementRef, ObjectId)]) {
+    pub(crate) fn poison_and_discard_all(&mut self) {
         self.poisoned = true;
-        for (reference, object) in references {
-            reference.clear(*object);
-        }
         self.graph.clear_references();
         self.graph = RetainedGraph::default();
         self.mutations.clear();
         self.native_events.clear();
         self.virtual_refreshes.clear();
         self.references.clear();
-    }
-
-    pub(crate) fn poison_and_discard_all(&mut self) {
-        let references = self.graph.references();
-        self.poison_and_discard(&references);
     }
 
     pub(crate) fn set_imperative_waker(&self, waker: impl Fn() + 'static) {
@@ -1782,27 +1794,21 @@ impl<A: Adapter> Runtime<A> {
         if self.native_events.is_empty() {
             return Ok(());
         }
-        let mut transaction = GraphTransaction::new(&mut self.graph);
+        // Observations do not change graph structure; retiring objects are already inaccessible.
         for event in &self.native_events {
             if let Some(observation) = &event.observation
-                && let Err(error) = transaction.apply_observation(observation.clone())
+                && let Err(error) = self.graph.validate_observation(observation)
             {
-                transaction.rollback();
                 self.poisoned = true;
                 return Err(UpdateError::InvalidNativeEvent(error));
             }
-            if let Some(completion) = event.retirement {
-                transaction.complete_retirement(completion.root);
-            }
             if let Some(realization) = event.realization
-                && let Err(error) = transaction.validate_realization_request(realization)
+                && let Err(error) = self.graph.validate_realization_request(realization)
             {
-                transaction.rollback();
                 self.poisoned = true;
                 return Err(UpdateError::InvalidNativeEvent(error));
             }
         }
-        transaction.rollback();
         Ok(())
     }
 
@@ -1810,14 +1816,11 @@ impl<A: Adapter> Runtime<A> {
         let Some(event) = self.adapter.pop_native_event() else {
             return Ok(None);
         };
-        if let Some(observation) = event.observation {
-            let mut transaction = GraphTransaction::new(&mut self.graph);
-            if let Err(error) = transaction.apply_observation(observation) {
-                transaction.rollback();
-                self.poisoned = true;
-                return Err(UpdateError::InvalidNativeEvent(error));
-            }
-            transaction.commit();
+        if let Some(observation) = event.observation
+            && let Err(error) = self.graph.apply_observation(observation)
+        {
+            self.poisoned = true;
+            return Err(UpdateError::InvalidNativeEvent(error));
         }
         if let Some(completion) = event.retirement {
             self.apply_retirement_completion(completion)?;
@@ -1842,14 +1845,11 @@ impl<A: Adapter> Runtime<A> {
         let Some(event) = self.adapter.pop_native_event() else {
             return Ok(None);
         };
-        if let Some(observation) = event.observation {
-            let mut transaction = GraphTransaction::new(&mut self.graph);
-            if let Err(error) = transaction.apply_observation(observation) {
-                transaction.rollback();
-                self.poisoned = true;
-                return Err(UpdateError::InvalidNativeEvent(error));
-            }
-            transaction.commit();
+        if let Some(observation) = event.observation
+            && let Err(error) = self.graph.apply_observation(observation)
+        {
+            self.poisoned = true;
+            return Err(UpdateError::InvalidNativeEvent(error));
         }
         if let Some(completion) = event.retirement {
             self.apply_retirement_completion(completion)?;
@@ -1959,7 +1959,20 @@ impl<A: Adapter> Runtime<A> {
             if next.event.is_some() || next.realization.is_some() {
                 return Err(UpdateError::PendingNativeEvent);
             }
-            self.pop_native_event()?;
+            // Retirement completion applies native mutations that can change the remaining queue.
+            let count = self
+                .native_events
+                .iter()
+                .take_while(|event| {
+                    event.event.is_none()
+                        && event.realization.is_none()
+                        && event.retirement.is_none()
+                })
+                .count()
+                .max(1);
+            for _ in 0..count {
+                self.pop_native_event()?;
+            }
         }
     }
 
@@ -1970,7 +1983,6 @@ impl<A: Adapter> Runtime<A> {
         root: impl Into<View>,
     ) -> Result<UpdateStats, UpdateError<A::Error>> {
         self.mutations.clear();
-        let poison_references = self.graph.references();
         let mut declaration = root.into().0.object().map_err(UpdateError::Graph)?;
         declaration.key = Some(lease.key.clone());
         let _ = self
@@ -1980,35 +1992,52 @@ impl<A: Adapter> Runtime<A> {
         let mut transaction = GraphTransaction::new(&mut self.graph);
         let mut references = Vec::new();
         let plan = (|| {
-            let snapshot = transaction
+            let items = transaction
                 .get(lease.collection)
                 .and_then(|object| object.virtual_items.as_ref())
-                .cloned()
                 .ok_or(GraphError::StaleObject(lease.collection))?;
-            if snapshot.keys.get(index) != Some(&lease.key) {
+            if items.keys.get(index) != Some(&lease.key) {
                 return Err(GraphError::InvalidRealization(lease.collection, index));
             }
-            let mut child = snapshot
+            let relation_id = items.relation;
+            let lease_revision = items.lease_revision;
+            let mut child = items
                 .active
                 .get(&lease.key)
-                .and_then(|(_, container)| snapshot.containers.get(container))
+                .and_then(|(_, container)| items.containers.get(container))
                 .and_then(|active| active.child);
-            if let Some(current) = snapshot.containers.get(&lease.container)
-                && (current.key != lease.key || current.revision != lease.revision)
-            {
+            let replaced_container = items
+                .containers
+                .get(&lease.container)
+                .filter(|current| current.key != lease.key || current.revision != lease.revision)
+                .map(|current| {
+                    (
+                        current.child,
+                        items
+                            .active
+                            .get(&current.key)
+                            .is_some_and(|(_, container)| *container == lease.container),
+                    )
+                });
+            let active_lease = items.active.get(&lease.key).map(|(revision, container)| {
+                (
+                    *revision,
+                    *container,
+                    items
+                        .containers
+                        .get(container)
+                        .and_then(|active| active.child),
+                )
+            });
+            if let Some((previous, retire)) = replaced_container {
                 self.mutations.push(Mutation::Recycle {
                     parent: lease.collection,
-                    relation: snapshot.relation,
+                    relation: relation_id,
                     container: lease.container,
-                    child: current.child,
+                    child: previous,
                 });
-                if snapshot
-                    .active
-                    .get(&current.key)
-                    .is_some_and(|(_, container)| *container == lease.container)
-                    && let Some(previous) = current.child
-                {
-                    let relation = transaction.relation_mut(lease.collection, snapshot.relation);
+                if retire && let Some(previous) = previous {
+                    let relation = transaction.relation_mut(lease.collection, relation_id);
                     let RetainedRelationValue::Many(children) = &mut relation.value else {
                         unreachable!();
                     };
@@ -2022,22 +2051,19 @@ impl<A: Adapter> Runtime<A> {
                     planner.retire(previous);
                 }
             }
-            if let Some((revision, container)) = snapshot.active.get(&lease.key) {
-                if *revision != lease.revision {
+            if let Some((revision, container, previous_child)) = active_lease {
+                if revision != lease.revision {
                     return Err(GraphError::InvalidRealization(lease.collection, index));
                 }
-                if *container != lease.container {
+                if container != lease.container {
                     self.mutations.push(Mutation::Recycle {
                         parent: lease.collection,
-                        relation: snapshot.relation,
-                        container: *container,
-                        child: snapshot
-                            .containers
-                            .get(container)
-                            .and_then(|realization| realization.child),
+                        relation: relation_id,
+                        container,
+                        child: previous_child,
                     });
                 }
-            } else if snapshot.lease_revision.checked_add(1) != Some(lease.revision) {
+            } else if lease_revision.checked_add(1) != Some(lease.revision) {
                 return Err(GraphError::InvalidRealization(lease.collection, index));
             }
             if let Some(current) = child {
@@ -2050,7 +2076,7 @@ impl<A: Adapter> Runtime<A> {
                     };
                     planner.reconcile_object(current, &declaration)?;
                 } else {
-                    let relation = transaction.relation_mut(lease.collection, snapshot.relation);
+                    let relation = transaction.relation_mut(lease.collection, relation_id);
                     let RetainedRelationValue::Many(children) = &mut relation.value else {
                         unreachable!();
                     };
@@ -2113,14 +2139,14 @@ impl<A: Adapter> Runtime<A> {
                 active.sort_unstable_by_key(|(index, _)| *index);
                 active.into_iter().map(|(_, child)| child).collect()
             };
-            let relation = transaction.relation_mut(lease.collection, snapshot.relation);
+            let relation = transaction.relation_mut(lease.collection, relation_id);
             let RetainedRelationValue::Many(children) = &mut relation.value else {
                 unreachable!();
             };
             *children = ordered;
             self.mutations.push(Mutation::Realize {
                 parent: lease.collection,
-                relation: snapshot.relation,
+                relation: relation_id,
                 container: lease.container,
                 index,
                 child,
@@ -2135,14 +2161,18 @@ impl<A: Adapter> Runtime<A> {
         }
         defer_window_title_bar_sets(&mut self.mutations);
         self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -2157,26 +2187,26 @@ impl<A: Adapter> Runtime<A> {
         before_apply: impl FnOnce(),
     ) -> Result<UpdateStats, UpdateError<A::Error>> {
         self.mutations.clear();
-        let poison_references = self.graph.references();
         let mut transaction = GraphTransaction::new(&mut self.graph);
         let mut references = Vec::new();
         let plan = (|| {
-            let snapshot = transaction
+            let items = transaction
                 .get(lease.collection)
                 .and_then(|object| object.virtual_items.as_ref())
-                .cloned()
                 .ok_or(GraphError::StaleObject(lease.collection))?;
-            let Some(realization) = snapshot.containers.get(&lease.container) else {
+            let Some(realization) = items.containers.get(&lease.container) else {
                 return Ok(());
             };
             if realization.key != lease.key || realization.revision != lease.revision {
                 return Ok(());
             }
+            let relation_id = items.relation;
+            let child = realization.child;
             self.mutations.push(Mutation::Recycle {
                 parent: lease.collection,
-                relation: snapshot.relation,
+                relation: relation_id,
                 container: lease.container,
-                child: realization.child,
+                child,
             });
             let items = transaction
                 .get_mut(lease.collection)
@@ -2191,8 +2221,8 @@ impl<A: Adapter> Runtime<A> {
             {
                 items.active.remove(&lease.key);
             }
-            if let Some(child) = realization.child {
-                let relation = transaction.relation_mut(lease.collection, snapshot.relation);
+            if let Some(child) = child {
+                let relation = transaction.relation_mut(lease.collection, relation_id);
                 let RetainedRelationValue::Many(children) = &mut relation.value else {
                     unreachable!();
                 };
@@ -2215,15 +2245,19 @@ impl<A: Adapter> Runtime<A> {
         }
         defer_window_title_bar_sets(&mut self.mutations);
         self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         before_apply();
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -2239,7 +2273,6 @@ impl<A: Adapter> Runtime<A> {
         container: RealizedContainer,
     ) -> Result<UpdateStats, UpdateError<A::Error>> {
         self.mutations.clear();
-        let poison_references = self.graph.references();
         self.mutations.push(Mutation::Recycle {
             parent: collection,
             relation,
@@ -2247,12 +2280,16 @@ impl<A: Adapter> Runtime<A> {
             child: None,
         });
         self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
+            self.graph.clear_references();
+        }) {
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
+            self.graph.clear_references();
+        }) {
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         self.poisoned = false;
@@ -2297,7 +2334,6 @@ impl<A: Adapter> Runtime<A> {
                 }));
             }
         }
-        let poison_references = self.graph.references();
         let mut transaction = GraphTransaction::new(&mut self.graph);
         let mut references = Vec::new();
         let mut virtual_refreshes = Vec::new();
@@ -2323,14 +2359,18 @@ impl<A: Adapter> Runtime<A> {
         }
         defer_window_title_bar_sets(&mut self.mutations);
         self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -2433,19 +2473,22 @@ impl<A: Adapter> Runtime<A> {
             return Err(UpdateError::Graph(error));
         }
         defer_window_title_bar_sets(&mut self.mutations);
-        let poison_references = detached_references(&references);
         self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         self.poisoned = false;
         before_apply();
         self.poisoned = true;
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -2467,18 +2510,21 @@ impl<A: Adapter> Runtime<A> {
             root: completion.root,
             nodes: nodes.to_vec(),
         });
-        let poison_references = self.graph.references();
         let mut transaction = GraphTransaction::new(&mut self.graph);
         transaction.complete_retirement(completion.root);
         self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, &poison_references) {
-            transaction.commit();
-            self.poison_and_discard(&poison_references);
+        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
+            transaction.rollback_for_native_unwind();
+        }) {
+            transaction.rollback();
+            self.poison_and_discard_all();
             return Err(UpdateError::Adapter(error));
         }
         transaction.commit();
@@ -2514,16 +2560,6 @@ enum ReferenceChange {
         reference: ElementRef,
         object: ObjectId,
     },
-}
-
-fn detached_references(changes: &[ReferenceChange]) -> Vec<(ElementRef, ObjectId)> {
-    changes
-        .iter()
-        .filter_map(|change| match change {
-            ReferenceChange::Clear { reference, object } => Some((reference.clone(), *object)),
-            ReferenceChange::Set { .. } => None,
-        })
-        .collect()
 }
 
 fn apply_reference_changes(endpoint: &ReferenceEndpoint, changes: Vec<ReferenceChange>) {
@@ -3704,7 +3740,7 @@ impl Planner<'_, '_> {
         retained.lease_revision = lease_revision;
         retained.containers = containers;
         retained.active = active;
-        if items_changed || keys_changed {
+        if keys_changed {
             self.mutations.push(Mutation::SetVirtualSource {
                 object,
                 item_count: retained.keys.len(),

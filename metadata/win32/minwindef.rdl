@@ -4,18 +4,14 @@ mod Windows {
         type ATOM = u16;
         type BOOL = i32;
         const FALSE: i32 = 0;
-        #[arch(X64 | Arm64)]
-        extern fn FARPROC() -> INT_PTR;
-        #[arch(X86)]
-        extern fn FARPROC() -> i32;
+        extern fn FARPROC() -> isize;
         struct FILETIME {
-            dwLowDateTime: DWORD,
-            dwHighDateTime: DWORD,
+            dwLowDateTime: u32,
+            dwHighDateTime: u32,
         }
-        type FLOAT = f32;
-        type GLOBALHANDLE = *mut void;
+        type GLOBALHANDLE = HANDLE;
         type HFILE = i32;
-        type HGLOBAL = *mut void;
+        type HGLOBAL = HANDLE;
         type HINSTANCE = *mut HINSTANCE__;
         struct HINSTANCE__ {
             unused: i32,
@@ -28,7 +24,7 @@ mod Windows {
         struct HKL__ {
             unused: i32,
         }
-        type HLOCAL = *mut void;
+        type HLOCAL = HANDLE;
         type HLSURF = *mut HLSURF__;
         struct HLSURF__ {
             unused: i32,
@@ -37,7 +33,7 @@ mod Windows {
         struct HMETAFILE__ {
             unused: i32,
         }
-        type HMODULE = *mut HINSTANCE__;
+        type HMODULE = HINSTANCE;
         type HRGN = *mut HRGN__;
         struct HRGN__ {
             unused: i32,
@@ -62,51 +58,37 @@ mod Windows {
         struct HWINSTA__ {
             unused: i32,
         }
-        type LOCALHANDLE = *mut void;
-        #[arch(X64 | Arm64)]
-        type LPARAM = i64;
-        #[arch(X86)]
-        type LPARAM = i32;
-        type LPBOOL = *mut i32;
+        type LOCALHANDLE = HANDLE;
+        type LPARAM = isize;
+        type LPBOOL = *mut BOOL;
+        type LPBYTE = *mut u8;
+        type LPCVOID = *const void;
         type LPDWORD = *mut u32;
         type LPFILETIME = *mut FILETIME;
-        type LPHANDLE = *mut *mut void;
+        type LPHANDLE = *mut HANDLE;
         type LPINT = *mut i32;
         type LPLONG = *mut i32;
-        type LPVOID = *mut void;
         type LPWORD = *mut u16;
-        #[arch(X64 | Arm64)]
-        type LRESULT = i64;
-        #[arch(X86)]
-        type LRESULT = i32;
+        type LRESULT = isize;
         const MAX_PATH: i32 = 260;
-        #[arch(X64 | Arm64)]
-        extern fn NEARPROC() -> INT_PTR;
-        #[arch(X86)]
-        extern fn NEARPROC() -> i32;
-        type PBOOL = *mut i32;
+        extern fn NEARPROC() -> isize;
+        type PBOOL = *mut BOOL;
+        type PBYTE = *mut u8;
         type PDWORD = *mut u32;
         type PFILETIME = *mut FILETIME;
         type PFLOAT = *mut f32;
-        type PHKEY = *mut *mut HKEY__;
+        type PHKEY = *mut HKEY;
         type PINT = *mut i32;
-        #[arch(X64 | Arm64)]
-        extern fn PROC() -> INT_PTR;
-        #[arch(X86)]
-        extern fn PROC() -> i32;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+        extern fn PROC() -> isize;
         type PSZ = *mut i8;
         type PUCHAR = *mut u8;
         type PUINT = *mut u32;
         type PULONG = *mut u32;
         type PUSHORT = *mut u16;
         type PWORD = *mut u16;
-        type SPHANDLE = *mut *mut void;
+        type SPHANDLE = *mut HANDLE;
         const STRICT: i32 = 1;
         const TRUE: i32 = 1;
-        #[arch(X64 | Arm64)]
-        type WPARAM = u64;
-        #[arch(X86)]
-        type WPARAM = u32;
+        type WPARAM = usize;
     }
 }

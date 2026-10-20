@@ -2,6 +2,6 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn GetAppContainerNamedObjectPath(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Token: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AppContainerSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectPathLength: ULONG, #[out] #[opt] #[len_param(2)] ObjectPath: LPWSTR, #[out] ReturnLength: PULONG) -> BOOL;
+        extern fn GetAppContainerNamedObjectPath(#[opt] Token: HANDLE, #[opt] AppContainerSid: PSID, ObjectPathLength: u32, #[len_param(2)] #[out] #[opt] ObjectPath: PWSTR, #[out] ReturnLength: PULONG) -> BOOL;
     }
 }

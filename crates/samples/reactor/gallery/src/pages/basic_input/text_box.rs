@@ -40,7 +40,8 @@ impl Component for TextBoxPage {
                     sample_card(
                         "Basic TextBox",
                         StackPanel::new().spacing(8.0).children((
-                            TextBox::new(&self.text)
+                            TextBox::new()
+                                .text(&self.text)
                                 .placeholder_text("Type here...")
                                 .on_text_changed(context.callback(|value: std::rc::Rc<str>| {
                                     Message::Text(value.to_string())
@@ -50,29 +51,27 @@ impl Component for TextBoxPage {
                                 .text(format!("Characters: {}", self.text.len()))
                                 .opacity(0.6),
                         )),
-                        "TextBox::new().text(value).on_text_changed(handler)",
                     ),
                 ),
                 KeyedView::new(
                     "multiline",
                     sample_card(
                         "Multi-line TextBox",
-                        TextBox::new(&self.notes)
+                        TextBox::new()
+                            .text(&self.notes)
                             .accepts_return(true)
                             .text_wrapping(TextWrapping::Wrap)
                             .height(120.0)
                             .on_text_changed(context.callback(|value: std::rc::Rc<str>| {
                                 Message::Notes(value.to_string())
                             })),
-                        "TextBox::new().accepts_return(true).text_wrapping(TextWrapping::Wrap)",
                     ),
                 ),
                 KeyedView::new(
                     "disabled",
                     sample_card(
                         "Disabled TextBox",
-                        TextBox::new("Read-only content").is_enabled(false),
-                        "TextBox::new().text(content).is_enabled(false)",
+                        TextBox::new().text("Read-only content").is_enabled(false),
                     ),
                 ),
             ],

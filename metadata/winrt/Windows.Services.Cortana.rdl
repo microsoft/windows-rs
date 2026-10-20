@@ -63,9 +63,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(CortanaActionableInsights)]
             interface ICortanaActionableInsights {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
-                fn get_User(&self) -> super::super::System::User;
+                User: super::super::System::User;
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn IsAvailableAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
@@ -99,18 +99,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsightsOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(CortanaActionableInsightsOptions)]
             interface ICortanaActionableInsightsOptions {
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsightsOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
-                fn get_ContentSourceWebLink(&self) -> super::super::Foundation::Uri;
-                #[special]
+                ContentSourceWebLink: super::super::Foundation::Uri;
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsightsOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
-                fn put_ContentSourceWebLink(&self, value: super::super::Foundation::Uri);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsightsOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
-                fn get_SurroundingText(&self) -> String;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsightsOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
-                fn put_SurroundingText(&self, value: String);
+                SurroundingText: String;
             }
             #[guid(0xb5ded412_9d2f_5cb5_9b05_356a0b836c10)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
@@ -152,15 +144,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("ICortanaSettings is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.System.SystemManagementContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(CortanaSettings)]
             interface ICortanaSettings {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("ICortanaSettings is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.System.SystemManagementContract")]
-                fn get_HasUserConsentToVoiceActivation(&self) -> bool;
-                #[special]
+                HasUserConsentToVoiceActivation: bool;
                 #[Windows::Foundation::Metadata::Deprecated("ICortanaSettings is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.System.SystemManagementContract")]
-                fn get_IsVoiceActivationEnabled(&self) -> bool;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("ICortanaSettings is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.System.SystemManagementContract")]
-                fn put_IsVoiceActivationEnabled(&self, value: bool);
+                IsVoiceActivationEnabled: bool;
             }
             #[guid(0x8b2ccd7e_2ec0_446d_9285_33f07ce8ac04)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::System::SystemManagementContract, 196608)]

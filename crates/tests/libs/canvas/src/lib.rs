@@ -72,17 +72,25 @@ mod tests {
 
     #[test]
     fn brush_reuse_across_frames() {
+        // No compositor consumes these frames; draw off-screen instead of queuing presents.
         let device = GpuDevice::new_warp().unwrap();
-        let mut chain = device.create_swap_chain(64, 64).unwrap();
-
-        let brush = chain.create_solid_brush(ColorF::RED).unwrap();
+        let target = device.create_render_target(64, 64).unwrap();
+        let mut brush = None;
 
         for _ in 0..3 {
-            let session = chain.begin_draw().unwrap();
-            session.clear(ColorF::BLACK);
-            session.fill_ellipse(&Ellipse::circle(Vector2::new(32.0, 32.0), 16.0), &brush);
-            drop(session);
-            chain.present().unwrap();
+            target
+                .draw(|session| {
+                    let brush = brush
+                        .get_or_insert_with(|| session.create_solid_brush(ColorF::RED).unwrap());
+                    session.clear(ColorF::BLACK);
+                    session.fill_ellipse(&Ellipse::circle(Vector2::new(32.0, 32.0), 16.0), brush);
+                    Ok(())
+                })
+                .unwrap();
+            let pixels = target.read_pixels().unwrap();
+            let center = (32 * 64 + 32) * 4;
+            assert_eq!(&pixels[center..center + 4], &[0, 0, 255, 255]);
+            assert_eq!(&pixels[..4], &[0, 0, 0, 255]);
         }
     }
 

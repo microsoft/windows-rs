@@ -45,7 +45,6 @@ impl Component for RichEditBoxPage {
                                 })
                                 .opacity(0.6),
                         )),
-                        "RichEditBox::new().text(value).on_text_changed(handler)",
                     ),
                 ),
                 KeyedView::new(
@@ -56,7 +55,6 @@ impl Component for RichEditBoxPage {
                             .text("This rich text content is read-only.")
                             .is_read_only(true)
                             .height(100.0),
-                        "RichEditBox::new().is_read_only(true)",
                     ),
                 ),
             ],

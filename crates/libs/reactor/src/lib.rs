@@ -12,10 +12,7 @@ mod component;
 mod declaration;
 mod generated;
 mod ir;
-#[cfg(not(feature = "test"))]
 mod native;
-#[cfg(feature = "test")]
-pub mod native;
 mod reconcile;
 mod reference;
 mod sealed {
@@ -99,8 +96,10 @@ use reference::*;
 #[cfg(any(test, feature = "test"))]
 pub use reference::*;
 pub use reference::{
-    AnyElement, CompatibleElementRef, CompositionHostEvent, ElementObservation, ElementRef,
-    FocusError, IntegrationError, ReferenceElement, SwapChainPanelBinding, SwapChainPanelEvent,
+    AnyElement, AutomationNotification, AutomationNotificationKind,
+    AutomationNotificationProcessing, CompatibleElementRef, CompositionHostEvent,
+    ElementObservation, ElementRef, FocusError, IntegrationError, ReferenceElement,
+    SwapChainPanelBinding, SwapChainPanelEvent,
 };
 pub use window::*;
 pub use windows_time::{DateTime, TimeSpan};

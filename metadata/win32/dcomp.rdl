@@ -2,659 +2,401 @@
 mod Windows {
     mod Win32 {
         #[library("dcomp.dll")]
-        extern fn DCompositionAttachMouseDragToHwnd(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] visual: IDCompositionVisual, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enable: BOOL) -> HRESULT;
+        extern fn DCompositionAttachMouseDragToHwnd(visual: IDCompositionVisual, hwnd: HWND, enable: BOOL) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionAttachMouseWheelToHwnd(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] visual: IDCompositionVisual, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enable: BOOL) -> HRESULT;
+        extern fn DCompositionAttachMouseWheelToHwnd(visual: IDCompositionVisual, hwnd: HWND, enable: BOOL) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionBoostCompositorClock(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] enable: BOOL) -> HRESULT;
+        extern fn DCompositionBoostCompositorClock(enable: BOOL) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionCreateDevice(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dxgiDevice: IDXGIDevice, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] dcompositionDevice: *mut *mut void) -> HRESULT;
+        extern fn DCompositionCreateDevice(#[opt] dxgiDevice: IDXGIDevice, iid: *const GUID, dcompositionDevice: *mut *mut void) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionCreateDevice2(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] renderingDevice: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] dcompositionDevice: *mut *mut void) -> HRESULT;
+        extern fn DCompositionCreateDevice2(#[opt] renderingDevice: IUnknown, iid: *const GUID, dcompositionDevice: *mut *mut void) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionCreateDevice3(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] renderingDevice: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] dcompositionDevice: *mut *mut void) -> HRESULT;
+        extern fn DCompositionCreateDevice3(#[opt] renderingDevice: IUnknown, iid: *const GUID, dcompositionDevice: *mut *mut void) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionCreateSurfaceHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] desiredAccess: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] securityAttributes: *mut SECURITY_ATTRIBUTES, #[out] surfaceHandle: *mut HANDLE) -> HRESULT;
+        extern fn DCompositionCreateSurfaceHandle(desiredAccess: u32, #[in] #[opt] securityAttributes: *mut SECURITY_ATTRIBUTES, surfaceHandle: *mut HANDLE) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionGetFrameId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] frameIdType: COMPOSITION_FRAME_ID_TYPE, #[out] frameId: *mut COMPOSITION_FRAME_ID) -> HRESULT;
+        extern fn DCompositionGetFrameId(frameIdType: COMPOSITION_FRAME_ID_TYPE, frameId: *mut COMPOSITION_FRAME_ID) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionGetStatistics(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] frameId: COMPOSITION_FRAME_ID, #[out] frameStats: *mut COMPOSITION_FRAME_STATS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] targetIdCount: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "targetCount", "targetCount")] #[out] #[opt] targetIds: *mut COMPOSITION_TARGET_ID, #[out] #[opt] actualTargetIdCount: *mut UINT) -> HRESULT;
+        extern fn DCompositionGetStatistics(frameId: COMPOSITION_FRAME_ID, frameStats: *mut COMPOSITION_FRAME_STATS, targetIdCount: u32, #[opt] targetIds: *mut COMPOSITION_TARGET_ID, #[opt] actualTargetIdCount: *mut u32) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionGetTargetStatistics(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] frameId: COMPOSITION_FRAME_ID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] targetId: *const COMPOSITION_TARGET_ID, #[out] targetStats: *mut COMPOSITION_TARGET_STATS) -> HRESULT;
+        extern fn DCompositionGetTargetStatistics(frameId: COMPOSITION_FRAME_ID, targetId: *const COMPOSITION_TARGET_ID, targetStats: *mut COMPOSITION_TARGET_STATS) -> HRESULT;
         struct DCompositionInkTrailPoint {
             x: f32,
             y: f32,
             radius: f32,
         }
         #[library("dcomp.dll")]
-        extern fn DCompositionWaitForCompositorClock(#[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,32", "0,32")] count: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] handles: *const HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeoutInMs: DWORD) -> DWORD;
+        extern fn DCompositionWaitForCompositorClock(count: u32, #[len_param(0)] #[opt] handles: *const HANDLE, timeoutInMs: u32) -> u32;
         #[guid(0x0b74b9e8_cdd6_492f_bbbc_5ed32157026d)]
         interface IDCompositionAffineTransform2DEffect: IDCompositionFilterEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetInterpolationMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] interpolationMode: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBorderMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] borderMode: D2D1_BORDER_MODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTransformMatrix(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transformMatrix: &D2D1_MATRIX_3X2_F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTransformMatrixElement(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] row: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] column: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTransformMatrixElement(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] row: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] column: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetSharpness(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetSharpness(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sharpness: f32) -> HRESULT;
+            fn SetInterpolationMode(&self, interpolationMode: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> HRESULT;
+            fn SetBorderMode(&self, borderMode: D2D1_BORDER_MODE) -> HRESULT;
+            fn SetTransformMatrix(&self, transformMatrix: *const D2D1_MATRIX_3X2_F) -> HRESULT;
+            fn SetTransformMatrixElement(&self, row: i32, column: i32, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetTransformMatrixElement(&self, row: i32, column: i32, value: f32) -> HRESULT;
+            fn SetSharpness(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetSharpness(&self, sharpness: f32) -> HRESULT;
         }
         #[guid(0x3b67dfa8_e3dd_4e61_b640_46c2f3d739dc)]
         interface IDCompositionArithmeticCompositeEffect: IDCompositionFilterEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCoefficients(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] coefficients: &D2D1_VECTOR_4F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetClampOutput(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clampoutput: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCoefficient1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCoefficient1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Coeffcient1: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCoefficient2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCoefficient2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Coefficient2: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCoefficient3(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCoefficient3(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Coefficient3: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCoefficient4(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCoefficient4(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Coefficient4: f32) -> HRESULT;
+            fn SetCoefficients(&self, coefficients: *const D2D1_VECTOR_4F) -> HRESULT;
+            fn SetClampOutput(&self, clampoutput: BOOL) -> HRESULT;
+            fn SetCoefficient1(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetCoefficient1(&self, Coeffcient1: f32) -> HRESULT;
+            fn SetCoefficient2(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetCoefficient2(&self, Coefficient2: f32) -> HRESULT;
+            fn SetCoefficient3(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetCoefficient3(&self, Coefficient3: f32) -> HRESULT;
+            fn SetCoefficient4(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetCoefficient4(&self, Coefficient4: f32) -> HRESULT;
         }
         #[guid(0x33ecdc0a_578a_4a11_9c14_0cb90517f9c5)]
         interface IDCompositionBlendEffect: IDCompositionFilterEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mode: D2D1_BLEND_MODE) -> HRESULT;
+            fn SetMode(&self, mode: D2D1_BLEND_MODE) -> HRESULT;
         }
         #[guid(0x6027496e_cb3a_49ab_934f_d798da4f7da6)]
         interface IDCompositionBrightnessEffect: IDCompositionFilterEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetWhitePoint(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] whitePoint: &D2D1_VECTOR_2F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlackPoint(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] blackPoint: &D2D1_VECTOR_2F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetWhitePointX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetWhitePointX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] whitePointX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetWhitePointY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetWhitePointY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] whitePointY: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlackPointX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlackPointX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] blackPointX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlackPointY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlackPointY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] blackPointY: f32) -> HRESULT;
+            fn SetWhitePoint(&self, whitePoint: *const D2D1_VECTOR_2F) -> HRESULT;
+            fn SetBlackPoint(&self, blackPoint: *const D2D1_VECTOR_2F) -> HRESULT;
+            fn SetWhitePointX(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetWhitePointX(&self, whitePointX: f32) -> HRESULT;
+            fn SetWhitePointY(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetWhitePointY(&self, whitePointY: f32) -> HRESULT;
+            fn SetBlackPointX(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetBlackPointX(&self, blackPointX: f32) -> HRESULT;
+            fn SetBlackPointY(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetBlackPointY(&self, blackPointY: f32) -> HRESULT;
         }
         #[guid(0x64ac3703_9d3f_45ec_a109_7cac0e7a13a7)]
         interface IDCompositionClip: IUnknown {}
         #[guid(0xc1170a22_3ce2_4966_90d4_55408bfc84c4)]
         interface IDCompositionColorMatrixEffect: IDCompositionFilterEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetMatrix(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] matrix: &D2D1_MATRIX_5X4_F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetMatrixElement(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] row: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] column: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetMatrixElement(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] row: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] column: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAlphaMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mode: D2D1_COLORMATRIX_ALPHA_MODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetClampOutput(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clamp: BOOL) -> HRESULT;
+            fn SetMatrix(&self, matrix: *const D2D1_MATRIX_5X4_F) -> HRESULT;
+            fn SetMatrixElement(&self, row: i32, column: i32, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> HRESULT;
+            fn SetAlphaMode(&self, mode: D2D1_COLORMATRIX_ALPHA_MODE) -> HRESULT;
+            fn SetClampOutput(&self, clamp: BOOL) -> HRESULT;
         }
         #[guid(0x576616c0_a231_494d_a38d_00fd5ec4db46)]
         interface IDCompositionCompositeEffect: IDCompositionFilterEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mode: D2D1_COMPOSITE_MODE) -> HRESULT;
+            fn SetMode(&self, mode: D2D1_COMPOSITE_MODE) -> HRESULT;
         }
         #[guid(0xc2448e9b_547d_4057_8cf5_8144ede1c2da)]
         interface IDCompositionDelegatedInkTrail: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddTrailPoints(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] inkPoints: *const DCompositionInkTrailPoint, inkPointsCount: UINT, #[out] generationId: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddTrailPointsWithPrediction(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] inkPoints: *const DCompositionInkTrailPoint, inkPointsCount: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] predictedInkPoints: *const DCompositionInkTrailPoint, predictedInkPointsCount: UINT, #[out] generationId: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RemoveTrailPoints(&self, generationId: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn StartNewTrail(&self, color: &D2D1_COLOR_F) -> HRESULT;
+            fn AddTrailPoints(&self, #[len_param(1)] inkPoints: *const DCompositionInkTrailPoint, inkPointsCount: u32, generationId: *mut u32) -> HRESULT;
+            fn AddTrailPointsWithPrediction(&self, #[len_param(1)] inkPoints: *const DCompositionInkTrailPoint, inkPointsCount: u32, #[len_param(3)] predictedInkPoints: *const DCompositionInkTrailPoint, predictedInkPointsCount: u32, generationId: *mut u32) -> HRESULT;
+            fn RemoveTrailPoints(&self, generationId: u32) -> HRESULT;
+            fn StartNewTrail(&self, color: *const D2D1_COLOR_F) -> HRESULT;
         }
         #[guid(0x5f4633fe_1e08_4cb8_8c75_ce24333f5602)]
         interface IDCompositionDesktopDevice: IDCompositionDevice2 {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTargetForHwnd(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, topmost: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] target: *mut IDCompositionTarget) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateSurfaceFromHandle(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handle: HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] surface: *mut IUnknown) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateSurfaceFromHwnd(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] surface: *mut IUnknown) -> HRESULT;
+            fn CreateTargetForHwnd(&self, hwnd: HWND, topmost: BOOL, target: *mut IDCompositionTarget) -> HRESULT;
+            fn CreateSurfaceFromHandle(&self, handle: HANDLE, surface: *mut IUnknown) -> HRESULT;
+            fn CreateSurfaceFromHwnd(&self, hwnd: HWND, surface: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xc37ea93a_e7aa_450d_b16f_9746cb0407f3)]
         interface IDCompositionDevice: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Commit(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn WaitForCommitCompletion(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetFrameStatistics(&self, #[out] statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTargetForHwnd(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, topmost: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] target: *mut IDCompositionTarget) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateVisual(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] visual: *mut IDCompositionVisual) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateSurface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] width: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] height: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pixelFormat: DXGI_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] alphaMode: DXGI_ALPHA_MODE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] surface: *mut IDCompositionSurface) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateVirtualSurface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] initialWidth: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] initialHeight: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pixelFormat: DXGI_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] alphaMode: DXGI_ALPHA_MODE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] virtualSurface: *mut IDCompositionVirtualSurface) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateSurfaceFromHandle(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handle: HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] surface: *mut IUnknown) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateSurfaceFromHwnd(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] surface: *mut IUnknown) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTranslateTransform(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] translateTransform: *mut IDCompositionTranslateTransform) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateScaleTransform(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] scaleTransform: *mut IDCompositionScaleTransform) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateRotateTransform(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] rotateTransform: *mut IDCompositionRotateTransform) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateSkewTransform(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] skewTransform: *mut IDCompositionSkewTransform) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateMatrixTransform(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] matrixTransform: *mut IDCompositionMatrixTransform) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTransformGroup(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] transforms: *mut IDCompositionTransform, elements: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transformGroup: *mut IDCompositionTransform) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTranslateTransform3D(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] translateTransform3D: *mut IDCompositionTranslateTransform3D) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateScaleTransform3D(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] scaleTransform3D: *mut IDCompositionScaleTransform3D) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateRotateTransform3D(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] rotateTransform3D: *mut IDCompositionRotateTransform3D) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateMatrixTransform3D(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] matrixTransform3D: *mut IDCompositionMatrixTransform3D) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTransform3DGroup(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] transforms3D: *mut IDCompositionTransform3D, elements: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateEffectGroup(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] effectGroup: *mut IDCompositionEffectGroup) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateRectangleClip(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] clip: *mut IDCompositionRectangleClip) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateAnimation(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] animation: *mut IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckDeviceState(&self, #[out] pfValid: *mut BOOL) -> HRESULT;
+            fn GetFrameStatistics(&self, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> HRESULT;
+            fn CreateTargetForHwnd(&self, hwnd: HWND, topmost: BOOL, target: *mut IDCompositionTarget) -> HRESULT;
+            fn CreateVisual(&self, visual: *mut IDCompositionVisual) -> HRESULT;
+            fn CreateSurface(&self, width: u32, height: u32, pixelFormat: DXGI_FORMAT, alphaMode: DXGI_ALPHA_MODE, surface: *mut IDCompositionSurface) -> HRESULT;
+            fn CreateVirtualSurface(&self, initialWidth: u32, initialHeight: u32, pixelFormat: DXGI_FORMAT, alphaMode: DXGI_ALPHA_MODE, virtualSurface: *mut IDCompositionVirtualSurface) -> HRESULT;
+            fn CreateSurfaceFromHandle(&self, handle: HANDLE, surface: *mut IUnknown) -> HRESULT;
+            fn CreateSurfaceFromHwnd(&self, hwnd: HWND, surface: *mut IUnknown) -> HRESULT;
+            fn CreateTranslateTransform(&self, translateTransform: *mut IDCompositionTranslateTransform) -> HRESULT;
+            fn CreateScaleTransform(&self, scaleTransform: *mut IDCompositionScaleTransform) -> HRESULT;
+            fn CreateRotateTransform(&self, rotateTransform: *mut IDCompositionRotateTransform) -> HRESULT;
+            fn CreateSkewTransform(&self, skewTransform: *mut IDCompositionSkewTransform) -> HRESULT;
+            fn CreateMatrixTransform(&self, matrixTransform: *mut IDCompositionMatrixTransform) -> HRESULT;
+            fn CreateTransformGroup(&self, #[len_param(1)] #[in] transforms: *mut IDCompositionTransform, elements: u32, transformGroup: *mut IDCompositionTransform) -> HRESULT;
+            fn CreateTranslateTransform3D(&self, translateTransform3D: *mut IDCompositionTranslateTransform3D) -> HRESULT;
+            fn CreateScaleTransform3D(&self, scaleTransform3D: *mut IDCompositionScaleTransform3D) -> HRESULT;
+            fn CreateRotateTransform3D(&self, rotateTransform3D: *mut IDCompositionRotateTransform3D) -> HRESULT;
+            fn CreateMatrixTransform3D(&self, matrixTransform3D: *mut IDCompositionMatrixTransform3D) -> HRESULT;
+            fn CreateTransform3DGroup(&self, #[len_param(1)] #[in] transforms3D: *mut IDCompositionTransform3D, elements: u32, transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
+            fn CreateEffectGroup(&self, effectGroup: *mut IDCompositionEffectGroup) -> HRESULT;
+            fn CreateRectangleClip(&self, clip: *mut IDCompositionRectangleClip) -> HRESULT;
+            fn CreateAnimation(&self, animation: *mut IDCompositionAnimation) -> HRESULT;
+            fn CheckDeviceState(&self, pfValid: *mut BOOL) -> HRESULT;
         }
         #[guid(0x75f6468d_1b8e_447c_9bc6_75fea80b5b25)]
         interface IDCompositionDevice2: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Commit(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn WaitForCommitCompletion(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetFrameStatistics(&self, #[out] statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateVisual(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] visual: *mut IDCompositionVisual2) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateSurfaceFactory(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] renderingDevice: IUnknown, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] surfaceFactory: *mut IDCompositionSurfaceFactory) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateSurface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] width: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] height: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pixelFormat: DXGI_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] alphaMode: DXGI_ALPHA_MODE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] surface: *mut IDCompositionSurface) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateVirtualSurface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] initialWidth: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] initialHeight: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pixelFormat: DXGI_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] alphaMode: DXGI_ALPHA_MODE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] virtualSurface: *mut IDCompositionVirtualSurface) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTranslateTransform(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] translateTransform: *mut IDCompositionTranslateTransform) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateScaleTransform(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] scaleTransform: *mut IDCompositionScaleTransform) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateRotateTransform(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] rotateTransform: *mut IDCompositionRotateTransform) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateSkewTransform(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] skewTransform: *mut IDCompositionSkewTransform) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateMatrixTransform(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] matrixTransform: *mut IDCompositionMatrixTransform) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTransformGroup(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] transforms: *mut IDCompositionTransform, elements: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transformGroup: *mut IDCompositionTransform) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTranslateTransform3D(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] translateTransform3D: *mut IDCompositionTranslateTransform3D) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateScaleTransform3D(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] scaleTransform3D: *mut IDCompositionScaleTransform3D) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateRotateTransform3D(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] rotateTransform3D: *mut IDCompositionRotateTransform3D) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateMatrixTransform3D(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] matrixTransform3D: *mut IDCompositionMatrixTransform3D) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTransform3DGroup(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] transforms3D: *mut IDCompositionTransform3D, elements: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateEffectGroup(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] effectGroup: *mut IDCompositionEffectGroup) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateRectangleClip(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] clip: *mut IDCompositionRectangleClip) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateAnimation(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] animation: *mut IDCompositionAnimation) -> HRESULT;
+            fn GetFrameStatistics(&self, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> HRESULT;
+            fn CreateVisual(&self, visual: *mut IDCompositionVisual2) -> HRESULT;
+            fn CreateSurfaceFactory(&self, renderingDevice: IUnknown, surfaceFactory: *mut IDCompositionSurfaceFactory) -> HRESULT;
+            fn CreateSurface(&self, width: u32, height: u32, pixelFormat: DXGI_FORMAT, alphaMode: DXGI_ALPHA_MODE, surface: *mut IDCompositionSurface) -> HRESULT;
+            fn CreateVirtualSurface(&self, initialWidth: u32, initialHeight: u32, pixelFormat: DXGI_FORMAT, alphaMode: DXGI_ALPHA_MODE, virtualSurface: *mut IDCompositionVirtualSurface) -> HRESULT;
+            fn CreateTranslateTransform(&self, translateTransform: *mut IDCompositionTranslateTransform) -> HRESULT;
+            fn CreateScaleTransform(&self, scaleTransform: *mut IDCompositionScaleTransform) -> HRESULT;
+            fn CreateRotateTransform(&self, rotateTransform: *mut IDCompositionRotateTransform) -> HRESULT;
+            fn CreateSkewTransform(&self, skewTransform: *mut IDCompositionSkewTransform) -> HRESULT;
+            fn CreateMatrixTransform(&self, matrixTransform: *mut IDCompositionMatrixTransform) -> HRESULT;
+            fn CreateTransformGroup(&self, #[len_param(1)] #[in] transforms: *mut IDCompositionTransform, elements: u32, transformGroup: *mut IDCompositionTransform) -> HRESULT;
+            fn CreateTranslateTransform3D(&self, translateTransform3D: *mut IDCompositionTranslateTransform3D) -> HRESULT;
+            fn CreateScaleTransform3D(&self, scaleTransform3D: *mut IDCompositionScaleTransform3D) -> HRESULT;
+            fn CreateRotateTransform3D(&self, rotateTransform3D: *mut IDCompositionRotateTransform3D) -> HRESULT;
+            fn CreateMatrixTransform3D(&self, matrixTransform3D: *mut IDCompositionMatrixTransform3D) -> HRESULT;
+            fn CreateTransform3DGroup(&self, #[len_param(1)] #[in] transforms3D: *mut IDCompositionTransform3D, elements: u32, transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
+            fn CreateEffectGroup(&self, effectGroup: *mut IDCompositionEffectGroup) -> HRESULT;
+            fn CreateRectangleClip(&self, clip: *mut IDCompositionRectangleClip) -> HRESULT;
+            fn CreateAnimation(&self, animation: *mut IDCompositionAnimation) -> HRESULT;
         }
         #[guid(0x0987cb06_f916_48bf_8d35_ce7641781bd9)]
         interface IDCompositionDevice3: IDCompositionDevice2 {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateGaussianBlurEffect(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] gaussianBlurEffect: *mut IDCompositionGaussianBlurEffect) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateBrightnessEffect(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] brightnessEffect: *mut IDCompositionBrightnessEffect) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateColorMatrixEffect(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] colorMatrixEffect: *mut IDCompositionColorMatrixEffect) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateShadowEffect(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] shadowEffect: *mut IDCompositionShadowEffect) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateHueRotationEffect(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] hueRotationEffect: *mut IDCompositionHueRotationEffect) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateSaturationEffect(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] saturationEffect: *mut IDCompositionSaturationEffect) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTurbulenceEffect(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] turbulenceEffect: *mut IDCompositionTurbulenceEffect) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateLinearTransferEffect(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] linearTransferEffect: *mut IDCompositionLinearTransferEffect) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTableTransferEffect(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] tableTransferEffect: *mut IDCompositionTableTransferEffect) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateCompositeEffect(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] compositeEffect: *mut IDCompositionCompositeEffect) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateBlendEffect(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] blendEffect: *mut IDCompositionBlendEffect) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateArithmeticCompositeEffect(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] arithmeticCompositeEffect: *mut IDCompositionArithmeticCompositeEffect) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateAffineTransform2DEffect(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] affineTransform2dEffect: *mut IDCompositionAffineTransform2DEffect) -> HRESULT;
+            fn CreateGaussianBlurEffect(&self, gaussianBlurEffect: *mut IDCompositionGaussianBlurEffect) -> HRESULT;
+            fn CreateBrightnessEffect(&self, brightnessEffect: *mut IDCompositionBrightnessEffect) -> HRESULT;
+            fn CreateColorMatrixEffect(&self, colorMatrixEffect: *mut IDCompositionColorMatrixEffect) -> HRESULT;
+            fn CreateShadowEffect(&self, shadowEffect: *mut IDCompositionShadowEffect) -> HRESULT;
+            fn CreateHueRotationEffect(&self, hueRotationEffect: *mut IDCompositionHueRotationEffect) -> HRESULT;
+            fn CreateSaturationEffect(&self, saturationEffect: *mut IDCompositionSaturationEffect) -> HRESULT;
+            fn CreateTurbulenceEffect(&self, turbulenceEffect: *mut IDCompositionTurbulenceEffect) -> HRESULT;
+            fn CreateLinearTransferEffect(&self, linearTransferEffect: *mut IDCompositionLinearTransferEffect) -> HRESULT;
+            fn CreateTableTransferEffect(&self, tableTransferEffect: *mut IDCompositionTableTransferEffect) -> HRESULT;
+            fn CreateCompositeEffect(&self, compositeEffect: *mut IDCompositionCompositeEffect) -> HRESULT;
+            fn CreateBlendEffect(&self, blendEffect: *mut IDCompositionBlendEffect) -> HRESULT;
+            fn CreateArithmeticCompositeEffect(&self, arithmeticCompositeEffect: *mut IDCompositionArithmeticCompositeEffect) -> HRESULT;
+            fn CreateAffineTransform2DEffect(&self, affineTransform2dEffect: *mut IDCompositionAffineTransform2DEffect) -> HRESULT;
         }
         #[guid(0x85fc5cca_2da6_494c_86b6_4a775c049b8a)]
         interface IDCompositionDevice4: IDCompositionDevice3 {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckCompositionTextureSupport(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] renderingDevice: IUnknown, #[out] supportsCompositionTextures: *mut BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateCompositionTexture(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] d3dTexture: IUnknown, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] compositionTexture: *mut IDCompositionTexture) -> HRESULT;
+            fn CheckCompositionTextureSupport(&self, renderingDevice: IUnknown, supportsCompositionTextures: *mut BOOL) -> HRESULT;
+            fn CreateCompositionTexture(&self, d3dTexture: IUnknown, compositionTexture: *mut IDCompositionTexture) -> HRESULT;
         }
         #[guid(0x2c6bebfe_a603_472f_af34_d2443356e61b)]
         interface IDCompositionDevice5: IDCompositionDevice4 {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDynamicTexture(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] compositionDynamicTexture: *mut IDCompositionDynamicTexture) -> HRESULT;
+            fn CreateDynamicTexture(&self, compositionDynamicTexture: *mut IDCompositionDynamicTexture) -> HRESULT;
         }
         #[guid(0xa1a3c64a_224f_4a81_9773_4f03a89d3c6c)]
         interface IDCompositionDeviceDebug: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn EnableDebugCounters(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn DisableDebugCounters(&self) -> HRESULT;
         }
         #[guid(0xa1de1d3f_6405_447f_8e95_1383a34b0277)]
         interface IDCompositionDynamicTexture: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTexture(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTexture: IDCompositionTexture, #[Windows::Win32::Metadata::NativeSal("1.1", "_In_count_", "rectCount", "rectCount")] pRects: *const D2D_RECT_L, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rectCount: size_t) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTexture(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTexture: IDCompositionTexture) -> HRESULT;
+            fn SetTexture(&self, pTexture: IDCompositionTexture, pRects: *const D2D_RECT_L, rectCount: usize) -> HRESULT;
+            fn SetTexture(&self, pTexture: IDCompositionTexture) -> HRESULT;
         }
         #[guid(0xec81b08f_bfcb_4e8d_b193_a915587999e8)]
         interface IDCompositionEffect: IUnknown {}
         #[guid(0xa7929a74_e6b2_4bd6_8b95_4040119ca34d)]
         interface IDCompositionEffectGroup: IDCompositionEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetOpacity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetOpacity(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOpacity(&self, opacity: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTransform3D(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transform3D: IDCompositionTransform3D) -> HRESULT;
+            fn SetTransform3D(&self, #[opt] transform3D: IDCompositionTransform3D) -> HRESULT;
         }
         #[guid(0x30c421d5_8cb2_4e9f_b133_37be270d4ac2)]
         interface IDCompositionFilterEffect: IDCompositionEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetInput(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] input: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: UINT) -> HRESULT;
+            fn SetInput(&self, index: u32, #[opt] input: IUnknown, flags: u32) -> HRESULT;
         }
         #[guid(0x45d4d0b7_1bd4_454e_8894_2bfa68443033)]
         interface IDCompositionGaussianBlurEffect: IDCompositionFilterEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetStandardDeviation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetStandardDeviation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] amount: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBorderMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mode: D2D1_BORDER_MODE) -> HRESULT;
+            fn SetStandardDeviation(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetStandardDeviation(&self, amount: f32) -> HRESULT;
+            fn SetBorderMode(&self, mode: D2D1_BORDER_MODE) -> HRESULT;
         }
         #[guid(0x6db9f920_0770_4781_b0c6_381912f9d167)]
         interface IDCompositionHueRotationEffect: IDCompositionFilterEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAngle(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAngle(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] amountDegrees: f32) -> HRESULT;
+            fn SetAngle(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetAngle(&self, amountDegrees: f32) -> HRESULT;
         }
         #[guid(0xdf0c7cec_cdeb_4d4a_b91c_721bf22f4e6c)]
         interface IDCompositionInkTrailDevice: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDelegatedInkTrail(&self, #[out] inkTrail: *mut IDCompositionDelegatedInkTrail) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDelegatedInkTrailForSwapChain(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] swapChain: IUnknown, #[out] inkTrail: *mut IDCompositionDelegatedInkTrail) -> HRESULT;
+            fn CreateDelegatedInkTrail(&self, inkTrail: *mut IDCompositionDelegatedInkTrail) -> HRESULT;
+            fn CreateDelegatedInkTrailForSwapChain(&self, swapChain: IUnknown, inkTrail: *mut IDCompositionDelegatedInkTrail) -> HRESULT;
         }
         #[guid(0x4305ee5b_c4a0_4c88_9385_67124e017683)]
         interface IDCompositionLinearTransferEffect: IDCompositionFilterEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRedYIntercept(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRedYIntercept(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] redYIntercept: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRedSlope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRedSlope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] redSlope: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRedDisable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] redDisable: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGreenYIntercept(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGreenYIntercept(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] greenYIntercept: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGreenSlope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGreenSlope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] greenSlope: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGreenDisable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] greenDisable: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlueYIntercept(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlueYIntercept(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] blueYIntercept: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlueSlope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlueSlope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] blueSlope: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlueDisable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] blueDisable: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAlphaYIntercept(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAlphaYIntercept(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] alphaYIntercept: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAlphaSlope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAlphaSlope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] alphaSlope: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAlphaDisable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] alphaDisable: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetClampOutput(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clampOutput: BOOL) -> HRESULT;
+            fn SetRedYIntercept(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetRedYIntercept(&self, redYIntercept: f32) -> HRESULT;
+            fn SetRedSlope(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetRedSlope(&self, redSlope: f32) -> HRESULT;
+            fn SetRedDisable(&self, redDisable: BOOL) -> HRESULT;
+            fn SetGreenYIntercept(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetGreenYIntercept(&self, greenYIntercept: f32) -> HRESULT;
+            fn SetGreenSlope(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetGreenSlope(&self, greenSlope: f32) -> HRESULT;
+            fn SetGreenDisable(&self, greenDisable: BOOL) -> HRESULT;
+            fn SetBlueYIntercept(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetBlueYIntercept(&self, blueYIntercept: f32) -> HRESULT;
+            fn SetBlueSlope(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetBlueSlope(&self, blueSlope: f32) -> HRESULT;
+            fn SetBlueDisable(&self, blueDisable: BOOL) -> HRESULT;
+            fn SetAlphaYIntercept(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetAlphaYIntercept(&self, alphaYIntercept: f32) -> HRESULT;
+            fn SetAlphaSlope(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetAlphaSlope(&self, alphaSlope: f32) -> HRESULT;
+            fn SetAlphaDisable(&self, alphaDisable: BOOL) -> HRESULT;
+            fn SetClampOutput(&self, clampOutput: BOOL) -> HRESULT;
         }
         #[guid(0x16cdff07_c503_419c_83f2_0965c7af1fa6)]
         interface IDCompositionMatrixTransform: IDCompositionTransform {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetMatrix(&self, matrix: &D2D_MATRIX_3X2_F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetMatrixElement(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] row: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] column: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetMatrixElement(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] row: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] column: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: f32) -> HRESULT;
+            fn SetMatrix(&self, matrix: *const D2D_MATRIX_3X2_F) -> HRESULT;
+            fn SetMatrixElement(&self, row: i32, column: i32, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> HRESULT;
         }
         #[guid(0x4b3363f0_643b_41b7_b6e0_ccf22d34467c)]
         interface IDCompositionMatrixTransform3D: IDCompositionTransform3D {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetMatrix(&self, matrix: &D3DMATRIX) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetMatrixElement(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] row: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] column: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetMatrixElement(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] row: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] column: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: f32) -> HRESULT;
+            fn SetMatrix(&self, matrix: *const D3DMATRIX) -> HRESULT;
+            fn SetMatrixElement(&self, row: i32, column: i32, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> HRESULT;
         }
         #[guid(0x9842ad7d_d9cf_4908_aed7_48b51da5e7c2)]
         interface IDCompositionRectangleClip: IDCompositionClip {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetLeft(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetLeft(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetLeft(&self, left: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTop(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetTop(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetTop(&self, top: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRight(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetRight(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetRight(&self, right: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBottom(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetBottom(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetBottom(&self, bottom: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTopLeftRadiusX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetTopLeftRadiusX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetTopLeftRadiusX(&self, radius: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTopLeftRadiusY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetTopLeftRadiusY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetTopLeftRadiusY(&self, radius: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTopRightRadiusX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetTopRightRadiusX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetTopRightRadiusX(&self, radius: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTopRightRadiusY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetTopRightRadiusY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetTopRightRadiusY(&self, radius: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBottomLeftRadiusX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetBottomLeftRadiusX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetBottomLeftRadiusX(&self, radius: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBottomLeftRadiusY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetBottomLeftRadiusY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetBottomLeftRadiusY(&self, radius: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBottomRightRadiusX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetBottomRightRadiusX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetBottomRightRadiusX(&self, radius: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBottomRightRadiusY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetBottomRightRadiusY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetBottomRightRadiusY(&self, radius: f32) -> HRESULT;
         }
         #[guid(0x641ed83c_ae96_46c5_90dc_32774cc5c6d5)]
         interface IDCompositionRotateTransform: IDCompositionTransform {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAngle(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAngle(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetAngle(&self, angle: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCenterX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCenterX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCenterX(&self, centerX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCenterY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCenterY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCenterY(&self, centerY: f32) -> HRESULT;
         }
         #[guid(0xd8f5b23f_d429_4a91_b55a_d2f45fd75b18)]
         interface IDCompositionRotateTransform3D: IDCompositionTransform3D {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAngle(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAngle(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetAngle(&self, angle: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAxisX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAxisX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetAxisX(&self, axisX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAxisY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAxisY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetAxisY(&self, axisY: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAxisZ(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAxisZ(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetAxisZ(&self, axisZ: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCenterX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCenterX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCenterX(&self, centerX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCenterY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCenterY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCenterY(&self, centerY: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCenterZ(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCenterZ(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCenterZ(&self, centerZ: f32) -> HRESULT;
         }
         #[guid(0xa08debda_3258_4fa4_9f16_9174d3fe93b1)]
         interface IDCompositionSaturationEffect: IDCompositionFilterEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetSaturation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetSaturation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ratio: f32) -> HRESULT;
+            fn SetSaturation(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetSaturation(&self, ratio: f32) -> HRESULT;
         }
         #[guid(0x71fde914_40ef_45ef_bd51_68b037c339f9)]
         interface IDCompositionScaleTransform: IDCompositionTransform {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetScaleX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetScaleX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetScaleX(&self, scaleX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetScaleY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetScaleY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetScaleY(&self, scaleY: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCenterX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCenterX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCenterX(&self, centerX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCenterY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCenterY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCenterY(&self, centerY: f32) -> HRESULT;
         }
         #[guid(0x2a9e9ead_364b_4b15_a7c4_a1997f78b389)]
         interface IDCompositionScaleTransform3D: IDCompositionTransform3D {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetScaleX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetScaleX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetScaleX(&self, scaleX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetScaleY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetScaleY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetScaleY(&self, scaleY: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetScaleZ(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetScaleZ(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetScaleZ(&self, scaleZ: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCenterX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCenterX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCenterX(&self, centerX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCenterY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCenterY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCenterY(&self, centerY: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCenterZ(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCenterZ(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCenterZ(&self, centerZ: f32) -> HRESULT;
         }
         #[guid(0x4ad18ac0_cfd2_4c2f_bb62_96e54fdb6879)]
         interface IDCompositionShadowEffect: IDCompositionFilterEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetStandardDeviation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetStandardDeviation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] amount: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetColor(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] color: &D2D1_VECTOR_4F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRed(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRed(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] amount: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGreen(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGreen(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] amount: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] amount: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAlpha(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAlpha(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] amount: f32) -> HRESULT;
+            fn SetStandardDeviation(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetStandardDeviation(&self, amount: f32) -> HRESULT;
+            fn SetColor(&self, color: *const D2D1_VECTOR_4F) -> HRESULT;
+            fn SetRed(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetRed(&self, amount: f32) -> HRESULT;
+            fn SetGreen(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetGreen(&self, amount: f32) -> HRESULT;
+            fn SetBlue(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetBlue(&self, amount: f32) -> HRESULT;
+            fn SetAlpha(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetAlpha(&self, amount: f32) -> HRESULT;
         }
         #[guid(0xe57aa735_dcdb_4c72_9c61_0591f58889ee)]
         interface IDCompositionSkewTransform: IDCompositionTransform {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAngleX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAngleX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetAngleX(&self, angleX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAngleY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetAngleY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetAngleY(&self, angleY: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCenterX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCenterX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCenterX(&self, centerX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCenterY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCenterY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCenterY(&self, centerY: f32) -> HRESULT;
         }
         #[guid(0xbb8a4953_2c99_4f5a_96f5_4819027fa3ac)]
         interface IDCompositionSurface: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn BeginDraw(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] updateRect: *const RECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] updateObject: *mut *mut void, #[out] updateOffset: *mut POINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BeginDraw(&self, #[opt] updateRect: *const RECT, iid: *const GUID, updateObject: *mut *mut void, updateOffset: *mut POINT) -> HRESULT;
             fn EndDraw(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SuspendDraw(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn ResumeDraw(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Scroll(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scrollRect: *const RECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clipRect: *const RECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offsetX: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offsetY: i32) -> HRESULT;
+            fn Scroll(&self, #[opt] scrollRect: *const RECT, #[opt] clipRect: *const RECT, offsetX: i32, offsetY: i32) -> HRESULT;
         }
         #[guid(0xe334bc12_3937_4e02_85eb_fcf4eb30d2c8)]
         interface IDCompositionSurfaceFactory: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateSurface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] width: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] height: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pixelFormat: DXGI_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] alphaMode: DXGI_ALPHA_MODE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] surface: *mut IDCompositionSurface) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateVirtualSurface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] initialWidth: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] initialHeight: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pixelFormat: DXGI_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] alphaMode: DXGI_ALPHA_MODE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] virtualSurface: *mut IDCompositionVirtualSurface) -> HRESULT;
+            fn CreateSurface(&self, width: u32, height: u32, pixelFormat: DXGI_FORMAT, alphaMode: DXGI_ALPHA_MODE, surface: *mut IDCompositionSurface) -> HRESULT;
+            fn CreateVirtualSurface(&self, initialWidth: u32, initialHeight: u32, pixelFormat: DXGI_FORMAT, alphaMode: DXGI_ALPHA_MODE, virtualSurface: *mut IDCompositionVirtualSurface) -> HRESULT;
         }
         #[guid(0x9b7e82e2_69c5_4eb4_a5f5_a7033f5132cd)]
         interface IDCompositionTableTransferEffect: IDCompositionFilterEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRedTable(&self, #[Windows::Win32::Metadata::NativeSal("1.1", "_In_count_", "count", "count")] tableValues: *const f32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] count: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGreenTable(&self, #[Windows::Win32::Metadata::NativeSal("1.1", "_In_count_", "count", "count")] tableValues: *const f32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] count: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlueTable(&self, #[Windows::Win32::Metadata::NativeSal("1.1", "_In_count_", "count", "count")] tableValues: *const f32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] count: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAlphaTable(&self, #[Windows::Win32::Metadata::NativeSal("1.1", "_In_count_", "count", "count")] tableValues: *const f32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] count: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRedDisable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] redDisable: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGreenDisable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] greenDisable: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlueDisable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] blueDisable: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAlphaDisable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] alphaDisable: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetClampOutput(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clampOutput: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRedTableValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRedTableValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGreenTableValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGreenTableValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlueTableValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBlueTableValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAlphaTableValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAlphaTableValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] index: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: f32) -> HRESULT;
+            fn SetRedTable(&self, tableValues: *const f32, count: u32) -> HRESULT;
+            fn SetGreenTable(&self, tableValues: *const f32, count: u32) -> HRESULT;
+            fn SetBlueTable(&self, tableValues: *const f32, count: u32) -> HRESULT;
+            fn SetAlphaTable(&self, tableValues: *const f32, count: u32) -> HRESULT;
+            fn SetRedDisable(&self, redDisable: BOOL) -> HRESULT;
+            fn SetGreenDisable(&self, greenDisable: BOOL) -> HRESULT;
+            fn SetBlueDisable(&self, blueDisable: BOOL) -> HRESULT;
+            fn SetAlphaDisable(&self, alphaDisable: BOOL) -> HRESULT;
+            fn SetClampOutput(&self, clampOutput: BOOL) -> HRESULT;
+            fn SetRedTableValue(&self, index: u32, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetRedTableValue(&self, index: u32, value: f32) -> HRESULT;
+            fn SetGreenTableValue(&self, index: u32, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetGreenTableValue(&self, index: u32, value: f32) -> HRESULT;
+            fn SetBlueTableValue(&self, index: u32, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetBlueTableValue(&self, index: u32, value: f32) -> HRESULT;
+            fn SetAlphaTableValue(&self, index: u32, animation: IDCompositionAnimation) -> HRESULT;
+            fn SetAlphaTableValue(&self, index: u32, value: f32) -> HRESULT;
         }
         #[guid(0xeacdd04c_117e_4e17_88f4_d1b12b0e3d89)]
         interface IDCompositionTarget: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRoot(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] visual: IDCompositionVisual) -> HRESULT;
+            fn SetRoot(&self, #[opt] visual: IDCompositionVisual) -> HRESULT;
         }
         #[guid(0x929bb1aa_725f_433b_abd7_273075a835f2)]
         interface IDCompositionTexture: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetSourceRect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sourceRect: &D2D_RECT_U) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetColorSpace(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] colorSpace: DXGI_COLOR_SPACE_TYPE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAlphaMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] alphaMode: DXGI_ALPHA_MODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAvailableFence(&self, #[out] fenceValue: *mut UINT64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] availableFence: *mut *mut void) -> HRESULT;
+            fn SetSourceRect(&self, sourceRect: *const D2D_RECT_U) -> HRESULT;
+            fn SetColorSpace(&self, colorSpace: DXGI_COLOR_SPACE_TYPE) -> HRESULT;
+            fn SetAlphaMode(&self, alphaMode: DXGI_ALPHA_MODE) -> HRESULT;
+            fn GetAvailableFence(&self, fenceValue: *mut u64, iid: *const GUID, availableFence: *mut *mut void) -> HRESULT;
         }
         #[guid(0xfd55faa7_37e0_4c20_95d2_9be45bc33f55)]
         interface IDCompositionTransform: IDCompositionTransform3D {}
@@ -662,126 +404,76 @@ mod Windows {
         interface IDCompositionTransform3D: IDCompositionEffect {}
         #[guid(0x06791122_c6f0_417d_8323_269e987f5954)]
         interface IDCompositionTranslateTransform: IDCompositionTransform {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetOffsetX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetOffsetX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOffsetX(&self, offsetX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetOffsetY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetOffsetY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOffsetY(&self, offsetY: f32) -> HRESULT;
         }
         #[guid(0x91636d4b_9ba1_4532_aaf7_e3344994d788)]
         interface IDCompositionTranslateTransform3D: IDCompositionTransform3D {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetOffsetX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetOffsetX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOffsetX(&self, offsetX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetOffsetY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetOffsetY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOffsetY(&self, offsetY: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetOffsetZ(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetOffsetZ(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOffsetZ(&self, offsetZ: f32) -> HRESULT;
         }
         #[guid(0xa6a55bda_c09c_49f3_9193_a41922c89715)]
         interface IDCompositionTurbulenceEffect: IDCompositionFilterEffect {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetOffset(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offset: &D2D1_VECTOR_2F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBaseFrequency(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] frequency: &D2D1_VECTOR_2F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetSize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] size: &D2D1_VECTOR_2F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetNumOctaves(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] numOctaves: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetSeed(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] seed: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetNoise(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] noise: D2D1_TURBULENCE_NOISE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetStitchable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] stitchable: BOOL) -> HRESULT;
+            fn SetOffset(&self, offset: *const D2D1_VECTOR_2F) -> HRESULT;
+            fn SetBaseFrequency(&self, frequency: *const D2D1_VECTOR_2F) -> HRESULT;
+            fn SetSize(&self, size: *const D2D1_VECTOR_2F) -> HRESULT;
+            fn SetNumOctaves(&self, numOctaves: u32) -> HRESULT;
+            fn SetSeed(&self, seed: u32) -> HRESULT;
+            fn SetNoise(&self, noise: D2D1_TURBULENCE_NOISE) -> HRESULT;
+            fn SetStitchable(&self, stitchable: BOOL) -> HRESULT;
         }
         #[guid(0xae471c51_5f53_4a24_8d3e_d0c39c30b3f0)]
         interface IDCompositionVirtualSurface: IDCompositionSurface {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Resize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] width: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] height: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Trim(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] rectangles: *const RECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] count: UINT) -> HRESULT;
+            fn Resize(&self, width: u32, height: u32) -> HRESULT;
+            fn Trim(&self, #[len_param(1)] #[opt] rectangles: *const RECT, count: u32) -> HRESULT;
         }
         #[guid(0x4d93059d_097b_4651_9a60_f0f25116e2f3)]
         interface IDCompositionVisual: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetOffsetX(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetOffsetX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOffsetX(&self, offsetX: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetOffsetY(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetOffsetY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOffsetY(&self, offsetY: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTransform(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transform: IDCompositionTransform) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTransform(&self, matrix: &D2D_MATRIX_3X2_F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTransformParent(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] visual: IDCompositionVisual) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetEffect(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] effect: IDCompositionEffect) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBitmapInterpolationMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] interpolationMode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBorderMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] borderMode: DCOMPOSITION_BORDER_MODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetClip(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clip: IDCompositionClip) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetClip(&self, rect: &D2D_RECT_F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetContent(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] content: IUnknown) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddVisual(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] visual: IDCompositionVisual, insertAbove: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] referenceVisual: IDCompositionVisual) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RemoveVisual(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] visual: IDCompositionVisual) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetTransform(&self, #[opt] transform: IDCompositionTransform) -> HRESULT;
+            fn SetTransform(&self, matrix: *const D2D_MATRIX_3X2_F) -> HRESULT;
+            fn SetTransformParent(&self, #[opt] visual: IDCompositionVisual) -> HRESULT;
+            fn SetEffect(&self, #[opt] effect: IDCompositionEffect) -> HRESULT;
+            fn SetBitmapInterpolationMode(&self, interpolationMode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> HRESULT;
+            fn SetBorderMode(&self, borderMode: DCOMPOSITION_BORDER_MODE) -> HRESULT;
+            fn SetClip(&self, #[opt] clip: IDCompositionClip) -> HRESULT;
+            fn SetClip(&self, rect: *const D2D_RECT_F) -> HRESULT;
+            fn SetContent(&self, #[opt] content: IUnknown) -> HRESULT;
+            fn AddVisual(&self, visual: IDCompositionVisual, insertAbove: BOOL, #[opt] referenceVisual: IDCompositionVisual) -> HRESULT;
+            fn RemoveVisual(&self, visual: IDCompositionVisual) -> HRESULT;
             fn RemoveAllVisuals(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCompositeMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] compositeMode: DCOMPOSITION_COMPOSITE_MODE) -> HRESULT;
+            fn SetCompositeMode(&self, compositeMode: DCOMPOSITION_COMPOSITE_MODE) -> HRESULT;
         }
         #[guid(0xe8de1639_4331_4b26_bc5f_6a321d347a85)]
         interface IDCompositionVisual2: IDCompositionVisual {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetOpacityMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mode: DCOMPOSITION_OPACITY_MODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetBackFaceVisibility(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> HRESULT;
+            fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> HRESULT;
+            fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> HRESULT;
         }
         #[guid(0x2775f462_b6c1_4015_b0be_b3e7d6a4976d)]
         interface IDCompositionVisual3: IDCompositionVisualDebug {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetDepthMode(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mode: DCOMPOSITION_DEPTH_MODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetOffsetZ(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetDepthMode(&self, mode: DCOMPOSITION_DEPTH_MODE) -> HRESULT;
+            fn SetOffsetZ(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOffsetZ(&self, offsetZ: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetOpacity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] animation: IDCompositionAnimation) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetOpacity(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOpacity(&self, opacity: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTransform(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] transform: IDCompositionTransform3D) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTransform(&self, matrix: &D2D_MATRIX_4X4_F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetTransform(&self, #[opt] transform: IDCompositionTransform3D) -> HRESULT;
+            fn SetTransform(&self, matrix: *const D2D_MATRIX_4X4_F) -> HRESULT;
             fn SetVisible(&self, visible: BOOL) -> HRESULT;
         }
         #[guid(0xfed2b808_5eb4_43a0_aea3_35f65280f91b)]
         interface IDCompositionVisualDebug: IDCompositionVisual2 {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnableHeatMap(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] color: &D2D1_COLOR_F) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn EnableHeatMap(&self, color: *const D2D1_COLOR_F) -> HRESULT;
             fn DisableHeatMap(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn EnableRedrawRegions(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn DisableRedrawRegions(&self) -> HRESULT;
         }
     }

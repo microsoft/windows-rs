@@ -22,27 +22,27 @@ mod Windows {
         }
         const PRINTTICKET_ISTREAM_APIS: i32 = 1;
         #[library("prntvpt.dll")]
-        extern fn PTCloseProvider(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProvider: HPTPROVIDER) -> HRESULT;
+        extern fn PTCloseProvider(hProvider: HPTPROVIDER) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTConvertDevModeToPrintTicket(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProvider: HPTPROVIDER, cbDevmode: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDevmode: PDEVMODE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: EPrintTicketScope, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pPrintTicket: IStream) -> HRESULT;
+        extern fn PTConvertDevModeToPrintTicket(hProvider: HPTPROVIDER, cbDevmode: u32, pDevmode: PDEVMODE, scope: EPrintTicketScope, pPrintTicket: IStream) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTConvertPrintTicketToDevMode(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProvider: HPTPROVIDER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPrintTicket: IStream, baseDevmodeType: EDefaultDevmodeType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: EPrintTicketScope, #[out] pcbDevmode: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pcbDevmode", "*pcbDevmode")] #[out] ppDevmode: *mut PDEVMODE, #[out] #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTConvertPrintTicketToDevMode(hProvider: HPTPROVIDER, pPrintTicket: IStream, baseDevmodeType: EDefaultDevmodeType, scope: EPrintTicketScope, pcbDevmode: *mut u32, ppDevmode: *mut PDEVMODE, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTGetPrintCapabilities(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProvider: HPTPROVIDER, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPrintTicket: IStream, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pCapabilities: IStream, #[out] #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTGetPrintCapabilities(hProvider: HPTPROVIDER, #[opt] pPrintTicket: IStream, pCapabilities: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTGetPrintDeviceCapabilities(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProvider: HPTPROVIDER, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPrintTicket: IStream, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pDeviceCapabilities: IStream, #[out] #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTGetPrintDeviceCapabilities(hProvider: HPTPROVIDER, #[opt] pPrintTicket: IStream, pDeviceCapabilities: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTGetPrintDeviceResources(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProvider: HPTPROVIDER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszLocaleName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPrintTicket: IStream, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pDeviceResources: IStream, #[out] #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTGetPrintDeviceResources(hProvider: HPTPROVIDER, pszLocaleName: PCWSTR, #[opt] pPrintTicket: IStream, pDeviceResources: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTMergeAndValidatePrintTicket(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProvider: HPTPROVIDER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBaseTicket: IStream, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeltaTicket: IStream, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scope: EPrintTicketScope, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pResultTicket: IStream, #[out] #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTMergeAndValidatePrintTicket(hProvider: HPTPROVIDER, pBaseTicket: IStream, #[opt] pDeltaTicket: IStream, scope: EPrintTicketScope, pResultTicket: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTOpenProvider(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPrinterName: PCWSTR, dwVersion: DWORD, #[out] phProvider: *mut HPTPROVIDER) -> HRESULT;
+        extern fn PTOpenProvider(pszPrinterName: PCWSTR, dwVersion: u32, phProvider: *mut HPTPROVIDER) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTOpenProviderEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPrinterName: PCWSTR, dwMaxVersion: DWORD, dwPrefVersion: DWORD, #[out] phProvider: *mut HPTPROVIDER, #[out] pUsedVersion: *mut DWORD) -> HRESULT;
+        extern fn PTOpenProviderEx(pszPrinterName: PCWSTR, dwMaxVersion: u32, dwPrefVersion: u32, phProvider: *mut HPTPROVIDER, pUsedVersion: *mut u32) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTQuerySchemaVersionSupport(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPrinterName: PCWSTR, #[out] pMaxVersion: *mut DWORD) -> HRESULT;
+        extern fn PTQuerySchemaVersionSupport(pszPrinterName: PCWSTR, pMaxVersion: *mut u32) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTReleaseMemory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBuffer: PVOID) -> HRESULT;
+        extern fn PTReleaseMemory(#[in] pBuffer: *mut void) -> HRESULT;
         const S_PT_CONFLICT_RESOLVED: i32 = 262146;
         const S_PT_NO_CONFLICT: i32 = 262145;
     }

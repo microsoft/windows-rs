@@ -2,8 +2,8 @@
 mod Windows {
     mod Win32 {
         struct FILE_EXTENT {
-            VolumeOffset: ULONGLONG,
-            ExtentLength: ULONGLONG,
+            VolumeOffset: u64,
+            ExtentLength: u64,
         }
         const IOCTL_VOLUME_ALLOCATE_BC_STREAM: i32 = 5685312;
         const IOCTL_VOLUME_BC_VERSION: i32 = 1;
@@ -45,83 +45,83 @@ mod Windows {
         type PVOLUME_SET_GPT_ATTRIBUTES_INFORMATION = *mut VOLUME_SET_GPT_ATTRIBUTES_INFORMATION;
         type PVOLUME_SHRINK_INFO = *mut VOLUME_SHRINK_INFO;
         struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
-            Version: ULONG,
-            RequestsPerPeriod: ULONG,
-            Period: ULONG,
+            Version: u32,
+            RequestsPerPeriod: u32,
+            Period: u32,
             RetryFailures: BOOLEAN,
             Discardable: BOOLEAN,
             Reserved1: [BOOLEAN; 2],
-            LowestByteOffset: ULONGLONG,
-            HighestByteOffset: ULONGLONG,
-            AccessType: ULONG,
-            AccessMode: ULONG,
+            LowestByteOffset: u64,
+            HighestByteOffset: u64,
+            AccessType: u32,
+            AccessMode: u32,
         }
         struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
-            RequestSize: ULONGLONG,
-            NumOutStandingRequests: ULONG,
+            RequestSize: u64,
+            NumOutStandingRequests: u32,
         }
         struct VOLUME_ALLOCATION_HINT_INPUT {
-            ClusterSize: ULONG,
-            NumberOfClusters: ULONG,
-            StartingClusterNumber: LONGLONG,
+            ClusterSize: u32,
+            NumberOfClusters: u32,
+            StartingClusterNumber: i64,
         }
         struct VOLUME_ALLOCATION_HINT_OUTPUT {
-            Bitmap: [ULONG; 1],
+            Bitmap: [u32; 1],
         }
         struct VOLUME_CRITICAL_IO {
-            AccessType: ULONG,
-            ExtentsCount: ULONG,
+            AccessType: u32,
+            ExtentsCount: u32,
             Extents: [FILE_EXTENT; 1],
         }
         struct VOLUME_FAILOVER_SET {
-            NumberOfDisks: ULONG,
-            DiskNumbers: [ULONG; 1],
+            NumberOfDisks: u32,
+            DiskNumbers: [u32; 1],
         }
         struct VOLUME_GET_BC_PROPERTIES_INPUT {
-            Version: ULONG,
-            Reserved1: ULONG,
-            LowestByteOffset: ULONGLONG,
-            HighestByteOffset: ULONGLONG,
-            AccessType: ULONG,
-            AccessMode: ULONG,
+            Version: u32,
+            Reserved1: u32,
+            LowestByteOffset: u64,
+            HighestByteOffset: u64,
+            AccessType: u32,
+            AccessMode: u32,
         }
         struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
-            MaximumRequestsPerPeriod: ULONG,
-            MinimumPeriod: ULONG,
-            MaximumRequestSize: ULONGLONG,
-            EstimatedTimePerRequest: ULONG,
-            NumOutStandingRequests: ULONG,
-            RequestSize: ULONGLONG,
+            MaximumRequestsPerPeriod: u32,
+            MinimumPeriod: u32,
+            MaximumRequestSize: u64,
+            EstimatedTimePerRequest: u32,
+            NumOutStandingRequests: u32,
+            RequestSize: u64,
         }
         struct VOLUME_LOGICAL_OFFSET {
-            LogicalOffset: LONGLONG,
+            LogicalOffset: i64,
         }
         struct VOLUME_NUMBER {
-            VolumeNumber: ULONG,
-            VolumeManagerName: [WCHAR; 8],
+            VolumeNumber: u32,
+            VolumeManagerName: [u16; 8],
         }
         struct VOLUME_PHYSICAL_OFFSET {
-            DiskNumber: ULONG,
-            Offset: LONGLONG,
+            DiskNumber: u32,
+            Offset: i64,
         }
         struct VOLUME_PHYSICAL_OFFSETS {
-            NumberOfPhysicalOffsets: ULONG,
+            NumberOfPhysicalOffsets: u32,
             PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
         }
         struct VOLUME_READ_PLEX_INPUT {
             ByteOffset: LARGE_INTEGER,
-            Length: ULONG,
-            PlexNumber: ULONG,
+            Length: u32,
+            PlexNumber: u32,
         }
         struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
-            GptAttributes: ULONGLONG,
+            GptAttributes: u64,
             RevertOnClose: BOOLEAN,
             ApplyToAllConnectedVolumes: BOOLEAN,
-            Reserved1: USHORT,
-            Reserved2: ULONG,
+            Reserved1: u16,
+            Reserved2: u32,
         }
         struct VOLUME_SHRINK_INFO {
-            VolumeSize: ULONGLONG,
+            VolumeSize: u64,
         }
     }
 }

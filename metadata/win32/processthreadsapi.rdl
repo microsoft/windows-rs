@@ -2,161 +2,147 @@
 mod Windows {
     mod Win32 {
         struct APC_CALLBACK_DATA {
-            Parameter: ULONG_PTR,
+            Parameter: usize,
             ContextRecord: PCONTEXT,
-            Reserved0: ULONG_PTR,
-            Reserved1: ULONG_PTR,
+            Reserved0: usize,
+            Reserved1: usize,
         }
         struct APP_MEMORY_INFORMATION {
-            AvailableCommit: ULONG64,
-            PrivateCommitUsage: ULONG64,
-            PeakPrivateCommitUsage: ULONG64,
-            TotalCommitUsage: ULONG64,
+            AvailableCommit: u64,
+            PrivateCommitUsage: u64,
+            PeakPrivateCommitUsage: u64,
+            TotalCommitUsage: u64,
         }
-        #[library("KERNEL32.dll", import = "CreateProcessA")]
-        extern fn CreateProcess(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpApplicationName: LPCSTR, #[in] #[out] #[opt] lpCommandLine: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandles: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreationFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEnvironment: LPVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCurrentDirectory: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpStartupInfo: LPSTARTUPINFOA, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateProcessA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpApplicationName: LPCSTR, #[in] #[out] #[opt] lpCommandLine: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandles: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreationFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEnvironment: LPVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCurrentDirectory: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpStartupInfo: LPSTARTUPINFOA, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
-        #[library("ADVAPI32.dll", import = "CreateProcessAsUserA")]
-        extern fn CreateProcessAsUser(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpApplicationName: LPCSTR, #[in] #[out] #[opt] lpCommandLine: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandles: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreationFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEnvironment: LPVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCurrentDirectory: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpStartupInfo: LPSTARTUPINFOA, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
+        extern fn CreateProcessA(#[opt] lpApplicationName: PCSTR, #[in] #[out] #[opt] lpCommandLine: PSTR, #[opt] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, bInheritHandles: BOOL, dwCreationFlags: u32, #[in] #[opt] lpEnvironment: *mut void, #[opt] lpCurrentDirectory: PCSTR, lpStartupInfo: LPSTARTUPINFOA, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CreateProcessAsUserA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpApplicationName: LPCSTR, #[in] #[out] #[opt] lpCommandLine: LPSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandles: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreationFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEnvironment: LPVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCurrentDirectory: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpStartupInfo: LPSTARTUPINFOA, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
+        extern fn CreateProcessAsUserA(#[opt] hToken: HANDLE, #[opt] lpApplicationName: PCSTR, #[in] #[out] #[opt] lpCommandLine: PSTR, #[opt] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, bInheritHandles: BOOL, dwCreationFlags: u32, #[in] #[opt] lpEnvironment: *mut void, #[opt] lpCurrentDirectory: PCSTR, lpStartupInfo: LPSTARTUPINFOA, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CreateProcessAsUserW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpApplicationName: LPCWSTR, #[in] #[out] #[opt] lpCommandLine: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandles: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreationFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEnvironment: LPVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCurrentDirectory: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpStartupInfo: LPSTARTUPINFOW, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
+        extern fn CreateProcessAsUserW(#[opt] hToken: HANDLE, #[opt] lpApplicationName: PCWSTR, #[in] #[out] #[opt] lpCommandLine: PWSTR, #[opt] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, bInheritHandles: BOOL, dwCreationFlags: u32, #[in] #[opt] lpEnvironment: *mut void, #[opt] lpCurrentDirectory: PCWSTR, lpStartupInfo: LPSTARTUPINFOW, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateProcessW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpApplicationName: LPCWSTR, #[in] #[out] #[opt] lpCommandLine: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandles: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreationFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEnvironment: LPVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCurrentDirectory: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpStartupInfo: LPSTARTUPINFOW, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CreateProcessW(#[opt] lpApplicationName: PCWSTR, #[in] #[out] #[opt] lpCommandLine: PWSTR, #[opt] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, bInheritHandles: BOOL, dwCreationFlags: u32, #[in] #[opt] lpEnvironment: *mut void, #[opt] lpCurrentDirectory: PCWSTR, lpStartupInfo: LPSTARTUPINFOW, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateRemoteThread(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStackSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpParameter: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreationFlags: DWORD, #[out] #[opt] lpThreadId: LPDWORD) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CreateRemoteThread(hProcess: HANDLE, #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, dwStackSize: usize, lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[opt] lpParameter: *mut void, dwCreationFlags: u32, #[out] #[opt] lpThreadId: LPDWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateRemoteThreadEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStackSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpParameter: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreationFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, #[out] #[opt] lpThreadId: LPDWORD) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CreateRemoteThreadEx(hProcess: HANDLE, #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, dwStackSize: usize, lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[opt] lpParameter: *mut void, dwCreationFlags: u32, #[opt] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, #[out] #[opt] lpThreadId: LPDWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateThread(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStackSize: SIZE_T, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpStartAddress: LPTHREAD_START_ROUTINE, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpParameter: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCreationFlags: DWORD, #[out] #[opt] lpThreadId: LPDWORD) -> HANDLE;
+        extern fn CreateThread(#[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, dwStackSize: usize, lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[opt] lpParameter: *mut void, dwCreationFlags: u32, #[out] #[opt] lpThreadId: LPDWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
         extern fn DeleteProcThreadAttributeList(#[in] #[out] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST);
         #[noreturn]
         #[library("KERNEL32.dll")]
-        extern fn ExitProcess(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uExitCode: UINT);
+        extern fn ExitProcess(uExitCode: u32);
         #[noreturn]
         #[library("KERNEL32.dll")]
-        extern fn ExitThread(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwExitCode: DWORD);
+        extern fn ExitThread(dwExitCode: u32);
         #[library("KERNEL32.dll")]
-        extern fn FlushInstructionCache(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lpBaseAddress: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: SIZE_T) -> BOOL;
+        extern fn FlushInstructionCache(hProcess: HANDLE, #[size_param(2)] #[opt] lpBaseAddress: LPCVOID, dwSize: usize) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn FlushProcessWriteBuffers();
         #[library("KERNEL32.dll")]
         extern fn GetCurrentProcess() -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentProcessId() -> DWORD;
+        extern fn GetCurrentProcessId() -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentProcessorNumber() -> DWORD;
+        extern fn GetCurrentProcessorNumber() -> u32;
         #[library("KERNEL32.dll")]
         extern fn GetCurrentProcessorNumberEx(#[out] ProcNumber: PPROCESSOR_NUMBER);
         #[library("KERNEL32.dll")]
         extern fn GetCurrentThread() -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentThreadId() -> DWORD;
+        extern fn GetCurrentThreadId() -> u32;
         #[library("KERNEL32.dll")]
         extern fn GetCurrentThreadStackLimits(#[out] LowLimit: PULONG_PTR, #[out] HighLimit: PULONG_PTR);
         #[library("KERNEL32.dll")]
-        extern fn GetExitCodeProcess(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] lpExitCode: LPDWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn GetExitCodeProcess(hProcess: HANDLE, #[out] lpExitCode: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetExitCodeThread(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[out] lpExitCode: LPDWORD) -> BOOL;
+        extern fn GetExitCodeThread(hThread: HANDLE, #[out] lpExitCode: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetMachineTypeAttributes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Machine: USHORT, #[out] MachineTypeAttributes: *mut MACHINE_ATTRIBUTES) -> HRESULT;
+        extern fn GetMachineTypeAttributes(Machine: u16, MachineTypeAttributes: *mut MACHINE_ATTRIBUTES) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn GetPriorityClass(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn GetPriorityClass(hProcess: HANDLE) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessDefaultCpuSetMasks(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[out] #[opt] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] CpuSetMasks: PGROUP_AFFINITY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CpuSetMaskCount: USHORT, #[out] RequiredMaskCount: PUSHORT) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn GetProcessDefaultCpuSetMasks(Process: HANDLE, #[len_param(2)] #[out] #[opt] CpuSetMasks: PGROUP_AFFINITY, CpuSetMaskCount: u16, #[out] RequiredMaskCount: PUSHORT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessDefaultCpuSets(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[out] #[opt] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] CpuSetIds: PULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CpuSetIdCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Out_", "_Out_")] RequiredIdCount: PULONG) -> BOOL;
+        extern fn GetProcessDefaultCpuSets(Process: HANDLE, #[len_param(2)] #[out] #[opt] CpuSetIds: PULONG, CpuSetIdCount: u32, RequiredIdCount: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessHandleCount(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] pdwHandleCount: PDWORD) -> BOOL;
+        extern fn GetProcessHandleCount(hProcess: HANDLE, #[out] pdwHandleCount: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE) -> DWORD;
+        extern fn GetProcessId(Process: HANDLE) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessIdOfThread(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Thread: HANDLE) -> DWORD;
+        extern fn GetProcessIdOfThread(Thread: HANDLE) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProcessInformationClass: PROCESS_INFORMATION_CLASS, #[out] #[size_param(3)] ProcessInformation: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProcessInformationSize: DWORD) -> BOOL;
+        extern fn GetProcessInformation(hProcess: HANDLE, ProcessInformationClass: PROCESS_INFORMATION_CLASS, #[size_param(3)] ProcessInformation: *mut void, ProcessInformationSize: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessMitigationPolicy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MitigationPolicy: PROCESS_MITIGATION_POLICY, #[out] #[size_param(3)] lpBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLength: SIZE_T) -> BOOL;
+        extern fn GetProcessMitigationPolicy(hProcess: HANDLE, MitigationPolicy: PROCESS_MITIGATION_POLICY, #[size_param(3)] lpBuffer: *mut void, dwLength: usize) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessPriorityBoost(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] pDisablePriorityBoost: PBOOL) -> BOOL;
+        extern fn GetProcessPriorityBoost(hProcess: HANDLE, #[out] pDisablePriorityBoost: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetProcessShutdownParameters(#[out] lpdwLevel: LPDWORD, #[out] lpdwFlags: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessTimes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] lpCreationTime: LPFILETIME, #[out] lpExitTime: LPFILETIME, #[out] lpKernelTime: LPFILETIME, #[out] lpUserTime: LPFILETIME) -> BOOL;
+        extern fn GetProcessTimes(hProcess: HANDLE, #[out] lpCreationTime: LPFILETIME, #[out] lpExitTime: LPFILETIME, #[out] lpKernelTime: LPFILETIME, #[out] lpUserTime: LPFILETIME) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessVersion(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProcessId: DWORD) -> DWORD;
+        extern fn GetProcessVersion(ProcessId: u32) -> u32;
         #[library("KERNEL32.dll")]
         extern fn GetStartupInfoW(#[out] lpStartupInfo: LPSTARTUPINFOW);
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
         #[library("KERNEL32.dll")]
-        extern fn GetSystemCpuSetInformation(#[out] #[opt] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] Information: PSYSTEM_CPU_SET_INFORMATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferLength: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Out_", "_Out_")] ReturnedLength: PULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[reserved] Flags: ULONG) -> BOOL;
+        extern fn GetSystemCpuSetInformation(#[size_param(1)] #[out] #[opt] Information: PSYSTEM_CPU_SET_INFORMATION, BufferLength: u32, ReturnedLength: PULONG, #[opt] Process: HANDLE, #[reserved] Flags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetSystemTimes(#[out] #[opt] lpIdleTime: PFILETIME, #[out] #[opt] lpKernelTime: PFILETIME, #[out] #[opt] lpUserTime: PFILETIME) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[out] lpContext: LPCONTEXT) -> BOOL;
+        extern fn GetThreadContext(hThread: HANDLE, #[in] #[out] lpContext: LPCONTEXT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadDescription(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_z_", "", "")] ppszThreadDescription: *mut PWSTR) -> HRESULT;
+        extern fn GetThreadDescription(hThread: HANDLE, ppszThreadDescription: *mut PWSTR) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadIOPendingFlag(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[out] lpIOIsPending: PBOOL) -> BOOL;
+        extern fn GetThreadIOPendingFlag(hThread: HANDLE, #[out] lpIOIsPending: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Thread: HANDLE) -> DWORD;
+        extern fn GetThreadId(Thread: HANDLE) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadIdealProcessorEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[out] lpIdealProcessor: PPROCESSOR_NUMBER) -> BOOL;
+        extern fn GetThreadIdealProcessorEx(hThread: HANDLE, #[out] lpIdealProcessor: PPROCESSOR_NUMBER) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ThreadInformationClass: THREAD_INFORMATION_CLASS, #[out] #[size_param(3)] ThreadInformation: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ThreadInformationSize: DWORD) -> BOOL;
+        extern fn GetThreadInformation(hThread: HANDLE, ThreadInformationClass: THREAD_INFORMATION_CLASS, #[size_param(3)] ThreadInformation: *mut void, ThreadInformationSize: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadPriority(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE) -> i32;
+        extern fn GetThreadPriority(hThread: HANDLE) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadPriorityBoost(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[out] pDisablePriorityBoost: PBOOL) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn GetThreadPriorityBoost(hThread: HANDLE, #[out] pDisablePriorityBoost: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadSelectedCpuSetMasks(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Thread: HANDLE, #[out] #[opt] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] CpuSetMasks: PGROUP_AFFINITY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CpuSetMaskCount: USHORT, #[out] RequiredMaskCount: PUSHORT) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn GetThreadSelectedCpuSetMasks(Thread: HANDLE, #[len_param(2)] #[out] #[opt] CpuSetMasks: PGROUP_AFFINITY, CpuSetMaskCount: u16, #[out] RequiredMaskCount: PUSHORT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadSelectedCpuSets(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Thread: HANDLE, #[out] #[opt] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] CpuSetIds: PULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CpuSetIdCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Out_", "_Out_")] RequiredIdCount: PULONG) -> BOOL;
+        extern fn GetThreadSelectedCpuSets(Thread: HANDLE, #[len_param(2)] #[out] #[opt] CpuSetIds: PULONG, CpuSetIdCount: u32, RequiredIdCount: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadTimes(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[out] lpCreationTime: LPFILETIME, #[out] lpExitTime: LPFILETIME, #[out] lpKernelTime: LPFILETIME, #[out] lpUserTime: LPFILETIME) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn GetThreadTimes(hThread: HANDLE, #[out] lpCreationTime: LPFILETIME, #[out] lpExitTime: LPFILETIME, #[out] lpKernelTime: LPFILETIME, #[out] lpUserTime: LPFILETIME) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn InitializeProcThreadAttributeList(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*lpSize,*lpSize", "*lpSize,*lpSize")] #[out] #[opt] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAttributeCount: DWORD, #[reserved] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpAttributeList != nullptr,_Inout_", "lpAttributeList != nullptr, _Inout_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpAttributeList == nullptr,_Out_", "lpAttributeList == nullptr, _Out_")] lpSize: PSIZE_T) -> BOOL;
+        extern fn InitializeProcThreadAttributeList(#[size_param(3)] #[out] #[opt] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, dwAttributeCount: u32, #[reserved] dwFlags: u32, lpSize: PSIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn IsProcessCritical(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] Critical: PBOOL) -> BOOL;
+        extern fn IsProcessCritical(hProcess: HANDLE, #[out] Critical: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn IsProcessorFeaturePresent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProcessorFeature: DWORD) -> BOOL;
+        extern fn IsProcessorFeaturePresent(ProcessorFeature: u32) -> BOOL;
         type LPPROCESS_INFORMATION = *mut PROCESS_INFORMATION;
-        type LPPROC_THREAD_ATTRIBUTE_LIST = *mut _PROC_THREAD_ATTRIBUTE_LIST;
-        type LPSTARTUPINFO = *mut STARTUPINFOA;
+        type LPPROC_THREAD_ATTRIBUTE_LIST = *mut PROC_THREAD_ATTRIBUTE_LIST;
+        type LPSTARTUPINFO = LPSTARTUPINFOA;
         type LPSTARTUPINFOA = *mut STARTUPINFOA;
         type LPSTARTUPINFOW = *mut STARTUPINFOW;
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum MACHINE_ATTRIBUTES {
             UserEnabled = 1,
             KernelEnabled = 2,
             Wow64Container = 4,
         }
         struct MEMORY_PRIORITY_INFORMATION {
-            MemoryPriority: ULONG,
+            MemoryPriority: u32,
         }
         struct OVERRIDE_PREFETCH_PARAMETER {
-            Value: UINT32,
+            Value: u32,
         }
         #[library("KERNEL32.dll")]
-        extern fn OpenProcess(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandle: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProcessId: DWORD) -> HANDLE;
+        extern fn OpenProcess(dwDesiredAccess: u32, bInheritHandle: BOOL, dwProcessId: u32) -> HANDLE;
         #[library("ADVAPI32.dll")]
-        extern fn OpenProcessToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProcessHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredAccess: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] TokenHandle: PHANDLE) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn OpenProcessToken(ProcessHandle: HANDLE, DesiredAccess: u32, TokenHandle: PHANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn OpenThread(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandle: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwThreadId: DWORD) -> HANDLE;
+        extern fn OpenThread(dwDesiredAccess: u32, bInheritHandle: BOOL, dwThreadId: u32) -> HANDLE;
         #[library("ADVAPI32.dll")]
-        extern fn OpenThreadToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ThreadHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OpenAsSelf: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] TokenHandle: PHANDLE) -> BOOL;
+        extern fn OpenThreadToken(ThreadHandle: HANDLE, DesiredAccess: u32, OpenAsSelf: BOOL, TokenHandle: PHANDLE) -> BOOL;
         type PAPC_CALLBACK_DATA = *mut APC_CALLBACK_DATA;
         type PAPP_MEMORY_INFORMATION = *mut APP_MEMORY_INFORMATION;
         type PMEMORY_PRIORITY_INFORMATION = *mut MEMORY_PRIORITY_INFORMATION;
@@ -168,13 +154,13 @@ mod Windows {
         type PPROCESS_MEMORY_EXHAUSTION_INFO = *mut PROCESS_MEMORY_EXHAUSTION_INFO;
         type PPROCESS_MEMORY_EXHAUSTION_TYPE = *mut PROCESS_MEMORY_EXHAUSTION_TYPE;
         type PPROCESS_POWER_THROTTLING_STATE = *mut PROCESS_POWER_THROTTLING_STATE;
-        type PPROC_THREAD_ATTRIBUTE_LIST = *mut _PROC_THREAD_ATTRIBUTE_LIST;
+        type PPROC_THREAD_ATTRIBUTE_LIST = *mut PROC_THREAD_ATTRIBUTE_LIST;
         const PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: u32 = 1;
         struct PROCESS_INFORMATION {
             hProcess: HANDLE,
             hThread: HANDLE,
-            dwProcessId: DWORD,
-            dwThreadId: DWORD,
+            dwProcessId: u32,
+            dwThreadId: u32,
         }
         #[repr(i32)]
         enum PROCESS_INFORMATION_CLASS {
@@ -193,21 +179,21 @@ mod Windows {
             ProcessInformationClassMax = 12,
         }
         struct PROCESS_LEAP_SECOND_INFO {
-            Flags: ULONG,
-            Reserved: ULONG,
+            Flags: u32,
+            Reserved: u32,
         }
         const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: i32 = 1;
         const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: i32 = 1;
         struct PROCESS_MACHINE_INFORMATION {
-            ProcessMachine: USHORT,
-            Res0: USHORT,
+            ProcessMachine: u16,
+            Res0: u16,
             MachineAttributes: MACHINE_ATTRIBUTES,
         }
         struct PROCESS_MEMORY_EXHAUSTION_INFO {
-            Version: USHORT,
-            Reserved: USHORT,
+            Version: u16,
+            Reserved: u16,
             Type: PROCESS_MEMORY_EXHAUSTION_TYPE,
-            Value: ULONG_PTR,
+            Value: usize,
         }
         #[repr(i32)]
         enum PROCESS_MEMORY_EXHAUSTION_TYPE {
@@ -218,17 +204,18 @@ mod Windows {
         const PROCESS_POWER_THROTTLING_EXECUTION_SPEED: i32 = 1;
         const PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: i32 = 4;
         struct PROCESS_POWER_THROTTLING_STATE {
-            Version: ULONG,
-            ControlMask: ULONG,
-            StateMask: ULONG,
+            Version: u32,
+            ControlMask: u32,
+            StateMask: u32,
         }
         const PROCESS_POWER_THROTTLING_VALID_FLAGS: i32 = 5;
         struct PROCESS_PROTECTION_LEVEL_INFORMATION {
-            ProtectionLevel: DWORD,
+            ProtectionLevel: u32,
         }
+        struct PROC_THREAD_ATTRIBUTE_LIST {}
         const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: i32 = 1;
         #[library("KERNEL32.dll")]
-        extern fn ProcessIdToSessionId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProcessId: DWORD, #[out] pSessionId: *mut DWORD) -> BOOL;
+        extern fn ProcessIdToSessionId(dwProcessId: u32, pSessionId: *mut u32) -> BOOL;
         #[repr(i32)]
         enum QUEUE_USER_APC_FLAGS {
             QUEUE_USER_APC_FLAGS_NONE = 0,
@@ -236,107 +223,102 @@ mod Windows {
             QUEUE_USER_APC_CALLBACK_DATA_CONTEXT = 65536,
         }
         #[library("KERNEL32.dll")]
-        extern fn QueryProcessAffinityUpdateMode(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[opt] lpdwFlags: LPDWORD) -> BOOL;
+        extern fn QueryProcessAffinityUpdateMode(hProcess: HANDLE, #[out] #[opt] lpdwFlags: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn QueryProtectedPolicy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyGuid: LPCGUID, #[out] PolicyValue: PULONG_PTR) -> BOOL;
+        extern fn QueryProtectedPolicy(PolicyGuid: LPCGUID, #[out] PolicyValue: PULONG_PTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn QueueUserAPC(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnAPC: PAPCFUNC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwData: ULONG_PTR) -> DWORD;
+        extern fn QueueUserAPC(pfnAPC: PAPCFUNC, hThread: HANDLE, dwData: usize) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn QueueUserAPC2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ApcRoutine: PAPCFUNC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Thread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Data: ULONG_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: QUEUE_USER_APC_FLAGS) -> BOOL;
+        extern fn QueueUserAPC2(ApcRoutine: PAPCFUNC, Thread: HANDLE, Data: usize, Flags: QUEUE_USER_APC_FLAGS) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ResumeThread(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE) -> DWORD;
+        extern fn ResumeThread(hThread: HANDLE) -> u32;
         type STARTUPINFO = STARTUPINFOA;
         struct STARTUPINFOA {
-            cb: DWORD,
-            lpReserved: LPSTR,
-            lpDesktop: LPSTR,
-            lpTitle: LPSTR,
-            dwX: DWORD,
-            dwY: DWORD,
-            dwXSize: DWORD,
-            dwYSize: DWORD,
-            dwXCountChars: DWORD,
-            dwYCountChars: DWORD,
-            dwFillAttribute: DWORD,
-            dwFlags: DWORD,
-            wShowWindow: WORD,
-            cbReserved2: WORD,
+            cb: u32,
+            lpReserved: PSTR,
+            lpDesktop: PSTR,
+            lpTitle: PSTR,
+            dwX: u32,
+            dwY: u32,
+            dwXSize: u32,
+            dwYSize: u32,
+            dwXCountChars: u32,
+            dwYCountChars: u32,
+            dwFillAttribute: u32,
+            dwFlags: u32,
+            wShowWindow: u16,
+            cbReserved2: u16,
             lpReserved2: LPBYTE,
             hStdInput: HANDLE,
             hStdOutput: HANDLE,
             hStdError: HANDLE,
         }
         struct STARTUPINFOW {
-            cb: DWORD,
-            lpReserved: LPWSTR,
-            lpDesktop: LPWSTR,
-            lpTitle: LPWSTR,
-            dwX: DWORD,
-            dwY: DWORD,
-            dwXSize: DWORD,
-            dwYSize: DWORD,
-            dwXCountChars: DWORD,
-            dwYCountChars: DWORD,
-            dwFillAttribute: DWORD,
-            dwFlags: DWORD,
-            wShowWindow: WORD,
-            cbReserved2: WORD,
+            cb: u32,
+            lpReserved: PWSTR,
+            lpDesktop: PWSTR,
+            lpTitle: PWSTR,
+            dwX: u32,
+            dwY: u32,
+            dwXSize: u32,
+            dwYSize: u32,
+            dwXCountChars: u32,
+            dwYCountChars: u32,
+            dwFillAttribute: u32,
+            dwFlags: u32,
+            wShowWindow: u16,
+            cbReserved2: u16,
             lpReserved2: LPBYTE,
             hStdInput: HANDLE,
             hStdOutput: HANDLE,
             hStdError: HANDLE,
         }
         #[library("KERNEL32.dll")]
-        extern fn SetPriorityClass(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPriorityClass: DWORD) -> BOOL;
+        extern fn SetPriorityClass(hProcess: HANDLE, dwPriorityClass: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProcessAffinityUpdateMode(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn SetProcessAffinityUpdateMode(hProcess: HANDLE, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProcessDefaultCpuSetMasks(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] CpuSetMasks: PGROUP_AFFINITY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CpuSetMaskCount: USHORT) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn SetProcessDefaultCpuSetMasks(Process: HANDLE, #[len_param(2)] #[opt] CpuSetMasks: PGROUP_AFFINITY, CpuSetMaskCount: u16) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProcessDefaultCpuSets(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] CpuSetIds: *const ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CpuSetIdCount: ULONG) -> BOOL;
+        extern fn SetProcessDefaultCpuSets(Process: HANDLE, #[len_param(2)] #[opt] CpuSetIds: *const u32, CpuSetIdCount: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProcessDynamicEHContinuationTargets(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumberOfTargets: USHORT, #[in] #[out] #[len_param(1)] Targets: PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> BOOL;
+        extern fn SetProcessDynamicEHContinuationTargets(Process: HANDLE, NumberOfTargets: u16, #[len_param(1)] #[in] #[out] Targets: PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProcessDynamicEnforcedCetCompatibleRanges(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Process: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumberOfRanges: USHORT, #[in] #[out] #[len_param(1)] Ranges: PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE) -> BOOL;
+        extern fn SetProcessDynamicEnforcedCetCompatibleRanges(Process: HANDLE, NumberOfRanges: u16, #[len_param(1)] #[in] #[out] Ranges: PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProcessInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProcessInformationClass: PROCESS_INFORMATION_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] ProcessInformation: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProcessInformationSize: DWORD) -> BOOL;
+        extern fn SetProcessInformation(hProcess: HANDLE, ProcessInformationClass: PROCESS_INFORMATION_CLASS, #[size_param(3)] #[in] ProcessInformation: *mut void, ProcessInformationSize: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProcessMitigationPolicy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MitigationPolicy: PROCESS_MITIGATION_POLICY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lpBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLength: SIZE_T) -> BOOL;
+        extern fn SetProcessMitigationPolicy(MitigationPolicy: PROCESS_MITIGATION_POLICY, #[size_param(2)] #[in] lpBuffer: *mut void, dwLength: usize) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProcessPriorityBoost(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bDisablePriorityBoost: BOOL) -> BOOL;
+        extern fn SetProcessPriorityBoost(hProcess: HANDLE, bDisablePriorityBoost: BOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProcessShutdownParameters(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLevel: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn SetProcessShutdownParameters(dwLevel: u32, dwFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProtectedPolicy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyGuid: LPCGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyValue: ULONG_PTR, #[out] #[opt] OldPolicyValue: PULONG_PTR) -> BOOL;
+        extern fn SetProtectedPolicy(PolicyGuid: LPCGUID, PolicyValue: usize, #[out] #[opt] OldPolicyValue: PULONG_PTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpContext: *const CONTEXT) -> BOOL;
+        extern fn SetThreadContext(hThread: HANDLE, lpContext: *const CONTEXT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadDescription(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpThreadDescription: PCWSTR) -> HRESULT;
+        extern fn SetThreadDescription(hThread: HANDLE, lpThreadDescription: PCWSTR) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadIdealProcessor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIdealProcessor: DWORD) -> DWORD;
+        extern fn SetThreadIdealProcessor(hThread: HANDLE, dwIdealProcessor: u32) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadIdealProcessorEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpIdealProcessor: PPROCESSOR_NUMBER, #[out] #[opt] lpPreviousIdealProcessor: PPROCESSOR_NUMBER) -> BOOL;
+        extern fn SetThreadIdealProcessorEx(hThread: HANDLE, lpIdealProcessor: PPROCESSOR_NUMBER, #[out] #[opt] lpPreviousIdealProcessor: PPROCESSOR_NUMBER) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ThreadInformationClass: THREAD_INFORMATION_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] ThreadInformation: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ThreadInformationSize: DWORD) -> BOOL;
+        extern fn SetThreadInformation(hThread: HANDLE, ThreadInformationClass: THREAD_INFORMATION_CLASS, #[size_param(3)] #[in] ThreadInformation: *mut void, ThreadInformationSize: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadPriority(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nPriority: i32) -> BOOL;
+        extern fn SetThreadPriority(hThread: HANDLE, nPriority: i32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadPriorityBoost(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bDisablePriorityBoost: BOOL) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn SetThreadPriorityBoost(hThread: HANDLE, bDisablePriorityBoost: BOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadSelectedCpuSetMasks(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Thread: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] CpuSetMasks: PGROUP_AFFINITY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CpuSetMaskCount: USHORT) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn SetThreadSelectedCpuSetMasks(Thread: HANDLE, #[len_param(2)] #[opt] CpuSetMasks: PGROUP_AFFINITY, CpuSetMaskCount: u16) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadSelectedCpuSets(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Thread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] CpuSetIds: *const ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CpuSetIdCount: ULONG) -> BOOL;
+        extern fn SetThreadSelectedCpuSets(Thread: HANDLE, #[len_param(2)] CpuSetIds: *const u32, CpuSetIdCount: u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetThreadStackGuarantee(#[in] #[out] StackSizeInBytes: PULONG) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("ADVAPI32.dll")]
-        extern fn SetThreadToken(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Thread: PHANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Token: HANDLE) -> BOOL;
+        extern fn SetThreadToken(#[opt] Thread: PHANDLE, #[opt] Token: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SuspendThread(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE) -> DWORD;
+        extern fn SuspendThread(hThread: HANDLE) -> u32;
         #[library("KERNEL32.dll")]
         extern fn SwitchToThread() -> BOOL;
         #[repr(i32)]
@@ -350,29 +332,27 @@ mod Windows {
         const THREAD_POWER_THROTTLING_CURRENT_VERSION: i32 = 1;
         const THREAD_POWER_THROTTLING_EXECUTION_SPEED: i32 = 1;
         struct THREAD_POWER_THROTTLING_STATE {
-            Version: ULONG,
-            ControlMask: ULONG,
-            StateMask: ULONG,
+            Version: u32,
+            ControlMask: u32,
+            StateMask: u32,
         }
         const THREAD_POWER_THROTTLING_VALID_FLAGS: i32 = 1;
-        const TLS_OUT_OF_INDEXES: DWORD = 4294967295;
+        const TLS_OUT_OF_INDEXES: u32 = 4294967295;
         #[library("KERNEL32.dll")]
-        extern fn TerminateProcess(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uExitCode: UINT) -> BOOL;
+        extern fn TerminateProcess(hProcess: HANDLE, uExitCode: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn TerminateThread(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwExitCode: DWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn TerminateThread(hThread: HANDLE, dwExitCode: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn TlsAlloc() -> DWORD;
+        extern fn TlsAlloc() -> u32;
         #[library("KERNEL32.dll")]
-        extern fn TlsFree(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTlsIndex: DWORD) -> BOOL;
+        extern fn TlsFree(dwTlsIndex: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn TlsGetValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTlsIndex: DWORD) -> LPVOID;
+        extern fn TlsGetValue(dwTlsIndex: u32) -> *mut void;
         #[library("KERNEL32.dll")]
-        extern fn TlsGetValue2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTlsIndex: DWORD) -> LPVOID;
+        extern fn TlsGetValue2(dwTlsIndex: u32) -> *mut void;
         #[library("KERNEL32.dll")]
-        extern fn TlsSetValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTlsIndex: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTlsValue: LPVOID) -> BOOL;
+        extern fn TlsSetValue(dwTlsIndex: u32, #[in] #[opt] lpTlsValue: *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn UpdateProcThreadAttribute(#[in] #[out] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Attribute: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] lpValue: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSize: SIZE_T, #[out] #[opt] #[size_param(4)] lpPreviousValue: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpReturnSize: PSIZE_T) -> BOOL;
-        struct _PROC_THREAD_ATTRIBUTE_LIST {}
+        extern fn UpdateProcThreadAttribute(#[in] #[out] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, dwFlags: u32, Attribute: usize, #[size_param(4)] #[in] #[opt] lpValue: *mut void, cbSize: usize, #[size_param(4)] #[opt] lpPreviousValue: *mut void, #[opt] lpReturnSize: PSIZE_T) -> BOOL;
     }
 }

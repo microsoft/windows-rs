@@ -614,7 +614,7 @@ fn replacement_discards_observations_and_events_from_the_old_native_object() {
     runtime
         .update(Grid::new().keyed_children([keyed(
             "child",
-            TextBox::new("Old").on_text_changed(callback.clone()),
+            TextBox::new().text("Old").on_text_changed(callback.clone()),
         )]))
         .unwrap();
     let root = runtime.graph().root().unwrap();

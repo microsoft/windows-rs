@@ -3,60 +3,60 @@ mod Windows {
     mod Win32 {
         #[guid(0xd5fb0a7f_e74e_44f5_8e02_4806863a274f)]
         interface ILocationPermissions: IUnknown {
-            fn GetGlobalLocationPermission(&self, #[out] pfEnabled: *mut BOOL) -> HRESULT;
-            fn CheckLocationCapability(&self, dwClientThreadId: DWORD) -> HRESULT;
+            fn GetGlobalLocationPermission(&self, pfEnabled: *mut BOOL) -> HRESULT;
+            fn CheckLocationCapability(&self, dwClientThreadId: u32) -> HRESULT;
         }
         #[guid(0x5fa08f80_2657_458e_af75_46f73fa6ac5c)]
         interface ISensor: IUnknown {
-            fn GetID(&self, #[out] pID: *mut SENSOR_ID) -> HRESULT;
-            fn GetCategory(&self, #[out] pSensorCategory: *mut SENSOR_CATEGORY_ID) -> HRESULT;
-            fn GetType(&self, #[out] pSensorType: *mut SENSOR_TYPE_ID) -> HRESULT;
-            fn GetFriendlyName(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pFriendlyName: *mut BSTR) -> HRESULT;
-            fn GetProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] pProperty: *mut PROPVARIANT) -> HRESULT;
-            fn GetProperties(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pKeys: IPortableDeviceKeyCollection, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppProperties: *mut IPortableDeviceValues) -> HRESULT;
-            fn GetSupportedDataFields(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDataFields: *mut IPortableDeviceKeyCollection) -> HRESULT;
-            fn SetProperties(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pProperties: IPortableDeviceValues, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResults: *mut IPortableDeviceValues) -> HRESULT;
-            fn SupportsDataField(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] pIsSupported: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetState(&self, #[out] pState: *mut SensorState) -> HRESULT;
-            fn GetData(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppDataReport: *mut ISensorDataReport) -> HRESULT;
-            fn SupportsEvent(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] eventGuid: &GUID, #[out] pIsSupported: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetEventInterest(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*pCount", "*pCount")] ppValues: *mut *mut GUID, #[out] pCount: *mut ULONG) -> HRESULT;
-            fn SetEventInterest(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] pValues: *mut GUID, count: ULONG) -> HRESULT;
-            fn SetEventSink(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pEvents: ISensorEvents) -> HRESULT;
+            fn GetID(&self, pID: *mut SENSOR_ID) -> HRESULT;
+            fn GetCategory(&self, pSensorCategory: *mut SENSOR_CATEGORY_ID) -> HRESULT;
+            fn GetType(&self, pSensorType: *mut SENSOR_TYPE_ID) -> HRESULT;
+            fn GetFriendlyName(&self, pFriendlyName: *mut BSTR) -> HRESULT;
+            fn GetProperty(&self, key: *const PROPERTYKEY, pProperty: *mut PROPVARIANT) -> HRESULT;
+            fn GetProperties(&self, pKeys: IPortableDeviceKeyCollection, ppProperties: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetSupportedDataFields(&self, ppDataFields: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn SetProperties(&self, pProperties: IPortableDeviceValues, ppResults: *mut IPortableDeviceValues) -> HRESULT;
+            fn SupportsDataField(&self, key: *const PROPERTYKEY, pIsSupported: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetState(&self, pState: *mut SensorState) -> HRESULT;
+            fn GetData(&self, ppDataReport: *mut ISensorDataReport) -> HRESULT;
+            fn SupportsEvent(&self, eventGuid: *const GUID, pIsSupported: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetEventInterest(&self, ppValues: *mut *mut GUID, pCount: *mut u32) -> HRESULT;
+            fn SetEventInterest(&self, #[in] pValues: *mut GUID, count: u32) -> HRESULT;
+            fn SetEventSink(&self, pEvents: ISensorEvents) -> HRESULT;
         }
         #[guid(0x23571e11_e545_4dd8_a337_b89bf44b10df)]
         interface ISensorCollection: IUnknown {
-            fn GetAt(&self, ulIndex: ULONG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSensor: *mut ISensor) -> HRESULT;
-            fn GetCount(&self, #[out] pCount: *mut ULONG) -> HRESULT;
-            fn Add(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pSensor: ISensor) -> HRESULT;
-            fn Remove(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pSensor: ISensor) -> HRESULT;
-            fn RemoveByID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] sensorID: &GUID) -> HRESULT;
+            fn GetAt(&self, ulIndex: u32, ppSensor: *mut ISensor) -> HRESULT;
+            fn GetCount(&self, pCount: *mut u32) -> HRESULT;
+            fn Add(&self, pSensor: ISensor) -> HRESULT;
+            fn Remove(&self, pSensor: ISensor) -> HRESULT;
+            fn RemoveByID(&self, sensorID: REFSENSOR_ID) -> HRESULT;
             fn Clear(&self) -> HRESULT;
         }
         #[guid(0x0ab9df9b_c4b5_4796_8898_0470706a2e1d)]
         interface ISensorDataReport: IUnknown {
-            fn GetTimestamp(&self, #[out] pTimeStamp: *mut SYSTEMTIME) -> HRESULT;
-            fn GetSensorValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pKey: &PROPERTYKEY, #[out] pValue: *mut PROPVARIANT) -> HRESULT;
-            fn GetSensorValues(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pKeys: IPortableDeviceKeyCollection, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppValues: *mut IPortableDeviceValues) -> HRESULT;
+            fn GetTimestamp(&self, pTimeStamp: *mut SYSTEMTIME) -> HRESULT;
+            fn GetSensorValue(&self, pKey: *const PROPERTYKEY, pValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetSensorValues(&self, pKeys: IPortableDeviceKeyCollection, ppValues: *mut IPortableDeviceValues) -> HRESULT;
         }
         #[guid(0x5d8dcc91_4641_47e7_b7c3_b74f48a6c391)]
         interface ISensorEvents: IUnknown {
-            fn OnStateChanged(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pSensor: ISensor, state: SensorState) -> HRESULT;
-            fn OnDataUpdated(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pSensor: ISensor, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pNewData: ISensorDataReport) -> HRESULT;
-            fn OnEvent(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pSensor: ISensor, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] eventID: &GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pEventData: IPortableDeviceValues) -> HRESULT;
-            fn OnLeave(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] ID: &GUID) -> HRESULT;
+            fn OnStateChanged(&self, pSensor: ISensor, state: SensorState) -> HRESULT;
+            fn OnDataUpdated(&self, pSensor: ISensor, pNewData: ISensorDataReport) -> HRESULT;
+            fn OnEvent(&self, pSensor: ISensor, eventID: *const GUID, pEventData: IPortableDeviceValues) -> HRESULT;
+            fn OnLeave(&self, ID: REFSENSOR_ID) -> HRESULT;
         }
         #[guid(0xbd77db67_45a8_42dc_8d00_6dcf15f8377a)]
         interface ISensorManager: IUnknown {
-            fn GetSensorsByCategory(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] sensorCategory: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSensorsFound: *mut ISensorCollection) -> HRESULT;
-            fn GetSensorsByType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] sensorType: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSensorsFound: *mut ISensorCollection) -> HRESULT;
-            fn GetSensorByID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] sensorID: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSensor: *mut ISensor) -> HRESULT;
-            fn SetEventSink(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pEvents: ISensorManagerEvents) -> HRESULT;
-            fn RequestPermissions(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] hParent: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pSensors: ISensorCollection, fModal: BOOL) -> HRESULT;
+            fn GetSensorsByCategory(&self, sensorCategory: REFSENSOR_CATEGORY_ID, ppSensorsFound: *mut ISensorCollection) -> HRESULT;
+            fn GetSensorsByType(&self, sensorType: REFSENSOR_TYPE_ID, ppSensorsFound: *mut ISensorCollection) -> HRESULT;
+            fn GetSensorByID(&self, sensorID: REFSENSOR_ID, ppSensor: *mut ISensor) -> HRESULT;
+            fn SetEventSink(&self, pEvents: ISensorManagerEvents) -> HRESULT;
+            fn RequestPermissions(&self, hParent: HWND, pSensors: ISensorCollection, fModal: BOOL) -> HRESULT;
         }
         #[guid(0x9b3b0b86_266a_4aad_b21f_fde5501001b7)]
         interface ISensorManagerEvents: IUnknown {
-            fn OnSensorEnter(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pSensor: ISensor, state: SensorState) -> HRESULT;
+            fn OnSensorEnter(&self, pSensor: ISensor, state: SensorState) -> HRESULT;
         }
         #[repr(i32)]
         enum LOCATION_DESIRED_ACCURACY {
@@ -78,6 +78,9 @@ mod Windows {
             MAGNETOMETER_ACCURACY_APPROXIMATE = 2,
             MAGNETOMETER_ACCURACY_HIGH = 3,
         }
+        type REFSENSOR_CATEGORY_ID = *const GUID;
+        type REFSENSOR_ID = *const GUID;
+        type REFSENSOR_TYPE_ID = *const GUID;
         type SENSOR_CATEGORY_ID = GUID;
         type SENSOR_ID = GUID;
         type SENSOR_TYPE_ID = GUID;

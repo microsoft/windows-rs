@@ -1,6 +1,81 @@
 use super::*;
 
 #[test]
+fn virtual_row_content_updates_do_not_reset_the_native_source() {
+    for lazy in [false, true] {
+        let view = |text: &'static str| {
+            if lazy {
+                ItemsRepeater::new().virtual_source(VirtualSource::new(
+                    0,
+                    1,
+                    |_| "row",
+                    move |_| TextBlock::new().text(text),
+                ))
+            } else {
+                ItemsRepeater::new().item("row", TextBlock::new().text(text))
+            }
+        };
+        let mut runtime = Runtime::new(RecordingAdapter::new());
+        runtime.update(view("Before")).unwrap();
+        let collection = runtime.graph().root().unwrap();
+        runtime
+            .adapter_mut()
+            .queue_realization(RealizationRequest::Realize {
+                collection,
+                container: RealizedContainer(1),
+                index: 0,
+                source_revision: 0,
+            });
+        let Some(NativeWork::Virtual(VirtualWork::Realize {
+            lease, index, view, ..
+        })) = runtime.next_native_work().unwrap()
+        else {
+            panic!("expected initial realization");
+        };
+        runtime.realize_virtual(&lease, index, *view).unwrap();
+        let before = runtime
+            .graph()
+            .virtual_realization(collection, RealizedContainer(1))
+            .unwrap();
+
+        // Fresh view/source closures must not reset the native key/index sequence.
+        let next = if lazy {
+            ItemsRepeater::new().virtual_source(VirtualSource::new(
+                0,
+                1,
+                |_| "row",
+                |_| TextBlock::new().text("After"),
+            ))
+        } else {
+            ItemsRepeater::new().item("row", TextBlock::new().text("After"))
+        };
+        let mutations = runtime.update(next).unwrap();
+        assert!(
+            !mutations
+                .iter()
+                .any(|mutation| matches!(mutation, Mutation::SetVirtualSource { .. }))
+        );
+        let Some(NativeWork::Virtual(VirtualWork::Realize {
+            lease, index, view, ..
+        })) = runtime.next_native_work().unwrap()
+        else {
+            panic!("expected row content refresh");
+        };
+        runtime.realize_virtual(&lease, index, *view).unwrap();
+        assert_eq!(
+            runtime
+                .graph()
+                .virtual_realization(collection, RealizedContainer(1)),
+            Some(before)
+        );
+        assert_eq!(
+            runtime.graph().properties(before).unwrap()[0].value,
+            PropertyValue::String(Rc::from("After"))
+        );
+    }
+}
+
+#[test]
 fn virtual_items_realize_only_requested_rows() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     let source = VirtualSource::new(1, 10_000, Key::from, |index| -> View {
@@ -70,7 +145,30 @@ fn virtual_items_recycle_and_reuse_containers_without_stale_ownership() {
         lease
     };
     let first = realize(&mut runtime, RealizedContainer(1), 0);
-    let second = realize(&mut runtime, RealizedContainer(1), 1);
+    let child = runtime
+        .adapter()
+        .children(collection, RelationId::Items)
+        .unwrap()[0];
+    let moved = realize(&mut runtime, RealizedContainer(2), 0);
+    assert_eq!(moved.key, first.key);
+    assert_eq!(moved.revision, first.revision);
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::Recycle {
+            collection,
+            container: RealizedContainer(1),
+            source_revision: 0,
+        });
+    runtime.dispatch_native_events().unwrap();
+    assert_eq!(
+        runtime
+            .adapter()
+            .children(collection, RelationId::Items)
+            .unwrap(),
+        &[child]
+    );
+    assert_eq!(runtime.adapter().realized_count(collection), 1);
+    let second = realize(&mut runtime, RealizedContainer(2), 1);
     assert_ne!(first.key, second.key);
     assert_eq!(runtime.adapter().object_count(), 2);
     assert_eq!(runtime.adapter().realized_count(collection), 1);
@@ -79,7 +177,7 @@ fn virtual_items_recycle_and_reuse_containers_without_stale_ownership() {
         .adapter_mut()
         .queue_realization(RealizationRequest::Recycle {
             collection,
-            container: RealizedContainer(1),
+            container: RealizedContainer(2),
             source_revision: 0,
         });
     let Some(NativeWork::Virtual(VirtualWork::Recycle { lease })) =
@@ -90,6 +188,63 @@ fn virtual_items_recycle_and_reuse_containers_without_stale_ownership() {
     runtime.recycle_virtual(&lease).unwrap();
     assert_eq!(runtime.adapter().object_count(), 1);
     assert_eq!(runtime.adapter().realized_count(collection), 0);
+}
+
+#[test]
+fn invalid_virtual_replacement_rolls_back_container_ownership() {
+    let original: ElementRef = ElementRef::default();
+    let replacement: ElementRef = ElementRef::default();
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    runtime
+        .update(
+            ItemsRepeater::new()
+                .item("original", Button::new().element_ref(&original))
+                .item("replacement", TextBox::new().element_ref(&replacement)),
+        )
+        .unwrap();
+    let collection = runtime.graph().root().unwrap();
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::Realize {
+            collection,
+            container: RealizedContainer(1),
+            index: 0,
+            source_revision: 0,
+        });
+    runtime.dispatch_native_events().unwrap();
+    let original_id = original.get().unwrap();
+    runtime
+        .adapter_mut()
+        .queue_realization(RealizationRequest::Realize {
+            collection,
+            container: RealizedContainer(1),
+            index: 1,
+            source_revision: 0,
+        });
+    let Some(NativeWork::Virtual(VirtualWork::Realize {
+        lease, index, view, ..
+    })) = runtime.next_native_work().unwrap()
+    else {
+        panic!("expected replacement realization");
+    };
+    let mut invalid = lease.clone();
+    invalid.revision += 1;
+    let graph = runtime.graph().clone();
+    let adapter = runtime.adapter().clone();
+    assert!(matches!(
+        runtime.realize_virtual(&invalid, index, view.as_ref().clone()),
+        Err(UpdateError::Graph(GraphError::InvalidRealization(object, 1)))
+            if object == collection
+    ));
+    assert_eq!(runtime.graph(), &graph);
+    assert_eq!(runtime.adapter(), &adapter);
+    assert_eq!(original.get(), Some(original_id));
+    assert_eq!(replacement.get(), None);
+    runtime.realize_virtual(&lease, index, *view).unwrap();
+    assert_eq!(original.get(), None);
+    assert!(replacement.get().is_some());
+    assert_eq!(runtime.adapter().realized_count(collection), 1);
+    assert_eq!(runtime.adapter().object_count(), 2);
 }
 
 #[test]
@@ -234,12 +389,23 @@ fn virtual_items_remove_active_rows_when_source_becomes_empty() {
 }
 
 #[test]
-fn virtual_realization_batches_validate_before_consumption() {
+fn virtual_realization_requests_validate_at_work_boundaries() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
     runtime
-        .update(ItemsRepeater::new().item("only", TextBlock::new().text("only")))
+        .update(
+            ItemsRepeater::new()
+                .width(100.0)
+                .item("only", TextBlock::new().text("only")),
+        )
         .unwrap();
     let collection = runtime.graph().root().unwrap();
+    runtime.adapter_mut().observe(Observation::SetProperty {
+        object: collection,
+        property: Property {
+            id: PropertyId::Width,
+            value: PropertyValue::F64(200.0),
+        },
+    });
     runtime
         .adapter_mut()
         .queue_realization(RealizationRequest::Realize {
@@ -248,6 +414,13 @@ fn virtual_realization_batches_validate_before_consumption() {
             index: 0,
             source_revision: 0,
         });
+    runtime.adapter_mut().observe(Observation::SetProperty {
+        object: collection,
+        property: Property {
+            id: PropertyId::Width,
+            value: PropertyValue::F64(300.0),
+        },
+    });
     runtime
         .adapter_mut()
         .queue_realization(RealizationRequest::Realize {
@@ -257,6 +430,27 @@ fn virtual_realization_batches_validate_before_consumption() {
             source_revision: 0,
         });
 
+    assert_eq!(
+        runtime.prepare_update(),
+        Err(UpdateError::PendingNativeEvent)
+    );
+    let Some(NativeWork::Virtual(VirtualWork::Realize {
+        lease, index, view, ..
+    })) = runtime.next_native_work().unwrap()
+    else {
+        panic!("expected first realization");
+    };
+    assert_eq!(index, 0);
+    runtime.realize_virtual(&lease, index, *view).unwrap();
+    assert_eq!(
+        runtime.graph().properties(collection).unwrap(),
+        &[Property {
+            id: PropertyId::Width,
+            value: PropertyValue::F64(200.0),
+        }]
+    );
+    let graph = runtime.graph().clone();
+    let adapter = runtime.adapter().clone();
     assert!(matches!(
         runtime.next_native_work(),
         Err(UpdateError::InvalidNativeEvent(GraphError::InvalidRealization(
@@ -264,7 +458,9 @@ fn virtual_realization_batches_validate_before_consumption() {
             1
         ))) if object == collection
     ));
-    assert_eq!(runtime.adapter().object_count(), 1);
+    assert_eq!(runtime.graph(), &graph);
+    assert_eq!(runtime.adapter(), &adapter);
+    assert_eq!(runtime.adapter().object_count(), 2);
     assert_eq!(
         runtime.update(ItemsRepeater::new()),
         Err(UpdateError::Poisoned)
@@ -579,4 +775,5 @@ fn recycle_before_dispatch_cancels_realization_and_allows_token_reuse() {
     assert_eq!(runtime.graph().object_count(), 2);
     assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
     assert!(runtime.update(ItemsRepeater::new()).is_ok());
+    assert_eq!(runtime.graph().full_reference_scan_count(), 0);
 }

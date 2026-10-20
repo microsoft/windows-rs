@@ -2,19 +2,19 @@
 mod Windows {
     mod Win32 {
         struct AT_ENUM {
-            JobId: DWORD,
-            JobTime: DWORD_PTR,
-            DaysOfMonth: DWORD,
-            DaysOfWeek: UCHAR,
-            Flags: UCHAR,
-            Command: LPWSTR,
+            JobId: u32,
+            JobTime: usize,
+            DaysOfMonth: u32,
+            DaysOfWeek: u8,
+            Flags: u8,
+            Command: PWSTR,
         }
         struct AT_INFO {
-            JobTime: DWORD_PTR,
-            DaysOfMonth: DWORD,
-            DaysOfWeek: UCHAR,
-            Flags: UCHAR,
-            Command: LPWSTR,
+            JobTime: usize,
+            DaysOfMonth: u32,
+            DaysOfWeek: u8,
+            Flags: u8,
+            Command: PWSTR,
         }
         const JOB_ADD_CURRENT_DATE: i32 = 8;
         const JOB_EXEC_ERROR: i32 = 2;
@@ -26,13 +26,13 @@ mod Windows {
         type LPAT_ENUM = *mut AT_ENUM;
         type LPAT_INFO = *mut AT_INFO;
         #[library("NETAPI32.dll")]
-        extern fn NetScheduleJobAdd(Servername: LPCWSTR, Buffer: LPBYTE, JobId: LPDWORD) -> DWORD;
+        extern fn NetScheduleJobAdd(#[opt] Servername: PCWSTR, Buffer: LPBYTE, #[out] JobId: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetScheduleJobDel(Servername: LPCWSTR, MinJobId: DWORD, MaxJobId: DWORD) -> DWORD;
+        extern fn NetScheduleJobDel(#[opt] Servername: PCWSTR, MinJobId: u32, MaxJobId: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetScheduleJobEnum(Servername: LPCWSTR, PointerToBuffer: *mut LPBYTE, PrefferedMaximumLength: DWORD, EntriesRead: LPDWORD, TotalEntries: LPDWORD, ResumeHandle: LPDWORD) -> DWORD;
+        extern fn NetScheduleJobEnum(#[opt] Servername: PCWSTR, PointerToBuffer: *mut LPBYTE, PrefferedMaximumLength: u32, #[out] EntriesRead: LPDWORD, #[out] TotalEntries: LPDWORD, #[in] #[out] ResumeHandle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetScheduleJobGetInfo(Servername: LPCWSTR, JobId: DWORD, PointerToBuffer: *mut LPBYTE) -> DWORD;
+        extern fn NetScheduleJobGetInfo(#[opt] Servername: PCWSTR, JobId: u32, PointerToBuffer: *mut LPBYTE) -> u32;
         type PAT_ENUM = *mut AT_ENUM;
         type PAT_INFO = *mut AT_INFO;
     }

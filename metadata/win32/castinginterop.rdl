@@ -19,29 +19,23 @@ mod Windows {
             CASTING_CONNECTION_STATE_DISCONNECTING = 3,
             CASTING_CONNECTION_STATE_CONNECTING = 4,
         }
-        #[encoding("utf-16")]
-        const CastingSourceInfo_Property_CastingTypes: String = "CastingTypes";
-        #[encoding("utf-16")]
-        const CastingSourceInfo_Property_PreferredSourceUriScheme: String = "PreferredSourceUriScheme";
-        #[encoding("utf-16")]
-        const CastingSourceInfo_Property_ProtectedMedia: String = "ProtectedMedia";
         #[guid(0xf0a56423_a664_4fbd_8b43_409a45e8d9a1)]
         interface ICastingController: IUnknown {
-            fn Initialize(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] castingEngine: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] castingSource: IUnknown) -> HRESULT;
+            fn Initialize(&self, castingEngine: IUnknown, castingSource: IUnknown) -> HRESULT;
             fn Connect(&self) -> HRESULT;
             fn Disconnect(&self) -> HRESULT;
-            fn Advise(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] eventHandler: ICastingEventHandler, #[out] cookie: *mut DWORD) -> HRESULT;
-            fn UnAdvise(&self, cookie: DWORD) -> HRESULT;
+            fn Advise(&self, eventHandler: ICastingEventHandler, cookie: *mut u32) -> HRESULT;
+            fn UnAdvise(&self, cookie: u32) -> HRESULT;
         }
         #[guid(0xc79a6cb7_bebd_47a6_a2ad_4d45ad79c7bc)]
         interface ICastingEventHandler: IUnknown {
             fn OnStateChanged(&self, newState: CASTING_CONNECTION_STATE) -> HRESULT;
-            fn OnError(&self, errorStatus: CASTING_CONNECTION_ERROR_STATUS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] errorMessage: LPCWSTR) -> HRESULT;
+            fn OnError(&self, errorStatus: CASTING_CONNECTION_ERROR_STATUS, errorMessage: PCWSTR) -> HRESULT;
         }
         #[guid(0x45101ab7_7c3a_4bce_9500_12c09024b298)]
         interface ICastingSourceInfo: IUnknown {
-            fn GetController(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] controller: *mut ICastingController) -> HRESULT;
-            fn GetProperties(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] props: *mut INamedPropertyStore) -> HRESULT;
+            fn GetController(&self, controller: *mut ICastingController) -> HRESULT;
+            fn GetProperties(&self, props: *mut INamedPropertyStore) -> HRESULT;
         }
     }
 }

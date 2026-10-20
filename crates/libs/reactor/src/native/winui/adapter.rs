@@ -22,12 +22,21 @@ impl ComponentHost<WinUiAdapter> {
 
 impl WinUiAdapter {
     fn apply_mutations(&mut self, mutations: &[Mutation]) -> Result<(), WinUiError> {
+        let mut initializing = HashSet::new();
+        let mut live_regions = LiveRegionBatch::default();
         for mutation in mutations {
             match mutation {
-                Mutation::Create { object, kind } => self.create(*object, *kind)?,
-                Mutation::Replace { object, kind } => self.replace(*object, *kind)?,
+                Mutation::Create { object, kind } => {
+                    self.create(*object, *kind)?;
+                    initializing.insert(*object);
+                }
+                Mutation::Replace { object, kind } => {
+                    self.replace(*object, *kind)?;
+                    initializing.insert(*object);
+                }
                 Mutation::SetProperties { object, set, clear } => {
-                    self.set_properties(*object, set, clear)?;
+                    self.record_live_regions(&mut live_regions, *object, set, clear);
+                    self.set_properties(*object, set, clear, initializing.remove(object))?;
                 }
                 Mutation::SetEvents { object, set, clear } => {
                     self.set_events(*object, set, clear)?;
@@ -206,6 +215,7 @@ impl WinUiAdapter {
                 }
             }
         }
+        self.raise_live_regions(live_regions)?;
         self.sync_window_title_bars()
     }
 }
@@ -214,7 +224,8 @@ impl Adapter for WinUiAdapter {
     type Error = WinUiError;
 
     fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
-        events.extend(
+        NativeEvent::preview_prefix(
+            events,
             self.event_queue
                 .events
                 .borrow()
@@ -288,6 +299,16 @@ impl Adapter for WinUiAdapter {
             ImperativeRequest::Focus { object, completion } => {
                 completion.call(
                     self.focus(object)
+                        .map_err(|error| integration_error(error.into())),
+                );
+            }
+            ImperativeRequest::Notify {
+                object,
+                notification,
+                completion,
+            } => {
+                completion.call(
+                    self.notify(object, &notification)
                         .map_err(|error| integration_error(error.into())),
                 );
             }

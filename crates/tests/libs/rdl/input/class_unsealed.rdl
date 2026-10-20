@@ -1,0 +1,23 @@
+#[winrt]
+mod Test {
+    #[unsealed]
+    class ContainerVisual: Visual {
+        IContainerVisual,
+    }
+    interface IContainerVisual {
+        fn Count(&self) -> i32;
+    }
+    interface ISpriteVisual {
+        fn Brush(&self) -> i32;
+    }
+    interface IVisual {
+        fn Opacity(&self) -> f32;
+    }
+    class SpriteVisual: ContainerVisual {
+        ISpriteVisual,
+    }
+    #[unsealed]
+    class Visual {
+        IVisual,
+    }
+}

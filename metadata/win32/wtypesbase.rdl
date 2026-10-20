@@ -18,18 +18,19 @@ mod Windows {
         const APPIDREGFLAGS_RESERVED9: i32 = 16384;
         const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: i32 = 2;
         struct BLOB {
-            cbSize: ULONG,
-            pBlobData: *mut BYTE,
+            cbSize: u32,
+            pBlobData: *mut u8,
         }
         struct BYTE_BLOB {
-            clSize: ULONG,
+            clSize: u32,
             abData: [byte; 1],
         }
         struct BYTE_SIZEDARR {
-            clSize: ULONG,
+            clSize: u32,
             pData: *mut byte,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum CLSCTX {
             CLSCTX_INPROC_SERVER = 1,
             CLSCTX_INPROC_HANDLER = 2,
@@ -60,26 +61,26 @@ mod Windows {
             CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION = 67108864,
             CLSCTX_SERVER_MUST_BE_EQUAL_OR_GREATER_PRIVILEGE = 134217728,
             CLSCTX_DO_NOT_ELEVATE_SERVER = 268435456,
-            CLSCTX_PS_DLL = -2147483648,
+            CLSCTX_PS_DLL = 2147483648,
         }
-        const CLSCTX_VALID_MASK: CLSCTX = -1612712929;
+        const CLSCTX_VALID_MASK: CLSCTX = 2682254367;
         struct COAUTHIDENTITY {
-            User: *mut USHORT,
-            UserLength: ULONG,
-            Domain: *mut USHORT,
-            DomainLength: ULONG,
-            Password: *mut USHORT,
-            PasswordLength: ULONG,
-            Flags: ULONG,
+            User: *mut u16,
+            UserLength: u32,
+            Domain: *mut u16,
+            DomainLength: u32,
+            Password: *mut u16,
+            PasswordLength: u32,
+            Flags: u32,
         }
         struct COAUTHINFO {
-            dwAuthnSvc: DWORD,
-            dwAuthzSvc: DWORD,
-            pwszServerPrincName: LPWSTR,
-            dwAuthnLevel: DWORD,
-            dwImpersonationLevel: DWORD,
+            dwAuthnSvc: u32,
+            dwAuthzSvc: u32,
+            pwszServerPrincName: PWSTR,
+            dwAuthnLevel: u32,
+            dwImpersonationLevel: u32,
             pAuthIdentityData: *mut COAUTHIDENTITY,
-            dwCapabilities: DWORD,
+            dwCapabilities: u32,
         }
         const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: i32 = 2;
         const DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES: i32 = 1;
@@ -87,34 +88,31 @@ mod Windows {
         const DCOMSCM_PING_USE_MID_AUTHNSERVICE: i32 = 16;
         const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: i32 = 8;
         const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: i32 = 4;
-        type DOUBLE = f64;
         struct DWORD_BLOB {
-            clSize: ULONG,
-            alData: [ULONG; 1],
+            clSize: u32,
+            alData: [u32; 1],
         }
         struct DWORD_SIZEDARR {
-            clSize: ULONG,
-            pData: *mut ULONG,
+            clSize: u32,
+            pData: *mut u32,
         }
         struct FLAGGED_BYTE_BLOB {
-            fFlags: ULONG,
-            clSize: ULONG,
+            fFlags: u32,
+            clSize: u32,
             abData: [byte; 1],
         }
         struct FLAGGED_WORD_BLOB {
-            fFlags: ULONG,
-            clSize: ULONG,
+            fFlags: u32,
+            clSize: u32,
             asData: [u16; 1],
         }
         struct HYPER_SIZEDARR {
-            clSize: ULONG,
+            clSize: u32,
             pData: *mut i64,
         }
         type LPBLOB = *mut BLOB;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_string", "", "")]
-        type LPCOLESTR = *const u16;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_string", "", "")]
-        type LPOLESTR = *mut u16;
+        type LPCOLESTR = *const OLECHAR;
+        type LPOLESTR = *mut OLECHAR;
         #[repr(i32)]
         enum MEMCTX {
             MEMCTX_TASK = 1,
@@ -144,25 +142,20 @@ mod Windows {
             MSHLFLAGS_RESERVED4 = 64,
         }
         type OLECHAR = u16;
-        type PSCODE = *mut i32;
+        type PSCODE = *mut SCODE;
         const ROTREGFLAGS_ALLOWANYCLIENT: i32 = 1;
         type SCODE = i32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type UP_BYTE_BLOB = *mut BYTE_BLOB;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type UP_DWORD_BLOB = *mut DWORD_BLOB;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type UP_FLAGGED_BYTE_BLOB = *mut FLAGGED_BYTE_BLOB;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type UP_FLAGGED_WORD_BLOB = *mut FLAGGED_WORD_BLOB;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type UP_WORD_BLOB = *mut WORD_BLOB;
         struct WORD_BLOB {
-            clSize: ULONG,
+            clSize: u32,
             asData: [u16; 1],
         }
         struct WORD_SIZEDARR {
-            clSize: ULONG,
+            clSize: u32,
             pData: *mut u16,
         }
     }

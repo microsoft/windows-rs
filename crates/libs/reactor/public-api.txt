@@ -41,6 +41,22 @@ pub windows_reactor::AutomationHeadingLevel::Level7
 pub windows_reactor::AutomationHeadingLevel::Level8
 pub windows_reactor::AutomationHeadingLevel::Level9
 pub windows_reactor::AutomationHeadingLevel::None
+#[non_exhaustive] pub enum windows_reactor::AutomationLiveSetting
+pub windows_reactor::AutomationLiveSetting::Assertive
+pub windows_reactor::AutomationLiveSetting::Off
+pub windows_reactor::AutomationLiveSetting::Polite
+#[non_exhaustive] pub enum windows_reactor::AutomationNotificationKind
+pub windows_reactor::AutomationNotificationKind::ActionAborted
+pub windows_reactor::AutomationNotificationKind::ActionCompleted
+pub windows_reactor::AutomationNotificationKind::ItemAdded
+pub windows_reactor::AutomationNotificationKind::ItemRemoved
+pub windows_reactor::AutomationNotificationKind::Other
+#[non_exhaustive] pub enum windows_reactor::AutomationNotificationProcessing
+pub windows_reactor::AutomationNotificationProcessing::All
+pub windows_reactor::AutomationNotificationProcessing::CurrentThenMostRecent
+pub windows_reactor::AutomationNotificationProcessing::ImportantAll
+pub windows_reactor::AutomationNotificationProcessing::ImportantMostRecent
+pub windows_reactor::AutomationNotificationProcessing::MostRecent
 pub enum windows_reactor::Brush
 pub windows_reactor::Brush::Solid(windows_reactor::Color)
 pub windows_reactor::Brush::Theme(windows_reactor::ThemeBrush)
@@ -79,6 +95,11 @@ pub windows_reactor::CompositionHostEvent::Ready::compositor: windows_core::unkn
 pub windows_reactor::CompositionHostEvent::Ready::height: f64
 pub windows_reactor::CompositionHostEvent::Ready::scale: f64
 pub windows_reactor::CompositionHostEvent::Ready::width: f64
+#[non_exhaustive] pub enum windows_reactor::ContentDialogButton
+pub windows_reactor::ContentDialogButton::Close
+pub windows_reactor::ContentDialogButton::None
+pub windows_reactor::ContentDialogButton::Primary
+pub windows_reactor::ContentDialogButton::Secondary
 #[non_exhaustive] pub enum windows_reactor::ContentDialogResult
 pub windows_reactor::ContentDialogResult::None
 pub windows_reactor::ContentDialogResult::Primary
@@ -163,6 +184,10 @@ pub windows_reactor::NavigationViewPaneDisplayMode::Left
 pub windows_reactor::NavigationViewPaneDisplayMode::LeftCompact
 pub windows_reactor::NavigationViewPaneDisplayMode::LeftMinimal
 pub windows_reactor::NavigationViewPaneDisplayMode::Top
+#[non_exhaustive] pub enum windows_reactor::NumberBoxSpinButtonPlacementMode
+pub windows_reactor::NumberBoxSpinButtonPlacementMode::Compact
+pub windows_reactor::NumberBoxSpinButtonPlacementMode::Hidden
+pub windows_reactor::NumberBoxSpinButtonPlacementMode::Inline
 #[non_exhaustive] pub enum windows_reactor::Orientation
 pub windows_reactor::Orientation::Horizontal
 pub windows_reactor::Orientation::Vertical
@@ -426,6 +451,14 @@ pub windows_reactor::TeachingTipPlacementMode::RightTop
 pub windows_reactor::TeachingTipPlacementMode::Top
 pub windows_reactor::TeachingTipPlacementMode::TopLeft
 pub windows_reactor::TeachingTipPlacementMode::TopRight
+#[non_exhaustive] pub enum windows_reactor::TextAlignment
+pub windows_reactor::TextAlignment::Center
+pub windows_reactor::TextAlignment::DetectFromContent
+pub windows_reactor::TextAlignment::End
+pub windows_reactor::TextAlignment::Justify
+pub windows_reactor::TextAlignment::Left
+pub windows_reactor::TextAlignment::Right
+pub windows_reactor::TextAlignment::Start
 #[non_exhaustive] pub enum windows_reactor::TextTrimming
 pub windows_reactor::TextTrimming::CharacterEllipsis
 pub windows_reactor::TextTrimming::Clip
@@ -485,8 +518,11 @@ impl windows_reactor::App
 pub fn windows_reactor::App::run_application<A: windows_reactor::Application>(<A as windows_reactor::Application>::Input) -> windows_result::Result<()>
 pub struct windows_reactor::AppBarButton(_)
 impl windows_reactor::AppBarButton
+pub fn windows_reactor::AppBarButton::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::AppBarButton::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::AppBarButton::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::AppBarButton::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::AppBarButton::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::AppBarButton::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::AppBarButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::AppBarButton::canvas_top(self, f64) -> Self
@@ -525,8 +561,11 @@ impl core::default::Default for windows_reactor::AppBarButton
 pub fn windows_reactor::AppBarButton::default() -> Self
 pub struct windows_reactor::AppBarSeparator(_)
 impl windows_reactor::AppBarSeparator
+pub fn windows_reactor::AppBarSeparator::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::AppBarSeparator::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::AppBarSeparator::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::AppBarSeparator::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::AppBarSeparator::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::AppBarSeparator::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::AppBarSeparator::canvas_left(self, f64) -> Self
 pub fn windows_reactor::AppBarSeparator::canvas_top(self, f64) -> Self
@@ -594,8 +633,11 @@ pub fn windows_reactor::ApplicationViewContext<A>::forward(&self) -> windows_rea
 pub fn windows_reactor::ApplicationViewContext<A>::message(&self, <A as windows_reactor::Application>::Message) -> windows_reactor::Callback<()> where <A as windows_reactor::Application>::Message: core::clone::Clone
 pub struct windows_reactor::AutoSuggestBox(_)
 impl windows_reactor::AutoSuggestBox
+pub fn windows_reactor::AutoSuggestBox::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::AutoSuggestBox::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::AutoSuggestBox::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::AutoSuggestBox::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::AutoSuggestBox::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::AutoSuggestBox::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::AutoSuggestBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::AutoSuggestBox::canvas_top(self, f64) -> Self
@@ -638,10 +680,19 @@ pub fn windows_reactor::View::from(windows_reactor::AutoSuggestBox) -> Self
 impl core::default::Default for windows_reactor::AutoSuggestBox
 pub fn windows_reactor::AutoSuggestBox::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::AutoSuggestBox
+pub struct windows_reactor::AutomationNotification
+impl windows_reactor::AutomationNotification
+pub fn windows_reactor::AutomationNotification::activity_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::AutomationNotification::kind(self, windows_reactor::AutomationNotificationKind) -> Self
+pub fn windows_reactor::AutomationNotification::new(impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::AutomationNotification::processing(self, windows_reactor::AutomationNotificationProcessing) -> Self
 pub struct windows_reactor::BitmapIcon(_)
 impl windows_reactor::BitmapIcon
+pub fn windows_reactor::BitmapIcon::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::BitmapIcon::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::BitmapIcon::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::BitmapIcon::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::BitmapIcon::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::BitmapIcon::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::BitmapIcon::canvas_left(self, f64) -> Self
 pub fn windows_reactor::BitmapIcon::canvas_top(self, f64) -> Self
@@ -680,8 +731,11 @@ pub fn windows_reactor::BitmapIcon::default() -> Self
 pub struct windows_reactor::Border(_)
 impl windows_reactor::Border
 pub fn windows_reactor::Border::allow_focus_on_interaction(self, bool) -> Self
+pub fn windows_reactor::Border::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Border::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::Border::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Border::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::Border::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::Border::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Border::background(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
 pub fn windows_reactor::Border::border_brush(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
@@ -738,6 +792,8 @@ pub fn windows_reactor::Border::scale(self, f64) -> Self
 pub fn windows_reactor::Border::scale_transition(self, core::time::Duration) -> Self
 pub fn windows_reactor::Border::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::Border::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
+pub fn windows_reactor::Border::translation(self, f64, f64) -> Self
+pub fn windows_reactor::Border::translation_transition(self, core::time::Duration) -> Self
 pub fn windows_reactor::Border::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
 pub fn windows_reactor::Border::width(self, f64) -> Self
 impl core::convert::From<windows_reactor::Border> for windows_reactor::View
@@ -747,8 +803,11 @@ pub fn windows_reactor::Border::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::Border
 pub struct windows_reactor::BreadcrumbBar(_)
 impl windows_reactor::BreadcrumbBar
+pub fn windows_reactor::BreadcrumbBar::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::BreadcrumbBar::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::BreadcrumbBar::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::BreadcrumbBar::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::BreadcrumbBar::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::BreadcrumbBar::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::BreadcrumbBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::BreadcrumbBar::canvas_top(self, f64) -> Self
@@ -785,8 +844,11 @@ impl core::default::Default for windows_reactor::BreadcrumbBar
 pub fn windows_reactor::BreadcrumbBar::default() -> Self
 pub struct windows_reactor::Button(_)
 impl windows_reactor::Button
+pub fn windows_reactor::Button::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Button::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::Button::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Button::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::Button::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::Button::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Button::background(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
 pub fn windows_reactor::Button::canvas_left(self, f64) -> Self
@@ -832,11 +894,15 @@ pub fn windows_reactor::Button::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::Button
 pub struct windows_reactor::CalendarDatePicker(_)
 impl windows_reactor::CalendarDatePicker
+pub fn windows_reactor::CalendarDatePicker::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CalendarDatePicker::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::CalendarDatePicker::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CalendarDatePicker::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::CalendarDatePicker::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::CalendarDatePicker::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CalendarDatePicker::canvas_left(self, f64) -> Self
 pub fn windows_reactor::CalendarDatePicker::canvas_top(self, f64) -> Self
+pub fn windows_reactor::CalendarDatePicker::date(self, impl core::convert::Into<core::option::Option<windows_time::bindings::DateTime>>) -> Self
 pub fn windows_reactor::CalendarDatePicker::exit_fade(self, core::time::Duration) -> Self
 pub fn windows_reactor::CalendarDatePicker::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
 pub fn windows_reactor::CalendarDatePicker::grid_column(self, i32) -> Self
@@ -850,8 +916,10 @@ pub fn windows_reactor::CalendarDatePicker::is_calendar_open(self, bool) -> Self
 pub fn windows_reactor::CalendarDatePicker::is_enabled(self, bool) -> Self
 pub fn windows_reactor::CalendarDatePicker::is_today_highlighted(self, bool) -> Self
 pub fn windows_reactor::CalendarDatePicker::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
+pub fn windows_reactor::CalendarDatePicker::max_date(self, windows_time::bindings::DateTime) -> Self
 pub fn windows_reactor::CalendarDatePicker::max_height(self, f64) -> Self
 pub fn windows_reactor::CalendarDatePicker::max_width(self, f64) -> Self
+pub fn windows_reactor::CalendarDatePicker::min_date(self, windows_time::bindings::DateTime) -> Self
 pub fn windows_reactor::CalendarDatePicker::min_height(self, f64) -> Self
 pub fn windows_reactor::CalendarDatePicker::min_width(self, f64) -> Self
 pub fn windows_reactor::CalendarDatePicker::new() -> Self
@@ -874,8 +942,11 @@ impl core::default::Default for windows_reactor::CalendarDatePicker
 pub fn windows_reactor::CalendarDatePicker::default() -> Self
 pub struct windows_reactor::CalendarView(_)
 impl windows_reactor::CalendarView
+pub fn windows_reactor::CalendarView::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CalendarView::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::CalendarView::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CalendarView::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::CalendarView::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::CalendarView::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CalendarView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::CalendarView::canvas_top(self, f64) -> Self
@@ -931,8 +1002,11 @@ impl windows_reactor::CancellationToken
 pub fn windows_reactor::CancellationToken::is_cancelled(&self) -> bool
 pub struct windows_reactor::Canvas(_)
 impl windows_reactor::Canvas
+pub fn windows_reactor::Canvas::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Canvas::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::Canvas::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Canvas::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::Canvas::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::Canvas::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Canvas::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Canvas::canvas_top(self, f64) -> Self
@@ -972,8 +1046,11 @@ pub windows_reactor::CharacterEventInfo::modifiers: windows_reactor::InputModifi
 pub windows_reactor::CharacterEventInfo::status: windows_reactor::PhysicalKeyStatus
 pub struct windows_reactor::CheckBox(_)
 impl windows_reactor::CheckBox
+pub fn windows_reactor::CheckBox::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CheckBox::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::CheckBox::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CheckBox::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::CheckBox::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::CheckBox::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CheckBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::CheckBox::canvas_top(self, f64) -> Self
@@ -1028,8 +1105,11 @@ impl core::convert::From<windows_reactor::Color> for windows_reactor::ResourceVa
 pub fn windows_reactor::ResourceValue::from(windows_reactor::Color) -> Self
 pub struct windows_reactor::ColorPicker(_)
 impl windows_reactor::ColorPicker
+pub fn windows_reactor::ColorPicker::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ColorPicker::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ColorPicker::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ColorPicker::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ColorPicker::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ColorPicker::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ColorPicker::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ColorPicker::canvas_top(self, f64) -> Self
@@ -1071,8 +1151,11 @@ impl core::default::Default for windows_reactor::ColorPicker
 pub fn windows_reactor::ColorPicker::default() -> Self
 pub struct windows_reactor::ComboBox(_)
 impl windows_reactor::ComboBox
+pub fn windows_reactor::ComboBox::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ComboBox::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ComboBox::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ComboBox::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ComboBox::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ComboBox::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ComboBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ComboBox::canvas_top(self, f64) -> Self
@@ -1116,8 +1199,11 @@ pub fn windows_reactor::ComboBox::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::ComboBox
 pub struct windows_reactor::CommandBar(_)
 impl windows_reactor::CommandBar
+pub fn windows_reactor::CommandBar::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CommandBar::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::CommandBar::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CommandBar::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::CommandBar::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::CommandBar::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::CommandBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::CommandBar::canvas_top(self, f64) -> Self
@@ -1213,6 +1299,7 @@ pub struct windows_reactor::ContentDialog(_, _)
 impl windows_reactor::ContentDialog
 pub fn windows_reactor::ContentDialog::close_button_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ContentDialog::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
+pub fn windows_reactor::ContentDialog::default_button(self, windows_reactor::ContentDialogButton) -> Self
 pub fn windows_reactor::ContentDialog::is_open(self, bool) -> Self
 pub fn windows_reactor::ContentDialog::is_primary_button_enabled(self, bool) -> Self
 pub fn windows_reactor::ContentDialog::is_secondary_button_enabled(self, bool) -> Self
@@ -1245,8 +1332,11 @@ pub fn windows_reactor::DataItem::content(self, impl core::convert::Into<windows
 pub fn windows_reactor::DataItem::new(impl core::convert::Into<windows_reactor::Key>, impl core::convert::AsRef<str>) -> Self
 pub struct windows_reactor::DatePicker(_)
 impl windows_reactor::DatePicker
+pub fn windows_reactor::DatePicker::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::DatePicker::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::DatePicker::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::DatePicker::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::DatePicker::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::DatePicker::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::DatePicker::canvas_left(self, f64) -> Self
 pub fn windows_reactor::DatePicker::canvas_top(self, f64) -> Self
@@ -1300,8 +1390,11 @@ pub fn windows_reactor::DragDropPolicy::storage_items(self, impl core::convert::
 pub fn windows_reactor::DragDropPolicy::text(self, impl core::convert::Into<core::option::Option<windows_reactor::DragDropAction>>) -> Self
 pub struct windows_reactor::DropDownButton(_)
 impl windows_reactor::DropDownButton
+pub fn windows_reactor::DropDownButton::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::DropDownButton::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::DropDownButton::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::DropDownButton::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::DropDownButton::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::DropDownButton::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::DropDownButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::DropDownButton::canvas_top(self, f64) -> Self
@@ -1364,6 +1457,8 @@ impl<T> windows_reactor::ElementRef<T>
 pub fn windows_reactor::ElementRef<T>::new() -> Self
 pub fn windows_reactor::ElementRef<T>::request_focus(&self) -> bool
 pub fn windows_reactor::ElementRef<T>::request_focus_result(&self, impl core::ops::function::Fn(core::result::Result<bool, windows_reactor::FocusError>) + 'static) -> bool
+pub fn windows_reactor::ElementRef<T>::request_notification(&self, windows_reactor::AutomationNotification) -> bool
+pub fn windows_reactor::ElementRef<T>::request_notification_result(&self, windows_reactor::AutomationNotification, impl core::ops::function::Fn(core::result::Result<(), windows_reactor::IntegrationError>) + 'static) -> bool
 impl<T: windows_reactor::ReferenceElement> windows_reactor::CompatibleElementRef<T> for windows_reactor::ElementRef<T>
 pub fn windows_reactor::ElementRef<T>::erased_ref(&self) -> windows_reactor::ElementRef
 impl<T: windows_reactor::ReferenceElement> windows_reactor::CompatibleElementRef<T> for windows_reactor::ElementRef<windows_reactor::AnyElement>
@@ -1379,8 +1474,11 @@ impl<T> core::fmt::Debug for windows_reactor::ElementRef<T>
 pub fn windows_reactor::ElementRef<T>::fmt(&self, &mut core::fmt::Formatter<'_>) -> core::fmt::Result
 pub struct windows_reactor::Ellipse(_)
 impl windows_reactor::Ellipse
+pub fn windows_reactor::Ellipse::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Ellipse::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::Ellipse::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Ellipse::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::Ellipse::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::Ellipse::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Ellipse::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Ellipse::canvas_top(self, f64) -> Self
@@ -1431,8 +1529,11 @@ pub const fn windows_reactor::ExitTransition::duration(self) -> core::time::Dura
 pub fn windows_reactor::ExitTransition::fade(core::time::Duration) -> core::option::Option<Self>
 pub struct windows_reactor::Expander(_)
 impl windows_reactor::Expander
+pub fn windows_reactor::Expander::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Expander::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::Expander::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Expander::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::Expander::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::Expander::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Expander::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Expander::canvas_top(self, f64) -> Self
@@ -1473,8 +1574,11 @@ impl core::default::Default for windows_reactor::Expander
 pub fn windows_reactor::Expander::default() -> Self
 pub struct windows_reactor::FlipView(_)
 impl windows_reactor::FlipView
+pub fn windows_reactor::FlipView::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::FlipView::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::FlipView::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::FlipView::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::FlipView::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::FlipView::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::FlipView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::FlipView::canvas_top(self, f64) -> Self
@@ -1521,13 +1625,18 @@ pub windows_reactor::FocusEventInfo::is_direct: bool
 pub windows_reactor::FocusEventInfo::state: windows_reactor::ElementFocusState
 pub struct windows_reactor::FontIcon(_)
 impl windows_reactor::FontIcon
+pub fn windows_reactor::FontIcon::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::FontIcon::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::FontIcon::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::FontIcon::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::FontIcon::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::FontIcon::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::FontIcon::canvas_left(self, f64) -> Self
 pub fn windows_reactor::FontIcon::canvas_top(self, f64) -> Self
 pub fn windows_reactor::FontIcon::exit_fade(self, core::time::Duration) -> Self
 pub fn windows_reactor::FontIcon::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
+pub fn windows_reactor::FontIcon::font_size(self, f64) -> Self
+pub fn windows_reactor::FontIcon::foreground(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
 pub fn windows_reactor::FontIcon::glyph(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::FontIcon::grid_column(self, i32) -> Self
 pub fn windows_reactor::FontIcon::grid_column_span(self, i32) -> Self
@@ -1573,8 +1682,11 @@ pub const fn windows_reactor::FontWeight::get(self) -> u16
 pub const fn windows_reactor::FontWeight::new(u16) -> core::option::Option<Self>
 pub struct windows_reactor::Grid(_)
 impl windows_reactor::Grid
+pub fn windows_reactor::Grid::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Grid::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::Grid::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Grid::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::Grid::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::Grid::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Grid::background(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
 pub fn windows_reactor::Grid::canvas_left(self, f64) -> Self
@@ -1628,8 +1740,11 @@ pub fn windows_reactor::GridLength::min(self, f64) -> Self
 pub struct windows_reactor::GridView(_)
 impl windows_reactor::GridView
 pub fn windows_reactor::GridView::allow_drop(self, bool) -> Self
+pub fn windows_reactor::GridView::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::GridView::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::GridView::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::GridView::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::GridView::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::GridView::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::GridView::can_drag_items(self, bool) -> Self
 pub fn windows_reactor::GridView::can_reorder_items(self, bool) -> Self
@@ -1672,8 +1787,11 @@ impl core::default::Default for windows_reactor::GridView
 pub fn windows_reactor::GridView::default() -> Self
 pub struct windows_reactor::GridViewItem(_)
 impl windows_reactor::GridViewItem
+pub fn windows_reactor::GridViewItem::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::GridViewItem::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::GridViewItem::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::GridViewItem::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::GridViewItem::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::GridViewItem::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::GridViewItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::GridViewItem::canvas_top(self, f64) -> Self
@@ -1711,8 +1829,11 @@ impl core::default::Default for windows_reactor::GridViewItem
 pub fn windows_reactor::GridViewItem::default() -> Self
 pub struct windows_reactor::HyperlinkButton(_)
 impl windows_reactor::HyperlinkButton
+pub fn windows_reactor::HyperlinkButton::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::HyperlinkButton::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::HyperlinkButton::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::HyperlinkButton::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::HyperlinkButton::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::HyperlinkButton::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::HyperlinkButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::HyperlinkButton::canvas_top(self, f64) -> Self
@@ -1759,6 +1880,7 @@ pub fn windows_reactor::Icon::font(impl core::convert::Into<alloc::rcs::rc::Rc<s
 pub fn windows_reactor::Icon::image(windows_reactor::ImageSource) -> Self
 pub fn windows_reactor::Icon::image_data(windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::Icon::image_file(impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
+pub fn windows_reactor::Icon::image_svg(windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::Icon::image_uri(impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> windows_result::Result<Self>
 pub fn windows_reactor::Icon::path(impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> Self
 pub fn windows_reactor::Icon::symbol(windows_reactor::Symbol) -> Self
@@ -1766,8 +1888,11 @@ impl core::convert::From<windows_reactor::Symbol> for windows_reactor::Icon
 pub fn windows_reactor::Icon::from(windows_reactor::Symbol) -> Self
 pub struct windows_reactor::Image(_)
 impl windows_reactor::Image
+pub fn windows_reactor::Image::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Image::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::Image::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Image::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::Image::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::Image::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Image::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Image::canvas_top(self, f64) -> Self
@@ -1799,6 +1924,7 @@ pub fn windows_reactor::Image::source(self, impl core::convert::Into<alloc::rcs:
 pub fn windows_reactor::Image::source_data(self, windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::Image::source_file(self, impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
 pub fn windows_reactor::Image::source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<alloc::rcs::rc::Rc<str>>
+pub fn windows_reactor::Image::source_svg(self, windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::Image::stretch(self, windows_reactor::Stretch) -> Self
 pub fn windows_reactor::Image::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::Image::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
@@ -1811,8 +1937,11 @@ pub fn windows_reactor::Image::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::Image
 pub struct windows_reactor::ImageIcon(_)
 impl windows_reactor::ImageIcon
+pub fn windows_reactor::ImageIcon::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ImageIcon::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ImageIcon::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ImageIcon::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ImageIcon::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ImageIcon::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ImageIcon::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ImageIcon::canvas_top(self, f64) -> Self
@@ -1841,6 +1970,7 @@ pub fn windows_reactor::ImageIcon::source(self, impl core::convert::Into<alloc::
 pub fn windows_reactor::ImageIcon::source_data(self, windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::ImageIcon::source_file(self, impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
 pub fn windows_reactor::ImageIcon::source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<alloc::rcs::rc::Rc<str>>
+pub fn windows_reactor::ImageIcon::source_svg(self, windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::ImageIcon::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::ImageIcon::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::ImageIcon::vertical_alignment(self, windows_reactor::VerticalAlignment) -> Self
@@ -1853,11 +1983,15 @@ pub struct windows_reactor::ImageSource(_)
 impl windows_reactor::ImageSource
 pub fn windows_reactor::ImageSource::encoded(windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::ImageSource::file(impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
+pub fn windows_reactor::ImageSource::svg(windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::ImageSource::uri(impl core::convert::Into<alloc::rcs::rc::Rc<str>>) -> windows_result::Result<Self>
 pub struct windows_reactor::InfoBadge(_)
 impl windows_reactor::InfoBadge
+pub fn windows_reactor::InfoBadge::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::InfoBadge::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::InfoBadge::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::InfoBadge::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::InfoBadge::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::InfoBadge::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::InfoBadge::canvas_left(self, f64) -> Self
 pub fn windows_reactor::InfoBadge::canvas_top(self, f64) -> Self
@@ -1893,8 +2027,11 @@ impl core::default::Default for windows_reactor::InfoBadge
 pub fn windows_reactor::InfoBadge::default() -> Self
 pub struct windows_reactor::InfoBar(_)
 impl windows_reactor::InfoBar
+pub fn windows_reactor::InfoBar::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::InfoBar::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::InfoBar::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::InfoBar::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::InfoBar::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::InfoBar::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::InfoBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::InfoBar::canvas_top(self, f64) -> Self
@@ -1945,8 +2082,11 @@ impl core::ops::bit::BitOrAssign for windows_reactor::InputModifiers
 pub fn windows_reactor::InputModifiers::bitor_assign(&mut self, Self)
 pub struct windows_reactor::ItemsRepeater(_)
 impl windows_reactor::ItemsRepeater
+pub fn windows_reactor::ItemsRepeater::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ItemsRepeater::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ItemsRepeater::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ItemsRepeater::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ItemsRepeater::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ItemsRepeater::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ItemsRepeater::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ItemsRepeater::canvas_top(self, f64) -> Self
@@ -2011,8 +2151,11 @@ impl windows_reactor::KeyedView
 pub fn windows_reactor::KeyedView::new(impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<windows_reactor::View>) -> Self
 pub struct windows_reactor::Line(_)
 impl windows_reactor::Line
+pub fn windows_reactor::Line::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Line::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::Line::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Line::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::Line::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::Line::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Line::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Line::canvas_top(self, f64) -> Self
@@ -2053,8 +2196,11 @@ impl core::default::Default for windows_reactor::Line
 pub fn windows_reactor::Line::default() -> Self
 pub struct windows_reactor::ListBox(_)
 impl windows_reactor::ListBox
+pub fn windows_reactor::ListBox::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ListBox::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ListBox::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ListBox::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ListBox::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ListBox::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ListBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ListBox::canvas_top(self, f64) -> Self
@@ -2093,8 +2239,11 @@ impl core::default::Default for windows_reactor::ListBox
 pub fn windows_reactor::ListBox::default() -> Self
 pub struct windows_reactor::ListBoxItem(_)
 impl windows_reactor::ListBoxItem
+pub fn windows_reactor::ListBoxItem::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ListBoxItem::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ListBoxItem::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ListBoxItem::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ListBoxItem::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ListBoxItem::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ListBoxItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ListBoxItem::canvas_top(self, f64) -> Self
@@ -2133,8 +2282,11 @@ pub fn windows_reactor::ListBoxItem::default() -> Self
 pub struct windows_reactor::ListView(_)
 impl windows_reactor::ListView
 pub fn windows_reactor::ListView::allow_drop(self, bool) -> Self
+pub fn windows_reactor::ListView::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ListView::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ListView::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ListView::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ListView::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ListView::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ListView::can_drag_items(self, bool) -> Self
 pub fn windows_reactor::ListView::can_reorder_items(self, bool) -> Self
@@ -2177,8 +2329,11 @@ impl core::default::Default for windows_reactor::ListView
 pub fn windows_reactor::ListView::default() -> Self
 pub struct windows_reactor::ListViewItem(_)
 impl windows_reactor::ListViewItem
+pub fn windows_reactor::ListViewItem::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ListViewItem::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ListViewItem::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ListViewItem::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ListViewItem::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ListViewItem::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ListViewItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ListViewItem::canvas_top(self, f64) -> Self
@@ -2227,8 +2382,11 @@ impl windows_reactor::Menu
 pub fn windows_reactor::Menu::new(impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::MenuItem>, impl windows_reactor::IntoPayloadCallback<windows_reactor::Key>) -> Self
 pub struct windows_reactor::MenuBar(_)
 impl windows_reactor::MenuBar
+pub fn windows_reactor::MenuBar::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::MenuBar::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::MenuBar::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::MenuBar::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::MenuBar::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::MenuBar::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::MenuBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::MenuBar::canvas_top(self, f64) -> Self
@@ -2264,8 +2422,11 @@ impl core::default::Default for windows_reactor::MenuBar
 pub fn windows_reactor::MenuBar::default() -> Self
 pub struct windows_reactor::MenuBarItem(_)
 impl windows_reactor::MenuBarItem
+pub fn windows_reactor::MenuBarItem::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::MenuBarItem::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::MenuBarItem::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::MenuBarItem::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::MenuBarItem::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::MenuBarItem::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::MenuBarItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::MenuBarItem::canvas_top(self, f64) -> Self
@@ -2302,8 +2463,11 @@ pub fn windows_reactor::MenuBarItem::default() -> Self
 pub struct windows_reactor::NavigationView(_)
 impl windows_reactor::NavigationView
 pub fn windows_reactor::NavigationView::always_show_header(self, bool) -> Self
+pub fn windows_reactor::NavigationView::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::NavigationView::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::NavigationView::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::NavigationView::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::NavigationView::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::NavigationView::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::NavigationView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::NavigationView::canvas_top(self, f64) -> Self
@@ -2360,8 +2524,11 @@ impl core::default::Default for windows_reactor::NavigationView
 pub fn windows_reactor::NavigationView::default() -> Self
 pub struct windows_reactor::NavigationViewItem(_)
 impl windows_reactor::NavigationViewItem
+pub fn windows_reactor::NavigationViewItem::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::NavigationViewItem::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::NavigationViewItem::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::NavigationViewItem::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::NavigationViewItem::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::NavigationViewItem::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::NavigationViewItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::NavigationViewItem::canvas_top(self, f64) -> Self
@@ -2410,8 +2577,11 @@ pub fn windows_reactor::NotifyIcon::on_activate(self, impl windows_reactor::Into
 pub fn windows_reactor::NotifyIcon::tooltip(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub struct windows_reactor::NumberBox(_)
 impl windows_reactor::NumberBox
+pub fn windows_reactor::NumberBox::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::NumberBox::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::NumberBox::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::NumberBox::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::NumberBox::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::NumberBox::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::NumberBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::NumberBox::canvas_top(self, f64) -> Self
@@ -2442,6 +2612,8 @@ pub fn windows_reactor::NumberBox::relative_align_left(self) -> Self
 pub fn windows_reactor::NumberBox::relative_align_right(self) -> Self
 pub fn windows_reactor::NumberBox::relative_align_top(self) -> Self
 pub fn windows_reactor::NumberBox::relative_align_vertical_center(self) -> Self
+pub fn windows_reactor::NumberBox::small_change(self, f64) -> Self
+pub fn windows_reactor::NumberBox::spin_button_placement_mode(self, windows_reactor::NumberBoxSpinButtonPlacementMode) -> Self
 pub fn windows_reactor::NumberBox::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::NumberBox::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::NumberBox::value(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
@@ -2454,8 +2626,11 @@ pub fn windows_reactor::NumberBox::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::NumberBox
 pub struct windows_reactor::PasswordBox(_)
 impl windows_reactor::PasswordBox
+pub fn windows_reactor::PasswordBox::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::PasswordBox::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::PasswordBox::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::PasswordBox::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::PasswordBox::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::PasswordBox::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::PasswordBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::PasswordBox::canvas_top(self, f64) -> Self
@@ -2498,8 +2673,11 @@ pub fn windows_reactor::PasswordBox::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::PasswordBox
 pub struct windows_reactor::PathIcon(_)
 impl windows_reactor::PathIcon
+pub fn windows_reactor::PathIcon::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::PathIcon::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::PathIcon::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::PathIcon::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::PathIcon::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::PathIcon::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::PathIcon::canvas_left(self, f64) -> Self
 pub fn windows_reactor::PathIcon::canvas_top(self, f64) -> Self
@@ -2535,8 +2713,11 @@ impl core::default::Default for windows_reactor::PathIcon
 pub fn windows_reactor::PathIcon::default() -> Self
 pub struct windows_reactor::PersonPicture(_)
 impl windows_reactor::PersonPicture
+pub fn windows_reactor::PersonPicture::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::PersonPicture::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::PersonPicture::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::PersonPicture::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::PersonPicture::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::PersonPicture::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::PersonPicture::canvas_left(self, f64) -> Self
 pub fn windows_reactor::PersonPicture::canvas_top(self, f64) -> Self
@@ -2580,8 +2761,11 @@ pub windows_reactor::PhysicalKeyStatus::scan_code: u32
 pub windows_reactor::PhysicalKeyStatus::was_down: bool
 pub struct windows_reactor::Pivot(_)
 impl windows_reactor::Pivot
+pub fn windows_reactor::Pivot::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Pivot::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::Pivot::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Pivot::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::Pivot::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::Pivot::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Pivot::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Pivot::canvas_top(self, f64) -> Self
@@ -2620,8 +2804,11 @@ impl core::default::Default for windows_reactor::Pivot
 pub fn windows_reactor::Pivot::default() -> Self
 pub struct windows_reactor::PivotItem(_)
 impl windows_reactor::PivotItem
+pub fn windows_reactor::PivotItem::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::PivotItem::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::PivotItem::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::PivotItem::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::PivotItem::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::PivotItem::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::PivotItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::PivotItem::canvas_top(self, f64) -> Self
@@ -2670,8 +2857,11 @@ pub windows_reactor::PointerEventInfo::x: f64
 pub windows_reactor::PointerEventInfo::y: f64
 pub struct windows_reactor::ProgressBar(_)
 impl windows_reactor::ProgressBar
+pub fn windows_reactor::ProgressBar::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ProgressBar::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ProgressBar::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ProgressBar::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ProgressBar::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ProgressBar::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ProgressBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ProgressBar::canvas_top(self, f64) -> Self
@@ -2713,8 +2903,11 @@ impl core::default::Default for windows_reactor::ProgressBar
 pub fn windows_reactor::ProgressBar::default() -> Self
 pub struct windows_reactor::ProgressRing(_)
 impl windows_reactor::ProgressRing
+pub fn windows_reactor::ProgressRing::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ProgressRing::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ProgressRing::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ProgressRing::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ProgressRing::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ProgressRing::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ProgressRing::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ProgressRing::canvas_top(self, f64) -> Self
@@ -2755,8 +2948,11 @@ impl core::default::Default for windows_reactor::ProgressRing
 pub fn windows_reactor::ProgressRing::default() -> Self
 pub struct windows_reactor::RadioButton(_)
 impl windows_reactor::RadioButton
+pub fn windows_reactor::RadioButton::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RadioButton::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::RadioButton::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RadioButton::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::RadioButton::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::RadioButton::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RadioButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RadioButton::canvas_top(self, f64) -> Self
@@ -2798,8 +2994,11 @@ pub fn windows_reactor::RadioButton::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::RadioButton
 pub struct windows_reactor::RadioButtons(_)
 impl windows_reactor::RadioButtons
+pub fn windows_reactor::RadioButtons::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RadioButtons::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::RadioButtons::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RadioButtons::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::RadioButtons::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::RadioButtons::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RadioButtons::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RadioButtons::canvas_top(self, f64) -> Self
@@ -2839,8 +3038,11 @@ impl core::default::Default for windows_reactor::RadioButtons
 pub fn windows_reactor::RadioButtons::default() -> Self
 pub struct windows_reactor::RatingControl(_)
 impl windows_reactor::RatingControl
+pub fn windows_reactor::RatingControl::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RatingControl::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::RatingControl::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RatingControl::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::RatingControl::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::RatingControl::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RatingControl::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RatingControl::canvas_top(self, f64) -> Self
@@ -2882,8 +3084,11 @@ pub fn windows_reactor::RatingControl::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::RatingControl
 pub struct windows_reactor::Rectangle(_)
 impl windows_reactor::Rectangle
+pub fn windows_reactor::Rectangle::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Rectangle::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::Rectangle::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Rectangle::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::Rectangle::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::Rectangle::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Rectangle::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Rectangle::canvas_top(self, f64) -> Self
@@ -2923,8 +3128,11 @@ impl core::default::Default for windows_reactor::Rectangle
 pub fn windows_reactor::Rectangle::default() -> Self
 pub struct windows_reactor::RelativePanel(_)
 impl windows_reactor::RelativePanel
+pub fn windows_reactor::RelativePanel::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RelativePanel::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::RelativePanel::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RelativePanel::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::RelativePanel::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::RelativePanel::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RelativePanel::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RelativePanel::canvas_top(self, f64) -> Self
@@ -2960,8 +3168,11 @@ impl core::default::Default for windows_reactor::RelativePanel
 pub fn windows_reactor::RelativePanel::default() -> Self
 pub struct windows_reactor::RepeatButton(_)
 impl windows_reactor::RepeatButton
+pub fn windows_reactor::RepeatButton::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RepeatButton::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::RepeatButton::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RepeatButton::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::RepeatButton::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::RepeatButton::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RepeatButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RepeatButton::canvas_top(self, f64) -> Self
@@ -3005,8 +3216,11 @@ pub fn windows_reactor::ResourceOverrides::new() -> Self
 pub fn windows_reactor::ResourceOverrides::set(self, impl core::convert::Into<alloc::string::String>, impl core::convert::Into<windows_reactor::ResourceValue>) -> Self
 pub struct windows_reactor::RichEditBox(_)
 impl windows_reactor::RichEditBox
+pub fn windows_reactor::RichEditBox::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RichEditBox::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::RichEditBox::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RichEditBox::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::RichEditBox::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::RichEditBox::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RichEditBox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RichEditBox::canvas_top(self, f64) -> Self
@@ -3053,8 +3267,11 @@ pub fn windows_reactor::RichText::new(impl core::iter::traits::collect::IntoIter
 pub fn windows_reactor::RichText::single_paragraph(impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::RichTextInline>) -> Self
 pub struct windows_reactor::RichTextBlock(_)
 impl windows_reactor::RichTextBlock
+pub fn windows_reactor::RichTextBlock::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RichTextBlock::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::RichTextBlock::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RichTextBlock::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::RichTextBlock::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::RichTextBlock::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::RichTextBlock::canvas_left(self, f64) -> Self
 pub fn windows_reactor::RichTextBlock::canvas_top(self, f64) -> Self
@@ -3120,8 +3337,11 @@ impl windows_reactor::ScreenPoint
 pub const fn windows_reactor::ScreenPoint::new(i32, i32) -> Self
 pub struct windows_reactor::ScrollView(_)
 impl windows_reactor::ScrollView
+pub fn windows_reactor::ScrollView::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ScrollView::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ScrollView::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ScrollView::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ScrollView::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ScrollView::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ScrollView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ScrollView::canvas_top(self, f64) -> Self
@@ -3159,8 +3379,11 @@ impl core::default::Default for windows_reactor::ScrollView
 pub fn windows_reactor::ScrollView::default() -> Self
 pub struct windows_reactor::ScrollViewer(_)
 impl windows_reactor::ScrollViewer
+pub fn windows_reactor::ScrollViewer::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ScrollViewer::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ScrollViewer::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ScrollViewer::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ScrollViewer::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ScrollViewer::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ScrollViewer::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ScrollViewer::canvas_top(self, f64) -> Self
@@ -3198,8 +3421,11 @@ impl core::default::Default for windows_reactor::ScrollViewer
 pub fn windows_reactor::ScrollViewer::default() -> Self
 pub struct windows_reactor::SelectorBar(_)
 impl windows_reactor::SelectorBar
+pub fn windows_reactor::SelectorBar::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SelectorBar::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::SelectorBar::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SelectorBar::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::SelectorBar::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::SelectorBar::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SelectorBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::SelectorBar::canvas_top(self, f64) -> Self
@@ -3237,8 +3463,11 @@ impl core::default::Default for windows_reactor::SelectorBar
 pub fn windows_reactor::SelectorBar::default() -> Self
 pub struct windows_reactor::SelectorBarItem(_)
 impl windows_reactor::SelectorBarItem
+pub fn windows_reactor::SelectorBarItem::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SelectorBarItem::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::SelectorBarItem::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SelectorBarItem::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::SelectorBarItem::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::SelectorBarItem::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SelectorBarItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::SelectorBarItem::canvas_top(self, f64) -> Self
@@ -3276,8 +3505,11 @@ impl core::default::Default for windows_reactor::SelectorBarItem
 pub fn windows_reactor::SelectorBarItem::default() -> Self
 pub struct windows_reactor::Slider(_)
 impl windows_reactor::Slider
+pub fn windows_reactor::Slider::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Slider::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::Slider::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Slider::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::Slider::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::Slider::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Slider::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Slider::canvas_top(self, f64) -> Self
@@ -3322,8 +3554,11 @@ pub fn windows_reactor::Slider::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::Slider
 pub struct windows_reactor::SplitButton(_)
 impl windows_reactor::SplitButton
+pub fn windows_reactor::SplitButton::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SplitButton::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::SplitButton::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SplitButton::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::SplitButton::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::SplitButton::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SplitButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::SplitButton::canvas_top(self, f64) -> Self
@@ -3361,8 +3596,11 @@ impl core::default::Default for windows_reactor::SplitButton
 pub fn windows_reactor::SplitButton::default() -> Self
 pub struct windows_reactor::SplitView(_)
 impl windows_reactor::SplitView
+pub fn windows_reactor::SplitView::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SplitView::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::SplitView::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SplitView::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::SplitView::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::SplitView::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SplitView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::SplitView::canvas_top(self, f64) -> Self
@@ -3404,8 +3642,11 @@ impl core::default::Default for windows_reactor::SplitView
 pub fn windows_reactor::SplitView::default() -> Self
 pub struct windows_reactor::StackPanel(_)
 impl windows_reactor::StackPanel
+pub fn windows_reactor::StackPanel::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::StackPanel::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::StackPanel::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::StackPanel::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::StackPanel::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::StackPanel::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::StackPanel::canvas_left(self, f64) -> Self
 pub fn windows_reactor::StackPanel::canvas_top(self, f64) -> Self
@@ -3444,8 +3685,11 @@ impl core::default::Default for windows_reactor::StackPanel
 pub fn windows_reactor::StackPanel::default() -> Self
 pub struct windows_reactor::SwapChainPanel(_)
 impl windows_reactor::SwapChainPanel
+pub fn windows_reactor::SwapChainPanel::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SwapChainPanel::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::SwapChainPanel::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SwapChainPanel::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::SwapChainPanel::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::SwapChainPanel::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SwapChainPanel::canvas_left(self, f64) -> Self
 pub fn windows_reactor::SwapChainPanel::canvas_top(self, f64) -> Self
@@ -3483,8 +3727,11 @@ impl windows_reactor::ReferenceElement for windows_reactor::SwapChainPanel
 pub struct windows_reactor::SwapChainPanelBinding(_)
 pub struct windows_reactor::SymbolIcon(_)
 impl windows_reactor::SymbolIcon
+pub fn windows_reactor::SymbolIcon::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SymbolIcon::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::SymbolIcon::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SymbolIcon::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::SymbolIcon::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::SymbolIcon::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::SymbolIcon::canvas_left(self, f64) -> Self
 pub fn windows_reactor::SymbolIcon::canvas_top(self, f64) -> Self
@@ -3520,8 +3767,11 @@ impl core::default::Default for windows_reactor::SymbolIcon
 pub fn windows_reactor::SymbolIcon::default() -> Self
 pub struct windows_reactor::TabView(_)
 impl windows_reactor::TabView
+pub fn windows_reactor::TabView::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TabView::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::TabView::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TabView::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TabView::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::TabView::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TabView::can_reorder_tabs(self, bool) -> Self
 pub fn windows_reactor::TabView::canvas_left(self, f64) -> Self
@@ -3565,8 +3815,11 @@ impl core::default::Default for windows_reactor::TabView
 pub fn windows_reactor::TabView::default() -> Self
 pub struct windows_reactor::TabViewItem(_)
 impl windows_reactor::TabViewItem
+pub fn windows_reactor::TabViewItem::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TabViewItem::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::TabViewItem::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TabViewItem::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TabViewItem::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::TabViewItem::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TabViewItem::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TabViewItem::canvas_top(self, f64) -> Self
@@ -3606,8 +3859,11 @@ pub fn windows_reactor::TabViewItem::default() -> Self
 pub struct windows_reactor::TeachingTip(_)
 impl windows_reactor::TeachingTip
 pub fn windows_reactor::TeachingTip::action_button_content(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TeachingTip::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TeachingTip::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::TeachingTip::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TeachingTip::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TeachingTip::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::TeachingTip::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TeachingTip::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TeachingTip::canvas_top(self, f64) -> Self
@@ -3650,13 +3906,18 @@ impl core::default::Default for windows_reactor::TeachingTip
 pub fn windows_reactor::TeachingTip::default() -> Self
 pub struct windows_reactor::TextBlock(_)
 impl windows_reactor::TextBlock
+pub fn windows_reactor::TextBlock::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TextBlock::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::TextBlock::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TextBlock::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TextBlock::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::TextBlock::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TextBlock::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TextBlock::canvas_top(self, f64) -> Self
+pub fn windows_reactor::TextBlock::character_spacing(self, i32) -> Self
 pub fn windows_reactor::TextBlock::exit_fade(self, core::time::Duration) -> Self
 pub fn windows_reactor::TextBlock::exit_transition(self, core::option::Option<windows_reactor::ExitTransition>) -> Self
+pub fn windows_reactor::TextBlock::font_family(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TextBlock::font_size(self, f64) -> Self
 pub fn windows_reactor::TextBlock::font_weight(self, windows_reactor::FontWeight) -> Self
 pub fn windows_reactor::TextBlock::foreground(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
@@ -3667,6 +3928,7 @@ pub fn windows_reactor::TextBlock::grid_row_span(self, i32) -> Self
 pub fn windows_reactor::TextBlock::height(self, f64) -> Self
 pub fn windows_reactor::TextBlock::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::TextBlock::is_text_selection_enabled(self, bool) -> Self
+pub fn windows_reactor::TextBlock::line_height(self, f64) -> Self
 pub fn windows_reactor::TextBlock::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::TextBlock::max_height(self, f64) -> Self
 pub fn windows_reactor::TextBlock::max_lines(self, i32) -> Self
@@ -3683,6 +3945,7 @@ pub fn windows_reactor::TextBlock::relative_align_right(self) -> Self
 pub fn windows_reactor::TextBlock::relative_align_top(self) -> Self
 pub fn windows_reactor::TextBlock::relative_align_vertical_center(self) -> Self
 pub fn windows_reactor::TextBlock::text(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TextBlock::text_alignment(self, windows_reactor::TextAlignment) -> Self
 pub fn windows_reactor::TextBlock::text_trimming(self, windows_reactor::TextTrimming) -> Self
 pub fn windows_reactor::TextBlock::text_wrapping(self, windows_reactor::TextWrapping) -> Self
 pub fn windows_reactor::TextBlock::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
@@ -3696,8 +3959,11 @@ pub fn windows_reactor::TextBlock::default() -> Self
 pub struct windows_reactor::TextBox(_)
 impl windows_reactor::TextBox
 pub fn windows_reactor::TextBox::accepts_return(self, bool) -> Self
+pub fn windows_reactor::TextBox::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TextBox::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::TextBox::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TextBox::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TextBox::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::TextBox::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TextBox::background(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
 pub fn windows_reactor::TextBox::border_brush(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
@@ -3715,12 +3981,13 @@ pub fn windows_reactor::TextBox::header(self, impl core::convert::Into<windows_r
 pub fn windows_reactor::TextBox::height(self, f64) -> Self
 pub fn windows_reactor::TextBox::horizontal_alignment(self, windows_reactor::HorizontalAlignment) -> Self
 pub fn windows_reactor::TextBox::is_enabled(self, bool) -> Self
+pub fn windows_reactor::TextBox::is_read_only(self, bool) -> Self
 pub fn windows_reactor::TextBox::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::TextBox::max_height(self, f64) -> Self
 pub fn windows_reactor::TextBox::max_width(self, f64) -> Self
 pub fn windows_reactor::TextBox::min_height(self, f64) -> Self
 pub fn windows_reactor::TextBox::min_width(self, f64) -> Self
-pub fn windows_reactor::TextBox::new(impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TextBox::new() -> Self
 pub fn windows_reactor::TextBox::on_text_changed(self, impl windows_reactor::IntoPayloadCallback<alloc::rcs::rc::Rc<str>>) -> Self
 pub fn windows_reactor::TextBox::opacity(self, f64) -> Self
 pub fn windows_reactor::TextBox::placeholder_text(self, impl core::convert::AsRef<str>) -> Self
@@ -3730,6 +3997,8 @@ pub fn windows_reactor::TextBox::relative_align_left(self) -> Self
 pub fn windows_reactor::TextBox::relative_align_right(self) -> Self
 pub fn windows_reactor::TextBox::relative_align_top(self) -> Self
 pub fn windows_reactor::TextBox::relative_align_vertical_center(self) -> Self
+pub fn windows_reactor::TextBox::text(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TextBox::text_alignment(self, windows_reactor::TextAlignment) -> Self
 pub fn windows_reactor::TextBox::text_wrapping(self, windows_reactor::TextWrapping) -> Self
 pub fn windows_reactor::TextBox::transitions<T>(self, T) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
 pub fn windows_reactor::TextBox::transitions_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::ThemeTransition>
@@ -3737,6 +4006,8 @@ pub fn windows_reactor::TextBox::vertical_alignment(self, windows_reactor::Verti
 pub fn windows_reactor::TextBox::width(self, f64) -> Self
 impl core::convert::From<windows_reactor::TextBox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TextBox) -> Self
+impl core::default::Default for windows_reactor::TextBox
+pub fn windows_reactor::TextBox::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::TextBox
 pub struct windows_reactor::Thickness
 pub windows_reactor::Thickness::bottom: f64
@@ -3755,8 +4026,11 @@ impl core::convert::From<windows_reactor::Thickness> for windows_reactor::Resour
 pub fn windows_reactor::ResourceValue::from(windows_reactor::Thickness) -> Self
 pub struct windows_reactor::TimePicker(_)
 impl windows_reactor::TimePicker
+pub fn windows_reactor::TimePicker::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TimePicker::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::TimePicker::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TimePicker::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TimePicker::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::TimePicker::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TimePicker::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TimePicker::canvas_top(self, f64) -> Self
@@ -3796,8 +4070,11 @@ impl core::default::Default for windows_reactor::TimePicker
 pub fn windows_reactor::TimePicker::default() -> Self
 pub struct windows_reactor::TitleBar(_)
 impl windows_reactor::TitleBar
+pub fn windows_reactor::TitleBar::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TitleBar::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::TitleBar::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TitleBar::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TitleBar::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::TitleBar::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TitleBar::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TitleBar::canvas_top(self, f64) -> Self
@@ -3844,8 +4121,11 @@ impl core::default::Default for windows_reactor::TitleBar
 pub fn windows_reactor::TitleBar::default() -> Self
 pub struct windows_reactor::ToggleButton(_)
 impl windows_reactor::ToggleButton
+pub fn windows_reactor::ToggleButton::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ToggleButton::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ToggleButton::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ToggleButton::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ToggleButton::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ToggleButton::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ToggleButton::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ToggleButton::canvas_top(self, f64) -> Self
@@ -3886,8 +4166,11 @@ pub fn windows_reactor::ToggleButton::default() -> Self
 impl windows_reactor::ReferenceElement for windows_reactor::ToggleButton
 pub struct windows_reactor::ToggleSwitch(_)
 impl windows_reactor::ToggleSwitch
+pub fn windows_reactor::ToggleSwitch::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ToggleSwitch::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::ToggleSwitch::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ToggleSwitch::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::ToggleSwitch::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::ToggleSwitch::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::ToggleSwitch::canvas_left(self, f64) -> Self
 pub fn windows_reactor::ToggleSwitch::canvas_top(self, f64) -> Self
@@ -3941,8 +4224,11 @@ pub fn windows_reactor::TreeNode::expanded(self, bool) -> Self
 pub fn windows_reactor::TreeNode::new(impl core::convert::Into<windows_reactor::Key>, impl core::convert::AsRef<str>) -> Self
 pub struct windows_reactor::TreeView(_)
 impl windows_reactor::TreeView
+pub fn windows_reactor::TreeView::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TreeView::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::TreeView::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TreeView::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::TreeView::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::TreeView::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::TreeView::canvas_left(self, f64) -> Self
 pub fn windows_reactor::TreeView::canvas_top(self, f64) -> Self
@@ -3981,8 +4267,11 @@ impl core::default::Default for windows_reactor::TreeView
 pub fn windows_reactor::TreeView::default() -> Self
 pub struct windows_reactor::VariableSizedWrapGrid(_)
 impl windows_reactor::VariableSizedWrapGrid
+pub fn windows_reactor::VariableSizedWrapGrid::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::VariableSizedWrapGrid::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::VariableSizedWrapGrid::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::canvas_left(self, f64) -> Self
 pub fn windows_reactor::VariableSizedWrapGrid::canvas_top(self, f64) -> Self
@@ -4205,8 +4494,11 @@ impl<C> windows_reactor::ViewContext<'_, C> where C: windows_reactor::Component,
 pub fn windows_reactor::ViewContext<'_, C>::completion(&self) -> windows_reactor::ComponentCompletion<<C as windows_reactor::Component>::Message>
 pub struct windows_reactor::Viewbox(_)
 impl windows_reactor::Viewbox
+pub fn windows_reactor::Viewbox::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Viewbox::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::Viewbox::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Viewbox::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::Viewbox::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::Viewbox::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::Viewbox::canvas_left(self, f64) -> Self
 pub fn windows_reactor::Viewbox::canvas_top(self, f64) -> Self
@@ -4299,8 +4591,11 @@ impl core::fmt::Debug for windows_reactor::VirtualSource
 pub fn windows_reactor::VirtualSource::fmt(&self, &mut core::fmt::Formatter<'_>) -> core::fmt::Result
 pub struct windows_reactor::WebView2(_)
 impl windows_reactor::WebView2
+pub fn windows_reactor::WebView2::automation_full_description(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::WebView2::automation_heading_level(self, windows_reactor::AutomationHeadingLevel) -> Self
+pub fn windows_reactor::WebView2::automation_help_text(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::WebView2::automation_id(self, impl core::convert::AsRef<str>) -> Self
+pub fn windows_reactor::WebView2::automation_live_setting(self, windows_reactor::AutomationLiveSetting) -> Self
 pub fn windows_reactor::WebView2::automation_name(self, impl core::convert::AsRef<str>) -> Self
 pub fn windows_reactor::WebView2::canvas_left(self, f64) -> Self
 pub fn windows_reactor::WebView2::canvas_top(self, f64) -> Self

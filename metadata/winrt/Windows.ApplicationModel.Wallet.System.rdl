@@ -28,12 +28,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore2 is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WalletItemSystemStore)]
                 interface IWalletItemSystemStore2 {
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore2 is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
-                    fn add_ItemsChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<WalletItemSystemStore, Object>) -> super::super::super::Foundation::EventRegistrationToken;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore2 is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
-                    fn remove_ItemsChanged(&self, cookie: super::super::super::Foundation::EventRegistrationToken);
+                    event ItemsChanged: super::super::super::Foundation::TypedEventHandler<WalletItemSystemStore, Object>;
                 }
                 #[guid(0xbee8eb89_2634_4b9a_8b23_ee8903c91fe0)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

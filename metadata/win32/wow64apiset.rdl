@@ -1,50 +1,33 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < uSize", "return != 0 && return < uSize")]
-        #[library("KERNEL32.dll", import = "GetSystemWow64DirectoryA")]
-        extern fn GetSystemWow64Directory(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[out] #[opt] #[len_param(1)] lpBuffer: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSize: UINT) -> UINT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < uSize", "return != 0 && return < uSize")]
-        #[library("api-ms-win-core-wow64-l1-1-1.dll", import = "GetSystemWow64Directory2A")]
-        extern fn GetSystemWow64Directory2(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[out] #[opt] #[len_param(1)] lpBuffer: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSize: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageFileMachineType: WORD) -> UINT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < uSize", "return != 0 && return < uSize")]
         #[library("api-ms-win-core-wow64-l1-1-1.dll")]
-        extern fn GetSystemWow64Directory2A(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[out] #[opt] #[len_param(1)] lpBuffer: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSize: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageFileMachineType: WORD) -> UINT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < uSize", "return != 0 && return < uSize")]
+        extern fn GetSystemWow64Directory2A(#[len_param(1)] #[out] #[opt] lpBuffer: PSTR, uSize: u32, ImageFileMachineType: u16) -> u32;
         #[library("api-ms-win-core-wow64-l1-1-1.dll")]
-        extern fn GetSystemWow64Directory2W(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[out] #[opt] #[len_param(1)] lpBuffer: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSize: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ImageFileMachineType: WORD) -> UINT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < uSize", "return != 0 && return < uSize")]
+        extern fn GetSystemWow64Directory2W(#[len_param(1)] #[out] #[opt] lpBuffer: PWSTR, uSize: u32, ImageFileMachineType: u16) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetSystemWow64DirectoryA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[out] #[opt] #[len_param(1)] lpBuffer: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSize: UINT) -> UINT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < uSize", "return != 0 && return < uSize")]
+        extern fn GetSystemWow64DirectoryA(#[len_param(1)] #[out] #[opt] lpBuffer: PSTR, uSize: u32) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetSystemWow64DirectoryW(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[out] #[opt] #[len_param(1)] lpBuffer: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uSize: UINT) -> UINT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn GetSystemWow64DirectoryW(#[len_param(1)] #[out] #[opt] lpBuffer: PWSTR, uSize: u32) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn IsWow64GuestMachineSupported(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] WowGuestMachine: USHORT, #[out] MachineIsSupported: *mut BOOL) -> HRESULT;
+        extern fn IsWow64GuestMachineSupported(WowGuestMachine: u16, MachineIsSupported: *mut BOOL) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn IsWow64Process(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] Wow64Process: PBOOL) -> BOOL;
+        extern fn IsWow64Process(hProcess: HANDLE, #[out] Wow64Process: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn IsWow64Process2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] pProcessMachine: *mut USHORT, #[out] #[opt] pNativeMachine: *mut USHORT) -> BOOL;
+        extern fn IsWow64Process2(hProcess: HANDLE, pProcessMachine: *mut u16, #[opt] pNativeMachine: *mut u16) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn Wow64DisableWow64FsRedirection(#[out] OldValue: *mut PVOID) -> BOOL;
+        extern fn Wow64DisableWow64FsRedirection(OldValue: *mut *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn Wow64EnableWow64FsRedirection(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Wow64FsEnableRedirection: BOOLEAN) -> BOOLEAN;
+        extern fn Wow64EnableWow64FsRedirection(Wow64FsEnableRedirection: BOOLEAN) -> BOOLEAN;
         #[library("KERNEL32.dll")]
-        extern fn Wow64GetThreadContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[out] lpContext: PWOW64_CONTEXT) -> BOOL;
+        extern fn Wow64GetThreadContext(hThread: HANDLE, #[in] #[out] lpContext: PWOW64_CONTEXT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn Wow64RevertWow64FsRedirection(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OlValue: PVOID) -> BOOL;
+        extern fn Wow64RevertWow64FsRedirection(#[in] OlValue: *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn Wow64SetThreadContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpContext: *const WOW64_CONTEXT) -> BOOL;
+        extern fn Wow64SetThreadContext(hThread: HANDLE, lpContext: *const WOW64_CONTEXT) -> BOOL;
         #[library("api-ms-win-core-wow64-l1-1-1.dll")]
-        extern fn Wow64SetThreadDefaultGuestMachine(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Machine: USHORT) -> USHORT;
+        extern fn Wow64SetThreadDefaultGuestMachine(Machine: u16) -> u16;
         #[library("KERNEL32.dll")]
-        extern fn Wow64SuspendThread(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE) -> DWORD;
+        extern fn Wow64SuspendThread(hThread: HANDLE) -> u32;
     }
 }

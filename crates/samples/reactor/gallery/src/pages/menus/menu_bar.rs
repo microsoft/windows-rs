@@ -59,7 +59,6 @@ impl Component for MenuBarPage {
                             .text(format!("Last clicked: {}", self.last_click))
                             .opacity(0.6),
                     )),
-                    r#"MenuBar::new().items([...])"#,
                 ),
             )],
         )

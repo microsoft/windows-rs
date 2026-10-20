@@ -2,15 +2,17 @@
 mod Windows {
     mod Win32 {
         #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
-        extern fn AddPackageDependency(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageDependencyId: PCWSTR, rank: INT32, options: AddPackageDependencyOptions, #[out] packageDependencyContext: *mut PACKAGEDEPENDENCY_CONTEXT, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] packageFullName: *mut PWSTR) -> HRESULT;
+        extern fn AddPackageDependency(packageDependencyId: PCWSTR, rank: i32, options: AddPackageDependencyOptions, packageDependencyContext: *mut PACKAGEDEPENDENCY_CONTEXT, packageFullName: *mut PWSTR) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn AddPackageDependency2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageDependencyId: PCWSTR, rank: INT32, options: AddPackageDependencyOptions2, #[out] packageDependencyContext: *mut PACKAGEDEPENDENCY_CONTEXT, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] packageFullName: *mut PWSTR) -> HRESULT;
-        #[repr(i32)]
+        extern fn AddPackageDependency2(packageDependencyId: PCWSTR, rank: i32, options: AddPackageDependencyOptions2, packageDependencyContext: *mut PACKAGEDEPENDENCY_CONTEXT, packageFullName: *mut PWSTR) -> HRESULT;
+        #[repr(u32)]
+        #[flags]
         enum AddPackageDependencyOptions {
             AddPackageDependencyOptions_None = 0,
             AddPackageDependencyOptions_PrependIfRankCollision = 1,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum AddPackageDependencyOptions2 {
             AddPackageDependencyOptions2_None = 0,
             AddPackageDependencyOptions2_PrependIfRankCollision = 1,
@@ -32,38 +34,22 @@ mod Windows {
             AppPolicyCreateFileAccess_Full = 0,
             AppPolicyCreateFileAccess_Limited = 1,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
         #[library("KERNEL32.dll")]
-        extern fn AppPolicyGetClrCompat(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] processToken: HANDLE, #[out] policy: *mut AppPolicyClrCompat) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn AppPolicyGetClrCompat(processToken: HANDLE, policy: *mut AppPolicyClrCompat) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn AppPolicyGetCreateFileAccess(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] processToken: HANDLE, #[out] policy: *mut AppPolicyCreateFileAccess) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn AppPolicyGetCreateFileAccess(processToken: HANDLE, policy: *mut AppPolicyCreateFileAccess) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn AppPolicyGetLifecycleManagement(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] processToken: HANDLE, #[out] policy: *mut AppPolicyLifecycleManagement) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn AppPolicyGetLifecycleManagement(processToken: HANDLE, policy: *mut AppPolicyLifecycleManagement) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn AppPolicyGetMediaFoundationCodecLoading(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] processToken: HANDLE, #[out] policy: *mut AppPolicyMediaFoundationCodecLoading) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn AppPolicyGetMediaFoundationCodecLoading(processToken: HANDLE, policy: *mut AppPolicyMediaFoundationCodecLoading) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn AppPolicyGetProcessTerminationMethod(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] processToken: HANDLE, #[out] policy: *mut AppPolicyProcessTerminationMethod) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn AppPolicyGetProcessTerminationMethod(processToken: HANDLE, policy: *mut AppPolicyProcessTerminationMethod) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn AppPolicyGetShowDeveloperDiagnostic(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] processToken: HANDLE, #[out] policy: *mut AppPolicyShowDeveloperDiagnostic) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn AppPolicyGetShowDeveloperDiagnostic(processToken: HANDLE, policy: *mut AppPolicyShowDeveloperDiagnostic) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn AppPolicyGetThreadInitializationType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] processToken: HANDLE, #[out] policy: *mut AppPolicyThreadInitializationType) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn AppPolicyGetThreadInitializationType(processToken: HANDLE, policy: *mut AppPolicyThreadInitializationType) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn AppPolicyGetWindowingModel(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] processToken: HANDLE, #[out] policy: *mut AppPolicyWindowingModel) -> LONG;
+        extern fn AppPolicyGetWindowingModel(processToken: HANDLE, policy: *mut AppPolicyWindowingModel) -> i32;
         #[repr(i32)]
         enum AppPolicyLifecycleManagement {
             AppPolicyLifecycleManagement_Unmanaged = 0,
@@ -96,144 +82,100 @@ mod Windows {
             AppPolicyWindowingModel_ClassicDesktop = 2,
             AppPolicyWindowingModel_ClassicPhone = 3,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("api-ms-win-appmodel-runtime-l1-1-4.dll")]
-        extern fn CheckIsMSIXPackage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFullName: PCWSTR, #[out] isMSIXPackage: *mut BOOL) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn CheckIsMSIXPackage(packageFullName: PCWSTR, isMSIXPackage: *mut BOOL) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn ClosePackageInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageInfoReference: PACKAGE_INFO_REFERENCE) -> LONG;
-        #[repr(i32)]
+        extern fn ClosePackageInfo(packageInfoReference: PACKAGE_INFO_REFERENCE) -> i32;
+        #[repr(u32)]
+        #[flags]
         enum CreatePackageDependencyOptions {
             CreatePackageDependencyOptions_None = 0,
             CreatePackageDependencyOptions_DoNotVerifyDependencyResolution = 1,
             CreatePackageDependencyOptions_ScopeIsSystem = 2,
         }
         #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
-        extern fn DeletePackageDependency(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageDependencyId: PCWSTR) -> HRESULT;
+        extern fn DeletePackageDependency(packageDependencyId: PCWSTR) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn FindPackageDependency(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] findPackageDependencyCriteria: *const FindPackageDependencyCriteria, #[out] packageDependencyIdsCount: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*packageDependencyIdsCount", "*packageDependencyIdsCount")] #[out] packageDependencyIds: *mut *mut PWSTR) -> HRESULT;
+        extern fn FindPackageDependency(findPackageDependencyCriteria: *const FindPackageDependencyCriteria, packageDependencyIdsCount: *mut u32, packageDependencyIds: *mut *mut PWSTR) -> HRESULT;
         struct FindPackageDependencyCriteria {
             User: PSID,
             ScopeIsSystem: BOOL,
             PackageFamilyName: PCWSTR,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_On_failure_", "_Unchanged_(*bufferLength)", "_Unchanged_(*bufferLength)")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_On_failure_", "_Unchanged_(*count)", "_Unchanged_(*count)")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
         #[library("KERNEL32.dll")]
-        extern fn FindPackagesByPackageFamily(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFamilyName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFilters: UINT32, #[in] #[out] count: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*count", "*count")] #[out] #[opt] packageFullNames: *mut PWSTR, #[in] #[out] bufferLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*bufferLength", "*bufferLength")] #[out] #[opt] buffer: *mut WCHAR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*count", "*count")] #[out] #[opt] packageProperties: *mut UINT32) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn FindPackagesByPackageFamily(packageFamilyName: PCWSTR, packageFilters: u32, #[in] #[out] count: *mut u32, #[len_param(2)] #[opt] packageFullNames: *mut PWSTR, #[in] #[out] bufferLength: *mut u32, #[len_param(4)] #[opt] buffer: *mut u16, #[len_param(2)] #[opt] packageProperties: *mut u32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn FormatApplicationUserModelId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFamilyName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageRelativeApplicationId: PCWSTR, #[in] #[out] applicationUserModelIdLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*applicationUserModelIdLength", "*applicationUserModelIdLength")] #[out] #[opt] applicationUserModelId: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn FormatApplicationUserModelId(packageFamilyName: PCWSTR, packageRelativeApplicationId: PCWSTR, #[in] #[out] applicationUserModelIdLength: *mut u32, #[len_param(2)] #[out] #[opt] applicationUserModelId: PWSTR) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetApplicationUserModelId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] applicationUserModelIdLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*applicationUserModelIdLength", "*applicationUserModelIdLength")] #[out] #[opt] applicationUserModelId: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetApplicationUserModelId(hProcess: HANDLE, #[in] #[out] applicationUserModelIdLength: *mut u32, #[len_param(1)] #[out] #[opt] applicationUserModelId: PWSTR) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
-        extern fn GetApplicationUserModelIdFromToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] token: HANDLE, #[in] #[out] applicationUserModelIdLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*applicationUserModelIdLength", "*applicationUserModelIdLength")] #[out] #[opt] applicationUserModelId: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetApplicationUserModelIdFromToken(token: HANDLE, #[in] #[out] applicationUserModelIdLength: *mut u32, #[len_param(1)] #[out] #[opt] applicationUserModelId: PWSTR) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentApplicationUserModelId(#[in] #[out] applicationUserModelIdLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*applicationUserModelIdLength", "*applicationUserModelIdLength")] #[out] #[opt] applicationUserModelId: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetCurrentApplicationUserModelId(#[in] #[out] applicationUserModelIdLength: *mut u32, #[len_param(0)] #[out] #[opt] applicationUserModelId: PWSTR) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentPackageFamilyName(#[in] #[out] packageFamilyNameLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*packageFamilyNameLength", "*packageFamilyNameLength")] #[out] #[opt] packageFamilyName: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetCurrentPackageFamilyName(#[in] #[out] packageFamilyNameLength: *mut u32, #[len_param(0)] #[out] #[opt] packageFamilyName: PWSTR) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentPackageFullName(#[in] #[out] packageFullNameLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*packageFullNameLength", "*packageFullNameLength")] #[out] #[opt] packageFullName: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetCurrentPackageFullName(#[in] #[out] packageFullNameLength: *mut u32, #[len_param(0)] #[out] #[opt] packageFullName: PWSTR) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentPackageId(#[in] #[out] bufferLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*bufferLength", "*bufferLength")] #[out] #[opt] buffer: *mut BYTE) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetCurrentPackageId(#[in] #[out] bufferLength: *mut u32, #[size_param(0)] #[opt] buffer: *mut u8) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentPackageInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: UINT32, #[in] #[out] bufferLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*bufferLength", "*bufferLength")] #[out] #[opt] buffer: *mut BYTE, #[out] #[opt] count: *mut UINT32) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetCurrentPackageInfo(flags: u32, #[in] #[out] bufferLength: *mut u32, #[size_param(1)] #[opt] buffer: *mut u8, #[opt] count: *mut u32) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-3.dll")]
-        extern fn GetCurrentPackageInfo2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packagePathType: PackagePathType, #[in] #[out] bufferLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*bufferLength", "*bufferLength")] #[out] #[opt] buffer: *mut BYTE, #[out] #[opt] count: *mut UINT32) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetCurrentPackageInfo2(flags: u32, packagePathType: PackagePathType, #[in] #[out] bufferLength: *mut u32, #[size_param(2)] #[opt] buffer: *mut u8, #[opt] count: *mut u32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentPackagePath(#[in] #[out] pathLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pathLength", "*pathLength")] #[out] #[opt] path: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetCurrentPackagePath(#[in] #[out] pathLength: *mut u32, #[len_param(0)] #[out] #[opt] path: PWSTR) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-3.dll")]
-        extern fn GetCurrentPackagePath2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packagePathType: PackagePathType, #[in] #[out] pathLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pathLength", "*pathLength")] #[out] #[opt] path: PWSTR) -> LONG;
+        extern fn GetCurrentPackagePath2(packagePathType: PackagePathType, #[in] #[out] pathLength: *mut u32, #[len_param(1)] #[out] #[opt] path: PWSTR) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
-        extern fn GetIdForPackageDependencyContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageDependencyContext: PACKAGEDEPENDENCY_CONTEXT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] packageDependencyId: *mut PWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetIdForPackageDependencyContext(packageDependencyContext: PACKAGEDEPENDENCY_CONTEXT, packageDependencyId: *mut PWSTR) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn GetPackageApplicationIds(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageInfoReference: PACKAGE_INFO_REFERENCE, #[in] #[out] bufferLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*bufferLength", "*bufferLength")] #[out] #[opt] buffer: *mut BYTE, #[out] #[opt] count: *mut UINT32) -> LONG;
+        extern fn GetPackageApplicationIds(packageInfoReference: PACKAGE_INFO_REFERENCE, #[in] #[out] bufferLength: *mut u32, #[size_param(1)] #[opt] buffer: *mut u8, #[opt] count: *mut u32) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn GetPackageDependencyInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageDependencyId: PCWSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] user: *mut PSID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] packageFamilyName: *mut PWSTR, #[out] #[opt] minVersion: *mut PACKAGE_VERSION, #[out] #[opt] packageDependencyProcessorArchitectures: *mut PackageDependencyProcessorArchitectures, #[out] #[opt] lifetimeKind: *mut PackageDependencyLifetimeKind, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] lifetimeArtifact: *mut PWSTR, #[out] #[opt] options: *mut CreatePackageDependencyOptions, #[out] #[opt] lifetimeExpiration: *mut FILETIME) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetPackageDependencyInformation(packageDependencyId: PCWSTR, user: *mut PSID, packageFamilyName: *mut PWSTR, #[opt] minVersion: *mut PACKAGE_VERSION, #[opt] packageDependencyProcessorArchitectures: *mut PackageDependencyProcessorArchitectures, #[opt] lifetimeKind: *mut PackageDependencyLifetimeKind, lifetimeArtifact: *mut PWSTR, #[opt] options: *mut CreatePackageDependencyOptions, #[opt] lifetimeExpiration: *mut FILETIME) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn GetPackageFamilyName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] packageFamilyNameLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*packageFamilyNameLength", "*packageFamilyNameLength")] #[out] #[opt] packageFamilyName: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetPackageFamilyName(hProcess: HANDLE, #[in] #[out] packageFamilyNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFamilyName: PWSTR) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
-        extern fn GetPackageFamilyNameFromToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] token: HANDLE, #[in] #[out] packageFamilyNameLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*packageFamilyNameLength", "*packageFamilyNameLength")] #[out] #[opt] packageFamilyName: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetPackageFamilyNameFromToken(token: HANDLE, #[in] #[out] packageFamilyNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFamilyName: PWSTR) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetPackageFullName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] packageFullNameLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*packageFullNameLength", "*packageFullNameLength")] #[out] #[opt] packageFullName: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetPackageFullName(hProcess: HANDLE, #[in] #[out] packageFullNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFullName: PWSTR) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
-        extern fn GetPackageFullNameFromToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] token: HANDLE, #[in] #[out] packageFullNameLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*packageFullNameLength", "*packageFullNameLength")] #[out] #[opt] packageFullName: PWSTR) -> LONG;
+        extern fn GetPackageFullNameFromToken(token: HANDLE, #[in] #[out] packageFullNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFullName: PWSTR) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-6.dll")]
-        extern fn GetPackageGraphRevisionId() -> UINT32;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetPackageGraphRevisionId() -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetPackageId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[out] bufferLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*bufferLength", "*bufferLength")] #[out] #[opt] buffer: *mut BYTE) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetPackageId(hProcess: HANDLE, #[in] #[out] bufferLength: *mut u32, #[size_param(1)] #[opt] buffer: *mut u8) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetPackageInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageInfoReference: PACKAGE_INFO_REFERENCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: UINT32, #[in] #[out] bufferLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*bufferLength", "*bufferLength")] #[out] #[opt] buffer: *mut BYTE, #[out] #[opt] count: *mut UINT32) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetPackageInfo(packageInfoReference: PACKAGE_INFO_REFERENCE, flags: u32, #[in] #[out] bufferLength: *mut u32, #[size_param(2)] #[opt] buffer: *mut u8, #[opt] count: *mut u32) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-3.dll")]
-        extern fn GetPackageInfo2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageInfoReference: PACKAGE_INFO_REFERENCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: UINT32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packagePathType: PackagePathType, #[in] #[out] bufferLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*bufferLength", "*bufferLength")] #[out] #[opt] buffer: *mut BYTE, #[out] #[opt] count: *mut UINT32) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetPackageInfo2(packageInfoReference: PACKAGE_INFO_REFERENCE, flags: u32, packagePathType: PackagePathType, #[in] #[out] bufferLength: *mut u32, #[size_param(3)] #[opt] buffer: *mut u8, #[opt] count: *mut u32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetPackagePath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageId: *const PACKAGE_ID, #[reserved] reserved: UINT32, #[in] #[out] pathLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pathLength", "*pathLength")] #[out] #[opt] path: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetPackagePath(packageId: *const PACKAGE_ID, #[reserved] reserved: u32, #[in] #[out] pathLength: *mut u32, #[len_param(2)] #[out] #[opt] path: PWSTR) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetPackagePathByFullName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFullName: PCWSTR, #[in] #[out] pathLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pathLength", "*pathLength")] #[out] #[opt] path: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetPackagePathByFullName(packageFullName: PCWSTR, #[in] #[out] pathLength: *mut u32, #[len_param(1)] #[out] #[opt] path: PWSTR) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-3.dll")]
-        extern fn GetPackagePathByFullName2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFullName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packagePathType: PackagePathType, #[in] #[out] pathLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pathLength", "*pathLength")] #[out] #[opt] path: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_On_failure_", "_Unchanged_(*bufferLength)", "_Unchanged_(*bufferLength)")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_On_failure_", "_Unchanged_(*count)", "_Unchanged_(*count)")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetPackagePathByFullName2(packageFullName: PCWSTR, packagePathType: PackagePathType, #[in] #[out] pathLength: *mut u32, #[len_param(2)] #[out] #[opt] path: PWSTR) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetPackagesByPackageFamily(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFamilyName: PCWSTR, #[in] #[out] count: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*count", "*count")] #[out] #[opt] packageFullNames: *mut PWSTR, #[in] #[out] bufferLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*bufferLength", "*bufferLength")] #[out] #[opt] buffer: *mut WCHAR) -> LONG;
+        extern fn GetPackagesByPackageFamily(packageFamilyName: PCWSTR, #[in] #[out] count: *mut u32, #[len_param(1)] #[opt] packageFullNames: *mut PWSTR, #[in] #[out] bufferLength: *mut u32, #[len_param(3)] #[opt] buffer: *mut u16) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn GetProcessesUsingPackageDependency(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageDependencyId: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] user: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scopeIsSystem: BOOL, #[out] processIdsCount: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*processIdsCount", "*processIdsCount")] #[out] processIds: *mut *mut DWORD) -> HRESULT;
+        extern fn GetProcessesUsingPackageDependency(packageDependencyId: PCWSTR, #[opt] user: PSID, scopeIsSystem: BOOL, processIdsCount: *mut u32, processIds: *mut *mut u32) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
-        extern fn GetResolvedPackageFullNameForPackageDependency(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageDependencyId: PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] packageFullName: *mut PWSTR) -> HRESULT;
+        extern fn GetResolvedPackageFullNameForPackageDependency(packageDependencyId: PCWSTR, packageFullName: *mut PWSTR) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn GetResolvedPackageFullNameForPackageDependency2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageDependencyId: PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] packageFullName: *mut PWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetResolvedPackageFullNameForPackageDependency2(packageDependencyId: PCWSTR, packageFullName: *mut PWSTR) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
-        extern fn GetStagedPackageOrigin(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFullName: PCWSTR, #[out] origin: *mut PackageOrigin) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "(((HRESULT)(return)) >= 0)", "(((HRESULT)(return)) >= 0)")]
+        extern fn GetStagedPackageOrigin(packageFullName: PCWSTR, origin: *mut PackageOrigin) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn GetStagedPackageOrigin2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFullName: PCWSTR, #[out] origin: *mut PackageOrigin2) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetStagedPackageOrigin2(packageFullName: PCWSTR, origin: *mut PackageOrigin2) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn GetStagedPackagePathByFullName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFullName: PCWSTR, #[in] #[out] pathLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pathLength", "*pathLength")] #[out] #[opt] path: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn GetStagedPackagePathByFullName(packageFullName: PCWSTR, #[in] #[out] pathLength: *mut u32, #[len_param(1)] #[out] #[opt] path: PWSTR) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-3.dll")]
-        extern fn GetStagedPackagePathByFullName2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFullName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packagePathType: PackagePathType, #[in] #[out] pathLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pathLength", "*pathLength")] #[out] #[opt] path: PWSTR) -> LONG;
+        extern fn GetStagedPackagePathByFullName2(packageFullName: PCWSTR, packagePathType: PackagePathType, #[in] #[out] pathLength: *mut u32, #[len_param(2)] #[out] #[opt] path: PWSTR) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn IsPackageFeatureSupported(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] feature: AppModelPackageFeature) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn IsPackageFeatureSupported(feature: AppModelPackageFeature) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn OpenPackageInfoByFullName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFullName: PCWSTR, #[reserved] reserved: UINT32, #[out] packageInfoReference: *mut PACKAGE_INFO_REFERENCE) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn OpenPackageInfoByFullName(packageFullName: PCWSTR, #[reserved] reserved: u32, packageInfoReference: *mut PACKAGE_INFO_REFERENCE) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
-        extern fn OpenPackageInfoByFullNameForUser(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] userSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFullName: PCWSTR, #[reserved] reserved: UINT32, #[out] packageInfoReference: *mut PACKAGE_INFO_REFERENCE) -> LONG;
+        extern fn OpenPackageInfoByFullNameForUser(#[opt] userSid: PSID, packageFullName: PCWSTR, #[reserved] reserved: u32, packageInfoReference: *mut PACKAGE_INFO_REFERENCE) -> i32;
         type PACKAGEDEPENDENCY_CONTEXT = *mut PACKAGEDEPENDENCY_CONTEXT__;
         struct PACKAGEDEPENDENCY_CONTEXT__ {
             unused: i32,
@@ -249,10 +191,10 @@ mod Windows {
         const PACKAGE_FILTER_OPTIONAL: i32 = 131072;
         const PACKAGE_FILTER_RESOURCE: i32 = 64;
         const PACKAGE_FILTER_STATIC: i32 = 524288;
-        #[packed(4)]
+        #[arch(X86)]
         struct PACKAGE_ID {
-            reserved: UINT32,
-            processorArchitecture: UINT32,
+            reserved: u32,
+            processorArchitecture: u32,
             version: PACKAGE_VERSION,
             name: PWSTR,
             publisher: PWSTR,
@@ -260,9 +202,30 @@ mod Windows {
             publisherId: PWSTR,
         }
         #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct PACKAGE_ID {
+            reserved: u32,
+            processorArchitecture: u32,
+            version: PACKAGE_VERSION,
+            name: PWSTR,
+            publisher: PWSTR,
+            resourceId: PWSTR,
+            publisherId: PWSTR,
+        }
+        #[arch(X86)]
         struct PACKAGE_INFO {
-            reserved: UINT32,
-            flags: UINT32,
+            reserved: u32,
+            flags: u32,
+            path: PWSTR,
+            packageFullName: PWSTR,
+            packageFamilyName: PWSTR,
+            packageId: PACKAGE_ID,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct PACKAGE_INFO {
+            reserved: u32,
+            flags: u32,
             path: PWSTR,
             packageFullName: PWSTR,
             packageFamilyName: PWSTR,
@@ -280,15 +243,14 @@ mod Windows {
         const PACKAGE_PROPERTY_OPTIONAL: i32 = 8;
         const PACKAGE_PROPERTY_RESOURCE: i32 = 2;
         const PACKAGE_PROPERTY_STATIC: i32 = 524288;
-        #[packed(4)]
         struct PACKAGE_VERSION {
             Anonymous: #[packed(4)] union {
-                Version: UINT64,
-                Anonymous: #[packed(4)] struct {
-                    Revision: USHORT,
-                    Build: USHORT,
-                    Minor: USHORT,
-                    Major: USHORT,
+                Version: u64,
+                Anonymous: struct {
+                    Revision: u16,
+                    Build: u16,
+                    Minor: u16,
+                    Major: u16,
                 },
             },
         }
@@ -298,7 +260,8 @@ mod Windows {
             PackageDependencyLifetimeKind_FilePath = 1,
             PackageDependencyLifetimeKind_RegistryKey = 2,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum PackageDependencyProcessorArchitectures {
             PackageDependencyProcessorArchitectures_None = 0,
             PackageDependencyProcessorArchitectures_Neutral = 1,
@@ -308,26 +271,16 @@ mod Windows {
             PackageDependencyProcessorArchitectures_Arm64 = 16,
             PackageDependencyProcessorArchitectures_X86A64 = 32,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
         #[library("KERNEL32.dll")]
-        extern fn PackageFamilyNameFromFullName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFullName: PCWSTR, #[in] #[out] packageFamilyNameLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*packageFamilyNameLength", "*packageFamilyNameLength")] #[out] #[opt] packageFamilyName: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn PackageFamilyNameFromFullName(packageFullName: PCWSTR, #[in] #[out] packageFamilyNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFamilyName: PWSTR) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn PackageFamilyNameFromId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageId: *const PACKAGE_ID, #[in] #[out] packageFamilyNameLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*packageFamilyNameLength", "*packageFamilyNameLength")] #[out] #[opt] packageFamilyName: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn PackageFamilyNameFromId(packageId: *const PACKAGE_ID, #[in] #[out] packageFamilyNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFamilyName: PWSTR) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn PackageFullNameFromId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageId: *const PACKAGE_ID, #[in] #[out] packageFullNameLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*packageFullNameLength", "*packageFullNameLength")] #[out] #[opt] packageFullName: PWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn PackageFullNameFromId(packageId: *const PACKAGE_ID, #[in] #[out] packageFullNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFullName: PWSTR) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn PackageIdFromFullName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFullName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] flags: UINT32, #[in] #[out] bufferLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*bufferLength", "*bufferLength")] #[out] #[opt] buffer: *mut BYTE) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn PackageIdFromFullName(packageFullName: PCWSTR, flags: u32, #[in] #[out] bufferLength: *mut u32, #[size_param(2)] #[opt] buffer: *mut u8) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn PackageNameAndPublisherIdFromFamilyName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFamilyName: PCWSTR, #[in] #[out] packageNameLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*packageNameLength", "*packageNameLength")] #[out] #[opt] packageName: PWSTR, #[in] #[out] packagePublisherIdLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*packagePublisherIdLength", "*packagePublisherIdLength")] #[out] #[opt] packagePublisherId: PWSTR) -> LONG;
+        extern fn PackageNameAndPublisherIdFromFamilyName(packageFamilyName: PCWSTR, #[in] #[out] packageNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageName: PWSTR, #[in] #[out] packagePublisherIdLength: *mut u32, #[len_param(3)] #[out] #[opt] packagePublisherId: PWSTR) -> i32;
         #[repr(i32)]
         enum PackageOrigin {
             PackageOrigin_Unknown = 0,
@@ -359,36 +312,24 @@ mod Windows {
             PackagePathType_UserExternal = 4,
             PackagePathType_EffectiveExternal = 5,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
         #[library("KERNEL32.dll")]
-        extern fn ParseApplicationUserModelId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] applicationUserModelId: PCWSTR, #[in] #[out] packageFamilyNameLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*packageFamilyNameLength", "*packageFamilyNameLength")] #[out] #[opt] packageFamilyName: PWSTR, #[in] #[out] packageRelativeApplicationIdLength: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*packageRelativeApplicationIdLength", "*packageRelativeApplicationIdLength")] #[out] #[opt] packageRelativeApplicationId: PWSTR) -> LONG;
+        extern fn ParseApplicationUserModelId(applicationUserModelId: PCWSTR, #[in] #[out] packageFamilyNameLength: *mut u32, #[len_param(1)] #[out] #[opt] packageFamilyName: PWSTR, #[in] #[out] packageRelativeApplicationIdLength: *mut u32, #[len_param(3)] #[out] #[opt] packageRelativeApplicationId: PWSTR) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
-        extern fn RemovePackageDependency(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageDependencyContext: PACKAGEDEPENDENCY_CONTEXT) -> HRESULT;
+        extern fn RemovePackageDependency(packageDependencyContext: PACKAGEDEPENDENCY_CONTEXT) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-5.dll")]
-        extern fn TryCreatePackageDependency(user: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFamilyName: PCWSTR, minVersion: PACKAGE_VERSION, packageDependencyProcessorArchitectures: PackageDependencyProcessorArchitectures, lifetimeKind: PackageDependencyLifetimeKind, lifetimeArtifact: PCWSTR, options: CreatePackageDependencyOptions, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] packageDependencyId: *mut PWSTR) -> HRESULT;
+        extern fn TryCreatePackageDependency(user: PSID, packageFamilyName: PCWSTR, minVersion: PACKAGE_VERSION, packageDependencyProcessorArchitectures: PackageDependencyProcessorArchitectures, lifetimeKind: PackageDependencyLifetimeKind, lifetimeArtifact: PCWSTR, options: CreatePackageDependencyOptions, packageDependencyId: *mut PWSTR) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-7.dll")]
-        extern fn TryCreatePackageDependency2(user: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFamilyName: PCWSTR, minVersion: PACKAGE_VERSION, packageDependencyProcessorArchitectures: PackageDependencyProcessorArchitectures, lifetimeKind: PackageDependencyLifetimeKind, lifetimeArtifact: PCWSTR, options: CreatePackageDependencyOptions, lifetimeExpiration: *const FILETIME, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] packageDependencyId: *mut PWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn TryCreatePackageDependency2(user: PSID, packageFamilyName: PCWSTR, minVersion: PACKAGE_VERSION, packageDependencyProcessorArchitectures: PackageDependencyProcessorArchitectures, lifetimeKind: PackageDependencyLifetimeKind, lifetimeArtifact: PCWSTR, options: CreatePackageDependencyOptions, lifetimeExpiration: *const FILETIME, packageDependencyId: *mut PWSTR) -> HRESULT;
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
-        extern fn VerifyApplicationUserModelId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] applicationUserModelId: PCWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn VerifyApplicationUserModelId(applicationUserModelId: PCWSTR) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
-        extern fn VerifyPackageFamilyName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFamilyName: PCWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn VerifyPackageFamilyName(packageFamilyName: PCWSTR) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
-        extern fn VerifyPackageFullName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageFullName: PCWSTR) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn VerifyPackageFullName(packageFullName: PCWSTR) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
-        extern fn VerifyPackageId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageId: *const PACKAGE_ID) -> LONG;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0L", "return == 0L")]
+        extern fn VerifyPackageId(packageId: *const PACKAGE_ID) -> i32;
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
-        extern fn VerifyPackageRelativeApplicationId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] packageRelativeApplicationId: PCWSTR) -> LONG;
+        extern fn VerifyPackageRelativeApplicationId(packageRelativeApplicationId: PCWSTR) -> i32;
         struct _PACKAGE_INFO_REFERENCE {
             reserved: *mut void,
         }

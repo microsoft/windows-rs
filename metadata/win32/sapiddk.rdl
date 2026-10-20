@@ -3,168 +3,188 @@ mod Windows {
     mod Win32 {
         #[guid(0xf3d3f926_11fc_11d3_bb97_00c04f8ee6c0)]
         interface ISpCFGInterpreter: IUnknown {
-            fn InitGrammar(&self, pszGrammarName: LPCWSTR, pvGrammarData: *mut *const void) -> HRESULT;
-            fn Interpret(&self, pPhrase: ISpPhraseBuilder, ulFirstElement: ULONG, ulCountOfElements: ULONG, pSite: ISpCFGInterpreterSite) -> HRESULT;
+            fn InitGrammar(&self, pszGrammarName: PCWSTR, pvGrammarData: *const *const void) -> HRESULT;
+            fn Interpret(&self, pPhrase: ISpPhraseBuilder, ulFirstElement: u32, ulCountOfElements: u32, pSite: ISpCFGInterpreterSite) -> HRESULT;
         }
         #[guid(0x6a6ffad8_78b6_473d_b844_98152e4fb16b)]
         interface ISpCFGInterpreterSite: IUnknown {
-            fn AddTextReplacement(&self, pReplace: *mut SPPHRASEREPLACEMENT) -> HRESULT;
+            fn AddTextReplacement(&self, #[in] pReplace: *mut SPPHRASEREPLACEMENT) -> HRESULT;
             fn AddProperty(&self, pProperty: *const SPPHRASEPROPERTY) -> HRESULT;
-            fn GetResourceValue(&self, pszResourceName: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCoMemResource: *mut LPWSTR) -> HRESULT;
+            fn GetResourceValue(&self, pszResourceName: PCWSTR, ppCoMemResource: *mut PWSTR) -> HRESULT;
         }
         #[guid(0xf4711347_e608_11d2_a086_00c04f8ef9b5)]
         interface ISpErrorLog: IUnknown {
-            fn AddError(&self, lLineNumber: i32, hr: HRESULT, pszDescription: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszHelpFile: LPCWSTR, dwHelpContext: DWORD) -> HRESULT;
+            fn AddError(&self, lLineNumber: i32, hr: HRESULT, pszDescription: PCWSTR, #[opt] pszHelpFile: PCWSTR, dwHelpContext: u32) -> HRESULT;
         }
         #[guid(0x3ddca27c_665c_4786_9f97_8c90c3488b61)]
         interface ISpGramCompBackend: ISpGrammarBuilder {
-            fn SetSaveObjects(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pStream: IStream, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pErrorLog: ISpErrorLog) -> HRESULT;
-            fn InitFromBinaryGrammar(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pBinaryData: *const SPBINARYGRAMMAR) -> HRESULT;
+            fn SetSaveObjects(&self, pStream: IStream, pErrorLog: ISpErrorLog) -> HRESULT;
+            fn InitFromBinaryGrammar(&self, pBinaryData: *const SPBINARYGRAMMAR) -> HRESULT;
         }
         #[guid(0xb1e29d58_a675_11d2_8302_00c04f8ee6c0)]
         interface ISpGrammarCompiler: IUnknown {
-            fn CompileStream(&self, pSource: IStream, pDest: IStream, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pHeader: IStream, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReserved: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pErrorLog: ISpErrorLog, dwFlags: DWORD) -> HRESULT;
+            fn CompileStream(&self, pSource: IStream, pDest: IStream, #[opt] pHeader: IStream, #[opt] pReserved: IUnknown, #[opt] pErrorLog: ISpErrorLog, dwFlags: u32) -> HRESULT;
         }
         #[guid(0x12d7360f_a1c9_11d3_bc90_00c04f72df9f)]
         interface ISpITNProcessor: IUnknown {
-            fn LoadITNGrammar(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszCLSID: LPWSTR) -> HRESULT;
+            fn LoadITNGrammar(&self, pszCLSID: PCWSTR) -> HRESULT;
             fn ITNPhrase(&self, pPhrase: ISpPhraseBuilder) -> HRESULT;
         }
         #[guid(0x06b64f9f_7fda_11d2_b4f2_00c04f797396)]
         interface ISpObjectTokenEnumBuilder: IEnumSpObjectTokens {
-            fn SetAttribs(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszReqAttribs: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszOptAttribs: LPCWSTR) -> HRESULT;
-            fn AddTokens(&self, cTokens: ULONG, pToken: *mut ISpObjectToken) -> HRESULT;
-            fn AddTokensFromDataKey(&self, pDataKey: ISpDataKey, pszSubKey: LPCWSTR, pszCategoryId: LPCWSTR) -> HRESULT;
+            fn SetAttribs(&self, #[opt] pszReqAttribs: PCWSTR, #[opt] pszOptAttribs: PCWSTR) -> HRESULT;
+            fn AddTokens(&self, cTokens: u32, #[in] pToken: *mut ISpObjectToken) -> HRESULT;
+            fn AddTokensFromDataKey(&self, pDataKey: ISpDataKey, pszSubKey: PCWSTR, pszCategoryId: PCWSTR) -> HRESULT;
             fn AddTokensFromTokenEnum(&self, pTokenEnum: IEnumSpObjectTokens) -> HRESULT;
-            fn Sort(&self, pszTokenIdToListFirst: LPCWSTR) -> HRESULT;
+            fn Sort(&self, pszTokenIdToListFirst: PCWSTR) -> HRESULT;
         }
         #[guid(0x88a3342a_0bed_4834_922b_88d43173162f)]
         interface ISpPhraseBuilder: ISpPhrase {
             fn InitFromPhrase(&self, pPhrase: *const SPPHRASE) -> HRESULT;
             fn InitFromSerializedPhrase(&self, pPhrase: *const SPSERIALIZEDPHRASE) -> HRESULT;
-            fn AddElements(&self, cElements: ULONG, pElement: *const SPPHRASEELEMENT) -> HRESULT;
+            fn AddElements(&self, cElements: u32, pElement: *const SPPHRASEELEMENT) -> HRESULT;
             fn AddRules(&self, hParent: SPPHRASERULEHANDLE, pRule: *const SPPHRASERULE, phNewRule: *mut SPPHRASERULEHANDLE) -> HRESULT;
             fn AddProperties(&self, hParent: SPPHRASEPROPERTYHANDLE, pProperty: *const SPPHRASEPROPERTY, phNewProperty: *mut SPPHRASEPROPERTYHANDLE) -> HRESULT;
-            fn AddReplacements(&self, cReplacements: ULONG, pReplacements: *const SPPHRASEREPLACEMENT) -> HRESULT;
+            fn AddReplacements(&self, cReplacements: u32, pReplacements: *const SPPHRASEREPLACEMENT) -> HRESULT;
         }
         #[guid(0xdefd682a_fe0a_42b9_bfa1_56d3d6cecfaf)]
         interface ISpPrivateEngineCallEx: IUnknown {
-            fn CallEngineSynchronize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pInFrame: *const void, ulInFrameSize: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pulOutFrameSize", "*pulOutFrameSize")] #[out] ppCoMemOutFrame: *mut *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "1", "1")] #[out] pulOutFrameSize: *mut ULONG) -> HRESULT;
-            fn CallEngineImmediate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pInFrame: *const void, ulInFrameSize: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "*pulOutFrameSize", "*pulOutFrameSize")] #[out] ppCoMemOutFrame: *mut *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "1", "1")] #[out] pulOutFrameSize: *mut ULONG) -> HRESULT;
+            fn CallEngineSynchronize(&self, #[size_param(1)] pInFrame: *const void, ulInFrameSize: u32, ppCoMemOutFrame: *mut *mut void, #[len_const(1)] pulOutFrameSize: *mut u32) -> HRESULT;
+            fn CallEngineImmediate(&self, #[size_param(1)] pInFrame: *const void, ulInFrameSize: u32, ppCoMemOutFrame: *mut *mut void, #[len_const(1)] pulOutFrameSize: *mut u32) -> HRESULT;
         }
         #[guid(0xfece8294_2be1_408f_8e68_2de377092f0e)]
         interface ISpSRAlternates: IUnknown {
-            fn GetAlternates(&self, pAltRequest: *mut SPPHRASEALTREQUEST, ppAlts: *mut *mut SPPHRASEALT, pcAlts: *mut ULONG) -> HRESULT;
-            fn Commit(&self, pAltRequest: *mut SPPHRASEALTREQUEST, pAlt: *mut SPPHRASEALT, ppvResultExtra: *mut *mut void, pcbResultExtra: *mut ULONG) -> HRESULT;
+            fn GetAlternates(&self, #[in] pAltRequest: *mut SPPHRASEALTREQUEST, ppAlts: *mut *mut SPPHRASEALT, pcAlts: *mut u32) -> HRESULT;
+            fn Commit(&self, #[in] pAltRequest: *mut SPPHRASEALTREQUEST, #[in] pAlt: *mut SPPHRASEALT, ppvResultExtra: *mut *mut void, pcbResultExtra: *mut u32) -> HRESULT;
         }
         #[guid(0xf338f437_cb33_4020_9cab_c71ff9ce12d3)]
         interface ISpSRAlternates2: ISpSRAlternates {
-            fn CommitText(&self, pAltRequest: *mut SPPHRASEALTREQUEST, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcszNewText: LPCWSTR, commitFlags: SPCOMMITFLAGS) -> HRESULT;
+            fn CommitText(&self, #[in] pAltRequest: *mut SPPHRASEALTREQUEST, #[opt] pcszNewText: PCWSTR, commitFlags: SPCOMMITFLAGS) -> HRESULT;
         }
         #[guid(0x2f472991_854b_4465_b613_fbafb3ad8ed8)]
         interface ISpSREngine: IUnknown {
             fn SetSite(&self, pSite: ISpSREngineSite) -> HRESULT;
-            fn GetInputAudioFormat(&self, pguidSourceFormatId: *const GUID, pSourceWaveFormatEx: *const WAVEFORMATEX, pguidDesiredFormatId: *mut GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCoMemDesiredWaveFormatEx: *mut *mut WAVEFORMATEX) -> HRESULT;
-            fn RecognizeStream(&self, rguidFmtId: &GUID, pWaveFormatEx: *const WAVEFORMATEX, hRequestSync: HANDLE, hDataAvailable: HANDLE, hExit: HANDLE, fNewAudioStream: BOOL, fRealTimeAudio: BOOL, pAudioObjectToken: ISpObjectToken) -> HRESULT;
+            fn GetInputAudioFormat(&self, pguidSourceFormatId: *const GUID, pSourceWaveFormatEx: *const WAVEFORMATEX, pguidDesiredFormatId: *mut GUID, ppCoMemDesiredWaveFormatEx: *mut *mut WAVEFORMATEX) -> HRESULT;
+            fn RecognizeStream(&self, rguidFmtId: *const GUID, pWaveFormatEx: *const WAVEFORMATEX, hRequestSync: HANDLE, hDataAvailable: HANDLE, hExit: HANDLE, fNewAudioStream: BOOL, fRealTimeAudio: BOOL, pAudioObjectToken: ISpObjectToken) -> HRESULT;
             fn SetRecoProfile(&self, pProfile: ISpObjectToken) -> HRESULT;
-            fn OnCreateGrammar(&self, pvEngineRecoContext: *mut void, hSAPIGrammar: SPGRAMMARHANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvEngineGrammarContext: *mut *mut void) -> HRESULT;
-            fn OnDeleteGrammar(&self, pvEngineGrammar: *mut void) -> HRESULT;
-            fn LoadProprietaryGrammar(&self, pvEngineGrammar: *mut void, rguidParam: &GUID, pszStringParam: LPCWSTR, pvDataParam: *const void, ulDataSize: ULONG, Options: SPLOADOPTIONS) -> HRESULT;
-            fn UnloadProprietaryGrammar(&self, pvEngineGrammar: *mut void) -> HRESULT;
-            fn SetProprietaryRuleState(&self, pvEngineGrammar: *mut void, pszName: LPCWSTR, pReserved: *mut void, NewState: SPRULESTATE, pcRulesChanged: *mut ULONG) -> HRESULT;
-            fn SetProprietaryRuleIdState(&self, pvEngineGrammar: *mut void, dwRuleId: DWORD, NewState: SPRULESTATE) -> HRESULT;
-            fn LoadSLM(&self, pvEngineGrammar: *mut void, pszTopicName: LPCWSTR) -> HRESULT;
-            fn UnloadSLM(&self, pvEngineGrammar: *mut void) -> HRESULT;
-            fn SetSLMState(&self, pvEngineGrammar: *mut void, NewState: SPRULESTATE) -> HRESULT;
-            fn SetWordSequenceData(&self, pvEngineGrammar: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pText: *const WCHAR, cchText: ULONG, pInfo: *const SPTEXTSELECTIONINFO) -> HRESULT;
-            fn SetTextSelection(&self, pvEngineGrammar: *mut void, pInfo: *const SPTEXTSELECTIONINFO) -> HRESULT;
-            fn IsPronounceable(&self, pvEngineGrammar: *mut void, pszWord: LPCWSTR, pWordPronounceable: *mut SPWORDPRONOUNCEABLE) -> HRESULT;
+            fn OnCreateGrammar(&self, #[in] pvEngineRecoContext: *mut void, hSAPIGrammar: SPGRAMMARHANDLE, ppvEngineGrammarContext: *mut *mut void) -> HRESULT;
+            fn OnDeleteGrammar(&self, #[in] pvEngineGrammar: *mut void) -> HRESULT;
+            fn LoadProprietaryGrammar(&self, #[in] pvEngineGrammar: *mut void, rguidParam: *const GUID, pszStringParam: PCWSTR, pvDataParam: *const void, ulDataSize: u32, Options: SPLOADOPTIONS) -> HRESULT;
+            fn UnloadProprietaryGrammar(&self, #[in] pvEngineGrammar: *mut void) -> HRESULT;
+            fn SetProprietaryRuleState(&self, #[in] pvEngineGrammar: *mut void, pszName: PCWSTR, #[in] pReserved: *mut void, NewState: SPRULESTATE, pcRulesChanged: *mut u32) -> HRESULT;
+            fn SetProprietaryRuleIdState(&self, #[in] pvEngineGrammar: *mut void, dwRuleId: u32, NewState: SPRULESTATE) -> HRESULT;
+            fn LoadSLM(&self, #[in] pvEngineGrammar: *mut void, pszTopicName: PCWSTR) -> HRESULT;
+            fn UnloadSLM(&self, #[in] pvEngineGrammar: *mut void) -> HRESULT;
+            fn SetSLMState(&self, #[in] pvEngineGrammar: *mut void, NewState: SPRULESTATE) -> HRESULT;
+            fn SetWordSequenceData(&self, #[in] pvEngineGrammar: *mut void, #[len_param(2)] pText: *const u16, cchText: u32, pInfo: *const SPTEXTSELECTIONINFO) -> HRESULT;
+            fn SetTextSelection(&self, #[in] pvEngineGrammar: *mut void, pInfo: *const SPTEXTSELECTIONINFO) -> HRESULT;
+            fn IsPronounceable(&self, #[in] pvEngineGrammar: *mut void, pszWord: PCWSTR, pWordPronounceable: *mut SPWORDPRONOUNCEABLE) -> HRESULT;
             fn OnCreateRecoContext(&self, hSAPIRecoContext: SPRECOCONTEXTHANDLE, ppvEngineContext: *mut *mut void) -> HRESULT;
-            fn OnDeleteRecoContext(&self, pvEngineContext: *mut void) -> HRESULT;
-            fn PrivateCall(&self, pvEngineContext: *mut void, pCallFrame: PVOID, ulCallFrameSize: ULONG) -> HRESULT;
-            fn SetAdaptationData(&self, pvEngineContext: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pAdaptationData: *const WCHAR, cch: ULONG) -> HRESULT;
-            fn SetPropertyNum(&self, eSrc: SPPROPSRC, pvSrcObj: *mut void, pName: *const WCHAR, lValue: LONG) -> HRESULT;
-            fn GetPropertyNum(&self, eSrc: SPPROPSRC, pvSrcObj: *mut void, pName: *const WCHAR, lValue: *mut LONG) -> HRESULT;
-            fn SetPropertyString(&self, eSrc: SPPROPSRC, pvSrcObj: *mut void, pName: LPCWSTR, pValue: LPCWSTR) -> HRESULT;
-            fn GetPropertyString(&self, eSrc: SPPROPSRC, pvSrcObj: *mut void, pName: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCoMemValue: *mut LPWSTR) -> HRESULT;
-            fn SetGrammarState(&self, pvEngineGrammar: *mut void, eGrammarState: SPGRAMMARSTATE) -> HRESULT;
-            fn WordNotify(&self, Action: SPCFGNOTIFY, cWords: ULONG, pWords: *const SPWORDENTRY) -> HRESULT;
-            fn RuleNotify(&self, Action: SPCFGNOTIFY, cRules: ULONG, pRules: *const SPRULEENTRY) -> HRESULT;
-            fn PrivateCallEx(&self, pvEngineContext: *mut void, pInCallFrame: *const void, ulInCallFrameSize: ULONG, ppvCoMemResponse: *mut *mut void, pulResponseSize: *mut ULONG) -> HRESULT;
-            fn SetContextState(&self, pvEngineContext: *mut void, eContextState: SPCONTEXTSTATE) -> HRESULT;
+            fn OnDeleteRecoContext(&self, #[in] pvEngineContext: *mut void) -> HRESULT;
+            fn PrivateCall(&self, #[in] pvEngineContext: *mut void, #[in] #[out] pCallFrame: *mut void, ulCallFrameSize: u32) -> HRESULT;
+            fn SetAdaptationData(&self, #[in] pvEngineContext: *mut void, #[len_param(2)] pAdaptationData: *const u16, cch: u32) -> HRESULT;
+            fn SetPropertyNum(&self, eSrc: SPPROPSRC, #[in] pvSrcObj: *mut void, pName: *const u16, lValue: i32) -> HRESULT;
+            fn GetPropertyNum(&self, eSrc: SPPROPSRC, #[in] pvSrcObj: *mut void, pName: *const u16, lValue: *mut i32) -> HRESULT;
+            fn SetPropertyString(&self, eSrc: SPPROPSRC, #[in] pvSrcObj: *mut void, pName: PCWSTR, pValue: PCWSTR) -> HRESULT;
+            fn GetPropertyString(&self, eSrc: SPPROPSRC, #[in] pvSrcObj: *mut void, pName: PCWSTR, ppCoMemValue: *mut PWSTR) -> HRESULT;
+            fn SetGrammarState(&self, #[in] pvEngineGrammar: *mut void, eGrammarState: SPGRAMMARSTATE) -> HRESULT;
+            fn WordNotify(&self, Action: SPCFGNOTIFY, cWords: u32, pWords: *const SPWORDENTRY) -> HRESULT;
+            fn RuleNotify(&self, Action: SPCFGNOTIFY, cRules: u32, pRules: *const SPRULEENTRY) -> HRESULT;
+            fn PrivateCallEx(&self, #[in] pvEngineContext: *mut void, pInCallFrame: *const void, ulInCallFrameSize: u32, ppvCoMemResponse: *mut *mut void, pulResponseSize: *mut u32) -> HRESULT;
+            fn SetContextState(&self, #[in] pvEngineContext: *mut void, eContextState: SPCONTEXTSTATE) -> HRESULT;
         }
         #[guid(0x7ba627d8_33f9_4375_90c5_9985aee5ede5)]
         interface ISpSREngine2: ISpSREngine {
-            fn PrivateCallImmediate(&self, pvEngineContext: *mut void, pInCallFrame: *const void, ulInCallFrameSize: ULONG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvCoMemResponse: *mut *mut void, pulResponseSize: *mut ULONG) -> HRESULT;
-            fn SetAdaptationData2(&self, pvEngineContext: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pAdaptationData: *const WCHAR, cch: ULONG, pTopicName: LPCWSTR, eSettings: SPADAPTATIONSETTINGS, eRelevance: SPADAPTATIONRELEVANCE) -> HRESULT;
-            fn SetGrammarPrefix(&self, pvEngineGrammar: *mut void, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPrefix: LPCWSTR, fIsPrefixRequired: BOOL) -> HRESULT;
-            fn SetRulePriority(&self, hRule: SPRULEHANDLE, pvClientRuleContext: *mut void, nRulePriority: i32) -> HRESULT;
-            fn EmulateRecognition(&self, pPhrase: ISpPhrase, dwCompareFlags: DWORD) -> HRESULT;
-            fn SetSLMWeight(&self, pvEngineGrammar: *mut void, flWeight: f32) -> HRESULT;
-            fn SetRuleWeight(&self, hRule: SPRULEHANDLE, pvClientRuleContext: *mut void, flWeight: f32) -> HRESULT;
+            fn PrivateCallImmediate(&self, #[in] pvEngineContext: *mut void, pInCallFrame: *const void, ulInCallFrameSize: u32, ppvCoMemResponse: *mut *mut void, pulResponseSize: *mut u32) -> HRESULT;
+            fn SetAdaptationData2(&self, #[in] pvEngineContext: *mut void, #[len_param(2)] pAdaptationData: *const u16, cch: u32, pTopicName: PCWSTR, eSettings: SPADAPTATIONSETTINGS, eRelevance: SPADAPTATIONRELEVANCE) -> HRESULT;
+            fn SetGrammarPrefix(&self, #[in] pvEngineGrammar: *mut void, #[opt] pszPrefix: PCWSTR, fIsPrefixRequired: BOOL) -> HRESULT;
+            fn SetRulePriority(&self, hRule: SPRULEHANDLE, #[in] pvClientRuleContext: *mut void, nRulePriority: i32) -> HRESULT;
+            fn EmulateRecognition(&self, pPhrase: ISpPhrase, dwCompareFlags: u32) -> HRESULT;
+            fn SetSLMWeight(&self, #[in] pvEngineGrammar: *mut void, flWeight: f32) -> HRESULT;
+            fn SetRuleWeight(&self, hRule: SPRULEHANDLE, #[in] pvClientRuleContext: *mut void, flWeight: f32) -> HRESULT;
             fn SetTrainingState(&self, fDoingTraining: BOOL, fAdaptFromTrainingData: BOOL) -> HRESULT;
             fn ResetAcousticModelAdaptation(&self) -> HRESULT;
-            fn OnLoadCFG(&self, pvEngineGrammar: *mut void, pGrammarData: *const SPBINARYGRAMMAR, ulGrammarID: ULONG) -> HRESULT;
-            fn OnUnloadCFG(&self, pvEngineGrammar: *mut void, ulGrammarID: ULONG) -> HRESULT;
+            fn OnLoadCFG(&self, #[in] pvEngineGrammar: *mut void, pGrammarData: *const SPBINARYGRAMMAR, ulGrammarID: u32) -> HRESULT;
+            fn OnUnloadCFG(&self, #[in] pvEngineGrammar: *mut void, ulGrammarID: u32) -> HRESULT;
         }
         #[guid(0x3b414aec_720c_4883_b9ef_178cd394fb3a)]
         interface ISpSREngineSite: IUnknown {
-            fn Read(&self, pv: *mut void, cb: ULONG, pcbRead: *mut ULONG) -> HRESULT;
-            fn DataAvailable(&self, pcb: *mut ULONG) -> HRESULT;
-            fn SetBufferNotifySize(&self, cbSize: ULONG) -> HRESULT;
+            fn Read(&self, #[in] pv: *mut void, cb: u32, pcbRead: *mut u32) -> HRESULT;
+            fn DataAvailable(&self, pcb: *mut u32) -> HRESULT;
+            fn SetBufferNotifySize(&self, cbSize: u32) -> HRESULT;
             fn ParseFromTransitions(&self, pParseInfo: *const SPPARSEINFO, ppNewPhrase: *mut ISpPhraseBuilder) -> HRESULT;
             fn Recognition(&self, pResultInfo: *const SPRECORESULTINFO) -> HRESULT;
             fn AddEvent(&self, pEvent: *const SPEVENT, hSAPIRecoContext: SPRECOCONTEXTHANDLE) -> HRESULT;
-            fn Synchronize(&self, ullProcessedThruPos: ULONGLONG) -> HRESULT;
-            fn GetWordInfo(&self, pWordEntry: *mut SPWORDENTRY, Options: SPWORDINFOOPT) -> HRESULT;
-            fn SetWordClientContext(&self, hWord: SPWORDHANDLE, pvClientContext: *mut void) -> HRESULT;
-            fn GetRuleInfo(&self, pRuleEntry: *mut SPRULEENTRY, Options: SPRULEINFOOPT) -> HRESULT;
-            fn SetRuleClientContext(&self, hRule: SPRULEHANDLE, pvClientContext: *mut void) -> HRESULT;
+            fn Synchronize(&self, ullProcessedThruPos: u64) -> HRESULT;
+            fn GetWordInfo(&self, #[in] #[out] pWordEntry: *mut SPWORDENTRY, Options: SPWORDINFOOPT) -> HRESULT;
+            fn SetWordClientContext(&self, hWord: SPWORDHANDLE, #[in] pvClientContext: *mut void) -> HRESULT;
+            fn GetRuleInfo(&self, #[in] #[out] pRuleEntry: *mut SPRULEENTRY, Options: SPRULEINFOOPT) -> HRESULT;
+            fn SetRuleClientContext(&self, hRule: SPRULEHANDLE, #[in] pvClientContext: *mut void) -> HRESULT;
             fn GetStateInfo(&self, hState: SPSTATEHANDLE, pStateInfo: *mut SPSTATEINFO) -> HRESULT;
-            fn GetResource(&self, hRule: SPRULEHANDLE, pszResourceName: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCoMemResource: *mut LPWSTR) -> HRESULT;
-            fn GetTransitionProperty(&self, ID: SPTRANSITIONID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCoMemProperty: *mut *mut SPTRANSITIONPROPERTY) -> HRESULT;
+            fn GetResource(&self, hRule: SPRULEHANDLE, pszResourceName: PCWSTR, ppCoMemResource: *mut PWSTR) -> HRESULT;
+            fn GetTransitionProperty(&self, ID: SPTRANSITIONID, ppCoMemProperty: *mut *mut SPTRANSITIONPROPERTY) -> HRESULT;
             fn IsAlternate(&self, hRule: SPRULEHANDLE, hAltRule: SPRULEHANDLE) -> HRESULT;
-            fn GetMaxAlternates(&self, hRule: SPRULEHANDLE, pulNumAlts: *mut ULONG) -> HRESULT;
-            fn GetContextMaxAlternates(&self, hContext: SPRECOCONTEXTHANDLE, pulNumAlts: *mut ULONG) -> HRESULT;
-            fn UpdateRecoPos(&self, ullCurrentRecoPos: ULONGLONG) -> HRESULT;
+            fn GetMaxAlternates(&self, hRule: SPRULEHANDLE, pulNumAlts: *mut u32) -> HRESULT;
+            fn GetContextMaxAlternates(&self, hContext: SPRECOCONTEXTHANDLE, pulNumAlts: *mut u32) -> HRESULT;
+            fn UpdateRecoPos(&self, ullCurrentRecoPos: u64) -> HRESULT;
         }
         #[guid(0x7bc6e012_684a_493e_bdd4_2bf5fbf48cfe)]
         interface ISpSREngineSite2: ISpSREngineSite {
             fn AddEventEx(&self, pEvent: *const SPEVENTEX, hSAPIRecoContext: SPRECOCONTEXTHANDLE) -> HRESULT;
-            fn UpdateRecoPosEx(&self, ullCurrentRecoPos: ULONGLONG, ullCurrentRecoTime: ULONGLONG) -> HRESULT;
-            fn GetRuleTransition(&self, ulGrammarID: ULONG, RuleIndex: ULONG, pTrans: *mut SPTRANSITIONENTRY) -> HRESULT;
+            fn UpdateRecoPosEx(&self, ullCurrentRecoPos: u64, ullCurrentRecoTime: u64) -> HRESULT;
+            fn GetRuleTransition(&self, ulGrammarID: u32, RuleIndex: u32, pTrans: *mut SPTRANSITIONENTRY) -> HRESULT;
             fn RecognitionEx(&self, pResultInfo: *const SPRECORESULTINFOEX) -> HRESULT;
         }
         #[guid(0xa74d7c8e_4cc5_4f2f_a6eb_804dee18500e)]
         interface ISpTTSEngine: IUnknown {
-            fn Speak(&self, dwSpeakFlags: DWORD, rguidFormatId: &GUID, pWaveFormatEx: *const WAVEFORMATEX, pTextFragList: *const SPVTEXTFRAG, pOutputSite: ISpTTSEngineSite) -> HRESULT;
-            fn GetOutputFormat(&self, pTargetFmtId: *const GUID, pTargetWaveFormatEx: *const WAVEFORMATEX, pOutputFormatId: *mut GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCoMemOutputWaveFormatEx: *mut *mut WAVEFORMATEX) -> HRESULT;
+            fn Speak(&self, dwSpeakFlags: u32, rguidFormatId: *const GUID, pWaveFormatEx: *const WAVEFORMATEX, pTextFragList: *const SPVTEXTFRAG, pOutputSite: ISpTTSEngineSite) -> HRESULT;
+            fn GetOutputFormat(&self, pTargetFmtId: *const GUID, pTargetWaveFormatEx: *const WAVEFORMATEX, pOutputFormatId: *mut GUID, ppCoMemOutputWaveFormatEx: *mut *mut WAVEFORMATEX) -> HRESULT;
         }
         #[guid(0x9880499b_cce9_11d2_b503_00c04f797396)]
         interface ISpTTSEngineSite: ISpEventSink {
-            fn GetActions(&self) -> DWORD;
-            fn Write(&self, pBuff: *const void, cb: ULONG, pcbWritten: *mut ULONG) -> HRESULT;
+            fn GetActions(&self) -> u32;
+            fn Write(&self, pBuff: *const void, cb: u32, pcbWritten: *mut u32) -> HRESULT;
             fn GetRate(&self, pRateAdjust: *mut i32) -> HRESULT;
-            fn GetVolume(&self, pusVolume: *mut USHORT) -> HRESULT;
+            fn GetVolume(&self, pusVolume: *mut u16) -> HRESULT;
             fn GetSkipInfo(&self, peType: *mut SPVSKIPTYPE, plNumItems: *mut i32) -> HRESULT;
             fn CompleteSkip(&self, ulNumSkipped: i32) -> HRESULT;
         }
+        #[no_guid]
+        interface ISpTask {
+            fn Execute(&self, pvTaskData: *mut void, pfContinueProcessing: *const BOOL) -> HRESULT;
+        }
+        #[guid(0x2baeef81_2ca3_4331_98f3_26ec5abefb03)]
+        interface ISpTaskManager: IUnknown {
+            fn SetThreadPoolInfo(&self, pPoolInfo: *const SPTMTHREADINFO) -> HRESULT;
+            fn GetThreadPoolInfo(&self, pPoolInfo: *mut SPTMTHREADINFO) -> HRESULT;
+            fn QueueTask(&self, pTask: ISpTask, #[in] pvTaskData: *mut void, hCompEvent: HANDLE, #[in] #[out] pdwGroupId: *mut u32, pTaskID: *mut u32) -> HRESULT;
+            fn CreateReoccurringTask(&self, pTask: ISpTask, #[in] pvTaskData: *mut void, hCompEvent: HANDLE, ppTaskCtrl: *mut ISpNotifySink) -> HRESULT;
+            fn CreateThreadControl(&self, pTask: ISpThreadTask, #[in] pvTaskData: *mut void, nPriority: i32, ppTaskCtrl: *mut ISpThreadControl) -> HRESULT;
+            fn TerminateTask(&self, dwTaskId: u32, ulWaitPeriod: u32) -> HRESULT;
+            fn TerminateTaskGroup(&self, dwGroupId: u32, ulWaitPeriod: u32) -> HRESULT;
+        }
         #[guid(0xa6be4d73_4403_4358_b22d_0346e23b1764)]
         interface ISpThreadControl: ISpNotifySink {
-            fn StartThread(&self, dwFlags: DWORD, phwnd: *mut HWND) -> HRESULT;
-            fn WaitForThreadDone(&self, fForceStop: BOOL, phrThreadResult: *mut HRESULT, msTimeOut: ULONG) -> HRESULT;
+            fn StartThread(&self, dwFlags: u32, phwnd: *mut HWND) -> HRESULT;
+            fn WaitForThreadDone(&self, fForceStop: BOOL, phrThreadResult: *mut HRESULT, msTimeOut: u32) -> HRESULT;
             fn TerminateThread(&self) -> HRESULT;
             fn ThreadHandle(&self) -> HANDLE;
-            fn ThreadId(&self) -> DWORD;
+            fn ThreadId(&self) -> u32;
             fn NotifyEvent(&self) -> HANDLE;
             fn WindowHandle(&self) -> HWND;
             fn ThreadCompleteEvent(&self) -> HANDLE;
             fn ExitThreadEvent(&self) -> HANDLE;
         }
+        #[no_guid]
+        interface ISpThreadTask {
+            fn InitThread(&self, pvTaskData: *mut void, hwnd: HWND) -> HRESULT;
+            fn ThreadProc(&self, pvTaskData: *mut void, hExitThreadEvent: HANDLE, hNotifyEvent: HANDLE, hwndWorker: HWND, pfContinueProcessing: *const BOOL) -> HRESULT;
+            fn WindowMessage(&self, pvTaskData: *mut void, hWnd: HWND, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
+        }
         #[guid(0xf8e690f0_39cb_4843_b8d7_c84696e1119d)]
         interface ISpTokenUI: IUnknown {
-            fn IsUISupported(&self, pszTypeOfUI: LPCWSTR, pvExtraData: *mut void, cbExtraData: ULONG, punkObject: IUnknown, pfSupported: *mut BOOL) -> HRESULT;
-            fn DisplayUI(&self, hwndParent: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszTitle: LPCWSTR, pszTypeOfUI: LPCWSTR, pvExtraData: *mut void, cbExtraData: ULONG, pToken: ISpObjectToken, punkObject: IUnknown) -> HRESULT;
+            fn IsUISupported(&self, pszTypeOfUI: PCWSTR, #[in] pvExtraData: *mut void, cbExtraData: u32, punkObject: IUnknown, pfSupported: *mut BOOL) -> HRESULT;
+            fn DisplayUI(&self, hwndParent: HWND, #[opt] pszTitle: PCWSTR, pszTypeOfUI: PCWSTR, #[in] pvExtraData: *mut void, cbExtraData: u32, pToken: ISpObjectToken, punkObject: IUnknown) -> HRESULT;
         }
         #[encoding("utf-16")]
         const SPALTERNATESCLSID: String = "AlternatesCLSID";
@@ -181,15 +201,15 @@ mod Windows {
             unused: i32,
         }
         struct SPPARSEINFO {
-            cbSize: ULONG,
+            cbSize: u32,
             hRule: SPRULEHANDLE,
-            ullAudioStreamPosition: ULONGLONG,
-            ulAudioSize: ULONG,
-            cTransitions: ULONG,
+            ullAudioStreamPosition: u64,
+            ulAudioSize: u32,
+            cTransitions: u32,
             pPath: *mut SPPATHENTRY,
             SREngineID: GUID,
-            ulSREnginePrivateDataSize: ULONG,
-            pSREnginePrivateData: *const BYTE,
+            ulSREnginePrivateDataSize: u32,
+            pSREnginePrivateData: *const u8,
             fHypothesis: BOOL,
         }
         struct SPPATHENTRY {
@@ -198,18 +218,18 @@ mod Windows {
         }
         struct SPPHRASEALT {
             pPhrase: ISpPhraseBuilder,
-            ulStartElementInParent: ULONG,
-            cElementsInParent: ULONG,
-            cElementsInAlternate: ULONG,
+            ulStartElementInParent: u32,
+            cElementsInParent: u32,
+            cElementsInAlternate: u32,
             pvAltExtra: *mut void,
-            cbAltExtra: ULONG,
+            cbAltExtra: u32,
         }
         struct SPPHRASEALTREQUEST {
-            ulStartElement: ULONG,
-            cElements: ULONG,
-            ulRequestAltCount: ULONG,
+            ulStartElement: u32,
+            cElements: u32,
+            ulRequestAltCount: u32,
             pvResultExtra: *mut void,
-            cbResultExtra: ULONG,
+            cbResultExtra: u32,
             pPhrase: ISpPhrase,
             pRecoContext: ISpRecoContext,
         }
@@ -234,24 +254,23 @@ mod Windows {
         #[encoding("utf-16")]
         const SPRECOEXTENSION: String = "RecoExtension";
         struct SPRECORESULTINFO {
-            cbSize: ULONG,
+            cbSize: u32,
             eResultType: SPRESULTTYPE,
             fHypothesis: BOOL,
             fProprietaryAutoPause: BOOL,
-            ullStreamPosStart: ULONGLONG,
-            ullStreamPosEnd: ULONGLONG,
+            ullStreamPosStart: u64,
+            ullStreamPosEnd: u64,
             hGrammar: SPGRAMMARHANDLE,
-            ulSizeEngineData: ULONG,
+            ulSizeEngineData: u32,
             pvEngineData: *mut void,
             pPhrase: ISpPhraseBuilder,
             aPhraseAlts: *mut SPPHRASEALT,
-            ulNumAlts: ULONG,
+            ulNumAlts: u32,
         }
         struct SPRECORESULTINFOEX {
-            #[Windows::Win32::Metadata::NativeBase]
-            base: SPRECORESULTINFO,
-            ullStreamTimeStart: ULONGLONG,
-            ullStreamTimeEnd: ULONGLONG,
+            Base: SPRECORESULTINFO,
+            ullStreamTimeStart: u64,
+            ullStreamTimeEnd: u64,
         }
         #[repr(i32)]
         enum SPRESULTTYPE {
@@ -266,7 +285,7 @@ mod Windows {
         struct SPRULEENTRY {
             hRule: SPRULEHANDLE,
             hInitialState: SPSTATEHANDLE,
-            Attributes: DWORD,
+            Attributes: u32,
             pvClientRuleContext: *mut void,
             pvClientGrammarContext: *mut void,
         }
@@ -279,26 +298,26 @@ mod Windows {
             SPRIO_NONE = 0,
         }
         struct SPSTATEINFO {
-            cAllocatedEntries: ULONG,
+            cAllocatedEntries: u32,
             pTransitions: *mut SPTRANSITIONENTRY,
-            cEpsilons: ULONG,
-            cRules: ULONG,
-            cWords: ULONG,
-            cSpecialTransitions: ULONG,
+            cEpsilons: u32,
+            cRules: u32,
+            cWords: u32,
+            cSpecialTransitions: u32,
         }
         struct SPTMTHREADINFO {
             lPoolSize: i32,
             lPriority: i32,
-            ulConcurrencyLimit: ULONG,
-            ulMaxQuickAllocThreads: ULONG,
+            ulConcurrencyLimit: u32,
+            ulMaxQuickAllocThreads: u32,
         }
         struct SPTRANSITIONENTRY {
             ID: SPTRANSITIONID,
             hNextState: SPSTATEHANDLE,
-            Type: BYTE,
+            Type: u8,
             RequiredConfidence: i8,
             Anonymous: struct {
-                fHasProperty: DWORD,
+                fHasProperty: u32,
             },
             Weight: f32,
             Anonymous2: union {
@@ -321,9 +340,9 @@ mod Windows {
             unused: i32,
         }
         struct SPTRANSITIONPROPERTY {
-            pszName: LPCWSTR,
-            ulId: ULONG,
-            pszValue: LPCWSTR,
+            pszName: PCWSTR,
+            ulId: u32,
+            pszValue: PCWSTR,
             vValue: VARIANT,
         }
         #[repr(i32)]
@@ -350,15 +369,15 @@ mod Windows {
         struct SPVTEXTFRAG {
             pNext: *mut SPVTEXTFRAG,
             State: SPVSTATE,
-            pTextStart: LPCWSTR,
-            ulTextLen: ULONG,
-            ulTextSrcOffset: ULONG,
+            pTextStart: PCWSTR,
+            ulTextLen: u32,
+            ulTextSrcOffset: u32,
         }
         struct SPWORDENTRY {
             hWord: SPWORDHANDLE,
-            LangID: WORD,
-            pszDisplayText: *mut WCHAR,
-            pszLexicalForm: *mut WCHAR,
+            LangID: u16,
+            pszDisplayText: *mut u16,
+            pszLexicalForm: *mut u16,
             aPhoneId: *mut SPPHONEID,
             pvClientContext: *mut void,
         }
@@ -382,8 +401,8 @@ mod Windows {
         const SpW3CGrammarCompiler: GUID = 0xd2c13906_51ef_454e_bc67_a52475ff074c;
         #[guid(0x8e7c791e_4467_11d3_9723_00c04f72db08)]
         interface _ISpPrivateEngineCall: IUnknown {
-            fn CallEngine(&self, #[in] #[out] #[size_param(1)] pCallFrame: *mut void, ulCallFrameSize: ULONG) -> HRESULT;
-            fn CallEngineEx(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pInFrame: *const void, ulInFrameSize: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pulOutFrameSize", "*pulOutFrameSize")] #[out] ppCoMemOutFrame: *mut *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "1", "1")] #[out] pulOutFrameSize: *mut ULONG) -> HRESULT;
+            fn CallEngine(&self, #[size_param(1)] #[in] #[out] pCallFrame: *mut void, ulCallFrameSize: u32) -> HRESULT;
+            fn CallEngineEx(&self, #[size_param(1)] pInFrame: *const void, ulInFrameSize: u32, ppCoMemOutFrame: *mut *mut void, #[len_const(1)] pulOutFrameSize: *mut u32) -> HRESULT;
         }
     }
 }

@@ -19,38 +19,32 @@ mod Windows {
         const DIURFLAG_RESERVED: i32 = 2;
         const DIURFLAG_VALID: i32 = 3;
         #[library("newdev.dll")]
-        extern fn DiInstallDevice(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DeviceInfoSet: HDEVINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DeviceInfoData: PSP_DEVINFO_DATA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DriverInfoData: PSP_DRVINFO_DATA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
-        #[library("newdev.dll", import = "DiInstallDriverA")]
-        extern fn DiInstallDriver(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiInstallDevice(#[opt] hwndParent: HWND, DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, #[opt] DriverInfoData: PSP_DRVINFO_DATA, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiInstallDriverA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiInstallDriverA(#[opt] hwndParent: HWND, InfPath: PCSTR, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiInstallDriverW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfPath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiInstallDriverW(#[opt] hwndParent: HWND, InfPath: PCWSTR, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiRollbackDriver(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DeviceInfoSet: HDEVINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DeviceInfoData: PSP_DEVINFO_DATA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiRollbackDriver(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, #[opt] hwndParent: HWND, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiShowUpdateDevice(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DeviceInfoSet: HDEVINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DeviceInfoData: PSP_DEVINFO_DATA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiShowUpdateDevice(#[opt] hwndParent: HWND, DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiShowUpdateDriver(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FilePath: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiShowUpdateDriver(hwndParent: HWND, FilePath: PCWSTR, Flags: u32, NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiUninstallDevice(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DeviceInfoSet: HDEVINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DeviceInfoData: PSP_DEVINFO_DATA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
-        #[library("newdev.dll", import = "DiUninstallDriverA")]
-        extern fn DiUninstallDriver(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiUninstallDevice(hwndParent: HWND, DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiUninstallDriverA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiUninstallDriverA(#[opt] hwndParent: HWND, InfPath: PCSTR, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiUninstallDriverW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfPath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiUninstallDriverW(#[opt] hwndParent: HWND, InfPath: PCWSTR, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         const INSTALLFLAG_BITS: i32 = 7;
         const INSTALLFLAG_FORCE: i32 = 1;
         const INSTALLFLAG_NONINTERACTIVE: i32 = 4;
         const INSTALLFLAG_READONLY: i32 = 2;
         const ROLLBACK_BITS: i32 = 1;
         const ROLLBACK_FLAG_NO_UI: i32 = 1;
-        #[library("newdev.dll", import = "UpdateDriverForPlugAndPlayDevicesA")]
-        extern fn UpdateDriverForPlugAndPlayDevices(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HardwareId: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FullInfPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InstallFlags: DWORD, #[out] #[opt] bRebootRequired: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn UpdateDriverForPlugAndPlayDevicesA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HardwareId: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FullInfPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InstallFlags: DWORD, #[out] #[opt] bRebootRequired: PBOOL) -> BOOL;
+        extern fn UpdateDriverForPlugAndPlayDevicesA(#[opt] hwndParent: HWND, HardwareId: PCSTR, FullInfPath: PCSTR, InstallFlags: u32, #[out] #[opt] bRebootRequired: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn UpdateDriverForPlugAndPlayDevicesW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HardwareId: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FullInfPath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InstallFlags: DWORD, #[out] #[opt] bRebootRequired: PBOOL) -> BOOL;
+        extern fn UpdateDriverForPlugAndPlayDevicesW(#[opt] hwndParent: HWND, HardwareId: PCWSTR, FullInfPath: PCWSTR, InstallFlags: u32, #[out] #[opt] bRebootRequired: PBOOL) -> BOOL;
     }
 }

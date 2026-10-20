@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         #[guid(0x85713c2e_8e62_46c5_8de2_c647e1d54636)]
         interface IIsolatedEnvironmentInterop: IUnknown {
-            fn GetHostHwndInterop(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] containerHwnd: HWND, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] hostHwnd: *mut HWND) -> HRESULT;
+            fn GetHostHwndInterop(&self, containerHwnd: HWND, #[retval] hostHwnd: *mut HWND) -> HRESULT;
         }
     }
 }

@@ -48,7 +48,6 @@ impl Component for TypographyPage {
                         type_sample("Title Large", 40.0, FontWeight::BOLD),
                         type_sample("Display", 68.0, FontWeight::BOLD),
                     )),
-                    "TextBlock::new().text(name).font_size(size).font_weight(weight)",
                 ),
             )],
         )

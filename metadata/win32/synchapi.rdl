@@ -13,54 +13,31 @@ mod Windows {
         const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: i32 = 2;
         const CREATE_WAITABLE_TIMER_MANUAL_RESET: i32 = 1;
         #[library("KERNEL32.dll")]
-        extern fn CancelWaitableTimer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTimer: HANDLE) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
-        #[library("KERNEL32.dll", import = "CreateEventA")]
-        extern fn CreateEvent(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bManualReset: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInitialState: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CancelWaitableTimer(hTimer: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateEventA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bManualReset: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInitialState: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
-        #[library("KERNEL32.dll", import = "CreateEventExA")]
-        extern fn CreateEventEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CreateEventA(#[opt] lpEventAttributes: LPSECURITY_ATTRIBUTES, bManualReset: BOOL, bInitialState: BOOL, #[opt] lpName: PCSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateEventExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CreateEventExA(#[opt] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpName: PCSTR, dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateEventExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CreateEventExW(#[opt] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpName: PCWSTR, dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateEventW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bManualReset: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInitialState: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
-        #[library("KERNEL32.dll", import = "CreateMutexA")]
-        extern fn CreateMutex(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInitialOwner: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CreateEventW(#[opt] lpEventAttributes: LPSECURITY_ATTRIBUTES, bManualReset: BOOL, bInitialState: BOOL, #[opt] lpName: PCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateMutexA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInitialOwner: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
-        #[library("KERNEL32.dll", import = "CreateMutexExA")]
-        extern fn CreateMutexEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CreateMutexA(#[opt] lpMutexAttributes: LPSECURITY_ATTRIBUTES, bInitialOwner: BOOL, #[opt] lpName: PCSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateMutexExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CreateMutexExA(#[opt] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpName: PCSTR, dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateMutexExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CreateMutexExW(#[opt] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpName: PCWSTR, dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateMutexW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInitialOwner: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CreateMutexW(#[opt] lpMutexAttributes: LPSECURITY_ATTRIBUTES, bInitialOwner: BOOL, #[opt] lpName: PCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateSemaphoreExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSemaphoreAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lInitialCount: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lMaximumCount: LONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR, #[reserved] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD) -> HANDLE;
+        extern fn CreateSemaphoreExW(#[opt] lpSemaphoreAttributes: LPSECURITY_ATTRIBUTES, lInitialCount: i32, lMaximumCount: i32, #[opt] lpName: PCWSTR, #[reserved] dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateSemaphoreW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSemaphoreAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lInitialCount: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lMaximumCount: LONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CreateSemaphoreW(#[opt] lpSemaphoreAttributes: LPSECURITY_ATTRIBUTES, lInitialCount: i32, lMaximumCount: i32, #[opt] lpName: PCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateWaitableTimerExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTimerAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTimerName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CreateWaitableTimerExW(#[opt] lpTimerAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpTimerName: PCWSTR, dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateWaitableTimerW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTimerAttributes: LPSECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bManualReset: BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTimerName: LPCWSTR) -> HANDLE;
+        extern fn CreateWaitableTimerW(#[opt] lpTimerAttributes: LPSECURITY_ATTRIBUTES, bManualReset: BOOL, #[opt] lpTimerName: PCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
         extern fn DeleteCriticalSection(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION);
         #[library("KERNEL32.dll")]
@@ -68,118 +45,109 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn EnterCriticalSection(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION);
         #[library("KERNEL32.dll")]
-        extern fn EnterSynchronizationBarrier(#[in] #[out] lpBarrier: LPSYNCHRONIZATION_BARRIER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn EnterSynchronizationBarrier(#[in] #[out] lpBarrier: LPSYNCHRONIZATION_BARRIER, dwFlags: u32) -> BOOL;
         type INIT_ONCE = RTL_RUN_ONCE;
         const INIT_ONCE_ASYNC: u32 = 2;
         const INIT_ONCE_CHECK_ONLY: u32 = 1;
         const INIT_ONCE_CTX_RESERVED_BITS: i32 = 2;
         const INIT_ONCE_INIT_FAILED: u32 = 4;
         #[library("KERNEL32.dll")]
-        extern fn InitOnceBeginInitialize(#[in] #[out] lpInitOnce: LPINIT_ONCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] fPending: PBOOL, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] lpContext: *mut LPVOID) -> BOOL;
+        extern fn InitOnceBeginInitialize(#[in] #[out] lpInitOnce: LPINIT_ONCE, dwFlags: u32, #[out] fPending: PBOOL, lpContext: *mut *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn InitOnceComplete(#[in] #[out] lpInitOnce: LPINIT_ONCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpContext: LPVOID) -> BOOL;
+        extern fn InitOnceComplete(#[in] #[out] lpInitOnce: LPINIT_ONCE, dwFlags: u32, #[in] #[opt] lpContext: *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn InitOnceExecuteOnce(#[in] #[out] InitOnce: PINIT_ONCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InitFn: PINIT_ONCE_FN, #[in] #[out] #[opt] Parameter: PVOID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] Context: *mut LPVOID) -> BOOL;
+        extern fn InitOnceExecuteOnce(#[in] #[out] InitOnce: PINIT_ONCE, InitFn: PINIT_ONCE_FN, #[in] #[out] #[opt] Parameter: *mut void, Context: *mut *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn InitOnceInitialize(#[out] InitOnce: PINIT_ONCE);
         #[library("KERNEL32.dll")]
         extern fn InitializeConditionVariable(#[out] ConditionVariable: PCONDITION_VARIABLE);
         #[library("KERNEL32.dll")]
         extern fn InitializeCriticalSection(#[out] lpCriticalSection: LPCRITICAL_SECTION);
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn InitializeCriticalSectionAndSpinCount(#[out] lpCriticalSection: LPCRITICAL_SECTION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSpinCount: DWORD) -> BOOL;
+        extern fn InitializeCriticalSectionAndSpinCount(#[out] lpCriticalSection: LPCRITICAL_SECTION, dwSpinCount: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn InitializeCriticalSectionEx(#[out] lpCriticalSection: LPCRITICAL_SECTION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSpinCount: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD) -> BOOL;
+        extern fn InitializeCriticalSectionEx(#[out] lpCriticalSection: LPCRITICAL_SECTION, dwSpinCount: u32, Flags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn InitializeSRWLock(#[out] SRWLock: PSRWLOCK);
         #[library("KERNEL32.dll")]
-        extern fn InitializeSynchronizationBarrier(#[out] lpBarrier: LPSYNCHRONIZATION_BARRIER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lTotalThreads: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lSpinCount: LONG) -> BOOL;
-        type LPINIT_ONCE = *mut RTL_RUN_ONCE;
-        type LPSYNCHRONIZATION_BARRIER = *mut RTL_BARRIER;
+        extern fn InitializeSynchronizationBarrier(#[out] lpBarrier: LPSYNCHRONIZATION_BARRIER, lTotalThreads: i32, lSpinCount: i32) -> BOOL;
+        type LPINIT_ONCE = PRTL_RUN_ONCE;
+        type LPSYNCHRONIZATION_BARRIER = PRTL_BARRIER;
         #[library("KERNEL32.dll")]
         extern fn LeaveCriticalSection(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION);
         const MUTEX_ALL_ACCESS: i32 = 2031617;
         const MUTEX_MODIFY_STATE: i32 = 1;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
-        #[library("KERNEL32.dll", import = "OpenEventA")]
-        extern fn OpenEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandle: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn OpenEventA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandle: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn OpenEventA(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn OpenEventW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandle: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn OpenEventW(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn OpenMutexW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandle: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn OpenMutexW(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn OpenSemaphoreW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandle: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR) -> HANDLE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn OpenSemaphoreW(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn OpenWaitableTimerW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandle: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpTimerName: LPCWSTR) -> HANDLE;
+        extern fn OpenWaitableTimerW(dwDesiredAccess: u32, bInheritHandle: BOOL, lpTimerName: PCWSTR) -> HANDLE;
         type PCONDITION_VARIABLE = *mut RTL_CONDITION_VARIABLE;
-        type PINIT_ONCE = *mut RTL_RUN_ONCE;
-        extern fn PINIT_ONCE_FN(#[in] #[out] InitOnce: PINIT_ONCE, #[in] #[out] #[opt] Parameter: PVOID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] Context: *mut PVOID) -> BOOL;
+        type PINIT_ONCE = PRTL_RUN_ONCE;
+        extern fn PINIT_ONCE_FN(#[in] #[out] InitOnce: PINIT_ONCE, #[in] #[out] #[opt] Parameter: *mut void, Context: *mut *mut void) -> BOOL;
         type PSRWLOCK = *mut RTL_SRWLOCK;
-        type PSYNCHRONIZATION_BARRIER = *mut RTL_BARRIER;
-        extern fn PTIMERAPCROUTINE(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpArgToCompletionRoutine: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTimerLowValue: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTimerHighValue: DWORD);
+        type PSYNCHRONIZATION_BARRIER = PRTL_BARRIER;
+        extern fn PTIMERAPCROUTINE(#[in] #[opt] lpArgToCompletionRoutine: *mut void, dwTimerLowValue: u32, dwTimerHighValue: u32);
         #[library("KERNEL32.dll")]
-        extern fn ReleaseMutex(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hMutex: HANDLE) -> BOOL;
+        extern fn ReleaseMutex(hMutex: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn ReleaseSRWLockExclusive(#[in] #[out] SRWLock: PSRWLOCK);
         #[library("KERNEL32.dll")]
         extern fn ReleaseSRWLockShared(#[in] #[out] SRWLock: PSRWLOCK);
         #[library("KERNEL32.dll")]
-        extern fn ReleaseSemaphore(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSemaphore: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lReleaseCount: LONG, #[out] #[opt] lpPreviousCount: LPLONG) -> BOOL;
+        extern fn ReleaseSemaphore(hSemaphore: HANDLE, lReleaseCount: i32, #[out] #[opt] lpPreviousCount: LPLONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ResetEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEvent: HANDLE) -> BOOL;
+        extern fn ResetEvent(hEvent: HANDLE) -> BOOL;
         type SRWLOCK = RTL_SRWLOCK;
         type SYNCHRONIZATION_BARRIER = RTL_BARRIER;
         const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: i32 = 2;
         const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: i32 = 4;
         const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: i32 = 1;
         #[library("KERNEL32.dll")]
-        extern fn SetCriticalSectionSpinCount(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSpinCount: DWORD) -> DWORD;
+        extern fn SetCriticalSectionSpinCount(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION, dwSpinCount: u32) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn SetEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEvent: HANDLE) -> BOOL;
+        extern fn SetEvent(hEvent: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetWaitableTimer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTimer: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDueTime: *const LARGE_INTEGER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lPeriod: LONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnCompletionRoutine: PTIMERAPCROUTINE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpArgToCompletionRoutine: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fResume: BOOL) -> BOOL;
+        extern fn SetWaitableTimer(hTimer: HANDLE, lpDueTime: *const LARGE_INTEGER, lPeriod: i32, #[opt] pfnCompletionRoutine: PTIMERAPCROUTINE, #[in] #[opt] lpArgToCompletionRoutine: *mut void, fResume: BOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetWaitableTimerEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTimer: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDueTime: *const LARGE_INTEGER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lPeriod: LONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnCompletionRoutine: PTIMERAPCROUTINE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpArgToCompletionRoutine: LPVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] WakeContext: PREASON_CONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TolerableDelay: ULONG) -> BOOL;
+        extern fn SetWaitableTimerEx(hTimer: HANDLE, lpDueTime: *const LARGE_INTEGER, lPeriod: i32, #[opt] pfnCompletionRoutine: PTIMERAPCROUTINE, #[in] #[opt] lpArgToCompletionRoutine: *mut void, #[opt] WakeContext: PREASON_CONTEXT, TolerableDelay: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn Sleep(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMilliseconds: DWORD);
+        extern fn SignalObjectAndWait(hObjectToSignal: HANDLE, hObjectToWaitOn: HANDLE, dwMilliseconds: u32, bAlertable: BOOL) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn SleepConditionVariableCS(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE, #[in] #[out] CriticalSection: PCRITICAL_SECTION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMilliseconds: DWORD) -> BOOL;
+        extern fn Sleep(dwMilliseconds: u32);
         #[library("KERNEL32.dll")]
-        extern fn SleepConditionVariableSRW(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE, #[in] #[out] SRWLock: PSRWLOCK, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMilliseconds: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: ULONG) -> BOOL;
+        extern fn SleepConditionVariableCS(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE, #[in] #[out] CriticalSection: PCRITICAL_SECTION, dwMilliseconds: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SleepEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMilliseconds: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bAlertable: BOOL) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,_Acquires_exclusive_lock_(*SRWLock)", "return!=0,")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,_Acquires_nonreentrant_lock_(*SRWLock)", "return!=0,")]
+        extern fn SleepConditionVariableSRW(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE, #[in] #[out] SRWLock: PSRWLOCK, dwMilliseconds: u32, Flags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SleepEx(dwMilliseconds: u32, bAlertable: BOOL) -> u32;
         #[library("KERNEL32.dll")]
         extern fn TryAcquireSRWLockExclusive(#[in] #[out] SRWLock: PSRWLOCK) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,_Acquires_nonreentrant_lock_(*SRWLock)", "return!=0,")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,_Acquires_shared_lock_(*SRWLock)", "return!=0,")]
         #[library("KERNEL32.dll")]
         extern fn TryAcquireSRWLockShared(#[in] #[out] SRWLock: PSRWLOCK) -> BOOLEAN;
         #[library("KERNEL32.dll")]
         extern fn TryEnterCriticalSection(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WaitForMultipleObjects(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nCount: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] lpHandles: *const HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bWaitAll: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMilliseconds: DWORD) -> DWORD;
+        extern fn WaitForMultipleObjects(nCount: u32, #[len_param(0)] lpHandles: *const HANDLE, bWaitAll: BOOL, dwMilliseconds: u32) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn WaitForMultipleObjectsEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nCount: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] lpHandles: *const HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bWaitAll: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMilliseconds: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bAlertable: BOOL) -> DWORD;
+        extern fn WaitForMultipleObjectsEx(nCount: u32, #[len_param(0)] lpHandles: *const HANDLE, bWaitAll: BOOL, dwMilliseconds: u32, bAlertable: BOOL) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn WaitForSingleObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMilliseconds: DWORD) -> DWORD;
+        extern fn WaitForSingleObject(hHandle: HANDLE, dwMilliseconds: u32) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn WaitForSingleObjectEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMilliseconds: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bAlertable: BOOL) -> DWORD;
+        extern fn WaitForSingleObjectEx(hHandle: HANDLE, dwMilliseconds: u32, bAlertable: BOOL) -> u32;
+        #[library("api-ms-win-core-synch-l1-2-0.dll")]
+        extern fn WaitOnAddress(#[size_param(2)] #[in] Address: *mut void, #[size_param(2)] #[in] CompareAddress: *mut void, AddressSize: usize, #[opt] dwMilliseconds: u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn WakeAllConditionVariable(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE);
         #[library("api-ms-win-core-synch-l1-2-0.dll")]
-        extern fn WakeByAddressAll(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: PVOID);
+        extern fn WakeByAddressAll(#[in] Address: *mut void);
         #[library("api-ms-win-core-synch-l1-2-0.dll")]
-        extern fn WakeByAddressSingle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Address: PVOID);
+        extern fn WakeByAddressSingle(#[in] Address: *mut void);
         #[library("KERNEL32.dll")]
         extern fn WakeConditionVariable(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE);
     }

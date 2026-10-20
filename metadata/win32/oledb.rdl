@@ -95,16 +95,15 @@ mod Windows {
             DBASYNCHPHASE_COMPLETE = 2,
             DBASYNCHPHASE_CANCELED = 3,
         }
+        #[arch(X64 | Arm64)]
+        struct DBBINDEXT {
+            pExtension: *mut u8,
+            ulExtension: DBCOUNTITEM,
+        }
         #[packed(2)]
         #[arch(X86)]
         struct DBBINDEXT {
-            pExtension: *mut BYTE,
-            ulExtension: DBCOUNTITEM,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct DBBINDEXT {
-            pExtension: *mut BYTE,
+            pExtension: *mut u8,
             ulExtension: DBCOUNTITEM,
         }
         type DBBINDFLAG = u32;
@@ -112,6 +111,24 @@ mod Windows {
         enum DBBINDFLAGENUM {
             DBBINDFLAG_HTML = 1,
         }
+        #[arch(X64 | Arm64)]
+        struct DBBINDING {
+            iOrdinal: DBORDINAL,
+            obValue: DBBYTEOFFSET,
+            obLength: DBBYTEOFFSET,
+            obStatus: DBBYTEOFFSET,
+            pTypeInfo: ITypeInfo,
+            pObject: *mut DBOBJECT,
+            pBindExt: *mut DBBINDEXT,
+            dwPart: DBPART,
+            dwMemOwner: DBMEMOWNER,
+            eParamIO: DBPARAMIO,
+            cbMaxLen: DBLENGTH,
+            dwFlags: u32,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+        }
         #[packed(2)]
         #[arch(X86)]
         struct DBBINDING {
@@ -126,29 +143,10 @@ mod Windows {
             dwMemOwner: DBMEMOWNER,
             eParamIO: DBPARAMIO,
             cbMaxLen: DBLENGTH,
-            dwFlags: DWORD,
+            dwFlags: u32,
             wType: DBTYPE,
-            bPrecision: BYTE,
-            bScale: BYTE,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct DBBINDING {
-            iOrdinal: DBORDINAL,
-            obValue: DBBYTEOFFSET,
-            obLength: DBBYTEOFFSET,
-            obStatus: DBBYTEOFFSET,
-            pTypeInfo: ITypeInfo,
-            pObject: *mut DBOBJECT,
-            pBindExt: *mut DBBINDEXT,
-            dwPart: DBPART,
-            dwMemOwner: DBMEMOWNER,
-            eParamIO: DBPARAMIO,
-            cbMaxLen: DBLENGTH,
-            dwFlags: DWORD,
-            wType: DBTYPE,
-            bPrecision: BYTE,
-            bScale: BYTE,
+            bPrecision: u8,
+            bScale: u8,
         }
         type DBBINDSTATUS = u32;
         #[repr(i32)]
@@ -204,6 +202,18 @@ mod Windows {
         type DBBYTEOFFSET = u64;
         #[arch(X86)]
         type DBBYTEOFFSET = u32;
+        #[arch(X64 | Arm64)]
+        struct DBCOLUMNACCESS {
+            pData: *mut void,
+            columnid: DBID,
+            cbDataLen: DBLENGTH,
+            dwStatus: DBSTATUS,
+            cbMaxLen: DBLENGTH,
+            dwReserved: DB_DWRESERVE,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+        }
         #[packed(2)]
         #[arch(X86)]
         struct DBCOLUMNACCESS {
@@ -214,21 +224,21 @@ mod Windows {
             cbMaxLen: DBLENGTH,
             dwReserved: DB_DWRESERVE,
             wType: DBTYPE,
-            bPrecision: BYTE,
-            bScale: BYTE,
+            bPrecision: u8,
+            bScale: u8,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
-        struct DBCOLUMNACCESS {
-            pData: *mut void,
-            columnid: DBID,
-            cbDataLen: DBLENGTH,
-            dwStatus: DBSTATUS,
-            cbMaxLen: DBLENGTH,
-            dwReserved: DB_DWRESERVE,
+        struct DBCOLUMNDESC {
+            pwszTypeName: LPOLESTR,
+            pTypeInfo: ITypeInfo,
+            rgPropertySets: *mut DBPROPSET,
+            pclsid: *mut GUID,
+            cPropertySets: u32,
+            ulColumnSize: DBLENGTH,
+            dbcid: DBID,
             wType: DBTYPE,
-            bPrecision: BYTE,
-            bScale: BYTE,
+            bPrecision: u8,
+            bScale: u8,
         }
         #[packed(2)]
         #[arch(X86)]
@@ -236,27 +246,13 @@ mod Windows {
             pwszTypeName: LPOLESTR,
             pTypeInfo: ITypeInfo,
             rgPropertySets: *mut DBPROPSET,
-            pclsid: *mut CLSID,
-            cPropertySets: ULONG,
+            pclsid: *mut GUID,
+            cPropertySets: u32,
             ulColumnSize: DBLENGTH,
             dbcid: DBID,
             wType: DBTYPE,
-            bPrecision: BYTE,
-            bScale: BYTE,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct DBCOLUMNDESC {
-            pwszTypeName: LPOLESTR,
-            pTypeInfo: ITypeInfo,
-            rgPropertySets: *mut DBPROPSET,
-            pclsid: *mut CLSID,
-            cPropertySets: ULONG,
-            ulColumnSize: DBLENGTH,
-            dbcid: DBID,
-            wType: DBTYPE,
-            bPrecision: BYTE,
-            bScale: BYTE,
+            bPrecision: u8,
+            bScale: u8,
         }
         type DBCOLUMNDESCFLAGS = u32;
         #[repr(i32)]
@@ -308,6 +304,18 @@ mod Windows {
             DBCOLUMNFLAGS_ISROW = 2097152,
             DBCOLUMNFLAGS_ROWSPECIFICCOLUMN = 4194304,
         }
+        #[arch(X64 | Arm64)]
+        struct DBCOLUMNINFO {
+            pwszName: LPOLESTR,
+            pTypeInfo: ITypeInfo,
+            iOrdinal: DBORDINAL,
+            dwFlags: DBCOLUMNFLAGS,
+            ulColumnSize: DBLENGTH,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+            columnid: DBID,
+        }
         #[packed(2)]
         #[arch(X86)]
         struct DBCOLUMNINFO {
@@ -317,21 +325,8 @@ mod Windows {
             dwFlags: DBCOLUMNFLAGS,
             ulColumnSize: DBLENGTH,
             wType: DBTYPE,
-            bPrecision: BYTE,
-            bScale: BYTE,
-            columnid: DBID,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct DBCOLUMNINFO {
-            pwszName: LPOLESTR,
-            pTypeInfo: ITypeInfo,
-            iOrdinal: DBORDINAL,
-            dwFlags: DBCOLUMNFLAGS,
-            ulColumnSize: DBLENGTH,
-            wType: DBTYPE,
-            bPrecision: BYTE,
-            bScale: BYTE,
+            bPrecision: u8,
+            bScale: u8,
             columnid: DBID,
         }
         type DBCOMMANDPERSISTFLAG = u32;
@@ -377,8 +372,7 @@ mod Windows {
         const DBCOMPUTEMODE_COMPUTED: i32 = 1;
         const DBCOMPUTEMODE_DYNAMIC: i32 = 2;
         const DBCOMPUTEMODE_NOTCOMPUTED: i32 = 3;
-        #[packed(2)]
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
         struct DBCONSTRAINTDESC {
             pConstraintID: *mut DBID,
             ConstraintType: DBCONSTRAINTTYPE,
@@ -395,8 +389,8 @@ mod Windows {
             cReserved: DB_URESERVE,
             rgReserved: *mut DBPROPSET,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
+        #[packed(2)]
+        #[arch(X86)]
         struct DBCONSTRAINTDESC {
             pConstraintID: *mut DBID,
             ConstraintType: DBCONSTRAINTTYPE,
@@ -446,19 +440,10 @@ mod Windows {
         type DBCOUNTITEM = u64;
         #[arch(X86)]
         type DBCOUNTITEM = u32;
-        #[packed(2)]
-        #[arch(X86)]
         struct DBDATE {
-            year: SHORT,
-            month: USHORT,
-            day: USHORT,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct DBDATE {
-            year: SHORT,
-            month: USHORT,
-            day: USHORT,
+            year: i16,
+            month: u16,
+            day: u16,
         }
         type DBDEFERRABILITY = u32;
         #[repr(i32)]
@@ -481,6 +466,12 @@ mod Windows {
             DBEVENTPHASE_FAILEDTODO = 3,
             DBEVENTPHASE_DIDEVENT = 4,
         }
+        #[arch(X64 | Arm64)]
+        struct DBFAILUREINFO {
+            hRow: HROW,
+            iColumn: DBORDINAL,
+            failure: HRESULT,
+        }
         #[packed(2)]
         #[arch(X86)]
         struct DBFAILUREINFO {
@@ -488,17 +479,22 @@ mod Windows {
             iColumn: DBORDINAL,
             failure: HRESULT,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
-        struct DBFAILUREINFO {
-            hRow: HROW,
-            iColumn: DBORDINAL,
-            failure: HRESULT,
-        }
-        #[arch(X64 | Arm64)]
-        type DBHASHVALUE = u64;
+        type DBHASHVALUE = DWORDLONG;
         #[arch(X86)]
         type DBHASHVALUE = u32;
+        #[arch(X64 | Arm64)]
+        struct DBID {
+            uGuid: union {
+                guid: GUID,
+                pguid: *mut GUID,
+            },
+            eKind: DBKIND,
+            uName: union {
+                pwszName: LPOLESTR,
+                ulPropid: u32,
+            },
+        }
         #[packed(2)]
         #[arch(X86)]
         struct DBID {
@@ -509,44 +505,29 @@ mod Windows {
             eKind: DBKIND,
             uName: #[packed(2)] union {
                 pwszName: LPOLESTR,
-                ulPropid: ULONG,
+                ulPropid: u32,
             },
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
-        struct DBID {
-            uGuid: #[packed(8)] union {
-                guid: GUID,
-                pguid: *mut GUID,
-            },
-            eKind: DBKIND,
-            uName: #[packed(8)] union {
-                pwszName: LPOLESTR,
-                ulPropid: ULONG,
-            },
+        struct DBIMPLICITSESSION {
+            pUnkOuter: IUnknown,
+            piid: *mut GUID,
+            pSession: IUnknown,
         }
         #[packed(2)]
         #[arch(X86)]
         struct DBIMPLICITSESSION {
             pUnkOuter: IUnknown,
-            piid: *mut IID,
+            piid: *mut GUID,
             pSession: IUnknown,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
-        struct DBIMPLICITSESSION {
-            pUnkOuter: IUnknown,
-            piid: *mut IID,
-            pSession: IUnknown,
-        }
-        #[packed(2)]
-        #[arch(X86)]
         struct DBINDEXCOLUMNDESC {
             pColumnID: *mut DBID,
             eIndexColOrder: DBINDEX_COL_ORDER,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
+        #[packed(2)]
+        #[arch(X86)]
         struct DBINDEXCOLUMNDESC {
             pColumnID: *mut DBID,
             eIndexColOrder: DBINDEX_COL_ORDER,
@@ -613,6 +594,15 @@ mod Windows {
             DBLITERAL_ESCAPE_PERCENT_SUFFIX = 29,
             DBLITERAL_ESCAPE_UNDERSCORE_SUFFIX = 30,
         }
+        #[arch(X64 | Arm64)]
+        struct DBLITERALINFO {
+            pwszLiteralValue: LPOLESTR,
+            pwszInvalidChars: LPOLESTR,
+            pwszInvalidStartingChars: LPOLESTR,
+            lt: DBLITERAL,
+            fSupported: BOOL,
+            cchMaxLen: u32,
+        }
         #[packed(2)]
         #[arch(X86)]
         struct DBLITERALINFO {
@@ -621,17 +611,7 @@ mod Windows {
             pwszInvalidStartingChars: LPOLESTR,
             lt: DBLITERAL,
             fSupported: BOOL,
-            cchMaxLen: ULONG,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct DBLITERALINFO {
-            pwszLiteralValue: LPOLESTR,
-            pwszInvalidChars: LPOLESTR,
-            pwszInvalidStartingChars: LPOLESTR,
-            lt: DBLITERAL,
-            fSupported: BOOL,
-            cchMaxLen: ULONG,
+            cchMaxLen: u32,
         }
         const DBLITERAL_ESCAPE_PERCENT_PREFIX: DBLITERALENUM = 9;
         const DBLITERAL_ESCAPE_UNDERSCORE_PREFIX: DBLITERALENUM = 10;
@@ -658,22 +638,30 @@ mod Windows {
             DBMOVE_ALLOW_EMULATION = 1024,
             DBMOVE_ATOMIC = 4096,
         }
+        #[arch(X64 | Arm64)]
+        struct DBOBJECT {
+            dwFlags: u32,
+            iid: GUID,
+        }
         #[packed(2)]
         #[arch(X86)]
         struct DBOBJECT {
-            dwFlags: DWORD,
-            iid: IID,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct DBOBJECT {
-            dwFlags: DWORD,
-            iid: IID,
+            dwFlags: u32,
+            iid: GUID,
         }
         #[arch(X64 | Arm64)]
         type DBORDINAL = u64;
         #[arch(X86)]
         type DBORDINAL = u32;
+        #[arch(X64 | Arm64)]
+        struct DBPARAMBINDINFO {
+            pwszDataSourceType: LPOLESTR,
+            pwszName: LPOLESTR,
+            ulParamSize: DBLENGTH,
+            dwFlags: DBPARAMFLAGS,
+            bPrecision: u8,
+            bScale: u8,
+        }
         #[packed(2)]
         #[arch(X86)]
         struct DBPARAMBINDINFO {
@@ -681,18 +669,8 @@ mod Windows {
             pwszName: LPOLESTR,
             ulParamSize: DBLENGTH,
             dwFlags: DBPARAMFLAGS,
-            bPrecision: BYTE,
-            bScale: BYTE,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct DBPARAMBINDINFO {
-            pwszDataSourceType: LPOLESTR,
-            pwszName: LPOLESTR,
-            ulParamSize: DBLENGTH,
-            dwFlags: DBPARAMFLAGS,
-            bPrecision: BYTE,
-            bScale: BYTE,
+            bPrecision: u8,
+            bScale: u8,
         }
         type DBPARAMFLAGS = u32;
         #[repr(i32)]
@@ -707,6 +685,17 @@ mod Windows {
         enum DBPARAMFLAGSENUM20 {
             DBPARAMFLAGS_SCALEISNEGATIVE = 256,
         }
+        #[arch(X64 | Arm64)]
+        struct DBPARAMINFO {
+            dwFlags: DBPARAMFLAGS,
+            iOrdinal: DBORDINAL,
+            pwszName: LPOLESTR,
+            pTypeInfo: ITypeInfo,
+            ulParamSize: DBLENGTH,
+            wType: DBTYPE,
+            bPrecision: u8,
+            bScale: u8,
+        }
         #[packed(2)]
         #[arch(X86)]
         struct DBPARAMINFO {
@@ -716,20 +705,8 @@ mod Windows {
             pTypeInfo: ITypeInfo,
             ulParamSize: DBLENGTH,
             wType: DBTYPE,
-            bPrecision: BYTE,
-            bScale: BYTE,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct DBPARAMINFO {
-            dwFlags: DBPARAMFLAGS,
-            iOrdinal: DBORDINAL,
-            pwszName: LPOLESTR,
-            pTypeInfo: ITypeInfo,
-            ulParamSize: DBLENGTH,
-            wType: DBTYPE,
-            bPrecision: BYTE,
-            bScale: BYTE,
+            bPrecision: u8,
+            bScale: u8,
         }
         type DBPARAMIO = u32;
         #[repr(i32)]
@@ -738,15 +715,14 @@ mod Windows {
             DBPARAMIO_INPUT = 1,
             DBPARAMIO_OUTPUT = 2,
         }
-        #[packed(2)]
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
         struct DBPARAMS {
             pData: *mut void,
             cParamSets: DB_UPARAMS,
             hAccessor: HACCESSOR,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
+        #[packed(2)]
+        #[arch(X86)]
         struct DBPARAMS {
             pData: *mut void,
             cParamSets: DB_UPARAMS,
@@ -785,8 +761,7 @@ mod Windows {
         const DBPROMPT_COMPLETEREQUIRED: i32 = 3;
         const DBPROMPT_NOPROMPT: i32 = 4;
         const DBPROMPT_PROMPT: i32 = 1;
-        #[packed(2)]
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
         struct DBPROP {
             dwPropertyID: DBPROPID,
             dwOptions: DBPROPOPTIONS,
@@ -794,8 +769,8 @@ mod Windows {
             colid: DBID,
             vValue: VARIANT,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
+        #[packed(2)]
+        #[arch(X86)]
         struct DBPROP {
             dwPropertyID: DBPROPID,
             dwOptions: DBPROPOPTIONS,
@@ -1102,30 +1077,19 @@ mod Windows {
             DBPROPFLAGS_STREAM = 32768,
         }
         type DBPROPID = u32;
-        #[packed(2)]
-        #[arch(X86)]
-        struct DBPROPIDSET {
-            rgPropertyIDs: *mut DBPROPID,
-            cPropertyIDs: ULONG,
-            guidPropertySet: GUID,
-        }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
         struct DBPROPIDSET {
             rgPropertyIDs: *mut DBPROPID,
-            cPropertyIDs: ULONG,
+            cPropertyIDs: u32,
             guidPropertySet: GUID,
         }
         #[packed(2)]
         #[arch(X86)]
-        struct DBPROPINFO {
-            pwszDescription: LPOLESTR,
-            dwPropertyID: DBPROPID,
-            dwFlags: DBPROPFLAGS,
-            vtType: VARTYPE,
-            vValues: VARIANT,
+        struct DBPROPIDSET {
+            rgPropertyIDs: *mut DBPROPID,
+            cPropertyIDs: u32,
+            guidPropertySet: GUID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
         struct DBPROPINFO {
             pwszDescription: LPOLESTR,
@@ -1136,16 +1100,24 @@ mod Windows {
         }
         #[packed(2)]
         #[arch(X86)]
-        struct DBPROPINFOSET {
-            rgPropertyInfos: PDBPROPINFO,
-            cPropertyInfos: ULONG,
-            guidPropertySet: GUID,
+        struct DBPROPINFO {
+            pwszDescription: LPOLESTR,
+            dwPropertyID: DBPROPID,
+            dwFlags: DBPROPFLAGS,
+            vtType: VARTYPE,
+            vValues: VARIANT,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
         struct DBPROPINFOSET {
             rgPropertyInfos: PDBPROPINFO,
-            cPropertyInfos: ULONG,
+            cPropertyInfos: u32,
+            guidPropertySet: GUID,
+        }
+        #[packed(2)]
+        #[arch(X86)]
+        struct DBPROPINFOSET {
+            rgPropertyInfos: PDBPROPINFO,
+            cPropertyInfos: u32,
             guidPropertySet: GUID,
         }
         type DBPROPOPTIONS = u32;
@@ -1155,18 +1127,17 @@ mod Windows {
             DBPROPOPTIONS_SETIFCHEAP = 1,
             DBPROPOPTIONS_OPTIONAL = 1,
         }
+        #[arch(X64 | Arm64)]
+        struct DBPROPSET {
+            rgProperties: *mut DBPROP,
+            cProperties: u32,
+            guidPropertySet: GUID,
+        }
         #[packed(2)]
         #[arch(X86)]
         struct DBPROPSET {
             rgProperties: *mut DBPROP,
-            cProperties: ULONG,
-            guidPropertySet: GUID,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct DBPROPSET {
-            rgProperties: *mut DBPROP,
-            cProperties: ULONG,
+            cProperties: u32,
             guidPropertySet: GUID,
         }
         type DBPROPSTATUS = u32;
@@ -1421,10 +1392,7 @@ mod Windows {
             DBREASON_ROW_ASYNCHINSERT = 18,
         }
         type DBREFCOUNT = u32;
-        #[arch(X64 | Arm64)]
-        type DBRESULTFLAG = i64;
-        #[arch(X86)]
-        type DBRESULTFLAG = i32;
+        type DBRESULTFLAG = DB_LRESERVE;
         #[repr(i32)]
         enum DBRESULTFLAGENUM {
             DBRESULTFLAG_DEFAULT = 0,
@@ -1554,41 +1522,31 @@ mod Windows {
             DBSTAT_COLUMN_CARDINALITY = 2,
             DBSTAT_TUPLE_CARDINALITY = 4,
         }
-        #[packed(2)]
-        #[arch(X86)]
         struct DBTIME {
-            hour: USHORT,
-            minute: USHORT,
-            second: USHORT,
+            hour: u16,
+            minute: u16,
+            second: u16,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
-        struct DBTIME {
-            hour: USHORT,
-            minute: USHORT,
-            second: USHORT,
+        struct DBTIMESTAMP {
+            year: i16,
+            month: u16,
+            day: u16,
+            hour: u16,
+            minute: u16,
+            second: u16,
+            fraction: u32,
         }
         #[packed(2)]
         #[arch(X86)]
         struct DBTIMESTAMP {
-            year: SHORT,
-            month: USHORT,
-            day: USHORT,
-            hour: USHORT,
-            minute: USHORT,
-            second: USHORT,
-            fraction: ULONG,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct DBTIMESTAMP {
-            year: SHORT,
-            month: USHORT,
-            day: USHORT,
-            hour: USHORT,
-            minute: USHORT,
-            second: USHORT,
-            fraction: ULONG,
+            year: i16,
+            month: u16,
+            day: u16,
+            hour: u16,
+            minute: u16,
+            second: u16,
+            fraction: u32,
         }
         type DBTYPE = u16;
         #[repr(i32)]
@@ -1658,14 +1616,13 @@ mod Windows {
             DBUPDELRULE_SETNULL = 2,
             DBUPDELRULE_SETDEFAULT = 3,
         }
-        #[packed(2)]
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
         struct DBVECTOR {
             size: DBLENGTH,
             ptr: *mut void,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
+        #[packed(2)]
+        #[arch(X86)]
         struct DBVECTOR {
             size: DBLENGTH,
             ptr: *mut void,
@@ -1684,7 +1641,7 @@ mod Windows {
         const DB_COLLATION_DESC: i32 = 2;
         const DB_COUNTUNAVAILABLE: i32 = -1;
         #[arch(X64 | Arm64)]
-        type DB_DWRESERVE = u64;
+        type DB_DWRESERVE = DWORDLONG;
         #[arch(X86)]
         type DB_DWRESERVE = u32;
         const DB_IMP_LEVEL_ANONYMOUS: i32 = 0;
@@ -1722,21 +1679,11 @@ mod Windows {
         const DB_NULL_HACCESSOR: i32 = 0;
         const DB_NULL_HCHAPTER: i32 = 0;
         const DB_NULL_HROW: i32 = 0;
-        #[packed(2)]
-        #[arch(X86)]
         struct DB_NUMERIC {
-            precision: BYTE,
-            scale: BYTE,
-            sign: BYTE,
-            val: [BYTE; 16],
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct DB_NUMERIC {
-            precision: BYTE,
-            scale: BYTE,
-            sign: BYTE,
-            val: [BYTE; 16],
+            precision: u8,
+            scale: u8,
+            sign: u8,
+            val: [u8; 16],
         }
         const DB_PROT_LEVEL_CALL: i32 = 2;
         const DB_PROT_LEVEL_CONNECT: i32 = 1;
@@ -1758,133 +1705,110 @@ mod Windows {
         type DB_URESERVE = u64;
         #[arch(X86)]
         type DB_URESERVE = u32;
-        #[packed(2)]
-        #[arch(X86)]
         struct DB_VARNUMERIC {
-            precision: BYTE,
+            precision: u8,
             scale: SBYTE,
-            sign: BYTE,
-            val: [BYTE; 1],
+            sign: u8,
+            val: [u8; 1],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
-        struct DB_VARNUMERIC {
-            precision: BYTE,
-            scale: SBYTE,
-            sign: BYTE,
-            val: [BYTE; 1],
+        struct ERRORINFO {
+            hrError: HRESULT,
+            dwMinor: u32,
+            clsid: GUID,
+            iid: GUID,
+            dispid: DISPID,
         }
         #[packed(2)]
         #[arch(X86)]
         struct ERRORINFO {
             hrError: HRESULT,
-            dwMinor: DWORD,
-            clsid: CLSID,
-            iid: IID,
+            dwMinor: u32,
+            clsid: GUID,
+            iid: GUID,
             dispid: DISPID,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct ERRORINFO {
-            hrError: HRESULT,
-            dwMinor: DWORD,
-            clsid: CLSID,
-            iid: IID,
-            dispid: DISPID,
-        }
-        #[arch(X64 | Arm64)]
-        type HACCESSOR = u64;
-        #[arch(X86)]
-        type HACCESSOR = u32;
-        #[arch(X64 | Arm64)]
-        type HCHAPTER = u64;
-        #[arch(X86)]
-        type HCHAPTER = u32;
-        #[arch(X64 | Arm64)]
-        type HROW = u64;
-        #[arch(X86)]
-        type HROW = u32;
-        #[arch(X64 | Arm64)]
-        type HWATCHREGION = u64;
-        #[arch(X86)]
-        type HWATCHREGION = u32;
+        type HACCESSOR = usize;
+        type HCHAPTER = usize;
+        type HROW = usize;
+        type HWATCHREGION = usize;
         #[guid(0x0c733a8c_2a1c_11ce_ade5_00aa0044773d)]
         interface IAccessor: IUnknown {
-            fn AddRefAccessor(&self, hAccessor: HACCESSOR, #[out] #[opt] pcRefCount: *mut DBREFCOUNT) -> HRESULT;
-            fn CreateAccessor(&self, dwAccessorFlags: DBACCESSORFLAGS, cBindings: DBCOUNTITEM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] rgBindings: *const DBBINDING, cbRowSize: DBLENGTH, #[out] phAccessor: *mut HACCESSOR, #[out] #[opt] #[len_param(1)] rgStatus: *mut DBBINDSTATUS) -> HRESULT;
-            fn GetBindings(&self, hAccessor: HACCESSOR, #[out] pdwAccessorFlags: *mut DBACCESSORFLAGS, #[out] #[opt] pcBindings: *mut DBCOUNTITEM, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcBindings", "*pcBindings")] #[out] prgBindings: *mut *mut DBBINDING) -> HRESULT;
-            fn ReleaseAccessor(&self, hAccessor: HACCESSOR, #[out] #[opt] pcRefCount: *mut DBREFCOUNT) -> HRESULT;
+            fn AddRefAccessor(&self, hAccessor: HACCESSOR, #[in] #[out] #[opt] pcRefCount: *mut DBREFCOUNT) -> HRESULT;
+            fn CreateAccessor(&self, dwAccessorFlags: DBACCESSORFLAGS, cBindings: DBCOUNTITEM, #[len_param(1)] rgBindings: *const DBBINDING, cbRowSize: DBLENGTH, phAccessor: *mut HACCESSOR, #[len_param(1)] #[opt] rgStatus: *mut DBBINDSTATUS) -> HRESULT;
+            fn GetBindings(&self, hAccessor: HACCESSOR, pdwAccessorFlags: *mut DBACCESSORFLAGS, #[in] #[out] #[opt] pcBindings: *mut DBCOUNTITEM, prgBindings: *mut *mut DBBINDING) -> HRESULT;
+            fn ReleaseAccessor(&self, hAccessor: HACCESSOR, #[in] #[out] #[opt] pcRefCount: *mut DBREFCOUNT) -> HRESULT;
         }
         #[guid(0x0c733aa6_2a1c_11ce_ade5_00aa0044773d)]
         interface IAlterIndex: IUnknown {
-            fn AlterIndex(&self, pTableId: *mut DBID, pIndexId: *mut DBID, pNewIndexId: *mut DBID, cPropertySets: ULONG, rgPropertySets: *mut DBPROPSET) -> HRESULT;
+            fn AlterIndex(&self, #[in] pTableId: *mut DBID, #[in] pIndexId: *mut DBID, #[in] pNewIndexId: *mut DBID, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET) -> HRESULT;
         }
         #[guid(0x0c733aa5_2a1c_11ce_ade5_00aa0044773d)]
         interface IAlterTable: IUnknown {
-            fn AlterColumn(&self, pTableId: *mut DBID, pColumnId: *mut DBID, dwColumnDescFlags: DBCOLUMNDESCFLAGS, pColumnDesc: *mut DBCOLUMNDESC) -> HRESULT;
-            fn AlterTable(&self, pTableId: *mut DBID, pNewTableId: *mut DBID, cPropertySets: ULONG, rgPropertySets: *mut DBPROPSET) -> HRESULT;
+            fn AlterColumn(&self, #[in] pTableId: *mut DBID, #[in] pColumnId: *mut DBID, dwColumnDescFlags: DBCOLUMNDESCFLAGS, #[in] pColumnDesc: *mut DBCOLUMNDESC) -> HRESULT;
+            fn AlterTable(&self, #[in] pTableId: *mut DBID, #[in] pNewTableId: *mut DBID, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET) -> HRESULT;
         }
         #[guid(0x0c733ab1_2a1c_11ce_ade5_00aa0044773d)]
         interface IBindResource: IUnknown {
-            fn Bind(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszURL: LPCOLESTR, dwBindURLFlags: DBBINDURLFLAG, rguid: &GUID, riid: &IID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthenticate: IAuthenticate, #[in] #[out] #[opt] pImplSession: *mut DBIMPLICITSESSION, #[out] #[opt] pdwBindStatus: *mut DBBINDURLSTATUS, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppUnk: *mut IUnknown) -> HRESULT;
+            fn Bind(&self, #[opt] pUnkOuter: IUnknown, pwszURL: LPCOLESTR, dwBindURLFlags: DBBINDURLFLAG, rguid: *const GUID, riid: *const GUID, #[opt] pAuthenticate: IAuthenticate, #[in] #[out] #[opt] pImplSession: *mut DBIMPLICITSESSION, #[in] #[out] #[opt] pdwBindStatus: *mut DBBINDURLSTATUS, #[iid_is] ppUnk: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733a93_2a1c_11ce_ade5_00aa0044773d)]
         interface IChapteredRowset: IUnknown {
-            fn AddRefChapter(&self, hChapter: HCHAPTER, #[out] #[opt] pcRefCount: *mut DBREFCOUNT) -> HRESULT;
-            fn ReleaseChapter(&self, hChapter: HCHAPTER, #[out] #[opt] pcRefCount: *mut DBREFCOUNT) -> HRESULT;
+            fn AddRefChapter(&self, hChapter: HCHAPTER, #[opt] pcRefCount: *mut DBREFCOUNT) -> HRESULT;
+            fn ReleaseChapter(&self, hChapter: HCHAPTER, #[opt] pcRefCount: *mut DBREFCOUNT) -> HRESULT;
         }
         #[guid(0x0c733a11_2a1c_11ce_ade5_00aa0044773d)]
         interface IColumnsInfo: IUnknown {
-            fn GetColumnInfo(&self, #[out] pcColumns: *mut DBORDINAL, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcColumns", "*pcColumns")] #[out] prgInfo: *mut *mut DBCOLUMNINFO, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_z_", "", "")] ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
-            fn MapColumnIDs(&self, cColumnIDs: DBORDINAL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgColumnIDs: *const DBID, #[out] #[opt] #[len_param(0)] rgColumns: *mut DBORDINAL) -> HRESULT;
+            fn GetColumnInfo(&self, #[in] #[out] pcColumns: *mut DBORDINAL, prgInfo: *mut *mut DBCOLUMNINFO, ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn MapColumnIDs(&self, cColumnIDs: DBORDINAL, #[len_param(0)] #[opt] rgColumnIDs: *const DBID, #[len_param(0)] #[opt] rgColumns: *mut DBORDINAL) -> HRESULT;
         }
         #[guid(0x0c733ab8_2a1c_11ce_ade5_00aa0044773d)]
         interface IColumnsInfo2: IColumnsInfo {
-            fn GetRestrictedColumnInfo(&self, cColumnIDMasks: DBORDINAL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgColumnIDMasks: *const DBID, dwFlags: DWORD, #[out] pcColumns: *mut DBORDINAL, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcColumns", "*pcColumns")] #[out] prgColumnIDs: *mut *mut DBID, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcColumns", "*pcColumns")] #[out] prgColumnInfo: *mut *mut DBCOLUMNINFO, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_z_", "", "")] ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn GetRestrictedColumnInfo(&self, cColumnIDMasks: DBORDINAL, #[len_param(0)] rgColumnIDMasks: *const DBID, dwFlags: u32, #[in] #[out] pcColumns: *mut DBORDINAL, prgColumnIDs: *mut *mut DBID, prgColumnInfo: *mut *mut DBCOLUMNINFO, ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
         }
         #[guid(0x0c733a10_2a1c_11ce_ade5_00aa0044773d)]
         interface IColumnsRowset: IUnknown {
-            fn GetAvailableColumns(&self, #[out] pcOptColumns: *mut DBORDINAL, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcOptColumns", "*pcOptColumns")] #[out] prgOptColumns: *mut *mut DBID) -> HRESULT;
-            fn GetColumnsRowset(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, cOptColumns: DBORDINAL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] rgOptColumns: *const DBID, riid: &IID, cPropertySets: ULONG, #[in] #[out] #[opt] #[len_param(4)] rgPropertySets: *mut DBPROPSET, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppColRowset: *mut IUnknown) -> HRESULT;
+            fn GetAvailableColumns(&self, #[in] #[out] pcOptColumns: *mut DBORDINAL, prgOptColumns: *mut *mut DBID) -> HRESULT;
+            fn GetColumnsRowset(&self, #[opt] pUnkOuter: IUnknown, cOptColumns: DBORDINAL, #[len_param(1)] rgOptColumns: *const DBID, riid: *const GUID, cPropertySets: u32, #[len_param(4)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET, #[iid_is] ppColRowset: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733a63_2a1c_11ce_ade5_00aa0044773d)]
         interface ICommand: IUnknown {
             fn Cancel(&self) -> HRESULT;
-            fn Execute(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, riid: &IID, #[in] #[out] #[opt] pParams: *mut DBPARAMS, #[out] #[opt] pcRowsAffected: *mut DBROWCOUNT, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppRowset: *mut IUnknown) -> HRESULT;
-            fn GetDBSession(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] #[iid_is] ppSession: *mut IUnknown) -> HRESULT;
+            fn Execute(&self, #[opt] pUnkOuter: IUnknown, riid: *const GUID, #[in] #[out] #[opt] pParams: *mut DBPARAMS, #[opt] pcRowsAffected: *mut DBROWCOUNT, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+            fn GetDBSession(&self, riid: *const GUID, #[iid_is] ppSession: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733aa7_2a1c_11ce_ade5_00aa0044773d)]
         interface ICommandPersist: IUnknown {
-            fn DeleteCommand(&self, pCommandID: *mut DBID) -> HRESULT;
+            fn DeleteCommand(&self, #[in] pCommandID: *mut DBID) -> HRESULT;
             fn GetCurrentCommand(&self, ppCommandID: *mut *mut DBID) -> HRESULT;
-            fn LoadCommand(&self, pCommandID: *mut DBID, dwFlags: DWORD) -> HRESULT;
-            fn SaveCommand(&self, pCommandID: *mut DBID, dwFlags: DWORD) -> HRESULT;
+            fn LoadCommand(&self, #[in] pCommandID: *mut DBID, dwFlags: u32) -> HRESULT;
+            fn SaveCommand(&self, #[in] pCommandID: *mut DBID, dwFlags: u32) -> HRESULT;
         }
         #[guid(0x0c733a26_2a1c_11ce_ade5_00aa0044773d)]
         interface ICommandPrepare: IUnknown {
-            fn Prepare(&self, cExpectedRuns: ULONG) -> HRESULT;
+            fn Prepare(&self, cExpectedRuns: u32) -> HRESULT;
             fn Unprepare(&self) -> HRESULT;
         }
         #[guid(0x0c733a79_2a1c_11ce_ade5_00aa0044773d)]
         interface ICommandProperties: IUnknown {
-            fn GetProperties(&self, cPropertyIDSets: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgPropertyIDSets: *const DBPROPIDSET, #[out] pcPropertySets: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcPropertySets", "*pcPropertySets")] #[out] prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
-            fn SetProperties(&self, cPropertySets: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgPropertySets: *mut DBPROPSET) -> HRESULT;
+            fn GetProperties(&self, cPropertyIDSets: u32, #[len_param(0)] #[opt] rgPropertyIDSets: *const DBPROPIDSET, #[in] #[out] pcPropertySets: *mut u32, prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
+            fn SetProperties(&self, cPropertySets: u32, #[len_param(0)] #[in] #[out] rgPropertySets: *mut DBPROPSET) -> HRESULT;
         }
         #[guid(0x0c733abf_2a1c_11ce_ade5_00aa0044773d)]
         interface ICommandStream: IUnknown {
-            fn GetCommandStream(&self, #[out] #[opt] piid: *mut IID, #[in] #[out] #[opt] pguidDialect: *mut GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppCommandStream: *mut IUnknown) -> HRESULT;
-            fn SetCommandStream(&self, riid: &IID, rguidDialect: &GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCommandStream: IUnknown) -> HRESULT;
+            fn GetCommandStream(&self, #[opt] piid: *mut GUID, #[in] #[out] #[opt] pguidDialect: *mut GUID, #[iid_is] ppCommandStream: *mut *mut void) -> HRESULT;
+            fn SetCommandStream(&self, riid: *const GUID, rguidDialect: *const GUID, #[opt] pCommandStream: IUnknown) -> HRESULT;
         }
         #[guid(0x0c733a27_2a1c_11ce_ade5_00aa0044773d)]
         interface ICommandText: ICommand {
-            fn GetCommandText(&self, #[in] #[out] #[opt] pguidDialect: *mut GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwszCommand: *mut LPOLESTR) -> HRESULT;
-            fn SetCommandText(&self, rguidDialect: &GUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszCommand: LPCOLESTR) -> HRESULT;
+            fn GetCommandText(&self, #[in] #[out] #[opt] pguidDialect: *mut GUID, ppwszCommand: *mut LPOLESTR) -> HRESULT;
+            fn SetCommandText(&self, rguidDialect: *const GUID, #[opt] pwszCommand: LPCOLESTR) -> HRESULT;
         }
         #[guid(0x0c733a64_2a1c_11ce_ade5_00aa0044773d)]
         interface ICommandWithParameters: IUnknown {
-            fn GetParameterInfo(&self, #[out] pcParams: *mut DB_UPARAMS, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcParams", "*pcParams")] #[out] prgParamInfo: *mut *mut DBPARAMINFO, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_z_", "", "")] ppNamesBuffer: *mut *mut OLECHAR) -> HRESULT;
-            fn MapParameterNames(&self, cParamNames: DB_UPARAMS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgParamNames: *mut LPCWSTR, #[out] #[len_param(0)] rgParamOrdinals: *mut DB_LPARAMS) -> HRESULT;
-            fn SetParameterInfo(&self, cParams: DB_UPARAMS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgParamOrdinals: *const DB_UPARAMS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgParamBindInfo: *const DBPARAMBINDINFO) -> HRESULT;
+            fn GetParameterInfo(&self, #[in] #[out] pcParams: *mut DB_UPARAMS, prgParamInfo: *mut *mut DBPARAMINFO, ppNamesBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn MapParameterNames(&self, cParamNames: DB_UPARAMS, #[len_param(0)] #[in] rgParamNames: *mut PCWSTR, #[len_param(0)] rgParamOrdinals: *mut DB_LPARAMS) -> HRESULT;
+            fn SetParameterInfo(&self, cParams: DB_UPARAMS, #[len_param(0)] #[opt] rgParamOrdinals: *const DB_UPARAMS, #[len_param(0)] #[opt] rgParamBindInfo: *const DBPARAMBINDINFO) -> HRESULT;
         }
         #[guid(0x0c733a88_2a1c_11ce_ade5_00aa0044773d)]
         interface IConvertType: IUnknown {
@@ -1892,18 +1816,18 @@ mod Windows {
         }
         #[guid(0x0c733ab2_2a1c_11ce_ade5_00aa0044773d)]
         interface ICreateRow: IUnknown {
-            fn CreateRow(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszURL: LPCOLESTR, dwBindURLFlags: DBBINDURLFLAG, rguid: &GUID, riid: &IID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthenticate: IAuthenticate, #[in] #[out] #[opt] pImplSession: *mut DBIMPLICITSESSION, #[out] pdwBindStatus: *mut DBBINDURLSTATUS, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppwszNewURL: *mut LPOLESTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppUnk: *mut IUnknown) -> HRESULT;
+            fn CreateRow(&self, #[opt] pUnkOuter: IUnknown, pwszURL: LPCOLESTR, dwBindURLFlags: DBBINDURLFLAG, rguid: *const GUID, riid: *const GUID, #[opt] pAuthenticate: IAuthenticate, #[in] #[out] #[opt] pImplSession: *mut DBIMPLICITSESSION, #[in] #[out] pdwBindStatus: *mut DBBINDURLSTATUS, ppwszNewURL: *mut LPOLESTR, #[iid_is] ppUnk: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733a96_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBAsynchNotify: IUnknown {
             fn OnLowResource(&self, dwReserved: DB_DWRESERVE) -> HRESULT;
-            fn OnProgress(&self, hChapter: HCHAPTER, eOperation: DBASYNCHOP, ulProgress: DBCOUNTITEM, ulProgressMax: DBCOUNTITEM, eAsynchPhase: DBASYNCHPHASE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszStatusText: LPOLESTR) -> HRESULT;
-            fn OnStop(&self, hChapter: HCHAPTER, eOperation: DBASYNCHOP, hrStatus: HRESULT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszStatusText: LPOLESTR) -> HRESULT;
+            fn OnProgress(&self, hChapter: HCHAPTER, eOperation: DBASYNCHOP, ulProgress: DBCOUNTITEM, ulProgressMax: DBCOUNTITEM, eAsynchPhase: DBASYNCHPHASE, #[opt] pwszStatusText: LPOLESTR) -> HRESULT;
+            fn OnStop(&self, hChapter: HCHAPTER, eOperation: DBASYNCHOP, hrStatus: HRESULT, #[opt] pwszStatusText: LPOLESTR) -> HRESULT;
         }
         #[guid(0x0c733a95_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBAsynchStatus: IUnknown {
             fn Abort(&self, hChapter: HCHAPTER, eOperation: DBASYNCHOP) -> HRESULT;
-            fn GetStatus(&self, hChapter: HCHAPTER, eOperation: DBASYNCHOP, #[out] #[opt] pulProgress: *mut DBCOUNTITEM, #[out] #[opt] pulProgressMax: *mut DBCOUNTITEM, #[out] peAsynchPhase: *mut DBASYNCHPHASE, #[in] #[out] #[opt] ppwszStatusText: *mut LPOLESTR) -> HRESULT;
+            fn GetStatus(&self, hChapter: HCHAPTER, eOperation: DBASYNCHOP, #[opt] pulProgress: *mut DBCOUNTITEM, #[opt] pulProgressMax: *mut DBCOUNTITEM, peAsynchPhase: *mut DBASYNCHPHASE, #[in] #[out] #[opt] ppwszStatusText: *mut LPOLESTR) -> HRESULT;
         }
         #[guid(0x0c733ab3_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBBinderProperties: IDBProperties {
@@ -1911,23 +1835,23 @@ mod Windows {
         }
         #[guid(0x0c733a1d_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBCreateCommand: IUnknown {
-            fn CreateCommand(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppCommand: *mut IUnknown) -> HRESULT;
+            fn CreateCommand(&self, #[opt] pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] ppCommand: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733a5d_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBCreateSession: IUnknown {
-            fn CreateSession(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppDBSession: *mut IUnknown) -> HRESULT;
+            fn CreateSession(&self, #[opt] pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] ppDBSession: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733a7a_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBDataSourceAdmin: IUnknown {
-            fn CreateDataSource(&self, cPropertySets: ULONG, #[in] #[out] #[opt] #[len_param(0)] rgPropertySets: *mut DBPROPSET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppDBSession: *mut IUnknown) -> HRESULT;
+            fn CreateDataSource(&self, cPropertySets: u32, #[len_param(0)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET, #[opt] pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] ppDBSession: *mut *mut void) -> HRESULT;
             fn DestroyDataSource(&self) -> HRESULT;
-            fn GetCreationProperties(&self, cPropertyIDSets: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgPropertyIDSets: *const DBPROPIDSET, #[out] pcPropertyInfoSets: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcPropertyInfoSets", "*pcPropertyInfoSets")] #[out] prgPropertyInfoSets: *mut *mut DBPROPINFOSET, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_maybenull_z_", "", "")] ppDescBuffer: *mut *mut OLECHAR) -> HRESULT;
-            fn ModifyDataSource(&self, cPropertySets: ULONG, #[in] #[out] #[opt] #[len_param(0)] rgPropertySets: *mut DBPROPSET) -> HRESULT;
+            fn GetCreationProperties(&self, cPropertyIDSets: u32, #[len_param(0)] #[opt] rgPropertyIDSets: *const DBPROPIDSET, pcPropertyInfoSets: *mut u32, prgPropertyInfoSets: *mut *mut DBPROPINFOSET, ppDescBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn ModifyDataSource(&self, cPropertySets: u32, #[len_param(0)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET) -> HRESULT;
         }
         #[guid(0x0c733a89_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBInfo: IUnknown {
-            fn GetKeywords(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppwszKeywords: *mut LPOLESTR) -> HRESULT;
-            fn GetLiteralInfo(&self, cLiterals: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgLiterals: *const DBLITERAL, #[out] pcLiteralInfo: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcLiteralInfo", "*pcLiteralInfo")] #[out] prgLiteralInfo: *mut *mut DBLITERALINFO, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_z_", "", "")] ppCharBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn GetKeywords(&self, ppwszKeywords: *mut LPOLESTR) -> HRESULT;
+            fn GetLiteralInfo(&self, cLiterals: u32, #[len_param(0)] #[opt] rgLiterals: *const DBLITERAL, #[in] #[out] pcLiteralInfo: *mut u32, prgLiteralInfo: *mut *mut DBLITERALINFO, ppCharBuffer: *mut *mut OLECHAR) -> HRESULT;
         }
         #[guid(0x0c733a8b_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBInitialize: IUnknown {
@@ -1936,113 +1860,113 @@ mod Windows {
         }
         #[guid(0x0c733a8a_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBProperties: IUnknown {
-            fn GetProperties(&self, cPropertyIDSets: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgPropertyIDSets: *const DBPROPIDSET, #[out] pcPropertySets: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcPropertySets", "*pcPropertySets")] #[out] prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
-            fn GetPropertyInfo(&self, cPropertyIDSets: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgPropertyIDSets: *const DBPROPIDSET, #[out] pcPropertyInfoSets: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcPropertyInfoSets", "*pcPropertyInfoSets")] #[out] prgPropertyInfoSets: *mut *mut DBPROPINFOSET, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_maybenull_z_", "", "")] ppDescBuffer: *mut *mut OLECHAR) -> HRESULT;
-            fn SetProperties(&self, cPropertySets: ULONG, #[in] #[out] #[opt] #[len_param(0)] rgPropertySets: *mut DBPROPSET) -> HRESULT;
+            fn GetProperties(&self, cPropertyIDSets: u32, #[len_param(0)] #[opt] rgPropertyIDSets: *const DBPROPIDSET, #[in] #[out] pcPropertySets: *mut u32, prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
+            fn GetPropertyInfo(&self, cPropertyIDSets: u32, #[len_param(0)] #[opt] rgPropertyIDSets: *const DBPROPIDSET, #[in] #[out] pcPropertyInfoSets: *mut u32, prgPropertyInfoSets: *mut *mut DBPROPINFOSET, ppDescBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn SetProperties(&self, cPropertySets: u32, #[len_param(0)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET) -> HRESULT;
         }
         #[guid(0x0c733a7b_2a1c_11ce_ade5_00aa0044773d)]
         interface IDBSchemaRowset: IUnknown {
-            fn GetRowset(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, rguidSchema: &GUID, cRestrictions: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] rgRestrictions: *const VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, cPropertySets: ULONG, #[in] #[out] #[opt] #[len_param(5)] rgPropertySets: *mut DBPROPSET, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] #[iid_is] ppRowset: *mut IUnknown) -> HRESULT;
-            fn GetSchemas(&self, #[out] pcSchemas: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcSchemas", "*pcSchemas")] #[out] prgSchemas: *mut *mut GUID, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcSchemas", "*pcSchemas")] #[out] prgRestrictionSupport: *mut *mut ULONG) -> HRESULT;
+            fn GetRowset(&self, #[opt] pUnkOuter: IUnknown, rguidSchema: *const GUID, cRestrictions: u32, #[len_param(2)] #[opt] rgRestrictions: *const VARIANT, riid: *const GUID, cPropertySets: u32, #[len_param(5)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+            fn GetSchemas(&self, #[in] #[out] pcSchemas: *mut u32, prgSchemas: *mut *mut GUID, prgRestrictionSupport: *mut *mut u32) -> HRESULT;
         }
         const IDENTIFIER_SDK_ERROR: i32 = 268435456;
         const IDENTIFIER_SDK_MASK: u32 = 4026531840;
         #[guid(0x0c733a66_2a1c_11ce_ade5_00aa0044773d)]
         interface IErrorLookup: IUnknown {
-            fn GetErrorDescription(&self, hrError: HRESULT, dwLookupID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pdispparams: *mut DISPPARAMS, lcid: LCID, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_z_", "", "")] pbstrSource: *mut BSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_z_", "", "")] pbstrDescription: *mut BSTR) -> HRESULT;
-            fn GetHelpInfo(&self, hrError: HRESULT, dwLookupID: DWORD, lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] pbstrHelpFile: *mut BSTR, #[out] pdwHelpContext: *mut DWORD) -> HRESULT;
-            fn ReleaseErrors(&self, dwDynamicErrorID: DWORD) -> HRESULT;
+            fn GetErrorDescription(&self, hrError: HRESULT, dwLookupID: u32, #[in] pdispparams: *mut DISPPARAMS, lcid: LCID, pbstrSource: *mut BSTR, pbstrDescription: *mut BSTR) -> HRESULT;
+            fn GetHelpInfo(&self, hrError: HRESULT, dwLookupID: u32, lcid: LCID, pbstrHelpFile: *mut BSTR, pdwHelpContext: *mut u32) -> HRESULT;
+            fn ReleaseErrors(&self, dwDynamicErrorID: u32) -> HRESULT;
         }
         #[guid(0x0c733a67_2a1c_11ce_ade5_00aa0044773d)]
         interface IErrorRecords: IUnknown {
-            fn AddErrorRecord(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pErrorInfo: *mut ERRORINFO, dwLookupID: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pdispparams: *mut DISPPARAMS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkCustomError: IUnknown, dwDynamicErrorID: DWORD) -> HRESULT;
-            fn GetBasicErrorInfo(&self, ulRecordNum: ULONG, #[out] pErrorInfo: *mut ERRORINFO) -> HRESULT;
-            fn GetCustomErrorObject(&self, ulRecordNum: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] #[iid_is] ppObject: *mut IUnknown) -> HRESULT;
-            fn GetErrorInfo(&self, ulRecordNum: ULONG, lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppErrorInfo: *mut IErrorInfo) -> HRESULT;
-            fn GetErrorParameters(&self, ulRecordNum: ULONG, #[out] pdispparams: *mut DISPPARAMS) -> HRESULT;
-            fn GetRecordCount(&self, #[out] pcRecords: *mut ULONG) -> HRESULT;
+            fn AddErrorRecord(&self, #[in] pErrorInfo: *mut ERRORINFO, dwLookupID: u32, #[in] #[opt] pdispparams: *mut DISPPARAMS, #[opt] punkCustomError: IUnknown, dwDynamicErrorID: u32) -> HRESULT;
+            fn GetBasicErrorInfo(&self, ulRecordNum: u32, pErrorInfo: *mut ERRORINFO) -> HRESULT;
+            fn GetCustomErrorObject(&self, ulRecordNum: u32, riid: *const GUID, #[iid_is] ppObject: *mut *mut void) -> HRESULT;
+            fn GetErrorInfo(&self, ulRecordNum: u32, lcid: LCID, ppErrorInfo: *mut IErrorInfo) -> HRESULT;
+            fn GetErrorParameters(&self, ulRecordNum: u32, pdispparams: *mut DISPPARAMS) -> HRESULT;
+            fn GetRecordCount(&self, pcRecords: *mut u32) -> HRESULT;
         }
         #[guid(0x0c733a75_2a1c_11ce_ade5_00aa0044773d)]
         interface IGetDataSource: IUnknown {
-            fn GetDataSource(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] #[iid_is] ppDataSource: *mut IUnknown) -> HRESULT;
+            fn GetDataSource(&self, riid: *const GUID, #[iid_is] ppDataSource: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733aaf_2a1c_11ce_ade5_00aa0044773d)]
         interface IGetRow: IUnknown {
-            fn GetRowFromHROW(&self, pUnkOuter: IUnknown, hRow: HROW, riid: &IID, #[out] #[iid_is] ppUnk: *mut IUnknown) -> HRESULT;
-            fn GetURLFromHROW(&self, hRow: HROW, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_z_", "", "")] ppwszURL: *mut LPOLESTR) -> HRESULT;
+            fn GetRowFromHROW(&self, pUnkOuter: IUnknown, hRow: HROW, riid: *const GUID, #[iid_is] ppUnk: *mut *mut void) -> HRESULT;
+            fn GetURLFromHROW(&self, hRow: HROW, ppwszURL: *mut LPOLESTR) -> HRESULT;
         }
         #[guid(0x0c733aba_2a1c_11ce_ade5_00aa0044773d)]
         interface IGetSession: IUnknown {
-            fn GetSession(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppSession: *mut IUnknown) -> HRESULT;
+            fn GetSession(&self, riid: *const GUID, #[iid_is] ppSession: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733abb_2a1c_11ce_ade5_00aa0044773d)]
         interface IGetSourceRow: IUnknown {
-            fn GetSourceRow(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppRow: *mut IUnknown) -> HRESULT;
+            fn GetSourceRow(&self, riid: *const GUID, #[iid_is] ppRow: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733a68_2a1c_11ce_ade5_00aa0044773d)]
         interface IIndexDefinition: IUnknown {
-            fn CreateIndex(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTableID: *mut DBID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pIndexID: *mut DBID, cIndexColumnDescs: DBORDINAL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] rgIndexColumnDescs: *const DBINDEXCOLUMNDESC, cPropertySets: ULONG, #[in] #[out] #[len_param(4)] rgPropertySets: *mut DBPROPSET, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppIndexID: *mut *mut DBID) -> HRESULT;
-            fn DropIndex(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTableID: *mut DBID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pIndexID: *mut DBID) -> HRESULT;
+            fn CreateIndex(&self, #[in] pTableID: *mut DBID, #[in] #[opt] pIndexID: *mut DBID, cIndexColumnDescs: DBORDINAL, #[len_param(2)] rgIndexColumnDescs: *const DBINDEXCOLUMNDESC, cPropertySets: u32, #[len_param(4)] #[in] #[out] rgPropertySets: *mut DBPROPSET, ppIndexID: *mut *mut DBID) -> HRESULT;
+            fn DropIndex(&self, #[in] pTableID: *mut DBID, #[in] #[opt] pIndexID: *mut DBID) -> HRESULT;
         }
         #[guid(0xa07cccd1_8148_11d0_87bb_00c04fc33942)]
         interface IMDDataset: IUnknown {
-            fn FreeAxisInfo(&self, cAxes: DBCOUNTITEM, rgAxisInfo: *mut MDAXISINFO) -> HRESULT;
-            fn GetAxisInfo(&self, pcAxes: *mut DBCOUNTITEM, prgAxisInfo: *mut *mut MDAXISINFO) -> HRESULT;
-            fn GetAxisRowset(&self, pUnkOuter: IUnknown, iAxis: DBCOUNTITEM, riid: &IID, cPropertySets: ULONG, rgPropertySets: *mut DBPROPSET, #[out] #[iid_is] ppRowset: *mut IUnknown) -> HRESULT;
+            fn FreeAxisInfo(&self, cAxes: DBCOUNTITEM, #[in] rgAxisInfo: *mut MDAXISINFO) -> HRESULT;
+            fn GetAxisInfo(&self, #[in] #[out] pcAxes: *mut DBCOUNTITEM, prgAxisInfo: *mut *mut MDAXISINFO) -> HRESULT;
+            fn GetAxisRowset(&self, pUnkOuter: IUnknown, iAxis: DBCOUNTITEM, riid: *const GUID, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
             fn GetCellData(&self, hAccessor: HACCESSOR, ulStartCell: DBORDINAL, ulEndCell: DBORDINAL, pData: *mut void) -> HRESULT;
-            fn GetSpecification(&self, riid: &IID, #[out] #[iid_is] ppSpecification: *mut IUnknown) -> HRESULT;
+            fn GetSpecification(&self, riid: *const GUID, #[iid_is] ppSpecification: *mut *mut void) -> HRESULT;
         }
         #[guid(0xa07cccd2_8148_11d0_87bb_00c04fc33942)]
         interface IMDFind: IUnknown {
-            fn FindCell(&self, ulStartingOrdinal: DBORDINAL, cMembers: DBCOUNTITEM, rgpwszMember: *mut LPCOLESTR, pulCellOrdinal: *mut DBORDINAL) -> HRESULT;
-            fn FindTuple(&self, ulAxisIdentifier: ULONG, ulStartingOrdinal: DBORDINAL, cMembers: DBCOUNTITEM, rgpwszMember: *mut LPCOLESTR, pulTupleOrdinal: *mut ULONG) -> HRESULT;
+            fn FindCell(&self, ulStartingOrdinal: DBORDINAL, cMembers: DBCOUNTITEM, #[in] rgpwszMember: *mut LPCOLESTR, pulCellOrdinal: *mut DBORDINAL) -> HRESULT;
+            fn FindTuple(&self, ulAxisIdentifier: u32, ulStartingOrdinal: DBORDINAL, cMembers: DBCOUNTITEM, #[in] rgpwszMember: *mut LPCOLESTR, pulTupleOrdinal: *mut u32) -> HRESULT;
         }
         #[guid(0x0c733aa0_2a1c_11ce_ade5_00aa0044773d)]
         interface IMDRangeRowset: IUnknown {
-            fn GetRangeRowset(&self, pUnkOuter: IUnknown, ulStartCell: DBORDINAL, ulEndCell: DBORDINAL, riid: &IID, cPropertySets: ULONG, rgPropertySets: *mut DBPROPSET, #[out] #[iid_is] ppRowset: *mut IUnknown) -> HRESULT;
+            fn GetRangeRowset(&self, pUnkOuter: IUnknown, ulStartCell: DBORDINAL, ulEndCell: DBORDINAL, riid: *const GUID, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733a90_2a1c_11ce_ade5_00aa0044773d)]
         interface IMultipleResults: IUnknown {
-            fn GetResult(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, lResultFlag: DBRESULTFLAG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[opt] pcRowsAffected: *mut DBROWCOUNT, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] #[iid_is] ppRowset: *mut IUnknown) -> HRESULT;
+            fn GetResult(&self, #[opt] pUnkOuter: IUnknown, lResultFlag: DBRESULTFLAG, riid: *const GUID, #[opt] pcRowsAffected: *mut DBROWCOUNT, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733aa3_2a1c_11ce_ade5_00aa0044773d)]
         interface IObjectAccessControl: IUnknown {
-            fn GetObjectAccessRights(&self, pObject: *mut SEC_OBJECT, pcAccessEntries: *mut ULONG, prgAccessEntries: *mut *mut EXPLICIT_ACCESS_W) -> HRESULT;
-            fn GetObjectOwner(&self, pObject: *mut SEC_OBJECT, ppOwner: *mut *mut TRUSTEE_W) -> HRESULT;
-            fn IsObjectAccessAllowed(&self, pObject: *mut SEC_OBJECT, pAccessEntry: *mut EXPLICIT_ACCESS_W, pfResult: *mut BOOL) -> HRESULT;
-            fn SetObjectAccessRights(&self, pObject: *mut SEC_OBJECT, cAccessEntries: ULONG, prgAccessEntries: *mut EXPLICIT_ACCESS_W) -> HRESULT;
-            fn SetObjectOwner(&self, pObject: *mut SEC_OBJECT, pOwner: *mut TRUSTEE_W) -> HRESULT;
+            fn GetObjectAccessRights(&self, #[in] pObject: *mut SEC_OBJECT, #[in] #[out] pcAccessEntries: *mut u32, #[in] #[out] prgAccessEntries: *mut *mut EXPLICIT_ACCESS_W) -> HRESULT;
+            fn GetObjectOwner(&self, #[in] pObject: *mut SEC_OBJECT, ppOwner: *mut *mut TRUSTEE_W) -> HRESULT;
+            fn IsObjectAccessAllowed(&self, #[in] pObject: *mut SEC_OBJECT, #[in] pAccessEntry: *mut EXPLICIT_ACCESS_W, pfResult: *mut BOOL) -> HRESULT;
+            fn SetObjectAccessRights(&self, #[in] pObject: *mut SEC_OBJECT, cAccessEntries: u32, #[in] #[out] prgAccessEntries: *mut EXPLICIT_ACCESS_W) -> HRESULT;
+            fn SetObjectOwner(&self, #[in] pObject: *mut SEC_OBJECT, #[in] pOwner: *mut TRUSTEE_W) -> HRESULT;
         }
         #[guid(0x0c733a69_2a1c_11ce_ade5_00aa0044773d)]
         interface IOpenRowset: IUnknown {
-            fn OpenRowset(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTableID: *mut DBID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pIndexID: *mut DBID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, cPropertySets: ULONG, #[in] #[out] #[opt] #[len_param(4)] rgPropertySets: *mut DBPROPSET, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppRowset: *mut IUnknown) -> HRESULT;
+            fn OpenRowset(&self, #[opt] pUnkOuter: IUnknown, #[in] #[opt] pTableID: *mut DBID, #[in] #[opt] pIndexID: *mut DBID, riid: *const GUID, cPropertySets: u32, #[len_param(4)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733aaa_2a1c_11ce_ade5_00aa0044773d)]
         interface IParentRowset: IUnknown {
-            fn GetChildRowset(&self, pUnkOuter: IUnknown, iOrdinal: DBORDINAL, riid: &IID, #[out] #[iid_is] ppRowset: *mut IUnknown) -> HRESULT;
+            fn GetChildRowset(&self, pUnkOuter: IUnknown, iOrdinal: DBORDINAL, riid: *const GUID, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733ab9_2a1c_11ce_ade5_00aa0044773d)]
         interface IRegisterProvider: IUnknown {
-            fn GetURLMapping(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwszURL: LPCOLESTR, dwReserved: DB_DWRESERVE, #[out] pclsidProvider: *mut CLSID) -> HRESULT;
-            fn SetURLMapping(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwszURL: LPCOLESTR, dwReserved: DB_DWRESERVE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] rclsidProvider: &IID) -> HRESULT;
-            fn UnregisterProvider(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pwszURL: LPCOLESTR, dwReserved: DB_DWRESERVE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] rclsidProvider: &IID) -> HRESULT;
+            fn GetURLMapping(&self, pwszURL: LPCOLESTR, dwReserved: DB_DWRESERVE, pclsidProvider: *mut GUID) -> HRESULT;
+            fn SetURLMapping(&self, pwszURL: LPCOLESTR, dwReserved: DB_DWRESERVE, rclsidProvider: *const GUID) -> HRESULT;
+            fn UnregisterProvider(&self, pwszURL: LPCOLESTR, dwReserved: DB_DWRESERVE, rclsidProvider: *const GUID) -> HRESULT;
         }
         #[guid(0x0c733ab4_2a1c_11ce_ade5_00aa0044773d)]
         interface IRow: IUnknown {
-            fn GetColumns(&self, cColumns: DBORDINAL, #[in] #[out] #[len_param(0)] rgColumns: *mut DBCOLUMNACCESS) -> HRESULT;
-            fn GetSourceRowset(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] #[iid_is] ppRowset: *mut IUnknown, #[out] #[opt] phRow: *mut HROW) -> HRESULT;
-            fn Open(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pColumnID: *mut DBID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rguidColumnType: &GUID, dwBindFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppUnk: *mut IUnknown) -> HRESULT;
+            fn GetColumns(&self, cColumns: DBORDINAL, #[len_param(0)] #[in] #[out] rgColumns: *mut DBCOLUMNACCESS) -> HRESULT;
+            fn GetSourceRowset(&self, riid: *const GUID, #[iid_is] ppRowset: *mut *mut void, #[opt] phRow: *mut HROW) -> HRESULT;
+            fn Open(&self, #[opt] pUnkOuter: IUnknown, #[in] pColumnID: *mut DBID, rguidColumnType: *const GUID, dwBindFlags: u32, riid: *const GUID, #[iid_is] ppUnk: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733ab5_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowChange: IUnknown {
-            fn SetColumns(&self, cColumns: DBORDINAL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgColumns: *mut DBCOLUMNACCESS) -> HRESULT;
+            fn SetColumns(&self, cColumns: DBORDINAL, #[len_param(0)] #[in] #[out] rgColumns: *mut DBCOLUMNACCESS) -> HRESULT;
         }
         #[guid(0x0c733a94_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowPosition: IUnknown {
             fn ClearRowPosition(&self) -> HRESULT;
-            fn GetRowPosition(&self, #[out] #[opt] phChapter: *mut HCHAPTER, #[out] phRow: *mut HROW, #[out] #[opt] pdwPositionFlags: *mut DBPOSITIONFLAGS) -> HRESULT;
-            fn GetRowset(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppRowset: *mut IUnknown) -> HRESULT;
-            fn Initialize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRowset: IUnknown) -> HRESULT;
+            fn GetRowPosition(&self, #[opt] phChapter: *mut HCHAPTER, phRow: *mut HROW, #[opt] pdwPositionFlags: *mut DBPOSITIONFLAGS) -> HRESULT;
+            fn GetRowset(&self, riid: *const GUID, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+            fn Initialize(&self, pRowset: IUnknown) -> HRESULT;
             fn SetRowPosition(&self, hChapter: HCHAPTER, hRow: HROW, dwPositionFlags: DBPOSITIONFLAGS) -> HRESULT;
         }
         #[guid(0x0997a571_126e_11d0_9f8a_00a0c9a0631e)]
@@ -2051,26 +1975,26 @@ mod Windows {
         }
         #[guid(0x0c733aae_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowSchemaChange: IRowChange {
-            fn DeleteColumns(&self, cColumns: DBORDINAL, rgColumnIDs: *const DBID, rgdwStatus: *mut DBSTATUS) -> HRESULT;
-            fn AddColumns(&self, cColumns: DBORDINAL, rgNewColumnInfo: *const DBCOLUMNINFO, rgColumns: *mut DBCOLUMNACCESS) -> HRESULT;
+            fn DeleteColumns(&self, cColumns: DBORDINAL, rgColumnIDs: *const DBID, #[in] #[out] rgdwStatus: *mut DBSTATUS) -> HRESULT;
+            fn AddColumns(&self, cColumns: DBORDINAL, rgNewColumnInfo: *const DBCOLUMNINFO, #[in] #[out] rgColumns: *mut DBCOLUMNACCESS) -> HRESULT;
         }
         #[guid(0x0c733a7c_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowset: IUnknown {
             fn AddRefRows(&self, cRows: DBCOUNTITEM, rghRows: *const HROW, rgRefCounts: *mut DBREFCOUNT, rgRowStatus: *mut DBROWSTATUS) -> HRESULT;
             fn GetData(&self, hRow: HROW, hAccessor: HACCESSOR, pData: *mut void) -> HRESULT;
             fn GetNextRows(&self, hReserved: HCHAPTER, lRowsOffset: DBROWOFFSET, cRows: DBROWCOUNT, pcRowsObtained: *mut DBCOUNTITEM, prghRows: *mut *mut HROW) -> HRESULT;
-            fn ReleaseRows(&self, cRows: DBCOUNTITEM, rghRows: *const HROW, rgRowOptions: *mut DBROWOPTIONS, rgRefCounts: *mut DBREFCOUNT, rgRowStatus: *mut DBROWSTATUS) -> HRESULT;
+            fn ReleaseRows(&self, cRows: DBCOUNTITEM, rghRows: *const HROW, #[in] rgRowOptions: *mut DBROWOPTIONS, rgRefCounts: *mut DBREFCOUNT, rgRowStatus: *mut DBROWSTATUS) -> HRESULT;
             fn RestartPosition(&self, hReserved: HCHAPTER) -> HRESULT;
         }
         #[guid(0x0c733ac2_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetBookmark: IUnknown {
-            fn PositionOnBookmark(&self, hChapter: HCHAPTER, cbBookmark: DBBKMARK, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pBookmark: *const BYTE) -> HRESULT;
+            fn PositionOnBookmark(&self, hChapter: HCHAPTER, cbBookmark: DBBKMARK, #[size_param(1)] pBookmark: *const u8) -> HRESULT;
         }
         #[guid(0x0c733a05_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetChange: IUnknown {
             fn DeleteRows(&self, hReserved: HCHAPTER, cRows: DBCOUNTITEM, rghRows: *const HROW, rgRowStatus: *mut DBROWSTATUS) -> HRESULT;
-            fn SetData(&self, hRow: HROW, hAccessor: HACCESSOR, pData: *mut void) -> HRESULT;
-            fn InsertRow(&self, hReserved: HCHAPTER, hAccessor: HACCESSOR, pData: *mut void, phRow: *mut HROW) -> HRESULT;
+            fn SetData(&self, hRow: HROW, hAccessor: HACCESSOR, #[in] pData: *mut void) -> HRESULT;
+            fn InsertRow(&self, hReserved: HCHAPTER, hAccessor: HACCESSOR, #[in] pData: *mut void, phRow: *mut HROW) -> HRESULT;
         }
         #[guid(0x0c733aa8_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetChapterMember: IUnknown {
@@ -2079,12 +2003,12 @@ mod Windows {
         #[guid(0x0c733abd_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetCurrentIndex: IRowsetIndex {
             fn GetIndex(&self, ppIndexID: *mut *mut DBID) -> HRESULT;
-            fn SetIndex(&self, pIndexID: *mut DBID) -> HRESULT;
+            fn SetIndex(&self, #[in] pIndexID: *mut DBID) -> HRESULT;
         }
         struct IRowsetExactScroll {}
         #[guid(0x0c733a9d_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetFind: IUnknown {
-            fn FindNextRow(&self, hChapter: HCHAPTER, hAccessor: HACCESSOR, pFindValue: *mut void, CompareOp: DBCOMPAREOP, cbBookmark: DBBKMARK, pBookmark: *const BYTE, lRowsOffset: DBROWOFFSET, cRows: DBROWCOUNT, pcRowsObtained: *mut DBCOUNTITEM, prghRows: *mut *mut HROW) -> HRESULT;
+            fn FindNextRow(&self, hChapter: HCHAPTER, hAccessor: HACCESSOR, #[in] pFindValue: *mut void, CompareOp: DBCOMPAREOP, cbBookmark: DBBKMARK, pBookmark: *const u8, lRowsOffset: DBROWOFFSET, cRows: DBROWCOUNT, #[in] #[out] pcRowsObtained: *mut DBCOUNTITEM, prghRows: *mut *mut HROW) -> HRESULT;
         }
         #[guid(0x0c733a09_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetIdentity: IUnknown {
@@ -2092,28 +2016,28 @@ mod Windows {
         }
         #[guid(0x0c733a82_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetIndex: IUnknown {
-            fn GetIndexInfo(&self, pcKeyColumns: *mut DBORDINAL, prgIndexColumnDesc: *mut *mut DBINDEXCOLUMNDESC, pcIndexPropertySets: *mut ULONG, prgIndexPropertySets: *mut *mut DBPROPSET) -> HRESULT;
-            fn Seek(&self, hAccessor: HACCESSOR, cKeyValues: DBORDINAL, pData: *mut void, dwSeekOptions: DBSEEK) -> HRESULT;
-            fn SetRange(&self, hAccessor: HACCESSOR, cStartKeyColumns: DBORDINAL, pStartData: *mut void, cEndKeyColumns: DBORDINAL, pEndData: *mut void, dwRangeOptions: DBRANGE) -> HRESULT;
+            fn GetIndexInfo(&self, #[in] #[out] pcKeyColumns: *mut DBORDINAL, prgIndexColumnDesc: *mut *mut DBINDEXCOLUMNDESC, #[in] #[out] pcIndexPropertySets: *mut u32, prgIndexPropertySets: *mut *mut DBPROPSET) -> HRESULT;
+            fn Seek(&self, hAccessor: HACCESSOR, cKeyValues: DBORDINAL, #[in] pData: *mut void, dwSeekOptions: DBSEEK) -> HRESULT;
+            fn SetRange(&self, hAccessor: HACCESSOR, cStartKeyColumns: DBORDINAL, #[in] pStartData: *mut void, cEndKeyColumns: DBORDINAL, #[in] pEndData: *mut void, dwRangeOptions: DBRANGE) -> HRESULT;
         }
         #[guid(0x0c733a55_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetInfo: IUnknown {
-            fn GetProperties(&self, cPropertyIDSets: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgPropertyIDSets: *const DBPROPIDSET, #[out] pcPropertySets: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcPropertySets", "*pcPropertySets")] #[out] prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
-            fn GetReferencedRowset(&self, iOrdinal: DBORDINAL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] #[iid_is] ppReferencedRowset: *mut IUnknown) -> HRESULT;
-            fn GetSpecification(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] #[iid_is] ppSpecification: *mut IUnknown) -> HRESULT;
+            fn GetProperties(&self, cPropertyIDSets: u32, #[len_param(0)] #[opt] rgPropertyIDSets: *const DBPROPIDSET, #[in] #[out] pcPropertySets: *mut u32, prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
+            fn GetReferencedRowset(&self, iOrdinal: DBORDINAL, riid: *const GUID, #[iid_is] ppReferencedRowset: *mut *mut void) -> HRESULT;
+            fn GetSpecification(&self, riid: *const GUID, #[iid_is] ppSpecification: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733a7d_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetLocate: IRowset {
-            fn Compare(&self, hReserved: HCHAPTER, cbBookmark1: DBBKMARK, pBookmark1: *const BYTE, cbBookmark2: DBBKMARK, pBookmark2: *const BYTE, pComparison: *mut DBCOMPARE) -> HRESULT;
-            fn GetRowsAt(&self, hReserved1: HWATCHREGION, hReserved2: HCHAPTER, cbBookmark: DBBKMARK, pBookmark: *const BYTE, lRowsOffset: DBROWOFFSET, cRows: DBROWCOUNT, pcRowsObtained: *mut DBCOUNTITEM, prghRows: *mut *mut HROW) -> HRESULT;
-            fn GetRowsByBookmark(&self, hReserved: HCHAPTER, cRows: DBCOUNTITEM, rgcbBookmarks: *const DBBKMARK, rgpBookmarks: *mut *const BYTE, rghRows: *mut HROW, rgRowStatus: *mut DBROWSTATUS) -> HRESULT;
-            fn Hash(&self, hReserved: HCHAPTER, cBookmarks: DBBKMARK, rgcbBookmarks: *const DBBKMARK, rgpBookmarks: *mut *const BYTE, rgHashedValues: *mut DBHASHVALUE, rgBookmarkStatus: *mut DBROWSTATUS) -> HRESULT;
+            fn Compare(&self, hReserved: HCHAPTER, cbBookmark1: DBBKMARK, pBookmark1: *const u8, cbBookmark2: DBBKMARK, pBookmark2: *const u8, pComparison: *mut DBCOMPARE) -> HRESULT;
+            fn GetRowsAt(&self, hReserved1: HWATCHREGION, hReserved2: HCHAPTER, cbBookmark: DBBKMARK, pBookmark: *const u8, lRowsOffset: DBROWOFFSET, cRows: DBROWCOUNT, pcRowsObtained: *mut DBCOUNTITEM, prghRows: *mut *mut HROW) -> HRESULT;
+            fn GetRowsByBookmark(&self, hReserved: HCHAPTER, cRows: DBCOUNTITEM, rgcbBookmarks: *const DBBKMARK, rgpBookmarks: *const *const u8, rghRows: *mut HROW, rgRowStatus: *mut DBROWSTATUS) -> HRESULT;
+            fn Hash(&self, hReserved: HCHAPTER, cBookmarks: DBBKMARK, rgcbBookmarks: *const DBBKMARK, rgpBookmarks: *const *const u8, rgHashedValues: *mut DBHASHVALUE, rgBookmarkStatus: *mut DBROWSTATUS) -> HRESULT;
         }
         #[guid(0x0c733a83_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetNotify: IUnknown {
-            fn OnFieldChange(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRowset: IRowset, hRow: HROW, cColumns: DBORDINAL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] rgColumns: *mut DBORDINAL, eReason: DBREASON, ePhase: DBEVENTPHASE, fCantDeny: BOOL) -> HRESULT;
-            fn OnRowChange(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRowset: IRowset, cRows: DBCOUNTITEM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] rghRows: *const HROW, eReason: DBREASON, ePhase: DBEVENTPHASE, fCantDeny: BOOL) -> HRESULT;
-            fn OnRowsetChange(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRowset: IRowset, eReason: DBREASON, ePhase: DBEVENTPHASE, fCantDeny: BOOL) -> HRESULT;
+            fn OnFieldChange(&self, pRowset: IRowset, hRow: HROW, cColumns: DBORDINAL, #[len_param(2)] #[in] rgColumns: *mut DBORDINAL, eReason: DBREASON, ePhase: DBEVENTPHASE, fCantDeny: BOOL) -> HRESULT;
+            fn OnRowChange(&self, pRowset: IRowset, cRows: DBCOUNTITEM, #[len_param(1)] rghRows: *const HROW, eReason: DBREASON, ePhase: DBEVENTPHASE, fCantDeny: BOOL) -> HRESULT;
+            fn OnRowsetChange(&self, pRowset: IRowset, eReason: DBREASON, ePhase: DBEVENTPHASE, fCantDeny: BOOL) -> HRESULT;
         }
         #[guid(0x0c733aa9_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetRefresh: IUnknown {
@@ -2127,118 +2051,117 @@ mod Windows {
         }
         #[guid(0x0c733a7e_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetScroll: IRowsetLocate {
-            fn GetApproximatePosition(&self, hReserved: HCHAPTER, cbBookmark: DBBKMARK, pBookmark: *const BYTE, pulPosition: *mut DBCOUNTITEM, pcRows: *mut DBCOUNTITEM) -> HRESULT;
+            fn GetApproximatePosition(&self, hReserved: HCHAPTER, cbBookmark: DBBKMARK, pBookmark: *const u8, pulPosition: *mut DBCOUNTITEM, pcRows: *mut DBCOUNTITEM) -> HRESULT;
             fn GetRowsAtRatio(&self, hReserved1: HWATCHREGION, hReserved2: HCHAPTER, ulNumerator: DBCOUNTITEM, ulDenominator: DBCOUNTITEM, cRows: DBROWCOUNT, pcRowsObtained: *mut DBCOUNTITEM, prghRows: *mut *mut HROW) -> HRESULT;
         }
         #[guid(0x0c733a6d_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetUpdate: IRowsetChange {
             fn GetOriginalData(&self, hRow: HROW, hAccessor: HACCESSOR, pData: *mut void) -> HRESULT;
-            fn GetPendingRows(&self, hReserved: HCHAPTER, dwRowStatus: DBPENDINGSTATUS, pcPendingRows: *mut DBCOUNTITEM, prgPendingRows: *mut *mut HROW, prgPendingStatus: *mut *mut DBPENDINGSTATUS) -> HRESULT;
+            fn GetPendingRows(&self, hReserved: HCHAPTER, dwRowStatus: DBPENDINGSTATUS, #[in] #[out] pcPendingRows: *mut DBCOUNTITEM, prgPendingRows: *mut *mut HROW, prgPendingStatus: *mut *mut DBPENDINGSTATUS) -> HRESULT;
             fn GetRowStatus(&self, hReserved: HCHAPTER, cRows: DBCOUNTITEM, rghRows: *const HROW, rgPendingStatus: *mut DBPENDINGSTATUS) -> HRESULT;
-            fn Undo(&self, hReserved: HCHAPTER, cRows: DBCOUNTITEM, rghRows: *const HROW, pcRowsUndone: *mut DBCOUNTITEM, prgRowsUndone: *mut *mut HROW, prgRowStatus: *mut *mut DBROWSTATUS) -> HRESULT;
-            fn Update(&self, hReserved: HCHAPTER, cRows: DBCOUNTITEM, rghRows: *const HROW, pcRows: *mut DBCOUNTITEM, prgRows: *mut *mut HROW, prgRowStatus: *mut *mut DBROWSTATUS) -> HRESULT;
+            fn Undo(&self, hReserved: HCHAPTER, cRows: DBCOUNTITEM, rghRows: *const HROW, #[in] #[out] pcRowsUndone: *mut DBCOUNTITEM, prgRowsUndone: *mut *mut HROW, prgRowStatus: *mut *mut DBROWSTATUS) -> HRESULT;
+            fn Update(&self, hReserved: HCHAPTER, cRows: DBCOUNTITEM, rghRows: *const HROW, #[in] #[out] pcRows: *mut DBCOUNTITEM, prgRows: *mut *mut HROW, prgRowStatus: *mut *mut DBROWSTATUS) -> HRESULT;
         }
         #[guid(0x0c733a99_2a1c_11ce_ade5_00aa0044773d)]
         interface IRowsetView: IUnknown {
-            fn CreateView(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppView: *mut IUnknown) -> HRESULT;
-            fn GetView(&self, hChapter: HCHAPTER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] phChapterSource: *mut HCHAPTER, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppView: *mut IUnknown) -> HRESULT;
+            fn CreateView(&self, #[opt] pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] ppView: *mut *mut void) -> HRESULT;
+            fn GetView(&self, hChapter: HCHAPTER, riid: *const GUID, phChapterSource: *mut HCHAPTER, #[iid_is] ppView: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733a74_2a1c_11ce_ade5_00aa0044773d)]
         interface ISQLErrorInfo: IUnknown {
-            fn GetSQLInfo(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pbstrSQLState: *mut BSTR, #[out] plNativeError: *mut LONG) -> HRESULT;
+            fn GetSQLInfo(&self, pbstrSQLState: *mut BSTR, plNativeError: *mut i32) -> HRESULT;
         }
         #[guid(0x0c733ab0_2a1c_11ce_ade5_00aa0044773d)]
         interface IScopedOperations: IBindResource {
-            fn Copy(&self, cRows: DBCOUNTITEM, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgpwszSourceURLs: *mut LPCOLESTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgpwszDestURLs: *mut LPCOLESTR, dwCopyFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthenticate: IAuthenticate, #[out] #[len_param(0)] rgdwStatus: *mut DBSTATUS, #[out] #[opt] #[len_param(0)] rgpwszNewURLs: *mut LPOLESTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_z_", "", "")] ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
-            fn Move(&self, cRows: DBCOUNTITEM, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgpwszSourceURLs: *mut LPCOLESTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgpwszDestURLs: *mut LPCOLESTR, dwMoveFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuthenticate: IAuthenticate, #[out] #[len_param(0)] rgdwStatus: *mut DBSTATUS, #[out] #[opt] #[len_param(0)] rgpwszNewURLs: *mut LPOLESTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_maybenull_z_", "", "")] ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
-            fn Delete(&self, cRows: DBCOUNTITEM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgpwszURLs: *mut LPCOLESTR, dwDeleteFlags: DWORD, #[out] #[len_param(0)] rgdwStatus: *mut DBSTATUS) -> HRESULT;
-            fn OpenRowset(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTableID: *mut DBID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pIndexID: *mut DBID, riid: &IID, cPropertySets: ULONG, #[in] #[out] #[len_param(4)] rgPropertySets: *mut DBPROPSET, #[out] #[opt] #[iid_is] ppRowset: *mut IUnknown) -> HRESULT;
+            fn Copy(&self, cRows: DBCOUNTITEM, #[len_param(0)] #[in] #[opt] rgpwszSourceURLs: *mut LPCOLESTR, #[len_param(0)] #[in] rgpwszDestURLs: *mut LPCOLESTR, dwCopyFlags: u32, #[opt] pAuthenticate: IAuthenticate, #[len_param(0)] #[in] #[out] rgdwStatus: *mut DBSTATUS, #[len_param(0)] #[opt] rgpwszNewURLs: *mut LPOLESTR, ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn Move(&self, cRows: DBCOUNTITEM, #[len_param(0)] #[in] #[opt] rgpwszSourceURLs: *mut LPCOLESTR, #[len_param(0)] #[in] rgpwszDestURLs: *mut LPCOLESTR, dwMoveFlags: u32, #[opt] pAuthenticate: IAuthenticate, #[len_param(0)] #[in] #[out] rgdwStatus: *mut DBSTATUS, #[len_param(0)] #[opt] rgpwszNewURLs: *mut LPOLESTR, ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn Delete(&self, cRows: DBCOUNTITEM, #[len_param(0)] #[in] rgpwszURLs: *mut LPCOLESTR, dwDeleteFlags: u32, #[len_param(0)] #[in] #[out] rgdwStatus: *mut DBSTATUS) -> HRESULT;
+            fn OpenRowset(&self, #[opt] pUnkOuter: IUnknown, #[in] #[opt] pTableID: *mut DBID, #[in] #[opt] pIndexID: *mut DBID, riid: *const GUID, cPropertySets: u32, #[len_param(4)] #[in] #[out] rgPropertySets: *mut DBPROPSET, #[iid_is] #[opt] ppRowset: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733aa4_2a1c_11ce_ade5_00aa0044773d)]
         interface ISecurityInfo: IUnknown {
             fn GetCurrentTrustee(&self, ppTrustee: *mut *mut TRUSTEE_W) -> HRESULT;
-            fn GetObjectTypes(&self, cObjectTypes: *mut ULONG, rgObjectTypes: *mut *mut GUID) -> HRESULT;
+            fn GetObjectTypes(&self, cObjectTypes: *mut u32, rgObjectTypes: *mut *mut GUID) -> HRESULT;
             fn GetPermissions(&self, ObjectType: GUID, pPermissions: *mut ACCESS_MASK) -> HRESULT;
         }
         #[guid(0x0c733a85_2a1c_11ce_ade5_00aa0044773d)]
         interface ISessionProperties: IUnknown {
-            fn GetProperties(&self, cPropertyIDSets: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgPropertyIDSets: *const DBPROPIDSET, #[out] pcPropertySets: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcPropertySets", "*pcPropertySets")] #[out] prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
-            fn SetProperties(&self, cPropertySets: ULONG, #[in] #[out] #[opt] #[len_param(0)] rgPropertySets: *mut DBPROPSET) -> HRESULT;
+            fn GetProperties(&self, cPropertyIDSets: u32, #[len_param(0)] #[opt] rgPropertyIDSets: *const DBPROPIDSET, #[in] #[out] pcPropertySets: *mut u32, prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
+            fn SetProperties(&self, cPropertySets: u32, #[len_param(0)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET) -> HRESULT;
         }
         #[guid(0x0c733a1e_2a1c_11ce_ade5_00aa0044773d)]
         interface ISourcesRowset: IUnknown {
-            fn GetSourcesRowset(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, cPropertySets: ULONG, #[in] #[out] #[opt] #[len_param(2)] rgProperties: *mut DBPROPSET, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppSourcesRowset: *mut IUnknown) -> HRESULT;
+            fn GetSourcesRowset(&self, #[opt] pUnkOuter: IUnknown, riid: *const GUID, cPropertySets: u32, #[len_param(2)] #[in] #[out] #[opt] rgProperties: *mut DBPROPSET, #[iid_is] ppSourcesRowset: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733abc_2a1c_11ce_ade5_00aa0044773d)]
         interface ITableCreation: ITableDefinition {
-            fn GetTableDefinition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTableID: *mut DBID, #[out] #[opt] pcColumnDescs: *mut DBORDINAL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcColumnDescs", "*pcColumnDescs")] #[out] #[opt] prgColumnDescs: *mut *mut DBCOLUMNDESC, #[out] #[opt] pcPropertySets: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcPropertySets", "*pcPropertySets")] #[out] #[opt] prgPropertySets: *mut *mut DBPROPSET, #[out] #[opt] pcConstraintDescs: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcConstraintDescs", "*pcConstraintDescs")] #[out] #[opt] prgConstraintDescs: *mut *mut DBCONSTRAINTDESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppwszStringBuffer: *mut *mut OLECHAR) -> HRESULT;
+            fn GetTableDefinition(&self, #[in] pTableID: *mut DBID, #[opt] pcColumnDescs: *mut DBORDINAL, #[len_param(1)] #[opt] prgColumnDescs: *mut *mut DBCOLUMNDESC, #[opt] pcPropertySets: *mut u32, #[len_param(3)] #[opt] prgPropertySets: *mut *mut DBPROPSET, #[opt] pcConstraintDescs: *mut u32, #[len_param(5)] #[opt] prgConstraintDescs: *mut *mut DBCONSTRAINTDESC, ppwszStringBuffer: *mut *mut OLECHAR) -> HRESULT;
         }
         #[guid(0x0c733a86_2a1c_11ce_ade5_00aa0044773d)]
         interface ITableDefinition: IUnknown {
-            fn CreateTable(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTableID: *mut DBID, cColumnDescs: DBORDINAL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] rgColumnDescs: *const DBCOLUMNDESC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, cPropertySets: ULONG, #[in] #[out] #[opt] #[len_param(5)] rgPropertySets: *mut DBPROPSET, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTableID: *mut *mut DBID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppRowset: *mut IUnknown) -> HRESULT;
-            fn DropTable(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTableID: *mut DBID) -> HRESULT;
-            fn AddColumn(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTableID: *mut DBID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pColumnDesc: *mut DBCOLUMNDESC, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppColumnID: *mut *mut DBID) -> HRESULT;
-            fn DropColumn(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTableID: *mut DBID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pColumnID: *mut DBID) -> HRESULT;
+            fn CreateTable(&self, #[opt] pUnkOuter: IUnknown, #[in] #[opt] pTableID: *mut DBID, cColumnDescs: DBORDINAL, #[len_param(2)] #[opt] rgColumnDescs: *const DBCOLUMNDESC, riid: *const GUID, cPropertySets: u32, #[len_param(5)] #[in] #[out] #[opt] rgPropertySets: *mut DBPROPSET, ppTableID: *mut *mut DBID, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+            fn DropTable(&self, #[in] pTableID: *mut DBID) -> HRESULT;
+            fn AddColumn(&self, #[in] pTableID: *mut DBID, #[in] #[out] pColumnDesc: *mut DBCOLUMNDESC, ppColumnID: *mut *mut DBID) -> HRESULT;
+            fn DropColumn(&self, #[in] pTableID: *mut DBID, #[in] pColumnID: *mut DBID) -> HRESULT;
         }
         #[guid(0x0c733aab_2a1c_11ce_ade5_00aa0044773d)]
         interface ITableDefinitionWithConstraints: ITableCreation {
-            fn AddConstraint(&self, pTableID: *mut DBID, pConstraintDesc: *mut DBCONSTRAINTDESC) -> HRESULT;
-            fn CreateTableWithConstraints(&self, pUnkOuter: IUnknown, pTableID: *mut DBID, cColumnDescs: DBORDINAL, rgColumnDescs: *mut DBCOLUMNDESC, cConstraintDescs: ULONG, rgConstraintDescs: *mut DBCONSTRAINTDESC, riid: &IID, cPropertySets: ULONG, rgPropertySets: *mut DBPROPSET, ppTableID: *mut *mut DBID, ppRowset: *mut IUnknown) -> HRESULT;
-            fn DropConstraint(&self, pTableID: *mut DBID, pConstraintID: *mut DBID) -> HRESULT;
+            fn AddConstraint(&self, #[in] pTableID: *mut DBID, #[in] pConstraintDesc: *mut DBCONSTRAINTDESC) -> HRESULT;
+            fn CreateTableWithConstraints(&self, pUnkOuter: IUnknown, #[in] pTableID: *mut DBID, cColumnDescs: DBORDINAL, #[in] #[out] rgColumnDescs: *mut DBCOLUMNDESC, cConstraintDescs: u32, #[in] rgConstraintDescs: *mut DBCONSTRAINTDESC, riid: *const GUID, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET, ppTableID: *mut *mut DBID, ppRowset: *mut IUnknown) -> HRESULT;
+            fn DropConstraint(&self, #[in] pTableID: *mut DBID, #[in] pConstraintID: *mut DBID) -> HRESULT;
         }
         #[guid(0x0c733a5e_2a1c_11ce_ade5_00aa0044773d)]
         interface ITransactionJoin: IUnknown {
-            fn GetOptionsObject(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppOptions: *mut ITransactionOptions) -> HRESULT;
-            fn JoinTransaction(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkTransactionCoord: IUnknown, isoLevel: ISOLEVEL, isoFlags: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOtherOptions: ITransactionOptions) -> HRESULT;
+            fn GetOptionsObject(&self, ppOptions: *mut ITransactionOptions) -> HRESULT;
+            fn JoinTransaction(&self, #[opt] punkTransactionCoord: IUnknown, isoLevel: ISOLEVEL, isoFlags: u32, #[opt] pOtherOptions: ITransactionOptions) -> HRESULT;
         }
         #[guid(0x0c733a5f_2a1c_11ce_ade5_00aa0044773d)]
         interface ITransactionLocal: ITransaction {
-            fn GetOptionsObject(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppOptions: *mut ITransactionOptions) -> HRESULT;
-            fn StartTransaction(&self, isoLevel: ISOLEVEL, isoFlags: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOtherOptions: ITransactionOptions, #[out] #[opt] pulTransactionLevel: *mut ULONG) -> HRESULT;
+            fn GetOptionsObject(&self, ppOptions: *mut ITransactionOptions) -> HRESULT;
+            fn StartTransaction(&self, isoLevel: ISOLEVEL, isoFlags: u32, #[opt] pOtherOptions: ITransactionOptions, #[opt] pulTransactionLevel: *mut u32) -> HRESULT;
         }
         #[guid(0x0c733a60_2a1c_11ce_ade5_00aa0044773d)]
         interface ITransactionObject: IUnknown {
-            fn GetTransactionObject(&self, ulTransactionLevel: ULONG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTransactionObject: *mut ITransaction) -> HRESULT;
+            fn GetTransactionObject(&self, ulTransactionLevel: u32, ppTransactionObject: *mut ITransaction) -> HRESULT;
         }
         #[guid(0x0c733aa1_2a1c_11ce_ade5_00aa0044773d)]
         interface ITrusteeAdmin: IUnknown {
-            fn CompareTrustees(&self, pTrustee1: *mut TRUSTEE_W, pTrustee2: *mut TRUSTEE_W) -> HRESULT;
-            fn CreateTrustee(&self, pTrustee: *mut TRUSTEE_W, cPropertySets: ULONG, rgPropertySets: *mut DBPROPSET) -> HRESULT;
-            fn DeleteTrustee(&self, pTrustee: *mut TRUSTEE_W) -> HRESULT;
-            fn SetTrusteeProperties(&self, pTrustee: *mut TRUSTEE_W, cPropertySets: ULONG, rgPropertySets: *mut DBPROPSET) -> HRESULT;
-            fn GetTrusteeProperties(&self, pTrustee: *mut TRUSTEE_W, cPropertyIDSets: ULONG, rgPropertyIDSets: *const DBPROPIDSET, pcPropertySets: *mut ULONG, prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
+            fn CompareTrustees(&self, #[in] pTrustee1: *mut TRUSTEE_W, #[in] pTrustee2: *mut TRUSTEE_W) -> HRESULT;
+            fn CreateTrustee(&self, #[in] pTrustee: *mut TRUSTEE_W, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET) -> HRESULT;
+            fn DeleteTrustee(&self, #[in] pTrustee: *mut TRUSTEE_W) -> HRESULT;
+            fn SetTrusteeProperties(&self, #[in] pTrustee: *mut TRUSTEE_W, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET) -> HRESULT;
+            fn GetTrusteeProperties(&self, #[in] pTrustee: *mut TRUSTEE_W, cPropertyIDSets: u32, rgPropertyIDSets: *const DBPROPIDSET, #[in] #[out] pcPropertySets: *mut u32, prgPropertySets: *mut *mut DBPROPSET) -> HRESULT;
         }
         #[guid(0x0c733aa2_2a1c_11ce_ade5_00aa0044773d)]
         interface ITrusteeGroupAdmin: IUnknown {
-            fn AddMember(&self, pMembershipTrustee: *mut TRUSTEE_W, pMemberTrustee: *mut TRUSTEE_W) -> HRESULT;
-            fn DeleteMember(&self, pMembershipTrustee: *mut TRUSTEE_W, pMemberTrustee: *mut TRUSTEE_W) -> HRESULT;
-            fn IsMember(&self, pMembershipTrustee: *mut TRUSTEE_W, pMemberTrustee: *mut TRUSTEE_W, pfStatus: *mut BOOL) -> HRESULT;
-            fn GetMembers(&self, pMembershipTrustee: *mut TRUSTEE_W, pcMembers: *mut ULONG, prgMembers: *mut *mut TRUSTEE_W) -> HRESULT;
-            fn GetMemberships(&self, pTrustee: *mut TRUSTEE_W, pcMemberships: *mut ULONG, prgMemberships: *mut *mut TRUSTEE_W) -> HRESULT;
+            fn AddMember(&self, #[in] pMembershipTrustee: *mut TRUSTEE_W, #[in] pMemberTrustee: *mut TRUSTEE_W) -> HRESULT;
+            fn DeleteMember(&self, #[in] pMembershipTrustee: *mut TRUSTEE_W, #[in] pMemberTrustee: *mut TRUSTEE_W) -> HRESULT;
+            fn IsMember(&self, #[in] pMembershipTrustee: *mut TRUSTEE_W, #[in] pMemberTrustee: *mut TRUSTEE_W, pfStatus: *mut BOOL) -> HRESULT;
+            fn GetMembers(&self, #[in] pMembershipTrustee: *mut TRUSTEE_W, pcMembers: *mut u32, prgMembers: *mut *mut TRUSTEE_W) -> HRESULT;
+            fn GetMemberships(&self, #[in] pTrustee: *mut TRUSTEE_W, pcMemberships: *mut u32, prgMemberships: *mut *mut TRUSTEE_W) -> HRESULT;
         }
         #[guid(0x0c733a98_2a1c_11ce_ade5_00aa0044773d)]
         interface IViewChapter: IUnknown {
-            fn GetSpecification(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppRowset: *mut IUnknown) -> HRESULT;
-            fn OpenViewChapter(&self, hSource: HCHAPTER, #[out] #[opt] phViewChapter: *mut HCHAPTER) -> HRESULT;
+            fn GetSpecification(&self, riid: *const GUID, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
+            fn OpenViewChapter(&self, hSource: HCHAPTER, #[opt] phViewChapter: *mut HCHAPTER) -> HRESULT;
         }
         #[guid(0x0c733a9b_2a1c_11ce_ade5_00aa0044773d)]
         interface IViewFilter: IUnknown {
-            fn GetFilter(&self, hAccessor: HACCESSOR, #[out] pcRows: *mut DBCOUNTITEM, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcRows", "*pcRows")] #[out] pCompareOps: *mut *mut DBCOMPAREOP, #[out] pCriteriaData: *mut void) -> HRESULT;
-            fn GetFilterBindings(&self, #[out] pcBindings: *mut DBCOUNTITEM, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcBindings", "*pcBindings")] #[out] prgBindings: *mut *mut DBBINDING) -> HRESULT;
-            fn SetFilter(&self, hAccessor: HACCESSOR, cRows: DBCOUNTITEM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] CompareOps: *mut DBCOMPAREOP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCriteriaData: *mut void) -> HRESULT;
+            fn GetFilter(&self, hAccessor: HACCESSOR, pcRows: *mut DBCOUNTITEM, #[len_param(1)] pCompareOps: *mut *mut DBCOMPAREOP, pCriteriaData: *mut void) -> HRESULT;
+            fn GetFilterBindings(&self, pcBindings: *mut DBCOUNTITEM, prgBindings: *mut *mut DBBINDING) -> HRESULT;
+            fn SetFilter(&self, hAccessor: HACCESSOR, cRows: DBCOUNTITEM, #[len_param(1)] #[in] CompareOps: *mut DBCOMPAREOP, #[in] pCriteriaData: *mut void) -> HRESULT;
         }
         #[guid(0x0c733a97_2a1c_11ce_ade5_00aa0044773d)]
         interface IViewRowset: IUnknown {
-            fn GetSpecification(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppObject: *mut IUnknown) -> HRESULT;
-            fn OpenViewRowset(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkOuter: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppRowset: *mut IUnknown) -> HRESULT;
+            fn GetSpecification(&self, riid: *const GUID, #[iid_is] ppObject: *mut *mut void) -> HRESULT;
+            fn OpenViewRowset(&self, #[opt] pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733a9a_2a1c_11ce_ade5_00aa0044773d)]
         interface IViewSort: IUnknown {
-            fn GetSortOrder(&self, #[out] pcValues: *mut DBORDINAL, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcValues", "*pcValues")] #[out] prgColumns: *mut *mut DBORDINAL, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pcValues", "*pcValues")] #[out] prgOrders: *mut *mut DBSORT) -> HRESULT;
-            fn SetSortOrder(&self, cValues: DBORDINAL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgColumns: *const DBORDINAL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] rgOrders: *const DBSORT) -> HRESULT;
+            fn GetSortOrder(&self, pcValues: *mut DBORDINAL, prgColumns: *mut *mut DBORDINAL, prgOrders: *mut *mut DBSORT) -> HRESULT;
+            fn SetSortOrder(&self, cValues: DBORDINAL, #[len_param(0)] rgColumns: *const DBORDINAL, #[len_param(0)] rgOrders: *const DBSORT) -> HRESULT;
         }
-        #[packed(2)]
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
         struct MDAXISINFO {
             cbSize: DBLENGTH,
             iAxis: DBCOUNTITEM,
@@ -2247,8 +2170,8 @@ mod Windows {
             rgcColumns: *mut DBORDINAL,
             rgpwszDimensionNames: *mut LPOLESTR,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
+        #[packed(2)]
+        #[arch(X86)]
         struct MDAXISINFO {
             cbSize: DBLENGTH,
             iAxis: DBCOUNTITEM,
@@ -2407,63 +2330,60 @@ mod Windows {
         const OLEDBVER: i32 = 624;
         type PDBPROPINFO = *mut DBPROPINFO;
         const PERM_DESIGN: ACCESS_MASKENUM = 2048;
+        #[arch(X64 | Arm64)]
+        struct RMTPACK {
+            pISeqStream: ISequentialStream,
+            cbData: u32,
+            cBSTR: u32,
+            rgBSTR: *mut BSTR,
+            cVARIANT: u32,
+            rgVARIANT: *mut VARIANT,
+            cIDISPATCH: u32,
+            rgIDISPATCH: *mut IDispatch,
+            cIUNKNOWN: u32,
+            rgIUNKNOWN: *mut IUnknown,
+            cPROPVARIANT: u32,
+            rgPROPVARIANT: *mut PROPVARIANT,
+            cArray: u32,
+            rgArray: *mut VARIANT,
+        }
         #[packed(2)]
         #[arch(X86)]
         struct RMTPACK {
             pISeqStream: ISequentialStream,
-            cbData: ULONG,
-            cBSTR: ULONG,
+            cbData: u32,
+            cBSTR: u32,
             rgBSTR: *mut BSTR,
-            cVARIANT: ULONG,
+            cVARIANT: u32,
             rgVARIANT: *mut VARIANT,
-            cIDISPATCH: ULONG,
+            cIDISPATCH: u32,
             rgIDISPATCH: *mut IDispatch,
-            cIUNKNOWN: ULONG,
+            cIUNKNOWN: u32,
             rgIUNKNOWN: *mut IUnknown,
-            cPROPVARIANT: ULONG,
+            cPROPVARIANT: u32,
             rgPROPVARIANT: *mut PROPVARIANT,
-            cArray: ULONG,
-            rgArray: *mut VARIANT,
-        }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
-        struct RMTPACK {
-            pISeqStream: ISequentialStream,
-            cbData: ULONG,
-            cBSTR: ULONG,
-            rgBSTR: *mut BSTR,
-            cVARIANT: ULONG,
-            rgVARIANT: *mut VARIANT,
-            cIDISPATCH: ULONG,
-            rgIDISPATCH: *mut IDispatch,
-            cIUNKNOWN: ULONG,
-            rgIUNKNOWN: *mut IUnknown,
-            cPROPVARIANT: ULONG,
-            rgPROPVARIANT: *mut PROPVARIANT,
-            cArray: ULONG,
+            cArray: u32,
             rgArray: *mut VARIANT,
         }
         type SBYTE = i8;
-        #[packed(2)]
-        #[arch(X86)]
-        struct SEC_OBJECT {
-            cObjects: DWORD,
-            prgObjects: *mut SEC_OBJECT_ELEMENT,
-        }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
         struct SEC_OBJECT {
-            cObjects: DWORD,
+            cObjects: u32,
             prgObjects: *mut SEC_OBJECT_ELEMENT,
         }
         #[packed(2)]
         #[arch(X86)]
+        struct SEC_OBJECT {
+            cObjects: u32,
+            prgObjects: *mut SEC_OBJECT_ELEMENT,
+        }
+        #[arch(X64 | Arm64)]
         struct SEC_OBJECT_ELEMENT {
             guidObjectType: GUID,
             ObjectID: DBID,
         }
-        #[packed(8)]
-        #[arch(X64 | Arm64)]
+        #[packed(2)]
+        #[arch(X86)]
         struct SEC_OBJECT_ELEMENT {
             guidObjectType: GUID,
             ObjectID: DBID,

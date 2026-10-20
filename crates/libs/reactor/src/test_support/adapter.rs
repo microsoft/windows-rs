@@ -1063,7 +1063,7 @@ impl Adapter for RecordingAdapter {
     type Error = AdapterError;
 
     fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
-        events.extend(self.native_events.iter().cloned());
+        NativeEvent::preview_prefix(events, self.native_events.iter().cloned());
     }
 
     fn pop_native_event(&mut self) -> Option<NativeEvent> {
@@ -1107,6 +1107,7 @@ impl Adapter for RecordingAdapter {
                 completion.call(Err(IntegrationError::Unavailable));
             }
             ImperativeRequest::RequestSwapChainPanelFrame { completion, .. }
+            | ImperativeRequest::Notify { completion, .. }
             | ImperativeRequest::SetSwapChain { completion, .. }
             | ImperativeRequest::SetNativeImageSource { completion, .. }
             | ImperativeRequest::SetCompositionChildVisual { completion, .. } => {

@@ -10,7 +10,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CloseThreadpoolCleanupGroup(#[in] #[out] ptpcg: PTP_CLEANUP_GROUP);
         #[library("KERNEL32.dll")]
-        extern fn CloseThreadpoolCleanupGroupMembers(#[in] #[out] ptpcg: PTP_CLEANUP_GROUP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCancelPendingCallbacks: BOOL, #[in] #[out] #[opt] pvCleanupContext: PVOID);
+        extern fn CloseThreadpoolCleanupGroupMembers(#[in] #[out] ptpcg: PTP_CLEANUP_GROUP, fCancelPendingCallbacks: BOOL, #[in] #[out] #[opt] pvCleanupContext: *mut void);
         #[library("KERNEL32.dll")]
         extern fn CloseThreadpoolIo(#[in] #[out] pio: PTP_IO);
         #[library("KERNEL32.dll")]
@@ -19,69 +19,62 @@ mod Windows {
         extern fn CloseThreadpoolWait(#[in] #[out] pwa: PTP_WAIT);
         #[library("KERNEL32.dll")]
         extern fn CloseThreadpoolWork(#[in] #[out] pwk: PTP_WORK);
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn CreateThreadpool(#[reserved] reserved: PVOID) -> PTP_POOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn CreateThreadpool(#[reserved] reserved: *mut void) -> PTP_POOL;
         #[library("KERNEL32.dll")]
         extern fn CreateThreadpoolCleanupGroup() -> PTP_CLEANUP_GROUP;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn CreateThreadpoolIo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fl: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnio: PTP_WIN32_IO_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_IO;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn CreateThreadpoolIo(fl: HANDLE, pfnio: PTP_WIN32_IO_CALLBACK, #[in] #[out] #[opt] pv: *mut void, #[opt] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_IO;
         #[library("KERNEL32.dll")]
-        extern fn CreateThreadpoolTimer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnti: PTP_TIMER_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_TIMER;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, #[in] #[out] #[opt] pv: *mut void, #[opt] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_TIMER;
         #[library("KERNEL32.dll")]
-        extern fn CreateThreadpoolWait(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnwa: PTP_WAIT_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_WAIT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        extern fn CreateThreadpoolWait(pfnwa: PTP_WAIT_CALLBACK, #[in] #[out] #[opt] pv: *mut void, #[opt] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_WAIT;
         #[library("KERNEL32.dll")]
-        extern fn CreateThreadpoolWork(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnwk: PTP_WORK_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_WORK;
+        extern fn CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, #[in] #[out] #[opt] pv: *mut void, #[opt] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_WORK;
         #[library("KERNEL32.dll")]
         extern fn DisassociateCurrentThreadFromCallback(#[in] #[out] pci: PTP_CALLBACK_INSTANCE);
         #[library("KERNEL32.dll")]
-        extern fn FreeLibraryWhenCallbackReturns(#[in] #[out] pci: PTP_CALLBACK_INSTANCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#mod: HMODULE);
+        extern fn FreeLibraryWhenCallbackReturns(#[in] #[out] pci: PTP_CALLBACK_INSTANCE, r#mod: HMODULE);
         #[library("KERNEL32.dll")]
         extern fn IsThreadpoolTimerSet(#[in] #[out] pti: PTP_TIMER) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn LeaveCriticalSectionWhenCallbackReturns(#[in] #[out] pci: PTP_CALLBACK_INSTANCE, #[in] #[out] pcs: PCRITICAL_SECTION);
-        extern fn PTP_WIN32_IO_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] #[opt] Overlapped: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IoResult: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumberOfBytesTransferred: ULONG_PTR, #[in] #[out] Io: PTP_IO);
+        extern fn PTP_WIN32_IO_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] #[opt] Overlapped: *mut void, IoResult: u32, NumberOfBytesTransferred: usize, #[in] #[out] Io: PTP_IO);
         #[library("KERNEL32.dll")]
-        extern fn QueryThreadpoolStackInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ptpp: PTP_POOL, #[out] ptpsi: PTP_POOL_STACK_INFORMATION) -> BOOL;
+        extern fn QueryThreadpoolStackInformation(ptpp: PTP_POOL, #[out] ptpsi: PTP_POOL_STACK_INFORMATION) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ReleaseMutexWhenCallbackReturns(#[in] #[out] pci: PTP_CALLBACK_INSTANCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#mut: HANDLE);
+        extern fn ReleaseMutexWhenCallbackReturns(#[in] #[out] pci: PTP_CALLBACK_INSTANCE, r#mut: HANDLE);
         #[library("KERNEL32.dll")]
-        extern fn ReleaseSemaphoreWhenCallbackReturns(#[in] #[out] pci: PTP_CALLBACK_INSTANCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sem: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] crel: DWORD);
+        extern fn ReleaseSemaphoreWhenCallbackReturns(#[in] #[out] pci: PTP_CALLBACK_INSTANCE, sem: HANDLE, crel: u32);
         #[library("KERNEL32.dll")]
-        extern fn SetEventWhenCallbackReturns(#[in] #[out] pci: PTP_CALLBACK_INSTANCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] evt: HANDLE);
+        extern fn SetEventWhenCallbackReturns(#[in] #[out] pci: PTP_CALLBACK_INSTANCE, evt: HANDLE);
         #[library("KERNEL32.dll")]
-        extern fn SetThreadpoolStackInformation(#[in] #[out] ptpp: PTP_POOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ptpsi: PTP_POOL_STACK_INFORMATION) -> BOOL;
+        extern fn SetThreadpoolStackInformation(#[in] #[out] ptpp: PTP_POOL, ptpsi: PTP_POOL_STACK_INFORMATION) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadpoolThreadMaximum(#[in] #[out] ptpp: PTP_POOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cthrdMost: DWORD);
+        extern fn SetThreadpoolThreadMaximum(#[in] #[out] ptpp: PTP_POOL, cthrdMost: u32);
         #[library("KERNEL32.dll")]
-        extern fn SetThreadpoolThreadMinimum(#[in] #[out] ptpp: PTP_POOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cthrdMic: DWORD) -> BOOL;
+        extern fn SetThreadpoolThreadMinimum(#[in] #[out] ptpp: PTP_POOL, cthrdMic: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadpoolTimer(#[in] #[out] pti: PTP_TIMER, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pftDueTime: PFILETIME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] msPeriod: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] msWindowLength: DWORD);
+        extern fn SetThreadpoolTimer(#[in] #[out] pti: PTP_TIMER, #[opt] pftDueTime: PFILETIME, msPeriod: u32, #[opt] msWindowLength: u32);
         #[library("KERNEL32.dll")]
-        extern fn SetThreadpoolTimerEx(#[in] #[out] pti: PTP_TIMER, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pftDueTime: PFILETIME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] msPeriod: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] msWindowLength: DWORD) -> BOOL;
+        extern fn SetThreadpoolTimerEx(#[in] #[out] pti: PTP_TIMER, #[opt] pftDueTime: PFILETIME, msPeriod: u32, #[opt] msWindowLength: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadpoolWait(#[in] #[out] pwa: PTP_WAIT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] h: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pftTimeout: PFILETIME);
+        extern fn SetThreadpoolWait(#[in] #[out] pwa: PTP_WAIT, #[opt] h: HANDLE, #[opt] pftTimeout: PFILETIME);
         #[library("KERNEL32.dll")]
-        extern fn SetThreadpoolWaitEx(#[in] #[out] pwa: PTP_WAIT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] h: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pftTimeout: PFILETIME, #[reserved] Reserved: PVOID) -> BOOL;
+        extern fn SetThreadpoolWaitEx(#[in] #[out] pwa: PTP_WAIT, #[opt] h: HANDLE, #[opt] pftTimeout: PFILETIME, #[reserved] Reserved: *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn StartThreadpoolIo(#[in] #[out] pio: PTP_IO);
         #[library("KERNEL32.dll")]
         extern fn SubmitThreadpoolWork(#[in] #[out] pwk: PTP_WORK);
-        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
         #[library("KERNEL32.dll")]
-        extern fn TrySubmitThreadpoolCallback(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfns: PTP_SIMPLE_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> BOOL;
+        extern fn TrySubmitThreadpoolCallback(pfns: PTP_SIMPLE_CALLBACK, #[in] #[out] #[opt] pv: *mut void, #[opt] pcbe: PTP_CALLBACK_ENVIRON) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WaitForThreadpoolIoCallbacks(#[in] #[out] pio: PTP_IO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCancelPendingCallbacks: BOOL);
+        extern fn WaitForThreadpoolIoCallbacks(#[in] #[out] pio: PTP_IO, fCancelPendingCallbacks: BOOL);
         #[library("KERNEL32.dll")]
-        extern fn WaitForThreadpoolTimerCallbacks(#[in] #[out] pti: PTP_TIMER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCancelPendingCallbacks: BOOL);
+        extern fn WaitForThreadpoolTimerCallbacks(#[in] #[out] pti: PTP_TIMER, fCancelPendingCallbacks: BOOL);
         #[library("KERNEL32.dll")]
-        extern fn WaitForThreadpoolWaitCallbacks(#[in] #[out] pwa: PTP_WAIT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCancelPendingCallbacks: BOOL);
+        extern fn WaitForThreadpoolWaitCallbacks(#[in] #[out] pwa: PTP_WAIT, fCancelPendingCallbacks: BOOL);
         #[library("KERNEL32.dll")]
-        extern fn WaitForThreadpoolWorkCallbacks(#[in] #[out] pwk: PTP_WORK, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fCancelPendingCallbacks: BOOL);
+        extern fn WaitForThreadpoolWorkCallbacks(#[in] #[out] pwk: PTP_WORK, fCancelPendingCallbacks: BOOL);
     }
 }

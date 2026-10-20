@@ -150,9 +150,9 @@ mod Windows {
                 AdjacentToLeftDisplayEdge: bool;
                 #[get]
                 AdjacentToRightDisplayEdge: bool;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("To check full screen mode, use IsFullScreenMode. To check if the view is adjacent to both edges, use AdjacentToLeftDisplayEdge and AdjacentToRightDisplayEdge. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_IsFullScreen(&self) -> bool;
+                IsFullScreen: bool;
                 #[get]
                 IsOnLockScreen: bool;
                 IsScreenCaptureEnabled: bool;
@@ -168,12 +168,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
             interface IApplicationView2 {
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("Use the TryEnterFullScreen method and IsFullScreenMode property instead of SuppressSystemOverlays. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_SuppressSystemOverlays(&self) -> bool;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Use the TryEnterFullScreen method and IsFullScreenMode property instead of SuppressSystemOverlays. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn put_SuppressSystemOverlays(&self, value: bool);
+                SuppressSystemOverlays: bool;
                 #[get]
                 VisibleBounds: super::super::Foundation::Rect;
                 event VisibleBoundsChanged: super::super::Foundation::TypedEventHandler<ApplicationView, Object>;
@@ -274,9 +270,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("ApplicationView static methods may be altered or unavailable for releases after Windows 8.1. Instead, use ApplicationView.GetForCurrentView to get an instance of ApplicationView.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
             interface IApplicationViewStatics {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Value may be altered or unavailable for releases after Windows 8.1. Instead, query for window layout sizes directly.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_Value(&self) -> ApplicationViewState;
+                Value: ApplicationViewState;
                 #[Windows::Foundation::Metadata::Deprecated("TryUnsnap may be altered or unavailable for releases after Windows 8.1. Apps can be continuously resized, but cannot be snapped, starting in Windows 8.1.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 fn TryUnsnap(&self) -> bool;
             }

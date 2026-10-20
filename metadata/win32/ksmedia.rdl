@@ -21,7 +21,7 @@ mod Windows {
         }
         struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
             ResourceGroupAcquired: BOOL,
-            ResourceGroupName: [WCHAR; 256],
+            ResourceGroupName: [u16; 256],
         }
         #[repr(i32)]
         enum AUDIO_CURVE_TYPE {
@@ -67,13 +67,13 @@ mod Windows {
             KS_CAPTURE_ALLOC_SECURE_BUFFER = 16,
         }
         struct CC_BYTE_PAIR {
-            Decoded: [BYTE; 2],
-            Reserved: USHORT,
+            Decoded: [u8; 2],
+            Reserved: u16,
         }
         struct CC_HW_FIELD {
             ScanlinesRequested: VBICODECFILTERING_SCANLINES,
-            fieldFlags: ULONG,
-            PictureNumber: LONGLONG,
+            fieldFlags: u32,
+            PictureNumber: i64,
             Lines: [CC_BYTE_PAIR; 12],
         }
         const CC_MAX_HW_DECODE_LINES: i32 = 12;
@@ -90,66 +90,67 @@ mod Windows {
             CONSTRICTOR_OPTION_DISABLE = 0,
             CONSTRICTOR_OPTION_MUTE = 1,
         }
+        const DDPF_FOURCC: i32 = 4;
         struct DDPIXELFORMAT {
-            dwSize: DWORD,
-            dwFlags: DWORD,
-            dwFourCC: DWORD,
+            dwSize: u32,
+            dwFlags: u32,
+            dwFourCC: u32,
             Anonymous: union {
-                dwRGBBitCount: DWORD,
-                dwYUVBitCount: DWORD,
-                dwZBufferBitDepth: DWORD,
-                dwAlphaBitDepth: DWORD,
+                dwRGBBitCount: u32,
+                dwYUVBitCount: u32,
+                dwZBufferBitDepth: u32,
+                dwAlphaBitDepth: u32,
             },
             Anonymous2: union {
-                dwRBitMask: DWORD,
-                dwYBitMask: DWORD,
+                dwRBitMask: u32,
+                dwYBitMask: u32,
             },
             Anonymous3: union {
-                dwGBitMask: DWORD,
-                dwUBitMask: DWORD,
+                dwGBitMask: u32,
+                dwUBitMask: u32,
             },
             Anonymous4: union {
-                dwBBitMask: DWORD,
-                dwVBitMask: DWORD,
+                dwBBitMask: u32,
+                dwVBitMask: u32,
             },
             Anonymous5: union {
-                dwRGBAlphaBitMask: DWORD,
-                dwYUVAlphaBitMask: DWORD,
-                dwRGBZBitMask: DWORD,
-                dwYUVZBitMask: DWORD,
+                dwRGBAlphaBitMask: u32,
+                dwYUVAlphaBitMask: u32,
+                dwRGBZBitMask: u32,
+                dwYUVZBitMask: u32,
             },
         }
         struct DDVIDEOPORTCONNECT {
-            dwSize: DWORD,
-            dwPortWidth: DWORD,
+            dwSize: u32,
+            dwPortWidth: u32,
             guidTypeID: GUID,
-            dwFlags: DWORD,
-            dwReserved1: ULONG_PTR,
+            dwFlags: u32,
+            dwReserved1: usize,
         }
         struct DEVCAPS {
-            CanRecord: LONG,
-            CanRecordStrobe: LONG,
-            HasAudio: LONG,
-            HasVideo: LONG,
-            UsesFiles: LONG,
-            CanSave: LONG,
-            DeviceType: LONG,
-            TCRead: LONG,
-            TCWrite: LONG,
-            CTLRead: LONG,
-            IndexRead: LONG,
-            Preroll: LONG,
-            Postroll: LONG,
-            SyncAcc: LONG,
-            NormRate: LONG,
-            CanPreview: LONG,
-            CanMonitorSrc: LONG,
-            CanTest: LONG,
-            VideoIn: LONG,
-            AudioIn: LONG,
-            Calibrate: LONG,
-            SeekType: LONG,
-            SimulatedHardware: LONG,
+            CanRecord: i32,
+            CanRecordStrobe: i32,
+            HasAudio: i32,
+            HasVideo: i32,
+            UsesFiles: i32,
+            CanSave: i32,
+            DeviceType: i32,
+            TCRead: i32,
+            TCWrite: i32,
+            CTLRead: i32,
+            IndexRead: i32,
+            Preroll: i32,
+            Postroll: i32,
+            SyncAcc: i32,
+            NormRate: i32,
+            CanPreview: i32,
+            CanMonitorSrc: i32,
+            CanTest: i32,
+            VideoIn: i32,
+            AudioIn: i32,
+            Calibrate: i32,
+            SeekType: i32,
+            SimulatedHardware: i32,
         }
         #[guid(0x13e004d6_b066_43bd_913b_a415cd13da87)]
         const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: DEVPROPKEY = 3;
@@ -159,16 +160,16 @@ mod Windows {
         const DEVPKEY_KsAudio_PacketSize_Constraints2: DEVPROPKEY = 2;
         struct DS3DVECTOR {
             Anonymous: union {
-                x: FLOAT,
-                dvX: FLOAT,
+                x: f32,
+                dvX: f32,
             },
             Anonymous2: union {
-                y: FLOAT,
-                dvY: FLOAT,
+                y: f32,
+                dvY: f32,
             },
             Anonymous3: union {
-                z: FLOAT,
-                dvZ: FLOAT,
+                z: f32,
+                dvZ: f32,
             },
         }
         #[repr(i32)]
@@ -234,28 +235,28 @@ mod Windows {
         const EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: GUID = 0x2fdffc5d_c732_4ba6_b5df_6b4d7fc88b8b;
         const EVENTSETID_VIDEODECODER: GUID = 0x6a2e0621_28e4_11d0_a18c_00a0c9118956;
         struct INTERLEAVED_AUDIO_FORMAT_INFORMATION {
-            Size: ULONG,
-            PrimaryChannelCount: DWORD,
-            PrimaryChannelStartPosition: DWORD,
-            PrimaryChannelMask: DWORD,
-            InterleavedChannelCount: DWORD,
-            InterleavedChannelStartPosition: DWORD,
-            InterleavedChannelMask: DWORD,
+            Size: u32,
+            PrimaryChannelCount: u32,
+            PrimaryChannelStartPosition: u32,
+            PrimaryChannelMask: u32,
+            InterleavedChannelCount: u32,
+            InterleavedChannelStartPosition: u32,
+            InterleavedChannelMask: u32,
         }
         const JACKDESC2_DYNAMIC_FORMAT_CHANGE_CAPABILITY: i32 = 2;
         const JACKDESC2_PRESENCE_DETECT_CAPABILITY: i32 = 1;
         struct KSAC3_ALTERNATE_AUDIO {
             fStereo: BOOL,
-            DualMode: ULONG,
+            DualMode: u32,
         }
         const KSAC3_ALTERNATE_AUDIO_1: i32 = 1;
         const KSAC3_ALTERNATE_AUDIO_2: i32 = 2;
         const KSAC3_ALTERNATE_AUDIO_BOTH: i32 = 3;
         struct KSAC3_BIT_STREAM_MODE {
-            BitStreamMode: LONG,
+            BitStreamMode: i32,
         }
         struct KSAC3_DIALOGUE_LEVEL {
-            DialogueLevel: ULONG,
+            DialogueLevel: u32,
         }
         struct KSAC3_DOWNMIX {
             fDownMix: BOOL,
@@ -346,13 +347,13 @@ mod Windows {
         const KSAUDFNAME_WAVE_OUT_MIX: GUID = 0x185fee00_9905_11d1_95a9_00c04fb925d3;
         const KSAUDFNAME_WAVE_VOLUME: GUID = 0x185fede5_9905_11d1_95a9_00c04fb925d3;
         struct KSAUDIOENGINE_BUFFER_SIZE_RANGE {
-            MinBufferBytes: ULONG,
-            MaxBufferBytes: ULONG,
+            MinBufferBytes: u32,
+            MaxBufferBytes: u32,
         }
         struct KSAUDIOENGINE_DESCRIPTOR {
-            nHostPinId: UINT,
-            nOffloadPinId: UINT,
-            nLoopbackPinId: UINT,
+            nHostPinId: u32,
+            nOffloadPinId: u32,
+            nLoopbackPinId: u32,
         }
         struct KSAUDIOENGINE_DEVICECONTROLS {
             Volume: EDeviceControlUseType,
@@ -360,35 +361,35 @@ mod Windows {
             PeakMeter: EDeviceControlUseType,
         }
         struct KSAUDIOENGINE_VOLUMELEVEL {
-            TargetVolume: LONG,
+            TargetVolume: i32,
             CurveType: AUDIO_CURVE_TYPE,
-            CurveDuration: ULONGLONG,
+            CurveDuration: u64,
         }
         struct KSAUDIOMODULE_DESCRIPTOR {
             ClassId: GUID,
-            InstanceId: ULONG,
-            VersionMajor: ULONG,
-            VersionMinor: ULONG,
-            Name: [WCHAR; 128],
+            InstanceId: u32,
+            VersionMajor: u32,
+            VersionMinor: u32,
+            Name: [u16; 128],
         }
         struct KSAUDIOMODULE_NOTIFICATION {
             Anonymous: union {
                 ProviderId: struct {
                     DeviceId: GUID,
                     ClassId: GUID,
-                    InstanceId: ULONG,
-                    Reserved: ULONG,
+                    InstanceId: u32,
+                    Reserved: u32,
                 },
-                Alignment: LONGLONG,
+                Alignment: i64,
             },
         }
         struct KSAUDIOMODULE_PROPERTY {
             Property: KSPROPERTY,
             ClassId: GUID,
-            InstanceId: ULONG,
+            InstanceId: u32,
         }
         struct KSAUDIO_CHANNEL_CONFIG {
-            ActiveSpeakerPositions: LONG,
+            ActiveSpeakerPositions: i32,
         }
         struct KSAUDIO_COPY_PROTECTION {
             fCopyrighted: BOOL,
@@ -397,67 +398,65 @@ mod Windows {
         const KSAUDIO_CPU_RESOURCES_HOST_CPU: i32 = 2147483647;
         const KSAUDIO_CPU_RESOURCES_NOT_HOST_CPU: i32 = 0;
         struct KSAUDIO_DYNAMIC_RANGE {
-            QuietCompression: ULONG,
-            LoudCompression: ULONG,
+            QuietCompression: u32,
+            LoudCompression: u32,
         }
         struct KSAUDIO_MICROPHONE_COORDINATES {
-            usType: USHORT,
-            wXCoord: SHORT,
-            wYCoord: SHORT,
-            wZCoord: SHORT,
-            wVerticalAngle: SHORT,
-            wHorizontalAngle: SHORT,
+            usType: u16,
+            wXCoord: i16,
+            wYCoord: i16,
+            wZCoord: i16,
+            wVerticalAngle: i16,
+            wHorizontalAngle: i16,
         }
         struct KSAUDIO_MIC_ARRAY_GEOMETRY {
-            usVersion: USHORT,
-            usMicArrayType: USHORT,
-            wVerticalAngleBegin: SHORT,
-            wVerticalAngleEnd: SHORT,
-            wHorizontalAngleBegin: SHORT,
-            wHorizontalAngleEnd: SHORT,
-            usFrequencyBandLo: USHORT,
-            usFrequencyBandHi: USHORT,
-            usNumberOfMicrophones: USHORT,
+            usVersion: u16,
+            usMicArrayType: u16,
+            wVerticalAngleBegin: i16,
+            wVerticalAngleEnd: i16,
+            wHorizontalAngleBegin: i16,
+            wHorizontalAngleEnd: i16,
+            usFrequencyBandLo: u16,
+            usFrequencyBandHi: u16,
+            usNumberOfMicrophones: u16,
             KsMicCoord: [KSAUDIO_MICROPHONE_COORDINATES; 1],
         }
         struct KSAUDIO_MIXCAP_TABLE {
-            InputChannels: ULONG,
-            OutputChannels: ULONG,
+            InputChannels: u32,
+            OutputChannels: u32,
             Capabilities: [KSAUDIO_MIX_CAPS; 1],
         }
         struct KSAUDIO_MIXLEVEL {
             Mute: BOOL,
-            Level: LONG,
+            Level: i32,
         }
         struct KSAUDIO_MIX_CAPS {
             Mute: BOOL,
-            Minimum: LONG,
-            Maximum: LONG,
+            Minimum: i32,
+            Maximum: i32,
             Anonymous: union {
-                Reset: LONG,
-                Resolution: LONG,
+                Reset: i32,
+                Resolution: i32,
             },
         }
         struct KSAUDIO_PACKETSIZE_CONSTRAINTS {
-            MinPacketPeriodInHns: ULONG,
-            PacketSizeFileAlignment: ULONG,
-            Reserved: ULONG,
-            NumProcessingModeConstraints: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumProcessingModeConstraints", IsByteCount = false, MayBeNull = false)]
+            MinPacketPeriodInHns: u32,
+            PacketSizeFileAlignment: u32,
+            Reserved: u32,
+            NumProcessingModeConstraints: u32,
             ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
         }
         struct KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
-            MinPacketPeriodInHns: ULONG,
-            PacketSizeFileAlignment: ULONG,
-            MaxPacketSizeInBytes: ULONG,
-            NumProcessingModeConstraints: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumProcessingModeConstraints", IsByteCount = false, MayBeNull = false)]
+            MinPacketPeriodInHns: u32,
+            PacketSizeFileAlignment: u32,
+            MaxPacketSizeInBytes: u32,
+            NumProcessingModeConstraints: u32,
             ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
         }
         struct KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
             ProcessingMode: GUID,
-            SamplesPerProcessingPacket: ULONG,
-            ProcessingPacketDurationInHns: ULONG,
+            SamplesPerProcessingPacket: u32,
+            ProcessingPacketDurationInHns: u32,
         }
         struct KSAUDIO_POSITION {
             PlayOffset: DWORDLONG,
@@ -470,8 +469,8 @@ mod Windows {
             TimeStamp2: LARGE_INTEGER,
         }
         struct KSAUDIO_PRESENTATION_POSITION {
-            u64PositionInBlocks: UINT64,
-            u64QPCPosition: UINT64,
+            u64PositionInBlocks: u64,
+            u64QPCPosition: u64,
         }
         const KSAUDIO_QUALITY_ADVANCED: i32 = 3;
         const KSAUDIO_QUALITY_BASIC: i32 = 2;
@@ -534,8 +533,8 @@ mod Windows {
         struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
             Resolution: SIZE,
             MaxFrameRate: struct {
-                Numerator: LONG,
-                Denominator: LONG,
+                Numerator: i32,
+                Denominator: i32,
             },
             MaskResolution: SIZE,
             SubType: GUID,
@@ -544,10 +543,10 @@ mod Windows {
         const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF: i32 = 0;
         const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_SHALLOWFOCUS: i32 = 4;
         struct KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
-            PitchAngle: LONG,
-            YawAngle: LONG,
-            Flag: ULONG,
-            Reserved: ULONG,
+            PitchAngle: i32,
+            YawAngle: i32,
+            Flag: u32,
+            Reserved: u32,
         }
         const KSCAMERA_EXTENDEDPROP_CAPS_ASYNCCONTROL: u64 = 9223372036854775808;
         const KSCAMERA_EXTENDEDPROP_CAPS_CANCELLABLE: i64 = 4611686018427387904;
@@ -555,35 +554,35 @@ mod Windows {
         const KSCAMERA_EXTENDEDPROP_CAPS_RESERVED: u64 = 18374686479671623680;
         const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_AUTOFACEFRAMING: i32 = 1;
         struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
-            ResolutionX: LONG,
-            ResolutionY: LONG,
-            PorchTop: LONG,
-            PorchLeft: LONG,
-            PorchBottom: LONG,
-            PorchRight: LONG,
-            NonUpscalingWindowSize: LONG,
-            MinWindowSize: LONG,
-            MaxWindowSize: LONG,
-            Reserved: LONG,
+            ResolutionX: i32,
+            ResolutionY: i32,
+            PorchTop: i32,
+            PorchLeft: i32,
+            PorchBottom: i32,
+            PorchRight: i32,
+            NonUpscalingWindowSize: i32,
+            MinWindowSize: i32,
+            MaxWindowSize: i32,
+            Reserved: i32,
         }
         struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
-            Size: ULONG,
-            Count: ULONG,
+            Size: u32,
+            Count: u32,
         }
         const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MANUAL: i32 = 0;
         const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MASK: i32 = 1;
         struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
-            OriginX: LONG,
-            OriginY: LONG,
-            WindowSize: LONG,
-            Reserved: ULONG,
+            OriginX: i32,
+            OriginY: i32,
+            WindowSize: i32,
+            Reserved: u32,
         }
         struct KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
-            Mode: ULONG,
-            Min: LONG,
-            Max: LONG,
-            Value: LONG,
-            Reserved: ULONGLONG,
+            Mode: u32,
+            Min: i32,
+            Max: i32,
+            Value: i32,
+            Reserved: u64,
         }
         const KSCAMERA_EXTENDEDPROP_EVCOMP_FULLSTEP: i32 = 16;
         const KSCAMERA_EXTENDEDPROP_EVCOMP_HALFSTEP: i32 = 8;
@@ -606,16 +605,16 @@ mod Windows {
         const KSCAMERA_EXTENDEDPROP_FACEDETECTION_SMILE: i32 = 16;
         const KSCAMERA_EXTENDEDPROP_FACEDETECTION_VIDEO: i32 = 2;
         struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
-            NormalizedFocalLengthX: ULONG,
-            NormalizedFocalLengthY: ULONG,
-            Flag: ULONG,
-            Reserved: ULONG,
+            NormalizedFocalLengthX: u32,
+            NormalizedFocalLengthY: u32,
+            Flag: u32,
+            Reserved: u32,
         }
         struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS {
-            DefaultDiagonalFieldOfViewInDegrees: WORD,
-            DiscreteFoVStopsCount: WORD,
-            DiscreteFoVStops: [WORD; 360],
-            Reserved: ULONG,
+            DefaultDiagonalFieldOfViewInDegrees: u16,
+            DiscreteFoVStopsCount: u16,
+            DiscreteFoVStops: [u16; 360],
+            Reserved: u32,
         }
         const KSCAMERA_EXTENDEDPROP_FILTERSCOPE: u32 = 4294967295;
         const KSCAMERA_EXTENDEDPROP_FLAG_CANCELOPERATION: u64 = 9223372036854775808;
@@ -663,12 +662,12 @@ mod Windows {
         const KSCAMERA_EXTENDEDPROP_FRAMERATE_THROTTLE_OFF: i32 = 0;
         const KSCAMERA_EXTENDEDPROP_FRAMERATE_THROTTLE_ON: i32 = 1;
         struct KSCAMERA_EXTENDEDPROP_HEADER {
-            Version: ULONG,
-            PinId: ULONG,
-            Size: ULONG,
-            Result: ULONG,
-            Flags: ULONGLONG,
-            Capability: ULONGLONG,
+            Version: u32,
+            PinId: u32,
+            Size: u32,
+            Result: u32,
+            Flags: u64,
+            Capability: u64,
         }
         const KSCAMERA_EXTENDEDPROP_HISTOGRAM_OFF: i32 = 0;
         const KSCAMERA_EXTENDEDPROP_HISTOGRAM_ON: i32 = 1;
@@ -689,8 +688,8 @@ mod Windows {
         const KSCAMERA_EXTENDEDPROP_ISO_AUTO: i32 = 1;
         const KSCAMERA_EXTENDEDPROP_ISO_MANUAL: i64 = 36028797018963968;
         struct KSCAMERA_EXTENDEDPROP_METADATAINFO {
-            BufferAlignment: LONG,
-            MaxMetadataBufferSize: ULONG,
+            BufferAlignment: i32,
+            MaxMetadataBufferSize: u32,
         }
         const KSCAMERA_EXTENDEDPROP_METADATA_ALIGNMENTREQUIRED: i32 = 256;
         const KSCAMERA_EXTENDEDPROP_METADATA_MEMORYTYPE_MASK: i32 = 255;
@@ -722,10 +721,10 @@ mod Windows {
         const KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_OFF: i32 = 0;
         const KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_ON: i32 = 1;
         struct KSCAMERA_EXTENDEDPROP_PHOTOMODE {
-            RequestedHistoryFrames: ULONG,
-            MaxHistoryFrames: ULONG,
-            SubMode: ULONG,
-            Reserved: ULONG,
+            RequestedHistoryFrames: u32,
+            MaxHistoryFrames: u32,
+            SubMode: u32,
+            Reserved: u32,
         }
         const KSCAMERA_EXTENDEDPROP_PHOTOMODE_NORMAL: i32 = 0;
         const KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE: i32 = 1;
@@ -738,8 +737,8 @@ mod Windows {
         const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_DISABLE: i32 = 0;
         struct KSCAMERA_EXTENDEDPROP_PROFILE {
             ProfileId: GUID,
-            Index: UINT32,
-            Reserved: UINT32,
+            Index: u32,
+            Reserved: u32,
         }
         const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_DYNAMIC: i32 = 2;
         const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_MASK: i32 = 3;
@@ -751,43 +750,43 @@ mod Windows {
             KSCAMERA_EXTENDEDPROP_ROITYPE_FACE = 1,
         }
         struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
-            ControlId: ULONG,
-            MaxNumberOfROIs: ULONG,
-            Capability: ULONGLONG,
+            ControlId: u32,
+            MaxNumberOfROIs: u32,
+            Capability: u64,
         }
         struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
-            Size: ULONG,
-            ConfigCapCount: ULONG,
-            Reserved: ULONGLONG,
+            Size: u32,
+            ConfigCapCount: u32,
+            Reserved: u64,
         }
         struct KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
             ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
-            Reserved: ULONGLONG,
+            Reserved: u64,
         }
         struct KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
             ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
-            Reserved: ULONGLONG,
+            Reserved: u64,
         }
         struct KSCAMERA_EXTENDEDPROP_ROI_INFO {
             Region: RECT,
-            Flags: ULONGLONG,
-            Weight: LONG,
-            RegionOfInterestType: LONG,
+            Flags: u64,
+            Weight: i32,
+            RegionOfInterestType: i32,
         }
         struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
-            ControlId: ULONG,
-            ROICount: ULONG,
-            Result: ULONG,
-            Reserved: ULONG,
+            ControlId: u32,
+            ROICount: u32,
+            Result: u32,
+            Reserved: u32,
         }
         struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
-            Size: ULONG,
-            ControlCount: ULONG,
-            Reserved: ULONGLONG,
+            Size: u32,
+            ControlCount: u32,
+            Reserved: u64,
         }
         struct KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
             ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
-            Reserved: ULONGLONG,
+            Reserved: u64,
         }
         const KSCAMERA_EXTENDEDPROP_SCENEMODE_AUTO: i32 = 0;
         const KSCAMERA_EXTENDEDPROP_SCENEMODE_BACKLIT: i32 = 1024;
@@ -807,11 +806,11 @@ mod Windows {
         struct KSCAMERA_EXTENDEDPROP_VALUE {
             Value: union {
                 dbl: f64,
-                ull: ULONGLONG,
-                ul: ULONG,
+                ull: u64,
+                ul: u32,
                 ratio: ULARGE_INTEGER,
-                l: LONG,
-                ll: LONGLONG,
+                l: i32,
+                ll: i64,
             },
         }
         const KSCAMERA_EXTENDEDPROP_VFR_OFF: i32 = 0;
@@ -824,12 +823,12 @@ mod Windows {
         const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_MANUAL: i32 = 2;
         const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_MASK: i32 = 7;
         struct KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
-            Mode: ULONG,
-            Min: LONG,
-            Max: LONG,
-            Step: LONG,
+            Mode: u32,
+            Min: i32,
+            Max: i32,
+            Step: i32,
             VideoProc: KSCAMERA_EXTENDEDPROP_VALUE,
-            Reserved: ULONGLONG,
+            Reserved: u64,
         }
         const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_AUTO: i32 = 2;
         const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_OFF: i32 = 0;
@@ -860,36 +859,36 @@ mod Windows {
         const KSCAMERA_EXTENDEDPROP_ZOOM_DIRECT: i32 = 1;
         const KSCAMERA_EXTENDEDPROP_ZOOM_SMOOTH: i32 = 2;
         struct KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
-            PhotoResWidth: ULONG,
-            PhotoResHeight: ULONG,
-            PreviewFPSNum: ULONG,
-            PreviewFPSDenom: ULONG,
-            CaptureFPSNum: ULONG,
-            CaptureFPSDenom: ULONG,
+            PhotoResWidth: u32,
+            PhotoResHeight: u32,
+            PreviewFPSNum: u32,
+            PreviewFPSDenom: u32,
+            CaptureFPSNum: u32,
+            CaptureFPSDenom: u32,
         }
         struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
             Header: KSCAMERA_METADATA_ITEMHEADER,
             MaskCoverageBoundingBox: RECT,
             MaskResolution: SIZE,
             ForegroundBoundingBox: RECT,
-            MaskData: [BYTE; 1],
+            MaskData: [u8; 1],
         }
         struct KSCAMERA_METADATA_CAPTURESTATS {
             Header: KSCAMERA_METADATA_ITEMHEADER,
-            Flags: ULONG,
-            Reserved: ULONG,
-            ExposureTime: ULONGLONG,
-            ExposureCompensationFlags: ULONGLONG,
-            ExposureCompensationValue: LONG,
-            IsoSpeed: ULONG,
-            FocusState: ULONG,
-            LensPosition: ULONG,
-            WhiteBalance: ULONG,
-            Flash: ULONG,
-            FlashPower: ULONG,
-            ZoomFactor: ULONG,
-            SceneMode: ULONGLONG,
-            SensorFramerate: ULONGLONG,
+            Flags: u32,
+            Reserved: u32,
+            ExposureTime: u64,
+            ExposureCompensationFlags: u64,
+            ExposureCompensationValue: i32,
+            IsoSpeed: u32,
+            FocusState: u32,
+            LensPosition: u32,
+            WhiteBalance: u32,
+            Flash: u32,
+            FlashPower: u32,
+            ZoomFactor: u32,
+            SceneMode: u64,
+            SensorFramerate: u64,
         }
         const KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURECOMPENSATION: i32 = 2;
         const KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURETIME: i32 = 1;
@@ -908,18 +907,18 @@ mod Windows {
         }
         struct KSCAMERA_METADATA_FRAMEILLUMINATION {
             Header: KSCAMERA_METADATA_ITEMHEADER,
-            Flags: ULONG,
-            Reserved: ULONG,
+            Flags: u32,
+            Reserved: u32,
         }
         const KSCAMERA_METADATA_FRAMEILLUMINATION_FLAG_ON: i32 = 1;
         struct KSCAMERA_METADATA_ITEMHEADER {
-            MetadataId: ULONG,
-            Size: ULONG,
+            MetadataId: u32,
+            Size: u32,
         }
         struct KSCAMERA_METADATA_PHOTOCONFIRMATION {
             Header: KSCAMERA_METADATA_ITEMHEADER,
-            PhotoConfirmationIndex: ULONG,
-            Reserved: ULONG,
+            PhotoConfirmationIndex: u32,
+            Reserved: u32,
         }
         #[repr(i32)]
         enum KSCAMERA_MetadataId {
@@ -937,38 +936,38 @@ mod Windows {
         }
         const KSCAMERA_PERFRAMESETTING_AUTO: i64 = 4294967296;
         struct KSCAMERA_PERFRAMESETTING_CAP_HEADER {
-            Size: ULONG,
-            ItemCount: ULONG,
-            Flags: ULONGLONG,
+            Size: u32,
+            ItemCount: u32,
+            Flags: u64,
         }
         struct KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
-            Size: ULONG,
-            Type: ULONG,
-            Flags: ULONGLONG,
+            Size: u32,
+            Type: u32,
+            Flags: u64,
         }
         struct KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
-            Size: ULONG,
-            Reserved: ULONG,
+            Size: u32,
+            Reserved: u32,
             Id: GUID,
         }
         struct KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
-            Size: ULONG,
-            Id: ULONG,
-            ItemCount: ULONG,
-            Reserved: ULONG,
+            Size: u32,
+            Id: u32,
+            ItemCount: u32,
+            Reserved: u32,
         }
         struct KSCAMERA_PERFRAMESETTING_HEADER {
-            Size: ULONG,
-            FrameCount: ULONG,
+            Size: u32,
+            FrameCount: u32,
             Id: GUID,
-            Flags: ULONGLONG,
-            LoopCount: ULONG,
-            Reserved: ULONG,
+            Flags: u64,
+            LoopCount: u32,
+            Reserved: u32,
         }
         struct KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
-            Size: ULONG,
-            Type: ULONG,
-            Flags: ULONGLONG,
+            Size: u32,
+            Type: u32,
+            Flags: u64,
         }
         #[repr(i32)]
         enum KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
@@ -983,54 +982,52 @@ mod Windows {
         const KSCAMERA_PERFRAMESETTING_MANUAL: i64 = 8589934592;
         struct KSCAMERA_PROFILE_CONCURRENCYINFO {
             ReferenceGuid: GUID,
-            Reserved: UINT32,
-            ProfileCount: UINT32,
+            Reserved: u32,
+            ProfileCount: u32,
             Profiles: PKSCAMERA_PROFILE_INFO,
         }
         struct KSCAMERA_PROFILE_INFO {
             ProfileId: GUID,
-            Index: UINT32,
-            PinCount: UINT32,
+            Index: u32,
+            PinCount: u32,
             Pins: PKSCAMERA_PROFILE_PININFO,
         }
         struct KSCAMERA_PROFILE_MEDIAINFO {
             Resolution: struct {
-                X: UINT32,
-                Y: UINT32,
+                X: u32,
+                Y: u32,
             },
             MaxFrameRate: struct {
-                Numerator: UINT32,
-                Denominator: UINT32,
+                Numerator: u32,
+                Denominator: u32,
             },
-            Flags: ULONGLONG,
-            Data0: UINT32,
-            Data1: UINT32,
-            Data2: UINT32,
-            Data3: UINT32,
+            Flags: u64,
+            Data0: u32,
+            Data1: u32,
+            Data2: u32,
+            Data3: u32,
         }
         struct KSCAMERA_PROFILE_PININFO {
             PinCategory: GUID,
             Anonymous: union {
                 Anonymous: struct {
-                    PinIndex: USHORT,
-                    ProfileSensorType: USHORT,
+                    PinIndex: u16,
+                    ProfileSensorType: u16,
                 },
-                Reserved: UINT32,
+                Reserved: u32,
             },
-            MediaInfoCount: UINT32,
+            MediaInfoCount: u32,
             MediaInfos: PKSCAMERA_PROFILE_MEDIAINFO,
         }
         const KSCATEGORY_ACOUSTIC_ECHO_CANCEL: GUID = 0xbf963d80_c559_11d0_8a2b_00a0c9255ac1;
         const KSCATEGORY_AUDIO: GUID = 0x6994ad04_93ef_11d0_a3cc_00a0c9223196;
         const KSCATEGORY_CROSSBAR: GUID = 0xa799a801_a46d_11d0_a18c_00a02401dcd4;
-        const KSCATEGORY_DRM_DESCRAMBLE: GUID = 0xffbb6e3f_ccfe_4d84_90d9_421418b03a8e;
         const KSCATEGORY_ENCODER: GUID = 0x19689bf6_c384_48fd_ad51_90e58c79f70b;
         const KSCATEGORY_ESCALANTE_PLATFORM_DRIVER: GUID = 0x74f3aea8_9768_11d1_8e07_00a0c95ec22e;
         const KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR: GUID = 0x830a44f2_a32d_476b_be97_42845673b35a;
         const KSCATEGORY_MULTIPLEXER: GUID = 0x7a5de1d3_01a1_452c_b481_4fa2b96271e8;
         const KSCATEGORY_NETWORK: GUID = 0x67c9cc3c_69c4_11d2_8759_00a0c9223196;
         const KSCATEGORY_REALTIME: GUID = 0xeb115ffc_10c8_4964_831d_6dcb02e6f23f;
-        const KSCATEGORY_SYNTHESIZER: GUID = 0xdff220f3_f70f_11d0_b917_00a0c9223196;
         const KSCATEGORY_TEXT: GUID = 0x6994ad06_93ef_11d0_a3cc_00a0c9223196;
         const KSCATEGORY_TOPOLOGY: GUID = 0xdda54a40_1e4c_11d1_a050_405705c10000;
         const KSCATEGORY_TVAUDIO: GUID = 0xa799a802_a46d_11d0_a18c_00a02401dcd4;
@@ -1049,7 +1046,7 @@ mod Windows {
         const KSCameraProfileSensorType_RGB: i32 = 1;
         #[packed(1)]
         struct KSDATAFORMAT_DSOUND {
-            DataFormat: KSDATAFORMAT,
+            DataFormat: KSDATARANGE,
             BufferDesc: KSDSOUND_BUFFERDESC,
         }
         const KSDATAFORMAT_SPECIFIER_AC3_AUDIO: GUID = 0xe06d80e4_db46_11cf_b4d1_00805f6cbbea;
@@ -1177,37 +1174,37 @@ mod Windows {
         const KSDATAFORMAT_TYPE_VIDEO: GUID = 0x73646976_0000_0010_8000_00aa00389b71;
         #[packed(1)]
         struct KSDATAFORMAT_WAVEFORMATEX {
-            DataFormat: KSDATAFORMAT,
+            DataFormat: KSDATARANGE,
             WaveFormatEx: WAVEFORMATEX,
         }
         #[packed(1)]
         struct KSDATAFORMAT_WAVEFORMATEXTENSIBLE {
-            DataFormat: KSDATAFORMAT,
+            DataFormat: KSDATARANGE,
             WaveFormatExt: WAVEFORMATEXTENSIBLE,
         }
         struct KSDATARANGE_AUDIO {
             DataRange: KSDATARANGE,
-            MaximumChannels: ULONG,
-            MinimumBitsPerSample: ULONG,
-            MaximumBitsPerSample: ULONG,
-            MinimumSampleFrequency: ULONG,
-            MaximumSampleFrequency: ULONG,
+            MaximumChannels: u32,
+            MinimumBitsPerSample: u32,
+            MaximumBitsPerSample: u32,
+            MinimumSampleFrequency: u32,
+            MaximumSampleFrequency: u32,
         }
         struct KSDATARANGE_MUSIC {
             DataRange: KSDATARANGE,
             Technology: GUID,
-            Channels: ULONG,
-            Notes: ULONG,
-            ChannelMask: ULONG,
+            Channels: u32,
+            Notes: u32,
+            ChannelMask: u32,
         }
         struct KSDEVICE_PROFILE_INFO {
-            Type: UINT32,
-            Size: UINT32,
+            Type: u32,
+            Size: u32,
             Anonymous: union {
                 Camera: struct {
                     Info: KSCAMERA_PROFILE_INFO,
-                    Reserved: UINT32,
-                    ConcurrencyCount: UINT32,
+                    Reserved: u32,
+                    ConcurrencyCount: u32,
                     Concurrency: PKSCAMERA_PROFILE_CONCURRENCYINFO,
                 },
             },
@@ -1215,25 +1212,25 @@ mod Windows {
         const KSDEVICE_PROFILE_TYPE_CAMERA: i32 = 1;
         const KSDEVICE_PROFILE_TYPE_UNKNOWN: i32 = 0;
         struct KSDISPLAYCHANGE {
-            PelsWidth: ULONG,
-            PelsHeight: ULONG,
-            BitsPerPel: ULONG,
-            DeviceID: [WCHAR; 1],
+            PelsWidth: u32,
+            PelsHeight: u32,
+            BitsPerPel: u32,
+            DeviceID: [u16; 1],
         }
         struct KSDS3D_BUFFER_ALL {
             Position: DS3DVECTOR,
             Velocity: DS3DVECTOR,
-            InsideConeAngle: ULONG,
-            OutsideConeAngle: ULONG,
+            InsideConeAngle: u32,
+            OutsideConeAngle: u32,
             ConeOrientation: DS3DVECTOR,
-            ConeOutsideVolume: LONG,
-            MinDistance: FLOAT,
-            MaxDistance: FLOAT,
-            Mode: ULONG,
+            ConeOutsideVolume: i32,
+            MinDistance: f32,
+            MaxDistance: f32,
+            Mode: u32,
         }
         struct KSDS3D_BUFFER_CONE_ANGLES {
-            InsideConeAngle: ULONG,
-            OutsideConeAngle: ULONG,
+            InsideConeAngle: u32,
+            OutsideConeAngle: u32,
         }
         #[repr(i32)]
         enum KSDS3D_HRTF_COEFF_FORMAT {
@@ -1245,7 +1242,7 @@ mod Windows {
             FilterMethod: KSDS3D_HRTF_FILTER_METHOD,
             CoeffFormat: KSDS3D_HRTF_COEFF_FORMAT,
             Version: KSDS3D_HRTF_FILTER_VERSION,
-            Reserved: ULONG,
+            Reserved: u32,
         }
         #[repr(i32)]
         enum KSDS3D_HRTF_FILTER_METHOD {
@@ -1264,45 +1261,45 @@ mod Windows {
             DS3D_HRTF_VERSION_1 = 0,
         }
         struct KSDS3D_HRTF_INIT_MSG {
-            Size: ULONG,
+            Size: u32,
             Quality: KSDS3D_HRTF_FILTER_QUALITY,
-            SampleRate: FLOAT,
-            MaxFilterSize: ULONG,
-            FilterTransientMuteLength: ULONG,
-            FilterOverlapBufferLength: ULONG,
-            OutputOverlapBufferLength: ULONG,
-            Reserved: ULONG,
+            SampleRate: f32,
+            MaxFilterSize: u32,
+            FilterTransientMuteLength: u32,
+            FilterOverlapBufferLength: u32,
+            OutputOverlapBufferLength: u32,
+            Reserved: u32,
         }
         struct KSDS3D_HRTF_PARAMS_MSG {
-            Size: ULONG,
-            Enabled: ULONG,
+            Size: u32,
+            Enabled: u32,
             SwapChannels: BOOL,
             ZeroAzimuth: BOOL,
             CrossFadeOutput: BOOL,
-            FilterSize: ULONG,
+            FilterSize: u32,
         }
         struct KSDS3D_ITD_PARAMS {
-            Channel: LONG,
-            VolSmoothScale: FLOAT,
-            TotalDryAttenuation: FLOAT,
-            TotalWetAttenuation: FLOAT,
-            SmoothFrequency: LONG,
-            Delay: LONG,
+            Channel: i32,
+            VolSmoothScale: f32,
+            TotalDryAttenuation: f32,
+            TotalWetAttenuation: f32,
+            SmoothFrequency: i32,
+            Delay: i32,
         }
         struct KSDS3D_ITD_PARAMS_MSG {
-            Enabled: ULONG,
+            Enabled: u32,
             LeftParams: KSDS3D_ITD_PARAMS,
             RightParams: KSDS3D_ITD_PARAMS,
-            Reserved: ULONG,
+            Reserved: u32,
         }
         struct KSDS3D_LISTENER_ALL {
             Position: DS3DVECTOR,
             Velocity: DS3DVECTOR,
             OrientFront: DS3DVECTOR,
             OrientTop: DS3DVECTOR,
-            DistanceFactor: FLOAT,
-            RolloffFactor: FLOAT,
-            DopplerFactor: FLOAT,
+            DistanceFactor: f32,
+            RolloffFactor: f32,
+            DopplerFactor: f32,
         }
         struct KSDS3D_LISTENER_ORIENTATION {
             Front: DS3DVECTOR,
@@ -1313,8 +1310,8 @@ mod Windows {
         const KSDSOUND_3D_MODE_NORMAL: i32 = 0;
         #[packed(1)]
         struct KSDSOUND_BUFFERDESC {
-            Flags: ULONG,
-            Control: ULONG,
+            Flags: u32,
+            Control: u32,
             WaveFormatEx: WAVEFORMATEX,
         }
         const KSDSOUND_BUFFER_CTRL_3D: i32 = 1;
@@ -1336,7 +1333,6 @@ mod Windows {
         const KSEVENTSETID_LoopedStreaming: GUID = 0x4682b940_c6ef_11d0_96d8_00aa0051e51d;
         const KSEVENTSETID_SoundDetector: GUID = 0x69785c9b_fc2d_49d6_ac32_4799f87de9f6;
         const KSEVENTSETID_Telephony: GUID = 0xb77f12b4_ceb4_4484_8d5e_52c1e7d8762d;
-        const KSEVENTSETID_VIDCAPNotify: GUID = 0xdb47de20_f628_11d1_ba41_00a0c90d2b05;
         const KSEVENTSETID_VIDCAPTOSTI: GUID = 0xdb47de20_f628_11d1_ba41_00a0c90d2b05;
         const KSEVENTSETID_VIDCAP_TVAUDIO: GUID = 0x6a2e0651_28e4_11d0_a18c_00a0c9118956;
         const KSEVENTSETID_VPNotify: GUID = 0x20c5598e_d3c8_11d0_8dfc_00c04fd7c08b;
@@ -1392,8 +1388,8 @@ mod Windows {
         }
         struct KSEVENT_TUNER_INITIATE_SCAN_S {
             EventData: KSEVENTDATA,
-            StartFrequency: ULONG,
-            EndFrequency: ULONG,
+            StartFrequency: u32,
+            EndFrequency: u32,
         }
         #[repr(i32)]
         enum KSEVENT_TVAUDIO {
@@ -1418,10 +1414,10 @@ mod Windows {
             KSEVENT_VPVBINOTIFY_FORMATCHANGE = 0,
         }
         struct KSGOP_USERDATA {
-            sc: ULONG,
-            reserved1: ULONG,
-            cFields: BYTE,
-            l21Data: [CHAR; 3],
+            sc: u32,
+            reserved1: u32,
+            cFields: u8,
+            l21Data: [i8; 3],
         }
         const KSINTERFACESETID_Media: GUID = 0x3a13eb40_30a7_11d0_a5d6_28db04c10000;
         #[repr(i32)]
@@ -1431,8 +1427,8 @@ mod Windows {
             KSINTERFACE_MEDIA_WAVE_QUEUED = 2,
         }
         struct KSJACK_DESCRIPTION {
-            ChannelMapping: DWORD,
-            Color: DWORD,
+            ChannelMapping: u32,
+            Color: u32,
             ConnectionType: EPcxConnectionType,
             GeoLocation: EPcxGeoLocation,
             GenLocation: EPcxGenLocation,
@@ -1440,11 +1436,11 @@ mod Windows {
             IsConnected: BOOL,
         }
         struct KSJACK_DESCRIPTION2 {
-            DeviceStateInfo: DWORD,
-            JackCapabilities: DWORD,
+            DeviceStateInfo: u32,
+            JackCapabilities: u32,
         }
         struct KSJACK_DESCRIPTION3 {
-            ConfigId: ULONG,
+            ConfigId: u32,
         }
         #[repr(i32)]
         enum KSJACK_SINK_CONNECTIONTYPE {
@@ -1453,13 +1449,13 @@ mod Windows {
         }
         struct KSJACK_SINK_INFORMATION {
             ConnType: KSJACK_SINK_CONNECTIONTYPE,
-            ManufacturerId: WORD,
-            ProductId: WORD,
-            AudioLatency: WORD,
+            ManufacturerId: u16,
+            ProductId: u16,
+            AudioLatency: u16,
             HDCPCapable: BOOL,
             AICapable: BOOL,
-            SinkDescriptionLength: UCHAR,
-            SinkDescription: [WCHAR; 32],
+            SinkDescriptionLength: u8,
+            SinkDescription: [u16; 32],
             PortId: LUID,
         }
         const KSMEDIUMSETID_MidiBus: GUID = 0x05908040_3246_11d0_a5d6_28db04c10000;
@@ -1489,12 +1485,12 @@ mod Windows {
             KSMICARRAY_MICTYPE_VENDORDEFINED = 15,
         }
         struct KSMIDILOOPED_BUFFER {
-            BufferAddress: PVOID,
-            ActualBufferSize: ULONG,
+            BufferAddress: *mut void,
+            ActualBufferSize: u32,
         }
         struct KSMIDILOOPED_BUFFER_PROPERTY {
             Property: KSPROPERTY,
-            RequestedBufferSize: ULONG,
+            RequestedBufferSize: u32,
         }
         struct KSMIDILOOPED_EVENT {
             WriteEvent: HANDLE,
@@ -1504,25 +1500,25 @@ mod Windows {
             ReadEvent: HANDLE,
         }
         struct KSMIDILOOPED_REGISTERS {
-            WritePosition: PVOID,
-            ReadPosition: PVOID,
+            WritePosition: *mut void,
+            ReadPosition: *mut void,
         }
         const KSMPEGVIDMODE_LTRBOX: i32 = 2;
         const KSMPEGVIDMODE_PANSCAN: i32 = 1;
         const KSMPEGVIDMODE_SCALE: i32 = 4;
         struct KSMPEGVID_RECT {
-            StartX: ULONG,
-            StartY: ULONG,
-            EndX: ULONG,
-            EndY: ULONG,
+            StartX: u32,
+            StartY: u32,
+            EndX: u32,
+            EndY: u32,
         }
         struct KSMULTIPLE_DATA_PROP {
             Property: KSPROPERTY,
             MultipleItem: KSMULTIPLE_ITEM,
         }
         struct KSMUSICFORMAT {
-            TimeDeltaMs: ULONG,
-            ByteCount: ULONG,
+            TimeDeltaMs: u32,
+            ByteCount: u32,
         }
         const KSMUSIC_TECHNOLOGY_FMSYNTH: GUID = 0x252c5c80_62e9_11cf_a5d6_28db04c10000;
         const KSMUSIC_TECHNOLOGY_PORT: GUID = 0x86c92e60_62e8_11cf_a5d6_28db04c10000;
@@ -1537,48 +1533,47 @@ mod Windows {
         const KSNODEPIN_SUM_MUX_OUT: i32 = 0;
         struct KSNODEPROPERTY {
             Property: KSPROPERTY,
-            NodeId: ULONG,
-            Reserved: ULONG,
+            NodeId: u32,
+            Reserved: u32,
         }
         #[arch(X64 | Arm64)]
         struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
             NodeProperty: KSNODEPROPERTY,
-            ListenerId: PVOID,
+            ListenerId: *mut void,
         }
         #[arch(X86)]
         struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
             NodeProperty: KSNODEPROPERTY,
-            ListenerId: PVOID,
-            Reserved: ULONG,
+            ListenerId: *mut void,
+            Reserved: u32,
         }
         struct KSNODEPROPERTY_AUDIO_CHANNEL {
             NodeProperty: KSNODEPROPERTY,
-            Channel: LONG,
-            Reserved: ULONG,
+            Channel: i32,
+            Reserved: u32,
         }
         struct KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
             NodeProperty: KSNODEPROPERTY,
-            DevSpecificId: ULONG,
-            DeviceInfo: ULONG,
-            Length: ULONG,
+            DevSpecificId: u32,
+            DeviceInfo: u32,
+            Length: u32,
         }
         #[arch(X64 | Arm64)]
         struct KSNODEPROPERTY_AUDIO_PROPERTY {
             NodeProperty: KSNODEPROPERTY,
-            AppContext: PVOID,
-            Length: ULONG,
+            AppContext: *mut void,
+            Length: u32,
         }
         #[arch(X86)]
         struct KSNODEPROPERTY_AUDIO_PROPERTY {
             NodeProperty: KSNODEPROPERTY,
-            AppContext: PVOID,
-            Length: ULONG,
-            Reserved: ULONG,
+            AppContext: *mut void,
+            Length: u32,
+            Reserved: u32,
         }
         const KSNODETYPE_1394_DA_STREAM: GUID = 0xdff21fe6_f70f_11d0_b917_00a0c9223196;
         const KSNODETYPE_1394_DV_STREAM_SOUNDTRACK: GUID = 0xdff21fe7_f70f_11d0_b917_00a0c9223196;
         const KSNODETYPE_3D_EFFECTS: GUID = 0x55515860_c559_11d0_8a2b_00a0c9255ac1;
-        const KSNODETYPE_ACOUSTIC_ECHO_CANCEL: GUID = 0xbf963d80_c559_11d0_8a2b_00a0c9255ac1;
         const KSNODETYPE_ADC: GUID = 0x4d837fe0_c555_11d0_8a2b_00a0c9255ac1;
         const KSNODETYPE_AGC: GUID = 0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1;
         const KSNODETYPE_ANALOG_CONNECTOR: GUID = 0xdff21fe1_f70f_11d0_b917_00a0c9223196;
@@ -1618,8 +1613,6 @@ mod Windows {
         const KSNODETYPE_HDMI_INTERFACE: GUID = 0xd1b9cc2a_f519_417f_91c9_55fa65481001;
         const KSNODETYPE_HEADPHONES: GUID = 0xdff21ce2_f70f_11d0_b917_00a0c9223196;
         const KSNODETYPE_HEADSET: GUID = 0xdff21de2_f70f_11d0_b917_00a0c9223196;
-        const KSNODETYPE_HEADSET_MICROPHONE: GUID = 0xdff21be3_f70f_11d0_b917_00a0c9223196;
-        const KSNODETYPE_HEADSET_SPEAKERS: GUID = 0xdff21ce6_f70f_11d0_b917_00a0c9223196;
         const KSNODETYPE_HEAD_MOUNTED_DISPLAY_AUDIO: GUID = 0xdff21ce3_f70f_11d0_b917_00a0c9223196;
         const KSNODETYPE_INPUT_UNDEFINED: GUID = 0xdff21be0_f70f_11d0_b917_00a0c9223196;
         const KSNODETYPE_LEGACY_AUDIO_CONNECTOR: GUID = 0xdff21fe4_f70f_11d0_b917_00a0c9223196;
@@ -1629,7 +1622,6 @@ mod Windows {
         const KSNODETYPE_LOW_FREQUENCY_EFFECTS_SPEAKER: GUID = 0xdff21ce7_f70f_11d0_b917_00a0c9223196;
         const KSNODETYPE_MICROPHONE: GUID = 0xdff21be1_f70f_11d0_b917_00a0c9223196;
         const KSNODETYPE_MICROPHONE_ARRAY: GUID = 0xdff21be5_f70f_11d0_b917_00a0c9223196;
-        const KSNODETYPE_MICROPHONE_ARRAY_PROCESSOR: GUID = 0x830a44f2_a32d_476b_be97_42845673b35a;
         const KSNODETYPE_MIDI_ELEMENT: GUID = 0x01c6fe66_6e48_4c65_ac9b_52db5d656c7e;
         const KSNODETYPE_MIDI_JACK: GUID = 0x265e0c3f_fa39_4df3_ab04_be01b91e299a;
         const KSNODETYPE_MINIDISK: GUID = 0xdff220e6_f70f_11d0_b917_00a0c9223196;
@@ -1660,7 +1652,6 @@ mod Windows {
         const KSNODETYPE_STEREO_WIDE: GUID = 0xa9e69800_c558_11d0_8a2b_00a0c9255ac1;
         const KSNODETYPE_SUM: GUID = 0xda441a60_c556_11d0_8a2b_00a0c9255ac1;
         const KSNODETYPE_SUPERMIX: GUID = 0xe573adc0_c555_11d0_8a2b_00a0c9255ac1;
-        const KSNODETYPE_SURROUND_ENCODER: GUID = 0x8074c5b2_3c66_11d2_b45a_3078302c2030;
         const KSNODETYPE_SYNTHESIZER: GUID = 0xdff220f3_f70f_11d0_b917_00a0c9223196;
         const KSNODETYPE_TELEPHONE: GUID = 0xdff21ee2_f70f_11d0_b917_00a0c9223196;
         const KSNODETYPE_TELEPHONY_BIDI: GUID = 0x686d7cc0_d903_4258_b443_3a3d3580741c;
@@ -1703,14 +1694,14 @@ mod Windows {
             KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE = 3,
         }
         struct KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
-            InterleavedCapSupported: ULONG,
+            InterleavedCapSupported: u32,
         }
         struct KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
-            InterleavedCapPossible: ULONG,
+            InterleavedCapPossible: u32,
         }
         struct KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
-            CX: ULONG,
-            CY: ULONG,
+            CX: u32,
+            CY: u32,
         }
         #[repr(i32)]
         enum KSPROPERTY_AUDDECOUT {
@@ -1927,14 +1918,14 @@ mod Windows {
         const KSPROPERTY_CAMERACONTROL_FLASH_OFF: i32 = 0;
         const KSPROPERTY_CAMERACONTROL_FLASH_ON: i32 = 1;
         struct KSPROPERTY_CAMERACONTROL_FLASH_S {
-            Flash: ULONG,
-            Capabilities: ULONG,
+            Flash: u32,
+            Capabilities: u32,
         }
         struct KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
             Property: KSPROPERTY,
-            lOcularFocalLength: LONG,
-            lObjectiveFocalLengthMin: LONG,
-            lObjectiveFocalLengthMax: LONG,
+            lOcularFocalLength: i32,
+            lObjectiveFocalLengthMin: i32,
+            lObjectiveFocalLengthMax: i32,
         }
         #[repr(i32)]
         enum KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
@@ -1942,28 +1933,22 @@ mod Windows {
         }
         const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_EXCLUSIVE_WITH_RECORD: i32 = 1;
         struct KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
-            Capabilities: ULONG,
-            Reserved0: ULONG,
+            Capabilities: u32,
+            Reserved0: u32,
         }
         const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_SEQUENCE_EXCLUSIVE_WITH_RECORD: i32 = 2;
         struct KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
             NodeProperty: KSNODEPROPERTY,
-            lOcularFocalLength: LONG,
-            lObjectiveFocalLengthMin: LONG,
-            lObjectiveFocalLengthMax: LONG,
-        }
-        struct KSPROPERTY_CAMERACONTROL_NODE_S {
-            NodeProperty: KSP_NODE,
-            Value: LONG,
-            Flags: ULONG,
-            Capabilities: ULONG,
+            lOcularFocalLength: i32,
+            lObjectiveFocalLengthMin: i32,
+            lObjectiveFocalLengthMax: i32,
         }
         struct KSPROPERTY_CAMERACONTROL_NODE_S2 {
             NodeProperty: KSP_NODE,
-            Value1: LONG,
-            Flags: ULONG,
-            Capabilities: ULONG,
-            Value2: LONG,
+            Value1: i32,
+            Flags: u32,
+            Capabilities: u32,
+            Value2: i32,
         }
         #[repr(i32)]
         enum KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
@@ -1988,28 +1973,28 @@ mod Windows {
             AutoExposureLock: BOOL,
             AutoWhitebalanceLock: BOOL,
             Anonymous: union {
-                Capabilities: ULONG,
-                Configuration: ULONG,
+                Capabilities: u32,
+                Configuration: u32,
             },
         }
         struct KSPROPERTY_CAMERACONTROL_S {
             Property: KSPROPERTY,
-            Value: LONG,
-            Flags: ULONG,
-            Capabilities: ULONG,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
         }
         struct KSPROPERTY_CAMERACONTROL_S2 {
             Property: KSPROPERTY,
-            Value1: LONG,
-            Flags: ULONG,
-            Capabilities: ULONG,
-            Value2: LONG,
+            Value1: i32,
+            Flags: u32,
+            Capabilities: u32,
+            Value2: i32,
         }
         struct KSPROPERTY_CAMERACONTROL_S_EX {
             Property: KSPROPERTY,
-            Value: LONG,
-            Flags: ULONG,
-            Capabilities: ULONG,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
             FocusRect: RECT,
         }
         const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_AUTO: i32 = 4;
@@ -2020,8 +2005,8 @@ mod Windows {
         const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_MEDIUM: i32 = 2;
         const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_OFF: i32 = 0;
         struct KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
-            VideoStabilizationMode: ULONG,
-            Capabilities: ULONG,
+            VideoStabilizationMode: u32,
+            Capabilities: u32,
         }
         #[repr(i32)]
         enum KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
@@ -2032,7 +2017,7 @@ mod Windows {
             KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_CLEAR = 0,
             KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_SET = 1,
         }
-        type KSPROPERTY_COMPOSIT_ON = i32;
+        type KSPROPERTY_COMPOSIT_ON = BOOL;
         #[repr(i32)]
         enum KSPROPERTY_COPYPROT {
             KSPROPERTY_DVDCOPY_CHLG_KEY = 1,
@@ -2046,27 +2031,27 @@ mod Windows {
         }
         struct KSPROPERTY_CROSSBAR_ACTIVE_S {
             Property: KSPROPERTY,
-            IndexInputPin: ULONG,
-            Active: ULONG,
+            IndexInputPin: u32,
+            Active: u32,
         }
         struct KSPROPERTY_CROSSBAR_CAPS_S {
             Property: KSPROPERTY,
-            NumberOfInputs: ULONG,
-            NumberOfOutputs: ULONG,
+            NumberOfInputs: u32,
+            NumberOfOutputs: u32,
         }
         struct KSPROPERTY_CROSSBAR_PININFO_S {
             Property: KSPROPERTY,
             Direction: KSPIN_DATAFLOW,
-            Index: ULONG,
-            PinType: ULONG,
-            RelatedPinIndex: ULONG,
+            Index: u32,
+            PinType: u32,
+            RelatedPinIndex: u32,
             Medium: KSPIN_MEDIUM,
         }
         struct KSPROPERTY_CROSSBAR_ROUTE_S {
             Property: KSPROPERTY,
-            IndexInputPin: ULONG,
-            IndexOutputPin: ULONG,
-            CanRoute: ULONG,
+            IndexInputPin: u32,
+            IndexOutputPin: u32,
+            CanRoute: u32,
         }
         #[repr(i32)]
         enum KSPROPERTY_CYCLIC {
@@ -2102,9 +2087,9 @@ mod Windows {
         }
         struct KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
             Property: KSPROPERTY,
-            PictureNumber: LONGLONG,
-            DropCount: LONGLONG,
-            AverageFrameSize: ULONG,
+            PictureNumber: i64,
+            DropCount: i64,
+            AverageFrameSize: u32,
         }
         #[repr(i32)]
         enum KSPROPERTY_DVDSUBPIC {
@@ -2124,10 +2109,10 @@ mod Windows {
             Property: KSPROPERTY,
             u: union {
                 Capabilities: DEVCAPS,
-                DevPort: ULONG,
-                PowerState: ULONG,
-                pawchString: [WCHAR; 260],
-                NodeUniqueID: [DWORD; 2],
+                DevPort: u32,
+                PowerState: u32,
+                pawchString: [u16; 260],
+                NodeUniqueID: [u32; 2],
             },
         }
         #[repr(i32)]
@@ -2153,44 +2138,44 @@ mod Windows {
         struct KSPROPERTY_EXTXPORT_NODE_S {
             NodeProperty: KSP_NODE,
             u: union {
-                Capabilities: ULONG,
-                SignalMode: ULONG,
-                LoadMedium: ULONG,
+                Capabilities: u32,
+                SignalMode: u32,
+                LoadMedium: u32,
                 MediumInfo: MEDIUM_INFO,
                 XPrtState: TRANSPORT_STATE,
                 Timecode: struct {
-                    frame: BYTE,
-                    second: BYTE,
-                    minute: BYTE,
-                    hour: BYTE,
+                    frame: u8,
+                    second: u8,
+                    minute: u8,
+                    hour: u8,
                 },
-                dwTimecode: DWORD,
-                dwAbsTrackNumber: DWORD,
+                dwTimecode: u32,
+                dwAbsTrackNumber: u32,
                 RawAVC: struct {
-                    PayloadSize: ULONG,
-                    Payload: [BYTE; 512],
+                    PayloadSize: u32,
+                    Payload: [u8; 512],
                 },
             },
         }
         struct KSPROPERTY_EXTXPORT_S {
             Property: KSPROPERTY,
             u: union {
-                Capabilities: ULONG,
-                SignalMode: ULONG,
-                LoadMedium: ULONG,
+                Capabilities: u32,
+                SignalMode: u32,
+                LoadMedium: u32,
                 MediumInfo: MEDIUM_INFO,
                 XPrtState: TRANSPORT_STATE,
                 Timecode: struct {
-                    frame: BYTE,
-                    second: BYTE,
-                    minute: BYTE,
-                    hour: BYTE,
+                    frame: u8,
+                    second: u8,
+                    minute: u8,
+                    hour: u8,
                 },
-                dwTimecode: DWORD,
-                dwAbsTrackNumber: DWORD,
+                dwTimecode: u32,
+                dwAbsTrackNumber: u32,
                 RawAVC: struct {
-                    PayloadSize: ULONG,
-                    Payload: [BYTE; 512],
+                    PayloadSize: u32,
+                    Payload: [u8; 512],
                 },
             },
         }
@@ -2246,11 +2231,11 @@ mod Windows {
         }
         struct KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
             Header: KSCAMERA_METADATA_ITEMHEADER,
-            EventFilter: [WCHAR; 1],
+            EventFilter: [u16; 1],
         }
         struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
-            MetadataItems: ULONG,
-            Size: ULONG,
+            MetadataItems: u32,
+            Size: u32,
             PTZStatus: BOOL,
             Events: BOOL,
             Analytics: BOOL,
@@ -2261,7 +2246,7 @@ mod Windows {
             KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE_EVENTSINFO = 0,
         }
         struct KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
-            Size: ULONG,
+            Size: u32,
             Type: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE,
         }
         #[repr(i32)]
@@ -2306,15 +2291,15 @@ mod Windows {
         }
         struct KSPROPERTY_SELECTOR_NODE_S {
             NodeProperty: KSP_NODE,
-            Value: LONG,
-            Flags: ULONG,
-            Capabilities: ULONG,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
         }
         struct KSPROPERTY_SELECTOR_S {
             Property: KSPROPERTY,
-            Value: LONG,
-            Flags: ULONG,
-            Capabilities: ULONG,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
         }
         #[repr(i32)]
         enum KSPROPERTY_SOUNDDETECTOR {
@@ -2326,14 +2311,14 @@ mod Windows {
             KSPROPERTY_SOUNDDETECTOR_STREAMINGSUPPORT = 6,
         }
         struct KSPROPERTY_SPHLI {
-            HLISS: USHORT,
-            Reserved: USHORT,
-            StartPTM: ULONG,
-            EndPTM: ULONG,
-            StartX: USHORT,
-            StartY: USHORT,
-            StopX: USHORT,
-            StopY: USHORT,
+            HLISS: u16,
+            Reserved: u16,
+            StartPTM: u32,
+            EndPTM: u32,
+            StartX: u16,
+            StartY: u16,
+            StopX: u16,
+            StopY: u16,
             ColCon: KS_COLCON,
         }
         struct KSPROPERTY_SPPAL {
@@ -2389,20 +2374,20 @@ mod Windows {
         }
         struct KSPROPERTY_TUNER_CAPS_S {
             Property: KSPROPERTY,
-            ModesSupported: ULONG,
+            ModesSupported: u32,
             VideoMedium: KSPIN_MEDIUM,
             TVAudioMedium: KSPIN_MEDIUM,
             RadioAudioMedium: KSPIN_MEDIUM,
         }
         struct KSPROPERTY_TUNER_FREQUENCY_S {
             Property: KSPROPERTY,
-            Frequency: ULONG,
-            LastFrequency: ULONG,
-            TuningFlags: ULONG,
-            VideoSubChannel: ULONG,
-            AudioSubChannel: ULONG,
-            Channel: ULONG,
-            Country: ULONG,
+            Frequency: u32,
+            LastFrequency: u32,
+            TuningFlags: u32,
+            VideoSubChannel: u32,
+            AudioSubChannel: u32,
+            Channel: u32,
+            Country: u32,
         }
         struct KSPROPERTY_TUNER_IF_MEDIUM_S {
             Property: KSPROPERTY,
@@ -2410,7 +2395,7 @@ mod Windows {
         }
         struct KSPROPERTY_TUNER_INPUT_S {
             Property: KSPROPERTY,
-            InputIndex: ULONG,
+            InputIndex: u32,
         }
         #[repr(i32)]
         enum KSPROPERTY_TUNER_MODES {
@@ -2422,36 +2407,36 @@ mod Windows {
         }
         struct KSPROPERTY_TUNER_MODE_CAPS_S {
             Property: KSPROPERTY,
-            Mode: ULONG,
-            StandardsSupported: ULONG,
-            MinFrequency: ULONG,
-            MaxFrequency: ULONG,
-            TuningGranularity: ULONG,
-            NumberOfInputs: ULONG,
-            SettlingTime: ULONG,
-            Strategy: ULONG,
+            Mode: u32,
+            StandardsSupported: u32,
+            MinFrequency: u32,
+            MaxFrequency: u32,
+            TuningGranularity: u32,
+            NumberOfInputs: u32,
+            SettlingTime: u32,
+            Strategy: u32,
         }
         struct KSPROPERTY_TUNER_MODE_S {
             Property: KSPROPERTY,
-            Mode: ULONG,
+            Mode: u32,
         }
         struct KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
             Property: KSPROPERTY,
             NetworkType: GUID,
-            BufferSize: ULONG,
-            NetworkTunerCapabilities: PVOID,
+            BufferSize: u32,
+            NetworkTunerCapabilities: *mut void,
         }
         struct KSPROPERTY_TUNER_SCAN_CAPS_S {
             Property: KSPROPERTY,
             fSupportsHardwareAssistedScanning: BOOL,
-            SupportedBroadcastStandards: ULONG,
-            GUIDBucket: PVOID,
-            lengthofBucket: ULONG,
+            SupportedBroadcastStandards: u32,
+            GUIDBucket: *mut void,
+            lengthofBucket: u32,
         }
         struct KSPROPERTY_TUNER_SCAN_STATUS_S {
             Property: KSPROPERTY,
             LockStatus: TunerLockType,
-            CurrentFrequency: ULONG,
+            CurrentFrequency: u32,
         }
         struct KSPROPERTY_TUNER_STANDARD_MODE_S {
             Property: KSPROPERTY,
@@ -2459,24 +2444,24 @@ mod Windows {
         }
         struct KSPROPERTY_TUNER_STANDARD_S {
             Property: KSPROPERTY,
-            Standard: ULONG,
+            Standard: u32,
         }
         struct KSPROPERTY_TUNER_STATUS_S {
             Property: KSPROPERTY,
-            CurrentFrequency: ULONG,
-            PLLOffset: ULONG,
-            SignalStrength: ULONG,
-            Busy: ULONG,
+            CurrentFrequency: u32,
+            PLLOffset: u32,
+            SignalStrength: u32,
+            Busy: u32,
         }
         struct KSPROPERTY_TVAUDIO_CAPS_S {
             Property: KSPROPERTY,
-            Capabilities: ULONG,
+            Capabilities: u32,
             InputMedium: KSPIN_MEDIUM,
             OutputMedium: KSPIN_MEDIUM,
         }
         struct KSPROPERTY_TVAUDIO_S {
             Property: KSPROPERTY,
-            Mode: ULONG,
+            Mode: u32,
         }
         #[repr(i32)]
         enum KSPROPERTY_VBICAP {
@@ -2624,103 +2609,103 @@ mod Windows {
         }
         struct KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
             Property: KSPROPERTY,
-            StreamIndex: ULONG,
-            DefaultKeyFrameRate: LONG,
-            DefaultPFrameRate: LONG,
-            DefaultQuality: LONG,
-            NumberOfQualitySettings: LONG,
-            Capabilities: LONG,
+            StreamIndex: u32,
+            DefaultKeyFrameRate: i32,
+            DefaultPFrameRate: i32,
+            DefaultQuality: i32,
+            NumberOfQualitySettings: i32,
+            Capabilities: i32,
         }
         struct KSPROPERTY_VIDEOCOMPRESSION_S {
             Property: KSPROPERTY,
-            StreamIndex: ULONG,
-            Value: LONG,
+            StreamIndex: u32,
+            Value: i32,
         }
         struct KSPROPERTY_VIDEOCOMPRESSION_S1 {
             Property: KSPROPERTY,
-            StreamIndex: ULONG,
-            Value: LONG,
-            Flags: ULONG,
+            StreamIndex: u32,
+            Value: i32,
+            Flags: u32,
         }
         struct KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
             Property: KSPROPERTY,
-            StreamIndex: ULONG,
-            RangeIndex: ULONG,
+            StreamIndex: u32,
+            RangeIndex: u32,
             Dimensions: SIZE,
-            CurrentActualFrameRate: LONGLONG,
-            CurrentMaxAvailableFrameRate: LONGLONG,
+            CurrentActualFrameRate: i64,
+            CurrentMaxAvailableFrameRate: i64,
         }
         struct KSPROPERTY_VIDEOCONTROL_CAPS_S {
             Property: KSPROPERTY,
-            StreamIndex: ULONG,
-            VideoControlCaps: ULONG,
+            StreamIndex: u32,
+            VideoControlCaps: u32,
         }
         struct KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
             Property: KSPROPERTY,
-            StreamIndex: ULONG,
-            RangeIndex: ULONG,
+            StreamIndex: u32,
+            RangeIndex: u32,
             Dimensions: SIZE,
         }
         struct KSPROPERTY_VIDEOCONTROL_MODE_S {
             Property: KSPROPERTY,
-            StreamIndex: ULONG,
-            Mode: LONG,
+            StreamIndex: u32,
+            Mode: i32,
         }
         struct KSPROPERTY_VIDEODECODER_CAPS_S {
             Property: KSPROPERTY,
-            StandardsSupported: ULONG,
-            Capabilities: ULONG,
-            SettlingTime: ULONG,
-            HSyncPerVSync: ULONG,
+            StandardsSupported: u32,
+            Capabilities: u32,
+            SettlingTime: u32,
+            HSyncPerVSync: u32,
         }
         struct KSPROPERTY_VIDEODECODER_S {
             Property: KSPROPERTY,
-            Value: ULONG,
+            Value: u32,
         }
         struct KSPROPERTY_VIDEODECODER_STATUS2_S {
             Property: KSPROPERTY,
-            NumberOfLines: ULONG,
-            SignalLocked: ULONG,
-            ChromaLock: ULONG,
+            NumberOfLines: u32,
+            SignalLocked: u32,
+            ChromaLock: u32,
         }
         struct KSPROPERTY_VIDEODECODER_STATUS_S {
             Property: KSPROPERTY,
-            NumberOfLines: ULONG,
-            SignalLocked: ULONG,
+            NumberOfLines: u32,
+            SignalLocked: u32,
         }
         struct KSPROPERTY_VIDEOENCODER_S {
             Property: KSPROPERTY,
-            Value: LONG,
-            Flags: ULONG,
-            Capabilities: ULONG,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
         }
         const KSPROPERTY_VIDEOPROCAMP_FLAGS_AUTO: i32 = 1;
         const KSPROPERTY_VIDEOPROCAMP_FLAGS_MANUAL: i32 = 2;
         struct KSPROPERTY_VIDEOPROCAMP_NODE_S {
             NodeProperty: KSP_NODE,
-            Value: LONG,
-            Flags: ULONG,
-            Capabilities: ULONG,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
         }
         struct KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
             NodeProperty: KSP_NODE,
-            Value1: LONG,
-            Flags: ULONG,
-            Capabilities: ULONG,
-            Value2: LONG,
+            Value1: i32,
+            Flags: u32,
+            Capabilities: u32,
+            Value2: i32,
         }
         struct KSPROPERTY_VIDEOPROCAMP_S {
             Property: KSPROPERTY,
-            Value: LONG,
-            Flags: ULONG,
-            Capabilities: ULONG,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
         }
         struct KSPROPERTY_VIDEOPROCAMP_S2 {
             Property: KSPROPERTY,
-            Value1: LONG,
-            Flags: ULONG,
-            Capabilities: ULONG,
-            Value2: LONG,
+            Value1: i32,
+            Flags: u32,
+            Capabilities: u32,
+            Value2: i32,
         }
         #[repr(i32)]
         enum KSPROPERTY_VIDMEM_TRANSPORT {
@@ -2800,69 +2785,69 @@ mod Windows {
         const KSPROPSETID_VramCapture: GUID = 0xe73face3_2880_4902_b799_88d0cd634e0f;
         const KSPROPSETID_Wave: GUID = 0x924e54b0_630f_11cf_ada7_08003e30494a;
         struct KSRTAUDIO_BUFFER {
-            BufferAddress: PVOID,
-            ActualBufferSize: ULONG,
+            BufferAddress: *mut void,
+            ActualBufferSize: u32,
             CallMemoryBarrier: BOOL,
         }
         struct KSRTAUDIO_BUFFER32 {
-            BufferAddress: ULONG,
-            ActualBufferSize: ULONG,
+            BufferAddress: u32,
+            ActualBufferSize: u32,
             CallMemoryBarrier: BOOL,
         }
         struct KSRTAUDIO_BUFFER_PROPERTY {
             Property: KSPROPERTY,
-            BaseAddress: PVOID,
-            RequestedBufferSize: ULONG,
+            BaseAddress: *mut void,
+            RequestedBufferSize: u32,
         }
         struct KSRTAUDIO_BUFFER_PROPERTY32 {
             Property: KSPROPERTY,
-            BaseAddress: ULONG,
-            RequestedBufferSize: ULONG,
+            BaseAddress: u32,
+            RequestedBufferSize: u32,
         }
         struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
             Property: KSPROPERTY,
-            BaseAddress: PVOID,
-            RequestedBufferSize: ULONG,
-            NotificationCount: ULONG,
+            BaseAddress: *mut void,
+            RequestedBufferSize: u32,
+            NotificationCount: u32,
         }
         struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
             Property: KSPROPERTY,
-            BaseAddress: ULONG,
-            RequestedBufferSize: ULONG,
-            NotificationCount: ULONG,
+            BaseAddress: u32,
+            RequestedBufferSize: u32,
+            NotificationCount: u32,
         }
         struct KSRTAUDIO_GETREADPACKET_INFO {
-            PacketNumber: ULONG,
-            Flags: DWORD,
-            PerformanceCounterValue: ULONG64,
+            PacketNumber: u32,
+            Flags: u32,
+            PerformanceCounterValue: u64,
             MoreData: BOOL,
         }
         struct KSRTAUDIO_HWLATENCY {
-            FifoSize: ULONG,
-            ChipsetDelay: ULONG,
-            CodecDelay: ULONG,
+            FifoSize: u32,
+            ChipsetDelay: u32,
+            CodecDelay: u32,
         }
         struct KSRTAUDIO_HWREGISTER {
-            Register: PVOID,
-            Width: ULONG,
-            Numerator: ULONGLONG,
-            Denominator: ULONGLONG,
-            Accuracy: ULONG,
+            Register: *mut void,
+            Width: u32,
+            Numerator: u64,
+            Denominator: u64,
+            Accuracy: u32,
         }
         struct KSRTAUDIO_HWREGISTER32 {
-            Register: ULONG,
-            Width: ULONG,
-            Numerator: ULONGLONG,
-            Denominator: ULONGLONG,
-            Accuracy: ULONG,
+            Register: u32,
+            Width: u32,
+            Numerator: u64,
+            Denominator: u64,
+            Accuracy: u32,
         }
         struct KSRTAUDIO_HWREGISTER_PROPERTY {
             Property: KSPROPERTY,
-            BaseAddress: PVOID,
+            BaseAddress: *mut void,
         }
         struct KSRTAUDIO_HWREGISTER_PROPERTY32 {
             Property: KSPROPERTY,
-            BaseAddress: ULONG,
+            BaseAddress: u32,
         }
         struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
             Property: KSPROPERTY,
@@ -2870,7 +2855,7 @@ mod Windows {
         }
         struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
             Property: KSPROPERTY,
-            NotificationEvent: ULONG,
+            NotificationEvent: u32,
         }
         struct KSRTAUDIO_PACKETVREGISTER {
             CompletedPacketCount: PULONG64,
@@ -2879,12 +2864,12 @@ mod Windows {
         }
         struct KSRTAUDIO_PACKETVREGISTER_PROPERTY {
             Property: KSPROPERTY,
-            BaseAddress: PVOID,
+            BaseAddress: *mut void,
         }
         struct KSRTAUDIO_SETWRITEPACKET_INFO {
-            PacketNumber: ULONG,
-            Flags: DWORD,
-            EosPacketLength: ULONG,
+            PacketNumber: u32,
+            Flags: u32,
+            EosPacketLength: u32,
         }
         struct KSSOUNDDETECTORPROPERTY {
             Property: KSPROPERTY,
@@ -2903,8 +2888,8 @@ mod Windows {
             ProviderChangeOp: TELEPHONY_PROVIDERCHANGEOP,
         }
         struct KSTOPOLOGY_ENDPOINTID {
-            TopologyName: [WCHAR; 260],
-            PinId: ULONG,
+            TopologyName: [u16; 260],
+            PinId: u32,
         }
         struct KSTOPOLOGY_ENDPOINTIDPAIR {
             RenderEndpoint: KSTOPOLOGY_ENDPOINTID,
@@ -2912,72 +2897,72 @@ mod Windows {
         }
         struct KSVPMAXPIXELRATE {
             Size: KS_AMVPSIZE,
-            MaxPixelsPerSecond: DWORD,
-            Reserved: DWORD,
+            MaxPixelsPerSecond: u32,
+            Reserved: u32,
         }
         struct KSVPSIZE_PROP {
             Property: KSPROPERTY,
             Size: KS_AMVPSIZE,
         }
         struct KSVPSURFACEPARAMS {
-            dwPitch: DWORD,
-            dwXOrigin: DWORD,
-            dwYOrigin: DWORD,
+            dwPitch: u32,
+            dwXOrigin: u32,
+            dwYOrigin: u32,
         }
         struct KSWAVETABLE_WAVE_DESC {
             Identifier: KSIDENTIFIER,
-            Size: ULONG,
+            Size: u32,
             Looped: BOOL,
-            LoopPoint: ULONG,
+            LoopPoint: u32,
             InROM: BOOL,
-            Format: KSDATAFORMAT,
+            Format: KSDATARANGE,
         }
         struct KSWAVE_BUFFER {
-            Attributes: ULONG,
-            BufferSize: ULONG,
-            BufferAddress: PVOID,
+            Attributes: u32,
+            BufferSize: u32,
+            BufferAddress: *mut void,
         }
         const KSWAVE_BUFFER_ATTRIBUTEF_LOOPING: i32 = 1;
         const KSWAVE_BUFFER_ATTRIBUTEF_STATIC: i32 = 2;
         struct KSWAVE_COMPATCAPS {
-            ulDeviceType: ULONG,
+            ulDeviceType: u32,
         }
         const KSWAVE_COMPATCAPS_INPUT: i32 = 0;
         const KSWAVE_COMPATCAPS_OUTPUT: i32 = 1;
         struct KSWAVE_INPUT_CAPABILITIES {
-            MaximumChannelsPerConnection: ULONG,
-            MinimumBitsPerSample: ULONG,
-            MaximumBitsPerSample: ULONG,
-            MinimumSampleFrequency: ULONG,
-            MaximumSampleFrequency: ULONG,
-            TotalConnections: ULONG,
-            ActiveConnections: ULONG,
+            MaximumChannelsPerConnection: u32,
+            MinimumBitsPerSample: u32,
+            MaximumBitsPerSample: u32,
+            MinimumSampleFrequency: u32,
+            MaximumSampleFrequency: u32,
+            TotalConnections: u32,
+            ActiveConnections: u32,
         }
         struct KSWAVE_OUTPUT_CAPABILITIES {
-            MaximumChannelsPerConnection: ULONG,
-            MinimumBitsPerSample: ULONG,
-            MaximumBitsPerSample: ULONG,
-            MinimumSampleFrequency: ULONG,
-            MaximumSampleFrequency: ULONG,
-            TotalConnections: ULONG,
-            StaticConnections: ULONG,
-            StreamingConnections: ULONG,
-            ActiveConnections: ULONG,
-            ActiveStaticConnections: ULONG,
-            ActiveStreamingConnections: ULONG,
-            Total3DConnections: ULONG,
-            Static3DConnections: ULONG,
-            Streaming3DConnections: ULONG,
-            Active3DConnections: ULONG,
-            ActiveStatic3DConnections: ULONG,
-            ActiveStreaming3DConnections: ULONG,
-            TotalSampleMemory: ULONG,
-            FreeSampleMemory: ULONG,
-            LargestFreeContiguousSampleMemory: ULONG,
+            MaximumChannelsPerConnection: u32,
+            MinimumBitsPerSample: u32,
+            MaximumBitsPerSample: u32,
+            MinimumSampleFrequency: u32,
+            MaximumSampleFrequency: u32,
+            TotalConnections: u32,
+            StaticConnections: u32,
+            StreamingConnections: u32,
+            ActiveConnections: u32,
+            ActiveStaticConnections: u32,
+            ActiveStreamingConnections: u32,
+            Total3DConnections: u32,
+            Static3DConnections: u32,
+            Streaming3DConnections: u32,
+            Active3DConnections: u32,
+            ActiveStatic3DConnections: u32,
+            ActiveStreaming3DConnections: u32,
+            TotalSampleMemory: u32,
+            FreeSampleMemory: u32,
+            LargestFreeContiguousSampleMemory: u32,
         }
         struct KSWAVE_VOLUME {
-            LeftAttenuation: LONG,
-            RightAttenuation: LONG,
+            LeftAttenuation: i32,
+            RightAttenuation: i32,
         }
         const KS_47NABTS_SCALER: f64 = 4.714286312925246;
         const KS_AMCONTROL_COLORINFO_PRESENT: i32 = 128;
@@ -2992,30 +2977,30 @@ mod Windows {
             KS_PixAspectRatio_PAL16x9 = 3,
         }
         struct KS_AMVPDATAINFO {
-            dwSize: DWORD,
-            dwMicrosecondsPerField: DWORD,
+            dwSize: u32,
+            dwMicrosecondsPerField: u32,
             amvpDimInfo: KS_AMVPDIMINFO,
-            dwPictAspectRatioX: DWORD,
-            dwPictAspectRatioY: DWORD,
+            dwPictAspectRatioX: u32,
+            dwPictAspectRatioY: u32,
             bEnableDoubleClock: BOOL,
             bEnableVACT: BOOL,
             bDataIsInterlaced: BOOL,
-            lHalfLinesOdd: LONG,
+            lHalfLinesOdd: i32,
             bFieldPolarityInverted: BOOL,
-            dwNumLinesInVREF: DWORD,
-            lHalfLinesEven: LONG,
-            dwReserved1: DWORD,
+            dwNumLinesInVREF: u32,
+            lHalfLinesEven: i32,
+            dwReserved1: u32,
         }
         struct KS_AMVPDIMINFO {
-            dwFieldWidth: DWORD,
-            dwFieldHeight: DWORD,
-            dwVBIWidth: DWORD,
-            dwVBIHeight: DWORD,
+            dwFieldWidth: u32,
+            dwFieldHeight: u32,
+            dwVBIWidth: u32,
+            dwVBIHeight: u32,
             rcValidRegion: RECT,
         }
         struct KS_AMVPSIZE {
-            dwWidth: DWORD,
-            dwHeight: DWORD,
+            dwWidth: u32,
+            dwHeight: u32,
         }
         #[repr(i32)]
         enum KS_AMVP_MODE {
@@ -3033,7 +3018,7 @@ mod Windows {
         }
         struct KS_AM_ExactRateChange {
             OutputZeroTime: REFERENCE_TIME,
-            Rate: LONG,
+            Rate: i32,
         }
         type KS_AM_MaxFullDataRate = i32;
         #[repr(i32)]
@@ -3045,15 +3030,15 @@ mod Windows {
         }
         struct KS_AM_SimpleRateChange {
             StartTime: REFERENCE_TIME,
-            Rate: LONG,
+            Rate: i32,
         }
         type KS_AM_Step = u32;
         const KS_AM_UseNewCSSKey: i32 = 1;
         struct KS_ANALOGVIDEOINFO {
             rcSource: RECT,
             rcTarget: RECT,
-            dwActiveWidth: DWORD,
-            dwActiveHeight: DWORD,
+            dwActiveWidth: u32,
+            dwActiveHeight: u32,
             AvgTimePerFrame: REFERENCE_TIME,
         }
         #[repr(i32)]
@@ -3084,17 +3069,17 @@ mod Windows {
         const KS_AnalogVideo_PAL_Mask: i32 = 1052656;
         const KS_AnalogVideo_SECAM_Mask: i32 = 1044480;
         struct KS_BITMAPINFOHEADER {
-            biSize: DWORD,
-            biWidth: LONG,
-            biHeight: LONG,
-            biPlanes: WORD,
-            biBitCount: WORD,
-            biCompression: DWORD,
-            biSizeImage: DWORD,
-            biXPelsPerMeter: LONG,
-            biYPelsPerMeter: LONG,
-            biClrUsed: DWORD,
-            biClrImportant: DWORD,
+            biSize: u32,
+            biWidth: i32,
+            biHeight: i32,
+            biPlanes: u16,
+            biBitCount: u16,
+            biCompression: u32,
+            biSizeImage: u32,
+            biXPelsPerMeter: i32,
+            biYPelsPerMeter: i32,
+            biClrUsed: u32,
+            biClrImportant: u32,
         }
         const KS_BI_BITFIELDS: i32 = 3;
         const KS_BI_JPEG: i32 = 4;
@@ -3115,22 +3100,26 @@ mod Windows {
         const KS_CC_SUBSTREAM_SERVICE_T4: i32 = 2048;
         const KS_CC_SUBSTREAM_SERVICE_XDS: i32 = 4096;
         struct KS_COLCON {
-            #[Windows::Win32::Metadata::NativeBitfield("emph1col", 0, 4, MemberType = UCHAR)]
-            #[Windows::Win32::Metadata::NativeBitfield("emph2col", 4, 4, MemberType = UCHAR)]
-            _bitfield1: u8,
-            #[Windows::Win32::Metadata::NativeBitfield("backcol", 0, 4, MemberType = UCHAR)]
-            #[Windows::Win32::Metadata::NativeBitfield("patcol", 4, 4, MemberType = UCHAR)]
-            _bitfield2: u8,
-            #[Windows::Win32::Metadata::NativeBitfield("emph1con", 0, 4, MemberType = UCHAR)]
-            #[Windows::Win32::Metadata::NativeBitfield("emph2con", 4, 4, MemberType = UCHAR)]
-            _bitfield3: u8,
-            #[Windows::Win32::Metadata::NativeBitfield("backcon", 0, 4, MemberType = UCHAR)]
-            #[Windows::Win32::Metadata::NativeBitfield("patcon", 4, 4, MemberType = UCHAR)]
-            _bitfield4: u8,
+            _bitfield1: u8 {
+                emph1col: 4,
+                emph2col: 4,
+            },
+            _bitfield2: u8 {
+                backcol: 4,
+                patcol: 4,
+            },
+            _bitfield3: u8 {
+                emph1con: 4,
+                emph2con: 4,
+            },
+            _bitfield4: u8 {
+                backcon: 4,
+                patcon: 4,
+            },
         }
         const KS_COPYPROTECT_RestrictDuplication: i32 = 1;
         struct KS_COPY_MACROVISION {
-            MACROVISIONLevel: ULONG,
+            MACROVISIONLevel: u32,
         }
         #[repr(i32)]
         enum KS_COPY_MACROVISION_LEVEL {
@@ -3154,31 +3143,31 @@ mod Windows {
             KS_CompressionCaps_CanWindow = 16,
         }
         struct KS_DATAFORMAT_H264VIDEOINFO {
-            DataFormat: KSDATAFORMAT,
+            DataFormat: KSDATARANGE,
             H264VideoInfoHeader: KS_H264VIDEOINFO,
         }
         struct KS_DATAFORMAT_IMAGEINFO {
-            DataFormat: KSDATAFORMAT,
+            DataFormat: KSDATARANGE,
             ImageInfoHeader: KS_BITMAPINFOHEADER,
         }
         struct KS_DATAFORMAT_MPEGVIDEOINFO2 {
-            DataFormat: KSDATAFORMAT,
+            DataFormat: KSDATARANGE,
             MpegVideoInfoHeader2: KS_MPEGVIDEOINFO2,
         }
         struct KS_DATAFORMAT_VBIINFOHEADER {
-            DataFormat: KSDATAFORMAT,
+            DataFormat: KSDATARANGE,
             VBIInfoHeader: KS_VBIINFOHEADER,
         }
         struct KS_DATAFORMAT_VIDEOINFOHEADER {
-            DataFormat: KSDATAFORMAT,
+            DataFormat: KSDATARANGE,
             VideoInfoHeader: KS_VIDEOINFOHEADER,
         }
         struct KS_DATAFORMAT_VIDEOINFOHEADER2 {
-            DataFormat: KSDATAFORMAT,
+            DataFormat: KSDATARANGE,
             VideoInfoHeader2: KS_VIDEOINFOHEADER2,
         }
         struct KS_DATAFORMAT_VIDEOINFO_PALETTE {
-            DataFormat: KSDATAFORMAT,
+            DataFormat: KSDATARANGE,
             VideoInfo: KS_VIDEOINFO,
         }
         struct KS_DATARANGE_ANALOGVIDEO {
@@ -3189,8 +3178,8 @@ mod Windows {
             DataRange: KSDATARANGE,
             bFixedSizeSamples: BOOL,
             bTemporalCompression: BOOL,
-            StreamDescriptionFlags: DWORD,
-            MemoryAllocationFlags: DWORD,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
             ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
             VideoInfoHeader: KS_H264VIDEOINFO,
         }
@@ -3203,8 +3192,8 @@ mod Windows {
             DataRange: KSDATARANGE,
             bFixedSizeSamples: BOOL,
             bTemporalCompression: BOOL,
-            StreamDescriptionFlags: DWORD,
-            MemoryAllocationFlags: DWORD,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
             ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
             VideoInfoHeader: KS_MPEG1VIDEOINFO,
         }
@@ -3212,8 +3201,8 @@ mod Windows {
             DataRange: KSDATARANGE,
             bFixedSizeSamples: BOOL,
             bTemporalCompression: BOOL,
-            StreamDescriptionFlags: DWORD,
-            MemoryAllocationFlags: DWORD,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
             ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
             VideoInfoHeader: KS_MPEGVIDEOINFO2,
         }
@@ -3221,8 +3210,8 @@ mod Windows {
             DataRange: KSDATARANGE,
             bFixedSizeSamples: BOOL,
             bTemporalCompression: BOOL,
-            StreamDescriptionFlags: DWORD,
-            MemoryAllocationFlags: DWORD,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
             ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
             VideoInfoHeader: KS_VIDEOINFOHEADER,
         }
@@ -3230,8 +3219,8 @@ mod Windows {
             DataRange: KSDATARANGE,
             bFixedSizeSamples: BOOL,
             bTemporalCompression: BOOL,
-            StreamDescriptionFlags: DWORD,
-            MemoryAllocationFlags: DWORD,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
             ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
             VideoInfoHeader: KS_VIDEOINFOHEADER2,
         }
@@ -3239,8 +3228,8 @@ mod Windows {
             DataRange: KSDATARANGE,
             bFixedSizeSamples: BOOL,
             bTemporalCompression: BOOL,
-            StreamDescriptionFlags: DWORD,
-            MemoryAllocationFlags: DWORD,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
             ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
             VideoInfo: KS_VIDEOINFO,
         }
@@ -3248,8 +3237,8 @@ mod Windows {
             DataRange: KSDATARANGE,
             bFixedSizeSamples: BOOL,
             bTemporalCompression: BOOL,
-            StreamDescriptionFlags: DWORD,
-            MemoryAllocationFlags: DWORD,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
             ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
             VBIInfoHeader: KS_VBIINFOHEADER,
         }
@@ -3262,29 +3251,29 @@ mod Windows {
             KS_DVDCOPYSTATE_DONE = 4,
         }
         struct KS_DVDCOPY_BUSKEY {
-            BusKey: [BYTE; 5],
-            Reserved: [BYTE; 1],
+            BusKey: [u8; 5],
+            Reserved: [u8; 1],
         }
         struct KS_DVDCOPY_CHLGKEY {
-            ChlgKey: [BYTE; 10],
-            Reserved: [BYTE; 2],
+            ChlgKey: [u8; 10],
+            Reserved: [u8; 2],
         }
         struct KS_DVDCOPY_DISCKEY {
-            DiscKey: [BYTE; 2048],
+            DiscKey: [u8; 2048],
         }
         struct KS_DVDCOPY_REGION {
-            Reserved: UCHAR,
-            RegionData: UCHAR,
-            Reserved2: [UCHAR; 2],
+            Reserved: u8,
+            RegionData: u8,
+            Reserved2: [u8; 2],
         }
         struct KS_DVDCOPY_SET_COPY_STATE {
-            DVDCopyState: ULONG,
+            DVDCopyState: u32,
         }
         struct KS_DVDCOPY_TITLEKEY {
-            KeyFlags: ULONG,
-            ReservedNT: [ULONG; 2],
-            TitleKey: [UCHAR; 6],
-            Reserved: [UCHAR; 2],
+            KeyFlags: u32,
+            ReservedNT: [u32; 2],
+            TitleKey: [u8; 6],
+            Reserved: [u8; 2],
         }
         const KS_DVD_CGMS_COPY_ONCE: i32 = 16;
         const KS_DVD_CGMS_COPY_PERMITTED: i32 = 0;
@@ -3298,77 +3287,77 @@ mod Windows {
         const KS_DVD_SECTOR_PROTECTED: i32 = 32;
         const KS_DVD_SECTOR_PROTECT_MASK: i32 = 32;
         struct KS_DVD_YCrCb {
-            Reserved: UCHAR,
-            Y: UCHAR,
-            Cr: UCHAR,
-            Cb: UCHAR,
+            Reserved: u8,
+            Y: u8,
+            Cr: u8,
+            Cb: u8,
         }
         struct KS_DVD_YUV {
-            Reserved: UCHAR,
-            Y: UCHAR,
-            V: UCHAR,
-            U: UCHAR,
+            Reserved: u8,
+            Y: u8,
+            V: u8,
+            U: u8,
         }
         struct KS_FRAME_INFO {
-            ExtendedHeaderSize: ULONG,
-            dwFrameFlags: DWORD,
-            PictureNumber: LONGLONG,
-            DropCount: LONGLONG,
+            ExtendedHeaderSize: u32,
+            dwFrameFlags: u32,
+            PictureNumber: i64,
+            DropCount: i64,
             hDirectDraw: HANDLE,
             hSurfaceHandle: HANDLE,
             DirectDrawRect: RECT,
             Anonymous: union {
-                lSurfacePitch: LONG,
-                Reserved1: DWORD,
+                lSurfacePitch: i32,
+                Reserved1: u32,
             },
-            Reserved2: DWORD,
+            Reserved2: u32,
             Anonymous2: union {
                 Anonymous: struct {
-                    Reserved3: DWORD,
-                    Reserved4: DWORD,
+                    Reserved3: u32,
+                    Reserved4: u32,
                 },
-                FrameCompletionNumber: ULONGLONG,
+                FrameCompletionNumber: u64,
             },
         }
         struct KS_H264VIDEOINFO {
-            wWidth: WORD,
-            wHeight: WORD,
-            wSARwidth: WORD,
-            wSARheight: WORD,
-            wProfile: WORD,
-            bLevelIDC: BYTE,
-            wConstrainedToolset: WORD,
-            bmSupportedUsages: DWORD,
-            bmCapabilities: WORD,
-            bmSVCCapabilities: DWORD,
-            bmMVCCapabilities: DWORD,
-            dwFrameInterval: DWORD,
-            bMaxCodecConfigDelay: BYTE,
-            bmSupportedSliceModes: BYTE,
-            bmSupportedSyncFrameTypes: BYTE,
-            bResolutionScaling: BYTE,
-            bSimulcastSupport: BYTE,
-            bmSupportedRateControlModes: BYTE,
-            wMaxMBperSecOneResolutionNoScalability: WORD,
-            wMaxMBperSecTwoResolutionsNoScalability: WORD,
-            wMaxMBperSecThreeResolutionsNoScalability: WORD,
-            wMaxMBperSecFourResolutionsNoScalability: WORD,
-            wMaxMBperSecOneResolutionTemporalScalability: WORD,
-            wMaxMBperSecTwoResolutionsTemporalScalablility: WORD,
-            wMaxMBperSecThreeResolutionsTemporalScalability: WORD,
-            wMaxMBperSecFourResolutionsTemporalScalability: WORD,
-            wMaxMBperSecOneResolutionTemporalQualityScalability: WORD,
-            wMaxMBperSecTwoResolutionsTemporalQualityScalability: WORD,
-            wMaxMBperSecThreeResolutionsTemporalQualityScalablity: WORD,
-            wMaxMBperSecFourResolutionsTemporalQualityScalability: WORD,
-            wMaxMBperSecOneResolutionTemporalSpatialScalability: WORD,
-            wMaxMBperSecTwoResolutionsTemporalSpatialScalability: WORD,
-            wMaxMBperSecThreeResolutionsTemporalSpatialScalablity: WORD,
-            wMaxMBperSecFourResolutionsTemporalSpatialScalability: WORD,
-            wMaxMBperSecOneResolutionFullScalability: WORD,
-            wMaxMBperSecTwoResolutionsFullScalability: WORD,
-            wMaxMBperSecThreeResolutionsFullScalability: WORD,
-            wMaxMBperSecFourResolutionsFullScalability: WORD,
+            wWidth: u16,
+            wHeight: u16,
+            wSARwidth: u16,
+            wSARheight: u16,
+            wProfile: u16,
+            bLevelIDC: u8,
+            wConstrainedToolset: u16,
+            bmSupportedUsages: u32,
+            bmCapabilities: u16,
+            bmSVCCapabilities: u32,
+            bmMVCCapabilities: u32,
+            dwFrameInterval: u32,
+            bMaxCodecConfigDelay: u8,
+            bmSupportedSliceModes: u8,
+            bmSupportedSyncFrameTypes: u8,
+            bResolutionScaling: u8,
+            bSimulcastSupport: u8,
+            bmSupportedRateControlModes: u8,
+            wMaxMBperSecOneResolutionNoScalability: u16,
+            wMaxMBperSecTwoResolutionsNoScalability: u16,
+            wMaxMBperSecThreeResolutionsNoScalability: u16,
+            wMaxMBperSecFourResolutionsNoScalability: u16,
+            wMaxMBperSecOneResolutionTemporalScalability: u16,
+            wMaxMBperSecTwoResolutionsTemporalScalablility: u16,
+            wMaxMBperSecThreeResolutionsTemporalScalability: u16,
+            wMaxMBperSecFourResolutionsTemporalScalability: u16,
+            wMaxMBperSecOneResolutionTemporalQualityScalability: u16,
+            wMaxMBperSecTwoResolutionsTemporalQualityScalability: u16,
+            wMaxMBperSecThreeResolutionsTemporalQualityScalablity: u16,
+            wMaxMBperSecFourResolutionsTemporalQualityScalability: u16,
+            wMaxMBperSecOneResolutionTemporalSpatialScalability: u16,
+            wMaxMBperSecTwoResolutionsTemporalSpatialScalability: u16,
+            wMaxMBperSecThreeResolutionsTemporalSpatialScalablity: u16,
+            wMaxMBperSecFourResolutionsTemporalSpatialScalability: u16,
+            wMaxMBperSecOneResolutionFullScalability: u16,
+            wMaxMBperSecTwoResolutionsFullScalability: u16,
+            wMaxMBperSecThreeResolutionsFullScalability: u16,
+            wMaxMBperSecFourResolutionsFullScalability: u16,
         }
         const KS_INTERLACE_1FieldPerSample: i32 = 2;
         const KS_INTERLACE_DisplayModeBobOnly: i32 = 0;
@@ -3386,9 +3375,9 @@ mod Windows {
         const KS_MAX_SIZE_MPEG1_SEQUENCE_INFO: i32 = 140;
         struct KS_MPEG1VIDEOINFO {
             hdr: KS_VIDEOINFOHEADER,
-            dwStartTimeCode: DWORD,
-            cbSequenceHeader: DWORD,
-            bSequenceHeader: [BYTE; 1],
+            dwStartTimeCode: u32,
+            cbSequenceHeader: u32,
+            bSequenceHeader: [u8; 1],
         }
         #[repr(i32)]
         enum KS_MPEG2Level {
@@ -3416,20 +3405,20 @@ mod Windows {
         const KS_MPEG2_SourceIsLetterboxed: i32 = 8;
         const KS_MPEG2_WidescreenAnalogOut: i32 = 512;
         struct KS_MPEGAUDIOINFO {
-            dwFlags: DWORD,
-            dwReserved1: DWORD,
-            dwReserved2: DWORD,
-            dwReserved3: DWORD,
+            dwFlags: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+            dwReserved3: u32,
         }
         const KS_MPEGAUDIOINFO_27MhzTimebase: i32 = 1;
         struct KS_MPEGVIDEOINFO2 {
             hdr: KS_VIDEOINFOHEADER2,
-            dwStartTimeCode: DWORD,
-            cbSequenceHeader: DWORD,
-            dwProfile: DWORD,
-            dwLevel: DWORD,
-            dwFlags: DWORD,
-            bSequenceHeader: [DWORD; 1],
+            dwStartTimeCode: u32,
+            cbSequenceHeader: u32,
+            dwProfile: u32,
+            dwLevel: u32,
+            dwFlags: u32,
+            bSequenceHeader: [u32; 1],
         }
         const KS_NABTS_GROUPID_LOCAL_CABLE_SYSTEM_ADVERTISER_BASE: i32 = 2224;
         const KS_NABTS_GROUPID_LOCAL_CABLE_SYSTEM_CONTENT_BASE: i32 = 2208;
@@ -3472,10 +3461,10 @@ mod Windows {
             KS_PhysConn_Audio_AudioDecoder = 4105,
         }
         struct KS_RGBQUAD {
-            rgbBlue: BYTE,
-            rgbGreen: BYTE,
-            rgbRed: BYTE,
-            rgbReserved: BYTE,
+            rgbBlue: u8,
+            rgbGreen: u8,
+            rgbRed: u8,
+            rgbReserved: u8,
         }
         const KS_SECURE_CAMERA_SCENARIO_ID: GUID = 0xae53fc6e_8d89_4488_9d2e_4d008731c5fd;
         #[arch(X64 | Arm64)]
@@ -3490,9 +3479,9 @@ mod Windows {
         const KS_SIZE_PALETTE: u64 = 1024;
         #[arch(X86)]
         const KS_SIZE_PALETTE: u32 = 1024;
-        const KS_SIZE_PREHEADER: LONG = 48;
+        const KS_SIZE_PREHEADER: i32 = 48;
         struct KS_TRUECOLORINFO {
-            dwBitMasks: [DWORD; 3],
+            dwBitMasks: [u32; 3],
             bmiColors: [KS_RGBQUAD; 256],
         }
         #[repr(i32)]
@@ -3519,10 +3508,10 @@ mod Windows {
         const KS_TVTUNER_CHANGE_BEGIN_TUNE: i32 = 1;
         const KS_TVTUNER_CHANGE_END_TUNE: i32 = 2;
         struct KS_TVTUNER_CHANGE_INFO {
-            dwFlags: DWORD,
-            dwCountryCode: DWORD,
-            dwAnalogVideoStandard: DWORD,
-            dwChannel: DWORD,
+            dwFlags: u32,
+            dwCountryCode: u32,
+            dwAnalogVideoStandard: u32,
+            dwChannel: u32,
         }
         const KS_VBICAP_PROTECTION_MV_DETECTED: i32 = 4;
         const KS_VBICAP_PROTECTION_MV_HARDWARE: i32 = 2;
@@ -3530,17 +3519,17 @@ mod Windows {
         const KS_VBIDATARATE_CC: i32 = 503493;
         const KS_VBIDATARATE_NABTS: i32 = 5727272;
         struct KS_VBIINFOHEADER {
-            StartLine: ULONG,
-            EndLine: ULONG,
-            SamplingFrequency: ULONG,
-            MinLineStartTime: ULONG,
-            MaxLineStartTime: ULONG,
-            ActualLineStartTime: ULONG,
-            ActualLineEndTime: ULONG,
-            VideoStandard: ULONG,
-            SamplesPerLine: ULONG,
-            StrideInBytes: ULONG,
-            BufferSize: ULONG,
+            StartLine: u32,
+            EndLine: u32,
+            SamplingFrequency: u32,
+            MinLineStartTime: u32,
+            MaxLineStartTime: u32,
+            ActualLineStartTime: u32,
+            ActualLineEndTime: u32,
+            VideoStandard: u32,
+            SamplesPerLine: u32,
+            StrideInBytes: u32,
+            BufferSize: u32,
         }
         const KS_VBISAMPLINGRATE_47X_NABTS: i32 = 27000000;
         const KS_VBISAMPLINGRATE_4X_NABTS: i32 = 22909088;
@@ -3553,11 +3542,11 @@ mod Windows {
         const KS_VBI_FLAG_TVTUNER_CHANGE: i32 = 16;
         const KS_VBI_FLAG_VBIINFOHEADER_CHANGE: i32 = 32;
         struct KS_VBI_FRAME_INFO {
-            ExtendedHeaderSize: ULONG,
-            dwFrameFlags: DWORD,
-            PictureNumber: LONGLONG,
-            DropCount: LONGLONG,
-            dwSamplingFrequency: DWORD,
+            ExtendedHeaderSize: u32,
+            dwFrameFlags: u32,
+            PictureNumber: i64,
+            DropCount: i64,
+            dwSamplingFrequency: u32,
             TvTunerChangeInfo: KS_TVTUNER_CHANGE_INFO,
             VBIInfoHeader: KS_VBIINFOHEADER,
         }
@@ -3570,39 +3559,39 @@ mod Windows {
         struct KS_VIDEOINFO {
             rcSource: RECT,
             rcTarget: RECT,
-            dwBitRate: DWORD,
-            dwBitErrorRate: DWORD,
+            dwBitRate: u32,
+            dwBitErrorRate: u32,
             AvgTimePerFrame: REFERENCE_TIME,
             bmiHeader: KS_BITMAPINFOHEADER,
             Anonymous: union {
                 bmiColors: [KS_RGBQUAD; 256],
-                dwBitMasks: [DWORD; 3],
+                dwBitMasks: [u32; 3],
                 TrueColorInfo: KS_TRUECOLORINFO,
             },
         }
         struct KS_VIDEOINFOHEADER {
             rcSource: RECT,
             rcTarget: RECT,
-            dwBitRate: DWORD,
-            dwBitErrorRate: DWORD,
+            dwBitRate: u32,
+            dwBitErrorRate: u32,
             AvgTimePerFrame: REFERENCE_TIME,
             bmiHeader: KS_BITMAPINFOHEADER,
         }
         struct KS_VIDEOINFOHEADER2 {
             rcSource: RECT,
             rcTarget: RECT,
-            dwBitRate: DWORD,
-            dwBitErrorRate: DWORD,
+            dwBitRate: u32,
+            dwBitErrorRate: u32,
             AvgTimePerFrame: REFERENCE_TIME,
-            dwInterlaceFlags: DWORD,
-            dwCopyProtectFlags: DWORD,
-            dwPictAspectRatioX: DWORD,
-            dwPictAspectRatioY: DWORD,
+            dwInterlaceFlags: u32,
+            dwCopyProtectFlags: u32,
+            dwPictAspectRatioX: u32,
+            dwPictAspectRatioY: u32,
             Anonymous: union {
-                dwControlFlags: DWORD,
-                dwReserved1: DWORD,
+                dwControlFlags: u32,
+                dwReserved1: u32,
             },
-            dwReserved2: DWORD,
+            dwReserved2: u32,
             bmiHeader: KS_BITMAPINFOHEADER,
         }
         const KS_VIDEOSTREAM_CAPTURE: i32 = 2;
@@ -3630,7 +3619,7 @@ mod Windows {
         const KS_VIDEO_FLAG_WEAVE: i32 = 8;
         struct KS_VIDEO_STREAM_CONFIG_CAPS {
             guid: GUID,
-            VideoStandard: ULONG,
+            VideoStandard: u32,
             InputSize: SIZE,
             MinCroppingSize: SIZE,
             MaxCroppingSize: SIZE,
@@ -3646,10 +3635,10 @@ mod Windows {
             StretchTapsY: i32,
             ShrinkTapsX: i32,
             ShrinkTapsY: i32,
-            MinFrameInterval: LONGLONG,
-            MaxFrameInterval: LONGLONG,
-            MinBitsPerSecond: LONG,
-            MaxBitsPerSecond: LONG,
+            MinFrameInterval: i64,
+            MaxFrameInterval: i64,
+            MinBitsPerSecond: i32,
+            MaxBitsPerSecond: i32,
         }
         #[repr(i32)]
         enum KS_VideoControlFlags {
@@ -3693,25 +3682,24 @@ mod Windows {
         const MAX_WST_VBI_LINES_PER_FIELD: i32 = 17;
         struct MEDIUM_INFO {
             MediaPresent: BOOL,
-            MediaType: ULONG,
+            MediaType: u32,
             RecordInhibit: BOOL,
         }
         struct NABTSFEC_BUFFER {
-            dataSize: ULONG,
-            groupID: USHORT,
-            Reserved: USHORT,
-            data: [UCHAR; 448],
+            dataSize: u32,
+            groupID: u16,
+            Reserved: u16,
+            data: [u8; 448],
         }
         #[packed(1)]
         struct NABTS_BUFFER {
             ScanlinesRequested: VBICODECFILTERING_SCANLINES,
-            PictureNumber: LONGLONG,
+            PictureNumber: i64,
             NabtsLines: [NABTS_BUFFER_LINE; 11],
         }
-        #[packed(1)]
         struct NABTS_BUFFER_LINE {
-            Confidence: BYTE,
-            Bytes: [BYTE; 36],
+            Confidence: u8,
+            Bytes: [u8; 36],
         }
         const NABTS_BUFFER_PICTURENUMBER_SUPPORT: i32 = 1;
         const NABTS_BYTES_PER_LINE: i32 = 36;
@@ -3723,11 +3711,9 @@ mod Windows {
         type PCC_HW_FIELD = *mut CC_HW_FIELD;
         type PDEVCAPS = *mut DEVCAPS;
         type PDS3DVECTOR = *mut DS3DVECTOR;
-        const PINNAME_CAPTURE: GUID = 0xfb6c4281_0353_11d1_905f_0000c0cc16ba;
         const PINNAME_DISPLAYPORT_OUT: GUID = 0x21fbb329_1a4a_48da_a076_2318a3c59b26;
         const PINNAME_HDMI_OUT: GUID = 0x387bfc03_e7ef_4901_86e0_35b7c32b00ef;
         const PINNAME_IMAGE: GUID = 0x38a0cd98_d49b_4ce8_b48a_344667a17830;
-        const PINNAME_PREVIEW: GUID = 0xfb6c4282_0353_11d1_905f_0000c0cc16ba;
         const PINNAME_SPDIF_IN: GUID = 0x15dc9025_22ad_41b3_8875_f4ceb0299e20;
         const PINNAME_SPDIF_OUT: GUID = 0x3a264481_e52c_4b82_8e7a_c8e2f91dc380;
         const PINNAME_VIDEO_ANALOGVIDEOIN: GUID = 0xfb6c4283_0353_11d1_905f_0000c0cc16ba;
@@ -3852,14 +3838,19 @@ mod Windows {
         type PKSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S = *mut KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S;
         type PKSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S = *mut KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S;
         type PKSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S = *mut KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S;
-        type PKSPROPERTY_CAMERACONTROL_NODE_S = KSPROPERTY_CAMERACONTROL_NODE_S;
+        struct PKSPROPERTY_CAMERACONTROL_NODE_S {
+            NodeProperty: KSP_NODE,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
+        }
         type PKSPROPERTY_CAMERACONTROL_NODE_S2 = *mut KSPROPERTY_CAMERACONTROL_NODE_S2;
         type PKSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S = *mut KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S;
         type PKSPROPERTY_CAMERACONTROL_S = *mut KSPROPERTY_CAMERACONTROL_S;
         type PKSPROPERTY_CAMERACONTROL_S2 = *mut KSPROPERTY_CAMERACONTROL_S2;
         type PKSPROPERTY_CAMERACONTROL_S_EX = *mut KSPROPERTY_CAMERACONTROL_S_EX;
         type PKSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S = *mut KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S;
-        type PKSPROPERTY_COMPOSIT_ON = *mut i32;
+        type PKSPROPERTY_COMPOSIT_ON = *mut BOOL;
         type PKSPROPERTY_CROSSBAR_ACTIVE_S = *mut KSPROPERTY_CROSSBAR_ACTIVE_S;
         type PKSPROPERTY_CROSSBAR_CAPS_S = *mut KSPROPERTY_CROSSBAR_CAPS_S;
         type PKSPROPERTY_CROSSBAR_PININFO_S = *mut KSPROPERTY_CROSSBAR_PININFO_S;
@@ -4053,34 +4044,14 @@ mod Windows {
         type PWST_BUFFER_LINE = *mut WST_BUFFER_LINE;
         struct SECURE_BUFFER_INFO {
             guidBufferIdentifier: GUID,
-            cbBufferSize: DWORD,
-            cbCaptured: DWORD,
-            ullReserved: [ULONGLONG; 16],
+            cbBufferSize: u32,
+            cbCaptured: u32,
+            ullReserved: [u64; 16],
         }
         struct SOUNDDETECTOR_PATTERNHEADER {
-            Size: ULONG,
+            Size: u32,
             PatternType: GUID,
         }
-        const SPEAKER_ALL: u32 = 2147483648;
-        const SPEAKER_BACK_CENTER: i32 = 256;
-        const SPEAKER_BACK_LEFT: i32 = 16;
-        const SPEAKER_BACK_RIGHT: i32 = 32;
-        const SPEAKER_FRONT_CENTER: i32 = 4;
-        const SPEAKER_FRONT_LEFT: i32 = 1;
-        const SPEAKER_FRONT_LEFT_OF_CENTER: i32 = 64;
-        const SPEAKER_FRONT_RIGHT: i32 = 2;
-        const SPEAKER_FRONT_RIGHT_OF_CENTER: i32 = 128;
-        const SPEAKER_LOW_FREQUENCY: i32 = 8;
-        const SPEAKER_RESERVED: i32 = 2147221504;
-        const SPEAKER_SIDE_LEFT: i32 = 512;
-        const SPEAKER_SIDE_RIGHT: i32 = 1024;
-        const SPEAKER_TOP_BACK_CENTER: i32 = 65536;
-        const SPEAKER_TOP_BACK_LEFT: i32 = 32768;
-        const SPEAKER_TOP_BACK_RIGHT: i32 = 131072;
-        const SPEAKER_TOP_CENTER: i32 = 2048;
-        const SPEAKER_TOP_FRONT_CENTER: i32 = 8192;
-        const SPEAKER_TOP_FRONT_LEFT: i32 = 4096;
-        const SPEAKER_TOP_FRONT_RIGHT: i32 = 16384;
         #[repr(i32)]
         enum TELEPHONY_CALLCONTROLOP {
             TELEPHONY_CALLCONTROLOP_DISABLE = 0,
@@ -4107,89 +4078,89 @@ mod Windows {
         }
         union TIMECODE {
             Anonymous: struct {
-                wFrameRate: WORD,
-                wFrameFract: WORD,
-                dwFrames: DWORD,
+                wFrameRate: u16,
+                wFrameFract: u16,
+                dwFrames: u32,
             },
             qw: DWORDLONG,
         }
         struct TIMECODE_SAMPLE {
-            qwTick: LONGLONG,
+            qwTick: i64,
             timecode: TIMECODE,
-            dwUser: DWORD,
-            dwFlags: DWORD,
+            dwUser: u32,
+            dwFlags: u32,
         }
         struct TRANSPORTAUDIOPARMS {
-            EnableOutput: LONG,
-            EnableRecord: LONG,
-            EnableSelsync: LONG,
-            Input: LONG,
-            MonitorSource: LONG,
+            EnableOutput: i32,
+            EnableRecord: i32,
+            EnableSelsync: i32,
+            Input: i32,
+            MonitorSource: i32,
         }
         struct TRANSPORTBASICPARMS {
-            TimeFormat: LONG,
-            TimeReference: LONG,
-            Superimpose: LONG,
-            EndStopAction: LONG,
-            RecordFormat: LONG,
-            StepFrames: LONG,
-            SetpField: LONG,
-            Preroll: LONG,
-            RecPreroll: LONG,
-            Postroll: LONG,
-            EditDelay: LONG,
-            PlayTCDelay: LONG,
-            RecTCDelay: LONG,
-            EditField: LONG,
-            FrameServo: LONG,
-            ColorFrameServo: LONG,
-            ServoRef: LONG,
-            WarnGenlock: LONG,
-            SetTracking: LONG,
+            TimeFormat: i32,
+            TimeReference: i32,
+            Superimpose: i32,
+            EndStopAction: i32,
+            RecordFormat: i32,
+            StepFrames: i32,
+            SetpField: i32,
+            Preroll: i32,
+            RecPreroll: i32,
+            Postroll: i32,
+            EditDelay: i32,
+            PlayTCDelay: i32,
+            RecTCDelay: i32,
+            EditField: i32,
+            FrameServo: i32,
+            ColorFrameServo: i32,
+            ServoRef: i32,
+            WarnGenlock: i32,
+            SetTracking: i32,
             VolumeName: [TCHAR; 40],
-            Ballistic: [LONG; 20],
-            Speed: LONG,
-            CounterFormat: LONG,
-            TunerChannel: LONG,
-            TunerNumber: LONG,
-            TimerEvent: LONG,
-            TimerStartDay: LONG,
-            TimerStartTime: LONG,
-            TimerStopDay: LONG,
-            TimerStopTime: LONG,
+            Ballistic: [i32; 20],
+            Speed: i32,
+            CounterFormat: i32,
+            TunerChannel: i32,
+            TunerNumber: i32,
+            TimerEvent: i32,
+            TimerStartDay: i32,
+            TimerStartTime: i32,
+            TimerStopDay: i32,
+            TimerStopTime: i32,
         }
         struct TRANSPORTSTATUS {
-            Mode: LONG,
-            LastError: LONG,
-            RecordInhibit: LONG,
-            ServoLock: LONG,
-            MediaPresent: LONG,
-            MediaLength: LONG,
-            MediaSize: LONG,
-            MediaTrackCount: LONG,
-            MediaTrackLength: LONG,
-            MediaTrackSide: LONG,
-            MediaType: LONG,
-            LinkMode: LONG,
-            NotifyOn: LONG,
+            Mode: i32,
+            LastError: i32,
+            RecordInhibit: i32,
+            ServoLock: i32,
+            MediaPresent: i32,
+            MediaLength: i32,
+            MediaSize: i32,
+            MediaTrackCount: i32,
+            MediaTrackLength: i32,
+            MediaTrackSide: i32,
+            MediaType: i32,
+            LinkMode: i32,
+            NotifyOn: i32,
         }
         struct TRANSPORTVIDEOPARMS {
-            OutputMode: LONG,
-            Input: LONG,
+            OutputMode: i32,
+            Input: i32,
         }
         struct TRANSPORT_STATE {
-            Mode: ULONG,
-            State: ULONG,
+            Mode: u32,
+            State: u32,
         }
         struct TUNER_ANALOG_CAPS_S {
-            Mode: ULONG,
-            StandardsSupported: ULONG,
-            MinFrequency: ULONG,
-            MaxFrequency: ULONG,
-            TuningGranularity: ULONG,
-            SettlingTime: ULONG,
-            ScanSensingRange: ULONG,
-            FineTuneSensingRange: ULONG,
+            Mode: u32,
+            StandardsSupported: u32,
+            MinFrequency: u32,
+            MaxFrequency: u32,
+            TuningGranularity: u32,
+            SettlingTime: u32,
+            ScanSensingRange: u32,
+            FineTuneSensingRange: u32,
         }
         #[repr(i32)]
         enum TunerLockType {
@@ -4198,22 +4169,22 @@ mod Windows {
             Tuner_LockType_Locked = 2,
         }
         struct UMPDATAFORMAT {
-            Position: LONGLONG,
-            ByteCount: ULONG,
+            Position: i64,
+            ByteCount: u32,
         }
         struct VBICAP_PROPERTIES_PROTECTION_S {
             Property: KSPROPERTY,
-            StreamIndex: ULONG,
-            Status: ULONG,
+            StreamIndex: u32,
+            Status: u32,
         }
         struct VBICODECFILTERING_CC_SUBSTREAMS {
-            SubstreamMask: DWORD,
+            SubstreamMask: u32,
         }
         struct VBICODECFILTERING_NABTS_SUBSTREAMS {
-            SubstreamMask: [DWORD; 128],
+            SubstreamMask: [u32; 128],
         }
         struct VBICODECFILTERING_SCANLINES {
-            DwordBitArray: [DWORD; 32],
+            DwordBitArray: [u32; 32],
         }
         struct VBICODECFILTERING_STATISTICS_CC {
             Common: VBICODECFILTERING_STATISTICS_COMMON,
@@ -4222,40 +4193,40 @@ mod Windows {
             Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
         }
         struct VBICODECFILTERING_STATISTICS_COMMON {
-            InputSRBsProcessed: DWORD,
-            OutputSRBsProcessed: DWORD,
-            SRBsIgnored: DWORD,
-            InputSRBsMissing: DWORD,
-            OutputSRBsMissing: DWORD,
-            OutputFailures: DWORD,
-            InternalErrors: DWORD,
-            ExternalErrors: DWORD,
-            InputDiscontinuities: DWORD,
-            DSPFailures: DWORD,
-            TvTunerChanges: DWORD,
-            VBIHeaderChanges: DWORD,
-            LineConfidenceAvg: DWORD,
-            BytesOutput: DWORD,
+            InputSRBsProcessed: u32,
+            OutputSRBsProcessed: u32,
+            SRBsIgnored: u32,
+            InputSRBsMissing: u32,
+            OutputSRBsMissing: u32,
+            OutputFailures: u32,
+            InternalErrors: u32,
+            ExternalErrors: u32,
+            InputDiscontinuities: u32,
+            DSPFailures: u32,
+            TvTunerChanges: u32,
+            VBIHeaderChanges: u32,
+            LineConfidenceAvg: u32,
+            BytesOutput: u32,
         }
         struct VBICODECFILTERING_STATISTICS_COMMON_PIN {
-            SRBsProcessed: DWORD,
-            SRBsIgnored: DWORD,
-            SRBsMissing: DWORD,
-            InternalErrors: DWORD,
-            ExternalErrors: DWORD,
-            Discontinuities: DWORD,
-            LineConfidenceAvg: DWORD,
-            BytesOutput: DWORD,
+            SRBsProcessed: u32,
+            SRBsIgnored: u32,
+            SRBsMissing: u32,
+            InternalErrors: u32,
+            ExternalErrors: u32,
+            Discontinuities: u32,
+            LineConfidenceAvg: u32,
+            BytesOutput: u32,
         }
         struct VBICODECFILTERING_STATISTICS_NABTS {
             Common: VBICODECFILTERING_STATISTICS_COMMON,
-            FECBundleBadLines: DWORD,
-            FECQueueOverflows: DWORD,
-            FECCorrectedLines: DWORD,
-            FECUncorrectableLines: DWORD,
-            BundlesProcessed: DWORD,
-            BundlesSent2IP: DWORD,
-            FilteredLines: DWORD,
+            FECBundleBadLines: u32,
+            FECQueueOverflows: u32,
+            FECCorrectedLines: u32,
+            FECUncorrectableLines: u32,
+            BundlesProcessed: u32,
+            BundlesSent2IP: u32,
+            FilteredLines: u32,
         }
         struct VBICODECFILTERING_STATISTICS_NABTS_PIN {
             Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
@@ -4274,19 +4245,19 @@ mod Windows {
         }
         struct VIDEOFORMAT_DX12 {
             Header: KSATTRIBUTE,
-            resourceLayout: ULONG,
-            resourceFlags: ULONG,
+            resourceLayout: u32,
+            resourceFlags: u32,
             customLayout: GUID,
         }
         struct VRAM_SURFACE_INFO {
-            hSurface: UINT_PTR,
-            VramPhysicalAddress: LONGLONG,
-            cbCaptured: DWORD,
-            dwWidth: DWORD,
-            dwHeight: DWORD,
-            dwLinearSize: DWORD,
-            lPitch: LONG,
-            ullReserved: [ULONGLONG; 16],
+            hSurface: usize,
+            VramPhysicalAddress: i64,
+            cbCaptured: u32,
+            dwWidth: u32,
+            dwHeight: u32,
+            dwLinearSize: u32,
+            lPitch: i32,
+            ullReserved: [u64; 16],
         }
         struct VRAM_SURFACE_INFO_PROPERTY_S {
             Property: KSPROPERTY,
@@ -4295,23 +4266,23 @@ mod Windows {
         #[packed(1)]
         struct WAVEFORMATEXTENSIBLE_IEC61937 {
             FormatExt: WAVEFORMATEXTENSIBLE,
-            dwEncodedSamplesPerSec: DWORD,
-            dwEncodedChannelCount: DWORD,
-            dwAverageBytesPerSec: DWORD,
+            dwEncodedSamplesPerSec: u32,
+            dwEncodedChannelCount: u32,
+            dwAverageBytesPerSec: u32,
         }
         struct WNF_KSCAMERA_STREAMSTATE_INFO {
-            ProcessId: ULONG,
-            SessionId: ULONG,
-            StreamState: ULONG,
-            Reserved: ULONG,
+            ProcessId: u32,
+            SessionId: u32,
+            StreamState: u32,
+            Reserved: u32,
         }
         struct WST_BUFFER {
             ScanlinesRequested: VBICODECFILTERING_SCANLINES,
             WstLines: [WST_BUFFER_LINE; 17],
         }
         struct WST_BUFFER_LINE {
-            Confidence: BYTE,
-            Bytes: [BYTE; 42],
+            Confidence: u8,
+            Bytes: [u8; 42],
         }
         const WST_BYTES_PER_LINE: i32 = 42;
         const WST_TVTUNER_CHANGE_BEGIN_TUNE: i32 = 4096;

@@ -27,20 +27,20 @@ mod Windows {
         const ABS_AUTOHIDE: i32 = 1;
         #[arch(X64 | Arm64)]
         struct APPBARDATA {
-            cbSize: DWORD,
+            cbSize: u32,
             hWnd: HWND,
-            uCallbackMessage: UINT,
-            uEdge: UINT,
+            uCallbackMessage: u32,
+            uEdge: u32,
             rc: RECT,
             lParam: LPARAM,
         }
         #[packed(1)]
         #[arch(X86)]
         struct APPBARDATA {
-            cbSize: DWORD,
+            cbSize: u32,
             hWnd: HWND,
-            uCallbackMessage: UINT,
-            uEdge: UINT,
+            uCallbackMessage: u32,
+            uEdge: u32,
             rc: RECT,
             lParam: LPARAM,
         }
@@ -73,91 +73,76 @@ mod Windows {
             pszClass: PCWSTR,
         }
         #[library("SHELL32.dll")]
-        extern fn AssocCreateForClasses(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] rgClasses: *const ASSOCIATIONELEMENT, cClasses: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        extern fn AssocCreateForClasses(#[len_param(1)] rgClasses: *const ASSOCIATIONELEMENT, cClasses: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn CommandLineToArgvW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCmdLine: LPCWSTR, #[out] pNumArgs: *mut i32) -> *mut LPWSTR;
+        extern fn CommandLineToArgvW(lpCmdLine: PCWSTR, pNumArgs: *mut i32) -> *mut PWSTR;
         type DRAGINFO = DRAGINFOA;
         #[arch(X64 | Arm64)]
         struct DRAGINFOA {
-            uSize: UINT,
+            uSize: u32,
             pt: POINT,
             fNC: BOOL,
             lpFileList: PZZSTR,
-            grfKeyState: DWORD,
+            grfKeyState: u32,
         }
         #[packed(1)]
         #[arch(X86)]
         struct DRAGINFOA {
-            uSize: UINT,
+            uSize: u32,
             pt: POINT,
             fNC: BOOL,
             lpFileList: PZZSTR,
-            grfKeyState: DWORD,
+            grfKeyState: u32,
         }
         #[arch(X64 | Arm64)]
         struct DRAGINFOW {
-            uSize: UINT,
+            uSize: u32,
             pt: POINT,
             fNC: BOOL,
             lpFileList: PZZWSTR,
-            grfKeyState: DWORD,
+            grfKeyState: u32,
         }
         #[packed(1)]
         #[arch(X86)]
         struct DRAGINFOW {
-            uSize: UINT,
+            uSize: u32,
             pt: POINT,
             fNC: BOOL,
             lpFileList: PZZWSTR,
-            grfKeyState: DWORD,
+            grfKeyState: u32,
         }
-        #[library("SHELL32.dll", import = "DoEnvironmentSubstA")]
-        extern fn DoEnvironmentSubst(#[in] #[out] #[len_param(1)] pszSrc: LPSTR, cchSrc: UINT) -> DWORD;
         #[library("SHELL32.dll")]
-        extern fn DoEnvironmentSubstA(#[in] #[out] #[len_param(1)] pszSrc: LPSTR, cchSrc: UINT) -> DWORD;
+        extern fn DoEnvironmentSubstA(#[len_param(1)] #[in] #[out] pszSrc: PSTR, cchSrc: u32) -> u32;
         #[library("SHELL32.dll")]
-        extern fn DoEnvironmentSubstW(#[in] #[out] #[len_param(1)] pszSrc: LPWSTR, cchSrc: UINT) -> DWORD;
+        extern fn DoEnvironmentSubstW(#[len_param(1)] #[in] #[out] pszSrc: PWSTR, cchSrc: u32) -> u32;
         #[library("SHELL32.dll")]
-        extern fn DragAcceptFiles(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fAccept: BOOL);
+        extern fn DragAcceptFiles(hWnd: HWND, fAccept: BOOL);
         #[library("SHELL32.dll")]
-        extern fn DragFinish(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDrop: HDROP);
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
-        #[library("SHELL32.dll", import = "DragQueryFileA")]
-        extern fn DragQueryFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDrop: HDROP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iFile: UINT, #[out] #[opt] #[len_param(3)] lpszFile: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cch: UINT) -> UINT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn DragFinish(hDrop: HDROP);
         #[library("SHELL32.dll")]
-        extern fn DragQueryFileA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDrop: HDROP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iFile: UINT, #[out] #[opt] #[len_param(3)] lpszFile: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cch: UINT) -> UINT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn DragQueryFileA(hDrop: HDROP, iFile: u32, #[len_param(3)] #[out] #[opt] lpszFile: PSTR, cch: u32) -> u32;
         #[library("SHELL32.dll")]
-        extern fn DragQueryFileW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDrop: HDROP, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iFile: UINT, #[out] #[opt] #[len_param(3)] lpszFile: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cch: UINT) -> UINT;
+        extern fn DragQueryFileW(hDrop: HDROP, iFile: u32, #[len_param(3)] #[out] #[opt] lpszFile: PWSTR, cch: u32) -> u32;
         #[library("SHELL32.dll")]
-        extern fn DragQueryPoint(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDrop: HDROP, #[out] ppt: *mut POINT) -> BOOL;
+        extern fn DragQueryPoint(hDrop: HDROP, ppt: *mut POINT) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn DuplicateIcon(#[reserved] hInst: HINSTANCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hIcon: HICON) -> HICON;
-        #[library("SHELL32.dll", import = "ExtractAssociatedIconA")]
-        extern fn ExtractAssociatedIcon(#[reserved] hInst: HINSTANCE, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "128", "128")] #[in] #[out] pszIconPath: LPSTR, #[in] #[out] piIcon: *mut WORD) -> HICON;
+        extern fn DuplicateIcon(#[reserved] hInst: HINSTANCE, hIcon: HICON) -> HICON;
         #[library("SHELL32.dll")]
-        extern fn ExtractAssociatedIconA(#[reserved] hInst: HINSTANCE, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "128", "128")] #[in] #[out] pszIconPath: LPSTR, #[in] #[out] piIcon: *mut WORD) -> HICON;
-        #[library("SHELL32.dll", import = "ExtractAssociatedIconExA")]
-        extern fn ExtractAssociatedIconEx(#[reserved] hInst: HINSTANCE, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "128", "128")] #[in] #[out] pszIconPath: LPSTR, #[in] #[out] piIconIndex: *mut WORD, #[in] #[out] piIconId: *mut WORD) -> HICON;
+        extern fn ExtractAssociatedIconA(#[reserved] hInst: HINSTANCE, #[len_const(128)] #[in] #[out] pszIconPath: PSTR, #[in] #[out] piIcon: *mut u16) -> HICON;
         #[library("SHELL32.dll")]
-        extern fn ExtractAssociatedIconExA(#[reserved] hInst: HINSTANCE, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "128", "128")] #[in] #[out] pszIconPath: LPSTR, #[in] #[out] piIconIndex: *mut WORD, #[in] #[out] piIconId: *mut WORD) -> HICON;
+        extern fn ExtractAssociatedIconExA(#[reserved] hInst: HINSTANCE, #[len_const(128)] #[in] #[out] pszIconPath: PSTR, #[in] #[out] piIconIndex: *mut u16, #[in] #[out] piIconId: *mut u16) -> HICON;
         #[library("SHELL32.dll")]
-        extern fn ExtractAssociatedIconExW(#[reserved] hInst: HINSTANCE, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "128", "128")] #[in] #[out] pszIconPath: LPWSTR, #[in] #[out] piIconIndex: *mut WORD, #[in] #[out] piIconId: *mut WORD) -> HICON;
+        extern fn ExtractAssociatedIconExW(#[reserved] hInst: HINSTANCE, #[len_const(128)] #[in] #[out] pszIconPath: PWSTR, #[in] #[out] piIconIndex: *mut u16, #[in] #[out] piIconId: *mut u16) -> HICON;
         #[library("SHELL32.dll")]
-        extern fn ExtractAssociatedIconW(#[reserved] hInst: HINSTANCE, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_", "128", "128")] #[in] #[out] pszIconPath: LPWSTR, #[in] #[out] piIcon: *mut WORD) -> HICON;
-        #[library("SHELL32.dll", import = "ExtractIconA")]
-        extern fn ExtractIcon(#[reserved] hInst: HINSTANCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExeFileName: LPCSTR, nIconIndex: UINT) -> HICON;
+        extern fn ExtractAssociatedIconW(#[reserved] hInst: HINSTANCE, #[len_const(128)] #[in] #[out] pszIconPath: PWSTR, #[in] #[out] piIcon: *mut u16) -> HICON;
         #[library("SHELL32.dll")]
-        extern fn ExtractIconA(#[reserved] hInst: HINSTANCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExeFileName: LPCSTR, nIconIndex: UINT) -> HICON;
-        #[library("SHELL32.dll", import = "ExtractIconExA")]
-        extern fn ExtractIconEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpszFile: LPCSTR, nIconIndex: i32, #[out] #[opt] #[len_param(4)] phiconLarge: *mut HICON, #[out] #[opt] #[len_param(4)] phiconSmall: *mut HICON, nIcons: UINT) -> UINT;
+        extern fn ExtractIconA(#[reserved] hInst: HINSTANCE, pszExeFileName: PCSTR, nIconIndex: u32) -> HICON;
         #[library("SHELL32.dll")]
-        extern fn ExtractIconExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpszFile: LPCSTR, nIconIndex: i32, #[out] #[opt] #[len_param(4)] phiconLarge: *mut HICON, #[out] #[opt] #[len_param(4)] phiconSmall: *mut HICON, nIcons: UINT) -> UINT;
+        extern fn ExtractIconExA(lpszFile: PCSTR, nIconIndex: i32, #[len_param(4)] #[opt] phiconLarge: *mut HICON, #[len_param(4)] #[opt] phiconSmall: *mut HICON, nIcons: u32) -> u32;
         #[library("SHELL32.dll")]
-        extern fn ExtractIconExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpszFile: LPCWSTR, nIconIndex: i32, #[out] #[opt] #[len_param(4)] phiconLarge: *mut HICON, #[out] #[opt] #[len_param(4)] phiconSmall: *mut HICON, nIcons: UINT) -> UINT;
+        extern fn ExtractIconExW(lpszFile: PCWSTR, nIconIndex: i32, #[len_param(4)] #[opt] phiconLarge: *mut HICON, #[len_param(4)] #[opt] phiconSmall: *mut HICON, nIcons: u32) -> u32;
         #[library("SHELL32.dll")]
-        extern fn ExtractIconW(#[reserved] hInst: HINSTANCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszExeFileName: LPCWSTR, nIconIndex: UINT) -> HICON;
+        extern fn ExtractIconW(#[reserved] hInst: HINSTANCE, pszExeFileName: PCWSTR, nIconIndex: u32) -> HICON;
         type FILEOP_FLAGS = u16;
         const FOF_ALLOWUNDO: i32 = 64;
         const FOF_CONFIRMMOUSE: i32 = 2;
@@ -180,15 +165,10 @@ mod Windows {
         const FO_DELETE: i32 = 3;
         const FO_MOVE: i32 = 1;
         const FO_RENAME: i32 = 4;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return > 32", "return > 32")]
-        #[library("SHELL32.dll", import = "FindExecutableA")]
-        extern fn FindExecutable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFile: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDirectory: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] lpResult: LPSTR) -> HINSTANCE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return > 32", "return > 32")]
         #[library("SHELL32.dll")]
-        extern fn FindExecutableA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFile: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDirectory: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] lpResult: LPSTR) -> HINSTANCE;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return > 32", "return > 32")]
+        extern fn FindExecutableA(lpFile: PCSTR, #[opt] lpDirectory: PCSTR, #[out] lpResult: PSTR) -> HINSTANCE;
         #[library("SHELL32.dll")]
-        extern fn FindExecutableW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFile: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDirectory: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] lpResult: LPWSTR) -> HINSTANCE;
+        extern fn FindExecutableW(lpFile: PCWSTR, #[opt] lpDirectory: PCWSTR, #[out] lpResult: PWSTR) -> HINSTANCE;
         type HDROP = *mut HDROP__;
         #[arch(X64 | Arm64)]
         struct HDROP__ {
@@ -201,22 +181,20 @@ mod Windows {
         }
         #[library("SHELL32.dll")]
         extern fn InitNetworkAddressControl() -> BOOL;
-        #[library("SHELL32.dll", import = "IsLFNDriveA")]
-        extern fn IsLFNDrive(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn IsLFNDriveA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR) -> BOOL;
+        extern fn IsLFNDriveA(#[opt] pszPath: PCSTR) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn IsLFNDriveW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> BOOL;
-        type LPDRAGINFO = *mut DRAGINFOA;
+        extern fn IsLFNDriveW(#[opt] pszPath: PCWSTR) -> BOOL;
+        type LPDRAGINFO = LPDRAGINFOA;
         type LPDRAGINFOA = *mut DRAGINFOA;
         type LPDRAGINFOW = *mut DRAGINFOW;
-        type LPSHELLEXECUTEINFO = *mut SHELLEXECUTEINFOA;
+        type LPSHELLEXECUTEINFO = LPSHELLEXECUTEINFOA;
         type LPSHELLEXECUTEINFOA = *mut SHELLEXECUTEINFOA;
         type LPSHELLEXECUTEINFOW = *mut SHELLEXECUTEINFOW;
-        type LPSHFILEOPSTRUCT = *mut SHFILEOPSTRUCTA;
+        type LPSHFILEOPSTRUCT = LPSHFILEOPSTRUCTA;
         type LPSHFILEOPSTRUCTA = *mut SHFILEOPSTRUCTA;
         type LPSHFILEOPSTRUCTW = *mut SHFILEOPSTRUCTW;
-        type LPSHNAMEMAPPING = *mut SHNAMEMAPPINGA;
+        type LPSHNAMEMAPPING = LPSHNAMEMAPPINGA;
         type LPSHNAMEMAPPINGA = *mut SHNAMEMAPPINGA;
         type LPSHNAMEMAPPINGW = *mut SHNAMEMAPPINGW;
         type LPSHQUERYRBINFO = *mut SHQUERYRBINFO;
@@ -226,8 +204,8 @@ mod Windows {
         const NCM_SETALLOWTYPE: i32 = 1026;
         struct NC_ADDRESS {
             pAddrInfo: *mut NET_ADDRESS_INFO_,
-            PortNumber: USHORT,
-            PrefixLength: BYTE,
+            PortNumber: u16,
+            PrefixLength: u8,
         }
         struct NET_ADDRESS_INFO_ {}
         const NIF_GUID: i32 = 32;
@@ -266,139 +244,139 @@ mod Windows {
         type NOTIFYICONDATA = NOTIFYICONDATAA;
         #[arch(X64 | Arm64)]
         struct NOTIFYICONDATAA {
-            cbSize: DWORD,
+            cbSize: u32,
             hWnd: HWND,
-            uID: UINT,
-            uFlags: UINT,
-            uCallbackMessage: UINT,
+            uID: u32,
+            uFlags: u32,
+            uCallbackMessage: u32,
             hIcon: HICON,
-            szTip: [CHAR; 128],
-            dwState: DWORD,
-            dwStateMask: DWORD,
-            szInfo: [CHAR; 256],
+            szTip: [i8; 128],
+            dwState: u32,
+            dwStateMask: u32,
+            szInfo: [i8; 256],
             Anonymous: union {
-                uTimeout: UINT,
-                uVersion: UINT,
+                uTimeout: u32,
+                uVersion: u32,
             },
-            szInfoTitle: [CHAR; 64],
-            dwInfoFlags: DWORD,
+            szInfoTitle: [i8; 64],
+            dwInfoFlags: u32,
             guidItem: GUID,
             hBalloonIcon: HICON,
         }
         #[packed(1)]
         #[arch(X86)]
         struct NOTIFYICONDATAA {
-            cbSize: DWORD,
+            cbSize: u32,
             hWnd: HWND,
-            uID: UINT,
-            uFlags: UINT,
-            uCallbackMessage: UINT,
+            uID: u32,
+            uFlags: u32,
+            uCallbackMessage: u32,
             hIcon: HICON,
-            szTip: [CHAR; 128],
-            dwState: DWORD,
-            dwStateMask: DWORD,
-            szInfo: [CHAR; 256],
+            szTip: [i8; 128],
+            dwState: u32,
+            dwStateMask: u32,
+            szInfo: [i8; 256],
             Anonymous: #[packed(1)] union {
-                uTimeout: UINT,
-                uVersion: UINT,
+                uTimeout: u32,
+                uVersion: u32,
             },
-            szInfoTitle: [CHAR; 64],
-            dwInfoFlags: DWORD,
+            szInfoTitle: [i8; 64],
+            dwInfoFlags: u32,
             guidItem: GUID,
             hBalloonIcon: HICON,
         }
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATAA_V1_SIZE: LONG = 104;
+        const NOTIFYICONDATAA_V1_SIZE: i32 = 104;
         #[arch(X86)]
-        const NOTIFYICONDATAA_V1_SIZE: LONG = 88;
+        const NOTIFYICONDATAA_V1_SIZE: i32 = 88;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATAA_V2_SIZE: LONG = 504;
+        const NOTIFYICONDATAA_V2_SIZE: i32 = 504;
         #[arch(X86)]
-        const NOTIFYICONDATAA_V2_SIZE: LONG = 488;
+        const NOTIFYICONDATAA_V2_SIZE: i32 = 488;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATAA_V3_SIZE: LONG = 520;
+        const NOTIFYICONDATAA_V3_SIZE: i32 = 520;
         #[arch(X86)]
-        const NOTIFYICONDATAA_V3_SIZE: LONG = 504;
+        const NOTIFYICONDATAA_V3_SIZE: i32 = 504;
         #[arch(X64 | Arm64)]
         struct NOTIFYICONDATAW {
-            cbSize: DWORD,
+            cbSize: u32,
             hWnd: HWND,
-            uID: UINT,
-            uFlags: UINT,
-            uCallbackMessage: UINT,
+            uID: u32,
+            uFlags: u32,
+            uCallbackMessage: u32,
             hIcon: HICON,
-            szTip: [WCHAR; 128],
-            dwState: DWORD,
-            dwStateMask: DWORD,
-            szInfo: [WCHAR; 256],
+            szTip: [u16; 128],
+            dwState: u32,
+            dwStateMask: u32,
+            szInfo: [u16; 256],
             Anonymous: union {
-                uTimeout: UINT,
-                uVersion: UINT,
+                uTimeout: u32,
+                uVersion: u32,
             },
-            szInfoTitle: [WCHAR; 64],
-            dwInfoFlags: DWORD,
+            szInfoTitle: [u16; 64],
+            dwInfoFlags: u32,
             guidItem: GUID,
             hBalloonIcon: HICON,
         }
         #[packed(1)]
         #[arch(X86)]
         struct NOTIFYICONDATAW {
-            cbSize: DWORD,
+            cbSize: u32,
             hWnd: HWND,
-            uID: UINT,
-            uFlags: UINT,
-            uCallbackMessage: UINT,
+            uID: u32,
+            uFlags: u32,
+            uCallbackMessage: u32,
             hIcon: HICON,
-            szTip: [WCHAR; 128],
-            dwState: DWORD,
-            dwStateMask: DWORD,
-            szInfo: [WCHAR; 256],
+            szTip: [u16; 128],
+            dwState: u32,
+            dwStateMask: u32,
+            szInfo: [u16; 256],
             Anonymous: #[packed(1)] union {
-                uTimeout: UINT,
-                uVersion: UINT,
+                uTimeout: u32,
+                uVersion: u32,
             },
-            szInfoTitle: [WCHAR; 64],
-            dwInfoFlags: DWORD,
+            szInfoTitle: [u16; 64],
+            dwInfoFlags: u32,
             guidItem: GUID,
             hBalloonIcon: HICON,
         }
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATAW_V1_SIZE: LONG = 168;
+        const NOTIFYICONDATAW_V1_SIZE: i32 = 168;
         #[arch(X86)]
-        const NOTIFYICONDATAW_V1_SIZE: LONG = 152;
+        const NOTIFYICONDATAW_V1_SIZE: i32 = 152;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATAW_V2_SIZE: LONG = 952;
+        const NOTIFYICONDATAW_V2_SIZE: i32 = 952;
         #[arch(X86)]
-        const NOTIFYICONDATAW_V2_SIZE: LONG = 936;
+        const NOTIFYICONDATAW_V2_SIZE: i32 = 936;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATAW_V3_SIZE: LONG = 968;
+        const NOTIFYICONDATAW_V3_SIZE: i32 = 968;
         #[arch(X86)]
-        const NOTIFYICONDATAW_V3_SIZE: LONG = 952;
+        const NOTIFYICONDATAW_V3_SIZE: i32 = 952;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATA_V1_SIZE: LONG = 104;
+        const NOTIFYICONDATA_V1_SIZE: i32 = 104;
         #[arch(X86)]
-        const NOTIFYICONDATA_V1_SIZE: LONG = 88;
+        const NOTIFYICONDATA_V1_SIZE: i32 = 88;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATA_V2_SIZE: LONG = 504;
+        const NOTIFYICONDATA_V2_SIZE: i32 = 504;
         #[arch(X86)]
-        const NOTIFYICONDATA_V2_SIZE: LONG = 488;
+        const NOTIFYICONDATA_V2_SIZE: i32 = 488;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATA_V3_SIZE: LONG = 520;
+        const NOTIFYICONDATA_V3_SIZE: i32 = 520;
         #[arch(X86)]
-        const NOTIFYICONDATA_V3_SIZE: LONG = 504;
+        const NOTIFYICONDATA_V3_SIZE: i32 = 504;
         #[arch(X64 | Arm64)]
         struct NOTIFYICONIDENTIFIER {
-            cbSize: DWORD,
+            cbSize: u32,
             hWnd: HWND,
-            uID: UINT,
+            uID: u32,
             guidItem: GUID,
         }
         #[packed(1)]
         #[arch(X86)]
         struct NOTIFYICONIDENTIFIER {
-            cbSize: DWORD,
+            cbSize: u32,
             hWnd: HWND,
-            uID: UINT,
+            uID: u32,
             guidItem: GUID,
         }
         const NOTIFYICON_VERSION: i32 = 3;
@@ -409,47 +387,47 @@ mod Windows {
         type OPEN_PRINTER_PROPS_INFO = OPEN_PRINTER_PROPS_INFOA;
         #[arch(X64 | Arm64)]
         struct OPEN_PRINTER_PROPS_INFOA {
-            dwSize: DWORD,
-            pszSheetName: LPSTR,
-            uSheetIndex: UINT,
-            dwFlags: DWORD,
+            dwSize: u32,
+            pszSheetName: PSTR,
+            uSheetIndex: u32,
+            dwFlags: u32,
             bModal: BOOL,
         }
         #[packed(1)]
         #[arch(X86)]
         struct OPEN_PRINTER_PROPS_INFOA {
-            dwSize: DWORD,
-            pszSheetName: LPSTR,
-            uSheetIndex: UINT,
-            dwFlags: DWORD,
+            dwSize: u32,
+            pszSheetName: PSTR,
+            uSheetIndex: u32,
+            dwFlags: u32,
             bModal: BOOL,
         }
         #[arch(X64 | Arm64)]
         struct OPEN_PRINTER_PROPS_INFOW {
-            dwSize: DWORD,
-            pszSheetName: LPWSTR,
-            uSheetIndex: UINT,
-            dwFlags: DWORD,
+            dwSize: u32,
+            pszSheetName: PWSTR,
+            uSheetIndex: u32,
+            dwFlags: u32,
             bModal: BOOL,
         }
         #[packed(1)]
         #[arch(X86)]
         struct OPEN_PRINTER_PROPS_INFOW {
-            dwSize: DWORD,
-            pszSheetName: LPWSTR,
-            uSheetIndex: UINT,
-            dwFlags: DWORD,
+            dwSize: u32,
+            pszSheetName: PWSTR,
+            uSheetIndex: u32,
+            dwFlags: u32,
             bModal: BOOL,
         }
         type PAPPBARDATA = *mut APPBARDATA;
-        extern fn PFNCANSHAREFOLDERW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: PCWSTR) -> HRESULT;
-        extern fn PFNSHOWSHAREFOLDERUIW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndParent: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: PCWSTR) -> HRESULT;
+        extern fn PFNCANSHAREFOLDERW(pszPath: PCWSTR) -> HRESULT;
+        extern fn PFNSHOWSHAREFOLDERUIW(#[opt] hwndParent: HWND, pszPath: PCWSTR) -> HRESULT;
         type PNC_ADDRESS = *mut NC_ADDRESS;
-        type PNOTIFYICONDATA = *mut NOTIFYICONDATAA;
+        type PNOTIFYICONDATA = PNOTIFYICONDATAA;
         type PNOTIFYICONDATAA = *mut NOTIFYICONDATAA;
         type PNOTIFYICONDATAW = *mut NOTIFYICONDATAW;
         type PNOTIFYICONIDENTIFIER = *mut NOTIFYICONIDENTIFIER;
-        type POPEN_PRINTER_PROPS_INFO = *mut OPEN_PRINTER_PROPS_INFOA;
+        type POPEN_PRINTER_PROPS_INFO = POPEN_PRINTER_PROPS_INFOA;
         type POPEN_PRINTER_PROPS_INFOA = *mut OPEN_PRINTER_PROPS_INFOA;
         type POPEN_PRINTER_PROPS_INFOW = *mut OPEN_PRINTER_PROPS_INFOW;
         const PO_DELETE: i32 = 19;
@@ -510,37 +488,37 @@ mod Windows {
         const SE_ERR_PNF: i32 = 3;
         const SE_ERR_SHARE: i32 = 26;
         #[library("SHELL32.dll")]
-        extern fn SHAppBarMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMessage: DWORD, #[in] #[out] pData: PAPPBARDATA) -> UINT_PTR;
+        extern fn SHAppBarMessage(dwMessage: u32, #[in] #[out] pData: PAPPBARDATA) -> usize;
         #[arch(X64 | Arm64)]
         struct SHCREATEPROCESSINFOW {
-            cbSize: DWORD,
-            fMask: ULONG,
+            cbSize: u32,
+            fMask: u32,
             hwnd: HWND,
-            pszFile: LPCWSTR,
-            pszParameters: LPCWSTR,
-            pszCurrentDirectory: LPCWSTR,
+            pszFile: PCWSTR,
+            pszParameters: PCWSTR,
+            pszCurrentDirectory: PCWSTR,
             hUserToken: HANDLE,
             lpProcessAttributes: LPSECURITY_ATTRIBUTES,
             lpThreadAttributes: LPSECURITY_ATTRIBUTES,
             bInheritHandles: BOOL,
-            dwCreationFlags: DWORD,
+            dwCreationFlags: u32,
             lpStartupInfo: LPSTARTUPINFOW,
             lpProcessInformation: LPPROCESS_INFORMATION,
         }
         #[packed(1)]
         #[arch(X86)]
         struct SHCREATEPROCESSINFOW {
-            cbSize: DWORD,
-            fMask: ULONG,
+            cbSize: u32,
+            fMask: u32,
             hwnd: HWND,
-            pszFile: LPCWSTR,
-            pszParameters: LPCWSTR,
-            pszCurrentDirectory: LPCWSTR,
+            pszFile: PCWSTR,
+            pszParameters: PCWSTR,
+            pszCurrentDirectory: PCWSTR,
             hUserToken: HANDLE,
             lpProcessAttributes: LPSECURITY_ATTRIBUTES,
             lpThreadAttributes: LPSECURITY_ATTRIBUTES,
             bInheritHandles: BOOL,
-            dwCreationFlags: DWORD,
+            dwCreationFlags: u32,
             lpStartupInfo: LPSTARTUPINFOW,
             lpProcessInformation: LPPROCESS_INFORMATION,
         }
@@ -549,19 +527,19 @@ mod Windows {
         type SHELLEXECUTEINFO = SHELLEXECUTEINFOA;
         #[arch(X64 | Arm64)]
         struct SHELLEXECUTEINFOA {
-            cbSize: DWORD,
-            fMask: ULONG,
+            cbSize: u32,
+            fMask: u32,
             hwnd: HWND,
-            lpVerb: LPCSTR,
-            lpFile: LPCSTR,
-            lpParameters: LPCSTR,
-            lpDirectory: LPCSTR,
+            lpVerb: PCSTR,
+            lpFile: PCSTR,
+            lpParameters: PCSTR,
+            lpDirectory: PCSTR,
             nShow: i32,
             hInstApp: HINSTANCE,
             lpIDList: *mut void,
-            lpClass: LPCSTR,
+            lpClass: PCSTR,
             hkeyClass: HKEY,
-            dwHotKey: DWORD,
+            dwHotKey: u32,
             Anonymous: union {
                 hIcon: HANDLE,
                 hMonitor: HANDLE,
@@ -571,19 +549,19 @@ mod Windows {
         #[packed(1)]
         #[arch(X86)]
         struct SHELLEXECUTEINFOA {
-            cbSize: DWORD,
-            fMask: ULONG,
+            cbSize: u32,
+            fMask: u32,
             hwnd: HWND,
-            lpVerb: LPCSTR,
-            lpFile: LPCSTR,
-            lpParameters: LPCSTR,
-            lpDirectory: LPCSTR,
+            lpVerb: PCSTR,
+            lpFile: PCSTR,
+            lpParameters: PCSTR,
+            lpDirectory: PCSTR,
             nShow: i32,
             hInstApp: HINSTANCE,
             lpIDList: *mut void,
-            lpClass: LPCSTR,
+            lpClass: PCSTR,
             hkeyClass: HKEY,
-            dwHotKey: DWORD,
+            dwHotKey: u32,
             Anonymous: #[packed(1)] union {
                 hIcon: HANDLE,
                 hMonitor: HANDLE,
@@ -592,19 +570,19 @@ mod Windows {
         }
         #[arch(X64 | Arm64)]
         struct SHELLEXECUTEINFOW {
-            cbSize: DWORD,
-            fMask: ULONG,
+            cbSize: u32,
+            fMask: u32,
             hwnd: HWND,
-            lpVerb: LPCWSTR,
-            lpFile: LPCWSTR,
-            lpParameters: LPCWSTR,
-            lpDirectory: LPCWSTR,
+            lpVerb: PCWSTR,
+            lpFile: PCWSTR,
+            lpParameters: PCWSTR,
+            lpDirectory: PCWSTR,
             nShow: i32,
             hInstApp: HINSTANCE,
             lpIDList: *mut void,
-            lpClass: LPCWSTR,
+            lpClass: PCWSTR,
             hkeyClass: HKEY,
-            dwHotKey: DWORD,
+            dwHotKey: u32,
             Anonymous: union {
                 hIcon: HANDLE,
                 hMonitor: HANDLE,
@@ -614,19 +592,19 @@ mod Windows {
         #[packed(1)]
         #[arch(X86)]
         struct SHELLEXECUTEINFOW {
-            cbSize: DWORD,
-            fMask: ULONG,
+            cbSize: u32,
+            fMask: u32,
             hwnd: HWND,
-            lpVerb: LPCWSTR,
-            lpFile: LPCWSTR,
-            lpParameters: LPCWSTR,
-            lpDirectory: LPCWSTR,
+            lpVerb: PCWSTR,
+            lpFile: PCWSTR,
+            lpParameters: PCWSTR,
+            lpDirectory: PCWSTR,
             nShow: i32,
             hInstApp: HINSTANCE,
             lpIDList: *mut void,
-            lpClass: LPCWSTR,
+            lpClass: PCWSTR,
             hkeyClass: HKEY,
-            dwHotKey: DWORD,
+            dwHotKey: u32,
             Anonymous: #[packed(1)] union {
                 hIcon: HANDLE,
                 hMonitor: HANDLE,
@@ -636,106 +614,102 @@ mod Windows {
         const SHERB_NOCONFIRMATION: i32 = 1;
         const SHERB_NOPROGRESSUI: i32 = 2;
         const SHERB_NOSOUND: i32 = 4;
-        #[library("SHELL32.dll", import = "SHEmptyRecycleBinA")]
-        extern fn SHEmptyRecycleBin(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRootPath: LPCSTR, dwFlags: DWORD) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHEmptyRecycleBinA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRootPath: LPCSTR, dwFlags: DWORD) -> HRESULT;
+        extern fn SHEmptyRecycleBinA(#[opt] hwnd: HWND, #[opt] pszRootPath: PCSTR, dwFlags: u32) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHEmptyRecycleBinW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRootPath: LPCWSTR, dwFlags: DWORD) -> HRESULT;
+        extern fn SHEmptyRecycleBinW(#[opt] hwnd: HWND, #[opt] pszRootPath: PCWSTR, dwFlags: u32) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHEnumerateUnreadMailAccountsW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKeyUser: HKEY, dwIndex: DWORD, #[out] #[len_param(3)] pszMailAddress: LPWSTR, cchMailAddress: i32) -> HRESULT;
+        extern fn SHEnumerateUnreadMailAccountsW(#[opt] hKeyUser: HKEY, dwIndex: u32, #[len_param(3)] #[out] pszMailAddress: PWSTR, cchMailAddress: i32) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHEvaluateSystemCommandTemplate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszCmdTemplate: PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszApplication: *mut PWSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszCommandLine: *mut PWSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszParameters: *mut PWSTR) -> HRESULT;
+        extern fn SHEvaluateSystemCommandTemplate(pszCmdTemplate: PCWSTR, ppszApplication: *mut PWSTR, ppszCommandLine: *mut PWSTR, ppszParameters: *mut PWSTR) -> HRESULT;
         type SHFILEINFO = SHFILEINFOA;
         #[arch(X64 | Arm64)]
         struct SHFILEINFOA {
             hIcon: HICON,
             iIcon: i32,
-            dwAttributes: DWORD,
-            szDisplayName: [CHAR; 260],
-            szTypeName: [CHAR; 80],
+            dwAttributes: u32,
+            szDisplayName: [i8; 260],
+            szTypeName: [i8; 80],
         }
         #[packed(1)]
         #[arch(X86)]
         struct SHFILEINFOA {
             hIcon: HICON,
             iIcon: i32,
-            dwAttributes: DWORD,
-            szDisplayName: [CHAR; 260],
-            szTypeName: [CHAR; 80],
+            dwAttributes: u32,
+            szDisplayName: [i8; 260],
+            szTypeName: [i8; 80],
         }
         #[arch(X64 | Arm64)]
         struct SHFILEINFOW {
             hIcon: HICON,
             iIcon: i32,
-            dwAttributes: DWORD,
-            szDisplayName: [WCHAR; 260],
-            szTypeName: [WCHAR; 80],
+            dwAttributes: u32,
+            szDisplayName: [u16; 260],
+            szTypeName: [u16; 80],
         }
         #[packed(1)]
         #[arch(X86)]
         struct SHFILEINFOW {
             hIcon: HICON,
             iIcon: i32,
-            dwAttributes: DWORD,
-            szDisplayName: [WCHAR; 260],
-            szTypeName: [WCHAR; 80],
+            dwAttributes: u32,
+            szDisplayName: [u16; 260],
+            szTypeName: [u16; 80],
         }
         type SHFILEOPSTRUCT = SHFILEOPSTRUCTA;
         #[arch(X64 | Arm64)]
         struct SHFILEOPSTRUCTA {
             hwnd: HWND,
-            wFunc: UINT,
+            wFunc: u32,
             pFrom: PCZZSTR,
             pTo: PCZZSTR,
             fFlags: FILEOP_FLAGS,
             fAnyOperationsAborted: BOOL,
-            hNameMappings: LPVOID,
+            hNameMappings: *mut void,
             lpszProgressTitle: PCSTR,
         }
         #[packed(1)]
         #[arch(X86)]
         struct SHFILEOPSTRUCTA {
             hwnd: HWND,
-            wFunc: UINT,
+            wFunc: u32,
             pFrom: PCZZSTR,
             pTo: PCZZSTR,
             fFlags: FILEOP_FLAGS,
             fAnyOperationsAborted: BOOL,
-            hNameMappings: LPVOID,
+            hNameMappings: *mut void,
             lpszProgressTitle: PCSTR,
         }
         #[arch(X64 | Arm64)]
         struct SHFILEOPSTRUCTW {
             hwnd: HWND,
-            wFunc: UINT,
+            wFunc: u32,
             pFrom: PCZZWSTR,
             pTo: PCZZWSTR,
             fFlags: FILEOP_FLAGS,
             fAnyOperationsAborted: BOOL,
-            hNameMappings: LPVOID,
+            hNameMappings: *mut void,
             lpszProgressTitle: PCWSTR,
         }
         #[packed(1)]
         #[arch(X86)]
         struct SHFILEOPSTRUCTW {
             hwnd: HWND,
-            wFunc: UINT,
+            wFunc: u32,
             pFrom: PCZZWSTR,
             pTo: PCZZWSTR,
             fFlags: FILEOP_FLAGS,
             fAnyOperationsAborted: BOOL,
-            hNameMappings: LPVOID,
+            hNameMappings: *mut void,
             lpszProgressTitle: PCWSTR,
         }
-        #[library("SHELL32.dll", import = "SHFileOperationA")]
-        extern fn SHFileOperation(#[in] #[out] lpFileOp: LPSHFILEOPSTRUCTA) -> i32;
         #[library("SHELL32.dll")]
         extern fn SHFileOperationA(#[in] #[out] lpFileOp: LPSHFILEOPSTRUCTA) -> i32;
         #[library("SHELL32.dll")]
         extern fn SHFileOperationW(#[in] #[out] lpFileOp: LPSHFILEOPSTRUCTW) -> i32;
         #[library("SHELL32.dll")]
-        extern fn SHFreeNameMappings(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hNameMappings: HANDLE);
+        extern fn SHFreeNameMappings(#[opt] hNameMappings: HANDLE);
         const SHGFI_ADDOVERLAYS: i32 = 32;
         const SHGFI_ATTRIBUTES: i32 = 2048;
         const SHGFI_ATTR_SPECIFIED: i32 = 131072;
@@ -768,111 +742,96 @@ mod Windows {
         const SHGSI_SHELLICONSIZE: i32 = 4;
         const SHGSI_SMALLICON: i32 = 1;
         const SHGSI_SYSICONINDEX: i32 = 16384;
-        #[library("SHELL32.dll", import = "SHGetDiskFreeSpaceExA")]
-        extern fn SHGetDiskFreeSpace(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDirectoryName: LPCSTR, #[out] #[opt] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[out] #[opt] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[out] #[opt] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
-        #[library("SHELL32.dll", import = "SHGetDiskFreeSpaceExA")]
-        extern fn SHGetDiskFreeSpaceEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDirectoryName: LPCSTR, #[out] #[opt] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[out] #[opt] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[out] #[opt] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetDiskFreeSpaceExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDirectoryName: LPCSTR, #[out] #[opt] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[out] #[opt] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[out] #[opt] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
+        extern fn SHGetDiskFreeSpaceExA(pszDirectoryName: PCSTR, #[opt] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetDiskFreeSpaceExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDirectoryName: LPCWSTR, #[out] #[opt] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[out] #[opt] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[out] #[opt] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
+        extern fn SHGetDiskFreeSpaceExW(pszDirectoryName: PCWSTR, #[opt] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetDriveMedia(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDrive: PCWSTR, #[out] pdwMediaContent: *mut DWORD) -> HRESULT;
-        #[library("SHELL32.dll", import = "SHGetFileInfoA")]
-        extern fn SHGetFileInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, dwFileAttributes: DWORD, #[in] #[out] #[opt] #[size_param(3)] psfi: *mut SHFILEINFOA, cbFileInfo: UINT, uFlags: UINT) -> DWORD_PTR;
+        extern fn SHGetDriveMedia(pszDrive: PCWSTR, pdwMediaContent: *mut u32) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetFileInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCSTR, dwFileAttributes: DWORD, #[in] #[out] #[opt] #[size_param(3)] psfi: *mut SHFILEINFOA, cbFileInfo: UINT, uFlags: UINT) -> DWORD_PTR;
+        extern fn SHGetFileInfoA(pszPath: PCSTR, dwFileAttributes: u32, #[size_param(3)] #[in] #[out] #[opt] psfi: *mut SHFILEINFOA, cbFileInfo: u32, uFlags: u32) -> usize;
         #[library("SHELL32.dll")]
-        extern fn SHGetFileInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR, dwFileAttributes: DWORD, #[in] #[out] #[opt] #[size_param(3)] psfi: *mut SHFILEINFOW, cbFileInfo: UINT, uFlags: UINT) -> DWORD_PTR;
+        extern fn SHGetFileInfoW(pszPath: PCWSTR, dwFileAttributes: u32, #[size_param(3)] #[in] #[out] #[opt] psfi: *mut SHFILEINFOW, cbFileInfo: u32, uFlags: u32) -> usize;
         #[library("SHELL32.dll")]
-        extern fn SHGetImageList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iImageList: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn SHGetImageList(iImageList: i32, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetLocalizedName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: PCWSTR, #[out] #[len_param(2)] pszResModule: PWSTR, cch: UINT, #[out] pidsRes: *mut i32) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
-        #[library("SHELL32.dll", import = "SHGetNewLinkInfoA")]
-        extern fn SHGetNewLinkInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszLinkTo: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDir: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszName: LPSTR, #[out] pfMustCopy: *mut BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: UINT) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn SHGetLocalizedName(pszPath: PCWSTR, #[len_param(2)] #[out] pszResModule: PWSTR, cch: u32, pidsRes: *mut i32) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetNewLinkInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszLinkTo: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDir: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszName: LPSTR, #[out] pfMustCopy: *mut BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: UINT) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn SHGetNewLinkInfoA(pszLinkTo: PCSTR, pszDir: PCSTR, #[out] pszName: PSTR, pfMustCopy: *mut BOOL, uFlags: u32) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetNewLinkInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszLinkTo: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDir: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "260", "260")] #[out] pszName: LPWSTR, #[out] pfMustCopy: *mut BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uFlags: UINT) -> BOOL;
+        extern fn SHGetNewLinkInfoW(pszLinkTo: PCWSTR, pszDir: PCWSTR, #[out] pszName: PWSTR, pfMustCopy: *mut BOOL, uFlags: u32) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetPropertyStoreForWindow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetPropertyStoreForWindow(hwnd: HWND, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetStockIconInfo(siid: SHSTOCKICONID, uFlags: UINT, #[in] #[out] psii: *mut SHSTOCKICONINFO) -> HRESULT;
+        extern fn SHGetStockIconInfo(siid: SHSTOCKICONID, uFlags: u32, #[in] #[out] psii: *mut SHSTOCKICONINFO) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetUnreadMailCountW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKeyUser: HKEY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszMailAddress: LPCWSTR, #[out] #[opt] pdwCount: *mut DWORD, #[out] #[opt] pFileTime: *mut FILETIME, #[out] #[opt] #[len_param(5)] pszShellExecuteCommand: LPWSTR, cchShellExecuteCommand: i32) -> HRESULT;
+        extern fn SHGetUnreadMailCountW(#[opt] hKeyUser: HKEY, #[opt] pszMailAddress: PCWSTR, #[opt] pdwCount: *mut u32, #[opt] pFileTime: *mut FILETIME, #[len_param(5)] #[out] #[opt] pszShellExecuteCommand: PWSTR, cchShellExecuteCommand: i32) -> HRESULT;
         const SHIL_EXTRALARGE: i32 = 2;
         const SHIL_JUMBO: i32 = 4;
         const SHIL_LARGE: i32 = 0;
         const SHIL_LAST: i32 = 4;
         const SHIL_SMALL: i32 = 1;
         const SHIL_SYSSMALL: i32 = 3;
-        #[library("SHELL32.dll", import = "SHInvokePrinterCommandA")]
-        extern fn SHInvokePrinterCommand(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, uAction: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBuf1: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBuf2: LPCSTR, fModal: BOOL) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHInvokePrinterCommandA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, uAction: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBuf1: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBuf2: LPCSTR, fModal: BOOL) -> BOOL;
+        extern fn SHInvokePrinterCommandA(#[opt] hwnd: HWND, uAction: u32, lpBuf1: PCSTR, #[opt] lpBuf2: PCSTR, fModal: BOOL) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHInvokePrinterCommandW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, uAction: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBuf1: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBuf2: LPCWSTR, fModal: BOOL) -> BOOL;
+        extern fn SHInvokePrinterCommandW(#[opt] hwnd: HWND, uAction: u32, lpBuf1: PCWSTR, #[opt] lpBuf2: PCWSTR, fModal: BOOL) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHIsFileAvailableOffline(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszPath: PCWSTR, #[out] #[opt] pdwStatus: *mut DWORD) -> HRESULT;
+        extern fn SHIsFileAvailableOffline(pwszPath: PCWSTR, #[opt] pdwStatus: *mut u32) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHLoadNonloadedIconOverlayIdentifiers() -> HRESULT;
         type SHNAMEMAPPING = SHNAMEMAPPINGA;
         #[arch(X64 | Arm64)]
         struct SHNAMEMAPPINGA {
-            pszOldPath: LPSTR,
-            pszNewPath: LPSTR,
+            pszOldPath: PSTR,
+            pszNewPath: PSTR,
             cchOldPath: i32,
             cchNewPath: i32,
         }
         #[packed(1)]
         #[arch(X86)]
         struct SHNAMEMAPPINGA {
-            pszOldPath: LPSTR,
-            pszNewPath: LPSTR,
+            pszOldPath: PSTR,
+            pszNewPath: PSTR,
             cchOldPath: i32,
             cchNewPath: i32,
         }
         #[arch(X64 | Arm64)]
         struct SHNAMEMAPPINGW {
-            pszOldPath: LPWSTR,
-            pszNewPath: LPWSTR,
+            pszOldPath: PWSTR,
+            pszNewPath: PWSTR,
             cchOldPath: i32,
             cchNewPath: i32,
         }
         #[packed(1)]
         #[arch(X86)]
         struct SHNAMEMAPPINGW {
-            pszOldPath: LPWSTR,
-            pszNewPath: LPWSTR,
+            pszOldPath: PWSTR,
+            pszNewPath: PWSTR,
             cchOldPath: i32,
             cchNewPath: i32,
         }
         #[arch(X64 | Arm64)]
         struct SHQUERYRBINFO {
-            cbSize: DWORD,
+            cbSize: u32,
             i64Size: i64,
             i64NumItems: i64,
         }
         #[packed(1)]
         #[arch(X86)]
         struct SHQUERYRBINFO {
-            cbSize: DWORD,
+            cbSize: u32,
             i64Size: i64,
             i64NumItems: i64,
         }
-        #[library("SHELL32.dll", import = "SHQueryRecycleBinA")]
-        extern fn SHQueryRecycleBin(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRootPath: LPCSTR, #[in] #[out] pSHQueryRBInfo: LPSHQUERYRBINFO) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHQueryRecycleBinA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRootPath: LPCSTR, #[in] #[out] pSHQueryRBInfo: LPSHQUERYRBINFO) -> HRESULT;
+        extern fn SHQueryRecycleBinA(#[opt] pszRootPath: PCSTR, #[in] #[out] pSHQueryRBInfo: LPSHQUERYRBINFO) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHQueryRecycleBinW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRootPath: LPCWSTR, #[in] #[out] pSHQueryRBInfo: LPSHQUERYRBINFO) -> HRESULT;
+        extern fn SHQueryRecycleBinW(#[opt] pszRootPath: PCWSTR, #[in] #[out] pSHQueryRBInfo: LPSHQUERYRBINFO) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHQueryUserNotificationState(#[out] pquns: *mut QUERY_USER_NOTIFICATION_STATE) -> HRESULT;
+        extern fn SHQueryUserNotificationState(pquns: *mut QUERY_USER_NOTIFICATION_STATE) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHRemoveLocalizedName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: PCWSTR) -> HRESULT;
+        extern fn SHRemoveLocalizedName(pszPath: PCWSTR) -> HRESULT;
         #[repr(i32)]
         enum SHSTOCKICONID {
             SIID_DOCNOASSOC = 0,
@@ -972,60 +931,50 @@ mod Windows {
         }
         #[arch(X64 | Arm64)]
         struct SHSTOCKICONINFO {
-            cbSize: DWORD,
+            cbSize: u32,
             hIcon: HICON,
             iSysImageIndex: i32,
             iIcon: i32,
-            szPath: [WCHAR; 260],
+            szPath: [u16; 260],
         }
         #[packed(1)]
         #[arch(X86)]
         struct SHSTOCKICONINFO {
-            cbSize: DWORD,
+            cbSize: u32,
             hIcon: HICON,
             iSysImageIndex: i32,
             iIcon: i32,
-            szPath: [WCHAR; 260],
+            szPath: [u16; 260],
         }
         #[library("SHELL32.dll")]
-        extern fn SHSetLocalizedName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszResModule: PCWSTR, idsRes: i32) -> HRESULT;
+        extern fn SHSetLocalizedName(pszPath: PCWSTR, pszResModule: PCWSTR, idsRes: i32) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHSetUnreadMailCountW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszMailAddress: LPCWSTR, dwCount: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszShellExecuteCommand: LPCWSTR) -> HRESULT;
+        extern fn SHSetUnreadMailCountW(pszMailAddress: PCWSTR, dwCount: u32, pszShellExecuteCommand: PCWSTR) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHTestTokenMembership(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, ulRID: ULONG) -> BOOL;
+        extern fn SHTestTokenMembership(#[opt] hToken: HANDLE, ulRID: u32) -> BOOL;
         const SIID_INVALID: SHSTOCKICONID = -1;
-        #[library("SHELL32.dll", import = "ShellAboutA")]
-        extern fn ShellAbout(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szApp: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szOtherStuff: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hIcon: HICON) -> INT;
         #[library("SHELL32.dll")]
-        extern fn ShellAboutA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szApp: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szOtherStuff: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hIcon: HICON) -> INT;
+        extern fn ShellAboutA(#[opt] hWnd: HWND, szApp: PCSTR, #[opt] szOtherStuff: PCSTR, #[opt] hIcon: HICON) -> i32;
         #[library("SHELL32.dll")]
-        extern fn ShellAboutW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szApp: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szOtherStuff: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hIcon: HICON) -> INT;
-        #[library("SHELL32.dll", import = "ShellExecuteA")]
-        extern fn ShellExecute(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOperation: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFile: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpParameters: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDirectory: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nShowCmd: INT) -> HINSTANCE;
+        extern fn ShellAboutW(#[opt] hWnd: HWND, szApp: PCWSTR, #[opt] szOtherStuff: PCWSTR, #[opt] hIcon: HICON) -> i32;
         #[library("SHELL32.dll")]
-        extern fn ShellExecuteA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOperation: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFile: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpParameters: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDirectory: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nShowCmd: INT) -> HINSTANCE;
-        #[library("SHELL32.dll", import = "ShellExecuteExA")]
-        extern fn ShellExecuteEx(#[in] #[out] pExecInfo: *mut SHELLEXECUTEINFOA) -> BOOL;
+        extern fn ShellExecuteA(#[opt] hwnd: HWND, #[opt] lpOperation: PCSTR, lpFile: PCSTR, #[opt] lpParameters: PCSTR, #[opt] lpDirectory: PCSTR, nShowCmd: i32) -> HINSTANCE;
         #[library("SHELL32.dll")]
         extern fn ShellExecuteExA(#[in] #[out] pExecInfo: *mut SHELLEXECUTEINFOA) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn ShellExecuteExW(#[in] #[out] pExecInfo: *mut SHELLEXECUTEINFOW) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn ShellExecuteW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOperation: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFile: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpParameters: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpDirectory: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nShowCmd: INT) -> HINSTANCE;
-        #[library("SHLWAPI.dll", import = "ShellMessageBoxA")]
-        extern "C" fn ShellMessageBox(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAppInst: HINSTANCE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpcText: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpcTitle: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuStyle: UINT, ...) -> i32;
+        extern fn ShellExecuteW(#[opt] hwnd: HWND, #[opt] lpOperation: PCWSTR, lpFile: PCWSTR, #[opt] lpParameters: PCWSTR, #[opt] lpDirectory: PCWSTR, nShowCmd: i32) -> HINSTANCE;
         #[library("SHLWAPI.dll")]
-        extern "C" fn ShellMessageBoxA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAppInst: HINSTANCE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpcText: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpcTitle: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuStyle: UINT, ...) -> i32;
+        extern "C" fn ShellMessageBoxA(#[opt] hAppInst: HINSTANCE, #[opt] hWnd: HWND, lpcText: PCSTR, #[opt] lpcTitle: PCSTR, fuStyle: u32, ...) -> i32;
         #[library("SHLWAPI.dll")]
-        extern "C" fn ShellMessageBoxW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAppInst: HINSTANCE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpcText: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpcTitle: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuStyle: UINT, ...) -> i32;
-        #[library("SHELL32.dll", import = "Shell_NotifyIconA")]
-        extern fn Shell_NotifyIcon(dwMessage: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpData: PNOTIFYICONDATAA) -> BOOL;
+        extern "C" fn ShellMessageBoxW(#[opt] hAppInst: HINSTANCE, #[opt] hWnd: HWND, lpcText: PCWSTR, #[opt] lpcTitle: PCWSTR, fuStyle: u32, ...) -> i32;
         #[library("SHELL32.dll")]
-        extern fn Shell_NotifyIconA(dwMessage: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpData: PNOTIFYICONDATAA) -> BOOL;
+        extern fn Shell_NotifyIconA(dwMessage: u32, lpData: PNOTIFYICONDATAA) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn Shell_NotifyIconGetRect(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] identifier: *const NOTIFYICONIDENTIFIER, #[out] iconLocation: *mut RECT) -> HRESULT;
+        extern fn Shell_NotifyIconGetRect(identifier: *const NOTIFYICONIDENTIFIER, iconLocation: *mut RECT) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn Shell_NotifyIconW(dwMessage: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpData: PNOTIFYICONDATAW) -> BOOL;
+        extern fn Shell_NotifyIconW(dwMessage: u32, lpData: PNOTIFYICONDATAW) -> BOOL;
         #[encoding("utf-16")]
         const WC_NETADDRESS: String = "msctls_netaddress";
     }

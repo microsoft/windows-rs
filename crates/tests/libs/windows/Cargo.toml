@@ -11,8 +11,14 @@ doctest = false
 [dev-dependencies.windows]
 workspace = true
 features = [
-    "Foundation",
+    "Devices_Enumeration",
+    "Foundation_Collections",
 ]
+
+[dev-dependencies]
+windows-collections = { workspace = true }
+windows-future = { workspace = true }
+windows-reference = { workspace = true }
 
 [lints]
 workspace = true

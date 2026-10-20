@@ -350,6 +350,7 @@ pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result
         | (ValueType::ButtonStyle, PropertyValue::ButtonStyle(_))
         | (ValueType::Color, PropertyValue::Color(_))
         | (ValueType::CornerRadius, PropertyValue::CornerRadius(_))
+        | (ValueType::DateTime, PropertyValue::DateTime(_))
         | (ValueType::Duration, PropertyValue::Duration(_))
         | (ValueType::DragDropPolicy, PropertyValue::DragDropPolicy(_))
         | (ValueType::F64, PropertyValue::F64(_))
@@ -361,12 +362,16 @@ pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result
         | (ValueType::KeyAccelerators, PropertyValue::KeyAccelerators(_))
         | (ValueType::OptionalF64, PropertyValue::OptionalF64(_))
         | (ValueType::OptionalBool, PropertyValue::OptionalBool(_))
+        | (ValueType::OptionalDateTime, PropertyValue::OptionalDateTime(_))
         | (ValueType::ResourceOverrides, PropertyValue::ResourceOverrides(_))
         | (ValueType::RichText, PropertyValue::RichText(_))
         | (ValueType::SelectionIndex, PropertyValue::SelectionIndex(_))
         | (ValueType::StringList, PropertyValue::StringList(_))
         | (ValueType::ThemeTransitions, PropertyValue::ThemeTransitions(_))
         | (ValueType::Thickness, PropertyValue::Thickness(_)) => true,
+        (ValueType::Vector2, PropertyValue::Vector2(value)) => {
+            value.iter().all(|value| (*value as f32).is_finite())
+        }
         (
             ValueType::Enum {
                 kind: expected,

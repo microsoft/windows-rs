@@ -4,88 +4,88 @@ mod Windows {
         #[library("RpcProxy.dll")]
         extern fn GetFilterVersion(pVer: *mut HTTP_FILTER_VERSION) -> BOOL;
         struct HTTP_FILTER_ACCESS_DENIED {
-            pszURL: *const CHAR,
-            pszPhysicalPath: *const CHAR,
-            dwReason: DWORD,
+            pszURL: *const i8,
+            pszPhysicalPath: *const i8,
+            dwReason: u32,
         }
         struct HTTP_FILTER_AUTHENT {
-            pszUser: *mut CHAR,
-            cbUserBuff: DWORD,
-            pszPassword: *mut CHAR,
-            cbPasswordBuff: DWORD,
+            pszUser: *mut i8,
+            cbUserBuff: u32,
+            pszPassword: *mut i8,
+            cbPasswordBuff: u32,
         }
         struct HTTP_FILTER_AUTH_COMPLETE_INFO {
-            GetHeader: extern fn(*mut HTTP_FILTER_CONTEXT, LPSTR, LPVOID, LPDWORD) -> BOOL,
-            SetHeader: extern fn(*mut HTTP_FILTER_CONTEXT, LPSTR, LPSTR) -> BOOL,
-            AddHeader: extern fn(*mut HTTP_FILTER_CONTEXT, LPSTR, LPSTR) -> BOOL,
-            GetUserToken: extern fn(*mut HTTP_FILTER_CONTEXT, *mut HANDLE) -> BOOL,
-            HttpStatus: DWORD,
+            GetHeader: *mut u8,
+            SetHeader: *mut u8,
+            AddHeader: *mut u8,
+            GetUserToken: *mut u8,
+            HttpStatus: u32,
             fResetAuth: BOOL,
-            dwReserved: DWORD,
+            dwReserved: u32,
         }
         struct HTTP_FILTER_CONTEXT {
-            cbSize: DWORD,
-            Revision: DWORD,
-            ServerContext: PVOID,
-            ulReserved: DWORD,
+            cbSize: u32,
+            Revision: u32,
+            ServerContext: *mut void,
+            ulReserved: u32,
             fIsSecurePort: BOOL,
-            pFilterContext: PVOID,
-            GetServerVariable: extern fn(*mut HTTP_FILTER_CONTEXT, LPSTR, LPVOID, LPDWORD) -> BOOL,
-            AddResponseHeaders: extern fn(*mut HTTP_FILTER_CONTEXT, LPSTR, DWORD) -> BOOL,
-            WriteClient: extern fn(*mut HTTP_FILTER_CONTEXT, LPVOID, LPDWORD, DWORD) -> BOOL,
-            AllocMem: extern fn(*mut HTTP_FILTER_CONTEXT, DWORD, DWORD) -> *mut void,
-            ServerSupportFunction: extern fn(*mut HTTP_FILTER_CONTEXT, SF_REQ_TYPE, PVOID, ULONG_PTR, ULONG_PTR) -> BOOL,
+            pFilterContext: *mut void,
+            GetServerVariable: *mut u8,
+            AddResponseHeaders: *mut u8,
+            WriteClient: *mut u8,
+            AllocMem: *mut u8,
+            ServerSupportFunction: *mut u8,
         }
         struct HTTP_FILTER_LOG {
-            pszClientHostName: *const CHAR,
-            pszClientUserName: *const CHAR,
-            pszServerName: *const CHAR,
-            pszOperation: *const CHAR,
-            pszTarget: *const CHAR,
-            pszParameters: *const CHAR,
-            dwHttpStatus: DWORD,
-            dwWin32Status: DWORD,
-            dwBytesSent: DWORD,
-            dwBytesRecvd: DWORD,
-            msTimeForProcessing: DWORD,
+            pszClientHostName: *const i8,
+            pszClientUserName: *const i8,
+            pszServerName: *const i8,
+            pszOperation: *const i8,
+            pszTarget: *const i8,
+            pszParameters: *const i8,
+            dwHttpStatus: u32,
+            dwWin32Status: u32,
+            dwBytesSent: u32,
+            dwBytesRecvd: u32,
+            msTimeForProcessing: u32,
         }
         struct HTTP_FILTER_PREPROC_HEADERS {
-            GetHeader: extern fn(*mut HTTP_FILTER_CONTEXT, LPSTR, LPVOID, LPDWORD) -> BOOL,
-            SetHeader: extern fn(*mut HTTP_FILTER_CONTEXT, LPSTR, LPSTR) -> BOOL,
-            AddHeader: extern fn(*mut HTTP_FILTER_CONTEXT, LPSTR, LPSTR) -> BOOL,
-            HttpStatus: DWORD,
-            dwReserved: DWORD,
+            GetHeader: *mut u8,
+            SetHeader: *mut u8,
+            AddHeader: *mut u8,
+            HttpStatus: u32,
+            dwReserved: u32,
         }
         struct HTTP_FILTER_RAW_DATA {
-            pvInData: PVOID,
-            cbInData: DWORD,
-            cbInBuffer: DWORD,
-            dwReserved: DWORD,
+            pvInData: *mut void,
+            cbInData: u32,
+            cbInBuffer: u32,
+            dwReserved: u32,
         }
-        const HTTP_FILTER_REVISION: LONG = 655360;
+        const HTTP_FILTER_REVISION: i32 = 655360;
         type HTTP_FILTER_SEND_RESPONSE = HTTP_FILTER_PREPROC_HEADERS;
         struct HTTP_FILTER_URL_MAP {
-            pszURL: *const CHAR,
-            pszPhysicalPath: *mut CHAR,
-            cbPathBuff: DWORD,
+            pszURL: *const i8,
+            pszPhysicalPath: *mut i8,
+            cbPathBuff: u32,
         }
         struct HTTP_FILTER_URL_MAP_EX {
-            pszURL: *const CHAR,
-            pszPhysicalPath: *mut CHAR,
-            cbPathBuff: DWORD,
-            dwFlags: DWORD,
-            cchMatchingPath: DWORD,
-            cchMatchingURL: DWORD,
-            pszScriptMapEntry: *const CHAR,
+            pszURL: *const i8,
+            pszPhysicalPath: *mut i8,
+            cbPathBuff: u32,
+            dwFlags: u32,
+            cchMatchingPath: u32,
+            cchMatchingURL: u32,
+            pszScriptMapEntry: *const i8,
         }
         struct HTTP_FILTER_VERSION {
-            dwServerFilterVersion: DWORD,
-            dwFilterVersion: DWORD,
-            lpszFilterDesc: [CHAR; 257],
-            dwFlags: DWORD,
+            dwServerFilterVersion: u32,
+            dwFilterVersion: u32,
+            lpszFilterDesc: [i8; 257],
+            dwFlags: u32,
         }
         #[library("RpcProxy.dll")]
-        extern fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, NotificationType: DWORD, pvNotification: *mut void) -> DWORD;
+        extern fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, NotificationType: u32, pvNotification: *mut void) -> u32;
         type PHTTP_FILTER_ACCESS_DENIED = *mut HTTP_FILTER_ACCESS_DENIED;
         type PHTTP_FILTER_AUTHENT = *mut HTTP_FILTER_AUTHENT;
         type PHTTP_FILTER_AUTH_COMPLETE_INFO = *mut HTTP_FILTER_AUTH_COMPLETE_INFO;

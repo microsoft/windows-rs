@@ -60,11 +60,10 @@ mod Windows {
         const USB_GET_TRANSPORT_CHARACTERISTICS: i32 = 281;
         const USB_GET_TT_DEVICE_HANDLE: i32 = 270;
         const USB_HUB_CYCLE_PORT: i32 = 273;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        extern "C" fn USB_IDLE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Context: PVOID);
+        extern "C" fn USB_IDLE_CALLBACK(#[in] Context: *mut void);
         struct USB_IDLE_CALLBACK_INFO {
             IdleCallback: USB_IDLE_CALLBACK,
-            IdleContext: PVOID,
+            IdleContext: *mut void,
         }
         const USB_IDLE_NOTIFICATION: i32 = 9;
         const USB_IDLE_NOTIFICATION_EX: i32 = 272;

@@ -16,27 +16,18 @@ mod Windows {
             NameGivenName = 13,
             NameSurname = 14,
         }
-        #[library("Secur32.dll", import = "GetComputerObjectNameA")]
-        extern fn GetComputerObjectName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameFormat: EXTENDED_NAME_FORMAT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*nSize,*nSize", "*nSize,*nSize")] #[out] #[opt] lpNameBuffer: LPSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         #[library("Secur32.dll")]
-        extern fn GetComputerObjectNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameFormat: EXTENDED_NAME_FORMAT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*nSize,*nSize", "*nSize,*nSize")] #[out] #[opt] lpNameBuffer: LPSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
+        extern fn GetComputerObjectNameA(NameFormat: EXTENDED_NAME_FORMAT, #[len_param(2)] #[out] #[opt] lpNameBuffer: PSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         #[library("Secur32.dll")]
-        extern fn GetComputerObjectNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameFormat: EXTENDED_NAME_FORMAT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*nSize,*nSize", "*nSize,*nSize")] #[out] #[opt] lpNameBuffer: LPWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
-        #[library("Secur32.dll", import = "GetUserNameExA")]
-        extern fn GetUserNameEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameFormat: EXTENDED_NAME_FORMAT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*nSize,*nSize", "*nSize,*nSize")] #[out] #[opt] lpNameBuffer: LPSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn GetComputerObjectNameW(NameFormat: EXTENDED_NAME_FORMAT, #[len_param(2)] #[out] #[opt] lpNameBuffer: PWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         #[library("Secur32.dll")]
-        extern fn GetUserNameExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameFormat: EXTENDED_NAME_FORMAT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*nSize,*nSize", "*nSize,*nSize")] #[out] #[opt] lpNameBuffer: LPSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
+        extern fn GetUserNameExA(NameFormat: EXTENDED_NAME_FORMAT, #[len_param(2)] #[out] #[opt] lpNameBuffer: PSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         #[library("Secur32.dll")]
-        extern fn GetUserNameExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NameFormat: EXTENDED_NAME_FORMAT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*nSize,*nSize", "*nSize,*nSize")] #[out] #[opt] lpNameBuffer: LPWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
+        extern fn GetUserNameExW(NameFormat: EXTENDED_NAME_FORMAT, #[len_param(2)] #[out] #[opt] lpNameBuffer: PWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         type PEXTENDED_NAME_FORMAT = *mut EXTENDED_NAME_FORMAT;
-        #[library("Secur32.dll", import = "TranslateNameA")]
-        extern fn TranslateName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAccountName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountNameFormat: EXTENDED_NAME_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredNameFormat: EXTENDED_NAME_FORMAT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*nSize,*nSize", "*nSize,*nSize")] #[out] #[opt] lpTranslatedName: LPSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         #[library("Secur32.dll")]
-        extern fn TranslateNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAccountName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountNameFormat: EXTENDED_NAME_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredNameFormat: EXTENDED_NAME_FORMAT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*nSize,*nSize", "*nSize,*nSize")] #[out] #[opt] lpTranslatedName: LPSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
+        extern fn TranslateNameA(lpAccountName: PCSTR, AccountNameFormat: EXTENDED_NAME_FORMAT, DesiredNameFormat: EXTENDED_NAME_FORMAT, #[len_param(4)] #[out] #[opt] lpTranslatedName: PSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         #[library("Secur32.dll")]
-        extern fn TranslateNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpAccountName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountNameFormat: EXTENDED_NAME_FORMAT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredNameFormat: EXTENDED_NAME_FORMAT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*nSize,*nSize", "*nSize,*nSize")] #[out] #[opt] lpTranslatedName: LPWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
+        extern fn TranslateNameW(lpAccountName: PCWSTR, AccountNameFormat: EXTENDED_NAME_FORMAT, DesiredNameFormat: EXTENDED_NAME_FORMAT, #[len_param(4)] #[out] #[opt] lpTranslatedName: PWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
     }
 }

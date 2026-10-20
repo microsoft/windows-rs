@@ -8,96 +8,96 @@ mod Windows {
         }
         #[guid(0x83e91e85_82c1_4ea7_801d_85dc50b75086)]
         interface IEVRFilterConfig: IUnknown {
-            fn SetNumberOfStreams(&self, dwMaxStreams: DWORD) -> HRESULT;
-            fn GetNumberOfStreams(&self, #[out] pdwMaxStreams: *mut DWORD) -> HRESULT;
+            fn SetNumberOfStreams(&self, dwMaxStreams: u32) -> HRESULT;
+            fn GetNumberOfStreams(&self, pdwMaxStreams: *mut u32) -> HRESULT;
         }
         #[guid(0xaea36028_796d_454f_beee_b48071e24304)]
         interface IEVRFilterConfigEx: IEVRFilterConfig {
-            fn SetConfigPrefs(&self, dwConfigFlags: DWORD) -> HRESULT;
-            fn GetConfigPrefs(&self, #[out] pdwConfigFlags: *mut DWORD) -> HRESULT;
+            fn SetConfigPrefs(&self, dwConfigFlags: u32) -> HRESULT;
+            fn GetConfigPrefs(&self, pdwConfigFlags: *mut u32) -> HRESULT;
         }
         #[guid(0x83a4ce40_7710_494b_a893_a472049af630)]
         interface IEVRTrustedVideoPlugin: IUnknown {
             fn IsInTrustedVideoMode(&self, pYes: *mut BOOL) -> HRESULT;
             fn CanConstrict(&self, pYes: *mut BOOL) -> HRESULT;
-            fn SetConstriction(&self, dwKPix: DWORD) -> HRESULT;
+            fn SetConstriction(&self, dwKPix: u32) -> HRESULT;
             fn DisableImageExport(&self, bDisable: BOOL) -> HRESULT;
         }
         #[guid(0x56c294d0_753e_4260_8d61_a3d8820b1d54)]
         interface IMFDesiredSample: IUnknown {
-            fn GetDesiredSampleTimeAndDuration(&self, #[out] phnsSampleTime: *mut LONGLONG, #[out] phnsSampleDuration: *mut LONGLONG) -> HRESULT;
-            fn SetDesiredSampleTimeAndDuration(&self, hnsSampleTime: LONGLONG, hnsSampleDuration: LONGLONG);
+            fn GetDesiredSampleTimeAndDuration(&self, phnsSampleTime: *mut i64, phnsSampleDuration: *mut i64) -> HRESULT;
+            fn SetDesiredSampleTimeAndDuration(&self, hnsSampleTime: i64, hnsSampleDuration: i64);
             fn Clear(&self);
         }
         #[guid(0xfa993889_4383_415a_a930_dd472a8cf6f7)]
         interface IMFTopologyServiceLookup: IUnknown {
-            fn LookupService(&self, Type: MF_SERVICE_LOOKUP_TYPE, dwIndex: DWORD, guidService: &GUID, riid: &IID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "1,*pnObjects", "1,*pnObjects")] #[out] #[iid_is] ppvObjects: *mut LPVOID, #[in] #[out] pnObjects: *mut DWORD) -> HRESULT;
+            fn LookupService(&self, Type: MF_SERVICE_LOOKUP_TYPE, dwIndex: u32, guidService: *const GUID, riid: *const GUID, #[iid_is] #[len_const(1)] ppvObjects: *mut *mut void, #[in] #[out] pnObjects: *mut u32) -> HRESULT;
         }
         #[guid(0xfa99388a_4383_415a_a930_dd472a8cf6f7)]
         interface IMFTopologyServiceLookupClient: IUnknown {
-            fn InitServicePointers(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pLookup: IMFTopologyServiceLookup) -> HRESULT;
+            fn InitServicePointers(&self, pLookup: IMFTopologyServiceLookup) -> HRESULT;
             fn ReleaseServicePointers(&self) -> HRESULT;
         }
         #[guid(0xa38d9567_5a9c_4f3c_b293_8eb415b279ba)]
         interface IMFVideoDeviceID: IUnknown {
-            fn GetDeviceID(&self, #[out] pDeviceID: *mut IID) -> HRESULT;
+            fn GetDeviceID(&self, pDeviceID: *mut GUID) -> HRESULT;
         }
         #[guid(0xa490b1e4_ab84_4d31_a1b2_181e03b1077a)]
         interface IMFVideoDisplayControl: IUnknown {
-            fn GetNativeVideoSize(&self, #[in] #[out] #[opt] pszVideo: *mut SIZE, #[in] #[out] #[opt] pszARVideo: *mut SIZE) -> HRESULT;
-            fn GetIdealVideoSize(&self, #[in] #[out] #[opt] pszMin: *mut SIZE, #[in] #[out] #[opt] pszMax: *mut SIZE) -> HRESULT;
-            fn SetVideoPosition(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pnrcSource: *const MFVideoNormalizedRect, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] prcDest: LPRECT) -> HRESULT;
-            fn GetVideoPosition(&self, #[out] pnrcSource: *mut MFVideoNormalizedRect, #[out] prcDest: LPRECT) -> HRESULT;
-            fn SetAspectRatioMode(&self, dwAspectRatioMode: DWORD) -> HRESULT;
-            fn GetAspectRatioMode(&self, #[out] pdwAspectRatioMode: *mut DWORD) -> HRESULT;
-            fn SetVideoWindow(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] hwndVideo: HWND) -> HRESULT;
-            fn GetVideoWindow(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] phwndVideo: *mut HWND) -> HRESULT;
+            fn GetNativeVideoSize(&self, #[in] #[out] pszVideo: *mut SIZE, #[in] #[out] pszARVideo: *mut SIZE) -> HRESULT;
+            fn GetIdealVideoSize(&self, #[in] #[out] pszMin: *mut SIZE, #[in] #[out] pszMax: *mut SIZE) -> HRESULT;
+            fn SetVideoPosition(&self, pnrcSource: *const MFVideoNormalizedRect, prcDest: LPRECT) -> HRESULT;
+            fn GetVideoPosition(&self, pnrcSource: *mut MFVideoNormalizedRect, #[out] prcDest: LPRECT) -> HRESULT;
+            fn SetAspectRatioMode(&self, dwAspectRatioMode: u32) -> HRESULT;
+            fn GetAspectRatioMode(&self, pdwAspectRatioMode: *mut u32) -> HRESULT;
+            fn SetVideoWindow(&self, hwndVideo: HWND) -> HRESULT;
+            fn GetVideoWindow(&self, phwndVideo: *mut HWND) -> HRESULT;
             fn RepaintVideo(&self) -> HRESULT;
-            fn GetCurrentImage(&self, #[in] #[out] pBih: *mut BITMAPINFOHEADER, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*pcbDib", "*pcbDib")] pDib: *mut *mut BYTE, #[out] pcbDib: *mut DWORD, #[in] #[out] #[opt] pTimeStamp: *mut LONGLONG) -> HRESULT;
+            fn GetCurrentImage(&self, #[in] #[out] pBih: *mut BITMAPINFOHEADER, pDib: *mut *mut u8, pcbDib: *mut u32, #[in] #[out] pTimeStamp: *mut i64) -> HRESULT;
             fn SetBorderColor(&self, Clr: COLORREF) -> HRESULT;
-            fn GetBorderColor(&self, #[out] pClr: *mut COLORREF) -> HRESULT;
-            fn SetRenderingPrefs(&self, dwRenderFlags: DWORD) -> HRESULT;
-            fn GetRenderingPrefs(&self, #[out] pdwRenderFlags: *mut DWORD) -> HRESULT;
+            fn GetBorderColor(&self, pClr: *mut COLORREF) -> HRESULT;
+            fn SetRenderingPrefs(&self, dwRenderFlags: u32) -> HRESULT;
+            fn GetRenderingPrefs(&self, pdwRenderFlags: *mut u32) -> HRESULT;
             fn SetFullscreen(&self, fFullscreen: BOOL) -> HRESULT;
-            fn GetFullscreen(&self, #[out] pfFullscreen: *mut BOOL) -> HRESULT;
+            fn GetFullscreen(&self, pfFullscreen: *mut BOOL) -> HRESULT;
         }
         #[guid(0xa5c6c53f_c202_4aa5_9695_175ba8c508a5)]
         interface IMFVideoMixerControl: IUnknown {
-            fn SetStreamZOrder(&self, dwStreamID: DWORD, dwZ: DWORD) -> HRESULT;
-            fn GetStreamZOrder(&self, dwStreamID: DWORD, #[out] pdwZ: *mut DWORD) -> HRESULT;
-            fn SetStreamOutputRect(&self, dwStreamID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pnrcOutput: *const MFVideoNormalizedRect) -> HRESULT;
-            fn GetStreamOutputRect(&self, dwStreamID: DWORD, #[out] pnrcOutput: *mut MFVideoNormalizedRect) -> HRESULT;
+            fn SetStreamZOrder(&self, dwStreamID: u32, dwZ: u32) -> HRESULT;
+            fn GetStreamZOrder(&self, dwStreamID: u32, pdwZ: *mut u32) -> HRESULT;
+            fn SetStreamOutputRect(&self, dwStreamID: u32, pnrcOutput: *const MFVideoNormalizedRect) -> HRESULT;
+            fn GetStreamOutputRect(&self, dwStreamID: u32, pnrcOutput: *mut MFVideoNormalizedRect) -> HRESULT;
         }
         #[guid(0x8459616d_966e_4930_b658_54fa7e5a16d3)]
         interface IMFVideoMixerControl2: IMFVideoMixerControl {
-            fn SetMixingPrefs(&self, dwMixFlags: DWORD) -> HRESULT;
-            fn GetMixingPrefs(&self, #[out] pdwMixFlags: *mut DWORD) -> HRESULT;
+            fn SetMixingPrefs(&self, dwMixFlags: u32) -> HRESULT;
+            fn GetMixingPrefs(&self, pdwMixFlags: *mut u32) -> HRESULT;
         }
         #[guid(0x1f6a9f17_e70b_4e24_8ae4_0b2c3ba7a4ae)]
         interface IMFVideoPositionMapper: IUnknown {
-            fn MapOutputCoordinateToInputStream(&self, xOut: f32, yOut: f32, dwOutputStreamIndex: DWORD, dwInputStreamIndex: DWORD, #[out] pxIn: *mut f32, #[out] pyIn: *mut f32) -> HRESULT;
+            fn MapOutputCoordinateToInputStream(&self, xOut: f32, yOut: f32, dwOutputStreamIndex: u32, dwInputStreamIndex: u32, pxIn: *mut f32, pyIn: *mut f32) -> HRESULT;
         }
         #[guid(0x29aff080_182a_4a5d_af3b_448f3a6346cb)]
         interface IMFVideoPresenter: IMFClockStateSink {
-            fn ProcessMessage(&self, eMessage: MFVP_MESSAGE_TYPE, ulParam: ULONG_PTR) -> HRESULT;
-            fn GetCurrentMediaType(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppMediaType: *mut IMFVideoMediaType) -> HRESULT;
+            fn ProcessMessage(&self, eMessage: MFVP_MESSAGE_TYPE, ulParam: usize) -> HRESULT;
+            fn GetCurrentMediaType(&self, ppMediaType: *mut IMFVideoMediaType) -> HRESULT;
         }
         #[guid(0xdfdfd197_a9ca_43d8_b341_6af3503792cd)]
         interface IMFVideoRenderer: IUnknown {
-            fn InitializeRenderer(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoMixer: IMFTransform, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pVideoPresenter: IMFVideoPresenter) -> HRESULT;
+            fn InitializeRenderer(&self, #[opt] pVideoMixer: IMFTransform, #[opt] pVideoPresenter: IMFVideoPresenter) -> HRESULT;
         }
         #[library("EVR.dll")]
-        extern fn MFCreateVideoMixer(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOwner: IUnknown, riidDevice: &IID, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoMixer(#[opt] pOwner: IUnknown, riidDevice: *const GUID, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern fn MFCreateVideoMixerAndPresenter(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMixerOwner: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPresenterOwner: IUnknown, riidMixer: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvVideoMixer: *mut *mut void, riidPresenter: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvVideoPresenter: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoMixerAndPresenter(#[opt] pMixerOwner: IUnknown, #[opt] pPresenterOwner: IUnknown, riidMixer: *const GUID, ppvVideoMixer: *mut *mut void, riidPresenter: *const GUID, ppvVideoPresenter: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern fn MFCreateVideoPresenter(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOwner: IUnknown, riidDevice: &IID, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppVideoPresenter: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoPresenter(#[opt] pOwner: IUnknown, riidDevice: *const GUID, riid: *const GUID, ppVideoPresenter: *mut *mut void) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateVideoRenderer(riidRenderer: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppVideoRenderer: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoRenderer(riidRenderer: *const GUID, ppVideoRenderer: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern fn MFCreateVideoSampleAllocator(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSampleAllocator: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoSampleAllocator(riid: *const GUID, ppSampleAllocator: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern fn MFCreateVideoSampleFromSurface(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUnkSurface: IUnknown, #[out] ppSample: *mut IMFSample) -> HRESULT;
+        extern fn MFCreateVideoSampleFromSurface(pUnkSurface: IUnknown, ppSample: *mut IMFSample) -> HRESULT;
         const MFEVRDLL: i32 = 0;
         #[repr(i32)]
         enum MFVP_MESSAGE_TYPE {
@@ -149,6 +149,7 @@ mod Windows {
             MF_SERVICE_LOOKUP_ALL = 4,
             MF_SERVICE_LOOKUP_GLOBAL = 5,
         }
+        const MR_BUFFER_SERVICE: GUID = 0xa562248c_9ac6_4ffc_9fba_3af8f8ad1a4d;
         const MR_VIDEO_ACCELERATION_SERVICE: GUID = 0xefef5175_5c7d_4ce2_bbbd_34ff8bca6554;
         const MR_VIDEO_MIXER_SERVICE: GUID = 0x073cd2fc_6cf4_40b7_8859_e89552c841f8;
         const MR_VIDEO_RENDER_SERVICE: GUID = 0x1092a86c_ab1a_459a_a336_831fbc4d11ff;

@@ -88,33 +88,9 @@ mod Windows {
         #[encoding("utf-16")]
         const SSDP_CONSTRAINTVALUE_TYPE_DEVICE_PREFIX: String = "urn:schemas-upnp-org:device:";
         #[encoding("utf-16")]
-        const SSDP_CONSTRAINTVALUE_TYPE_DEV_IGD: String = "urn:schemas-upnp-org:device:InternetGatewayDevice:1";
-        #[encoding("utf-16")]
-        const SSDP_CONSTRAINTVALUE_TYPE_DEV_LANDEVICE: String = "urn:schemas-upnp-org:device:LANDevice:1";
-        #[encoding("utf-16")]
-        const SSDP_CONSTRAINTVALUE_TYPE_DEV_LIGHTING: String = "urn:schemas-upnp-org:device:Lighting:1";
-        #[encoding("utf-16")]
-        const SSDP_CONSTRAINTVALUE_TYPE_DEV_LUXMETER: String = "urn:schemas-upnp-org:device:Luxmeter:1";
-        #[encoding("utf-16")]
-        const SSDP_CONSTRAINTVALUE_TYPE_DEV_MDARNDR: String = "urn:schemas-upnp-org:device:MediaRenderer:1";
-        #[encoding("utf-16")]
-        const SSDP_CONSTRAINTVALUE_TYPE_DEV_MDASRVR: String = "urn:schemas-upnp-org:device:MediaServer:1";
-        #[encoding("utf-16")]
-        const SSDP_CONSTRAINTVALUE_TYPE_DEV_POWERDEVICE: String = "urn:schemas-upnp-org:device:PowerDevice:1";
-        #[encoding("utf-16")]
-        const SSDP_CONSTRAINTVALUE_TYPE_DEV_REMINDER: String = "urn:schemas-upnp-org:device:Reminder:1";
-        #[encoding("utf-16")]
-        const SSDP_CONSTRAINTVALUE_TYPE_DEV_WANCONNDEVICE: String = "urn:schemas-upnp-org:device:WANConnectionDevice:1";
-        #[encoding("utf-16")]
-        const SSDP_CONSTRAINTVALUE_TYPE_DEV_WANDEVICE: String = "urn:schemas-upnp-org:device:WANDevice:1";
-        #[encoding("utf-16")]
         const SSDP_CONSTRAINTVALUE_TYPE_ROOT: String = "upnp:rootdevice";
         #[encoding("utf-16")]
-        const SSDP_CONSTRAINTVALUE_TYPE_SVC_DIMMING: String = "urn:schemas-upnp-org:service:DimmingService:1";
-        #[encoding("utf-16")]
         const SSDP_CONSTRAINTVALUE_TYPE_SVC_PREFIX: String = "urn:schemas-upnp-org:service:";
-        #[encoding("utf-16")]
-        const SSDP_CONSTRAINTVALUE_TYPE_SVC_SCANNER: String = "urn:schemas-upnp-org:service:Scanner:1";
         #[encoding("utf-16")]
         const WNET_CONSTRAINTVALUE_PROPERTIES_ALL: String = "All";
         #[encoding("utf-16")]

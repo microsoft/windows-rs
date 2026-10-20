@@ -2,16 +2,16 @@
 mod Windows {
     mod Win32 {
         struct DXGI_ADAPTER_DESC2 {
-            Description: [WCHAR; 128],
-            VendorId: UINT,
-            DeviceId: UINT,
-            SubSysId: UINT,
-            Revision: UINT,
-            DedicatedVideoMemory: SIZE_T,
-            DedicatedSystemMemory: SIZE_T,
-            SharedSystemMemory: SIZE_T,
+            Description: [u16; 128],
+            VendorId: u32,
+            DeviceId: u32,
+            SubSysId: u32,
+            Revision: u32,
+            DedicatedVideoMemory: usize,
+            DedicatedSystemMemory: usize,
+            SharedSystemMemory: usize,
             AdapterLuid: LUID,
-            Flags: UINT,
+            Flags: u32,
             GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
             ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
         }
@@ -42,8 +42,8 @@ mod Windows {
             DXGI_GRAPHICS_PREEMPTION_INSTRUCTION_BOUNDARY = 4,
         }
         struct DXGI_MODE_DESC1 {
-            Width: UINT,
-            Height: UINT,
+            Width: u32,
+            Height: u32,
             RefreshRate: DXGI_RATIONAL,
             Format: DXGI_FORMAT,
             ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER,
@@ -64,12 +64,12 @@ mod Windows {
         struct DXGI_OUTDUPL_FRAME_INFO {
             LastPresentTime: LARGE_INTEGER,
             LastMouseUpdateTime: LARGE_INTEGER,
-            AccumulatedFrames: UINT,
+            AccumulatedFrames: u32,
             RectsCoalesced: BOOL,
             ProtectedContentMaskedOut: BOOL,
             PointerPosition: DXGI_OUTDUPL_POINTER_POSITION,
-            TotalMetadataBufferSize: UINT,
-            PointerShapeBufferSize: UINT,
+            TotalMetadataBufferSize: u32,
+            PointerShapeBufferSize: u32,
         }
         struct DXGI_OUTDUPL_MOVE_RECT {
             SourcePoint: POINT,
@@ -80,10 +80,10 @@ mod Windows {
             Visible: BOOL,
         }
         struct DXGI_OUTDUPL_POINTER_SHAPE_INFO {
-            Type: UINT,
-            Width: UINT,
-            Height: UINT,
-            Pitch: UINT,
+            Type: u32,
+            Width: u32,
+            Height: u32,
+            Pitch: u32,
             HotSpot: POINT,
         }
         #[repr(i32)]
@@ -93,8 +93,7 @@ mod Windows {
             DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR = 4,
         }
         struct DXGI_PRESENT_PARAMETERS {
-            DirtyRectsCount: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DirtyRectsCount", ReadableFieldName = "DirtyRectsCount", IsByteCount = false, MayBeNull = true)]
+            DirtyRectsCount: u32,
             pDirtyRects: *mut RECT,
             pScrollRect: *mut RECT,
             pScrollOffset: *mut POINT,
@@ -108,17 +107,17 @@ mod Windows {
         const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648;
         const DXGI_SHARED_RESOURCE_WRITE: i32 = 1;
         struct DXGI_SWAP_CHAIN_DESC1 {
-            Width: UINT,
-            Height: UINT,
+            Width: u32,
+            Height: u32,
             Format: DXGI_FORMAT,
             Stereo: BOOL,
             SampleDesc: DXGI_SAMPLE_DESC,
             BufferUsage: DXGI_USAGE,
-            BufferCount: UINT,
+            BufferCount: u32,
             Scaling: DXGI_SCALING,
             SwapEffect: DXGI_SWAP_EFFECT,
             AlphaMode: DXGI_ALPHA_MODE,
-            Flags: UINT,
+            Flags: u32,
         }
         struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
             RefreshRate: DXGI_RATIONAL,
@@ -128,13 +127,13 @@ mod Windows {
         }
         #[guid(0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5)]
         interface IDXGIAdapter2: IDXGIAdapter1 {
-            fn GetDesc2(&self, #[out] pDesc: *mut DXGI_ADAPTER_DESC2) -> HRESULT;
+            fn GetDesc2(&self, pDesc: *mut DXGI_ADAPTER_DESC2) -> HRESULT;
         }
         #[guid(0x05008617_fbfd_4051_a790_144884b4f6a9)]
         interface IDXGIDevice2: IDXGIDevice1 {
-            fn OfferResources(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumResources: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] ppResources: *const IDXGIResource, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Priority: DXGI_OFFER_RESOURCE_PRIORITY) -> HRESULT;
-            fn ReclaimResources(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumResources: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] ppResources: *const IDXGIResource, #[out] #[opt] #[len_param(0)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 0, IsByteCount = false, Dereference = false)] pDiscarded: *mut BOOL) -> HRESULT;
-            fn EnqueueSetEvent(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEvent: HANDLE) -> HRESULT;
+            fn OfferResources(&self, NumResources: u32, #[len_param(0)] ppResources: *const IDXGIResource, Priority: DXGI_OFFER_RESOURCE_PRIORITY) -> HRESULT;
+            fn ReclaimResources(&self, NumResources: u32, #[len_param(0)] ppResources: *const IDXGIResource, #[len_param(0)] #[opt] pDiscarded: *mut BOOL) -> HRESULT;
+            fn EnqueueSetEvent(&self, hEvent: HANDLE) -> HRESULT;
         }
         #[guid(0xea9dbf1a_c88e_4486_854a_98aa0138f30c)]
         interface IDXGIDisplayControl: IUnknown {
@@ -144,66 +143,57 @@ mod Windows {
         #[guid(0x50c83a1c_e072_4c48_87b0_3630fa36a6d0)]
         interface IDXGIFactory2: IDXGIFactory1 {
             fn IsWindowedStereoEnabled(&self) -> BOOL;
-            fn CreateSwapChainForHwnd(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDevice: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFullscreenDesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRestrictToOutput: IDXGIOutput, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
-            fn CreateSwapChainForCoreWindow(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDevice: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pWindow: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRestrictToOutput: IDXGIOutput, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
-            fn GetSharedResourceAdapterLuid(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hResource: HANDLE, #[out] pLuid: *mut LUID) -> HRESULT;
-            fn RegisterStereoStatusWindow(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] WindowHandle: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wMsg: UINT, #[out] pdwCookie: *mut DWORD) -> HRESULT;
-            fn RegisterStereoStatusEvent(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEvent: HANDLE, #[out] pdwCookie: *mut DWORD) -> HRESULT;
-            fn UnregisterStereoStatus(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCookie: DWORD);
-            fn RegisterOcclusionStatusWindow(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] WindowHandle: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wMsg: UINT, #[out] pdwCookie: *mut DWORD) -> HRESULT;
-            fn RegisterOcclusionStatusEvent(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEvent: HANDLE, #[out] pdwCookie: *mut DWORD) -> HRESULT;
-            fn UnregisterOcclusionStatus(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCookie: DWORD);
-            fn CreateSwapChainForComposition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDevice: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRestrictToOutput: IDXGIOutput, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
+            fn CreateSwapChainForHwnd(&self, pDevice: IUnknown, hWnd: HWND, pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[opt] pFullscreenDesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, #[opt] pRestrictToOutput: IDXGIOutput, ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
+            fn CreateSwapChainForCoreWindow(&self, pDevice: IUnknown, pWindow: IUnknown, pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[opt] pRestrictToOutput: IDXGIOutput, ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
+            fn GetSharedResourceAdapterLuid(&self, hResource: HANDLE, pLuid: *mut LUID) -> HRESULT;
+            fn RegisterStereoStatusWindow(&self, WindowHandle: HWND, wMsg: u32, pdwCookie: *mut u32) -> HRESULT;
+            fn RegisterStereoStatusEvent(&self, hEvent: HANDLE, pdwCookie: *mut u32) -> HRESULT;
+            fn UnregisterStereoStatus(&self, dwCookie: u32);
+            fn RegisterOcclusionStatusWindow(&self, WindowHandle: HWND, wMsg: u32, pdwCookie: *mut u32) -> HRESULT;
+            fn RegisterOcclusionStatusEvent(&self, hEvent: HANDLE, pdwCookie: *mut u32) -> HRESULT;
+            fn UnregisterOcclusionStatus(&self, dwCookie: u32);
+            fn CreateSwapChainForComposition(&self, pDevice: IUnknown, pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[opt] pRestrictToOutput: IDXGIOutput, ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
         }
         #[guid(0x00cddea8_939b_4b83_a340_a685226666cc)]
         interface IDXGIOutput1: IDXGIOutput {
-            fn GetDisplayModeList1(&self, EnumFormat: DXGI_FORMAT, Flags: UINT, #[in] #[out] pNumModes: *mut UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "*pNumModes,*pNumModes", "*pNumModes,*pNumModes")] #[out] #[opt] pDesc: *mut DXGI_MODE_DESC1) -> HRESULT;
-            fn FindClosestMatchingMode1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pModeToMatch: *const DXGI_MODE_DESC1, #[out] pClosestMatch: *mut DXGI_MODE_DESC1, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pConcernedDevice: IUnknown) -> HRESULT;
-            fn GetDisplaySurfaceData1(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDestination: IDXGIResource) -> HRESULT;
-            fn DuplicateOutput(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDevice: IUnknown, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppOutputDuplication: *mut IDXGIOutputDuplication) -> HRESULT;
+            fn GetDisplayModeList1(&self, EnumFormat: DXGI_FORMAT, Flags: u32, #[in] #[out] pNumModes: *mut u32, #[len_param(2)] #[opt] pDesc: *mut DXGI_MODE_DESC1) -> HRESULT;
+            fn FindClosestMatchingMode1(&self, pModeToMatch: *const DXGI_MODE_DESC1, pClosestMatch: *mut DXGI_MODE_DESC1, #[opt] pConcernedDevice: IUnknown) -> HRESULT;
+            fn GetDisplaySurfaceData1(&self, pDestination: IDXGIResource) -> HRESULT;
+            fn DuplicateOutput(&self, pDevice: IUnknown, ppOutputDuplication: *mut IDXGIOutputDuplication) -> HRESULT;
         }
         #[guid(0x191cfac3_a341_470d_b26e_a864f428319c)]
         interface IDXGIOutputDuplication: IDXGIObject {
-            fn GetDesc(&self, #[out] pDesc: *mut DXGI_OUTDUPL_DESC);
-            fn AcquireNextFrame(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TimeoutInMilliseconds: UINT, #[out] pFrameInfo: *mut DXGI_OUTDUPL_FRAME_INFO, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppDesktopResource: *mut IDXGIResource) -> HRESULT;
-            fn GetFrameDirtyRects(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DirtyRectsBufferSize: UINT, #[out] #[size_param(0)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] pDirtyRectsBuffer: *mut RECT, #[out] pDirtyRectsBufferSizeRequired: *mut UINT) -> HRESULT;
-            fn GetFrameMoveRects(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MoveRectsBufferSize: UINT, #[out] #[size_param(0)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] pMoveRectBuffer: *mut DXGI_OUTDUPL_MOVE_RECT, #[out] pMoveRectsBufferSizeRequired: *mut UINT) -> HRESULT;
-            fn GetFramePointerShape(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PointerShapeBufferSize: UINT, #[out] #[size_param(0)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] pPointerShapeBuffer: *mut void, #[out] pPointerShapeBufferSizeRequired: *mut UINT, #[out] pPointerShapeInfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> HRESULT;
-            fn MapDesktopSurface(&self, #[out] pLockedRect: *mut DXGI_MAPPED_RECT) -> HRESULT;
+            fn GetDesc(&self, pDesc: *mut DXGI_OUTDUPL_DESC);
+            fn AcquireNextFrame(&self, TimeoutInMilliseconds: u32, pFrameInfo: *mut DXGI_OUTDUPL_FRAME_INFO, ppDesktopResource: *mut IDXGIResource) -> HRESULT;
+            fn GetFrameDirtyRects(&self, DirtyRectsBufferSize: u32, #[size_param(0)] pDirtyRectsBuffer: *mut RECT, pDirtyRectsBufferSizeRequired: *mut u32) -> HRESULT;
+            fn GetFrameMoveRects(&self, MoveRectsBufferSize: u32, #[size_param(0)] pMoveRectBuffer: *mut DXGI_OUTDUPL_MOVE_RECT, pMoveRectsBufferSizeRequired: *mut u32) -> HRESULT;
+            fn GetFramePointerShape(&self, PointerShapeBufferSize: u32, #[size_param(0)] pPointerShapeBuffer: *mut void, pPointerShapeBufferSizeRequired: *mut u32, pPointerShapeInfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> HRESULT;
+            fn MapDesktopSurface(&self, pLockedRect: *mut DXGI_MAPPED_RECT) -> HRESULT;
             fn UnMapDesktopSurface(&self) -> HRESULT;
             fn ReleaseFrame(&self) -> HRESULT;
         }
         #[guid(0x30961379_4609_4a41_998e_54fe567ee0c1)]
         interface IDXGIResource1: IDXGIResource {
-            fn CreateSubresourceSurface(&self, index: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppSurface: *mut IDXGISurface2) -> HRESULT;
-            fn CreateSharedHandle(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAttributes: *const SECURITY_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAccess: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR, #[out] pHandle: *mut HANDLE) -> HRESULT;
+            fn CreateSubresourceSurface(&self, index: u32, ppSurface: *mut IDXGISurface2) -> HRESULT;
+            fn CreateSharedHandle(&self, #[opt] pAttributes: *const SECURITY_ATTRIBUTES, dwAccess: u32, #[opt] lpName: PCWSTR, pHandle: *mut HANDLE) -> HRESULT;
         }
         #[guid(0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2)]
         interface IDXGISurface2: IDXGISurface1 {
-            fn GetResource(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppParentResource: *mut *mut void, #[out] pSubresourceIndex: *mut UINT) -> HRESULT;
+            fn GetResource(&self, riid: *const GUID, #[iid_is] ppParentResource: *mut *mut void, pSubresourceIndex: *mut u32) -> HRESULT;
         }
         #[guid(0x790a45f7_0d42_4876_983a_0a55cfe6f4aa)]
         interface IDXGISwapChain1: IDXGISwapChain {
-            fn GetDesc1(&self, #[out] pDesc: *mut DXGI_SWAP_CHAIN_DESC1) -> HRESULT;
-            fn GetFullscreenDesc(&self, #[out] pDesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> HRESULT;
-            fn GetHwnd(&self, #[out] pHwnd: *mut HWND) -> HRESULT;
-            fn GetCoreWindow(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] refiid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppUnk: *mut *mut void) -> HRESULT;
-            fn Present1(&self, SyncInterval: UINT, PresentFlags: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPresentParameters: *const DXGI_PRESENT_PARAMETERS) -> HRESULT;
+            fn GetDesc1(&self, pDesc: *mut DXGI_SWAP_CHAIN_DESC1) -> HRESULT;
+            fn GetFullscreenDesc(&self, pDesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> HRESULT;
+            fn GetHwnd(&self, pHwnd: *mut HWND) -> HRESULT;
+            fn GetCoreWindow(&self, refiid: *const GUID, #[iid_is] ppUnk: *mut *mut void) -> HRESULT;
+            fn Present1(&self, SyncInterval: u32, PresentFlags: u32, pPresentParameters: *const DXGI_PRESENT_PARAMETERS) -> HRESULT;
             fn IsTemporaryMonoSupported(&self) -> BOOL;
-            fn GetRestrictToOutput(&self, #[out] ppRestrictToOutput: *mut IDXGIOutput) -> HRESULT;
-            fn SetBackgroundColor(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pColor: *const DXGI_RGBA) -> HRESULT;
-            fn GetBackgroundColor(&self, #[out] pColor: *mut DXGI_RGBA) -> HRESULT;
-            fn SetRotation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Rotation: DXGI_MODE_ROTATION) -> HRESULT;
-            fn GetRotation(&self, #[out] pRotation: *mut DXGI_MODE_ROTATION) -> HRESULT;
+            fn GetRestrictToOutput(&self, ppRestrictToOutput: *mut IDXGIOutput) -> HRESULT;
+            fn SetBackgroundColor(&self, pColor: *const DXGI_RGBA) -> HRESULT;
+            fn GetBackgroundColor(&self, pColor: *mut DXGI_RGBA) -> HRESULT;
+            fn SetRotation(&self, Rotation: DXGI_MODE_ROTATION) -> HRESULT;
+            fn GetRotation(&self, pRotation: *mut DXGI_MODE_ROTATION) -> HRESULT;
         }
-        const IID_IDXGIAdapter2: GUID = 0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5;
-        const IID_IDXGIDevice2: GUID = 0x05008617_fbfd_4051_a790_144884b4f6a9;
-        const IID_IDXGIDisplayControl: GUID = 0xea9dbf1a_c88e_4486_854a_98aa0138f30c;
-        const IID_IDXGIFactory2: GUID = 0x50c83a1c_e072_4c48_87b0_3630fa36a6d0;
-        const IID_IDXGIOutput1: GUID = 0x00cddea8_939b_4b83_a340_a685226666cc;
-        const IID_IDXGIOutputDuplication: GUID = 0x191cfac3_a341_470d_b26e_a864f428319c;
-        const IID_IDXGIResource1: GUID = 0x30961379_4609_4a41_998e_54fe567ee0c1;
-        const IID_IDXGISurface2: GUID = 0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2;
-        const IID_IDXGISwapChain1: GUID = 0x790a45f7_0d42_4876_983a_0a55cfe6f4aa;
     }
 }

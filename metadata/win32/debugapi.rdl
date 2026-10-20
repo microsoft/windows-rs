@@ -2,26 +2,24 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn CheckRemoteDebuggerPresent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] pbDebuggerPresent: PBOOL) -> BOOL;
+        extern fn CheckRemoteDebuggerPresent(hProcess: HANDLE, #[out] pbDebuggerPresent: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ContinueDebugEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProcessId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwThreadId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContinueStatus: DWORD) -> BOOL;
+        extern fn ContinueDebugEvent(dwProcessId: u32, dwThreadId: u32, dwContinueStatus: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DebugActiveProcess(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProcessId: DWORD) -> BOOL;
+        extern fn DebugActiveProcess(dwProcessId: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DebugActiveProcessStop(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProcessId: DWORD) -> BOOL;
+        extern fn DebugActiveProcessStop(dwProcessId: u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn DebugBreak();
         #[library("KERNEL32.dll")]
         extern fn IsDebuggerPresent() -> BOOL;
-        #[library("KERNEL32.dll", import = "OutputDebugStringA")]
-        extern fn OutputDebugString(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOutputString: LPCSTR);
         #[library("KERNEL32.dll")]
-        extern fn OutputDebugStringA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOutputString: LPCSTR);
+        extern fn OutputDebugStringA(#[opt] lpOutputString: PCSTR);
         #[library("KERNEL32.dll")]
-        extern fn OutputDebugStringW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOutputString: LPCWSTR);
+        extern fn OutputDebugStringW(#[opt] lpOutputString: PCWSTR);
         #[library("KERNEL32.dll")]
-        extern fn WaitForDebugEvent(#[out] lpDebugEvent: LPDEBUG_EVENT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMilliseconds: DWORD) -> BOOL;
+        extern fn WaitForDebugEvent(#[out] lpDebugEvent: LPDEBUG_EVENT, dwMilliseconds: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WaitForDebugEventEx(#[out] lpDebugEvent: LPDEBUG_EVENT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMilliseconds: DWORD) -> BOOL;
+        extern fn WaitForDebugEventEx(#[out] lpDebugEvent: LPDEBUG_EVENT, dwMilliseconds: u32) -> BOOL;
     }
 }

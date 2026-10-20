@@ -2,16 +2,16 @@
 mod Windows {
     mod Win32 {
         struct APPDATA {
-            m_idApp: DWORD,
-            m_szAppGuid: [WCHAR; 40],
-            m_dwAppProcessId: DWORD,
+            m_idApp: u32,
+            m_szAppGuid: [u16; 40],
+            m_dwAppProcessId: u32,
             m_AppStatistics: APPSTATISTICS,
         }
         struct APPSTATISTICS {
-            m_cTotalCalls: DWORD,
-            m_cTotalInstances: DWORD,
-            m_cTotalClasses: DWORD,
-            m_cCallsPerSecond: DWORD,
+            m_cTotalCalls: u32,
+            m_cTotalInstances: u32,
+            m_cTotalClasses: u32,
+            m_cCallsPerSecond: u32,
         }
         const AppDomainHelper: GUID = 0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4;
         struct ApplicationProcessRecycleInfo {
@@ -23,30 +23,30 @@ mod Windows {
             IsPendingRecycle: BOOL,
             HasAutomaticLifetimeRecycling: BOOL,
             TimeForAutomaticRecycling: FILETIME,
-            MemoryLimitInKB: ULONG,
-            MemoryUsageInKBLastCheck: ULONG,
-            ActivationLimit: ULONG,
-            NumActivationsLastReported: ULONG,
-            CallLimit: ULONG,
-            NumCallsLastReported: ULONG,
+            MemoryLimitInKB: u32,
+            MemoryUsageInKBLastCheck: u32,
+            ActivationLimit: u32,
+            NumActivationsLastReported: u32,
+            CallLimit: u32,
+            NumCallsLastReported: u32,
         }
         struct ApplicationProcessStatistics {
-            NumCallsOutstanding: ULONG,
-            NumTrackedComponents: ULONG,
-            NumComponentInstances: ULONG,
-            AvgCallsPerSecond: ULONG,
-            Reserved1: ULONG,
-            Reserved2: ULONG,
-            Reserved3: ULONG,
-            Reserved4: ULONG,
+            NumCallsOutstanding: u32,
+            NumTrackedComponents: u32,
+            NumComponentInstances: u32,
+            AvgCallsPerSecond: u32,
+            Reserved1: u32,
+            Reserved2: u32,
+            Reserved3: u32,
+            Reserved4: u32,
         }
         struct ApplicationProcessSummary {
             PartitionIdPrimaryApplication: GUID,
             ApplicationIdPrimaryApplication: GUID,
             ApplicationInstanceId: GUID,
-            ProcessId: DWORD,
+            ProcessId: u32,
             Type: COMPLUS_APPTYPE,
-            ProcessExeName: LPWSTR,
+            ProcessExeName: PWSTR,
             IsService: BOOL,
             IsPaused: BOOL,
             IsRecycled: BOOL,
@@ -56,35 +56,35 @@ mod Windows {
             PartitionId: GUID,
             ApplicationId: GUID,
             Type: COMPLUS_APPTYPE,
-            ApplicationName: LPWSTR,
-            NumTrackedComponents: ULONG,
-            NumComponentInstances: ULONG,
+            ApplicationName: PWSTR,
+            NumTrackedComponents: u32,
+            NumComponentInstances: u32,
         }
         const ByotServerEx: GUID = 0xecabb0aa_7f19_11d2_978e_0000f8757e2a;
         struct CLSIDDATA {
-            m_clsid: CLSID,
-            m_cReferences: DWORD,
-            m_cBound: DWORD,
-            m_cPooled: DWORD,
-            m_cInCall: DWORD,
-            m_dwRespTime: DWORD,
-            m_cCallsCompleted: DWORD,
-            m_cCallsFailed: DWORD,
+            m_clsid: GUID,
+            m_cReferences: u32,
+            m_cBound: u32,
+            m_cPooled: u32,
+            m_cInCall: u32,
+            m_dwRespTime: u32,
+            m_cCallsCompleted: u32,
+            m_cCallsFailed: u32,
         }
         struct CLSIDDATA2 {
-            m_clsid: CLSID,
+            m_clsid: GUID,
             m_appid: GUID,
             m_partid: GUID,
-            m_pwszAppName: *mut WCHAR,
-            m_pwszCtxName: *mut WCHAR,
+            m_pwszAppName: *mut u16,
+            m_pwszCtxName: *mut u16,
             m_eAppType: COMPLUS_APPTYPE,
-            m_cReferences: DWORD,
-            m_cBound: DWORD,
-            m_cPooled: DWORD,
-            m_cInCall: DWORD,
-            m_dwRespTime: DWORD,
-            m_cCallsCompleted: DWORD,
-            m_cCallsFailed: DWORD,
+            m_cReferences: u32,
+            m_cBound: u32,
+            m_cPooled: u32,
+            m_cInCall: u32,
+            m_dwRespTime: u32,
+            m_cCallsCompleted: u32,
+            m_cCallsFailed: u32,
         }
         const COMEvents: GUID = 0xecabb0ab_7f19_11d2_978e_0000f8757e2a;
         #[repr(i32)]
@@ -95,11 +95,11 @@ mod Windows {
             APPTYPE_SWC = 2,
         }
         struct COMSVCSEVENTINFO {
-            cbSize: DWORD,
-            dwPid: DWORD,
-            lTime: LONGLONG,
-            lMicroTime: LONG,
-            perfCount: LONGLONG,
+            cbSize: u32,
+            dwPid: u32,
+            lTime: i64,
+            lMicroTime: i32,
+            perfCount: i64,
             guidApp: GUID,
             sMachineName: LPOLESTR,
         }
@@ -190,7 +190,7 @@ mod Windows {
         const CServiceConfig: GUID = 0xecabb0c8_7f19_11d2_978e_0000f8757e2a;
         const ClrAssemblyLocator: GUID = 0x458aa3b5_265a_4b75_bc05_9bea4630cf18;
         #[library("comsvcs.dll")]
-        extern fn CoCreateActivity(pIUnknown: IUnknown, riid: &IID, ppObj: *mut *mut void) -> HRESULT;
+        extern fn CoCreateActivity(pIUnknown: IUnknown, riid: *const GUID, ppObj: *mut *mut void) -> HRESULT;
         #[library("comsvcs.dll")]
         extern fn CoEnterServiceDomain(pConfigObject: IUnknown) -> HRESULT;
         #[library("comsvcs.dll")]
@@ -201,48 +201,48 @@ mod Windows {
         struct ComponentHangMonitorInfo {
             IsMonitored: BOOL,
             TerminateOnHang: BOOL,
-            AvgCallThresholdInMs: ULONG,
+            AvgCallThresholdInMs: u32,
         }
         struct ComponentStatistics {
-            NumInstances: ULONG,
-            NumBoundReferences: ULONG,
-            NumPooledObjects: ULONG,
-            NumObjectsInCall: ULONG,
-            AvgResponseTimeInMs: ULONG,
-            NumCallsCompletedRecent: ULONG,
-            NumCallsFailedRecent: ULONG,
-            NumCallsCompletedTotal: ULONG,
-            NumCallsFailedTotal: ULONG,
-            Reserved1: ULONG,
-            Reserved2: ULONG,
-            Reserved3: ULONG,
-            Reserved4: ULONG,
+            NumInstances: u32,
+            NumBoundReferences: u32,
+            NumPooledObjects: u32,
+            NumObjectsInCall: u32,
+            AvgResponseTimeInMs: u32,
+            NumCallsCompletedRecent: u32,
+            NumCallsFailedRecent: u32,
+            NumCallsCompletedTotal: u32,
+            NumCallsFailedTotal: u32,
+            Reserved1: u32,
+            Reserved2: u32,
+            Reserved3: u32,
+            Reserved4: u32,
         }
         struct ComponentSummary {
             ApplicationInstanceId: GUID,
             PartitionId: GUID,
             ApplicationId: GUID,
-            Clsid: CLSID,
-            ClassName: LPWSTR,
-            ApplicationName: LPWSTR,
+            Clsid: GUID,
+            ClassName: PWSTR,
+            ApplicationName: PWSTR,
         }
         #[guid(0x19a5a02c_0ac8_11d2_b286_00c04f8ef934)]
         interface ContextInfo: IDispatch {
-            fn IsInTransaction(&self, #[out] #[retval] pbIsInTx: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetTransaction(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTx: *mut IUnknown) -> HRESULT;
-            fn GetTransactionId(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pbstrTxId: *mut BSTR) -> HRESULT;
-            fn GetActivityId(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pbstrActivityId: *mut BSTR) -> HRESULT;
-            fn GetContextId(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pbstrCtxId: *mut BSTR) -> HRESULT;
+            fn IsInTransaction(&self, #[retval] pbIsInTx: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetTransaction(&self, #[retval] ppTx: *mut IUnknown) -> HRESULT;
+            fn GetTransactionId(&self, #[retval] pbstrTxId: *mut BSTR) -> HRESULT;
+            fn GetActivityId(&self, #[retval] pbstrActivityId: *mut BSTR) -> HRESULT;
+            fn GetContextId(&self, #[retval] pbstrCtxId: *mut BSTR) -> HRESULT;
         }
         #[guid(0xc99d6e75_2375_11d4_8331_00c04f605588)]
         interface ContextInfo2: ContextInfo {
-            fn GetPartitionId(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] __MIDL__ContextInfo20000: *mut BSTR) -> HRESULT;
-            fn GetApplicationId(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] __MIDL__ContextInfo20001: *mut BSTR) -> HRESULT;
-            fn GetApplicationInstanceId(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] __MIDL__ContextInfo20002: *mut BSTR) -> HRESULT;
+            fn GetPartitionId(&self, #[retval] __MIDL__ContextInfo20000: *mut BSTR) -> HRESULT;
+            fn GetApplicationId(&self, #[retval] __MIDL__ContextInfo20001: *mut BSTR) -> HRESULT;
+            fn GetApplicationInstanceId(&self, #[retval] __MIDL__ContextInfo20002: *mut BSTR) -> HRESULT;
         }
         struct CrmLogRecordRead {
-            dwCrmFlags: DWORD,
-            dwSequenceNumber: DWORD,
+            dwCrmFlags: u32,
+            dwSequenceNumber: u32,
             blobUserData: BLOB,
         }
         #[repr(i32)]
@@ -301,24 +301,24 @@ mod Windows {
             GATD_INCLUDE_APPLICATION_NAME = 16,
         }
         #[library("comsvcs.dll")]
-        extern fn GetManagedExtensions(dwExts: *mut DWORD) -> HRESULT;
+        extern fn GetManagedExtensions(dwExts: *mut u32) -> HRESULT;
         const GetSecurityCallContextAppObject: GUID = 0xecabb0a8_7f19_11d2_978e_0000f8757e2a;
         struct HANG_INFO {
             fAppHangMonitorEnabled: BOOL,
             fTerminateOnHang: BOOL,
             DumpType: DUMPTYPE,
-            dwHangTimeout: DWORD,
-            dwDumpCount: DWORD,
-            dwInfoMsgCount: DWORD,
+            dwHangTimeout: u32,
+            dwDumpCount: u32,
+            dwInfoMsgCount: u32,
         }
         #[guid(0xc7b67079_8255_42c6_9ec0_6994a3548780)]
         interface IAppDomainHelper: IDispatch {
-            fn Initialize(&self, pUnkAD: IUnknown, __MIDL__IAppDomainHelper0000: extern fn(*mut void) -> HRESULT, pPool: *mut void) -> HRESULT;
-            fn DoCallback(&self, pUnkAD: IUnknown, __MIDL__IAppDomainHelper0001: extern fn(*mut void) -> HRESULT, pPool: *mut void) -> HRESULT;
+            fn Initialize(&self, pUnkAD: IUnknown, #[in] __MIDL__IAppDomainHelper0000: *mut u8, #[in] pPool: *mut void) -> HRESULT;
+            fn DoCallback(&self, pUnkAD: IUnknown, #[in] __MIDL__IAppDomainHelper0001: *mut u8, #[in] pPool: *mut void) -> HRESULT;
         }
         #[guid(0x391ffbb9_a8ee_432a_abc8_baa238dab90f)]
         interface IAssemblyLocator: IDispatch {
-            fn GetModules(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] applicationDir: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] applicationName: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] assemblyName: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pModules: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetModules(&self, applicationDir: BSTR, applicationName: BSTR, assemblyName: BSTR, #[retval] pModules: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xfe6777fb_a674_4177_8f32_6d707e113484)]
         interface IAsyncErrorNotify: IUnknown {
@@ -326,247 +326,247 @@ mod Windows {
         }
         #[guid(0x3a0f150f_8ee5_4b94_b40e_aef2f9e42ed2)]
         interface ICOMLBArguments: IUnknown {
-            fn GetCLSID(&self, pCLSID: *mut CLSID) -> HRESULT;
-            fn SetCLSID(&self, pCLSID: *mut CLSID) -> HRESULT;
-            fn GetMachineName(&self, cchSvr: ULONG, #[out] #[len_param(0)] szServerName: *mut WCHAR) -> HRESULT;
-            fn SetMachineName(&self, cchSvr: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] szServerName: *mut WCHAR) -> HRESULT;
+            fn GetCLSID(&self, pCLSID: *mut GUID) -> HRESULT;
+            fn SetCLSID(&self, #[in] pCLSID: *mut GUID) -> HRESULT;
+            fn GetMachineName(&self, cchSvr: u32, #[len_param(0)] szServerName: *mut u16) -> HRESULT;
+            fn SetMachineName(&self, cchSvr: u32, #[len_param(0)] #[in] szServerName: *mut u16) -> HRESULT;
         }
         #[guid(0x0ff5a96f_11fc_47d1_baa6_25dd347e7242)]
         interface ICheckSxsConfig: IUnknown {
-            fn IsSameSxsConfig(&self, wszSxsName: LPCWSTR, wszSxsDirectory: LPCWSTR, wszSxsAppName: LPCWSTR) -> HRESULT;
+            fn IsSameSxsConfig(&self, wszSxsName: PCWSTR, wszSxsDirectory: PCWSTR, wszSxsAppName: PCWSTR) -> HRESULT;
         }
         #[guid(0x683130b0_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComActivityEvents: IUnknown {
-            fn OnActivityCreate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID) -> HRESULT;
-            fn OnActivityDestroy(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID) -> HRESULT;
-            fn OnActivityEnter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidCurrent: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidEntered: &GUID, dwThread: DWORD) -> HRESULT;
-            fn OnActivityTimeout(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidCurrent: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidEntered: &GUID, dwThread: DWORD, dwTimeout: DWORD) -> HRESULT;
-            fn OnActivityReenter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidCurrent: &GUID, dwThread: DWORD, dwCallDepth: DWORD) -> HRESULT;
-            fn OnActivityLeave(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidCurrent: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidLeft: &GUID) -> HRESULT;
-            fn OnActivityLeaveSame(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidCurrent: &GUID, dwCallDepth: DWORD) -> HRESULT;
+            fn OnActivityCreate(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID) -> HRESULT;
+            fn OnActivityDestroy(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID) -> HRESULT;
+            fn OnActivityEnter(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidCurrent: *const GUID, guidEntered: *const GUID, dwThread: u32) -> HRESULT;
+            fn OnActivityTimeout(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidCurrent: *const GUID, guidEntered: *const GUID, dwThread: u32, dwTimeout: u32) -> HRESULT;
+            fn OnActivityReenter(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidCurrent: *const GUID, dwThread: u32, dwCallDepth: u32) -> HRESULT;
+            fn OnActivityLeave(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidCurrent: *const GUID, guidLeft: *const GUID) -> HRESULT;
+            fn OnActivityLeaveSame(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidCurrent: *const GUID, dwCallDepth: u32) -> HRESULT;
         }
         #[guid(0x1290bc1a_b219_418d_b078_5934ded08242)]
         interface IComApp2Events: IUnknown {
-            fn OnAppActivation2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID, guidProcess: GUID) -> HRESULT;
-            fn OnAppShutdown2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
-            fn OnAppForceShutdown2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
-            fn OnAppPaused2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID, bPaused: BOOL) -> HRESULT;
-            fn OnAppRecycle2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID, guidProcess: GUID, lReason: i32) -> HRESULT;
+            fn OnAppActivation2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID, guidProcess: GUID) -> HRESULT;
+            fn OnAppShutdown2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnAppForceShutdown2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnAppPaused2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID, bPaused: BOOL) -> HRESULT;
+            fn OnAppRecycle2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID, guidProcess: GUID, lReason: i32) -> HRESULT;
         }
         #[guid(0x683130a6_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComAppEvents: IUnknown {
-            fn OnAppActivation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
-            fn OnAppShutdown(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
-            fn OnAppForceShutdown(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnAppActivation(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnAppShutdown(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnAppForceShutdown(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
         }
         #[guid(0x683130b5_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComCRMEvents: IUnknown {
-            fn OnCRMRecoveryStart(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
-            fn OnCRMRecoveryDone(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
-            fn OnCRMCheckpoint(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
-            fn OnCRMBegin(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID, guidActivity: GUID, guidTx: GUID, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_ecount_full", "64", "64")] #[in] szProgIdCompensator: *mut WCHAR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_ecount_full", "64", "64")] #[in] szDescription: *mut WCHAR) -> HRESULT;
-            fn OnCRMPrepare(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
-            fn OnCRMCommit(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
-            fn OnCRMAbort(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
-            fn OnCRMIndoubt(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
-            fn OnCRMDone(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
-            fn OnCRMRelease(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
-            fn OnCRMAnalyze(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID, dwCrmRecordType: DWORD, dwRecordSize: DWORD) -> HRESULT;
-            fn OnCRMWrite(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID, fVariants: BOOL, dwRecordSize: DWORD) -> HRESULT;
-            fn OnCRMForget(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
-            fn OnCRMForce(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
-            fn OnCRMDeliver(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID, fVariants: BOOL, dwRecordSize: DWORD) -> HRESULT;
+            fn OnCRMRecoveryStart(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnCRMRecoveryDone(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnCRMCheckpoint(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnCRMBegin(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID, guidActivity: GUID, guidTx: GUID, #[in] szProgIdCompensator: *mut u16, #[in] szDescription: *mut u16) -> HRESULT;
+            fn OnCRMPrepare(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMCommit(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMAbort(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMIndoubt(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMDone(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMRelease(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMAnalyze(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID, dwCrmRecordType: u32, dwRecordSize: u32) -> HRESULT;
+            fn OnCRMWrite(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID, fVariants: BOOL, dwRecordSize: u32) -> HRESULT;
+            fn OnCRMForget(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMForce(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMDeliver(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidClerkCLSID: GUID, fVariants: BOOL, dwRecordSize: u32) -> HRESULT;
         }
         #[guid(0x683130b3_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComExceptionEvents: IUnknown {
-            fn OnExceptionUser(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, code: ULONG, address: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszStackTrace: LPCOLESTR) -> HRESULT;
+            fn OnExceptionUser(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, code: u32, address: u64, pszStackTrace: LPCOLESTR) -> HRESULT;
         }
         #[guid(0x683130b1_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComIdentityEvents: IUnknown {
-            fn OnIISRequestInfo(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ObjId: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszClientIP: LPCOLESTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszServerIP: LPCOLESTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszURL: LPCOLESTR) -> HRESULT;
+            fn OnIISRequestInfo(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ObjId: u64, pszClientIP: LPCOLESTR, pszServerIP: LPCOLESTR, pszURL: LPCOLESTR) -> HRESULT;
         }
         #[guid(0x20e3bf07_b506_4ad5_a50c_d2ca5b9c158e)]
         interface IComInstance2Events: IUnknown {
-            fn OnObjectCreate2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] clsid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] tsid: &GUID, CtxtID: ULONG64, ObjectID: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidPartition: &GUID) -> HRESULT;
-            fn OnObjectDestroy2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, CtxtID: ULONG64) -> HRESULT;
+            fn OnObjectCreate2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, clsid: *const GUID, tsid: *const GUID, CtxtID: u64, ObjectID: u64, guidPartition: *const GUID) -> HRESULT;
+            fn OnObjectDestroy2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, CtxtID: u64) -> HRESULT;
         }
         #[guid(0x683130a7_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComInstanceEvents: IUnknown {
-            fn OnObjectCreate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] clsid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] tsid: &GUID, CtxtID: ULONG64, ObjectID: ULONG64) -> HRESULT;
-            fn OnObjectDestroy(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, CtxtID: ULONG64) -> HRESULT;
+            fn OnObjectCreate(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, clsid: *const GUID, tsid: *const GUID, CtxtID: u64, ObjectID: u64) -> HRESULT;
+            fn OnObjectDestroy(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, CtxtID: u64) -> HRESULT;
         }
         #[guid(0x605cf82c_578e_4298_975d_82babcd9e053)]
         interface IComLTxEvents: IUnknown {
-            fn OnLtxTransactionStart(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID, tsid: GUID, fRoot: BOOL, nIsolationLevel: i32) -> HRESULT;
-            fn OnLtxTransactionPrepare(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID, fVote: BOOL) -> HRESULT;
-            fn OnLtxTransactionAbort(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID) -> HRESULT;
-            fn OnLtxTransactionCommit(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID) -> HRESULT;
-            fn OnLtxTransactionPromote(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID, txnId: GUID) -> HRESULT;
+            fn OnLtxTransactionStart(&self, pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID, tsid: GUID, fRoot: BOOL, nIsolationLevel: i32) -> HRESULT;
+            fn OnLtxTransactionPrepare(&self, pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID, fVote: BOOL) -> HRESULT;
+            fn OnLtxTransactionAbort(&self, pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID) -> HRESULT;
+            fn OnLtxTransactionCommit(&self, pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID) -> HRESULT;
+            fn OnLtxTransactionPromote(&self, pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID, txnId: GUID) -> HRESULT;
         }
         #[guid(0xfb388aaa_567d_4024_af8e_6e93ee748573)]
         interface IComMethod2Events: IUnknown {
-            fn OnMethodCall2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, oid: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidCid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidRid: &IID, dwThread: DWORD, iMeth: ULONG) -> HRESULT;
-            fn OnMethodReturn2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, oid: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidCid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidRid: &IID, dwThread: DWORD, iMeth: ULONG, hresult: HRESULT) -> HRESULT;
-            fn OnMethodException2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, oid: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidCid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidRid: &IID, dwThread: DWORD, iMeth: ULONG) -> HRESULT;
+            fn OnMethodCall2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, oid: u64, guidCid: *const GUID, guidRid: *const GUID, dwThread: u32, iMeth: u32) -> HRESULT;
+            fn OnMethodReturn2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, oid: u64, guidCid: *const GUID, guidRid: *const GUID, dwThread: u32, iMeth: u32, hresult: HRESULT) -> HRESULT;
+            fn OnMethodException2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, oid: u64, guidCid: *const GUID, guidRid: *const GUID, dwThread: u32, iMeth: u32) -> HRESULT;
         }
         #[guid(0x683130a9_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComMethodEvents: IUnknown {
-            fn OnMethodCall(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, oid: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidCid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidRid: &IID, iMeth: ULONG) -> HRESULT;
-            fn OnMethodReturn(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, oid: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidCid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidRid: &IID, iMeth: ULONG, hresult: HRESULT) -> HRESULT;
-            fn OnMethodException(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, oid: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidCid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidRid: &IID, iMeth: ULONG) -> HRESULT;
+            fn OnMethodCall(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, oid: u64, guidCid: *const GUID, guidRid: *const GUID, iMeth: u32) -> HRESULT;
+            fn OnMethodReturn(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, oid: u64, guidCid: *const GUID, guidRid: *const GUID, iMeth: u32, hresult: HRESULT) -> HRESULT;
+            fn OnMethodException(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, oid: u64, guidCid: *const GUID, guidRid: *const GUID, iMeth: u32) -> HRESULT;
         }
         #[guid(0xf9a76d2e_76a5_43eb_a0c4_49bec8e48480)]
         interface IComMtaThreadPoolKnobs: IUnknown {
-            fn MTASetMaxThreadCount(&self, dwMaxThreads: DWORD) -> HRESULT;
-            fn MTAGetMaxThreadCount(&self, #[out] pdwMaxThreads: *mut DWORD) -> HRESULT;
-            fn MTASetThrottleValue(&self, dwThrottle: DWORD) -> HRESULT;
-            fn MTAGetThrottleValue(&self, #[out] pdwThrottle: *mut DWORD) -> HRESULT;
+            fn MTASetMaxThreadCount(&self, dwMaxThreads: u32) -> HRESULT;
+            fn MTAGetMaxThreadCount(&self, pdwMaxThreads: *mut u32) -> HRESULT;
+            fn MTASetThrottleValue(&self, dwThrottle: u32) -> HRESULT;
+            fn MTAGetThrottleValue(&self, pdwThrottle: *mut u32) -> HRESULT;
         }
         #[guid(0x4b5a7827_8df2_45c0_8f6f_57ea1f856a9f)]
         interface IComObjectConstruction2Events: IUnknown {
-            fn OnObjectConstruct2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] sConstructString: LPCOLESTR, oid: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidPartition: &GUID) -> HRESULT;
+            fn OnObjectConstruct2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidObject: *const GUID, sConstructString: LPCOLESTR, oid: u64, guidPartition: *const GUID) -> HRESULT;
         }
         #[guid(0x683130af_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComObjectConstructionEvents: IUnknown {
-            fn OnObjectConstruct(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] sConstructString: LPCOLESTR, oid: ULONG64) -> HRESULT;
+            fn OnObjectConstruct(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidObject: *const GUID, sConstructString: LPCOLESTR, oid: u64) -> HRESULT;
         }
         #[guid(0x683130aa_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComObjectEvents: IUnknown {
-            fn OnObjectActivate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, CtxtID: ULONG64, ObjectID: ULONG64) -> HRESULT;
-            fn OnObjectDeactivate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, CtxtID: ULONG64, ObjectID: ULONG64) -> HRESULT;
-            fn OnDisableCommit(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, CtxtID: ULONG64) -> HRESULT;
-            fn OnEnableCommit(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, CtxtID: ULONG64) -> HRESULT;
-            fn OnSetComplete(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, CtxtID: ULONG64) -> HRESULT;
-            fn OnSetAbort(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, CtxtID: ULONG64) -> HRESULT;
+            fn OnObjectActivate(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, CtxtID: u64, ObjectID: u64) -> HRESULT;
+            fn OnObjectDeactivate(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, CtxtID: u64, ObjectID: u64) -> HRESULT;
+            fn OnDisableCommit(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, CtxtID: u64) -> HRESULT;
+            fn OnEnableCommit(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, CtxtID: u64) -> HRESULT;
+            fn OnSetComplete(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, CtxtID: u64) -> HRESULT;
+            fn OnSetAbort(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, CtxtID: u64) -> HRESULT;
         }
         #[guid(0x65bf6534_85ea_4f64_8cf4_3d974b2ab1cf)]
         interface IComObjectPool2Events: IUnknown {
-            fn OnObjPoolPutObject2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, nReason: i32, dwAvailable: DWORD, oid: ULONG64) -> HRESULT;
-            fn OnObjPoolGetObject2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, dwAvailable: DWORD, oid: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidPartition: &GUID) -> HRESULT;
-            fn OnObjPoolRecycleToTx2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidTx: &GUID, objid: ULONG64) -> HRESULT;
-            fn OnObjPoolGetFromTx2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidTx: &GUID, objid: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidPartition: &GUID) -> HRESULT;
+            fn OnObjPoolPutObject2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidObject: *const GUID, nReason: i32, dwAvailable: u32, oid: u64) -> HRESULT;
+            fn OnObjPoolGetObject2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, guidObject: *const GUID, dwAvailable: u32, oid: u64, guidPartition: *const GUID) -> HRESULT;
+            fn OnObjPoolRecycleToTx2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, guidObject: *const GUID, guidTx: *const GUID, objid: u64) -> HRESULT;
+            fn OnObjPoolGetFromTx2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, guidObject: *const GUID, guidTx: *const GUID, objid: u64, guidPartition: *const GUID) -> HRESULT;
         }
         #[guid(0x683130ad_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComObjectPoolEvents: IUnknown {
-            fn OnObjPoolPutObject(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, nReason: i32, dwAvailable: DWORD, oid: ULONG64) -> HRESULT;
-            fn OnObjPoolGetObject(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, dwAvailable: DWORD, oid: ULONG64) -> HRESULT;
-            fn OnObjPoolRecycleToTx(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidTx: &GUID, objid: ULONG64) -> HRESULT;
-            fn OnObjPoolGetFromTx(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidTx: &GUID, objid: ULONG64) -> HRESULT;
+            fn OnObjPoolPutObject(&self, pInfo: *mut COMSVCSEVENTINFO, guidObject: *const GUID, nReason: i32, dwAvailable: u32, oid: u64) -> HRESULT;
+            fn OnObjPoolGetObject(&self, pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, guidObject: *const GUID, dwAvailable: u32, oid: u64) -> HRESULT;
+            fn OnObjPoolRecycleToTx(&self, pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, guidObject: *const GUID, guidTx: *const GUID, objid: u64) -> HRESULT;
+            fn OnObjPoolGetFromTx(&self, pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, guidObject: *const GUID, guidTx: *const GUID, objid: u64) -> HRESULT;
         }
         #[guid(0x683130ae_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComObjectPoolEvents2: IUnknown {
-            fn OnObjPoolCreateObject(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, dwObjsCreated: DWORD, oid: ULONG64) -> HRESULT;
-            fn OnObjPoolDestroyObject(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, dwObjsCreated: DWORD, oid: ULONG64) -> HRESULT;
-            fn OnObjPoolCreateDecision(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, dwThreadsWaiting: DWORD, dwAvail: DWORD, dwCreated: DWORD, dwMin: DWORD, dwMax: DWORD) -> HRESULT;
-            fn OnObjPoolTimeout(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID, dwTimeout: DWORD) -> HRESULT;
-            fn OnObjPoolCreatePool(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidObject: &GUID, dwMin: DWORD, dwMax: DWORD, dwTimeout: DWORD) -> HRESULT;
+            fn OnObjPoolCreateObject(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidObject: *const GUID, dwObjsCreated: u32, oid: u64) -> HRESULT;
+            fn OnObjPoolDestroyObject(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidObject: *const GUID, dwObjsCreated: u32, oid: u64) -> HRESULT;
+            fn OnObjPoolCreateDecision(&self, pInfo: *mut COMSVCSEVENTINFO, dwThreadsWaiting: u32, dwAvail: u32, dwCreated: u32, dwMin: u32, dwMax: u32) -> HRESULT;
+            fn OnObjPoolTimeout(&self, pInfo: *mut COMSVCSEVENTINFO, guidObject: *const GUID, guidActivity: *const GUID, dwTimeout: u32) -> HRESULT;
+            fn OnObjPoolCreatePool(&self, pInfo: *mut COMSVCSEVENTINFO, guidObject: *const GUID, dwMin: u32, dwMax: u32, dwTimeout: u32) -> HRESULT;
         }
         #[guid(0x683130b2_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComQCEvents: IUnknown {
-            fn OnQCRecord(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, objid: ULONG64, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_ecount_full", "60", "60")] #[in] szQueue: *mut WCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidMsgId: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidWorkFlowId: &GUID, msmqhr: HRESULT) -> HRESULT;
-            fn OnQCQueueOpen(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_ecount_full", "60", "60")] #[in] szQueue: *mut WCHAR, QueueID: ULONG64, hr: HRESULT) -> HRESULT;
-            fn OnQCReceive(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, QueueID: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidMsgId: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidWorkFlowId: &GUID, hr: HRESULT) -> HRESULT;
-            fn OnQCReceiveFail(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, QueueID: ULONG64, msmqhr: HRESULT) -> HRESULT;
-            fn OnQCMoveToReTryQueue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidMsgId: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidWorkFlowId: &GUID, RetryIndex: ULONG) -> HRESULT;
-            fn OnQCMoveToDeadQueue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidMsgId: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidWorkFlowId: &GUID) -> HRESULT;
-            fn OnQCPlayback(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, objid: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidMsgId: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidWorkFlowId: &GUID, hr: HRESULT) -> HRESULT;
+            fn OnQCRecord(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, objid: u64, #[in] szQueue: *mut u16, guidMsgId: *const GUID, guidWorkFlowId: *const GUID, msmqhr: HRESULT) -> HRESULT;
+            fn OnQCQueueOpen(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, #[in] szQueue: *mut u16, QueueID: u64, hr: HRESULT) -> HRESULT;
+            fn OnQCReceive(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, QueueID: u64, guidMsgId: *const GUID, guidWorkFlowId: *const GUID, hr: HRESULT) -> HRESULT;
+            fn OnQCReceiveFail(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, QueueID: u64, msmqhr: HRESULT) -> HRESULT;
+            fn OnQCMoveToReTryQueue(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidMsgId: *const GUID, guidWorkFlowId: *const GUID, RetryIndex: u32) -> HRESULT;
+            fn OnQCMoveToDeadQueue(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidMsgId: *const GUID, guidWorkFlowId: *const GUID) -> HRESULT;
+            fn OnQCPlayback(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, objid: u64, guidMsgId: *const GUID, guidWorkFlowId: *const GUID, hr: HRESULT) -> HRESULT;
         }
         #[guid(0x683130ab_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComResourceEvents: IUnknown {
-            fn OnResourceCreate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ObjectID: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszType: LPCOLESTR, resId: ULONG64, enlisted: BOOL) -> HRESULT;
-            fn OnResourceAllocate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ObjectID: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszType: LPCOLESTR, resId: ULONG64, enlisted: BOOL, NumRated: DWORD, Rating: DWORD) -> HRESULT;
-            fn OnResourceRecycle(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ObjectID: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszType: LPCOLESTR, resId: ULONG64) -> HRESULT;
-            fn OnResourceDestroy(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ObjectID: ULONG64, hr: HRESULT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszType: LPCOLESTR, resId: ULONG64) -> HRESULT;
-            fn OnResourceTrack(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ObjectID: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszType: LPCOLESTR, resId: ULONG64, enlisted: BOOL) -> HRESULT;
+            fn OnResourceCreate(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ObjectID: u64, pszType: LPCOLESTR, resId: u64, enlisted: BOOL) -> HRESULT;
+            fn OnResourceAllocate(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ObjectID: u64, pszType: LPCOLESTR, resId: u64, enlisted: BOOL, NumRated: u32, Rating: u32) -> HRESULT;
+            fn OnResourceRecycle(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ObjectID: u64, pszType: LPCOLESTR, resId: u64) -> HRESULT;
+            fn OnResourceDestroy(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ObjectID: u64, hr: HRESULT, pszType: LPCOLESTR, resId: u64) -> HRESULT;
+            fn OnResourceTrack(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ObjectID: u64, pszType: LPCOLESTR, resId: u64, enlisted: BOOL) -> HRESULT;
         }
         #[guid(0x683130ac_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComSecurityEvents: IUnknown {
-            fn OnAuthenticate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID, ObjectID: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidIID: &GUID, iMeth: ULONG, cbByteOrig: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(5)] pSidOriginalUser: *mut BYTE, cbByteCur: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(7)] pSidCurrentUser: *mut BYTE, bCurrentUserInpersonatingInProc: BOOL) -> HRESULT;
-            fn OnAuthenticateFail(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID, ObjectID: ULONG64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidIID: &GUID, iMeth: ULONG, cbByteOrig: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(5)] pSidOriginalUser: *mut BYTE, cbByteCur: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(7)] pSidCurrentUser: *mut BYTE, bCurrentUserInpersonatingInProc: BOOL) -> HRESULT;
+            fn OnAuthenticate(&self, pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, ObjectID: u64, guidIID: *const GUID, iMeth: u32, cbByteOrig: u32, #[in] pSidOriginalUser: *mut u8, cbByteCur: u32, #[in] pSidCurrentUser: *mut u8, bCurrentUserInpersonatingInProc: BOOL) -> HRESULT;
+            fn OnAuthenticateFail(&self, pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, ObjectID: u64, guidIID: *const GUID, iMeth: u32, cbByteOrig: u32, #[in] pSidOriginalUser: *mut u8, cbByteCur: u32, #[in] pSidCurrentUser: *mut u8, bCurrentUserInpersonatingInProc: BOOL) -> HRESULT;
         }
         #[guid(0x324b64fa_33b6_11d2_98b7_00c04f8ee1c4)]
         interface IComStaThreadPoolKnobs: IUnknown {
-            fn SetMinThreadCount(&self, minThreads: DWORD) -> HRESULT;
-            fn GetMinThreadCount(&self, #[out] minThreads: *mut DWORD) -> HRESULT;
-            fn SetMaxThreadCount(&self, maxThreads: DWORD) -> HRESULT;
-            fn GetMaxThreadCount(&self, #[out] maxThreads: *mut DWORD) -> HRESULT;
-            fn SetActivityPerThread(&self, activitiesPerThread: DWORD) -> HRESULT;
-            fn GetActivityPerThread(&self, #[out] activitiesPerThread: *mut DWORD) -> HRESULT;
-            fn SetActivityRatio(&self, activityRatio: DOUBLE) -> HRESULT;
-            fn GetActivityRatio(&self, #[out] activityRatio: *mut DOUBLE) -> HRESULT;
-            fn GetThreadCount(&self, #[out] pdwThreads: *mut DWORD) -> HRESULT;
-            fn GetQueueDepth(&self, #[out] pdwQDepth: *mut DWORD) -> HRESULT;
+            fn SetMinThreadCount(&self, minThreads: u32) -> HRESULT;
+            fn GetMinThreadCount(&self, minThreads: *mut u32) -> HRESULT;
+            fn SetMaxThreadCount(&self, maxThreads: u32) -> HRESULT;
+            fn GetMaxThreadCount(&self, maxThreads: *mut u32) -> HRESULT;
+            fn SetActivityPerThread(&self, activitiesPerThread: u32) -> HRESULT;
+            fn GetActivityPerThread(&self, activitiesPerThread: *mut u32) -> HRESULT;
+            fn SetActivityRatio(&self, activityRatio: f64) -> HRESULT;
+            fn GetActivityRatio(&self, activityRatio: *mut f64) -> HRESULT;
+            fn GetThreadCount(&self, pdwThreads: *mut u32) -> HRESULT;
+            fn GetQueueDepth(&self, pdwQDepth: *mut u32) -> HRESULT;
             fn SetQueueDepth(&self, dwQDepth: i32) -> HRESULT;
         }
         #[guid(0x73707523_ff9a_4974_bf84_2108dc213740)]
         interface IComStaThreadPoolKnobs2: IComStaThreadPoolKnobs {
-            fn GetMaxCPULoad(&self, #[out] pdwLoad: *mut DWORD) -> HRESULT;
+            fn GetMaxCPULoad(&self, pdwLoad: *mut u32) -> HRESULT;
             fn SetMaxCPULoad(&self, pdwLoad: i32) -> HRESULT;
-            fn GetCPUMetricEnabled(&self, #[out] pbMetricEnabled: *mut BOOL) -> HRESULT;
+            fn GetCPUMetricEnabled(&self, pbMetricEnabled: *mut BOOL) -> HRESULT;
             fn SetCPUMetricEnabled(&self, bMetricEnabled: BOOL) -> HRESULT;
-            fn GetCreateThreadsAggressively(&self, #[out] pbMetricEnabled: *mut BOOL) -> HRESULT;
+            fn GetCreateThreadsAggressively(&self, pbMetricEnabled: *mut BOOL) -> HRESULT;
             fn SetCreateThreadsAggressively(&self, bMetricEnabled: BOOL) -> HRESULT;
-            fn GetMaxCSR(&self, #[out] pdwCSR: *mut DWORD) -> HRESULT;
+            fn GetMaxCSR(&self, pdwCSR: *mut u32) -> HRESULT;
             fn SetMaxCSR(&self, dwCSR: i32) -> HRESULT;
-            fn GetWaitTimeForThreadCleanup(&self, #[out] pdwThreadCleanupWaitTime: *mut DWORD) -> HRESULT;
+            fn GetWaitTimeForThreadCleanup(&self, pdwThreadCleanupWaitTime: *mut u32) -> HRESULT;
             fn SetWaitTimeForThreadCleanup(&self, dwThreadCleanupWaitTime: i32) -> HRESULT;
         }
         #[guid(0x683130a5_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComThreadEvents: IUnknown {
-            fn OnThreadStart(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ThreadID: ULONG64, dwThread: DWORD, dwTheadCnt: DWORD) -> HRESULT;
-            fn OnThreadTerminate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ThreadID: ULONG64, dwThread: DWORD, dwTheadCnt: DWORD) -> HRESULT;
-            fn OnThreadBindToApartment(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ThreadID: ULONG64, AptID: ULONG64, dwActCnt: DWORD, dwLowCnt: DWORD) -> HRESULT;
-            fn OnThreadUnBind(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ThreadID: ULONG64, AptID: ULONG64, dwActCnt: DWORD) -> HRESULT;
-            fn OnThreadWorkEnque(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ThreadID: ULONG64, MsgWorkID: ULONG64, QueueLen: DWORD) -> HRESULT;
-            fn OnThreadWorkPrivate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ThreadID: ULONG64, MsgWorkID: ULONG64) -> HRESULT;
-            fn OnThreadWorkPublic(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ThreadID: ULONG64, MsgWorkID: ULONG64, QueueLen: DWORD) -> HRESULT;
-            fn OnThreadWorkRedirect(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ThreadID: ULONG64, MsgWorkID: ULONG64, QueueLen: DWORD, ThreadNum: ULONG64) -> HRESULT;
-            fn OnThreadWorkReject(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, ThreadID: ULONG64, MsgWorkID: ULONG64, QueueLen: DWORD) -> HRESULT;
-            fn OnThreadAssignApartment(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidActivity: &GUID, AptID: ULONG64) -> HRESULT;
-            fn OnThreadUnassignApartment(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, AptID: ULONG64) -> HRESULT;
+            fn OnThreadStart(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ThreadID: u64, dwThread: u32, dwTheadCnt: u32) -> HRESULT;
+            fn OnThreadTerminate(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ThreadID: u64, dwThread: u32, dwTheadCnt: u32) -> HRESULT;
+            fn OnThreadBindToApartment(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ThreadID: u64, AptID: u64, dwActCnt: u32, dwLowCnt: u32) -> HRESULT;
+            fn OnThreadUnBind(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ThreadID: u64, AptID: u64, dwActCnt: u32) -> HRESULT;
+            fn OnThreadWorkEnque(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ThreadID: u64, MsgWorkID: u64, QueueLen: u32) -> HRESULT;
+            fn OnThreadWorkPrivate(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ThreadID: u64, MsgWorkID: u64) -> HRESULT;
+            fn OnThreadWorkPublic(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ThreadID: u64, MsgWorkID: u64, QueueLen: u32) -> HRESULT;
+            fn OnThreadWorkRedirect(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ThreadID: u64, MsgWorkID: u64, QueueLen: u32, ThreadNum: u64) -> HRESULT;
+            fn OnThreadWorkReject(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, ThreadID: u64, MsgWorkID: u64, QueueLen: u32) -> HRESULT;
+            fn OnThreadAssignApartment(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, AptID: u64) -> HRESULT;
+            fn OnThreadUnassignApartment(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, AptID: u64) -> HRESULT;
         }
         #[guid(0xc266c677_c9ad_49ab_9fd9_d9661078588a)]
         interface IComTrackingInfoCollection: IUnknown {
-            fn Type(&self, #[out] pType: *mut TRACKING_COLL_TYPE) -> HRESULT;
-            fn Count(&self, #[out] pCount: *mut ULONG) -> HRESULT;
-            fn Item(&self, ulIndex: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn Type(&self, pType: *mut TRACKING_COLL_TYPE) -> HRESULT;
+            fn Count(&self, pCount: *mut u32) -> HRESULT;
+            fn Item(&self, ulIndex: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x4e6cdcc9_fb25_4fd5_9cc5_c9f4b6559cec)]
         interface IComTrackingInfoEvents: IUnknown {
-            fn OnNewTrackingInfo(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pToplevelCollection: IUnknown) -> HRESULT;
+            fn OnNewTrackingInfo(&self, pToplevelCollection: IUnknown) -> HRESULT;
         }
         #[guid(0x116e42c5_d8b1_47bf_ab1e_c895ed3e2372)]
         interface IComTrackingInfoObject: IUnknown {
-            fn GetValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] szPropertyName: LPOLESTR, #[out] pvarOut: *mut VARIANT) -> HRESULT;
+            fn GetValue(&self, szPropertyName: LPOLESTR, pvarOut: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x789b42be_6f6b_443a_898e_67abf390aa14)]
         interface IComTrackingInfoProperties: IUnknown {
-            fn PropCount(&self, #[out] pCount: *mut ULONG) -> HRESULT;
-            fn GetPropName(&self, ulIndex: ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] ppszPropName: *mut LPOLESTR) -> HRESULT;
+            fn PropCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetPropName(&self, ulIndex: u32, ppszPropName: *mut LPOLESTR) -> HRESULT;
         }
         #[guid(0xa136f62a_2f94_4288_86e0_d8a1fa4c0299)]
         interface IComTransaction2Events: IUnknown {
-            fn OnTransactionStart2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidTx: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] tsid: &GUID, fRoot: BOOL, nIsolationLevel: i32) -> HRESULT;
-            fn OnTransactionPrepare2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidTx: &GUID, fVoteYes: BOOL) -> HRESULT;
-            fn OnTransactionAbort2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidTx: &GUID) -> HRESULT;
-            fn OnTransactionCommit2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidTx: &GUID) -> HRESULT;
+            fn OnTransactionStart2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidTx: *const GUID, tsid: *const GUID, fRoot: BOOL, nIsolationLevel: i32) -> HRESULT;
+            fn OnTransactionPrepare2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidTx: *const GUID, fVoteYes: BOOL) -> HRESULT;
+            fn OnTransactionAbort2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidTx: *const GUID) -> HRESULT;
+            fn OnTransactionCommit2(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidTx: *const GUID) -> HRESULT;
         }
         #[guid(0x683130a8_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComTransactionEvents: IUnknown {
-            fn OnTransactionStart(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidTx: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] tsid: &GUID, fRoot: BOOL) -> HRESULT;
-            fn OnTransactionPrepare(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidTx: &GUID, fVoteYes: BOOL) -> HRESULT;
-            fn OnTransactionAbort(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidTx: &GUID) -> HRESULT;
-            fn OnTransactionCommit(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidTx: &GUID) -> HRESULT;
+            fn OnTransactionStart(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidTx: *const GUID, tsid: *const GUID, fRoot: BOOL) -> HRESULT;
+            fn OnTransactionPrepare(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidTx: *const GUID, fVoteYes: BOOL) -> HRESULT;
+            fn OnTransactionAbort(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidTx: *const GUID) -> HRESULT;
+            fn OnTransactionCommit(&self, #[in] pInfo: *mut COMSVCSEVENTINFO, guidTx: *const GUID) -> HRESULT;
         }
         #[guid(0x683130a4_2e50_11d2_98a5_00c04f8ee1c4)]
         interface IComUserEvent: IUnknown {
-            fn OnUserEvent(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pInfo: *mut COMSVCSEVENTINFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pvarEvent: *mut VARIANT) -> HRESULT;
+            fn OnUserEvent(&self, pInfo: *mut COMSVCSEVENTINFO, pvarEvent: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xd396da85_bf8f_11d1_bbae_00c04fc2fa5f)]
         interface IContextProperties: IUnknown {
-            fn Count(&self, #[out] #[retval] plCount: *mut i32) -> HRESULT;
-            fn GetProperty(&self, name: BSTR, #[out] #[retval] pProperty: *mut VARIANT) -> HRESULT;
-            fn EnumNames(&self, #[out] #[retval] ppenum: *mut IEnumNames) -> HRESULT;
+            fn Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn GetProperty(&self, name: BSTR, #[retval] pProperty: *mut VARIANT) -> HRESULT;
+            fn EnumNames(&self, #[retval] ppenum: *mut IEnumNames) -> HRESULT;
             fn SetProperty(&self, name: BSTR, property: VARIANT) -> HRESULT;
             fn RemoveProperty(&self, name: BSTR) -> HRESULT;
         }
@@ -584,81 +584,87 @@ mod Windows {
         }
         #[guid(0x227ac7a8_8423_42ce_b7cf_03061ec9aaa3)]
         interface ICreateWithLocalTransaction: IUnknown {
-            fn CreateInstanceWithSysTx(&self, pTransaction: IUnknown, rclsid: &IID, riid: &IID, #[out] #[retval] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+            fn CreateInstanceWithSysTx(&self, pTransaction: IUnknown, rclsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] pObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0x455acf59_5345_11d2_99cf_00c04f797bc9)]
         interface ICreateWithTipTransactionEx: IUnknown {
-            fn CreateInstance(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrTipUrl: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] rclsid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, bstrTipUrl: BSTR, rclsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] pObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0x455acf57_5345_11d2_99cf_00c04f797bc9)]
         interface ICreateWithTransactionEx: IUnknown {
-            fn CreateInstance(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pTransaction: ITransaction, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] rclsid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, pTransaction: ITransaction, rclsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] pObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0xbbc01830_8d3b_11d1_82ec_00a0c91eede9)]
         interface ICrmCompensator: IUnknown {
-            fn SetLogControl(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pLogControl: ICrmLogControl) -> HRESULT;
+            fn SetLogControl(&self, pLogControl: ICrmLogControl) -> HRESULT;
             fn BeginPrepare(&self) -> HRESULT;
-            fn PrepareRecord(&self, crmLogRec: CrmLogRecordRead, #[out] #[retval] pfForget: *mut BOOL) -> HRESULT;
-            fn EndPrepare(&self, #[out] #[retval] pfOkToPrepare: *mut BOOL) -> HRESULT;
+            fn PrepareRecord(&self, crmLogRec: CrmLogRecordRead, #[retval] pfForget: *mut BOOL) -> HRESULT;
+            fn EndPrepare(&self, #[retval] pfOkToPrepare: *mut BOOL) -> HRESULT;
             fn BeginCommit(&self, fRecovery: BOOL) -> HRESULT;
-            fn CommitRecord(&self, crmLogRec: CrmLogRecordRead, #[out] #[retval] pfForget: *mut BOOL) -> HRESULT;
+            fn CommitRecord(&self, crmLogRec: CrmLogRecordRead, #[retval] pfForget: *mut BOOL) -> HRESULT;
             fn EndCommit(&self) -> HRESULT;
             fn BeginAbort(&self, fRecovery: BOOL) -> HRESULT;
-            fn AbortRecord(&self, crmLogRec: CrmLogRecordRead, #[out] #[retval] pfForget: *mut BOOL) -> HRESULT;
+            fn AbortRecord(&self, crmLogRec: CrmLogRecordRead, #[retval] pfForget: *mut BOOL) -> HRESULT;
             fn EndAbort(&self) -> HRESULT;
         }
         #[guid(0xf0baf8e4_7804_11d1_82e9_00a0c91eede9)]
         interface ICrmCompensatorVariants: IUnknown {
-            fn SetLogControlVariants(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pLogControl: ICrmLogControl) -> HRESULT;
+            fn SetLogControlVariants(&self, pLogControl: ICrmLogControl) -> HRESULT;
             fn BeginPrepareVariants(&self) -> HRESULT;
-            fn PrepareRecordVariants(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pLogRecord: *mut VARIANT, #[out] #[retval] pbForget: *mut VARIANT_BOOL) -> HRESULT;
-            fn EndPrepareVariants(&self, #[out] #[retval] pbOkToPrepare: *mut VARIANT_BOOL) -> HRESULT;
+            fn PrepareRecordVariants(&self, #[in] pLogRecord: *mut VARIANT, #[retval] pbForget: *mut VARIANT_BOOL) -> HRESULT;
+            fn EndPrepareVariants(&self, #[retval] pbOkToPrepare: *mut VARIANT_BOOL) -> HRESULT;
             fn BeginCommitVariants(&self, bRecovery: VARIANT_BOOL) -> HRESULT;
-            fn CommitRecordVariants(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pLogRecord: *mut VARIANT, #[out] #[retval] pbForget: *mut VARIANT_BOOL) -> HRESULT;
+            fn CommitRecordVariants(&self, #[in] pLogRecord: *mut VARIANT, #[retval] pbForget: *mut VARIANT_BOOL) -> HRESULT;
             fn EndCommitVariants(&self) -> HRESULT;
             fn BeginAbortVariants(&self, bRecovery: VARIANT_BOOL) -> HRESULT;
-            fn AbortRecordVariants(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pLogRecord: *mut VARIANT, #[out] #[retval] pbForget: *mut VARIANT_BOOL) -> HRESULT;
+            fn AbortRecordVariants(&self, #[in] pLogRecord: *mut VARIANT, #[retval] pbForget: *mut VARIANT_BOOL) -> HRESULT;
             fn EndAbortVariants(&self) -> HRESULT;
         }
         #[guid(0x9c51d821_c98b_11d1_82fb_00a0c91eede9)]
         interface ICrmFormatLogRecords: IUnknown {
-            fn GetColumnCount(&self, #[out] plColumnCount: *mut i32) -> HRESULT;
+            fn GetColumnCount(&self, plColumnCount: *mut i32) -> HRESULT;
             fn GetColumnHeaders(&self, #[out] pHeaders: LPVARIANT) -> HRESULT;
             fn GetColumn(&self, CrmLogRec: CrmLogRecordRead, #[out] pFormattedLogRecord: LPVARIANT) -> HRESULT;
             fn GetColumnVariants(&self, LogRecord: VARIANT, #[out] pFormattedLogRecord: LPVARIANT) -> HRESULT;
         }
         #[guid(0xa0e174b3_d26e_11d2_8f84_00805fc7bcd9)]
         interface ICrmLogControl: IUnknown {
-            fn get_TransactionUOW(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
-            fn RegisterCompensator(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] lpcwstrProgIdCompensator: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] lpcwstrDescription: LPCWSTR, lCrmRegFlags: LONG) -> HRESULT;
-            fn WriteLogRecordVariants(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pLogRecord: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_TransactionUOW(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            fn RegisterCompensator(&self, lpcwstrProgIdCompensator: PCWSTR, lpcwstrDescription: PCWSTR, lCrmRegFlags: i32) -> HRESULT;
+            fn WriteLogRecordVariants(&self, #[in] pLogRecord: *mut VARIANT) -> HRESULT;
             fn ForceLog(&self) -> HRESULT;
             fn ForgetLogRecord(&self) -> HRESULT;
             fn ForceTransactionToAbort(&self) -> HRESULT;
-            fn WriteLogRecord(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] rgBlob: *mut BLOB, cBlob: ULONG) -> HRESULT;
+            fn WriteLogRecord(&self, #[in] rgBlob: *mut BLOB, cBlob: u32) -> HRESULT;
         }
         #[guid(0x70c8e443_c7ed_11d1_82fb_00a0c91eede9)]
         interface ICrmMonitor: IUnknown {
-            fn GetClerks(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pClerks: *mut ICrmMonitorClerks) -> HRESULT;
-            fn HoldClerk(&self, Index: VARIANT, #[out] #[retval] pItem: LPVARIANT) -> HRESULT;
+            fn GetClerks(&self, #[retval] pClerks: *mut ICrmMonitorClerks) -> HRESULT;
+            fn HoldClerk(&self, Index: VARIANT, #[retval] #[out] pItem: LPVARIANT) -> HRESULT;
         }
         #[guid(0x70c8e442_c7ed_11d1_82fb_00a0c91eede9)]
         interface ICrmMonitorClerks: IDispatch {
-            fn Item(&self, Index: VARIANT, #[out] #[retval] pItem: LPVARIANT) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut LPUNKNOWN) -> HRESULT;
-            fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
-            fn ProgIdCompensator(&self, Index: VARIANT, #[out] #[retval] pItem: LPVARIANT) -> HRESULT;
-            fn Description(&self, Index: VARIANT, #[out] #[retval] pItem: LPVARIANT) -> HRESULT;
-            fn TransactionUOW(&self, Index: VARIANT, #[out] #[retval] pItem: LPVARIANT) -> HRESULT;
-            fn ActivityId(&self, Index: VARIANT, #[out] #[retval] pItem: LPVARIANT) -> HRESULT;
+            fn Item(&self, Index: VARIANT, #[retval] #[out] pItem: LPVARIANT) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            fn ProgIdCompensator(&self, Index: VARIANT, #[retval] #[out] pItem: LPVARIANT) -> HRESULT;
+            fn Description(&self, Index: VARIANT, #[retval] #[out] pItem: LPVARIANT) -> HRESULT;
+            fn TransactionUOW(&self, Index: VARIANT, #[retval] #[out] pItem: LPVARIANT) -> HRESULT;
+            fn ActivityId(&self, Index: VARIANT, #[retval] #[out] pItem: LPVARIANT) -> HRESULT;
         }
         #[guid(0x70c8e441_c7ed_11d1_82fb_00a0c91eede9)]
         interface ICrmMonitorLogRecords: IUnknown {
-            fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
-            fn get_TransactionState(&self, #[out] #[retval] pVal: *mut CrmTransactionState) -> HRESULT;
-            fn get_StructuredRecords(&self, #[out] #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetLogRecord(&self, dwIndex: DWORD, #[in] #[out] pCrmLogRec: *mut CrmLogRecordRead) -> HRESULT;
-            fn GetLogRecordVariants(&self, IndexNumber: VARIANT, #[out] #[retval] pLogRecord: LPVARIANT) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TransactionState(&self, #[retval] pVal: *mut CrmTransactionState) -> HRESULT;
+            #[special]
+            fn get_StructuredRecords(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetLogRecord(&self, dwIndex: u32, #[in] #[out] pCrmLogRec: *mut CrmLogRecordRead) -> HRESULT;
+            fn GetLogRecordVariants(&self, IndexNumber: VARIANT, #[retval] #[out] pLogRecord: LPVARIANT) -> HRESULT;
         }
         #[guid(0x208b3651_2b48_11cf_be10_00aa00a2fa25)]
         interface IDispenserDriver: IUnknown {
@@ -676,36 +682,36 @@ mod Windows {
         }
         #[guid(0x51372af2_cae7_11cf_be81_00aa00a2fa25)]
         interface IEnumNames: IUnknown {
-            fn Next(&self, celt: u32, rgname: *mut BSTR, #[out] #[retval] pceltFetched: *mut u32) -> HRESULT;
+            fn Next(&self, celt: u32, rgname: *mut BSTR, #[retval] pceltFetched: *mut u32) -> HRESULT;
             fn Skip(&self, celt: u32) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] ppenum: *mut IEnumNames) -> HRESULT;
+            fn Clone(&self, #[retval] ppenum: *mut IEnumNames) -> HRESULT;
         }
         #[guid(0x9a9f12b8_80af_47ab_a579_35ea57725370)]
         interface IEventServerTrace: IDispatch {
-            fn StartTraceGuid(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrguidEvent: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrguidFilter: BSTR, lPidFilter: LONG) -> HRESULT;
-            fn StopTraceGuid(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrguidEvent: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrguidFilter: BSTR, lPidFilter: LONG) -> HRESULT;
-            fn EnumTraceGuid(&self, #[out] plCntGuids: *mut LONG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pbstrGuidList: *mut BSTR) -> HRESULT;
+            fn StartTraceGuid(&self, bstrguidEvent: BSTR, bstrguidFilter: BSTR, lPidFilter: i32) -> HRESULT;
+            fn StopTraceGuid(&self, bstrguidEvent: BSTR, bstrguidFilter: BSTR, lPidFilter: i32) -> HRESULT;
+            fn EnumTraceGuid(&self, plCntGuids: *mut i32, pbstrGuidList: *mut BSTR) -> HRESULT;
         }
         #[guid(0x507c3ac8_3e12_4cb0_9366_653d3e050638)]
         interface IGetAppTrackerData: IUnknown {
-            fn GetApplicationProcesses(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] PartitionId: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] ApplicationId: &GUID, Flags: DWORD, #[out] NumApplicationProcesses: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*NumApplicationProcesses", "*NumApplicationProcesses")] ApplicationProcesses: *mut *mut ApplicationProcessSummary) -> HRESULT;
-            fn GetApplicationProcessDetails(&self, ApplicationInstanceId: &GUID, ProcessId: DWORD, Flags: DWORD, #[out] #[opt] Summary: *mut ApplicationProcessSummary, #[out] #[opt] Statistics: *mut ApplicationProcessStatistics, #[out] #[opt] RecycleInfo: *mut ApplicationProcessRecycleInfo, #[out] #[opt] AnyComponentsHangMonitored: *mut BOOL) -> HRESULT;
-            fn GetApplicationsInProcess(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] ApplicationInstanceId: &GUID, ProcessId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] PartitionId: &GUID, Flags: DWORD, #[out] NumApplicationsInProcess: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*NumApplicationsInProcess", "*NumApplicationsInProcess")] Applications: *mut *mut ApplicationSummary) -> HRESULT;
-            fn GetComponentsInProcess(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] ApplicationInstanceId: &GUID, ProcessId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] PartitionId: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] ApplicationId: &GUID, Flags: DWORD, #[out] NumComponentsInProcess: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*NumComponentsInProcess", "*NumComponentsInProcess")] Components: *mut *mut ComponentSummary) -> HRESULT;
-            fn GetComponentDetails(&self, ApplicationInstanceId: &GUID, ProcessId: DWORD, Clsid: &IID, Flags: DWORD, #[out] #[opt] Summary: *mut ComponentSummary, #[out] #[opt] Statistics: *mut ComponentStatistics, #[out] #[opt] HangMonitorInfo: *mut ComponentHangMonitorInfo) -> HRESULT;
-            fn GetTrackerDataAsCollectionObject(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] TopLevelCollection: *mut IUnknown) -> HRESULT;
-            fn GetSuggestedPollingInterval(&self, #[out] PollingIntervalInSeconds: *mut DWORD) -> HRESULT;
+            fn GetApplicationProcesses(&self, PartitionId: *const GUID, ApplicationId: *const GUID, Flags: u32, NumApplicationProcesses: *mut u32, ApplicationProcesses: *mut *mut ApplicationProcessSummary) -> HRESULT;
+            fn GetApplicationProcessDetails(&self, ApplicationInstanceId: *const GUID, ProcessId: u32, Flags: u32, #[opt] Summary: *mut ApplicationProcessSummary, #[opt] Statistics: *mut ApplicationProcessStatistics, #[opt] RecycleInfo: *mut ApplicationProcessRecycleInfo, #[opt] AnyComponentsHangMonitored: *mut BOOL) -> HRESULT;
+            fn GetApplicationsInProcess(&self, ApplicationInstanceId: *const GUID, ProcessId: u32, PartitionId: *const GUID, Flags: u32, NumApplicationsInProcess: *mut u32, Applications: *mut *mut ApplicationSummary) -> HRESULT;
+            fn GetComponentsInProcess(&self, ApplicationInstanceId: *const GUID, ProcessId: u32, PartitionId: *const GUID, ApplicationId: *const GUID, Flags: u32, NumComponentsInProcess: *mut u32, Components: *mut *mut ComponentSummary) -> HRESULT;
+            fn GetComponentDetails(&self, ApplicationInstanceId: *const GUID, ProcessId: u32, Clsid: *const GUID, Flags: u32, #[opt] Summary: *mut ComponentSummary, #[opt] Statistics: *mut ComponentStatistics, #[opt] HangMonitorInfo: *mut ComponentHangMonitorInfo) -> HRESULT;
+            fn GetTrackerDataAsCollectionObject(&self, TopLevelCollection: *mut IUnknown) -> HRESULT;
+            fn GetSuggestedPollingInterval(&self, PollingIntervalInSeconds: *mut u32) -> HRESULT;
         }
         #[guid(0x51372af4_cae7_11cf_be81_00aa00a2fa25)]
         interface IGetContextProperties: IUnknown {
-            fn Count(&self, #[out] #[retval] plCount: *mut i32) -> HRESULT;
-            fn GetProperty(&self, name: BSTR, #[out] #[retval] pProperty: *mut VARIANT) -> HRESULT;
-            fn EnumNames(&self, #[out] #[retval] ppenum: *mut IEnumNames) -> HRESULT;
+            fn Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn GetProperty(&self, name: BSTR, #[retval] pProperty: *mut VARIANT) -> HRESULT;
+            fn EnumNames(&self, #[retval] ppenum: *mut IEnumNames) -> HRESULT;
         }
         #[guid(0xcafc823f_b441_11d1_b82b_0000f8757e2a)]
         interface IGetSecurityCallContext: IDispatch {
-            fn GetSecurityCallContext(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppObject: *mut ISecurityCallContext) -> HRESULT;
+            fn GetSecurityCallContext(&self, #[retval] ppObject: *mut ISecurityCallContext) -> HRESULT;
         }
         #[guid(0xbf6a1850_2b45_11cf_be10_00aa00a2fa25)]
         interface IHolder: IUnknown {
@@ -720,9 +726,9 @@ mod Windows {
         }
         #[guid(0x683130b4_2e50_11d2_98a5_00c04f8ee1c4)]
         interface ILBEvents: IUnknown {
-            fn TargetUp(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrServerName: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrClsidEng: BSTR) -> HRESULT;
-            fn TargetDown(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrServerName: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrClsidEng: BSTR) -> HRESULT;
-            fn EngineDefined(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrPropName: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] varPropValue: *mut VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrClsidEng: BSTR) -> HRESULT;
+            fn TargetUp(&self, bstrServerName: BSTR, bstrClsidEng: BSTR) -> HRESULT;
+            fn TargetDown(&self, bstrServerName: BSTR, bstrClsidEng: BSTR) -> HRESULT;
+            fn EngineDefined(&self, bstrPropName: BSTR, varPropValue: *mut VARIANT, bstrClsidEng: BSTR) -> HRESULT;
         }
         #[guid(0x51372af0_cae7_11cf_be81_00aa00a2fa25)]
         interface IMTSActivity: IUnknown {
@@ -738,7 +744,7 @@ mod Windows {
         }
         #[guid(0xd19b8bfd_7f88_11d0_b16e_00aa00ba3258)]
         interface IMTSLocator: IDispatch {
-            fn GetEventDispatcher(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pUnk: *mut IUnknown) -> HRESULT;
+            fn GetEventDispatcher(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xa5f325af_572f_46da_b8ab_827c3d95d99e)]
         interface IManagedActivationEvents: IUnknown {
@@ -762,40 +768,52 @@ mod Windows {
         }
         #[guid(0x588a085a_b795_11d1_8054_00c04fc340ee)]
         interface IMessageMover: IDispatch {
-            fn get_SourcePath(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
-            fn put_SourcePath(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] newVal: BSTR) -> HRESULT;
-            fn get_DestPath(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
-            fn put_DestPath(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] newVal: BSTR) -> HRESULT;
-            fn get_CommitBatchSize(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_SourcePath(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SourcePath(&self, newVal: BSTR) -> HRESULT;
+            #[special]
+            fn get_DestPath(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DestPath(&self, newVal: BSTR) -> HRESULT;
+            #[special]
+            fn get_CommitBatchSize(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
             fn put_CommitBatchSize(&self, newVal: i32) -> HRESULT;
-            fn MoveMessages(&self, #[out] #[retval] plMessagesMoved: *mut i32) -> HRESULT;
+            fn MoveMessages(&self, #[retval] plMessagesMoved: *mut i32) -> HRESULT;
         }
         #[guid(0xd56c3dc1_8482_11d0_b170_00aa00ba3258)]
         interface IMtsEventInfo: IDispatch {
-            fn get_Names(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pUnk: *mut IUnknown) -> HRESULT;
-            fn get_DisplayName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] sDisplayName: *mut BSTR) -> HRESULT;
-            fn get_EventID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] sGuidEventID: *mut BSTR) -> HRESULT;
-            fn get_Count(&self, #[out] #[retval] lCount: *mut i32) -> HRESULT;
-            fn get_Value(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] sKey: BSTR, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Names(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_DisplayName(&self, #[retval] sDisplayName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_EventID(&self, #[retval] sGuidEventID: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] lCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Value(&self, sKey: BSTR, #[retval] pVal: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xbacedf4d_74ab_11d0_b162_00aa00ba3258)]
         interface IMtsEvents: IDispatch {
-            fn get_PackageName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
-            fn get_PackageGuid(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut BSTR) -> HRESULT;
-            fn PostEvent(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] vEvent: *mut VARIANT) -> HRESULT;
-            fn get_FireEvents(&self, #[out] #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetProcessID(&self, #[out] #[retval] id: *mut i32) -> HRESULT;
+            #[special]
+            fn get_PackageName(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_PackageGuid(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            fn PostEvent(&self, #[in] vEvent: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_FireEvents(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetProcessID(&self, #[retval] id: *mut i32) -> HRESULT;
         }
         #[guid(0x4b2e958c_0393_11d1_b1ab_00aa00ba3258)]
         interface IMtsGrp: IDispatch {
-            fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
-            fn Item(&self, lIndex: i32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppUnkDispatcher: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            fn Item(&self, lIndex: i32, ppUnkDispatcher: *mut IUnknown) -> HRESULT;
             fn Refresh(&self) -> HRESULT;
         }
-        #[arch(X64 | Arm64)]
-        type INSTID = u64;
-        #[arch(X86)]
-        type INSTID = u32;
+        type INSTID = usize;
         #[guid(0x7d8805a0_2ea7_11d1_b1cc_00aa00ba3258)]
         interface IObjPool: IUnknown {
             fn Reserved1(&self);
@@ -812,18 +830,19 @@ mod Windows {
         }
         #[guid(0x41c4f8b2_7439_11d2_98cb_00c04f8ee1c4)]
         interface IObjectConstructString: IDispatch {
-            fn get_ConstructString(&self, #[out] #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ConstructString(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
         }
         #[guid(0x51372ae0_cae7_11cf_be81_00aa00a2fa25)]
         interface IObjectContext: IUnknown {
-            fn CreateInstance(&self, rclsid: &IID, riid: &IID, #[out] #[retval] #[iid_is] ppv: *mut LPVOID) -> HRESULT;
+            fn CreateInstance(&self, rclsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] ppv: *mut *mut void) -> HRESULT;
             fn SetComplete(&self) -> HRESULT;
             fn SetAbort(&self) -> HRESULT;
             fn EnableCommit(&self) -> HRESULT;
             fn DisableCommit(&self) -> HRESULT;
             fn IsInTransaction(&self) -> BOOL;
             fn IsSecurityEnabled(&self) -> BOOL;
-            fn IsCallerInRole(&self, bstrRole: BSTR, #[out] #[retval] pfIsInRole: *mut BOOL) -> HRESULT;
+            fn IsCallerInRole(&self, bstrRole: BSTR, #[retval] pfIsInRole: *mut BOOL) -> HRESULT;
         }
         #[guid(0x51372afc_cae7_11cf_be81_00aa00a2fa25)]
         interface IObjectContextActivity: IUnknown {
@@ -845,7 +864,7 @@ mod Windows {
         }
         #[guid(0x92fd41ca_bad9_11d2_9a2d_00c04f797bc9)]
         interface IObjectContextTip: IUnknown {
-            fn GetTipUrl(&self, #[out] #[retval] pTipUrl: *mut BSTR) -> HRESULT;
+            fn GetTipUrl(&self, #[retval] pTipUrl: *mut BSTR) -> HRESULT;
         }
         #[guid(0x51372aec_cae7_11cf_be81_00aa00a2fa25)]
         interface IObjectControl: IUnknown {
@@ -864,29 +883,38 @@ mod Windows {
         }
         #[guid(0x1113f52d_dc7f_4943_aed6_88d04027e32a)]
         interface IProcessInitializer: IUnknown {
-            fn Startup(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] punkProcessControl: IUnknown) -> HRESULT;
+            fn Startup(&self, punkProcessControl: IUnknown) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
         }
         #[guid(0xcafc823e_b441_11d1_b82b_0000f8757e2a)]
         interface ISecurityCallContext: IDispatch {
-            fn get_Count(&self, #[out] #[retval] plCount: *mut i32) -> HRESULT;
-            fn get_Item(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: BSTR, #[out] #[retval] pItem: *mut VARIANT) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppEnum: *mut IUnknown) -> HRESULT;
-            fn IsCallerInRole(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrRole: BSTR, #[out] #[retval] pfInRole: *mut VARIANT_BOOL) -> HRESULT;
-            fn IsSecurityEnabled(&self, #[out] #[retval] pfIsEnabled: *mut VARIANT_BOOL) -> HRESULT;
-            fn IsUserInRole(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pUser: *mut VARIANT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrRole: BSTR, #[out] #[retval] pfInRole: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, name: BSTR, #[retval] pItem: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
+            fn IsCallerInRole(&self, bstrRole: BSTR, #[retval] pfInRole: *mut VARIANT_BOOL) -> HRESULT;
+            fn IsSecurityEnabled(&self, #[retval] pfIsEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            fn IsUserInRole(&self, #[in] pUser: *mut VARIANT, bstrRole: BSTR, #[retval] pfInRole: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xcafc823d_b441_11d1_b82b_0000f8757e2a)]
         interface ISecurityCallersColl: IDispatch {
-            fn get_Count(&self, #[out] #[retval] plCount: *mut i32) -> HRESULT;
-            fn get_Item(&self, lIndex: i32, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pObj: *mut ISecurityIdentityColl) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppEnum: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, lIndex: i32, #[retval] pObj: *mut ISecurityIdentityColl) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xcafc823c_b441_11d1_b82b_0000f8757e2a)]
         interface ISecurityIdentityColl: IDispatch {
-            fn get_Count(&self, #[out] #[retval] plCount: *mut i32) -> HRESULT;
-            fn get_Item(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: BSTR, #[out] #[retval] pItem: *mut VARIANT) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppEnum: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, name: BSTR, #[retval] pItem: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x51372aea_cae7_11cf_be81_00aa00a2fa25)]
         interface ISecurityProperty: IUnknown {
@@ -903,13 +931,13 @@ mod Windows {
         }
         #[guid(0x2732fd59_b2b4_4d44_878c_8b8f09626008)]
         interface ISendMethodEvents: IUnknown {
-            fn SendMethodCall(&self, pIdentity: *const void, riid: &IID, dwMeth: DWORD) -> HRESULT;
-            fn SendMethodReturn(&self, pIdentity: *const void, riid: &IID, dwMeth: DWORD, hrCall: HRESULT, hrServer: HRESULT) -> HRESULT;
+            fn SendMethodCall(&self, pIdentity: *const void, riid: *const GUID, dwMeth: u32) -> HRESULT;
+            fn SendMethodReturn(&self, pIdentity: *const void, riid: *const GUID, dwMeth: u32, hrCall: HRESULT, hrServer: HRESULT) -> HRESULT;
         }
         #[guid(0x67532e0c_9e2f_4450_a354_035633944e17)]
         interface IServiceActivity: IUnknown {
-            fn SynchronousCall(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pIServiceCall: IServiceCall) -> HRESULT;
-            fn AsynchronousCall(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pIServiceCall: IServiceCall) -> HRESULT;
+            fn SynchronousCall(&self, pIServiceCall: IServiceCall) -> HRESULT;
+            fn AsynchronousCall(&self, pIServiceCall: IServiceCall) -> HRESULT;
             fn BindToCurrentThread(&self) -> HRESULT;
             fn UnbindFromThread(&self) -> HRESULT;
         }
@@ -932,32 +960,42 @@ mod Windows {
         #[guid(0x80182d03_5ea4_4831_ae97_55beffc2e590)]
         interface IServicePartitionConfig: IUnknown {
             fn PartitionConfig(&self, partitionConfig: CSC_PartitionConfig) -> HRESULT;
-            fn PartitionID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidPartitionID: &GUID) -> HRESULT;
+            fn PartitionID(&self, guidPartitionID: *const GUID) -> HRESULT;
         }
         #[guid(0xb302df81_ea45_451e_99a2_09f9fd1b1e13)]
         interface IServicePool: IUnknown {
             fn Initialize(&self, pPoolConfig: IUnknown) -> HRESULT;
-            fn GetObjectA(&self, riid: &IID, #[out] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetObject(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
         }
         #[guid(0xa9690656_5bca_470c_8451_250c1f43a33e)]
         interface IServicePoolConfig: IUnknown {
-            fn put_MaxPoolSize(&self, dwMaxPool: DWORD) -> HRESULT;
-            fn get_MaxPoolSize(&self, #[out] #[retval] pdwMaxPool: *mut DWORD) -> HRESULT;
-            fn put_MinPoolSize(&self, dwMinPool: DWORD) -> HRESULT;
-            fn get_MinPoolSize(&self, #[out] #[retval] pdwMinPool: *mut DWORD) -> HRESULT;
-            fn put_CreationTimeout(&self, dwCreationTimeout: DWORD) -> HRESULT;
-            fn get_CreationTimeout(&self, #[out] #[retval] pdwCreationTimeout: *mut DWORD) -> HRESULT;
+            #[special]
+            fn put_MaxPoolSize(&self, dwMaxPool: u32) -> HRESULT;
+            #[special]
+            fn get_MaxPoolSize(&self, #[retval] pdwMaxPool: *mut u32) -> HRESULT;
+            #[special]
+            fn put_MinPoolSize(&self, dwMinPool: u32) -> HRESULT;
+            #[special]
+            fn get_MinPoolSize(&self, #[retval] pdwMinPool: *mut u32) -> HRESULT;
+            #[special]
+            fn put_CreationTimeout(&self, dwCreationTimeout: u32) -> HRESULT;
+            #[special]
+            fn get_CreationTimeout(&self, #[retval] pdwCreationTimeout: *mut u32) -> HRESULT;
+            #[special]
             fn put_TransactionAffinity(&self, fTxAffinity: BOOL) -> HRESULT;
-            fn get_TransactionAffinity(&self, #[out] #[retval] pfTxAffinity: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_TransactionAffinity(&self, #[retval] pfTxAffinity: *mut BOOL) -> HRESULT;
+            #[special]
             fn put_ClassFactory(&self, pFactory: IClassFactory) -> HRESULT;
-            fn get_ClassFactory(&self, #[out] #[retval] pFactory: *mut IClassFactory) -> HRESULT;
+            #[special]
+            fn get_ClassFactory(&self, #[retval] pFactory: *mut IClassFactory) -> HRESULT;
         }
         #[guid(0xc7cd7379_f3f2_4634_811b_703281d73e08)]
         interface IServiceSxsConfig: IUnknown {
             fn SxsConfig(&self, scsConfig: CSC_SxsConfig) -> HRESULT;
-            fn SxsName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] szSxsName: LPCWSTR) -> HRESULT;
-            fn SxsDirectory(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] szSxsDirectory: LPCWSTR) -> HRESULT;
+            fn SxsName(&self, szSxsName: PCWSTR) -> HRESULT;
+            fn SxsDirectory(&self, szSxsDirectory: PCWSTR) -> HRESULT;
         }
         #[guid(0xfd880e81_6dce_4c58_af83_a208846c0030)]
         interface IServiceSynchronizationConfig: IUnknown {
@@ -974,42 +1012,48 @@ mod Windows {
         }
         #[guid(0x6c3a3e1d_0ba6_4036_b76f_d0404db816c9)]
         interface IServiceTrackerConfig: IUnknown {
-            fn TrackerConfig(&self, trackerConfig: CSC_TrackerConfig, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] szTrackerAppName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] szTrackerCtxName: LPCWSTR) -> HRESULT;
+            fn TrackerConfig(&self, trackerConfig: CSC_TrackerConfig, szTrackerAppName: PCWSTR, szTrackerCtxName: PCWSTR) -> HRESULT;
         }
         #[guid(0x59f4c2a3_d3d7_4a31_b6e4_6ab3177c50b9)]
         interface IServiceTransactionConfig: IServiceTransactionConfigBase {
-            fn ConfigureBYOT(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pITxByot: ITransaction) -> HRESULT;
+            fn ConfigureBYOT(&self, pITxByot: ITransaction) -> HRESULT;
         }
         #[guid(0x772b3fbe_6ffd_42fb_b5f8_8f9b260f3810)]
         interface IServiceTransactionConfigBase: IUnknown {
             fn ConfigureTransaction(&self, transactionConfig: CSC_TransactionConfig) -> HRESULT;
             fn IsolationLevel(&self, option: COMAdminTxIsolationLevelOptions) -> HRESULT;
-            fn TransactionTimeout(&self, ulTimeoutSec: ULONG) -> HRESULT;
-            fn BringYourOwnTransaction(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] szTipURL: LPCWSTR) -> HRESULT;
-            fn NewTransactionDescription(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] szTxDesc: LPCWSTR) -> HRESULT;
+            fn TransactionTimeout(&self, ulTimeoutSec: u32) -> HRESULT;
+            fn BringYourOwnTransaction(&self, szTipURL: PCWSTR) -> HRESULT;
+            fn NewTransactionDescription(&self, szTxDesc: PCWSTR) -> HRESULT;
         }
         #[guid(0x2a005c01_a5de_11cf_9e66_00aa00a3f464)]
         interface ISharedProperty: IDispatch {
-            fn get_Value(&self, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            #[special]
             fn put_Value(&self, val: VARIANT) -> HRESULT;
         }
         #[guid(0x2a005c07_a5de_11cf_9e66_00aa00a3f464)]
         interface ISharedPropertyGroup: IDispatch {
-            fn CreatePropertyByPosition(&self, Index: i32, #[out] fExists: *mut VARIANT_BOOL, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppProp: *mut ISharedProperty) -> HRESULT;
-            fn get_PropertyByPosition(&self, Index: i32, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppProperty: *mut ISharedProperty) -> HRESULT;
-            fn CreateProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Name: BSTR, #[out] fExists: *mut VARIANT_BOOL, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppProp: *mut ISharedProperty) -> HRESULT;
-            fn get_Property(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Name: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppProperty: *mut ISharedProperty) -> HRESULT;
+            fn CreatePropertyByPosition(&self, Index: i32, fExists: *mut VARIANT_BOOL, #[retval] ppProp: *mut ISharedProperty) -> HRESULT;
+            #[special]
+            fn get_PropertyByPosition(&self, Index: i32, #[retval] ppProperty: *mut ISharedProperty) -> HRESULT;
+            fn CreateProperty(&self, Name: BSTR, fExists: *mut VARIANT_BOOL, #[retval] ppProp: *mut ISharedProperty) -> HRESULT;
+            #[special]
+            fn get_Property(&self, Name: BSTR, #[retval] ppProperty: *mut ISharedProperty) -> HRESULT;
         }
         #[guid(0x2a005c0d_a5de_11cf_9e66_00aa00a3f464)]
         interface ISharedPropertyGroupManager: IDispatch {
-            fn CreatePropertyGroup(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Name: BSTR, #[in] #[out] dwIsoMode: *mut LONG, #[in] #[out] dwRelMode: *mut LONG, #[out] fExists: *mut VARIANT_BOOL, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppGroup: *mut ISharedPropertyGroup) -> HRESULT;
-            fn get_Group(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] Name: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppGroup: *mut ISharedPropertyGroup) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUnknown) -> HRESULT;
+            fn CreatePropertyGroup(&self, Name: BSTR, #[in] #[out] dwIsoMode: *mut i32, #[in] #[out] dwRelMode: *mut i32, fExists: *mut VARIANT_BOOL, #[retval] ppGroup: *mut ISharedPropertyGroup) -> HRESULT;
+            #[special]
+            fn get_Group(&self, Name: BSTR, #[retval] ppGroup: *mut ISharedPropertyGroup) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retval: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xd6d48a3c_d5c5_49e7_8c74_99e4889ed52f)]
         interface ISystemAppEventData: IUnknown {
             fn Startup(&self) -> HRESULT;
-            fn OnDataChanged(&self, dwPID: DWORD, dwMask: DWORD, dwNumberSinks: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrDwMethodMask: BSTR, dwReason: DWORD, u64TraceHandle: ULONG64) -> HRESULT;
+            fn OnDataChanged(&self, dwPID: u32, dwMask: u32, dwNumberSinks: u32, bstrDwMethodMask: BSTR, dwReason: u32, u64TraceHandle: u64) -> HRESULT;
         }
         #[guid(0x51372af7_cae7_11cf_be81_00aa00a2fa25)]
         interface IThreadPoolKnobs: IUnknown {
@@ -1026,13 +1070,13 @@ mod Windows {
         }
         #[guid(0x7999fc21_d3c6_11cf_acab_00a024a55aef)]
         interface ITransactionContext: IDispatch {
-            fn CreateInstance(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszProgId: BSTR, #[out] #[retval] pObject: *mut VARIANT) -> HRESULT;
+            fn CreateInstance(&self, pszProgId: BSTR, #[retval] pObject: *mut VARIANT) -> HRESULT;
             fn Commit(&self) -> HRESULT;
             fn Abort(&self) -> HRESULT;
         }
         #[guid(0x7999fc22_d3c6_11cf_acab_00a024a55aef)]
         interface ITransactionContextEx: IUnknown {
-            fn CreateInstance(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] rclsid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, rclsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] pObject: *mut *mut void) -> HRESULT;
             fn Commit(&self) -> HRESULT;
             fn Abort(&self) -> HRESULT;
         }
@@ -1063,8 +1107,8 @@ mod Windows {
             fn Abort(&self) -> HRESULT;
             fn Promote(&self, pTransaction: *mut ITransaction) -> HRESULT;
             fn CreateVoter(&self, pTxAsync: ITransactionVoterNotifyAsync2, ppBallot: *mut ITransactionVoterBallotAsync2) -> HRESULT;
-            fn GetIsolationLevel(&self, #[out] #[retval] __MIDL__ITransactionProxy0000: *mut ISOLEVEL) -> HRESULT;
-            fn GetIdentifier(&self, #[out] #[retval] pbstrIdentifier: *mut GUID) -> HRESULT;
+            fn GetIsolationLevel(&self, #[retval] __MIDL__ITransactionProxy0000: *mut ISOLEVEL) -> HRESULT;
+            fn GetIdentifier(&self, #[retval] pbstrIdentifier: *mut GUID) -> HRESULT;
             fn IsReusable(&self, pfIsReusable: *mut BOOL) -> HRESULT;
         }
         #[guid(0xc5feb7c1_346a_11d1_b1cc_00aa00ba3258)]
@@ -1088,7 +1132,7 @@ mod Windows {
             LockMethod = 1,
         }
         #[library("comsvcs.dll")]
-        extern fn MTSCreateActivity(riid: &IID, ppobj: *mut *mut void) -> HRESULT;
+        extern fn MTSCreateActivity(riid: *const GUID, ppobj: *mut *mut void) -> HRESULT;
         type MTS_OBJID = u64;
         type MTS_RESID = u64;
         const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392;
@@ -1096,43 +1140,42 @@ mod Windows {
         const MtsGrp: GUID = 0x4b2e958d_0393_11d1_b1ab_00aa00ba3258;
         #[guid(0x74c08646_cedb_11cf_8b49_00aa00b8a790)]
         interface ObjectContext: IDispatch {
-            fn CreateInstance(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrProgID: BSTR, #[out] #[retval] pObject: *mut VARIANT) -> HRESULT;
+            fn CreateInstance(&self, bstrProgID: BSTR, #[retval] pObject: *mut VARIANT) -> HRESULT;
             fn SetComplete(&self) -> HRESULT;
             fn SetAbort(&self) -> HRESULT;
             fn EnableCommit(&self) -> HRESULT;
             fn DisableCommit(&self) -> HRESULT;
-            fn IsInTransaction(&self, #[out] #[retval] pbIsInTx: *mut VARIANT_BOOL) -> HRESULT;
-            fn IsSecurityEnabled(&self, #[out] #[retval] pbIsEnabled: *mut VARIANT_BOOL) -> HRESULT;
-            fn IsCallerInRole(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrRole: BSTR, #[out] #[retval] pbInRole: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Count(&self, #[out] #[retval] plCount: *mut i32) -> HRESULT;
-            fn get_Item(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: BSTR, #[out] #[retval] pItem: *mut VARIANT) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppEnum: *mut IUnknown) -> HRESULT;
-            fn get_Security(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSecurityProperty: *mut SecurityProperty) -> HRESULT;
-            fn get_ContextInfo(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppContextInfo: *mut ContextInfo) -> HRESULT;
+            fn IsInTransaction(&self, #[retval] pbIsInTx: *mut VARIANT_BOOL) -> HRESULT;
+            fn IsSecurityEnabled(&self, #[retval] pbIsEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            fn IsCallerInRole(&self, bstrRole: BSTR, #[retval] pbInRole: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, name: BSTR, #[retval] pItem: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Security(&self, #[retval] ppSecurityProperty: *mut SecurityProperty) -> HRESULT;
+            #[special]
+            fn get_ContextInfo(&self, #[retval] ppContextInfo: *mut ContextInfo) -> HRESULT;
         }
         #[guid(0x7dc41850_0c31_11d0_8b79_00aa00b8a790)]
         interface ObjectControl: IUnknown {
             fn Activate(&self) -> HRESULT;
             fn Deactivate(&self) -> HRESULT;
-            fn CanBePooled(&self, #[out] #[retval] pbPoolable: *mut VARIANT_BOOL) -> HRESULT;
+            fn CanBePooled(&self, #[retval] pbPoolable: *mut VARIANT_BOOL) -> HRESULT;
         }
         const PoolMgr: GUID = 0xecabafb5_7f19_11d2_978e_0000f8757e2a;
         struct RECYCLE_INFO {
             guidCombaseProcessIdentifier: GUID,
-            ProcessStartTime: LONGLONG,
-            dwRecycleLifetimeLimit: DWORD,
-            dwRecycleMemoryLimit: DWORD,
-            dwRecycleExpirationTimeout: DWORD,
+            ProcessStartTime: i64,
+            dwRecycleLifetimeLimit: u32,
+            dwRecycleMemoryLimit: u32,
+            dwRecycleExpirationTimeout: u32,
         }
-        #[arch(X64 | Arm64)]
-        type RESID = u64;
-        #[arch(X86)]
-        type RESID = u32;
+        type RESID = usize;
         type RESOURCERATING = u32;
-        #[arch(X64 | Arm64)]
-        type RESTYPID = u64;
-        #[arch(X86)]
-        type RESTYPID = u32;
+        type RESTYPID = usize;
         #[library("comsvcs.dll")]
         extern "C" fn RecycleSurrogate(lReasonCode: i32) -> HRESULT;
         #[repr(i32)]
@@ -1140,18 +1183,18 @@ mod Windows {
             Standard = 0,
             Process = 1,
         }
-        type SRESID = *mut u16;
+        type SRESID = LPOLESTR;
         #[library("comsvcs.dll")]
-        extern "C" fn SafeRef(rid: &IID, pUnk: IUnknown) -> *mut void;
+        extern "C" fn SafeRef(rid: *const GUID, pUnk: IUnknown) -> *mut void;
         const SecurityCallContext: GUID = 0xecabb0a7_7f19_11d2_978e_0000f8757e2a;
         const SecurityCallers: GUID = 0xecabb0a6_7f19_11d2_978e_0000f8757e2a;
         const SecurityIdentity: GUID = 0xecabb0a5_7f19_11d2_978e_0000f8757e2a;
         #[guid(0xe74a7215_014d_11d1_a63c_00a0c911b4e0)]
         interface SecurityProperty: IDispatch {
-            fn GetDirectCallerName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] bstrUserName: *mut BSTR) -> HRESULT;
-            fn GetDirectCreatorName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] bstrUserName: *mut BSTR) -> HRESULT;
-            fn GetOriginalCallerName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] bstrUserName: *mut BSTR) -> HRESULT;
-            fn GetOriginalCreatorName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] bstrUserName: *mut BSTR) -> HRESULT;
+            fn GetDirectCallerName(&self, #[retval] bstrUserName: *mut BSTR) -> HRESULT;
+            fn GetDirectCreatorName(&self, #[retval] bstrUserName: *mut BSTR) -> HRESULT;
+            fn GetOriginalCallerName(&self, #[retval] bstrUserName: *mut BSTR) -> HRESULT;
+            fn GetOriginalCreatorName(&self, #[retval] bstrUserName: *mut BSTR) -> HRESULT;
         }
         const ServicePool: GUID = 0xecabb0c9_7f19_11d2_978e_0000f8757e2a;
         const ServicePoolConfig: GUID = 0xecabb0ca_7f19_11d2_978e_0000f8757e2a;
@@ -1169,10 +1212,7 @@ mod Windows {
             TRKCOLL_APPLICATIONS = 1,
             TRKCOLL_COMPONENTS = 2,
         }
-        #[arch(X64 | Arm64)]
-        type TRANSID = u64;
-        #[arch(X86)]
-        type TRANSID = u32;
+        type TRANSID = usize;
         const TrackerServer: GUID = 0xecabafb9_7f19_11d2_978e_0000f8757e2a;
         const TransactionContext: GUID = 0x7999fc25_d3c6_11cf_acab_00a024a55aef;
         const TransactionContextEx: GUID = 0x5cb66670_d3d4_11cf_acab_00a024a55aef;
@@ -1181,6 +1221,6 @@ mod Windows {
             TxCommit = 0,
             TxAbort = 1,
         }
-        type constSRESID = *const u16;
+        type constSRESID = LPCOLESTR;
     }
 }

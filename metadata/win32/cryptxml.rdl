@@ -2,19 +2,19 @@
 mod Windows {
     mod Win32 {
         struct CRYPT_XML_ALGORITHM {
-            cbSize: ULONG,
-            wszAlgorithm: LPCWSTR,
+            cbSize: u32,
+            wszAlgorithm: PCWSTR,
             Encoded: CRYPT_XML_BLOB,
         }
         struct CRYPT_XML_ALGORITHM_INFO {
-            cbSize: DWORD,
-            wszAlgorithmURI: *mut WCHAR,
-            wszName: *mut WCHAR,
-            dwGroupId: DWORD,
-            wszCNGAlgid: *mut WCHAR,
-            wszCNGExtraAlgid: *mut WCHAR,
-            dwSignFlags: DWORD,
-            dwVerifyFlags: DWORD,
+            cbSize: u32,
+            wszAlgorithmURI: *mut u16,
+            wszName: *mut u16,
+            dwGroupId: u32,
+            wszCNGAlgid: *mut u16,
+            wszCNGExtraAlgid: *mut u16,
+            dwSignFlags: u32,
+            dwVerifyFlags: u32,
             pvPaddingInfo: *mut void,
             pvExtraInfo: *mut void,
         }
@@ -24,10 +24,8 @@ mod Windows {
         const CRYPT_XML_ALGORITHM_INFO_FIND_BY_URI: i32 = 1;
         struct CRYPT_XML_BLOB {
             dwCharset: CRYPT_XML_CHARSET,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "0,0x7FFFFFF8", "0,0x7FFFFFF8")]
-            cbData: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbData", IsByteCount = false, MayBeNull = false)]
-            pbData: *mut BYTE,
+            cbData: u32,
+            pbData: *mut u8,
         }
         const CRYPT_XML_BLOB_MAX: i32 = 2147483640;
         #[repr(i32)]
@@ -38,7 +36,7 @@ mod Windows {
             CRYPT_XML_CHARSET_UTF16BE = 3,
         }
         struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
-            cbSize: ULONG,
+            cbSize: u32,
             fpCryptXmlEncodeAlgorithm: CryptXmlDllEncodeAlgorithm,
             fpCryptXmlCreateDigest: CryptXmlDllCreateDigest,
             fpCryptXmlDigestData: CryptXmlDllDigestData,
@@ -49,14 +47,12 @@ mod Windows {
             fpCryptXmlGetAlgorithmInfo: CryptXmlDllGetAlgorithmInfo,
         }
         struct CRYPT_XML_DATA_BLOB {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "0,0x7FFFFFF8", "0,0x7FFFFFF8")]
-            cbData: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbData", IsByteCount = false, MayBeNull = false)]
-            pbData: *mut BYTE,
+            cbData: u32,
+            pbData: *mut u8,
         }
         struct CRYPT_XML_DATA_PROVIDER {
             pvCallbackState: *mut void,
-            cbBufferSize: ULONG,
+            cbBufferSize: u32,
             pfnRead: PFN_CRYPT_XML_DATA_PROVIDER_READ,
             pfnClose: PFN_CRYPT_XML_DATA_PROVIDER_CLOSE,
         }
@@ -64,11 +60,10 @@ mod Windows {
         const CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED: i32 = 1;
         const CRYPT_XML_DIGEST_VALUE_MAX: i32 = 128;
         struct CRYPT_XML_DOC_CTXT {
-            cbSize: ULONG,
+            cbSize: u32,
             hDocCtxt: HCRYPTXML,
             pTransformsConfig: *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG,
-            cSignature: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cSignature", IsByteCount = false, MayBeNull = false)]
+            cSignature: u32,
             rgpSignature: *mut PCRYPT_XML_SIGNATURE,
         }
         const CRYPT_XML_E_ALGORITHM: HRESULT = -2146885372;
@@ -103,19 +98,17 @@ mod Windows {
         const CRYPT_XML_GROUP_ID_SIGN: i32 = 2;
         const CRYPT_XML_ID_MAX: i32 = 256;
         struct CRYPT_XML_ISSUER_SERIAL {
-            wszIssuer: LPCWSTR,
-            wszSerial: LPCWSTR,
+            wszIssuer: PCWSTR,
+            wszSerial: PCWSTR,
         }
         struct CRYPT_XML_KEYINFO_PARAM {
-            wszId: LPCWSTR,
-            wszKeyName: LPCWSTR,
+            wszId: PCWSTR,
+            wszKeyName: PCWSTR,
             SKI: CERT_BLOB,
-            wszSubjectName: LPCWSTR,
-            cCertificate: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cCertificate", IsByteCount = false, MayBeNull = false)]
+            wszSubjectName: PCWSTR,
+            cCertificate: u32,
             rgCertificate: *mut CERT_BLOB,
-            cCRL: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cCRL", IsByteCount = false, MayBeNull = false)]
+            cCRL: u32,
             rgCRL: *mut CERT_BLOB,
         }
         #[repr(i32)]
@@ -139,23 +132,22 @@ mod Windows {
             Counter: CRYPT_XML_DATA_BLOB,
         }
         struct CRYPT_XML_KEY_ECDSA_KEY_VALUE {
-            wszNamedCurve: LPCWSTR,
+            wszNamedCurve: PCWSTR,
             X: CRYPT_XML_DATA_BLOB,
             Y: CRYPT_XML_DATA_BLOB,
             ExplicitPara: CRYPT_XML_BLOB,
         }
         struct CRYPT_XML_KEY_INFO {
-            cbSize: ULONG,
-            wszId: LPCWSTR,
-            cKeyInfo: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cKeyInfo", IsByteCount = false, MayBeNull = false)]
+            cbSize: u32,
+            wszId: PCWSTR,
+            cKeyInfo: u32,
             rgKeyInfo: *mut CRYPT_XML_KEY_INFO_ITEM,
             hVerifyKey: BCRYPT_KEY_HANDLE,
         }
         struct CRYPT_XML_KEY_INFO_ITEM {
-            dwType: DWORD,
+            dwType: u32,
             Anonymous: union {
-                wszKeyName: LPCWSTR,
+                wszKeyName: PCWSTR,
                 KeyValue: CRYPT_XML_KEY_VALUE,
                 RetrievalMethod: CRYPT_XML_BLOB,
                 X509Data: CRYPT_XML_X509DATA,
@@ -167,7 +159,7 @@ mod Windows {
             Exponent: CRYPT_XML_DATA_BLOB,
         }
         struct CRYPT_XML_KEY_VALUE {
-            dwType: DWORD,
+            dwType: u32,
             Anonymous: union {
                 DSAKeyValue: CRYPT_XML_KEY_DSA_KEY_VALUE,
                 RSAKeyValue: CRYPT_XML_KEY_RSA_KEY_VALUE,
@@ -180,20 +172,19 @@ mod Windows {
         const CRYPT_XML_KEY_VALUE_TYPE_ECDSA: i32 = 3;
         const CRYPT_XML_KEY_VALUE_TYPE_RSA: i32 = 2;
         struct CRYPT_XML_OBJECT {
-            cbSize: ULONG,
+            cbSize: u32,
             hObject: HCRYPTXML,
-            wszId: LPCWSTR,
-            wszMimeType: LPCWSTR,
-            wszEncoding: LPCWSTR,
+            wszId: PCWSTR,
+            wszMimeType: PCWSTR,
+            wszEncoding: PCWSTR,
             Manifest: CRYPT_XML_REFERENCES,
             Encoded: CRYPT_XML_BLOB,
         }
         const CRYPT_XML_OBJECTS_MAX: i32 = 256;
         struct CRYPT_XML_PROPERTY {
             dwPropId: CRYPT_XML_PROPERTY_ID,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbValue", IsByteCount = true, MayBeNull = false)]
             pvValue: *const void,
-            cbValue: ULONG,
+            cbValue: u32,
         }
         #[repr(i32)]
         enum CRYPT_XML_PROPERTY_ID {
@@ -204,51 +195,47 @@ mod Windows {
             CRYPT_XML_PROPERTY_XML_OUTPUT_CHARSET = 5,
         }
         struct CRYPT_XML_REFERENCE {
-            cbSize: ULONG,
+            cbSize: u32,
             hReference: HCRYPTXML,
-            wszId: LPCWSTR,
-            wszUri: LPCWSTR,
-            wszType: LPCWSTR,
+            wszId: PCWSTR,
+            wszUri: PCWSTR,
+            wszType: PCWSTR,
             DigestMethod: CRYPT_XML_ALGORITHM,
             DigestValue: CRYPT_DATA_BLOB,
-            cTransform: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cTransform", IsByteCount = false, MayBeNull = false)]
+            cTransform: u32,
             rgTransform: *mut CRYPT_XML_ALGORITHM,
         }
         struct CRYPT_XML_REFERENCES {
-            cReference: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cReference", IsByteCount = false, MayBeNull = false)]
+            cReference: u32,
             rgpReference: *mut PCRYPT_XML_REFERENCE,
         }
         const CRYPT_XML_REFERENCES_MAX: i32 = 32760;
         struct CRYPT_XML_SIGNATURE {
-            cbSize: ULONG,
+            cbSize: u32,
             hSignature: HCRYPTXML,
-            wszId: LPCWSTR,
+            wszId: PCWSTR,
             SignedInfo: CRYPT_XML_SIGNED_INFO,
             SignatureValue: CRYPT_DATA_BLOB,
             pKeyInfo: *mut CRYPT_XML_KEY_INFO,
-            cObject: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cObject", IsByteCount = false, MayBeNull = false)]
+            cObject: u32,
             rgpObject: *mut PCRYPT_XML_OBJECT,
         }
         const CRYPT_XML_SIGNATURES_MAX: i32 = 16;
         const CRYPT_XML_SIGNATURE_VALUE_MAX: i32 = 2048;
         struct CRYPT_XML_SIGNED_INFO {
-            cbSize: ULONG,
-            wszId: LPCWSTR,
+            cbSize: u32,
+            wszId: PCWSTR,
             Canonicalization: CRYPT_XML_ALGORITHM,
             SignatureMethod: CRYPT_XML_ALGORITHM,
-            cReference: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cReference", IsByteCount = false, MayBeNull = false)]
+            cReference: u32,
             rgpReference: *mut PCRYPT_XML_REFERENCE,
             Encoded: CRYPT_XML_BLOB,
         }
         const CRYPT_XML_SIGN_ADD_KEYVALUE: i32 = 1;
         struct CRYPT_XML_STATUS {
-            cbSize: ULONG,
-            dwErrorStatus: DWORD,
-            dwInfoStatus: DWORD,
+            cbSize: u32,
+            dwErrorStatus: u32,
+            dwInfoStatus: u32,
         }
         const CRYPT_XML_STATUS_DIGESTING: i32 = 4;
         const CRYPT_XML_STATUS_DIGEST_VALID: i32 = 8;
@@ -264,16 +251,15 @@ mod Windows {
         const CRYPT_XML_STATUS_OPENED_TO_ENCODE: u32 = 2147483648;
         const CRYPT_XML_STATUS_SIGNATURE_VALID: i32 = 65536;
         struct CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
-            cbSize: ULONG,
-            cTransformInfo: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cTransformInfo", IsByteCount = false, MayBeNull = false)]
+            cbSize: u32,
+            cTransformInfo: u32,
             rgpTransformInfo: *mut PCRYPT_XML_TRANSFORM_INFO,
         }
         struct CRYPT_XML_TRANSFORM_INFO {
-            cbSize: ULONG,
-            wszAlgorithm: LPCWSTR,
-            cbBufferSize: ULONG,
-            dwFlags: DWORD,
+            cbSize: u32,
+            wszAlgorithm: PCWSTR,
+            cbBufferSize: u32,
+            dwFlags: u32,
             pfnCreateTransform: PFN_CRYPT_XML_CREATE_TRANSFORM,
         }
         const CRYPT_XML_TRANSFORM_MAX: i32 = 16;
@@ -282,16 +268,15 @@ mod Windows {
         const CRYPT_XML_TRANSFORM_URI_QUERY_STRING: i32 = 4;
         const CRYPT_XML_URI_MAX: i32 = 8192;
         struct CRYPT_XML_X509DATA {
-            cX509Data: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cX509Data", IsByteCount = false, MayBeNull = false)]
+            cX509Data: u32,
             rgX509Data: *mut CRYPT_XML_X509DATA_ITEM,
         }
         struct CRYPT_XML_X509DATA_ITEM {
-            dwType: DWORD,
+            dwType: u32,
             Anonymous: union {
                 IssuerSerial: CRYPT_XML_ISSUER_SERIAL,
                 SKI: CRYPT_XML_DATA_BLOB,
-                wszSubjectName: LPCWSTR,
+                wszSubjectName: PCWSTR,
                 Certificate: CRYPT_XML_DATA_BLOB,
                 CRL: CRYPT_XML_DATA_BLOB,
                 Custom: CRYPT_XML_BLOB,
@@ -303,84 +288,55 @@ mod Windows {
         const CRYPT_XML_X509DATA_TYPE_ISSUER_SERIAL: i32 = 1;
         const CRYPT_XML_X509DATA_TYPE_SKI: i32 = 2;
         const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: i32 = 3;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlAddObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSignatureOrObject: HCRYPTXML, dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] rgProperty: *const CRYPT_XML_PROPERTY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cProperty: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEncoded: *const CRYPT_XML_BLOB, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] ppObject: *mut *const CRYPT_XML_OBJECT) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlAddObject(hSignatureOrObject: HCRYPTXML, dwFlags: u32, #[len_param(3)] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, cProperty: u32, pEncoded: *const CRYPT_XML_BLOB, ppObject: *const *const CRYPT_XML_OBJECT) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCryptXml: HCRYPTXML) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlClose(hCryptXml: HCRYPTXML) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlCreateReference(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCryptXml: HCRYPTXML, dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wszId: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wszURI: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wszType: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDigestMethod: *const CRYPT_XML_ALGORITHM, cTransform: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] rgTransform: *const CRYPT_XML_ALGORITHM, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] phReference: *mut HCRYPTXML) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlCreateReference(hCryptXml: HCRYPTXML, dwFlags: u32, #[opt] wszId: PCWSTR, #[opt] wszURI: PCWSTR, #[opt] wszType: PCWSTR, pDigestMethod: *const CRYPT_XML_ALGORITHM, cTransform: u32, #[len_param(6)] #[opt] rgTransform: *const CRYPT_XML_ALGORITHM, phReference: *mut HCRYPTXML) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlDigestReference(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hReference: HCRYPTXML, dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDataProviderIn: *mut CRYPT_XML_DATA_PROVIDER) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn CryptXmlDllCloseDigest(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDigest: CRYPT_XML_DIGEST) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn CryptXmlDllCreateDigest(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDigestMethod: *const CRYPT_XML_ALGORITHM, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,128", "0,128")] pcbSize: *mut ULONG, #[out] phDigest: *mut CRYPT_XML_DIGEST) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn CryptXmlDllCreateKey(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEncoded: *const CRYPT_XML_BLOB, #[out] phKey: *mut BCRYPT_KEY_HANDLE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn CryptXmlDllDigestData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDigest: CRYPT_XML_DIGEST, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pbData: *const BYTE, cbData: ULONG) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn CryptXmlDllEncodeAlgorithm(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAlgInfo: *const CRYPT_XML_ALGORITHM_INFO, dwCharset: CRYPT_XML_CHARSET, #[in] #[out] pvCallbackState: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnWrite: PFN_CRYPT_XML_WRITE_CALLBACK) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn CryptXmlDllEncodeKeyValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: NCRYPT_KEY_HANDLE, dwCharset: CRYPT_XML_CHARSET, #[in] #[out] pvCallbackState: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnWrite: PFN_CRYPT_XML_WRITE_CALLBACK) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn CryptXmlDllFinalizeDigest(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDigest: CRYPT_XML_DIGEST, #[out] #[size_param(2)] pbDigest: *mut BYTE, cbDigest: ULONG) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn CryptXmlDllGetAlgorithmInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pXmlAlgorithm: *const CRYPT_XML_ALGORITHM, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAlgInfo: *mut *mut CRYPT_XML_ALGORITHM_INFO) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn CryptXmlDllGetInterface(dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMethod: *const CRYPT_XML_ALGORITHM_INFO, #[out] pInterface: *mut CRYPT_XML_CRYPTOGRAPHIC_INTERFACE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn CryptXmlDllSignData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSignatureMethod: *const CRYPT_XML_ALGORITHM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwKeySpec: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pbInput: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInput: ULONG, #[out] #[opt] #[size_param(6)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 7, IsByteCount = true, Dereference = true)] pbOutput: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbOutput: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,cbOutput", "0,cbOutput")] pcbResult: *mut ULONG) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn CryptXmlDllVerifySignature(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSignatureMethod: *const CRYPT_XML_ALGORITHM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: BCRYPT_KEY_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pbInput: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInput: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(5)] pbSignature: *const BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbSignature: ULONG) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlDigestReference(hReference: HCRYPTXML, dwFlags: u32, #[in] pDataProviderIn: *mut CRYPT_XML_DATA_PROVIDER) -> HRESULT;
+        extern fn CryptXmlDllCloseDigest(hDigest: CRYPT_XML_DIGEST) -> HRESULT;
+        extern fn CryptXmlDllCreateDigest(pDigestMethod: *const CRYPT_XML_ALGORITHM, pcbSize: *mut u32, phDigest: *mut CRYPT_XML_DIGEST) -> HRESULT;
+        extern fn CryptXmlDllCreateKey(pEncoded: *const CRYPT_XML_BLOB, phKey: *mut BCRYPT_KEY_HANDLE) -> HRESULT;
+        extern fn CryptXmlDllDigestData(hDigest: CRYPT_XML_DIGEST, #[size_param(2)] pbData: *const u8, cbData: u32) -> HRESULT;
+        extern fn CryptXmlDllEncodeAlgorithm(pAlgInfo: *const CRYPT_XML_ALGORITHM_INFO, dwCharset: CRYPT_XML_CHARSET, #[in] #[out] pvCallbackState: *mut void, pfnWrite: PFN_CRYPT_XML_WRITE_CALLBACK) -> HRESULT;
+        extern fn CryptXmlDllEncodeKeyValue(hKey: NCRYPT_KEY_HANDLE, dwCharset: CRYPT_XML_CHARSET, #[in] #[out] pvCallbackState: *mut void, pfnWrite: PFN_CRYPT_XML_WRITE_CALLBACK) -> HRESULT;
+        extern fn CryptXmlDllFinalizeDigest(hDigest: CRYPT_XML_DIGEST, #[size_param(2)] pbDigest: *mut u8, cbDigest: u32) -> HRESULT;
+        extern fn CryptXmlDllGetAlgorithmInfo(pXmlAlgorithm: *const CRYPT_XML_ALGORITHM, ppAlgInfo: *mut *mut CRYPT_XML_ALGORITHM_INFO) -> HRESULT;
+        extern fn CryptXmlDllGetInterface(dwFlags: u32, pMethod: *const CRYPT_XML_ALGORITHM_INFO, pInterface: *mut CRYPT_XML_CRYPTOGRAPHIC_INTERFACE) -> HRESULT;
+        extern fn CryptXmlDllSignData(pSignatureMethod: *const CRYPT_XML_ALGORITHM, hCryptProvOrNCryptKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwKeySpec: u32, #[size_param(4)] pbInput: *const u8, cbInput: u32, #[size_param(6)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32) -> HRESULT;
+        extern fn CryptXmlDllVerifySignature(pSignatureMethod: *const CRYPT_XML_ALGORITHM, hKey: BCRYPT_KEY_HANDLE, #[size_param(3)] pbInput: *const u8, cbInput: u32, #[size_param(5)] pbSignature: *const u8, cbSignature: u32) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlEncode(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCryptXml: HCRYPTXML, dwCharset: CRYPT_XML_CHARSET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] rgProperty: *const CRYPT_XML_PROPERTY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cProperty: ULONG, #[in] #[out] pvCallbackState: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnWrite: PFN_CRYPT_XML_WRITE_CALLBACK) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlEncode(hCryptXml: HCRYPTXML, dwCharset: CRYPT_XML_CHARSET, #[len_param(3)] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, cProperty: u32, #[in] #[out] pvCallbackState: *mut void, pfnWrite: PFN_CRYPT_XML_WRITE_CALLBACK) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlEnumAlgorithmInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwGroupId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[out] #[opt] pvArg: *mut void, pfnEnumAlgInfo: PFN_CRYPT_XML_ENUM_ALG_INFO) -> HRESULT;
+        extern fn CryptXmlEnumAlgorithmInfo(dwGroupId: u32, dwFlags: u32, #[in] #[out] #[opt] pvArg: *mut void, pfnEnumAlgInfo: PFN_CRYPT_XML_ENUM_ALG_INFO) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlFindAlgorithmInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFindByType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvFindBy: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwGroupId: DWORD, dwFlags: DWORD) -> *const CRYPT_XML_ALGORITHM_INFO;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlFindAlgorithmInfo(dwFindByType: u32, pvFindBy: *const void, dwGroupId: u32, dwFlags: u32) -> *const CRYPT_XML_ALGORITHM_INFO;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetAlgorithmInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pXmlAlgorithm: *const CRYPT_XML_ALGORITHM, dwFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAlgInfo: *mut *mut CRYPT_XML_ALGORITHM_INFO) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlGetAlgorithmInfo(pXmlAlgorithm: *const CRYPT_XML_ALGORITHM, dwFlags: u32, ppAlgInfo: *mut *mut CRYPT_XML_ALGORITHM_INFO) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetDocContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCryptXml: HCRYPTXML, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppStruct: *mut *const CRYPT_XML_DOC_CTXT) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlGetDocContext(hCryptXml: HCRYPTXML, ppStruct: *const *const CRYPT_XML_DOC_CTXT) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetReference(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCryptXml: HCRYPTXML, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppStruct: *mut *const CRYPT_XML_REFERENCE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlGetReference(hCryptXml: HCRYPTXML, ppStruct: *const *const CRYPT_XML_REFERENCE) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetSignature(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCryptXml: HCRYPTXML, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppStruct: *mut *const CRYPT_XML_SIGNATURE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlGetSignature(hCryptXml: HCRYPTXML, ppStruct: *const *const CRYPT_XML_SIGNATURE) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetStatus(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hCryptXml: HCRYPTXML, #[out] pStatus: *mut CRYPT_XML_STATUS) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlGetStatus(hCryptXml: HCRYPTXML, pStatus: *mut CRYPT_XML_STATUS) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetTransforms(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppConfig: *mut *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlGetTransforms(ppConfig: *const *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlImportPublicKey(dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pKeyValue: *const CRYPT_XML_KEY_VALUE, #[out] phKey: *mut BCRYPT_KEY_HANDLE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlImportPublicKey(dwFlags: u32, pKeyValue: *const CRYPT_XML_KEY_VALUE, phKey: *mut BCRYPT_KEY_HANDLE) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlOpenToDecode(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pConfig: *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] rgProperty: *const CRYPT_XML_PROPERTY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cProperty: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEncoded: *const CRYPT_XML_BLOB, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] phCryptXml: *mut HCRYPTXML) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlOpenToDecode(#[opt] pConfig: *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwFlags: u32, #[len_param(3)] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, cProperty: u32, pEncoded: *const CRYPT_XML_BLOB, phCryptXml: *mut HCRYPTXML) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlOpenToEncode(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pConfig: *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wszId: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] rgProperty: *const CRYPT_XML_PROPERTY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cProperty: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEncoded: *const CRYPT_XML_BLOB, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] phSignature: *mut HCRYPTXML) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlOpenToEncode(#[opt] pConfig: *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwFlags: u32, #[opt] wszId: PCWSTR, #[len_param(4)] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, cProperty: u32, #[opt] pEncoded: *const CRYPT_XML_BLOB, phSignature: *mut HCRYPTXML) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlSetHMACSecret(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSignature: HCRYPTXML, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pbSecret: *const BYTE, cbSecret: ULONG) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlSetHMACSecret(hSignature: HCRYPTXML, #[size_param(2)] pbSecret: *const u8, cbSecret: u32) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlSign(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSignature: HCRYPTXML, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwKeySpec: DWORD, dwFlags: DWORD, dwKeyInfoSpec: CRYPT_XML_KEYINFO_SPEC, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvKeyInfoSpec: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSignatureMethod: *const CRYPT_XML_ALGORITHM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCanonicalization: *const CRYPT_XML_ALGORITHM) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn CryptXmlSign(hSignature: HCRYPTXML, #[opt] hKey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwKeySpec: u32, dwFlags: u32, dwKeyInfoSpec: CRYPT_XML_KEYINFO_SPEC, #[opt] pvKeyInfoSpec: *const void, pSignatureMethod: *const CRYPT_XML_ALGORITHM, pCanonicalization: *const CRYPT_XML_ALGORITHM) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlVerifySignature(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSignature: HCRYPTXML, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKey: BCRYPT_KEY_HANDLE, dwFlags: DWORD) -> HRESULT;
+        extern fn CryptXmlVerifySignature(hSignature: HCRYPTXML, #[opt] hKey: BCRYPT_KEY_HANDLE, dwFlags: u32) -> HRESULT;
         type HCRYPTXML = *mut void;
         type PCRYPT_XML_ALGORITHM = *mut CRYPT_XML_ALGORITHM;
         type PCRYPT_XML_ALGORITHM_INFO = *mut CRYPT_XML_ALGORITHM_INFO;
@@ -400,15 +356,11 @@ mod Windows {
         type PCRYPT_XML_STATUS = *mut CRYPT_XML_STATUS;
         type PCRYPT_XML_TRANSFORM_CHAIN_CONFIG = *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG;
         type PCRYPT_XML_TRANSFORM_INFO = *mut CRYPT_XML_TRANSFORM_INFO;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn PFN_CRYPT_XML_CREATE_TRANSFORM(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pTransform: *const CRYPT_XML_ALGORITHM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pProviderIn: *mut CRYPT_XML_DATA_PROVIDER, #[out] pProviderOut: *mut CRYPT_XML_DATA_PROVIDER) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn PFN_CRYPT_XML_CREATE_TRANSFORM(pTransform: *const CRYPT_XML_ALGORITHM, #[in] pProviderIn: *mut CRYPT_XML_DATA_PROVIDER, pProviderOut: *mut CRYPT_XML_DATA_PROVIDER) -> HRESULT;
         extern fn PFN_CRYPT_XML_DATA_PROVIDER_CLOSE(#[in] #[out] pvCallbackState: *mut void) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn PFN_CRYPT_XML_DATA_PROVIDER_READ(#[in] #[out] pvCallbackState: *mut void, #[out] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = true, Dereference = true)] pbData: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,cbData", "0,cbData")] pcbRead: *mut ULONG) -> HRESULT;
-        extern fn PFN_CRYPT_XML_ENUM_ALG_INFO(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInfo: *const CRYPT_XML_ALGORITHM_INFO, #[in] #[out] #[opt] pvArg: *mut void) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
-        extern fn PFN_CRYPT_XML_WRITE_CALLBACK(#[in] #[out] pvCallbackState: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pbData: *const BYTE, cbData: ULONG) -> HRESULT;
+        extern fn PFN_CRYPT_XML_DATA_PROVIDER_READ(#[in] #[out] pvCallbackState: *mut void, #[size_param(2)] pbData: *mut u8, cbData: u32, pcbRead: *mut u32) -> HRESULT;
+        extern fn PFN_CRYPT_XML_ENUM_ALG_INFO(pInfo: *const CRYPT_XML_ALGORITHM_INFO, #[in] #[out] #[opt] pvArg: *mut void) -> BOOL;
+        extern fn PFN_CRYPT_XML_WRITE_CALLBACK(#[in] #[out] pvCallbackState: *mut void, #[size_param(2)] pbData: *const u8, cbData: u32) -> HRESULT;
         #[encoding("utf-16")]
         const wszURI_CANONICALIZATION_C14N: String = "http://www.w3.org/TR/2001/REC-xml-c14n-20010315";
         #[encoding("utf-16")]

@@ -206,6 +206,7 @@ mod Windows {
                     #[get]
                     BoxedType: IXamlType;
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IMarkupExtensionFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

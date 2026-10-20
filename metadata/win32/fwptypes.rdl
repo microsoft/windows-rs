@@ -27,15 +27,15 @@ mod Windows {
         }
         const FWP_BYTEMAP_ARRAY64_SIZE: i32 = 8;
         struct FWP_BYTE_ARRAY16 {
-            byteArray16: [UINT8; 16],
+            byteArray16: [u8; 16],
         }
         struct FWP_BYTE_ARRAY6 {
-            byteArray6: [UINT8; 6],
+            byteArray6: [u8; 6],
         }
         const FWP_BYTE_ARRAY6_SIZE: i32 = 6;
         struct FWP_BYTE_BLOB {
-            size: UINT32,
-            data: *mut UINT8,
+            size: u32,
+            data: *mut u8,
         }
         const FWP_CALLOUT_FLAG_ALLOW_L2_BATCH_CLASSIFY: i32 = 128;
         const FWP_CALLOUT_FLAG_ALLOW_MID_STREAM_INSPECTION: i32 = 8;
@@ -109,14 +109,14 @@ mod Windows {
         struct FWP_CONDITION_VALUE0 {
             r#type: FWP_DATA_TYPE,
             Anonymous: union {
-                uint8: UINT8,
-                uint16: UINT16,
-                uint32: UINT32,
-                uint64: *mut UINT64,
-                int8: INT8,
-                int16: INT16,
-                int32: INT32,
-                int64: *mut INT64,
+                uint8: u8,
+                uint16: u16,
+                uint32: u32,
+                uint64: *mut u64,
+                int8: i8,
+                int16: i16,
+                int32: i32,
+                int64: *mut i64,
                 float32: f32,
                 double64: *mut f64,
                 byteArray16: *mut FWP_BYTE_ARRAY16,
@@ -125,7 +125,7 @@ mod Windows {
                 sd: *mut FWP_BYTE_BLOB,
                 tokenInformation: *mut FWP_TOKEN_INFORMATION,
                 tokenAccessInformation: *mut FWP_BYTE_BLOB,
-                unicodeString: LPWSTR,
+                unicodeString: PWSTR,
                 byteArray6: *mut FWP_BYTE_ARRAY6,
                 v4AddrMask: *mut FWP_V4_ADDR_AND_MASK,
                 v6AddrMask: *mut FWP_V6_ADDR_AND_MASK,
@@ -227,31 +227,31 @@ mod Windows {
             valueHigh: FWP_VALUE0,
         }
         struct FWP_TOKEN_INFORMATION {
-            sidCount: ULONG,
+            sidCount: u32,
             sids: PSID_AND_ATTRIBUTES,
-            restrictedSidCount: ULONG,
+            restrictedSidCount: u32,
             restrictedSids: PSID_AND_ATTRIBUTES,
         }
         struct FWP_V4_ADDR_AND_MASK {
-            addr: UINT32,
-            mask: UINT32,
+            addr: u32,
+            mask: u32,
         }
         struct FWP_V6_ADDR_AND_MASK {
-            addr: [UINT8; 16],
-            prefixLength: UINT8,
+            addr: [u8; 16],
+            prefixLength: u8,
         }
         const FWP_V6_ADDR_SIZE: i32 = 16;
         struct FWP_VALUE0 {
             r#type: FWP_DATA_TYPE,
             Anonymous: union {
-                uint8: UINT8,
-                uint16: UINT16,
-                uint32: UINT32,
-                uint64: *mut UINT64,
-                int8: INT8,
-                int16: INT16,
-                int32: INT32,
-                int64: *mut INT64,
+                uint8: u8,
+                uint16: u16,
+                uint32: u32,
+                uint64: *mut u64,
+                int8: i8,
+                int16: i16,
+                int32: i32,
+                int64: *mut i64,
                 float32: f32,
                 double64: *mut f64,
                 byteArray16: *mut FWP_BYTE_ARRAY16,
@@ -260,7 +260,7 @@ mod Windows {
                 sd: *mut FWP_BYTE_BLOB,
                 tokenInformation: *mut FWP_TOKEN_INFORMATION,
                 tokenAccessInformation: *mut FWP_BYTE_BLOB,
-                unicodeString: LPWSTR,
+                unicodeString: PWSTR,
                 byteArray6: *mut FWP_BYTE_ARRAY6,
             },
         }
@@ -272,8 +272,8 @@ mod Windows {
             FWP_VSWITCH_NETWORK_TYPE_EXTERNAL = 3,
         }
         struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
-            virtualIfTunnelId: UINT64,
-            trafficSelectorId: UINT64,
+            virtualIfTunnelId: u64,
+            trafficSelectorId: u64,
         }
     }
 }

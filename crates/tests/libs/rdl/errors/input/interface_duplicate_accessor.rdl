@@ -1,0 +1,9 @@
+#[winrt]
+mod Test {
+    interface IInterface {
+        #[get]
+        Value: i32;
+        #[special]
+        fn get_Value(&self) -> i32;
+    }
+}

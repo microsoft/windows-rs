@@ -559,9 +559,9 @@ mod Windows {
             interface IStandardDataFormatsStatics {
                 #[get]
                 Text: String;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Uri may be altered or unavailable for releases after Windows Phone 'OSVersion' (TBD). Instead, use WebLink or ApplicationLink.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_Uri(&self) -> String;
+                Uri: String;
                 #[get]
                 Html: String;
                 #[get]

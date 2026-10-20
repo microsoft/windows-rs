@@ -3,79 +3,79 @@ mod Windows {
     mod Win32 {
         #[guid(0xb9574c6c_12a6_4f74_93a1_3318ff605759)]
         interface IWSDAddress: IUnknown {
-            fn Serialize(&self, #[out] #[len_param(1)] pszBuffer: LPWSTR, cchLength: DWORD, fSafe: BOOL) -> HRESULT;
-            fn Deserialize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszBuffer: LPCWSTR) -> HRESULT;
+            fn Serialize(&self, #[len_param(1)] #[out] pszBuffer: PWSTR, cchLength: u32, fSafe: BOOL) -> HRESULT;
+            fn Deserialize(&self, pszBuffer: PCWSTR) -> HRESULT;
         }
         #[guid(0xd09ac7bd_2a3e_4b85_8605_2737ff3e4ea0)]
         interface IWSDHttpAddress: IWSDTransportAddress {
             fn GetSecure(&self) -> HRESULT;
             fn SetSecure(&self, fSecure: BOOL) -> HRESULT;
-            fn GetPath(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszPath: *mut LPCWSTR) -> HRESULT;
-            fn SetPath(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPath: LPCWSTR) -> HRESULT;
+            fn GetPath(&self, ppszPath: *mut PCWSTR) -> HRESULT;
+            fn SetPath(&self, pszPath: PCWSTR) -> HRESULT;
         }
         #[guid(0x0b476df0_8dac_480d_b05c_99781a5884aa)]
         interface IWSDHttpAuthParameters: IUnknown {
-            fn GetClientAccessToken(&self, #[out] phToken: *mut HANDLE) -> HRESULT;
+            fn GetClientAccessToken(&self, phToken: *mut HANDLE) -> HRESULT;
             fn GetAuthType(&self, #[out] pAuthType: PWSD_SECURITY_HTTP_AUTH_SCHEMES) -> HRESULT;
         }
         #[guid(0x540bd122_5c83_4dec_b396_ea62a2697fdf)]
         interface IWSDHttpMessageParameters: IWSDMessageParameters {
-            fn SetInboundHttpHeaders(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszHeaders: LPCWSTR) -> HRESULT;
-            fn GetInboundHttpHeaders(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszHeaders: *mut LPCWSTR) -> HRESULT;
-            fn SetOutboundHttpHeaders(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszHeaders: LPCWSTR) -> HRESULT;
-            fn GetOutboundHttpHeaders(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszHeaders: *mut LPCWSTR) -> HRESULT;
-            fn SetID(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszId: LPCWSTR) -> HRESULT;
-            fn GetID(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszId: *mut LPCWSTR) -> HRESULT;
+            fn SetInboundHttpHeaders(&self, #[opt] pszHeaders: PCWSTR) -> HRESULT;
+            fn GetInboundHttpHeaders(&self, ppszHeaders: *mut PCWSTR) -> HRESULT;
+            fn SetOutboundHttpHeaders(&self, #[opt] pszHeaders: PCWSTR) -> HRESULT;
+            fn GetOutboundHttpHeaders(&self, ppszHeaders: *mut PCWSTR) -> HRESULT;
+            fn SetID(&self, #[opt] pszId: PCWSTR) -> HRESULT;
+            fn GetID(&self, ppszId: *mut PCWSTR) -> HRESULT;
             fn SetContext(&self, pContext: IUnknown) -> HRESULT;
-            fn GetContext(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppContext: *mut IUnknown) -> HRESULT;
+            fn GetContext(&self, ppContext: *mut IUnknown) -> HRESULT;
             fn Clear(&self) -> HRESULT;
         }
         #[guid(0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c)]
         interface IWSDMessageParameters: IUnknown {
-            fn GetLocalAddress(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAddress: *mut IWSDAddress) -> HRESULT;
-            fn SetLocalAddress(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pAddress: IWSDAddress) -> HRESULT;
-            fn GetRemoteAddress(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAddress: *mut IWSDAddress) -> HRESULT;
-            fn SetRemoteAddress(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pAddress: IWSDAddress) -> HRESULT;
-            fn GetLowerParameters(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTxParams: *mut IWSDMessageParameters) -> HRESULT;
+            fn GetLocalAddress(&self, ppAddress: *mut IWSDAddress) -> HRESULT;
+            fn SetLocalAddress(&self, pAddress: IWSDAddress) -> HRESULT;
+            fn GetRemoteAddress(&self, ppAddress: *mut IWSDAddress) -> HRESULT;
+            fn SetRemoteAddress(&self, pAddress: IWSDAddress) -> HRESULT;
+            fn GetLowerParameters(&self, ppTxParams: *mut IWSDMessageParameters) -> HRESULT;
         }
         #[guid(0xde105e87_a0da_418e_98ad_27b9eed87bdc)]
         interface IWSDSSLClientCertificate: IUnknown {
-            fn GetClientCertificate(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCertContext: *mut PCCERT_CONTEXT) -> HRESULT;
-            fn GetMappedAccessToken(&self, #[out] phToken: *mut HANDLE) -> HRESULT;
+            fn GetClientCertificate(&self, #[in] #[out] ppCertContext: *mut PCCERT_CONTEXT) -> HRESULT;
+            fn GetMappedAccessToken(&self, #[in] #[out] phToken: *mut HANDLE) -> HRESULT;
         }
         #[guid(0x03ce20aa_71c4_45e2_b32e_3766c61c790f)]
         interface IWSDSignatureProperty: IUnknown {
-            fn IsMessageSigned(&self, #[out] pbSigned: *mut BOOL) -> HRESULT;
-            fn IsMessageSignatureTrusted(&self, #[out] pbSignatureTrusted: *mut BOOL) -> HRESULT;
-            fn GetKeyInfo(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pdwKeyInfoSize,*pdwKeyInfoSize", "*pdwKeyInfoSize,*pdwKeyInfoSize")] #[out] #[opt] pbKeyInfo: *mut BYTE, #[in] #[out] pdwKeyInfoSize: *mut DWORD) -> HRESULT;
-            fn GetSignature(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pdwSignatureSize,*pdwSignatureSize", "*pdwSignatureSize,*pdwSignatureSize")] #[out] #[opt] pbSignature: *mut BYTE, #[in] #[out] pdwSignatureSize: *mut DWORD) -> HRESULT;
-            fn GetSignedInfoHash(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pdwHashSize,*pdwHashSize", "*pdwHashSize,*pdwHashSize")] #[out] #[opt] pbSignedInfoHash: *mut BYTE, #[in] #[out] pdwHashSize: *mut DWORD) -> HRESULT;
+            fn IsMessageSigned(&self, pbSigned: *mut BOOL) -> HRESULT;
+            fn IsMessageSignatureTrusted(&self, pbSignatureTrusted: *mut BOOL) -> HRESULT;
+            fn GetKeyInfo(&self, #[size_param(1)] #[opt] pbKeyInfo: *mut u8, #[in] #[out] pdwKeyInfoSize: *mut u32) -> HRESULT;
+            fn GetSignature(&self, #[size_param(1)] #[opt] pbSignature: *mut u8, #[in] #[out] pdwSignatureSize: *mut u32) -> HRESULT;
+            fn GetSignedInfoHash(&self, #[size_param(1)] #[opt] pbSignedInfoHash: *mut u8, #[in] #[out] pdwHashSize: *mut u32) -> HRESULT;
         }
         #[guid(0x70d23498_4ee6_4340_a3df_d845d2235467)]
         interface IWSDTransportAddress: IWSDAddress {
-            fn GetPort(&self, #[out] pwPort: *mut WORD) -> HRESULT;
-            fn SetPortA(&self, wPort: WORD) -> HRESULT;
-            fn GetTransportAddress(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszAddress: *mut LPCWSTR) -> HRESULT;
-            fn GetTransportAddressEx(&self, fSafe: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszAddress: *mut LPCWSTR) -> HRESULT;
-            fn SetTransportAddress(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAddress: LPCWSTR) -> HRESULT;
+            fn GetPort(&self, pwPort: *mut u16) -> HRESULT;
+            fn SetPort(&self, wPort: u16) -> HRESULT;
+            fn GetTransportAddress(&self, ppszAddress: *mut PCWSTR) -> HRESULT;
+            fn GetTransportAddressEx(&self, fSafe: BOOL, ppszAddress: *mut PCWSTR) -> HRESULT;
+            fn SetTransportAddress(&self, #[opt] pszAddress: PCWSTR) -> HRESULT;
         }
         #[guid(0x74d6124a_a441_4f78_a1eb_97a8d1996893)]
         interface IWSDUdpAddress: IWSDTransportAddress {
             fn SetSockaddr(&self, pSockAddr: *const SOCKADDR_STORAGE) -> HRESULT;
-            fn GetSockaddr(&self, #[out] pSockAddr: *mut SOCKADDR_STORAGE) -> HRESULT;
+            fn GetSockaddr(&self, pSockAddr: *mut SOCKADDR_STORAGE) -> HRESULT;
             fn SetExclusive(&self, fExclusive: BOOL) -> HRESULT;
             fn GetExclusive(&self) -> HRESULT;
             fn SetMessageType(&self, messageType: WSDUdpMessageType) -> HRESULT;
-            fn GetMessageType(&self, #[out] pMessageType: *mut WSDUdpMessageType) -> HRESULT;
-            fn SetTTL(&self, dwTTL: DWORD) -> HRESULT;
-            fn GetTTL(&self, #[out] pdwTTL: *mut DWORD) -> HRESULT;
+            fn GetMessageType(&self, pMessageType: *mut WSDUdpMessageType) -> HRESULT;
+            fn SetTTL(&self, dwTTL: u32) -> HRESULT;
+            fn GetTTL(&self, pdwTTL: *mut u32) -> HRESULT;
             fn SetAlias(&self, pAlias: *const GUID) -> HRESULT;
-            fn GetAlias(&self, #[out] pAlias: *mut GUID) -> HRESULT;
+            fn GetAlias(&self, pAlias: *mut GUID) -> HRESULT;
         }
         #[guid(0x9934149f_8f0c_447b_aa0b_73124b0ca7f0)]
         interface IWSDUdpMessageParameters: IWSDMessageParameters {
-            fn SetRetransmitParams(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pParams: *const WSDUdpRetransmitParams) -> HRESULT;
-            fn GetRetransmitParams(&self, #[out] pParams: *mut WSDUdpRetransmitParams) -> HRESULT;
+            fn SetRetransmitParams(&self, pParams: *const WSDUdpRetransmitParams) -> HRESULT;
+            fn GetRetransmitParams(&self, pParams: *mut WSDUdpRetransmitParams) -> HRESULT;
         }
         type PWSD_CONFIG_ADDRESSES = *mut WSD_CONFIG_ADDRESSES;
         type PWSD_CONFIG_PARAM = *mut WSD_CONFIG_PARAM;
@@ -92,11 +92,11 @@ mod Windows {
         const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: i32 = 8;
         const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: i32 = 4;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateHttpAddress(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAddress: *mut IWSDHttpAddress) -> HRESULT;
+        extern fn WSDCreateHttpAddress(ppAddress: *mut IWSDHttpAddress) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateHttpMessageParameters(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTxParams: *mut IWSDHttpMessageParameters) -> HRESULT;
+        extern fn WSDCreateHttpMessageParameters(ppTxParams: *mut IWSDHttpMessageParameters) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateUdpAddress(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppAddress: *mut IWSDUdpAddress) -> HRESULT;
+        extern fn WSDCreateUdpAddress(ppAddress: *mut IWSDUdpAddress) -> HRESULT;
         #[library("wsdapi.dll")]
         extern fn WSDCreateUdpMessageParameters(ppTxParams: *mut IWSDUdpMessageParameters) -> HRESULT;
         #[repr(i32)]
@@ -105,20 +105,20 @@ mod Windows {
             TWO_WAY = 1,
         }
         struct WSDUdpRetransmitParams {
-            ulSendDelay: ULONG,
-            ulRepeat: ULONG,
-            ulRepeatMinDelay: ULONG,
-            ulRepeatMaxDelay: ULONG,
-            ulRepeatUpperDelay: ULONG,
+            ulSendDelay: u32,
+            ulRepeat: u32,
+            ulRepeatMinDelay: u32,
+            ulRepeatMaxDelay: u32,
+            ulRepeatUpperDelay: u32,
         }
         struct WSD_CONFIG_ADDRESSES {
             addresses: *mut IWSDAddress,
-            dwAddressCount: DWORD,
+            dwAddressCount: u32,
         }
         struct WSD_CONFIG_PARAM {
             configParamType: WSD_CONFIG_PARAM_TYPE,
-            pConfigData: PVOID,
-            dwConfigDataSize: DWORD,
+            pConfigData: *mut void,
+            dwConfigDataSize: u32,
         }
         #[repr(i32)]
         enum WSD_CONFIG_PARAM_TYPE {
@@ -138,29 +138,29 @@ mod Windows {
         }
         struct WSD_SECURITY_CERT_VALIDATION {
             certMatchArray: *mut PCCERT_CONTEXT,
-            dwCertMatchArrayCount: DWORD,
+            dwCertMatchArrayCount: u32,
             hCertMatchStore: HCERTSTORE,
             hCertIssuerStore: HCERTSTORE,
-            dwCertCheckOptions: DWORD,
-            pszCNGHashAlgId: LPCWSTR,
-            pbCertHash: *mut BYTE,
-            dwCertHashSize: DWORD,
+            dwCertCheckOptions: u32,
+            pszCNGHashAlgId: PCWSTR,
+            pbCertHash: *mut u8,
+            dwCertHashSize: u32,
         }
         struct WSD_SECURITY_CERT_VALIDATION_V1 {
             certMatchArray: *mut PCCERT_CONTEXT,
-            dwCertMatchArrayCount: DWORD,
+            dwCertMatchArrayCount: u32,
             hCertMatchStore: HCERTSTORE,
             hCertIssuerStore: HCERTSTORE,
-            dwCertCheckOptions: DWORD,
+            dwCertCheckOptions: u32,
         }
         type WSD_SECURITY_HTTP_AUTH_SCHEMES = u32;
         const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: i32 = 1;
         const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: i32 = 2;
         struct WSD_SECURITY_SIGNATURE_VALIDATION {
             signingCertArray: *mut PCCERT_CONTEXT,
-            dwSigningCertArrayCount: DWORD,
+            dwSigningCertArrayCount: u32,
             hSigningCertStore: HCERTSTORE,
-            dwFlags: DWORD,
+            dwFlags: u32,
         }
     }
 }

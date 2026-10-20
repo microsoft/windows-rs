@@ -31,64 +31,64 @@ mod Windows {
         const MCAST_MFE_STATS_EX: i32 = 35;
         const MCAST_SCOPE: i32 = 27;
         struct MIB_BEST_IF {
-            dwDestAddr: DWORD,
-            dwIfIndex: DWORD,
+            dwDestAddr: u32,
+            dwIfIndex: u32,
         }
         struct MIB_BOUNDARYROW {
-            dwGroupAddress: DWORD,
-            dwGroupMask: DWORD,
+            dwGroupAddress: u32,
+            dwGroupMask: u32,
         }
         struct MIB_IFSTATUS {
-            dwIfIndex: DWORD,
-            dwAdminStatus: DWORD,
-            dwOperationalStatus: DWORD,
+            dwIfIndex: u32,
+            dwAdminStatus: u32,
+            dwOperationalStatus: u32,
             bMHbeatActive: BOOL,
             bMHbeatAlive: BOOL,
         }
         struct MIB_IPDESTROW {
             ForwardRow: MIB_IPFORWARDROW,
-            dwForwardPreference: DWORD,
-            dwForwardViewSet: DWORD,
+            dwForwardPreference: u32,
+            dwForwardViewSet: u32,
         }
         struct MIB_IPDESTTABLE {
-            dwNumEntries: DWORD,
+            dwNumEntries: u32,
             table: [MIB_IPDESTROW; 1],
         }
         struct MIB_IPMCAST_BOUNDARY {
-            dwIfIndex: DWORD,
-            dwGroupAddress: DWORD,
-            dwGroupMask: DWORD,
-            dwStatus: DWORD,
+            dwIfIndex: u32,
+            dwGroupAddress: u32,
+            dwGroupMask: u32,
+            dwStatus: u32,
         }
         struct MIB_IPMCAST_BOUNDARY_TABLE {
-            dwNumEntries: DWORD,
+            dwNumEntries: u32,
             table: [MIB_IPMCAST_BOUNDARY; 1],
         }
         struct MIB_IPMCAST_SCOPE {
-            dwGroupAddress: DWORD,
-            dwGroupMask: DWORD,
+            dwGroupAddress: u32,
+            dwGroupMask: u32,
             snNameBuffer: SCOPE_NAME_BUFFER,
-            dwStatus: DWORD,
+            dwStatus: u32,
         }
         struct MIB_MCAST_LIMIT_ROW {
-            dwTtl: DWORD,
-            dwRateLimit: DWORD,
+            dwTtl: u32,
+            dwRateLimit: u32,
         }
         struct MIB_OPAQUE_INFO {
-            dwId: DWORD,
+            dwId: u32,
             Anonymous: union {
-                ullAlign: ULONGLONG,
-                rgbyData: [BYTE; 1],
+                ullAlign: u64,
+                rgbyData: [u8; 1],
             },
         }
         struct MIB_OPAQUE_QUERY {
-            dwVarId: DWORD,
-            rgdwVarIndex: [DWORD; 1],
+            dwVarId: u32,
+            rgdwVarIndex: [u32; 1],
         }
         struct MIB_PROXYARP {
-            dwAddress: DWORD,
-            dwMask: DWORD,
-            dwIfIndex: DWORD,
+            dwAddress: u32,
+            dwMask: u32,
+            dwIfIndex: u32,
         }
         struct MIB_ROUTESTATE {
             bRoutesSetToStack: BOOL,
@@ -116,8 +116,8 @@ mod Windows {
         const ROUTE_MATCHING: i32 = 31;
         const ROUTE_SHORTER: i32 = 33;
         const ROUTE_STATE: i32 = 34;
-        type SCOPE_NAME = *mut u16;
-        type SCOPE_NAME_BUFFER = [u16; 256];
+        type SCOPE_NAME = *mut SN_CHAR;
+        type SCOPE_NAME_BUFFER = [SN_CHAR; 256];
         type SN_CHAR = u16;
         const TCP6_STATS: i32 = 38;
         struct TCPIP_OWNER_MODULE_BASIC_INFO {

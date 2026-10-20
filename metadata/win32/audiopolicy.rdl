@@ -12,21 +12,21 @@ mod Windows {
         }
         #[guid(0xf4b1a599_7266_4319_a8ca_e70acb11e8cd)]
         interface IAudioSessionControl: IUnknown {
-            fn GetState(&self, #[out] pRetVal: *mut AudioSessionState) -> HRESULT;
-            fn GetDisplayName(&self, #[out] pRetVal: *mut LPWSTR) -> HRESULT;
-            fn SetDisplayName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Value: LPCWSTR, EventContext: LPCGUID) -> HRESULT;
-            fn GetIconPath(&self, #[out] pRetVal: *mut LPWSTR) -> HRESULT;
-            fn SetIconPath(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Value: LPCWSTR, EventContext: LPCGUID) -> HRESULT;
-            fn GetGroupingParam(&self, #[out] pRetVal: *mut GUID) -> HRESULT;
-            fn SetGroupingParam(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Override: LPCGUID, EventContext: LPCGUID) -> HRESULT;
-            fn RegisterAudioSessionNotification(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NewNotifications: IAudioSessionEvents) -> HRESULT;
-            fn UnregisterAudioSessionNotification(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NewNotifications: IAudioSessionEvents) -> HRESULT;
+            fn GetState(&self, pRetVal: *mut AudioSessionState) -> HRESULT;
+            fn GetDisplayName(&self, pRetVal: *mut PWSTR) -> HRESULT;
+            fn SetDisplayName(&self, Value: PCWSTR, EventContext: LPCGUID) -> HRESULT;
+            fn GetIconPath(&self, pRetVal: *mut PWSTR) -> HRESULT;
+            fn SetIconPath(&self, Value: PCWSTR, EventContext: LPCGUID) -> HRESULT;
+            fn GetGroupingParam(&self, pRetVal: *mut GUID) -> HRESULT;
+            fn SetGroupingParam(&self, Override: LPCGUID, EventContext: LPCGUID) -> HRESULT;
+            fn RegisterAudioSessionNotification(&self, NewNotifications: IAudioSessionEvents) -> HRESULT;
+            fn UnregisterAudioSessionNotification(&self, NewNotifications: IAudioSessionEvents) -> HRESULT;
         }
         #[guid(0xbfb7ff88_7239_4fc9_8fa2_07c950be9c6d)]
         interface IAudioSessionControl2: IAudioSessionControl {
-            fn GetSessionIdentifier(&self, #[out] pRetVal: *mut LPWSTR) -> HRESULT;
-            fn GetSessionInstanceIdentifier(&self, #[out] pRetVal: *mut LPWSTR) -> HRESULT;
-            fn GetProcessId(&self, #[out] pRetVal: *mut DWORD) -> HRESULT;
+            fn GetSessionIdentifier(&self, pRetVal: *mut PWSTR) -> HRESULT;
+            fn GetSessionInstanceIdentifier(&self, pRetVal: *mut PWSTR) -> HRESULT;
+            fn GetProcessId(&self, pRetVal: *mut u32) -> HRESULT;
             fn IsSystemSoundsSession(&self) -> HRESULT;
             fn SetDuckingPreference(&self, optOut: BOOL) -> HRESULT;
         }
@@ -37,26 +37,26 @@ mod Windows {
         }
         #[guid(0x24918acc_64b3_37c1_8ca9_74a66e9957a8)]
         interface IAudioSessionEvents: IUnknown {
-            fn OnDisplayNameChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NewDisplayName: LPCWSTR, EventContext: LPCGUID) -> HRESULT;
-            fn OnIconPathChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NewIconPath: LPCWSTR, EventContext: LPCGUID) -> HRESULT;
-            fn OnSimpleVolumeChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NewVolume: f32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NewMute: BOOL, EventContext: LPCGUID) -> HRESULT;
-            fn OnChannelVolumeChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ChannelCount: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] NewChannelVolumeArray: *mut f32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ChangedChannel: DWORD, EventContext: LPCGUID) -> HRESULT;
-            fn OnGroupingParamChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NewGroupingParam: LPCGUID, EventContext: LPCGUID) -> HRESULT;
-            fn OnStateChanged(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NewState: AudioSessionState) -> HRESULT;
-            fn OnSessionDisconnected(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DisconnectReason: AudioSessionDisconnectReason) -> HRESULT;
+            fn OnDisplayNameChanged(&self, NewDisplayName: PCWSTR, EventContext: LPCGUID) -> HRESULT;
+            fn OnIconPathChanged(&self, NewIconPath: PCWSTR, EventContext: LPCGUID) -> HRESULT;
+            fn OnSimpleVolumeChanged(&self, NewVolume: f32, NewMute: BOOL, EventContext: LPCGUID) -> HRESULT;
+            fn OnChannelVolumeChanged(&self, ChannelCount: u32, #[len_param(0)] #[in] NewChannelVolumeArray: *mut f32, ChangedChannel: u32, EventContext: LPCGUID) -> HRESULT;
+            fn OnGroupingParamChanged(&self, NewGroupingParam: LPCGUID, EventContext: LPCGUID) -> HRESULT;
+            fn OnStateChanged(&self, NewState: AudioSessionState) -> HRESULT;
+            fn OnSessionDisconnected(&self, DisconnectReason: AudioSessionDisconnectReason) -> HRESULT;
         }
         #[guid(0xbfa971f1_4d5e_40bb_935e_967039bfbee4)]
         interface IAudioSessionManager: IUnknown {
-            fn GetAudioSessionControl(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AudioSessionGuid: LPCGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] SessionControl: *mut IAudioSessionControl) -> HRESULT;
-            fn GetSimpleAudioVolume(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AudioSessionGuid: LPCGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] AudioVolume: *mut ISimpleAudioVolume) -> HRESULT;
+            fn GetAudioSessionControl(&self, #[opt] AudioSessionGuid: LPCGUID, StreamFlags: u32, SessionControl: *mut IAudioSessionControl) -> HRESULT;
+            fn GetSimpleAudioVolume(&self, #[opt] AudioSessionGuid: LPCGUID, StreamFlags: u32, AudioVolume: *mut ISimpleAudioVolume) -> HRESULT;
         }
         #[guid(0x77aa99a0_1bd6_484f_8bc7_2c654c9a9b6f)]
         interface IAudioSessionManager2: IAudioSessionManager {
-            fn GetSessionEnumerator(&self, #[out] #[retval] SessionEnum: *mut IAudioSessionEnumerator) -> HRESULT;
+            fn GetSessionEnumerator(&self, #[retval] SessionEnum: *mut IAudioSessionEnumerator) -> HRESULT;
             fn RegisterSessionNotification(&self, SessionNotification: IAudioSessionNotification) -> HRESULT;
             fn UnregisterSessionNotification(&self, SessionNotification: IAudioSessionNotification) -> HRESULT;
-            fn RegisterDuckNotification(&self, sessionID: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duckNotification: IAudioVolumeDuckNotification) -> HRESULT;
-            fn UnregisterDuckNotification(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] duckNotification: IAudioVolumeDuckNotification) -> HRESULT;
+            fn RegisterDuckNotification(&self, sessionID: PCWSTR, duckNotification: IAudioVolumeDuckNotification) -> HRESULT;
+            fn UnregisterDuckNotification(&self, duckNotification: IAudioVolumeDuckNotification) -> HRESULT;
         }
         #[guid(0x641dd20b_4d41_49cc_aba3_174b9477bb08)]
         interface IAudioSessionNotification: IUnknown {
@@ -64,8 +64,8 @@ mod Windows {
         }
         #[guid(0xc3b284d4_6d39_4359_b3cf_b56ddb3bb39c)]
         interface IAudioVolumeDuckNotification: IUnknown {
-            fn OnVolumeDuckNotification(&self, sessionID: LPCWSTR, countCommunicationSessions: UINT32) -> HRESULT;
-            fn OnVolumeUnduckNotification(&self, sessionID: LPCWSTR) -> HRESULT;
+            fn OnVolumeDuckNotification(&self, sessionID: PCWSTR, countCommunicationSessions: u32) -> HRESULT;
+            fn OnVolumeUnduckNotification(&self, sessionID: PCWSTR) -> HRESULT;
         }
     }
 }

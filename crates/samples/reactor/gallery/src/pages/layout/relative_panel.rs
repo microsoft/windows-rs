@@ -61,7 +61,6 @@ impl Component for RelativePanelPage {
                                 .relative_align_vertical_center(),
                         )),
                     )),
-                    "RelativePanel::new().children((child.relative_align_right(), ...))",
                 ),
             )],
         )

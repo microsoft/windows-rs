@@ -399,7 +399,5 @@ Generated bindings carry casing lint expectations and allow dead code only when 
 is disabled. Keep those expectations synchronized with generator output.
 
 `test-webview` runs the raw host and browser feature fixtures against a live WebView2 runtime.
-The self-contained `test-reactor-integration` WebView fixture covers WinUI control initialization
-and the COM bridge. Both packages run with real windows and message pumps.
-`test-webview --headless` suppresses its interactive UI; the Reactor integration fixture manages
-and closes its own test windows.
+`test-webview --headless` suppresses its interactive UI. The Reactor suite does not currently
+cover WinUI control initialization and the COM bridge.

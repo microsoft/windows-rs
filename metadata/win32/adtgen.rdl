@@ -14,42 +14,42 @@ mod Windows {
         const AP_SidAsLogonId: i32 = 256;
         type AUDIT_HANDLE = *mut void;
         struct AUDIT_IP_ADDRESS {
-            pIpAddress: [BYTE; 128],
+            pIpAddress: [u8; 128],
         }
         struct AUDIT_OBJECT_TYPE {
             ObjectType: GUID,
-            Flags: USHORT,
-            Level: USHORT,
+            Flags: u16,
+            Level: u16,
             AccessMask: ACCESS_MASK,
         }
         struct AUDIT_OBJECT_TYPES {
-            Count: USHORT,
-            Flags: USHORT,
+            Count: u16,
+            Flags: u16,
             pObjectTypes: *mut AUDIT_OBJECT_TYPE,
         }
         struct AUDIT_PARAM {
             Type: AUDIT_PARAM_TYPE,
-            Length: ULONG,
-            Flags: DWORD,
+            Length: u32,
+            Flags: u32,
             Anonymous: union {
-                Data0: ULONG_PTR,
+                Data0: usize,
                 String: PWSTR,
-                u: ULONG_PTR,
+                u: usize,
                 psid: *mut SID,
                 pguid: *mut GUID,
-                LogonId_LowPart: ULONG,
+                LogonId_LowPart: u32,
                 pObjectTypes: *mut AUDIT_OBJECT_TYPES,
                 pIpAddress: *mut AUDIT_IP_ADDRESS,
             },
             Anonymous2: union {
-                Data1: ULONG_PTR,
-                LogonId_HighPart: LONG,
+                Data1: usize,
+                LogonId_HighPart: i32,
             },
         }
         struct AUDIT_PARAMS {
-            Length: ULONG,
-            Flags: DWORD,
-            Count: USHORT,
+            Length: u32,
+            Flags: u32,
+            Count: u16,
             Parameters: *mut AUDIT_PARAM,
         }
         #[repr(i32)]
@@ -73,15 +73,15 @@ mod Windows {
         const AUTHZP_WPD_EVENT: i32 = 16;
         const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: i32 = 1;
         struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-            CategoryId: USHORT,
-            AuditId: USHORT,
-            ParameterCount: USHORT,
+            CategoryId: u16,
+            AuditId: u16,
+            ParameterCount: u16,
         }
         struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
-            Version: ULONG,
-            dwFlags: DWORD,
-            RefCount: LONG,
-            hAudit: ULONG_PTR,
+            Version: u32,
+            dwFlags: u32,
+            RefCount: i32,
+            hAudit: usize,
             LinkId: LUID,
             u: AUTHZ_AUDIT_EVENT_TYPE_UNION,
         }

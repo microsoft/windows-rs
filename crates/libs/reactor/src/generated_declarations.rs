@@ -61,6 +61,61 @@ impl AutomationHeadingLevel {
 }
 #[non_exhaustive]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum AutomationLiveSetting {
+    Off,
+    Polite,
+    Assertive,
+}
+impl AutomationLiveSetting {
+    pub(crate) fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Off => PropertyValue::Enum {
+                kind: "AutomationLiveSetting",
+                variant: "Off",
+            },
+            Self::Polite => PropertyValue::Enum {
+                kind: "AutomationLiveSetting",
+                variant: "Polite",
+            },
+            Self::Assertive => PropertyValue::Enum {
+                kind: "AutomationLiveSetting",
+                variant: "Assertive",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ContentDialogButton {
+    None,
+    Primary,
+    Secondary,
+    Close,
+}
+impl ContentDialogButton {
+    pub(crate) fn property_value(self) -> PropertyValue {
+        match self {
+            Self::None => PropertyValue::Enum {
+                kind: "ContentDialogButton",
+                variant: "None",
+            },
+            Self::Primary => PropertyValue::Enum {
+                kind: "ContentDialogButton",
+                variant: "Primary",
+            },
+            Self::Secondary => PropertyValue::Enum {
+                kind: "ContentDialogButton",
+                variant: "Secondary",
+            },
+            Self::Close => PropertyValue::Enum {
+                kind: "ContentDialogButton",
+                variant: "Close",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum HorizontalAlignment {
     Left,
     Center,
@@ -205,6 +260,31 @@ impl NavigationViewPaneDisplayMode {
             Self::LeftMinimal => PropertyValue::Enum {
                 kind: "NavigationViewPaneDisplayMode",
                 variant: "LeftMinimal",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum NumberBoxSpinButtonPlacementMode {
+    Hidden,
+    Compact,
+    Inline,
+}
+impl NumberBoxSpinButtonPlacementMode {
+    pub(crate) fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Hidden => PropertyValue::Enum {
+                kind: "NumberBoxSpinButtonPlacementMode",
+                variant: "Hidden",
+            },
+            Self::Compact => PropertyValue::Enum {
+                kind: "NumberBoxSpinButtonPlacementMode",
+                variant: "Compact",
+            },
+            Self::Inline => PropertyValue::Enum {
+                kind: "NumberBoxSpinButtonPlacementMode",
+                variant: "Inline",
             },
         }
     }
@@ -1446,6 +1526,51 @@ impl TeachingTipPlacementMode {
 }
 #[non_exhaustive]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum TextAlignment {
+    Center,
+    Left,
+    Start,
+    Right,
+    End,
+    Justify,
+    DetectFromContent,
+}
+impl TextAlignment {
+    pub(crate) fn property_value(self) -> PropertyValue {
+        match self {
+            Self::Center => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "Center",
+            },
+            Self::Left => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "Left",
+            },
+            Self::Start => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "Start",
+            },
+            Self::Right => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "Right",
+            },
+            Self::End => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "End",
+            },
+            Self::Justify => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "Justify",
+            },
+            Self::DetectFromContent => PropertyValue::Enum {
+                kind: "TextAlignment",
+                variant: "DetectFromContent",
+            },
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum TextTrimming {
     None,
     CharacterEllipsis,
@@ -1706,6 +1831,33 @@ macro_rules! visual_methods {
             );
             self
         }
+        pub fn automation_help_text(mut self, automation_help_text: impl AsRef<str>) -> Self {
+            self.0 = self.0.property(
+                PropertyId::AutomationHelpText,
+                PropertyValue::String(Rc::from(automation_help_text.as_ref())),
+            );
+            self
+        }
+        pub fn automation_full_description(
+            mut self,
+            automation_full_description: impl AsRef<str>,
+        ) -> Self {
+            self.0 = self.0.property(
+                PropertyId::AutomationFullDescription,
+                PropertyValue::String(Rc::from(automation_full_description.as_ref())),
+            );
+            self
+        }
+        pub fn automation_live_setting(
+            mut self,
+            automation_live_setting: AutomationLiveSetting,
+        ) -> Self {
+            self.0 = self.0.property(
+                PropertyId::AutomationLiveSetting,
+                automation_live_setting.property_value(),
+            );
+            self
+        }
         pub fn width(mut self, width: f64) -> Self {
             self.0 = self
                 .0
@@ -1820,6 +1972,30 @@ impl TextBlock {
         );
         self
     }
+    pub fn font_family(mut self, font_family: impl AsRef<str>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::FontFamily,
+            PropertyValue::String(Rc::from(font_family.as_ref())),
+        );
+        self
+    }
+    pub fn character_spacing(mut self, character_spacing: i32) -> Self {
+        self.0 = self.0.property(
+            PropertyId::CharacterSpacing,
+            PropertyValue::I32(character_spacing),
+        );
+        self
+    }
+    pub fn line_height(mut self, line_height: f64) -> Self {
+        assert!(
+            line_height.is_finite() && line_height >= 0.0,
+            "TextBlock.LineHeight requires finite_non_negative"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::LineHeight, PropertyValue::F64(line_height));
+        self
+    }
     pub fn foreground(mut self, foreground: impl Into<Brush>) -> Self {
         self.0 = self.0.property(
             PropertyId::Foreground,
@@ -1864,6 +2040,12 @@ impl TextBlock {
             .property(PropertyId::MaxLines, PropertyValue::I32(max_lines));
         self
     }
+    pub fn text_alignment(mut self, text_alignment: TextAlignment) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::TextAlignment, text_alignment.property_value());
+        self
+    }
     visual_methods!();
 }
 impl Default for TextBlock {
@@ -1881,13 +2063,16 @@ pub struct TextBox(Declaration);
 impl Sealed for TextBox {}
 impl ReferenceElement for TextBox {}
 impl TextBox {
-    pub fn new(text: impl AsRef<str>) -> Self {
+    pub fn new() -> Self {
         let declaration = Declaration::new(ObjectType::TextBox);
-        let declaration = declaration.property(
+        Self(declaration)
+    }
+    pub fn text(mut self, text: impl AsRef<str>) -> Self {
+        self.0 = self.0.property(
             PropertyId::Text,
             PropertyValue::String(Rc::from(text.as_ref())),
         );
-        Self(declaration)
+        self
     }
     pub fn placeholder_text(mut self, placeholder_text: impl AsRef<str>) -> Self {
         self.0 = self.0.property(
@@ -1901,6 +2086,18 @@ impl TextBox {
             PropertyId::AcceptsReturn,
             PropertyValue::Bool(accepts_return),
         );
+        self
+    }
+    pub fn is_read_only(mut self, is_read_only: bool) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::IsReadOnly, PropertyValue::Bool(is_read_only));
+        self
+    }
+    pub fn text_alignment(mut self, text_alignment: TextAlignment) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::TextAlignment, text_alignment.property_value());
         self
     }
     pub fn text_wrapping(mut self, text_wrapping: TextWrapping) -> Self {
@@ -1942,7 +2139,7 @@ impl TextBox {
     ///
     /// ```compile_fail
     /// use windows_reactor::*;
-    /// let _ = TextBox::new("Text").header(TreeNode::new("node", "Node"));
+    /// let _ = TextBox::new().header(TreeNode::new("node", "Node"));
     /// ```
     pub fn header(mut self, content: impl Into<View>) -> Self {
         self.0 = self.0.relation(
@@ -1957,6 +2154,11 @@ impl TextBox {
             EventValue::String(callback.into_payload_callback()),
         );
         self
+    }
+}
+impl Default for TextBox {
+    fn default() -> Self {
+        Self::new()
     }
 }
 impl From<TextBox> for View {
@@ -2216,6 +2418,24 @@ impl Border {
         self.0 = self.0.property(
             PropertyId::ScaleTransition,
             PropertyValue::Duration(scale_transition),
+        );
+        self
+    }
+    pub fn translation(mut self, x: f64, y: f64) -> Self {
+        let translation = [x, y];
+        assert!(
+            translation.iter().all(|value| (*value as f32).is_finite()),
+            "Border.Translation requires finite"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::Translation, PropertyValue::Vector2(translation));
+        self
+    }
+    pub fn translation_transition(mut self, translation_transition: Duration) -> Self {
+        self.0 = self.0.property(
+            PropertyId::TranslationTransition,
+            PropertyValue::Duration(translation_transition),
         );
         self
     }
@@ -3508,6 +3728,26 @@ impl NumberBox {
             .property(PropertyId::Value, PropertyValue::OptionalF64(value.into()));
         self
     }
+    pub fn small_change(mut self, small_change: f64) -> Self {
+        assert!(
+            small_change.is_finite(),
+            "NumberBox.SmallChange requires finite"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::SmallChange, PropertyValue::F64(small_change));
+        self
+    }
+    pub fn spin_button_placement_mode(
+        mut self,
+        spin_button_placement_mode: NumberBoxSpinButtonPlacementMode,
+    ) -> Self {
+        self.0 = self.0.property(
+            PropertyId::SpinButtonPlacementMode,
+            spin_button_placement_mode.property_value(),
+        );
+        self
+    }
     focus_methods!(NumberBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
@@ -4538,6 +4778,13 @@ impl Image {
         );
         self
     }
+    pub fn source_svg(mut self, value: EncodedImage) -> Self {
+        self.0 = self.0.property(
+            PropertyId::Source,
+            PropertyValue::ImageSource(ImageSource::svg(value)),
+        );
+        self
+    }
     pub fn stretch(mut self, stretch: Stretch) -> Self {
         self.0 = self
             .0
@@ -4914,6 +5161,13 @@ impl ImageIcon {
         );
         self
     }
+    pub fn source_svg(mut self, value: EncodedImage) -> Self {
+        self.0 = self.0.property(
+            PropertyId::Source,
+            PropertyValue::ImageSource(ImageSource::svg(value)),
+        );
+        self
+    }
     visual_methods!();
 }
 impl Default for ImageIcon {
@@ -4937,6 +5191,23 @@ impl FontIcon {
         self.0 = self.0.property(
             PropertyId::Glyph,
             PropertyValue::String(Rc::from(glyph.as_ref())),
+        );
+        self
+    }
+    pub fn font_size(mut self, font_size: f64) -> Self {
+        assert!(
+            font_size.is_finite() && font_size > 0.0,
+            "FontIcon.FontSize requires finite_positive"
+        );
+        self.0 = self
+            .0
+            .property(PropertyId::FontSize, PropertyValue::F64(font_size));
+        self
+    }
+    pub fn foreground(mut self, foreground: impl Into<Brush>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::Foreground,
+            PropertyValue::Brush(foreground.into()),
         );
         self
     }
@@ -6274,6 +6545,25 @@ impl CalendarDatePicker {
         let declaration = Declaration::new(ObjectType::CalendarDatePicker);
         Self(declaration)
     }
+    pub fn min_date(mut self, min_date: DateTime) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::MinDate, PropertyValue::DateTime(min_date));
+        self
+    }
+    pub fn max_date(mut self, max_date: DateTime) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::MaxDate, PropertyValue::DateTime(max_date));
+        self
+    }
+    pub fn date(mut self, date: impl Into<Option<DateTime>>) -> Self {
+        self.0 = self.0.property(
+            PropertyId::Date,
+            PropertyValue::OptionalDateTime(date.into()),
+        );
+        self
+    }
     pub fn placeholder_text(mut self, placeholder_text: impl AsRef<str>) -> Self {
         self.0 = self.0.property(
             PropertyId::PlaceholderText,
@@ -6384,6 +6674,12 @@ impl ContentDialog {
             PropertyId::Title,
             PropertyValue::String(Rc::from(title.as_ref())),
         );
+        self
+    }
+    pub fn default_button(mut self, default_button: ContentDialogButton) -> Self {
+        self.0 = self
+            .0
+            .property(PropertyId::DefaultButton, default_button.property_value());
         self
     }
     /// Rejects values outside this relation's generated type contract.

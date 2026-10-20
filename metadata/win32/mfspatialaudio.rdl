@@ -3,17 +3,17 @@ mod Windows {
     mod Win32 {
         #[guid(0xd396ec8c_605e_4249_978d_72ad1c312872)]
         interface IMFSpatialAudioObjectBuffer: IMFMediaBuffer {
-            fn SetID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] u32ID: UINT32) -> HRESULT;
-            fn GetID(&self, #[out] pu32ID: *mut UINT32) -> HRESULT;
-            fn SetType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#type: AudioObjectType) -> HRESULT;
-            fn GetType(&self, #[out] pType: *mut AudioObjectType) -> HRESULT;
-            fn GetMetadataItems(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppMetadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
+            fn SetID(&self, u32ID: u32) -> HRESULT;
+            fn GetID(&self, pu32ID: *mut u32) -> HRESULT;
+            fn SetType(&self, r#type: AudioObjectType) -> HRESULT;
+            fn GetType(&self, pType: *mut AudioObjectType) -> HRESULT;
+            fn GetMetadataItems(&self, ppMetadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
         }
         #[guid(0xabf28a9b_3393_4290_ba79_5ffc46d986b2)]
         interface IMFSpatialAudioSample: IMFSample {
-            fn GetObjectCount(&self, #[out] pdwObjectCount: *mut DWORD) -> HRESULT;
-            fn AddSpatialAudioObject(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAudioObjBuffer: IMFSpatialAudioObjectBuffer) -> HRESULT;
-            fn GetSpatialAudioObjectByIndex(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppAudioObjBuffer: *mut IMFSpatialAudioObjectBuffer) -> HRESULT;
+            fn GetObjectCount(&self, pdwObjectCount: *mut u32) -> HRESULT;
+            fn AddSpatialAudioObject(&self, pAudioObjBuffer: IMFSpatialAudioObjectBuffer) -> HRESULT;
+            fn GetSpatialAudioObjectByIndex(&self, dwIndex: u32, ppAudioObjBuffer: *mut IMFSpatialAudioObjectBuffer) -> HRESULT;
         }
     }
 }

@@ -150,44 +150,44 @@ mod Windows {
         const FR_PROP_STATUSSTRING: i32 = 5;
         #[guid(0x372fce34_4324_11d0_8810_00a0c903b83c)]
         interface ICertConfig: IDispatch {
-            fn Reset(&self, Index: LONG, #[out] #[retval] pCount: *mut LONG) -> HRESULT;
-            fn Next(&self, #[out] #[retval] pIndex: *mut LONG) -> HRESULT;
-            fn GetField(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strFieldName: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrOut: *mut BSTR) -> HRESULT;
-            fn GetConfig(&self, Flags: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrOut: *mut BSTR) -> HRESULT;
+            fn Reset(&self, Index: i32, #[retval] pCount: *mut i32) -> HRESULT;
+            fn Next(&self, #[retval] pIndex: *mut i32) -> HRESULT;
+            fn GetField(&self, strFieldName: BSTR, #[retval] pstrOut: *mut BSTR) -> HRESULT;
+            fn GetConfig(&self, Flags: i32, #[retval] pstrOut: *mut BSTR) -> HRESULT;
         }
         #[guid(0x7a18edde_7e78_4163_8ded_78e2c9cee924)]
         interface ICertConfig2: ICertConfig {
-            fn SetSharedFolder(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strSharedFolder: BSTR) -> HRESULT;
+            fn SetSharedFolder(&self, strSharedFolder: BSTR) -> HRESULT;
         }
         #[guid(0xc7ea09c0_ce17_11d0_8833_00a0c903b83c)]
         interface ICertGetConfig: IDispatch {
-            fn GetConfig(&self, Flags: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrOut: *mut BSTR) -> HRESULT;
+            fn GetConfig(&self, Flags: i32, #[retval] pstrOut: *mut BSTR) -> HRESULT;
         }
         #[guid(0x014e4840_5523_11d0_8812_00a0c903b83c)]
         interface ICertRequest: IDispatch {
-            fn Submit(&self, Flags: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strRequest: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strAttributes: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strConfig: BSTR, #[out] #[retval] pDisposition: *mut LONG) -> HRESULT;
-            fn RetrievePending(&self, RequestId: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strConfig: BSTR, #[out] #[retval] pDisposition: *mut LONG) -> HRESULT;
-            fn GetLastStatus(&self, #[out] #[retval] pStatus: *mut LONG) -> HRESULT;
-            fn GetRequestId(&self, #[out] #[retval] pRequestId: *mut LONG) -> HRESULT;
-            fn GetDispositionMessage(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrDispositionMessage: *mut BSTR) -> HRESULT;
-            fn GetCACertificate(&self, fExchangeCertificate: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strConfig: BSTR, Flags: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrCertificate: *mut BSTR) -> HRESULT;
-            fn GetCertificate(&self, Flags: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrCertificate: *mut BSTR) -> HRESULT;
+            fn Submit(&self, Flags: i32, strRequest: BSTR, strAttributes: BSTR, strConfig: BSTR, #[retval] pDisposition: *mut i32) -> HRESULT;
+            fn RetrievePending(&self, RequestId: i32, strConfig: BSTR, #[retval] pDisposition: *mut i32) -> HRESULT;
+            fn GetLastStatus(&self, #[retval] pStatus: *mut i32) -> HRESULT;
+            fn GetRequestId(&self, #[retval] pRequestId: *mut i32) -> HRESULT;
+            fn GetDispositionMessage(&self, #[retval] pstrDispositionMessage: *mut BSTR) -> HRESULT;
+            fn GetCACertificate(&self, fExchangeCertificate: i32, strConfig: BSTR, Flags: i32, #[retval] pstrCertificate: *mut BSTR) -> HRESULT;
+            fn GetCertificate(&self, Flags: i32, #[retval] pstrCertificate: *mut BSTR) -> HRESULT;
         }
         #[guid(0xa4772988_4a85_4fa9_824e_b5cf5c16405a)]
         interface ICertRequest2: ICertRequest {
-            fn GetIssuedCertificate(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strConfig: BSTR, RequestId: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strSerialNumber: BSTR, #[out] #[retval] pDisposition: *mut LONG) -> HRESULT;
-            fn GetErrorMessageText(&self, hrMessage: LONG, Flags: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrErrorMessageText: *mut BSTR) -> HRESULT;
-            fn GetCAProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strConfig: BSTR, PropId: LONG, PropIndex: LONG, PropType: LONG, Flags: LONG, #[out] #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
-            fn GetCAPropertyFlags(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strConfig: BSTR, PropId: LONG, #[out] #[retval] pPropFlags: *mut LONG) -> HRESULT;
-            fn GetCAPropertyDisplayName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strConfig: BSTR, PropId: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrDisplayName: *mut BSTR) -> HRESULT;
-            fn GetFullResponseProperty(&self, PropId: LONG, PropIndex: LONG, PropType: LONG, Flags: LONG, #[out] #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
+            fn GetIssuedCertificate(&self, strConfig: BSTR, RequestId: i32, strSerialNumber: BSTR, #[retval] pDisposition: *mut i32) -> HRESULT;
+            fn GetErrorMessageText(&self, hrMessage: i32, Flags: i32, #[retval] pstrErrorMessageText: *mut BSTR) -> HRESULT;
+            fn GetCAProperty(&self, strConfig: BSTR, PropId: i32, PropIndex: i32, PropType: i32, Flags: i32, #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
+            fn GetCAPropertyFlags(&self, strConfig: BSTR, PropId: i32, #[retval] pPropFlags: *mut i32) -> HRESULT;
+            fn GetCAPropertyDisplayName(&self, strConfig: BSTR, PropId: i32, #[retval] pstrDisplayName: *mut BSTR) -> HRESULT;
+            fn GetFullResponseProperty(&self, PropId: i32, PropIndex: i32, PropType: i32, Flags: i32, #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xafc8f92b_33a2_4861_bf36_2933b7cd67b3)]
         interface ICertRequest3: ICertRequest2 {
-            fn SetCredential(&self, hWnd: LONG, AuthType: X509EnrollmentAuthFlags, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strCredential: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strPassword: BSTR) -> HRESULT;
-            fn GetRequestIdString(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pstrRequestId: *mut BSTR) -> HRESULT;
-            fn GetIssuedCertificate2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strConfig: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strRequestId: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] strSerialNumber: BSTR, #[out] #[retval] pDisposition: *mut LONG) -> HRESULT;
-            fn GetRefreshPolicy(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn SetCredential(&self, hWnd: i32, AuthType: X509EnrollmentAuthFlags, strCredential: BSTR, strPassword: BSTR) -> HRESULT;
+            fn GetRequestIdString(&self, #[retval] pstrRequestId: *mut BSTR) -> HRESULT;
+            fn GetIssuedCertificate2(&self, strConfig: BSTR, strRequestId: BSTR, strSerialNumber: BSTR, #[retval] pDisposition: *mut i32) -> HRESULT;
+            fn GetRefreshPolicy(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[repr(i32)]
         enum X509EnrollmentAuthFlags {

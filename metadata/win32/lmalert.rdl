@@ -2,8 +2,8 @@
 mod Windows {
     mod Win32 {
         struct ADMIN_OTHER_INFO {
-            alrtad_errcode: DWORD,
-            alrtad_numstrings: DWORD,
+            alrtad_errcode: u32,
+            alrtad_numstrings: u32,
         }
         #[encoding("utf-16")]
         const ALERTER_MAILSLOT: String = "\\\\.\\MAILSLOT\\Alerter";
@@ -18,8 +18,8 @@ mod Windows {
         #[encoding("utf-16")]
         const ALERT_USER_EVENT: String = "USER";
         struct ERRLOG_OTHER_INFO {
-            alrter_errcode: DWORD,
-            alrter_offset: DWORD,
+            alrter_errcode: u32,
+            alrter_offset: u32,
         }
         type LPADMIN_OTHER_INFO = *mut ADMIN_OTHER_INFO;
         type LPERRLOG_OTHER_INFO = *mut ERRLOG_OTHER_INFO;
@@ -27,17 +27,17 @@ mod Windows {
         type LPSTD_ALERT = *mut STD_ALERT;
         type LPUSER_OTHER_INFO = *mut USER_OTHER_INFO;
         #[library("NETAPI32.dll")]
-        extern fn NetAlertRaise(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AlertType: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Buffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferSize: DWORD) -> DWORD;
+        extern fn NetAlertRaise(AlertType: PCWSTR, #[in] Buffer: *mut void, BufferSize: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetAlertRaiseEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AlertType: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VariableInfo: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VariableInfoSize: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ServiceName: LPCWSTR) -> DWORD;
+        extern fn NetAlertRaiseEx(AlertType: PCWSTR, #[in] VariableInfo: *mut void, VariableInfoSize: u32, ServiceName: PCWSTR) -> u32;
         type PADMIN_OTHER_INFO = *mut ADMIN_OTHER_INFO;
         type PERRLOG_OTHER_INFO = *mut ERRLOG_OTHER_INFO;
         type PPRINT_OTHER_INFO = *mut PRINT_OTHER_INFO;
         struct PRINT_OTHER_INFO {
-            alrtpr_jobid: DWORD,
-            alrtpr_status: DWORD,
-            alrtpr_submitted: DWORD,
-            alrtpr_size: DWORD,
+            alrtpr_jobid: u32,
+            alrtpr_status: u32,
+            alrtpr_submitted: u32,
+            alrtpr_size: u32,
         }
         const PRJOB_COMPLETE: i32 = 4;
         const PRJOB_DELETED: i32 = 32768;
@@ -56,13 +56,13 @@ mod Windows {
         type PSTD_ALERT = *mut STD_ALERT;
         type PUSER_OTHER_INFO = *mut USER_OTHER_INFO;
         struct STD_ALERT {
-            alrt_timestamp: DWORD,
-            alrt_eventname: [WCHAR; 17],
-            alrt_servicename: [WCHAR; 81],
+            alrt_timestamp: u32,
+            alrt_eventname: [u16; 17],
+            alrt_servicename: [u16; 81],
         }
         struct USER_OTHER_INFO {
-            alrtus_errcode: DWORD,
-            alrtus_numstrings: DWORD,
+            alrtus_errcode: u32,
+            alrtus_numstrings: u32,
         }
     }
 }

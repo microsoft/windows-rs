@@ -73,6 +73,14 @@ impl MethodImplAttributes {
     pub const PreserveSig: Self = Self(0x80);
 }
 
+flags!(MethodSemanticsAttributes, u16);
+impl MethodSemanticsAttributes {
+    pub const Setter: Self = Self(0x1);
+    pub const Getter: Self = Self(0x2);
+    pub const AddOn: Self = Self(0x8);
+    pub const RemoveOn: Self = Self(0x10);
+}
+
 // These are not really ECMA-335 attributes but instead the flags found in the method signature.
 flags!(MethodCallAttributes, u8);
 impl MethodCallAttributes {

@@ -32,6 +32,7 @@ mod Windows {
                     Visible = 0,
                     Hidden = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IDesktopWindowXamlSourceFactory, Public, 196608, "Windows.UI.Xaml.Hosting.HostingContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

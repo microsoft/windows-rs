@@ -5,12 +5,12 @@ mod Windows {
             transform: [[f32; 5]; 5],
         }
         struct MAGIMAGEHEADER {
-            width: UINT,
-            height: UINT,
+            width: u32,
+            height: u32,
             format: WICPixelFormatGUID,
-            stride: UINT,
-            offset: UINT,
-            cbSize: SIZE_T,
+            stride: u32,
+            offset: u32,
+            cbSize: usize,
         }
         struct MAGTRANSFORM {
             v: [[f32; 3]; 3],
@@ -25,13 +25,13 @@ mod Windows {
         #[library("MAGNIFICATION.dll")]
         extern fn MagGetFullscreenColorEffect(#[out] pEffect: PMAGCOLOREFFECT) -> BOOL;
         #[library("MAGNIFICATION.dll")]
-        extern fn MagGetFullscreenTransform(#[out] pMagLevel: *mut f32, #[out] pxOffset: *mut i32, #[out] pyOffset: *mut i32) -> BOOL;
+        extern fn MagGetFullscreenTransform(pMagLevel: *mut f32, pxOffset: *mut i32, pyOffset: *mut i32) -> BOOL;
         #[library("MAGNIFICATION.dll")]
         extern fn MagGetImageScalingCallback(hwnd: HWND) -> MagImageScalingCallback;
         #[library("MAGNIFICATION.dll")]
-        extern fn MagGetInputTransform(#[out] pfEnabled: *mut BOOL, #[out] pRectSource: LPRECT, #[out] pRectDest: LPRECT) -> BOOL;
+        extern fn MagGetInputTransform(pfEnabled: *mut BOOL, #[out] pRectSource: LPRECT, #[out] pRectDest: LPRECT) -> BOOL;
         #[library("MAGNIFICATION.dll")]
-        extern fn MagGetWindowFilterList(hwnd: HWND, pdwFilterMode: *mut DWORD, count: i32, pHWND: *mut HWND) -> i32;
+        extern fn MagGetWindowFilterList(hwnd: HWND, pdwFilterMode: *mut u32, count: i32, pHWND: *mut HWND) -> i32;
         #[library("MAGNIFICATION.dll")]
         extern fn MagGetWindowSource(hwnd: HWND, pRect: *mut RECT) -> BOOL;
         #[library("MAGNIFICATION.dll")]
@@ -42,21 +42,21 @@ mod Windows {
         #[library("MAGNIFICATION.dll")]
         extern fn MagSetColorEffect(hwnd: HWND, pEffect: PMAGCOLOREFFECT) -> BOOL;
         #[library("MAGNIFICATION.dll")]
-        extern fn MagSetFullscreenColorEffect(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEffect: PMAGCOLOREFFECT) -> BOOL;
+        extern fn MagSetFullscreenColorEffect(pEffect: PMAGCOLOREFFECT) -> BOOL;
         #[library("MAGNIFICATION.dll")]
-        extern fn MagSetFullscreenTransform(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] magLevel: f32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] xOffset: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] yOffset: i32) -> BOOL;
+        extern fn MagSetFullscreenTransform(magLevel: f32, xOffset: i32, yOffset: i32) -> BOOL;
         #[library("MAGNIFICATION.dll")]
         extern fn MagSetImageScalingCallback(hwnd: HWND, callback: MagImageScalingCallback) -> BOOL;
         #[library("MAGNIFICATION.dll")]
-        extern fn MagSetInputTransform(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fEnabled: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRectSource: LPRECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRectDest: LPRECT) -> BOOL;
+        extern fn MagSetInputTransform(fEnabled: BOOL, pRectSource: LPRECT, pRectDest: LPRECT) -> BOOL;
         #[library("MAGNIFICATION.dll")]
-        extern fn MagSetWindowFilterList(hwnd: HWND, dwFilterMode: DWORD, count: i32, pHWND: *mut HWND) -> BOOL;
+        extern fn MagSetWindowFilterList(hwnd: HWND, dwFilterMode: u32, count: i32, pHWND: *mut HWND) -> BOOL;
         #[library("MAGNIFICATION.dll")]
         extern fn MagSetWindowSource(hwnd: HWND, rect: RECT) -> BOOL;
         #[library("MAGNIFICATION.dll")]
         extern fn MagSetWindowTransform(hwnd: HWND, pTransform: PMAGTRANSFORM) -> BOOL;
         #[library("MAGNIFICATION.dll")]
-        extern fn MagShowSystemCursor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fShowCursor: BOOL) -> BOOL;
+        extern fn MagShowSystemCursor(fShowCursor: BOOL) -> BOOL;
         #[library("MAGNIFICATION.dll")]
         extern fn MagUninitialize() -> BOOL;
         type PMAGCOLOREFFECT = *mut MAGCOLOREFFECT;

@@ -201,12 +201,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserInformation)]
             interface IUserInformationStatics {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
-                fn get_AccountPictureChangeEnabled(&self) -> bool;
-                #[special]
+                AccountPictureChangeEnabled: bool;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
-                fn get_NameAccessAllowed(&self) -> bool;
+                NameAccessAllowed: bool;
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
                 fn GetAccountPicture(&self, kind: AccountPictureKind) -> super::super::Storage::IStorageFile;
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
@@ -217,12 +217,8 @@ mod Windows {
                 fn SetAccountPictureFromStreamAsync(&self, image: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<SetAccountPictureResult>;
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
                 fn SetAccountPicturesFromStreamsAsync(&self, smallImage: super::super::Storage::Streams::IRandomAccessStream, largeImage: super::super::Storage::Streams::IRandomAccessStream, video: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<SetAccountPictureResult>;
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
-                fn add_AccountPictureChanged(&self, changeHandler: super::super::Foundation::EventHandler<Object>) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
-                fn remove_AccountPictureChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                event AccountPictureChanged: super::super::Foundation::EventHandler<Object>;
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDisplayNameAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;

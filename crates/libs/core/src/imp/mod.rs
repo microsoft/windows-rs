@@ -4,6 +4,7 @@ include!("windows.rs");
 use alloc::boxed::Box;
 
 mod agile;
+mod array_slice;
 #[cfg_attr(not(windows), allow(dead_code))]
 mod bindings;
 mod can_into;
@@ -16,6 +17,7 @@ pub use crate::r#type::{
     AbiType, CloneType, CopyType, InterfaceType, Type, TypeKind, ref_as_default,
 };
 pub use agile::*;
+pub use array_slice::*;
 pub use bindings::*;
 pub use can_into::*;
 pub use delegate_box::*;

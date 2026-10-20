@@ -5,55 +5,55 @@ mod Windows {
         type AUXCAPS2 = AUXCAPS2A;
         #[packed(1)]
         struct AUXCAPS2A {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [CHAR; 32],
-            wTechnology: WORD,
-            wReserved1: WORD,
-            dwSupport: DWORD,
+            szPname: [i8; 32],
+            wTechnology: u16,
+            wReserved1: u16,
+            dwSupport: u32,
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct AUXCAPS2W {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [WCHAR; 32],
-            wTechnology: WORD,
-            wReserved1: WORD,
-            dwSupport: DWORD,
+            szPname: [u16; 32],
+            wTechnology: u16,
+            wReserved1: u16,
+            dwSupport: u32,
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct AUXCAPSA {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [CHAR; 32],
-            wTechnology: WORD,
-            wReserved1: WORD,
-            dwSupport: DWORD,
+            szPname: [i8; 32],
+            wTechnology: u16,
+            wReserved1: u16,
+            dwSupport: u32,
         }
         #[packed(1)]
         struct AUXCAPSW {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [WCHAR; 32],
-            wTechnology: WORD,
-            wReserved1: WORD,
-            dwSupport: DWORD,
+            szPname: [u16; 32],
+            wTechnology: u16,
+            wReserved1: u16,
+            dwSupport: u32,
         }
         const AUXCAPS_AUXIN: i32 = 2;
         const AUXCAPS_CDAUDIO: i32 = 1;
         const AUXCAPS_LRVOLUME: i32 = 2;
         const AUXCAPS_VOLUME: i32 = 1;
-        const AUX_MAPPER: UINT = 4294967295;
+        const AUX_MAPPER: u32 = 4294967295;
         type HMIDI = *mut HMIDI__;
         type HMIDIIN = *mut HMIDIIN__;
         #[packed(1)]
@@ -100,92 +100,92 @@ mod Windows {
             unused: i32,
         }
         type KEYARRAY = [u16; 128];
-        type LPAUXCAPS = *mut AUXCAPSA;
-        type LPAUXCAPS2 = *mut AUXCAPS2A;
+        type LPAUXCAPS = LPAUXCAPSA;
+        type LPAUXCAPS2 = LPAUXCAPS2A;
         type LPAUXCAPS2A = *mut AUXCAPS2A;
         type LPAUXCAPS2W = *mut AUXCAPS2W;
         type LPAUXCAPSA = *mut AUXCAPSA;
         type LPAUXCAPSW = *mut AUXCAPSW;
         type LPCWAVEFORMATEX = *const WAVEFORMATEX;
-        type LPHMIDI = *mut *mut HMIDI__;
-        type LPHMIDIIN = *mut *mut HMIDIIN__;
-        type LPHMIDIOUT = *mut *mut HMIDIOUT__;
-        type LPHMIDISTRM = *mut *mut HMIDISTRM__;
-        type LPHMIXER = *mut *mut HMIXER__;
-        type LPHMIXEROBJ = *mut *mut HMIXEROBJ__;
-        type LPHWAVEIN = *mut *mut HWAVEIN__;
-        type LPHWAVEOUT = *mut *mut HWAVEOUT__;
+        type LPHMIDI = *mut HMIDI;
+        type LPHMIDIIN = *mut HMIDIIN;
+        type LPHMIDIOUT = *mut HMIDIOUT;
+        type LPHMIDISTRM = *mut HMIDISTRM;
+        type LPHMIXER = *mut HMIXER;
+        type LPHMIXEROBJ = *mut HMIXEROBJ;
+        type LPHWAVEIN = *mut HWAVEIN;
+        type LPHWAVEOUT = *mut HWAVEOUT;
         type LPKEYARRAY = *mut u16;
-        extern fn LPMIDICALLBACK(hdrvr: HDRVR, uMsg: UINT, dwUser: DWORD_PTR, dw1: DWORD_PTR, dw2: DWORD_PTR);
+        extern "C" fn LPMIDICALLBACK(param0: HDRVR, param1: u32, param2: usize, param3: usize, param4: usize);
         type LPMIDIHDR = *mut MIDIHDR;
-        type LPMIDIINCAPS = *mut MIDIINCAPSA;
-        type LPMIDIINCAPS2 = *mut MIDIINCAPS2A;
+        type LPMIDIINCAPS = LPMIDIINCAPSA;
+        type LPMIDIINCAPS2 = LPMIDIINCAPS2A;
         type LPMIDIINCAPS2A = *mut MIDIINCAPS2A;
         type LPMIDIINCAPS2W = *mut MIDIINCAPS2W;
         type LPMIDIINCAPSA = *mut MIDIINCAPSA;
         type LPMIDIINCAPSW = *mut MIDIINCAPSW;
-        type LPMIDIOUTCAPS = *mut MIDIOUTCAPSA;
-        type LPMIDIOUTCAPS2 = *mut MIDIOUTCAPS2A;
+        type LPMIDIOUTCAPS = LPMIDIOUTCAPSA;
+        type LPMIDIOUTCAPS2 = LPMIDIOUTCAPS2A;
         type LPMIDIOUTCAPS2A = *mut MIDIOUTCAPS2A;
         type LPMIDIOUTCAPS2W = *mut MIDIOUTCAPS2W;
         type LPMIDIOUTCAPSA = *mut MIDIOUTCAPSA;
         type LPMIDIOUTCAPSW = *mut MIDIOUTCAPSW;
         type LPMIDIPROPTEMPO = *mut MIDIPROPTEMPO;
         type LPMIDIPROPTIMEDIV = *mut MIDIPROPTIMEDIV;
-        type LPMIXERCAPS = *mut MIXERCAPSA;
-        type LPMIXERCAPS2 = *mut MIXERCAPS2A;
+        type LPMIXERCAPS = LPMIXERCAPSA;
+        type LPMIXERCAPS2 = LPMIXERCAPS2A;
         type LPMIXERCAPS2A = *mut MIXERCAPS2A;
         type LPMIXERCAPS2W = *mut MIXERCAPS2W;
         type LPMIXERCAPSA = *mut MIXERCAPSA;
         type LPMIXERCAPSW = *mut MIXERCAPSW;
-        type LPMIXERCONTROL = *mut MIXERCONTROLA;
+        type LPMIXERCONTROL = LPMIXERCONTROLA;
         type LPMIXERCONTROLA = *mut MIXERCONTROLA;
         type LPMIXERCONTROLDETAILS = *mut MIXERCONTROLDETAILS;
         type LPMIXERCONTROLDETAILS_BOOLEAN = *mut MIXERCONTROLDETAILS_BOOLEAN;
-        type LPMIXERCONTROLDETAILS_LISTTEXT = *mut MIXERCONTROLDETAILS_LISTTEXTA;
+        type LPMIXERCONTROLDETAILS_LISTTEXT = LPMIXERCONTROLDETAILS_LISTTEXTA;
         type LPMIXERCONTROLDETAILS_LISTTEXTA = *mut MIXERCONTROLDETAILS_LISTTEXTA;
         type LPMIXERCONTROLDETAILS_LISTTEXTW = *mut MIXERCONTROLDETAILS_LISTTEXTW;
         type LPMIXERCONTROLDETAILS_SIGNED = *mut MIXERCONTROLDETAILS_SIGNED;
         type LPMIXERCONTROLDETAILS_UNSIGNED = *mut MIXERCONTROLDETAILS_UNSIGNED;
         type LPMIXERCONTROLW = *mut MIXERCONTROLW;
-        type LPMIXERLINE = *mut MIXERLINEA;
+        type LPMIXERLINE = LPMIXERLINEA;
         type LPMIXERLINEA = *mut MIXERLINEA;
-        type LPMIXERLINECONTROLS = *mut MIXERLINECONTROLSA;
+        type LPMIXERLINECONTROLS = LPMIXERLINECONTROLSA;
         type LPMIXERLINECONTROLSA = *mut MIXERLINECONTROLSA;
         type LPMIXERLINECONTROLSW = *mut MIXERLINECONTROLSW;
         type LPMIXERLINEW = *mut MIXERLINEW;
         type LPPATCHARRAY = *mut u16;
         type LPPCMWAVEFORMAT = *mut PCMWAVEFORMAT;
-        extern fn LPWAVECALLBACK(hdrvr: HDRVR, uMsg: UINT, dwUser: DWORD_PTR, dw1: DWORD_PTR, dw2: DWORD_PTR);
+        extern "C" fn LPWAVECALLBACK(param0: HDRVR, param1: u32, param2: usize, param3: usize, param4: usize);
         type LPWAVEFORMAT = *mut WAVEFORMAT;
         type LPWAVEFORMATEX = *mut WAVEFORMATEX;
         type LPWAVEHDR = *mut WAVEHDR;
-        type LPWAVEINCAPS = *mut WAVEINCAPSA;
-        type LPWAVEINCAPS2 = *mut WAVEINCAPS2A;
+        type LPWAVEINCAPS = LPWAVEINCAPSA;
+        type LPWAVEINCAPS2 = LPWAVEINCAPS2A;
         type LPWAVEINCAPS2A = *mut WAVEINCAPS2A;
         type LPWAVEINCAPS2W = *mut WAVEINCAPS2W;
         type LPWAVEINCAPSA = *mut WAVEINCAPSA;
         type LPWAVEINCAPSW = *mut WAVEINCAPSW;
-        type LPWAVEOUTCAPS = *mut WAVEOUTCAPSA;
-        type LPWAVEOUTCAPS2 = *mut WAVEOUTCAPS2A;
+        type LPWAVEOUTCAPS = LPWAVEOUTCAPSA;
+        type LPWAVEOUTCAPS2 = LPWAVEOUTCAPS2A;
         type LPWAVEOUTCAPS2A = *mut WAVEOUTCAPS2A;
         type LPWAVEOUTCAPS2W = *mut WAVEOUTCAPS2W;
         type LPWAVEOUTCAPSA = *mut WAVEOUTCAPSA;
         type LPWAVEOUTCAPSW = *mut WAVEOUTCAPSW;
-        const MEVT_COMMENT: BYTE = 130;
+        const MEVT_COMMENT: u8 = 130;
         const MEVT_F_CALLBACK: i32 = 1073741824;
         const MEVT_F_LONG: u32 = 2147483648;
         const MEVT_F_SHORT: i32 = 0;
-        const MEVT_LONGMSG: BYTE = 128;
-        const MEVT_NOP: BYTE = 2;
-        const MEVT_SHORTMSG: BYTE = 0;
-        const MEVT_TEMPO: BYTE = 1;
-        const MEVT_VERSION: BYTE = 132;
+        const MEVT_LONGMSG: u8 = 128;
+        const MEVT_NOP: u8 = 2;
+        const MEVT_SHORTMSG: u8 = 0;
+        const MEVT_TEMPO: u8 = 1;
+        const MEVT_VERSION: u8 = 132;
         const MHDR_DONE: i32 = 1;
         const MHDR_INQUEUE: i32 = 4;
         const MHDR_ISSTRM: i32 = 8;
         const MHDR_PREPARED: i32 = 2;
-        extern fn MIDICALLBACK(hdrvr: HDRVR, uMsg: UINT, dwUser: DWORD_PTR, dw1: DWORD_PTR, dw2: DWORD_PTR);
+        extern "C" fn MIDICALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
         const MIDICAPS_CACHE: i32 = 4;
         const MIDICAPS_LRVOLUME: i32 = 2;
         const MIDICAPS_STREAM: i32 = 8;
@@ -201,130 +201,130 @@ mod Windows {
         const MIDIERR_UNPREPARED: i32 = 64;
         #[packed(1)]
         struct MIDIEVENT {
-            dwDeltaTime: DWORD,
-            dwStreamID: DWORD,
-            dwEvent: DWORD,
-            dwParms: [DWORD; 1],
+            dwDeltaTime: u32,
+            dwStreamID: u32,
+            dwEvent: u32,
+            dwParms: [u32; 1],
         }
         #[packed(1)]
         struct MIDIHDR {
-            lpData: LPSTR,
-            dwBufferLength: DWORD,
-            dwBytesRecorded: DWORD,
-            dwUser: DWORD_PTR,
-            dwFlags: DWORD,
+            lpData: PSTR,
+            dwBufferLength: u32,
+            dwBytesRecorded: u32,
+            dwUser: usize,
+            dwFlags: u32,
             lpNext: *mut MIDIHDR,
-            reserved: DWORD_PTR,
-            dwOffset: DWORD,
-            dwReserved: [DWORD_PTR; 8],
+            reserved: usize,
+            dwOffset: u32,
+            dwReserved: [usize; 8],
         }
         type MIDIINCAPS = MIDIINCAPSA;
         type MIDIINCAPS2 = MIDIINCAPS2A;
         #[packed(1)]
         struct MIDIINCAPS2A {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [CHAR; 32],
-            dwSupport: DWORD,
+            szPname: [i8; 32],
+            dwSupport: u32,
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct MIDIINCAPS2W {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [WCHAR; 32],
-            dwSupport: DWORD,
+            szPname: [u16; 32],
+            dwSupport: u32,
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct MIDIINCAPSA {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [CHAR; 32],
-            dwSupport: DWORD,
+            szPname: [i8; 32],
+            dwSupport: u32,
         }
         #[packed(1)]
         struct MIDIINCAPSW {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [WCHAR; 32],
-            dwSupport: DWORD,
+            szPname: [u16; 32],
+            dwSupport: u32,
         }
-        const MIDIMAPPER: UINT = 4294967295;
+        const MIDIMAPPER: u32 = 4294967295;
         type MIDIOUTCAPS = MIDIOUTCAPSA;
         type MIDIOUTCAPS2 = MIDIOUTCAPS2A;
         #[packed(1)]
         struct MIDIOUTCAPS2A {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [CHAR; 32],
-            wTechnology: WORD,
-            wVoices: WORD,
-            wNotes: WORD,
-            wChannelMask: WORD,
-            dwSupport: DWORD,
+            szPname: [i8; 32],
+            wTechnology: u16,
+            wVoices: u16,
+            wNotes: u16,
+            wChannelMask: u16,
+            dwSupport: u32,
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct MIDIOUTCAPS2W {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [WCHAR; 32],
-            wTechnology: WORD,
-            wVoices: WORD,
-            wNotes: WORD,
-            wChannelMask: WORD,
-            dwSupport: DWORD,
+            szPname: [u16; 32],
+            wTechnology: u16,
+            wVoices: u16,
+            wNotes: u16,
+            wChannelMask: u16,
+            dwSupport: u32,
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct MIDIOUTCAPSA {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [CHAR; 32],
-            wTechnology: WORD,
-            wVoices: WORD,
-            wNotes: WORD,
-            wChannelMask: WORD,
-            dwSupport: DWORD,
+            szPname: [i8; 32],
+            wTechnology: u16,
+            wVoices: u16,
+            wNotes: u16,
+            wChannelMask: u16,
+            dwSupport: u32,
         }
         #[packed(1)]
         struct MIDIOUTCAPSW {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [WCHAR; 32],
-            wTechnology: WORD,
-            wVoices: WORD,
-            wNotes: WORD,
-            wChannelMask: WORD,
-            dwSupport: DWORD,
+            szPname: [u16; 32],
+            wTechnology: u16,
+            wVoices: u16,
+            wNotes: u16,
+            wChannelMask: u16,
+            dwSupport: u32,
         }
         const MIDIPATCHSIZE: i32 = 128;
         #[packed(1)]
         struct MIDIPROPTEMPO {
-            cbStruct: DWORD,
-            dwTempo: DWORD,
+            cbStruct: u32,
+            dwTempo: u32,
         }
         #[packed(1)]
         struct MIDIPROPTIMEDIV {
-            cbStruct: DWORD,
-            dwTimeDiv: DWORD,
+            cbStruct: u32,
+            dwTimeDiv: u32,
         }
         const MIDIPROP_GET: i32 = 1073741824;
         const MIDIPROP_SET: u32 = 2147483648;
@@ -332,16 +332,16 @@ mod Windows {
         const MIDIPROP_TIMEDIV: i32 = 1;
         #[packed(1)]
         struct MIDISTRMBUFFVER {
-            dwVersion: DWORD,
-            dwMid: DWORD,
-            dwOEMVersion: DWORD,
+            dwVersion: u32,
+            dwMid: u32,
+            dwOEMVersion: u32,
         }
         const MIDISTRM_ERROR: i32 = -2;
         const MIDI_CACHE_ALL: i32 = 1;
         const MIDI_CACHE_BESTFIT: i32 = 2;
         const MIDI_CACHE_QUERY: i32 = 3;
         const MIDI_IO_STATUS: i32 = 32;
-        const MIDI_MAPPER: UINT = 4294967295;
+        const MIDI_MAPPER: u32 = 4294967295;
         const MIDI_UNCACHE: i32 = 4;
         const MIM_CLOSE: i32 = 962;
         const MIM_DATA: i32 = 963;
@@ -354,134 +354,134 @@ mod Windows {
         type MIXERCAPS2 = MIXERCAPS2A;
         #[packed(1)]
         struct MIXERCAPS2A {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [CHAR; 32],
-            fdwSupport: DWORD,
-            cDestinations: DWORD,
+            szPname: [i8; 32],
+            fdwSupport: u32,
+            cDestinations: u32,
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct MIXERCAPS2W {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [WCHAR; 32],
-            fdwSupport: DWORD,
-            cDestinations: DWORD,
+            szPname: [u16; 32],
+            fdwSupport: u32,
+            cDestinations: u32,
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct MIXERCAPSA {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [CHAR; 32],
-            fdwSupport: DWORD,
-            cDestinations: DWORD,
+            szPname: [i8; 32],
+            fdwSupport: u32,
+            cDestinations: u32,
         }
         #[packed(1)]
         struct MIXERCAPSW {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [WCHAR; 32],
-            fdwSupport: DWORD,
-            cDestinations: DWORD,
+            szPname: [u16; 32],
+            fdwSupport: u32,
+            cDestinations: u32,
         }
         type MIXERCONTROL = MIXERCONTROLA;
         #[packed(1)]
         struct MIXERCONTROLA {
-            cbStruct: DWORD,
-            dwControlID: DWORD,
-            dwControlType: DWORD,
-            fdwControl: DWORD,
-            cMultipleItems: DWORD,
-            szShortName: [CHAR; 16],
-            szName: [CHAR; 64],
+            cbStruct: u32,
+            dwControlID: u32,
+            dwControlType: u32,
+            fdwControl: u32,
+            cMultipleItems: u32,
+            szShortName: [i8; 16],
+            szName: [i8; 64],
             Bounds: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    lMinimum: LONG,
-                    lMaximum: LONG,
+                    lMinimum: i32,
+                    lMaximum: i32,
                 },
                 Anonymous2: #[packed(1)] struct {
-                    dwMinimum: DWORD,
-                    dwMaximum: DWORD,
+                    dwMinimum: u32,
+                    dwMaximum: u32,
                 },
-                dwReserved: [DWORD; 6],
+                dwReserved: [u32; 6],
             },
             Metrics: #[packed(1)] union {
-                cSteps: DWORD,
-                cbCustomData: DWORD,
-                dwReserved: [DWORD; 6],
+                cSteps: u32,
+                cbCustomData: u32,
+                dwReserved: [u32; 6],
             },
         }
         #[packed(1)]
         struct MIXERCONTROLDETAILS {
-            cbStruct: DWORD,
-            dwControlID: DWORD,
-            cChannels: DWORD,
+            cbStruct: u32,
+            dwControlID: u32,
+            cChannels: u32,
             Anonymous: #[packed(1)] union {
                 hwndOwner: HWND,
-                cMultipleItems: DWORD,
+                cMultipleItems: u32,
             },
-            cbDetails: DWORD,
-            paDetails: LPVOID,
+            cbDetails: u32,
+            paDetails: *mut void,
         }
         #[packed(1)]
         struct MIXERCONTROLDETAILS_BOOLEAN {
-            fValue: LONG,
+            fValue: i32,
         }
         type MIXERCONTROLDETAILS_LISTTEXT = MIXERCONTROLDETAILS_LISTTEXTA;
         #[packed(1)]
         struct MIXERCONTROLDETAILS_LISTTEXTA {
-            dwParam1: DWORD,
-            dwParam2: DWORD,
-            szName: [CHAR; 64],
+            dwParam1: u32,
+            dwParam2: u32,
+            szName: [i8; 64],
         }
         #[packed(1)]
         struct MIXERCONTROLDETAILS_LISTTEXTW {
-            dwParam1: DWORD,
-            dwParam2: DWORD,
-            szName: [WCHAR; 64],
+            dwParam1: u32,
+            dwParam2: u32,
+            szName: [u16; 64],
         }
         #[packed(1)]
         struct MIXERCONTROLDETAILS_SIGNED {
-            lValue: LONG,
+            lValue: i32,
         }
         #[packed(1)]
         struct MIXERCONTROLDETAILS_UNSIGNED {
-            dwValue: DWORD,
+            dwValue: u32,
         }
         #[packed(1)]
         struct MIXERCONTROLW {
-            cbStruct: DWORD,
-            dwControlID: DWORD,
-            dwControlType: DWORD,
-            fdwControl: DWORD,
-            cMultipleItems: DWORD,
-            szShortName: [WCHAR; 16],
-            szName: [WCHAR; 64],
+            cbStruct: u32,
+            dwControlID: u32,
+            dwControlType: u32,
+            fdwControl: u32,
+            cMultipleItems: u32,
+            szShortName: [u16; 16],
+            szName: [u16; 64],
             Bounds: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    lMinimum: LONG,
-                    lMaximum: LONG,
+                    lMinimum: i32,
+                    lMaximum: i32,
                 },
                 Anonymous2: #[packed(1)] struct {
-                    dwMinimum: DWORD,
-                    dwMaximum: DWORD,
+                    dwMinimum: u32,
+                    dwMaximum: u32,
                 },
-                dwReserved: [DWORD; 6],
+                dwReserved: [u32; 6],
             },
             Metrics: #[packed(1)] union {
-                cSteps: DWORD,
-                cbCustomData: DWORD,
-                dwReserved: [DWORD; 6],
+                cSteps: u32,
+                cbCustomData: u32,
+                dwReserved: [u32; 6],
             },
         }
         const MIXERCONTROL_CONTROLF_DISABLED: u32 = 2147483648;
@@ -545,73 +545,73 @@ mod Windows {
         type MIXERLINE = MIXERLINEA;
         #[packed(1)]
         struct MIXERLINEA {
-            cbStruct: DWORD,
-            dwDestination: DWORD,
-            dwSource: DWORD,
-            dwLineID: DWORD,
-            fdwLine: DWORD,
-            dwUser: DWORD_PTR,
-            dwComponentType: DWORD,
-            cChannels: DWORD,
-            cConnections: DWORD,
-            cControls: DWORD,
-            szShortName: [CHAR; 16],
-            szName: [CHAR; 64],
+            cbStruct: u32,
+            dwDestination: u32,
+            dwSource: u32,
+            dwLineID: u32,
+            fdwLine: u32,
+            dwUser: usize,
+            dwComponentType: u32,
+            cChannels: u32,
+            cConnections: u32,
+            cControls: u32,
+            szShortName: [i8; 16],
+            szName: [i8; 64],
             Target: #[packed(1)] struct {
-                dwType: DWORD,
-                dwDeviceID: DWORD,
-                wMid: WORD,
-                wPid: WORD,
+                dwType: u32,
+                dwDeviceID: u32,
+                wMid: u16,
+                wPid: u16,
                 vDriverVersion: MMVERSION,
-                szPname: [CHAR; 32],
+                szPname: [i8; 32],
             },
         }
         type MIXERLINECONTROLS = MIXERLINECONTROLSA;
         #[packed(1)]
         struct MIXERLINECONTROLSA {
-            cbStruct: DWORD,
-            dwLineID: DWORD,
+            cbStruct: u32,
+            dwLineID: u32,
             Anonymous: #[packed(1)] union {
-                dwControlID: DWORD,
-                dwControlType: DWORD,
+                dwControlID: u32,
+                dwControlType: u32,
             },
-            cControls: DWORD,
-            cbmxctrl: DWORD,
+            cControls: u32,
+            cbmxctrl: u32,
             pamxctrl: LPMIXERCONTROLA,
         }
         #[packed(1)]
         struct MIXERLINECONTROLSW {
-            cbStruct: DWORD,
-            dwLineID: DWORD,
+            cbStruct: u32,
+            dwLineID: u32,
             Anonymous: #[packed(1)] union {
-                dwControlID: DWORD,
-                dwControlType: DWORD,
+                dwControlID: u32,
+                dwControlType: u32,
             },
-            cControls: DWORD,
-            cbmxctrl: DWORD,
+            cControls: u32,
+            cbmxctrl: u32,
             pamxctrl: LPMIXERCONTROLW,
         }
         #[packed(1)]
         struct MIXERLINEW {
-            cbStruct: DWORD,
-            dwDestination: DWORD,
-            dwSource: DWORD,
-            dwLineID: DWORD,
-            fdwLine: DWORD,
-            dwUser: DWORD_PTR,
-            dwComponentType: DWORD,
-            cChannels: DWORD,
-            cConnections: DWORD,
-            cControls: DWORD,
-            szShortName: [WCHAR; 16],
-            szName: [WCHAR; 64],
+            cbStruct: u32,
+            dwDestination: u32,
+            dwSource: u32,
+            dwLineID: u32,
+            fdwLine: u32,
+            dwUser: usize,
+            dwComponentType: u32,
+            cChannels: u32,
+            cConnections: u32,
+            cControls: u32,
+            szShortName: [u16; 16],
+            szName: [u16; 64],
             Target: #[packed(1)] struct {
-                dwType: DWORD,
-                dwDeviceID: DWORD,
-                wMid: WORD,
-                wPid: WORD,
+                dwType: u32,
+                dwDeviceID: u32,
+                wMid: u16,
+                wPid: u16,
                 vDriverVersion: MMVERSION,
-                szPname: [WCHAR; 32],
+                szPname: [u16; 32],
             },
         }
         const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: i32 = 1;
@@ -692,21 +692,21 @@ mod Windows {
         const MOM_DONE: i32 = 969;
         const MOM_OPEN: i32 = 967;
         const MOM_POSITIONCB: i32 = 970;
-        type NPAUXCAPS = *mut AUXCAPSA;
-        type NPAUXCAPS2 = *mut AUXCAPS2A;
+        type NPAUXCAPS = NPAUXCAPSA;
+        type NPAUXCAPS2 = NPAUXCAPS2A;
         type NPAUXCAPS2A = *mut AUXCAPS2A;
         type NPAUXCAPS2W = *mut AUXCAPS2W;
         type NPAUXCAPSA = *mut AUXCAPSA;
         type NPAUXCAPSW = *mut AUXCAPSW;
         type NPMIDIHDR = *mut MIDIHDR;
-        type NPMIDIINCAPS = *mut MIDIINCAPSA;
-        type NPMIDIINCAPS2 = *mut MIDIINCAPS2A;
+        type NPMIDIINCAPS = NPMIDIINCAPSA;
+        type NPMIDIINCAPS2 = NPMIDIINCAPS2A;
         type NPMIDIINCAPS2A = *mut MIDIINCAPS2A;
         type NPMIDIINCAPS2W = *mut MIDIINCAPS2W;
         type NPMIDIINCAPSA = *mut MIDIINCAPSA;
         type NPMIDIINCAPSW = *mut MIDIINCAPSW;
-        type NPMIDIOUTCAPS = *mut MIDIOUTCAPSA;
-        type NPMIDIOUTCAPS2 = *mut MIDIOUTCAPS2A;
+        type NPMIDIOUTCAPS = NPMIDIOUTCAPSA;
+        type NPMIDIOUTCAPS2 = NPMIDIOUTCAPS2A;
         type NPMIDIOUTCAPS2A = *mut MIDIOUTCAPS2A;
         type NPMIDIOUTCAPS2W = *mut MIDIOUTCAPS2W;
         type NPMIDIOUTCAPSA = *mut MIDIOUTCAPSA;
@@ -715,21 +715,21 @@ mod Windows {
         type NPWAVEFORMAT = *mut WAVEFORMAT;
         type NPWAVEFORMATEX = *mut WAVEFORMATEX;
         type NPWAVEHDR = *mut WAVEHDR;
-        type NPWAVEINCAPS = *mut WAVEINCAPSA;
-        type NPWAVEINCAPS2 = *mut WAVEINCAPS2A;
+        type NPWAVEINCAPS = NPWAVEINCAPSA;
+        type NPWAVEINCAPS2 = NPWAVEINCAPS2A;
         type NPWAVEINCAPS2A = *mut WAVEINCAPS2A;
         type NPWAVEINCAPS2W = *mut WAVEINCAPS2W;
         type NPWAVEINCAPSA = *mut WAVEINCAPSA;
         type NPWAVEINCAPSW = *mut WAVEINCAPSW;
-        type NPWAVEOUTCAPS = *mut WAVEOUTCAPSA;
-        type NPWAVEOUTCAPS2 = *mut WAVEOUTCAPS2A;
+        type NPWAVEOUTCAPS = NPWAVEOUTCAPSA;
+        type NPWAVEOUTCAPS2 = NPWAVEOUTCAPS2A;
         type NPWAVEOUTCAPS2A = *mut WAVEOUTCAPS2A;
         type NPWAVEOUTCAPS2W = *mut WAVEOUTCAPS2W;
         type NPWAVEOUTCAPSA = *mut WAVEOUTCAPSA;
         type NPWAVEOUTCAPSW = *mut WAVEOUTCAPSW;
         type PATCHARRAY = [u16; 128];
-        type PAUXCAPS = *mut AUXCAPSA;
-        type PAUXCAPS2 = *mut AUXCAPS2A;
+        type PAUXCAPS = PAUXCAPSA;
+        type PAUXCAPS2 = PAUXCAPS2A;
         type PAUXCAPS2A = *mut AUXCAPS2A;
         type PAUXCAPS2W = *mut AUXCAPS2W;
         type PAUXCAPSA = *mut AUXCAPSA;
@@ -737,40 +737,40 @@ mod Windows {
         #[packed(1)]
         struct PCMWAVEFORMAT {
             wf: WAVEFORMAT,
-            wBitsPerSample: WORD,
+            wBitsPerSample: u16,
         }
         type PMIDIHDR = *mut MIDIHDR;
-        type PMIDIINCAPS = *mut MIDIINCAPSA;
-        type PMIDIINCAPS2 = *mut MIDIINCAPS2A;
+        type PMIDIINCAPS = PMIDIINCAPSA;
+        type PMIDIINCAPS2 = PMIDIINCAPS2A;
         type PMIDIINCAPS2A = *mut MIDIINCAPS2A;
         type PMIDIINCAPS2W = *mut MIDIINCAPS2W;
         type PMIDIINCAPSA = *mut MIDIINCAPSA;
         type PMIDIINCAPSW = *mut MIDIINCAPSW;
-        type PMIDIOUTCAPS = *mut MIDIOUTCAPSA;
-        type PMIDIOUTCAPS2 = *mut MIDIOUTCAPS2A;
+        type PMIDIOUTCAPS = PMIDIOUTCAPSA;
+        type PMIDIOUTCAPS2 = PMIDIOUTCAPS2A;
         type PMIDIOUTCAPS2A = *mut MIDIOUTCAPS2A;
         type PMIDIOUTCAPS2W = *mut MIDIOUTCAPS2W;
         type PMIDIOUTCAPSA = *mut MIDIOUTCAPSA;
         type PMIDIOUTCAPSW = *mut MIDIOUTCAPSW;
-        type PMIXERCAPS = *mut MIXERCAPSA;
-        type PMIXERCAPS2 = *mut MIXERCAPS2A;
+        type PMIXERCAPS = PMIXERCAPSA;
+        type PMIXERCAPS2 = PMIXERCAPS2A;
         type PMIXERCAPS2A = *mut MIXERCAPS2A;
         type PMIXERCAPS2W = *mut MIXERCAPS2W;
         type PMIXERCAPSA = *mut MIXERCAPSA;
         type PMIXERCAPSW = *mut MIXERCAPSW;
-        type PMIXERCONTROL = *mut MIXERCONTROLA;
+        type PMIXERCONTROL = PMIXERCONTROLA;
         type PMIXERCONTROLA = *mut MIXERCONTROLA;
         type PMIXERCONTROLDETAILS = *mut MIXERCONTROLDETAILS;
         type PMIXERCONTROLDETAILS_BOOLEAN = *mut MIXERCONTROLDETAILS_BOOLEAN;
-        type PMIXERCONTROLDETAILS_LISTTEXT = *mut MIXERCONTROLDETAILS_LISTTEXTA;
+        type PMIXERCONTROLDETAILS_LISTTEXT = PMIXERCONTROLDETAILS_LISTTEXTA;
         type PMIXERCONTROLDETAILS_LISTTEXTA = *mut MIXERCONTROLDETAILS_LISTTEXTA;
         type PMIXERCONTROLDETAILS_LISTTEXTW = *mut MIXERCONTROLDETAILS_LISTTEXTW;
         type PMIXERCONTROLDETAILS_SIGNED = *mut MIXERCONTROLDETAILS_SIGNED;
         type PMIXERCONTROLDETAILS_UNSIGNED = *mut MIXERCONTROLDETAILS_UNSIGNED;
         type PMIXERCONTROLW = *mut MIXERCONTROLW;
-        type PMIXERLINE = *mut MIXERLINEA;
+        type PMIXERLINE = PMIXERLINEA;
         type PMIXERLINEA = *mut MIXERLINEA;
-        type PMIXERLINECONTROLS = *mut MIXERLINECONTROLSA;
+        type PMIXERLINECONTROLS = PMIXERLINECONTROLSA;
         type PMIXERLINECONTROLSA = *mut MIXERLINECONTROLSA;
         type PMIXERLINECONTROLSW = *mut MIXERLINECONTROLSW;
         type PMIXERLINEW = *mut MIXERLINEW;
@@ -778,19 +778,19 @@ mod Windows {
         type PWAVEFORMAT = *mut WAVEFORMAT;
         type PWAVEFORMATEX = *mut WAVEFORMATEX;
         type PWAVEHDR = *mut WAVEHDR;
-        type PWAVEINCAPS = *mut WAVEINCAPSA;
-        type PWAVEINCAPS2 = *mut WAVEINCAPS2A;
+        type PWAVEINCAPS = PWAVEINCAPSA;
+        type PWAVEINCAPS2 = PWAVEINCAPS2A;
         type PWAVEINCAPS2A = *mut WAVEINCAPS2A;
         type PWAVEINCAPS2W = *mut WAVEINCAPS2W;
         type PWAVEINCAPSA = *mut WAVEINCAPSA;
         type PWAVEINCAPSW = *mut WAVEINCAPSW;
-        type PWAVEOUTCAPS = *mut WAVEOUTCAPSA;
-        type PWAVEOUTCAPS2 = *mut WAVEOUTCAPS2A;
+        type PWAVEOUTCAPS = PWAVEOUTCAPSA;
+        type PWAVEOUTCAPS2 = PWAVEOUTCAPS2A;
         type PWAVEOUTCAPS2A = *mut WAVEOUTCAPS2A;
         type PWAVEOUTCAPS2W = *mut WAVEOUTCAPS2W;
         type PWAVEOUTCAPSA = *mut WAVEOUTCAPSA;
         type PWAVEOUTCAPSW = *mut WAVEOUTCAPSW;
-        extern fn WAVECALLBACK(hdrvr: HDRVR, uMsg: UINT, dwUser: DWORD_PTR, dw1: DWORD_PTR, dw2: DWORD_PTR);
+        extern "C" fn WAVECALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
         const WAVECAPS_LRVOLUME: i32 = 8;
         const WAVECAPS_PITCH: i32 = 1;
         const WAVECAPS_PLAYBACKRATE: i32 = 2;
@@ -799,132 +799,132 @@ mod Windows {
         const WAVECAPS_VOLUME: i32 = 4;
         #[packed(1)]
         struct WAVEFORMAT {
-            wFormatTag: WORD,
-            nChannels: WORD,
-            nSamplesPerSec: DWORD,
-            nAvgBytesPerSec: DWORD,
-            nBlockAlign: WORD,
+            wFormatTag: u16,
+            nChannels: u16,
+            nSamplesPerSec: u32,
+            nAvgBytesPerSec: u32,
+            nBlockAlign: u16,
         }
         #[packed(1)]
         struct WAVEFORMATEX {
-            wFormatTag: WORD,
-            nChannels: WORD,
-            nSamplesPerSec: DWORD,
-            nAvgBytesPerSec: DWORD,
-            nBlockAlign: WORD,
-            wBitsPerSample: WORD,
-            cbSize: WORD,
+            wFormatTag: u16,
+            nChannels: u16,
+            nSamplesPerSec: u32,
+            nAvgBytesPerSec: u32,
+            nBlockAlign: u16,
+            wBitsPerSample: u16,
+            cbSize: u16,
         }
         #[packed(1)]
         struct WAVEHDR {
-            lpData: LPSTR,
-            dwBufferLength: DWORD,
-            dwBytesRecorded: DWORD,
-            dwUser: DWORD_PTR,
-            dwFlags: DWORD,
-            dwLoops: DWORD,
+            lpData: PSTR,
+            dwBufferLength: u32,
+            dwBytesRecorded: u32,
+            dwUser: usize,
+            dwFlags: u32,
+            dwLoops: u32,
             lpNext: *mut WAVEHDR,
-            reserved: DWORD_PTR,
+            reserved: usize,
         }
         type WAVEINCAPS = WAVEINCAPSA;
         type WAVEINCAPS2 = WAVEINCAPS2A;
         #[packed(1)]
         struct WAVEINCAPS2A {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [CHAR; 32],
-            dwFormats: DWORD,
-            wChannels: WORD,
-            wReserved1: WORD,
+            szPname: [i8; 32],
+            dwFormats: u32,
+            wChannels: u16,
+            wReserved1: u16,
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct WAVEINCAPS2W {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [WCHAR; 32],
-            dwFormats: DWORD,
-            wChannels: WORD,
-            wReserved1: WORD,
+            szPname: [u16; 32],
+            dwFormats: u32,
+            wChannels: u16,
+            wReserved1: u16,
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct WAVEINCAPSA {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [CHAR; 32],
-            dwFormats: DWORD,
-            wChannels: WORD,
-            wReserved1: WORD,
+            szPname: [i8; 32],
+            dwFormats: u32,
+            wChannels: u16,
+            wReserved1: u16,
         }
         #[packed(1)]
         struct WAVEINCAPSW {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [WCHAR; 32],
-            dwFormats: DWORD,
-            wChannels: WORD,
-            wReserved1: WORD,
+            szPname: [u16; 32],
+            dwFormats: u32,
+            wChannels: u16,
+            wReserved1: u16,
         }
         type WAVEOUTCAPS = WAVEOUTCAPSA;
         type WAVEOUTCAPS2 = WAVEOUTCAPS2A;
         #[packed(1)]
         struct WAVEOUTCAPS2A {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [CHAR; 32],
-            dwFormats: DWORD,
-            wChannels: WORD,
-            wReserved1: WORD,
-            dwSupport: DWORD,
+            szPname: [i8; 32],
+            dwFormats: u32,
+            wChannels: u16,
+            wReserved1: u16,
+            dwSupport: u32,
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct WAVEOUTCAPS2W {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [WCHAR; 32],
-            dwFormats: DWORD,
-            wChannels: WORD,
-            wReserved1: WORD,
-            dwSupport: DWORD,
+            szPname: [u16; 32],
+            dwFormats: u32,
+            wChannels: u16,
+            wReserved1: u16,
+            dwSupport: u32,
             ManufacturerGuid: GUID,
             ProductGuid: GUID,
             NameGuid: GUID,
         }
         #[packed(1)]
         struct WAVEOUTCAPSA {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [CHAR; 32],
-            dwFormats: DWORD,
-            wChannels: WORD,
-            wReserved1: WORD,
-            dwSupport: DWORD,
+            szPname: [i8; 32],
+            dwFormats: u32,
+            wChannels: u16,
+            wReserved1: u16,
+            dwSupport: u32,
         }
         #[packed(1)]
         struct WAVEOUTCAPSW {
-            wMid: WORD,
-            wPid: WORD,
+            wMid: u16,
+            wPid: u16,
             vDriverVersion: MMVERSION,
-            szPname: [WCHAR; 32],
-            dwFormats: DWORD,
-            wChannels: WORD,
-            wReserved1: WORD,
-            dwSupport: DWORD,
+            szPname: [u16; 32],
+            dwFormats: u32,
+            wChannels: u16,
+            wReserved1: u16,
+            dwSupport: u32,
         }
         const WAVERR_BADFORMAT: i32 = 32;
         const WAVERR_LASTERROR: i32 = 35;
@@ -963,7 +963,7 @@ mod Windows {
         const WAVE_INVALIDFORMAT: i32 = 0;
         const WAVE_MAPPED: i32 = 4;
         const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: i32 = 16;
-        const WAVE_MAPPER: UINT = 4294967295;
+        const WAVE_MAPPER: u32 = 4294967295;
         const WHDR_BEGINLOOP: i32 = 4;
         const WHDR_DONE: i32 = 1;
         const WHDR_ENDLOOP: i32 = 8;
@@ -975,235 +975,209 @@ mod Windows {
         const WOM_CLOSE: i32 = 956;
         const WOM_DONE: i32 = 957;
         const WOM_OPEN: i32 = 955;
-        #[library("WINMM.dll", import = "auxGetDevCapsA")]
-        extern fn auxGetDevCaps(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] #[size_param(2)] pac: LPAUXCAPSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbac: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn auxGetDevCapsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] #[size_param(2)] pac: LPAUXCAPSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbac: UINT) -> MMRESULT;
+        extern fn auxGetDevCapsA(uDeviceID: usize, #[size_param(2)] #[out] pac: LPAUXCAPSA, cbac: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn auxGetDevCapsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] #[size_param(2)] pac: LPAUXCAPSW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbac: UINT) -> MMRESULT;
+        extern fn auxGetDevCapsW(uDeviceID: usize, #[size_param(2)] #[out] pac: LPAUXCAPSW, cbac: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn auxGetNumDevs() -> UINT;
+        extern fn auxGetNumDevs() -> u32;
         #[library("WINMM.dll")]
-        extern fn auxGetVolume(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT, #[out] pdwVolume: LPDWORD) -> MMRESULT;
+        extern fn auxGetVolume(uDeviceID: u32, #[out] pdwVolume: LPDWORD) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn auxOutMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dw1: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dw2: DWORD_PTR) -> MMRESULT;
+        extern fn auxOutMessage(uDeviceID: u32, uMsg: u32, #[opt] dw1: usize, #[opt] dw2: usize) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn auxSetVolume(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwVolume: DWORD) -> MMRESULT;
+        extern fn auxSetVolume(uDeviceID: u32, dwVolume: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiConnect(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmi: HMIDI, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReserved: LPVOID) -> MMRESULT;
+        extern fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, #[in] #[opt] pReserved: *mut void) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiDisconnect(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmi: HMIDI, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReserved: LPVOID) -> MMRESULT;
+        extern fn midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, #[in] #[opt] pReserved: *mut void) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInAddBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmi: HMIDIIN, #[out] #[size_param(2)] pmh: LPMIDIHDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmh: UINT) -> MMRESULT;
+        extern fn midiInAddBuffer(hmi: HMIDIIN, #[size_param(2)] #[out] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmi: HMIDIIN) -> MMRESULT;
-        #[library("WINMM.dll", import = "midiInGetDevCapsA")]
-        extern fn midiInGetDevCaps(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] #[size_param(2)] pmic: LPMIDIINCAPSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmic: UINT) -> MMRESULT;
+        extern fn midiInClose(hmi: HMIDIIN) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInGetDevCapsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] #[size_param(2)] pmic: LPMIDIINCAPSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmic: UINT) -> MMRESULT;
+        extern fn midiInGetDevCapsA(uDeviceID: usize, #[size_param(2)] #[out] pmic: LPMIDIINCAPSA, cbmic: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInGetDevCapsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] #[size_param(2)] pmic: LPMIDIINCAPSW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmic: UINT) -> MMRESULT;
-        #[library("WINMM.dll", import = "midiInGetErrorTextA")]
-        extern fn midiInGetErrorText(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mmrError: MMRESULT, #[out] #[len_param(2)] pszText: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> MMRESULT;
+        extern fn midiInGetDevCapsW(uDeviceID: usize, #[size_param(2)] #[out] pmic: LPMIDIINCAPSW, cbmic: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInGetErrorTextA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mmrError: MMRESULT, #[out] #[len_param(2)] pszText: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> MMRESULT;
+        extern fn midiInGetErrorTextA(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInGetErrorTextW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mmrError: MMRESULT, #[out] #[len_param(2)] pszText: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> MMRESULT;
+        extern fn midiInGetErrorTextW(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PWSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInGetID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmi: HMIDIIN, #[out] puDeviceID: LPUINT) -> MMRESULT;
+        extern fn midiInGetID(hmi: HMIDIIN, #[out] puDeviceID: LPUINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInGetNumDevs() -> UINT;
+        extern fn midiInGetNumDevs() -> u32;
         #[library("WINMM.dll")]
-        extern fn midiInMessage(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmi: HMIDIIN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dw1: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dw2: DWORD_PTR) -> MMRESULT;
+        extern fn midiInMessage(#[opt] hmi: HMIDIIN, uMsg: u32, #[opt] dw1: usize, #[opt] dw2: usize) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInOpen(#[out] phmi: LPHMIDIIN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCallback: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstance: DWORD_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwOpen: DWORD) -> MMRESULT;
+        extern fn midiInOpen(#[out] phmi: LPHMIDIIN, uDeviceID: u32, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInPrepareHeader(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmi: HMIDIIN, #[in] #[out] #[size_param(2)] pmh: LPMIDIHDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmh: UINT) -> MMRESULT;
+        extern fn midiInPrepareHeader(hmi: HMIDIIN, #[size_param(2)] #[in] #[out] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInReset(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmi: HMIDIIN) -> MMRESULT;
+        extern fn midiInReset(hmi: HMIDIIN) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInStart(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmi: HMIDIIN) -> MMRESULT;
+        extern fn midiInStart(hmi: HMIDIIN) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInStop(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmi: HMIDIIN) -> MMRESULT;
+        extern fn midiInStop(hmi: HMIDIIN) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiInUnprepareHeader(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmi: HMIDIIN, #[in] #[out] #[size_param(2)] pmh: LPMIDIHDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmh: UINT) -> MMRESULT;
+        extern fn midiInUnprepareHeader(hmi: HMIDIIN, #[size_param(2)] #[in] #[out] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutCacheDrumPatches(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uPatch: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "128", "128")] #[in] pwkya: LPWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuCache: UINT) -> MMRESULT;
+        extern fn midiOutCacheDrumPatches(hmo: HMIDIOUT, uPatch: u32, pwkya: LPWORD, fuCache: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutCachePatches(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uBank: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "128", "128")] #[in] pwpa: LPWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fuCache: UINT) -> MMRESULT;
+        extern fn midiOutCachePatches(hmo: HMIDIOUT, uBank: u32, pwpa: LPWORD, fuCache: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT) -> MMRESULT;
-        #[library("WINMM.dll", import = "midiOutGetDevCapsA")]
-        extern fn midiOutGetDevCaps(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] #[size_param(2)] pmoc: LPMIDIOUTCAPSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmoc: UINT) -> MMRESULT;
+        extern fn midiOutClose(hmo: HMIDIOUT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutGetDevCapsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] #[size_param(2)] pmoc: LPMIDIOUTCAPSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmoc: UINT) -> MMRESULT;
+        extern fn midiOutGetDevCapsA(uDeviceID: usize, #[size_param(2)] #[out] pmoc: LPMIDIOUTCAPSA, cbmoc: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutGetDevCapsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] #[size_param(2)] pmoc: LPMIDIOUTCAPSW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmoc: UINT) -> MMRESULT;
-        #[library("WINMM.dll", import = "midiOutGetErrorTextA")]
-        extern fn midiOutGetErrorText(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mmrError: MMRESULT, #[out] #[len_param(2)] pszText: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> MMRESULT;
+        extern fn midiOutGetDevCapsW(uDeviceID: usize, #[size_param(2)] #[out] pmoc: LPMIDIOUTCAPSW, cbmoc: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutGetErrorTextA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mmrError: MMRESULT, #[out] #[len_param(2)] pszText: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> MMRESULT;
+        extern fn midiOutGetErrorTextA(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutGetErrorTextW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mmrError: MMRESULT, #[out] #[len_param(2)] pszText: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> MMRESULT;
+        extern fn midiOutGetErrorTextW(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PWSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutGetID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT, #[out] puDeviceID: LPUINT) -> MMRESULT;
+        extern fn midiOutGetID(hmo: HMIDIOUT, #[out] puDeviceID: LPUINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutGetNumDevs() -> UINT;
+        extern fn midiOutGetNumDevs() -> u32;
         #[library("WINMM.dll")]
-        extern fn midiOutGetVolume(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT, #[out] pdwVolume: LPDWORD) -> MMRESULT;
+        extern fn midiOutGetVolume(#[opt] hmo: HMIDIOUT, #[out] pdwVolume: LPDWORD) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutLongMsg(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pmh: LPMIDIHDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmh: UINT) -> MMRESULT;
+        extern fn midiOutLongMsg(hmo: HMIDIOUT, #[size_param(2)] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutMessage(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dw1: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dw2: DWORD_PTR) -> MMRESULT;
+        extern fn midiOutMessage(#[opt] hmo: HMIDIOUT, uMsg: u32, #[opt] dw1: usize, #[opt] dw2: usize) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutOpen(#[out] phmo: LPHMIDIOUT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCallback: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstance: DWORD_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwOpen: DWORD) -> MMRESULT;
+        extern fn midiOutOpen(#[out] phmo: LPHMIDIOUT, uDeviceID: u32, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutPrepareHeader(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT, #[in] #[out] #[size_param(2)] pmh: LPMIDIHDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmh: UINT) -> MMRESULT;
+        extern fn midiOutPrepareHeader(hmo: HMIDIOUT, #[size_param(2)] #[in] #[out] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutReset(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT) -> MMRESULT;
+        extern fn midiOutReset(hmo: HMIDIOUT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutSetVolume(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwVolume: DWORD) -> MMRESULT;
+        extern fn midiOutSetVolume(#[opt] hmo: HMIDIOUT, dwVolume: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutShortMsg(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMsg: DWORD) -> MMRESULT;
+        extern fn midiOutShortMsg(hmo: HMIDIOUT, dwMsg: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiOutUnprepareHeader(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmo: HMIDIOUT, #[in] #[out] #[size_param(2)] pmh: LPMIDIHDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmh: UINT) -> MMRESULT;
+        extern fn midiOutUnprepareHeader(hmo: HMIDIOUT, #[size_param(2)] #[in] #[out] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiStreamClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hms: HMIDISTRM) -> MMRESULT;
+        extern fn midiStreamClose(hms: HMIDISTRM) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiStreamOpen(#[out] phms: LPHMIDISTRM, #[in] #[out] #[len_param(2)] puDeviceID: LPUINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cMidi: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCallback: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstance: DWORD_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwOpen: DWORD) -> MMRESULT;
+        extern fn midiStreamOpen(#[out] phms: LPHMIDISTRM, #[len_param(2)] #[in] #[out] puDeviceID: LPUINT, cMidi: u32, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiStreamOut(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hms: HMIDISTRM, #[out] #[size_param(2)] pmh: LPMIDIHDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmh: UINT) -> MMRESULT;
+        extern fn midiStreamOut(hms: HMIDISTRM, #[size_param(2)] #[out] pmh: LPMIDIHDR, cbmh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiStreamPause(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hms: HMIDISTRM) -> MMRESULT;
+        extern fn midiStreamPause(hms: HMIDISTRM) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiStreamPosition(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hms: HMIDISTRM, #[out] #[size_param(2)] lpmmt: LPMMTIME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmmt: UINT) -> MMRESULT;
+        extern fn midiStreamPosition(hms: HMIDISTRM, #[size_param(2)] #[out] lpmmt: LPMMTIME, cbmmt: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiStreamProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hms: HMIDISTRM, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_", "sizeof(DWORD)+sizeof(DWORD)", "sizeof(DWORD)+sizeof(DWORD)")] #[in] #[out] lppropdata: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProperty: DWORD) -> MMRESULT;
+        extern fn midiStreamProperty(hms: HMIDISTRM, #[in] #[out] lppropdata: LPBYTE, dwProperty: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiStreamRestart(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hms: HMIDISTRM) -> MMRESULT;
+        extern fn midiStreamRestart(hms: HMIDISTRM) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn midiStreamStop(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hms: HMIDISTRM) -> MMRESULT;
+        extern fn midiStreamStop(hms: HMIDISTRM) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmx: HMIXER) -> MMRESULT;
-        #[library("WINMM.dll", import = "mixerGetControlDetailsA")]
-        extern fn mixerGetControlDetails(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmxobj: HMIXEROBJ, #[in] #[out] pmxcd: LPMIXERCONTROLDETAILS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwDetails: DWORD) -> MMRESULT;
+        extern fn mixerClose(hmx: HMIXER) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetControlDetailsA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmxobj: HMIXEROBJ, #[in] #[out] pmxcd: LPMIXERCONTROLDETAILS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwDetails: DWORD) -> MMRESULT;
+        extern fn mixerGetControlDetailsA(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxcd: LPMIXERCONTROLDETAILS, fdwDetails: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetControlDetailsW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmxobj: HMIXEROBJ, #[in] #[out] pmxcd: LPMIXERCONTROLDETAILS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwDetails: DWORD) -> MMRESULT;
-        #[library("WINMM.dll", import = "mixerGetDevCapsA")]
-        extern fn mixerGetDevCaps(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMxId: UINT_PTR, #[out] #[size_param(2)] pmxcaps: LPMIXERCAPSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmxcaps: UINT) -> MMRESULT;
+        extern fn mixerGetControlDetailsW(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxcd: LPMIXERCONTROLDETAILS, fdwDetails: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetDevCapsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMxId: UINT_PTR, #[out] #[size_param(2)] pmxcaps: LPMIXERCAPSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmxcaps: UINT) -> MMRESULT;
+        extern fn mixerGetDevCapsA(uMxId: usize, #[size_param(2)] #[out] pmxcaps: LPMIXERCAPSA, cbmxcaps: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetDevCapsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMxId: UINT_PTR, #[out] #[size_param(2)] pmxcaps: LPMIXERCAPSW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmxcaps: UINT) -> MMRESULT;
+        extern fn mixerGetDevCapsW(uMxId: usize, #[size_param(2)] #[out] pmxcaps: LPMIXERCAPSW, cbmxcaps: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetID(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmxobj: HMIXEROBJ, #[out] puMxId: *mut UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwId: DWORD) -> MMRESULT;
-        #[library("WINMM.dll", import = "mixerGetLineControlsA")]
-        extern fn mixerGetLineControls(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmxobj: HMIXEROBJ, #[in] #[out] pmxlc: LPMIXERLINECONTROLSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwControls: DWORD) -> MMRESULT;
+        extern fn mixerGetID(#[opt] hmxobj: HMIXEROBJ, puMxId: *mut u32, fdwId: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetLineControlsA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmxobj: HMIXEROBJ, #[in] #[out] pmxlc: LPMIXERLINECONTROLSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwControls: DWORD) -> MMRESULT;
+        extern fn mixerGetLineControlsA(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxlc: LPMIXERLINECONTROLSA, fdwControls: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetLineControlsW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmxobj: HMIXEROBJ, #[in] #[out] pmxlc: LPMIXERLINECONTROLSW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwControls: DWORD) -> MMRESULT;
-        #[library("WINMM.dll", import = "mixerGetLineInfoA")]
-        extern fn mixerGetLineInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmxobj: HMIXEROBJ, #[in] #[out] pmxl: LPMIXERLINEA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwInfo: DWORD) -> MMRESULT;
+        extern fn mixerGetLineControlsW(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxlc: LPMIXERLINECONTROLSW, fdwControls: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetLineInfoA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmxobj: HMIXEROBJ, #[in] #[out] pmxl: LPMIXERLINEA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwInfo: DWORD) -> MMRESULT;
+        extern fn mixerGetLineInfoA(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxl: LPMIXERLINEA, fdwInfo: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetLineInfoW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmxobj: HMIXEROBJ, #[in] #[out] pmxl: LPMIXERLINEW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwInfo: DWORD) -> MMRESULT;
+        extern fn mixerGetLineInfoW(#[opt] hmxobj: HMIXEROBJ, #[in] #[out] pmxl: LPMIXERLINEW, fdwInfo: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerGetNumDevs() -> UINT;
+        extern fn mixerGetNumDevs() -> u32;
         #[library("WINMM.dll")]
-        extern fn mixerMessage(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmx: HMIXER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwParam1: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwParam2: DWORD_PTR) -> DWORD;
+        extern fn mixerMessage(#[opt] hmx: HMIXER, uMsg: u32, #[opt] dwParam1: usize, #[opt] dwParam2: usize) -> u32;
         #[library("WINMM.dll")]
-        extern fn mixerOpen(#[out] #[opt] phmx: LPHMIXER, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMxId: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCallback: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstance: DWORD_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwOpen: DWORD) -> MMRESULT;
+        extern fn mixerOpen(#[out] #[opt] phmx: LPHMIXER, uMxId: u32, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn mixerSetControlDetails(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmxobj: HMIXEROBJ, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmxcd: LPMIXERCONTROLDETAILS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwDetails: DWORD) -> MMRESULT;
+        extern fn mixerSetControlDetails(#[opt] hmxobj: HMIXEROBJ, pmxcd: LPMIXERCONTROLDETAILS, fdwDetails: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInAddBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwi: HWAVEIN, #[in] #[out] #[size_param(2)] pwh: LPWAVEHDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbwh: UINT) -> MMRESULT;
+        extern fn waveInAddBuffer(hwi: HWAVEIN, #[size_param(2)] #[in] #[out] pwh: LPWAVEHDR, cbwh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwi: HWAVEIN) -> MMRESULT;
-        #[library("WINMM.dll", import = "waveInGetDevCapsA")]
-        extern fn waveInGetDevCaps(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] #[size_param(2)] pwic: LPWAVEINCAPSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbwic: UINT) -> MMRESULT;
+        extern fn waveInClose(hwi: HWAVEIN) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInGetDevCapsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] #[size_param(2)] pwic: LPWAVEINCAPSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbwic: UINT) -> MMRESULT;
+        extern fn waveInGetDevCapsA(uDeviceID: usize, #[size_param(2)] #[out] pwic: LPWAVEINCAPSA, cbwic: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInGetDevCapsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] #[size_param(2)] pwic: LPWAVEINCAPSW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbwic: UINT) -> MMRESULT;
-        #[library("WINMM.dll", import = "waveInGetErrorTextA")]
-        extern fn waveInGetErrorText(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mmrError: MMRESULT, #[out] #[len_param(2)] pszText: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> MMRESULT;
+        extern fn waveInGetDevCapsW(uDeviceID: usize, #[size_param(2)] #[out] pwic: LPWAVEINCAPSW, cbwic: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInGetErrorTextA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mmrError: MMRESULT, #[out] #[len_param(2)] pszText: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> MMRESULT;
+        extern fn waveInGetErrorTextA(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInGetErrorTextW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mmrError: MMRESULT, #[out] #[len_param(2)] pszText: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> MMRESULT;
+        extern fn waveInGetErrorTextW(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PWSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInGetID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwi: HWAVEIN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] puDeviceID: LPUINT) -> MMRESULT;
+        extern fn waveInGetID(hwi: HWAVEIN, puDeviceID: LPUINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInGetNumDevs() -> UINT;
+        extern fn waveInGetNumDevs() -> u32;
         #[library("WINMM.dll")]
-        extern fn waveInGetPosition(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwi: HWAVEIN, #[in] #[out] #[size_param(2)] pmmt: LPMMTIME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmmt: UINT) -> MMRESULT;
+        extern fn waveInGetPosition(hwi: HWAVEIN, #[size_param(2)] #[in] #[out] pmmt: LPMMTIME, cbmmt: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInMessage(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwi: HWAVEIN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dw1: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dw2: DWORD_PTR) -> MMRESULT;
+        extern fn waveInMessage(#[opt] hwi: HWAVEIN, uMsg: u32, #[opt] dw1: usize, #[opt] dw2: usize) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInOpen(#[out] #[opt] phwi: LPHWAVEIN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwfx: LPCWAVEFORMATEX, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCallback: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstance: DWORD_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwOpen: DWORD) -> MMRESULT;
+        extern fn waveInOpen(#[out] #[opt] phwi: LPHWAVEIN, uDeviceID: u32, pwfx: LPCWAVEFORMATEX, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInPrepareHeader(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwi: HWAVEIN, #[in] #[out] #[size_param(2)] pwh: LPWAVEHDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbwh: UINT) -> MMRESULT;
+        extern fn waveInPrepareHeader(hwi: HWAVEIN, #[size_param(2)] #[in] #[out] pwh: LPWAVEHDR, cbwh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInReset(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwi: HWAVEIN) -> MMRESULT;
+        extern fn waveInReset(hwi: HWAVEIN) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInStart(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwi: HWAVEIN) -> MMRESULT;
+        extern fn waveInStart(hwi: HWAVEIN) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInStop(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwi: HWAVEIN) -> MMRESULT;
+        extern fn waveInStop(hwi: HWAVEIN) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInUnprepareHeader(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwi: HWAVEIN, #[in] #[out] #[size_param(2)] pwh: LPWAVEHDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbwh: UINT) -> MMRESULT;
+        extern fn waveInUnprepareHeader(hwi: HWAVEIN, #[size_param(2)] #[in] #[out] pwh: LPWAVEHDR, cbwh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutBreakLoop(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT) -> MMRESULT;
+        extern fn waveOutBreakLoop(hwo: HWAVEOUT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT) -> MMRESULT;
-        #[library("WINMM.dll", import = "waveOutGetDevCapsA")]
-        extern fn waveOutGetDevCaps(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] pwoc: LPWAVEOUTCAPSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbwoc: UINT) -> MMRESULT;
+        extern fn waveOutClose(hwo: HWAVEOUT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetDevCapsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] pwoc: LPWAVEOUTCAPSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbwoc: UINT) -> MMRESULT;
+        extern fn waveOutGetDevCapsA(uDeviceID: usize, #[out] pwoc: LPWAVEOUTCAPSA, cbwoc: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetDevCapsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT_PTR, #[out] pwoc: LPWAVEOUTCAPSW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbwoc: UINT) -> MMRESULT;
-        #[library("WINMM.dll", import = "waveOutGetErrorTextA")]
-        extern fn waveOutGetErrorText(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mmrError: MMRESULT, #[out] #[len_param(2)] pszText: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> MMRESULT;
+        extern fn waveOutGetDevCapsW(uDeviceID: usize, #[out] pwoc: LPWAVEOUTCAPSW, cbwoc: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetErrorTextA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mmrError: MMRESULT, #[out] #[len_param(2)] pszText: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> MMRESULT;
+        extern fn waveOutGetErrorTextA(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetErrorTextW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] mmrError: MMRESULT, #[out] #[len_param(2)] pszText: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchText: UINT) -> MMRESULT;
+        extern fn waveOutGetErrorTextW(mmrError: MMRESULT, #[len_param(2)] #[out] pszText: PWSTR, cchText: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetID(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT, #[out] puDeviceID: LPUINT) -> MMRESULT;
+        extern fn waveOutGetID(hwo: HWAVEOUT, #[out] puDeviceID: LPUINT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetNumDevs() -> UINT;
+        extern fn waveOutGetNumDevs() -> u32;
         #[library("WINMM.dll")]
-        extern fn waveOutGetPitch(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT, #[out] pdwPitch: LPDWORD) -> MMRESULT;
+        extern fn waveOutGetPitch(hwo: HWAVEOUT, #[out] pdwPitch: LPDWORD) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetPlaybackRate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT, #[out] pdwRate: LPDWORD) -> MMRESULT;
+        extern fn waveOutGetPlaybackRate(hwo: HWAVEOUT, #[out] pdwRate: LPDWORD) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetPosition(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT, #[in] #[out] #[size_param(2)] pmmt: LPMMTIME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbmmt: UINT) -> MMRESULT;
+        extern fn waveOutGetPosition(hwo: HWAVEOUT, #[size_param(2)] #[in] #[out] pmmt: LPMMTIME, cbmmt: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutGetVolume(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT, #[out] pdwVolume: LPDWORD) -> MMRESULT;
+        extern fn waveOutGetVolume(#[opt] hwo: HWAVEOUT, #[out] pdwVolume: LPDWORD) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutMessage(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsg: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dw1: DWORD_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dw2: DWORD_PTR) -> MMRESULT;
+        extern fn waveOutMessage(#[opt] hwo: HWAVEOUT, uMsg: u32, dw1: usize, dw2: usize) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutOpen(#[out] #[opt] phwo: LPHWAVEOUT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uDeviceID: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwfx: LPCWAVEFORMATEX, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCallback: DWORD_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstance: DWORD_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fdwOpen: DWORD) -> MMRESULT;
+        extern fn waveOutOpen(#[out] #[opt] phwo: LPHWAVEOUT, uDeviceID: u32, pwfx: LPCWAVEFORMATEX, #[opt] dwCallback: usize, #[opt] dwInstance: usize, fdwOpen: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutPause(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT) -> MMRESULT;
+        extern fn waveOutPause(hwo: HWAVEOUT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutPrepareHeader(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT, #[in] #[out] #[size_param(2)] pwh: LPWAVEHDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbwh: UINT) -> MMRESULT;
+        extern fn waveOutPrepareHeader(hwo: HWAVEOUT, #[size_param(2)] #[in] #[out] pwh: LPWAVEHDR, cbwh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutReset(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT) -> MMRESULT;
+        extern fn waveOutReset(hwo: HWAVEOUT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutRestart(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT) -> MMRESULT;
+        extern fn waveOutRestart(hwo: HWAVEOUT) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutSetPitch(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPitch: DWORD) -> MMRESULT;
+        extern fn waveOutSetPitch(hwo: HWAVEOUT, dwPitch: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutSetPlaybackRate(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwRate: DWORD) -> MMRESULT;
+        extern fn waveOutSetPlaybackRate(hwo: HWAVEOUT, dwRate: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutSetVolume(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwVolume: DWORD) -> MMRESULT;
+        extern fn waveOutSetVolume(#[opt] hwo: HWAVEOUT, dwVolume: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutUnprepareHeader(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT, #[in] #[out] #[size_param(2)] pwh: LPWAVEHDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbwh: UINT) -> MMRESULT;
+        extern fn waveOutUnprepareHeader(hwo: HWAVEOUT, #[size_param(2)] #[in] #[out] pwh: LPWAVEHDR, cbwh: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutWrite(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwo: HWAVEOUT, #[in] #[out] #[size_param(2)] pwh: LPWAVEHDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbwh: UINT) -> MMRESULT;
+        extern fn waveOutWrite(hwo: HWAVEOUT, #[size_param(2)] #[in] #[out] pwh: LPWAVEHDR, cbwh: u32) -> MMRESULT;
     }
 }

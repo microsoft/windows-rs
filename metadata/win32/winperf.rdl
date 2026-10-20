@@ -11,39 +11,36 @@ mod Windows {
         const PERF_AVERAGE_TIMER: i32 = 805438464;
         const PERF_COUNTER_100NS_QUEUELEN_TYPE: i32 = 5571840;
         const PERF_COUNTER_BASE: i32 = 196608;
-        #[packed(8)]
         struct PERF_COUNTER_BLOCK {
-            ByteLength: DWORD,
+            ByteLength: u32,
         }
         const PERF_COUNTER_BULK_COUNT: i32 = 272696576;
         const PERF_COUNTER_COUNTER: i32 = 272696320;
-        #[packed(8)]
         #[arch(X64 | Arm64)]
         struct PERF_COUNTER_DEFINITION {
-            ByteLength: DWORD,
-            CounterNameTitleIndex: DWORD,
-            CounterNameTitle: DWORD,
-            CounterHelpTitleIndex: DWORD,
-            CounterHelpTitle: DWORD,
-            DefaultScale: LONG,
-            DetailLevel: DWORD,
-            CounterType: DWORD,
-            CounterSize: DWORD,
-            CounterOffset: DWORD,
+            ByteLength: u32,
+            CounterNameTitleIndex: u32,
+            CounterNameTitle: u32,
+            CounterHelpTitleIndex: u32,
+            CounterHelpTitle: u32,
+            DefaultScale: i32,
+            DetailLevel: u32,
+            CounterType: u32,
+            CounterSize: u32,
+            CounterOffset: u32,
         }
-        #[packed(8)]
         #[arch(X86)]
         struct PERF_COUNTER_DEFINITION {
-            ByteLength: DWORD,
-            CounterNameTitleIndex: DWORD,
-            CounterNameTitle: LPWSTR,
-            CounterHelpTitleIndex: DWORD,
-            CounterHelpTitle: LPWSTR,
-            DefaultScale: LONG,
-            DetailLevel: DWORD,
-            CounterType: DWORD,
-            CounterSize: DWORD,
-            CounterOffset: DWORD,
+            ByteLength: u32,
+            CounterNameTitleIndex: u32,
+            CounterNameTitle: PWSTR,
+            CounterHelpTitleIndex: u32,
+            CounterHelpTitle: PWSTR,
+            DefaultScale: i32,
+            DetailLevel: u32,
+            CounterType: u32,
+            CounterSize: u32,
+            CounterOffset: u32,
         }
         const PERF_COUNTER_DELTA: i32 = 4195328;
         const PERF_COUNTER_ELAPSED: i32 = 262144;
@@ -69,22 +66,21 @@ mod Windows {
         const PERF_COUNTER_TIMER: i32 = 541132032;
         const PERF_COUNTER_TIMER_INV: i32 = 557909248;
         const PERF_COUNTER_VALUE: i32 = 0;
-        #[packed(8)]
         struct PERF_DATA_BLOCK {
-            Signature: [WCHAR; 4],
-            LittleEndian: DWORD,
-            Version: DWORD,
-            Revision: DWORD,
-            TotalByteLength: DWORD,
-            HeaderLength: DWORD,
-            NumObjectTypes: DWORD,
-            DefaultObject: LONG,
+            Signature: [u16; 4],
+            LittleEndian: u32,
+            Version: u32,
+            Revision: u32,
+            TotalByteLength: u32,
+            HeaderLength: u32,
+            NumObjectTypes: u32,
+            DefaultObject: i32,
             SystemTime: SYSTEMTIME,
             PerfTime: LARGE_INTEGER,
             PerfFreq: LARGE_INTEGER,
             PerfTime100nSec: LARGE_INTEGER,
-            SystemNameLength: DWORD,
-            SystemNameOffset: DWORD,
+            SystemNameLength: u32,
+            SystemNameOffset: u32,
         }
         const PERF_DATA_REVISION: i32 = 1;
         const PERF_DATA_VERSION: i32 = 1;
@@ -100,14 +96,13 @@ mod Windows {
         const PERF_DISPLAY_PER_SEC: i32 = 268435456;
         const PERF_DISPLAY_SECONDS: i32 = 805306368;
         const PERF_ELAPSED_TIME: i32 = 807666944;
-        #[packed(8)]
         struct PERF_INSTANCE_DEFINITION {
-            ByteLength: DWORD,
-            ParentObjectTitleIndex: DWORD,
-            ParentObjectInstance: DWORD,
-            UniqueID: LONG,
-            NameOffset: DWORD,
-            NameLength: DWORD,
+            ByteLength: u32,
+            ParentObjectTitleIndex: u32,
+            ParentObjectInstance: u32,
+            UniqueID: i32,
+            NameOffset: u32,
+            NameLength: u32,
         }
         const PERF_INVERSE_COUNTER: i32 = 16777216;
         const PERF_LARGE_RAW_BASE: i32 = 1073939712;
@@ -121,39 +116,37 @@ mod Windows {
         const PERF_NUMBER_DEC_1000: i32 = 131072;
         const PERF_NUMBER_HEX: i32 = 0;
         const PERF_OBJECT_TIMER: i32 = 2097152;
-        #[packed(8)]
         #[arch(X64 | Arm64)]
         struct PERF_OBJECT_TYPE {
-            TotalByteLength: DWORD,
-            DefinitionLength: DWORD,
-            HeaderLength: DWORD,
-            ObjectNameTitleIndex: DWORD,
-            ObjectNameTitle: DWORD,
-            ObjectHelpTitleIndex: DWORD,
-            ObjectHelpTitle: DWORD,
-            DetailLevel: DWORD,
-            NumCounters: DWORD,
-            DefaultCounter: LONG,
-            NumInstances: LONG,
-            CodePage: DWORD,
+            TotalByteLength: u32,
+            DefinitionLength: u32,
+            HeaderLength: u32,
+            ObjectNameTitleIndex: u32,
+            ObjectNameTitle: u32,
+            ObjectHelpTitleIndex: u32,
+            ObjectHelpTitle: u32,
+            DetailLevel: u32,
+            NumCounters: u32,
+            DefaultCounter: i32,
+            NumInstances: i32,
+            CodePage: u32,
             PerfTime: LARGE_INTEGER,
             PerfFreq: LARGE_INTEGER,
         }
-        #[packed(8)]
         #[arch(X86)]
         struct PERF_OBJECT_TYPE {
-            TotalByteLength: DWORD,
-            DefinitionLength: DWORD,
-            HeaderLength: DWORD,
-            ObjectNameTitleIndex: DWORD,
-            ObjectNameTitle: LPWSTR,
-            ObjectHelpTitleIndex: DWORD,
-            ObjectHelpTitle: LPWSTR,
-            DetailLevel: DWORD,
-            NumCounters: DWORD,
-            DefaultCounter: LONG,
-            NumInstances: LONG,
-            CodePage: DWORD,
+            TotalByteLength: u32,
+            DefinitionLength: u32,
+            HeaderLength: u32,
+            ObjectNameTitleIndex: u32,
+            ObjectNameTitle: PWSTR,
+            ObjectHelpTitleIndex: u32,
+            ObjectHelpTitle: PWSTR,
+            DetailLevel: u32,
+            NumCounters: u32,
+            DefaultCounter: i32,
+            NumInstances: i32,
+            CodePage: u32,
             PerfTime: LARGE_INTEGER,
             PerfFreq: LARGE_INTEGER,
         }
@@ -179,9 +172,9 @@ mod Windows {
         const PERF_TYPE_NUMBER: i32 = 0;
         const PERF_TYPE_TEXT: i32 = 2048;
         const PERF_TYPE_ZERO: i32 = 3072;
-        extern fn PM_CLOSE_PROC() -> DWORD;
-        extern fn PM_COLLECT_PROC(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pValueName: LPWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*ppData,_Pre_writable_byte_size_(*pcbTotalBytes) _Post_writable_byte_size_(*pcbTotalBytes)", "*ppData, _Pre_writable_byte_size_(*pcbTotalBytes) _Post_writable_byte_size_(*pcbTotalBytes)")] #[Windows::Win32::Metadata::NativeSal("2", "_At_", "_Old_(*ppData),_Post_writable_byte_size_(*pcbTotalBytes)", "_Old_(*ppData), _Post_writable_byte_size_(*pcbTotalBytes)")] #[in] #[out] ppData: *mut *mut void, #[in] #[out] pcbTotalBytes: *mut DWORD, #[out] pNumObjectTypes: *mut DWORD) -> DWORD;
-        extern fn PM_OPEN_PROC(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pContext: LPWSTR) -> DWORD;
+        extern fn PM_CLOSE_PROC() -> u32;
+        extern fn PM_COLLECT_PROC(#[opt] pValueName: PCWSTR, #[in] #[out] ppData: *mut *mut void, #[in] #[out] pcbTotalBytes: *mut u32, pNumObjectTypes: *mut u32) -> u32;
+        extern fn PM_OPEN_PROC(#[opt] pContext: PCWSTR) -> u32;
         type PPERF_COUNTER_BLOCK = *mut PERF_COUNTER_BLOCK;
         type PPERF_COUNTER_DEFINITION = *mut PERF_COUNTER_DEFINITION;
         type PPERF_DATA_BLOCK = *mut PERF_DATA_BLOCK;

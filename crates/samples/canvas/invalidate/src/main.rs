@@ -2,8 +2,8 @@
 
 use std::cell::RefCell;
 use std::rc::Rc;
-use windows_canvas::Ellipse as CanvasEllipse;
 use windows_canvas::*;
+use windows_canvas::{Ellipse as CanvasEllipse, TextAlignment};
 use windows_reactor::*;
 
 struct Sample {

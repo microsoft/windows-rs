@@ -1,0 +1,31 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Primitives {
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    // Each fundamental type in and out. Integers and characters add one, wrapping on overflow,
+    // floats double, and bools negate, so both sides must agree on the value and not just the bits.
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        fn NotBool(&self, value: bool) -> bool;
+        fn NextChar16(&self, value: Char16) -> Char16;
+        fn NextU8(&self, value: u8) -> u8;
+        fn NextI16(&self, value: i16) -> i16;
+        fn NextU16(&self, value: u16) -> u16;
+        fn NextI32(&self, value: i32) -> i32;
+        fn NextU32(&self, value: u32) -> u32;
+        fn NextI64(&self, value: i64) -> i64;
+        fn NextU64(&self, value: u64) -> u64;
+        fn DoubleF32(&self, value: f32) -> f32;
+        fn DoubleF64(&self, value: f64) -> f64;
+
+        // Converts between a GUID and its "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" form, which
+        // checks the field layout.
+        fn FormatGuid(&self, value: GUID) -> String;
+        fn ParseGuid(&self, value: String) -> GUID;
+    }
+}

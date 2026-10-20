@@ -79,8 +79,6 @@ impl Component for ListBoxPage {
                                 .text(format!("Selected: {label}"))
                                 .opacity(0.6),
                         )),
-                        r#"ListBox::new().on_selected_tag_changed(...)
-    .items(items)"#,
                     ),
                 ),
                 KeyedView::new(
@@ -88,8 +86,6 @@ impl Component for ListBoxPage {
                     sample_card(
                         "Disabled ListBox",
                         ListBox::new().is_enabled(false).keyed_items(disabled_items),
-                        r#"ListBox::new().is_enabled(false)
-    .items(items)"#,
                     ),
                 ),
             ],

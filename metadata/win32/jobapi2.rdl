@@ -2,30 +2,30 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn AssignProcessToJobObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hJob: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE) -> BOOL;
+        extern fn AssignProcessToJobObject(hJob: HANDLE, hProcess: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateJobObjectW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpJobAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR) -> HANDLE;
+        extern fn CreateJobObjectW(#[opt] lpJobAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpName: PCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn FreeMemoryJobObject(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Buffer: *mut void);
+        extern fn FreeMemoryJobObject(#[in] Buffer: *mut void);
         struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
-            MaxIops: LONG64,
-            MaxBandwidth: LONG64,
-            ReservationIops: LONG64,
+            MaxIops: i64,
+            MaxBandwidth: i64,
+            ReservationIops: i64,
             VolumeName: PCWSTR,
-            BaseIoSize: ULONG,
-            ControlFlags: ULONG,
+            BaseIoSize: u32,
+            ControlFlags: u32,
         }
         #[library("KERNEL32.dll")]
-        extern fn OpenJobObjectW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandle: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR) -> HANDLE;
+        extern fn OpenJobObjectW(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn QueryInformationJobObject(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hJob: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] JobObjectInformationClass: JOBOBJECTINFOCLASS, #[out] #[size_param(3)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 4, IsByteCount = true, Dereference = true)] lpJobObjectInformation: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbJobObjectInformationLength: DWORD, #[out] #[opt] lpReturnLength: LPDWORD) -> BOOL;
+        extern fn QueryInformationJobObject(#[opt] hJob: HANDLE, JobObjectInformationClass: JOBOBJECTINFOCLASS, #[size_param(3)] lpJobObjectInformation: *mut void, cbJobObjectInformationLength: u32, #[out] #[opt] lpReturnLength: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn QueryIoRateControlInformationJobObject(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hJob: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] VolumeName: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*InfoBlockCount", "*InfoBlockCount")] #[out] InfoBlocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, #[out] InfoBlockCount: *mut ULONG) -> DWORD;
+        extern fn QueryIoRateControlInformationJobObject(#[opt] hJob: HANDLE, #[opt] VolumeName: PCWSTR, InfoBlocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, InfoBlockCount: *mut u32) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn SetInformationJobObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hJob: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] JobObjectInformationClass: JOBOBJECTINFOCLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] lpJobObjectInformation: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbJobObjectInformationLength: DWORD) -> BOOL;
+        extern fn SetInformationJobObject(hJob: HANDLE, JobObjectInformationClass: JOBOBJECTINFOCLASS, #[size_param(3)] #[in] lpJobObjectInformation: *mut void, cbJobObjectInformationLength: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetIoRateControlInformationJobObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hJob: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IoRateControlInfo: *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> DWORD;
+        extern fn SetIoRateControlInformationJobObject(hJob: HANDLE, #[in] IoRateControlInfo: *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn TerminateJobObject(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hJob: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uExitCode: UINT) -> BOOL;
+        extern fn TerminateJobObject(hJob: HANDLE, uExitCode: u32) -> BOOL;
     }
 }

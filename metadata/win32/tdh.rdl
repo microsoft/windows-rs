@@ -19,59 +19,44 @@ mod Windows {
             EventInformationMax = 5,
         }
         struct EVENT_MAP_ENTRY {
-            OutputOffset: ULONG,
+            OutputOffset: u32,
             Anonymous: union {
-                Value: ULONG,
-                InputOffset: ULONG,
+                Value: u32,
+                InputOffset: u32,
             },
         }
         struct EVENT_MAP_INFO {
-            NameOffset: ULONG,
+            NameOffset: u32,
             Flag: MAP_FLAGS,
-            EntryCount: ULONG,
+            EntryCount: u32,
             Anonymous: union {
                 MapEntryValueType: MAP_VALUETYPE,
-                FormatStringOffset: ULONG,
+                FormatStringOffset: u32,
             },
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "EntryCount", IsByteCount = false, MayBeNull = false)]
             MapEntryArray: [EVENT_MAP_ENTRY; 1],
         }
         struct EVENT_PROPERTY_INFO {
             Flags: PROPERTY_FLAGS,
-            NameOffset: ULONG,
+            NameOffset: u32,
             Anonymous: union {
-                struct _customSchemaType {
-                    InType: USHORT,
-                    OutType: USHORT,
-                    CustomSchemaOffset: ULONG,
-                }
-                struct _nonStructType {
-                    InType: USHORT,
-                    OutType: USHORT,
-                    MapNameOffset: ULONG,
-                }
-                struct _structType {
-                    StructStartIndex: USHORT,
-                    NumOfStructMembers: USHORT,
-                    padding: ULONG,
-                }
-                nonStructType: EVENT_PROPERTY_INFO::EVENT_PROPERTY_INFO_2::_nonStructType,
-                structType: EVENT_PROPERTY_INFO::EVENT_PROPERTY_INFO_2::_structType,
-                customSchemaType: EVENT_PROPERTY_INFO::EVENT_PROPERTY_INFO_2::_customSchemaType,
+                nonStructType: _nonStructType,
+                structType: _structType,
+                customSchemaType: _customSchemaType,
             },
             Anonymous2: union {
-                count: USHORT,
-                countPropertyIndex: USHORT,
+                count: u16,
+                countPropertyIndex: u16,
             },
             Anonymous3: union {
-                length: USHORT,
-                lengthPropertyIndex: USHORT,
+                length: u16,
+                lengthPropertyIndex: u16,
             },
             Anonymous4: union {
-                Reserved: ULONG,
+                Reserved: u32,
                 Anonymous: struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("Tags", 0, 28, MemberType = ULONG)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Tags: 28,
+                    },
                 },
             },
         }
@@ -92,9 +77,9 @@ mod Windows {
         }
         const MAX_PAYLOAD_PREDICATES: i32 = 8;
         struct PAYLOAD_FILTER_PREDICATE {
-            FieldName: LPWSTR,
-            CompareOp: USHORT,
-            Value: LPWSTR,
+            FieldName: PWSTR,
+            CompareOp: u16,
+            Value: PWSTR,
         }
         #[repr(i32)]
         enum PAYLOAD_OPERATOR {
@@ -124,9 +109,9 @@ mod Windows {
         type PPROVIDER_FIELD_INFOARRAY = *mut PROVIDER_FIELD_INFOARRAY;
         type PPROVIDER_FILTER_INFO = *mut PROVIDER_FILTER_INFO;
         struct PROPERTY_DATA_DESCRIPTOR {
-            PropertyName: ULONGLONG,
-            ArrayIndex: ULONG,
-            Reserved: ULONG,
+            PropertyName: u64,
+            ArrayIndex: u32,
+            Reserved: u32,
         }
         #[repr(i32)]
         enum PROPERTY_FLAGS {
@@ -140,46 +125,42 @@ mod Windows {
             PropertyHasCustomSchema = 128,
         }
         struct PROVIDER_ENUMERATION_INFO {
-            NumberOfProviders: ULONG,
-            Reserved: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfProviders", IsByteCount = false, MayBeNull = false)]
+            NumberOfProviders: u32,
+            Reserved: u32,
             TraceProviderInfoArray: [TRACE_PROVIDER_INFO; 1],
         }
         struct PROVIDER_EVENT_INFO {
-            NumberOfEvents: ULONG,
-            Reserved: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumberOfEvents", IsByteCount = false, MayBeNull = false)]
+            NumberOfEvents: u32,
+            Reserved: u32,
             EventDescriptorsArray: [EVENT_DESCRIPTOR; 1],
         }
         struct PROVIDER_FIELD_INFO {
-            NameOffset: ULONG,
-            DescriptionOffset: ULONG,
-            Value: ULONGLONG,
+            NameOffset: u32,
+            DescriptionOffset: u32,
+            Value: u64,
         }
         struct PROVIDER_FIELD_INFOARRAY {
-            NumberOfElements: ULONG,
+            NumberOfElements: u32,
             FieldType: EVENT_FIELD_TYPE,
             FieldInfoArray: [PROVIDER_FIELD_INFO; 1],
         }
         struct PROVIDER_FILTER_INFO {
-            Id: UCHAR,
-            Version: UCHAR,
-            MessageOffset: ULONG,
-            Reserved: ULONG,
-            PropertyCount: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "PropertyCount", IsByteCount = false, MayBeNull = false)]
+            Id: u8,
+            Version: u8,
+            MessageOffset: u32,
+            Reserved: u32,
+            PropertyCount: u32,
             EventPropertyInfoArray: [EVENT_PROPERTY_INFO; 1],
         }
         type PTDH_CONTEXT = *mut TDH_CONTEXT;
-        type PTDH_HANDLE = *mut *mut void;
+        type PTDH_HANDLE = *mut HANDLE;
         type PTRACE_EVENT_INFO = *mut TRACE_EVENT_INFO;
         type PTRACE_PROVIDER_INFO = *mut TRACE_PROVIDER_INFO;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return == 0L", "return == 0L")]
         type TDHSTATUS = u32;
         struct TDH_CONTEXT {
-            ParameterValue: ULONGLONG,
+            ParameterValue: u64,
             ParameterType: TDH_CONTEXT_TYPE,
-            ParameterSize: ULONG,
+            ParameterSize: u32,
         }
         #[repr(i32)]
         enum TDH_CONTEXT_TYPE {
@@ -190,7 +171,7 @@ mod Windows {
             TDH_CONTEXT_PDB_PATH = 4,
             TDH_CONTEXT_MAXIMUM = 5,
         }
-        type TDH_HANDLE = *mut void;
+        type TDH_HANDLE = HANDLE;
         const TDH_OUTYTPE_ERRORCODE: _TDH_OUT_TYPE = 29;
         #[repr(i32)]
         enum TEMPLATE_FLAGS {
@@ -203,97 +184,96 @@ mod Windows {
             EventGuid: GUID,
             EventDescriptor: EVENT_DESCRIPTOR,
             DecodingSource: DECODING_SOURCE,
-            ProviderNameOffset: ULONG,
-            LevelNameOffset: ULONG,
-            ChannelNameOffset: ULONG,
-            KeywordsNameOffset: ULONG,
-            TaskNameOffset: ULONG,
-            OpcodeNameOffset: ULONG,
-            EventMessageOffset: ULONG,
-            ProviderMessageOffset: ULONG,
-            BinaryXMLOffset: ULONG,
-            BinaryXMLSize: ULONG,
+            ProviderNameOffset: u32,
+            LevelNameOffset: u32,
+            ChannelNameOffset: u32,
+            KeywordsNameOffset: u32,
+            TaskNameOffset: u32,
+            OpcodeNameOffset: u32,
+            EventMessageOffset: u32,
+            ProviderMessageOffset: u32,
+            BinaryXMLOffset: u32,
+            BinaryXMLSize: u32,
             Anonymous: union {
-                EventNameOffset: ULONG,
-                ActivityIDNameOffset: ULONG,
+                EventNameOffset: u32,
+                ActivityIDNameOffset: u32,
             },
             Anonymous2: union {
-                EventAttributesOffset: ULONG,
-                RelatedActivityIDNameOffset: ULONG,
+                EventAttributesOffset: u32,
+                RelatedActivityIDNameOffset: u32,
             },
-            PropertyCount: ULONG,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "0,PropertyCount", "0,PropertyCount")]
-            TopLevelPropertyCount: ULONG,
+            PropertyCount: u32,
+            TopLevelPropertyCount: u32,
             Anonymous3: union {
                 Flags: TEMPLATE_FLAGS,
                 Anonymous: struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 0, 4, MemberType = ULONG)]
-                    #[Windows::Win32::Metadata::NativeBitfield("Tags", 4, 28, MemberType = ULONG)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Reserved: 4,
+                        Tags: 28,
+                    },
                 },
             },
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "PropertyCount", IsByteCount = false, MayBeNull = false)]
             EventPropertyInfoArray: [EVENT_PROPERTY_INFO; 1],
         }
         struct TRACE_PROVIDER_INFO {
             ProviderGuid: GUID,
-            SchemaSource: ULONG,
-            ProviderNameOffset: ULONG,
+            SchemaSource: u32,
+            ProviderNameOffset: u32,
         }
         #[library("tdh.dll")]
-        extern fn TdhAggregatePayloadFilters(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PayloadFilterCount: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] PayloadFilterPtrs: *mut PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] EventMatchALLFlags: PBOOLEAN, #[out] EventFilterDescriptor: PEVENT_FILTER_DESCRIPTOR) -> TDHSTATUS;
+        extern fn TdhAggregatePayloadFilters(PayloadFilterCount: u32, #[len_param(0)] #[in] PayloadFilterPtrs: *mut *mut void, #[len_param(0)] #[opt] EventMatchALLFlags: PBOOLEAN, #[out] EventFilterDescriptor: PEVENT_FILTER_DESCRIPTOR) -> TDHSTATUS;
         #[library("tdh.dll")]
         extern fn TdhCleanupPayloadEventFilterDescriptor(#[in] #[out] EventFilterDescriptor: PEVENT_FILTER_DESCRIPTOR) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhCloseDecodingHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Handle: TDH_HANDLE) -> TDHSTATUS;
+        extern fn TdhCloseDecodingHandle(Handle: TDH_HANDLE) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhCreatePayloadFilter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProviderGuid: LPCGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventDescriptor: PCEVENT_DESCRIPTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventMatchANY: BOOLEAN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PayloadPredicateCount: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] PayloadPredicates: PPAYLOAD_FILTER_PREDICATE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] PayloadFilter: *mut PVOID) -> TDHSTATUS;
+        extern fn TdhCreatePayloadFilter(ProviderGuid: LPCGUID, EventDescriptor: PCEVENT_DESCRIPTOR, EventMatchANY: BOOLEAN, PayloadPredicateCount: u32, #[len_param(3)] PayloadPredicates: PPAYLOAD_FILTER_PREDICATE, PayloadFilter: *mut *mut void) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhDeletePayloadFilter(#[in] #[out] PayloadFilter: *mut PVOID) -> TDHSTATUS;
+        extern fn TdhDeletePayloadFilter(#[in] #[out] PayloadFilter: *mut *mut void) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhEnumerateManifestProviderEvents(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProviderGuid: LPGUID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*BufferSize", "*BufferSize")] #[out] #[opt] Buffer: PPROVIDER_EVENT_INFO, #[in] #[out] BufferSize: *mut ULONG) -> TDHSTATUS;
+        extern fn TdhEnumerateManifestProviderEvents(ProviderGuid: LPGUID, #[size_param(2)] #[out] #[opt] Buffer: PPROVIDER_EVENT_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhEnumerateProviderFieldInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuid: LPGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventFieldType: EVENT_FIELD_TYPE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pBufferSize", "*pBufferSize")] #[out] #[opt] pBuffer: PPROVIDER_FIELD_INFOARRAY, #[in] #[out] pBufferSize: *mut ULONG) -> TDHSTATUS;
+        extern fn TdhEnumerateProviderFieldInformation(pGuid: LPGUID, EventFieldType: EVENT_FIELD_TYPE, #[size_param(3)] #[out] #[opt] pBuffer: PPROVIDER_FIELD_INFOARRAY, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhEnumerateProviderFilters(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Guid: LPGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TdhContextCount: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] TdhContext: PTDH_CONTEXT, #[out] FilterCount: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*BufferSize", "*BufferSize")] #[out] #[opt] Buffer: *mut PPROVIDER_FILTER_INFO, #[in] #[out] BufferSize: *mut ULONG) -> TDHSTATUS;
+        extern fn TdhEnumerateProviderFilters(Guid: LPGUID, TdhContextCount: u32, #[len_param(1)] #[opt] TdhContext: PTDH_CONTEXT, FilterCount: *mut u32, #[size_param(5)] #[opt] Buffer: *mut PPROVIDER_FILTER_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhEnumerateProviders(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pBufferSize", "*pBufferSize")] #[out] #[opt] pBuffer: PPROVIDER_ENUMERATION_INFO, #[in] #[out] pBufferSize: *mut ULONG) -> TDHSTATUS;
+        extern fn TdhEnumerateProviders(#[size_param(1)] #[out] #[opt] pBuffer: PPROVIDER_ENUMERATION_INFO, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, #[out] #[opt] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = true, Dereference = true)] buffer: *mut PROVIDER_ENUMERATION_INFO, bufferSize: ULONG, #[out] bufferRequired: *mut ULONG) -> TDHSTATUS;
+        extern fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, #[size_param(2)] #[opt] buffer: *mut PROVIDER_ENUMERATION_INFO, bufferSize: u32, bufferRequired: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhFormatProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventInfo: PTRACE_EVENT_INFO, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MapInfo: PEVENT_MAP_INFO, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PointerSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PropertyInType: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PropertyOutType: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PropertyLength: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserDataLength: USHORT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(6)] UserData: PBYTE, #[in] #[out] BufferSize: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*BufferSize", "*BufferSize")] #[out] #[opt] Buffer: PWCHAR, #[out] UserDataConsumed: PUSHORT) -> TDHSTATUS;
+        extern fn TdhFormatProperty(EventInfo: PTRACE_EVENT_INFO, #[opt] MapInfo: PEVENT_MAP_INFO, PointerSize: u32, PropertyInType: u16, PropertyOutType: u16, PropertyLength: u16, UserDataLength: u16, #[size_param(6)] UserData: PBYTE, #[in] #[out] BufferSize: PULONG, #[size_param(8)] #[out] #[opt] Buffer: PWCHAR, #[out] UserDataConsumed: PUSHORT) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetDecodingParameter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Handle: TDH_HANDLE, #[in] #[out] TdhContext: PTDH_CONTEXT) -> TDHSTATUS;
+        extern fn TdhGetDecodingParameter(Handle: TDH_HANDLE, #[in] #[out] TdhContext: PTDH_CONTEXT) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetEventInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Event: PEVENT_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TdhContextCount: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] TdhContext: PTDH_CONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*BufferSize", "*BufferSize")] #[out] #[opt] Buffer: PTRACE_EVENT_INFO, #[in] #[out] BufferSize: PULONG) -> TDHSTATUS;
+        extern fn TdhGetEventInformation(Event: PEVENT_RECORD, TdhContextCount: u32, #[len_param(1)] #[opt] TdhContext: PTDH_CONTEXT, #[size_param(4)] #[out] #[opt] Buffer: PTRACE_EVENT_INFO, #[in] #[out] BufferSize: PULONG) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetEventMapInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEvent: PEVENT_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMapName: PWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pBufferSize", "*pBufferSize")] #[out] #[opt] pBuffer: PEVENT_MAP_INFO, #[in] #[out] pBufferSize: *mut ULONG) -> TDHSTATUS;
+        extern fn TdhGetEventMapInformation(pEvent: PEVENT_RECORD, pMapName: PWSTR, #[size_param(3)] #[out] #[opt] pBuffer: PEVENT_MAP_INFO, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetManifestEventInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProviderGuid: LPGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventDescriptor: PEVENT_DESCRIPTOR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*BufferSize", "*BufferSize")] #[out] #[opt] Buffer: PTRACE_EVENT_INFO, #[in] #[out] BufferSize: *mut ULONG) -> TDHSTATUS;
+        extern fn TdhGetManifestEventInformation(ProviderGuid: LPGUID, EventDescriptor: PEVENT_DESCRIPTOR, #[size_param(3)] #[out] #[opt] Buffer: PTRACE_EVENT_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEvent: PEVENT_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TdhContextCount: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pTdhContext: PTDH_CONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PropertyDataCount: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] pPropertyData: PPROPERTY_DATA_DESCRIPTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferSize: ULONG, #[out] #[size_param(5)] pBuffer: PBYTE) -> TDHSTATUS;
+        extern fn TdhGetProperty(pEvent: PEVENT_RECORD, TdhContextCount: u32, #[len_param(1)] #[opt] pTdhContext: PTDH_CONTEXT, PropertyDataCount: u32, #[len_param(3)] pPropertyData: PPROPERTY_DATA_DESCRIPTOR, BufferSize: u32, #[size_param(5)] #[out] pBuffer: PBYTE) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetPropertySize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEvent: PEVENT_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TdhContextCount: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pTdhContext: PTDH_CONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PropertyDataCount: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] pPropertyData: PPROPERTY_DATA_DESCRIPTOR, #[out] pPropertySize: *mut ULONG) -> TDHSTATUS;
+        extern fn TdhGetPropertySize(pEvent: PEVENT_RECORD, TdhContextCount: u32, #[len_param(1)] #[opt] pTdhContext: PTDH_CONTEXT, PropertyDataCount: u32, #[len_param(3)] pPropertyData: PPROPERTY_DATA_DESCRIPTOR, pPropertySize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetWppMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Handle: TDH_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventRecord: PEVENT_RECORD, #[in] #[out] BufferSize: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*BufferSize", "*BufferSize")] #[out] Buffer: PBYTE) -> TDHSTATUS;
+        extern fn TdhGetWppMessage(Handle: TDH_HANDLE, EventRecord: PEVENT_RECORD, #[in] #[out] BufferSize: PULONG, #[size_param(2)] #[out] Buffer: PBYTE) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetWppProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Handle: TDH_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventRecord: PEVENT_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PropertyName: PWSTR, #[in] #[out] BufferSize: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*BufferSize", "*BufferSize")] #[out] Buffer: PBYTE) -> TDHSTATUS;
+        extern fn TdhGetWppProperty(Handle: TDH_HANDLE, EventRecord: PEVENT_RECORD, PropertyName: PWSTR, #[in] #[out] BufferSize: PULONG, #[size_param(3)] #[out] Buffer: PBYTE) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhLoadManifest(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Manifest: PWSTR) -> TDHSTATUS;
+        extern fn TdhLoadManifest(Manifest: PWSTR) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhLoadManifestFromBinary(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BinaryPath: PWSTR) -> TDHSTATUS;
+        extern fn TdhLoadManifestFromBinary(BinaryPath: PWSTR) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhLoadManifestFromMemory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pData: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: ULONG) -> TDHSTATUS;
+        extern fn TdhLoadManifestFromMemory(#[size_param(1)] pData: LPCVOID, cbData: u32) -> TDHSTATUS;
         #[library("tdh.dll")]
         extern fn TdhOpenDecodingHandle(#[out] Handle: PTDH_HANDLE) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhQueryProviderFieldInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuid: LPGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventFieldValue: ULONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] EventFieldType: EVENT_FIELD_TYPE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pBufferSize", "*pBufferSize")] #[out] #[opt] pBuffer: PPROVIDER_FIELD_INFOARRAY, #[in] #[out] pBufferSize: *mut ULONG) -> TDHSTATUS;
+        extern fn TdhQueryProviderFieldInformation(pGuid: LPGUID, EventFieldValue: u64, EventFieldType: EVENT_FIELD_TYPE, #[size_param(4)] #[out] #[opt] pBuffer: PPROVIDER_FIELD_INFOARRAY, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhSetDecodingParameter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Handle: TDH_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TdhContext: PTDH_CONTEXT) -> TDHSTATUS;
+        extern fn TdhSetDecodingParameter(Handle: TDH_HANDLE, TdhContext: PTDH_CONTEXT) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhUnloadManifest(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Manifest: PWSTR) -> TDHSTATUS;
+        extern fn TdhUnloadManifest(Manifest: PWSTR) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhUnloadManifestFromMemory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pData: LPCVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: ULONG) -> TDHSTATUS;
+        extern fn TdhUnloadManifestFromMemory(#[size_param(1)] pData: LPCVOID, cbData: u32) -> TDHSTATUS;
         #[repr(i32)]
         enum _TDH_IN_TYPE {
             TDH_INTYPE_NULL = 0,
@@ -377,6 +357,21 @@ mod Windows {
             TDH_OUTTYPE_DATETIME_UTC = 38,
             TDH_OUTTYPE_REDUCEDSTRING = 300,
             TDH_OUTTYPE_NOPRINT = 301,
+        }
+        struct _customSchemaType {
+            InType: u16,
+            OutType: u16,
+            CustomSchemaOffset: u32,
+        }
+        struct _nonStructType {
+            InType: u16,
+            OutType: u16,
+            MapNameOffset: u32,
+        }
+        struct _structType {
+            StructStartIndex: u16,
+            NumOfStructMembers: u16,
+            padding: u32,
         }
     }
 }

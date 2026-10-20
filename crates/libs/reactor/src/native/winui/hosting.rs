@@ -120,6 +120,10 @@ impl WinUiAdapter {
             None | Some(ButtonStyle::Default) => None,
             Some(value) => Some(value),
         };
+        // State exists only while a style is applied, so clearing without state is a no-op.
+        if base.is_none() && !self.style_states.contains_key(&object) {
+            return Ok(());
+        }
         self.style_states.entry(object).or_default().base = base;
         self.apply_style_state(object)
     }
@@ -130,6 +134,9 @@ impl WinUiAdapter {
         property: PropertyId,
         value: Option<ThemeBrush>,
     ) -> Result<(), WinUiError> {
+        if value.is_none() && !self.style_states.contains_key(&object) {
+            return Ok(());
+        }
         let state = self.style_states.entry(object).or_default();
         if let Some(value) = value {
             state.brushes.insert(property, value);
@@ -236,7 +243,6 @@ impl WinUiAdapter {
             .SetStyle(&background_style)?;
         surface.SetChild(&root)?;
         window.SetContent(&surface)?;
-        self.apply_window_policy(&window, &surface.cast()?, policy)?;
         let state = Rc::new(NativeWindowState {
             window,
             root: root_object,
@@ -250,17 +256,18 @@ impl WinUiAdapter {
             placement_callback: RefCell::new(None),
             last_placement: Cell::new(None),
         });
-        self.windows.borrow_mut().push(Rc::downgrade(&state));
         if let Some((object, height)) = self.window_title_bar
             && self.owns(state.root, object)
         {
             self.apply_title_bar_to_window(&state, object, height)?;
         }
+        self.apply_window_policy(&state.window, &state.surface.cast()?, policy)?;
+        self.windows.borrow_mut().push(Rc::downgrade(&state));
         Ok(NativeWindow {
             state,
             actual_theme_changed: None,
             closed: None,
-            published_title: false,
+            published_title: None,
             published_visuals: false,
             size_changed: None,
             placement_changed: None,
@@ -651,6 +658,7 @@ impl WinUiAdapter {
             self.ui_element(target)?
                 .cast::<native::IButton>()?
                 .SetFlyout(None::<&native::FlyoutBase>)?;
+            self.released_images.extend(previous.images);
         }
         let Some(flyout) = flyout else {
             return Ok(());
@@ -659,20 +667,21 @@ impl WinUiAdapter {
         let primary = native.PrimaryCommands()?;
         let secondary = native.SecondaryCommands()?;
         let mut revokers = Vec::new();
+        let mut images = Vec::new();
         for command in flyout.primary.iter() {
-            primary.Append(&build_command_bar_element(
+            primary.Append(&self.build_command_bar_element(
                 command,
                 &mut revokers,
-                &self.event_queue,
+                &mut images,
                 target,
                 revision,
             )?)?;
         }
         for command in flyout.secondary.iter() {
-            secondary.Append(&build_command_bar_element(
+            secondary.Append(&self.build_command_bar_element(
                 command,
                 &mut revokers,
-                &self.event_queue,
+                &mut images,
                 target,
                 revision,
             )?)?;
@@ -687,9 +696,53 @@ impl WinUiAdapter {
                 revision,
                 native,
                 _revokers: revokers,
+                images,
             },
         );
         Ok(())
+    }
+
+    fn build_command_bar_element(
+        &mut self,
+        command: &CommandBarCommand,
+        revokers: &mut Vec<windows_core::EventRevoker>,
+        images: &mut Vec<Rc<NativeImageSource>>,
+        target: ObjectId,
+        revision: u64,
+    ) -> Result<native::ICommandBarElement, WinUiError> {
+        match command {
+            CommandBarCommand::Button {
+                key,
+                label,
+                icon,
+                enabled,
+            } => {
+                let button = native::AppBarButton::new()?;
+                button.SetLabel(label)?;
+                button.cast::<native::IControl>()?.SetIsEnabled(*enabled)?;
+                if let Some(icon) = icon {
+                    let image = self.shared_icon_image(icon)?;
+                    button.SetIcon(&icon_element(icon, image.as_ref().map(|image| &image.value))?)?;
+                    images.extend(image);
+                }
+                let clicked_key = key.clone();
+                let clicked_queue = Rc::clone(&self.event_queue);
+                revokers.push(button.cast::<native::IButtonBase>()?.Click(move |_, _| {
+                    clicked_queue.queue(
+                        None,
+                        Some(QueuedEvent {
+                            object: target,
+                            event: EventId::CommandInvoked,
+                            revision,
+                            payload: EventPayload::Key(clicked_key.clone()),
+                        }),
+                    );
+                    Self::schedule_event_wake(&clicked_queue);
+                })?);
+                Ok(button.cast()?)
+            }
+            CommandBarCommand::Separator { .. } => Ok(native::AppBarSeparator::new()?.cast()?),
+        }
     }
 
     fn set_content_dialog(
@@ -713,6 +766,31 @@ impl WinUiAdapter {
                 return Err(WinUiError::StillOwned(dialog));
             }
             let owner_element = self.ui_element(owner)?;
+            let framework = owner_element.cast::<native::IFrameworkElement>()?;
+            let value = self
+                .event_queue
+                .content_dialogs
+                .borrow()
+                .dialogs
+                .get(&dialog)
+                .ok_or(WinUiError::MissingObject(dialog))?
+                .value
+                .clone();
+            let dialog_element = value.cast::<native::IFrameworkElement>()?;
+            let themed_dialog = dialog_element.clone();
+            let event_queue = Rc::clone(&self.event_queue);
+            let theme_changed = framework.ActualThemeChanged(move |sender, _| {
+                let Some(sender) = sender.as_ref() else {
+                    return;
+                };
+                if let Err(error) = sender
+                    .ActualTheme()
+                    .and_then(|theme| themed_dialog.SetRequestedTheme(theme))
+                {
+                    event_queue.errors.borrow_mut().push_back(error.into());
+                }
+            })?;
+            dialog_element.SetRequestedTheme(framework.ActualTheme()?)?;
             {
                 let mut scheduler = self.event_queue.content_dialogs.borrow_mut();
                 let state = scheduler
@@ -720,6 +798,7 @@ impl WinUiAdapter {
                     .get_mut(&dialog)
                     .ok_or(WinUiError::MissingObject(dialog))?;
                 state.owner = Some(owner);
+                state.theme_changed = Some(theme_changed);
             }
             match owner_element.XamlRoot() {
                 Ok(root) => {
@@ -728,7 +807,6 @@ impl WinUiAdapter {
                     scheduler.start_next_for_dialog(dialog)?;
                 }
                 Err(error) if error.code().is_ok() => {
-                    let framework = owner_element.cast::<native::IFrameworkElement>()?;
                     let event_queue = Rc::clone(&self.event_queue);
                     let loaded_element = owner_element;
                     let loaded = framework.Loaded(move |_, _| {
@@ -778,6 +856,7 @@ impl WinUiAdapter {
             if let Some(state) = scheduler.dialogs.get_mut(&previous) {
                 state.owner = None;
                 state.loaded = None;
+                state.theme_changed = None;
                 if state.pending_generation.is_none() {
                     state.root = None;
                 }
@@ -924,10 +1003,13 @@ impl WinUiAdapter {
             }
 
             if let Some((width, height)) = policy.client_size {
-                client_window.ResizeClient(native::SizeInt32 {
-                    width: pixels(width),
-                    height: pixels(height),
-                })?;
+                resize_window_client(
+                    &app_window,
+                    native::SizeInt32 {
+                        width: pixels(width),
+                        height: pixels(height),
+                    },
+                )?;
             }
         }
         Ok(())

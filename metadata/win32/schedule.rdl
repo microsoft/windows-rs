@@ -4,16 +4,16 @@ mod Windows {
         type PSCHEDULE = *mut SCHEDULE;
         type PSCHEDULE_HEADER = *mut SCHEDULE_HEADER;
         struct SCHEDULE {
-            Size: ULONG,
-            Bandwidth: ULONG,
-            NumberOfSchedules: ULONG,
+            Size: u32,
+            Bandwidth: u32,
+            NumberOfSchedules: u32,
             Schedules: [SCHEDULE_HEADER; 1],
         }
         const SCHEDULE_BANDWIDTH: i32 = 1;
         const SCHEDULE_DATA_ENTRIES: i32 = 168;
         struct SCHEDULE_HEADER {
-            Type: ULONG,
-            Offset: ULONG,
+            Type: u32,
+            Offset: u32,
         }
         const SCHEDULE_INTERVAL: i32 = 0;
         const SCHEDULE_PRIORITY: i32 = 2;

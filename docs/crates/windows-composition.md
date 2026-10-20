@@ -360,4 +360,4 @@ cargo test -p test_composition
 ```
 
 Window hosting is covered by the standalone sample. Reactor host behavior is covered by Reactor's
-recording tests and live self-test fixtures.
+recording tests. The public Reactor suite does not currently cover the Composition host bridge.

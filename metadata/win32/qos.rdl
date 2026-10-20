@@ -2,14 +2,14 @@
 mod Windows {
     mod Win32 {
         struct FLOWSPEC {
-            TokenRate: ULONG,
-            TokenBucketSize: ULONG,
-            PeakBandwidth: ULONG,
-            Latency: ULONG,
-            DelayVariation: ULONG,
+            TokenRate: u32,
+            TokenBucketSize: u32,
+            PeakBandwidth: u32,
+            Latency: u32,
+            DelayVariation: u32,
             ServiceType: SERVICETYPE,
-            MaxSduSize: ULONG,
-            MinimumPolicedSize: ULONG,
+            MaxSduSize: u32,
+            MinimumPolicedSize: u32,
         }
         type LPFLOWSPEC = *mut FLOWSPEC;
         type LPQOS_OBJECT_HDR = *mut QOS_OBJECT_HDR;
@@ -22,18 +22,18 @@ mod Windows {
         const QOS_OBJECT_DESTADDR: i32 = 2004;
         const QOS_OBJECT_END_OF_LIST: i32 = 2001;
         struct QOS_OBJECT_HDR {
-            ObjectType: ULONG,
-            ObjectLength: ULONG,
+            ObjectType: u32,
+            ObjectLength: u32,
         }
         const QOS_OBJECT_SD_MODE: i32 = 2002;
         const QOS_OBJECT_SHAPING_RATE: i32 = 2003;
         struct QOS_SD_MODE {
             ObjectHdr: QOS_OBJECT_HDR,
-            ShapeDiscardMode: ULONG,
+            ShapeDiscardMode: u32,
         }
         struct QOS_SHAPING_RATE {
             ObjectHdr: QOS_OBJECT_HDR,
-            ShapingRate: ULONG,
+            ShapingRate: u32,
         }
         type SERVICETYPE = u32;
         const SERVICETYPE_BESTEFFORT: i32 = 1;

@@ -359,8 +359,8 @@ mod Windows {
                 IsDefault: bool;
                 #[get]
                 EnclosureLocation: EnclosureLocation;
-                #[get]
-                Properties: super::super::Foundation::Collections::IMapView<String, Object>;
+                #[special]
+                fn get_Properties(&self) -> #[Windows::Foundation::Metadata::HasVariant] super::super::Foundation::Collections::IMapView<String, Object>;
                 fn Update(&self, updateInfo: DeviceInformationUpdate);
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetThumbnailAsync(&self) -> super::super::Foundation::IAsyncOperation<DeviceThumbnail>;
@@ -500,8 +500,8 @@ mod Windows {
             interface IDeviceInformationUpdate {
                 #[get]
                 Id: String;
-                #[get]
-                Properties: super::super::Foundation::Collections::IMapView<String, Object>;
+                #[special]
+                fn get_Properties(&self) -> #[Windows::Foundation::Metadata::HasVariant] super::super::Foundation::Collections::IMapView<String, Object>;
             }
             #[guid(0x5d9d148c_a873_485e_baa6_aa620788e3cc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

@@ -8,7 +8,7 @@ mod Windows {
         const AUDIT_GENERIC_WRITE: i32 = 131109;
         struct AUDIT_POLICY_INFORMATION {
             AuditSubCategoryGuid: GUID,
-            AuditingInformation: ULONG,
+            AuditingInformation: u32,
             AuditCategoryGuid: GUID,
         }
         const AUDIT_QUERY_MISC_POLICY: i32 = 64;
@@ -30,75 +30,50 @@ mod Windows {
         const AUTH_REQ_PREAUTH_REQUIRED: i32 = 512;
         const AUTH_REQ_TRANSITIVE_TRUST: i32 = 1024;
         const AUTH_REQ_VALIDATE_CLIENT: i32 = 128;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ADVAPI32.dll")]
-        extern fn AuditComputeEffectivePolicyBySid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pSubCategoryGuids: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPolicyCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "dwPolicyCount", "dwPolicyCount")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn AuditComputeEffectivePolicyBySid(pSid: PSID, #[len_param(2)] pSubCategoryGuids: *const GUID, dwPolicyCount: u32, ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditComputeEffectivePolicyByToken(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTokenHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pSubCategoryGuids: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPolicyCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "dwPolicyCount", "dwPolicyCount")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn AuditComputeEffectivePolicyByToken(hTokenHandle: HANDLE, #[len_param(2)] pSubCategoryGuids: *const GUID, dwPolicyCount: u32, ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditEnumerateCategories(#[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pdwCountReturned", "*pdwCountReturned")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] ppAuditCategoriesArray: *mut *mut GUID, #[out] pdwCountReturned: PULONG) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn AuditEnumerateCategories(ppAuditCategoriesArray: *mut *mut GUID, #[out] pdwCountReturned: PULONG) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditEnumeratePerUserPolicy(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] ppAuditSidArray: *mut PPOLICY_AUDIT_SID_ARRAY) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn AuditEnumeratePerUserPolicy(ppAuditSidArray: *mut PPOLICY_AUDIT_SID_ARRAY) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditEnumerateSubCategories(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuditCategoryGuid: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bRetrieveAllSubCategories: BOOLEAN, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*pdwCountReturned", "*pdwCountReturned")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] ppAuditSubCategoriesArray: *mut *mut GUID, #[out] pdwCountReturned: PULONG) -> BOOLEAN;
+        extern fn AuditEnumerateSubCategories(#[opt] pAuditCategoryGuid: *const GUID, bRetrieveAllSubCategories: BOOLEAN, ppAuditSubCategoriesArray: *mut *mut GUID, #[out] pdwCountReturned: PULONG) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditFree(#[Windows::Win32::Metadata::NativeSal("2", "_Post_invalid_", "", "")] #[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Buffer: PVOID);
+        extern fn AuditFree(#[in] Buffer: *mut void);
         #[library("ADVAPI32.dll")]
-        extern fn AuditLookupCategoryGuidFromCategoryId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuditCategoryId: POLICY_AUDIT_EVENT_TYPE, #[out] pAuditCategoryGuid: *mut GUID) -> BOOLEAN;
+        extern fn AuditLookupCategoryGuidFromCategoryId(AuditCategoryId: POLICY_AUDIT_EVENT_TYPE, pAuditCategoryGuid: *mut GUID) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditLookupCategoryIdFromCategoryGuid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuditCategoryGuid: *const GUID, #[out] pAuditCategoryId: PPOLICY_AUDIT_EVENT_TYPE) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[library("ADVAPI32.dll", import = "AuditLookupCategoryNameA")]
-        extern fn AuditLookupCategoryName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuditCategoryGuid: *const GUID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszCategoryName: *mut PSTR) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn AuditLookupCategoryIdFromCategoryGuid(pAuditCategoryGuid: *const GUID, #[out] pAuditCategoryId: PPOLICY_AUDIT_EVENT_TYPE) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditLookupCategoryNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuditCategoryGuid: *const GUID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszCategoryName: *mut PSTR) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn AuditLookupCategoryNameA(pAuditCategoryGuid: *const GUID, ppszCategoryName: *mut PSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditLookupCategoryNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuditCategoryGuid: *const GUID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszCategoryName: *mut PWSTR) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[library("ADVAPI32.dll", import = "AuditLookupSubCategoryNameA")]
-        extern fn AuditLookupSubCategoryName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuditSubCategoryGuid: *const GUID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszSubCategoryName: *mut PSTR) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn AuditLookupCategoryNameW(pAuditCategoryGuid: *const GUID, ppszCategoryName: *mut PWSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditLookupSubCategoryNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuditSubCategoryGuid: *const GUID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszSubCategoryName: *mut PSTR) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn AuditLookupSubCategoryNameA(pAuditSubCategoryGuid: *const GUID, ppszSubCategoryName: *mut PSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditLookupSubCategoryNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAuditSubCategoryGuid: *const GUID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszSubCategoryName: *mut PWSTR) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[library("ADVAPI32.dll", import = "AuditQueryGlobalSaclA")]
-        extern fn AuditQueryGlobalSacl(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectTypeName: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] Acl: *mut PACL) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn AuditLookupSubCategoryNameW(pAuditSubCategoryGuid: *const GUID, ppszSubCategoryName: *mut PWSTR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditQueryGlobalSaclA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectTypeName: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] Acl: *mut PACL) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn AuditQueryGlobalSaclA(ObjectTypeName: PCSTR, Acl: *mut PACL) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditQueryGlobalSaclW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectTypeName: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] Acl: *mut PACL) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn AuditQueryGlobalSaclW(ObjectTypeName: PCWSTR, Acl: *mut PACL) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditQueryPerUserPolicy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pSubCategoryGuids: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPolicyCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "dwPolicyCount", "dwPolicyCount")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn AuditQueryPerUserPolicy(pSid: PSID, #[len_param(2)] pSubCategoryGuids: *const GUID, dwPolicyCount: u32, ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditQuerySecurity(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityInformation: SECURITY_INFORMATION, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR) -> BOOLEAN;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn AuditQuerySecurity(SecurityInformation: SECURITY_INFORMATION, ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditQuerySystemPolicy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pSubCategoryGuids: *const GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPolicyCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "dwPolicyCount", "dwPolicyCount")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
-        #[library("ADVAPI32.dll", import = "AuditSetGlobalSaclA")]
-        extern fn AuditSetGlobalSacl(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectTypeName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Acl: PACL) -> BOOLEAN;
+        extern fn AuditQuerySystemPolicy(#[len_param(1)] pSubCategoryGuids: *const GUID, dwPolicyCount: u32, ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditSetGlobalSaclA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectTypeName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Acl: PACL) -> BOOLEAN;
+        extern fn AuditSetGlobalSaclA(ObjectTypeName: PCSTR, #[opt] Acl: PACL) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditSetGlobalSaclW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectTypeName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Acl: PACL) -> BOOLEAN;
+        extern fn AuditSetGlobalSaclW(ObjectTypeName: PCWSTR, #[opt] Acl: PACL) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditSetPerUserPolicy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] pAuditPolicy: *mut AUDIT_POLICY_INFORMATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPolicyCount: ULONG) -> BOOLEAN;
+        extern fn AuditSetPerUserPolicy(pSid: PSID, #[len_param(2)] pAuditPolicy: PCAUDIT_POLICY_INFORMATION, dwPolicyCount: u32) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditSetSecurity(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SecurityInformation: SECURITY_INFORMATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOLEAN;
+        extern fn AuditSetSecurity(SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn AuditSetSystemPolicy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pAuditPolicy: *mut AUDIT_POLICY_INFORMATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPolicyCount: ULONG) -> BOOLEAN;
+        extern fn AuditSetSystemPolicy(#[len_param(1)] pAuditPolicy: PCAUDIT_POLICY_INFORMATION, dwPolicyCount: u32) -> BOOLEAN;
         const Audit_AccountLogon: GUID = 0x69979850_797a_11d9_bed3_505054503030;
         const Audit_AccountLogon_CredentialValidation: GUID = 0x0cce923f_69ae_11d9_bed3_505054503030;
         const Audit_AccountLogon_KerbCredentialValidation: GUID = 0x0cce9242_69ae_11d9_bed3_505054503030;
@@ -173,25 +148,21 @@ mod Windows {
             Name: LSA_UNICODE_STRING,
             Description: LSA_UNICODE_STRING,
             ChangeId: LSA_UNICODE_STRING,
-            Flags: ULONG,
-            CAPECount: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "CAPECount", IsByteCount = false, MayBeNull = false)]
+            Flags: u32,
+            CAPECount: u32,
             CAPEs: *mut PCENTRAL_ACCESS_POLICY_ENTRY,
         }
         struct CENTRAL_ACCESS_POLICY_ENTRY {
             Name: LSA_UNICODE_STRING,
             Description: LSA_UNICODE_STRING,
             ChangeId: LSA_UNICODE_STRING,
-            LengthAppliesTo: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "LengthAppliesTo", IsByteCount = true, MayBeNull = false)]
+            LengthAppliesTo: u32,
             AppliesTo: PUCHAR,
-            LengthSD: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "LengthSD", IsByteCount = true, MayBeNull = false)]
+            LengthSD: u32,
             SD: PSECURITY_DESCRIPTOR,
-            LengthStagedSD: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "LengthStagedSD", IsByteCount = true, MayBeNull = false)]
+            LengthStagedSD: u32,
             StagedSD: PSECURITY_DESCRIPTOR,
-            Flags: ULONG,
+            Flags: u32,
         }
         const CENTRAL_ACCESS_POLICY_OWNER_RIGHTS_PRESENT_FLAG: i32 = 1;
         const CENTRAL_ACCESS_POLICY_STAGED_FLAG: i32 = 65536;
@@ -201,9 +172,9 @@ mod Windows {
         const DOMAIN_NO_LM_OWF_CHANGE: i32 = 64;
         const DOMAIN_PASSWORD_COMPLEX: i32 = 1;
         struct DOMAIN_PASSWORD_INFORMATION {
-            MinPasswordLength: USHORT,
-            PasswordHistoryLength: USHORT,
-            PasswordProperties: ULONG,
+            MinPasswordLength: u16,
+            PasswordHistoryLength: u16,
+            PasswordProperties: u32,
             MaxPasswordAge: LARGE_INTEGER,
             MinPasswordAge: LARGE_INTEGER,
         }
@@ -213,11 +184,11 @@ mod Windows {
         const DOMAIN_REFUSE_PASSWORD_CHANGE: i32 = 32;
         const DS_UNKNOWN_ADDRESS_TYPE: i32 = 0;
         struct KDC_PROXY_CACHE_ENTRY_DATA {
-            SinceLastUsed: ULONG64,
+            SinceLastUsed: u64,
             DomainName: UNICODE_STRING,
             ProxyServerName: UNICODE_STRING,
             ProxyServerVdir: UNICODE_STRING,
-            ProxyServerPort: USHORT,
+            ProxyServerPort: u16,
             LogonId: LUID,
             CredUserName: UNICODE_STRING,
             CredDomainName: UNICODE_STRING,
@@ -229,14 +200,14 @@ mod Windows {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             RealmName: UNICODE_STRING,
             KdcAddress: UNICODE_STRING,
-            AddressType: ULONG,
-            DcFlags: ULONG,
+            AddressType: u32,
+            DcFlags: u32,
         }
         struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             RealmName: UNICODE_STRING,
             KdcAddress: UNICODE_STRING,
-            AddressType: ULONG,
+            AddressType: u32,
         }
         struct KERB_ADD_CREDENTIALS_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -244,35 +215,35 @@ mod Windows {
             DomainName: UNICODE_STRING,
             Password: UNICODE_STRING,
             LogonId: LUID,
-            Flags: ULONG,
+            Flags: u32,
         }
         struct KERB_ADD_CREDENTIALS_REQUEST_EX {
             Credentials: KERB_ADD_CREDENTIALS_REQUEST,
-            PrincipalNameCount: ULONG,
+            PrincipalNameCount: u32,
             PrincipalNames: [UNICODE_STRING; 1],
         }
         struct KERB_AUTH_DATA {
-            Type: ULONG,
-            Length: ULONG,
+            Type: u32,
+            Length: u32,
             Data: PUCHAR,
         }
         struct KERB_BINDING_CACHE_ENTRY_DATA {
-            DiscoveryTime: ULONG64,
+            DiscoveryTime: u64,
             RealmName: UNICODE_STRING,
             KdcAddress: UNICODE_STRING,
-            AddressType: ULONG,
-            Flags: ULONG,
-            DcFlags: ULONG,
-            CacheFlags: ULONG,
+            AddressType: u32,
+            Flags: u32,
+            DcFlags: u32,
+            CacheFlags: u32,
             KdcName: UNICODE_STRING,
         }
         struct KERB_CERTIFICATE_HASHINFO {
-            StoreNameLength: USHORT,
-            HashLength: USHORT,
+            StoreNameLength: u16,
+            HashLength: u16,
         }
         struct KERB_CERTIFICATE_INFO {
-            CertInfoSize: ULONG,
-            InfoType: ULONG,
+            CertInfoSize: u32,
+            InfoType: u32,
         }
         #[repr(i32)]
         enum KERB_CERTIFICATE_INFO_TYPE {
@@ -283,18 +254,18 @@ mod Windows {
             DomainName: UNICODE_STRING,
             UserName: UNICODE_STRING,
             Pin: UNICODE_STRING,
-            Flags: ULONG,
-            CspDataLength: ULONG,
+            Flags: u32,
+            CspDataLength: u32,
             CspData: PUCHAR,
         }
         const KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES: i32 = 1;
         const KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO: i32 = 2;
         struct KERB_CERTIFICATE_S4U_LOGON {
             MessageType: KERB_LOGON_SUBMIT_TYPE,
-            Flags: ULONG,
+            Flags: u32,
             UserPrincipalName: UNICODE_STRING,
             DomainName: UNICODE_STRING,
-            CertificateLength: ULONG,
+            CertificateLength: u32,
             Certificate: PUCHAR,
         }
         const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_DUPLICATES: i32 = 1;
@@ -346,26 +317,28 @@ mod Windows {
             LogonId: LUID,
         }
         struct KERB_CLOUD_KERBEROS_DEBUG_DATA {
-            #[Windows::Win32::Metadata::NativeBitfield("AsRepCallbackPresent", 1, 1, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("AsRepCallbackUsed", 2, 1, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("AsRepSourceCred", 9, 8, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("CloudReferralTgtAvailable", 3, 1, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("EnabledByPolicy", 0, 1, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("KdcProxyPresent", 5, 1, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("PasswordKeysPresent", 7, 1, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("PasswordPresent", 8, 1, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("PublicKeyCredsPresent", 6, 1, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("SpnOracleConfigured", 4, 1, MemberType = u32)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                EnabledByPolicy: 1,
+                AsRepCallbackPresent: 1,
+                AsRepCallbackUsed: 1,
+                CloudReferralTgtAvailable: 1,
+                SpnOracleConfigured: 1,
+                KdcProxyPresent: 1,
+                PublicKeyCredsPresent: 1,
+                PasswordKeysPresent: 1,
+                PasswordPresent: 1,
+                AsRepSourceCred: 8,
+            },
         }
         struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
-            #[Windows::Win32::Metadata::NativeBitfield("AsRepCallbackPresent", 1, 1, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("AsRepCallbackUsed", 2, 1, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("CloudReferralTgtAvailable", 3, 1, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("EnabledByPolicy", 0, 1, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("KdcProxyPresent", 5, 1, MemberType = u32)]
-            #[Windows::Win32::Metadata::NativeBitfield("SpnOracleConfigured", 4, 1, MemberType = u32)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                EnabledByPolicy: 1,
+                AsRepCallbackPresent: 1,
+                AsRepCallbackUsed: 1,
+                CloudReferralTgtAvailable: 1,
+                SpnOracleConfigured: 1,
+                KdcProxyPresent: 1,
+            },
         }
         const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: i32 = 1;
         struct KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
@@ -374,35 +347,35 @@ mod Windows {
         }
         struct KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            Version: ULONG,
-            Length: ULONG,
-            Data: [ULONG; 1],
+            Version: u32,
+            Length: u32,
+            Data: [u32; 1],
         }
         struct KERB_CRYPTO_KEY {
-            KeyType: LONG,
-            Length: ULONG,
+            KeyType: i32,
+            Length: u32,
             Value: PUCHAR,
         }
         struct KERB_CRYPTO_KEY32 {
-            KeyType: LONG,
-            Length: ULONG,
-            Offset: ULONG,
+            KeyType: i32,
+            Length: u32,
+            Offset: u32,
         }
         const KERB_DECRYPT_FLAG_DEFAULT_KEY: i32 = 1;
         struct KERB_DECRYPT_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             LogonId: LUID,
-            Flags: ULONG,
-            CryptoType: LONG,
-            KeyUsage: LONG,
+            Flags: u32,
+            CryptoType: i32,
+            KeyUsage: i32,
             Key: KERB_CRYPTO_KEY,
-            EncryptedDataSize: ULONG,
-            InitialVectorSize: ULONG,
+            EncryptedDataSize: u32,
+            InitialVectorSize: u32,
             InitialVector: PUCHAR,
             EncryptedData: PUCHAR,
         }
         struct KERB_DECRYPT_RESPONSE {
-            DecryptedData: [UCHAR; 1],
+            DecryptedData: [u8; 1],
         }
         const KERB_ETYPE_AES128_CTS_HMAC_SHA1_96: i32 = 17;
         const KERB_ETYPE_AES128_CTS_HMAC_SHA1_96_PLAIN: i32 = -148;
@@ -446,8 +419,8 @@ mod Windows {
         const KERB_ETYPE_RSA_PUB_SHA1: i32 = 12;
         const KERB_ETYPE_RSA_SHA1_CMS: i32 = 11;
         struct KERB_EXTERNAL_NAME {
-            NameType: SHORT,
-            NameCount: USHORT,
+            NameType: i16,
+            NameCount: u16,
             Names: [UNICODE_STRING; 1],
         }
         struct KERB_EXTERNAL_TICKET {
@@ -458,14 +431,14 @@ mod Windows {
             TargetDomainName: UNICODE_STRING,
             AltTargetDomainName: UNICODE_STRING,
             SessionKey: KERB_CRYPTO_KEY,
-            TicketFlags: ULONG,
-            Flags: ULONG,
+            TicketFlags: u32,
+            Flags: u32,
             KeyExpirationTime: LARGE_INTEGER,
             StartTime: LARGE_INTEGER,
             EndTime: LARGE_INTEGER,
             RenewUntil: LARGE_INTEGER,
             TimeSkew: LARGE_INTEGER,
-            EncodedTicketSize: ULONG,
+            EncodedTicketSize: u32,
             EncodedTicket: PUCHAR,
         }
         struct KERB_INTERACTIVE_LOGON {
@@ -476,8 +449,8 @@ mod Windows {
         }
         struct KERB_INTERACTIVE_PROFILE {
             MessageType: KERB_PROFILE_BUFFER_TYPE,
-            LogonCount: USHORT,
-            BadPasswordCount: USHORT,
+            LogonCount: u16,
+            BadPasswordCount: u16,
             LogonTime: LARGE_INTEGER,
             LogoffTime: LARGE_INTEGER,
             KickOffTime: LARGE_INTEGER,
@@ -490,7 +463,7 @@ mod Windows {
             ProfilePath: UNICODE_STRING,
             HomeDirectoryDrive: UNICODE_STRING,
             LogonServer: UNICODE_STRING,
-            UserFlags: ULONG,
+            UserFlags: u32,
         }
         struct KERB_INTERACTIVE_UNLOCK_LOGON {
             Logon: KERB_INTERACTIVE_LOGON,
@@ -515,12 +488,12 @@ mod Windows {
             KerbLuidLogon = 84,
         }
         struct KERB_NET_ADDRESS {
-            Family: ULONG,
-            Length: ULONG,
+            Family: u32,
+            Length: u32,
             Address: PCHAR,
         }
         struct KERB_NET_ADDRESSES {
-            Number: ULONG,
+            Number: u32,
             Addresses: [KERB_NET_ADDRESS; 1],
         }
         #[repr(i32)]
@@ -577,17 +550,17 @@ mod Windows {
         }
         struct KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            Flags: ULONG,
+            Flags: u32,
             LogonId: LUID,
         }
         struct KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            CountOfPurged: ULONG,
+            CountOfPurged: u32,
         }
         struct KERB_PURGE_TKT_CACHE_EX_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             LogonId: LUID,
-            Flags: ULONG,
+            Flags: u32,
             TicketTemplate: KERB_TICKET_CACHE_INFO_EX,
         }
         struct KERB_PURGE_TKT_CACHE_REQUEST {
@@ -601,54 +574,54 @@ mod Windows {
         }
         struct KERB_QUERY_BINDING_CACHE_RESPONSE {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            CountOfEntries: ULONG,
+            CountOfEntries: u32,
             Entries: PKERB_BINDING_CACHE_ENTRY_DATA,
         }
         struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            Flags: ULONG,
+            Flags: u32,
             DomainName: UNICODE_STRING,
         }
         struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            Flags: ULONG,
-            ExtendedPolicies: ULONG,
-            DsFlags: ULONG,
+            Flags: u32,
+            ExtendedPolicies: u32,
+            DsFlags: u32,
         }
         const KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE_FLAG_DAC_DISABLED: i32 = 1;
         struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            Flags: ULONG,
+            Flags: u32,
             LogonId: LUID,
         }
         struct KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            CountOfEntries: ULONG,
+            CountOfEntries: u32,
             Entries: PKDC_PROXY_CACHE_ENTRY_DATA,
         }
         struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            Flags: ULONG,
+            Flags: u32,
             LogonId: LUID,
         }
         struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            CountOfCreds: ULONG,
+            CountOfCreds: u32,
             Creds: PKERB_S4U2PROXY_CRED,
         }
         struct KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            CountOfTickets: ULONG,
+            CountOfTickets: u32,
             Tickets: [KERB_TICKET_CACHE_INFO_EX2; 1],
         }
         struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            CountOfTickets: ULONG,
+            CountOfTickets: u32,
             Tickets: [KERB_TICKET_CACHE_INFO_EX3; 1],
         }
         struct KERB_QUERY_TKT_CACHE_EX_RESPONSE {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            CountOfTickets: ULONG,
+            CountOfTickets: u32,
             Tickets: [KERB_TICKET_CACHE_INFO_EX; 1],
         }
         struct KERB_QUERY_TKT_CACHE_REQUEST {
@@ -657,18 +630,18 @@ mod Windows {
         }
         struct KERB_QUERY_TKT_CACHE_RESPONSE {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            CountOfTickets: ULONG,
+            CountOfTickets: u32,
             Tickets: [KERB_TICKET_CACHE_INFO; 1],
         }
         const KERB_REFRESH_POLICY_KDC: i32 = 2;
         const KERB_REFRESH_POLICY_KERBEROS: i32 = 1;
         struct KERB_REFRESH_POLICY_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            Flags: ULONG,
+            Flags: u32,
         }
         struct KERB_REFRESH_POLICY_RESPONSE {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            Flags: ULONG,
+            Flags: u32,
         }
         const KERB_REFRESH_SCCRED_GETTGT: i32 = 1;
         const KERB_REFRESH_SCCRED_RELEASE: i32 = 0;
@@ -676,7 +649,7 @@ mod Windows {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             CredentialBlob: UNICODE_STRING,
             LogonId: LUID,
-            Flags: ULONG,
+            Flags: u32,
         }
         const KERB_REQUEST_ADD_CREDENTIAL: i32 = 1;
         const KERB_REQUEST_CRED_LOCAL_ACCOUNT: i32 = 8;
@@ -684,14 +657,14 @@ mod Windows {
         const KERB_REQUEST_REPLACE_CREDENTIAL: i32 = 2;
         struct KERB_RETRIEVE_KEY_TAB_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            Flags: ULONG,
+            Flags: u32,
             UserName: UNICODE_STRING,
             DomainName: UNICODE_STRING,
             Password: UNICODE_STRING,
         }
         struct KERB_RETRIEVE_KEY_TAB_RESPONSE {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-            KeyTabLength: ULONG,
+            KeyTabLength: u32,
             KeyTab: PUCHAR,
         }
         const KERB_RETRIEVE_TICKET_AS_KERB_CRED: i32 = 8;
@@ -706,9 +679,9 @@ mod Windows {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             LogonId: LUID,
             TargetName: UNICODE_STRING,
-            TicketFlags: ULONG,
-            CacheOptions: ULONG,
-            EncryptionType: LONG,
+            TicketFlags: u32,
+            CacheOptions: u32,
+            EncryptionType: i32,
             CredentialsHandle: SecHandle,
         }
         struct KERB_RETRIEVE_TKT_RESPONSE {
@@ -716,7 +689,7 @@ mod Windows {
         }
         struct KERB_S4U2PROXY_CACHE_ENTRY_INFO {
             ServerName: UNICODE_STRING,
-            Flags: ULONG,
+            Flags: u32,
             LastStatus: NTSTATUS,
             Expiry: LARGE_INTEGER,
         }
@@ -724,16 +697,16 @@ mod Windows {
         struct KERB_S4U2PROXY_CRED {
             UserName: UNICODE_STRING,
             DomainName: UNICODE_STRING,
-            Flags: ULONG,
+            Flags: u32,
             LastStatus: NTSTATUS,
             Expiry: LARGE_INTEGER,
-            CountOfEntries: ULONG,
+            CountOfEntries: u32,
             Entries: PKERB_S4U2PROXY_CACHE_ENTRY_INFO,
         }
         const KERB_S4U2PROXY_CRED_FLAG_NEGATIVE: i32 = 1;
         struct KERB_S4U_LOGON {
             MessageType: KERB_LOGON_SUBMIT_TYPE,
-            Flags: ULONG,
+            Flags: u32,
             ClientUpn: UNICODE_STRING,
             ClientRealm: UNICODE_STRING,
         }
@@ -743,7 +716,7 @@ mod Windows {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             LogonId: LUID,
             CredentialsHandle: SecHandle,
-            Flags: ULONG,
+            Flags: u32,
             AccountRealm: UNICODE_STRING,
             AccountName: UNICODE_STRING,
             Password: UNICODE_STRING,
@@ -751,13 +724,13 @@ mod Windows {
             ClientName: UNICODE_STRING,
             Impersonating: BOOLEAN,
             KdcAddress: UNICODE_STRING,
-            KdcAddressType: ULONG,
+            KdcAddressType: u32,
         }
         struct KERB_SETPASSWORD_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             LogonId: LUID,
             CredentialsHandle: SecHandle,
-            Flags: ULONG,
+            Flags: u32,
             DomainName: UNICODE_STRING,
             AccountName: UNICODE_STRING,
             Password: UNICODE_STRING,
@@ -767,12 +740,12 @@ mod Windows {
         struct KERB_SMART_CARD_LOGON {
             MessageType: KERB_LOGON_SUBMIT_TYPE,
             Pin: UNICODE_STRING,
-            CspDataLength: ULONG,
+            CspDataLength: u32,
             CspData: PUCHAR,
         }
         struct KERB_SMART_CARD_PROFILE {
             Profile: KERB_INTERACTIVE_PROFILE,
-            CertificateSize: ULONG,
+            CertificateSize: u32,
             CertificateData: PUCHAR,
         }
         struct KERB_SMART_CARD_UNLOCK_LOGON {
@@ -782,10 +755,10 @@ mod Windows {
         struct KERB_SUBMIT_TKT_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             LogonId: LUID,
-            Flags: ULONG,
+            Flags: u32,
             Key: KERB_CRYPTO_KEY32,
-            KerbCredSize: ULONG,
-            KerbCredOffset: ULONG,
+            KerbCredSize: u32,
+            KerbCredOffset: u32,
         }
         struct KERB_TICKET_CACHE_INFO {
             ServerName: UNICODE_STRING,
@@ -793,8 +766,8 @@ mod Windows {
             StartTime: LARGE_INTEGER,
             EndTime: LARGE_INTEGER,
             RenewTime: LARGE_INTEGER,
-            EncryptionType: LONG,
-            TicketFlags: ULONG,
+            EncryptionType: i32,
+            TicketFlags: u32,
         }
         struct KERB_TICKET_CACHE_INFO_EX {
             ClientName: UNICODE_STRING,
@@ -804,8 +777,8 @@ mod Windows {
             StartTime: LARGE_INTEGER,
             EndTime: LARGE_INTEGER,
             RenewTime: LARGE_INTEGER,
-            EncryptionType: LONG,
-            TicketFlags: ULONG,
+            EncryptionType: i32,
+            TicketFlags: u32,
         }
         struct KERB_TICKET_CACHE_INFO_EX2 {
             ClientName: UNICODE_STRING,
@@ -815,10 +788,10 @@ mod Windows {
             StartTime: LARGE_INTEGER,
             EndTime: LARGE_INTEGER,
             RenewTime: LARGE_INTEGER,
-            EncryptionType: LONG,
-            TicketFlags: ULONG,
-            SessionKeyType: ULONG,
-            BranchId: ULONG,
+            EncryptionType: i32,
+            TicketFlags: u32,
+            SessionKeyType: u32,
+            BranchId: u32,
         }
         struct KERB_TICKET_CACHE_INFO_EX3 {
             ClientName: UNICODE_STRING,
@@ -828,11 +801,11 @@ mod Windows {
             StartTime: LARGE_INTEGER,
             EndTime: LARGE_INTEGER,
             RenewTime: LARGE_INTEGER,
-            EncryptionType: LONG,
-            TicketFlags: ULONG,
-            SessionKeyType: ULONG,
-            BranchId: ULONG,
-            CacheFlags: ULONG,
+            EncryptionType: i32,
+            TicketFlags: u32,
+            SessionKeyType: u32,
+            BranchId: u32,
+            CacheFlags: u32,
             KdcCalled: UNICODE_STRING,
         }
         const KERB_TICKET_FLAGS_enc_pa_rep: i32 = 65536;
@@ -853,9 +826,9 @@ mod Windows {
         const KERB_TICKET_FLAGS_reserved1: i32 = 1;
         struct KERB_TICKET_LOGON {
             MessageType: KERB_LOGON_SUBMIT_TYPE,
-            Flags: ULONG,
-            ServiceTicketLength: ULONG,
-            TicketGrantingTicketLength: ULONG,
+            Flags: u32,
+            ServiceTicketLength: u32,
+            TicketGrantingTicketLength: u32,
             ServiceTicket: PUCHAR,
             TicketGrantingTicket: PUCHAR,
         }
@@ -872,7 +845,7 @@ mod Windows {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             OriginLogonId: LUID,
             DestinationLogonId: LUID,
-            Flags: ULONG,
+            Flags: u32,
         }
         const KERB_TRANSFER_CRED_WITH_TICKETS: i32 = 1;
         const KERB_USE_DEFAULT_TICKET_FLAGS: i32 = 0;
@@ -916,6 +889,7 @@ mod Windows {
         const LOGON_SUBAUTH_SESSION_KEY: i32 = 64;
         const LOGON_USED_LM_PASSWORD: i32 = 8;
         const LOGON_WINLOGON: i32 = 32768;
+        type LPCAUDIT_POLICY_INFORMATION = PAUDIT_POLICY_INFORMATION;
         const LSAD_AES_BLOCK_SIZE: i32 = 16;
         const LSAD_AES_CRYPT_SHA512_HASH_SIZE: i32 = 64;
         const LSAD_AES_KEY_SIZE: i32 = 16;
@@ -924,8 +898,8 @@ mod Windows {
         const LSASETCAPS_VALID_FLAG_MASK: i32 = 1;
         struct LSA_AUTH_INFORMATION {
             LastUpdateTime: LARGE_INTEGER,
-            AuthType: ULONG,
-            AuthInfoLength: ULONG,
+            AuthType: u32,
+            AuthInfoLength: u32,
             AuthInfo: PUCHAR,
         }
         type LSA_ENUMERATION_HANDLE = u32;
@@ -933,17 +907,17 @@ mod Windows {
             Sid: PSID,
         }
         struct LSA_FOREST_TRUST_BINARY_DATA {
-            Length: ULONG,
+            Length: u32,
             Buffer: PUCHAR,
         }
         struct LSA_FOREST_TRUST_COLLISION_INFORMATION {
-            RecordCount: ULONG,
+            RecordCount: u32,
             Entries: *mut PLSA_FOREST_TRUST_COLLISION_RECORD,
         }
         struct LSA_FOREST_TRUST_COLLISION_RECORD {
-            Index: ULONG,
+            Index: u32,
             Type: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE,
-            Flags: ULONG,
+            Flags: u32,
             Name: LSA_UNICODE_STRING,
         }
         #[repr(i32)]
@@ -958,15 +932,15 @@ mod Windows {
             NetbiosName: LSA_UNICODE_STRING,
         }
         struct LSA_FOREST_TRUST_INFORMATION {
-            RecordCount: ULONG,
+            RecordCount: u32,
             Entries: *mut PLSA_FOREST_TRUST_RECORD,
         }
         struct LSA_FOREST_TRUST_INFORMATION2 {
-            RecordCount: ULONG,
+            RecordCount: u32,
             Entries: *mut PLSA_FOREST_TRUST_RECORD2,
         }
         struct LSA_FOREST_TRUST_RECORD {
-            Flags: ULONG,
+            Flags: u32,
             ForestTrustType: LSA_FOREST_TRUST_RECORD_TYPE,
             Time: LARGE_INTEGER,
             ForestTrustData: union {
@@ -976,7 +950,7 @@ mod Windows {
             },
         }
         struct LSA_FOREST_TRUST_RECORD2 {
-            Flags: ULONG,
+            Flags: u32,
             ForestTrustType: LSA_FOREST_TRUST_RECORD_TYPE,
             Time: LARGE_INTEGER,
             ForestTrustData: union {
@@ -1005,7 +979,7 @@ mod Windows {
         struct LSA_LAST_INTER_LOGON_INFO {
             LastSuccessfulLogon: LARGE_INTEGER,
             LastFailedLogon: LARGE_INTEGER,
-            FailedAttemptCountSinceLastSuccessfulLogon: ULONG,
+            FailedAttemptCountSinceLastSuccessfulLogon: u32,
         }
         const LSA_MODE_INDIVIDUAL_ACCOUNTS: i32 = 2;
         const LSA_MODE_LOG_FULL: i32 = 8;
@@ -1023,112 +997,99 @@ mod Windows {
         const LSA_TLN_DISABLED_NEW: i32 = 1;
         struct LSA_TRANSLATED_SID {
             Use: SID_NAME_USE,
-            RelativeId: ULONG,
-            DomainIndex: LONG,
+            RelativeId: u32,
+            DomainIndex: i32,
         }
         #[library("ADVAPI32.dll")]
-        extern fn LsaAddAccountRights(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] UserRights: PLSA_UNICODE_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CountOfRights: ULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
+        extern fn LsaAddAccountRights(PolicyHandle: LSA_HANDLE, AccountSid: PSID, #[len_param(3)] UserRights: PLSA_UNICODE_STRING, CountOfRights: u32) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaCallAuthenticationPackage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LsaHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthenticationPackage: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] ProtocolSubmitBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubmitBufferLength: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_buffer_maybenull_", "*ReturnBufferLength", "*ReturnBufferLength")] #[out] #[opt] ProtocolReturnBuffer: *mut PVOID, #[out] #[opt] ReturnBufferLength: PULONG, #[out] #[opt] ProtocolStatus: PNTSTATUS) -> NTSTATUS;
+        extern fn LsaCallAuthenticationPackage(LsaHandle: HANDLE, AuthenticationPackage: u32, #[size_param(3)] #[in] ProtocolSubmitBuffer: *mut void, SubmitBufferLength: u32, ProtocolReturnBuffer: *mut *mut void, #[out] #[opt] ReturnBufferLength: PULONG, #[out] #[opt] ProtocolStatus: PNTSTATUS) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaClose(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectHandle: LSA_HANDLE) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
+        extern fn LsaClose(ObjectHandle: LSA_HANDLE) -> NTSTATUS;
         #[library("Secur32.dll")]
         extern fn LsaConnectUntrusted(#[out] LsaHandle: PHANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaCreateTrustedDomainEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TrustedDomainInformation: PTRUSTED_DOMAIN_INFORMATION_EX, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthenticationInformation: PTRUSTED_DOMAIN_AUTH_INFORMATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredAccess: ACCESS_MASK, #[out] TrustedDomainHandle: PLSA_HANDLE) -> NTSTATUS;
+        extern fn LsaCreateTrustedDomainEx(PolicyHandle: LSA_HANDLE, TrustedDomainInformation: PTRUSTED_DOMAIN_INFORMATION_EX, AuthenticationInformation: PTRUSTED_DOMAIN_AUTH_INFORMATION, DesiredAccess: ACCESS_MASK, #[out] TrustedDomainHandle: PLSA_HANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaDeleteTrustedDomain(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TrustedDomainSid: PSID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
+        extern fn LsaDeleteTrustedDomain(PolicyHandle: LSA_HANDLE, TrustedDomainSid: PSID) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaDeregisterLogonProcess(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LsaHandle: HANDLE) -> NTSTATUS;
+        extern fn LsaDeregisterLogonProcess(LsaHandle: HANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaEnumerateAccountRights(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountSid: PSID, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*CountOfRights", "*CountOfRights")] #[out] UserRights: *mut PLSA_UNICODE_STRING, #[out] CountOfRights: PULONG) -> NTSTATUS;
+        extern fn LsaEnumerateAccountRights(PolicyHandle: LSA_HANDLE, AccountSid: PSID, UserRights: *mut PLSA_UNICODE_STRING, #[out] CountOfRights: PULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaEnumerateAccountsWithUserRight(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UserRight: PLSA_UNICODE_STRING, #[out] Buffer: *mut PVOID, #[out] CountReturned: PULONG) -> NTSTATUS;
+        extern fn LsaEnumerateAccountsWithUserRight(PolicyHandle: LSA_HANDLE, #[opt] UserRight: PLSA_UNICODE_STRING, Buffer: *mut *mut void, #[out] CountReturned: PULONG) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaEnumerateLogonSessions(#[out] LogonSessionCount: PULONG, #[out] LogonSessionList: *mut PLUID) -> NTSTATUS;
+        extern fn LsaEnumerateLogonSessions(#[out] LogonSessionCount: PULONG, LogonSessionList: *mut PLUID) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaEnumerateTrustedDomains(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[out] EnumerationContext: PLSA_ENUMERATION_HANDLE, #[out] Buffer: *mut PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PreferedMaximumLength: ULONG, #[out] CountReturned: PULONG) -> NTSTATUS;
+        extern fn LsaEnumerateTrustedDomains(PolicyHandle: LSA_HANDLE, #[in] #[out] EnumerationContext: PLSA_ENUMERATION_HANDLE, Buffer: *mut *mut void, PreferedMaximumLength: u32, #[out] CountReturned: PULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaEnumerateTrustedDomainsEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[out] EnumerationContext: PLSA_ENUMERATION_HANDLE, #[out] Buffer: *mut PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PreferedMaximumLength: ULONG, #[out] CountReturned: PULONG) -> NTSTATUS;
+        extern fn LsaEnumerateTrustedDomainsEx(PolicyHandle: LSA_HANDLE, #[in] #[out] EnumerationContext: PLSA_ENUMERATION_HANDLE, Buffer: *mut *mut void, PreferedMaximumLength: u32, #[out] CountReturned: PULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaFreeMemory(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Buffer: PVOID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
+        extern fn LsaFreeMemory(#[in] #[opt] Buffer: *mut void) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaFreeReturnBuffer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Buffer: PVOID) -> NTSTATUS;
+        extern fn LsaFreeReturnBuffer(#[in] Buffer: *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaGetAppliedCAPIDs(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SystemName: PLSA_UNICODE_STRING, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*CAPIDCount", "*CAPIDCount")] #[out] CAPIDs: *mut *mut PSID, #[out] CAPIDCount: PULONG) -> NTSTATUS;
+        extern fn LsaGetAppliedCAPIDs(#[opt] SystemName: PLSA_UNICODE_STRING, CAPIDs: *mut *mut PSID, #[out] CAPIDCount: PULONG) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaGetLogonSessionData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LogonId: PLUID, #[out] ppLogonSessionData: *mut PSECURITY_LOGON_SESSION_DATA) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
+        extern fn LsaGetLogonSessionData(LogonId: PLUID, ppLogonSessionData: *mut PSECURITY_LOGON_SESSION_DATA) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaLogonUser(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LsaHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OriginName: PLSA_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LogonType: SECURITY_LOGON_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthenticationPackage: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(5)] AuthenticationInformation: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AuthenticationInformationLength: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LocalGroups: PTOKEN_GROUPS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceContext: PTOKEN_SOURCE, #[out] ProfileBuffer: *mut PVOID, #[out] ProfileBufferLength: PULONG, #[in] #[out] LogonId: PLUID, #[out] Token: PHANDLE, #[out] Quotas: PQUOTA_LIMITS, #[out] SubStatus: PNTSTATUS) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
+        extern fn LsaLogonUser(LsaHandle: HANDLE, OriginName: PLSA_STRING, LogonType: SECURITY_LOGON_TYPE, AuthenticationPackage: u32, #[size_param(5)] #[in] AuthenticationInformation: *mut void, AuthenticationInformationLength: u32, #[opt] LocalGroups: PTOKEN_GROUPS, SourceContext: PTOKEN_SOURCE, ProfileBuffer: *mut *mut void, #[out] ProfileBufferLength: PULONG, #[in] #[out] LogonId: PLUID, #[out] Token: PHANDLE, #[out] Quotas: PQUOTA_LIMITS, #[out] SubStatus: PNTSTATUS) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaLookupAuthenticationPackage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LsaHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PackageName: PLSA_STRING, #[out] AuthenticationPackage: PULONG) -> NTSTATUS;
+        extern fn LsaLookupAuthenticationPackage(LsaHandle: HANDLE, PackageName: PLSA_STRING, #[out] AuthenticationPackage: PULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaLookupNames(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Count: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Names: PLSA_UNICODE_STRING, #[out] ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, #[out] Sids: *mut PLSA_TRANSLATED_SID) -> NTSTATUS;
+        extern fn LsaLookupNames(PolicyHandle: LSA_HANDLE, Count: u32, Names: PLSA_UNICODE_STRING, ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, Sids: *mut PLSA_TRANSLATED_SID) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaLookupNames2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Count: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Names: PLSA_UNICODE_STRING, #[out] ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, #[out] Sids: *mut PLSA_TRANSLATED_SID2) -> NTSTATUS;
+        extern fn LsaLookupNames2(PolicyHandle: LSA_HANDLE, Flags: u32, Count: u32, Names: PLSA_UNICODE_STRING, ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, Sids: *mut PLSA_TRANSLATED_SID2) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaLookupSids(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Count: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Sids: *mut PSID, #[out] ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, #[out] Names: *mut PLSA_TRANSLATED_NAME) -> NTSTATUS;
+        extern fn LsaLookupSids(PolicyHandle: LSA_HANDLE, Count: u32, #[in] Sids: *mut PSID, ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, Names: *mut PLSA_TRANSLATED_NAME) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaLookupSids2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LookupOptions: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Count: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Sids: *mut PSID, #[out] ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, #[out] Names: *mut PLSA_TRANSLATED_NAME) -> NTSTATUS;
+        extern fn LsaLookupSids2(PolicyHandle: LSA_HANDLE, LookupOptions: u32, Count: u32, #[in] Sids: *mut PSID, ReferencedDomains: *mut PLSA_REFERENCED_DOMAIN_LIST, Names: *mut PLSA_TRANSLATED_NAME) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaNtStatusToWinError(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Status: NTSTATUS) -> ULONG;
+        extern fn LsaNtStatusToWinError(Status: NTSTATUS) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn LsaOpenPolicy(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SystemName: PLSA_UNICODE_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectAttributes: PLSA_OBJECT_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredAccess: ACCESS_MASK, #[out] PolicyHandle: PLSA_HANDLE) -> NTSTATUS;
+        extern fn LsaOpenPolicy(#[opt] SystemName: PLSA_UNICODE_STRING, ObjectAttributes: PLSA_OBJECT_ATTRIBUTES, DesiredAccess: ACCESS_MASK, #[out] PolicyHandle: PLSA_HANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaOpenTrustedDomainByName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TrustedDomainName: PLSA_UNICODE_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DesiredAccess: ACCESS_MASK, #[out] TrustedDomainHandle: PLSA_HANDLE) -> NTSTATUS;
+        extern fn LsaOpenTrustedDomainByName(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, DesiredAccess: ACCESS_MASK, #[out] TrustedDomainHandle: PLSA_HANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaQueryCAPs(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] CAPIDs: *mut PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CAPIDCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*CAPCount", "*CAPCount")] #[out] CAPs: *mut PCENTRAL_ACCESS_POLICY, #[out] CAPCount: PULONG) -> NTSTATUS;
+        extern fn LsaQueryCAPs(#[len_param(1)] #[in] #[opt] CAPIDs: *mut PSID, CAPIDCount: u32, CAPs: *mut PCENTRAL_ACCESS_POLICY, #[out] CAPCount: PULONG) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaQueryDomainInformationPolicy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InformationClass: POLICY_DOMAIN_INFORMATION_CLASS, #[out] Buffer: *mut PVOID) -> NTSTATUS;
+        extern fn LsaQueryDomainInformationPolicy(PolicyHandle: LSA_HANDLE, InformationClass: POLICY_DOMAIN_INFORMATION_CLASS, Buffer: *mut *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaQueryForestTrustInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TrustedDomainName: PLSA_UNICODE_STRING, #[out] ForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION) -> NTSTATUS;
+        extern fn LsaQueryForestTrustInformation(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, ForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaQueryForestTrustInformation2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TrustedDomainName: PLSA_UNICODE_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HighestRecordType: LSA_FOREST_TRUST_RECORD_TYPE, #[out] ForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION2) -> NTSTATUS;
+        extern fn LsaQueryForestTrustInformation2(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, HighestRecordType: LSA_FOREST_TRUST_RECORD_TYPE, ForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION2) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaQueryInformationPolicy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InformationClass: POLICY_INFORMATION_CLASS, #[out] Buffer: *mut PVOID) -> NTSTATUS;
+        extern fn LsaQueryInformationPolicy(PolicyHandle: LSA_HANDLE, InformationClass: POLICY_INFORMATION_CLASS, Buffer: *mut *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaQueryTrustedDomainInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TrustedDomainSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InformationClass: TRUSTED_INFORMATION_CLASS, #[out] Buffer: *mut PVOID) -> NTSTATUS;
+        extern fn LsaQueryTrustedDomainInfo(PolicyHandle: LSA_HANDLE, TrustedDomainSid: PSID, InformationClass: TRUSTED_INFORMATION_CLASS, Buffer: *mut *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaQueryTrustedDomainInfoByName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TrustedDomainName: PLSA_UNICODE_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InformationClass: TRUSTED_INFORMATION_CLASS, #[out] Buffer: *mut PVOID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
+        extern fn LsaQueryTrustedDomainInfoByName(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, InformationClass: TRUSTED_INFORMATION_CLASS, Buffer: *mut *mut void) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaRegisterLogonProcess(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LogonProcessName: PLSA_STRING, #[out] LsaHandle: PHANDLE, #[out] SecurityMode: PLSA_OPERATIONAL_MODE) -> NTSTATUS;
+        extern fn LsaRegisterLogonProcess(LogonProcessName: PLSA_STRING, #[out] LsaHandle: PHANDLE, #[out] SecurityMode: PLSA_OPERATIONAL_MODE) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaRegisterPolicyChangeNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InformationClass: POLICY_NOTIFICATION_INFORMATION_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NotificationEventHandle: HANDLE) -> NTSTATUS;
+        extern fn LsaRegisterPolicyChangeNotification(InformationClass: POLICY_NOTIFICATION_INFORMATION_CLASS, NotificationEventHandle: HANDLE) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaRemoveAccountRights(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AllRights: BOOLEAN, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] UserRights: PLSA_UNICODE_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CountOfRights: ULONG) -> NTSTATUS;
+        extern fn LsaRemoveAccountRights(PolicyHandle: LSA_HANDLE, AccountSid: PSID, AllRights: BOOLEAN, #[len_param(4)] #[opt] UserRights: PLSA_UNICODE_STRING, CountOfRights: u32) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaRetrievePrivateData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] KeyName: PLSA_UNICODE_STRING, #[out] PrivateData: *mut PLSA_UNICODE_STRING) -> NTSTATUS;
+        extern fn LsaRetrievePrivateData(PolicyHandle: LSA_HANDLE, KeyName: PLSA_UNICODE_STRING, PrivateData: *mut PLSA_UNICODE_STRING) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetCAPs(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] CAPDNs: PLSA_UNICODE_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CAPDNCount: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: ULONG) -> NTSTATUS;
+        extern fn LsaSetCAPs(#[len_param(1)] #[opt] CAPDNs: PLSA_UNICODE_STRING, CAPDNCount: u32, Flags: u32) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetDomainInformationPolicy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InformationClass: POLICY_DOMAIN_INFORMATION_CLASS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Buffer: PVOID) -> NTSTATUS;
+        extern fn LsaSetDomainInformationPolicy(PolicyHandle: LSA_HANDLE, InformationClass: POLICY_DOMAIN_INFORMATION_CLASS, #[in] #[opt] Buffer: *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetForestTrustInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TrustedDomainName: PLSA_UNICODE_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ForestTrustInfo: PLSA_FOREST_TRUST_INFORMATION, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CheckOnly: BOOLEAN, #[out] CollisionInfo: *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> NTSTATUS;
+        extern fn LsaSetForestTrustInformation(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, ForestTrustInfo: PLSA_FOREST_TRUST_INFORMATION, CheckOnly: BOOLEAN, CollisionInfo: *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetForestTrustInformation2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TrustedDomainName: PLSA_UNICODE_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] HighestRecordType: LSA_FOREST_TRUST_RECORD_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ForestTrustInfo: PLSA_FOREST_TRUST_INFORMATION2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CheckOnly: BOOLEAN, #[out] CollisionInfo: *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> NTSTATUS;
+        extern fn LsaSetForestTrustInformation2(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, HighestRecordType: LSA_FOREST_TRUST_RECORD_TYPE, ForestTrustInfo: PLSA_FOREST_TRUST_INFORMATION2, CheckOnly: BOOLEAN, CollisionInfo: *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetInformationPolicy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InformationClass: POLICY_INFORMATION_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Buffer: PVOID) -> NTSTATUS;
+        extern fn LsaSetInformationPolicy(PolicyHandle: LSA_HANDLE, InformationClass: POLICY_INFORMATION_CLASS, #[in] Buffer: *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetTrustedDomainInfoByName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TrustedDomainName: PLSA_UNICODE_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InformationClass: TRUSTED_INFORMATION_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Buffer: PVOID) -> NTSTATUS;
+        extern fn LsaSetTrustedDomainInfoByName(PolicyHandle: LSA_HANDLE, TrustedDomainName: PLSA_UNICODE_STRING, InformationClass: TRUSTED_INFORMATION_CLASS, #[in] Buffer: *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaSetTrustedDomainInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TrustedDomainSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InformationClass: TRUSTED_INFORMATION_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Buffer: PVOID) -> NTSTATUS;
+        extern fn LsaSetTrustedDomainInformation(PolicyHandle: LSA_HANDLE, TrustedDomainSid: PSID, InformationClass: TRUSTED_INFORMATION_CLASS, #[in] Buffer: *mut void) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn LsaStorePrivateData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PolicyHandle: LSA_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] KeyName: PLSA_UNICODE_STRING, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] PrivateData: PLSA_UNICODE_STRING) -> NTSTATUS;
+        extern fn LsaStorePrivateData(PolicyHandle: LSA_HANDLE, KeyName: PLSA_UNICODE_STRING, #[opt] PrivateData: PLSA_UNICODE_STRING) -> NTSTATUS;
         #[library("Secur32.dll")]
-        extern fn LsaUnregisterPolicyChangeNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InformationClass: POLICY_NOTIFICATION_INFORMATION_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NotificationEventHandle: HANDLE) -> NTSTATUS;
+        extern fn LsaUnregisterPolicyChangeNotification(InformationClass: POLICY_NOTIFICATION_INFORMATION_CLASS, NotificationEventHandle: HANDLE) -> NTSTATUS;
         const MAXIMUM_CAPES_PER_CAP: i32 = 127;
         const MAX_FOREST_TRUST_BINARY_DATA_SIZE: i32 = 131072;
         const MAX_RECORDS_IN_FOREST_TRUST_INFO: i32 = 4000;
@@ -1160,8 +1121,8 @@ mod Windows {
         const MSV1_0_AV_FLAG_MIC_HANDSHAKE_MESSAGES: i32 = 2;
         const MSV1_0_AV_FLAG_UNVERIFIED_TARGET: i32 = 4;
         struct MSV1_0_AV_PAIR {
-            AvId: USHORT,
-            AvLen: USHORT,
+            AvId: u16,
+            AvLen: u16,
         }
         const MSV1_0_CHALLENGE_LENGTH: i32 = 8;
         struct MSV1_0_CHANGEPASSWORD_REQUEST {
@@ -1181,7 +1142,7 @@ mod Windows {
         const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: i32 = 2;
         const MSV1_0_CLEARTEXT_PASSWORD_SUPPLIED: i32 = 16384;
         struct MSV1_0_CREDENTIAL_KEY {
-            Data: [UCHAR; 20],
+            Data: [u8; 20],
         }
         const MSV1_0_CREDENTIAL_KEY_LENGTH: i32 = 20;
         #[repr(i32)]
@@ -1215,8 +1176,8 @@ mod Windows {
         }
         struct MSV1_0_INTERACTIVE_PROFILE {
             MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
-            LogonCount: USHORT,
-            BadPasswordCount: USHORT,
+            LogonCount: u16,
+            BadPasswordCount: u16,
             LogonTime: LARGE_INTEGER,
             LogoffTime: LARGE_INTEGER,
             KickOffTime: LARGE_INTEGER,
@@ -1229,14 +1190,13 @@ mod Windows {
             ProfilePath: UNICODE_STRING,
             HomeDirectoryDrive: UNICODE_STRING,
             LogonServer: UNICODE_STRING,
-            UserFlags: ULONG,
+            UserFlags: u32,
         }
         const MSV1_0_INTERNET_DOMAIN: i32 = 524288;
         struct MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
-            Version: ULONG,
-            EncryptedCredsSize: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "EncryptedCredsSize", IsByteCount = false, MayBeNull = false)]
-            EncryptedCreds: [UCHAR; 1],
+            Version: u32,
+            EncryptedCredsSize: u32,
+            EncryptedCreds: [u8; 1],
         }
         const MSV1_0_LANMAN_SESSION_KEY_LENGTH: i32 = 8;
         struct MSV1_0_LM20_LOGON {
@@ -1244,19 +1204,19 @@ mod Windows {
             LogonDomainName: UNICODE_STRING,
             UserName: UNICODE_STRING,
             Workstation: UNICODE_STRING,
-            ChallengeToClient: [UCHAR; 8],
+            ChallengeToClient: [u8; 8],
             CaseSensitiveChallengeResponse: STRING,
             CaseInsensitiveChallengeResponse: STRING,
-            ParameterControl: ULONG,
+            ParameterControl: u32,
         }
         struct MSV1_0_LM20_LOGON_PROFILE {
             MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
             KickOffTime: LARGE_INTEGER,
             LogoffTime: LARGE_INTEGER,
-            UserFlags: ULONG,
-            UserSessionKey: [UCHAR; 16],
+            UserFlags: u32,
+            UserSessionKey: [u8; 16],
             LogonDomainName: UNICODE_STRING,
-            LanmanSessionKey: [UCHAR; 8],
+            LanmanSessionKey: [u8; 8],
             LogonServer: UNICODE_STRING,
             UserParameters: UNICODE_STRING,
         }
@@ -1285,15 +1245,15 @@ mod Windows {
         const MSV1_0_NTLM3_MIN_NT_RESPONSE_LENGTH: u32 = 44;
         const MSV1_0_NTLM3_OWF_LENGTH: i32 = 16;
         struct MSV1_0_NTLM3_RESPONSE {
-            Response: [UCHAR; 16],
-            RespType: UCHAR,
-            HiRespType: UCHAR,
-            Flags: USHORT,
-            MsgWord: ULONG,
-            TimeStamp: ULONGLONG,
-            ChallengeFromClient: [UCHAR; 8],
-            AvPairsOff: ULONG,
-            Buffer: [UCHAR; 1],
+            Response: [u8; 16],
+            RespType: u8,
+            HiRespType: u8,
+            Flags: u16,
+            MsgWord: u32,
+            TimeStamp: u64,
+            ChallengeFromClient: [u8; 8],
+            AvPairsOff: u32,
+            Buffer: [u8; 1],
         }
         const MSV1_0_NTLM3_RESPONSE_LENGTH: i32 = 16;
         const MSV1_0_OWF_PASSWORD_LENGTH: i32 = 16;
@@ -1309,14 +1269,14 @@ mod Windows {
             MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
             DomainName: UNICODE_STRING,
             PackageName: UNICODE_STRING,
-            DataLength: ULONG,
+            DataLength: u32,
             LogonData: PUCHAR,
-            Pad: ULONG,
+            Pad: u32,
         }
         struct MSV1_0_PASSTHROUGH_RESPONSE {
             MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
-            Pad: ULONG,
-            DataLength: ULONG,
+            Pad: u32,
+            DataLength: u32,
             ValidationData: PUCHAR,
         }
         #[repr(i32)]
@@ -1355,12 +1315,12 @@ mod Windows {
         }
         #[packed(1)]
         struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
-            Version: ULONG,
-            Flags: ULONG,
+            Version: u32,
+            Flags: u32,
             CredentialKey: MSV1_0_CREDENTIAL_KEY,
             CredentialKeyType: MSV1_0_CREDENTIAL_KEY_TYPE,
-            EncryptedCredsSize: ULONG,
-            EncryptedCreds: [UCHAR; 1],
+            EncryptedCredsSize: u32,
+            EncryptedCreds: [u8; 1],
         }
         const MSV1_0_RETURN_PASSWORD_EXPIRY: i32 = 64;
         const MSV1_0_RETURN_PROFILE_PATH: i32 = 512;
@@ -1368,7 +1328,7 @@ mod Windows {
         const MSV1_0_S4U2SELF: i32 = 131072;
         struct MSV1_0_S4U_LOGON {
             MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
-            Flags: ULONG,
+            Flags: u32,
             UserPrincipalName: UNICODE_STRING,
             DomainName: UNICODE_STRING,
         }
@@ -1389,42 +1349,42 @@ mod Windows {
             LogonDomainName: UNICODE_STRING,
             UserName: UNICODE_STRING,
             Workstation: UNICODE_STRING,
-            ChallengeToClient: [UCHAR; 8],
+            ChallengeToClient: [u8; 8],
             AuthenticationInfo1: STRING,
             AuthenticationInfo2: STRING,
-            ParameterControl: ULONG,
-            SubAuthPackageId: ULONG,
+            ParameterControl: u32,
+            SubAuthPackageId: u32,
         }
         struct MSV1_0_SUBAUTH_REQUEST {
             MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
-            SubAuthPackageId: ULONG,
-            SubAuthInfoLength: ULONG,
+            SubAuthPackageId: u32,
+            SubAuthInfoLength: u32,
             SubAuthSubmitBuffer: PUCHAR,
         }
         struct MSV1_0_SUBAUTH_RESPONSE {
             MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
-            SubAuthInfoLength: ULONG,
+            SubAuthInfoLength: u32,
             SubAuthReturnBuffer: PUCHAR,
         }
         struct MSV1_0_SUPPLEMENTAL_CREDENTIAL {
-            Version: ULONG,
-            Flags: ULONG,
-            LmPassword: [UCHAR; 16],
-            NtPassword: [UCHAR; 16],
+            Version: u32,
+            Flags: u32,
+            LmPassword: [u8; 16],
+            NtPassword: [u8; 16],
         }
         struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
-            Version: ULONG,
-            Flags: ULONG,
-            NtPassword: [UCHAR; 16],
+            Version: u32,
+            Flags: u32,
+            NtPassword: [u8; 16],
             CredentialKey: MSV1_0_CREDENTIAL_KEY,
         }
         struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
-            Version: ULONG,
-            Flags: ULONG,
+            Version: u32,
+            Flags: u32,
             CredentialKeyType: MSV1_0_CREDENTIAL_KEY_TYPE,
-            NtPassword: [UCHAR; 16],
+            NtPassword: [u8; 16],
             CredentialKey: MSV1_0_CREDENTIAL_KEY,
-            ShaPassword: [UCHAR; 20],
+            ShaPassword: [u8; 20],
         }
         const MSV1_0_TRY_GUEST_ACCOUNT_ONLY: i32 = 256;
         const MSV1_0_TRY_SPECIFIED_DOMAIN_ONLY: i32 = 1024;
@@ -1433,11 +1393,11 @@ mod Windows {
         const MSV1_0_USE_CLIENT_CHALLENGE: i32 = 128;
         const MSV1_0_USE_DOMAIN_FOR_ROUTING_ONLY: i32 = 32768;
         struct NEGOTIATE_CALLER_NAME_REQUEST {
-            MessageType: ULONG,
+            MessageType: u32,
             LogonId: LUID,
         }
         struct NEGOTIATE_CALLER_NAME_RESPONSE {
-            MessageType: ULONG,
+            MessageType: u32,
             CallerName: PWSTR,
         }
         const NEGOTIATE_MAX_PREFIX: i32 = 32;
@@ -1450,19 +1410,20 @@ mod Windows {
             NegCallPackageMax = 4,
         }
         struct NEGOTIATE_PACKAGE_PREFIX {
-            PackageId: ULONG_PTR,
-            PackageDataA: PVOID,
-            PackageDataW: PVOID,
-            PrefixLen: ULONG_PTR,
-            Prefix: [UCHAR; 32],
+            PackageId: usize,
+            PackageDataA: *mut void,
+            PackageDataW: *mut void,
+            PrefixLen: usize,
+            Prefix: [u8; 32],
         }
         struct NEGOTIATE_PACKAGE_PREFIXES {
-            MessageType: ULONG,
-            PrefixCount: ULONG,
-            Offset: ULONG,
-            Pad: ULONG,
+            MessageType: u32,
+            PrefixCount: u32,
+            Offset: u32,
+            Pad: u32,
         }
         type PAUDIT_POLICY_INFORMATION = *mut AUDIT_POLICY_INFORMATION;
+        type PCAUDIT_POLICY_INFORMATION = PAUDIT_POLICY_INFORMATION;
         type PCCENTRAL_ACCESS_POLICY = *const CENTRAL_ACCESS_POLICY;
         type PCCENTRAL_ACCESS_POLICY_ENTRY = *const CENTRAL_ACCESS_POLICY_ENTRY;
         type PCENTRAL_ACCESS_POLICY = *mut CENTRAL_ACCESS_POLICY;
@@ -1552,24 +1513,22 @@ mod Windows {
         type PKERB_TRANSFER_CRED_REQUEST = *mut KERB_TRANSFER_CRED_REQUEST;
         struct PKU2U_CERTIFICATE_S4U_LOGON {
             MessageType: PKU2U_LOGON_SUBMIT_TYPE,
-            Flags: ULONG,
+            Flags: u32,
             UserPrincipalName: UNICODE_STRING,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Reserved_", "", "")]
             DomainName: UNICODE_STRING,
-            CertificateLength: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "CertificateLength", IsByteCount = true, MayBeNull = false)]
+            CertificateLength: u32,
             Certificate: PUCHAR,
         }
         struct PKU2U_CERT_BLOB {
-            CertOffset: ULONG,
-            CertLength: USHORT,
+            CertOffset: u32,
+            CertLength: u16,
         }
         struct PKU2U_CREDUI_CONTEXT {
-            Version: ULONG64,
-            cbHeaderLength: USHORT,
-            cbStructureLength: ULONG,
-            CertArrayCount: USHORT,
-            CertArrayOffset: ULONG,
+            Version: u64,
+            cbHeaderLength: u16,
+            cbStructureLength: u32,
+            CertArrayCount: u16,
+            CertArrayOffset: u32,
         }
         const PKU2U_CREDUI_CONTEXT_VERSION: i64 = 4707459272237270339;
         #[repr(i32)]
@@ -1627,13 +1586,13 @@ mod Windows {
         type PNEGOTIATE_PACKAGE_PREFIXES = *mut NEGOTIATE_PACKAGE_PREFIXES;
         const POLICY_ALL_ACCESS: i32 = 987135;
         struct POLICY_AUDIT_CATEGORIES_INFO {
-            MaximumCategoryCount: ULONG,
+            MaximumCategoryCount: u32,
             SubCategoriesInfo: PPOLICY_AUDIT_SUBCATEGORIES_INFO,
         }
         struct POLICY_AUDIT_EVENTS_INFO {
             AuditingMode: BOOLEAN,
             EventAuditingOptions: PPOLICY_AUDIT_EVENT_OPTIONS,
-            MaximumAuditEventCount: ULONG,
+            MaximumAuditEventCount: u32,
         }
         const POLICY_AUDIT_EVENT_FAILURE: i32 = 2;
         const POLICY_AUDIT_EVENT_MASK: i32 = 7;
@@ -1662,19 +1621,19 @@ mod Windows {
         }
         const POLICY_AUDIT_LOG_ADMIN: i32 = 512;
         struct POLICY_AUDIT_LOG_INFO {
-            AuditLogPercentFull: ULONG,
-            MaximumLogSize: ULONG,
+            AuditLogPercentFull: u32,
+            MaximumLogSize: u32,
             AuditRetentionPeriod: LARGE_INTEGER,
             AuditLogFullShutdownInProgress: BOOLEAN,
             TimeToShutdown: LARGE_INTEGER,
-            NextAuditRecordId: ULONG,
+            NextAuditRecordId: u32,
         }
         struct POLICY_AUDIT_SID_ARRAY {
-            UsersCount: ULONG,
+            UsersCount: u32,
             UserSidArray: *mut PSID,
         }
         struct POLICY_AUDIT_SUBCATEGORIES_INFO {
-            MaximumSubCategoryCount: ULONG,
+            MaximumSubCategoryCount: u32,
             EventAuditingOptions: PPOLICY_AUDIT_EVENT_OPTIONS,
         }
         const POLICY_CREATE_ACCOUNT: i32 = 16;
@@ -1684,7 +1643,7 @@ mod Windows {
             QuotaLimits: QUOTA_LIMITS,
         }
         struct POLICY_DOMAIN_EFS_INFO {
-            InfoLength: ULONG,
+            InfoLength: u32,
             EfsBlob: PUCHAR,
         }
         #[repr(i32)]
@@ -1693,7 +1652,7 @@ mod Windows {
             PolicyDomainKerberosTicketInformation = 3,
         }
         struct POLICY_DOMAIN_KERBEROS_TICKET_INFO {
-            AuthenticationOptions: ULONG,
+            AuthenticationOptions: u32,
             MaxServiceTicketAge: LARGE_INTEGER,
             MaxTicketAge: LARGE_INTEGER,
             MaxRenewAge: LARGE_INTEGER,
@@ -1733,11 +1692,11 @@ mod Windows {
             LsaServerRole: POLICY_LSA_SERVER_ROLE,
         }
         struct POLICY_MACHINE_ACCT_INFO {
-            Rid: ULONG,
+            Rid: u32,
             Sid: PSID,
         }
         struct POLICY_MACHINE_ACCT_INFO2 {
-            Rid: ULONG,
+            Rid: u32,
             Sid: PSID,
             ObjectGuid: GUID,
         }
@@ -1805,8 +1764,8 @@ mod Windows {
         type PPOLICY_PRIMARY_DOMAIN_INFO = *mut POLICY_PRIMARY_DOMAIN_INFO;
         type PPOLICY_REPLICA_SOURCE_INFO = *mut POLICY_REPLICA_SOURCE_INFO;
         extern "C" fn PSAM_INIT_NOTIFICATION_ROUTINE() -> BOOLEAN;
-        extern "C" fn PSAM_PASSWORD_FILTER_ROUTINE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AccountName: PUNICODE_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FullName: PUNICODE_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Password: PUNICODE_STRING, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SetOperation: BOOLEAN) -> BOOLEAN;
-        extern "C" fn PSAM_PASSWORD_NOTIFICATION_ROUTINE(UserName: PUNICODE_STRING, RelativeId: ULONG, NewPassword: PUNICODE_STRING) -> NTSTATUS;
+        extern "C" fn PSAM_PASSWORD_FILTER_ROUTINE(AccountName: PUNICODE_STRING, FullName: PUNICODE_STRING, Password: PUNICODE_STRING, SetOperation: BOOLEAN) -> BOOLEAN;
+        extern "C" fn PSAM_PASSWORD_NOTIFICATION_ROUTINE(UserName: PUNICODE_STRING, RelativeId: u32, NewPassword: PUNICODE_STRING) -> NTSTATUS;
         type PSECURITY_LOGON_SESSION_DATA = *mut SECURITY_LOGON_SESSION_DATA;
         type PSECURITY_LOGON_TYPE = *mut SECURITY_LOGON_TYPE;
         type PSE_ADT_ACCESS_REASON = *mut SE_ADT_ACCESS_REASON;
@@ -1816,11 +1775,12 @@ mod Windows {
         type PSE_ADT_PARAMETER_ARRAY_ENTRY = *mut SE_ADT_PARAMETER_ARRAY_ENTRY;
         type PSE_ADT_PARAMETER_ARRAY_EX = *mut SE_ADT_PARAMETER_ARRAY_EX;
         type PSE_ADT_PARAMETER_TYPE = *mut SE_ADT_PARAMETER_TYPE;
+        type PSTRING = *mut LSA_STRING;
         type PTRUSTED_CONTROLLERS_INFO = *mut TRUSTED_CONTROLLERS_INFO;
         type PTRUSTED_DOMAIN_AUTH_INFORMATION = *mut TRUSTED_DOMAIN_AUTH_INFORMATION;
         type PTRUSTED_DOMAIN_FULL_INFORMATION = *mut TRUSTED_DOMAIN_FULL_INFORMATION;
         type PTRUSTED_DOMAIN_FULL_INFORMATION2 = *mut TRUSTED_DOMAIN_FULL_INFORMATION2;
-        type PTRUSTED_DOMAIN_INFORMATION_BASIC = *mut LSA_TRUST_INFORMATION;
+        type PTRUSTED_DOMAIN_INFORMATION_BASIC = PLSA_TRUST_INFORMATION;
         type PTRUSTED_DOMAIN_INFORMATION_EX = *mut TRUSTED_DOMAIN_INFORMATION_EX;
         type PTRUSTED_DOMAIN_INFORMATION_EX2 = *mut TRUSTED_DOMAIN_INFORMATION_EX2;
         type PTRUSTED_DOMAIN_NAME_INFO = *mut TRUSTED_DOMAIN_NAME_INFO;
@@ -1828,16 +1788,17 @@ mod Windows {
         type PTRUSTED_INFORMATION_CLASS = *mut TRUSTED_INFORMATION_CLASS;
         type PTRUSTED_PASSWORD_INFO = *mut TRUSTED_PASSWORD_INFO;
         type PTRUSTED_POSIX_OFFSET_INFO = *mut TRUSTED_POSIX_OFFSET_INFO;
+        type PUNICODE_STRING = *mut LSA_UNICODE_STRING;
         const RTL_ENCRYPT_MEMORY_SIZE: i32 = 8;
         const RTL_ENCRYPT_OPTION_CROSS_PROCESS: i32 = 1;
         const RTL_ENCRYPT_OPTION_FOR_SYSTEM: i32 = 4;
         const RTL_ENCRYPT_OPTION_SAME_LOGON: i32 = 2;
         #[library("ADVAPI32.dll", import = "SystemFunction041")]
-        extern fn RtlDecryptMemory(#[in] #[out] #[size_param(1)] Memory: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MemorySize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OptionFlags: ULONG) -> NTSTATUS;
+        extern fn RtlDecryptMemory(#[size_param(1)] #[in] #[out] Memory: *mut void, MemorySize: u32, OptionFlags: u32) -> NTSTATUS;
         #[library("ADVAPI32.dll", import = "SystemFunction040")]
-        extern fn RtlEncryptMemory(#[in] #[out] #[size_param(1)] Memory: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MemorySize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OptionFlags: ULONG) -> NTSTATUS;
+        extern fn RtlEncryptMemory(#[size_param(1)] #[in] #[out] Memory: *mut void, MemorySize: u32, OptionFlags: u32) -> NTSTATUS;
         #[library("ADVAPI32.dll", import = "SystemFunction036")]
-        extern fn RtlGenRandom(#[out] #[size_param(1)] RandomBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RandomBufferLength: ULONG) -> BOOLEAN;
+        extern fn RtlGenRandom(#[size_param(1)] RandomBuffer: *mut void, RandomBufferLength: u32) -> BOOLEAN;
         #[encoding("ansi")]
         const SAM_INIT_NOTIFICATION_ROUTINE: String = "InitializeChangeNotify";
         #[encoding("ansi")]
@@ -1845,19 +1806,19 @@ mod Windows {
         #[encoding("ansi")]
         const SAM_PASSWORD_FILTER_ROUTINE: String = "PasswordFilter";
         struct SECURITY_LOGON_SESSION_DATA {
-            Size: ULONG,
+            Size: u32,
             LogonId: LUID,
             UserName: LSA_UNICODE_STRING,
             LogonDomain: LSA_UNICODE_STRING,
             AuthenticationPackage: LSA_UNICODE_STRING,
-            LogonType: ULONG,
-            Session: ULONG,
+            LogonType: u32,
+            Session: u32,
             Sid: PSID,
             LogonTime: LARGE_INTEGER,
             LogonServer: LSA_UNICODE_STRING,
             DnsDomainName: LSA_UNICODE_STRING,
             Upn: LSA_UNICODE_STRING,
-            UserFlags: ULONG,
+            UserFlags: u32,
             LastLogonInfo: LSA_LAST_INTER_LOGON_INFO,
             LogonScript: LSA_UNICODE_STRING,
             ProfilePath: LSA_UNICODE_STRING,
@@ -1887,49 +1848,49 @@ mod Windows {
         }
         struct SE_ADT_ACCESS_REASON {
             AccessMask: ACCESS_MASK,
-            AccessReasons: [ULONG; 32],
-            ObjectTypeIndex: ULONG,
-            AccessGranted: ULONG,
+            AccessReasons: [u32; 32],
+            ObjectTypeIndex: u32,
+            AccessGranted: u32,
             SecurityDescriptor: PSECURITY_DESCRIPTOR,
         }
         struct SE_ADT_CLAIMS {
-            Length: ULONG,
+            Length: u32,
             Claims: PCLAIMS_BLOB,
         }
         const SE_ADT_OBJECT_ONLY: i32 = 1;
         struct SE_ADT_OBJECT_TYPE {
             ObjectType: GUID,
-            Flags: USHORT,
-            Level: USHORT,
+            Flags: u16,
+            Level: u16,
             AccessMask: ACCESS_MASK,
         }
         const SE_ADT_PARAMETERS_SELF_RELATIVE: i32 = 1;
         const SE_ADT_PARAMETERS_SEND_TO_LSA: i32 = 2;
         struct SE_ADT_PARAMETER_ARRAY {
-            CategoryId: ULONG,
-            AuditId: ULONG,
-            ParameterCount: ULONG,
-            Length: ULONG,
-            FlatSubCategoryId: USHORT,
-            Type: USHORT,
-            Flags: ULONG,
+            CategoryId: u32,
+            AuditId: u32,
+            ParameterCount: u32,
+            Length: u32,
+            FlatSubCategoryId: u16,
+            Type: u16,
+            Flags: u32,
             Parameters: [SE_ADT_PARAMETER_ARRAY_ENTRY; 32],
         }
         struct SE_ADT_PARAMETER_ARRAY_ENTRY {
             Type: SE_ADT_PARAMETER_TYPE,
-            Length: ULONG,
-            Data: [ULONG_PTR; 2],
-            Address: PVOID,
+            Length: u32,
+            Data: [usize; 2],
+            Address: *mut void,
         }
         struct SE_ADT_PARAMETER_ARRAY_EX {
-            CategoryId: ULONG,
-            AuditId: ULONG,
-            Version: ULONG,
-            ParameterCount: ULONG,
-            Length: ULONG,
-            FlatSubCategoryId: USHORT,
-            Type: USHORT,
-            Flags: ULONG,
+            CategoryId: u32,
+            AuditId: u32,
+            Version: u32,
+            ParameterCount: u32,
+            Length: u32,
+            FlatSubCategoryId: u16,
+            Type: u16,
+            Flags: u32,
             Parameters: [SE_ADT_PARAMETER_ARRAY_ENTRY; 32],
         }
         const SE_ADT_PARAMETER_EXTENSIBLE_AUDIT: i32 = 4;
@@ -1974,43 +1935,17 @@ mod Windows {
             SeAdtParmTypeLogonIdEx = 35,
         }
         const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: i32 = 16;
-        #[encoding("ansi")]
-        const SE_BATCH_LOGON_NAME: String = "SeBatchLogonRight";
-        #[encoding("ansi")]
-        const SE_DENY_BATCH_LOGON_NAME: String = "SeDenyBatchLogonRight";
-        #[encoding("ansi")]
-        const SE_DENY_INTERACTIVE_LOGON_NAME: String = "SeDenyInteractiveLogonRight";
-        #[encoding("ansi")]
-        const SE_DENY_NETWORK_LOGON_NAME: String = "SeDenyNetworkLogonRight";
-        #[encoding("ansi")]
-        const SE_DENY_REMOTE_INTERACTIVE_LOGON_NAME: String = "SeDenyRemoteInteractiveLogonRight";
-        #[encoding("ansi")]
-        const SE_DENY_SERVICE_LOGON_NAME: String = "SeDenyServiceLogonRight";
-        #[encoding("ansi")]
-        const SE_INTERACTIVE_LOGON_NAME: String = "SeInteractiveLogonRight";
         const SE_MAX_AUDIT_PARAMETERS: i32 = 32;
         const SE_MAX_GENERIC_AUDIT_PARAMETERS: i32 = 28;
-        #[encoding("ansi")]
-        const SE_NETWORK_LOGON_NAME: String = "SeNetworkLogonRight";
-        #[encoding("ansi")]
-        const SE_REMOTE_INTERACTIVE_LOGON_NAME: String = "SeRemoteInteractiveLogonRight";
-        #[encoding("ansi")]
-        const SE_SERVICE_LOGON_NAME: String = "SeServiceLogonRight";
-        #[library("ADVAPI32.dll")]
-        extern fn SystemFunction036(#[out] #[size_param(1)] RandomBuffer: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RandomBufferLength: ULONG) -> BOOLEAN;
-        #[library("ADVAPI32.dll")]
-        extern fn SystemFunction040(#[in] #[out] #[size_param(1)] Memory: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MemorySize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OptionFlags: ULONG) -> NTSTATUS;
-        #[library("ADVAPI32.dll")]
-        extern fn SystemFunction041(#[in] #[out] #[size_param(1)] Memory: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MemorySize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OptionFlags: ULONG) -> NTSTATUS;
         struct TRUSTED_CONTROLLERS_INFO {
-            Entries: ULONG,
+            Entries: u32,
             Names: PLSA_UNICODE_STRING,
         }
         struct TRUSTED_DOMAIN_AUTH_INFORMATION {
-            IncomingAuthInfos: ULONG,
+            IncomingAuthInfos: u32,
             IncomingAuthenticationInformation: PLSA_AUTH_INFORMATION,
             IncomingPreviousAuthenticationInformation: PLSA_AUTH_INFORMATION,
-            OutgoingAuthInfos: ULONG,
+            OutgoingAuthInfos: u32,
             OutgoingAuthenticationInformation: PLSA_AUTH_INFORMATION,
             OutgoingPreviousAuthenticationInformation: PLSA_AUTH_INFORMATION,
         }
@@ -2029,25 +1964,25 @@ mod Windows {
             Name: LSA_UNICODE_STRING,
             FlatName: LSA_UNICODE_STRING,
             Sid: PSID,
-            TrustDirection: ULONG,
-            TrustType: ULONG,
-            TrustAttributes: ULONG,
+            TrustDirection: u32,
+            TrustType: u32,
+            TrustAttributes: u32,
         }
         struct TRUSTED_DOMAIN_INFORMATION_EX2 {
             Name: LSA_UNICODE_STRING,
             FlatName: LSA_UNICODE_STRING,
             Sid: PSID,
-            TrustDirection: ULONG,
-            TrustType: ULONG,
-            TrustAttributes: ULONG,
-            ForestTrustLength: ULONG,
+            TrustDirection: u32,
+            TrustType: u32,
+            TrustAttributes: u32,
+            ForestTrustLength: u32,
             ForestTrustInfo: PUCHAR,
         }
         struct TRUSTED_DOMAIN_NAME_INFO {
             Name: LSA_UNICODE_STRING,
         }
         struct TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
-            SupportedEncryptionTypes: ULONG,
+            SupportedEncryptionTypes: u32,
         }
         #[repr(i32)]
         enum TRUSTED_INFORMATION_CLASS {
@@ -2072,7 +2007,7 @@ mod Windows {
             OldPassword: LSA_UNICODE_STRING,
         }
         struct TRUSTED_POSIX_OFFSET_INFO {
-            Offset: ULONG,
+            Offset: u32,
         }
         const TRUST_ATTRIBUTES_USER: u32 = 4278190080;
         const TRUST_ATTRIBUTES_VALID: u32 = 4278452223;

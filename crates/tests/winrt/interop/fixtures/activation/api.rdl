@@ -1,0 +1,39 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Activation {
+    // A class the component does not provide.
+    #[Activatable(1)]
+    class Missing {
+        IMissing,
+    }
+
+    #[ExclusiveTo(Missing)]
+    interface IMissing {
+        #[get]
+        Value: i32;
+    }
+
+    #[Static(ISettingsStatics, 1)]
+    class Settings {}
+
+    #[ExclusiveTo(Settings)]
+    interface ISettingsStatics {
+        #[get]
+        Version: i32;
+    }
+
+    // Clients find `Activation.dll` by trying `Activation.Nested.dll` first.
+    mod Nested {
+        #[Activatable(1)]
+        class Widget {
+            IWidget,
+        }
+
+        #[ExclusiveTo(Widget)]
+        interface IWidget {
+            #[get]
+            Value: i32;
+        }
+    }
+}

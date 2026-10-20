@@ -51,19 +51,19 @@ mod Windows {
         const D3DERR_WRONGTEXTUREFORMAT: HRESULT = -2005530600;
         const D3DOK_NOAUTOGEN: HRESULT = 141953135;
         #[library("d3d9.dll")]
-        extern fn D3DPERF_BeginEvent(col: D3DCOLOR, wszName: LPCWSTR) -> i32;
+        extern fn D3DPERF_BeginEvent(col: D3DCOLOR, wszName: PCWSTR) -> i32;
         #[library("d3d9.dll")]
         extern fn D3DPERF_EndEvent() -> i32;
         #[library("d3d9.dll")]
-        extern fn D3DPERF_GetStatus() -> DWORD;
+        extern fn D3DPERF_GetStatus() -> u32;
         #[library("d3d9.dll")]
         extern fn D3DPERF_QueryRepeatFrame() -> BOOL;
         #[library("d3d9.dll")]
-        extern fn D3DPERF_SetMarker(col: D3DCOLOR, wszName: LPCWSTR);
+        extern fn D3DPERF_SetMarker(col: D3DCOLOR, wszName: PCWSTR);
         #[library("d3d9.dll")]
-        extern fn D3DPERF_SetOptions(dwOptions: DWORD);
+        extern fn D3DPERF_SetOptions(dwOptions: u32);
         #[library("d3d9.dll")]
-        extern fn D3DPERF_SetRegion(col: D3DCOLOR, wszName: LPCWSTR);
+        extern fn D3DPERF_SetRegion(col: D3DCOLOR, wszName: PCWSTR);
         const D3DPRESENT_BACK_BUFFERS_MAX: i32 = 3;
         const D3DPRESENT_BACK_BUFFERS_MAX_EX: i32 = 30;
         const D3DPRESENT_DONOTFLIP: i32 = 4;
@@ -81,1485 +81,323 @@ mod Windows {
         const D3D_OK: HRESULT = 0;
         const D3D_SDK_VERSION: i32 = 32;
         #[library("d3d9.dll")]
-        extern fn Direct3DCreate9(SDKVersion: UINT) -> IDirect3D9;
+        extern fn Direct3DCreate9(SDKVersion: u32) -> IDirect3D9;
         #[library("d3d9.dll")]
-        extern fn Direct3DCreate9Ex(SDKVersion: UINT, param1: *mut IDirect3D9Ex) -> HRESULT;
+        extern fn Direct3DCreate9Ex(SDKVersion: u32, param1: *mut IDirect3D9Ex) -> HRESULT;
         #[guid(0x81bdcbca_64d4_426d_ae8d_ad0147f4275c)]
         interface IDirect3D9: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn RegisterSoftwareDevice(&self, pInitializeFunction: *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAdapterCount(&self) -> UINT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAdapterIdentifier(&self, Adapter: UINT, Flags: DWORD, pIdentifier: *mut D3DADAPTER_IDENTIFIER9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAdapterModeCount(&self, Adapter: UINT, Format: D3DFORMAT) -> UINT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumAdapterModes(&self, Adapter: UINT, Format: D3DFORMAT, Mode: UINT, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAdapterDisplayMode(&self, Adapter: UINT, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckDeviceType(&self, Adapter: UINT, DevType: D3DDEVTYPE, AdapterFormat: D3DFORMAT, BackBufferFormat: D3DFORMAT, bWindowed: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckDeviceFormat(&self, Adapter: UINT, DeviceType: D3DDEVTYPE, AdapterFormat: D3DFORMAT, Usage: DWORD, RType: D3DRESOURCETYPE, CheckFormat: D3DFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckDeviceMultiSampleType(&self, Adapter: UINT, DeviceType: D3DDEVTYPE, SurfaceFormat: D3DFORMAT, Windowed: BOOL, MultiSampleType: D3DMULTISAMPLE_TYPE, pQualityLevels: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckDepthStencilMatch(&self, Adapter: UINT, DeviceType: D3DDEVTYPE, AdapterFormat: D3DFORMAT, RenderTargetFormat: D3DFORMAT, DepthStencilFormat: D3DFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckDeviceFormatConversion(&self, Adapter: UINT, DeviceType: D3DDEVTYPE, SourceFormat: D3DFORMAT, TargetFormat: D3DFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceCaps(&self, Adapter: UINT, DeviceType: D3DDEVTYPE, pCaps: *mut D3DCAPS9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAdapterMonitor(&self, Adapter: UINT) -> HMONITOR;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDevice(&self, Adapter: UINT, DeviceType: D3DDEVTYPE, hFocusWindow: HWND, BehaviorFlags: DWORD, pPresentationParameters: *mut D3DPRESENT_PARAMETERS, ppReturnedDeviceInterface: *mut IDirect3DDevice9) -> HRESULT;
+            fn GetAdapterCount(&self) -> u32;
+            fn GetAdapterIdentifier(&self, Adapter: u32, Flags: u32, pIdentifier: *mut D3DADAPTER_IDENTIFIER9) -> HRESULT;
+            fn GetAdapterModeCount(&self, Adapter: u32, Format: D3DFORMAT) -> u32;
+            fn EnumAdapterModes(&self, Adapter: u32, Format: D3DFORMAT, Mode: u32, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
+            fn GetAdapterDisplayMode(&self, Adapter: u32, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
+            fn CheckDeviceType(&self, Adapter: u32, DevType: D3DDEVTYPE, AdapterFormat: D3DFORMAT, BackBufferFormat: D3DFORMAT, bWindowed: BOOL) -> HRESULT;
+            fn CheckDeviceFormat(&self, Adapter: u32, DeviceType: D3DDEVTYPE, AdapterFormat: D3DFORMAT, Usage: u32, RType: D3DRESOURCETYPE, CheckFormat: D3DFORMAT) -> HRESULT;
+            fn CheckDeviceMultiSampleType(&self, Adapter: u32, DeviceType: D3DDEVTYPE, SurfaceFormat: D3DFORMAT, Windowed: BOOL, MultiSampleType: D3DMULTISAMPLE_TYPE, pQualityLevels: *mut u32) -> HRESULT;
+            fn CheckDepthStencilMatch(&self, Adapter: u32, DeviceType: D3DDEVTYPE, AdapterFormat: D3DFORMAT, RenderTargetFormat: D3DFORMAT, DepthStencilFormat: D3DFORMAT) -> HRESULT;
+            fn CheckDeviceFormatConversion(&self, Adapter: u32, DeviceType: D3DDEVTYPE, SourceFormat: D3DFORMAT, TargetFormat: D3DFORMAT) -> HRESULT;
+            fn GetDeviceCaps(&self, Adapter: u32, DeviceType: D3DDEVTYPE, pCaps: *mut D3DCAPS9) -> HRESULT;
+            fn GetAdapterMonitor(&self, Adapter: u32) -> HMONITOR;
+            fn CreateDevice(&self, Adapter: u32, DeviceType: D3DDEVTYPE, hFocusWindow: HWND, BehaviorFlags: u32, pPresentationParameters: *mut D3DPRESENT_PARAMETERS, ppReturnedDeviceInterface: *mut IDirect3DDevice9) -> HRESULT;
         }
         #[guid(0x02177241_69fc_400c_8ff1_93a44df6861d)]
         interface IDirect3D9Ex: IDirect3D9 {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn RegisterSoftwareDevice(&self, pInitializeFunction: *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAdapterCount(&self) -> UINT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAdapterIdentifier(&self, Adapter: UINT, Flags: DWORD, pIdentifier: *mut D3DADAPTER_IDENTIFIER9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAdapterModeCount(&self, Adapter: UINT, Format: D3DFORMAT) -> UINT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumAdapterModes(&self, Adapter: UINT, Format: D3DFORMAT, Mode: UINT, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAdapterDisplayMode(&self, Adapter: UINT, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckDeviceType(&self, Adapter: UINT, DevType: D3DDEVTYPE, AdapterFormat: D3DFORMAT, BackBufferFormat: D3DFORMAT, bWindowed: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckDeviceFormat(&self, Adapter: UINT, DeviceType: D3DDEVTYPE, AdapterFormat: D3DFORMAT, Usage: DWORD, RType: D3DRESOURCETYPE, CheckFormat: D3DFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(11u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckDeviceMultiSampleType(&self, Adapter: UINT, DeviceType: D3DDEVTYPE, SurfaceFormat: D3DFORMAT, Windowed: BOOL, MultiSampleType: D3DMULTISAMPLE_TYPE, pQualityLevels: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(12u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckDepthStencilMatch(&self, Adapter: UINT, DeviceType: D3DDEVTYPE, AdapterFormat: D3DFORMAT, RenderTargetFormat: D3DFORMAT, DepthStencilFormat: D3DFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(13u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckDeviceFormatConversion(&self, Adapter: UINT, DeviceType: D3DDEVTYPE, SourceFormat: D3DFORMAT, TargetFormat: D3DFORMAT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(14u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceCaps(&self, Adapter: UINT, DeviceType: D3DDEVTYPE, pCaps: *mut D3DCAPS9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(15u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAdapterMonitor(&self, Adapter: UINT) -> HMONITOR;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(16u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDevice(&self, Adapter: UINT, DeviceType: D3DDEVTYPE, hFocusWindow: HWND, BehaviorFlags: DWORD, pPresentationParameters: *mut D3DPRESENT_PARAMETERS, ppReturnedDeviceInterface: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAdapterModeCountEx(&self, Adapter: UINT, pFilter: *const D3DDISPLAYMODEFILTER) -> UINT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnumAdapterModesEx(&self, Adapter: UINT, pFilter: *const D3DDISPLAYMODEFILTER, Mode: UINT, pMode: *mut D3DDISPLAYMODEEX) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAdapterDisplayModeEx(&self, Adapter: UINT, pMode: *mut D3DDISPLAYMODEEX, pRotation: *mut D3DDISPLAYROTATION) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDeviceEx(&self, Adapter: UINT, DeviceType: D3DDEVTYPE, hFocusWindow: HWND, BehaviorFlags: DWORD, pPresentationParameters: *mut D3DPRESENT_PARAMETERS, pFullscreenDisplayMode: *mut D3DDISPLAYMODEEX, ppReturnedDeviceInterface: *mut IDirect3DDevice9Ex) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAdapterLUID(&self, Adapter: UINT, pLUID: *mut LUID) -> HRESULT;
+            fn GetAdapterModeCountEx(&self, Adapter: u32, pFilter: *const D3DDISPLAYMODEFILTER) -> u32;
+            fn EnumAdapterModesEx(&self, Adapter: u32, pFilter: *const D3DDISPLAYMODEFILTER, Mode: u32, pMode: *mut D3DDISPLAYMODEEX) -> HRESULT;
+            fn GetAdapterDisplayModeEx(&self, Adapter: u32, pMode: *mut D3DDISPLAYMODEEX, pRotation: *mut D3DDISPLAYROTATION) -> HRESULT;
+            fn CreateDeviceEx(&self, Adapter: u32, DeviceType: D3DDEVTYPE, hFocusWindow: HWND, BehaviorFlags: u32, pPresentationParameters: *mut D3DPRESENT_PARAMETERS, pFullscreenDisplayMode: *mut D3DDISPLAYMODEEX, ppReturnedDeviceInterface: *mut IDirect3DDevice9Ex) -> HRESULT;
+            fn GetAdapterLUID(&self, Adapter: u32, pLUID: *mut LUID) -> HRESULT;
         }
         #[guid(0x187aeb13_aaf5_4c59_876d_e059088c0df8)]
         interface IDirect3D9ExOverlayExtension: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckDeviceOverlayType(&self, Adapter: UINT, DevType: D3DDEVTYPE, OverlayWidth: UINT, OverlayHeight: UINT, OverlayFormat: D3DFORMAT, pDisplayMode: *mut D3DDISPLAYMODEEX, DisplayRotation: D3DDISPLAYROTATION, pOverlayCaps: *mut D3DOVERLAYCAPS) -> HRESULT;
+            fn CheckDeviceOverlayType(&self, Adapter: u32, DevType: D3DDEVTYPE, OverlayWidth: u32, OverlayHeight: u32, OverlayFormat: D3DFORMAT, pDisplayMode: *mut D3DDISPLAYMODEEX, DisplayRotation: D3DDISPLAYROTATION, pOverlayCaps: *mut D3DOVERLAYCAPS) -> HRESULT;
         }
         #[guid(0xff24beee_da21_4beb_98b5_d2f899f98af9)]
         interface IDirect3DAuthenticatedChannel9: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetCertificateSize(&self, pCertificateSize: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetCertificate(&self, CertifacteSize: UINT, ppCertificate: *mut BYTE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn NegotiateKeyExchange(&self, DataSize: UINT, pData: *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Query(&self, InputSize: UINT, pInput: *const void, OutputSize: UINT, pOutput: *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Configure(&self, InputSize: UINT, pInput: *const void, pOutput: *mut D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> HRESULT;
+            fn GetCertificateSize(&self, pCertificateSize: *mut u32) -> HRESULT;
+            fn GetCertificate(&self, CertifacteSize: u32, ppCertificate: *mut u8) -> HRESULT;
+            fn NegotiateKeyExchange(&self, DataSize: u32, pData: *mut void) -> HRESULT;
+            fn Query(&self, InputSize: u32, pInput: *const void, OutputSize: u32, pOutput: *mut void) -> HRESULT;
+            fn Configure(&self, InputSize: u32, pInput: *const void, pOutput: *mut D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> HRESULT;
         }
         #[guid(0x580ca87e_1d3c_4d54_991d_b7d3e3c298ce)]
         interface IDirect3DBaseTexture9: IDirect3DResource9 {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPrivateData(&self, refguid: &GUID, pData: *const void, SizeOfData: DWORD, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPrivateData(&self, refguid: &GUID, pData: *mut void, pSizeOfData: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FreePrivateData(&self, refguid: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPriority(&self, PriorityNew: DWORD) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPriority(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn PreLoad(&self);
-            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetType(&self) -> D3DRESOURCETYPE;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetLOD(&self, LODNew: DWORD) -> DWORD;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLOD(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLevelCount(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetLOD(&self, LODNew: u32) -> u32;
+            fn GetLOD(&self) -> u32;
+            fn GetLevelCount(&self) -> u32;
             fn SetAutoGenFilterType(&self, FilterType: D3DTEXTUREFILTERTYPE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GenerateMipSubLevels(&self);
         }
         #[guid(0xfa0ab799_7a9c_48ca_8c5b_237e71a54434)]
         interface IDirect3DCryptoSession9: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetCertificateSize(&self, pCertificateSize: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetCertificate(&self, CertifacteSize: UINT, ppCertificate: *mut BYTE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn NegotiateKeyExchange(&self, DataSize: UINT, pData: *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EncryptionBlt(&self, pSrcSurface: IDirect3DSurface9, pDstSurface: IDirect3DSurface9, DstSurfaceSize: UINT, pIV: *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DecryptionBlt(&self, pSrcSurface: IDirect3DSurface9, pDstSurface: IDirect3DSurface9, SrcSurfaceSize: UINT, pEncryptedBlockInfo: *mut D3DENCRYPTED_BLOCK_INFO, pContentKey: *mut void, pIV: *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetSurfacePitch(&self, pSrcSurface: IDirect3DSurface9, pSurfacePitch: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn StartSessionKeyRefresh(&self, pRandomNumber: *mut void, RandomNumberSize: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetCertificateSize(&self, pCertificateSize: *mut u32) -> HRESULT;
+            fn GetCertificate(&self, CertifacteSize: u32, ppCertificate: *mut u8) -> HRESULT;
+            fn NegotiateKeyExchange(&self, DataSize: u32, pData: *mut void) -> HRESULT;
+            fn EncryptionBlt(&self, pSrcSurface: IDirect3DSurface9, pDstSurface: IDirect3DSurface9, DstSurfaceSize: u32, pIV: *mut void) -> HRESULT;
+            fn DecryptionBlt(&self, pSrcSurface: IDirect3DSurface9, pDstSurface: IDirect3DSurface9, SrcSurfaceSize: u32, pEncryptedBlockInfo: *mut D3DENCRYPTED_BLOCK_INFO, pContentKey: *mut void, pIV: *mut void) -> HRESULT;
+            fn GetSurfacePitch(&self, pSrcSurface: IDirect3DSurface9, pSurfacePitch: *mut u32) -> HRESULT;
+            fn StartSessionKeyRefresh(&self, pRandomNumber: *mut void, RandomNumberSize: u32) -> HRESULT;
             fn FinishSessionKeyRefresh(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetEncryptionBltKey(&self, pReadbackKey: *mut void, KeySize: UINT) -> HRESULT;
+            fn GetEncryptionBltKey(&self, pReadbackKey: *mut void, KeySize: u32) -> HRESULT;
         }
         #[guid(0xfff32f81_d953_473a_9223_93d652aba93f)]
         interface IDirect3DCubeTexture9: IDirect3DBaseTexture9 {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPrivateData(&self, refguid: &GUID, pData: *const void, SizeOfData: DWORD, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPrivateData(&self, refguid: &GUID, pData: *mut void, pSizeOfData: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FreePrivateData(&self, refguid: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPriority(&self, PriorityNew: DWORD) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPriority(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn PreLoad(&self);
-            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetType(&self) -> D3DRESOURCETYPE;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(11u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetLOD(&self, LODNew: DWORD) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(12u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLOD(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(13u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLevelCount(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(14u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAutoGenFilterType(&self, FilterType: D3DTEXTUREFILTERTYPE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(15u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(16u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GenerateMipSubLevels(&self);
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLevelDesc(&self, Level: UINT, pDesc: *mut D3DSURFACE_DESC) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetCubeMapSurface(&self, FaceType: D3DCUBEMAP_FACES, Level: UINT, ppCubeMapSurface: *mut IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn LockRect(&self, FaceType: D3DCUBEMAP_FACES, Level: UINT, pLockedRect: *mut D3DLOCKED_RECT, pRect: *const RECT, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn UnlockRect(&self, FaceType: D3DCUBEMAP_FACES, Level: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLevelDesc(&self, Level: u32, pDesc: *mut D3DSURFACE_DESC) -> HRESULT;
+            fn GetCubeMapSurface(&self, FaceType: D3DCUBEMAP_FACES, Level: u32, ppCubeMapSurface: *mut IDirect3DSurface9) -> HRESULT;
+            fn LockRect(&self, FaceType: D3DCUBEMAP_FACES, Level: u32, pLockedRect: *mut D3DLOCKED_RECT, pRect: *const RECT, Flags: u32) -> HRESULT;
+            fn UnlockRect(&self, FaceType: D3DCUBEMAP_FACES, Level: u32) -> HRESULT;
             fn AddDirtyRect(&self, FaceType: D3DCUBEMAP_FACES, pDirtyRect: *const RECT) -> HRESULT;
         }
         #[guid(0xd0223b96_bf7a_43fd_92bd_a43b0d82b9eb)]
         interface IDirect3DDevice9: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn TestCooperativeLevel(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAvailableTextureMem(&self) -> UINT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetAvailableTextureMem(&self) -> u32;
             fn EvictManagedResources(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDirect3D(&self, ppD3D9: *mut IDirect3D9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDeviceCaps(&self, pCaps: *mut D3DCAPS9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDisplayMode(&self, iSwapChain: UINT, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetDisplayMode(&self, iSwapChain: u32, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
             fn GetCreationParameters(&self, pParameters: *mut D3DDEVICE_CREATION_PARAMETERS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCursorProperties(&self, XHotSpot: UINT, YHotSpot: UINT, pCursorBitmap: IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCursorPosition(&self, X: i32, Y: i32, Flags: DWORD);
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetCursorProperties(&self, XHotSpot: u32, YHotSpot: u32, pCursorBitmap: IDirect3DSurface9) -> HRESULT;
+            fn SetCursorPosition(&self, X: i32, Y: i32, Flags: u32);
             fn ShowCursor(&self, bShow: BOOL) -> BOOL;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn CreateAdditionalSwapChain(&self, pPresentationParameters: *mut D3DPRESENT_PARAMETERS, pSwapChain: *mut IDirect3DSwapChain9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetSwapChain(&self, iSwapChain: UINT, pSwapChain: *mut IDirect3DSwapChain9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetNumberOfSwapChains(&self) -> UINT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetSwapChain(&self, iSwapChain: u32, pSwapChain: *mut IDirect3DSwapChain9) -> HRESULT;
+            fn GetNumberOfSwapChains(&self) -> u32;
             fn Reset(&self, pPresentationParameters: *mut D3DPRESENT_PARAMETERS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Present(&self, pSourceRect: *const RECT, pDestRect: *const RECT, hDestWindowOverride: HWND, pDirtyRegion: *const RGNDATA) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetBackBuffer(&self, iSwapChain: UINT, iBackBuffer: UINT, Type: D3DBACKBUFFER_TYPE, ppBackBuffer: *mut IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetRasterStatus(&self, iSwapChain: UINT, pRasterStatus: *mut D3DRASTER_STATUS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetBackBuffer(&self, iSwapChain: u32, iBackBuffer: u32, Type: D3DBACKBUFFER_TYPE, ppBackBuffer: *mut IDirect3DSurface9) -> HRESULT;
+            fn GetRasterStatus(&self, iSwapChain: u32, pRasterStatus: *mut D3DRASTER_STATUS) -> HRESULT;
             fn SetDialogBoxMode(&self, bEnableDialogs: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGammaRamp(&self, iSwapChain: UINT, Flags: DWORD, pRamp: *const D3DGAMMARAMP);
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetGammaRamp(&self, iSwapChain: UINT, pRamp: *mut D3DGAMMARAMP);
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTexture(&self, Width: UINT, Height: UINT, Levels: UINT, Usage: DWORD, Format: D3DFORMAT, Pool: D3DPOOL, ppTexture: *mut IDirect3DTexture9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateVolumeTexture(&self, Width: UINT, Height: UINT, Depth: UINT, Levels: UINT, Usage: DWORD, Format: D3DFORMAT, Pool: D3DPOOL, ppVolumeTexture: *mut IDirect3DVolumeTexture9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateCubeTexture(&self, EdgeLength: UINT, Levels: UINT, Usage: DWORD, Format: D3DFORMAT, Pool: D3DPOOL, ppCubeTexture: *mut IDirect3DCubeTexture9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateVertexBuffer(&self, Length: UINT, Usage: DWORD, FVF: DWORD, Pool: D3DPOOL, ppVertexBuffer: *mut IDirect3DVertexBuffer9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateIndexBuffer(&self, Length: UINT, Usage: DWORD, Format: D3DFORMAT, Pool: D3DPOOL, ppIndexBuffer: *mut IDirect3DIndexBuffer9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateRenderTarget(&self, Width: UINT, Height: UINT, Format: D3DFORMAT, MultiSample: D3DMULTISAMPLE_TYPE, MultisampleQuality: DWORD, Lockable: BOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDepthStencilSurface(&self, Width: UINT, Height: UINT, Format: D3DFORMAT, MultiSample: D3DMULTISAMPLE_TYPE, MultisampleQuality: DWORD, Discard: BOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetGammaRamp(&self, iSwapChain: u32, Flags: u32, pRamp: *const D3DGAMMARAMP);
+            fn GetGammaRamp(&self, iSwapChain: u32, pRamp: *mut D3DGAMMARAMP);
+            fn CreateTexture(&self, Width: u32, Height: u32, Levels: u32, Usage: u32, Format: D3DFORMAT, Pool: D3DPOOL, ppTexture: *mut IDirect3DTexture9, pSharedHandle: *mut HANDLE) -> HRESULT;
+            fn CreateVolumeTexture(&self, Width: u32, Height: u32, Depth: u32, Levels: u32, Usage: u32, Format: D3DFORMAT, Pool: D3DPOOL, ppVolumeTexture: *mut IDirect3DVolumeTexture9, pSharedHandle: *mut HANDLE) -> HRESULT;
+            fn CreateCubeTexture(&self, EdgeLength: u32, Levels: u32, Usage: u32, Format: D3DFORMAT, Pool: D3DPOOL, ppCubeTexture: *mut IDirect3DCubeTexture9, pSharedHandle: *mut HANDLE) -> HRESULT;
+            fn CreateVertexBuffer(&self, Length: u32, Usage: u32, FVF: u32, Pool: D3DPOOL, ppVertexBuffer: *mut IDirect3DVertexBuffer9, pSharedHandle: *mut HANDLE) -> HRESULT;
+            fn CreateIndexBuffer(&self, Length: u32, Usage: u32, Format: D3DFORMAT, Pool: D3DPOOL, ppIndexBuffer: *mut IDirect3DIndexBuffer9, pSharedHandle: *mut HANDLE) -> HRESULT;
+            fn CreateRenderTarget(&self, Width: u32, Height: u32, Format: D3DFORMAT, MultiSample: D3DMULTISAMPLE_TYPE, MultisampleQuality: u32, Lockable: BOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE) -> HRESULT;
+            fn CreateDepthStencilSurface(&self, Width: u32, Height: u32, Format: D3DFORMAT, MultiSample: D3DMULTISAMPLE_TYPE, MultisampleQuality: u32, Discard: BOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE) -> HRESULT;
             fn UpdateSurface(&self, pSourceSurface: IDirect3DSurface9, pSourceRect: *const RECT, pDestinationSurface: IDirect3DSurface9, pDestPoint: *const POINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn UpdateTexture(&self, pSourceTexture: IDirect3DBaseTexture9, pDestinationTexture: IDirect3DBaseTexture9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetRenderTargetData(&self, pRenderTarget: IDirect3DSurface9, pDestSurface: IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetFrontBufferData(&self, iSwapChain: UINT, pDestSurface: IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetFrontBufferData(&self, iSwapChain: u32, pDestSurface: IDirect3DSurface9) -> HRESULT;
             fn StretchRect(&self, pSourceSurface: IDirect3DSurface9, pSourceRect: *const RECT, pDestSurface: IDirect3DSurface9, pDestRect: *const RECT, Filter: D3DTEXTUREFILTERTYPE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn ColorFill(&self, pSurface: IDirect3DSurface9, pRect: *const RECT, color: D3DCOLOR) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateOffscreenPlainSurface(&self, Width: UINT, Height: UINT, Format: D3DFORMAT, Pool: D3DPOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRenderTarget(&self, RenderTargetIndex: DWORD, pRenderTarget: IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetRenderTarget(&self, RenderTargetIndex: DWORD, ppRenderTarget: *mut IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateOffscreenPlainSurface(&self, Width: u32, Height: u32, Format: D3DFORMAT, Pool: D3DPOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE) -> HRESULT;
+            fn SetRenderTarget(&self, RenderTargetIndex: u32, pRenderTarget: IDirect3DSurface9) -> HRESULT;
+            fn GetRenderTarget(&self, RenderTargetIndex: u32, ppRenderTarget: *mut IDirect3DSurface9) -> HRESULT;
             fn SetDepthStencilSurface(&self, pNewZStencil: IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDepthStencilSurface(&self, ppZStencilSurface: *mut IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn BeginScene(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn EndScene(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Clear(&self, Count: DWORD, pRects: *const D3DRECT, Flags: DWORD, Color: D3DCOLOR, Z: f32, Stencil: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Clear(&self, Count: u32, pRects: *const D3DRECT, Flags: u32, Color: D3DCOLOR, Z: f32, Stencil: u32) -> HRESULT;
             fn SetTransform(&self, State: D3DTRANSFORMSTATETYPE, pMatrix: *const D3DMATRIX) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetTransform(&self, State: D3DTRANSFORMSTATETYPE, pMatrix: *mut D3DMATRIX) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const D3DMATRIX) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetViewport(&self, pViewport: *const D3DVIEWPORT9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetViewport(&self, pViewport: *mut D3DVIEWPORT9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetMaterial(&self, pMaterial: *const D3DMATERIAL9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetMaterial(&self, pMaterial: *mut D3DMATERIAL9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetLight(&self, Index: DWORD, param1: *const D3DLIGHT9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLight(&self, Index: DWORD, param1: *mut D3DLIGHT9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn LightEnable(&self, Index: DWORD, Enable: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLightEnable(&self, Index: DWORD, pEnable: *mut BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetClipPlane(&self, Index: DWORD, pPlane: *const f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetClipPlane(&self, Index: DWORD, pPlane: *mut f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRenderState(&self, State: D3DRENDERSTATETYPE, Value: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetRenderState(&self, State: D3DRENDERSTATETYPE, pValue: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetLight(&self, Index: u32, param1: *const D3DLIGHT9) -> HRESULT;
+            fn GetLight(&self, Index: u32, param1: *mut D3DLIGHT9) -> HRESULT;
+            fn LightEnable(&self, Index: u32, Enable: BOOL) -> HRESULT;
+            fn GetLightEnable(&self, Index: u32, pEnable: *mut BOOL) -> HRESULT;
+            fn SetClipPlane(&self, Index: u32, pPlane: *const f32) -> HRESULT;
+            fn GetClipPlane(&self, Index: u32, pPlane: *mut f32) -> HRESULT;
+            fn SetRenderState(&self, State: D3DRENDERSTATETYPE, Value: u32) -> HRESULT;
+            fn GetRenderState(&self, State: D3DRENDERSTATETYPE, pValue: *mut u32) -> HRESULT;
             fn CreateStateBlock(&self, Type: D3DSTATEBLOCKTYPE, ppSB: *mut IDirect3DStateBlock9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn BeginStateBlock(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn EndStateBlock(&self, ppSB: *mut IDirect3DStateBlock9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetClipStatus(&self, pClipStatus: *const D3DCLIPSTATUS9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetClipStatus(&self, pClipStatus: *mut D3DCLIPSTATUS9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetTexture(&self, Stage: DWORD, ppTexture: *mut IDirect3DBaseTexture9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTexture(&self, Stage: DWORD, pTexture: IDirect3DBaseTexture9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetTextureStageState(&self, Stage: DWORD, Type: D3DTEXTURESTAGESTATETYPE, pValue: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTextureStageState(&self, Stage: DWORD, Type: D3DTEXTURESTAGESTATETYPE, Value: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetSamplerState(&self, Sampler: DWORD, Type: D3DSAMPLERSTATETYPE, pValue: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetSamplerState(&self, Sampler: DWORD, Type: D3DSAMPLERSTATETYPE, Value: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn ValidateDevice(&self, pNumPasses: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPaletteEntries(&self, PaletteNumber: UINT, pEntries: *const PALETTEENTRY) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPaletteEntries(&self, PaletteNumber: UINT, pEntries: *mut PALETTEENTRY) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCurrentTexturePalette(&self, PaletteNumber: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetCurrentTexturePalette(&self, PaletteNumber: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetTexture(&self, Stage: u32, ppTexture: *mut IDirect3DBaseTexture9) -> HRESULT;
+            fn SetTexture(&self, Stage: u32, pTexture: IDirect3DBaseTexture9) -> HRESULT;
+            fn GetTextureStageState(&self, Stage: u32, Type: D3DTEXTURESTAGESTATETYPE, pValue: *mut u32) -> HRESULT;
+            fn SetTextureStageState(&self, Stage: u32, Type: D3DTEXTURESTAGESTATETYPE, Value: u32) -> HRESULT;
+            fn GetSamplerState(&self, Sampler: u32, Type: D3DSAMPLERSTATETYPE, pValue: *mut u32) -> HRESULT;
+            fn SetSamplerState(&self, Sampler: u32, Type: D3DSAMPLERSTATETYPE, Value: u32) -> HRESULT;
+            fn ValidateDevice(&self, pNumPasses: *mut u32) -> HRESULT;
+            fn SetPaletteEntries(&self, PaletteNumber: u32, pEntries: *const PALETTEENTRY) -> HRESULT;
+            fn GetPaletteEntries(&self, PaletteNumber: u32, pEntries: *mut PALETTEENTRY) -> HRESULT;
+            fn SetCurrentTexturePalette(&self, PaletteNumber: u32) -> HRESULT;
+            fn GetCurrentTexturePalette(&self, PaletteNumber: *mut u32) -> HRESULT;
             fn SetScissorRect(&self, pRect: *const RECT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetScissorRect(&self, pRect: *mut RECT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetSoftwareVertexProcessing(&self, bSoftware: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetSoftwareVertexProcessing(&self) -> BOOL;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetNPatchMode(&self, nSegments: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetNPatchMode(&self) -> f32;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DrawPrimitive(&self, PrimitiveType: D3DPRIMITIVETYPE, StartVertex: UINT, PrimitiveCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DrawIndexedPrimitive(&self, param0: D3DPRIMITIVETYPE, BaseVertexIndex: INT, MinVertexIndex: UINT, NumVertices: UINT, startIndex: UINT, primCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DrawPrimitiveUP(&self, PrimitiveType: D3DPRIMITIVETYPE, PrimitiveCount: UINT, pVertexStreamZeroData: *const void, VertexStreamZeroStride: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DrawIndexedPrimitiveUP(&self, PrimitiveType: D3DPRIMITIVETYPE, MinVertexIndex: UINT, NumVertices: UINT, PrimitiveCount: UINT, pIndexData: *const void, IndexDataFormat: D3DFORMAT, pVertexStreamZeroData: *const void, VertexStreamZeroStride: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn ProcessVertices(&self, SrcStartIndex: UINT, DestIndex: UINT, VertexCount: UINT, pDestBuffer: IDirect3DVertexBuffer9, pVertexDecl: IDirect3DVertexDeclaration9, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn DrawPrimitive(&self, PrimitiveType: D3DPRIMITIVETYPE, StartVertex: u32, PrimitiveCount: u32) -> HRESULT;
+            fn DrawIndexedPrimitive(&self, param0: D3DPRIMITIVETYPE, BaseVertexIndex: i32, MinVertexIndex: u32, NumVertices: u32, startIndex: u32, primCount: u32) -> HRESULT;
+            fn DrawPrimitiveUP(&self, PrimitiveType: D3DPRIMITIVETYPE, PrimitiveCount: u32, pVertexStreamZeroData: *const void, VertexStreamZeroStride: u32) -> HRESULT;
+            fn DrawIndexedPrimitiveUP(&self, PrimitiveType: D3DPRIMITIVETYPE, MinVertexIndex: u32, NumVertices: u32, PrimitiveCount: u32, pIndexData: *const void, IndexDataFormat: D3DFORMAT, pVertexStreamZeroData: *const void, VertexStreamZeroStride: u32) -> HRESULT;
+            fn ProcessVertices(&self, SrcStartIndex: u32, DestIndex: u32, VertexCount: u32, pDestBuffer: IDirect3DVertexBuffer9, pVertexDecl: IDirect3DVertexDeclaration9, Flags: u32) -> HRESULT;
             fn CreateVertexDeclaration(&self, pVertexElements: *const D3DVERTEXELEMENT9, ppDecl: *mut IDirect3DVertexDeclaration9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SetVertexDeclaration(&self, pDecl: IDirect3DVertexDeclaration9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetVertexDeclaration(&self, ppDecl: *mut IDirect3DVertexDeclaration9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetFVF(&self, FVF: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetFVF(&self, pFVF: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateVertexShader(&self, pFunction: *const DWORD, ppShader: *mut IDirect3DVertexShader9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetFVF(&self, FVF: u32) -> HRESULT;
+            fn GetFVF(&self, pFVF: *mut u32) -> HRESULT;
+            fn CreateVertexShader(&self, pFunction: *const u32, ppShader: *mut IDirect3DVertexShader9) -> HRESULT;
             fn SetVertexShader(&self, pShader: IDirect3DVertexShader9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetVertexShader(&self, ppShader: *mut IDirect3DVertexShader9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetVertexShaderConstantF(&self, StartRegister: UINT, pConstantData: *const f32, Vector4fCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetVertexShaderConstantF(&self, StartRegister: UINT, pConstantData: *mut f32, Vector4fCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetVertexShaderConstantI(&self, StartRegister: UINT, pConstantData: *const i32, Vector4iCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetVertexShaderConstantI(&self, StartRegister: UINT, pConstantData: *mut i32, Vector4iCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetVertexShaderConstantB(&self, StartRegister: UINT, pConstantData: *const BOOL, BoolCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetVertexShaderConstantB(&self, StartRegister: UINT, pConstantData: *mut BOOL, BoolCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetStreamSource(&self, StreamNumber: UINT, pStreamData: IDirect3DVertexBuffer9, OffsetInBytes: UINT, Stride: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetStreamSource(&self, StreamNumber: UINT, ppStreamData: *mut IDirect3DVertexBuffer9, pOffsetInBytes: *mut UINT, pStride: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetStreamSourceFreq(&self, StreamNumber: UINT, Setting: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetStreamSourceFreq(&self, StreamNumber: UINT, pSetting: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetVertexShaderConstantF(&self, StartRegister: u32, pConstantData: *const f32, Vector4fCount: u32) -> HRESULT;
+            fn GetVertexShaderConstantF(&self, StartRegister: u32, pConstantData: *mut f32, Vector4fCount: u32) -> HRESULT;
+            fn SetVertexShaderConstantI(&self, StartRegister: u32, pConstantData: *const i32, Vector4iCount: u32) -> HRESULT;
+            fn GetVertexShaderConstantI(&self, StartRegister: u32, pConstantData: *mut i32, Vector4iCount: u32) -> HRESULT;
+            fn SetVertexShaderConstantB(&self, StartRegister: u32, pConstantData: *const BOOL, BoolCount: u32) -> HRESULT;
+            fn GetVertexShaderConstantB(&self, StartRegister: u32, pConstantData: *mut BOOL, BoolCount: u32) -> HRESULT;
+            fn SetStreamSource(&self, StreamNumber: u32, pStreamData: IDirect3DVertexBuffer9, OffsetInBytes: u32, Stride: u32) -> HRESULT;
+            fn GetStreamSource(&self, StreamNumber: u32, ppStreamData: *mut IDirect3DVertexBuffer9, pOffsetInBytes: *mut u32, pStride: *mut u32) -> HRESULT;
+            fn SetStreamSourceFreq(&self, StreamNumber: u32, Setting: u32) -> HRESULT;
+            fn GetStreamSourceFreq(&self, StreamNumber: u32, pSetting: *mut u32) -> HRESULT;
             fn SetIndices(&self, pIndexData: IDirect3DIndexBuffer9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetIndices(&self, ppIndexData: *mut IDirect3DIndexBuffer9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreatePixelShader(&self, pFunction: *const DWORD, ppShader: *mut IDirect3DPixelShader9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreatePixelShader(&self, pFunction: *const u32, ppShader: *mut IDirect3DPixelShader9) -> HRESULT;
             fn SetPixelShader(&self, pShader: IDirect3DPixelShader9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetPixelShader(&self, ppShader: *mut IDirect3DPixelShader9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPixelShaderConstantF(&self, StartRegister: UINT, pConstantData: *const f32, Vector4fCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPixelShaderConstantF(&self, StartRegister: UINT, pConstantData: *mut f32, Vector4fCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPixelShaderConstantI(&self, StartRegister: UINT, pConstantData: *const i32, Vector4iCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPixelShaderConstantI(&self, StartRegister: UINT, pConstantData: *mut i32, Vector4iCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPixelShaderConstantB(&self, StartRegister: UINT, pConstantData: *const BOOL, BoolCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPixelShaderConstantB(&self, StartRegister: UINT, pConstantData: *mut BOOL, BoolCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DrawRectPatch(&self, Handle: UINT, pNumSegs: *const f32, pRectPatchInfo: *const D3DRECTPATCH_INFO) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DrawTriPatch(&self, Handle: UINT, pNumSegs: *const f32, pTriPatchInfo: *const D3DTRIPATCH_INFO) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DeletePatch(&self, Handle: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetPixelShaderConstantF(&self, StartRegister: u32, pConstantData: *const f32, Vector4fCount: u32) -> HRESULT;
+            fn GetPixelShaderConstantF(&self, StartRegister: u32, pConstantData: *mut f32, Vector4fCount: u32) -> HRESULT;
+            fn SetPixelShaderConstantI(&self, StartRegister: u32, pConstantData: *const i32, Vector4iCount: u32) -> HRESULT;
+            fn GetPixelShaderConstantI(&self, StartRegister: u32, pConstantData: *mut i32, Vector4iCount: u32) -> HRESULT;
+            fn SetPixelShaderConstantB(&self, StartRegister: u32, pConstantData: *const BOOL, BoolCount: u32) -> HRESULT;
+            fn GetPixelShaderConstantB(&self, StartRegister: u32, pConstantData: *mut BOOL, BoolCount: u32) -> HRESULT;
+            fn DrawRectPatch(&self, Handle: u32, pNumSegs: *const f32, pRectPatchInfo: *const D3DRECTPATCH_INFO) -> HRESULT;
+            fn DrawTriPatch(&self, Handle: u32, pNumSegs: *const f32, pTriPatchInfo: *const D3DTRIPATCH_INFO) -> HRESULT;
+            fn DeletePatch(&self, Handle: u32) -> HRESULT;
             fn CreateQuery(&self, Type: D3DQUERYTYPE, ppQuery: *mut IDirect3DQuery9) -> HRESULT;
         }
         #[guid(0xb18b10ce_2649_405a_870f_95f777d4313a)]
         interface IDirect3DDevice9Ex: IDirect3DDevice9 {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn TestCooperativeLevel(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAvailableTextureMem(&self) -> UINT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EvictManagedResources(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDirect3D(&self, ppD3D9: *mut IDirect3D9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeviceCaps(&self, pCaps: *mut D3DCAPS9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDisplayMode(&self, iSwapChain: UINT, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetCreationParameters(&self, pParameters: *mut D3DDEVICE_CREATION_PARAMETERS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCursorProperties(&self, XHotSpot: UINT, YHotSpot: UINT, pCursorBitmap: IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(11u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCursorPosition(&self, X: i32, Y: i32, Flags: DWORD);
-            #[Windows::Win32::Metadata::NativeOverrideSlot(12u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn ShowCursor(&self, bShow: BOOL) -> BOOL;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(13u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateAdditionalSwapChain(&self, pPresentationParameters: *mut D3DPRESENT_PARAMETERS, pSwapChain: *mut IDirect3DSwapChain9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(14u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetSwapChain(&self, iSwapChain: UINT, pSwapChain: *mut IDirect3DSwapChain9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(15u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetNumberOfSwapChains(&self) -> UINT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(16u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Reset(&self, pPresentationParameters: *mut D3DPRESENT_PARAMETERS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(17u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Present(&self, pSourceRect: *const RECT, pDestRect: *const RECT, hDestWindowOverride: HWND, pDirtyRegion: *const RGNDATA) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(18u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetBackBuffer(&self, iSwapChain: UINT, iBackBuffer: UINT, Type: D3DBACKBUFFER_TYPE, ppBackBuffer: *mut IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(19u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetRasterStatus(&self, iSwapChain: UINT, pRasterStatus: *mut D3DRASTER_STATUS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(20u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetDialogBoxMode(&self, bEnableDialogs: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(21u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGammaRamp(&self, iSwapChain: UINT, Flags: DWORD, pRamp: *const D3DGAMMARAMP);
-            #[Windows::Win32::Metadata::NativeOverrideSlot(22u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetGammaRamp(&self, iSwapChain: UINT, pRamp: *mut D3DGAMMARAMP);
-            #[Windows::Win32::Metadata::NativeOverrideSlot(23u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateTexture(&self, Width: UINT, Height: UINT, Levels: UINT, Usage: DWORD, Format: D3DFORMAT, Pool: D3DPOOL, ppTexture: *mut IDirect3DTexture9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(24u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateVolumeTexture(&self, Width: UINT, Height: UINT, Depth: UINT, Levels: UINT, Usage: DWORD, Format: D3DFORMAT, Pool: D3DPOOL, ppVolumeTexture: *mut IDirect3DVolumeTexture9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(25u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateCubeTexture(&self, EdgeLength: UINT, Levels: UINT, Usage: DWORD, Format: D3DFORMAT, Pool: D3DPOOL, ppCubeTexture: *mut IDirect3DCubeTexture9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(26u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateVertexBuffer(&self, Length: UINT, Usage: DWORD, FVF: DWORD, Pool: D3DPOOL, ppVertexBuffer: *mut IDirect3DVertexBuffer9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(27u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateIndexBuffer(&self, Length: UINT, Usage: DWORD, Format: D3DFORMAT, Pool: D3DPOOL, ppIndexBuffer: *mut IDirect3DIndexBuffer9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(28u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateRenderTarget(&self, Width: UINT, Height: UINT, Format: D3DFORMAT, MultiSample: D3DMULTISAMPLE_TYPE, MultisampleQuality: DWORD, Lockable: BOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(29u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDepthStencilSurface(&self, Width: UINT, Height: UINT, Format: D3DFORMAT, MultiSample: D3DMULTISAMPLE_TYPE, MultisampleQuality: DWORD, Discard: BOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(30u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn UpdateSurface(&self, pSourceSurface: IDirect3DSurface9, pSourceRect: *const RECT, pDestinationSurface: IDirect3DSurface9, pDestPoint: *const POINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(31u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn UpdateTexture(&self, pSourceTexture: IDirect3DBaseTexture9, pDestinationTexture: IDirect3DBaseTexture9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(32u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetRenderTargetData(&self, pRenderTarget: IDirect3DSurface9, pDestSurface: IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(33u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetFrontBufferData(&self, iSwapChain: UINT, pDestSurface: IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(34u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn StretchRect(&self, pSourceSurface: IDirect3DSurface9, pSourceRect: *const RECT, pDestSurface: IDirect3DSurface9, pDestRect: *const RECT, Filter: D3DTEXTUREFILTERTYPE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(35u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn ColorFill(&self, pSurface: IDirect3DSurface9, pRect: *const RECT, color: D3DCOLOR) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(36u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateOffscreenPlainSurface(&self, Width: UINT, Height: UINT, Format: D3DFORMAT, Pool: D3DPOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(37u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRenderTarget(&self, RenderTargetIndex: DWORD, pRenderTarget: IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(38u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetRenderTarget(&self, RenderTargetIndex: DWORD, ppRenderTarget: *mut IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(39u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetDepthStencilSurface(&self, pNewZStencil: IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(40u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDepthStencilSurface(&self, ppZStencilSurface: *mut IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(41u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn BeginScene(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(42u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EndScene(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(43u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Clear(&self, Count: DWORD, pRects: *const D3DRECT, Flags: DWORD, Color: D3DCOLOR, Z: f32, Stencil: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(44u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTransform(&self, State: D3DTRANSFORMSTATETYPE, pMatrix: *const D3DMATRIX) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(45u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetTransform(&self, State: D3DTRANSFORMSTATETYPE, pMatrix: *mut D3DMATRIX) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(46u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const D3DMATRIX) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(47u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetViewport(&self, pViewport: *const D3DVIEWPORT9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(48u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetViewport(&self, pViewport: *mut D3DVIEWPORT9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(49u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetMaterial(&self, pMaterial: *const D3DMATERIAL9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(50u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetMaterial(&self, pMaterial: *mut D3DMATERIAL9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(51u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetLight(&self, Index: DWORD, param1: *const D3DLIGHT9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(52u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLight(&self, Index: DWORD, param1: *mut D3DLIGHT9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(53u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn LightEnable(&self, Index: DWORD, Enable: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(54u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLightEnable(&self, Index: DWORD, pEnable: *mut BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(55u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetClipPlane(&self, Index: DWORD, pPlane: *const f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(56u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetClipPlane(&self, Index: DWORD, pPlane: *mut f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(57u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRenderState(&self, State: D3DRENDERSTATETYPE, Value: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(58u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetRenderState(&self, State: D3DRENDERSTATETYPE, pValue: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(59u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateStateBlock(&self, Type: D3DSTATEBLOCKTYPE, ppSB: *mut IDirect3DStateBlock9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(60u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn BeginStateBlock(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(61u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EndStateBlock(&self, ppSB: *mut IDirect3DStateBlock9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(62u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetClipStatus(&self, pClipStatus: *const D3DCLIPSTATUS9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(63u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetClipStatus(&self, pClipStatus: *mut D3DCLIPSTATUS9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(64u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetTexture(&self, Stage: DWORD, ppTexture: *mut IDirect3DBaseTexture9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(65u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTexture(&self, Stage: DWORD, pTexture: IDirect3DBaseTexture9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(66u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetTextureStageState(&self, Stage: DWORD, Type: D3DTEXTURESTAGESTATETYPE, pValue: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(67u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetTextureStageState(&self, Stage: DWORD, Type: D3DTEXTURESTAGESTATETYPE, Value: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(68u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetSamplerState(&self, Sampler: DWORD, Type: D3DSAMPLERSTATETYPE, pValue: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(69u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetSamplerState(&self, Sampler: DWORD, Type: D3DSAMPLERSTATETYPE, Value: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(70u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn ValidateDevice(&self, pNumPasses: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(71u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPaletteEntries(&self, PaletteNumber: UINT, pEntries: *const PALETTEENTRY) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(72u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPaletteEntries(&self, PaletteNumber: UINT, pEntries: *mut PALETTEENTRY) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(73u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetCurrentTexturePalette(&self, PaletteNumber: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(74u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetCurrentTexturePalette(&self, PaletteNumber: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(75u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetScissorRect(&self, pRect: *const RECT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(76u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetScissorRect(&self, pRect: *mut RECT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(77u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetSoftwareVertexProcessing(&self, bSoftware: BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(78u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetSoftwareVertexProcessing(&self) -> BOOL;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(79u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetNPatchMode(&self, nSegments: f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(80u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetNPatchMode(&self) -> f32;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(81u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DrawPrimitive(&self, PrimitiveType: D3DPRIMITIVETYPE, StartVertex: UINT, PrimitiveCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(82u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DrawIndexedPrimitive(&self, param0: D3DPRIMITIVETYPE, BaseVertexIndex: INT, MinVertexIndex: UINT, NumVertices: UINT, startIndex: UINT, primCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(83u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DrawPrimitiveUP(&self, PrimitiveType: D3DPRIMITIVETYPE, PrimitiveCount: UINT, pVertexStreamZeroData: *const void, VertexStreamZeroStride: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(84u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DrawIndexedPrimitiveUP(&self, PrimitiveType: D3DPRIMITIVETYPE, MinVertexIndex: UINT, NumVertices: UINT, PrimitiveCount: UINT, pIndexData: *const void, IndexDataFormat: D3DFORMAT, pVertexStreamZeroData: *const void, VertexStreamZeroStride: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(85u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn ProcessVertices(&self, SrcStartIndex: UINT, DestIndex: UINT, VertexCount: UINT, pDestBuffer: IDirect3DVertexBuffer9, pVertexDecl: IDirect3DVertexDeclaration9, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(86u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateVertexDeclaration(&self, pVertexElements: *const D3DVERTEXELEMENT9, ppDecl: *mut IDirect3DVertexDeclaration9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(87u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetVertexDeclaration(&self, pDecl: IDirect3DVertexDeclaration9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(88u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetVertexDeclaration(&self, ppDecl: *mut IDirect3DVertexDeclaration9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(89u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetFVF(&self, FVF: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(90u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetFVF(&self, pFVF: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(91u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateVertexShader(&self, pFunction: *const DWORD, ppShader: *mut IDirect3DVertexShader9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(92u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetVertexShader(&self, pShader: IDirect3DVertexShader9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(93u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetVertexShader(&self, ppShader: *mut IDirect3DVertexShader9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(94u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetVertexShaderConstantF(&self, StartRegister: UINT, pConstantData: *const f32, Vector4fCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(95u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetVertexShaderConstantF(&self, StartRegister: UINT, pConstantData: *mut f32, Vector4fCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(96u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetVertexShaderConstantI(&self, StartRegister: UINT, pConstantData: *const i32, Vector4iCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(97u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetVertexShaderConstantI(&self, StartRegister: UINT, pConstantData: *mut i32, Vector4iCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(98u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetVertexShaderConstantB(&self, StartRegister: UINT, pConstantData: *const BOOL, BoolCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(99u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetVertexShaderConstantB(&self, StartRegister: UINT, pConstantData: *mut BOOL, BoolCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(100u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetStreamSource(&self, StreamNumber: UINT, pStreamData: IDirect3DVertexBuffer9, OffsetInBytes: UINT, Stride: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(101u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetStreamSource(&self, StreamNumber: UINT, ppStreamData: *mut IDirect3DVertexBuffer9, pOffsetInBytes: *mut UINT, pStride: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(102u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetStreamSourceFreq(&self, StreamNumber: UINT, Setting: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(103u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetStreamSourceFreq(&self, StreamNumber: UINT, pSetting: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(104u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetIndices(&self, pIndexData: IDirect3DIndexBuffer9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(105u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetIndices(&self, ppIndexData: *mut IDirect3DIndexBuffer9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(106u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreatePixelShader(&self, pFunction: *const DWORD, ppShader: *mut IDirect3DPixelShader9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(107u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPixelShader(&self, pShader: IDirect3DPixelShader9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(108u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPixelShader(&self, ppShader: *mut IDirect3DPixelShader9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(109u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPixelShaderConstantF(&self, StartRegister: UINT, pConstantData: *const f32, Vector4fCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(110u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPixelShaderConstantF(&self, StartRegister: UINT, pConstantData: *mut f32, Vector4fCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(111u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPixelShaderConstantI(&self, StartRegister: UINT, pConstantData: *const i32, Vector4iCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(112u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPixelShaderConstantI(&self, StartRegister: UINT, pConstantData: *mut i32, Vector4iCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(113u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPixelShaderConstantB(&self, StartRegister: UINT, pConstantData: *const BOOL, BoolCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(114u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPixelShaderConstantB(&self, StartRegister: UINT, pConstantData: *mut BOOL, BoolCount: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(115u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DrawRectPatch(&self, Handle: UINT, pNumSegs: *const f32, pRectPatchInfo: *const D3DRECTPATCH_INFO) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(116u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DrawTriPatch(&self, Handle: UINT, pNumSegs: *const f32, pTriPatchInfo: *const D3DTRIPATCH_INFO) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(117u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn DeletePatch(&self, Handle: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(118u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateQuery(&self, Type: D3DQUERYTYPE, ppQuery: *mut IDirect3DQuery9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetConvolutionMonoKernel(&self, width: UINT, height: UINT, rows: *mut f32, columns: *mut f32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn ComposeRects(&self, pSrc: IDirect3DSurface9, pDst: IDirect3DSurface9, pSrcRectDescs: IDirect3DVertexBuffer9, NumRects: UINT, pDstRectDescs: IDirect3DVertexBuffer9, Operation: D3DCOMPOSERECTSOP, Xoffset: i32, Yoffset: i32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn PresentEx(&self, pSourceRect: *const RECT, pDestRect: *const RECT, hDestWindowOverride: HWND, pDirtyRegion: *const RGNDATA, dwFlags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetGPUThreadPriority(&self, pPriority: *mut INT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetGPUThreadPriority(&self, Priority: INT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn WaitForVBlank(&self, iSwapChain: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckResourceResidency(&self, pResourceArray: *mut IDirect3DResource9, NumResources: UINT32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetMaximumFrameLatency(&self, MaxLatency: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetMaximumFrameLatency(&self, pMaxLatency: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetConvolutionMonoKernel(&self, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> HRESULT;
+            fn ComposeRects(&self, pSrc: IDirect3DSurface9, pDst: IDirect3DSurface9, pSrcRectDescs: IDirect3DVertexBuffer9, NumRects: u32, pDstRectDescs: IDirect3DVertexBuffer9, Operation: D3DCOMPOSERECTSOP, Xoffset: i32, Yoffset: i32) -> HRESULT;
+            fn PresentEx(&self, pSourceRect: *const RECT, pDestRect: *const RECT, hDestWindowOverride: HWND, pDirtyRegion: *const RGNDATA, dwFlags: u32) -> HRESULT;
+            fn GetGPUThreadPriority(&self, pPriority: *mut i32) -> HRESULT;
+            fn SetGPUThreadPriority(&self, Priority: i32) -> HRESULT;
+            fn WaitForVBlank(&self, iSwapChain: u32) -> HRESULT;
+            fn CheckResourceResidency(&self, pResourceArray: *mut IDirect3DResource9, NumResources: u32) -> HRESULT;
+            fn SetMaximumFrameLatency(&self, MaxLatency: u32) -> HRESULT;
+            fn GetMaximumFrameLatency(&self, pMaxLatency: *mut u32) -> HRESULT;
             fn CheckDeviceState(&self, hDestinationWindow: HWND) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateRenderTargetEx(&self, Width: UINT, Height: UINT, Format: D3DFORMAT, MultiSample: D3DMULTISAMPLE_TYPE, MultisampleQuality: DWORD, Lockable: BOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE, Usage: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateOffscreenPlainSurfaceEx(&self, Width: UINT, Height: UINT, Format: D3DFORMAT, Pool: D3DPOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE, Usage: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDepthStencilSurfaceEx(&self, Width: UINT, Height: UINT, Format: D3DFORMAT, MultiSample: D3DMULTISAMPLE_TYPE, MultisampleQuality: DWORD, Discard: BOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE, Usage: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn CreateRenderTargetEx(&self, Width: u32, Height: u32, Format: D3DFORMAT, MultiSample: D3DMULTISAMPLE_TYPE, MultisampleQuality: u32, Lockable: BOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE, Usage: u32) -> HRESULT;
+            fn CreateOffscreenPlainSurfaceEx(&self, Width: u32, Height: u32, Format: D3DFORMAT, Pool: D3DPOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE, Usage: u32) -> HRESULT;
+            fn CreateDepthStencilSurfaceEx(&self, Width: u32, Height: u32, Format: D3DFORMAT, MultiSample: D3DMULTISAMPLE_TYPE, MultisampleQuality: u32, Discard: BOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE, Usage: u32) -> HRESULT;
             fn ResetEx(&self, pPresentationParameters: *mut D3DPRESENT_PARAMETERS, pFullscreenDisplayMode: *mut D3DDISPLAYMODEEX) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDisplayModeEx(&self, iSwapChain: UINT, pMode: *mut D3DDISPLAYMODEEX, pRotation: *mut D3DDISPLAYROTATION) -> HRESULT;
+            fn GetDisplayModeEx(&self, iSwapChain: u32, pMode: *mut D3DDISPLAYMODEEX, pRotation: *mut D3DDISPLAYROTATION) -> HRESULT;
         }
         #[guid(0x26dc4561_a1ee_4ae7_96da_118a36c0ec95)]
         interface IDirect3DDevice9Video: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetContentProtectionCaps(&self, pCryptoType: *const GUID, pDecodeProfile: *const GUID, pCaps: *mut D3DCONTENTPROTECTIONCAPS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn CreateAuthenticatedChannel(&self, ChannelType: D3DAUTHENTICATEDCHANNELTYPE, ppAuthenticatedChannel: *mut IDirect3DAuthenticatedChannel9, pChannelHandle: *mut HANDLE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn CreateCryptoSession(&self, pCryptoType: *const GUID, pDecodeProfile: *const GUID, ppCryptoSession: *mut IDirect3DCryptoSession9, pCryptoHandle: *mut HANDLE) -> HRESULT;
         }
         #[guid(0x7c9dd65e_d3f7_4529_acee_785830acde35)]
         interface IDirect3DIndexBuffer9: IDirect3DResource9 {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPrivateData(&self, refguid: &GUID, pData: *const void, SizeOfData: DWORD, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPrivateData(&self, refguid: &GUID, pData: *mut void, pSizeOfData: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FreePrivateData(&self, refguid: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPriority(&self, PriorityNew: DWORD) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPriority(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn PreLoad(&self);
-            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetType(&self) -> D3DRESOURCETYPE;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Lock(&self, OffsetToLock: UINT, SizeToLock: UINT, ppbData: *mut *mut void, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Lock(&self, OffsetToLock: u32, SizeToLock: u32, ppbData: *mut *mut void, Flags: u32) -> HRESULT;
             fn Unlock(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDesc(&self, pDesc: *mut D3DINDEXBUFFER_DESC) -> HRESULT;
         }
         #[guid(0x6d3bdbdc_5b02_4415_b852_ce5e8bccb289)]
         interface IDirect3DPixelShader9: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetFunction(&self, param0: *mut void, pSizeOfData: *mut UINT) -> HRESULT;
+            fn GetFunction(&self, param0: *mut void, pSizeOfData: *mut u32) -> HRESULT;
         }
         #[guid(0xd9771460_a695_4f26_bbd3_27b840b541cc)]
         interface IDirect3DQuery9: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetType(&self) -> D3DQUERYTYPE;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDataSize(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Issue(&self, dwIssueFlags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetData(&self, pData: *mut void, dwSize: DWORD, dwGetDataFlags: DWORD) -> HRESULT;
+            fn GetDataSize(&self) -> u32;
+            fn Issue(&self, dwIssueFlags: u32) -> HRESULT;
+            fn GetData(&self, pData: *mut void, dwSize: u32, dwGetDataFlags: u32) -> HRESULT;
         }
         #[guid(0x05eec05d_8f7d_4362_b999_d1baf357c704)]
         interface IDirect3DResource9: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPrivateData(&self, refguid: &GUID, pData: *const void, SizeOfData: DWORD, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPrivateData(&self, refguid: &GUID, pData: *mut void, pSizeOfData: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FreePrivateData(&self, refguid: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPriority(&self, PriorityNew: DWORD) -> DWORD;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPriority(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetPrivateData(&self, refguid: *const GUID, pData: *const void, SizeOfData: u32, Flags: u32) -> HRESULT;
+            fn GetPrivateData(&self, refguid: *const GUID, pData: *mut void, pSizeOfData: *mut u32) -> HRESULT;
+            fn FreePrivateData(&self, refguid: *const GUID) -> HRESULT;
+            fn SetPriority(&self, PriorityNew: u32) -> u32;
+            fn GetPriority(&self) -> u32;
             fn PreLoad(&self);
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetType(&self) -> D3DRESOURCETYPE;
         }
         #[guid(0xb07c4fe5_310d_4ba8_a23c_4f0f206f218b)]
         interface IDirect3DStateBlock9: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Capture(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Apply(&self) -> HRESULT;
         }
         #[guid(0x0cfbaf3a_9ff6_429a_99b3_a2796af8b89b)]
         interface IDirect3DSurface9: IDirect3DResource9 {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPrivateData(&self, refguid: &GUID, pData: *const void, SizeOfData: DWORD, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPrivateData(&self, refguid: &GUID, pData: *mut void, pSizeOfData: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FreePrivateData(&self, refguid: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPriority(&self, PriorityNew: DWORD) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPriority(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn PreLoad(&self);
-            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetType(&self) -> D3DRESOURCETYPE;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetContainer(&self, riid: &IID, ppContainer: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetContainer(&self, riid: *const GUID, ppContainer: *mut *mut void) -> HRESULT;
             fn GetDesc(&self, pDesc: *mut D3DSURFACE_DESC) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn LockRect(&self, pLockedRect: *mut D3DLOCKED_RECT, pRect: *const RECT, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn LockRect(&self, pLockedRect: *mut D3DLOCKED_RECT, pRect: *const RECT, Flags: u32) -> HRESULT;
             fn UnlockRect(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDC(&self, phdc: *mut HDC) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn ReleaseDC(&self, hdc: HDC) -> HRESULT;
         }
         #[guid(0x794950f2_adfc_458a_905e_10a10b0b503b)]
         interface IDirect3DSwapChain9: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Present(&self, pSourceRect: *const RECT, pDestRect: *const RECT, hDestWindowOverride: HWND, pDirtyRegion: *const RGNDATA, dwFlags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Present(&self, pSourceRect: *const RECT, pDestRect: *const RECT, hDestWindowOverride: HWND, pDirtyRegion: *const RGNDATA, dwFlags: u32) -> HRESULT;
             fn GetFrontBufferData(&self, pDestSurface: IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetBackBuffer(&self, iBackBuffer: UINT, Type: D3DBACKBUFFER_TYPE, ppBackBuffer: *mut IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetBackBuffer(&self, iBackBuffer: u32, Type: D3DBACKBUFFER_TYPE, ppBackBuffer: *mut IDirect3DSurface9) -> HRESULT;
             fn GetRasterStatus(&self, pRasterStatus: *mut D3DRASTER_STATUS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDisplayMode(&self, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetPresentParameters(&self, pPresentationParameters: *mut D3DPRESENT_PARAMETERS) -> HRESULT;
         }
         #[guid(0x91886caf_1c3d_4d2e_a0ab_3e4c7d8d3303)]
         interface IDirect3DSwapChain9Ex: IDirect3DSwapChain9 {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Present(&self, pSourceRect: *const RECT, pDestRect: *const RECT, hDestWindowOverride: HWND, pDirtyRegion: *const RGNDATA, dwFlags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetFrontBufferData(&self, pDestSurface: IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetBackBuffer(&self, iBackBuffer: UINT, Type: D3DBACKBUFFER_TYPE, ppBackBuffer: *mut IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetRasterStatus(&self, pRasterStatus: *mut D3DRASTER_STATUS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDisplayMode(&self, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPresentParameters(&self, pPresentationParameters: *mut D3DPRESENT_PARAMETERS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLastPresentCount(&self, pLastPresentCount: *mut UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLastPresentCount(&self, pLastPresentCount: *mut u32) -> HRESULT;
             fn GetPresentStats(&self, pPresentationStatistics: *mut D3DPRESENTSTATS) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDisplayModeEx(&self, pMode: *mut D3DDISPLAYMODEEX, pRotation: *mut D3DDISPLAYROTATION) -> HRESULT;
         }
         #[guid(0x85c31227_3de5_4f00_9b3a_f11ac38c18b5)]
         interface IDirect3DTexture9: IDirect3DBaseTexture9 {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPrivateData(&self, refguid: &GUID, pData: *const void, SizeOfData: DWORD, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPrivateData(&self, refguid: &GUID, pData: *mut void, pSizeOfData: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FreePrivateData(&self, refguid: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPriority(&self, PriorityNew: DWORD) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPriority(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn PreLoad(&self);
-            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetType(&self) -> D3DRESOURCETYPE;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(11u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetLOD(&self, LODNew: DWORD) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(12u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLOD(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(13u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLevelCount(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(14u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAutoGenFilterType(&self, FilterType: D3DTEXTUREFILTERTYPE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(15u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(16u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GenerateMipSubLevels(&self);
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLevelDesc(&self, Level: UINT, pDesc: *mut D3DSURFACE_DESC) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetSurfaceLevel(&self, Level: UINT, ppSurfaceLevel: *mut IDirect3DSurface9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn LockRect(&self, Level: UINT, pLockedRect: *mut D3DLOCKED_RECT, pRect: *const RECT, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn UnlockRect(&self, Level: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLevelDesc(&self, Level: u32, pDesc: *mut D3DSURFACE_DESC) -> HRESULT;
+            fn GetSurfaceLevel(&self, Level: u32, ppSurfaceLevel: *mut IDirect3DSurface9) -> HRESULT;
+            fn LockRect(&self, Level: u32, pLockedRect: *mut D3DLOCKED_RECT, pRect: *const RECT, Flags: u32) -> HRESULT;
+            fn UnlockRect(&self, Level: u32) -> HRESULT;
             fn AddDirtyRect(&self, pDirtyRect: *const RECT) -> HRESULT;
         }
         #[guid(0xb64bb1b5_fd70_4df6_bf91_19d0a12455e3)]
         interface IDirect3DVertexBuffer9: IDirect3DResource9 {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPrivateData(&self, refguid: &GUID, pData: *const void, SizeOfData: DWORD, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPrivateData(&self, refguid: &GUID, pData: *mut void, pSizeOfData: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FreePrivateData(&self, refguid: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPriority(&self, PriorityNew: DWORD) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPriority(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn PreLoad(&self);
-            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetType(&self) -> D3DRESOURCETYPE;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Lock(&self, OffsetToLock: UINT, SizeToLock: UINT, ppbData: *mut *mut void, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Lock(&self, OffsetToLock: u32, SizeToLock: u32, ppbData: *mut *mut void, Flags: u32) -> HRESULT;
             fn Unlock(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDesc(&self, pDesc: *mut D3DVERTEXBUFFER_DESC) -> HRESULT;
         }
         #[guid(0xdd13c59c_36fa_4098_a8fb_c7ed39dc8546)]
         interface IDirect3DVertexDeclaration9: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDeclaration(&self, pElement: *mut D3DVERTEXELEMENT9, pNumElements: *mut UINT) -> HRESULT;
+            fn GetDeclaration(&self, pElement: *mut D3DVERTEXELEMENT9, pNumElements: *mut u32) -> HRESULT;
         }
         #[guid(0xefc5557e_6265_4613_8a94_43857889eb36)]
         interface IDirect3DVertexShader9: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetFunction(&self, param0: *mut void, pSizeOfData: *mut UINT) -> HRESULT;
+            fn GetFunction(&self, param0: *mut void, pSizeOfData: *mut u32) -> HRESULT;
         }
         #[guid(0x24f416e6_1f67_4aa7_b88e_d33f6f3128a1)]
         interface IDirect3DVolume9: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPrivateData(&self, refguid: &GUID, pData: *const void, SizeOfData: DWORD, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPrivateData(&self, refguid: &GUID, pData: *mut void, pSizeOfData: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FreePrivateData(&self, refguid: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetContainer(&self, riid: &IID, ppContainer: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetPrivateData(&self, refguid: *const GUID, pData: *const void, SizeOfData: u32, Flags: u32) -> HRESULT;
+            fn GetPrivateData(&self, refguid: *const GUID, pData: *mut void, pSizeOfData: *mut u32) -> HRESULT;
+            fn FreePrivateData(&self, refguid: *const GUID) -> HRESULT;
+            fn GetContainer(&self, riid: *const GUID, ppContainer: *mut *mut void) -> HRESULT;
             fn GetDesc(&self, pDesc: *mut D3DVOLUME_DESC) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn LockBox(&self, pLockedVolume: *mut D3DLOCKED_BOX, pBox: *const D3DBOX, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn LockBox(&self, pLockedVolume: *mut D3DLOCKED_BOX, pBox: *const D3DBOX, Flags: u32) -> HRESULT;
             fn UnlockBox(&self) -> HRESULT;
         }
         #[guid(0x2518526c_e789_4111_a7b9_47ef328d13e6)]
         interface IDirect3DVolumeTexture9: IDirect3DBaseTexture9 {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, riid: &IID, ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(3u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(4u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPrivateData(&self, refguid: &GUID, pData: *const void, SizeOfData: DWORD, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(5u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPrivateData(&self, refguid: &GUID, pData: *mut void, pSizeOfData: *mut DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(6u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn FreePrivateData(&self, refguid: &GUID) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(7u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetPriority(&self, PriorityNew: DWORD) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(8u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetPriority(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(9u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn PreLoad(&self);
-            #[Windows::Win32::Metadata::NativeOverrideSlot(10u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetType(&self) -> D3DRESOURCETYPE;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(11u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetLOD(&self, LODNew: DWORD) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(12u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLOD(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(13u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLevelCount(&self) -> DWORD;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(14u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetAutoGenFilterType(&self, FilterType: D3DTEXTUREFILTERTYPE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(15u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(16u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GenerateMipSubLevels(&self);
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetLevelDesc(&self, Level: UINT, pDesc: *mut D3DVOLUME_DESC) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetVolumeLevel(&self, Level: UINT, ppVolumeLevel: *mut IDirect3DVolume9) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn LockBox(&self, Level: UINT, pLockedVolume: *mut D3DLOCKED_BOX, pBox: *const D3DBOX, Flags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn UnlockBox(&self, Level: UINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetLevelDesc(&self, Level: u32, pDesc: *mut D3DVOLUME_DESC) -> HRESULT;
+            fn GetVolumeLevel(&self, Level: u32, ppVolumeLevel: *mut IDirect3DVolume9) -> HRESULT;
+            fn LockBox(&self, Level: u32, pLockedVolume: *mut D3DLOCKED_BOX, pBox: *const D3DBOX, Flags: u32) -> HRESULT;
+            fn UnlockBox(&self, Level: u32) -> HRESULT;
             fn AddDirtyBox(&self, pDirtyBox: *const D3DBOX) -> HRESULT;
         }
         const IID_HelperName: GUID = 0xe4a36723_fdfe_4b22_b146_3c04c07f4cc8;
-        const IID_IDirect3D9: GUID = 0x81bdcbca_64d4_426d_ae8d_ad0147f4275c;
-        const IID_IDirect3D9Ex: GUID = 0x02177241_69fc_400c_8ff1_93a44df6861d;
-        const IID_IDirect3D9ExOverlayExtension: GUID = 0x187aeb13_aaf5_4c59_876d_e059088c0df8;
-        const IID_IDirect3DAuthenticatedChannel9: GUID = 0xff24beee_da21_4beb_98b5_d2f899f98af9;
-        const IID_IDirect3DBaseTexture9: GUID = 0x580ca87e_1d3c_4d54_991d_b7d3e3c298ce;
-        const IID_IDirect3DCryptoSession9: GUID = 0xfa0ab799_7a9c_48ca_8c5b_237e71a54434;
-        const IID_IDirect3DCubeTexture9: GUID = 0xfff32f81_d953_473a_9223_93d652aba93f;
-        const IID_IDirect3DDevice9: GUID = 0xd0223b96_bf7a_43fd_92bd_a43b0d82b9eb;
-        const IID_IDirect3DDevice9Ex: GUID = 0xb18b10ce_2649_405a_870f_95f777d4313a;
-        const IID_IDirect3DDevice9Video: GUID = 0x26dc4561_a1ee_4ae7_96da_118a36c0ec95;
-        const IID_IDirect3DIndexBuffer9: GUID = 0x7c9dd65e_d3f7_4529_acee_785830acde35;
-        const IID_IDirect3DPixelShader9: GUID = 0x6d3bdbdc_5b02_4415_b852_ce5e8bccb289;
-        const IID_IDirect3DQuery9: GUID = 0xd9771460_a695_4f26_bbd3_27b840b541cc;
-        const IID_IDirect3DResource9: GUID = 0x05eec05d_8f7d_4362_b999_d1baf357c704;
-        const IID_IDirect3DStateBlock9: GUID = 0xb07c4fe5_310d_4ba8_a23c_4f0f206f218b;
-        const IID_IDirect3DSurface9: GUID = 0x0cfbaf3a_9ff6_429a_99b3_a2796af8b89b;
-        const IID_IDirect3DSwapChain9: GUID = 0x794950f2_adfc_458a_905e_10a10b0b503b;
-        const IID_IDirect3DSwapChain9Ex: GUID = 0x91886caf_1c3d_4d2e_a0ab_3e4c7d8d3303;
-        const IID_IDirect3DTexture9: GUID = 0x85c31227_3de5_4f00_9b3a_f11ac38c18b5;
-        const IID_IDirect3DVertexBuffer9: GUID = 0xb64bb1b5_fd70_4df6_bf91_19d0a12455e3;
-        const IID_IDirect3DVertexDeclaration9: GUID = 0xdd13c59c_36fa_4098_a8fb_c7ed39dc8546;
-        const IID_IDirect3DVertexShader9: GUID = 0xefc5557e_6265_4613_8a94_43857889eb36;
-        const IID_IDirect3DVolume9: GUID = 0x24f416e6_1f67_4aa7_b88e_d33f6f3128a1;
-        const IID_IDirect3DVolumeTexture9: GUID = 0x2518526c_e789_4111_a7b9_47ef328d13e6;
-        type LPDIRECT3D9 = IDirect3D9;
-        type LPDIRECT3D9EX = IDirect3D9Ex;
-        type LPDIRECT3D9EXOVERLAYEXTENSION = IDirect3D9ExOverlayExtension;
-        type LPDIRECT3DAUTHENTICATEDCHANNEL9 = IDirect3DAuthenticatedChannel9;
-        type LPDIRECT3DBASETEXTURE9 = IDirect3DBaseTexture9;
-        type LPDIRECT3DCRYPTOSESSION9 = IDirect3DCryptoSession9;
-        type LPDIRECT3DCUBETEXTURE9 = IDirect3DCubeTexture9;
-        type LPDIRECT3DDEVICE9 = IDirect3DDevice9;
-        type LPDIRECT3DDEVICE9EX = IDirect3DDevice9Ex;
-        type LPDIRECT3DDEVICE9VIDEO = IDirect3DDevice9Video;
-        type LPDIRECT3DINDEXBUFFER9 = IDirect3DIndexBuffer9;
-        type LPDIRECT3DPIXELSHADER9 = IDirect3DPixelShader9;
-        type LPDIRECT3DQUERY9 = IDirect3DQuery9;
-        type LPDIRECT3DRESOURCE9 = IDirect3DResource9;
-        type LPDIRECT3DSTATEBLOCK9 = IDirect3DStateBlock9;
-        type LPDIRECT3DSURFACE9 = IDirect3DSurface9;
-        type LPDIRECT3DSWAPCHAIN9 = IDirect3DSwapChain9;
-        type LPDIRECT3DSWAPCHAIN9EX = IDirect3DSwapChain9Ex;
-        type LPDIRECT3DTEXTURE9 = IDirect3DTexture9;
-        type LPDIRECT3DVERTEXBUFFER9 = IDirect3DVertexBuffer9;
-        type LPDIRECT3DVERTEXDECLARATION9 = IDirect3DVertexDeclaration9;
-        type LPDIRECT3DVERTEXSHADER9 = IDirect3DVertexShader9;
-        type LPDIRECT3DVOLUME9 = IDirect3DVolume9;
-        type LPDIRECT3DVOLUMETEXTURE9 = IDirect3DVolumeTexture9;
-        type PDIRECT3D9 = IDirect3D9;
-        type PDIRECT3D9EX = IDirect3D9Ex;
-        type PDIRECT3D9EXOVERLAYEXTENSION = IDirect3D9ExOverlayExtension;
-        type PDIRECT3DAUTHENTICATEDCHANNEL9 = IDirect3DAuthenticatedChannel9;
-        type PDIRECT3DBASETEXTURE9 = IDirect3DBaseTexture9;
-        type PDIRECT3DCRYPTOSESSION9 = IDirect3DCryptoSession9;
-        type PDIRECT3DCUBETEXTURE9 = IDirect3DCubeTexture9;
-        type PDIRECT3DDEVICE9 = IDirect3DDevice9;
-        type PDIRECT3DDEVICE9EX = IDirect3DDevice9Ex;
-        type PDIRECT3DDEVICE9VIDEO = IDirect3DDevice9Video;
-        type PDIRECT3DINDEXBUFFER9 = IDirect3DIndexBuffer9;
-        type PDIRECT3DPIXELSHADER9 = IDirect3DPixelShader9;
-        type PDIRECT3DQUERY9 = IDirect3DQuery9;
-        type PDIRECT3DRESOURCE9 = IDirect3DResource9;
-        type PDIRECT3DSTATEBLOCK9 = IDirect3DStateBlock9;
-        type PDIRECT3DSURFACE9 = IDirect3DSurface9;
-        type PDIRECT3DSWAPCHAIN9 = IDirect3DSwapChain9;
-        type PDIRECT3DSWAPCHAIN9EX = IDirect3DSwapChain9Ex;
-        type PDIRECT3DTEXTURE9 = IDirect3DTexture9;
-        type PDIRECT3DVERTEXBUFFER9 = IDirect3DVertexBuffer9;
-        type PDIRECT3DVERTEXDECLARATION9 = IDirect3DVertexDeclaration9;
-        type PDIRECT3DVERTEXSHADER9 = IDirect3DVertexShader9;
-        type PDIRECT3DVOLUME9 = IDirect3DVolume9;
-        type PDIRECT3DVOLUMETEXTURE9 = IDirect3DVolumeTexture9;
         const S_NOT_RESIDENT: HRESULT = 141953141;
         const S_PRESENT_MODE_CHANGED: HRESULT = 141953143;
         const S_PRESENT_OCCLUDED: HRESULT = 141953144;

@@ -3,6 +3,7 @@ use super::*;
 mod context;
 mod lifecycle;
 mod messaging;
+mod native_queue;
 mod reconcile;
 mod virtualization;
 mod window;

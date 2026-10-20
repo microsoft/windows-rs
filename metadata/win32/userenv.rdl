@@ -1,38 +1,31 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[arch(X64 | Arm64)]
-        type ASYNCCOMPLETIONHANDLE = u64;
-        #[arch(X86)]
-        type ASYNCCOMPLETIONHANDLE = u32;
+        type ASYNCCOMPLETIONHANDLE = usize;
         #[library("USERENV.dll")]
-        extern fn CreateAppContainerProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAppContainerName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDisplayName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszDescription: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] pCapabilities: PSID_AND_ATTRIBUTES, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCapabilityCount: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSidAppContainerSid: *mut PSID) -> HRESULT;
+        extern fn CreateAppContainerProfile(pszAppContainerName: PCWSTR, pszDisplayName: PCWSTR, pszDescription: PCWSTR, #[len_param(4)] #[opt] pCapabilities: PSID_AND_ATTRIBUTES, dwCapabilityCount: u32, ppSidAppContainerSid: *mut PSID) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn CreateEnvironmentBlock(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "(PZZWSTR *)lpEnvironment,_Outptr_", "(PZZWSTR *)lpEnvironment, _Outptr_")] lpEnvironment: *mut LPVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInherit: BOOL) -> BOOL;
+        extern fn CreateEnvironmentBlock(lpEnvironment: *mut *mut void, #[opt] hToken: HANDLE, bInherit: BOOL) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn CreateProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszUserName: LPCWSTR, #[out] #[len_param(3)] pszProfilePath: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchProfilePath: DWORD) -> HRESULT;
+        extern fn CreateProfile(pszUserSid: PCWSTR, pszUserName: PCWSTR, #[len_param(3)] #[out] pszProfilePath: PWSTR, cchProfilePath: u32) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn DeleteAppContainerProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAppContainerName: PCWSTR) -> HRESULT;
-        #[library("USERENV.dll", import = "DeleteProfileA")]
-        extern fn DeleteProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSidString: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProfilePath: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpComputerName: LPCSTR) -> BOOL;
+        extern fn DeleteAppContainerProfile(pszAppContainerName: PCWSTR) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn DeleteProfileA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSidString: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProfilePath: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpComputerName: LPCSTR) -> BOOL;
+        extern fn DeleteProfileA(lpSidString: PCSTR, #[opt] lpProfilePath: PCSTR, #[opt] lpComputerName: PCSTR) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn DeleteProfileW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSidString: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProfilePath: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpComputerName: LPCWSTR) -> BOOL;
+        extern fn DeleteProfileW(lpSidString: PCWSTR, #[opt] lpProfilePath: PCWSTR, #[opt] lpComputerName: PCWSTR) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn DeriveAppContainerSidFromAppContainerName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAppContainerName: PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppsidAppContainerSid: *mut PSID) -> HRESULT;
+        extern fn DeriveAppContainerSidFromAppContainerName(pszAppContainerName: PCWSTR, ppsidAppContainerSid: *mut PSID) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psidAppContainerSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszRestrictedAppContainerName: PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppsidRestrictedAppContainerSid: *mut PSID) -> HRESULT;
+        extern fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidAppContainerSid: PSID, pszRestrictedAppContainerName: PCWSTR, ppsidRestrictedAppContainerSid: *mut PSID) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn DestroyEnvironmentBlock(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpEnvironment: LPVOID) -> BOOL;
+        extern fn DestroyEnvironmentBlock(#[in] lpEnvironment: *mut void) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn EnterCriticalPolicySection(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bMachine: BOOL) -> HANDLE;
-        #[library("USERENV.dll", import = "ExpandEnvironmentStringsForUserA")]
-        extern fn ExpandEnvironmentStringsForUser(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSrc: LPCSTR, #[out] #[len_param(3)] lpDest: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: DWORD) -> BOOL;
+        extern fn EnterCriticalPolicySection(bMachine: BOOL) -> HANDLE;
         #[library("USERENV.dll")]
-        extern fn ExpandEnvironmentStringsForUserA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSrc: LPCSTR, #[out] #[len_param(3)] lpDest: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: DWORD) -> BOOL;
+        extern fn ExpandEnvironmentStringsForUserA(#[opt] hToken: HANDLE, lpSrc: PCSTR, #[len_param(3)] #[out] lpDest: PSTR, dwSize: u32) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn ExpandEnvironmentStringsForUserW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSrc: LPCWSTR, #[out] #[len_param(3)] lpDest: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSize: DWORD) -> BOOL;
+        extern fn ExpandEnvironmentStringsForUserW(#[opt] hToken: HANDLE, lpSrc: PCWSTR, #[len_param(3)] #[out] lpDest: PWSTR, dwSize: u32) -> BOOL;
         const FLAG_ASSUME_COMP_WQLFILTER_TRUE: i32 = 33554432;
         const FLAG_ASSUME_SLOW_LINK: i32 = 536870912;
         const FLAG_ASSUME_USER_WQLFILTER_TRUE: i32 = 67108864;
@@ -44,12 +37,10 @@ mod Windows {
         const FLAG_NO_GPO_FILTER: u32 = 2147483648;
         const FLAG_NO_USER: i32 = 1;
         const FLAG_PLANNING_MODE: i32 = 16777216;
-        #[library("USERENV.dll", import = "FreeGPOListA")]
-        extern fn FreeGPOList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGPOList: PGROUP_POLICY_OBJECTA) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn FreeGPOListA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGPOList: PGROUP_POLICY_OBJECTA) -> BOOL;
+        extern fn FreeGPOListA(pGPOList: PGROUP_POLICY_OBJECTA) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn FreeGPOListW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGPOList: PGROUP_POLICY_OBJECTW) -> BOOL;
+        extern fn FreeGPOListW(pGPOList: PGROUP_POLICY_OBJECTW) -> BOOL;
         const GPC_BLOCK_POLICY: i32 = 1;
         const GPO_FLAG_DISABLE: i32 = 1;
         const GPO_FLAG_FORCE: i32 = 2;
@@ -75,130 +66,92 @@ mod Windows {
         const GPO_LIST_FLAG_NO_SECURITYFILTERS: i32 = 8;
         const GPO_LIST_FLAG_NO_WMIFILTERS: i32 = 4;
         const GPO_LIST_FLAG_SITEONLY: i32 = 2;
-        #[encoding("ansi")]
-        const GP_DLLNAME: String = "DllName";
-        #[encoding("ansi")]
-        const GP_ENABLEASYNCHRONOUSPROCESSING: String = "EnableAsynchronousProcessing";
-        #[encoding("ansi")]
-        const GP_MAXNOGPOLISTCHANGESINTERVAL: String = "MaxNoGPOListChangesInterval";
-        #[encoding("ansi")]
-        const GP_NOBACKGROUNDPOLICY: String = "NoBackgroundPolicy";
-        #[encoding("ansi")]
-        const GP_NOGPOLISTCHANGES: String = "NoGPOListChanges";
-        #[encoding("ansi")]
-        const GP_NOMACHINEPOLICY: String = "NoMachinePolicy";
-        #[encoding("ansi")]
-        const GP_NOSLOWLINK: String = "NoSlowLink";
-        #[encoding("ansi")]
-        const GP_NOTIFYLINKTRANSITION: String = "NotifyLinkTransition";
-        #[encoding("ansi")]
-        const GP_NOUSERPOLICY: String = "NoUserPolicy";
-        #[encoding("ansi")]
-        const GP_PERUSERLOCALSETTINGS: String = "PerUserLocalSettings";
-        #[encoding("ansi")]
-        const GP_PROCESSGROUPPOLICY: String = "ProcessGroupPolicy";
-        #[encoding("ansi")]
-        const GP_REQUIRESSUCCESSFULREGISTRY: String = "RequiresSuccessfulRegistry";
         type GROUP_POLICY_OBJECT = GROUP_POLICY_OBJECTA;
         struct GROUP_POLICY_OBJECTA {
-            dwOptions: DWORD,
-            dwVersion: DWORD,
-            lpDSPath: LPSTR,
-            lpFileSysPath: LPSTR,
-            lpDisplayName: LPSTR,
-            szGPOName: [CHAR; 50],
+            dwOptions: u32,
+            dwVersion: u32,
+            lpDSPath: PSTR,
+            lpFileSysPath: PSTR,
+            lpDisplayName: PSTR,
+            szGPOName: [i8; 50],
             GPOLink: GPO_LINK,
             lParam: LPARAM,
             pNext: *mut GROUP_POLICY_OBJECTA,
             pPrev: *mut GROUP_POLICY_OBJECTA,
-            lpExtensions: LPSTR,
+            lpExtensions: PSTR,
             lParam2: LPARAM,
-            lpLink: LPSTR,
+            lpLink: PSTR,
         }
         struct GROUP_POLICY_OBJECTW {
-            dwOptions: DWORD,
-            dwVersion: DWORD,
-            lpDSPath: LPWSTR,
-            lpFileSysPath: LPWSTR,
-            lpDisplayName: LPWSTR,
-            szGPOName: [WCHAR; 50],
+            dwOptions: u32,
+            dwVersion: u32,
+            lpDSPath: PWSTR,
+            lpFileSysPath: PWSTR,
+            lpDisplayName: PWSTR,
+            szGPOName: [u16; 50],
             GPOLink: GPO_LINK,
             lParam: LPARAM,
             pNext: *mut GROUP_POLICY_OBJECTW,
             pPrev: *mut GROUP_POLICY_OBJECTW,
-            lpExtensions: LPWSTR,
+            lpExtensions: PWSTR,
             lParam2: LPARAM,
-            lpLink: LPWSTR,
+            lpLink: PWSTR,
         }
         #[library("USERENV.dll")]
-        extern fn GenerateGPNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bMachine: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpwszMgmtProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMgmtProductOptions: DWORD) -> DWORD;
-        #[library("USERENV.dll", import = "GetAllUsersProfileDirectoryA")]
-        extern fn GetAllUsersProfileDirectory(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpcchSize", "*lpcchSize")] #[out] #[opt] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GenerateGPNotification(bMachine: BOOL, lpwszMgmtProduct: PCWSTR, dwMgmtProductOptions: u32) -> u32;
         #[library("USERENV.dll")]
-        extern fn GetAllUsersProfileDirectoryA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpcchSize", "*lpcchSize")] #[out] #[opt] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetAllUsersProfileDirectoryA(#[len_param(1)] #[out] #[opt] lpProfileDir: PSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetAllUsersProfileDirectoryW(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpcchSize", "*lpcchSize")] #[out] #[opt] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetAllUsersProfileDirectoryW(#[len_param(1)] #[out] #[opt] lpProfileDir: PWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetAppContainerFolderPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAppContainerSid: PCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszPath: *mut PWSTR) -> HRESULT;
+        extern fn GetAppContainerFolderPath(pszAppContainerSid: PCWSTR, ppszPath: *mut PWSTR) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn GetAppContainerRegistryLocation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] desiredAccess: REGSAM, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] phAppContainerKey: PHKEY) -> HRESULT;
-        #[library("USERENV.dll", import = "GetAppliedGPOListA")]
-        extern fn GetAppliedGPOList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSidUser: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidExtension: *mut GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppGPOList: *mut PGROUP_POLICY_OBJECTA) -> DWORD;
+        extern fn GetAppContainerRegistryLocation(desiredAccess: REGSAM, phAppContainerKey: PHKEY) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn GetAppliedGPOListA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSidUser: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidExtension: *mut GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppGPOList: *mut PGROUP_POLICY_OBJECTA) -> DWORD;
+        extern fn GetAppliedGPOListA(dwFlags: u32, #[opt] pMachineName: PCSTR, #[opt] pSidUser: PSID, #[in] pGuidExtension: *mut GUID, ppGPOList: *mut PGROUP_POLICY_OBJECTA) -> u32;
         #[library("USERENV.dll")]
-        extern fn GetAppliedGPOListW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMachineName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSidUser: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidExtension: *mut GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppGPOList: *mut PGROUP_POLICY_OBJECTW) -> DWORD;
-        #[library("USERENV.dll", import = "GetDefaultUserProfileDirectoryA")]
-        extern fn GetDefaultUserProfileDirectory(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpcchSize", "*lpcchSize")] #[out] #[opt] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetAppliedGPOListW(dwFlags: u32, #[opt] pMachineName: PCWSTR, #[opt] pSidUser: PSID, #[in] pGuidExtension: *mut GUID, ppGPOList: *mut PGROUP_POLICY_OBJECTW) -> u32;
         #[library("USERENV.dll")]
-        extern fn GetDefaultUserProfileDirectoryA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpcchSize", "*lpcchSize")] #[out] #[opt] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetDefaultUserProfileDirectoryA(#[len_param(1)] #[out] #[opt] lpProfileDir: PSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetDefaultUserProfileDirectoryW(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpcchSize", "*lpcchSize")] #[out] #[opt] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
-        #[library("USERENV.dll", import = "GetGPOListA")]
-        extern fn GetGPOList(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpHostName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpComputerName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pGPOList: *mut PGROUP_POLICY_OBJECTA) -> BOOL;
+        extern fn GetDefaultUserProfileDirectoryW(#[len_param(1)] #[out] #[opt] lpProfileDir: PWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetGPOListA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpHostName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpComputerName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pGPOList: *mut PGROUP_POLICY_OBJECTA) -> BOOL;
+        extern fn GetGPOListA(#[opt] hToken: HANDLE, #[opt] lpName: PCSTR, #[opt] lpHostName: PCSTR, #[opt] lpComputerName: PCSTR, dwFlags: u32, pGPOList: *mut PGROUP_POLICY_OBJECTA) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetGPOListW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpHostName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpComputerName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pGPOList: *mut PGROUP_POLICY_OBJECTW) -> BOOL;
+        extern fn GetGPOListW(#[opt] hToken: HANDLE, #[opt] lpName: PCWSTR, #[opt] lpHostName: PCWSTR, #[opt] lpComputerName: PCWSTR, dwFlags: u32, pGPOList: *mut PGROUP_POLICY_OBJECTW) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetProfileType(#[out] dwFlags: *mut DWORD) -> BOOL;
-        #[library("USERENV.dll", import = "GetProfilesDirectoryA")]
-        extern fn GetProfilesDirectory(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpcchSize", "*lpcchSize")] #[out] #[opt] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetProfileType(dwFlags: *mut u32) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetProfilesDirectoryA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpcchSize", "*lpcchSize")] #[out] #[opt] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetProfilesDirectoryA(#[len_param(1)] #[out] #[opt] lpProfileDir: PSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetProfilesDirectoryW(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpcchSize", "*lpcchSize")] #[out] #[opt] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
-        #[library("USERENV.dll", import = "GetUserProfileDirectoryA")]
-        extern fn GetUserProfileDirectory(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpcchSize", "*lpcchSize")] #[out] #[opt] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetProfilesDirectoryW(#[len_param(1)] #[out] #[opt] lpProfileDir: PWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetUserProfileDirectoryA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpcchSize", "*lpcchSize")] #[out] #[opt] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetUserProfileDirectoryA(hToken: HANDLE, #[len_param(2)] #[out] #[opt] lpProfileDir: PSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetUserProfileDirectoryW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*lpcchSize", "*lpcchSize")] #[out] #[opt] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetUserProfileDirectoryW(hToken: HANDLE, #[len_param(2)] #[out] #[opt] lpProfileDir: PWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         type LPPOLICYSETTINGSTATUSINFO = *mut POLICYSETTINGSTATUSINFO;
         #[library("USERENV.dll")]
-        extern fn LeaveCriticalPolicySection(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSection: HANDLE) -> BOOL;
-        #[library("USERENV.dll", import = "LoadUserProfileA")]
-        extern fn LoadUserProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[out] lpProfileInfo: LPPROFILEINFOA) -> BOOL;
+        extern fn LeaveCriticalPolicySection(hSection: HANDLE) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn LoadUserProfileA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[out] lpProfileInfo: LPPROFILEINFOA) -> BOOL;
+        extern fn LoadUserProfileA(hToken: HANDLE, #[in] #[out] lpProfileInfo: LPPROFILEINFOA) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn LoadUserProfileW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[out] lpProfileInfo: LPPROFILEINFOW) -> BOOL;
-        extern "C" fn PFNGENERATEGROUPPOLICY(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[out] pbAbort: *mut BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszSite: *mut WCHAR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pComputerTarget: PRSOP_TARGET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pUserTarget: PRSOP_TARGET) -> DWORD;
-        extern "C" fn PFNPROCESSGROUPPOLICY(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKeyRoot: HKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeletedGPOList: PGROUP_POLICY_OBJECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pChangedGPOList: PGROUP_POLICY_OBJECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pHandle: ASYNCCOMPLETIONHANDLE, #[in] #[out] pbAbort: *mut BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStatusCallback: PFNSTATUSMESSAGECALLBACK) -> DWORD;
-        extern "C" fn PFNPROCESSGROUPPOLICYEX(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hKeyRoot: HKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDeletedGPOList: PGROUP_POLICY_OBJECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pChangedGPOList: PGROUP_POLICY_OBJECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pHandle: ASYNCCOMPLETIONHANDLE, #[in] #[out] pbAbort: *mut BOOL, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStatusCallback: PFNSTATUSMESSAGECALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pWbemServices: IWbemServices, #[out] pRsopStatus: *mut HRESULT) -> DWORD;
-        extern "C" fn PFNSTATUSMESSAGECALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bVerbose: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpMessage: LPWSTR) -> DWORD;
+        extern fn LoadUserProfileW(hToken: HANDLE, #[in] #[out] lpProfileInfo: LPPROFILEINFOW) -> BOOL;
+        extern "C" fn PFNGENERATEGROUPPOLICY(dwFlags: u32, #[in] #[out] pbAbort: *mut BOOL, #[in] #[opt] pwszSite: *mut u16, #[opt] pComputerTarget: PRSOP_TARGET, #[opt] pUserTarget: PRSOP_TARGET) -> u32;
+        extern "C" fn PFNPROCESSGROUPPOLICY(dwFlags: u32, hToken: HANDLE, hKeyRoot: HKEY, pDeletedGPOList: PGROUP_POLICY_OBJECT, pChangedGPOList: PGROUP_POLICY_OBJECT, pHandle: ASYNCCOMPLETIONHANDLE, #[in] #[out] pbAbort: *mut BOOL, #[opt] pStatusCallback: PFNSTATUSMESSAGECALLBACK) -> u32;
+        extern "C" fn PFNPROCESSGROUPPOLICYEX(dwFlags: u32, hToken: HANDLE, hKeyRoot: HKEY, pDeletedGPOList: PGROUP_POLICY_OBJECT, pChangedGPOList: PGROUP_POLICY_OBJECT, pHandle: ASYNCCOMPLETIONHANDLE, #[in] #[out] pbAbort: *mut BOOL, #[opt] pStatusCallback: PFNSTATUSMESSAGECALLBACK, #[opt] pWbemServices: IWbemServices, pRsopStatus: *mut HRESULT) -> u32;
+        extern "C" fn PFNSTATUSMESSAGECALLBACK(bVerbose: BOOL, lpMessage: PCWSTR) -> u32;
         type PGPO_LINK = *mut GPO_LINK;
-        type PGROUP_POLICY_OBJECT = *mut GROUP_POLICY_OBJECTA;
+        type PGROUP_POLICY_OBJECT = PGROUP_POLICY_OBJECTA;
         type PGROUP_POLICY_OBJECTA = *mut GROUP_POLICY_OBJECTA;
         type PGROUP_POLICY_OBJECTW = *mut GROUP_POLICY_OBJECTW;
         const PI_APPLYPOLICY: i32 = 2;
         const PI_NOUI: i32 = 1;
         struct POLICYSETTINGSTATUSINFO {
-            szKey: LPWSTR,
-            szEventSource: LPWSTR,
-            szEventLogName: LPWSTR,
-            dwEventID: DWORD,
-            dwErrorCode: DWORD,
+            szKey: PWSTR,
+            szEventSource: PWSTR,
+            szEventLogName: PWSTR,
+            dwEventID: u32,
+            dwErrorCode: u32,
             status: SETTINGSTATUS,
             timeLogged: SYSTEMTIME,
         }
@@ -209,16 +162,16 @@ mod Windows {
         const PT_ROAMING_PREEXISTING: i32 = 8;
         const PT_TEMPORARY: i32 = 1;
         #[library("USERENV.dll")]
-        extern fn ProcessGroupPolicyCompleted(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] extensionId: REFGPEXTENSIONID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAsyncHandle: ASYNCCOMPLETIONHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStatus: DWORD) -> DWORD;
+        extern fn ProcessGroupPolicyCompleted(extensionId: REFGPEXTENSIONID, pAsyncHandle: ASYNCCOMPLETIONHANDLE, dwStatus: u32) -> u32;
         #[library("USERENV.dll")]
-        extern fn ProcessGroupPolicyCompletedEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] extensionId: REFGPEXTENSIONID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAsyncHandle: ASYNCCOMPLETIONHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStatus: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] RsopStatus: HRESULT) -> DWORD;
+        extern fn ProcessGroupPolicyCompletedEx(extensionId: REFGPEXTENSIONID, pAsyncHandle: ASYNCCOMPLETIONHANDLE, dwStatus: u32, RsopStatus: HRESULT) -> u32;
         type REFGPEXTENSIONID = *mut GUID;
         const RP_FORCE: i32 = 1;
         const RP_SYNC: i32 = 2;
         const RSOP_COMPUTER_ACCESS_DENIED: i32 = 2;
         struct RSOP_TARGET {
-            pwszAccountName: *mut WCHAR,
-            pwszNewSOM: *mut WCHAR,
+            pwszAccountName: *mut u16,
+            pwszNewSOM: *mut u16,
             psaSecurityGroups: *mut SAFEARRAY,
             pRsopToken: PRSOPTOKEN,
             pGPOList: PGROUP_POLICY_OBJECT,
@@ -227,19 +180,19 @@ mod Windows {
         const RSOP_TEMPNAMESPACE_EXISTS: i32 = 4;
         const RSOP_USER_ACCESS_DENIED: i32 = 1;
         #[library("USERENV.dll")]
-        extern fn RefreshPolicy(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bMachine: BOOL) -> BOOL;
+        extern fn RefreshPolicy(bMachine: BOOL) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn RefreshPolicyEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bMachine: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD) -> BOOL;
+        extern fn RefreshPolicyEx(bMachine: BOOL, dwOptions: u32) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn RegisterGPNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEvent: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bMachine: BOOL) -> BOOL;
+        extern fn RegisterGPNotification(hEvent: HANDLE, bMachine: BOOL) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn RsopAccessCheckByType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pPrincipalSelfSid: PSID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRsopToken: PRSOPTOKEN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccessMask: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(5)] pObjectTypeList: POBJECT_TYPE_LIST, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ObjectTypeListLength: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGenericMapping: PGENERIC_MAPPING, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "*pdwPrivilegeSetLength", "*pdwPrivilegeSetLength")] #[in] #[opt] pPrivilegeSet: PPRIVILEGE_SET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pdwPrivilegeSetLength: LPDWORD, #[out] pdwGrantedAccessMask: LPDWORD, #[out] pbAccessStatus: LPBOOL) -> HRESULT;
+        extern fn RsopAccessCheckByType(pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] pPrincipalSelfSid: PSID, pRsopToken: PRSOPTOKEN, dwDesiredAccessMask: u32, #[len_param(5)] #[opt] pObjectTypeList: POBJECT_TYPE_LIST, ObjectTypeListLength: u32, pGenericMapping: PGENERIC_MAPPING, #[size_param(8)] #[opt] pPrivilegeSet: PPRIVILEGE_SET, #[opt] pdwPrivilegeSetLength: LPDWORD, #[out] pdwGrantedAccessMask: LPDWORD, #[out] pbAccessStatus: LPBOOL) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn RsopFileAccessCheck(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFileName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRsopToken: PRSOPTOKEN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccessMask: DWORD, #[out] pdwGrantedAccessMask: LPDWORD, #[out] pbAccessStatus: LPBOOL) -> HRESULT;
+        extern fn RsopFileAccessCheck(pszFileName: PCWSTR, pRsopToken: PRSOPTOKEN, dwDesiredAccessMask: u32, #[out] pdwGrantedAccessMask: LPDWORD, #[out] pbAccessStatus: LPBOOL) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn RsopResetPolicySettingStatus(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServices: IWbemServices, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSettingInstance: IWbemClassObject) -> HRESULT;
+        extern fn RsopResetPolicySettingStatus(dwFlags: u32, pServices: IWbemServices, pSettingInstance: IWbemClassObject) -> HRESULT;
         #[library("USERENV.dll")]
-        extern fn RsopSetPolicySettingStatus(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServices: IWbemServices, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSettingInstance: IWbemClassObject, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nInfo: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] pStatus: *mut POLICYSETTINGSTATUSINFO) -> HRESULT;
+        extern fn RsopSetPolicySettingStatus(dwFlags: u32, pServices: IWbemServices, pSettingInstance: IWbemClassObject, nInfo: u32, #[len_param(3)] #[in] pStatus: *mut POLICYSETTINGSTATUSINFO) -> HRESULT;
         #[repr(i32)]
         enum SETTINGSTATUS {
             RSOPUnspecified = 0,
@@ -249,8 +202,8 @@ mod Windows {
             RSOPSubsettingFailed = 4,
         }
         #[library("USERENV.dll")]
-        extern fn UnloadUserProfile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProfile: HANDLE) -> BOOL;
+        extern fn UnloadUserProfile(hToken: HANDLE, hProfile: HANDLE) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn UnregisterGPNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEvent: HANDLE) -> BOOL;
+        extern fn UnregisterGPNotification(hEvent: HANDLE) -> BOOL;
     }
 }

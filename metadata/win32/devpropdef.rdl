@@ -9,9 +9,8 @@ mod Windows {
         struct DEVPROPERTY {
             CompKey: DEVPROPCOMPKEY,
             Type: DEVPROPTYPE,
-            BufferSize: ULONG,
-            #[Windows::Win32::Metadata::NativeSal("1", "__field_bcount_opt", "BufferSize", "BufferSize")]
-            Buffer: PVOID,
+            BufferSize: u32,
+            Buffer: *mut void,
         }
         type DEVPROPGUID = GUID;
         type DEVPROPID = u32;

@@ -97,666 +97,868 @@ mod Windows {
             fn Pause(&self) -> HRESULT;
             fn Resume(&self) -> HRESULT;
             fn ShowSettingsDialog(&self) -> HRESULT;
-            fn get_Settings(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IAutomaticUpdatesSettings) -> HRESULT;
-            fn get_ServiceEnabled(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Settings(&self, #[retval] retval: *mut IAutomaticUpdatesSettings) -> HRESULT;
+            #[special]
+            fn get_ServiceEnabled(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn EnableService(&self) -> HRESULT;
         }
         #[guid(0x4a2f5c31_cfd9_410e_b7fb_29a653973a0f)]
         interface IAutomaticUpdates2: IAutomaticUpdates {
-            fn get_Results(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IAutomaticUpdatesResults) -> HRESULT;
+            #[special]
+            fn get_Results(&self, #[retval] retval: *mut IAutomaticUpdatesResults) -> HRESULT;
         }
         #[guid(0xe7a4d634_7942_4dd9_a111_82228ba33901)]
         interface IAutomaticUpdatesResults: IDispatch {
-            fn get_LastSearchSuccessDate(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
-            fn get_LastInstallationSuccessDate(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_LastSearchSuccessDate(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_LastInstallationSuccessDate(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x2ee48f22_af3c_405f_8970_f71be12ee9a2)]
         interface IAutomaticUpdatesSettings: IDispatch {
-            fn get_NotificationLevel(&self, #[out] #[retval] retval: *mut AutomaticUpdatesNotificationLevel) -> HRESULT;
+            #[special]
+            fn get_NotificationLevel(&self, #[retval] retval: *mut AutomaticUpdatesNotificationLevel) -> HRESULT;
+            #[special]
             fn put_NotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> HRESULT;
-            fn get_ReadOnly(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Required(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_ScheduledInstallationDay(&self, #[out] #[retval] retval: *mut AutomaticUpdatesScheduledInstallationDay) -> HRESULT;
+            #[special]
+            fn get_ReadOnly(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Required(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ScheduledInstallationDay(&self, #[retval] retval: *mut AutomaticUpdatesScheduledInstallationDay) -> HRESULT;
+            #[special]
             fn put_ScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> HRESULT;
-            fn get_ScheduledInstallationTime(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn put_ScheduledInstallationTime(&self, value: LONG) -> HRESULT;
+            #[special]
+            fn get_ScheduledInstallationTime(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ScheduledInstallationTime(&self, value: i32) -> HRESULT;
             fn Refresh(&self) -> HRESULT;
             fn Save(&self) -> HRESULT;
         }
         #[guid(0x6abc136a_c3ca_4384_8171_cb2b1e59b8dc)]
         interface IAutomaticUpdatesSettings2: IAutomaticUpdatesSettings {
-            fn get_IncludeRecommendedUpdates(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IncludeRecommendedUpdates(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_IncludeRecommendedUpdates(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn CheckPermission(&self, userType: AutomaticUpdatesUserType, permissionType: AutomaticUpdatesPermissionType, #[out] #[retval] userHasPermission: *mut VARIANT_BOOL) -> HRESULT;
+            fn CheckPermission(&self, userType: AutomaticUpdatesUserType, permissionType: AutomaticUpdatesPermissionType, #[retval] userHasPermission: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xb587f5c3_f57e_485f_bbf5_0d181c5cd0dc)]
         interface IAutomaticUpdatesSettings3: IAutomaticUpdatesSettings2 {
-            fn get_NonAdministratorsElevated(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_NonAdministratorsElevated(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_NonAdministratorsElevated(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_FeaturedUpdatesEnabled(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_FeaturedUpdatesEnabled(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_FeaturedUpdatesEnabled(&self, value: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x81ddc1b8_9d35_47a6_b471_5b80f519223b)]
         interface ICategory: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_CategoryID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_Children(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut ICategoryCollection) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_Image(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IImageInformation) -> HRESULT;
-            fn get_Order(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_Parent(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut ICategory) -> HRESULT;
-            fn get_Type(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_Updates(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateCollection) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_CategoryID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Children(&self, #[retval] retval: *mut ICategoryCollection) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Image(&self, #[retval] retval: *mut IImageInformation) -> HRESULT;
+            #[special]
+            fn get_Order(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Parent(&self, #[retval] retval: *mut ICategory) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Updates(&self, #[retval] retval: *mut IUpdateCollection) -> HRESULT;
         }
         #[guid(0x3a56bfb8_576c_43f7_9335_fe4838fd7e37)]
         interface ICategoryCollection: IDispatch {
-            fn get_Item(&self, index: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut ICategory) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUnknown) -> HRESULT;
-            fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] retval: *mut ICategory) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retval: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] retval: *mut i32) -> HRESULT;
         }
         #[guid(0x77254866_9f5b_4c8e_b9e2_c77a8530d64b)]
         interface IDownloadCompletedCallback: IUnknown {
-            fn Invoke(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] downloadJob: IDownloadJob, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] callbackArgs: IDownloadCompletedCallbackArgs) -> HRESULT;
+            fn Invoke(&self, downloadJob: IDownloadJob, callbackArgs: IDownloadCompletedCallbackArgs) -> HRESULT;
         }
         #[guid(0xfa565b23_498c_47a0_979d_e7d5b1813360)]
         interface IDownloadCompletedCallbackArgs: IDispatch {}
         #[guid(0xc574de85_7358_43f6_aae8_8697e62d8ba7)]
         interface IDownloadJob: IDispatch {
-            fn get_AsyncState(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
-            fn get_IsCompleted(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Updates(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateCollection) -> HRESULT;
+            #[special]
+            fn get_AsyncState(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_IsCompleted(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Updates(&self, #[retval] retval: *mut IUpdateCollection) -> HRESULT;
             fn CleanUp(&self) -> HRESULT;
-            fn GetProgress(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IDownloadProgress) -> HRESULT;
+            fn GetProgress(&self, #[retval] retval: *mut IDownloadProgress) -> HRESULT;
             fn RequestAbort(&self) -> HRESULT;
         }
         #[guid(0xd31a5bac_f719_4178_9dbb_5e2cb47fd18a)]
         interface IDownloadProgress: IDispatch {
-            fn get_CurrentUpdateBytesDownloaded(&self, #[out] #[retval] retval: *mut DECIMAL) -> HRESULT;
-            fn get_CurrentUpdateBytesToDownload(&self, #[out] #[retval] retval: *mut DECIMAL) -> HRESULT;
-            fn get_CurrentUpdateIndex(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_PercentComplete(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_TotalBytesDownloaded(&self, #[out] #[retval] retval: *mut DECIMAL) -> HRESULT;
-            fn get_TotalBytesToDownload(&self, #[out] #[retval] retval: *mut DECIMAL) -> HRESULT;
-            fn GetUpdateResult(&self, updateIndex: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateDownloadResult) -> HRESULT;
-            fn get_CurrentUpdateDownloadPhase(&self, #[out] #[retval] retval: *mut DownloadPhase) -> HRESULT;
-            fn get_CurrentUpdatePercentComplete(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_CurrentUpdateBytesDownloaded(&self, #[retval] retval: *mut DECIMAL) -> HRESULT;
+            #[special]
+            fn get_CurrentUpdateBytesToDownload(&self, #[retval] retval: *mut DECIMAL) -> HRESULT;
+            #[special]
+            fn get_CurrentUpdateIndex(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_PercentComplete(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TotalBytesDownloaded(&self, #[retval] retval: *mut DECIMAL) -> HRESULT;
+            #[special]
+            fn get_TotalBytesToDownload(&self, #[retval] retval: *mut DECIMAL) -> HRESULT;
+            fn GetUpdateResult(&self, updateIndex: i32, #[retval] retval: *mut IUpdateDownloadResult) -> HRESULT;
+            #[special]
+            fn get_CurrentUpdateDownloadPhase(&self, #[retval] retval: *mut DownloadPhase) -> HRESULT;
+            #[special]
+            fn get_CurrentUpdatePercentComplete(&self, #[retval] retval: *mut i32) -> HRESULT;
         }
         #[guid(0x8c3f1cdd_6173_4591_aebd_a56a53ca77c1)]
         interface IDownloadProgressChangedCallback: IUnknown {
-            fn Invoke(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] downloadJob: IDownloadJob, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] callbackArgs: IDownloadProgressChangedCallbackArgs) -> HRESULT;
+            fn Invoke(&self, downloadJob: IDownloadJob, callbackArgs: IDownloadProgressChangedCallbackArgs) -> HRESULT;
         }
         #[guid(0x324ff2c6_4981_4b04_9412_57481745ab24)]
         interface IDownloadProgressChangedCallbackArgs: IDispatch {
-            fn get_Progress(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IDownloadProgress) -> HRESULT;
+            #[special]
+            fn get_Progress(&self, #[retval] retval: *mut IDownloadProgress) -> HRESULT;
         }
         #[guid(0xdaa4fdd0_4727_4dbe_a1e7_745dca317144)]
         interface IDownloadResult: IDispatch {
-            fn get_HResult(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_ResultCode(&self, #[out] #[retval] retval: *mut OperationResultCode) -> HRESULT;
-            fn GetUpdateResult(&self, updateIndex: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateDownloadResult) -> HRESULT;
+            #[special]
+            fn get_HResult(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ResultCode(&self, #[retval] retval: *mut OperationResultCode) -> HRESULT;
+            fn GetUpdateResult(&self, updateIndex: i32, #[retval] retval: *mut IUpdateDownloadResult) -> HRESULT;
         }
-        const IID_IAutomaticUpdates: GUID = 0x673425bf_c082_4c7c_bdfd_569464b8e0ce;
-        const IID_IAutomaticUpdates2: GUID = 0x4a2f5c31_cfd9_410e_b7fb_29a653973a0f;
-        const IID_IAutomaticUpdatesResults: GUID = 0xe7a4d634_7942_4dd9_a111_82228ba33901;
-        const IID_IAutomaticUpdatesSettings: GUID = 0x2ee48f22_af3c_405f_8970_f71be12ee9a2;
-        const IID_IAutomaticUpdatesSettings2: GUID = 0x6abc136a_c3ca_4384_8171_cb2b1e59b8dc;
-        const IID_IAutomaticUpdatesSettings3: GUID = 0xb587f5c3_f57e_485f_bbf5_0d181c5cd0dc;
-        const IID_ICategory: GUID = 0x81ddc1b8_9d35_47a6_b471_5b80f519223b;
-        const IID_ICategoryCollection: GUID = 0x3a56bfb8_576c_43f7_9335_fe4838fd7e37;
-        const IID_IDownloadCompletedCallback: GUID = 0x77254866_9f5b_4c8e_b9e2_c77a8530d64b;
-        const IID_IDownloadCompletedCallbackArgs: GUID = 0xfa565b23_498c_47a0_979d_e7d5b1813360;
-        const IID_IDownloadJob: GUID = 0xc574de85_7358_43f6_aae8_8697e62d8ba7;
-        const IID_IDownloadProgress: GUID = 0xd31a5bac_f719_4178_9dbb_5e2cb47fd18a;
-        const IID_IDownloadProgressChangedCallback: GUID = 0x8c3f1cdd_6173_4591_aebd_a56a53ca77c1;
-        const IID_IDownloadProgressChangedCallbackArgs: GUID = 0x324ff2c6_4981_4b04_9412_57481745ab24;
-        const IID_IDownloadResult: GUID = 0xdaa4fdd0_4727_4dbe_a1e7_745dca317144;
-        const IID_IImageInformation: GUID = 0x7c907864_346c_4aeb_8f3f_57da289f969f;
-        const IID_IInstallationAgent: GUID = 0x925cbc18_a2ea_4648_bf1c_ec8badcfe20a;
-        const IID_IInstallationBehavior: GUID = 0xd9a59339_e245_4dbd_9686_4d5763e39624;
-        const IID_IInstallationCompletedCallback: GUID = 0x45f4f6f3_d602_4f98_9a8a_3efa152ad2d3;
-        const IID_IInstallationCompletedCallbackArgs: GUID = 0x250e2106_8efb_4705_9653_ef13c581b6a1;
-        const IID_IInstallationJob: GUID = 0x5c209f0b_bad5_432a_9556_4699bed2638a;
-        const IID_IInstallationProgress: GUID = 0x345c8244_43a3_4e32_a368_65f073b76f36;
-        const IID_IInstallationProgressChangedCallback: GUID = 0xe01402d5_f8da_43ba_a012_38894bd048f1;
-        const IID_IInstallationProgressChangedCallbackArgs: GUID = 0xe4f14e1e_689d_4218_a0b9_bc189c484a01;
-        const IID_IInstallationResult: GUID = 0xa43c56d6_7451_48d4_af96_b6cd2d0d9b7a;
-        const IID_IInvalidProductLicenseException: GUID = 0xa37d00f5_7bb0_4953_b414_f9e98326f2e8;
-        const IID_ISearchCompletedCallback: GUID = 0x88aee058_d4b0_4725_a2f1_814a67ae964c;
-        const IID_ISearchCompletedCallbackArgs: GUID = 0xa700a634_2850_4c47_938a_9e4b6e5af9a6;
-        const IID_ISearchJob: GUID = 0x7366ea16_7a1a_4ea2_b042_973d3e9cd99b;
-        const IID_ISearchResult: GUID = 0xd40cff62_e08c_4498_941a_01e25f0fd33c;
-        const IID_IStringCollection: GUID = 0xeff90582_2ddc_480f_a06d_60f3fbc362c3;
-        const IID_ISystemInformation: GUID = 0xade87bf7_7b56_4275_8fab_b9b0e591844b;
-        const IID_IUpdate: GUID = 0x6a92b07a_d821_4682_b423_5c805022cc4d;
-        const IID_IUpdate2: GUID = 0x144fe9b0_d23d_4a8b_8634_fb4457533b7a;
-        const IID_IUpdate3: GUID = 0x112eda6b_95b3_476f_9d90_aee82c6b8181;
-        const IID_IUpdate4: GUID = 0x27e94b0d_5139_49a2_9a61_93522dc54652;
-        const IID_IUpdate5: GUID = 0xc1c2f21a_d2f4_4902_b5c6_8a081c19a890;
-        const IID_IUpdateCollection: GUID = 0x07f7438c_7709_4ca5_b518_91279288134e;
-        const IID_IUpdateDownloadContent: GUID = 0x54a2cb2d_9a0c_48b6_8a50_9abb69ee2d02;
-        const IID_IUpdateDownloadContent2: GUID = 0xc97ad11b_f257_420b_9d9f_377f733f6f68;
-        const IID_IUpdateDownloadContentCollection: GUID = 0xbc5513c8_b3b8_4bf7_a4d4_361c0d8c88ba;
-        const IID_IUpdateDownloadResult: GUID = 0xbf99af76_b575_42ad_8aa4_33cbb5477af1;
-        const IID_IUpdateDownloader: GUID = 0x68f1c6f9_7ecc_4666_a464_247fe12496c3;
-        const IID_IUpdateDownloaderEx: GUID = 0x94726306_f12a_482a_a774_fb4f870d98c0;
-        const IID_IUpdateEx: GUID = 0x769355a3_c5a0_497c_a606_560a36d2121c;
-        const IID_IUpdateException: GUID = 0xa376dd5e_09d4_427f_af7c_fed5b6e1c1d6;
-        const IID_IUpdateExceptionCollection: GUID = 0x503626a3_8e14_4729_9355_0fe664bd2321;
-        const IID_IUpdateHistoryEntry: GUID = 0xbe56a644_af0e_4e0e_a311_c1d8e695cbff;
-        const IID_IUpdateHistoryEntry2: GUID = 0xc2bfb780_4539_4132_ab8c_0a8772013ab6;
-        const IID_IUpdateHistoryEntryCollection: GUID = 0xa7f04f3c_a290_435b_aadf_a116c3357a5c;
-        const IID_IUpdateIdentity: GUID = 0x46297823_9940_4c09_aed9_cd3ea6d05968;
-        const IID_IUpdateInstallationResult: GUID = 0xd940f0f8_3cbb_4fd0_993f_471e7f2328ad;
-        const IID_IUpdateInstaller: GUID = 0x7b929c68_ccdc_4226_96b1_8724600b54c2;
-        const IID_IUpdateInstaller2: GUID = 0x3442d4fe_224d_4cee_98cf_30e0c4d229e6;
-        const IID_IUpdateInstaller3: GUID = 0x16d11c35_099a_48d0_8338_5fae64047f8e;
-        const IID_IUpdateInstaller4: GUID = 0xef8208ea_2304_492d_9109_23813b0958e1;
-        const IID_IUpdateLockdown: GUID = 0xa976c28d_75a1_42aa_94ae_8af8b872089a;
-        const IID_IUpdateSearcher: GUID = 0x8f45abf1_f9ae_4b95_a933_f0f66e5056ea;
-        const IID_IUpdateSearcher2: GUID = 0x4cbdcb2d_1589_4beb_bd1c_3e582ff0add0;
-        const IID_IUpdateSearcher3: GUID = 0x04c6895d_eaf2_4034_97f3_311de9be413a;
-        const IID_IUpdateService: GUID = 0x76b3b17e_aed6_4da5_85f0_83587f81abe3;
-        const IID_IUpdateService2: GUID = 0x1518b460_6518_4172_940f_c75883b24ceb;
-        const IID_IUpdateServiceCollection: GUID = 0x9b0353aa_0e52_44ff_b8b0_1f7fa0437f88;
-        const IID_IUpdateServiceManager: GUID = 0x23857e3c_02ba_44a3_9423_b1c900805f37;
-        const IID_IUpdateServiceManager2: GUID = 0x0bb8531d_7e8d_424f_986c_a0b8f60a3e7b;
-        const IID_IUpdateServiceRegistration: GUID = 0xdde02280_12b3_4e0b_937b_6747f6acb286;
-        const IID_IUpdateSession: GUID = 0x816858a4_260d_4260_933a_2585f1abc76b;
-        const IID_IUpdateSession2: GUID = 0x91caf7b0_eb23_49ed_9937_c52d817f46f7;
-        const IID_IUpdateSession3: GUID = 0x918efd1e_b5d8_4c90_8540_aeb9bdc56f9d;
-        const IID_IWebProxy: GUID = 0x174c81fe_aecd_4dae_b8a0_2c6318dd86a8;
-        const IID_IWindowsDriverUpdate: GUID = 0xb383cd1a_5ce9_4504_9f63_764b1236f191;
-        const IID_IWindowsDriverUpdate2: GUID = 0x615c4269_7a48_43bd_96b7_bf6ca27d6c3e;
-        const IID_IWindowsDriverUpdate3: GUID = 0x49ebd502_4a96_41bd_9e3e_4c5057f4250c;
-        const IID_IWindowsDriverUpdate4: GUID = 0x004c6a2b_0c19_4c69_9f5c_a269b2560db9;
-        const IID_IWindowsDriverUpdate5: GUID = 0x70cf5c82_8642_42bb_9dbc_0cfd263c6c4f;
-        const IID_IWindowsDriverUpdateEntry: GUID = 0xed8bfe40_a60b_42ea_9652_817dfcfa23ec;
-        const IID_IWindowsDriverUpdateEntryCollection: GUID = 0x0d521700_a372_4bef_828b_3d00c10adebd;
-        const IID_IWindowsUpdateAgentInfo: GUID = 0x85713fa1_7796_4fa2_be3b_e2d6124dd373;
         #[guid(0x7c907864_346c_4aeb_8f3f_57da289f969f)]
         interface IImageInformation: IDispatch {
-            fn get_AltText(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_Height(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_Source(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_Width(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_AltText(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Height(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Source(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Width(&self, #[retval] retval: *mut i32) -> HRESULT;
         }
         #[guid(0x925cbc18_a2ea_4648_bf1c_ec8badcfe20a)]
         interface IInstallationAgent: IDispatch {
-            fn RecordInstallationResult(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] installationResultCookie: BSTR, hresult: LONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] extendedReportingData: IStringCollection) -> HRESULT;
+            fn RecordInstallationResult(&self, installationResultCookie: BSTR, hresult: i32, extendedReportingData: IStringCollection) -> HRESULT;
         }
         #[guid(0xd9a59339_e245_4dbd_9686_4d5763e39624)]
         interface IInstallationBehavior: IDispatch {
-            fn get_CanRequestUserInput(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Impact(&self, #[out] #[retval] retval: *mut InstallationImpact) -> HRESULT;
-            fn get_RebootBehavior(&self, #[out] #[retval] retval: *mut InstallationRebootBehavior) -> HRESULT;
-            fn get_RequiresNetworkConnectivity(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CanRequestUserInput(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Impact(&self, #[retval] retval: *mut InstallationImpact) -> HRESULT;
+            #[special]
+            fn get_RebootBehavior(&self, #[retval] retval: *mut InstallationRebootBehavior) -> HRESULT;
+            #[special]
+            fn get_RequiresNetworkConnectivity(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x45f4f6f3_d602_4f98_9a8a_3efa152ad2d3)]
         interface IInstallationCompletedCallback: IUnknown {
-            fn Invoke(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] installationJob: IInstallationJob, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] callbackArgs: IInstallationCompletedCallbackArgs) -> HRESULT;
+            fn Invoke(&self, installationJob: IInstallationJob, callbackArgs: IInstallationCompletedCallbackArgs) -> HRESULT;
         }
         #[guid(0x250e2106_8efb_4705_9653_ef13c581b6a1)]
         interface IInstallationCompletedCallbackArgs: IDispatch {}
         #[guid(0x5c209f0b_bad5_432a_9556_4699bed2638a)]
         interface IInstallationJob: IDispatch {
-            fn get_AsyncState(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
-            fn get_IsCompleted(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Updates(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateCollection) -> HRESULT;
+            #[special]
+            fn get_AsyncState(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_IsCompleted(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Updates(&self, #[retval] retval: *mut IUpdateCollection) -> HRESULT;
             fn CleanUp(&self) -> HRESULT;
-            fn GetProgress(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IInstallationProgress) -> HRESULT;
+            fn GetProgress(&self, #[retval] retval: *mut IInstallationProgress) -> HRESULT;
             fn RequestAbort(&self) -> HRESULT;
         }
         #[guid(0x345c8244_43a3_4e32_a368_65f073b76f36)]
         interface IInstallationProgress: IDispatch {
-            fn get_CurrentUpdateIndex(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_CurrentUpdatePercentComplete(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_PercentComplete(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn GetUpdateResult(&self, updateIndex: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateInstallationResult) -> HRESULT;
+            #[special]
+            fn get_CurrentUpdateIndex(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CurrentUpdatePercentComplete(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_PercentComplete(&self, #[retval] retval: *mut i32) -> HRESULT;
+            fn GetUpdateResult(&self, updateIndex: i32, #[retval] retval: *mut IUpdateInstallationResult) -> HRESULT;
         }
         #[guid(0xe01402d5_f8da_43ba_a012_38894bd048f1)]
         interface IInstallationProgressChangedCallback: IUnknown {
-            fn Invoke(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] installationJob: IInstallationJob, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] callbackArgs: IInstallationProgressChangedCallbackArgs) -> HRESULT;
+            fn Invoke(&self, installationJob: IInstallationJob, callbackArgs: IInstallationProgressChangedCallbackArgs) -> HRESULT;
         }
         #[guid(0xe4f14e1e_689d_4218_a0b9_bc189c484a01)]
         interface IInstallationProgressChangedCallbackArgs: IDispatch {
-            fn get_Progress(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IInstallationProgress) -> HRESULT;
+            #[special]
+            fn get_Progress(&self, #[retval] retval: *mut IInstallationProgress) -> HRESULT;
         }
         #[guid(0xa43c56d6_7451_48d4_af96_b6cd2d0d9b7a)]
         interface IInstallationResult: IDispatch {
-            fn get_HResult(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_RebootRequired(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_ResultCode(&self, #[out] #[retval] retval: *mut OperationResultCode) -> HRESULT;
-            fn GetUpdateResult(&self, updateIndex: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateInstallationResult) -> HRESULT;
+            #[special]
+            fn get_HResult(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RebootRequired(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ResultCode(&self, #[retval] retval: *mut OperationResultCode) -> HRESULT;
+            fn GetUpdateResult(&self, updateIndex: i32, #[retval] retval: *mut IUpdateInstallationResult) -> HRESULT;
         }
         #[guid(0xa37d00f5_7bb0_4953_b414_f9e98326f2e8)]
         interface IInvalidProductLicenseException: IUpdateException {
-            fn get_Product(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Product(&self, #[retval] retval: *mut BSTR) -> HRESULT;
         }
         #[guid(0x88aee058_d4b0_4725_a2f1_814a67ae964c)]
         interface ISearchCompletedCallback: IUnknown {
-            fn Invoke(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] searchJob: ISearchJob, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] callbackArgs: ISearchCompletedCallbackArgs) -> HRESULT;
+            fn Invoke(&self, searchJob: ISearchJob, callbackArgs: ISearchCompletedCallbackArgs) -> HRESULT;
         }
         #[guid(0xa700a634_2850_4c47_938a_9e4b6e5af9a6)]
         interface ISearchCompletedCallbackArgs: IDispatch {}
         #[guid(0x7366ea16_7a1a_4ea2_b042_973d3e9cd99b)]
         interface ISearchJob: IDispatch {
-            fn get_AsyncState(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
-            fn get_IsCompleted(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AsyncState(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_IsCompleted(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn CleanUp(&self) -> HRESULT;
             fn RequestAbort(&self) -> HRESULT;
         }
         #[guid(0xd40cff62_e08c_4498_941a_01e25f0fd33c)]
         interface ISearchResult: IDispatch {
-            fn get_ResultCode(&self, #[out] #[retval] retval: *mut OperationResultCode) -> HRESULT;
-            fn get_RootCategories(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut ICategoryCollection) -> HRESULT;
-            fn get_Updates(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateCollection) -> HRESULT;
-            fn get_Warnings(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateExceptionCollection) -> HRESULT;
+            #[special]
+            fn get_ResultCode(&self, #[retval] retval: *mut OperationResultCode) -> HRESULT;
+            #[special]
+            fn get_RootCategories(&self, #[retval] retval: *mut ICategoryCollection) -> HRESULT;
+            #[special]
+            fn get_Updates(&self, #[retval] retval: *mut IUpdateCollection) -> HRESULT;
+            #[special]
+            fn get_Warnings(&self, #[retval] retval: *mut IUpdateExceptionCollection) -> HRESULT;
         }
         #[guid(0xeff90582_2ddc_480f_a06d_60f3fbc362c3)]
         interface IStringCollection: IDispatch {
-            fn get_Item(&self, index: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn put_Item(&self, index: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUnknown) -> HRESULT;
-            fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_ReadOnly(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn Add(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR, #[out] #[retval] retval: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Item(&self, index: i32, value: BSTR) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retval: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ReadOnly(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            fn Add(&self, value: BSTR, #[retval] retval: *mut i32) -> HRESULT;
             fn Clear(&self) -> HRESULT;
-            fn Copy(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IStringCollection) -> HRESULT;
-            fn Insert(&self, index: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn RemoveAt(&self, index: LONG) -> HRESULT;
+            fn Copy(&self, #[retval] retval: *mut IStringCollection) -> HRESULT;
+            fn Insert(&self, index: i32, value: BSTR) -> HRESULT;
+            fn RemoveAt(&self, index: i32) -> HRESULT;
         }
         #[guid(0xade87bf7_7b56_4275_8fab_b9b0e591844b)]
         interface ISystemInformation: IDispatch {
-            fn get_OemHardwareSupportLink(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_RebootRequired(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_OemHardwareSupportLink(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RebootRequired(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x6a92b07a_d821_4682_b423_5c805022cc4d)]
         interface IUpdate: IDispatch {
-            fn get_Title(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_AutoSelectOnWebSites(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_BundledUpdates(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateCollection) -> HRESULT;
-            fn get_CanRequireSource(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Categories(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut ICategoryCollection) -> HRESULT;
-            fn get_Deadline(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
-            fn get_DeltaCompressedContentAvailable(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_DeltaCompressedContentPreferred(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_EulaAccepted(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_EulaText(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_HandlerID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_Identity(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateIdentity) -> HRESULT;
-            fn get_Image(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IImageInformation) -> HRESULT;
-            fn get_InstallationBehavior(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IInstallationBehavior) -> HRESULT;
-            fn get_IsBeta(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_IsDownloaded(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_IsHidden(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Title(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_AutoSelectOnWebSites(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_BundledUpdates(&self, #[retval] retval: *mut IUpdateCollection) -> HRESULT;
+            #[special]
+            fn get_CanRequireSource(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Categories(&self, #[retval] retval: *mut ICategoryCollection) -> HRESULT;
+            #[special]
+            fn get_Deadline(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_DeltaCompressedContentAvailable(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_DeltaCompressedContentPreferred(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_EulaAccepted(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_EulaText(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_HandlerID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Identity(&self, #[retval] retval: *mut IUpdateIdentity) -> HRESULT;
+            #[special]
+            fn get_Image(&self, #[retval] retval: *mut IImageInformation) -> HRESULT;
+            #[special]
+            fn get_InstallationBehavior(&self, #[retval] retval: *mut IInstallationBehavior) -> HRESULT;
+            #[special]
+            fn get_IsBeta(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsDownloaded(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsHidden(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_IsHidden(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_IsInstalled(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_IsMandatory(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_IsUninstallable(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Languages(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IStringCollection) -> HRESULT;
-            fn get_LastDeploymentChangeTime(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
-            fn get_MaxDownloadSize(&self, #[out] #[retval] retval: *mut DECIMAL) -> HRESULT;
-            fn get_MinDownloadSize(&self, #[out] #[retval] retval: *mut DECIMAL) -> HRESULT;
-            fn get_MoreInfoUrls(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IStringCollection) -> HRESULT;
-            fn get_MsrcSeverity(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_RecommendedCpuSpeed(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_RecommendedHardDiskSpace(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_RecommendedMemory(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_ReleaseNotes(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_SecurityBulletinIDs(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IStringCollection) -> HRESULT;
-            fn get_SupersededUpdateIDs(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IStringCollection) -> HRESULT;
-            fn get_SupportUrl(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_Type(&self, #[out] #[retval] retval: *mut UpdateType) -> HRESULT;
-            fn get_UninstallationNotes(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_UninstallationBehavior(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IInstallationBehavior) -> HRESULT;
-            fn get_UninstallationSteps(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IStringCollection) -> HRESULT;
-            fn get_KBArticleIDs(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IStringCollection) -> HRESULT;
+            #[special]
+            fn get_IsInstalled(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsMandatory(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsUninstallable(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Languages(&self, #[retval] retval: *mut IStringCollection) -> HRESULT;
+            #[special]
+            fn get_LastDeploymentChangeTime(&self, #[retval] retval: *mut DATE) -> HRESULT;
+            #[special]
+            fn get_MaxDownloadSize(&self, #[retval] retval: *mut DECIMAL) -> HRESULT;
+            #[special]
+            fn get_MinDownloadSize(&self, #[retval] retval: *mut DECIMAL) -> HRESULT;
+            #[special]
+            fn get_MoreInfoUrls(&self, #[retval] retval: *mut IStringCollection) -> HRESULT;
+            #[special]
+            fn get_MsrcSeverity(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RecommendedCpuSpeed(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RecommendedHardDiskSpace(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RecommendedMemory(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ReleaseNotes(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_SecurityBulletinIDs(&self, #[retval] retval: *mut IStringCollection) -> HRESULT;
+            #[special]
+            fn get_SupersededUpdateIDs(&self, #[retval] retval: *mut IStringCollection) -> HRESULT;
+            #[special]
+            fn get_SupportUrl(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] retval: *mut UpdateType) -> HRESULT;
+            #[special]
+            fn get_UninstallationNotes(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_UninstallationBehavior(&self, #[retval] retval: *mut IInstallationBehavior) -> HRESULT;
+            #[special]
+            fn get_UninstallationSteps(&self, #[retval] retval: *mut IStringCollection) -> HRESULT;
+            #[special]
+            fn get_KBArticleIDs(&self, #[retval] retval: *mut IStringCollection) -> HRESULT;
             fn AcceptEula(&self) -> HRESULT;
-            fn get_DeploymentAction(&self, #[out] #[retval] retval: *mut DeploymentAction) -> HRESULT;
-            fn CopyFromCache(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] path: BSTR, toExtractCabFiles: VARIANT_BOOL) -> HRESULT;
-            fn get_DownloadPriority(&self, #[out] #[retval] retval: *mut DownloadPriority) -> HRESULT;
-            fn get_DownloadContents(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateDownloadContentCollection) -> HRESULT;
+            #[special]
+            fn get_DeploymentAction(&self, #[retval] retval: *mut DeploymentAction) -> HRESULT;
+            fn CopyFromCache(&self, path: BSTR, toExtractCabFiles: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_DownloadPriority(&self, #[retval] retval: *mut DownloadPriority) -> HRESULT;
+            #[special]
+            fn get_DownloadContents(&self, #[retval] retval: *mut IUpdateDownloadContentCollection) -> HRESULT;
         }
         #[guid(0x144fe9b0_d23d_4a8b_8634_fb4457533b7a)]
         interface IUpdate2: IUpdate {
-            fn get_RebootRequired(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_IsPresent(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_CveIDs(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IStringCollection) -> HRESULT;
-            fn CopyToCache(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pFiles: IStringCollection) -> HRESULT;
+            #[special]
+            fn get_RebootRequired(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsPresent(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CveIDs(&self, #[retval] retval: *mut IStringCollection) -> HRESULT;
+            fn CopyToCache(&self, pFiles: IStringCollection) -> HRESULT;
         }
         #[guid(0x112eda6b_95b3_476f_9d90_aee82c6b8181)]
         interface IUpdate3: IUpdate2 {
-            fn get_BrowseOnly(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_BrowseOnly(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x27e94b0d_5139_49a2_9a61_93522dc54652)]
         interface IUpdate4: IUpdate3 {
-            fn get_PerUser(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_PerUser(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xc1c2f21a_d2f4_4902_b5c6_8a081c19a890)]
         interface IUpdate5: IUpdate4 {
-            fn get_AutoSelection(&self, #[out] #[retval] retval: *mut AutoSelectionMode) -> HRESULT;
-            fn get_AutoDownload(&self, #[out] #[retval] retval: *mut AutoDownloadMode) -> HRESULT;
+            #[special]
+            fn get_AutoSelection(&self, #[retval] retval: *mut AutoSelectionMode) -> HRESULT;
+            #[special]
+            fn get_AutoDownload(&self, #[retval] retval: *mut AutoDownloadMode) -> HRESULT;
         }
         #[guid(0x07f7438c_7709_4ca5_b518_91279288134e)]
         interface IUpdateCollection: IDispatch {
-            fn get_Item(&self, index: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdate) -> HRESULT;
-            fn put_Item(&self, index: LONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IUpdate) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUnknown) -> HRESULT;
-            fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_ReadOnly(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn Add(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IUpdate, #[out] #[retval] retval: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] retval: *mut IUpdate) -> HRESULT;
+            #[special]
+            fn put_Item(&self, index: i32, value: IUpdate) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retval: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ReadOnly(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            fn Add(&self, value: IUpdate, #[retval] retval: *mut i32) -> HRESULT;
             fn Clear(&self) -> HRESULT;
-            fn Copy(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateCollection) -> HRESULT;
-            fn Insert(&self, index: LONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IUpdate) -> HRESULT;
-            fn RemoveAt(&self, index: LONG) -> HRESULT;
+            fn Copy(&self, #[retval] retval: *mut IUpdateCollection) -> HRESULT;
+            fn Insert(&self, index: i32, value: IUpdate) -> HRESULT;
+            fn RemoveAt(&self, index: i32) -> HRESULT;
         }
         #[guid(0x54a2cb2d_9a0c_48b6_8a50_9abb69ee2d02)]
         interface IUpdateDownloadContent: IDispatch {
-            fn get_DownloadUrl(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DownloadUrl(&self, #[retval] retval: *mut BSTR) -> HRESULT;
         }
         #[guid(0xc97ad11b_f257_420b_9d9f_377f733f6f68)]
         interface IUpdateDownloadContent2: IUpdateDownloadContent {
-            fn get_IsDeltaCompressedContent(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsDeltaCompressedContent(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xbc5513c8_b3b8_4bf7_a4d4_361c0d8c88ba)]
         interface IUpdateDownloadContentCollection: IDispatch {
-            fn get_Item(&self, index: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateDownloadContent) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUnknown) -> HRESULT;
-            fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] retval: *mut IUpdateDownloadContent) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retval: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] retval: *mut i32) -> HRESULT;
         }
         #[guid(0xbf99af76_b575_42ad_8aa4_33cbb5477af1)]
         interface IUpdateDownloadResult: IDispatch {
-            fn get_HResult(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_ResultCode(&self, #[out] #[retval] retval: *mut OperationResultCode) -> HRESULT;
+            #[special]
+            fn get_HResult(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ResultCode(&self, #[retval] retval: *mut OperationResultCode) -> HRESULT;
         }
         #[guid(0x68f1c6f9_7ecc_4666_a464_247fe12496c3)]
         interface IUpdateDownloader: IDispatch {
-            fn get_ClientApplicationID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn put_ClientApplicationID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn get_IsForced(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ClientApplicationID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ClientApplicationID(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_IsForced(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_IsForced(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_Priority(&self, #[out] #[retval] retval: *mut DownloadPriority) -> HRESULT;
+            #[special]
+            fn get_Priority(&self, #[retval] retval: *mut DownloadPriority) -> HRESULT;
+            #[special]
             fn put_Priority(&self, value: DownloadPriority) -> HRESULT;
-            fn get_Updates(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateCollection) -> HRESULT;
-            fn put_Updates(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IUpdateCollection) -> HRESULT;
-            fn BeginDownload(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] onProgressChanged: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] onCompleted: IUnknown, state: VARIANT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IDownloadJob) -> HRESULT;
-            fn Download(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IDownloadResult) -> HRESULT;
-            fn EndDownload(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IDownloadJob, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IDownloadResult) -> HRESULT;
+            #[special]
+            fn get_Updates(&self, #[retval] retval: *mut IUpdateCollection) -> HRESULT;
+            #[special]
+            fn put_Updates(&self, value: IUpdateCollection) -> HRESULT;
+            fn BeginDownload(&self, onProgressChanged: IUnknown, onCompleted: IUnknown, state: VARIANT, #[retval] retval: *mut IDownloadJob) -> HRESULT;
+            fn Download(&self, #[retval] retval: *mut IDownloadResult) -> HRESULT;
+            fn EndDownload(&self, value: IDownloadJob, #[retval] retval: *mut IDownloadResult) -> HRESULT;
         }
         #[guid(0x94726306_f12a_482a_a774_fb4f870d98c0)]
         interface IUpdateDownloaderEx: IUpdateDownloader {
-            fn BeginDownload2(&self, downloadType: DownloadType, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] onProgressChanged: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] onCompleted: IUnknown, state: VARIANT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IDownloadJob) -> HRESULT;
-            fn Download2(&self, downloadType: DownloadType, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IDownloadResult) -> HRESULT;
+            fn BeginDownload2(&self, downloadType: DownloadType, onProgressChanged: IUnknown, onCompleted: IUnknown, state: VARIANT, #[retval] retval: *mut IDownloadJob) -> HRESULT;
+            fn Download2(&self, downloadType: DownloadType, #[retval] retval: *mut IDownloadResult) -> HRESULT;
         }
         #[guid(0x769355a3_c5a0_497c_a606_560a36d2121c)]
         interface IUpdateEx: IUpdate5 {
-            fn get_ExtendedStaticProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyName: BSTR, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
-            fn EvaluateExtendedDynamicProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyName: BSTR, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_ExtendedStaticProperty(&self, propertyName: BSTR, #[retval] retval: *mut VARIANT) -> HRESULT;
+            fn EvaluateExtendedDynamicProperty(&self, propertyName: BSTR, #[retval] retval: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xa376dd5e_09d4_427f_af7c_fed5b6e1c1d6)]
         interface IUpdateException: IDispatch {
-            fn get_Message(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_HResult(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_Context(&self, #[out] #[retval] retval: *mut UpdateExceptionContext) -> HRESULT;
+            #[special]
+            fn get_Message(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_HResult(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Context(&self, #[retval] retval: *mut UpdateExceptionContext) -> HRESULT;
         }
         #[guid(0x503626a3_8e14_4729_9355_0fe664bd2321)]
         interface IUpdateExceptionCollection: IDispatch {
-            fn get_Item(&self, index: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateException) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUnknown) -> HRESULT;
-            fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] retval: *mut IUpdateException) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retval: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] retval: *mut i32) -> HRESULT;
         }
         #[guid(0xbe56a644_af0e_4e0e_a311_c1d8e695cbff)]
         interface IUpdateHistoryEntry: IDispatch {
-            fn get_Operation(&self, #[out] #[retval] retval: *mut UpdateOperation) -> HRESULT;
-            fn get_ResultCode(&self, #[out] #[retval] retval: *mut OperationResultCode) -> HRESULT;
-            fn get_HResult(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_Date(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
-            fn get_UpdateIdentity(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateIdentity) -> HRESULT;
-            fn get_Title(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_UnmappedResultCode(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_ClientApplicationID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_ServerSelection(&self, #[out] #[retval] retval: *mut ServerSelection) -> HRESULT;
-            fn get_ServiceID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_UninstallationSteps(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IStringCollection) -> HRESULT;
-            fn get_UninstallationNotes(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_SupportUrl(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Operation(&self, #[retval] retval: *mut UpdateOperation) -> HRESULT;
+            #[special]
+            fn get_ResultCode(&self, #[retval] retval: *mut OperationResultCode) -> HRESULT;
+            #[special]
+            fn get_HResult(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Date(&self, #[retval] retval: *mut DATE) -> HRESULT;
+            #[special]
+            fn get_UpdateIdentity(&self, #[retval] retval: *mut IUpdateIdentity) -> HRESULT;
+            #[special]
+            fn get_Title(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_UnmappedResultCode(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ClientApplicationID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ServerSelection(&self, #[retval] retval: *mut ServerSelection) -> HRESULT;
+            #[special]
+            fn get_ServiceID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_UninstallationSteps(&self, #[retval] retval: *mut IStringCollection) -> HRESULT;
+            #[special]
+            fn get_UninstallationNotes(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_SupportUrl(&self, #[retval] retval: *mut BSTR) -> HRESULT;
         }
         #[guid(0xc2bfb780_4539_4132_ab8c_0a8772013ab6)]
         interface IUpdateHistoryEntry2: IUpdateHistoryEntry {
-            fn get_Categories(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut ICategoryCollection) -> HRESULT;
+            #[special]
+            fn get_Categories(&self, #[retval] retval: *mut ICategoryCollection) -> HRESULT;
         }
         #[guid(0xa7f04f3c_a290_435b_aadf_a116c3357a5c)]
         interface IUpdateHistoryEntryCollection: IDispatch {
-            fn get_Item(&self, index: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateHistoryEntry) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUnknown) -> HRESULT;
-            fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] retval: *mut IUpdateHistoryEntry) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retval: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] retval: *mut i32) -> HRESULT;
         }
         #[guid(0x46297823_9940_4c09_aed9_cd3ea6d05968)]
         interface IUpdateIdentity: IDispatch {
-            fn get_RevisionNumber(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_UpdateID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RevisionNumber(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_UpdateID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
         }
         #[guid(0xd940f0f8_3cbb_4fd0_993f_471e7f2328ad)]
         interface IUpdateInstallationResult: IDispatch {
-            fn get_HResult(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_RebootRequired(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_ResultCode(&self, #[out] #[retval] retval: *mut OperationResultCode) -> HRESULT;
+            #[special]
+            fn get_HResult(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RebootRequired(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ResultCode(&self, #[retval] retval: *mut OperationResultCode) -> HRESULT;
         }
         #[guid(0x7b929c68_ccdc_4226_96b1_8724600b54c2)]
         interface IUpdateInstaller: IDispatch {
-            fn get_ClientApplicationID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn put_ClientApplicationID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn get_IsForced(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ClientApplicationID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ClientApplicationID(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_IsForced(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_IsForced(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_ParentHwnd(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut HWND) -> HRESULT;
-            fn put_ParentHwnd(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: HWND) -> HRESULT;
-            fn put_ParentWindow(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IUnknown) -> HRESULT;
-            fn get_ParentWindow(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUnknown) -> HRESULT;
-            fn get_Updates(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateCollection) -> HRESULT;
-            fn put_Updates(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IUpdateCollection) -> HRESULT;
-            fn BeginInstall(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] onProgressChanged: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] onCompleted: IUnknown, state: VARIANT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IInstallationJob) -> HRESULT;
-            fn BeginUninstall(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] onProgressChanged: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] onCompleted: IUnknown, state: VARIANT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IInstallationJob) -> HRESULT;
-            fn EndInstall(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IInstallationJob, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IInstallationResult) -> HRESULT;
-            fn EndUninstall(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IInstallationJob, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IInstallationResult) -> HRESULT;
-            fn Install(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IInstallationResult) -> HRESULT;
-            fn RunWizard(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] dialogTitle: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IInstallationResult) -> HRESULT;
-            fn get_IsBusy(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn Uninstall(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IInstallationResult) -> HRESULT;
-            fn get_AllowSourcePrompts(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ParentHwnd(&self, #[retval] retval: *mut HWND) -> HRESULT;
+            #[special]
+            fn put_ParentHwnd(&self, value: HWND) -> HRESULT;
+            #[special]
+            fn put_ParentWindow(&self, value: IUnknown) -> HRESULT;
+            #[special]
+            fn get_ParentWindow(&self, #[retval] retval: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Updates(&self, #[retval] retval: *mut IUpdateCollection) -> HRESULT;
+            #[special]
+            fn put_Updates(&self, value: IUpdateCollection) -> HRESULT;
+            fn BeginInstall(&self, onProgressChanged: IUnknown, onCompleted: IUnknown, state: VARIANT, #[retval] retval: *mut IInstallationJob) -> HRESULT;
+            fn BeginUninstall(&self, onProgressChanged: IUnknown, onCompleted: IUnknown, state: VARIANT, #[retval] retval: *mut IInstallationJob) -> HRESULT;
+            fn EndInstall(&self, value: IInstallationJob, #[retval] retval: *mut IInstallationResult) -> HRESULT;
+            fn EndUninstall(&self, value: IInstallationJob, #[retval] retval: *mut IInstallationResult) -> HRESULT;
+            fn Install(&self, #[retval] retval: *mut IInstallationResult) -> HRESULT;
+            fn RunWizard(&self, dialogTitle: BSTR, #[retval] retval: *mut IInstallationResult) -> HRESULT;
+            #[special]
+            fn get_IsBusy(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            fn Uninstall(&self, #[retval] retval: *mut IInstallationResult) -> HRESULT;
+            #[special]
+            fn get_AllowSourcePrompts(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_AllowSourcePrompts(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_RebootRequiredBeforeInstallation(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RebootRequiredBeforeInstallation(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x3442d4fe_224d_4cee_98cf_30e0c4d229e6)]
         interface IUpdateInstaller2: IUpdateInstaller {
-            fn get_ForceQuiet(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ForceQuiet(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_ForceQuiet(&self, value: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x16d11c35_099a_48d0_8338_5fae64047f8e)]
         interface IUpdateInstaller3: IUpdateInstaller2 {
-            fn get_AttemptCloseAppsIfNecessary(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AttemptCloseAppsIfNecessary(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_AttemptCloseAppsIfNecessary(&self, value: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xef8208ea_2304_492d_9109_23813b0958e1)]
         interface IUpdateInstaller4: IUpdateInstaller3 {
-            fn Commit(&self, dwFlags: DWORD) -> HRESULT;
+            fn Commit(&self, dwFlags: u32) -> HRESULT;
         }
         #[guid(0xa976c28d_75a1_42aa_94ae_8af8b872089a)]
         interface IUpdateLockdown: IUnknown {
-            fn LockDown(&self, flags: LONG) -> HRESULT;
+            fn LockDown(&self, flags: i32) -> HRESULT;
         }
         #[guid(0x8f45abf1_f9ae_4b95_a933_f0f66e5056ea)]
         interface IUpdateSearcher: IDispatch {
-            fn get_CanAutomaticallyUpgradeService(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CanAutomaticallyUpgradeService(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_CanAutomaticallyUpgradeService(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_ClientApplicationID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn put_ClientApplicationID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn get_IncludePotentiallySupersededUpdates(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ClientApplicationID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ClientApplicationID(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_IncludePotentiallySupersededUpdates(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_IncludePotentiallySupersededUpdates(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_ServerSelection(&self, #[out] #[retval] retval: *mut ServerSelection) -> HRESULT;
+            #[special]
+            fn get_ServerSelection(&self, #[retval] retval: *mut ServerSelection) -> HRESULT;
+            #[special]
             fn put_ServerSelection(&self, value: ServerSelection) -> HRESULT;
-            fn BeginSearch(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] criteria: BSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] onCompleted: IUnknown, state: VARIANT, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut ISearchJob) -> HRESULT;
-            fn EndSearch(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] searchJob: ISearchJob, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut ISearchResult) -> HRESULT;
-            fn EscapeString(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] unescaped: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn QueryHistory(&self, startIndex: LONG, count: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateHistoryEntryCollection) -> HRESULT;
-            fn Search(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] criteria: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut ISearchResult) -> HRESULT;
-            fn get_Online(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            fn BeginSearch(&self, criteria: BSTR, onCompleted: IUnknown, state: VARIANT, #[retval] retval: *mut ISearchJob) -> HRESULT;
+            fn EndSearch(&self, searchJob: ISearchJob, #[retval] retval: *mut ISearchResult) -> HRESULT;
+            fn EscapeString(&self, unescaped: BSTR, #[retval] retval: *mut BSTR) -> HRESULT;
+            fn QueryHistory(&self, startIndex: i32, count: i32, #[retval] retval: *mut IUpdateHistoryEntryCollection) -> HRESULT;
+            fn Search(&self, criteria: BSTR, #[retval] retval: *mut ISearchResult) -> HRESULT;
+            #[special]
+            fn get_Online(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_Online(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn GetTotalHistoryCount(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_ServiceID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn put_ServiceID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
+            fn GetTotalHistoryCount(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ServiceID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ServiceID(&self, value: BSTR) -> HRESULT;
         }
         #[guid(0x4cbdcb2d_1589_4beb_bd1c_3e582ff0add0)]
         interface IUpdateSearcher2: IUpdateSearcher {
-            fn get_IgnoreDownloadPriority(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IgnoreDownloadPriority(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_IgnoreDownloadPriority(&self, value: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x04c6895d_eaf2_4034_97f3_311de9be413a)]
         interface IUpdateSearcher3: IUpdateSearcher2 {
-            fn get_SearchScope(&self, #[out] #[retval] retval: *mut SearchScope) -> HRESULT;
+            #[special]
+            fn get_SearchScope(&self, #[retval] retval: *mut SearchScope) -> HRESULT;
+            #[special]
             fn put_SearchScope(&self, value: SearchScope) -> HRESULT;
         }
         #[guid(0x76b3b17e_aed6_4da5_85f0_83587f81abe3)]
         interface IUpdateService: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_ContentValidationCert(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
-            fn get_ExpirationDate(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
-            fn get_IsManaged(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_IsRegisteredWithAU(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_IssueDate(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
-            fn get_OffersWindowsUpdates(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_RedirectUrls(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IStringCollection) -> HRESULT;
-            fn get_ServiceID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_IsScanPackageService(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_CanRegisterWithAU(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_ServiceUrl(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_SetupPrefix(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ContentValidationCert(&self, #[retval] retval: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_ExpirationDate(&self, #[retval] retval: *mut DATE) -> HRESULT;
+            #[special]
+            fn get_IsManaged(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsRegisteredWithAU(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IssueDate(&self, #[retval] retval: *mut DATE) -> HRESULT;
+            #[special]
+            fn get_OffersWindowsUpdates(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RedirectUrls(&self, #[retval] retval: *mut IStringCollection) -> HRESULT;
+            #[special]
+            fn get_ServiceID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_IsScanPackageService(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CanRegisterWithAU(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ServiceUrl(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_SetupPrefix(&self, #[retval] retval: *mut BSTR) -> HRESULT;
         }
         #[guid(0x1518b460_6518_4172_940f_c75883b24ceb)]
         interface IUpdateService2: IUpdateService {
-            fn get_IsDefaultAUService(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsDefaultAUService(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x9b0353aa_0e52_44ff_b8b0_1f7fa0437f88)]
         interface IUpdateServiceCollection: IDispatch {
-            fn get_Item(&self, index: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateService) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUnknown) -> HRESULT;
-            fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] retval: *mut IUpdateService) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retval: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] retval: *mut i32) -> HRESULT;
         }
         #[guid(0x23857e3c_02ba_44a3_9423_b1c900805f37)]
         interface IUpdateServiceManager: IDispatch {
-            fn get_Services(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateServiceCollection) -> HRESULT;
-            fn AddService(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] serviceID: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] authorizationCabPath: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateService) -> HRESULT;
-            fn RegisterServiceWithAU(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] serviceID: BSTR) -> HRESULT;
-            fn RemoveService(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] serviceID: BSTR) -> HRESULT;
-            fn UnregisterServiceWithAU(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] serviceID: BSTR) -> HRESULT;
-            fn AddScanPackageService(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] serviceName: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] scanFileLocation: BSTR, flags: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppService: *mut IUpdateService) -> HRESULT;
-            fn SetOption(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] optionName: BSTR, optionValue: VARIANT) -> HRESULT;
+            #[special]
+            fn get_Services(&self, #[retval] retval: *mut IUpdateServiceCollection) -> HRESULT;
+            fn AddService(&self, serviceID: BSTR, authorizationCabPath: BSTR, #[retval] retval: *mut IUpdateService) -> HRESULT;
+            fn RegisterServiceWithAU(&self, serviceID: BSTR) -> HRESULT;
+            fn RemoveService(&self, serviceID: BSTR) -> HRESULT;
+            fn UnregisterServiceWithAU(&self, serviceID: BSTR) -> HRESULT;
+            fn AddScanPackageService(&self, serviceName: BSTR, scanFileLocation: BSTR, flags: i32, #[retval] ppService: *mut IUpdateService) -> HRESULT;
+            fn SetOption(&self, optionName: BSTR, optionValue: VARIANT) -> HRESULT;
         }
         #[guid(0x0bb8531d_7e8d_424f_986c_a0b8f60a3e7b)]
         interface IUpdateServiceManager2: IUpdateServiceManager {
-            fn get_ClientApplicationID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn put_ClientApplicationID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn QueryServiceRegistration(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] serviceID: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateServiceRegistration) -> HRESULT;
-            fn AddService2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] serviceID: BSTR, flags: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] authorizationCabPath: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateServiceRegistration) -> HRESULT;
+            #[special]
+            fn get_ClientApplicationID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ClientApplicationID(&self, value: BSTR) -> HRESULT;
+            fn QueryServiceRegistration(&self, serviceID: BSTR, #[retval] retval: *mut IUpdateServiceRegistration) -> HRESULT;
+            fn AddService2(&self, serviceID: BSTR, flags: i32, authorizationCabPath: BSTR, #[retval] retval: *mut IUpdateServiceRegistration) -> HRESULT;
         }
         #[guid(0xdde02280_12b3_4e0b_937b_6747f6acb286)]
         interface IUpdateServiceRegistration: IDispatch {
-            fn get_RegistrationState(&self, #[out] #[retval] retval: *mut UpdateServiceRegistrationState) -> HRESULT;
-            fn get_ServiceID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_IsPendingRegistrationWithAU(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Service(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateService2) -> HRESULT;
+            #[special]
+            fn get_RegistrationState(&self, #[retval] retval: *mut UpdateServiceRegistrationState) -> HRESULT;
+            #[special]
+            fn get_ServiceID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_IsPendingRegistrationWithAU(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Service(&self, #[retval] retval: *mut IUpdateService2) -> HRESULT;
         }
         #[guid(0x816858a4_260d_4260_933a_2585f1abc76b)]
         interface IUpdateSession: IDispatch {
-            fn get_ClientApplicationID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn put_ClientApplicationID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn get_ReadOnly(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_WebProxy(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IWebProxy) -> HRESULT;
-            fn put_WebProxy(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IWebProxy) -> HRESULT;
-            fn CreateUpdateSearcher(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateSearcher) -> HRESULT;
-            fn CreateUpdateDownloader(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateDownloader) -> HRESULT;
-            fn CreateUpdateInstaller(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateInstaller) -> HRESULT;
+            #[special]
+            fn get_ClientApplicationID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ClientApplicationID(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ReadOnly(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_WebProxy(&self, #[retval] retval: *mut IWebProxy) -> HRESULT;
+            #[special]
+            fn put_WebProxy(&self, value: IWebProxy) -> HRESULT;
+            fn CreateUpdateSearcher(&self, #[retval] retval: *mut IUpdateSearcher) -> HRESULT;
+            fn CreateUpdateDownloader(&self, #[retval] retval: *mut IUpdateDownloader) -> HRESULT;
+            fn CreateUpdateInstaller(&self, #[retval] retval: *mut IUpdateInstaller) -> HRESULT;
         }
         #[guid(0x91caf7b0_eb23_49ed_9937_c52d817f46f7)]
         interface IUpdateSession2: IUpdateSession {
-            fn get_UserLocale(&self, #[out] #[retval] retval: *mut LCID) -> HRESULT;
+            #[special]
+            fn get_UserLocale(&self, #[retval] retval: *mut LCID) -> HRESULT;
+            #[special]
             fn put_UserLocale(&self, lcid: LCID) -> HRESULT;
         }
         #[guid(0x918efd1e_b5d8_4c90_8540_aeb9bdc56f9d)]
         interface IUpdateSession3: IUpdateSession2 {
-            fn CreateUpdateServiceManager(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateServiceManager2) -> HRESULT;
-            fn QueryHistory(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] criteria: BSTR, startIndex: LONG, count: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUpdateHistoryEntryCollection) -> HRESULT;
+            fn CreateUpdateServiceManager(&self, #[retval] retval: *mut IUpdateServiceManager2) -> HRESULT;
+            fn QueryHistory(&self, criteria: BSTR, startIndex: i32, count: i32, #[retval] retval: *mut IUpdateHistoryEntryCollection) -> HRESULT;
         }
         #[guid(0x174c81fe_aecd_4dae_b8a0_2c6318dd86a8)]
         interface IWebProxy: IDispatch {
-            fn get_Address(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn put_Address(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn get_BypassList(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IStringCollection) -> HRESULT;
-            fn put_BypassList(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IStringCollection) -> HRESULT;
-            fn get_BypassProxyOnLocal(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Address(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Address(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_BypassList(&self, #[retval] retval: *mut IStringCollection) -> HRESULT;
+            #[special]
+            fn put_BypassList(&self, value: IStringCollection) -> HRESULT;
+            #[special]
+            fn get_BypassProxyOnLocal(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_BypassProxyOnLocal(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_ReadOnly(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_UserName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn put_UserName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn SetPassword(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn PromptForCredentials(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] parentWindow: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] title: BSTR) -> HRESULT;
-            fn PromptForCredentialsFromHwnd(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] parentWindow: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] title: BSTR) -> HRESULT;
-            fn get_AutoDetect(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ReadOnly(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_UserName(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_UserName(&self, value: BSTR) -> HRESULT;
+            fn SetPassword(&self, value: BSTR) -> HRESULT;
+            fn PromptForCredentials(&self, parentWindow: IUnknown, title: BSTR) -> HRESULT;
+            fn PromptForCredentialsFromHwnd(&self, parentWindow: HWND, title: BSTR) -> HRESULT;
+            #[special]
+            fn get_AutoDetect(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_AutoDetect(&self, value: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xb383cd1a_5ce9_4504_9f63_764b1236f191)]
         interface IWindowsDriverUpdate: IUpdate {
-            fn get_DriverClass(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverHardwareID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverManufacturer(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverModel(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverProvider(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverVerDate(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
-            fn get_DeviceProblemNumber(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_DeviceStatus(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_DriverClass(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DriverHardwareID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DriverManufacturer(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DriverModel(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DriverProvider(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DriverVerDate(&self, #[retval] retval: *mut DATE) -> HRESULT;
+            #[special]
+            fn get_DeviceProblemNumber(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_DeviceStatus(&self, #[retval] retval: *mut i32) -> HRESULT;
         }
         #[guid(0x615c4269_7a48_43bd_96b7_bf6ca27d6c3e)]
         interface IWindowsDriverUpdate2: IWindowsDriverUpdate {
-            fn get_RebootRequired(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_IsPresent(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_CveIDs(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IStringCollection) -> HRESULT;
-            fn CopyToCache(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pFiles: IStringCollection) -> HRESULT;
+            #[special]
+            fn get_RebootRequired(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsPresent(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CveIDs(&self, #[retval] retval: *mut IStringCollection) -> HRESULT;
+            fn CopyToCache(&self, pFiles: IStringCollection) -> HRESULT;
         }
         #[guid(0x49ebd502_4a96_41bd_9e3e_4c5057f4250c)]
         interface IWindowsDriverUpdate3: IWindowsDriverUpdate2 {
-            fn get_BrowseOnly(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_BrowseOnly(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x004c6a2b_0c19_4c69_9f5c_a269b2560db9)]
         interface IWindowsDriverUpdate4: IWindowsDriverUpdate3 {
-            fn get_WindowsDriverUpdateEntries(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IWindowsDriverUpdateEntryCollection) -> HRESULT;
-            fn get_PerUser(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_WindowsDriverUpdateEntries(&self, #[retval] retval: *mut IWindowsDriverUpdateEntryCollection) -> HRESULT;
+            #[special]
+            fn get_PerUser(&self, #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x70cf5c82_8642_42bb_9dbc_0cfd263c6c4f)]
         interface IWindowsDriverUpdate5: IWindowsDriverUpdate4 {
-            fn get_AutoSelection(&self, #[out] #[retval] retval: *mut AutoSelectionMode) -> HRESULT;
-            fn get_AutoDownload(&self, #[out] #[retval] retval: *mut AutoDownloadMode) -> HRESULT;
+            #[special]
+            fn get_AutoSelection(&self, #[retval] retval: *mut AutoSelectionMode) -> HRESULT;
+            #[special]
+            fn get_AutoDownload(&self, #[retval] retval: *mut AutoDownloadMode) -> HRESULT;
         }
         #[guid(0xed8bfe40_a60b_42ea_9652_817dfcfa23ec)]
         interface IWindowsDriverUpdateEntry: IDispatch {
-            fn get_DriverClass(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverHardwareID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverManufacturer(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverModel(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverProvider(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverVerDate(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
-            fn get_DeviceProblemNumber(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_DeviceStatus(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_DriverClass(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DriverHardwareID(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DriverManufacturer(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DriverModel(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DriverProvider(&self, #[retval] retval: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DriverVerDate(&self, #[retval] retval: *mut DATE) -> HRESULT;
+            #[special]
+            fn get_DeviceProblemNumber(&self, #[retval] retval: *mut i32) -> HRESULT;
+            #[special]
+            fn get_DeviceStatus(&self, #[retval] retval: *mut i32) -> HRESULT;
         }
         #[guid(0x0d521700_a372_4bef_828b_3d00c10adebd)]
         interface IWindowsDriverUpdateEntryCollection: IDispatch {
-            fn get_Item(&self, index: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IWindowsDriverUpdateEntry) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUnknown) -> HRESULT;
-            fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] retval: *mut IWindowsDriverUpdateEntry) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retval: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] retval: *mut i32) -> HRESULT;
         }
         #[guid(0x85713fa1_7796_4fa2_be3b_e2d6124dd373)]
         interface IWindowsUpdateAgentInfo: IDispatch {
-            fn GetInfo(&self, varInfoIdentifier: VARIANT, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
+            fn GetInfo(&self, varInfoIdentifier: VARIANT, #[retval] retval: *mut VARIANT) -> HRESULT;
         }
         const InstallationAgent: GUID = 0x317e92fc_1679_46fd_a0b5_f08914dd8623;
         #[repr(i32)]

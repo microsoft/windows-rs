@@ -10,39 +10,37 @@ mod Windows {
         type PSAFER_PATHNAME_IDENTIFICATION = *mut SAFER_PATHNAME_IDENTIFICATION;
         type PSAFER_URLZONE_IDENTIFICATION = *mut SAFER_URLZONE_IDENTIFICATION;
         type SAFER_CODE_PROPERTIES = SAFER_CODE_PROPERTIES_V2;
-        #[packed(8)]
         struct SAFER_CODE_PROPERTIES_V1 {
-            cbSize: DWORD,
-            dwCheckFlags: DWORD,
-            ImagePath: LPCWSTR,
+            cbSize: u32,
+            dwCheckFlags: u32,
+            ImagePath: PCWSTR,
             hImageFileHandle: HANDLE,
-            UrlZoneId: DWORD,
-            ImageHash: [BYTE; 64],
-            dwImageHashSize: DWORD,
+            UrlZoneId: u32,
+            ImageHash: [u8; 64],
+            dwImageHashSize: u32,
             ImageSize: LARGE_INTEGER,
             HashAlgorithm: ALG_ID,
             pByteBlock: LPBYTE,
             hWndParent: HWND,
-            dwWVTUIChoice: DWORD,
+            dwWVTUIChoice: u32,
         }
-        #[packed(8)]
         struct SAFER_CODE_PROPERTIES_V2 {
-            cbSize: DWORD,
-            dwCheckFlags: DWORD,
-            ImagePath: LPCWSTR,
+            cbSize: u32,
+            dwCheckFlags: u32,
+            ImagePath: PCWSTR,
             hImageFileHandle: HANDLE,
-            UrlZoneId: DWORD,
-            ImageHash: [BYTE; 64],
-            dwImageHashSize: DWORD,
+            UrlZoneId: u32,
+            ImageHash: [u8; 64],
+            dwImageHashSize: u32,
             ImageSize: LARGE_INTEGER,
             HashAlgorithm: ALG_ID,
             pByteBlock: LPBYTE,
             hWndParent: HWND,
-            dwWVTUIChoice: DWORD,
-            PackageMoniker: LPCWSTR,
-            PackagePublisher: LPCWSTR,
-            PackageName: LPCWSTR,
-            PackageVersion: ULONG64,
+            dwWVTUIChoice: u32,
+            PackageMoniker: PCWSTR,
+            PackagePublisher: PCWSTR,
+            PackageName: PCWSTR,
+            PackageVersion: u64,
             PackageIsFramework: BOOL,
         }
         const SAFER_CRITERIA_APPX_PACKAGE: i32 = 32;
@@ -52,28 +50,25 @@ mod Windows {
         const SAFER_CRITERIA_IMAGEPATH_NT: i32 = 4096;
         const SAFER_CRITERIA_NOSIGNEDHASH: i32 = 2;
         const SAFER_CRITERIA_URLZONE: i32 = 16;
-        #[packed(8)]
         struct SAFER_HASH_IDENTIFICATION {
             header: SAFER_IDENTIFICATION_HEADER,
-            Description: [WCHAR; 256],
-            FriendlyName: [WCHAR; 256],
-            HashSize: DWORD,
-            ImageHash: [BYTE; 64],
+            Description: [u16; 256],
+            FriendlyName: [u16; 256],
+            HashSize: u32,
+            ImageHash: [u8; 64],
             HashAlgorithm: ALG_ID,
             ImageSize: LARGE_INTEGER,
-            dwSaferFlags: DWORD,
+            dwSaferFlags: u32,
         }
-        #[packed(8)]
         struct SAFER_HASH_IDENTIFICATION2 {
             hashIdentification: SAFER_HASH_IDENTIFICATION,
-            HashSize: DWORD,
-            ImageHash: [BYTE; 64],
+            HashSize: u32,
+            ImageHash: [u8; 64],
             HashAlgorithm: ALG_ID,
         }
-        #[packed(8)]
         struct SAFER_IDENTIFICATION_HEADER {
             dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
-            cbStructSize: DWORD,
+            cbStructSize: u32,
             IdentificationGuid: GUID,
             lastModified: FILETIME,
         }
@@ -117,12 +112,11 @@ mod Windows {
             SaferObjectSingleIdentification = 15,
             SaferObjectExtendedError = 16,
         }
-        #[packed(8)]
         struct SAFER_PATHNAME_IDENTIFICATION {
             header: SAFER_IDENTIFICATION_HEADER,
-            Description: [WCHAR; 256],
+            Description: [u16; 256],
             ImageName: PWCHAR,
-            dwSaferFlags: DWORD,
+            dwSaferFlags: u32,
         }
         const SAFER_POLICY_BLOCK_CLIENT_UI: i32 = 8192;
         const SAFER_POLICY_HASH_DUPLICATE: i32 = 262144;
@@ -152,11 +146,10 @@ mod Windows {
         const SAFER_TOKEN_MAKE_INERT: i32 = 4;
         const SAFER_TOKEN_NULL_IF_EQUAL: i32 = 1;
         const SAFER_TOKEN_WANT_FLAGS: i32 = 8;
-        #[packed(8)]
         struct SAFER_URLZONE_IDENTIFICATION {
             header: SAFER_IDENTIFICATION_HEADER,
-            UrlZoneId: DWORD,
-            dwSaferFlags: DWORD,
+            UrlZoneId: u32,
+            dwSaferFlags: u32,
         }
         #[encoding("utf-16")]
         const SRP_POLICY_APPX: String = "APPX";
@@ -181,24 +174,24 @@ mod Windows {
         #[encoding("utf-16")]
         const SRP_POLICY_WLDPSCRIPT: String = "WLDPSCRIPT";
         #[library("ADVAPI32.dll")]
-        extern fn SaferCloseLevel(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hLevelHandle: SAFER_LEVEL_HANDLE) -> BOOL;
+        extern fn SaferCloseLevel(hLevelHandle: SAFER_LEVEL_HANDLE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferComputeTokenFromLevel(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LevelHandle: SAFER_LEVEL_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InAccessToken: HANDLE, #[out] OutAccessToken: PHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[out] #[opt] lpReserved: LPVOID) -> BOOL;
+        extern fn SaferComputeTokenFromLevel(LevelHandle: SAFER_LEVEL_HANDLE, #[opt] InAccessToken: HANDLE, #[out] OutAccessToken: PHANDLE, dwFlags: u32, #[in] #[out] #[opt] lpReserved: *mut void) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferCreateLevel(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwScopeId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLevelId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] OpenFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn SaferCreateLevel(dwScopeId: u32, dwLevelId: u32, OpenFlags: u32, pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[reserved] lpReserved: *mut void) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferGetLevelInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LevelHandle: SAFER_LEVEL_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInfoType: SAFER_OBJECT_INFO_CLASS, #[out] #[opt] #[size_param(3)] lpQueryBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInBufferSize: DWORD, #[out] lpdwOutBufferSize: LPDWORD) -> BOOL;
+        extern fn SaferGetLevelInformation(LevelHandle: SAFER_LEVEL_HANDLE, dwInfoType: SAFER_OBJECT_INFO_CLASS, #[size_param(3)] #[opt] lpQueryBuffer: *mut void, dwInBufferSize: u32, #[out] lpdwOutBufferSize: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferGetPolicyInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwScopeId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SaferPolicyInfoClass: SAFER_POLICY_INFO_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfoBufferSize: DWORD, #[out] #[size_param(2)] InfoBuffer: PVOID, #[out] InfoBufferRetSize: PDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn SaferGetPolicyInformation(dwScopeId: u32, SaferPolicyInfoClass: SAFER_POLICY_INFO_CLASS, InfoBufferSize: u32, #[size_param(2)] InfoBuffer: *mut void, #[out] InfoBufferRetSize: PDWORD, #[reserved] lpReserved: *mut void) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferIdentifyLevel(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwNumProperties: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] pCodeProperties: PSAFER_CODE_PROPERTIES, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpReserved: LPVOID) -> BOOL;
+        extern fn SaferIdentifyLevel(dwNumProperties: u32, #[len_param(0)] #[opt] pCodeProperties: PSAFER_CODE_PROPERTIES, pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[in] #[opt] lpReserved: *mut void) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferRecordEventLogEntry(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hLevel: SAFER_LEVEL_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szTargetPath: LPCWSTR, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn SaferRecordEventLogEntry(hLevel: SAFER_LEVEL_HANDLE, szTargetPath: PCWSTR, #[reserved] lpReserved: *mut void) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferSetLevelInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LevelHandle: SAFER_LEVEL_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInfoType: SAFER_OBJECT_INFO_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] lpQueryBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInBufferSize: DWORD) -> BOOL;
+        extern fn SaferSetLevelInformation(LevelHandle: SAFER_LEVEL_HANDLE, dwInfoType: SAFER_OBJECT_INFO_CLASS, #[size_param(3)] #[in] lpQueryBuffer: *mut void, dwInBufferSize: u32) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferSetPolicyInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwScopeId: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SaferPolicyInfoClass: SAFER_POLICY_INFO_CLASS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InfoBufferSize: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] InfoBuffer: PVOID, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn SaferSetPolicyInformation(dwScopeId: u32, SaferPolicyInfoClass: SAFER_POLICY_INFO_CLASS, InfoBufferSize: u32, #[size_param(2)] #[in] InfoBuffer: *mut void, #[reserved] lpReserved: *mut void) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferiIsExecutableFileType(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFullPathname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bFromShellExecute: BOOLEAN) -> BOOL;
+        extern fn SaferiIsExecutableFileType(szFullPathname: PCWSTR, bFromShellExecute: BOOLEAN) -> BOOL;
     }
 }

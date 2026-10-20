@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        extern fn D3D12MessageFunc(Category: D3D12_MESSAGE_CATEGORY, Severity: D3D12_MESSAGE_SEVERITY, ID: D3D12_MESSAGE_ID, pDescription: LPCSTR, pContext: *mut void);
+        extern fn D3D12MessageFunc(Category: D3D12_MESSAGE_CATEGORY, Severity: D3D12_MESSAGE_SEVERITY, ID: D3D12_MESSAGE_ID, pDescription: PCSTR, pContext: *mut void);
         struct D3D12_DEBUG_COMMAND_LIST_GPU_BASED_VALIDATION_SETTINGS {
             ShaderPatchMode: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE,
         }
@@ -17,12 +17,12 @@ mod Windows {
             D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_MODE_DEFAULT = 1,
         }
         struct D3D12_DEBUG_DEVICE_GPU_BASED_VALIDATION_SETTINGS {
-            MaxMessagesPerCommandList: UINT,
+            MaxMessagesPerCommandList: u32,
             DefaultShaderPatchMode: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE,
             PipelineStateCreateFlags: D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS,
         }
         struct D3D12_DEBUG_DEVICE_GPU_SLOWDOWN_PERFORMANCE_FACTOR {
-            SlowdownFactor: FLOAT,
+            SlowdownFactor: f32,
         }
         #[repr(i32)]
         enum D3D12_DEBUG_DEVICE_PARAMETER_TYPE {
@@ -31,7 +31,8 @@ mod Windows {
             D3D12_DEBUG_DEVICE_PARAMETER_GPU_SLOWDOWN_PERFORMANCE_FACTOR = 2,
             D3D12_DEBUG_DEVICE_PARAMETER_BYTECODE_VALIDATION_MODE = 3,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_DEBUG_FEATURE {
             D3D12_DEBUG_FEATURE_NONE = 0,
             D3D12_DEBUG_FEATURE_ALLOW_BEHAVIOR_CHANGING_DEBUG_AIDS = 1,
@@ -39,12 +40,14 @@ mod Windows {
             D3D12_DEBUG_FEATURE_DISABLE_VIRTUALIZED_BUNDLES_VALIDATION = 4,
             D3D12_DEBUG_FEATURE_EMULATE_WINDOWS7 = 8,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_GPU_BASED_VALIDATION_FLAGS {
             D3D12_GPU_BASED_VALIDATION_FLAGS_NONE = 0,
             D3D12_GPU_BASED_VALIDATION_FLAGS_DISABLE_STATE_TRACKING = 1,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS {
             D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAG_NONE = 0,
             D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAG_FRONT_LOAD_CREATE_TRACKING_ONLY_SHADERS = 1,
@@ -66,25 +69,22 @@ mod Windows {
             DenyList: D3D12_INFO_QUEUE_FILTER_DESC,
         }
         struct D3D12_INFO_QUEUE_FILTER_DESC {
-            NumCategories: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumCategories", IsByteCount = false, MayBeNull = false)]
+            NumCategories: u32,
             pCategoryList: *mut D3D12_MESSAGE_CATEGORY,
-            NumSeverities: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumSeverities", IsByteCount = false, MayBeNull = false)]
+            NumSeverities: u32,
             pSeverityList: *mut D3D12_MESSAGE_SEVERITY,
-            NumIDs: UINT,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "NumIDs", IsByteCount = false, MayBeNull = false)]
+            NumIDs: u32,
             pIDList: *mut D3D12_MESSAGE_ID,
         }
         struct D3D12_MESSAGE {
             Category: D3D12_MESSAGE_CATEGORY,
             Severity: D3D12_MESSAGE_SEVERITY,
             ID: D3D12_MESSAGE_ID,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DescriptionByteLength", IsByteCount = false, MayBeNull = false)]
             pDescription: *const i8,
-            DescriptionByteLength: SIZE_T,
+            DescriptionByteLength: usize,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_MESSAGE_CALLBACK_FLAGS {
             D3D12_MESSAGE_CALLBACK_FLAG_NONE = 0,
             D3D12_MESSAGE_CALLBACK_IGNORE_FILTERS = 1,
@@ -1107,7 +1107,8 @@ mod Windows {
             D3D12_MESSAGE_SEVERITY_INFO = 3,
             D3D12_MESSAGE_SEVERITY_MESSAGE = 4,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum D3D12_RLDO_FLAGS {
             D3D12_RLDO_NONE = 0,
             D3D12_RLDO_SUMMARY = 1,
@@ -1149,34 +1150,34 @@ mod Windows {
         }
         #[guid(0x09e0bf36_54ac_484f_8847_4baeeab6053f)]
         interface ID3D12DebugCommandList: IUnknown {
-            fn AssertResourceState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D12Resource, Subresource: UINT, State: UINT) -> BOOL;
+            fn AssertResourceState(&self, pResource: ID3D12Resource, Subresource: u32, State: u32) -> BOOL;
             fn SetFeatureMask(&self, Mask: D3D12_DEBUG_FEATURE) -> HRESULT;
             fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE;
         }
         #[guid(0x102ca951_311b_4b01_b11f_ecb83e061b37)]
         interface ID3D12DebugCommandList1: IUnknown {
-            fn AssertResourceState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D12Resource, Subresource: UINT, State: UINT) -> BOOL;
-            fn SetDebugParameter(&self, Type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pData: *const void, DataSize: UINT) -> HRESULT;
-            fn GetDebugParameter(&self, Type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, #[out] #[size_param(2)] pData: *mut void, DataSize: UINT) -> HRESULT;
+            fn AssertResourceState(&self, pResource: ID3D12Resource, Subresource: u32, State: u32) -> BOOL;
+            fn SetDebugParameter(&self, Type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, #[size_param(2)] pData: *const void, DataSize: u32) -> HRESULT;
+            fn GetDebugParameter(&self, Type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, #[size_param(2)] pData: *mut void, DataSize: u32) -> HRESULT;
         }
         #[guid(0xaeb575cf_4e06_48be_ba3b_c450fc96652e)]
         interface ID3D12DebugCommandList2: ID3D12DebugCommandList {
-            fn SetDebugParameter(&self, Type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pData: *const void, DataSize: UINT) -> HRESULT;
-            fn GetDebugParameter(&self, Type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, #[out] #[size_param(2)] pData: *mut void, DataSize: UINT) -> HRESULT;
+            fn SetDebugParameter(&self, Type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, #[size_param(2)] pData: *const void, DataSize: u32) -> HRESULT;
+            fn GetDebugParameter(&self, Type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, #[size_param(2)] pData: *mut void, DataSize: u32) -> HRESULT;
         }
         #[guid(0x197d5e15_4d37_4d34_af78_724cd70fdb1f)]
         interface ID3D12DebugCommandList3: ID3D12DebugCommandList2 {
-            fn AssertResourceAccess(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D12Resource, Subresource: UINT, Access: D3D12_BARRIER_ACCESS);
-            fn AssertTextureLayout(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D12Resource, Subresource: UINT, Layout: D3D12_BARRIER_LAYOUT);
+            fn AssertResourceAccess(&self, pResource: ID3D12Resource, Subresource: u32, Access: D3D12_BARRIER_ACCESS);
+            fn AssertTextureLayout(&self, pResource: ID3D12Resource, Subresource: u32, Layout: D3D12_BARRIER_LAYOUT);
         }
         #[guid(0x09e0bf36_54ac_484f_8847_4baeeab6053a)]
         interface ID3D12DebugCommandQueue: IUnknown {
-            fn AssertResourceState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D12Resource, Subresource: UINT, State: UINT) -> BOOL;
+            fn AssertResourceState(&self, pResource: ID3D12Resource, Subresource: u32, State: u32) -> BOOL;
         }
         #[guid(0x16be35a2_bfd6_49f2_bcae_eaae4aff862d)]
         interface ID3D12DebugCommandQueue1: ID3D12DebugCommandQueue {
-            fn AssertResourceAccess(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D12Resource, Subresource: UINT, Access: D3D12_BARRIER_ACCESS);
-            fn AssertTextureLayout(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D12Resource, Subresource: UINT, Layout: D3D12_BARRIER_LAYOUT);
+            fn AssertResourceAccess(&self, pResource: ID3D12Resource, Subresource: u32, Access: D3D12_BARRIER_ACCESS);
+            fn AssertTextureLayout(&self, pResource: ID3D12Resource, Subresource: u32, Layout: D3D12_BARRIER_LAYOUT);
         }
         #[guid(0x3febd6dd_4973_4787_8194_e45f9e28923e)]
         interface ID3D12DebugDevice: IUnknown {
@@ -1186,89 +1187,69 @@ mod Windows {
         }
         #[guid(0xa9b71770_d099_4a65_a698_3dee10020f88)]
         interface ID3D12DebugDevice1: IUnknown {
-            fn SetDebugParameter(&self, Type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pData: *const void, DataSize: UINT) -> HRESULT;
-            fn GetDebugParameter(&self, Type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, #[out] #[size_param(2)] pData: *mut void, DataSize: UINT) -> HRESULT;
+            fn SetDebugParameter(&self, Type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, #[size_param(2)] pData: *const void, DataSize: u32) -> HRESULT;
+            fn GetDebugParameter(&self, Type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, #[size_param(2)] pData: *mut void, DataSize: u32) -> HRESULT;
             fn ReportLiveDeviceObjects(&self, Flags: D3D12_RLDO_FLAGS) -> HRESULT;
         }
         #[guid(0x60eccbc1_378d_4df1_894c_f8ac5ce4d7dd)]
         interface ID3D12DebugDevice2: ID3D12DebugDevice {
-            fn SetDebugParameter(&self, Type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] pData: *const void, DataSize: UINT) -> HRESULT;
-            fn GetDebugParameter(&self, Type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, #[out] #[size_param(2)] pData: *mut void, DataSize: UINT) -> HRESULT;
+            fn SetDebugParameter(&self, Type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, #[size_param(2)] pData: *const void, DataSize: u32) -> HRESULT;
+            fn GetDebugParameter(&self, Type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, #[size_param(2)] pData: *mut void, DataSize: u32) -> HRESULT;
         }
         #[guid(0x0742a90b_c387_483f_b946_30a7e4e61458)]
         interface ID3D12InfoQueue: IUnknown {
-            fn SetMessageCountLimit(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageCountLimit: UINT64) -> HRESULT;
+            fn SetMessageCountLimit(&self, MessageCountLimit: u64) -> HRESULT;
             fn ClearStoredMessages(&self);
-            fn GetMessageA(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageIndex: UINT64, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pMessageByteLength", "*pMessageByteLength")] #[out] #[opt] pMessage: *mut D3D12_MESSAGE, #[in] #[out] pMessageByteLength: *mut SIZE_T) -> HRESULT;
-            fn GetNumMessagesAllowedByStorageFilter(&self) -> UINT64;
-            fn GetNumMessagesDeniedByStorageFilter(&self) -> UINT64;
-            fn GetNumStoredMessages(&self) -> UINT64;
-            fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> UINT64;
-            fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> UINT64;
-            fn GetMessageCountLimit(&self) -> UINT64;
-            fn AddStorageFilterEntries(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFilter: *mut D3D12_INFO_QUEUE_FILTER) -> HRESULT;
-            fn GetStorageFilter(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pFilterByteLength", "*pFilterByteLength")] #[out] #[opt] pFilter: *mut D3D12_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetMessage(&self, MessageIndex: u64, #[size_param(2)] #[opt] pMessage: *mut D3D12_MESSAGE, #[in] #[out] pMessageByteLength: *mut usize) -> HRESULT;
+            fn GetNumMessagesAllowedByStorageFilter(&self) -> u64;
+            fn GetNumMessagesDeniedByStorageFilter(&self) -> u64;
+            fn GetNumStoredMessages(&self) -> u64;
+            fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> u64;
+            fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> u64;
+            fn GetMessageCountLimit(&self) -> u64;
+            fn AddStorageFilterEntries(&self, #[in] pFilter: *mut D3D12_INFO_QUEUE_FILTER) -> HRESULT;
+            fn GetStorageFilter(&self, #[size_param(1)] #[opt] pFilter: *mut D3D12_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut usize) -> HRESULT;
             fn ClearStorageFilter(&self);
             fn PushEmptyStorageFilter(&self) -> HRESULT;
             fn PushCopyOfStorageFilter(&self) -> HRESULT;
-            fn PushStorageFilter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFilter: *mut D3D12_INFO_QUEUE_FILTER) -> HRESULT;
+            fn PushStorageFilter(&self, #[in] pFilter: *mut D3D12_INFO_QUEUE_FILTER) -> HRESULT;
             fn PopStorageFilter(&self);
-            fn GetStorageFilterStackSize(&self) -> UINT;
-            fn AddRetrievalFilterEntries(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFilter: *mut D3D12_INFO_QUEUE_FILTER) -> HRESULT;
-            fn GetRetrievalFilter(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pFilterByteLength", "*pFilterByteLength")] #[out] #[opt] pFilter: *mut D3D12_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetStorageFilterStackSize(&self) -> u32;
+            fn AddRetrievalFilterEntries(&self, #[in] pFilter: *mut D3D12_INFO_QUEUE_FILTER) -> HRESULT;
+            fn GetRetrievalFilter(&self, #[size_param(1)] #[opt] pFilter: *mut D3D12_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut usize) -> HRESULT;
             fn ClearRetrievalFilter(&self);
             fn PushEmptyRetrievalFilter(&self) -> HRESULT;
             fn PushCopyOfRetrievalFilter(&self) -> HRESULT;
-            fn PushRetrievalFilter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFilter: *mut D3D12_INFO_QUEUE_FILTER) -> HRESULT;
+            fn PushRetrievalFilter(&self, #[in] pFilter: *mut D3D12_INFO_QUEUE_FILTER) -> HRESULT;
             fn PopRetrievalFilter(&self);
-            fn GetRetrievalFilterStackSize(&self) -> UINT;
-            fn AddMessage(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Category: D3D12_MESSAGE_CATEGORY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Severity: D3D12_MESSAGE_SEVERITY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ID: D3D12_MESSAGE_ID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDescription: LPCSTR) -> HRESULT;
-            fn AddApplicationMessage(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Severity: D3D12_MESSAGE_SEVERITY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDescription: LPCSTR) -> HRESULT;
-            fn SetBreakOnCategory(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Category: D3D12_MESSAGE_CATEGORY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bEnable: BOOL) -> HRESULT;
-            fn SetBreakOnSeverity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Severity: D3D12_MESSAGE_SEVERITY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bEnable: BOOL) -> HRESULT;
-            fn SetBreakOnID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ID: D3D12_MESSAGE_ID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bEnable: BOOL) -> HRESULT;
-            fn GetBreakOnCategory(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Category: D3D12_MESSAGE_CATEGORY) -> BOOL;
-            fn GetBreakOnSeverity(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Severity: D3D12_MESSAGE_SEVERITY) -> BOOL;
-            fn GetBreakOnID(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ID: D3D12_MESSAGE_ID) -> BOOL;
-            fn SetMuteDebugOutput(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bMute: BOOL);
+            fn GetRetrievalFilterStackSize(&self) -> u32;
+            fn AddMessage(&self, Category: D3D12_MESSAGE_CATEGORY, Severity: D3D12_MESSAGE_SEVERITY, ID: D3D12_MESSAGE_ID, pDescription: PCSTR) -> HRESULT;
+            fn AddApplicationMessage(&self, Severity: D3D12_MESSAGE_SEVERITY, pDescription: PCSTR) -> HRESULT;
+            fn SetBreakOnCategory(&self, Category: D3D12_MESSAGE_CATEGORY, bEnable: BOOL) -> HRESULT;
+            fn SetBreakOnSeverity(&self, Severity: D3D12_MESSAGE_SEVERITY, bEnable: BOOL) -> HRESULT;
+            fn SetBreakOnID(&self, ID: D3D12_MESSAGE_ID, bEnable: BOOL) -> HRESULT;
+            fn GetBreakOnCategory(&self, Category: D3D12_MESSAGE_CATEGORY) -> BOOL;
+            fn GetBreakOnSeverity(&self, Severity: D3D12_MESSAGE_SEVERITY) -> BOOL;
+            fn GetBreakOnID(&self, ID: D3D12_MESSAGE_ID) -> BOOL;
+            fn SetMuteDebugOutput(&self, bMute: BOOL);
             fn GetMuteDebugOutput(&self) -> BOOL;
         }
         #[guid(0x2852dd88_b484_4c0c_b6b1_67168500e600)]
         interface ID3D12InfoQueue1: ID3D12InfoQueue {
-            fn RegisterMessageCallback(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallbackFunc: D3D12MessageFunc, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallbackFilterFlags: D3D12_MESSAGE_CALLBACK_FLAGS, #[in] #[out] pContext: *mut void, #[in] #[out] pCallbackCookie: *mut DWORD) -> HRESULT;
-            fn UnregisterMessageCallback(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallbackCookie: DWORD) -> HRESULT;
+            fn RegisterMessageCallback(&self, CallbackFunc: D3D12MessageFunc, CallbackFilterFlags: D3D12_MESSAGE_CALLBACK_FLAGS, #[in] #[out] pContext: *mut void, #[in] #[out] pCallbackCookie: *mut u32) -> HRESULT;
+            fn UnregisterMessageCallback(&self, CallbackCookie: u32) -> HRESULT;
         }
         #[guid(0x86ca3b85_49ad_4b6e_aed5_eddb18540f41)]
         interface ID3D12ManualWriteTrackingResource: IUnknown {
-            fn TrackWrite(&self, Subresource: UINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pWrittenRange: *const D3D12_RANGE);
+            fn TrackWrite(&self, Subresource: u32, #[opt] pWrittenRange: *const D3D12_RANGE);
         }
         #[guid(0x0adf7d52_929c_4e61_addb_ffed30de66ef)]
         interface ID3D12SharingContract: IUnknown {
-            fn Present(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pResource: ID3D12Resource, Subresource: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] window: HWND);
-            fn SharedFenceSignal(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFence: ID3D12Fence, FenceValue: UINT64);
-            fn BeginCapturableWork(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guid: &GUID);
-            fn EndCapturableWork(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] guid: &GUID);
+            fn Present(&self, pResource: ID3D12Resource, Subresource: u32, window: HWND);
+            fn SharedFenceSignal(&self, pFence: ID3D12Fence, FenceValue: u64);
+            fn BeginCapturableWork(&self, guid: *const GUID);
+            fn EndCapturableWork(&self, guid: *const GUID);
         }
-        const IID_ID3D12Debug: GUID = 0x344488b7_6846_474b_b989_f027448245e0;
-        const IID_ID3D12Debug1: GUID = 0xaffaa4ca_63fe_4d8e_b8ad_159000af4304;
-        const IID_ID3D12Debug2: GUID = 0x93a665c4_a3b2_4e5d_b692_a26ae14e3374;
-        const IID_ID3D12Debug3: GUID = 0x5cf4e58f_f671_4ff1_a542_3686e3d153d1;
-        const IID_ID3D12Debug4: GUID = 0x014b816e_9ec5_4a2f_a845_ffbe441ce13a;
-        const IID_ID3D12Debug5: GUID = 0x548d6b12_09fa_40e0_9069_5dcd589a52c9;
-        const IID_ID3D12Debug6: GUID = 0x82a816d6_5d01_4157_97d0_4975463fd1ed;
-        const IID_ID3D12DebugCommandList: GUID = 0x09e0bf36_54ac_484f_8847_4baeeab6053f;
-        const IID_ID3D12DebugCommandList1: GUID = 0x102ca951_311b_4b01_b11f_ecb83e061b37;
-        const IID_ID3D12DebugCommandList2: GUID = 0xaeb575cf_4e06_48be_ba3b_c450fc96652e;
-        const IID_ID3D12DebugCommandList3: GUID = 0x197d5e15_4d37_4d34_af78_724cd70fdb1f;
-        const IID_ID3D12DebugCommandQueue: GUID = 0x09e0bf36_54ac_484f_8847_4baeeab6053a;
-        const IID_ID3D12DebugCommandQueue1: GUID = 0x16be35a2_bfd6_49f2_bcae_eaae4aff862d;
-        const IID_ID3D12DebugDevice: GUID = 0x3febd6dd_4973_4787_8194_e45f9e28923e;
-        const IID_ID3D12DebugDevice1: GUID = 0xa9b71770_d099_4a65_a698_3dee10020f88;
-        const IID_ID3D12DebugDevice2: GUID = 0x60eccbc1_378d_4df1_894c_f8ac5ce4d7dd;
-        const IID_ID3D12InfoQueue: GUID = 0x0742a90b_c387_483f_b946_30a7e4e61458;
-        const IID_ID3D12InfoQueue1: GUID = 0x2852dd88_b484_4c0c_b6b1_67168500e600;
-        const IID_ID3D12ManualWriteTrackingResource: GUID = 0x86ca3b85_49ad_4b6e_aed5_eddb18540f41;
-        const IID_ID3D12SharingContract: GUID = 0x0adf7d52_929c_4e61_addb_ffed30de66ef;
         const WKPDID_D3DAutoDebugObjectNameW: GUID = 0xd4902e36_757a_4942_9594_b6769afa43cd;
     }
 }

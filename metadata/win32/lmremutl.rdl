@@ -3,15 +3,13 @@ mod Windows {
     mod Win32 {
         const ALLOCATE_RESPONSE: i32 = 2;
         type DESC_CHAR = i8;
-        type LPDESC = *mut i8;
+        type LPDESC = PSTR;
         type LPTIME_OF_DAY_INFO = *mut TIME_OF_DAY_INFO;
         const NO_PERMISSION_REQUIRED: i32 = 1;
         #[library("NETAPI32.dll")]
-        extern fn NetRemoteComputerSupports(UncServerName: LPCWSTR, OptionsWanted: DWORD, OptionsSupported: LPDWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn NetRemoteComputerSupports(#[opt] UncServerName: PCWSTR, OptionsWanted: u32, #[out] OptionsSupported: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetRemoteTOD(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UncServerName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "sizeof(TIME_OF_DAY_INFO)", "sizeof(TIME_OF_DAY_INFO)")] #[out] BufferPtr: *mut LPBYTE) -> DWORD;
+        extern fn NetRemoteTOD(#[opt] UncServerName: PCWSTR, BufferPtr: *mut LPBYTE) -> u32;
         type PTIME_OF_DAY_INFO = *mut TIME_OF_DAY_INFO;
         const SUPPORTS_ANY: u32 = 4294967295;
         const SUPPORTS_LOCAL: i32 = 32;
@@ -20,18 +18,18 @@ mod Windows {
         const SUPPORTS_SAM_PROTOCOL: i32 = 8;
         const SUPPORTS_UNICODE: i32 = 16;
         struct TIME_OF_DAY_INFO {
-            tod_elapsedt: DWORD,
-            tod_msecs: DWORD,
-            tod_hours: DWORD,
-            tod_mins: DWORD,
-            tod_secs: DWORD,
-            tod_hunds: DWORD,
-            tod_timezone: LONG,
-            tod_tinterval: DWORD,
-            tod_day: DWORD,
-            tod_month: DWORD,
-            tod_year: DWORD,
-            tod_weekday: DWORD,
+            tod_elapsedt: u32,
+            tod_msecs: u32,
+            tod_hours: u32,
+            tod_mins: u32,
+            tod_secs: u32,
+            tod_hunds: u32,
+            tod_timezone: i32,
+            tod_tinterval: u32,
+            tod_day: u32,
+            tod_month: u32,
+            tod_year: u32,
+            tod_weekday: u32,
         }
         const USE_SPECIFIC_TRANSPORT: u32 = 2147483648;
     }

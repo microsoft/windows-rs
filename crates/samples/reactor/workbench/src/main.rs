@@ -255,7 +255,8 @@ impl reactor::Component for ProjectsPage {
         reactor::StackPanel::new()
             .spacing(8.0)
             .children([
-                reactor::TextBox::new(Rc::clone(&self.0.draft))
+                reactor::TextBox::new()
+                    .text(Rc::clone(&self.0.draft))
                     .on_text_changed(move |value: Rc<str>| {
                         _ = draft.send(ProjectsMessage::Draft(value.to_string()));
                     })

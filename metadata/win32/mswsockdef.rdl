@@ -10,15 +10,15 @@ mod Windows {
         type PWSA_COMPATIBILITY_BEHAVIOR_ID = *mut WSA_COMPATIBILITY_BEHAVIOR_ID;
         type PWSA_COMPATIBILITY_MODE = *mut WSA_COMPATIBILITY_MODE;
         struct RIORESULT {
-            Status: LONG,
-            BytesTransferred: ULONG,
-            SocketContext: ULONGLONG,
-            RequestContext: ULONGLONG,
+            Status: i32,
+            BytesTransferred: u32,
+            SocketContext: u64,
+            RequestContext: u64,
         }
         struct RIO_BUF {
             BufferId: RIO_BUFFERID,
-            Offset: ULONG,
-            Length: ULONG,
+            Offset: u32,
+            Length: u32,
         }
         type RIO_BUFFERID = *mut RIO_BUFFERID_t;
         struct RIO_BUFFERID_t {}
@@ -27,7 +27,7 @@ mod Windows {
         #[arch(X86)]
         const RIO_CMSG_BASE_SIZE: u32 = 4;
         struct RIO_CMSG_BUFFER {
-            TotalLength: ULONG,
+            TotalLength: u32,
         }
         const RIO_CORRUPT_CQ: u32 = 4294967295;
         type RIO_CQ = *mut RIO_CQ_t;
@@ -54,7 +54,7 @@ mod Windows {
         }
         struct WSA_COMPATIBILITY_MODE {
             BehaviorId: WSA_COMPATIBILITY_BEHAVIOR_ID,
-            TargetOsVersion: ULONG,
+            TargetOsVersion: u32,
         }
     }
 }

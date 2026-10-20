@@ -13,30 +13,30 @@ mod Windows {
         type PQOS_TRAFFIC_TYPE = *mut QOS_TRAFFIC_TYPE;
         type PQOS_VERSION = *mut QOS_VERSION;
         #[library("qwave.dll")]
-        extern fn QOSAddSocketToFlow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QOSHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Socket: SOCKET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DestAddr: PSOCKADDR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TrafficType: QOS_TRAFFIC_TYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[out] FlowId: PQOS_FLOWID) -> BOOL;
+        extern fn QOSAddSocketToFlow(QOSHandle: HANDLE, Socket: SOCKET, #[opt] DestAddr: PSOCKADDR, TrafficType: QOS_TRAFFIC_TYPE, #[opt] Flags: u32, #[in] #[out] FlowId: PQOS_FLOWID) -> BOOL;
         #[library("qwave.dll")]
-        extern fn QOSCancel(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QOSHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Overlapped: LPOVERLAPPED) -> BOOL;
+        extern fn QOSCancel(QOSHandle: HANDLE, Overlapped: LPOVERLAPPED) -> BOOL;
         #[library("qwave.dll")]
-        extern fn QOSCloseHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QOSHandle: HANDLE) -> BOOL;
+        extern fn QOSCloseHandle(QOSHandle: HANDLE) -> BOOL;
         #[library("qwave.dll")]
-        extern fn QOSCreateHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Version: PQOS_VERSION, #[out] QOSHandle: PHANDLE) -> BOOL;
+        extern fn QOSCreateHandle(Version: PQOS_VERSION, #[out] QOSHandle: PHANDLE) -> BOOL;
         #[library("qwave.dll")]
-        extern fn QOSEnumerateFlows(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QOSHandle: HANDLE, #[in] #[out] Size: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*Size", "*Size")] #[out] Buffer: PVOID) -> BOOL;
+        extern fn QOSEnumerateFlows(QOSHandle: HANDLE, #[in] #[out] Size: PULONG, #[size_param(1)] Buffer: *mut void) -> BOOL;
         #[library("qwave.dll")]
-        extern fn QOSNotifyFlow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QOSHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FlowId: QOS_FLOWID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Operation: QOS_NOTIFY_FLOW, #[in] #[out] #[opt] Size: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_opt_", "*Size", "*Size")] #[in] #[out] #[opt] Buffer: PVOID, #[reserved] Flags: DWORD, #[out] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
+        extern fn QOSNotifyFlow(QOSHandle: HANDLE, FlowId: QOS_FLOWID, Operation: QOS_NOTIFY_FLOW, #[in] #[out] #[opt] Size: PULONG, #[size_param(3)] #[in] #[out] #[opt] Buffer: *mut void, #[reserved] Flags: u32, #[out] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
         #[library("qwave.dll")]
-        extern fn QOSQueryFlow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QOSHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FlowId: QOS_FLOWID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Operation: QOS_QUERY_FLOW, #[in] #[out] Size: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*Size", "*Size")] #[out] Buffer: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[out] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
+        extern fn QOSQueryFlow(QOSHandle: HANDLE, FlowId: QOS_FLOWID, Operation: QOS_QUERY_FLOW, #[in] #[out] Size: PULONG, #[size_param(3)] Buffer: *mut void, #[opt] Flags: u32, #[out] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
         #[library("qwave.dll")]
-        extern fn QOSRemoveSocketFromFlow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QOSHandle: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Socket: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FlowId: QOS_FLOWID, #[reserved] Flags: DWORD) -> BOOL;
+        extern fn QOSRemoveSocketFromFlow(QOSHandle: HANDLE, #[opt] Socket: SOCKET, FlowId: QOS_FLOWID, #[reserved] Flags: u32) -> BOOL;
         #[library("qwave.dll")]
-        extern fn QOSSetFlow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QOSHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FlowId: QOS_FLOWID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Operation: QOS_SET_FLOW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Size: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] Buffer: PVOID, #[reserved] Flags: DWORD, #[out] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
+        extern fn QOSSetFlow(QOSHandle: HANDLE, FlowId: QOS_FLOWID, Operation: QOS_SET_FLOW, Size: u32, #[size_param(3)] #[in] Buffer: *mut void, #[reserved] Flags: u32, #[out] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
         #[library("qwave.dll")]
-        extern fn QOSStartTrackingClient(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QOSHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DestAddr: PSOCKADDR, #[reserved] Flags: DWORD) -> BOOL;
+        extern fn QOSStartTrackingClient(QOSHandle: HANDLE, DestAddr: PSOCKADDR, #[reserved] Flags: u32) -> BOOL;
         #[library("qwave.dll")]
-        extern fn QOSStopTrackingClient(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] QOSHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DestAddr: PSOCKADDR, #[reserved] Flags: DWORD) -> BOOL;
+        extern fn QOSStopTrackingClient(QOSHandle: HANDLE, DestAddr: PSOCKADDR, #[reserved] Flags: u32) -> BOOL;
         type QOS_FLOWID = u32;
         struct QOS_FLOWRATE_OUTGOING {
-            Bandwidth: UINT64,
+            Bandwidth: u64,
             ShapingBehavior: QOS_SHAPING,
             Reason: QOS_FLOWRATE_REASON,
         }
@@ -50,11 +50,11 @@ mod Windows {
         }
         struct QOS_FLOW_FUNDAMENTALS {
             BottleneckBandwidthSet: BOOL,
-            BottleneckBandwidth: UINT64,
+            BottleneckBandwidth: u64,
             AvailableBandwidthSet: BOOL,
-            AvailableBandwidth: UINT64,
+            AvailableBandwidth: u64,
             RTTSet: BOOL,
-            RTT: UINT32,
+            RTT: u32,
         }
         const QOS_NON_ADAPTIVE_FLOW: i32 = 2;
         #[repr(i32)]
@@ -65,10 +65,10 @@ mod Windows {
         }
         const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295;
         struct QOS_PACKET_PRIORITY {
-            ConformantDSCPValue: ULONG,
-            NonConformantDSCPValue: ULONG,
-            ConformantL2Value: ULONG,
-            NonConformantL2Value: ULONG,
+            ConformantDSCPValue: u32,
+            NonConformantDSCPValue: u32,
+            ConformantL2Value: u32,
+            NonConformantL2Value: u32,
         }
         const QOS_QUERYFLOW_FRESH: i32 = 1;
         #[repr(i32)]
@@ -99,8 +99,8 @@ mod Windows {
             QOSTrafficTypeControl = 5,
         }
         struct QOS_VERSION {
-            MajorVersion: USHORT,
-            MinorVersion: USHORT,
+            MajorVersion: u16,
+            MinorVersion: u16,
         }
     }
 }

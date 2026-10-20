@@ -1,7 +1,6 @@
 use serde::Deserialize;
 use std::borrow::Cow;
 use std::collections::{BTreeMap, BTreeSet};
-use std::fmt::Write as _;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
@@ -15,7 +14,6 @@ const BINDINGS_FILTER: &str = "crates/tools/reactor/src/bindings.txt";
 const BINDINGS_OUTPUT: &str = "crates/libs/reactor/src/native/bindings.rs";
 const CANVAS_FILTER: &str = "crates/tools/reactor/src/canvas.txt";
 const CANVAS_BINDINGS_OUTPUT: &str = "crates/libs/canvas/src/reactor_bindings.rs";
-const LIVE_COVERAGE_OUTPUT: &str = "crates/tests/libs/reactor_selftest/src/generated_coverage.rs";
 
 #[derive(Clone, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -169,7 +167,10 @@ impl std::fmt::Display for Validation {
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
 #[serde(rename_all = "snake_case")]
 enum PropertyAdapter {
+    #[serde(rename = "datetime")]
+    DateTime,
     DropPolicy,
+    FontFamily,
     GridColumns,
     GridRows,
     IconElement,
@@ -178,11 +179,15 @@ enum PropertyAdapter {
     ImplicitOpacityTransition,
     ImplicitScale,
     ImplicitScaleTransition,
+    ImplicitTranslation,
+    ImplicitTranslationTransition,
     InspectableString,
     InspectableStringList,
     KeyAccelerators,
     NativeColor,
     NumberBoxValue,
+    #[serde(rename = "optional_datetime")]
+    OptionalDateTime,
     PathData,
     PointerCapture,
     PointerFocus,
@@ -200,17 +205,26 @@ enum PropertyAdapter {
 impl PropertyAdapter {
     fn value(self) -> &'static str {
         match self {
+            Self::DateTime => "DateTime",
             Self::DropPolicy => "DragDropPolicy",
             Self::GridColumns | Self::GridRows => "GridLengths",
             Self::IconElement | Self::IconSource => "Icon",
             Self::ImageUri => "ImageSource",
-            Self::ImplicitOpacityTransition | Self::ImplicitScaleTransition => "Duration",
+            Self::ImplicitOpacityTransition
+            | Self::ImplicitScaleTransition
+            | Self::ImplicitTranslationTransition => "Duration",
             Self::ImplicitScale => "F64",
-            Self::InspectableString | Self::PathData | Self::RichEditText | Self::Uri => "String",
+            Self::ImplicitTranslation => "Vector2",
+            Self::FontFamily
+            | Self::InspectableString
+            | Self::PathData
+            | Self::RichEditText
+            | Self::Uri => "String",
             Self::InspectableStringList => "StringList",
             Self::KeyAccelerators => "KeyAccelerators",
             Self::NativeColor => "Color",
             Self::NumberBoxValue | Self::RatingValue => "OptionalF64",
+            Self::OptionalDateTime => "OptionalDateTime",
             Self::PointerCapture | Self::PointerFocus => "Bool",
             Self::ResourceOverrides => "ResourceOverrides",
             Self::ResourceStyle => "ButtonStyle",
@@ -463,7 +477,6 @@ fn main() {
     let generated = rustfmt(&generate(&schema, &metadata));
     let declarations = rustfmt(&generate_declarations(&schema, &metadata));
     let native = rustfmt(&generate_native(&schema, &metadata));
-    let live_coverage = rustfmt(&generate_live_coverage(&schema));
     let output = workspace_path(OUTPUT);
     if fs::read_to_string(&output).ok().as_deref() != Some(&generated) {
         fs::write(output, generated).unwrap();
@@ -476,10 +489,6 @@ fn main() {
     let native_output = workspace_path(NATIVE_OUTPUT);
     if fs::read_to_string(&native_output).ok().as_deref() != Some(&native) {
         fs::write(native_output, native).unwrap();
-    }
-    let live_coverage_output = workspace_path(LIVE_COVERAGE_OUTPUT);
-    if fs::read_to_string(&live_coverage_output).ok().as_deref() != Some(&live_coverage) {
-        fs::write(live_coverage_output, live_coverage).unwrap();
     }
     windows_bindgen::builder()
         .input(workspace_path(WINMD))
@@ -756,6 +765,20 @@ fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::Metad
                     event.name
                 );
             }
+            if matches!(
+                event.adapter,
+                Some(EventAdapter::DragKind | EventAdapter::DroppedData)
+            ) {
+                assert!(
+                    event
+                        .active_properties
+                        .iter()
+                        .any(|property| property == "drop_policy"),
+                    "{}.{} must list drop_policy in active_properties",
+                    object.name,
+                    event.name
+                );
+            }
         }
         for relation in &object.relations {
             if let Some(item) = &relation.item {
@@ -886,11 +909,15 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 }
             }
             for event in &object.events {
+                let field = snake_case(&event.name);
+                let revoker = if is_lazy_event(object, event) {
+                    "Option<GeneratedRevoker>"
+                } else {
+                    "GeneratedRevoker"
+                };
                 output.push_str(&format!(
-                    "{}: Rc<RefCell<Native{}Event>>,\n_{}: GeneratedRevoker,\n",
-                    snake_case(&event.name),
+                    "{field}: Rc<RefCell<Native{}Event>>,\n_{field}: {revoker},\n",
                     event.value,
-                    snake_case(&event.name)
                 ));
             }
             output.push_str("}\n");
@@ -959,22 +986,22 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     }
     output.push_str("} }\n");
     output.push_str(
-        "fn get_at(&self, index: u32) -> Result<IInspectable, WinUiError> { match self { \
-         Self::Visual(value) => value.GetAt(index).map(Into::into).map_err(Into::into), \
-         Self::Inspectable(value) => value.GetAt(index).map_err(Into::into),",
+        "fn get_at(&self, index: u32) -> Result<native::UIElement, WinUiError> { match self { \
+         Self::Visual(value) => value.GetAt(index).map_err(Into::into), \
+         Self::Inspectable(value) => Ok(value.GetAt(index)?.cast()?),",
     );
     for item in &collection_items {
         let item = item.rsplit('.').next().unwrap();
         output.push_str(&format!(
-            "Self::{item}(value) => value.GetAt(index).map(Into::into).map_err(Into::into),"
+            "Self::{item}(value) => Ok(value.GetAt(index)?.cast()?),"
         ));
     }
     output.push_str("} }\n");
     output.push_str(
-        "fn insert_at(&self, index: u32, child: &IInspectable) -> Result<(), WinUiError> { \
-         match self { Self::Visual(value) => value.InsertAt(index, \
-         &child.cast::<native::UIElement>()?).map_err(Into::into), \
-         Self::Inspectable(value) => value.InsertAt(index, child).map_err(Into::into),",
+        "fn insert_at(&self, index: u32, child: &native::UIElement) -> Result<(), WinUiError> { \
+         match self { Self::Visual(value) => value.InsertAt(index, child).map_err(Into::into), \
+         Self::Inspectable(value) => value.InsertAt(index, &child.cast::<IInspectable>()?)\
+         .map_err(Into::into),",
     );
     for item in &collection_items {
         let item = item.rsplit('.').next().unwrap();
@@ -985,6 +1012,19 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     }
     output.push_str(
         "} }\n\
+         fn index_of(&self, child: &native::UIElement) -> Result<Option<u32>, WinUiError> { \
+         let mut index = 0; let found = match self { \
+         Self::Visual(value) => value.IndexOf(child, &mut index)?, \
+         Self::Inspectable(value) => value.IndexOf(&child.cast::<IInspectable>()?, &mut index)?,",
+    );
+    for item in &collection_items {
+        let item = item.rsplit('.').next().unwrap();
+        output.push_str(&format!(
+            "Self::{item}(value) => value.IndexOf(&child.cast::<native::{item}>()?, &mut index)?,"
+        ));
+    }
+    output.push_str(
+        "}; Ok(found.then_some(index)) }\n\
          fn remove_at(&self, index: u32) -> Result<(), WinUiError> { match self { \
          Self::Visual(value) => value.RemoveAt(index).map_err(Into::into), \
          Self::Inspectable(value) => value.RemoveAt(index).map_err(Into::into),",
@@ -1008,10 +1048,10 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     }
     output.push_str("}\nimpl GeneratedHandle {\n");
 
+    let mut lazy_subscriptions = String::new();
     output.push_str(
         "fn create(kind: ObjectType, object: ObjectId, event_queue: \
-                     &Rc<NativeEventQueue>, pending_focus_states: \
-                     &Rc<RefCell<HashMap<ObjectId, ElementFocusState>>>) -> \
+                     &Rc<NativeEventQueue>) -> \
                      Result<Option<Self>, WinUiError> {\nOk(Some(match kind {\n",
     );
     for object in &objects {
@@ -1045,10 +1085,13 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 .iter()
                 .find(|property| property.adapter == Some(PropertyAdapter::ImageUri))
                 .map(|property| snake_case(&property.name));
+            let mut subscriptions = String::new();
             for event in &object.events {
                 let field = snake_case(&event.name);
+                let lazy = is_lazy_event(object, event);
+                let mut code = String::new();
                 if let Some(source) = &managed_source {
-                    output.push_str(&format!("let managed_source = Rc::clone(&{source});\n"));
+                    code.push_str(&format!("let managed_source = Rc::clone(&{source});\n"));
                 }
                 let selection = object
                     .selection
@@ -1080,14 +1123,18 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         metadata,
                     );
                     let observed_read = format!("{observed_target}.{observed_native}()");
-                    output.push_str(&format!("let source_{field} = value.clone();\n"));
+                    code.push_str(&format!("let source_{field} = value.clone();\n"));
                     let read = if property.adapter == Some(PropertyAdapter::RichEditText) {
                         format!("read_rich_edit_text(&source_{field})")
                     } else {
                         match property.value.as_str() {
                             "String" => format!("{observed_read}.map(Rc::<str>::from)"),
                             "Bool" | "F64" => observed_read,
-                            "OptionalBool" => format!("{observed_read}.map(Some)"),
+                            "OptionalBool" | "OptionalDateTime" => format!(
+                                "match {observed_read} {{ Ok(value) => Ok(Some(value)), \
+                                 Err(error) if error.code().is_ok() => Ok(None), \
+                                 Err(error) => Err(error) }}"
+                            ),
                             "OptionalF64" => format!(
                                 "{observed_read}.map({})",
                                 if property.adapter == Some(PropertyAdapter::RatingValue) {
@@ -1103,16 +1150,20 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             _ => unreachable!("unsupported generated observation type"),
                         }
                     };
-                    output.push_str(&format!("let read_{field} = move || {read};\n"));
+                    code.push_str(&format!("let read_{field} = move || {read};\n"));
                 }
                 output.push_str(&format!(
-                    "let {field} = Rc::new(RefCell::new(Native{}Event::default()));\n\
-                     let event_for_callback = Rc::clone(&{field});\n",
+                    "let {field} = Rc::new(RefCell::new(Native{}Event::default()));\n",
                     event.value
                 ));
+                let owner = if lazy { "self." } else { "" };
+                let context = if lazy { "context." } else { "" };
+                code.push_str(&format!(
+                    "let event_for_callback = Rc::clone(&{owner}{field});\n"
+                ));
                 if !event.routed {
-                    output.push_str(&format!(
-                        "let event_queue_{field} = Rc::clone(event_queue);\n"
+                    code.push_str(&format!(
+                        "let event_queue_{field} = Rc::clone({context}event_queue);\n"
                     ));
                 }
                 if let Some(selection) = selection {
@@ -1130,27 +1181,29 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             selected_interface,
                             metadata,
                         );
-                        output.push_str(&format!("let source_{field} = {selected_target};\n"));
+                        code.push_str(&format!("let source_{field} = {selected_target};\n"));
                     }
                 } else if event.value == "PointerEventInfo" {
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "let source_{field} = value.cast::<native::UIElement>()?;\n\
-                         let pending_focus_states_{field} = Rc::clone(pending_focus_states);\n"
+                         let pending_focus_states_{field} = \
+                         Rc::clone({context}pending_focus_states);\n"
                     ));
                     for property in &event.active_properties {
                         let property = snake_case(property);
-                        output.push_str(&format!(
-                            "let {property}_{field} = Rc::clone(&{property});\n"
+                        code.push_str(&format!(
+                            "let {property}_{field} = Rc::clone(&{owner}{property});\n"
                         ));
                     }
                 } else if event.value == "FocusEventInfo" {
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "let source_{field} = value.cast::<native::UIElement>()?;\n\
-                         let pending_focus_states_{field} = Rc::clone(pending_focus_states);\n"
+                         let pending_focus_states_{field} = \
+                         Rc::clone({context}pending_focus_states);\n"
                     ));
                 } else if matches!(event.value.as_str(), "DragKind" | "DroppedData") {
-                    output.push_str(&format!(
-                        "let drop_policy_{field} = Rc::clone(&drop_policy);\n"
+                    code.push_str(&format!(
+                        "let drop_policy_{field} = Rc::clone(&{owner}drop_policy);\n"
                     ));
                 } else if event.value == "StringList" {
                     let interface = if object.name == "TabView" {
@@ -1160,7 +1213,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     };
                     let source =
                         native_interface_owned("value", &native_name(object), interface, metadata);
-                    output.push_str(&format!("let source_{field} = {source};\n"));
+                    code.push_str(&format!("let source_{field} = {source};\n"));
                 }
                 let args = if event.routed
                     || event.value == "PointerEventInfo"
@@ -1185,7 +1238,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         .dependency_property(&native_name(object), native)
                         .unwrap();
                     let owner = owner.rsplit('.').next().unwrap();
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "let property_{field} = native::{owner}::{native}Property()?;\n\
                          let object_{field} = value.cast::<native::DependencyObject>()?;\n\
                          let callback_{field} = native::DependencyPropertyChangedCallback::new(\
@@ -1198,7 +1251,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         interface.unwrap(),
                         metadata,
                     );
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "let revoker = {event_target}.{}(move |_, {args}| {{\n",
                         event.name,
                     ));
@@ -1218,7 +1271,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             }
                         }
                         "EventArgs" => {
-                            output.push_str("let args = args.unwrap();\n");
+                            code.push_str("let args = args.unwrap();\n");
                             if metadata
                                 .resolve_event_args_object_property(
                                     &native_name(object),
@@ -1238,7 +1291,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         }
                         _ => unreachable!(),
                     };
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "WinUiAdapter::handle_selection_changed(\n\
                          &event_for_callback,\n\
                          &event_queue_{field},\n\
@@ -1261,7 +1314,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     } else {
                         "observed"
                     };
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "let observed = match read_{field}() {{ Ok(value) => value, Err(error) => {{ \
                          report_error(error); return; }} }};\n\
                          let observation = Observation::SetProperty {{ \
@@ -1273,17 +1326,17 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         event.name
                     ));
                 } else if managed_source.is_some() {
-                    output.push_str(
+                    code.push_str(
                         "let dispatch = !managed_source.get();\nlet observation = None;\n",
                     );
                 } else if !event.routed {
-                    output.push_str("let dispatch = true;\nlet observation = None;\n");
+                    code.push_str("let dispatch = true;\nlet observation = None;\n");
                 }
                 if selection.is_none()
                     && let Some(payload) = &event.payload
                 {
                     if event.payload_adapter == Some(PayloadAdapter::ItemTag) {
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let args = args.unwrap();\n\
                              let payload = match args.{payload}()\
                              .and_then(|value| value.cast::<native::IFrameworkElement>())\
@@ -1300,7 +1353,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         event.payload_adapter,
                         Some(PayloadAdapter::OptionalDateTime | PayloadAdapter::OptionalTimeSpan)
                     ) {
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let args = args.unwrap();\n\
                              let payload = match args.{payload}() {{ Ok(value) => Some(value), \
                              Err(error) if error.code().is_ok() => None, Err(error) => {{ \
@@ -1330,7 +1383,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                             None => "",
                             _ => unreachable!(),
                         };
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let args = args.unwrap();\n\
                              let payload = match args.{payload}(){conversion} {{ Ok(value) => value, \
                              Err(error) => {{ report_error(error); return; }} }};\n"
@@ -1343,10 +1396,11 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     "observed"
                 };
                 if selection.is_some() {
-                    output.push_str("})?;\n");
-                    output.push_str(&format!(
+                    code.push_str("})?;\n");
+                    code.push_str(&format!(
                         "let _{field} = GeneratedRevoker::Event(revoker);\n"
                     ));
+                    output.push_str(&code);
                     continue;
                 }
                 let value = match event.value.as_str() {
@@ -1362,7 +1416,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     | "String" => Some(dispatch_value),
                     "Unit" => Some("()"),
                     "ContentDialogResult" => {
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "match WinUiAdapter::content_dialog_closed(&event_queue_{field}, object) {{ \
                              Ok(true) if dispatch => WinUiAdapter::dispatch(\
                              &event_for_callback, &event_queue_{field}, object, EventId::{}, \
@@ -1388,7 +1442,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         } else {
                             "false"
                         };
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let value = match WinUiAdapter::pointer_event_info(\
                              object, &source_{field}, args, {capture_on_press}, {release_capture}, \
                              {focus_on_release}, &pending_focus_states_{field}) {{ \
@@ -1399,7 +1453,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     }
                     "FocusEventInfo" => {
                         let got_focus = event.name == "GotFocus";
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let value = match WinUiAdapter::focus_event_info(\
                              object, &source_{field}, args, {got_focus}, \
                              &pending_focus_states_{field}) {{ Ok(value) => value, Err(error) => {{ \
@@ -1408,7 +1462,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         Some("value")
                     }
                     "DragKind" => {
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let value = match WinUiAdapter::drag_kind(\
                              args, &drop_policy_{field}) {{ Ok(value) => value, Err(error) => {{ \
                              report_error(error.into()); return; }} }};\n"
@@ -1416,7 +1470,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         Some("value")
                     }
                     "DroppedData" => {
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let _ = dispatch;\n\
                              if let Err(error) = WinUiAdapter::dispatch_dropped_data(\
                              &event_for_callback, &event_queue_{field}, object, EventId::{}, \
@@ -1427,7 +1481,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         None
                     }
                     "StringList" => {
-                        output.push_str(&format!(
+                        code.push_str(&format!(
                             "let value = match WinUiAdapter::{}(&source_{field}) {{ \
                              Ok(value) => value, Err(error) => {{ \
                              report_error(error.into()); return; }} }};\n",
@@ -1440,7 +1494,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         Some("value")
                     }
                     "KeyEventInfo" => {
-                        output.push_str(
+                        code.push_str(
                             "let args = args.unwrap();\n\
                              let value = match WinUiAdapter::key_event_info(args) { Ok(value) => value, \
                              Err(error) => { report_error(error.into()); return; } };\n\
@@ -1452,7 +1506,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                         None
                     }
                     "CharacterEventInfo" => {
-                        output.push_str(
+                        code.push_str(
                             "let args = args.unwrap();\n\
                              let value = match WinUiAdapter::character_event_info(args) { \
                              Ok(value) => value, Err(error) => { \
@@ -1467,14 +1521,14 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                     _ => unreachable!("unsupported generated native event"),
                 };
                 if let Some(value) = value {
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "if dispatch {{ WinUiAdapter::dispatch(&event_for_callback, \
                          &event_queue_{field}, object, EventId::{}, observation, {value}); }}\n",
                         event.name,
                     ));
                 }
                 if event.property_changed {
-                    output.push_str(&format!(
+                    code.push_str(&format!(
                         "}});\n\
                          let token_{field} = object_{field}.RegisterPropertyChangedCallback(\
                          &property_{field}, &callback_{field})?;\n\
@@ -1482,12 +1536,40 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                          object: object_{field}, property: property_{field}, token: token_{field} \
                          }});\n"
                     ));
+                } else if lazy {
+                    code.push_str("})?;\n");
+                    code.push_str(&format!(
+                        "self._{field} = Some(GeneratedRevoker::Event(revoker));\n"
+                    ));
                 } else {
-                    output.push_str("})?;\n");
-                    output.push_str(&format!(
+                    code.push_str("})?;\n");
+                    code.push_str(&format!(
                         "let _{field} = GeneratedRevoker::Event(revoker);\n"
                     ));
                 }
+                if lazy {
+                    output.push_str(&format!("let _{field} = None;\n"));
+                    let (object_id, context) = if event.routed {
+                        ("_object", "_context")
+                    } else {
+                        ("object", "context")
+                    };
+                    subscriptions.push_str(&format!(
+                        "fn subscribe_{field}(&mut self, {object_id}: ObjectId, \
+                         {context}: EventContext) -> Result<(), WinUiError> {{\n\
+                         if self._{field}.is_some() {{ return Ok(()); }}\n\
+                         let value = &self.value;\n\
+                         {code}Ok(())\n}}\n"
+                    ));
+                } else {
+                    output.push_str(&code);
+                }
+            }
+            if !subscriptions.is_empty() {
+                lazy_subscriptions.push_str(&format!(
+                    "impl Generated{} {{\n{subscriptions}}}\n",
+                    object.name
+                ));
             }
             output.push_str(&format!(
                 "Self::{}(Box::new(Generated{} {{ value,",
@@ -1820,7 +1902,7 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
                 output.push_str(&format!(
                     "(PropertyId::{}, Some(PropertyValue::Enum {{ kind: \"{value}\", variant }})) \
                      => Some(element.cast::<native::FrameworkElement>().map_err(Into::into)\
-                     .and_then(|element| {{ let _ = native::{value}::None; \
+                     .and_then(|element| {{ \
                      native::{owner}::Set{}(&element, match *variant {{ {arms} \
                      _ => unreachable!(\"validated enum variant\") }}).map_err(Into::into) }})),\n",
                     property.name, property.native
@@ -2073,7 +2155,8 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     output.push_str("_ => None,\n} }\n");
 
     output.push_str(
-        "fn set_property(&self, property: PropertyId, value: Option<&PropertyValue>) -> \
+        "fn set_property(&self, property: PropertyId, value: Option<&PropertyValue>, \
+         image_source: Option<&native::ImageSource>) -> \
                      Option<Result<(), WinUiError>> { match (self, property, value) {\n",
     );
     for object in &objects {
@@ -2155,8 +2238,8 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     output.push_str("_ => None,\n} }\n");
 
     output.push_str(
-        "fn set_events(&mut self, object_id: ObjectId, set: &[Event], clear: &[EventId]) -> \
-                     Option<Result<(), WinUiError>> { match self {\n",
+        "fn set_events(&mut self, object_id: ObjectId, set: &[Event], clear: &[EventId], \
+         context: EventContext) -> Option<Result<(), WinUiError>> { match self {\n",
     );
     for object in &objects {
         if object.events.is_empty() {
@@ -2175,11 +2258,16 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
         output.push_str("for event in set { match (event.id, &event.value) {\n");
         for event in &object.events {
             let field = snake_case(&event.name);
+            let subscribe = if is_lazy_event(object, event) {
+                format!("object.subscribe_{field}(object_id, context)?;")
+            } else {
+                String::new()
+            };
             output.push_str(&format!(
-                "(EventId::{}, EventValue::{}(callback)) => {{ let mut native_event = \
+                "(EventId::{}, EventValue::{}(callback)) => {{ {{ let mut native_event = \
                              object.{field}.borrow_mut(); native_event.revision = \
                              native_event.revision.wrapping_add(1); native_event.callback = \
-                             Some(callback.clone()); }}\n",
+                             Some(callback.clone()); }} {subscribe} }}\n",
                 event.name, event.value
             ));
         }
@@ -2187,6 +2275,36 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
         output.push_str("Ok(())\n})()),\n");
     }
     output.push_str("_ => None,\n} }\n");
+
+    output.push_str(
+        "fn subscribe_property_events(&mut self, object_id: ObjectId, property: PropertyId, \
+         context: EventContext) -> Result<(), WinUiError> { match (self, property) {\n",
+    );
+    for object in &objects {
+        for property in &object.properties {
+            let name = snake_case(&property.name);
+            let events = object
+                .events
+                .iter()
+                .filter(|event| {
+                    is_lazy_event(object, event) && event.active_properties.contains(&name)
+                })
+                .map(|event| {
+                    format!(
+                        "object.subscribe_{}(object_id, context)?;",
+                        snake_case(&event.name)
+                    )
+                })
+                .collect::<String>();
+            if !events.is_empty() {
+                output.push_str(&format!(
+                    "(Self::{}(object), PropertyId::{}) => {{ {events} }}\n",
+                    object.name, property.name
+                ));
+            }
+        }
+    }
+    output.push_str("_ => {}\n}\nOk(())\n}\n");
 
     output.push_str(
         "fn set_content(&self, relation: RelationId, child: Option<&native::UIElement>) -> \
@@ -2265,27 +2383,27 @@ fn generate_native(schema: &Schema, metadata: &tool_reactor_metadata::MetadataRe
     }
     output.push_str("_ => None,\n} }\n");
 
-    output.push_str(
-        "#[cfg(any(test, feature = \"test\"))]\n\
-         fn unit_event(&self, event: EventId) -> Option<&Rc<RefCell<NativeUnitEvent>>> { \
-                     match (self, event) {\n",
-    );
-    for object in &objects {
-        for event in &object.events {
-            if event.value == "Unit" {
-                output.push_str(&format!(
-                    "(Self::{}(object), EventId::{}) => Some(&object.{}),\n",
-                    object.name,
-                    event.name,
-                    snake_case(&event.name)
-                ));
-            }
-        }
-    }
-    output.push_str("_ => None,\n} }\n");
-
     output.push_str("}\n");
+    output.push_str(&lazy_subscriptions);
     output
+}
+
+/// Events that only forward to a Reactor callback subscribe when the first callback is set, or
+/// when one of their `active_properties` is set. Events that observe properties, track
+/// selection, or report managed image state subscribe at creation because they do work without
+/// a callback.
+fn is_lazy_event(object: &Object, event: &Event) -> bool {
+    !event.property_changed
+        && event.observes.is_none()
+        && event.value != "ContentDialogResult"
+        && !object
+            .selection
+            .as_ref()
+            .is_some_and(|selection| selection.event == event.name)
+        && !object
+            .properties
+            .iter()
+            .any(|property| property.adapter == Some(PropertyAdapter::ImageUri))
 }
 
 fn native_name(object: &Object) -> String {
@@ -2353,7 +2471,15 @@ fn emit_native_property_arms(
     if adapter.is_some_and(PropertyAdapter::uses_framework_element) {
         return;
     }
-    if adapter == Some(PropertyAdapter::Uri) {
+    if matches!(
+        adapter,
+        Some(PropertyAdapter::Uri | PropertyAdapter::FontFamily)
+    ) {
+        let constructor = if adapter == Some(PropertyAdapter::Uri) {
+            "Uri::CreateUri"
+        } else {
+            "FontFamily::CreateInstanceWithName"
+        };
         let (declaring_class, _) = metadata
             .dependency_property(metadata_owner, native)
             .unwrap_or_else(|| {
@@ -2362,7 +2488,7 @@ fn emit_native_property_arms(
         let declaring_class = declaring_class.rsplit('.').next().unwrap();
         let set = native_interface_call(target, target_class, interface, metadata, |object| {
             format!(
-                "native::Uri::CreateUri(value.as_ref()).and_then(|value| \
+                "native::{constructor}(value.as_ref()).and_then(|value| \
                      {object}.Set{native}(&value)).map_err(Into::into)"
             )
         });
@@ -2405,9 +2531,20 @@ fn emit_native_property_arms(
             PropertyAdapter::ImplicitOpacityTransition
                 | PropertyAdapter::ImplicitScale
                 | PropertyAdapter::ImplicitScaleTransition
+                | PropertyAdapter::ImplicitTranslation
+                | PropertyAdapter::ImplicitTranslationTransition
         )
     ) {
-        if adapter == Some(PropertyAdapter::ImplicitScale) {
+        if adapter == Some(PropertyAdapter::ImplicitTranslation) {
+            output.push_str(&format!(
+                "{pattern}None) => Some({target}.cast::<native::UIElement>().map_err(Into::into)\
+                 .and_then(|object| object.SetTranslation(native::Vector3::default()).map_err(Into::into))),\n\
+                 {pattern}Some(PropertyValue::Vector2(value))) => \
+                 Some({target}.cast::<native::UIElement>().map_err(Into::into)\
+                 .and_then(|object| object.SetTranslation(native::Vector3 {{ \
+                 x: value[0] as f32, y: value[1] as f32, z: 0.0 }}).map_err(Into::into))),\n"
+            ));
+        } else if adapter == Some(PropertyAdapter::ImplicitScale) {
             output.push_str(&format!(
                 "{pattern}None) => Some({target}.cast::<native::UIElement>().map_err(Into::into)\
                  .and_then(|object| set_implicit_scale(&object, 1.0))),\n\
@@ -2418,6 +2555,8 @@ fn emit_native_property_arms(
         } else {
             let helper = if adapter == Some(PropertyAdapter::ImplicitOpacityTransition) {
                 "set_opacity_transition"
+            } else if adapter == Some(PropertyAdapter::ImplicitTranslationTransition) {
+                "set_translation_transition"
             } else {
                 "set_scale_transition"
             };
@@ -2476,7 +2615,7 @@ fn emit_native_property_arms(
         });
         let set = native_interface_call(target, target_class, interface, metadata, |object| {
             format!(
-                "{helper}(value).and_then(|icon| \
+                "{helper}(value, image_source).and_then(|icon| \
                      {object}.Set{native}(&icon).map_err(Into::into))"
             )
         });
@@ -2625,10 +2764,12 @@ fn emit_native_property_arms(
     let (variant, expression) = match value {
         "String" => ("String", "value.as_ref()"),
         "Bool" => ("Bool", "*value"),
+        "DateTime" => ("DateTime", "*value"),
         "F64" => ("F64", "*value"),
         "FontWeight" => ("FontWeight", "native::FontWeight { weight: value.value() }"),
         "I32" => ("I32", "*value"),
         "OptionalBool" => ("OptionalBool", "*value"),
+        "OptionalDateTime" => ("OptionalDateTime", "*value"),
         "CornerRadius" => (
             "CornerRadius",
             "native::CornerRadius { top_left: value.top_left, top_right: value.top_right, \
@@ -2740,6 +2881,7 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
              CharacterEventInfo,\n\
              Color,\n\
              CornerRadius,\n\
+             DateTime,\n\
              Duration,\n\
              DragDropPolicy,\n\
              DragKind,\n\
@@ -2764,6 +2906,7 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
              Selection,\n\
              ThemeTransitions,\n\
              Thickness,\n\
+             Vector2,\n\
              SelectionIndex,\n\
              StringList,\n\
              Enum { kind: &'static str, variants: &'static [&'static str] },\n\
@@ -3353,8 +3496,13 @@ fn generate_declarations(
                      self.0 = self.0.property(PropertyId::{}, \
                      PropertyValue::ImageSource(ImageSource::encoded(value)));\n\
                      self\n\
+                     }}\n\
+                     pub fn {name}_svg(mut self, value: EncodedImage) -> Self {{\n\
+                     self.0 = self.0.property(PropertyId::{}, \
+                     PropertyValue::ImageSource(ImageSource::svg(value)));\n\
+                     self\n\
                      }}\n",
-                    property.name, property.name, property.name, property.name
+                    property.name, property.name, property.name, property.name, property.name
                 ));
                 continue;
             }
@@ -3396,6 +3544,9 @@ fn generate_declarations(
                 _ => property_argument_parts(&name, &property.value),
             };
             output.push_str(&format!("pub fn {name}(mut self, {argument}) -> Self {{\n"));
+            if property.value == "Vector2" {
+                output.push_str(&format!("let {name} = [x, y];\n"));
+            }
             if matches!(property.value.as_str(), "CornerRadius" | "Thickness") {
                 output.push_str(&format!("let {name} = {name}.into();\n"));
             }
@@ -3670,6 +3821,9 @@ fn property_argument(property: &Property) -> String {
 
 fn validation_expression(name: &str, value: &str, validation: Validation) -> String {
     match validation {
+        Validation::Finite if value == "Vector2" => {
+            format!("{name}.iter().all(|value| (*value as f32).is_finite())")
+        }
         Validation::Finite => format!("{name}.is_finite()"),
         Validation::FinitePositive => format!("{name}.is_finite() && {name} > 0.0"),
         Validation::FiniteNonNegative if value == "F64" => {
@@ -3702,10 +3856,12 @@ fn property_argument_parts(name: &str, value: &str) -> String {
         "KeyAccelerators" => format!("{name}: KeyAccelerators"),
         "OptionalF64" => format!("{name}: impl Into<Option<f64>>"),
         "OptionalBool" => format!("{name}: impl Into<Option<bool>>"),
+        "OptionalDateTime" => format!("{name}: impl Into<Option<DateTime>>"),
         "ResourceOverrides" => format!("{name}: ResourceOverrides"),
         "SelectionIndex" => format!("{name}: impl Into<Option<usize>>"),
         "StringList" => format!("{name}: impl IntoIterator<Item = impl Into<Rc<str>>>"),
         "Thickness" => format!("{name}: impl Into<Thickness>"),
+        "Vector2" => "x: f64, y: f64".to_string(),
         value => format!("{name}: {value}"),
     }
 }
@@ -3722,6 +3878,7 @@ fn property_value_parts(value: &str, name: &str) -> String {
         "ButtonStyle" => format!("PropertyValue::ButtonStyle({name})"),
         "Color" => format!("PropertyValue::Color({name})"),
         "CornerRadius" => format!("PropertyValue::CornerRadius({name})"),
+        "DateTime" => format!("PropertyValue::DateTime({name})"),
         "Duration" => format!("PropertyValue::Duration({name})"),
         "DragDropPolicy" => format!("PropertyValue::DragDropPolicy(Rc::new({name}))"),
         "F64" => format!("PropertyValue::F64({name})"),
@@ -3735,6 +3892,7 @@ fn property_value_parts(value: &str, name: &str) -> String {
         "KeyAccelerators" => format!("PropertyValue::KeyAccelerators({name})"),
         "OptionalF64" => format!("PropertyValue::OptionalF64({name}.into())"),
         "OptionalBool" => format!("PropertyValue::OptionalBool({name}.into())"),
+        "OptionalDateTime" => format!("PropertyValue::OptionalDateTime({name}.into())"),
         "SelectionIndex" => format!("PropertyValue::SelectionIndex({name}.into())"),
         "ResourceOverrides" => format!("PropertyValue::ResourceOverrides({name})"),
         "RichText" => format!("PropertyValue::RichText({name})"),
@@ -3742,6 +3900,7 @@ fn property_value_parts(value: &str, name: &str) -> String {
             format!("PropertyValue::StringList({name}.into_iter().map(Into::into).collect())")
         }
         "Thickness" => format!("PropertyValue::Thickness({name})"),
+        "Vector2" => format!("PropertyValue::Vector2({name})"),
         _ => format!("{name}.property_value()"),
     }
 }
@@ -3762,239 +3921,6 @@ fn property_default_parts(value_type: &str, value: &str) -> String {
         "SelectionIndex" => "None".to_string(),
         "StringList" => "Vec::<Option<IInspectable>>::new().into()".to_string(),
         _ => format!("native::{value_type}::{value}"),
-    }
-}
-
-fn generate_live_coverage(schema: &Schema) -> String {
-    let mut output = String::from(
-        "use windows_reactor as reactor;\n\
-         use reactor::*;\n\
-         pub struct CoverageCase {\n\
-             pub contract: &'static str,\n\
-             pub set: fn() -> View,\n\
-             pub clear: fn() -> View,\n\
-         }\n\
-         pub fn cases() -> Vec<CoverageCase> {\n\
-             vec![\n",
-    );
-    let mut functions = String::new();
-    let mut index = 0;
-    let representative = schema
-        .objects
-        .iter()
-        .find(|object| object.name == "TextBlock")
-        .unwrap();
-
-    for property in &schema.attached_properties {
-        write_live_property_case(
-            &mut output,
-            &mut functions,
-            &mut index,
-            "attached",
-            representative,
-            &property.name,
-            &snake_case(&property.name),
-            &property.value,
-            None,
-            property.default.as_deref(),
-            property.flag,
-            false,
-        );
-    }
-    for property in &schema.visual_properties {
-        write_live_property_case(
-            &mut output,
-            &mut functions,
-            &mut index,
-            "visual",
-            representative,
-            &property.name,
-            &snake_case(&property.name),
-            &property.value,
-            None,
-            property.default.as_deref(),
-            false,
-            false,
-        );
-    }
-    for object in &schema.objects {
-        if object.category != ObjectCategory::Visual || live_coverage_specialized(object) {
-            continue;
-        }
-        for property in &object.properties {
-            let method = property.method();
-            write_live_property_case(
-                &mut output,
-                &mut functions,
-                &mut index,
-                &object.name,
-                object,
-                &property.name,
-                &method,
-                &property.value,
-                property.adapter,
-                property.default.as_deref(),
-                false,
-                property.required,
-            );
-        }
-        for event in &object.events {
-            let method = event
-                .field
-                .as_deref()
-                .and_then(|field| field.strip_prefix("on_"))
-                .map_or_else(|| snake_case(&event.name), str::to_string);
-            let set_name = format!("coverage_{index}_set");
-            let clear_name = format!("coverage_{index}_clear");
-            writeln!(
-                output,
-                "CoverageCase {{ contract: \"{}.{}\", set: {set_name}, clear: {clear_name} }},",
-                object.name, event.name
-            )
-            .unwrap();
-            let constructor = example_constructor(object);
-            let callback = if event.routed {
-                match event.value.as_str() {
-                    "CharacterEventInfo" => "RoutedCallback::new(|_| false)",
-                    "KeyEventInfo" => "RoutedCallback::new(|_| false)",
-                    value => unreachable!("unsupported routed live coverage event {value}"),
-                }
-                .to_string()
-            } else if event.value == "Unit" {
-                "|| {}".to_string()
-            } else {
-                "|_| {}".to_string()
-            };
-            writeln!(
-                functions,
-                "fn {set_name}() -> View {{ {constructor}.on_{method}({callback}).into() }}\n\
-                 fn {clear_name}() -> View {{ {constructor}.into() }}"
-            )
-            .unwrap();
-            index += 1;
-        }
-    }
-    output.push_str("]\n}\n");
-    output.push_str(&functions);
-    output
-}
-
-#[allow(clippy::too_many_arguments)]
-fn write_live_property_case(
-    output: &mut String,
-    functions: &mut String,
-    index: &mut usize,
-    owner: &str,
-    object: &Object,
-    property_name: &str,
-    method: &str,
-    value: &str,
-    adapter: Option<PropertyAdapter>,
-    default: Option<&str>,
-    flag: bool,
-    required: bool,
-) {
-    let set_name = format!("coverage_{}_set", *index);
-    let clear_name = format!("coverage_{}_clear", *index);
-    writeln!(
-        output,
-        "CoverageCase {{ contract: \"{owner}.{property_name}\", set: {set_name}, clear: \
-         {clear_name} }},"
-    )
-    .unwrap();
-    let constructor = example_constructor(object);
-    let sample = live_property_sample(property_name, value, adapter, default);
-    let set = if required {
-        constructor.clone()
-    } else if flag {
-        format!("{constructor}.{method}()")
-    } else if matches!(
-        adapter,
-        Some(PropertyAdapter::Uri | PropertyAdapter::ImageUri)
-    ) {
-        format!("{constructor}.{method}({sample}).unwrap()")
-    } else {
-        format!("{constructor}.{method}({sample})")
-    };
-    writeln!(
-        functions,
-        "fn {set_name}() -> View {{ {set}.into() }}\n\
-         fn {clear_name}() -> View {{ {constructor}.into() }}"
-    )
-    .unwrap();
-    *index += 1;
-}
-
-fn live_coverage_specialized(object: &Object) -> bool {
-    matches!(
-        object.name.as_str(),
-        "TitleBar" | "ToolTip" | "ContentDialog"
-    )
-}
-
-fn live_property_sample(
-    name: &str,
-    value: &str,
-    adapter: Option<PropertyAdapter>,
-    default: Option<&str>,
-) -> String {
-    if matches!(
-        adapter,
-        Some(PropertyAdapter::Uri | PropertyAdapter::ImageUri)
-    ) {
-        return "\"https://example.com\"".to_string();
-    }
-    match value {
-        "String" if name == "ClockIdentifier" => "\"24HourClock\"".to_string(),
-        "String" if adapter == Some(PropertyAdapter::PathData) => "\"M 0,0 L 1,1\"".to_string(),
-        "String" => "\"coverage\"".to_string(),
-        "Bool" if matches!(name, "IsOpen" | "IsCalendarOpen") => "false".to_string(),
-        "Bool" => match default {
-            Some("true") => "false".to_string(),
-            _ => "true".to_string(),
-        },
-        "F64" if name == "Opacity" => "0.5".to_string(),
-        "F64" => "1.0".to_string(),
-        "I32" => "1".to_string(),
-        "Icon" => "Symbol::Previous".to_string(),
-        "Brush" => "Color::rgb(1, 2, 3)".to_string(),
-        "ButtonStyle" => "ButtonStyle::Default".to_string(),
-        "Color" => "Color::rgb(1, 2, 3)".to_string(),
-        "CornerRadius" => "CornerRadius::uniform(1.0)".to_string(),
-        "Duration" => "std::time::Duration::from_millis(1)".to_string(),
-        "DragDropPolicy" => "DragDropPolicy::new()".to_string(),
-        "FontWeight" => "FontWeight::SEMI_BOLD".to_string(),
-        "GridLengths" => "[GridLength::Auto]".to_string(),
-        "KeyAccelerators" => "KeyAccelerators::default()".to_string(),
-        "OptionalBool" => "Some(true)".to_string(),
-        "OptionalF64" => "Some(1.0)".to_string(),
-        "ResourceOverrides" => "ResourceOverrides::new()".to_string(),
-        "RichText" => "RichText::new([RichTextParagraph::new([RichTextInline::Run(\
-                       RichTextRun::plain(\"coverage\"))])])"
-            .to_string(),
-        "SelectionIndex" => "Some(0)".to_string(),
-        "StringList" => "[\"coverage\"]".to_string(),
-        "ThemeTransitions" => "[ThemeTransition::Reposition]".to_string(),
-        "Thickness" => "Thickness::uniform(1.0)".to_string(),
-        "AutomationHeadingLevel" => "AutomationHeadingLevel::Level1".to_string(),
-        "HorizontalAlignment" => "HorizontalAlignment::Center".to_string(),
-        "InfoBarSeverity" => "InfoBarSeverity::Informational".to_string(),
-        "ListViewSelectionMode" => "ListViewSelectionMode::Single".to_string(),
-        "NavigationViewBackButtonVisible" => "NavigationViewBackButtonVisible::Visible".to_string(),
-        "NavigationViewPaneDisplayMode" => "NavigationViewPaneDisplayMode::Left".to_string(),
-        "Orientation" => "Orientation::Horizontal".to_string(),
-        "PasswordRevealMode" => "PasswordRevealMode::Visible".to_string(),
-        "ScrollBarVisibility" => "ScrollBarVisibility::Visible".to_string(),
-        "ScrollingScrollBarVisibility" => "ScrollingScrollBarVisibility::Visible".to_string(),
-        "SplitViewDisplayMode" => "SplitViewDisplayMode::Inline".to_string(),
-        "Stretch" => "Stretch::Uniform".to_string(),
-        "Symbol" => "Symbol::Previous".to_string(),
-        "TeachingTipPlacementMode" => "TeachingTipPlacementMode::Top".to_string(),
-        "TextTrimming" => "TextTrimming::CharacterEllipsis".to_string(),
-        "TextWrapping" => "TextWrapping::Wrap".to_string(),
-        "TreeViewSelectionMode" => "TreeViewSelectionMode::Single".to_string(),
-        "VerticalAlignment" => "VerticalAlignment::Center".to_string(),
-        value => unreachable!("unsupported live coverage value {value}"),
     }
 }
 
@@ -4041,6 +3967,7 @@ fn is_builtin_value(value: &str) -> bool {
             | "ButtonStyle"
             | "Color"
             | "CornerRadius"
+            | "DateTime"
             | "Duration"
             | "DragDropPolicy"
             | "DragKind"
@@ -4062,6 +3989,7 @@ fn is_builtin_value(value: &str) -> bool {
             | "StringList"
             | "ThemeTransitions"
             | "Thickness"
+            | "Vector2"
     )
 }
 

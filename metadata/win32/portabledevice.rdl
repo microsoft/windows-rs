@@ -48,9 +48,9 @@ mod Windows {
             SMS_BINARY_MESSAGE = 1,
         }
         #[arch(X64 | Arm64)]
-        const WMDRMDEVICEAPP_USE_WPD_DEVICE_PTR: ULONG_PTR = 18446744073709551615;
+        const WMDRMDEVICEAPP_USE_WPD_DEVICE_PTR: usize = 18446744073709551615;
         #[arch(X86)]
-        const WMDRMDEVICEAPP_USE_WPD_DEVICE_PTR: ULONG_PTR = 4294967295;
+        const WMDRMDEVICEAPP_USE_WPD_DEVICE_PTR: usize = 4294967295;
         const WPD_API_OPTIONS_V1: GUID = 0x10e54a3e_052d_4777_a13c_de7614be2bc4;
         #[guid(0x10e54a3e_052d_4777_a13c_de7614be2bc4)]
         const WPD_API_OPTION_IOCTL_ACCESS: PROPERTYKEY = 3;
@@ -166,7 +166,7 @@ mod Windows {
         }
         struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
             Command: PROPERTYKEY,
-            AccessType: DWORD,
+            AccessType: u32,
             AccessProperty: PROPERTYKEY,
         }
         #[repr(i32)]

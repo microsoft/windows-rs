@@ -1,0 +1,2 @@
+error: event handler must be a delegate type
+ --> errors/input/interface_event_handler.rdl:4:24

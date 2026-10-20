@@ -4,16 +4,16 @@ mod Windows {
         #[guid(0x5ab89b06_8194_425f_ab3b_d7a96e350161)]
         interface IXpsPrintJob: IUnknown {
             fn Cancel(&self) -> HRESULT;
-            fn GetJobStatus(&self, #[out] #[retval] jobStatus: *mut XPS_JOB_STATUS) -> HRESULT;
+            fn GetJobStatus(&self, #[retval] jobStatus: *mut XPS_JOB_STATUS) -> HRESULT;
         }
         #[guid(0x7a77dc5f_45d6_4dff_9307_d8cb846347ca)]
         interface IXpsPrintJobStream: ISequentialStream {
             fn Close(&self) -> HRESULT;
         }
         #[library("XPSPRINT.DLL")]
-        extern fn StartXpsPrintJob(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] printerName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] jobName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] outputFileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] progressEvent: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] completionEvent: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(6)] printablePagesOn: *mut UINT8, printablePagesOnCount: UINT32, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] xpsPrintJob: *mut IXpsPrintJob, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] documentStream: *mut IXpsPrintJobStream, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] printTicketStream: *mut IXpsPrintJobStream) -> HRESULT;
+        extern fn StartXpsPrintJob(printerName: PCWSTR, jobName: PCWSTR, outputFileName: PCWSTR, progressEvent: HANDLE, completionEvent: HANDLE, #[in] printablePagesOn: *mut u8, printablePagesOnCount: u32, xpsPrintJob: *mut IXpsPrintJob, documentStream: *mut IXpsPrintJobStream, printTicketStream: *mut IXpsPrintJobStream) -> HRESULT;
         #[library("XPSPRINT.DLL")]
-        extern fn StartXpsPrintJob1(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] printerName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] jobName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] outputFileName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] progressEvent: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] completionEvent: HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] xpsPrintJob: *mut IXpsPrintJob, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] printContentReceiver: *mut IXpsOMPackageTarget) -> HRESULT;
+        extern fn StartXpsPrintJob1(printerName: PCWSTR, jobName: PCWSTR, outputFileName: PCWSTR, progressEvent: HANDLE, completionEvent: HANDLE, xpsPrintJob: *mut IXpsPrintJob, printContentReceiver: *mut IXpsOMPackageTarget) -> HRESULT;
         #[repr(i32)]
         enum XPS_JOB_COMPLETION {
             XPS_JOB_IN_PROGRESS = 0,
@@ -22,10 +22,10 @@ mod Windows {
             XPS_JOB_FAILED = 3,
         }
         struct XPS_JOB_STATUS {
-            jobId: UINT32,
-            currentDocument: INT32,
-            currentPage: INT32,
-            currentPageTotal: INT32,
+            jobId: u32,
+            currentDocument: i32,
+            currentPage: i32,
+            currentPageTotal: i32,
             completion: XPS_JOB_COMPLETION,
             jobStatus: HRESULT,
         }

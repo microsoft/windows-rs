@@ -40,7 +40,6 @@ impl Component for ColorPickerPage {
                                 ))
                                 .opacity(0.6),
                         )),
-                        "ColorPicker::new().color(color).on_color_changed(handler)",
                     ),
                 ),
                 KeyedView::new(
@@ -51,7 +50,6 @@ impl Component for ColorPickerPage {
                             .color(Color::rgb(200, 50, 50))
                             .is_hex_input_visible(false)
                             .is_color_channel_text_input_visible(false),
-                        "ColorPicker::new().is_hex_input_visible(false)",
                     ),
                 ),
             ],

@@ -109,6 +109,11 @@ code! { TypeOrMethodDef(1)
     (MethodDef, 1)
 }
 
+code! { HasSemantics(1)
+    (Event, 0)
+    (Property, 1)
+}
+
 impl<'a> TypeDefOrRef<'a> {
     /// Returns the outer namespace and slash-separated enclosing type names.
     pub fn full_name(&self) -> TypeName {

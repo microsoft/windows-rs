@@ -1,50 +1,50 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        type BSTR = *mut u16;
+        type BSTR = *mut OLECHAR;
         struct BSTRBLOB {
-            cbSize: ULONG,
-            pData: *mut BYTE,
+            cbSize: u32,
+            pData: *mut u8,
         }
         struct CLIPDATA {
-            cbSize: ULONG,
-            ulClipFmt: LONG,
-            pClipData: *mut BYTE,
+            cbSize: u32,
+            ulClipFmt: i32,
+            pClipData: *mut u8,
         }
         type CLIPFORMAT = u16;
         struct CSPLATFORM {
-            dwPlatformId: DWORD,
-            dwVersionHi: DWORD,
-            dwVersionLo: DWORD,
-            dwProcessorArch: DWORD,
+            dwPlatformId: u32,
+            dwVersionHi: u32,
+            dwVersionLo: u32,
+            dwProcessorArch: u32,
         }
         union CY {
             Anonymous: struct {
-                Lo: ULONG,
-                Hi: LONG,
+                Lo: u32,
+                Hi: i32,
             },
-            int64: LONGLONG,
+            int64: i64,
         }
         type DATE = f64;
         struct DECIMAL {
-            wReserved: USHORT,
+            wReserved: u16,
             Anonymous: union {
                 Anonymous: struct {
-                    scale: BYTE,
-                    sign: BYTE,
+                    scale: u8,
+                    sign: u8,
                 },
-                signscale: USHORT,
+                signscale: u16,
             },
-            Hi32: ULONG,
+            Hi32: u32,
             Anonymous2: union {
                 Anonymous: struct {
-                    Lo32: ULONG,
-                    Mid32: ULONG,
+                    Lo32: u32,
+                    Mid32: u32,
                 },
-                Lo64: ULONGLONG,
+                Lo64: u64,
             },
         }
-        const DECIMAL_NEG: BYTE = 128;
+        const DECIMAL_NEG: u8 = 128;
         #[repr(i32)]
         enum DVASPECT {
             DVASPECT_CONTENT = 1,
@@ -53,69 +53,61 @@ mod Windows {
             DVASPECT_DOCPRINT = 8,
         }
         struct GDI_NONREMOTE {
-            union __MIDL_IWinTypes_0002 {
-                hInproc: LONG,
-                hRemote: *mut DWORD_BLOB,
-            }
-            fContext: LONG,
-            u: GDI_NONREMOTE::__MIDL_IWinTypes_0002,
+            fContext: i32,
+            u: __MIDL_IWinTypes_0002,
         }
         type HCONTEXT = *mut void;
         type HMETAFILEPICT = *mut void;
-        type LPBSTR = *mut *mut u16;
+        type LPBSTR = *mut BSTR;
         type LPBSTRBLOB = *mut BSTRBLOB;
         type LPCY = *mut CY;
         type LPDECIMAL = *mut DECIMAL;
         struct PROPERTYKEY {
             fmtid: GUID,
-            pid: DWORD,
+            pid: u32,
         }
         type PROPID = u32;
         struct QUERYCONTEXT {
-            dwContext: DWORD,
+            dwContext: u32,
             Platform: CSPLATFORM,
             Locale: LCID,
-            dwVersionHi: DWORD,
-            dwVersionLo: DWORD,
+            dwVersionHi: u32,
+            dwVersionLo: u32,
         }
         const ROTFLAGS_ALLOWANYCLIENT: i32 = 2;
         const ROTFLAGS_REGISTRATIONKEEPSALIVE: i32 = 1;
         const ROT_COMPARE_MAX: i32 = 2048;
         struct RemHBITMAP {
-            cbData: ULONG,
+            cbData: u32,
             data: [byte; 1],
         }
         struct RemHBRUSH {
-            cbData: ULONG,
+            cbData: u32,
             data: [byte; 1],
         }
         struct RemHENHMETAFILE {
-            cbData: ULONG,
+            cbData: u32,
             data: [byte; 1],
         }
         struct RemHGLOBAL {
-            fNullHGlobal: LONG,
-            cbData: ULONG,
+            fNullHGlobal: i32,
+            cbData: u32,
             data: [byte; 1],
         }
         struct RemHMETAFILEPICT {
-            mm: LONG,
-            xExt: LONG,
-            yExt: LONG,
-            cbData: ULONG,
+            mm: i32,
+            xExt: i32,
+            yExt: i32,
+            cbData: u32,
             data: [byte; 1],
         }
         struct RemHPALETTE {
-            cbData: ULONG,
+            cbData: u32,
             data: [byte; 1],
         }
         struct RemotableHandle {
-            union __MIDL_IWinTypes_0009 {
-                hInproc: LONG,
-                hRemote: LONG,
-            }
-            fContext: LONG,
-            u: RemotableHandle::__MIDL_IWinTypes_0009,
+            fContext: i32,
+            u: __MIDL_IWinTypes_0009,
         }
         #[repr(i32)]
         enum STATFLAG {
@@ -209,138 +201,129 @@ mod Windows {
         const WDT_INPROC64_CALL: i32 = 1349805143;
         const WDT_INPROC_CALL: i32 = 1215587415;
         const WDT_REMOTE_CALL: i32 = 1383359575;
+        union __MIDL_IWinTypes_0001 {
+            dwValue: u32,
+            pwszName: *mut u16,
+        }
+        union __MIDL_IWinTypes_0002 {
+            hInproc: i32,
+            hRemote: *mut DWORD_BLOB,
+        }
+        union __MIDL_IWinTypes_0003 {
+            hInproc: i32,
+            hRemote: *mut FLAGGED_BYTE_BLOB,
+            hInproc64: i64,
+        }
+        union __MIDL_IWinTypes_0004 {
+            hInproc: i32,
+            hRemote: *mut BYTE_BLOB,
+            hInproc64: i64,
+        }
+        union __MIDL_IWinTypes_0005 {
+            hInproc: i32,
+            hRemote: *mut remoteMETAFILEPICT,
+            hInproc64: i64,
+        }
+        union __MIDL_IWinTypes_0006 {
+            hInproc: i32,
+            hRemote: *mut BYTE_BLOB,
+            hInproc64: i64,
+        }
+        union __MIDL_IWinTypes_0007 {
+            hInproc: i32,
+            hRemote: *mut userBITMAP,
+            hInproc64: i64,
+        }
+        union __MIDL_IWinTypes_0008 {
+            hInproc: i32,
+            hRemote: *mut LOGPALETTE,
+            hInproc64: i64,
+        }
+        union __MIDL_IWinTypes_0009 {
+            hInproc: i32,
+            hRemote: i32,
+        }
+        union __MIDL___MIDL_itf_wtypes_0000_0001_0005 {
+            clsid: GUID,
+            pFileExt: LPOLESTR,
+            pMimeType: LPOLESTR,
+            pProgId: LPOLESTR,
+            pFileName: LPOLESTR,
+            ByName: struct {
+                pPackageName: LPOLESTR,
+                PolicyId: GUID,
+            },
+            ByObjectId: struct {
+                ObjectId: GUID,
+                PolicyId: GUID,
+            },
+        }
         const __REQUIRED_RPCNDR_H_VERSION__: i32 = 501;
         const __REQUIRED_RPCSAL_H_VERSION__: i32 = 100;
         struct remoteMETAFILEPICT {
-            mm: LONG,
-            xExt: LONG,
-            yExt: LONG,
+            mm: i32,
+            xExt: i32,
+            yExt: i32,
             hMF: *mut userHMETAFILE,
         }
         struct uCLSSPEC {
-            union __MIDL___MIDL_itf_wtypes_0000_0001_0005 {
-                clsid: CLSID,
-                pFileExt: LPOLESTR,
-                pMimeType: LPOLESTR,
-                pProgId: LPOLESTR,
-                pFileName: LPOLESTR,
-                ByName: struct {
-                    pPackageName: LPOLESTR,
-                    PolicyId: GUID,
-                },
-                ByObjectId: struct {
-                    ObjectId: GUID,
-                    PolicyId: GUID,
-                },
-            }
-            tyspec: DWORD,
-            tagged_union: uCLSSPEC::__MIDL___MIDL_itf_wtypes_0000_0001_0005,
+            tyspec: u32,
+            tagged_union: __MIDL___MIDL_itf_wtypes_0000_0001_0005,
         }
         struct userBITMAP {
-            bmType: LONG,
-            bmWidth: LONG,
-            bmHeight: LONG,
-            bmWidthBytes: LONG,
-            bmPlanes: WORD,
-            bmBitsPixel: WORD,
-            cbSize: ULONG,
+            bmType: i32,
+            bmWidth: i32,
+            bmHeight: i32,
+            bmWidthBytes: i32,
+            bmPlanes: u16,
+            bmBitsPixel: u16,
+            cbSize: u32,
             pBuffer: [byte; 1],
         }
         struct userCLIPFORMAT {
-            union __MIDL_IWinTypes_0001 {
-                dwValue: DWORD,
-                pwszName: *mut u16,
-            }
-            fContext: LONG,
-            u: userCLIPFORMAT::__MIDL_IWinTypes_0001,
+            fContext: i32,
+            u: __MIDL_IWinTypes_0001,
         }
         struct userHBITMAP {
-            union __MIDL_IWinTypes_0007 {
-                hInproc: LONG,
-                hRemote: *mut userBITMAP,
-                hInproc64: i64,
-            }
-            fContext: LONG,
-            u: userHBITMAP::__MIDL_IWinTypes_0007,
+            fContext: i32,
+            u: __MIDL_IWinTypes_0007,
         }
         struct userHENHMETAFILE {
-            union __MIDL_IWinTypes_0006 {
-                hInproc: LONG,
-                hRemote: *mut BYTE_BLOB,
-                hInproc64: i64,
-            }
-            fContext: LONG,
-            u: userHENHMETAFILE::__MIDL_IWinTypes_0006,
+            fContext: i32,
+            u: __MIDL_IWinTypes_0006,
         }
         struct userHGLOBAL {
-            union __MIDL_IWinTypes_0003 {
-                hInproc: LONG,
-                hRemote: *mut FLAGGED_BYTE_BLOB,
-                hInproc64: i64,
-            }
-            fContext: LONG,
-            u: userHGLOBAL::__MIDL_IWinTypes_0003,
+            fContext: i32,
+            u: __MIDL_IWinTypes_0003,
         }
         struct userHMETAFILE {
-            union __MIDL_IWinTypes_0004 {
-                hInproc: LONG,
-                hRemote: *mut BYTE_BLOB,
-                hInproc64: i64,
-            }
-            fContext: LONG,
-            u: userHMETAFILE::__MIDL_IWinTypes_0004,
+            fContext: i32,
+            u: __MIDL_IWinTypes_0004,
         }
         struct userHMETAFILEPICT {
-            union __MIDL_IWinTypes_0005 {
-                hInproc: LONG,
-                hRemote: *mut remoteMETAFILEPICT,
-                hInproc64: i64,
-            }
-            fContext: LONG,
-            u: userHMETAFILEPICT::__MIDL_IWinTypes_0005,
+            fContext: i32,
+            u: __MIDL_IWinTypes_0005,
         }
         struct userHPALETTE {
-            union __MIDL_IWinTypes_0008 {
-                hInproc: LONG,
-                hRemote: *mut LOGPALETTE,
-                hInproc64: i64,
-            }
-            fContext: LONG,
-            u: userHPALETTE::__MIDL_IWinTypes_0008,
+            fContext: i32,
+            u: __MIDL_IWinTypes_0008,
         }
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireBSTR = *mut FLAGGED_WORD_BLOB;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireCLIPFORMAT = *mut userCLIPFORMAT;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHACCEL = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHBITMAP = *mut userHBITMAP;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHBRUSH = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHDC = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHENHMETAFILE = *mut userHENHMETAFILE;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHFONT = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHGLOBAL = *mut userHGLOBAL;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHICON = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHMENU = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHMETAFILE = *mut userHMETAFILE;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHMETAFILEPICT = *mut userHMETAFILEPICT;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHMONITOR = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHPALETTE = *mut userHPALETTE;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHRGN = *mut RemotableHandle;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type wireHWND = *mut RemotableHandle;
     }
 }

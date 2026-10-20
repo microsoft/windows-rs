@@ -55,7 +55,6 @@ impl Component for ButtonPage {
                                 .text(self.basic_output.clone())
                                 .opacity(0.6),
                         )),
-                        r#"Button::new().on_click(context.message(Message::Basic)).content("Save")"#,
                     ),
                 ),
                 KeyedView::new(
@@ -63,7 +62,6 @@ impl Component for ButtonPage {
                     sample_card(
                         "Disabled Button",
                         Button::new().is_enabled(false).content("Can't Click"),
-                        r#"Button::new().is_enabled(false).content("Can't Click")"#,
                     ),
                 ),
                 KeyedView::new(
@@ -79,7 +77,6 @@ impl Component for ButtonPage {
                                 .text(self.accent_output.clone())
                                 .opacity(0.6),
                         )),
-                        r#"Button::new().style(ButtonStyle::Accent).on_click(handler).content("Confirm")"#,
                     ),
                 ),
                 KeyedView::new(
@@ -95,7 +92,6 @@ impl Component for ButtonPage {
                                 .text(self.subtle_output.clone())
                                 .opacity(0.6),
                         )),
-                        r#"Button::new().style(ButtonStyle::Subtle).on_click(handler).content("Cancel")"#,
                     ),
                 ),
                 KeyedView::new(
@@ -115,7 +111,6 @@ impl Component for ButtonPage {
                                 )),
                             TextBlock::new().text(self.link_output.clone()).opacity(0.6),
                         )),
-                        r#"Button::new().style(ButtonStyle::TextLink).on_click(handler).content("Learn more")"#,
                     ),
                 ),
             ],

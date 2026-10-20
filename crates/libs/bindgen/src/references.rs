@@ -48,6 +48,28 @@ impl References {
             .find(|reference| reference.filter.includes_type_name(name).is_some())
     }
 
+    /// Returns the names of the types that the references provide.
+    pub fn type_names(&self, reader: &Reader) -> HashSet<TypeName> {
+        let mut names = HashSet::new();
+
+        for (namespace, types) in reader.iter() {
+            if self
+                .0
+                .iter()
+                .any(|reference| reference.filter.includes_namespace(namespace))
+            {
+                names.extend(
+                    types
+                        .keys()
+                        .map(|name| TypeName(namespace, name))
+                        .filter(|name| self.contains(*name).is_some()),
+                );
+            }
+        }
+
+        names
+    }
+
     pub fn matching_rule(&self, name: TypeName) -> Option<&str> {
         self.0
             .iter()

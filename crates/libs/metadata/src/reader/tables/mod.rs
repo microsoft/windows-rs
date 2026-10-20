@@ -4,6 +4,7 @@ mod assembly_ref;
 mod attribute;
 mod class_layout;
 mod constant;
+mod event;
 mod field;
 mod generic_param;
 mod impl_map;
@@ -11,15 +12,18 @@ mod interface_impl;
 mod member_ref;
 mod method_def;
 mod method_param;
+mod method_semantics;
 mod module;
 mod module_ref;
 mod nested_class;
+mod property;
 mod type_def;
 mod type_ref;
 mod type_spec;
 
 pub use method_def::{MethodParamMap, MethodParamSequenceError};
 pub use method_param::{BufferRelationship, ParamDirection};
+use method_semantics::find_semantics;
 
 macro_rules! tables {
     ($(($name:ident, $table:literal))+) => {
@@ -58,4 +62,9 @@ tables! {
     (TypeDef, 15)
     (TypeRef, 16)
     (TypeSpec, 17)
+    (Event, 18)
+    (EventMap, 19)
+    (Property, 20)
+    (PropertyMap, 21)
+    (MethodSemantics, 22)
 }

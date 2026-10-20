@@ -171,11 +171,11 @@ macro_rules! __implement_decl_struct {
         #[repr(C)]
         #[allow(non_camel_case_types, non_snake_case)]
         $impl_vis struct $impl_name {
-            pub base: $crate::ComposeBase,
-            pub identity: &'static $crate::IInspectable_Vtbl,
+            pub __base: $crate::ComposeBase,
+            pub __identity: &'static $crate::IInspectable_Vtbl,
             $($fields)*
-            pub this: $name,
-            pub count: $crate::imp::WeakRefCount,
+            pub __this: $name,
+            pub __count: $crate::imp::WeakRefCount,
         }
 
         impl $name {
@@ -188,18 +188,18 @@ macro_rules! __implement_decl_struct {
             #[allow(non_snake_case)]
             pub const fn into_outer(self) -> $impl_name {
                 $impl_name {
-                    base: $crate::ComposeBase::new(),
+                    __base: $crate::ComposeBase::new(),
                     // Each `&'static` vtable reference goes through a `const` item in its
                     // own block scope; this works around the fact that constant promotion
                     // does not promote arbitrary `const fn` calls to `'static`.
-                    identity: {
+                    __identity: {
                         const C: $crate::IInspectable_Vtbl =
                             <$crate::IInspectable_Vtbl>::new::<$impl_name, $first_iface, -1>();
                         &C
                     },
                     $($inits)*
-                    this: self,
-                    count: $crate::imp::WeakRefCount::new(),
+                    __this: self,
+                    __count: $crate::imp::WeakRefCount::new(),
                 }
             }
 
@@ -214,7 +214,7 @@ macro_rules! __implement_decl_struct {
             type Target = $name;
             #[inline(always)]
             fn deref(&self) -> &Self::Target {
-                &self.this
+                &self.__this
             }
         }
 
@@ -255,28 +255,28 @@ macro_rules! __implement_decl_iunknown_methods {
     ( qi: [ $( ($qi_iface:ident : $qi_ty:ty) )* ] ) => {
         #[inline(always)]
         fn get_impl(&self) -> &Self::Impl {
-            &self.this
+            &self.__this
         }
 
         #[inline(always)]
         fn get_impl_mut(&mut self) -> &mut Self::Impl {
-            &mut self.this
+            &mut self.__this
         }
 
         #[inline(always)]
         fn into_inner(self) -> Self::Impl {
-            self.this
+            self.__this
         }
 
         #[inline(always)]
         fn AddRef(&self) -> u32 {
-            self.count.add_ref()
+            self.__count.add_ref()
         }
 
         #[inline(always)]
         unsafe fn Release(self_: *mut Self) -> u32 {
             unsafe {
-                let remaining = (*self_).count.release();
+                let remaining = (*self_).__count.release();
                 if remaining == 0 {
                     _ = $crate::imp::box_from_raw(self_);
                 }
@@ -286,7 +286,7 @@ macro_rules! __implement_decl_iunknown_methods {
 
         #[inline(always)]
         fn is_reference_count_one(&self) -> bool {
-            self.count.is_one()
+            self.__count.is_one()
         }
 
         unsafe fn GetTrustLevel(&self, value: *mut i32) -> $crate::HRESULT {
@@ -298,7 +298,7 @@ macro_rules! __implement_decl_iunknown_methods {
         }
 
         fn to_object(&self) -> $crate::ComObject<Self::Impl> {
-            self.count.add_ref();
+            self.__count.add_ref();
             unsafe {
                 $crate::ComObject::from_raw(
                     ::core::ptr::NonNull::new_unchecked(self as *const Self as *mut Self),
@@ -321,7 +321,7 @@ macro_rules! __implement_decl_iunknown_methods {
                         || iid == <$crate::IInspectable as $crate::Interface>::IID
                         || iid == <$crate::imp::IAgileObject as $crate::Interface>::IID
                     {
-                        break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
+                        break 'found &self.__identity as *const _ as *const ::core::ffi::c_void;
                     }
                     $(
                         if <<$qi_ty as $crate::Interface>::Vtable>::matches(&iid) {
@@ -342,15 +342,15 @@ macro_rules! __implement_decl_iunknown_methods {
                             .write(self as &dyn ::core::any::Any as *const dyn ::core::any::Any);
                         return $crate::HRESULT(0);
                     }
-                    let tear_off_ptr = self.count.query(
+                    let tear_off_ptr = self.__count.query(
                         &iid,
-                        &self.identity as *const _ as *mut _,
+                        &self.__identity as *const _ as *mut _,
                     );
                     if !tear_off_ptr.is_null() {
                         *interface = tear_off_ptr;
                         return $crate::HRESULT(0);
                     }
-                    if let ::core::option::Option::Some(base) = self.base.as_option() {
+                    if let ::core::option::Option::Some(base) = self.__base.as_option() {
                         return $crate::Interface::query(
                             base,
                             &iid as *const $crate::GUID,
@@ -362,7 +362,7 @@ macro_rules! __implement_decl_iunknown_methods {
                 };
                 debug_assert!(!interface_ptr.is_null());
                 *interface = interface_ptr as *mut ::core::ffi::c_void;
-                self.count.add_ref();
+                self.__count.add_ref();
                 $crate::HRESULT(0)
             }
         }
@@ -426,7 +426,7 @@ macro_rules! __implement_decl_shared_tail {
         {
             #[inline(always)]
             fn as_interface_ref(&self) -> $crate::InterfaceRef<'_, $crate::IUnknown> {
-                unsafe { ::core::mem::transmute(&self.identity) }
+                unsafe { ::core::mem::transmute(&self.__identity) }
             }
         }
 
@@ -435,7 +435,7 @@ macro_rules! __implement_decl_shared_tail {
         {
             #[inline(always)]
             fn as_interface_ref(&self) -> $crate::InterfaceRef<'_, $crate::IInspectable> {
-                unsafe { ::core::mem::transmute(&self.identity) }
+                unsafe { ::core::mem::transmute(&self.__identity) }
             }
         }
     };
@@ -517,7 +517,7 @@ macro_rules! __implement_decl_per_iface_impls {
                         .sub($crate::__implement_decl_index_plus_two!($($index)*))
                         as *mut $impl_name;
                     ::core::ptr::NonNull::new_unchecked(
-                        ::core::ptr::addr_of!((*this).this) as *const $name as *mut $name,
+                        ::core::ptr::addr_of!((*this).__this) as *const $name as *mut $name,
                     )
                 }
             }
@@ -716,11 +716,11 @@ macro_rules! __implement_decl_g_struct {
         $impl_vis struct $impl_name < $($gp),+ >
         where $($wc)*
         {
-            pub base: $crate::ComposeBase,
-            pub identity: &'static $crate::IInspectable_Vtbl,
+            pub __base: $crate::ComposeBase,
+            pub __identity: &'static $crate::IInspectable_Vtbl,
             $($fields)*
-            pub this: $name < $($gp),+ >,
-            pub count: $crate::imp::WeakRefCount,
+            pub __this: $name < $($gp),+ >,
+            pub __count: $crate::imp::WeakRefCount,
         }
 
         impl< $($gp),+ > $impl_name < $($gp),+ >
@@ -748,11 +748,11 @@ macro_rules! __implement_decl_g_struct {
             // constants whose values depend on `Self`'s type arguments.
             pub fn into_outer(self) -> $impl_name < $($gp),+ > {
                 $impl_name {
-                    base: $crate::ComposeBase::new(),
-                    identity: &<$impl_name < $($gp),+ >>::__VTABLE_IDENTITY,
+                    __base: $crate::ComposeBase::new(),
+                    __identity: &<$impl_name < $($gp),+ >>::__VTABLE_IDENTITY,
                     $($inits)*
-                    this: self,
-                    count: $crate::imp::WeakRefCount::new(),
+                    __this: self,
+                    __count: $crate::imp::WeakRefCount::new(),
                 }
             }
         }
@@ -763,7 +763,7 @@ macro_rules! __implement_decl_g_struct {
             type Target = $name < $($gp),+ >;
             #[inline(always)]
             fn deref(&self) -> &Self::Target {
-                &self.this
+                &self.__this
             }
         }
 
@@ -862,7 +862,7 @@ macro_rules! __implement_decl_g_per_iface_impls {
                         .sub($crate::__implement_decl_index_plus_two!($($index)*))
                         as *mut $impl_name < $($gp),+ >;
                     ::core::ptr::NonNull::new_unchecked(
-                        ::core::ptr::addr_of!((*this).this)
+                        ::core::ptr::addr_of!((*this).__this)
                             as *const $name < $($gp),+ >
                             as *mut $name < $($gp),+ >,
                     )

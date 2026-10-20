@@ -2,25 +2,24 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn CancelIo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE) -> BOOL;
+        extern fn CancelIo(hFile: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CancelIoEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn CancelIoEx(hFile: HANDLE, #[opt] lpOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CancelSynchronousIo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn CancelSynchronousIo(hThread: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateIoCompletionPort(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FileHandle: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ExistingCompletionPort: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompletionKey: ULONG_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NumberOfConcurrentThreads: DWORD) -> HANDLE;
+        extern fn CreateIoCompletionPort(FileHandle: HANDLE, #[opt] ExistingCompletionPort: HANDLE, CompletionKey: usize, NumberOfConcurrentThreads: u32) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn DeviceIoControl(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hDevice: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIoControlCode: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] lpInBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nInBufferSize: DWORD, #[out] #[opt] #[size_param(5)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 6, IsByteCount = true, Dereference = true)] lpOutBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nOutBufferSize: DWORD, #[out] #[opt] lpBytesReturned: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn DeviceIoControl(hDevice: HANDLE, dwIoControlCode: u32, #[size_param(3)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(5)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetOverlappedResult(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED, #[out] lpNumberOfBytesTransferred: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bWait: BOOL) -> BOOL;
+        extern fn GetOverlappedResult(hFile: HANDLE, lpOverlapped: LPOVERLAPPED, #[out] lpNumberOfBytesTransferred: LPDWORD, bWait: BOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetOverlappedResultEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED, #[out] lpNumberOfBytesTransferred: LPDWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMilliseconds: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bAlertable: BOOL) -> BOOL;
+        extern fn GetOverlappedResultEx(hFile: HANDLE, lpOverlapped: LPOVERLAPPED, #[out] lpNumberOfBytesTransferred: LPDWORD, dwMilliseconds: u32, bAlertable: BOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetQueuedCompletionStatus(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompletionPort: HANDLE, #[out] lpNumberOfBytesTransferred: LPDWORD, #[out] lpCompletionKey: PULONG_PTR, #[out] lpOverlapped: *mut LPOVERLAPPED, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMilliseconds: DWORD) -> BOOL;
+        extern fn GetQueuedCompletionStatus(CompletionPort: HANDLE, #[out] lpNumberOfBytesTransferred: LPDWORD, #[out] lpCompletionKey: PULONG_PTR, lpOverlapped: *mut LPOVERLAPPED, dwMilliseconds: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetQueuedCompletionStatusEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompletionPort: HANDLE, #[out] #[len_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] lpCompletionPortEntries: LPOVERLAPPED_ENTRY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulCount: ULONG, #[out] ulNumEntriesRemoved: PULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMilliseconds: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fAlertable: BOOL) -> BOOL;
+        extern fn GetQueuedCompletionStatusEx(CompletionPort: HANDLE, #[len_param(2)] #[out] lpCompletionPortEntries: LPOVERLAPPED_ENTRY, ulCount: u32, #[out] ulNumEntriesRemoved: PULONG, dwMilliseconds: u32, fAlertable: BOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn PostQueuedCompletionStatus(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompletionPort: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwNumberOfBytesTransferred: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCompletionKey: ULONG_PTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn PostQueuedCompletionStatus(CompletionPort: HANDLE, dwNumberOfBytesTransferred: u32, dwCompletionKey: usize, #[opt] lpOverlapped: LPOVERLAPPED) -> BOOL;
     }
 }

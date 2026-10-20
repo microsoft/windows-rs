@@ -154,12 +154,13 @@ failing loudly on drift) that:
 
 - `WINDOWS_APP_SDK_VERSION` (metadata) equals `RUNTIME_VER` (runtime) - one number drives both;
 - `WEBVIEW2_VER` equals `WEBVIEW2_VERSION`, so the staged WebView2 runtime matches the ABI the
-  bindings target; and
-- `reactor.yml`'s installer URL installs `RUNTIME_VER` (`.../windowsappsdk/<major.minor>/<ver>/`),
-  so CI's self-tests exercise the runtime apps ship.
+  bindings target.
+
+`test-reactor` deploys its runtime through `windows-reactor-setup`; CI does not install a separate
+Windows App Runtime for these tests.
 
 - **To update metadata + runtime:** bump `WINDOWS_APP_SDK_VERSION` (`tool-reactor-metadata`) and
-  `RUNTIME_VER` (`reactor-setup`) together, update the `reactor.yml` installer URL, then run
+  `RUNTIME_VER` (`reactor-setup`) together, then run
   `cargo run -p tool-reactor-metadata` and commit the refreshed metadata. The guard enforces the
   version agreement; the regen enforces the metadata.
 - `assets/app.manifest` is a **generated activation asset with no committed generator** -
@@ -193,7 +194,7 @@ Two independent NuGet paths, both using `https://www.nuget.org/api/v2/package/{i
 | `tool-webview` | `WEBVIEW2_VERSION` | zero-diff regen of `webview/src/bindings.rs` |
 | `tool-clang` | `LIBCLANG_VERSION` (drives NuGet DLL + `llvmorg-<ver>` header tag) | pure-check assertion |
 | `tool-reactor-metadata` | `WINDOWS_APP_SDK_VERSION`; reactor-setup sync | zero-diff regen of the winmd files; guard reads reactor-setup constants |
-| `tool-reactor` | Reactor schema and WinUI projection | zero-diff regen of declarations, native code, bindings, canvas bridge bindings, and live coverage |
+| `tool-reactor` | Reactor schema and WinUI projection | zero-diff regen of declarations, native code, bindings, and canvas bridge bindings |
 
 All cross-file reads go through `helpers::read_str_const`, so each pin is declared once by its owner
 and read back everywhere else.

@@ -3,8 +3,8 @@ mod Windows {
     mod Win32 {
         type D3DKMDT_2DOFFSET = D3DKMDT_2DREGION;
         struct D3DKMDT_2DREGION {
-            cx: UINT,
-            cy: UINT,
+            cx: u32,
+            cy: u32,
         }
         type D3DKMDT_ADAPTER = *mut void;
         const D3DKMDT_BITS_PER_COMPONENT_06: i32 = 1;
@@ -23,10 +23,10 @@ mod Windows {
             D3DKMDT_CB_YPBPR = 5,
         }
         struct D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
-            FirstChannel: UINT,
-            SecondChannel: UINT,
-            ThirdChannel: UINT,
-            FourthChannel: UINT,
+            FirstChannel: u32,
+            SecondChannel: u32,
+            ThirdChannel: u32,
+            FourthChannel: u32,
         }
         #[repr(i32)]
         enum D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY {
@@ -37,8 +37,8 @@ mod Windows {
             D3DKMDT_COMPUTE_PREEMPTION_THREAD_BOUNDARY = 400,
             D3DKMDT_COMPUTE_PREEMPTION_SHADER_BOUNDARY = 500,
         }
-        const D3DKMDT_DIMENSION_NOTSPECIFIED: UINT = 4294967294;
-        const D3DKMDT_DIMENSION_UNINITIALIZED: UINT = 4294967295;
+        const D3DKMDT_DIMENSION_NOTSPECIFIED: u32 = 4294967294;
+        const D3DKMDT_DIMENSION_UNINITIALIZED: u32 = 4294967295;
         #[repr(i32)]
         enum D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE {
             D3DKMDT_EPT_UNINITIALIZED = 0,
@@ -48,17 +48,17 @@ mod Windows {
             D3DKMDT_EPT_ROTATION = 4,
             D3DKMDT_EPT_NOPIVOT = 5,
         }
-        const D3DKMDT_FREQUENCY_NOTSPECIFIED: UINT = 4294967294;
+        const D3DKMDT_FREQUENCY_NOTSPECIFIED: u32 = 4294967294;
         struct D3DKMDT_FREQUENCY_RANGE {
             MinVSyncFreq: D3DDDI_RATIONAL,
             MaxVSyncFreq: D3DDDI_RATIONAL,
             MinHSyncFreq: D3DDDI_RATIONAL,
             MaxHSyncFreq: D3DDDI_RATIONAL,
         }
-        const D3DKMDT_FREQUENCY_UNINITIALIZED: UINT = 4294967295;
+        const D3DKMDT_FREQUENCY_UNINITIALIZED: u32 = 4294967295;
         struct D3DKMDT_GAMMA_RAMP {
             Type: D3DDDI_GAMMARAMP_TYPE,
-            DataSize: SIZE_T,
+            DataSize: usize,
             Data: union {
                 pRgb256x3x16: *mut D3DDDI_GAMMA_RAMP_RGB256x3x16,
                 pDxgi1: *mut D3DDDI_GAMMA_RAMP_DXGI_1,
@@ -68,20 +68,21 @@ mod Windows {
             },
         }
         struct D3DKMDT_GDISURFACEDATA {
-            Width: UINT,
-            Height: UINT,
+            Width: u32,
+            Height: u32,
             Format: D3DDDIFORMAT,
             Type: D3DKMDT_GDISURFACETYPE,
             Flags: D3DKMDT_GDISURFACEFLAGS,
-            Pitch: UINT,
+            Pitch: u32,
         }
         struct D3DKMDT_GDISURFACEFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 0, 32, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Reserved: 32,
+                    },
                 },
-                Value: UINT,
+                Value: u32,
             },
         }
         #[repr(i32)]
@@ -108,7 +109,7 @@ mod Windows {
         struct D3DKMDT_GRAPHICS_RENDERING_FORMAT {
             PrimSurfSize: D3DKMDT_2DREGION,
             VisibleRegionSize: D3DKMDT_2DREGION,
-            Stride: DWORD,
+            Stride: u32,
             PixelFormat: D3DDDIFORMAT,
             ColorBasis: D3DKMDT_COLOR_BASIS,
             PixelValueAccessMode: D3DKMDT_PIXEL_VALUE_ACCESS_MODE,
@@ -182,7 +183,7 @@ mod Windows {
         struct D3DKMDT_MONITOR_DESCRIPTOR {
             Id: D3DKMDT_MONITOR_DESCRIPTOR_ID,
             Type: D3DKMDT_MONITOR_DESCRIPTOR_TYPE,
-            DataSize: SIZE_T,
+            DataSize: usize,
             pData: *mut void,
             Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
         }
@@ -200,7 +201,7 @@ mod Windows {
             ConstraintType: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT,
             Constraint: union {
                 ActiveSize: D3DKMDT_2DREGION,
-                MaxPixelRate: SIZE_T,
+                MaxPixelRate: usize,
             },
         }
         #[repr(i32)]
@@ -244,10 +245,10 @@ mod Windows {
             D3DKMDT_MTT_DRIVER = 6,
         }
         struct D3DKMDT_PALETTEDATA {
-            Red: BYTE,
-            Green: BYTE,
-            Blue: BYTE,
-            Unused: BYTE,
+            Red: u8,
+            Green: u8,
+            Blue: u8,
+            Unused: u8,
         }
         #[repr(i32)]
         enum D3DKMDT_PIXEL_VALUE_ACCESS_MODE {
@@ -260,23 +261,25 @@ mod Windows {
             GraphicsPreemptionGranularity: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY,
             ComputePreemptionGranularity: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY,
         }
+        const D3DKMDT_ROTATION_SUPPORT_MASK: i32 = 255;
+        const D3DKMDT_SCALING_SUPPORT_MASK: i32 = 31;
         struct D3DKMDT_SHADOWSURFACEDATA {
-            Width: UINT,
-            Height: UINT,
+            Width: u32,
+            Height: u32,
             Format: D3DDDIFORMAT,
-            Pitch: UINT,
+            Pitch: u32,
         }
         struct D3DKMDT_SHAREDPRIMARYSURFACEDATA {
-            Width: UINT,
-            Height: UINT,
+            Width: u32,
+            Height: u32,
             Format: D3DDDIFORMAT,
             RefreshRate: D3DDDI_RATIONAL,
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
         }
         struct D3DKMDT_STAGINGSURFACEDATA {
-            Width: UINT,
-            Height: UINT,
-            Pitch: UINT,
+            Width: u32,
+            Height: u32,
+            Pitch: u32,
         }
         #[repr(i32)]
         enum D3DKMDT_STANDARDALLOCATION_TYPE {
@@ -320,7 +323,7 @@ mod Windows {
         }
         struct D3DKMDT_VIDEO_PRESENT_SOURCE {
             Id: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-            dwReserved: DWORD,
+            dwReserved: u32,
         }
         type D3DKMDT_VIDEO_PRESENT_SOURCE_MODE_ID = u32;
         struct D3DKMDT_VIDEO_PRESENT_TARGET {
@@ -337,13 +340,14 @@ mod Windows {
             ActiveSize: D3DKMDT_2DREGION,
             VSyncFreq: D3DDDI_RATIONAL,
             HSyncFreq: D3DDDI_RATIONAL,
-            PixelRate: SIZE_T,
+            PixelRate: usize,
             Anonymous: union {
                 AdditionalSignalInfo: struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 9, 23, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("ScanLineOrdering", 0, 3, MemberType = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING)]
-                    #[Windows::Win32::Metadata::NativeBitfield("VSyncFreqDivider", 3, 6, MemberType = UINT)]
-                    _bitfield: i32,
+                    _bitfield: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING {
+                        ScanLineOrdering: 3,
+                        VSyncFreqDivider: 6,
+                        Reserved: 23,
+                    },
                 },
                 ScanLineOrdering: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
             },
@@ -385,14 +389,15 @@ mod Windows {
             D3DKMDT_VSS_OTHER = 255,
         }
         struct D3DKMDT_VIDPN_HW_CAPABILITY {
-            #[Windows::Win32::Metadata::NativeBitfield("DriverCloning", 2, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("DriverColorConvert", 3, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("DriverLinkedAdapaterOutput", 4, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("DriverRemoteDisplay", 5, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("DriverRotation", 0, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("DriverScaling", 1, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Reserved", 6, 26, MemberType = UINT)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                DriverRotation: 1,
+                DriverScaling: 1,
+                DriverCloning: 1,
+                DriverColorConvert: 1,
+                DriverLinkedAdapaterOutput: 1,
+                DriverRemoteDisplay: 1,
+                Reserved: 26,
+            },
         }
         struct D3DKMDT_VIDPN_PRESENT_PATH {
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -416,16 +421,17 @@ mod Windows {
         }
         struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
             CopyProtectionType: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE,
-            APSTriggerBits: UINT,
-            OEMCopyProtection: [BYTE; 256],
+            APSTriggerBits: u32,
+            OEMCopyProtection: [u8; 256],
             CopyProtectionSupport: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT,
         }
         struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
-            #[Windows::Win32::Metadata::NativeBitfield("MacroVisionApsTrigger", 1, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("MacroVisionFull", 2, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("NoProtection", 0, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Reserved", 3, 29, MemberType = UINT)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                NoProtection: 1,
+                MacroVisionApsTrigger: 1,
+                MacroVisionFull: 1,
+                Reserved: 29,
+            },
         }
         #[repr(i32)]
         enum D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE {
@@ -448,10 +454,7 @@ mod Windows {
             D3DKMDT_VPPI_NONARY = 9,
             D3DKMDT_VPPI_DENARY = 10,
         }
-        #[arch(X64 | Arm64)]
-        type D3DKMDT_VIDPN_PRESENT_PATH_INDEX = u64;
-        #[arch(X86)]
-        type D3DKMDT_VIDPN_PRESENT_PATH_INDEX = u32;
+        type D3DKMDT_VIDPN_PRESENT_PATH_INDEX = usize;
         #[repr(i32)]
         enum D3DKMDT_VIDPN_PRESENT_PATH_ROTATION {
             D3DKMDT_VPPR_UNINITIALIZED = 0,
@@ -475,15 +478,16 @@ mod Windows {
             D3DKMDT_VPPR_NOTSPECIFIED = 255,
         }
         struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
-            #[Windows::Win32::Metadata::NativeBitfield("Identity", 0, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Offset0", 4, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Offset180", 6, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Offset270", 7, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Offset90", 5, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Rotate180", 2, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Rotate270", 3, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Rotate90", 1, 1, MemberType = UINT)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                Identity: 1,
+                Rotate90: 1,
+                Rotate180: 1,
+                Rotate270: 1,
+                Offset0: 1,
+                Offset90: 1,
+                Offset180: 1,
+                Offset270: 1,
+            },
         }
         #[repr(i32)]
         enum D3DKMDT_VIDPN_PRESENT_PATH_SCALING {
@@ -498,12 +502,13 @@ mod Windows {
             D3DKMDT_VPPS_NOTSPECIFIED = 255,
         }
         struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
-            #[Windows::Win32::Metadata::NativeBitfield("AspectRatioCenteredMax", 3, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Centered", 1, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Custom", 4, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Identity", 0, 1, MemberType = UINT)]
-            #[Windows::Win32::Metadata::NativeBitfield("Stretched", 2, 1, MemberType = UINT)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                Identity: 1,
+                Centered: 1,
+                Stretched: 1,
+                AspectRatioCenteredMax: 1,
+                Custom: 1,
+            },
         }
         struct D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
             Scaling: D3DKMDT_VIDPN_PRESENT_PATH_SCALING,
@@ -533,53 +538,55 @@ mod Windows {
             Anonymous: union {
                 WireFormatAndPreference: D3DKMDT_WIRE_FORMAT_AND_PREFERENCE,
                 Anonymous: struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("Preference", 0, 2, MemberType = D3DKMDT_MODE_PREFERENCE)]
-                    _bitfield: i32,
+                    _bitfield: D3DKMDT_MODE_PREFERENCE {
+                        Preference: 2,
+                    },
                 },
             },
             MinimumVSyncFreq: D3DDDI_RATIONAL,
         }
         struct D3DKMDT_VIRTUALGPUSURFACEDATA {
-            Size: UINT64,
-            Alignment: UINT,
-            DriverSegmentId: UINT,
-            PrivateDriverData: UINT,
+            Size: u64,
+            Alignment: u32,
+            DriverSegmentId: u32,
+            PrivateDriverData: u32,
         }
         union D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
             Anonymous: struct {
-                #[Windows::Win32::Metadata::NativeBitfield("Intensity", 26, 6, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("Preference", 0, 2, MemberType = D3DKMDT_MODE_PREFERENCE)]
-                #[Windows::Win32::Metadata::NativeBitfield("Rgb", 2, 6, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("YCbCr420", 20, 6, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("YCbCr422", 14, 6, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("YCbCr444", 8, 6, MemberType = UINT)]
-                _bitfield: i32,
+                _bitfield: D3DKMDT_MODE_PREFERENCE {
+                    Preference: 2,
+                    Rgb: 6,
+                    YCbCr444: 6,
+                    YCbCr422: 6,
+                    YCbCr420: 6,
+                    Intensity: 6,
+                },
             },
-            Value: UINT,
+            Value: u32,
         }
-        #[packed(1)]
         struct D3DKMT_DISPLAY_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("CursorDoesNotSupportXorBlendWithMultiPlaneOverlay", 2, 1, MemberType = UINT64)]
-                    #[Windows::Win32::Metadata::NativeBitfield("CursorScaledWithMultiPlaneOverlayPlane0", 1, 1, MemberType = UINT64)]
-                    #[Windows::Win32::Metadata::NativeBitfield("PreferPhysicallyContiguous", 0, 1, MemberType = UINT64)]
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 3, 61, MemberType = UINT64)]
-                    _bitfield: u64,
+                    _bitfield: u64 {
+                        PreferPhysicallyContiguous: 1,
+                        CursorScaledWithMultiPlaneOverlayPlane0: 1,
+                        CursorDoesNotSupportXorBlendWithMultiPlaneOverlay: 1,
+                        Reserved: 61,
+                    },
                 },
-                Value: UINT64,
+                Value: u64,
             },
         }
-        #[packed(1)]
         struct D3DKMT_DRIVERCAPS_EXT {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 30, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("Usb4MonitorSupport", 1, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("VirtualModeSupport", 0, 1, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        VirtualModeSupport: 1,
+                        Usb4MonitorSupport: 1,
+                        Reserved: 30,
+                    },
                 },
-                Value: UINT,
+                Value: u32,
             },
         }
         struct D3DKMT_MOVE_RECT {
@@ -588,131 +595,156 @@ mod Windows {
         }
         #[packed(1)]
         struct D3DKMT_NODEMETADATA {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
-            NodeOrdinalAndAdapterIndex: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
+            NodeOrdinalAndAdapterIndex: u32,
             NodeData: DXGK_NODEMETADATA,
         }
         #[packed(1)]
         struct D3DKMT_QUERYCLOCKCALIBRATION {
             hAdapter: D3DKMT_HANDLE,
-            NodeOrdinal: UINT32,
-            PhysicalAdapterIndex: UINT32,
+            NodeOrdinal: u32,
+            PhysicalAdapterIndex: u32,
             ClockData: DXGK_GPUCLOCKDATA,
         }
         #[packed(1)]
         struct D3DKMT_TRACKEDWORKLOAD_SUPPORT {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
-            PhysicalAdapterIndex: UINT,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
+            PhysicalAdapterIndex: u32,
             EngineType: DXGK_ENGINE_TYPE,
-            #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")]
             Support: BOOL,
         }
         struct D3DKMT_WDDM_1_2_CAPS {
             PreemptionCaps: D3DKMDT_PREEMPTION_CAPS,
             Anonymous: union {
                 Anonymous: struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 10, 22, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportCCD", 4, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportGammaRamp", 6, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportHWCursor", 7, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportHWVSync", 8, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportKernelModeCommandBuffer", 3, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportNonVGA", 0, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportPerEngineTDR", 2, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportSmoothRotation", 1, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportSoftwareDeviceBitmaps", 5, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportSurpriseRemovalInHibernation", 9, 1, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SupportNonVGA: 1,
+                        SupportSmoothRotation: 1,
+                        SupportPerEngineTDR: 1,
+                        SupportKernelModeCommandBuffer: 1,
+                        SupportCCD: 1,
+                        SupportSoftwareDeviceBitmaps: 1,
+                        SupportGammaRamp: 1,
+                        SupportHWCursor: 1,
+                        SupportHWVSync: 1,
+                        SupportSurpriseRemovalInHibernation: 1,
+                        Reserved: 22,
+                    },
                 },
-                Value: UINT,
+                Value: u32,
             },
         }
-        #[packed(1)]
         struct D3DKMT_WDDM_1_3_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("IsHybridDiscreteGPU", 2, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("IsHybridIntegratedGPU", 1, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 6, 26, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportCrossAdapterResource", 5, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportMiracast", 0, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportPowerManagementPStates", 3, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportVirtualModes", 4, 1, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SupportMiracast: 1,
+                        IsHybridIntegratedGPU: 1,
+                        IsHybridDiscreteGPU: 1,
+                        SupportPowerManagementPStates: 1,
+                        SupportVirtualModes: 1,
+                        SupportCrossAdapterResource: 1,
+                        Reserved: 26,
+                    },
                 },
-                Value: UINT,
+                Value: u32,
             },
         }
-        #[packed(1)]
         struct D3DKMT_WDDM_2_0_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("FlipOverwriteSupported", 3, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("GpuMmuSupported", 1, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("IoMmuSupported", 2, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 6, 26, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("Support64BitAtomics", 0, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportContextlessPresent", 4, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportSurpriseRemoval", 5, 1, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Support64BitAtomics: 1,
+                        GpuMmuSupported: 1,
+                        IoMmuSupported: 1,
+                        FlipOverwriteSupported: 1,
+                        SupportContextlessPresent: 1,
+                        SupportSurpriseRemoval: 1,
+                        Reserved: 26,
+                    },
                 },
-                Value: UINT,
+                Value: u32,
             },
         }
-        #[packed(1)]
         struct D3DKMT_WDDM_2_7_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("HwSchEnabled", 1, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("HwSchEnabledByDefault", 2, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("HwSchSupported", 0, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("IndependentVidPnVSyncControl", 3, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 4, 28, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        HwSchSupported: 1,
+                        HwSchEnabled: 1,
+                        HwSchEnabledByDefault: 1,
+                        IndependentVidPnVSyncControl: 1,
+                        Reserved: 28,
+                    },
                 },
-                Value: UINT,
+                Value: u32,
             },
         }
-        #[packed(1)]
+        struct D3DKMT_WDDM_2_9_CAPS {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32 {
+                        HwSchSupportState: 2,
+                        HwSchEnabled: 1,
+                        SelfRefreshMemorySupported: 1,
+                        Reserved: 28,
+                    },
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_WDDM_3_0_CAPS {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32 {
+                        HwFlipQueueSupportState: 2,
+                        HwFlipQueueEnabled: 1,
+                        DisplayableSupported: 1,
+                        Reserved: 28,
+                    },
+                },
+                Value: u32,
+            },
+        }
         struct D3DKMT_WDDM_3_1_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("NativeGpuFenceSupported", 0, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 1, 31, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        NativeGpuFenceSupported: 1,
+                        Reserved: 31,
+                    },
                 },
-                Value: UINT,
+                Value: u32,
             },
         }
         #[packed(1)]
         struct DISPLAYID_DETAILED_TIMING_TYPE_I {
             Anonymous: #[packed(1)] struct {
-                #[Windows::Win32::Metadata::NativeBitfield("AspectRatio", 24, 3, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("PixelClock", 0, 24, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("PreferredTiming", 31, 1, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 27, 1, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("ScanningType", 28, 1, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("StereoMode", 29, 2, MemberType = ULONG)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    PixelClock: 24,
+                    AspectRatio: 3,
+                    Reserved: 1,
+                    ScanningType: 1,
+                    StereoMode: 2,
+                    PreferredTiming: 1,
+                },
             },
-            HorizontalActivePixels: USHORT,
-            HorizontalBlankPixels: USHORT,
+            HorizontalActivePixels: u16,
+            HorizontalBlankPixels: u16,
             Anonymous2: #[packed(1)] struct {
-                #[Windows::Win32::Metadata::NativeBitfield("HorizontalFrontPorch", 0, 15, MemberType = USHORT)]
-                #[Windows::Win32::Metadata::NativeBitfield("HorizontalSyncPolarity", 15, 1, MemberType = USHORT)]
-                _bitfield: u16,
+                _bitfield: u16 {
+                    HorizontalFrontPorch: 15,
+                    HorizontalSyncPolarity: 1,
+                },
             },
-            HorizontalSyncWidth: USHORT,
-            VerticalActiveLines: USHORT,
-            VerticalBlankLines: USHORT,
+            HorizontalSyncWidth: u16,
+            VerticalActiveLines: u16,
+            VerticalBlankLines: u16,
             Anonymous3: #[packed(1)] struct {
-                #[Windows::Win32::Metadata::NativeBitfield("VerticalFrontPorch", 0, 15, MemberType = USHORT)]
-                #[Windows::Win32::Metadata::NativeBitfield("VerticalSyncPolarity", 15, 1, MemberType = USHORT)]
-                _bitfield: u16,
+                _bitfield: u16 {
+                    VerticalFrontPorch: 15,
+                    VerticalSyncPolarity: 1,
+                },
             },
-            VerticalSyncWidth: USHORT,
+            VerticalSyncWidth: u16,
         }
         const DISPLAYID_DETAILED_TIMING_TYPE_I_SIZE: i32 = 20;
         type DXGKARG_CALIBRATEGPUCLOCK = DXGK_GPUCLOCKDATA;
@@ -724,8 +756,8 @@ mod Windows {
         type DXGKARG_GETNODEMETADATA = DXGK_NODEMETADATA;
         struct DXGKARG_SETPALETTE {
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
-            FirstEntry: UINT,
-            NumEntries: UINT,
+            FirstEntry: u32,
+            NumEntries: u32,
             pLookupTable: *mut D3DKMDT_PALETTEDATA,
         }
         #[repr(i32)]
@@ -748,18 +780,18 @@ mod Windows {
         #[packed(1)]
         struct DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
             rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
-            ulStatusFlags: ULONG,
-            ulAvailableTVProtectionStandards: ULONG,
-            ulActiveTVProtectionStandard: ULONG,
-            ulReserved: ULONG,
-            ulAspectRatioValidMask1: ULONG,
-            ulAspectRatioData1: ULONG,
-            ulAspectRatioValidMask2: ULONG,
-            ulAspectRatioData2: ULONG,
-            ulAspectRatioValidMask3: ULONG,
-            ulAspectRatioData3: ULONG,
-            ulReserved2: [ULONG; 4],
-            ulReserved3: [ULONG; 4],
+            ulStatusFlags: u32,
+            ulAvailableTVProtectionStandards: u32,
+            ulActiveTVProtectionStandard: u32,
+            ulReserved: u32,
+            ulAspectRatioValidMask1: u32,
+            ulAspectRatioData1: u32,
+            ulAspectRatioValidMask2: u32,
+            ulAspectRatioData2: u32,
+            ulAspectRatioValidMask3: u32,
+            ulAspectRatioData3: u32,
+            ulReserved2: [u32; 4],
+            ulReserved3: [u32; 4],
         }
         #[repr(i32)]
         enum DXGKMDT_OPM_ACP_PROTECTION_LEVEL {
@@ -772,13 +804,13 @@ mod Windows {
         #[packed(1)]
         struct DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
             rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
-            ulStatusFlags: ULONG,
-            ulDisplayWidth: ULONG,
-            ulDisplayHeight: ULONG,
+            ulStatusFlags: u32,
+            ulDisplayWidth: u32,
+            ulDisplayHeight: u32,
             ifInterleaveFormat: DXGKMDT_OPM_INTERLEAVE_FORMAT,
-            d3dFormat: ULONG,
-            ulFrequencyNumerator: ULONG,
-            ulFrequencyDenominator: ULONG,
+            d3dFormat: u32,
+            ulFrequencyNumerator: u32,
+            ulFrequencyDenominator: u32,
         }
         #[repr(i32)]
         enum DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION {
@@ -808,20 +840,20 @@ mod Windows {
         struct DXGKMDT_OPM_CONFIGURE_PARAMETERS {
             omac: DXGKMDT_OPM_OMAC,
             guidSetting: GUID,
-            ulSequenceNumber: ULONG,
-            cbParametersSize: ULONG,
-            abParameters: [BYTE; 4056],
+            ulSequenceNumber: u32,
+            cbParametersSize: u32,
+            abParameters: [u8; 4056],
         }
         const DXGKMDT_OPM_CONFIGURE_SETTING_DATA_SIZE: i32 = 4056;
         #[packed(1)]
         struct DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
             rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
-            ulStatusFlags: ULONG,
-            ulHDCPFlags: ULONG,
+            ulStatusFlags: u32,
+            ulHDCPFlags: u32,
             ksvB: DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR,
-            Reserved: [BYTE; 11],
-            Reserved2: [BYTE; 16],
-            Reserved3: [BYTE; 16],
+            Reserved: [u8; 11],
+            Reserved2: [u8; 16],
+            Reserved3: [u8; 16],
         }
         #[repr(i32)]
         enum DXGKMDT_OPM_CONNECTOR_TYPE {
@@ -849,9 +881,9 @@ mod Windows {
         struct DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
             rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
             guidInformation: GUID,
-            ulSequenceNumber: ULONG,
-            cbParametersSize: ULONG,
-            abParameters: [BYTE; 4056],
+            ulSequenceNumber: u32,
+            cbParametersSize: u32,
+            abParameters: [u8; 4056],
         }
         #[packed(1)]
         struct DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
@@ -865,9 +897,8 @@ mod Windows {
             DXGKMDT_OPM_DPCP_ON = 1,
             DXGKMDT_OPM_DPCP_FORCE_ULONG = 2147483647,
         }
-        #[packed(1)]
         struct DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
-            abEncryptedParameters: [BYTE; 256],
+            abEncryptedParameters: [u8; 256],
         }
         const DXGKMDT_OPM_ENCRYPTED_PARAMETERS_SIZE: i32 = 256;
         const DXGKMDT_OPM_GET_ACP_AND_CGMSA_SIGNALING: GUID = 0x6629a591_3b79_4cf3_924a_11e8e7811671;
@@ -885,9 +916,9 @@ mod Windows {
             omac: DXGKMDT_OPM_OMAC,
             rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
             guidInformation: GUID,
-            ulSequenceNumber: ULONG,
-            cbParametersSize: ULONG,
-            abParameters: [BYTE; 4056],
+            ulSequenceNumber: u32,
+            cbParametersSize: u32,
+            abParameters: [u8; 4056],
         }
         const DXGKMDT_OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: GUID = 0x3b129589_2af8_4ef0_96a2_704a845a218e;
         const DXGKMDT_OPM_GET_OUTPUT_ID: GUID = 0x72cb6df3_244f_40ce_b09e_20506af6302f;
@@ -898,9 +929,8 @@ mod Windows {
             DXGKMDT_OPM_HDCP_FLAG_NONE = 0,
             DXGKMDT_OPM_HDCP_FLAG_REPEATER = 1,
         }
-        #[packed(1)]
         struct DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
-            abKeySelectionVector: [BYTE; 5],
+            abKeySelectionVector: [u8; 5],
         }
         const DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR_SIZE: i32 = 5;
         #[repr(i32)]
@@ -929,9 +959,8 @@ mod Windows {
             DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_ODD_FIRST = 4,
             DXGKMDT_OPM_INTERLEAVE_FORMAT_FORCE_ULONG = -1,
         }
-        #[packed(1)]
         struct DXGKMDT_OPM_OMAC {
-            abOMAC: [BYTE; 16],
+            abOMAC: [u8; 16],
         }
         const DXGKMDT_OPM_OMAC_SIZE: i32 = 16;
         #[repr(i32)]
@@ -942,8 +971,8 @@ mod Windows {
         #[packed(1)]
         struct DXGKMDT_OPM_OUTPUT_ID {
             rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
-            ulStatusFlags: ULONG,
-            OutputId: UINT64,
+            ulStatusFlags: u32,
+            OutputId: u64,
         }
         #[repr(i32)]
         enum DXGKMDT_OPM_PROTECTION_STANDARD {
@@ -978,52 +1007,51 @@ mod Windows {
             DXGKMDT_OPM_PROTECTION_TYPE_MASK = -2147483585,
         }
         const DXGKMDT_OPM_PROTECTION_TYPE_SIZE: i32 = 4;
-        #[packed(1)]
         struct DXGKMDT_OPM_RANDOM_NUMBER {
-            abRandomNumber: [BYTE; 16],
+            abRandomNumber: [u8; 16],
         }
         #[packed(1)]
         struct DXGKMDT_OPM_REQUESTED_INFORMATION {
             omac: DXGKMDT_OPM_OMAC,
-            cbRequestedInformationSize: ULONG,
-            abRequestedInformation: [BYTE; 4076],
+            cbRequestedInformationSize: u32,
+            abRequestedInformation: [u8; 4076],
         }
         const DXGKMDT_OPM_REQUESTED_INFORMATION_SIZE: i32 = 4076;
         const DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING: GUID = 0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee;
         #[packed(1)]
         struct DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
-            ulNewTVProtectionStandard: ULONG,
-            ulAspectRatioChangeMask1: ULONG,
-            ulAspectRatioData1: ULONG,
-            ulAspectRatioChangeMask2: ULONG,
-            ulAspectRatioData2: ULONG,
-            ulAspectRatioChangeMask3: ULONG,
-            ulAspectRatioData3: ULONG,
-            ulReserved: [ULONG; 4],
-            ulReserved2: [ULONG; 4],
-            ulReserved3: ULONG,
+            ulNewTVProtectionStandard: u32,
+            ulAspectRatioChangeMask1: u32,
+            ulAspectRatioData1: u32,
+            ulAspectRatioChangeMask2: u32,
+            ulAspectRatioData2: u32,
+            ulAspectRatioChangeMask3: u32,
+            ulAspectRatioData3: u32,
+            ulReserved: [u32; 4],
+            ulReserved2: [u32; 4],
+            ulReserved3: u32,
         }
         const DXGKMDT_OPM_SET_HDCP_SRM: GUID = 0x8b5ef5d1_c30d_44ff_84a5_ea71dce78f13;
         #[packed(1)]
         struct DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
-            ulSRMVersion: ULONG,
+            ulSRMVersion: u32,
         }
         const DXGKMDT_OPM_SET_PROTECTION_LEVEL: GUID = 0x9bb9327c_4eb5_4727_9f00_b42b0919c0da;
         const DXGKMDT_OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: GUID = 0x39ce333e_4cc0_44ae_bfcc_da50b5f82e72;
         #[packed(1)]
         struct DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
-            ulProtectionType: ULONG,
-            ulProtectionLevel: ULONG,
-            Reserved: ULONG,
-            Reserved2: ULONG,
+            ulProtectionType: u32,
+            ulProtectionLevel: u32,
+            Reserved: u32,
+            Reserved2: u32,
         }
         #[packed(1)]
         struct DXGKMDT_OPM_STANDARD_INFORMATION {
             rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
-            ulStatusFlags: ULONG,
-            ulInformation: ULONG,
-            ulReserved: ULONG,
-            ulReserved2: ULONG,
+            ulStatusFlags: u32,
+            ulInformation: u32,
+            ulReserved: u32,
+            ulReserved2: u32,
         }
         #[repr(i32)]
         enum DXGKMDT_OPM_STATUS {
@@ -1048,28 +1076,28 @@ mod Windows {
         }
         #[packed(1)]
         struct DXGK_ADAPTER_PERFDATA {
-            MemoryFrequency: ULONGLONG,
-            MaxMemoryFrequency: ULONGLONG,
-            MaxMemoryFrequencyOC: ULONGLONG,
-            MemoryBandwidth: ULONGLONG,
-            PCIEBandwidth: ULONGLONG,
-            FanRPM: ULONG,
-            Power: ULONG,
-            Temperature: ULONG,
-            PowerStateOverride: UCHAR,
+            MemoryFrequency: u64,
+            MaxMemoryFrequency: u64,
+            MaxMemoryFrequencyOC: u64,
+            MemoryBandwidth: u64,
+            PCIEBandwidth: u64,
+            FanRPM: u32,
+            Power: u32,
+            Temperature: u32,
+            PowerStateOverride: u8,
         }
         #[packed(1)]
         struct DXGK_ADAPTER_PERFDATACAPS {
-            MaxMemoryBandwidth: ULONGLONG,
-            MaxPCIEBandwidth: ULONGLONG,
-            MaxFanRPM: ULONG,
-            TemperatureMax: ULONG,
-            TemperatureWarning: ULONG,
+            MaxMemoryBandwidth: u64,
+            MaxPCIEBandwidth: u64,
+            MaxFanRPM: u32,
+            TemperatureMax: u32,
+            TemperatureWarning: u32,
         }
         #[packed(1)]
         struct DXGK_BACKLIGHT_INFO {
-            BacklightUsersetting: USHORT,
-            BacklightEffective: USHORT,
+            BacklightUsersetting: u16,
+            BacklightEffective: u16,
             GammaRamp: D3DDDI_GAMMA_RAMP_RGB256x3x16,
         }
         #[repr(i32)]
@@ -1081,50 +1109,51 @@ mod Windows {
             DxgkBacklightOptimizationEDR = 4,
         }
         const DXGK_BIND_TABLE_ENTRY_UNKNOWN: u32 = 4294967295;
-        #[packed(1)]
         struct DXGK_BRIGHTNESS_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("AdaptiveBrightness", 1, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("NitsBrightness", 2, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 3, 29, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SmoothBrightness", 0, 1, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SmoothBrightness: 1,
+                        AdaptiveBrightness: 1,
+                        NitsBrightness: 1,
+                        Reserved: 29,
+                    },
                 },
-                Value: UINT,
+                Value: u32,
             },
         }
         #[packed(1)]
         struct DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
-            NormalRangeCount: UINT32,
-            RangeCount: UINT32,
-            PreferredMaximumBrightness: UINT32,
+            NormalRangeCount: u32,
+            RangeCount: u32,
+            PreferredMaximumBrightness: u32,
             SupportedRanges: [DXGK_BRIGHTNESS_NIT_RANGE; 16],
         }
         #[packed(1)]
         struct DXGK_BRIGHTNESS_GET_OUT {
-            CurrentBrightnessMillinits: UINT32,
-            TargetBrightnessMillinits: UINT32,
+            CurrentBrightnessMillinits: u32,
+            TargetBrightnessMillinits: u32,
         }
         const DXGK_BRIGHTNESS_MAXIMUM_NIT_RANGE_COUNT: i32 = 16;
         #[packed(1)]
         struct DXGK_BRIGHTNESS_NIT_RANGE {
-            MinimumLevelMillinit: UINT32,
-            MaximumLevelMillinit: UINT32,
-            StepSizeMillinit: UINT32,
+            MinimumLevelMillinit: u32,
+            MaximumLevelMillinit: u32,
+            StepSizeMillinit: u32,
         }
         #[packed(1)]
         struct DXGK_BRIGHTNESS_SENSOR_DATA {
-            Size: UINT32,
+            Size: u32,
             Anonymous: #[packed(1)] union {
                 Flags: #[packed(1)] struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("AlsReadingValid", 0, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("ChromaticityValid", 1, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("ColorTemperatureValid", 2, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 3, 29, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        AlsReadingValid: 1,
+                        ChromaticityValid: 1,
+                        ColorTemperatureValid: 1,
+                        Reserved: 29,
+                    },
                 },
-                ValidSensorValues: UINT,
+                ValidSensorValues: u32,
             },
             AlsReading: f32,
             Chromaticity: DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY,
@@ -1137,19 +1166,19 @@ mod Windows {
         }
         #[packed(1)]
         struct DXGK_BRIGHTNESS_SET_IN {
-            BrightnessMillinits: UINT32,
-            TransitionTimeMs: UINT32,
+            BrightnessMillinits: u32,
+            TransitionTimeMs: u32,
             SensorReadings: DXGK_BRIGHTNESS_SENSOR_DATA,
         }
-        #[packed(1)]
         struct DXGK_BRIGHTNESS_STATE {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 1, 31, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SmoothBrightness", 0, 1, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SmoothBrightness: 1,
+                        Reserved: 31,
+                    },
                 },
-                Value: UINT,
+                Value: u32,
             },
         }
         #[repr(i32)]
@@ -1168,7 +1197,6 @@ mod Windows {
             DXGK_DISPLAYMUX_RUNTIME_STATUS_NON_CRITICAL_SYSTEM_INFO_MISSING = 3,
             DXGK_DISPLAYMUX_RUNTIME_STATUS_CRITICAL_SYSTEM_INFO_MISSING = 4,
         }
-        #[packed(1)]
         struct DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO {
             Brightness3Supported: BOOLEAN,
             Brightness3Caps: DXGK_BRIGHTNESS_CAPS,
@@ -1189,13 +1217,13 @@ mod Windows {
             DXGK_DDT_DISPLAYID = 2,
         }
         struct DXGK_DISPLAY_INFORMATION {
-            Width: UINT,
-            Height: UINT,
-            Pitch: UINT,
+            Width: u32,
+            Height: u32,
+            Pitch: u32,
             ColorFormat: D3DDDIFORMAT,
             PhysicAddress: PHYSICAL_ADDRESS,
             TargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
-            AcpiId: ULONG,
+            AcpiId: u32,
         }
         #[repr(u8)]
         enum DXGK_DISPLAY_TECHNOLOGY {
@@ -1230,25 +1258,26 @@ mod Windows {
             DXGK_ENGINE_TYPE_VIDEO_CODEC = 9,
             DXGK_ENGINE_TYPE_MAX = 10,
         }
-        #[packed(1)]
         struct DXGK_FAULT_ERROR_CODE {
-            Anonymous: #[packed(1)] union {
+            Anonymous: union {
                 Anonymous: #[packed(1)] struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("GeneralErrorCode", 1, 31, MemberType = DXGK_GENERAL_ERROR_CODE)]
-                    #[Windows::Win32::Metadata::NativeBitfield("IsDeviceSpecificCode", 0, 1, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        IsDeviceSpecificCode: 1,
+                        GeneralErrorCode: 31,
+                    },
                 },
                 Anonymous2: #[packed(1)] struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("DeviceSpecificCode", 1, 31, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("IsDeviceSpecificCodeReservedBit", 0, 1, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        IsDeviceSpecificCodeReservedBit: 1,
+                        DeviceSpecificCode: 31,
+                    },
                 },
             },
         }
-        const DXGK_FEATURE_SUPPORT_ALWAYS_OFF: UINT = 0;
-        const DXGK_FEATURE_SUPPORT_ALWAYS_ON: UINT = 3;
-        const DXGK_FEATURE_SUPPORT_EXPERIMENTAL: UINT = 1;
-        const DXGK_FEATURE_SUPPORT_STABLE: UINT = 2;
+        const DXGK_FEATURE_SUPPORT_ALWAYS_OFF: u32 = 0;
+        const DXGK_FEATURE_SUPPORT_ALWAYS_ON: u32 = 3;
+        const DXGK_FEATURE_SUPPORT_EXPERIMENTAL: u32 = 1;
+        const DXGK_FEATURE_SUPPORT_STABLE: u32 = 2;
         #[repr(i32)]
         enum DXGK_GENERAL_ERROR_CODE {
             DXGK_GENERAL_ERROR_PAGE_FAULT = 0,
@@ -1256,92 +1285,95 @@ mod Windows {
         }
         #[packed(1)]
         struct DXGK_GPUCLOCKDATA {
-            GpuFrequency: ULONGLONG,
-            GpuClockCounter: ULONGLONG,
-            CpuClockCounter: ULONGLONG,
+            GpuFrequency: u64,
+            GpuClockCounter: u64,
+            CpuClockCounter: u64,
             Flags: DXGK_GPUCLOCKDATA_FLAGS,
         }
-        #[packed(1)]
         struct DXGK_GPUCLOCKDATA_FLAGS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("ContextManagementProcessor", 0, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 1, 31, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        ContextManagementProcessor: 1,
+                        Reserved: 31,
+                    },
                 },
-                Value: UINT32,
+                Value: u32,
             },
         }
         #[packed(1)]
         struct DXGK_GPUVERSION {
-            BiosVersion: [WCHAR; 32],
-            GpuArchitecture: [WCHAR; 32],
+            BiosVersion: [u16; 32],
+            GpuArchitecture: [u16; 32],
         }
+        const DXGK_MAX_GPUVERSION_NAME_LENGTH: i32 = 32;
         const DXGK_MAX_METADATA_NAME_LENGTH: i32 = 32;
         #[packed(1)]
         union DXGK_MONITORLINKINFO_CAPABILITIES {
             Anonymous: #[packed(1)] struct {
-                #[Windows::Win32::Metadata::NativeBitfield("DedicatedTimingGeneration", 6, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("DolbyVisionLowLatency", 10, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("DynamicBitsPerColorChannel", 4, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("DynamicColorEncodingFormat", 5, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("DynamicColorSpace", 3, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("Hdr10Plus", 9, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("HighColorSpace", 2, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 12, 20, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("Stereo", 0, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("SyncLockIdentical", 8, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("TargetIndependentPrimary", 7, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("VariableRefresh", 11, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("WideColorSpace", 1, 1, MemberType = UINT)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Stereo: 1,
+                    WideColorSpace: 1,
+                    HighColorSpace: 1,
+                    DynamicColorSpace: 1,
+                    DynamicBitsPerColorChannel: 1,
+                    DynamicColorEncodingFormat: 1,
+                    DedicatedTimingGeneration: 1,
+                    TargetIndependentPrimary: 1,
+                    SyncLockIdentical: 1,
+                    Hdr10Plus: 1,
+                    DolbyVisionLowLatency: 1,
+                    VariableRefresh: 1,
+                    Reserved: 20,
+                },
             },
-            Value: UINT,
+            Value: u32,
         }
         #[packed(1)]
         union DXGK_MONITORLINKINFO_USAGEHINTS {
             Anonymous: #[packed(1)] struct {
-                #[Windows::Win32::Metadata::NativeBitfield("HeadMounted", 1, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("Hidden", 0, 1, MemberType = UINT)]
-                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 30, MemberType = UINT)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Hidden: 1,
+                    HeadMounted: 1,
+                    Reserved: 30,
+                },
             },
-            Value: UINT,
+            Value: u32,
         }
         #[packed(1)]
         struct DXGK_NODEMETADATA {
             EngineType: DXGK_ENGINE_TYPE,
-            FriendlyName: [WCHAR; 32],
+            FriendlyName: [u16; 32],
             Flags: DXGK_NODEMETADATA_FLAGS,
             GpuMmuSupported: BOOLEAN,
             IoMmuSupported: BOOLEAN,
         }
-        #[packed(1)]
         struct DXGK_NODEMETADATA_FLAGS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("ContextSchedulingSupported", 0, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("MaxInFlightHwQueueBuffers", 16, 16, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("Reserved", 6, 10, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("RingBufferFenceRelease", 1, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportBuildTestCommandBuffer", 4, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportFaultAndStall", 5, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("SupportTrackedWorkload", 2, 1, MemberType = UINT)]
-                    #[Windows::Win32::Metadata::NativeBitfield("UserModeSubmission", 3, 1, MemberType = UINT)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        ContextSchedulingSupported: 1,
+                        RingBufferFenceRelease: 1,
+                        SupportTrackedWorkload: 1,
+                        UserModeSubmission: 1,
+                        SupportBuildTestCommandBuffer: 1,
+                        SupportFaultAndStall: 1,
+                        Reserved: 10,
+                        MaxInFlightHwQueueBuffers: 16,
+                    },
                 },
-                Value: UINT32,
+                Value: u32,
             },
         }
         #[packed(1)]
         struct DXGK_NODE_PERFDATA {
-            Frequency: ULONGLONG,
-            MaxFrequency: ULONGLONG,
-            MaxFrequencyOC: ULONGLONG,
-            Voltage: ULONG,
-            VoltageMax: ULONG,
-            VoltageMaxOC: ULONG,
-            MaxTransitionLatency: ULONGLONG,
+            Frequency: u64,
+            MaxFrequency: u64,
+            MaxFrequencyOC: u64,
+            Voltage: u32,
+            VoltageMax: u32,
+            VoltageMaxOC: u32,
+            MaxTransitionLatency: u64,
         }
         #[repr(i32)]
         enum DXGK_PAGE_FAULT_FLAGS {
@@ -1370,7 +1402,7 @@ mod Windows {
         }
         struct DXGK_TARGETMODE_DETAIL_TIMING {
             VideoStandard: D3DKMDT_VIDEO_SIGNAL_STANDARD,
-            TimingId: UINT,
+            TimingId: u32,
             DetailTiming: DISPLAYID_DETAILED_TIMING_TYPE_I,
         }
         const DXGK_VALID_FAULT_AND_STALL_FLAGS: i32 = 268;

@@ -1,17 +1,17 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const FLS_OUT_OF_INDEXES: DWORD = 4294967295;
+        const FLS_OUT_OF_INDEXES: u32 = 4294967295;
         #[library("KERNEL32.dll")]
-        extern fn FlsAlloc(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCallback: PFLS_CALLBACK_FUNCTION) -> DWORD;
+        extern fn FlsAlloc(#[opt] lpCallback: PFLS_CALLBACK_FUNCTION) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn FlsFree(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlsIndex: DWORD) -> BOOL;
+        extern fn FlsFree(dwFlsIndex: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FlsGetValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlsIndex: DWORD) -> PVOID;
+        extern fn FlsGetValue(dwFlsIndex: u32) -> *mut void;
         #[library("KERNEL32.dll")]
-        extern fn FlsGetValue2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTlsIndex: DWORD) -> PVOID;
+        extern fn FlsGetValue2(dwTlsIndex: u32) -> *mut void;
         #[library("KERNEL32.dll")]
-        extern fn FlsSetValue(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlsIndex: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpFlsData: PVOID) -> BOOL;
+        extern fn FlsSetValue(dwFlsIndex: u32, #[in] #[opt] lpFlsData: *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn IsThreadAFiber() -> BOOL;
     }

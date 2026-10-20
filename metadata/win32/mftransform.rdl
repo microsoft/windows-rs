@@ -10,62 +10,61 @@ mod Windows {
         }
         #[guid(0xd818fbd8_fc46_42f2_87ac_1ea2d1f9bf32)]
         interface IMFDeviceTransform: IUnknown {
-            fn InitializeTransform(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAttributes: IMFAttributes) -> HRESULT;
-            fn GetInputAvailableType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInputStreamID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTypeIndex: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] pMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetInputCurrentType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInputStreamID: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] pMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetInputStreamAttributes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInputStreamID: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppAttributes: *mut IMFAttributes) -> HRESULT;
-            fn GetOutputAvailableType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOutputStreamID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTypeIndex: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] pMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetOutputCurrentType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOutputStreamID: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] pMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetOutputStreamAttributes(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOutputStreamID: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppAttributes: *mut IMFAttributes) -> HRESULT;
-            fn GetStreamCount(&self, #[out] pcInputStreams: *mut DWORD, #[out] pcOutputStreams: *mut DWORD) -> HRESULT;
-            fn GetStreamIDs(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInputIDArraySize: DWORD, #[out] pdwInputStreamIds: *mut DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOutputIDArraySize: DWORD, #[out] pdwOutputStreamIds: *mut DWORD) -> HRESULT;
-            fn ProcessEvent(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInputStreamID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pEvent: IMFMediaEvent) -> HRESULT;
-            fn ProcessInput(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInputStreamID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pSample: IMFSample, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HRESULT;
-            fn ProcessMessage(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eMessage: MFT_MESSAGE_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ulParam: ULONG_PTR) -> HRESULT;
-            fn ProcessOutput(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cOutputBufferCount: DWORD, #[in] #[out] pOutputSample: *mut MFT_OUTPUT_DATA_BUFFER, #[out] pdwStatus: *mut DWORD) -> HRESULT;
-            fn SetInputStreamState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStreamID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMediaType: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: DeviceStreamState, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HRESULT;
-            fn GetInputStreamState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStreamID: DWORD, #[out] value: *mut DeviceStreamState) -> HRESULT;
-            fn SetOutputStreamState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStreamID: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMediaType: IMFMediaType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: DeviceStreamState, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HRESULT;
-            fn GetOutputStreamState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStreamID: DWORD, #[out] value: *mut DeviceStreamState) -> HRESULT;
-            fn GetInputStreamPreferredState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStreamID: DWORD, #[out] value: *mut DeviceStreamState, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppMediaType: *mut IMFMediaType) -> HRESULT;
-            fn FlushInputStream(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStreamIndex: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HRESULT;
-            fn FlushOutputStream(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwStreamIndex: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HRESULT;
+            fn InitializeTransform(&self, pAttributes: IMFAttributes) -> HRESULT;
+            fn GetInputAvailableType(&self, dwInputStreamID: u32, dwTypeIndex: u32, pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputCurrentType(&self, dwInputStreamID: u32, pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputStreamAttributes(&self, dwInputStreamID: u32, ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetOutputAvailableType(&self, dwOutputStreamID: u32, dwTypeIndex: u32, pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputCurrentType(&self, dwOutputStreamID: u32, pMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputStreamAttributes(&self, dwOutputStreamID: u32, ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetStreamCount(&self, pcInputStreams: *mut u32, pcOutputStreams: *mut u32) -> HRESULT;
+            fn GetStreamIDs(&self, dwInputIDArraySize: u32, pdwInputStreamIds: *mut u32, dwOutputIDArraySize: u32, pdwOutputStreamIds: *mut u32) -> HRESULT;
+            fn ProcessEvent(&self, dwInputStreamID: u32, pEvent: IMFMediaEvent) -> HRESULT;
+            fn ProcessInput(&self, dwInputStreamID: u32, pSample: IMFSample, dwFlags: u32) -> HRESULT;
+            fn ProcessMessage(&self, eMessage: MFT_MESSAGE_TYPE, ulParam: usize) -> HRESULT;
+            fn ProcessOutput(&self, dwFlags: u32, cOutputBufferCount: u32, #[in] #[out] pOutputSample: *mut MFT_OUTPUT_DATA_BUFFER, pdwStatus: *mut u32) -> HRESULT;
+            fn SetInputStreamState(&self, dwStreamID: u32, pMediaType: IMFMediaType, value: DeviceStreamState, dwFlags: u32) -> HRESULT;
+            fn GetInputStreamState(&self, dwStreamID: u32, value: *mut DeviceStreamState) -> HRESULT;
+            fn SetOutputStreamState(&self, dwStreamID: u32, pMediaType: IMFMediaType, value: DeviceStreamState, dwFlags: u32) -> HRESULT;
+            fn GetOutputStreamState(&self, dwStreamID: u32, value: *mut DeviceStreamState) -> HRESULT;
+            fn GetInputStreamPreferredState(&self, dwStreamID: u32, value: *mut DeviceStreamState, ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn FlushInputStream(&self, dwStreamIndex: u32, dwFlags: u32) -> HRESULT;
+            fn FlushOutputStream(&self, dwStreamIndex: u32, dwFlags: u32) -> HRESULT;
         }
         #[guid(0xf5980fed_b521_488f_909f_1a5fcecedb14)]
         interface IMFDeviceTransform2: IMFDeviceTransform {
-            fn GetTransformAttributes(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetTransformAttributes(&self, ppAttributes: *mut IMFAttributes) -> HRESULT;
         }
         #[guid(0x6d5cb646_29ec_41fb_8179_8c4c6d750811)]
         interface IMFDeviceTransformCallback: IUnknown {
-            fn OnBufferSent(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pCallbackAttributes: IMFAttributes, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pinId: DWORD) -> HRESULT;
+            fn OnBufferSent(&self, pCallbackAttributes: IMFAttributes, pinId: u32) -> HRESULT;
         }
         #[guid(0xbf94c121_5b05_4e6f_8000_ba598961414d)]
         interface IMFTransform: IUnknown {
-            fn GetStreamLimits(&self, #[out] pdwInputMinimum: *mut DWORD, #[out] pdwInputMaximum: *mut DWORD, #[out] pdwOutputMinimum: *mut DWORD, #[out] pdwOutputMaximum: *mut DWORD) -> HRESULT;
-            fn GetStreamCount(&self, #[out] pcInputStreams: *mut DWORD, #[out] pcOutputStreams: *mut DWORD) -> HRESULT;
-            fn GetStreamIDs(&self, dwInputIDArraySize: DWORD, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 0, IsByteCount = false, Dereference = false)] pdwInputIDs: *mut DWORD, dwOutputIDArraySize: DWORD, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = false)] pdwOutputIDs: *mut DWORD) -> HRESULT;
-            fn GetInputStreamInfo(&self, dwInputStreamID: DWORD, #[out] pStreamInfo: *mut MFT_INPUT_STREAM_INFO) -> HRESULT;
-            fn GetOutputStreamInfo(&self, dwOutputStreamID: DWORD, #[out] pStreamInfo: *mut MFT_OUTPUT_STREAM_INFO) -> HRESULT;
-            fn GetAttributes(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pAttributes: *mut IMFAttributes) -> HRESULT;
-            fn GetInputStreamAttributes(&self, dwInputStreamID: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pAttributes: *mut IMFAttributes) -> HRESULT;
-            fn GetOutputStreamAttributes(&self, dwOutputStreamID: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pAttributes: *mut IMFAttributes) -> HRESULT;
-            fn DeleteInputStream(&self, dwStreamID: DWORD) -> HRESULT;
-            fn AddInputStreams(&self, cStreams: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] adwStreamIDs: *mut DWORD) -> HRESULT;
-            fn GetInputAvailableType(&self, dwInputStreamID: DWORD, dwTypeIndex: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppType: *mut IMFMediaType) -> HRESULT;
-            fn GetOutputAvailableType(&self, dwOutputStreamID: DWORD, dwTypeIndex: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppType: *mut IMFMediaType) -> HRESULT;
-            fn SetInputType(&self, dwInputStreamID: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pType: IMFMediaType, dwFlags: DWORD) -> HRESULT;
-            fn SetOutputType(&self, dwOutputStreamID: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pType: IMFMediaType, dwFlags: DWORD) -> HRESULT;
-            fn GetInputCurrentType(&self, dwInputStreamID: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppType: *mut IMFMediaType) -> HRESULT;
-            fn GetOutputCurrentType(&self, dwOutputStreamID: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppType: *mut IMFMediaType) -> HRESULT;
-            fn GetInputStatus(&self, dwInputStreamID: DWORD, #[out] pdwFlags: *mut DWORD) -> HRESULT;
-            fn GetOutputStatus(&self, #[out] pdwFlags: *mut DWORD) -> HRESULT;
-            fn SetOutputBounds(&self, hnsLowerBound: LONGLONG, hnsUpperBound: LONGLONG) -> HRESULT;
-            fn ProcessEvent(&self, dwInputStreamID: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pEvent: IMFMediaEvent) -> HRESULT;
-            fn ProcessMessage(&self, eMessage: MFT_MESSAGE_TYPE, ulParam: ULONG_PTR) -> HRESULT;
-            fn ProcessInput(&self, dwInputStreamID: DWORD, pSample: IMFSample, dwFlags: DWORD) -> HRESULT;
-            fn ProcessOutput(&self, dwFlags: DWORD, cOutputBufferCount: DWORD, pOutputSamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwStatus: *mut DWORD) -> HRESULT;
+            fn GetStreamLimits(&self, pdwInputMinimum: *mut u32, pdwInputMaximum: *mut u32, pdwOutputMinimum: *mut u32, pdwOutputMaximum: *mut u32) -> HRESULT;
+            fn GetStreamCount(&self, pcInputStreams: *mut u32, pcOutputStreams: *mut u32) -> HRESULT;
+            fn GetStreamIDs(&self, dwInputIDArraySize: u32, pdwInputIDs: *mut u32, dwOutputIDArraySize: u32, pdwOutputIDs: *mut u32) -> HRESULT;
+            fn GetInputStreamInfo(&self, dwInputStreamID: u32, pStreamInfo: *mut MFT_INPUT_STREAM_INFO) -> HRESULT;
+            fn GetOutputStreamInfo(&self, dwOutputStreamID: u32, pStreamInfo: *mut MFT_OUTPUT_STREAM_INFO) -> HRESULT;
+            fn GetAttributes(&self, pAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetInputStreamAttributes(&self, dwInputStreamID: u32, pAttributes: *mut IMFAttributes) -> HRESULT;
+            fn GetOutputStreamAttributes(&self, dwOutputStreamID: u32, pAttributes: *mut IMFAttributes) -> HRESULT;
+            fn DeleteInputStream(&self, dwStreamID: u32) -> HRESULT;
+            fn AddInputStreams(&self, cStreams: u32, #[in] adwStreamIDs: *mut u32) -> HRESULT;
+            fn GetInputAvailableType(&self, dwInputStreamID: u32, dwTypeIndex: u32, ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputAvailableType(&self, dwOutputStreamID: u32, dwTypeIndex: u32, ppType: *mut IMFMediaType) -> HRESULT;
+            fn SetInputType(&self, dwInputStreamID: u32, pType: IMFMediaType, dwFlags: u32) -> HRESULT;
+            fn SetOutputType(&self, dwOutputStreamID: u32, pType: IMFMediaType, dwFlags: u32) -> HRESULT;
+            fn GetInputCurrentType(&self, dwInputStreamID: u32, ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetOutputCurrentType(&self, dwOutputStreamID: u32, ppType: *mut IMFMediaType) -> HRESULT;
+            fn GetInputStatus(&self, dwInputStreamID: u32, pdwFlags: *mut u32) -> HRESULT;
+            fn GetOutputStatus(&self, pdwFlags: *mut u32) -> HRESULT;
+            fn SetOutputBounds(&self, hnsLowerBound: i64, hnsUpperBound: i64) -> HRESULT;
+            fn ProcessEvent(&self, dwInputStreamID: u32, pEvent: IMFMediaEvent) -> HRESULT;
+            fn ProcessMessage(&self, eMessage: MFT_MESSAGE_TYPE, ulParam: usize) -> HRESULT;
+            fn ProcessInput(&self, dwInputStreamID: u32, pSample: IMFSample, dwFlags: u32) -> HRESULT;
+            fn ProcessOutput(&self, dwFlags: u32, cOutputBufferCount: u32, #[in] #[out] pOutputSamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwStatus: *mut u32) -> HRESULT;
         }
-        const MEDeviceStreamCreated: GUID = 0x0252a1cf_3540_43b4_9164_d72eb405fa40;
         #[repr(i32)]
         enum MF3DVideoOutputType {
             MF3DVideoOutputType_BaseView = 0,
@@ -76,19 +75,7 @@ mod Windows {
             eType: MFT_AUDIO_DECODER_DEGRADATION_TYPE,
         }
         #[library("MFPlat.DLL")]
-        extern fn MFCreateTransformActivate(#[out] ppActivate: *mut IMFActivate) -> HRESULT;
-        #[guid(0xc57a84c0_1a80_40a3_97b5_9272a403c8ae)]
-        const MFPKEY_CATEGORY: PROPERTYKEY = 2;
-        #[guid(0xc57a84c0_1a80_40a3_97b5_9272a403c8ae)]
-        const MFPKEY_CLSID: PROPERTYKEY = 1;
-        #[guid(0x456fe843_3c87_40c0_949d_1409c97dab2c)]
-        const MFPKEY_EXATTRIBUTE_SUPPORTED: PROPERTYKEY = 1;
-        #[guid(0x58bdaf8c_3224_4692_86d0_44d65c5bf82b)]
-        const MFPKEY_MULTICHANNEL_CHANNEL_MASK: PROPERTYKEY = 1;
-        const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_FORMFACTOR: GUID = 0x8d574310_909a_433a_ace7_eee74719f901;
-        const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID: GUID = 0xc7ccdd6e_5398_4695_8be7_51b3e95111bd;
-        const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_IS_DIGITAL_STEREO_ONLY: GUID = 0x26e5a90d_4ad1_4f8c_b8af_adf14d2178f1;
-        const MFT_AUDIO_DECODER_DEGRADATION_INFO_ATTRIBUTE: GUID = 0x6c3386ad_ec20_430d_b2a5_505c7178d9c4;
+        extern fn MFCreateTransformActivate(ppActivate: *mut IMFActivate) -> HRESULT;
         #[repr(i32)]
         enum MFT_AUDIO_DECODER_DEGRADATION_REASON {
             MFT_AUDIO_DECODER_DEGRADATION_REASON_NONE = 0,
@@ -101,32 +88,13 @@ mod Windows {
             MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX6CHANNEL = 2,
             MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX8CHANNEL = 3,
         }
-        const MFT_AUDIO_DECODER_SPATIAL_METADATA_CLIENT: GUID = 0x05987df4_1270_4999_925f_8e939a7c0af7;
-        const MFT_CODEC_MERIT_Attribute: GUID = 0x88a7cb15_7b07_4a34_9128_e64c6703c4d3;
-        const MFT_CONNECTED_STREAM_ATTRIBUTE: GUID = 0x71eeb820_a59f_4de2_bcec_38db1dd611a4;
-        const MFT_CONNECTED_TO_HW_STREAM: GUID = 0x34e6e728_06d6_4491_a553_4795650db912;
-        const MFT_DECODER_AUTOMATIC_SOFTWARE_FALLBACK: GUID = 0x41f34f53_1bf6_49ed_b95d_02d2a1d7115a;
-        const MFT_DECODER_EXPOSE_OUTPUT_TYPES_IN_NATIVE_ORDER: GUID = 0xef80833f_f8fa_44d9_80d8_41ed6232670c;
-        const MFT_DECODER_FINAL_VIDEO_RESOLUTION_HINT: GUID = 0xdc2f8496_15c4_407a_b6f0_1b66ab5fbf53;
-        const MFT_DECODER_OPERATING_POINT: GUID = 0xa1230334_55d4_4d97_82a7_26d3e6456725;
-        const MFT_DECODER_QUALITY_MANAGEMENT_CUSTOM_CONTROL: GUID = 0xa24e30d7_de25_4558_bbfb_71070a2d332e;
-        const MFT_DECODER_QUALITY_MANAGEMENT_RECOVERY_WITHOUT_ARTIFACTS: GUID = 0xd8980deb_0a48_425f_8623_611db41d3810;
-        const MFT_ENCODER_SUPPORTS_CONFIG_EVENT: GUID = 0x86a355ae_3a77_4ec4_9f31_01149a4e92de;
-        const MFT_END_STREAMING_AWARE: GUID = 0x70fbc845_b07e_4089_b064_399dc6110f29;
-        const MFT_ENUM_HARDWARE_URL_Attribute: GUID = 0x2fb866ac_b078_4942_ab6c_003d05cda674;
-        const MFT_ENUM_HARDWARE_VENDOR_ID_Attribute: GUID = 0x3aecb0cc_035b_4bcc_8185_2b8d551ef3af;
-        const MFT_ENUM_TRANSCODE_ONLY_ATTRIBUTE: GUID = 0x111ea8cd_b62a_4bdb_89f6_67ffcdc2458b;
-        const MFT_FIELDOFUSE_UNLOCK_Attribute: GUID = 0x8ec2e9fd_9148_410d_831e_702439461a8e;
-        const MFT_FRIENDLY_NAME_Attribute: GUID = 0x314ffbae_5b41_4c95_9c19_4e7d586face3;
-        const MFT_HW_TIMESTAMP_WITH_QPC_Attribute: GUID = 0x8d030fb8_cc43_4258_a22e_9210bef89be4;
         struct MFT_INPUT_STREAM_INFO {
-            hnsMaxLatency: LONGLONG,
-            dwFlags: DWORD,
-            cbSize: DWORD,
-            cbMaxLookahead: DWORD,
-            cbAlignment: DWORD,
+            hnsMaxLatency: i64,
+            dwFlags: u32,
+            cbSize: u32,
+            cbMaxLookahead: u32,
+            cbAlignment: u32,
         }
-        const MFT_INPUT_TYPES_Attributes: GUID = 0x4276c9b1_759d_4bf3_9cd0_0d723d138f96;
         #[repr(i32)]
         enum MFT_MESSAGE_TYPE {
             MFT_MESSAGE_COMMAND_FLUSH = 0,
@@ -145,61 +113,31 @@ mod Windows {
             MFT_MESSAGE_COMMAND_FLUSH_OUTPUT_STREAM = 268435464,
             MFT_MESSAGE_COMMAND_MARKER = 536870912,
         }
-        const MFT_OUTPUT_BOUND_LOWER_UNBOUNDED: LONGLONG = -9223372036854775808;
+        const MFT_OUTPUT_BOUND_LOWER_UNBOUNDED: i64 = -9223372036854775808;
         const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: i64 = 9223372036854775807;
         struct MFT_OUTPUT_DATA_BUFFER {
-            dwStreamID: DWORD,
+            dwStreamID: u32,
             pSample: IMFSample,
-            dwStatus: DWORD,
+            dwStatus: u32,
             pEvents: IMFCollection,
         }
         struct MFT_OUTPUT_STREAM_INFO {
-            dwFlags: DWORD,
-            cbSize: DWORD,
-            cbAlignment: DWORD,
+            dwFlags: u32,
+            cbSize: u32,
+            cbAlignment: u32,
         }
-        const MFT_OUTPUT_TYPES_Attributes: GUID = 0x8eae8cf3_a44f_4306_ba5c_bf5dda242818;
-        const MFT_POLICY_SET_AWARE: GUID = 0x5a633b19_cc39_4fa8_8ca5_59981b7a0018;
-        const MFT_PREFERRED_ENCODER_PROFILE: GUID = 0x53004909_1ef5_46d7_a18e_5a75f8b5905f;
-        const MFT_PREFERRED_OUTPUTTYPE_Attribute: GUID = 0x7e700499_396a_49ee_b1b4_f628021e8c9d;
-        const MFT_PROCESS_LOCAL_Attribute: GUID = 0x543186e4_4649_4e65_b588_4aa352aff379;
-        const MFT_REMUX_MARK_I_PICTURE_AS_CLEAN_POINT: GUID = 0x364e8f85_3f2e_436c_b2a2_4440a012a9e8;
         const MFT_STREAMS_UNLIMITED: u32 = 4294967295;
         struct MFT_STREAM_STATE_PARAM {
-            StreamId: DWORD,
+            StreamId: u32,
             State: MF_STREAM_STATE,
         }
-        const MFT_SUPPORT_3DVIDEO: GUID = 0x093f81b1_4f2e_4631_8168_7934032a01d3;
-        const MFT_TRANSFORM_CLSID_Attribute: GUID = 0x6821c42b_65a4_4e82_99bc_9a88205ecd0c;
-        const MFT_USING_HARDWARE_DRM: GUID = 0x34faa77d_d79e_4957_b8ce_362b2684996c;
-        const MF_DMFT_FRAME_BUFFER_INFO: GUID = 0x396ce1c9_67a9_454c_8797_95a45799d804;
-        const MF_ENABLE_3DVIDEO_OUTPUT: GUID = 0xbdad7bca_0e5f_4b10_ab16_26de381b6293;
-        const MF_SA_AUDIO_ENDPOINT_AWARE: GUID = 0xc0381701_805c_42b2_ac8d_e2b4bf21f4f8;
-        const MF_SA_BUFFERS_PER_SAMPLE: GUID = 0x873c5171_1e3d_4e25_988d_b433ce041983;
-        const MF_SA_D3D11_ALLOCATE_DISPLAYABLE_RESOURCES: GUID = 0xeeface6d_2ea9_4adf_bbdf_7bbc482a1b6d;
-        const MF_SA_D3D11_ALLOW_DYNAMIC_YUV_TEXTURE: GUID = 0xce06d49f_0613_4b9d_86a6_d8c4f9c10075;
-        const MF_SA_D3D11_AWARE: GUID = 0x206b4fc8_fcf9_4c51_afe3_9764369e33a0;
-        const MF_SA_D3D11_BINDFLAGS: GUID = 0xeacf97ad_065c_4408_bee3_fdcbfd128be2;
-        const MF_SA_D3D11_HW_PROTECTED: GUID = 0x3a8ba9d9_92ca_4307_a391_6999dbf3b6ce;
-        const MF_SA_D3D11_SHARED: GUID = 0x7b8f32c3_6d96_4b89_9203_dd38b61414f3;
-        const MF_SA_D3D11_SHARED_WITHOUT_MUTEX: GUID = 0x39dbd44d_2e44_4931_a4c8_352d3dc42115;
-        const MF_SA_D3D11_USAGE: GUID = 0xe85fe442_2ca3_486e_a9c7_109dda609880;
-        const MF_SA_D3D_AWARE: GUID = 0xeaa35c29_775e_488e_9b61_b3283e49583b;
-        const MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT: GUID = 0x851745d5_c3d6_476d_9527_498ef2d10d18;
-        const MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT_PROGRESSIVE: GUID = 0x0f5523a5_1cb2_47c5_a550_2eeb84b4d14a;
-        const MF_SA_REQUIRED_SAMPLE_COUNT: GUID = 0x18802c61_324b_4952_abd0_176ff5c696ff;
-        const MF_SA_REQUIRED_SAMPLE_COUNT_PROGRESSIVE: GUID = 0xb172d58e_fa77_4e48_8d2a_1df2d850eac2;
-        const MF_TRANSFORM_ASYNC: GUID = 0xf81a699a_649a_497d_8c73_29f8fed6ad7a;
-        const MF_TRANSFORM_ASYNC_UNLOCK: GUID = 0xe5666d6b_3422_4eb6_a421_da7db1f8e207;
-        const MF_TRANSFORM_CATEGORY_Attribute: GUID = 0xceabba49_506d_4757_a6ff_66c184987e4e;
-        const MF_TRANSFORM_FLAGS_Attribute: GUID = 0x9359bb7e_6275_46c4_a025_1c01e45f1a86;
         type PDeviceStreamState = *mut DeviceStreamState;
         type PMFT_OUTPUT_DATA_BUFFER = *mut MFT_OUTPUT_DATA_BUFFER;
         type PMFT_STREAM_STATE_PARAM = *mut MFT_STREAM_STATE_PARAM;
         type PSTREAM_MEDIUM = *mut STREAM_MEDIUM;
         struct STREAM_MEDIUM {
             gidMedium: GUID,
-            unMediumInstance: UINT32,
+            unMediumInstance: u32,
         }
         #[repr(i32)]
         enum _MFT_DRAIN_TYPE {

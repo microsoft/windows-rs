@@ -61,6 +61,9 @@ impl Encoder<'_> {
             if let metadata::Type::ClassName(ref tn) = extends {
                 // Classes are always WinRT - the base class must also be WinRT.
                 self.validate_type_is_winrt(path, &extends)?;
+                if self.is_sealed_class(&tn.namespace, &tn.name) {
+                    return self.err(path, "base class must be `#[unsealed]`");
+                }
                 self.output.TypeRef(&tn.namespace, &tn.name)
             } else {
                 return self.err(&item.extends, "invalid base type");
@@ -69,9 +72,20 @@ impl Encoder<'_> {
             self.output.TypeRef("System", "Object")
         };
 
-        let flags = metadata::TypeAttributes::Public
-            | metadata::TypeAttributes::Sealed
-            | metadata::TypeAttributes::WindowsRuntime;
+        let mut flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::WindowsRuntime;
+
+        if let Some(attr) = item.attrs.iter().find(|a| a.path().is_ident("unsealed")) {
+            if !matches!(attr.meta, syn::Meta::Path(_)) {
+                return self.err(attr, "`unsealed` attribute does not accept arguments");
+            }
+        } else {
+            flags |= metadata::TypeAttributes::Sealed;
+        }
+
+        // A class without interfaces, such as a static class, has no instances.
+        if item.interfaces.is_empty() {
+            flags |= metadata::TypeAttributes::Abstract;
+        }
 
         let class = self.output.TypeDef(
             self.namespace,
@@ -83,7 +97,7 @@ impl Encoder<'_> {
         self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(class),
             &item.attrs,
-            &[],
+            &["unsealed"],
         )?;
 
         for (index, interface) in item.interfaces.iter().enumerate() {
@@ -91,6 +105,24 @@ impl Encoder<'_> {
         }
 
         Ok(())
+    }
+
+    /// Returns whether a base class is known to be sealed, from the RDL input or the reference
+    /// metadata. Unknown classes are left for the metadata consumer to diagnose.
+    fn is_sealed_class(&self, namespace: &str, name: &str) -> bool {
+        if let Some(item) = self.index.get(namespace, name).next() {
+            return match item {
+                Item::Class(class) => !class.attrs.iter().any(|a| a.path().is_ident("unsealed")),
+                _ => false,
+            };
+        }
+
+        self.output.reference().is_some_and(|reference| {
+            reference
+                .get(namespace, name)
+                .next()
+                .is_some_and(|def| def.flags().contains(metadata::TypeAttributes::Sealed))
+        })
     }
 
     fn encode_implement(

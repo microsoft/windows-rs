@@ -2,34 +2,32 @@
 mod Windows {
     mod Win32 {
         #[library("ADVAPI32.dll")]
-        extern fn CloseThreadWaitChainSession(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] WctHandle: HWCT);
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn CloseThreadWaitChainSession(WctHandle: HWCT);
         #[library("ADVAPI32.dll")]
-        extern fn GetThreadWaitChain(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] WctHandle: HWCT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Context: DWORD_PTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ThreadId: DWORD, #[in] #[out] NodeCount: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*NodeCount", "*NodeCount")] #[out] NodeInfoArray: PWAITCHAIN_NODE_INFO, #[out] IsCycle: LPBOOL) -> BOOL;
+        extern fn GetThreadWaitChain(WctHandle: HWCT, #[opt] Context: usize, Flags: u32, ThreadId: u32, #[in] #[out] NodeCount: LPDWORD, #[len_param(4)] #[out] NodeInfoArray: PWAITCHAIN_NODE_INFO, #[out] IsCycle: LPBOOL) -> BOOL;
         type HWCT = *mut void;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
         #[library("ADVAPI32.dll")]
-        extern fn OpenThreadWaitChainSession(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] callback: PWAITCHAINCALLBACK) -> HWCT;
-        extern "C" fn PCOGETACTIVATIONSTATE(param0: GUID, param1: DWORD, param2: *mut DWORD) -> HRESULT;
+        extern fn OpenThreadWaitChainSession(Flags: u32, #[opt] callback: PWAITCHAINCALLBACK) -> HWCT;
+        extern "C" fn PCOGETACTIVATIONSTATE(param0: GUID, param1: u32, param2: *mut u32) -> HRESULT;
         extern "C" fn PCOGETCALLSTATE(param0: i32, param1: PULONG) -> HRESULT;
-        extern fn PWAITCHAINCALLBACK(WctHandle: HWCT, Context: DWORD_PTR, CallbackStatus: DWORD, NodeCount: LPDWORD, NodeInfoArray: PWAITCHAIN_NODE_INFO, IsCycle: LPBOOL);
+        extern fn PWAITCHAINCALLBACK(WctHandle: HWCT, Context: usize, CallbackStatus: u32, NodeCount: LPDWORD, NodeInfoArray: PWAITCHAIN_NODE_INFO, IsCycle: LPBOOL);
         type PWAITCHAIN_NODE_INFO = *mut WAITCHAIN_NODE_INFO;
         #[library("ADVAPI32.dll")]
-        extern fn RegisterWaitChainCOMCallback(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallStateCallback: PCOGETCALLSTATE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ActivationStateCallback: PCOGETACTIVATIONSTATE);
+        extern fn RegisterWaitChainCOMCallback(CallStateCallback: PCOGETCALLSTATE, ActivationStateCallback: PCOGETACTIVATIONSTATE);
         struct WAITCHAIN_NODE_INFO {
             ObjectType: WCT_OBJECT_TYPE,
             ObjectStatus: WCT_OBJECT_STATUS,
             Anonymous: union {
                 LockObject: struct {
-                    ObjectName: [WCHAR; 128],
+                    ObjectName: [u16; 128],
                     Timeout: LARGE_INTEGER,
                     Alertable: BOOL,
                 },
                 ThreadObject: struct {
-                    ProcessId: DWORD,
-                    ThreadId: DWORD,
-                    WaitTime: DWORD,
-                    ContextSwitches: DWORD,
+                    ProcessId: u32,
+                    ThreadId: u32,
+                    WaitTime: u32,
+                    ContextSwitches: u32,
                 },
             },
         }

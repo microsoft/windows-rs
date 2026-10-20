@@ -9,6 +9,7 @@ mod Windows {
                 class AnchorRequestedEventArgs {
                     IAnchorRequestedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IAppBarFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -25,6 +26,7 @@ mod Windows {
                     IAppBarOverrides,
                     IAppBarOverrides3,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IAppBarButtonFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -49,6 +51,7 @@ mod Windows {
                     Minimal = 1,
                     Hidden = 2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IAppBarElementContainerFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -60,6 +63,7 @@ mod Windows {
                     ICommandBarElement,
                     ICommandBarElement2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IAppBarSeparatorFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -72,6 +76,7 @@ mod Windows {
                     ICommandBarElement,
                     ICommandBarElement2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IAppBarToggleButtonFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -155,6 +160,7 @@ mod Windows {
                     InnerBorderEdge = 0,
                     OuterBorderEdge = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IBitmapIconFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -166,6 +172,7 @@ mod Windows {
                     IBitmapIcon,
                     IBitmapIcon2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IBitmapIconSourceFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -187,6 +194,7 @@ mod Windows {
                     IBorder,
                     IBorder2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IButtonFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -197,6 +205,7 @@ mod Windows {
                     IButton,
                     IButtonWithFlyout,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ICalendarDatePickerFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -216,6 +225,7 @@ mod Windows {
                 class CalendarDatePickerDateChangedEventArgs {
                     ICalendarDatePickerDateChangedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ICalendarViewFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -227,6 +237,7 @@ mod Windows {
                     ICalendarView,
                     ICalendarView2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ICalendarViewDayItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -281,6 +292,7 @@ mod Windows {
                 class CandidateWindowBoundsChangedEventArgs {
                     ICandidateWindowBoundsChangedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ICanvasFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -307,6 +319,7 @@ mod Windows {
                     Lower = 1,
                     Upper = 2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ICheckBoxFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -356,6 +369,7 @@ mod Windows {
                 class ColorChangedEventArgs {
                     IColorChangedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IColorPickerFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -408,6 +422,7 @@ mod Windows {
                     super::super::super::Foundation::Collections::IVector<ColumnDefinition>,
                     super::super::super::Foundation::Collections::IIterable<ColumnDefinition>,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IComboBoxFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -428,6 +443,7 @@ mod Windows {
                     IComboBox6,
                     IComboBoxOverrides,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IComboBoxItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -449,6 +465,7 @@ mod Windows {
                 class ComboBoxTextSubmittedEventArgs {
                     IComboBoxTextSubmittedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ICommandBarFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -478,6 +495,7 @@ mod Windows {
                     AddingToOverflow = 0,
                     RemovingFromOverflow = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ICommandBarFlyoutFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -502,6 +520,7 @@ mod Windows {
                     Visible = 1,
                     Collapsed = 2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ICommandBarOverflowPresenterFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -518,6 +537,7 @@ mod Windows {
                 class ContainerContentChangingEventArgs {
                     IContainerContentChangingEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IContentControlFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -530,6 +550,7 @@ mod Windows {
                     IContentControl2,
                     IContentControlOverrides,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IContentDialogFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -616,6 +637,7 @@ mod Windows {
                 class ContentLinkChangedEventArgs {
                     IContentLinkChangedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IContentPresenterFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -646,6 +668,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 delegate fn ContextMenuOpeningEventHandler(sender: Object, e: ContextMenuEventArgs);
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IControlFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -676,6 +699,7 @@ mod Windows {
                 class ControlTemplate: super::FrameworkTemplate {
                     IControlTemplate,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IDataTemplateSelectorFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -696,6 +720,7 @@ mod Windows {
                 class DatePickedEventArgs: super::DependencyObject {
                     IDatePickedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IDatePickerFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -780,6 +805,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 delegate fn DragItemsStartingEventHandler(sender: Object, e: DragItemsStartingEventArgs);
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IDropDownButtonFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -788,6 +814,7 @@ mod Windows {
                 class DropDownButton: Button {
                     IDropDownButton,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IDropDownButtonAutomationPeerFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -805,6 +832,7 @@ mod Windows {
                 class DynamicOverflowItemsChangingEventArgs {
                     IDynamicOverflowItemsChangingEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IFlipViewFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -815,6 +843,7 @@ mod Windows {
                     IFlipView,
                     IFlipView2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IFlipViewItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -823,6 +852,7 @@ mod Windows {
                 class FlipViewItem: Primitives::SelectorItem {
                     IFlipViewItem,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IFlyoutFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -833,6 +863,7 @@ mod Windows {
                 class Flyout: Primitives::FlyoutBase {
                     IFlyout,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IFlyoutPresenterFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -858,6 +889,7 @@ mod Windows {
                     IFocusEngagedEventArgs,
                     IFocusEngagedEventArgs2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IFontIconFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -871,6 +903,7 @@ mod Windows {
                     IFontIcon2,
                     IFontIcon3,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IFontIconSourceFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -880,6 +913,7 @@ mod Windows {
                 class FontIconSource: IconSource {
                     IFontIconSource,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IFrameFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -896,6 +930,7 @@ mod Windows {
                     IFrame5,
                     INavigate,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IGridFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -911,6 +946,7 @@ mod Windows {
                     IGrid3,
                     IGrid4,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IGridViewFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -919,6 +955,7 @@ mod Windows {
                 class GridView: ListViewBase {
                     IGridView,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IGridViewHeaderItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -927,6 +964,7 @@ mod Windows {
                 class GridViewHeaderItem: ListViewBaseHeaderItem {
                     IGridViewHeaderItem,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IGridViewItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -935,6 +973,7 @@ mod Windows {
                 class GridViewItem: Primitives::SelectorItem {
                     IGridViewItem,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IGroupItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -943,6 +982,7 @@ mod Windows {
                 class GroupItem: ContentControl {
                     IGroupItem,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IGroupStyleFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -953,6 +993,7 @@ mod Windows {
                     IGroupStyle2,
                     super::Data::INotifyPropertyChanged,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IGroupStyleSelectorFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -984,6 +1025,7 @@ mod Windows {
                     BottomLeft = 3,
                     BottomRight = 4,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IHandwritingViewFactory, Public, 393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1007,6 +1049,7 @@ mod Windows {
                 class HandwritingViewTextSubmittedEventArgs {
                     IHandwritingViewTextSubmittedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IHubFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1018,6 +1061,7 @@ mod Windows {
                     IHub,
                     ISemanticZoomInformation,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IHubSectionFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1047,6 +1091,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 delegate fn HubSectionHeaderClickEventHandler(sender: Object, e: HubSectionHeaderClickEventArgs);
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IHyperlinkButtonFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2056,14 +2101,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(Canvas)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICanvasStatics {
-                    #[special]
+                    #[get]
                     #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                    fn get_LeftProperty(&self) -> super::DependencyProperty;
+                    LeftProperty: super::DependencyProperty;
                     fn GetLeft(&self, element: super::UIElement) -> f64;
                     fn SetLeft(&self, element: super::UIElement, length: f64);
-                    #[special]
+                    #[get]
                     #[Windows::UI::Xaml::Media::Animation::IndependentlyAnimatable]
-                    fn get_TopProperty(&self) -> super::DependencyProperty;
+                    TopProperty: super::DependencyProperty;
                     fn GetTop(&self, element: super::UIElement) -> f64;
                     fn SetTop(&self, element: super::UIElement, length: f64);
                     #[get]
@@ -3928,18 +3973,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IGroupStyle {
                     Panel: ItemsPanelTemplate;
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("ContainerStyle may be altered or unavailable for releases after Windows 8.1, and is not supported for ItemsControl.GroupStyle.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_ContainerStyle(&self) -> super::Style;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("ContainerStyle may be altered or unavailable for releases after Windows 8.1, and is not supported for ItemsControl.GroupStyle.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn put_ContainerStyle(&self, value: super::Style);
-                    #[special]
+                    ContainerStyle: super::Style;
                     #[Windows::Foundation::Metadata::Deprecated("ContainerStyleSelector may be altered or unavailable for releases after Windows 8.1, and is not supported for ItemsControl.GroupStyle.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_ContainerStyleSelector(&self) -> StyleSelector;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("ContainerStyleSelector may be altered or unavailable for releases after Windows 8.1, and is not supported for ItemsControl.GroupStyle.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn put_ContainerStyleSelector(&self, value: StyleSelector);
+                    ContainerStyleSelector: StyleSelector;
                     HeaderTemplate: super::DataTemplate;
                     HeaderTemplateSelector: DataTemplateSelector;
                     HidesIfEmpty: bool;
@@ -4237,9 +4274,9 @@ mod Windows {
                     Source: super::Media::ImageSource;
                     Stretch: super::Media::Stretch;
                     NineGrid: super::Thickness;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_PlayToSource(&self) -> super::super::super::Media::PlayTo::PlayToSource;
+                    PlayToSource: super::super::super::Media::PlayTo::PlayToSource;
                     event ImageFailed: super::ExceptionRoutedEventHandler;
                     event ImageOpened: super::RoutedEventHandler;
                 }
@@ -4268,9 +4305,9 @@ mod Windows {
                     StretchProperty: super::DependencyProperty;
                     #[get]
                     NineGridProperty: super::DependencyProperty;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_PlayToSourceProperty(&self) -> super::DependencyProperty;
+                    PlayToSourceProperty: super::DependencyProperty;
                 }
                 #[guid(0x29443c28_8e48_4fc8_a473_35b0ba12acea)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -4303,12 +4340,8 @@ mod Windows {
                     event ActiveToolChanged: super::super::super::Foundation::TypedEventHandler<InkToolbar, Object>;
                     event InkDrawingAttributesChanged: super::super::super::Foundation::TypedEventHandler<InkToolbar, Object>;
                     event EraseAllClicked: super::super::super::Foundation::TypedEventHandler<InkToolbar, Object>;
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("InkToolbarRulerButton is replaced by InkToolbarStencilButton starting from Windows 10 Creators Update. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn add_IsRulerButtonCheckedChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<InkToolbar, Object>) -> super::super::super::Foundation::EventRegistrationToken;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("InkToolbarRulerButton is replaced by InkToolbarStencilButton starting from Windows 10 Creators Update. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn remove_IsRulerButtonCheckedChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    event IsRulerButtonCheckedChanged: super::super::super::Foundation::TypedEventHandler<InkToolbar, Object>;
                     fn GetToolButton(&self, tool: InkToolbarTool) -> InkToolbarToolButton;
                     fn GetToggleButton(&self, tool: InkToolbarToggle) -> InkToolbarToggleButton;
                 }
@@ -4604,9 +4637,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkToolbarRulerButton)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IInkToolbarRulerButton {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("InkToolbarRulerButton is deprecated starting from Windows 10 Creators Update. Please use InkToolbarStencilButton going forward. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Ruler(&self) -> super::super::Input::Inking::InkPresenterRuler;
+                    Ruler: super::super::Input::Inking::InkPresenterRuler;
                 }
                 #[guid(0xbb26d85f_cfd6_495f_93ab_b8566af9f8af)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -4623,9 +4656,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkToolbarRulerButton)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IInkToolbarRulerButtonStatics {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("InkToolbarRulerButton is deprecated starting from Windows 10 Creators Update. Please use InkToolbarStencilButton going forward. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_RulerProperty(&self) -> super::DependencyProperty;
+                    RulerProperty: super::DependencyProperty;
                 }
                 #[guid(0xa3b493bb_cb4f_4e6b_a33d_f11e7a295efa)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -5404,9 +5437,9 @@ mod Windows {
                     AudioStreamIndex: super::super::super::Foundation::IReference<i32>;
                     PlaybackRate: f64;
                     IsLooping: bool;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_PlayToSource(&self) -> super::super::super::Media::PlayTo::PlayToSource;
+                    PlayToSource: super::super::super::Media::PlayTo::PlayToSource;
                     DefaultPlaybackRate: f64;
                     #[get]
                     AspectRatioWidth: i32;
@@ -5451,12 +5484,8 @@ mod Windows {
                     Stretch: super::Media::Stretch;
                     IsFullWindow: bool;
                     fn SetMediaStreamSource(&self, source: super::super::super::Media::Core::IMediaSource);
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("PlayToPreferredSourceUri may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource().PreferredSourceUri.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_PlayToPreferredSourceUri(&self) -> super::super::super::Foundation::Uri;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("PlayToPreferredSourceUri may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource().PreferredSourceUri.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn put_PlayToPreferredSourceUri(&self, value: super::super::super::Foundation::Uri);
+                    PlayToPreferredSourceUri: super::super::super::Foundation::Uri;
                 }
                 #[guid(0x479f6f13_0fdb_4ed8_928a_4d39169c3cd2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -5515,9 +5544,9 @@ mod Windows {
                     PlaybackRateProperty: super::DependencyProperty;
                     #[get]
                     IsLoopingProperty: super::DependencyProperty;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_PlayToSourceProperty(&self) -> super::DependencyProperty;
+                    PlayToSourceProperty: super::DependencyProperty;
                     #[get]
                     DefaultPlaybackRateProperty: super::DependencyProperty;
                     #[get]
@@ -5552,9 +5581,9 @@ mod Windows {
                     StretchProperty: super::DependencyProperty;
                     #[get]
                     IsFullWindowProperty: super::DependencyProperty;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PlayToPreferredSourceUri may be altered or unavailable for releases after Windows 10.0. Instead, use GetAsCastingSource().PreferredSourceUri.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_PlayToPreferredSourceUriProperty(&self) -> super::DependencyProperty;
+                    PlayToPreferredSourceUriProperty: super::DependencyProperty;
                 }
                 #[guid(0x3b4ca526_2e25_4598_bc71_d491f8e8de39)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -6550,12 +6579,8 @@ mod Windows {
                 interface IPasswordBox {
                     Password: String;
                     PasswordChar: String;
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("IsPasswordRevealButtonEnabledProperty may be altered or unavailable for releases after Windows 10.0. Instead, use PasswordRevealModeProperty.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_IsPasswordRevealButtonEnabled(&self) -> bool;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("IsPasswordRevealButtonEnabledProperty may be altered or unavailable for releases after Windows 10.0. Instead, use PasswordRevealModeProperty.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn put_IsPasswordRevealButtonEnabled(&self, value: bool);
+                    IsPasswordRevealButtonEnabled: bool;
                     MaxLength: i32;
                     event PasswordChanged: super::RoutedEventHandler;
                     event ContextMenuOpening: ContextMenuOpeningEventHandler;
@@ -6617,9 +6642,9 @@ mod Windows {
                     PasswordProperty: super::DependencyProperty;
                     #[get]
                     PasswordCharProperty: super::DependencyProperty;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("IsPasswordRevealButtonEnabledProperty may be altered or unavailable for releases after Windows 10.0. Instead, use PasswordRevealModeProperty.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_IsPasswordRevealButtonEnabledProperty(&self) -> super::DependencyProperty;
+                    IsPasswordRevealButtonEnabledProperty: super::DependencyProperty;
                     #[get]
                     MaxLengthProperty: super::DependencyProperty;
                 }
@@ -10128,28 +10153,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IWebView {
                     Source: super::super::super::Foundation::Uri;
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("AllowedScriptNotifyUris is unavailable for releases beginning with Windows 8.1. Instead, list URIs under ApplicationContentUriRules in the package manifest. For more info, see the AllowedScriptNotifyUris documentation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_AllowedScriptNotifyUris(&self) -> super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Uri>;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("AllowedScriptNotifyUris is unavailable for releases beginning with Windows 8.1. Instead, list URIs under ApplicationContentUriRules in the package manifest. For more info, see the AllowedScriptNotifyUris documentation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn put_AllowedScriptNotifyUris(&self, value: super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Uri>);
-                    #[special]
+                    AllowedScriptNotifyUris: super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Uri>;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("Use CaptureSelectedContentToDataPackageAsync instead of DataTransferPackage. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_DataTransferPackage(&self) -> super::super::super::ApplicationModel::DataTransfer::DataPackage;
-                    #[special]
+                    DataTransferPackage: super::super::super::ApplicationModel::DataTransfer::DataPackage;
                     #[Windows::Foundation::Metadata::Deprecated("LoadCompleted may be altered or unavailable for releases after Windows 8.1. Instead, use NavigationCompleted.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn add_LoadCompleted(&self, handler: super::Navigation::LoadCompletedEventHandler) -> super::super::super::Foundation::EventRegistrationToken;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("LoadCompleted may be altered or unavailable for releases after Windows 8.1. Instead, use NavigationCompleted.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn remove_LoadCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    event LoadCompleted: super::Navigation::LoadCompletedEventHandler;
                     event ScriptNotify: NotifyEventHandler;
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("NavigationFailed may be altered or unavailable for releases after Windows 8.1. Instead, use NavigationCompleted.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn add_NavigationFailed(&self, handler: WebViewNavigationFailedEventHandler) -> super::super::super::Foundation::EventRegistrationToken;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("NavigationFailed may be altered or unavailable for releases after Windows 8.1. Instead, use NavigationCompleted.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn remove_NavigationFailed(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    event NavigationFailed: WebViewNavigationFailedEventHandler;
                     #[Windows::Foundation::Metadata::Deprecated("Use InvokeScriptAsync instead of InvokeScript. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                     fn InvokeScript(&self, scriptName: String, arguments: [String]) -> String;
                     fn Navigate(&self, source: super::super::super::Foundation::Uri);
@@ -10391,17 +10404,17 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebView)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IWebViewStatics {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("AnyScriptNotifyUri is unavailable for releases beginning with Windows 8.1. Instead, list URIs under ApplicationContentUriRules in the package manifest. For more info, see the AnyScriptNotifyUri documentation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_AnyScriptNotifyUri(&self) -> super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Uri>;
+                    AnyScriptNotifyUri: super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Uri>;
                     #[get]
                     SourceProperty: super::DependencyProperty;
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("AllowedScriptNotifyUris is unavailable for releases beginning with Windows 8.1. Instead, list URIs under ApplicationContentUriRules in the package manifest. For more info, see the AllowedScriptNotifyUris documentation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_AllowedScriptNotifyUrisProperty(&self) -> super::DependencyProperty;
-                    #[special]
+                    AllowedScriptNotifyUrisProperty: super::DependencyProperty;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("Use CaptureSelectedContentToDataPackageAsync instead of DataTransferPackage. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                    fn get_DataTransferPackageProperty(&self) -> super::DependencyProperty;
+                    DataTransferPackageProperty: super::DependencyProperty;
                 }
                 #[guid(0x322f8780_e812_466b_9e50_8e9fec24018a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -10516,6 +10529,7 @@ mod Windows {
                     #[get]
                     MaximumRowsOrColumnsProperty: super::DependencyProperty;
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IIconElementFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10525,6 +10539,7 @@ mod Windows {
                 class IconElement: super::FrameworkElement {
                     IIconElement,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IIconSourceFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10534,6 +10549,7 @@ mod Windows {
                 class IconSource: super::DependencyObject {
                     IIconSource,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IIconSourceElementFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10562,6 +10578,7 @@ mod Windows {
                     None = 0,
                     Edge = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkCanvasFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10570,6 +10587,7 @@ mod Windows {
                 class InkCanvas: super::FrameworkElement {
                     IInkCanvas,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10584,6 +10602,7 @@ mod Windows {
                     IInkToolbar2,
                     IInkToolbar3,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarBallpointPenButtonFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10602,6 +10621,7 @@ mod Windows {
                     Left = 3,
                     Right = 4,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarCustomPenFactory, Protected, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10611,6 +10631,7 @@ mod Windows {
                     IInkToolbarCustomPen,
                     IInkToolbarCustomPenOverrides,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarCustomPenButtonFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10620,6 +10641,7 @@ mod Windows {
                 class InkToolbarCustomPenButton: InkToolbarPenButton {
                     IInkToolbarCustomPenButton,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarCustomToggleButtonFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10628,6 +10650,7 @@ mod Windows {
                 class InkToolbarCustomToggleButton: InkToolbarToggleButton {
                     IInkToolbarCustomToggleButton,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarCustomToolButtonFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10637,6 +10660,7 @@ mod Windows {
                 class InkToolbarCustomToolButton: InkToolbarToolButton {
                     IInkToolbarCustomToolButton,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarEraserButtonFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10647,6 +10671,7 @@ mod Windows {
                     IInkToolbarEraserButton,
                     IInkToolbarEraserButton2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarFlyoutItemFactory, Public, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10665,6 +10690,7 @@ mod Windows {
                     Check = 2,
                     RadioCheck = 3,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarHighlighterButtonFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10690,6 +10716,7 @@ mod Windows {
                 class InkToolbarIsStencilButtonCheckedChangedEventArgs {
                     IInkToolbarIsStencilButtonCheckedChangedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarMenuButtonFactory, Public, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10705,6 +10732,7 @@ mod Windows {
                 enum InkToolbarMenuKind {
                     Stencil = 0,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarPenButtonFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10714,6 +10742,7 @@ mod Windows {
                 class InkToolbarPenButton: InkToolbarToolButton {
                     IInkToolbarPenButton,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarPenConfigurationControlFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10723,6 +10752,7 @@ mod Windows {
                 class InkToolbarPenConfigurationControl: Control {
                     IInkToolbarPenConfigurationControl,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarPencilButtonFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10731,6 +10761,7 @@ mod Windows {
                 class InkToolbarPencilButton: InkToolbarPenButton {
                     IInkToolbarPencilButton,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarRulerButtonFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::Deprecated("InkToolbarRulerButton is deprecated starting from Windows 10 Creators Update. Please use InkToolbarStencilButton going forward. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
@@ -10741,6 +10772,7 @@ mod Windows {
                 class InkToolbarRulerButton: InkToolbarToggleButton {
                     IInkToolbarRulerButton,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarStencilButtonFactory, Public, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10764,6 +10796,7 @@ mod Windows {
                     Ruler = 0,
                     Custom = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarToggleButtonFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10783,6 +10816,7 @@ mod Windows {
                     CustomPen = 4,
                     CustomTool = 5,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInkToolbarToolButtonFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10824,6 +10858,7 @@ mod Windows {
                 class ItemContainerGenerator {
                     IItemContainerGenerator,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IItemsControlFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10904,6 +10939,7 @@ mod Windows {
                     On = 1,
                     Off = 2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IListBoxFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10915,6 +10951,7 @@ mod Windows {
                     IListBox,
                     IListBox2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IListBoxItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10946,6 +10983,7 @@ mod Windows {
                     Single = 0,
                     Multiple = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IListViewFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10954,6 +10992,7 @@ mod Windows {
                 class ListView: ListViewBase {
                     IListView,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IListViewBaseFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10973,6 +11012,7 @@ mod Windows {
                     IListViewBase6,
                     ISemanticZoomInformation,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IListViewBaseHeaderItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10981,6 +11021,7 @@ mod Windows {
                 class ListViewBaseHeaderItem: ContentControl {
                     IListViewBaseHeaderItem,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IListViewHeaderItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -10989,6 +11030,7 @@ mod Windows {
                 class ListViewHeaderItem: ListViewBaseHeaderItem {
                     IListViewHeaderItem,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IListViewItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11041,6 +11083,7 @@ mod Windows {
                     IMediaElement2,
                     IMediaElement3,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IMediaPlayerElementFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11050,6 +11093,7 @@ mod Windows {
                 class MediaPlayerElement: Control {
                     IMediaPlayerElement,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IMediaPlayerPresenterFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11059,6 +11103,7 @@ mod Windows {
                 class MediaPlayerPresenter: super::FrameworkElement {
                     IMediaPlayerPresenter,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IMediaTransportControlsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11082,6 +11127,7 @@ mod Windows {
                 class MediaTransportControlsHelper {
                     IMediaTransportControlsHelper,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IMenuBarFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11092,6 +11138,7 @@ mod Windows {
                 class MenuBar: Control {
                     IMenuBar,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IMenuBarItemFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11102,6 +11149,7 @@ mod Windows {
                 class MenuBarItem: Control {
                     IMenuBarItem,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IMenuBarItemFlyoutFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11110,6 +11158,7 @@ mod Windows {
                 class MenuBarItemFlyout: MenuFlyout {
                     IMenuBarItemFlyout,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IMenuFlyoutFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11121,6 +11170,7 @@ mod Windows {
                     IMenuFlyout,
                     IMenuFlyout2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IMenuFlyoutItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11135,6 +11185,7 @@ mod Windows {
                     IMenuFlyoutItem2,
                     IMenuFlyoutItem3,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IMenuFlyoutItemBaseFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11143,6 +11194,7 @@ mod Windows {
                 class MenuFlyoutItemBase: Control {
                     IMenuFlyoutItemBase,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IMenuFlyoutPresenterFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11154,6 +11206,7 @@ mod Windows {
                     IMenuFlyoutPresenter2,
                     IMenuFlyoutPresenter3,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IMenuFlyoutSeparatorFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11174,6 +11227,7 @@ mod Windows {
                     IMenuFlyoutSubItem,
                     IMenuFlyoutSubItem2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(INavigationViewFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11215,6 +11269,7 @@ mod Windows {
                 class NavigationViewDisplayModeChangedEventArgs {
                     INavigationViewDisplayModeChangedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(INavigationViewItemFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11226,6 +11281,7 @@ mod Windows {
                     INavigationViewItem,
                     INavigationViewItem2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(INavigationViewItemBaseFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11234,6 +11290,7 @@ mod Windows {
                 class NavigationViewItemBase: ListViewItem {
                     INavigationViewItemBase,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(INavigationViewItemHeaderFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11251,6 +11308,7 @@ mod Windows {
                     INavigationViewItemInvokedEventArgs,
                     INavigationViewItemInvokedEventArgs2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(INavigationViewItemSeparatorFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11259,6 +11317,7 @@ mod Windows {
                 class NavigationViewItemSeparator: NavigationViewItemBase {
                     INavigationViewItemSeparator,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(INavigationViewListFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11312,6 +11371,7 @@ mod Windows {
                     Always = 1,
                     Never = 2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(INavigationViewTemplateSettingsFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11339,6 +11399,7 @@ mod Windows {
                     Vertical = 0,
                     Horizontal = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IPageFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11349,6 +11410,7 @@ mod Windows {
                     IPage,
                     IPageOverrides,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IPanelFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11375,6 +11437,7 @@ mod Windows {
                     Absolute = 0,
                     Relative = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IParallaxViewFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11415,6 +11478,7 @@ mod Windows {
                     Hidden = 1,
                     Visible = 2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IPathIconFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11424,6 +11488,7 @@ mod Windows {
                 class PathIcon: IconElement {
                     IPathIcon,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IPathIconSourceFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11433,6 +11498,7 @@ mod Windows {
                 class PathIconSource: IconSource {
                     IPathIconSource,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IPersonPictureFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11467,6 +11533,7 @@ mod Windows {
                 class PickerFlyoutPresenter: ContentControl {
                     IPickerFlyoutPresenter,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IPivotFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11487,6 +11554,7 @@ mod Windows {
                     ItemHeaders = 0,
                     SelectedItemHeader = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IPivotItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11513,6 +11581,7 @@ mod Windows {
                     GroupTwo = 2,
                     GroupThree = 3,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IProgressBarFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11531,6 +11600,7 @@ mod Windows {
                 class ProgressRing: Control {
                     IProgressRing,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IRadioButtonFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11540,6 +11610,7 @@ mod Windows {
                 class RadioButton: Primitives::ToggleButton {
                     IRadioButton,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IRatingControlFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11549,6 +11620,7 @@ mod Windows {
                 class RatingControl: Control {
                     IRatingControl,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IRatingItemFontInfoFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11558,6 +11630,7 @@ mod Windows {
                 class RatingItemFontInfo: RatingItemInfo {
                     IRatingItemFontInfo,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IRatingItemImageInfoFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11567,6 +11640,7 @@ mod Windows {
                 class RatingItemImageInfo: RatingItemInfo {
                     IRatingItemImageInfo,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IRatingItemInfoFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11575,6 +11649,7 @@ mod Windows {
                 class RatingItemInfo: super::DependencyObject {
                     IRatingItemInfo,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IRefreshContainerFactory, Public, 393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11611,6 +11686,7 @@ mod Windows {
                 class RefreshStateChangedEventArgs {
                     IRefreshStateChangedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IRefreshVisualizerFactory, Public, 393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11639,6 +11715,7 @@ mod Windows {
                     Pending = 3,
                     Refreshing = 4,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IRelativePanelFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11658,6 +11735,7 @@ mod Windows {
                     WhenEngaged = 1,
                     WhenFocused = 2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IRichEditBoxFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11819,6 +11897,7 @@ mod Windows {
                 class ScrollViewerViewChangingEventArgs {
                     IScrollViewerViewChangingEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISearchBoxFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11854,6 +11933,7 @@ mod Windows {
                 class SearchBoxSuggestionsRequestedEventArgs {
                     ISearchBoxSuggestionsRequestedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISectionsInViewChangedEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11866,6 +11946,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 delegate fn SectionsInViewChangedEventHandler(sender: Object, e: SectionsInViewChangedEventArgs);
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISelectionChangedEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11916,6 +11997,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 delegate fn SemanticZoomViewChangedEventHandler(sender: Object, e: SemanticZoomViewChangedEventArgs);
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISettingsFlyoutFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11925,6 +12007,7 @@ mod Windows {
                 class SettingsFlyout: ContentControl {
                     ISettingsFlyout,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISliderFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11946,6 +12029,7 @@ mod Windows {
                     OptionalSingle = 3,
                     MandatorySingle = 4,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISplitButtonFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11955,6 +12039,7 @@ mod Windows {
                 class SplitButton: ContentControl {
                     ISplitButton,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISplitButtonAutomationPeerFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11971,6 +12056,7 @@ mod Windows {
                 class SplitButtonClickEventArgs {
                     ISplitButtonClickEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISplitViewFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12006,6 +12092,7 @@ mod Windows {
                     Left = 0,
                     Right = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IStackPanelFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12031,6 +12118,7 @@ mod Windows {
                     DownOnly = 1,
                     Both = 2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IStyleSelectorFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12040,6 +12128,7 @@ mod Windows {
                     IStyleSelector,
                     IStyleSelectorOverrides,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISwapChainBackgroundPanelFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12049,6 +12138,7 @@ mod Windows {
                     ISwapChainBackgroundPanel,
                     ISwapChainBackgroundPanel2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISwapChainPanelFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12066,6 +12156,7 @@ mod Windows {
                     Close = 1,
                     RemainOpen = 2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISwipeControlFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12075,6 +12166,7 @@ mod Windows {
                 class SwipeControl: ContentControl {
                     ISwipeControl,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISwipeItemFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12090,6 +12182,7 @@ mod Windows {
                 class SwipeItemInvokedEventArgs {
                     ISwipeItemInvokedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISwipeItemsFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12320,6 +12413,7 @@ mod Windows {
                 class SymbolIcon: IconElement {
                     ISymbolIcon,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ISymbolIconSourceFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12350,6 +12444,7 @@ mod Windows {
                     ITextBlock6,
                     ITextBlock7,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITextBoxFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12402,6 +12497,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 delegate fn TextChangedEventHandler(sender: Object, e: TextChangedEventArgs);
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITextCommandBarFlyoutFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12458,6 +12554,7 @@ mod Windows {
                 class TimePickedEventArgs: super::DependencyObject {
                     ITimePickedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITimePickerFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12502,6 +12599,7 @@ mod Windows {
                 class TimePickerValueChangedEventArgs {
                     ITimePickerValueChangedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IToggleMenuFlyoutItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12511,6 +12609,7 @@ mod Windows {
                 class ToggleMenuFlyoutItem: MenuFlyoutItem {
                     IToggleMenuFlyoutItem,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IToggleSplitButtonFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12519,6 +12618,7 @@ mod Windows {
                 class ToggleSplitButton: SplitButton {
                     IToggleSplitButton,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IToggleSplitButtonAutomationPeerFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12546,6 +12646,7 @@ mod Windows {
                     IToggleSwitch,
                     IToggleSwitchOverrides,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IToolTipFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12565,6 +12666,7 @@ mod Windows {
                 class ToolTipService {
                     IToolTipService,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITreeViewFactory, Public, 393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12602,6 +12704,7 @@ mod Windows {
                     ITreeViewExpandingEventArgs,
                     ITreeViewExpandingEventArgs2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITreeViewItemFactory, Public, 393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12619,6 +12722,7 @@ mod Windows {
                 class TreeViewItemInvokedEventArgs {
                     ITreeViewItemInvokedEventArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITreeViewItemTemplateSettingsFactory, Public, 393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12628,6 +12732,7 @@ mod Windows {
                 class TreeViewItemTemplateSettings: super::DependencyObject {
                     ITreeViewItemTemplateSettings,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITreeViewListFactory, Public, 393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12636,6 +12741,7 @@ mod Windows {
                 class TreeViewList: ListView {
                     ITreeViewList,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITreeViewNodeFactory, Public, 393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12654,6 +12760,7 @@ mod Windows {
                     Single = 1,
                     Multiple = 2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITwoPaneViewFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12702,6 +12809,7 @@ mod Windows {
                     IUIElementCollection,
                     super::super::super::Foundation::Collections::IIterable<super::UIElement>,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IUserControlFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -12738,6 +12846,7 @@ mod Windows {
                     Standard = 0,
                     Recycling = 1,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IVirtualizingPanelFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

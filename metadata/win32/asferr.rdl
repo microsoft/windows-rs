@@ -44,5 +44,6 @@ mod Windows {
         const ASF_E_WRITEFAILED: HRESULT = -1072887800;
         const ASF_E_WRONGVERSION: HRESULT = -1072887826;
         const ASF_S_OPAQUEPACKET: HRESULT = 854000;
+        const FACILITY_NS: i32 = 13;
     }
 }

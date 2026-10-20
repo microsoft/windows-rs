@@ -35,8 +35,6 @@ struct MenuThemeState {
     mode: MenuTheme,
     applied: Cell<ElementTheme>,
     refresh_pending: Cell<bool>,
-    #[cfg(test)]
-    reader: RefCell<Option<Rc<dyn Fn() -> windows_core::Result<ElementTheme>>>>,
 }
 
 struct ActiveMenu {
@@ -68,8 +66,6 @@ impl TransientMenuHost {
             mode: theme,
             applied: Cell::new(ElementTheme::Default),
             refresh_pending: Cell::new(false),
-            #[cfg(test)]
-            reader: RefCell::new(None),
         });
         let message_theme = Rc::downgrade(&theme);
         let message_dispatcher = dispatcher.clone();
@@ -103,7 +99,6 @@ impl TransientMenuHost {
         source.SetContent(&root)?;
         source
             .SiteBridge()?
-            .cast::<IDesktopChildSiteBridge>()?
             .SetResizePolicy(ContentSizePolicy::ResizeContentToParentWindow)?;
 
         let state = Rc::new(RefCell::new(TransientMenuState {
@@ -170,19 +165,11 @@ fn theme_preference(status: i32, value: u32) -> windows_core::Result<ElementThem
 }
 
 impl MenuThemeState {
-    fn read(&self) -> windows_core::Result<ElementTheme> {
-        #[cfg(test)]
-        if let Some(reader) = self.reader.borrow().clone() {
-            return reader();
-        }
-        system_theme()
-    }
-
     fn refresh(&self) -> windows_core::Result<()> {
         if self.mode != MenuTheme::System {
             return Ok(());
         }
-        let theme = self.read()?;
+        let theme = system_theme()?;
         // Record the in-flight theme before native code can reenter. Setter failures terminate
         // the application rather than retrying.
         if self.applied.replace(theme) != theme {

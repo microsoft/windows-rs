@@ -7,31 +7,30 @@ mod Windows {
         const MS_OS_STRING_SIGNATURE: String = "MSFT100";
         const MS_POWER_DESCRIPTOR_INDEX: i32 = 2;
         struct OS_STRING {
-            bLength: UCHAR,
-            bDescriptorType: UCHAR,
-            MicrosoftString: [WCHAR; 7],
-            bVendorCode: UCHAR,
+            bLength: u8,
+            bDescriptorType: u8,
+            MicrosoftString: [u16; 7],
+            bVendorCode: u8,
             Anonymous: union {
-                bPad: UCHAR,
-                bFlags: UCHAR,
+                bPad: u8,
+                bFlags: u8,
             },
         }
         const OS_STRING_DESCRIPTOR_INDEX: i32 = 238;
+        type PHYSICAL_ADDRESS = LARGE_INTEGER;
         type PIRP = *mut void;
         type PMDL = *mut void;
         type POS_STRING = *mut OS_STRING;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "UrbHeader.Length", "UrbHeader.Length")]
         type PURB = *mut URB;
         type PUSBD_DEVICE_INFORMATION = *mut USBD_DEVICE_INFORMATION;
-        type PUSBD_ENDPOINT_OFFLOAD_INFORMATION = *mut _USBD_ENDPOINT_OFFLOAD_INFORMATION;
+        type PUSBD_ENDPOINT_OFFLOAD_INFORMATION = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION;
         type PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V1 = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION_V1;
-        type PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = *mut _USBD_ENDPOINT_OFFLOAD_INFORMATION;
+        type PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION;
         type PUSBD_INTERFACE_INFORMATION = *mut USBD_INTERFACE_INFORMATION;
         type PUSBD_ISO_PACKET_DESCRIPTOR = *mut USBD_ISO_PACKET_DESCRIPTOR;
         type PUSBD_PIPE_INFORMATION = *mut USBD_PIPE_INFORMATION;
         type PUSBD_STREAM_INFORMATION = *mut USBD_STREAM_INFORMATION;
         type PUSBD_VERSION_INFORMATION = *mut USBD_VERSION_INFORMATION;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "UrbHeader.Length", "UrbHeader.Length", TypedefName = "URB")]
         struct URB {
             Anonymous: union {
                 UrbHeader: _URB_HEADER,
@@ -122,38 +121,73 @@ mod Windows {
         const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295;
         const USBD_DEFAULT_PIPE_TRANSFER: i32 = 8;
         struct USBD_DEVICE_INFORMATION {
-            OffsetNext: ULONG,
-            UsbdDeviceHandle: PVOID,
+            OffsetNext: u32,
+            UsbdDeviceHandle: *mut void,
             DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
         }
-        type USBD_ENDPOINT_OFFLOAD_INFORMATION = _USBD_ENDPOINT_OFFLOAD_INFORMATION;
+        #[packed(1)]
+        struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
+            Size: u32,
+            EndpointAddress: u16,
+            ResourceId: u32,
+            Mode: USBD_ENDPOINT_OFFLOAD_MODE,
+            _bitfield1: u32 {
+                RootHubPortNumber: 8,
+                RouteString: 20,
+                Speed: 4,
+            },
+            _bitfield2: u32 {
+                UsbDeviceAddress: 8,
+                SlotId: 8,
+                MultiTT: 1,
+                LSOrFSDeviceConnectedToTTHub: 1,
+                Reserved0: 14,
+            },
+            TransferSegmentLA: PHYSICAL_ADDRESS,
+            TransferSegmentVA: *mut void,
+            TransferRingSize: usize,
+            TransferRingInitialCycleBit: u32,
+            MessageNumber: u32,
+            EventRingSegmentLA: PHYSICAL_ADDRESS,
+            EventRingSegmentVA: *mut void,
+            EventRingSize: usize,
+            EventRingInitialCycleBit: u32,
+            ClientTransferRingSegmentPAIn: PHYSICAL_ADDRESS,
+            ClientTransferRingSizeIn: usize,
+            ClientDataBufferPAIn: PHYSICAL_ADDRESS,
+            ClientDataBufferSizeIn: usize,
+            ClientDataBufferLAOut: PHYSICAL_ADDRESS,
+            ClientDataBufferVAOut: *mut void,
+        }
         #[packed(1)]
         struct USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
-            Size: ULONG,
-            EndpointAddress: USHORT,
-            ResourceId: ULONG,
+            Size: u32,
+            EndpointAddress: u16,
+            ResourceId: u32,
             Mode: USBD_ENDPOINT_OFFLOAD_MODE,
-            #[Windows::Win32::Metadata::NativeBitfield("RootHubPortNumber", 0, 8, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("RouteString", 8, 20, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("Speed", 28, 4, MemberType = ULONG)]
-            _bitfield1: u32,
-            #[Windows::Win32::Metadata::NativeBitfield("LSOrFSDeviceConnectedToTTHub", 17, 1, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("MultiTT", 16, 1, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 18, 14, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("SlotId", 8, 8, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("UsbDeviceAddress", 0, 8, MemberType = ULONG)]
-            _bitfield2: u32,
+            _bitfield1: u32 {
+                RootHubPortNumber: 8,
+                RouteString: 20,
+                Speed: 4,
+            },
+            _bitfield2: u32 {
+                UsbDeviceAddress: 8,
+                SlotId: 8,
+                MultiTT: 1,
+                LSOrFSDeviceConnectedToTTHub: 1,
+                Reserved0: 14,
+            },
             TransferSegmentLA: PHYSICAL_ADDRESS,
-            TransferSegmentVA: PVOID,
-            TransferRingSize: size_t,
-            TransferRingInitialCycleBit: ULONG,
-            MessageNumber: ULONG,
+            TransferSegmentVA: *mut void,
+            TransferRingSize: usize,
+            TransferRingInitialCycleBit: u32,
+            MessageNumber: u32,
             EventRingSegmentLA: PHYSICAL_ADDRESS,
-            EventRingSegmentVA: PVOID,
-            EventRingSize: size_t,
-            EventRingInitialCycleBit: ULONG,
+            EventRingSegmentVA: *mut void,
+            EventRingSize: usize,
+            EventRingInitialCycleBit: u32,
         }
-        type USBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = _USBD_ENDPOINT_OFFLOAD_INFORMATION;
+        type USBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = USBD_ENDPOINT_OFFLOAD_INFORMATION;
         #[repr(i32)]
         enum USBD_ENDPOINT_OFFLOAD_MODE {
             UsbdEndpointOffloadModeNotSupported = 0,
@@ -162,20 +196,20 @@ mod Windows {
         }
         type USBD_INTERFACE_HANDLE = *mut void;
         struct USBD_INTERFACE_INFORMATION {
-            Length: USHORT,
-            InterfaceNumber: UCHAR,
-            AlternateSetting: UCHAR,
-            Class: UCHAR,
-            SubClass: UCHAR,
-            Protocol: UCHAR,
-            Reserved: UCHAR,
+            Length: u16,
+            InterfaceNumber: u8,
+            AlternateSetting: u8,
+            Class: u8,
+            SubClass: u8,
+            Protocol: u8,
+            Reserved: u8,
             InterfaceHandle: USBD_INTERFACE_HANDLE,
-            NumberOfPipes: ULONG,
+            NumberOfPipes: u32,
             Pipes: [USBD_PIPE_INFORMATION; 1],
         }
         struct USBD_ISO_PACKET_DESCRIPTOR {
-            Offset: ULONG,
-            Length: ULONG,
+            Offset: u32,
+            Length: u32,
             Status: USBD_STATUS,
         }
         const USBD_ISO_START_FRAME_RANGE: i32 = 1024;
@@ -192,13 +226,13 @@ mod Windows {
         const USBD_PF_VOICE_PRIORITY: i32 = 32;
         type USBD_PIPE_HANDLE = *mut void;
         struct USBD_PIPE_INFORMATION {
-            MaximumPacketSize: USHORT,
-            EndpointAddress: UCHAR,
-            Interval: UCHAR,
+            MaximumPacketSize: u16,
+            EndpointAddress: u8,
+            Interval: u8,
             PipeType: USBD_PIPE_TYPE,
             PipeHandle: USBD_PIPE_HANDLE,
-            MaximumTransferSize: ULONG,
-            PipeFlags: ULONG,
+            MaximumTransferSize: u32,
+            PipeFlags: u32,
         }
         #[repr(i32)]
         enum USBD_PIPE_TYPE {
@@ -275,16 +309,16 @@ mod Windows {
         const USBD_STATUS_XACT_ERROR: USBD_STATUS = -1073741807;
         struct USBD_STREAM_INFORMATION {
             PipeHandle: USBD_PIPE_HANDLE,
-            StreamID: ULONG,
-            MaximumTransferSize: ULONG,
-            PipeFlags: ULONG,
+            StreamID: u32,
+            MaximumTransferSize: u32,
+            PipeFlags: u32,
         }
         const USBD_TRANSFER_DIRECTION: i32 = 1;
         const USBD_TRANSFER_DIRECTION_IN: i32 = 1;
         const USBD_TRANSFER_DIRECTION_OUT: i32 = 0;
         struct USBD_VERSION_INFORMATION {
-            USBDI_Version: ULONG,
-            Supported_USB_Version: ULONG,
+            USBDI_Version: u32,
+            Supported_USB_Version: u32,
         }
         #[repr(i32)]
         enum USB_CONTROLLER_FLAVOR {
@@ -329,188 +363,189 @@ mod Windows {
         struct _URB_BULK_OR_INTERRUPT_TRANSFER {
             Hdr: _URB_HEADER,
             PipeHandle: USBD_PIPE_HANDLE,
-            TransferFlags: ULONG,
-            TransferBufferLength: ULONG,
-            TransferBuffer: PVOID,
+            TransferFlags: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
             TransferBufferMDL: PMDL,
             UrbLink: *mut URB,
             hca: _URB_HCD_AREA,
         }
         struct _URB_CONTROL_DESCRIPTOR_REQUEST {
             Hdr: _URB_HEADER,
-            Reserved: PVOID,
-            Reserved0: ULONG,
-            TransferBufferLength: ULONG,
-            TransferBuffer: PVOID,
+            Reserved: *mut void,
+            Reserved0: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
             TransferBufferMDL: PMDL,
             UrbLink: *mut URB,
             hca: _URB_HCD_AREA,
-            Reserved1: USHORT,
-            Index: UCHAR,
-            DescriptorType: UCHAR,
-            LanguageId: USHORT,
-            Reserved2: USHORT,
+            Reserved1: u16,
+            Index: u8,
+            DescriptorType: u8,
+            LanguageId: u16,
+            Reserved2: u16,
         }
         struct _URB_CONTROL_FEATURE_REQUEST {
             Hdr: _URB_HEADER,
-            Reserved: PVOID,
-            Reserved2: ULONG,
-            Reserved3: ULONG,
-            Reserved4: PVOID,
+            Reserved: *mut void,
+            Reserved2: u32,
+            Reserved3: u32,
+            Reserved4: *mut void,
             Reserved5: PMDL,
             UrbLink: *mut URB,
             hca: _URB_HCD_AREA,
-            Reserved0: USHORT,
-            FeatureSelector: USHORT,
-            Index: USHORT,
-            Reserved1: USHORT,
+            Reserved0: u16,
+            FeatureSelector: u16,
+            Index: u16,
+            Reserved1: u16,
         }
         struct _URB_CONTROL_GET_CONFIGURATION_REQUEST {
             Hdr: _URB_HEADER,
-            Reserved: PVOID,
-            Reserved0: ULONG,
-            TransferBufferLength: ULONG,
-            TransferBuffer: PVOID,
+            Reserved: *mut void,
+            Reserved0: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
             TransferBufferMDL: PMDL,
             UrbLink: *mut URB,
             hca: _URB_HCD_AREA,
-            Reserved1: [UCHAR; 8],
+            Reserved1: [u8; 8],
         }
         struct _URB_CONTROL_GET_INTERFACE_REQUEST {
             Hdr: _URB_HEADER,
-            Reserved: PVOID,
-            Reserved0: ULONG,
-            TransferBufferLength: ULONG,
-            TransferBuffer: PVOID,
+            Reserved: *mut void,
+            Reserved0: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
             TransferBufferMDL: PMDL,
             UrbLink: *mut URB,
             hca: _URB_HCD_AREA,
-            Reserved1: [UCHAR; 4],
-            Interface: USHORT,
-            Reserved2: USHORT,
+            Reserved1: [u8; 4],
+            Interface: u16,
+            Reserved2: u16,
         }
         struct _URB_CONTROL_GET_STATUS_REQUEST {
             Hdr: _URB_HEADER,
-            Reserved: PVOID,
-            Reserved0: ULONG,
-            TransferBufferLength: ULONG,
-            TransferBuffer: PVOID,
+            Reserved: *mut void,
+            Reserved0: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
             TransferBufferMDL: PMDL,
             UrbLink: *mut URB,
             hca: _URB_HCD_AREA,
-            Reserved1: [UCHAR; 4],
-            Index: USHORT,
-            Reserved2: USHORT,
+            Reserved1: [u8; 4],
+            Index: u16,
+            Reserved2: u16,
         }
         struct _URB_CONTROL_TRANSFER {
             Hdr: _URB_HEADER,
             PipeHandle: USBD_PIPE_HANDLE,
-            TransferFlags: ULONG,
-            TransferBufferLength: ULONG,
-            TransferBuffer: PVOID,
+            TransferFlags: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
             TransferBufferMDL: PMDL,
             UrbLink: *mut URB,
             hca: _URB_HCD_AREA,
-            SetupPacket: [UCHAR; 8],
+            SetupPacket: [u8; 8],
         }
         struct _URB_CONTROL_TRANSFER_EX {
             Hdr: _URB_HEADER,
             PipeHandle: USBD_PIPE_HANDLE,
-            TransferFlags: ULONG,
-            TransferBufferLength: ULONG,
-            TransferBuffer: PVOID,
+            TransferFlags: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
             TransferBufferMDL: PMDL,
-            Timeout: ULONG,
+            Timeout: u32,
             hca: _URB_HCD_AREA,
-            SetupPacket: [UCHAR; 8],
+            SetupPacket: [u8; 8],
         }
         struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
             Hdr: _URB_HEADER,
-            Reserved: PVOID,
-            TransferFlags: ULONG,
-            TransferBufferLength: ULONG,
-            TransferBuffer: PVOID,
+            Reserved: *mut void,
+            TransferFlags: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
             TransferBufferMDL: PMDL,
             UrbLink: *mut URB,
             hca: _URB_HCD_AREA,
-            RequestTypeReservedBits: UCHAR,
-            Request: UCHAR,
-            Value: USHORT,
-            Index: USHORT,
-            Reserved1: USHORT,
+            RequestTypeReservedBits: u8,
+            Request: u8,
+            Value: u16,
+            Index: u16,
+            Reserved1: u16,
         }
         struct _URB_FRAME_LENGTH_CONTROL {
             Hdr: _URB_HEADER,
         }
         struct _URB_GET_CURRENT_FRAME_NUMBER {
             Hdr: _URB_HEADER,
-            FrameNumber: ULONG,
+            FrameNumber: u32,
         }
         struct _URB_GET_FRAME_LENGTH {
             Hdr: _URB_HEADER,
-            FrameLength: ULONG,
-            FrameNumber: ULONG,
+            FrameLength: u32,
+            FrameNumber: u32,
         }
         struct _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
             Hdr: _URB_HEADER,
             PipeHandle: USBD_PIPE_HANDLE,
-            MaximumSendPathDelayInMilliSeconds: ULONG,
-            MaximumCompletionPathDelayInMilliSeconds: ULONG,
+            MaximumSendPathDelayInMilliSeconds: u32,
+            MaximumCompletionPathDelayInMilliSeconds: u32,
         }
         struct _URB_HCD_AREA {
-            Reserved8: [PVOID; 8],
+            Reserved8: [*mut void; 8],
         }
         struct _URB_HEADER {
-            Length: USHORT,
-            Function: USHORT,
+            Length: u16,
+            Function: u16,
             Status: USBD_STATUS,
-            UsbdDeviceHandle: PVOID,
-            UsbdFlags: ULONG,
+            UsbdDeviceHandle: *mut void,
+            UsbdFlags: u32,
         }
         struct _URB_ISOCH_TRANSFER {
             Hdr: _URB_HEADER,
             PipeHandle: USBD_PIPE_HANDLE,
-            TransferFlags: ULONG,
-            TransferBufferLength: ULONG,
-            TransferBuffer: PVOID,
+            TransferFlags: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
             TransferBufferMDL: PMDL,
             UrbLink: *mut URB,
             hca: _URB_HCD_AREA,
-            StartFrame: ULONG,
-            NumberOfPackets: ULONG,
-            ErrorCount: ULONG,
+            StartFrame: u32,
+            NumberOfPackets: u32,
+            ErrorCount: u32,
             IsoPacket: [USBD_ISO_PACKET_DESCRIPTOR; 1],
         }
         struct _URB_OPEN_STATIC_STREAMS {
             Hdr: _URB_HEADER,
             PipeHandle: USBD_PIPE_HANDLE,
-            NumberOfStreams: ULONG,
-            StreamInfoVersion: USHORT,
-            StreamInfoSize: USHORT,
+            NumberOfStreams: u32,
+            StreamInfoVersion: u16,
+            StreamInfoSize: u16,
             Streams: PUSBD_STREAM_INFORMATION,
         }
         struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
             Hdr: _URB_HEADER,
-            Reserved: PVOID,
-            Reserved0: ULONG,
-            TransferBufferLength: ULONG,
-            TransferBuffer: PVOID,
+            Reserved: *mut void,
+            Reserved0: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
             TransferBufferMDL: PMDL,
             UrbLink: *mut URB,
             hca: _URB_HCD_AREA,
-            #[Windows::Win32::Metadata::NativeBitfield("Recipient", 0, 5, MemberType = UCHAR)]
-            #[Windows::Win32::Metadata::NativeBitfield("Reserved1", 5, 3, MemberType = UCHAR)]
-            _bitfield: u8,
-            Reserved2: UCHAR,
-            InterfaceNumber: UCHAR,
-            MS_PageIndex: UCHAR,
-            MS_FeatureDescriptorIndex: USHORT,
-            Reserved3: USHORT,
+            _bitfield: u8 {
+                Recipient: 5,
+                Reserved1: 3,
+            },
+            Reserved2: u8,
+            InterfaceNumber: u8,
+            MS_PageIndex: u8,
+            MS_FeatureDescriptorIndex: u16,
+            Reserved3: u16,
         }
         struct _URB_PIPE_REQUEST {
             Hdr: _URB_HEADER,
             PipeHandle: USBD_PIPE_HANDLE,
-            Reserved: ULONG,
+            Reserved: u32,
         }
         struct _URB_SELECT_CONFIGURATION {
             Hdr: _URB_HEADER,
@@ -525,39 +560,7 @@ mod Windows {
         }
         struct _URB_SET_FRAME_LENGTH {
             Hdr: _URB_HEADER,
-            FrameLengthDelta: LONG,
-        }
-        #[packed(1)]
-        struct _USBD_ENDPOINT_OFFLOAD_INFORMATION {
-            Size: ULONG,
-            EndpointAddress: USHORT,
-            ResourceId: ULONG,
-            Mode: USBD_ENDPOINT_OFFLOAD_MODE,
-            #[Windows::Win32::Metadata::NativeBitfield("RootHubPortNumber", 0, 8, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("RouteString", 8, 20, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("Speed", 28, 4, MemberType = ULONG)]
-            _bitfield1: u32,
-            #[Windows::Win32::Metadata::NativeBitfield("LSOrFSDeviceConnectedToTTHub", 17, 1, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("MultiTT", 16, 1, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("Reserved0", 18, 14, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("SlotId", 8, 8, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("UsbDeviceAddress", 0, 8, MemberType = ULONG)]
-            _bitfield2: u32,
-            TransferSegmentLA: PHYSICAL_ADDRESS,
-            TransferSegmentVA: PVOID,
-            TransferRingSize: size_t,
-            TransferRingInitialCycleBit: ULONG,
-            MessageNumber: ULONG,
-            EventRingSegmentLA: PHYSICAL_ADDRESS,
-            EventRingSegmentVA: PVOID,
-            EventRingSize: size_t,
-            EventRingInitialCycleBit: ULONG,
-            ClientTransferRingSegmentPAIn: PHYSICAL_ADDRESS,
-            ClientTransferRingSizeIn: size_t,
-            ClientDataBufferPAIn: PHYSICAL_ADDRESS,
-            ClientDataBufferSizeIn: size_t,
-            ClientDataBufferLAOut: PHYSICAL_ADDRESS,
-            ClientDataBufferVAOut: PVOID,
+            FrameLengthDelta: i32,
         }
     }
 }

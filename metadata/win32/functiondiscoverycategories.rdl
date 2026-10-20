@@ -45,7 +45,5 @@ mod Windows {
         const FCTN_SUBCAT_REG_PUBLICATION: String = "Publication";
         #[encoding("utf-16")]
         const FD_SUBKEY: String = "SOFTWARE\\Microsoft\\Function Discovery\\";
-        #[encoding("utf-16")]
-        const FD_SUBKEY_CATEGORIES: String = "SOFTWARE\\Microsoft\\Function Discovery\\Categories\\";
     }
 }

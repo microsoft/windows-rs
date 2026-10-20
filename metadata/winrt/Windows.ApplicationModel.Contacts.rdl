@@ -1299,18 +1299,18 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(KnownContactField)]
             interface IKnownContactFieldStatics {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_Email(&self) -> String;
-                #[special]
+                Email: String;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_PhoneNumber(&self) -> String;
-                #[special]
+                PhoneNumber: String;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_Location(&self) -> String;
-                #[special]
+                Location: String;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_InstantMessage(&self) -> String;
+                InstantMessage: String;
                 #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 fn ConvertNameToType(&self, name: String) -> ContactFieldType;
                 #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]

@@ -847,12 +847,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("DeviceManufacturerNotificationTrigger is deprecated and might not work on all platforms", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(DeviceManufacturerNotificationTrigger)]
             interface IDeviceManufacturerNotificationTrigger: IBackgroundTrigger {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("DeviceManufacturerNotificationTrigger is deprecated and might not work on all platforms", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
-                fn get_TriggerQualifier(&self) -> String;
-                #[special]
+                TriggerQualifier: String;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("DeviceManufacturerNotificationTrigger is deprecated and might not work on all platforms", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
-                fn get_OneShot(&self) -> bool;
+                OneShot: bool;
             }
             #[guid(0x7955de75_25bb_4153_a1a2_3029fcabb652)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

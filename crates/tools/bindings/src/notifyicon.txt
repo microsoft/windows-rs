@@ -23,10 +23,8 @@
     NIN_SELECT
     NOTIFYICON_VERSION_4
     NOTIFYICONDATAW
-    NOTIFYICONIDENTIFIER
     POINT
     RegisterWindowMessageW
-    Shell_NotifyIconGetRect
     Shell_NotifyIconW
     SM_CXSMICON
     SM_CYSMICON

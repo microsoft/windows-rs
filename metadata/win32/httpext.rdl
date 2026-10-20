@@ -3,80 +3,80 @@ mod Windows {
     mod Win32 {
         struct CERT_CONTEXT_EX {
             CertContext: CERT_CONTEXT,
-            cbAllocated: DWORD,
-            dwCertificateFlags: DWORD,
+            cbAllocated: u32,
+            dwCertificateFlags: u32,
         }
         struct EXTENSION_CONTROL_BLOCK {
-            cbSize: DWORD,
-            dwVersion: DWORD,
+            cbSize: u32,
+            dwVersion: u32,
             ConnID: HCONN,
-            dwHttpStatusCode: DWORD,
-            lpszLogData: [CHAR; 80],
-            lpszMethod: LPSTR,
-            lpszQueryString: LPSTR,
-            lpszPathInfo: LPSTR,
-            lpszPathTranslated: LPSTR,
-            cbTotalBytes: DWORD,
-            cbAvailable: DWORD,
+            dwHttpStatusCode: u32,
+            lpszLogData: [i8; 80],
+            lpszMethod: PSTR,
+            lpszQueryString: PSTR,
+            lpszPathInfo: PSTR,
+            lpszPathTranslated: PSTR,
+            cbTotalBytes: u32,
+            cbAvailable: u32,
             lpbData: LPBYTE,
-            lpszContentType: LPSTR,
-            GetServerVariable: extern fn(HCONN, LPSTR, LPVOID, LPDWORD) -> BOOL,
-            WriteClient: extern fn(HCONN, LPVOID, LPDWORD, DWORD) -> BOOL,
-            ReadClient: extern fn(HCONN, LPVOID, LPDWORD) -> BOOL,
-            ServerSupportFunction: extern fn(HCONN, DWORD, LPVOID, LPDWORD, LPDWORD) -> BOOL,
+            lpszContentType: PSTR,
+            GetServerVariable: *mut u8,
+            WriteClient: *mut u8,
+            ReadClient: *mut u8,
+            ServerSupportFunction: *mut u8,
         }
         #[library("RpcProxy.dll")]
-        extern fn GetExtensionVersion(#[out] pVer: *mut HSE_VERSION_INFO) -> BOOL;
+        extern fn GetExtensionVersion(pVer: *mut HSE_VERSION_INFO) -> BOOL;
         type HCONN = *mut void;
         const HSE_APPEND_LOG_PARAMETER: i32 = 1003;
         const HSE_APP_FLAG_IN_PROCESS: i32 = 0;
         const HSE_APP_FLAG_ISOLATED_OOP: i32 = 1;
         const HSE_APP_FLAG_POOLED_OOP: i32 = 2;
         struct HSE_CUSTOM_ERROR_INFO {
-            pszStatus: *mut CHAR,
-            uHttpSubError: USHORT,
+            pszStatus: *mut i8,
+            uHttpSubError: u16,
             fAsync: BOOL,
         }
         struct HSE_EXEC_UNICODE_URL_INFO {
-            pszUrl: LPWSTR,
-            pszMethod: LPSTR,
-            pszChildHeaders: LPSTR,
+            pszUrl: PWSTR,
+            pszMethod: PSTR,
+            pszChildHeaders: PSTR,
             pUserInfo: LPHSE_EXEC_UNICODE_URL_USER_INFO,
             pEntity: LPHSE_EXEC_URL_ENTITY_INFO,
-            dwExecUrlFlags: DWORD,
+            dwExecUrlFlags: u32,
         }
         struct HSE_EXEC_UNICODE_URL_USER_INFO {
             hImpersonationToken: HANDLE,
-            pszCustomUserName: LPWSTR,
-            pszCustomAuthType: LPSTR,
+            pszCustomUserName: PWSTR,
+            pszCustomAuthType: PSTR,
         }
         const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: i32 = 32;
         struct HSE_EXEC_URL_ENTITY_INFO {
-            cbAvailable: DWORD,
-            lpbData: LPVOID,
+            cbAvailable: u32,
+            lpbData: *mut void,
         }
         const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: i32 = 128;
         const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: i32 = 4;
         const HSE_EXEC_URL_IGNORE_VALIDATION_AND_RANGE: i32 = 16;
         struct HSE_EXEC_URL_INFO {
-            pszUrl: LPSTR,
-            pszMethod: LPSTR,
-            pszChildHeaders: LPSTR,
+            pszUrl: PSTR,
+            pszMethod: PSTR,
+            pszChildHeaders: PSTR,
             pUserInfo: LPHSE_EXEC_URL_USER_INFO,
             pEntity: LPHSE_EXEC_URL_ENTITY_INFO,
-            dwExecUrlFlags: DWORD,
+            dwExecUrlFlags: u32,
         }
         const HSE_EXEC_URL_NO_HEADERS: i32 = 2;
         const HSE_EXEC_URL_SSI_CMD: i32 = 64;
         struct HSE_EXEC_URL_STATUS {
-            uHttpStatusCode: USHORT,
-            uHttpSubStatus: USHORT,
-            dwWin32Error: DWORD,
+            uHttpStatusCode: u16,
+            uHttpSubStatus: u16,
+            dwWin32Error: u32,
         }
         struct HSE_EXEC_URL_USER_INFO {
             hImpersonationToken: HANDLE,
-            pszCustomUserName: LPSTR,
-            pszCustomAuthType: LPSTR,
+            pszCustomUserName: PSTR,
+            pszCustomAuthType: PSTR,
         }
         const HSE_IO_ASYNC: i32 = 2;
         const HSE_IO_CACHE_RESPONSE: i32 = 32;
@@ -131,17 +131,17 @@ mod Windows {
         const HSE_REQ_TRANSMIT_FILE: i32 = 1006;
         const HSE_REQ_VECTOR_SEND: i32 = 1037;
         struct HSE_RESPONSE_VECTOR {
-            dwFlags: DWORD,
-            pszStatus: LPSTR,
-            pszHeaders: LPSTR,
-            nElementCount: DWORD,
+            dwFlags: u32,
+            pszStatus: PSTR,
+            pszHeaders: PSTR,
+            nElementCount: u32,
             lpElementArray: LPHSE_VECTOR_ELEMENT,
         }
         struct HSE_SEND_HEADER_EX_INFO {
-            pszStatus: LPCSTR,
-            pszHeader: LPCSTR,
-            cchStatus: DWORD,
-            cchHeader: DWORD,
+            pszStatus: PCSTR,
+            pszHeader: PCSTR,
+            cchStatus: u32,
+            cchHeader: u32,
             fKeepConn: BOOL,
         }
         const HSE_STATUS_ERROR: i32 = 4;
@@ -152,28 +152,28 @@ mod Windows {
         const HSE_TERM_MUST_UNLOAD: i32 = 2;
         struct HSE_TF_INFO {
             pfnHseIO: PFN_HSE_IO_COMPLETION,
-            pContext: PVOID,
+            pContext: *mut void,
             hFile: HANDLE,
-            pszStatusCode: LPCSTR,
-            BytesToWrite: DWORD,
-            Offset: DWORD,
-            pHead: PVOID,
-            HeadLength: DWORD,
-            pTail: PVOID,
-            TailLength: DWORD,
-            dwFlags: DWORD,
+            pszStatusCode: PCSTR,
+            BytesToWrite: u32,
+            Offset: u32,
+            pHead: *mut void,
+            HeadLength: u32,
+            pTail: *mut void,
+            TailLength: u32,
+            dwFlags: u32,
         }
         struct HSE_TRACE_INFO {
             fTraceRequest: BOOL,
-            TraceContextId: [BYTE; 16],
-            dwReserved1: DWORD,
-            dwReserved2: DWORD,
+            TraceContextId: [u8; 16],
+            dwReserved1: u32,
+            dwReserved2: u32,
         }
         struct HSE_UNICODE_URL_MAPEX_INFO {
-            lpszPath: [WCHAR; 260],
-            dwFlags: DWORD,
-            cchMatchingPath: DWORD,
-            cchMatchingURL: DWORD,
+            lpszPath: [u16; 260],
+            dwFlags: u32,
+            cchMatchingPath: u32,
+            cchMatchingURL: u32,
         }
         const HSE_URL_FLAGS_DONT_CACHE: i32 = 16;
         const HSE_URL_FLAGS_EXECUTE: i32 = 4;
@@ -187,30 +187,30 @@ mod Windows {
         const HSE_URL_FLAGS_SSL128: i32 = 256;
         const HSE_URL_FLAGS_WRITE: i32 = 2;
         struct HSE_URL_MAPEX_INFO {
-            lpszPath: [CHAR; 260],
-            dwFlags: DWORD,
-            cchMatchingPath: DWORD,
-            cchMatchingURL: DWORD,
-            dwReserved1: DWORD,
-            dwReserved2: DWORD,
+            lpszPath: [i8; 260],
+            dwFlags: u32,
+            cchMatchingPath: u32,
+            cchMatchingURL: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
         }
         struct HSE_VECTOR_ELEMENT {
-            ElementType: DWORD,
-            pvContext: PVOID,
-            cbOffset: ULONGLONG,
-            cbSize: ULONGLONG,
+            ElementType: u32,
+            pvContext: *mut void,
+            cbOffset: u64,
+            cbSize: u64,
         }
         const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: i32 = 1;
         const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: i32 = 0;
-        const HSE_VERSION: LONG = 524288;
+        const HSE_VERSION: i32 = 524288;
         struct HSE_VERSION_INFO {
-            dwExtensionVersion: DWORD,
-            lpszExtensionDesc: [CHAR; 256],
+            dwExtensionVersion: u32,
+            lpszExtensionDesc: [i8; 256],
         }
         const HSE_VERSION_MAJOR: i32 = 8;
         const HSE_VERSION_MINOR: i32 = 0;
         #[library("RpcProxy.dll")]
-        extern fn HttpExtensionProc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pECB: *mut EXTENSION_CONTROL_BLOCK) -> DWORD;
+        extern fn HttpExtensionProc(#[in] pECB: *mut EXTENSION_CONTROL_BLOCK) -> u32;
         type LPEXTENSION_CONTROL_BLOCK = *mut EXTENSION_CONTROL_BLOCK;
         type LPHSE_CUSTOM_ERROR_INFO = *mut HSE_CUSTOM_ERROR_INFO;
         type LPHSE_EXEC_UNICODE_URL_INFO = *mut HSE_EXEC_UNICODE_URL_INFO;
@@ -228,10 +228,10 @@ mod Windows {
         type LPHSE_VECTOR_ELEMENT = *mut HSE_VECTOR_ELEMENT;
         type LPHSE_VERSION_INFO = *mut HSE_VERSION_INFO;
         extern fn PFN_GETEXTENSIONVERSION(pVer: *mut HSE_VERSION_INFO) -> BOOL;
-        extern fn PFN_HSE_CACHE_INVALIDATION_CALLBACK(pszUrl: *mut WCHAR) -> HRESULT;
-        extern fn PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK(pszProtocolManagerDll: LPCWSTR, pszProtocolManagerDllInitFunction: LPCWSTR, dwCustomInterfaceId: DWORD, ppCustomInterface: *mut PVOID) -> HRESULT;
-        extern fn PFN_HSE_IO_COMPLETION(pECB: *mut EXTENSION_CONTROL_BLOCK, pContext: PVOID, cbIO: DWORD, dwError: DWORD);
-        extern fn PFN_HTTPEXTENSIONPROC(pECB: *mut EXTENSION_CONTROL_BLOCK) -> DWORD;
-        extern fn PFN_TERMINATEEXTENSION(dwFlags: DWORD) -> BOOL;
+        extern fn PFN_HSE_CACHE_INVALIDATION_CALLBACK(pszUrl: *mut u16) -> HRESULT;
+        extern fn PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK(pszProtocolManagerDll: PCWSTR, pszProtocolManagerDllInitFunction: PCWSTR, dwCustomInterfaceId: u32, ppCustomInterface: *mut *mut void) -> HRESULT;
+        extern fn PFN_HSE_IO_COMPLETION(pECB: *mut EXTENSION_CONTROL_BLOCK, pContext: *mut void, cbIO: u32, dwError: u32);
+        extern fn PFN_HTTPEXTENSIONPROC(pECB: *mut EXTENSION_CONTROL_BLOCK) -> u32;
+        extern fn PFN_TERMINATEEXTENSION(dwFlags: u32) -> BOOL;
     }
 }

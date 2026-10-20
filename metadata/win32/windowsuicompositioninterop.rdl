@@ -3,73 +3,53 @@ mod Windows {
     mod Win32 {
         #[guid(0x2c9db356_e70d_4642_8298_bc4aa5b4865c)]
         interface ICompositionCapabilitiesInteropFactory: IInspectable {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetForWindow(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] result: *mut super::UI::Composition::ICompositionCapabilities) -> HRESULT;
+            fn GetForWindow(&self, hwnd: HWND, result: *mut super::UI::Composition::ICompositionCapabilities) -> HRESULT;
         }
         #[guid(0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee)]
         interface ICompositionDrawingSurfaceInterop: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn BeginDraw(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] updateRect: *const RECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] updateObject: *mut *mut void, #[out] updateOffset: *mut POINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BeginDraw(&self, #[opt] updateRect: *const RECT, iid: *const GUID, #[iid_is] updateObject: *mut *mut void, updateOffset: *mut POINT) -> HRESULT;
             fn EndDraw(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Resize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sizePixels: SIZE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Scroll(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scrollRect: *const RECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clipRect: *const RECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offsetX: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offsetY: i32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Resize(&self, sizePixels: SIZE) -> HRESULT;
+            fn Scroll(&self, #[opt] scrollRect: *const RECT, #[opt] clipRect: *const RECT, offsetX: i32, offsetY: i32) -> HRESULT;
             fn ResumeDraw(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SuspendDraw(&self) -> HRESULT;
         }
         #[guid(0x41e64aae_98c0_4239_8e95_a330dd6aa18b)]
         interface ICompositionDrawingSurfaceInterop2: ICompositionDrawingSurfaceInterop {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CopySurface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] destinationResource: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] destinationOffsetX: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] destinationOffsetY: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sourceRectangle: *const RECT) -> HRESULT;
+            fn CopySurface(&self, destinationResource: IUnknown, destinationOffsetX: i32, destinationOffsetY: i32, #[opt] sourceRectangle: *const RECT) -> HRESULT;
         }
         #[guid(0xa116ff71_f8bf_4c8a_9c98_70779a32a9c8)]
         interface ICompositionGraphicsDeviceInterop: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetRenderingDevice(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] value: *mut IUnknown) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetRenderingDevice(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: IUnknown) -> HRESULT;
+            fn GetRenderingDevice(&self, value: *mut IUnknown) -> HRESULT;
+            fn SetRenderingDevice(&self, value: IUnknown) -> HRESULT;
         }
         #[guid(0xd528a265_f0a5_422f_a39d_ef62d7cd1cc4)]
         interface ICompositionTextureInterop: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetAvailableFence(&self, #[out] fenceValue: *mut UINT64, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] availableFence: *mut *mut void) -> HRESULT;
+            fn GetAvailableFence(&self, fenceValue: *mut u64, iid: *const GUID, availableFence: *mut *mut void) -> HRESULT;
         }
         #[guid(0x29e691fa_4567_4dca_b319_d0f207eb6807)]
         interface ICompositorDesktopInterop: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDesktopWindowTarget(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndTarget: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] isTopmost: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] result: *mut super::UI::Composition::Desktop::IDesktopWindowTarget) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnsureOnThread(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] threadId: DWORD) -> HRESULT;
+            fn CreateDesktopWindowTarget(&self, hwndTarget: HWND, isTopmost: BOOL, result: *mut super::UI::Composition::Desktop::IDesktopWindowTarget) -> HRESULT;
+            fn EnsureOnThread(&self, threadId: u32) -> HRESULT;
         }
         #[guid(0x25297d5c_3ad4_4c9c_b5cf_e36a38512330)]
         interface ICompositorInterop: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateCompositionSurfaceForHandle(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] swapChain: HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] result: *mut super::UI::Composition::ICompositionSurface) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateCompositionSurfaceForSwapChain(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] swapChain: IUnknown, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] result: *mut super::UI::Composition::ICompositionSurface) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateGraphicsDevice(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] renderingDevice: IUnknown, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] result: *mut super::UI::Composition::ICompositionGraphicsDevice) -> HRESULT;
+            fn CreateCompositionSurfaceForHandle(&self, swapChain: HANDLE, result: *mut super::UI::Composition::ICompositionSurface) -> HRESULT;
+            fn CreateCompositionSurfaceForSwapChain(&self, swapChain: IUnknown, result: *mut super::UI::Composition::ICompositionSurface) -> HRESULT;
+            fn CreateGraphicsDevice(&self, renderingDevice: IUnknown, result: *mut super::UI::Composition::ICompositionGraphicsDevice) -> HRESULT;
         }
         #[guid(0xd3eef34c_0667_4afc_8d13_867607b0fe91)]
         interface ICompositorInterop2: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CheckCompositionTextureSupport(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] renderingDevice: IUnknown, #[out] supportsCompositionTextures: *mut BOOL) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateCompositionTexture(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] d3dTexture: IUnknown, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] compositionTexture: *mut super::UI::Composition::ICompositionTexture) -> HRESULT;
+            fn CheckCompositionTextureSupport(&self, renderingDevice: IUnknown, supportsCompositionTextures: *mut BOOL) -> HRESULT;
+            fn CreateCompositionTexture(&self, d3dTexture: IUnknown, compositionTexture: *mut super::UI::Composition::ICompositionTexture) -> HRESULT;
         }
         #[guid(0x35dbf59e_e3f9_45b0_81e7_fe75f4145dc9)]
         interface IDesktopWindowTargetInterop: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn get_Hwnd(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut HWND) -> HRESULT;
+            fn get_Hwnd(&self, value: *mut HWND) -> HRESULT;
         }
         #[guid(0x11f62cd1_2f9d_42d3_b05f_d6790d9e9f8e)]
         interface IVisualInteractionSourceInterop: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn TryRedirectForManipulation(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pointerInfo: &POINTER_INFO) -> HRESULT;
+            fn TryRedirectForManipulation(&self, pointerInfo: *const POINTER_INFO) -> HRESULT;
         }
     }
 }

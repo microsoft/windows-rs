@@ -3,24 +3,24 @@ mod Windows {
     mod Win32 {
         #[guid(0x2735413c_7f64_5b0f_8f00_5d77afbe261e)]
         interface DDiscFormat2DataEvents: IDispatch {
-            fn Update(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] object: IDispatch, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] progress: IDispatch) -> HRESULT;
+            fn Update(&self, object: IDispatch, progress: IDispatch) -> HRESULT;
         }
         #[guid(0x2735413a_7f64_5b0f_8f00_5d77afbe261e)]
         interface DDiscFormat2EraseEvents: IDispatch {
-            fn Update(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] object: IDispatch, elapsedSeconds: LONG, estimatedTotalSeconds: LONG) -> HRESULT;
+            fn Update(&self, object: IDispatch, elapsedSeconds: i32, estimatedTotalSeconds: i32) -> HRESULT;
         }
         #[guid(0x27354142_7f64_5b0f_8f00_5d77afbe261e)]
         interface DDiscFormat2RawCDEvents: IDispatch {
-            fn Update(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] object: IDispatch, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] progress: IDispatch) -> HRESULT;
+            fn Update(&self, object: IDispatch, progress: IDispatch) -> HRESULT;
         }
         #[guid(0x2735413f_7f64_5b0f_8f00_5d77afbe261e)]
         interface DDiscFormat2TrackAtOnceEvents: IDispatch {
-            fn Update(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] object: IDispatch, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] progress: IDispatch) -> HRESULT;
+            fn Update(&self, object: IDispatch, progress: IDispatch) -> HRESULT;
         }
         #[guid(0x27354131_7f64_5b0f_8f00_5d77afbe261e)]
         interface DDiscMaster2Events: IDispatch {
-            fn NotifyDeviceAdded(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] object: IDispatch, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] uniqueId: BSTR) -> HRESULT;
-            fn NotifyDeviceRemoved(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] object: IDispatch, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] uniqueId: BSTR) -> HRESULT;
+            fn NotifyDeviceAdded(&self, object: IDispatch, uniqueId: BSTR) -> HRESULT;
+            fn NotifyDeviceRemoved(&self, object: IDispatch, uniqueId: BSTR) -> HRESULT;
         }
         const DISPID_DDISCFORMAT2DATAEVENTS_UPDATE: i32 = 512;
         const DISPID_DDISCFORMAT2RAWCDEVENTS_UPDATE: i32 = 512;
@@ -194,202 +194,313 @@ mod Windows {
         const DISPID_IWRITEENGINE2_WRITESECTION: i32 = 512;
         #[guid(0x27354137_7f64_5b0f_8f00_5d77afbe261e)]
         interface DWriteEngine2Events: IDispatch {
-            fn Update(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] object: IDispatch, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] progress: IDispatch) -> HRESULT;
+            fn Update(&self, object: IDispatch, progress: IDispatch) -> HRESULT;
         }
         #[guid(0xb507ca25_2204_11dd_966a_001aa01bbc58)]
         interface IBlockRange: IDispatch {
-            fn get_StartLba(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_EndLba(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_StartLba(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_EndLba(&self, #[retval] value: *mut i32) -> HRESULT;
         }
         #[guid(0xb507ca26_2204_11dd_966a_001aa01bbc58)]
         interface IBlockRangeList: IDispatch {
-            fn get_BlockRanges(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_BlockRanges(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xd2ffd834_958b_426d_8470_2a13879c6a91)]
         interface IBurnVerification: IUnknown {
+            #[special]
             fn put_BurnVerificationLevel(&self, value: IMAPI_BURN_VERIFICATION_LEVEL) -> HRESULT;
-            fn get_BurnVerificationLevel(&self, #[out] #[retval] value: *mut IMAPI_BURN_VERIFICATION_LEVEL) -> HRESULT;
+            #[special]
+            fn get_BurnVerificationLevel(&self, #[retval] value: *mut IMAPI_BURN_VERIFICATION_LEVEL) -> HRESULT;
         }
         #[guid(0x27354152_8f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscFormat2: IDispatch {
-            fn IsRecorderSupported(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] recorder: IDiscRecorder2, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn IsCurrentMediaSupported(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] recorder: IDiscRecorder2, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_MediaPhysicallyBlank(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_MediaHeuristicallyBlank(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_SupportedMediaTypes(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn IsRecorderSupported(&self, recorder: IDiscRecorder2, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            fn IsCurrentMediaSupported(&self, recorder: IDiscRecorder2, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MediaPhysicallyBlank(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MediaHeuristicallyBlank(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SupportedMediaTypes(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x27354153_9f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscFormat2Data: IDiscFormat2 {
-            fn put_Recorder(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IDiscRecorder2) -> HRESULT;
-            fn get_Recorder(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn put_Recorder(&self, value: IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn get_Recorder(&self, #[retval] value: *mut IDiscRecorder2) -> HRESULT;
+            #[special]
             fn put_BufferUnderrunFreeDisabled(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_BufferUnderrunFreeDisabled(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_BufferUnderrunFreeDisabled(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_PostgapAlreadyInImage(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_PostgapAlreadyInImage(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_CurrentMediaStatus(&self, #[out] #[retval] value: *mut IMAPI_FORMAT2_DATA_MEDIA_STATE) -> HRESULT;
-            fn get_WriteProtectStatus(&self, #[out] #[retval] value: *mut IMAPI_MEDIA_WRITE_PROTECT_STATE) -> HRESULT;
-            fn get_TotalSectorsOnMedia(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_FreeSectorsOnMedia(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_NextWritableAddress(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_StartAddressOfPreviousSession(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_LastWrittenAddressOfPreviousSession(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_PostgapAlreadyInImage(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CurrentMediaStatus(&self, #[retval] value: *mut IMAPI_FORMAT2_DATA_MEDIA_STATE) -> HRESULT;
+            #[special]
+            fn get_WriteProtectStatus(&self, #[retval] value: *mut IMAPI_MEDIA_WRITE_PROTECT_STATE) -> HRESULT;
+            #[special]
+            fn get_TotalSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_FreeSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_NextWritableAddress(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_StartAddressOfPreviousSession(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastWrittenAddressOfPreviousSession(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
             fn put_ForceMediaToBeClosed(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_ForceMediaToBeClosed(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ForceMediaToBeClosed(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_DisableConsumerDvdCompatibilityMode(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_DisableConsumerDvdCompatibilityMode(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_CurrentPhysicalMediaType(&self, #[out] #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
-            fn put_ClientName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn get_ClientName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
-            fn get_RequestedWriteSpeed(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_RequestedRotationTypeIsPureCAV(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_CurrentWriteSpeed(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_CurrentRotationTypeIsPureCAV(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_SupportedWriteSpeeds(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_SupportedWriteSpeedDescriptors(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_DisableConsumerDvdCompatibilityMode(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CurrentPhysicalMediaType(&self, #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
+            #[special]
+            fn put_ClientName(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ClientName(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RequestedWriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RequestedRotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CurrentWriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CurrentRotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SupportedWriteSpeeds(&self, #[retval] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_SupportedWriteSpeedDescriptors(&self, #[retval] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
             fn put_ForceOverwrite(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_ForceOverwrite(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_MultisessionInterfaces(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn Write(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] data: IStream) -> HRESULT;
+            #[special]
+            fn get_ForceOverwrite(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_MultisessionInterfaces(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn Write(&self, data: IStream) -> HRESULT;
             fn CancelWrite(&self) -> HRESULT;
-            fn SetWriteSpeed(&self, RequestedSectorsPerSecond: LONG, RotationTypeIsPureCAV: VARIANT_BOOL) -> HRESULT;
+            fn SetWriteSpeed(&self, RequestedSectorsPerSecond: i32, RotationTypeIsPureCAV: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x2735413d_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscFormat2DataEventArgs: IWriteEngine2EventArgs {
-            fn get_ElapsedTime(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_RemainingTime(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_TotalTime(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_CurrentAction(&self, #[out] #[retval] value: *mut IMAPI_FORMAT2_DATA_WRITE_ACTION) -> HRESULT;
+            #[special]
+            fn get_ElapsedTime(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RemainingTime(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TotalTime(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CurrentAction(&self, #[retval] value: *mut IMAPI_FORMAT2_DATA_WRITE_ACTION) -> HRESULT;
         }
         #[guid(0x27354156_8f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscFormat2Erase: IDiscFormat2 {
-            fn put_Recorder(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IDiscRecorder2) -> HRESULT;
-            fn get_Recorder(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn put_Recorder(&self, value: IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn get_Recorder(&self, #[retval] value: *mut IDiscRecorder2) -> HRESULT;
+            #[special]
             fn put_FullErase(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_FullErase(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_CurrentPhysicalMediaType(&self, #[out] #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
-            fn put_ClientName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn get_ClientName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_FullErase(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CurrentPhysicalMediaType(&self, #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
+            #[special]
+            fn put_ClientName(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ClientName(&self, #[retval] value: *mut BSTR) -> HRESULT;
             fn EraseMedia(&self) -> HRESULT;
         }
         #[guid(0x27354155_8f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscFormat2RawCD: IDiscFormat2 {
             fn PrepareMedia(&self) -> HRESULT;
-            fn WriteMedia(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] data: IStream) -> HRESULT;
-            fn WriteMedia2(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] data: IStream, streamLeadInSectors: LONG) -> HRESULT;
+            fn WriteMedia(&self, data: IStream) -> HRESULT;
+            fn WriteMedia2(&self, data: IStream, streamLeadInSectors: i32) -> HRESULT;
             fn CancelWrite(&self) -> HRESULT;
             fn ReleaseMedia(&self) -> HRESULT;
-            fn SetWriteSpeed(&self, RequestedSectorsPerSecond: LONG, RotationTypeIsPureCAV: VARIANT_BOOL) -> HRESULT;
-            fn put_Recorder(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IDiscRecorder2) -> HRESULT;
-            fn get_Recorder(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut IDiscRecorder2) -> HRESULT;
+            fn SetWriteSpeed(&self, RequestedSectorsPerSecond: i32, RotationTypeIsPureCAV: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Recorder(&self, value: IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn get_Recorder(&self, #[retval] value: *mut IDiscRecorder2) -> HRESULT;
+            #[special]
             fn put_BufferUnderrunFreeDisabled(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_BufferUnderrunFreeDisabled(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_StartOfNextSession(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_LastPossibleStartOfLeadout(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_CurrentPhysicalMediaType(&self, #[out] #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
-            fn get_SupportedSectorTypes(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_BufferUnderrunFreeDisabled(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_StartOfNextSession(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastPossibleStartOfLeadout(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CurrentPhysicalMediaType(&self, #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
+            #[special]
+            fn get_SupportedSectorTypes(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
             fn put_RequestedSectorType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> HRESULT;
-            fn get_RequestedSectorType(&self, #[out] #[retval] value: *mut IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> HRESULT;
-            fn put_ClientName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn get_ClientName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
-            fn get_RequestedWriteSpeed(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_RequestedRotationTypeIsPureCAV(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_CurrentWriteSpeed(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_CurrentRotationTypeIsPureCAV(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_SupportedWriteSpeeds(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_SupportedWriteSpeedDescriptors(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_RequestedSectorType(&self, #[retval] value: *mut IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> HRESULT;
+            #[special]
+            fn put_ClientName(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ClientName(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RequestedWriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RequestedRotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CurrentWriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CurrentRotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SupportedWriteSpeeds(&self, #[retval] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_SupportedWriteSpeedDescriptors(&self, #[retval] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x27354143_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscFormat2RawCDEventArgs: IWriteEngine2EventArgs {
-            fn get_CurrentAction(&self, #[out] #[retval] value: *mut IMAPI_FORMAT2_RAW_CD_WRITE_ACTION) -> HRESULT;
-            fn get_ElapsedTime(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_RemainingTime(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_CurrentAction(&self, #[retval] value: *mut IMAPI_FORMAT2_RAW_CD_WRITE_ACTION) -> HRESULT;
+            #[special]
+            fn get_ElapsedTime(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RemainingTime(&self, #[retval] value: *mut i32) -> HRESULT;
         }
         #[guid(0x27354154_8f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscFormat2TrackAtOnce: IDiscFormat2 {
             fn PrepareMedia(&self) -> HRESULT;
-            fn AddAudioTrack(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] data: IStream) -> HRESULT;
+            fn AddAudioTrack(&self, data: IStream) -> HRESULT;
             fn CancelAddTrack(&self) -> HRESULT;
             fn ReleaseMedia(&self) -> HRESULT;
-            fn SetWriteSpeed(&self, RequestedSectorsPerSecond: LONG, RotationTypeIsPureCAV: VARIANT_BOOL) -> HRESULT;
-            fn put_Recorder(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IDiscRecorder2) -> HRESULT;
-            fn get_Recorder(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut IDiscRecorder2) -> HRESULT;
+            fn SetWriteSpeed(&self, RequestedSectorsPerSecond: i32, RotationTypeIsPureCAV: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Recorder(&self, value: IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn get_Recorder(&self, #[retval] value: *mut IDiscRecorder2) -> HRESULT;
+            #[special]
             fn put_BufferUnderrunFreeDisabled(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_BufferUnderrunFreeDisabled(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_NumberOfExistingTracks(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_TotalSectorsOnMedia(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_FreeSectorsOnMedia(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_UsedSectorsOnMedia(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_BufferUnderrunFreeDisabled(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_NumberOfExistingTracks(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TotalSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_FreeSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_UsedSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
             fn put_DoNotFinalizeMedia(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_DoNotFinalizeMedia(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_ExpectedTableOfContents(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_CurrentPhysicalMediaType(&self, #[out] #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
-            fn put_ClientName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn get_ClientName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
-            fn get_RequestedWriteSpeed(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_RequestedRotationTypeIsPureCAV(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_CurrentWriteSpeed(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_CurrentRotationTypeIsPureCAV(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_SupportedWriteSpeeds(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_SupportedWriteSpeedDescriptors(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_DoNotFinalizeMedia(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ExpectedTableOfContents(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_CurrentPhysicalMediaType(&self, #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
+            #[special]
+            fn put_ClientName(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_ClientName(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RequestedWriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RequestedRotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_CurrentWriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CurrentRotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_SupportedWriteSpeeds(&self, #[retval] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_SupportedWriteSpeedDescriptors(&self, #[retval] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x27354140_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscFormat2TrackAtOnceEventArgs: IWriteEngine2EventArgs {
-            fn get_CurrentTrackNumber(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_CurrentAction(&self, #[out] #[retval] value: *mut IMAPI_FORMAT2_TAO_WRITE_ACTION) -> HRESULT;
-            fn get_ElapsedTime(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_RemainingTime(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_CurrentTrackNumber(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_CurrentAction(&self, #[retval] value: *mut IMAPI_FORMAT2_TAO_WRITE_ACTION) -> HRESULT;
+            #[special]
+            fn get_ElapsedTime(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RemainingTime(&self, #[retval] value: *mut i32) -> HRESULT;
         }
         #[guid(0x27354130_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscMaster2: IDispatch {
-            fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppunk: *mut IEnumVARIANT) -> HRESULT;
-            fn get_Item(&self, index: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
-            fn get_Count(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_IsSupportedEnvironment(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppunk: *mut IEnumVARIANT) -> HRESULT;
+            #[special]
+            fn get_Item(&self, index: i32, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_IsSupportedEnvironment(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x27354133_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscRecorder2: IDispatch {
             fn EjectMedia(&self) -> HRESULT;
             fn CloseTray(&self) -> HRESULT;
-            fn AcquireExclusiveAccess(&self, force: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] __MIDL__IDiscRecorder20000: BSTR) -> HRESULT;
+            fn AcquireExclusiveAccess(&self, force: VARIANT_BOOL, __MIDL__IDiscRecorder20000: BSTR) -> HRESULT;
             fn ReleaseExclusiveAccess(&self) -> HRESULT;
             fn DisableMcn(&self) -> HRESULT;
             fn EnableMcn(&self) -> HRESULT;
-            fn InitializeDiscRecorder(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] recorderUniqueId: BSTR) -> HRESULT;
-            fn get_ActiveDiscRecorder(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
-            fn get_VendorId(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
-            fn get_ProductId(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
-            fn get_ProductRevision(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
-            fn get_VolumeName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
-            fn get_VolumePathNames(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_DeviceCanLoadMedia(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_LegacyDeviceNumber(&self, #[out] #[retval] legacyDeviceNumber: *mut LONG) -> HRESULT;
-            fn get_SupportedFeaturePages(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_CurrentFeaturePages(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_SupportedProfiles(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_CurrentProfiles(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_SupportedModePages(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_ExclusiveAccessOwner(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
+            fn InitializeDiscRecorder(&self, recorderUniqueId: BSTR) -> HRESULT;
+            #[special]
+            fn get_ActiveDiscRecorder(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_VendorId(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ProductId(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ProductRevision(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_VolumeName(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_VolumePathNames(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_DeviceCanLoadMedia(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_LegacyDeviceNumber(&self, #[retval] legacyDeviceNumber: *mut i32) -> HRESULT;
+            #[special]
+            fn get_SupportedFeaturePages(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_CurrentFeaturePages(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_SupportedProfiles(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_CurrentProfiles(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_SupportedModePages(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_ExclusiveAccessOwner(&self, #[retval] value: *mut BSTR) -> HRESULT;
         }
         #[guid(0x27354132_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscRecorder2Ex: IUnknown {
-            fn SendCommandNoData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] Cdb: *mut BYTE, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "6,16", "6,16")] CdbSize: ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__out_ecount_full", "18", "18")] #[out] SenseBuffer: *mut BYTE, Timeout: ULONG) -> HRESULT;
-            fn SendCommandSendDataToDevice(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] Cdb: *mut BYTE, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "6,16", "6,16")] CdbSize: ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__out_ecount_full", "18", "18")] #[out] SenseBuffer: *mut BYTE, Timeout: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(5)] Buffer: *mut BYTE, BufferSize: ULONG_IMAPI2_NONZERO) -> HRESULT;
-            fn SendCommandGetDataFromDevice(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] Cdb: *mut BYTE, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "6,16", "6,16")] CdbSize: ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__out_ecount_full", "18", "18")] #[out] SenseBuffer: *mut BYTE, Timeout: ULONG, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 5, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 6, IsByteCount = false, Dereference = true)] Buffer: *mut BYTE, BufferSize: ULONG_IMAPI2_NONZERO, #[out] BufferFetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> HRESULT;
-            fn ReadDvdStructure(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "0,0xff", "0,0xff")] format: ULONG, address: ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "0,0xff", "0,0xff")] layer: ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "0,0x3", "0,0x3")] agid: ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*count", "*count")] data: *mut *mut BYTE, #[out] count: *mut ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
-            fn SendDvdStructure(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "0,0xff", "0,0xff")] format: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(2)] data: *mut BYTE, count: ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
-            fn GetAdapterDescriptor(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*byteSize", "*byteSize")] data: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_ADAPTER_DESCRIPTOR) -> HRESULT;
-            fn GetDeviceDescriptor(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*byteSize", "*byteSize")] data: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> HRESULT;
-            fn GetDiscInformation(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*byteSize", "*byteSize")] discInformation: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_DISC_INFORMATION) -> HRESULT;
-            fn GetTrackInformation(&self, address: ULONG, addressType: IMAPI_READ_TRACK_ADDRESS_TYPE, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*byteSize", "*byteSize")] trackInformation: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_TRACK_INFORMATION) -> HRESULT;
-            fn GetFeaturePage(&self, requestedFeature: IMAPI_FEATURE_PAGE_TYPE, currentFeatureOnly: BOOLEAN, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*byteSize", "*byteSize")] featureData: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> HRESULT;
-            fn GetModePage(&self, requestedModePage: IMAPI_MODE_PAGE_TYPE, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*byteSize", "*byteSize")] modePageData: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
-            fn SetModePage(&self, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(2)] data: *mut BYTE, byteSize: ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
-            fn GetSupportedFeaturePages(&self, currentFeatureOnly: BOOLEAN, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*byteSize", "*byteSize")] featureData: *mut *mut IMAPI_FEATURE_PAGE_TYPE, #[out] byteSize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> HRESULT;
-            fn GetSupportedProfiles(&self, currentOnly: BOOLEAN, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*validProfiles", "*validProfiles")] profileTypes: *mut *mut IMAPI_PROFILE_TYPE, #[out] validProfiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> HRESULT;
-            fn GetSupportedModePages(&self, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*validPages", "*validPages")] modePageTypes: *mut *mut IMAPI_MODE_PAGE_TYPE, #[out] validPages: *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> HRESULT;
-            fn GetByteAlignmentMask(&self, #[out] #[retval] value: *mut ULONG) -> HRESULT;
-            fn GetMaximumNonPageAlignedTransferSize(&self, #[out] #[retval] value: *mut ULONG) -> HRESULT;
-            fn GetMaximumPageAlignedTransferSize(&self, #[out] #[retval] value: *mut ULONG) -> HRESULT;
+            fn SendCommandNoData(&self, #[in] Cdb: *mut u8, CdbSize: u32, SenseBuffer: *mut u8, Timeout: u32) -> HRESULT;
+            fn SendCommandSendDataToDevice(&self, #[in] Cdb: *mut u8, CdbSize: u32, SenseBuffer: *mut u8, Timeout: u32, #[in] Buffer: *mut u8, BufferSize: ULONG_IMAPI2_NONZERO) -> HRESULT;
+            fn SendCommandGetDataFromDevice(&self, #[in] Cdb: *mut u8, CdbSize: u32, SenseBuffer: *mut u8, Timeout: u32, Buffer: *mut u8, BufferSize: ULONG_IMAPI2_NONZERO, BufferFetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> HRESULT;
+            fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
+            fn SendDvdStructure(&self, format: u32, #[in] data: *mut u8, count: ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
+            fn GetAdapterDescriptor(&self, data: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_ADAPTER_DESCRIPTOR) -> HRESULT;
+            fn GetDeviceDescriptor(&self, data: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> HRESULT;
+            fn GetDiscInformation(&self, discInformation: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_DISC_INFORMATION) -> HRESULT;
+            fn GetTrackInformation(&self, address: u32, addressType: IMAPI_READ_TRACK_ADDRESS_TYPE, trackInformation: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_TRACK_INFORMATION) -> HRESULT;
+            fn GetFeaturePage(&self, requestedFeature: IMAPI_FEATURE_PAGE_TYPE, currentFeatureOnly: BOOLEAN, featureData: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> HRESULT;
+            fn GetModePage(&self, requestedModePage: IMAPI_MODE_PAGE_TYPE, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, modePageData: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
+            fn SetModePage(&self, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[in] data: *mut u8, byteSize: ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
+            fn GetSupportedFeaturePages(&self, currentFeatureOnly: BOOLEAN, featureData: *mut *mut IMAPI_FEATURE_PAGE_TYPE, byteSize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> HRESULT;
+            fn GetSupportedProfiles(&self, currentOnly: BOOLEAN, profileTypes: *mut *mut IMAPI_PROFILE_TYPE, validProfiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> HRESULT;
+            fn GetSupportedModePages(&self, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, modePageTypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validPages: *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> HRESULT;
+            fn GetByteAlignmentMask(&self, #[retval] value: *mut u32) -> HRESULT;
+            fn GetMaximumNonPageAlignedTransferSize(&self, #[retval] value: *mut u32) -> HRESULT;
+            fn GetMaximumPageAlignedTransferSize(&self, #[retval] value: *mut u32) -> HRESULT;
         }
         const IMAPI2_DEFAULT_COMMAND_TIMEOUT: i32 = 10;
         const IMAPILib2_MajorVersion: i32 = 1;
@@ -620,116 +731,176 @@ mod Windows {
         const IMAPI_SECTOR_SIZE: i32 = 2048;
         #[guid(0x27354150_7f64_5b0f_8f00_5d77afbe261e)]
         interface IMultisession: IDispatch {
-            fn get_IsSupportedOnCurrentMediaState(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IsSupportedOnCurrentMediaState(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_InUse(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_InUse(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_ImportRecorder(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut IDiscRecorder2) -> HRESULT;
+            #[special]
+            fn get_InUse(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ImportRecorder(&self, #[retval] value: *mut IDiscRecorder2) -> HRESULT;
         }
         #[guid(0xb507ca23_2204_11dd_966a_001aa01bbc58)]
         interface IMultisessionRandomWrite: IMultisession {
-            fn get_WriteUnitSize(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_LastWrittenAddress(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_TotalSectorsOnMedia(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_WriteUnitSize(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastWrittenAddress(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TotalSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
         }
         #[guid(0x27354151_7f64_5b0f_8f00_5d77afbe261e)]
         interface IMultisessionSequential: IMultisession {
-            fn get_IsFirstDataSession(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_StartAddressOfPreviousSession(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_LastWrittenAddressOfPreviousSession(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_NextWritableAddress(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_FreeSectorsOnMedia(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_IsFirstDataSession(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_StartAddressOfPreviousSession(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastWrittenAddressOfPreviousSession(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_NextWritableAddress(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_FreeSectorsOnMedia(&self, #[retval] value: *mut i32) -> HRESULT;
         }
         #[guid(0xb507ca22_2204_11dd_966a_001aa01bbc58)]
         interface IMultisessionSequential2: IMultisessionSequential {
-            fn get_WriteUnitSize(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_WriteUnitSize(&self, #[retval] value: *mut i32) -> HRESULT;
         }
         #[guid(0x25983550_9d65_49ce_b335_40630d901227)]
         interface IRawCDImageCreator: IDispatch {
-            fn CreateResultImage(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] resultStream: *mut IStream) -> HRESULT;
-            fn AddTrack(&self, dataType: IMAPI_CD_SECTOR_TYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] data: IStream, #[out] #[retval] trackIndex: *mut LONG) -> HRESULT;
-            fn AddSpecialPregap(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] data: IStream) -> HRESULT;
-            fn AddSubcodeRWGenerator(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] subcode: IStream) -> HRESULT;
+            fn CreateResultImage(&self, #[retval] resultStream: *mut IStream) -> HRESULT;
+            fn AddTrack(&self, dataType: IMAPI_CD_SECTOR_TYPE, data: IStream, #[retval] trackIndex: *mut i32) -> HRESULT;
+            fn AddSpecialPregap(&self, data: IStream) -> HRESULT;
+            fn AddSubcodeRWGenerator(&self, subcode: IStream) -> HRESULT;
+            #[special]
             fn put_ResultingImageType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> HRESULT;
-            fn get_ResultingImageType(&self, #[out] #[retval] value: *mut IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> HRESULT;
-            fn get_StartOfLeadout(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn put_StartOfLeadoutLimit(&self, value: LONG) -> HRESULT;
-            fn get_StartOfLeadoutLimit(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_ResultingImageType(&self, #[retval] value: *mut IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> HRESULT;
+            #[special]
+            fn get_StartOfLeadout(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn put_StartOfLeadoutLimit(&self, value: i32) -> HRESULT;
+            #[special]
+            fn get_StartOfLeadoutLimit(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
             fn put_DisableGaplessAudio(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_DisableGaplessAudio(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn put_MediaCatalogNumber(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn get_MediaCatalogNumber(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
-            fn put_StartingTrackNumber(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "1,99", "1,99")] value: LONG) -> HRESULT;
-            fn get_StartingTrackNumber(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_TrackInfo(&self, trackIndex: LONG, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut IRawCDImageTrackInfo) -> HRESULT;
-            fn get_NumberOfExistingTracks(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_LastUsedUserSectorInImage(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_ExpectedTableOfContents(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_DisableGaplessAudio(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_MediaCatalogNumber(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_MediaCatalogNumber(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_StartingTrackNumber(&self, value: i32) -> HRESULT;
+            #[special]
+            fn get_StartingTrackNumber(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TrackInfo(&self, trackIndex: i32, #[retval] value: *mut IRawCDImageTrackInfo) -> HRESULT;
+            #[special]
+            fn get_NumberOfExistingTracks(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastUsedUserSectorInImage(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ExpectedTableOfContents(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x25983551_9d65_49ce_b335_40630d901227)]
         interface IRawCDImageTrackInfo: IDispatch {
-            fn get_StartingLba(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_SectorCount(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_TrackNumber(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_SectorType(&self, #[out] #[retval] value: *mut IMAPI_CD_SECTOR_TYPE) -> HRESULT;
-            fn get_ISRC(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
-            fn put_ISRC(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn get_DigitalAudioCopySetting(&self, #[out] #[retval] value: *mut IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> HRESULT;
+            #[special]
+            fn get_StartingLba(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_SectorCount(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TrackNumber(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_SectorType(&self, #[retval] value: *mut IMAPI_CD_SECTOR_TYPE) -> HRESULT;
+            #[special]
+            fn get_ISRC(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ISRC(&self, value: BSTR) -> HRESULT;
+            #[special]
+            fn get_DigitalAudioCopySetting(&self, #[retval] value: *mut IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> HRESULT;
+            #[special]
             fn put_DigitalAudioCopySetting(&self, value: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> HRESULT;
-            fn get_AudioHasPreemphasis(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AudioHasPreemphasis(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_AudioHasPreemphasis(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_TrackIndexes(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn AddTrackIndex(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "0,0x7fffffff", "0,0x7fffffff")] lbaOffset: LONG) -> HRESULT;
-            fn ClearTrackIndex(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "0,0x7fffffff", "0,0x7fffffff")] lbaOffset: LONG) -> HRESULT;
+            #[special]
+            fn get_TrackIndexes(&self, #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn AddTrackIndex(&self, lbaOffset: i32) -> HRESULT;
+            fn ClearTrackIndex(&self, lbaOffset: i32) -> HRESULT;
         }
         #[guid(0x27354146_7f64_5b0f_8f00_5d77afbe261e)]
         interface IStreamConcatenate: IStream {
-            fn Initialize(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] stream1: IStream, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] stream2: IStream) -> HRESULT;
-            fn Initialize2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] streams: *mut IStream, streamCount: ULONG) -> HRESULT;
-            fn Append(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] stream: IStream) -> HRESULT;
-            fn Append2(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] streams: *mut IStream, streamCount: ULONG) -> HRESULT;
+            fn Initialize(&self, stream1: IStream, stream2: IStream) -> HRESULT;
+            fn Initialize2(&self, #[in] streams: *mut IStream, streamCount: u32) -> HRESULT;
+            fn Append(&self, stream: IStream) -> HRESULT;
+            fn Append2(&self, #[in] streams: *mut IStream, streamCount: u32) -> HRESULT;
         }
         #[guid(0x27354147_7f64_5b0f_8f00_5d77afbe261e)]
         interface IStreamInterleave: IStream {
-            fn Initialize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(2)] streams: *mut IStream, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(2)] interleaveSizes: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "1,0x7fffffff", "1,0x7fffffff")] streamCount: ULONG) -> HRESULT;
+            fn Initialize(&self, #[in] streams: *mut IStream, #[in] interleaveSizes: *mut u32, streamCount: u32) -> HRESULT;
         }
         #[guid(0x27354145_7f64_5b0f_8f00_5d77afbe261e)]
         interface IStreamPseudoRandomBased: IStream {
-            fn put_Seed(&self, value: ULONG) -> HRESULT;
-            fn get_Seed(&self, #[out] value: *mut ULONG) -> HRESULT;
-            fn put_ExtendedSeed(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] values: *mut ULONG, eCount: ULONG) -> HRESULT;
-            fn get_ExtendedSeed(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*eCount", "*eCount")] values: *mut *mut ULONG, #[out] eCount: *mut ULONG) -> HRESULT;
+            fn put_Seed(&self, value: u32) -> HRESULT;
+            fn get_Seed(&self, value: *mut u32) -> HRESULT;
+            fn put_ExtendedSeed(&self, #[in] values: *mut u32, eCount: u32) -> HRESULT;
+            fn get_ExtendedSeed(&self, values: *mut *mut u32, eCount: *mut u32) -> HRESULT;
         }
         #[guid(0x27354135_7f64_5b0f_8f00_5d77afbe261e)]
         interface IWriteEngine2: IDispatch {
-            fn WriteSection(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] data: IStream, startingBlockAddress: LONG, numberOfBlocks: LONG) -> HRESULT;
+            fn WriteSection(&self, data: IStream, startingBlockAddress: i32, numberOfBlocks: i32) -> HRESULT;
             fn CancelWrite(&self) -> HRESULT;
-            fn put_Recorder(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: IDiscRecorder2Ex) -> HRESULT;
-            fn get_Recorder(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut IDiscRecorder2Ex) -> HRESULT;
+            #[special]
+            fn put_Recorder(&self, value: IDiscRecorder2Ex) -> HRESULT;
+            #[special]
+            fn get_Recorder(&self, #[retval] value: *mut IDiscRecorder2Ex) -> HRESULT;
+            #[special]
             fn put_UseStreamingWrite12(&self, value: VARIANT_BOOL) -> HRESULT;
-            fn get_UseStreamingWrite12(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn put_StartingSectorsPerSecond(&self, value: LONG) -> HRESULT;
-            fn get_StartingSectorsPerSecond(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn put_EndingSectorsPerSecond(&self, value: LONG) -> HRESULT;
-            fn get_EndingSectorsPerSecond(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn put_BytesPerSector(&self, value: LONG) -> HRESULT;
-            fn get_BytesPerSector(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_WriteInProgress(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_UseStreamingWrite12(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_StartingSectorsPerSecond(&self, value: i32) -> HRESULT;
+            #[special]
+            fn get_StartingSectorsPerSecond(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn put_EndingSectorsPerSecond(&self, value: i32) -> HRESULT;
+            #[special]
+            fn get_EndingSectorsPerSecond(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn put_BytesPerSector(&self, value: i32) -> HRESULT;
+            #[special]
+            fn get_BytesPerSector(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_WriteInProgress(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x27354136_7f64_5b0f_8f00_5d77afbe261e)]
         interface IWriteEngine2EventArgs: IDispatch {
-            fn get_StartLba(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_SectorCount(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_LastReadLba(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_LastWrittenLba(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_TotalSystemBuffer(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_UsedSystemBuffer(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_FreeSystemBuffer(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_StartLba(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_SectorCount(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastReadLba(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastWrittenLba(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TotalSystemBuffer(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_UsedSystemBuffer(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_FreeSystemBuffer(&self, #[retval] value: *mut i32) -> HRESULT;
         }
         #[guid(0x27354144_7f64_5b0f_8f00_5d77afbe261e)]
         interface IWriteSpeedDescriptor: IDispatch {
-            fn get_MediaType(&self, #[out] #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
-            fn get_RotationTypeIsPureCAV(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_WriteSpeed(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_MediaType(&self, #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
+            #[special]
+            fn get_RotationTypeIsPureCAV(&self, #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_WriteSpeed(&self, #[retval] value: *mut i32) -> HRESULT;
         }
         const MsftDiscFormat2Data: GUID = 0x2735412a_7f64_5b0f_8f00_5d77afbe261e;
         const MsftDiscFormat2Erase: GUID = 0x2735412b_7f64_5b0f_8f00_5d77afbe261e;
@@ -761,29 +932,17 @@ mod Windows {
         type PIMAPI_MODE_PAGE_TYPE = *mut IMAPI_MODE_PAGE_TYPE;
         type PIMAPI_PROFILE_TYPE = *mut IMAPI_PROFILE_TYPE;
         type PIMAPI_READ_TRACK_ADDRESS_TYPE = *mut IMAPI_READ_TRACK_ADDRESS_TYPE;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0xfffffff", "0,0xfffffff")]
         type ULONG_IMAPI2_ADAPTER_DESCRIPTOR = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x10000", "0,0x10000")]
         type ULONG_IMAPI2_ALL_FEATURE_PAGES = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x7ffb", "0,0x7ffb")]
         type ULONG_IMAPI2_ALL_MODE_PAGES = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x3f", "0,0x3f")]
         type ULONG_IMAPI2_ALL_PROFILES = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0xfffffff", "0,0xfffffff")]
         type ULONG_IMAPI2_DEVICE_DESCRIPTOR = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x10002", "0,0x10002")]
         type ULONG_IMAPI2_DISC_INFORMATION = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0xffff", "0,0xffff")]
         type ULONG_IMAPI2_DVD_STRUCTURE = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x100", "0,0x100")]
         type ULONG_IMAPI2_FEATURE_PAGE = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x101", "0,0x101")]
         type ULONG_IMAPI2_MODE_PAGE = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "1,0x7fffffff", "1,0x7fffffff")]
         type ULONG_IMAPI2_NONZERO = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x7fffffff", "0,0x7fffffff")]
         type ULONG_IMAPI2_NOT_NEGATIVE = u32;
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__range", "0,0x10002", "0,0x10002")]
         type ULONG_IMAPI2_TRACK_INFORMATION = u32;
     }
 }

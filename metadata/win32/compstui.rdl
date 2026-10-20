@@ -11,22 +11,22 @@ mod Windows {
         const CHKBOXS_OFF_ON: i32 = 2;
         const CHKBOXS_OFF_PDATA: i32 = 5;
         struct COMPROPSHEETUI {
-            cbSize: WORD,
-            Flags: WORD,
+            cbSize: u16,
+            Flags: u16,
             hInstCaller: HINSTANCE,
             pCallerName: LPTSTR,
-            UserData: ULONG_PTR,
+            UserData: usize,
             pHelpFile: LPTSTR,
             pfnCallBack: _CPSUICALLBACK,
             pOptItem: POPTITEM,
             pDlgPage: PDLGPAGE,
-            cOptItem: WORD,
-            cDlgPage: WORD,
-            IconID: ULONG_PTR,
+            cOptItem: u16,
+            cDlgPage: u16,
+            IconID: usize,
             pOptItemName: LPTSTR,
-            CallerVersion: WORD,
-            OptItemVersion: WORD,
-            dwReserved: [ULONG_PTR; 4],
+            CallerVersion: u16,
+            OptItemVersion: u16,
+            dwReserved: [usize; 4],
         }
         const CPSFUNC_ADD_HPROPSHEETPAGE: i32 = 0;
         const CPSFUNC_ADD_PCOMPROPSHEETUI: i32 = 2;
@@ -62,19 +62,19 @@ mod Windows {
         const CPSFUNC_SET_PSUIPAGE_TITLEW: i32 = 19;
         const CPSFUNC_SET_RESULT: i32 = 9;
         struct CPSUICBPARAM {
-            cbSize: WORD,
-            Reason: WORD,
+            cbSize: u16,
+            Reason: u16,
             hDlg: HWND,
             pOptItem: POPTITEM,
-            cOptItem: WORD,
-            Flags: WORD,
+            cOptItem: u16,
+            Flags: u16,
             pCurItem: POPTITEM,
             Anonymous: union {
-                OldSel: LONG,
+                OldSel: i32,
                 pOldSel: LPTSTR,
             },
-            UserData: ULONG_PTR,
-            Result: ULONG_PTR,
+            UserData: usize,
+            Result: usize,
         }
         const CPSUICB_ACTION_ITEMS_APPLIED: i32 = 4;
         const CPSUICB_ACTION_NONE: i32 = 0;
@@ -94,7 +94,7 @@ mod Windows {
         const CPSUICB_REASON_SETACTIVE: i32 = 10;
         const CPSUICB_REASON_UNDO_CHANGES: i32 = 4;
         struct CPSUIDATABLOCK {
-            cbData: DWORD,
+            cbData: u32,
             pbData: LPBYTE,
         }
         const CPSUIF_ABOUT_CALLBACK: i32 = 4;
@@ -109,20 +109,18 @@ mod Windows {
         const CPSUI_PDLGPAGE_TREEVIWONLY: PDLGPAGE = 4;
         const CPSUI_REBOOTSYSTEM: i32 = 3;
         const CPSUI_RESTARTWINDOWS: i32 = 2;
-        #[library("COMPSTUI.dll", import = "CommonPropertySheetUIA")]
-        extern fn CommonPropertySheetUI(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[out] #[opt] pResult: LPDWORD) -> LONG;
         #[library("COMPSTUI.dll")]
-        extern fn CommonPropertySheetUIA(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[out] #[opt] pResult: LPDWORD) -> LONG;
+        extern fn CommonPropertySheetUIA(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[out] #[opt] pResult: LPDWORD) -> i32;
         #[library("COMPSTUI.dll")]
-        extern fn CommonPropertySheetUIW(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[out] #[opt] pResult: LPDWORD) -> LONG;
+        extern fn CommonPropertySheetUIW(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[out] #[opt] pResult: LPDWORD) -> i32;
         struct DLGPAGE {
-            cbSize: WORD,
-            Flags: WORD,
+            cbSize: u16,
+            Flags: u16,
             DlgProc: DLGPROC,
             pTabName: LPTSTR,
-            IconID: ULONG_PTR,
+            IconID: usize,
             Anonymous: union {
-                DlgTemplateID: WORD,
+                DlgTemplateID: u16,
                 hDlgTemplate: HANDLE,
             },
         }
@@ -224,32 +222,32 @@ mod Windows {
         const ERR_CPSUI_TOO_MANY_PROPSHEETPAGES: i32 = -9;
         const ERR_CPSUI_ZERO_OPTITEM: i32 = -44;
         struct EXTCHKBOX {
-            cbSize: WORD,
-            Flags: WORD,
+            cbSize: u16,
+            Flags: u16,
             pTitle: LPTSTR,
             pSeparator: LPTSTR,
             pCheckedName: LPTSTR,
-            IconID: ULONG_PTR,
-            wReserved: [WORD; 4],
-            dwReserved: [ULONG_PTR; 2],
+            IconID: usize,
+            wReserved: [u16; 4],
+            dwReserved: [usize; 2],
         }
         struct EXTPUSH {
-            cbSize: WORD,
-            Flags: WORD,
+            cbSize: u16,
+            Flags: u16,
             pTitle: LPTSTR,
             Anonymous: union {
                 DlgProc: DLGPROC,
                 pfnCallBack: FARPROC,
             },
-            IconID: ULONG_PTR,
+            IconID: usize,
             Anonymous2: union {
-                DlgTemplateID: WORD,
+                DlgTemplateID: u16,
                 hDlgTemplate: HANDLE,
             },
-            dwReserved: [ULONG_PTR; 3],
+            dwReserved: [usize; 3],
         }
         #[library("COMPSTUI.dll")]
-        extern fn GetCPSUIUserData(hDlg: HWND) -> ULONG_PTR;
+        extern fn GetCPSUIUserData(hDlg: HWND) -> usize;
         #[arch(X64 | Arm64)]
         const HINSPSUIPAGE_FIRST: HANDLE = 4294967294;
         #[arch(X86)]
@@ -566,12 +564,12 @@ mod Windows {
         const IDS_CPSUI_WATERMARK: i32 = 64797;
         const IDS_CPSUI_YES: i32 = 64729;
         struct INSERTPSUIPAGE_INFO {
-            cbSize: WORD,
-            Type: BYTE,
-            Mode: BYTE,
-            dwData1: ULONG_PTR,
-            dwData2: ULONG_PTR,
-            dwData3: ULONG_PTR,
+            cbSize: u16,
+            Type: u8,
+            Mode: u8,
+            dwData1: usize,
+            dwData2: usize,
+            dwData3: usize,
         }
         const INSPSUIPAGE_MODE_AFTER: i32 = 1;
         const INSPSUIPAGE_MODE_BEFORE: i32 = 0;
@@ -584,22 +582,22 @@ mod Windows {
         const MAX_PSUIPAGEINSERT_INDEX: i32 = 5;
         const MAX_RES_STR_CHARS: i32 = 160;
         struct OIEXT {
-            cbSize: WORD,
-            Flags: WORD,
+            cbSize: u16,
+            Flags: u16,
             hInstCaller: HINSTANCE,
             pHelpFile: LPTSTR,
-            dwReserved: [ULONG_PTR; 4],
+            dwReserved: [usize; 4],
         }
         const OIEXTF_ANSI_STRING: i32 = 1;
         const OPTCF_HIDE: i32 = 1;
         const OPTCF_MASK: i32 = 1;
         struct OPTCOMBO {
-            cbSize: WORD,
-            Flags: BYTE,
-            cListItem: WORD,
+            cbSize: u16,
+            Flags: u8,
+            cListItem: u16,
             pListItem: POPTPARAM,
-            Sel: LONG,
-            dwReserved: [DWORD; 3],
+            Sel: i32,
+            dwReserved: [u32; 3],
         }
         const OPTIF_CALLBACK: i32 = 4;
         const OPTIF_CHANGED: i32 = 8;
@@ -620,14 +618,14 @@ mod Windows {
         const OPTIF_OVERLAY_WARNING_ICON: i32 = 4096;
         const OPTIF_SEL_AS_HICON: i32 = 512;
         struct OPTITEM {
-            cbSize: WORD,
-            Level: BYTE,
-            DlgPageIdx: BYTE,
-            Flags: DWORD,
-            UserData: ULONG_PTR,
+            cbSize: u16,
+            Level: u8,
+            DlgPageIdx: u8,
+            Flags: u32,
+            UserData: usize,
             pName: LPTSTR,
             Anonymous: union {
-                Sel: LONG,
+                Sel: i32,
                 pSel: LPTSTR,
             },
             Anonymous2: union {
@@ -635,21 +633,21 @@ mod Windows {
                 pExtPush: PEXTPUSH,
             },
             pOptType: POPTTYPE,
-            HelpIndex: DWORD,
-            DMPubID: BYTE,
-            UserItemID: BYTE,
-            wReserved: WORD,
+            HelpIndex: u32,
+            DMPubID: u8,
+            UserItemID: u8,
+            wReserved: u16,
             pOIExt: POIEXT,
-            dwReserved: [ULONG_PTR; 3],
+            dwReserved: [usize; 3],
         }
         struct OPTPARAM {
-            cbSize: WORD,
-            Flags: BYTE,
-            Style: BYTE,
+            cbSize: u16,
+            Flags: u8,
+            Style: u8,
             pData: LPTSTR,
-            IconID: ULONG_PTR,
+            IconID: usize,
             lParam: LPARAM,
-            dwReserved: [ULONG_PTR; 2],
+            dwReserved: [usize; 2],
         }
         const OPTPF_DISABLED: i32 = 2;
         const OPTPF_HIDE: i32 = 1;
@@ -663,15 +661,15 @@ mod Windows {
         const OPTTF_NOSPACE_BEFORE_POSTFIX: i32 = 2;
         const OPTTF_TYPE_DISABLED: i32 = 1;
         struct OPTTYPE {
-            cbSize: WORD,
-            Type: BYTE,
-            Flags: BYTE,
-            Count: WORD,
-            BegCtrlID: WORD,
+            cbSize: u16,
+            Type: u8,
+            Flags: u8,
+            Count: u16,
+            BegCtrlID: u16,
             pOptParam: POPTPARAM,
-            Style: WORD,
-            wReserved: [WORD; 3],
-            dwReserved: [ULONG_PTR; 3],
+            Style: u16,
+            wReserved: [u16; 3],
+            dwReserved: [usize; 3],
         }
         const OTS_LBCB_INCL_ITEM_NONE: i32 = 8;
         const OTS_LBCB_NO_ICON16_IN_ITEM: i32 = 16;
@@ -688,8 +686,8 @@ mod Windows {
         type PDLGPAGE = *mut DLGPAGE;
         type PEXTCHKBOX = *mut EXTCHKBOX;
         type PEXTPUSH = *mut EXTPUSH;
-        extern fn PFNCOMPROPSHEET(hComPropSheet: HANDLE, Function: UINT, lParam1: LPARAM, lParam2: LPARAM) -> LONG_PTR;
-        extern fn PFNPROPSHEETUI(pPSUIInfo: PPROPSHEETUI_INFO, lParam: LPARAM) -> LONG;
+        extern fn PFNCOMPROPSHEET(hComPropSheet: HANDLE, Function: u32, lParam1: LPARAM, lParam2: LPARAM) -> isize;
+        extern fn PFNPROPSHEETUI(pPSUIInfo: PPROPSHEETUI_INFO, lParam: LPARAM) -> i32;
         type PINSERTPSUIPAGE_INFO = *mut INSERTPSUIPAGE_INFO;
         type POIEXT = *mut OIEXT;
         type POPTCOMBO = *mut OPTCOMBO;
@@ -701,32 +699,32 @@ mod Windows {
         type PPROPSHEETUI_INFO_HEADER = *mut PROPSHEETUI_INFO_HEADER;
         type PPSPINFO = *mut PSPINFO;
         struct PROPSHEETUI_GETICON_INFO {
-            cbSize: WORD,
-            Flags: WORD,
-            cxIcon: WORD,
-            cyIcon: WORD,
+            cbSize: u16,
+            Flags: u16,
+            cxIcon: u16,
+            cyIcon: u16,
             hIcon: HICON,
         }
         struct PROPSHEETUI_INFO {
-            cbSize: WORD,
-            Version: WORD,
-            Flags: WORD,
-            Reason: WORD,
+            cbSize: u16,
+            Version: u16,
+            Flags: u16,
+            Reason: u16,
             hComPropSheet: HANDLE,
             pfnComPropSheet: PFNCOMPROPSHEET,
             lParamInit: LPARAM,
-            UserData: ULONG_PTR,
-            Result: ULONG_PTR,
+            UserData: usize,
+            Result: usize,
         }
         struct PROPSHEETUI_INFO_HEADER {
-            cbSize: WORD,
-            Flags: WORD,
+            cbSize: u16,
+            Flags: u16,
             pTitle: LPTSTR,
             hWndParent: HWND,
             hInst: HINSTANCE,
             Anonymous: union {
                 hIcon: HICON,
-                IconID: ULONG_PTR,
+                IconID: usize,
             },
         }
         const PROPSHEETUI_INFO_VERSION: i32 = 256;
@@ -738,8 +736,8 @@ mod Windows {
         const PROPSHEETUI_REASON_SET_RESULT: i32 = 3;
         type PSETRESULT_INFO = *mut SETRESULT_INFO;
         struct PSPINFO {
-            cbSize: WORD,
-            wReserved: WORD,
+            cbSize: u16,
+            wReserved: u16,
             hComPropSheet: HANDLE,
             hCPSUIPage: HANDLE,
             pfnComPropSheet: PFNCOMPROPSHEET,
@@ -762,8 +760,8 @@ mod Windows {
         const PUSHBUTTON_TYPE_HTCLRADJ: i32 = 2;
         const PUSHBUTTON_TYPE_HTSETUP: i32 = 3;
         struct SETRESULT_INFO {
-            cbSize: WORD,
-            wReserved: WORD,
+            cbSize: u16,
+            wReserved: u16,
             hSetResult: HANDLE,
             Result: LRESULT,
         }
@@ -773,7 +771,7 @@ mod Windows {
         const SSP_STDPAGE2: i32 = 10002;
         const SSP_TVPAGE: i32 = 10000;
         #[library("COMPSTUI.dll")]
-        extern fn SetCPSUIUserData(hDlg: HWND, CPSUIUserData: ULONG_PTR) -> BOOL;
+        extern fn SetCPSUIUserData(hDlg: HWND, CPSUIUserData: usize) -> BOOL;
         const TVOT_2STATES: i32 = 0;
         const TVOT_3STATES: i32 = 1;
         const TVOT_CHKBOX: i32 = 9;
@@ -787,6 +785,6 @@ mod Windows {
         const TVOT_SCROLLBAR: i32 = 4;
         const TVOT_TRACKBAR: i32 = 3;
         const TVOT_UDARROW: i32 = 2;
-        extern fn _CPSUICALLBACK(pCPSUICBParam: PCPSUICBPARAM) -> LONG;
+        extern fn _CPSUICALLBACK(pCPSUICBParam: PCPSUICBPARAM) -> i32;
     }
 }

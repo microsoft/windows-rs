@@ -7,15 +7,15 @@ mod Windows {
             DEVICE_IMMERSIVE = 1,
         }
         #[library("api-ms-win-shcore-scaling-l1-1-1.dll")]
-        extern fn GetDpiForMonitor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmonitor: HMONITOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dpiType: MONITOR_DPI_TYPE, #[out] dpiX: *mut UINT, #[out] dpiY: *mut UINT) -> HRESULT;
+        extern fn GetDpiForMonitor(hmonitor: HMONITOR, dpiType: MONITOR_DPI_TYPE, dpiX: *mut u32, dpiY: *mut u32) -> HRESULT;
         #[library("api-ms-win-shcore-scaling-l1-1-2.dll")]
-        extern fn GetDpiForShellUIComponent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: SHELL_UI_COMPONENT) -> UINT;
+        extern fn GetDpiForShellUIComponent(param0: SHELL_UI_COMPONENT) -> u32;
         #[library("api-ms-win-shcore-scaling-l1-1-1.dll")]
-        extern fn GetProcessDpiAwareness(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hprocess: HANDLE, #[out] value: *mut PROCESS_DPI_AWARENESS) -> HRESULT;
+        extern fn GetProcessDpiAwareness(#[opt] hprocess: HANDLE, value: *mut PROCESS_DPI_AWARENESS) -> HRESULT;
         #[library("api-ms-win-shcore-scaling-l1-1-0.dll")]
-        extern fn GetScaleFactorForDevice(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] deviceType: DISPLAY_DEVICE_TYPE) -> DEVICE_SCALE_FACTOR;
+        extern fn GetScaleFactorForDevice(deviceType: DISPLAY_DEVICE_TYPE) -> DEVICE_SCALE_FACTOR;
         #[library("api-ms-win-shcore-scaling-l1-1-1.dll")]
-        extern fn GetScaleFactorForMonitor(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hMon: HMONITOR, #[out] pScale: *mut DEVICE_SCALE_FACTOR) -> HRESULT;
+        extern fn GetScaleFactorForMonitor(hMon: HMONITOR, pScale: *mut DEVICE_SCALE_FACTOR) -> HRESULT;
         #[repr(i32)]
         enum MONITOR_DPI_TYPE {
             MDT_EFFECTIVE_DPI = 0,
@@ -30,12 +30,13 @@ mod Windows {
             PROCESS_PER_MONITOR_DPI_AWARE = 2,
         }
         #[library("api-ms-win-shcore-scaling-l1-1-1.dll")]
-        extern fn RegisterScaleChangeEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEvent: HANDLE, #[out] pdwCookie: *mut DWORD_PTR) -> HRESULT;
+        extern fn RegisterScaleChangeEvent(hEvent: HANDLE, pdwCookie: *mut usize) -> HRESULT;
         #[library("api-ms-win-shcore-scaling-l1-1-0.dll")]
-        extern fn RegisterScaleChangeNotifications(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] displayDevice: DISPLAY_DEVICE_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndNotify: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] uMsgNotify: UINT, #[out] pdwCookie: *mut DWORD) -> HRESULT;
+        extern fn RegisterScaleChangeNotifications(displayDevice: DISPLAY_DEVICE_TYPE, hwndNotify: HWND, uMsgNotify: u32, pdwCookie: *mut u32) -> HRESULT;
         #[library("api-ms-win-shcore-scaling-l1-1-0.dll")]
-        extern fn RevokeScaleChangeNotifications(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] displayDevice: DISPLAY_DEVICE_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCookie: DWORD) -> HRESULT;
-        #[repr(i32)]
+        extern fn RevokeScaleChangeNotifications(displayDevice: DISPLAY_DEVICE_TYPE, dwCookie: u32) -> HRESULT;
+        #[repr(u32)]
+        #[flags]
         enum SCALE_CHANGE_FLAGS {
             SCF_VALUE_NONE = 0,
             SCF_SCALE = 1,
@@ -48,8 +49,8 @@ mod Windows {
             SHELL_UI_COMPONENT_DESKBAND = 2,
         }
         #[library("api-ms-win-shcore-scaling-l1-1-1.dll")]
-        extern fn SetProcessDpiAwareness(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: PROCESS_DPI_AWARENESS) -> HRESULT;
+        extern fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> HRESULT;
         #[library("api-ms-win-shcore-scaling-l1-1-1.dll")]
-        extern fn UnregisterScaleChangeEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwCookie: DWORD_PTR) -> HRESULT;
+        extern fn UnregisterScaleChangeEvent(dwCookie: usize) -> HRESULT;
     }
 }

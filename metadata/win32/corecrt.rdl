@@ -2,6 +2,6 @@
 mod Windows {
     mod Win32 {
         type __time64_t = i64;
-        type time_t = i64;
+        type time_t = __time64_t;
     }
 }

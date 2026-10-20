@@ -1,10 +1,19 @@
+fn is_implicit_transition(id: PropertyId) -> bool {
+    matches!(
+        id,
+        PropertyId::OpacityTransition
+            | PropertyId::ScaleTransition
+            | PropertyId::TranslationTransition
+    )
+}
+
 impl WinUiAdapter {
     fn create(&mut self, object: ObjectId, kind: ObjectType) -> Result<(), WinUiError> {
         if self.handles.contains_key(&object) {
             return Err(WinUiError::DuplicateObject(object));
         }
         let handle = if let Some(handle) =
-            GeneratedHandle::create(kind, object, &self.event_queue, &self.pending_focus_states)?
+            GeneratedHandle::create(kind, object, &self.event_queue)?
         {
             Handle::Generated(handle)
         } else {
@@ -37,7 +46,6 @@ impl WinUiAdapter {
                         value,
                         event,
                         observed_text,
-                        set_count: Cell::new(0),
                         _text_changed: text_changed,
                     })
                 }
@@ -189,11 +197,34 @@ impl WinUiAdapter {
         Ok(())
     }
 
+    fn set_transition_properties(
+        &self,
+        object: ObjectId,
+        set: &[Property],
+        clear: &[PropertyId],
+    ) -> Result<(), WinUiError> {
+        for (id, value) in clear
+            .iter()
+            .map(|id| (*id, None))
+            .chain(set.iter().map(|property| (property.id, Some(&property.value))))
+            .filter(|(id, _)| is_implicit_transition(*id))
+        {
+            let Some(Handle::Generated(handle)) = self.handles.get(&object) else {
+                return Err(WinUiError::InvalidObject(object));
+            };
+            handle
+                .set_property(id, value, None)
+                .ok_or(WinUiError::InvalidObject(object))??;
+        }
+        Ok(())
+    }
+
     fn set_properties(
         &mut self,
         object: ObjectId,
         set: &[Property],
         clear: &[PropertyId],
+        initializing: bool,
     ) -> Result<(), WinUiError> {
         let kind = self.kind(object)?;
         let sorted_clear = (kind == ObjectType::ListView).then(|| {
@@ -208,15 +239,34 @@ impl WinUiAdapter {
         });
         let clear = sorted_clear.as_deref().unwrap_or(clear);
         let set = sorted_set.as_deref().unwrap_or(set);
-        for property in clear.iter().copied() {
-            if property == PropertyId::Source {
-                self.release_image(object);
-                if let Some(Handle::Generated(GeneratedHandle::Image(control))) =
+        let element = self.ui_element(object).ok();
+        if let Some(Handle::Generated(handle)) = self.handles.get_mut(&object) {
+            let context = EventContext {
+                event_queue: &self.event_queue,
+                pending_focus_states: &self.pending_focus_states,
+            };
+            for property in set {
+                handle.subscribe_property_events(object, property.id, context)?;
+            }
+        }
+        // Native setters choose their animation immediately. Apply the new transition policy
+        // before target changes, but establish initial values before installing transitions.
+        if !initializing {
+            self.set_transition_properties(object, set, clear)?;
+        }
+        if !clear.is_empty()
+            && let Some(subscription) = self.image_subscriptions.get(&object)
+            && clear.contains(&subscription.property)
+        {
+            self.release_image(object);
+        }
+        for property in clear.iter().copied().filter(|id| !is_implicit_transition(*id)) {
+            if property == PropertyId::Source
+                && let Some(Handle::Generated(GeneratedHandle::Image(control))) =
                     self.handles.get(&object)
-                {
-                    control.invalidate_source_events();
-                    control.source.set(false);
-                }
+            {
+                control.invalidate_source_events();
+                control.source.set(false);
             }
             let feedback = GeneratedHandle::feedback_expectation(kind, property, None);
             if let Some((event, expectation)) = feedback.clone() {
@@ -255,26 +305,26 @@ impl WinUiAdapter {
                 }) {
                     self.set_theme_brush(object, property, None)?;
                 }
-                if let Ok(element) = self.ui_element(object)
+                if let Some(element) = &element
                     && let Some(result) =
-                        GeneratedHandle::set_attached_property(&element, property, None)
+                        GeneratedHandle::set_attached_property(element, property, None)
                 {
                     break 'apply result;
                 }
-                if let Ok(element) = self.ui_element(object)
+                if let Some(element) = &element
                     && let Some(result) =
-                        GeneratedHandle::set_visual_property(&element, property, None)
+                        GeneratedHandle::set_visual_property(element, property, None)
                 {
                     break 'apply result;
                 }
-                if let Ok(element) = self.ui_element(object)
+                if let Some(element) = &element
                     && let Some(result) =
-                        GeneratedHandle::set_handwritten_property(kind, &element, property, None)
+                        GeneratedHandle::set_handwritten_property(kind, element, property, None)
                 {
                     break 'apply result;
                 }
                 if let Some(Handle::Generated(handle)) = self.handles.get(&object)
-                    && let Some(result) = handle.set_property(property, None)
+                    && let Some(result) = handle.set_property(property, None, None)
                 {
                     break 'apply result;
                 }
@@ -319,7 +369,7 @@ impl WinUiAdapter {
                 Self::schedule_event_wake(&self.event_queue);
             }
         }
-        for property in set {
+        for property in set.iter().filter(|property| !is_implicit_transition(property.id)) {
             let feedback =
                 GeneratedHandle::feedback_expectation(kind, property.id, Some(&property.value));
             if let Some((event, expectation)) = feedback.clone() {
@@ -354,13 +404,13 @@ impl WinUiAdapter {
                             properties.iter().any(|(candidate, _)| *candidate == id)
                         }) =>
                     {
-                        if let Ok(element) = self.ui_element(object)
+                        if let Some(element) = &element
                             && let Some(result) =
-                                GeneratedHandle::set_handwritten_property(kind, &element, id, None)
+                                GeneratedHandle::set_handwritten_property(kind, element, id, None)
                         {
                             result?;
                         } else if let Some(Handle::Generated(handle)) = self.handles.get(&object)
-                            && let Some(result) = handle.set_property(id, None)
+                            && let Some(result) = handle.set_property(id, None, None)
                         {
                             result?;
                         } else {
@@ -377,28 +427,28 @@ impl WinUiAdapter {
                     }
                     _ => {}
                 }
-                if let Ok(element) = self.ui_element(object)
+                if let Some(element) = &element
                     && let Some(result) = GeneratedHandle::set_attached_property(
-                        &element,
+                        element,
                         property.id,
                         Some(&property.value),
                     )
                 {
                     break 'apply result;
                 }
-                if let Ok(element) = self.ui_element(object)
+                if let Some(element) = &element
                     && let Some(result) = GeneratedHandle::set_visual_property(
-                        &element,
+                        element,
                         property.id,
                         Some(&property.value),
                     )
                 {
                     break 'apply result;
                 }
-                if let Ok(element) = self.ui_element(object)
+                if let Some(element) = &element
                     && let Some(result) = GeneratedHandle::set_handwritten_property(
                         kind,
-                        &element,
+                        element,
                         property.id,
                         Some(&property.value),
                     )
@@ -410,10 +460,33 @@ impl WinUiAdapter {
                 {
                     break 'apply self.set_image_source(object, source);
                 }
+                let image = if let PropertyValue::Icon(icon) = &property.value {
+                    self.shared_icon_image(icon)?
+                } else {
+                    None
+                };
                 if let Some(Handle::Generated(handle)) = self.handles.get(&object)
-                    && let Some(result) = handle.set_property(property.id, Some(&property.value))
+                    && let Some(result) = handle.set_property(
+                        property.id,
+                        Some(&property.value),
+                        image.as_ref().map(|image| &image.value),
+                    )
                 {
-                    break 'apply result;
+                    result?;
+                    if matches!(&property.value, PropertyValue::Icon(_)) {
+                        self.release_image(object);
+                        if let Some(image) = image {
+                            self.image_subscriptions.insert(
+                                object,
+                                ImageSubscription {
+                                    property: property.id,
+                                    image,
+                                    _callback: None,
+                                },
+                            );
+                        }
+                    }
+                    break 'apply Ok(());
                 }
                 if property.id == PropertyId::Text
                     && matches!(self.handles.get(&object), Some(Handle::Data(_)))
@@ -467,6 +540,9 @@ impl WinUiAdapter {
                 Self::schedule_event_wake(&self.event_queue);
             }
         }
+        if initializing {
+            self.set_transition_properties(object, set, clear)?;
+        }
         Ok(())
     }
 
@@ -483,6 +559,16 @@ impl WinUiAdapter {
         Ok(image)
     }
 
+    fn shared_icon_image(
+        &mut self,
+        icon: &Icon,
+    ) -> Result<Option<Rc<NativeImageSource>>, WinUiError> {
+        match icon.value() {
+            IconValue::Image(source) => self.shared_image(source).map(Some),
+            _ => Ok(None),
+        }
+    }
+
     fn release_image(&mut self, object: ObjectId) {
         // Keep released images until the batch completes so replacement controls can share them.
         if let Some(subscription) = self.image_subscriptions.remove(&object) {
@@ -494,6 +580,7 @@ impl WinUiAdapter {
     /// completion, and replacement all end an object's native lifetime through this path.
     fn release_object(&mut self, object: ObjectId, handle: Handle) -> Result<(), WinUiError> {
         self.release_image(object);
+        self.live_regions.remove(&object);
         self.resource_override_keys.remove(&object);
         self.style_states.remove(&object);
         self.virtual_items.remove(&object);
@@ -563,6 +650,7 @@ impl WinUiAdapter {
         self.image_subscriptions.insert(
             object,
             ImageSubscription {
+                property: PropertyId::Source,
                 image,
                 _callback: callback,
             },
@@ -631,7 +719,6 @@ impl WinUiAdapter {
             }
             Cardinality::Many => {
                 let values = self.owned_collection(parent, relation)?;
-                let previous: IInspectable = previous.cast()?;
                 let mut index = 0;
                 while index < values.size()? && values.get_at(index)? != previous {
                     index += 1;
@@ -652,7 +739,7 @@ impl WinUiAdapter {
         let replacement = self.ui_element(object)?;
         if let Some(index) = index {
             self.owned_collection(parent, relation)?
-                .insert_at(index, &replacement.cast()?)?;
+                .insert_at(index, &replacement)?;
         } else {
             match (self.handle(parent)?, relation) {
                 (Handle::Generated(parent_handle), relation) => {

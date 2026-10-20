@@ -57,10 +57,6 @@ impl Component for GridViewPage {
                             })),
                         TextBlock::new().text(label).opacity(0.6),
                     )),
-                    r#"GridView::new()
-    .selected_index(selected)
-    .on_selection_changed(handler)
-    .items(selectable_items)"#,
                 ),
             )],
         )

@@ -57,7 +57,7 @@ mod Windows {
         const DWM_BB_TRANSITIONONMAXIMIZED: i32 = 4;
         #[packed(1)]
         struct DWM_BLURBEHIND {
-            dwFlags: DWORD,
+            dwFlags: u32,
             fEnable: BOOL,
             hRgnBlur: HRGN,
             fTransitionOnMaximized: BOOL,
@@ -71,16 +71,17 @@ mod Windows {
         const DWM_FRAME_DURATION_DEFAULT: i32 = -1;
         #[packed(1)]
         struct DWM_PRESENT_PARAMETERS {
-            cbSize: UINT32,
+            cbSize: u32,
             fQueue: BOOL,
             cRefreshStart: DWM_FRAME_COUNT,
-            cBuffer: UINT,
+            cBuffer: u32,
             fUseSourceRate: BOOL,
             rateSource: UNSIGNED_RATIO,
-            cRefreshesPerFrame: UINT,
+            cRefreshesPerFrame: u32,
             eSampling: DWM_SOURCE_FRAME_SAMPLING,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum DWM_SHOWCONTACT {
             DWMSC_DOWN = 1,
             DWMSC_UP = 2,
@@ -88,7 +89,7 @@ mod Windows {
             DWMSC_HOLD = 8,
             DWMSC_PENBARREL = 16,
             DWMSC_NONE = 0,
-            DWMSC_ALL = -1,
+            DWMSC_ALL = 4294967295,
         }
         const DWM_SIT_DISPLAYFRAME: i32 = 1;
         #[repr(i32)]
@@ -105,7 +106,8 @@ mod Windows {
             DWMSBT_TRANSIENTWINDOW = 3,
             DWMSBT_TABBEDWINDOW = 4,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum DWM_TAB_WINDOW_REQUIREMENTS {
             DWMTWR_NONE = 0,
             DWMTWR_IMPLEMENTED_BY_SYSTEM = 1,
@@ -121,34 +123,34 @@ mod Windows {
         }
         #[packed(1)]
         struct DWM_THUMBNAIL_PROPERTIES {
-            dwFlags: DWORD,
+            dwFlags: u32,
             rcDestination: RECT,
             rcSource: RECT,
-            opacity: BYTE,
+            opacity: u8,
             fVisible: BOOL,
             fSourceClientAreaOnly: BOOL,
         }
         #[packed(1)]
         struct DWM_TIMING_INFO {
-            cbSize: UINT32,
+            cbSize: u32,
             rateRefresh: UNSIGNED_RATIO,
             qpcRefreshPeriod: QPC_TIME,
             rateCompose: UNSIGNED_RATIO,
             qpcVBlank: QPC_TIME,
             cRefresh: DWM_FRAME_COUNT,
-            cDXRefresh: UINT,
+            cDXRefresh: u32,
             qpcCompose: QPC_TIME,
             cFrame: DWM_FRAME_COUNT,
-            cDXPresent: UINT,
+            cDXPresent: u32,
             cRefreshFrame: DWM_FRAME_COUNT,
             cFrameSubmitted: DWM_FRAME_COUNT,
-            cDXPresentSubmitted: UINT,
+            cDXPresentSubmitted: u32,
             cFrameConfirmed: DWM_FRAME_COUNT,
-            cDXPresentConfirmed: UINT,
+            cDXPresentConfirmed: u32,
             cRefreshConfirmed: DWM_FRAME_COUNT,
-            cDXRefreshConfirmed: UINT,
+            cDXRefreshConfirmed: u32,
             cFramesLate: DWM_FRAME_COUNT,
-            cFramesOutstanding: UINT,
+            cFramesOutstanding: u32,
             cFrameDisplayed: DWM_FRAME_COUNT,
             qpcFrameDisplayed: QPC_TIME,
             cRefreshFrameDisplayed: DWM_FRAME_COUNT,
@@ -167,8 +169,8 @@ mod Windows {
             cRefreshesDisplayed: DWM_FRAME_COUNT,
             cRefreshesPresented: DWM_FRAME_COUNT,
             cRefreshStarted: DWM_FRAME_COUNT,
-            cPixelsReceived: ULONGLONG,
-            cPixelsDrawn: ULONGLONG,
+            cPixelsReceived: u64,
+            cPixelsDrawn: u64,
             cBuffersEmpty: DWM_FRAME_COUNT,
         }
         const DWM_TNP_OPACITY: i32 = 4;
@@ -184,67 +186,67 @@ mod Windows {
             DWMWCP_ROUNDSMALL = 3,
         }
         #[library("dwmapi.dll")]
-        extern fn DwmAttachMilContent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND) -> HRESULT;
+        extern fn DwmAttachMilContent(hwnd: HWND) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmDefWindowProc(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, msg: UINT, wParam: WPARAM, lParam: LPARAM, #[out] plResult: *mut LRESULT) -> BOOL;
+        extern fn DwmDefWindowProc(hWnd: HWND, msg: u32, wParam: WPARAM, lParam: LPARAM, plResult: *mut LRESULT) -> BOOL;
         #[library("dwmapi.dll")]
-        extern fn DwmDetachMilContent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND) -> HRESULT;
+        extern fn DwmDetachMilContent(hwnd: HWND) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmEnableBlurBehindWindow(hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pBlurBehind: *const DWM_BLURBEHIND) -> HRESULT;
+        extern fn DwmEnableBlurBehindWindow(hWnd: HWND, pBlurBehind: *const DWM_BLURBEHIND) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmEnableComposition(uCompositionAction: UINT) -> HRESULT;
+        extern fn DwmEnableComposition(uCompositionAction: u32) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmEnableMMCSS(fEnableMMCSS: BOOL) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmExtendFrameIntoClientArea(hWnd: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pMarInset: *const MARGINS) -> HRESULT;
+        extern fn DwmExtendFrameIntoClientArea(hWnd: HWND, pMarInset: *const MARGINS) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmFlush() -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmGetColorizationColor(#[out] pcrColorization: *mut DWORD, #[out] pfOpaqueBlend: *mut BOOL) -> HRESULT;
+        extern fn DwmGetColorizationColor(pcrColorization: *mut u32, pfOpaqueBlend: *mut BOOL) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmGetCompositionTimingInfo(hwnd: HWND, #[out] pTimingInfo: *mut DWM_TIMING_INFO) -> HRESULT;
+        extern fn DwmGetCompositionTimingInfo(hwnd: HWND, pTimingInfo: *mut DWM_TIMING_INFO) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmGetGraphicsStreamClient(uIndex: UINT, #[out] pClientUuid: *mut UUID) -> HRESULT;
+        extern fn DwmGetGraphicsStreamClient(uIndex: u32, pClientUuid: *mut GUID) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmGetGraphicsStreamTransformHint(uIndex: UINT, #[out] pTransform: *mut MilMatrix3x2D) -> HRESULT;
+        extern fn DwmGetGraphicsStreamTransformHint(uIndex: u32, pTransform: *mut MilMatrix3x2D) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmGetTransportAttributes(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "1", "1")] #[out] pfIsRemoting: *mut BOOL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "1", "1")] #[out] pfIsConnected: *mut BOOL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "1", "1")] #[out] pDwGeneration: *mut DWORD) -> HRESULT;
+        extern fn DwmGetTransportAttributes(#[len_const(1)] pfIsRemoting: *mut BOOL, #[len_const(1)] pfIsConnected: *mut BOOL, #[len_const(1)] pDwGeneration: *mut u32) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmGetUnmetTabRequirements(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] appWindow: HWND, #[out] value: *mut DWM_TAB_WINDOW_REQUIREMENTS) -> HRESULT;
+        extern fn DwmGetUnmetTabRequirements(#[opt] appWindow: HWND, value: *mut DWM_TAB_WINDOW_REQUIREMENTS) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmGetWindowAttribute(hwnd: HWND, dwAttribute: DWORD, #[out] #[size_param(3)] pvAttribute: PVOID, cbAttribute: DWORD) -> HRESULT;
+        extern fn DwmGetWindowAttribute(hwnd: HWND, dwAttribute: u32, #[size_param(3)] pvAttribute: *mut void, cbAttribute: u32) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmInvalidateIconicBitmaps(hwnd: HWND) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmIsCompositionEnabled(#[out] pfEnabled: *mut BOOL) -> HRESULT;
+        extern fn DwmIsCompositionEnabled(pfEnabled: *mut BOOL) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmModifyPreviousDxFrameDuration(hwnd: HWND, cRefreshes: INT, fRelative: BOOL) -> HRESULT;
+        extern fn DwmModifyPreviousDxFrameDuration(hwnd: HWND, cRefreshes: i32, fRelative: BOOL) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmQueryThumbnailSourceSize(hThumbnail: HTHUMBNAIL, #[out] pSize: PSIZE) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmRegisterThumbnail(hwndDestination: HWND, hwndSource: HWND, #[out] phThumbnailId: PHTHUMBNAIL) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmRenderGesture(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] gt: GESTURE_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cContacts: UINT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pdwPointerID: *const DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] pPoints: *const POINT) -> HRESULT;
+        extern fn DwmRenderGesture(gt: GESTURE_TYPE, cContacts: u32, #[len_param(1)] pdwPointerID: *const u32, #[len_param(1)] pPoints: *const POINT) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmSetDxFrameDuration(hwnd: HWND, cRefreshes: INT) -> HRESULT;
+        extern fn DwmSetDxFrameDuration(hwnd: HWND, cRefreshes: i32) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmSetIconicLivePreviewBitmap(hwnd: HWND, hbmp: HBITMAP, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pptClient: *mut POINT, dwSITFlags: DWORD) -> HRESULT;
+        extern fn DwmSetIconicLivePreviewBitmap(hwnd: HWND, hbmp: HBITMAP, #[in] #[opt] pptClient: *mut POINT, dwSITFlags: u32) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmSetIconicThumbnail(hwnd: HWND, hbmp: HBITMAP, dwSITFlags: DWORD) -> HRESULT;
+        extern fn DwmSetIconicThumbnail(hwnd: HWND, hbmp: HBITMAP, dwSITFlags: u32) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmSetPresentParameters(hwnd: HWND, #[in] #[out] pPresentParams: *mut DWM_PRESENT_PARAMETERS) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmSetWindowAttribute(hwnd: HWND, dwAttribute: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pvAttribute: LPCVOID, cbAttribute: DWORD) -> HRESULT;
+        extern fn DwmSetWindowAttribute(hwnd: HWND, dwAttribute: u32, #[size_param(3)] pvAttribute: LPCVOID, cbAttribute: u32) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmShowContact(dwPointerID: DWORD, eShowContact: DWM_SHOWCONTACT) -> HRESULT;
+        extern fn DwmShowContact(dwPointerID: u32, eShowContact: DWM_SHOWCONTACT) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmTetherContact(dwPointerID: DWORD, fEnable: BOOL, ptTether: POINT) -> HRESULT;
+        extern fn DwmTetherContact(dwPointerID: u32, fEnable: BOOL, ptTether: POINT) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmTransitionOwnedWindow(hwnd: HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> HRESULT;
         #[library("dwmapi.dll")]
         extern fn DwmUnregisterThumbnail(hThumbnailId: HTHUMBNAIL) -> HRESULT;
         #[library("dwmapi.dll")]
-        extern fn DwmUpdateThumbnailProperties(hThumbnailId: HTHUMBNAIL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ptnProperties: *const DWM_THUMBNAIL_PROPERTIES) -> HRESULT;
+        extern fn DwmUpdateThumbnailProperties(hThumbnailId: HTHUMBNAIL, ptnProperties: *const DWM_THUMBNAIL_PROPERTIES) -> HRESULT;
         #[repr(i32)]
         enum GESTURE_TYPE {
             GT_PEN_TAP = 0,
@@ -259,28 +261,25 @@ mod Windows {
             GT_TOUCH_PRESSANDHOLDABORT = 9,
             GT_TOUCH_PRESSANDTAP = 10,
         }
-        type HTHUMBNAIL = *mut void;
+        type HTHUMBNAIL = HANDLE;
         type MIL_MATRIX3X2D = MilMatrix3x2D;
         #[packed(1)]
         struct MilMatrix3x2D {
-            S_11: DOUBLE,
-            S_12: DOUBLE,
-            S_21: DOUBLE,
-            S_22: DOUBLE,
-            DX: DOUBLE,
-            DY: DOUBLE,
+            S_11: f64,
+            S_12: f64,
+            S_21: f64,
+            S_22: f64,
+            DX: f64,
+            DY: f64,
         }
         type PDWM_BLURBEHIND = *mut DWM_BLURBEHIND;
         type PDWM_THUMBNAIL_PROPERTIES = *mut DWM_THUMBNAIL_PROPERTIES;
-        type PHTHUMBNAIL = *mut *mut void;
+        type PHTHUMBNAIL = *mut HTHUMBNAIL;
         type QPC_TIME = u64;
         #[packed(1)]
         struct UNSIGNED_RATIO {
-            uiNumerator: UINT32,
-            uiDenominator: UINT32,
+            uiNumerator: u32,
+            uiDenominator: u32,
         }
-        const c_DwmMaxAdapters: UINT = 16;
-        const c_DwmMaxMonitors: UINT = 16;
-        const c_DwmMaxQueuedBuffers: UINT = 8;
     }
 }

@@ -494,6 +494,7 @@ mod Windows {
                     IInteractionTrackerIdleStateEnteredArgs,
                     IInteractionTrackerIdleStateEnteredArgs2,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInteractionTrackerInertiaModifierFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
@@ -568,6 +569,7 @@ mod Windows {
                 class InteractionTrackerValuesChangedArgs {
                     IInteractionTrackerValuesChangedArgs,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IInteractionTrackerVector2InertiaModifierFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
@@ -586,6 +588,7 @@ mod Windows {
                 class InteractionTrackerVector2InertiaNaturalMotion: InteractionTrackerVector2InertiaModifier {
                     IInteractionTrackerVector2InertiaNaturalMotion,
                 }
+                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IVisualInteractionSourceObjectFactory, Public, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]

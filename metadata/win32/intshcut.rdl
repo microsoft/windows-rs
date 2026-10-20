@@ -1,6 +1,9 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        type CIUniformResourceLocator = IUniformResourceLocatorA;
+        type CURLINVOKECOMMANDINFOA = URLINVOKECOMMANDINFOA;
+        type CURLINVOKECOMMANDINFOW = URLINVOKECOMMANDINFOW;
         const E_FLAGS: SCODE = -2147217408;
         const IS_E_EXEC_FAILED: SCODE = -2147213310;
         #[repr(i32)]
@@ -18,48 +21,22 @@ mod Windows {
         }
         #[guid(0xfbf23b80_e3f0_101b_8488_00aa003e56f8)]
         interface IUniformResourceLocatorA: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetURL(&self, pcszURL: LPCSTR, dwInFlags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetURL(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszURL: *mut LPSTR) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetURL(&self, pcszURL: PCSTR, dwInFlags: u32) -> HRESULT;
+            fn GetURL(&self, ppszURL: *mut PSTR) -> HRESULT;
             fn InvokeCommand(&self, purlici: PURLINVOKECOMMANDINFOA) -> HRESULT;
         }
         #[guid(0xcabb0da0_da57_11cf_9974_0020afd79762)]
         interface IUniformResourceLocatorW: IUnknown {
-            #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObj: *mut *mut void) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn AddRef(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Release(&self) -> ULONG;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn SetURL(&self, pcszURL: LPCWSTR, dwInFlags: DWORD) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn GetURL(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszURL: *mut LPWSTR) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn SetURL(&self, pcszURL: PCWSTR, dwInFlags: u32) -> HRESULT;
+            fn GetURL(&self, ppszURL: *mut PWSTR) -> HRESULT;
             fn InvokeCommand(&self, purlici: PURLINVOKECOMMANDINFOW) -> HRESULT;
         }
         #[repr(i32)]
         enum MIMEASSOCIATIONDIALOG_IN_FLAGS {
             MIMEASSOCDLG_FL_REGISTER_ASSOC = 1,
         }
-        type PCIUniformResourceLocator = IUniformResourceLocatorA;
         type PCURLINVOKECOMMANDINFOA = *const URLINVOKECOMMANDINFOA;
         type PCURLINVOKECOMMANDINFOW = *const URLINVOKECOMMANDINFOW;
-        type PIUniformResourceLocator = IUniformResourceLocatorA;
         type PURLINVOKECOMMANDINFOA = *mut URLINVOKECOMMANDINFOA;
         type PURLINVOKECOMMANDINFOW = *mut URLINVOKECOMMANDINFOW;
         #[repr(i32)]
@@ -73,16 +50,16 @@ mod Windows {
             URLASSOCDLG_FL_REGISTER_ASSOC = 2,
         }
         struct URLINVOKECOMMANDINFOA {
-            dwcbSize: DWORD,
-            dwFlags: DWORD,
+            dwcbSize: u32,
+            dwFlags: u32,
             hwndParent: HWND,
-            pcszVerb: LPCSTR,
+            pcszVerb: PCSTR,
         }
         struct URLINVOKECOMMANDINFOW {
-            dwcbSize: DWORD,
-            dwFlags: DWORD,
+            dwcbSize: u32,
+            dwFlags: u32,
             hwndParent: HWND,
-            pcszVerb: LPCWSTR,
+            pcszVerb: PCWSTR,
         }
         const URL_E_INVALID_SYNTAX: SCODE = -2147217407;
         const URL_E_UNREGISTERED_PROTOCOL: SCODE = -2147217406;

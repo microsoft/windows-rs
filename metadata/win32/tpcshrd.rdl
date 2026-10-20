@@ -8,10 +8,10 @@ mod Windows {
         const MAX_PACKET_BUTTON_COUNT: i32 = 32;
         const MAX_PACKET_PROPERTY_COUNT: i32 = 32;
         struct PACKET_DESCRIPTION {
-            cbPacketSize: ULONG,
-            cPacketProperties: ULONG,
+            cbPacketSize: u32,
+            cPacketProperties: u32,
             pPacketProperties: *mut PACKET_PROPERTY,
-            cButtons: ULONG,
+            cButtons: u32,
             pguidButtons: *mut GUID,
         }
         struct PACKET_PROPERTY {
@@ -23,10 +23,10 @@ mod Windows {
         type PPROPERTY_METRICS = *mut PROPERTY_METRICS;
         type PPROPERTY_UNITS = *mut PROPERTY_UNITS;
         struct PROPERTY_METRICS {
-            nLogicalMin: LONG,
-            nLogicalMax: LONG,
+            nLogicalMin: i32,
+            nLogicalMax: i32,
             Units: PROPERTY_UNITS,
-            fResolution: FLOAT,
+            fResolution: f32,
         }
         #[repr(i32)]
         enum PROPERTY_UNITS {
@@ -49,17 +49,17 @@ mod Windows {
             PROPERTY_UNITS_CANDELA = 16,
         }
         struct STROKE_RANGE {
-            iStrokeBegin: ULONG,
-            iStrokeEnd: ULONG,
+            iStrokeBegin: u32,
+            iStrokeEnd: u32,
         }
         type SYSTEM_EVENT = u16;
         struct SYSTEM_EVENT_DATA {
-            bModifier: BYTE,
-            wKey: WCHAR,
-            xPos: LONG,
-            yPos: LONG,
-            bCursorMode: BYTE,
-            dwButtonState: DWORD,
+            bModifier: u8,
+            wKey: u16,
+            xPos: i32,
+            yPos: i32,
+            bCursorMode: u8,
+            dwButtonState: u32,
         }
         type TABLET_CONTEXT_ID = u32;
         const TABLET_DISABLE_FLICKFALLBACKKEYS: i32 = 1048576;

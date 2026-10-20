@@ -53,7 +53,6 @@ impl Component for CalendarViewPage {
                                 .text(format!("Selection changed {} time(s)", self.changes))
                                 .opacity(0.6),
                         )),
-                        "ToggleSwitch::new().on_toggled(...)\nCalendarView::new()\n    .is_today_highlighted(today_highlighted)\n    .on_selected_dates_changed(|| ...)",
                     ),
                 ),
                 KeyedView::new(
@@ -61,7 +60,6 @@ impl Component for CalendarViewPage {
                     sample_card(
                         "CalendarView without Labels",
                         CalendarView::new().is_group_label_visible(false),
-                        "CalendarView::new().is_group_label_visible(false)",
                     ),
                 ),
             ],

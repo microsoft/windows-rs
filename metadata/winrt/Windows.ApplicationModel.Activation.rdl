@@ -520,9 +520,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IFileOpenPickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             interface IFileOpenPickerContinuationEventArgs: IContinuationActivatedEventArgs + IActivatedEventArgs {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IFileOpenPickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
-                fn get_Files(&self) -> super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>;
+                Files: super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>;
             }
             #[guid(0x81c19cf1_74e6_4387_82eb_bb8fd64b4346)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -542,17 +542,17 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IFileSavePickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             interface IFileSavePickerContinuationEventArgs: IContinuationActivatedEventArgs + IActivatedEventArgs {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IFileSavePickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
-                fn get_File(&self) -> super::super::Storage::StorageFile;
+                File: super::super::Storage::StorageFile;
             }
             #[guid(0x51882366_9f4b_498f_beb0_42684f6e1c29)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IFolderPickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             interface IFolderPickerContinuationEventArgs: IContinuationActivatedEventArgs + IActivatedEventArgs {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IFolderPickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
-                fn get_Folder(&self) -> super::super::Storage::StorageFolder;
+                Folder: super::super::Storage::StorageFolder;
             }
             #[guid(0xfbc93e26_a14a_4b4f_82b0_33bed920af52)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -707,15 +707,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::Wallet::WalletContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Wallet.WalletContract")]
             interface IWalletActionActivatedEventArgs: IActivatedEventArgs {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Wallet.WalletContract")]
-                fn get_ItemId(&self) -> String;
-                #[special]
+                ItemId: String;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Wallet.WalletContract")]
-                fn get_ActionKind(&self) -> super::Wallet::WalletActionKind;
-                #[special]
+                ActionKind: super::Wallet::WalletActionKind;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Wallet.WalletContract")]
-                fn get_ActionId(&self) -> String;
+                ActionId: String;
             }
             #[guid(0x72b71774_98ea_4ccf_9752_46d9051004f1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

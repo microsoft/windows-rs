@@ -8,24 +8,24 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionFrameKind may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(KnownPerceptionFrameKind)]
                 interface IKnownPerceptionFrameKindStatics {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionFrameKind may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Color(&self) -> String;
-                    #[special]
+                    Color: String;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionFrameKind may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Depth(&self) -> String;
-                    #[special]
+                    Depth: String;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("KnownPerceptionFrameKind may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Infrared(&self) -> String;
+                    Infrared: String;
                 }
                 #[guid(0x172c4882_2fd9_4c4e_ba34_fdf20a73dde5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionControlGroup may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionControlGroup)]
                 interface IPerceptionControlGroup {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionControlGroup may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_FrameProviderIds(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                    FrameProviderIds: super::super::super::Foundation::Collections::IVectorView<String>;
                 }
                 #[guid(0x2f1af2e0_baf1_453b_bed4_cd9d4619154c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -40,15 +40,15 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionCorrelation may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionCorrelation)]
                 interface IPerceptionCorrelation {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionCorrelation may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_TargetId(&self) -> String;
-                    #[special]
+                    TargetId: String;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionCorrelation may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Position(&self) -> super::super::super::Foundation::Numerics::Vector3;
-                    #[special]
+                    Position: super::super::super::Foundation::Numerics::Vector3;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionCorrelation may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Orientation(&self) -> super::super::super::Foundation::Numerics::Quaternion;
+                    Orientation: super::super::super::Foundation::Numerics::Quaternion;
                 }
                 #[guid(0xd4a6c425_2884_4a8f_8134_2835d7286cbf)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -63,9 +63,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionCorrelationGroup may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionCorrelationGroup)]
                 interface IPerceptionCorrelationGroup {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionCorrelationGroup may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_RelativeLocations(&self) -> super::super::super::Foundation::Collections::IVectorView<PerceptionCorrelation>;
+                    RelativeLocations: super::super::super::Foundation::Collections::IVectorView<PerceptionCorrelation>;
                 }
                 #[guid(0x7dfe2088_63df_48ed_83b1_4ab829132995)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -80,9 +80,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionFaceAuthenticationGroup may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionFaceAuthenticationGroup)]
                 interface IPerceptionFaceAuthenticationGroup {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionFaceAuthenticationGroup may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_FrameProviderIds(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                    FrameProviderIds: super::super::super::Foundation::Collections::IVectorView<String>;
                 }
                 #[guid(0xe68a05d4_b60c_40f4_bcb9_f24d46467320)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -97,32 +97,28 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionFrame may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionFrame)]
                 interface IPerceptionFrame {
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionFrame may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_RelativeTime(&self) -> super::super::super::Foundation::TimeSpan;
-                    #[special]
+                    RelativeTime: super::super::super::Foundation::TimeSpan;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionFrame may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn put_RelativeTime(&self, value: super::super::super::Foundation::TimeSpan);
-                    #[special]
+                    Properties: super::super::super::Foundation::Collections::ValueSet;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionFrame may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Properties(&self) -> super::super::super::Foundation::Collections::ValueSet;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("PerceptionFrame may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_FrameData(&self) -> super::super::super::Foundation::IMemoryBuffer;
+                    FrameData: super::super::super::Foundation::IMemoryBuffer;
                 }
                 #[guid(0x794f7ab9_b37d_3b33_a10d_30626419ce65)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("IPerceptionFrameProvider may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 interface IPerceptionFrameProvider: super::super::super::Foundation::IClosable {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("IPerceptionFrameProvider may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_FrameProviderInfo(&self) -> PerceptionFrameProviderInfo;
-                    #[special]
+                    FrameProviderInfo: PerceptionFrameProviderInfo;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("IPerceptionFrameProvider may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Available(&self) -> bool;
-                    #[special]
+                    Available: bool;
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("IPerceptionFrameProvider may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Properties(&self) -> super::super::super::Foundation::Collections::IPropertySet;
+                    Properties: super::super::super::Foundation::Collections::IPropertySet;
                     #[Windows::Foundation::Metadata::Deprecated("IPerceptionFrameProvider may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                     fn Start(&self);
                     #[Windows::Foundation::Metadata::Deprecated("IPerceptionFrameProvider may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
@@ -135,36 +131,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameProviderInfo may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionFrameProviderInfo)]
                 interface IPerceptionFrameProviderInfo {
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameProviderInfo may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Id(&self) -> String;
-                    #[special]
+                    Id: String;
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameProviderInfo may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn put_Id(&self, value: String);
-                    #[special]
+                    DisplayName: String;
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameProviderInfo may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_DisplayName(&self) -> String;
-                    #[special]
+                    DeviceKind: String;
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameProviderInfo may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn put_DisplayName(&self, value: String);
-                    #[special]
+                    FrameKind: String;
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameProviderInfo may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_DeviceKind(&self) -> String;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameProviderInfo may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn put_DeviceKind(&self, value: String);
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameProviderInfo may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_FrameKind(&self) -> String;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameProviderInfo may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn put_FrameKind(&self, value: String);
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameProviderInfo may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Hidden(&self) -> bool;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("PerceptionFrameProviderInfo may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn put_Hidden(&self, value: bool);
+                    Hidden: bool;
                 }
                 #[guid(0xa959ce07_ead3_33df_8ec1_b924abe019c4)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -204,18 +180,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionPropertyChangeRequest may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionPropertyChangeRequest)]
                 interface IPerceptionPropertyChangeRequest {
-                    #[special]
+                    #[get]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionPropertyChangeRequest may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Name(&self) -> String;
+                    Name: String;
                     #[special]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionPropertyChangeRequest may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                     fn get_Value(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
-                    #[special]
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionPropertyChangeRequest may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn get_Status(&self) -> super::PerceptionFrameSourcePropertyChangeStatus;
-                    #[special]
-                    #[Windows::Foundation::Metadata::Deprecated("PerceptionPropertyChangeRequest may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
-                    fn put_Status(&self, value: super::PerceptionFrameSourcePropertyChangeStatus);
+                    Status: super::PerceptionFrameSourcePropertyChangeStatus;
                     #[Windows::Foundation::Metadata::Deprecated("PerceptionPropertyChangeRequest may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }

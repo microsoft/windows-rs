@@ -2,19 +2,19 @@
 mod Windows {
     mod Win32 {
         #[library("ODBC32.dll")]
-        extern fn ODBCGetTryWaitValue() -> DWORD;
+        extern fn ODBCGetTryWaitValue() -> u32;
         #[library("ODBC32.dll")]
-        extern fn ODBCSetTryWaitValue(dwValue: DWORD) -> BOOL;
+        extern fn ODBCSetTryWaitValue(dwValue: u32) -> BOOL;
         struct ODBC_VS_ARGS {
             pguidEvent: *const GUID,
-            dwFlags: DWORD,
+            dwFlags: u32,
             Anonymous: union {
-                wszArg: *mut WCHAR,
-                szArg: *mut CHAR,
+                wszArg: *mut u16,
+                szArg: *mut i8,
             },
             Anonymous2: union {
-                wszCorrelation: *mut WCHAR,
-                szCorrelation: *mut CHAR,
+                wszCorrelation: *mut u16,
+                szCorrelation: *mut i8,
             },
             RetCode: RETCODE,
         }
@@ -24,76 +24,76 @@ mod Windows {
         const ODBC_VS_FLAG_UNICODE_COR: i32 = 2;
         type PODBC_VS_ARGS = *mut ODBC_VS_ARGS;
         #[library("ODBC32.dll")]
-        extern fn SQLAllocHandleStd(fHandleType: SQLSMALLINT, hInput: SQLHANDLE, #[out] phOutput: *mut SQLHANDLE) -> SQLRETURN;
-        #[library("ODBC32.dll")]
+        extern fn SQLAllocHandleStd(fHandleType: SQLSMALLINT, hInput: SQLHANDLE, phOutput: *mut SQLHANDLE) -> SQLRETURN;
         #[arch(X64 | Arm64)]
-        extern fn SQLBindParameter(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, fParamType: SQLSMALLINT, fCType: SQLSMALLINT, fSqlType: SQLSMALLINT, cbColDef: SQLULEN, ibScale: SQLSMALLINT, rgbValue: SQLPOINTER, cbValueMax: SQLLEN, pcbValue: *mut SQLLEN) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLBindParameter(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, fParamType: SQLSMALLINT, fCType: SQLSMALLINT, fSqlType: SQLSMALLINT, cbColDef: SQLULEN, ibScale: SQLSMALLINT, rgbValue: SQLPOINTER, cbValueMax: SQLLEN, pcbValue: *mut SQLLEN) -> SQLRETURN;
         #[arch(X86)]
+        #[library("ODBC32.dll")]
         extern fn SQLBindParameter(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, fParamType: SQLSMALLINT, fCType: SQLSMALLINT, fSqlType: SQLSMALLINT, cbColDef: SQLUINTEGER, ibScale: SQLSMALLINT, rgbValue: SQLPOINTER, cbValueMax: SQLINTEGER, pcbValue: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLBrowseConnect(hdbc: SQLHDBC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] szConnStrIn: *mut SQLCHAR, cchConnStrIn: SQLSMALLINT, #[out] #[opt] #[len_param(4)] szConnStrOut: *mut SQLCHAR, cchConnStrOutMax: SQLSMALLINT, #[out] #[opt] pcchConnStrOut: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLBrowseConnect(hdbc: SQLHDBC, #[len_param(2)] #[in] szConnStrIn: *mut SQLCHAR, cchConnStrIn: SQLSMALLINT, #[len_param(4)] #[opt] szConnStrOut: *mut SQLCHAR, cchConnStrOutMax: SQLSMALLINT, #[opt] pcchConnStrOut: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLBulkOperations(StatementHandle: SQLHSTMT, Operation: SQLSMALLINT) -> SQLRETURN;
-        #[library("ODBC32.dll")]
         #[arch(X64 | Arm64)]
-        extern fn SQLColAttributes(hstmt: SQLHSTMT, icol: SQLUSMALLINT, fDescType: SQLUSMALLINT, rgbDesc: SQLPOINTER, cbDescMax: SQLSMALLINT, pcbDesc: *mut SQLSMALLINT, pfDesc: *mut SQLLEN) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLColAttributes(hstmt: SQLHSTMT, icol: SQLUSMALLINT, fDescType: SQLUSMALLINT, rgbDesc: SQLPOINTER, cbDescMax: SQLSMALLINT, pcbDesc: *mut SQLSMALLINT, pfDesc: *mut SQLLEN) -> SQLRETURN;
         #[arch(X86)]
+        #[library("ODBC32.dll")]
         extern fn SQLColAttributes(hstmt: SQLHSTMT, icol: SQLUSMALLINT, fDescType: SQLUSMALLINT, rgbDesc: SQLPOINTER, cbDescMax: SQLSMALLINT, pcbDesc: *mut SQLSMALLINT, pfDesc: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLColumnPrivileges(hstmt: SQLHSTMT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] szTableName: *mut SQLCHAR, cchTableName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(8)] szColumnName: *mut SQLCHAR, cchColumnName: SQLSMALLINT) -> SQLRETURN;
-        #[library("ODBC32.dll")]
+        extern fn SQLColumnPrivileges(hstmt: SQLHSTMT, #[len_param(2)] #[in] #[opt] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[len_param(4)] #[in] #[opt] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[len_param(6)] #[in] #[opt] szTableName: *mut SQLCHAR, cchTableName: SQLSMALLINT, #[len_param(8)] #[in] #[opt] szColumnName: *mut SQLCHAR, cchColumnName: SQLSMALLINT) -> SQLRETURN;
         #[arch(X64 | Arm64)]
-        extern fn SQLDescribeParam(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, #[out] #[opt] pfSqlType: *mut SQLSMALLINT, #[out] #[opt] pcbParamDef: *mut SQLULEN, #[out] #[opt] pibScale: *mut SQLSMALLINT, #[out] #[opt] pfNullable: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLDescribeParam(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, #[opt] pfSqlType: *mut SQLSMALLINT, #[opt] pcbParamDef: *mut SQLULEN, #[opt] pibScale: *mut SQLSMALLINT, #[opt] pfNullable: *mut SQLSMALLINT) -> SQLRETURN;
         #[arch(X86)]
-        extern fn SQLDescribeParam(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, #[out] #[opt] pfSqlType: *mut SQLSMALLINT, #[out] #[opt] pcbParamDef: *mut SQLUINTEGER, #[out] #[opt] pibScale: *mut SQLSMALLINT, #[out] #[opt] pfNullable: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLDriverConnect(hdbc: SQLHDBC, hwnd: SQLHWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(3)] szConnStrIn: *mut SQLCHAR, cchConnStrIn: SQLSMALLINT, #[out] #[opt] #[len_param(5)] szConnStrOut: *mut SQLCHAR, cchConnStrOutMax: SQLSMALLINT, #[out] #[opt] pcchConnStrOut: *mut SQLSMALLINT, fDriverCompletion: SQLUSMALLINT) -> SQLRETURN;
+        extern fn SQLDescribeParam(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, #[opt] pfSqlType: *mut SQLSMALLINT, #[opt] pcbParamDef: *mut SQLUINTEGER, #[opt] pibScale: *mut SQLSMALLINT, #[opt] pfNullable: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLDrivers(henv: SQLHENV, fDirection: SQLUSMALLINT, #[out] #[opt] #[len_param(3)] szDriverDesc: *mut SQLCHAR, cchDriverDescMax: SQLSMALLINT, #[out] #[opt] pcchDriverDesc: *mut SQLSMALLINT, #[out] #[opt] #[len_param(6)] szDriverAttributes: *mut SQLCHAR, cchDrvrAttrMax: SQLSMALLINT, #[out] #[opt] pcchDrvrAttr: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLDriverConnect(hdbc: SQLHDBC, hwnd: SQLHWND, #[len_param(3)] #[in] szConnStrIn: *mut SQLCHAR, cchConnStrIn: SQLSMALLINT, #[len_param(5)] #[opt] szConnStrOut: *mut SQLCHAR, cchConnStrOutMax: SQLSMALLINT, #[opt] pcchConnStrOut: *mut SQLSMALLINT, fDriverCompletion: SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLDrivers(henv: SQLHENV, fDirection: SQLUSMALLINT, #[len_param(3)] #[opt] szDriverDesc: *mut SQLCHAR, cchDriverDescMax: SQLSMALLINT, #[opt] pcchDriverDesc: *mut SQLSMALLINT, #[len_param(6)] #[opt] szDriverAttributes: *mut SQLCHAR, cchDrvrAttrMax: SQLSMALLINT, #[opt] pcchDrvrAttr: *mut SQLSMALLINT) -> SQLRETURN;
         #[arch(X64 | Arm64)]
-        extern fn SQLExtendedFetch(hstmt: SQLHSTMT, fFetchType: SQLUSMALLINT, irow: SQLLEN, #[out] #[opt] pcrow: *mut SQLULEN, #[out] #[opt] rgfRowStatus: *mut SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLExtendedFetch(hstmt: SQLHSTMT, fFetchType: SQLUSMALLINT, irow: SQLLEN, #[opt] pcrow: *mut SQLULEN, #[opt] rgfRowStatus: *mut SQLUSMALLINT) -> SQLRETURN;
         #[arch(X86)]
-        extern fn SQLExtendedFetch(hstmt: SQLHSTMT, fFetchType: SQLUSMALLINT, irow: SQLINTEGER, #[out] #[opt] pcrow: *mut SQLUINTEGER, #[out] #[opt] rgfRowStatus: *mut SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLForeignKeys(hstmt: SQLHSTMT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] szPkCatalogName: *mut SQLCHAR, cchPkCatalogName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] szPkSchemaName: *mut SQLCHAR, cchPkSchemaName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] szPkTableName: *mut SQLCHAR, cchPkTableName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(8)] szFkCatalogName: *mut SQLCHAR, cchFkCatalogName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(10)] szFkSchemaName: *mut SQLCHAR, cchFkSchemaName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(12)] szFkTableName: *mut SQLCHAR, cchFkTableName: SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLExtendedFetch(hstmt: SQLHSTMT, fFetchType: SQLUSMALLINT, irow: SQLINTEGER, #[opt] pcrow: *mut SQLUINTEGER, #[opt] rgfRowStatus: *mut SQLUSMALLINT) -> SQLRETURN;
+        #[library("ODBC32.dll")]
+        extern fn SQLForeignKeys(hstmt: SQLHSTMT, #[len_param(2)] #[in] #[opt] szPkCatalogName: *mut SQLCHAR, cchPkCatalogName: SQLSMALLINT, #[len_param(4)] #[in] #[opt] szPkSchemaName: *mut SQLCHAR, cchPkSchemaName: SQLSMALLINT, #[len_param(6)] #[in] #[opt] szPkTableName: *mut SQLCHAR, cchPkTableName: SQLSMALLINT, #[len_param(8)] #[in] #[opt] szFkCatalogName: *mut SQLCHAR, cchFkCatalogName: SQLSMALLINT, #[len_param(10)] #[in] #[opt] szFkSchemaName: *mut SQLCHAR, cchFkSchemaName: SQLSMALLINT, #[len_param(12)] #[in] #[opt] szFkTableName: *mut SQLCHAR, cchFkTableName: SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLMoreResults(hstmt: SQLHSTMT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLNativeSql(hdbc: SQLHDBC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] szSqlStrIn: *mut SQLCHAR, cchSqlStrIn: SQLINTEGER, #[out] #[opt] #[len_param(4)] szSqlStr: *mut SQLCHAR, cchSqlStrMax: SQLINTEGER, pcbSqlStr: *mut SQLINTEGER) -> SQLRETURN;
+        extern fn SQLNativeSql(hdbc: SQLHDBC, #[len_param(2)] #[in] szSqlStrIn: *mut SQLCHAR, cchSqlStrIn: SQLINTEGER, #[len_param(4)] #[opt] szSqlStr: *mut SQLCHAR, cchSqlStrMax: SQLINTEGER, pcbSqlStr: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLNumParams(hstmt: SQLHSTMT, #[out] #[opt] pcpar: *mut SQLSMALLINT) -> SQLRETURN;
-        #[library("ODBC32.dll")]
+        extern fn SQLNumParams(hstmt: SQLHSTMT, #[opt] pcpar: *mut SQLSMALLINT) -> SQLRETURN;
         #[arch(X64 | Arm64)]
-        extern fn SQLParamOptions(hstmt: SQLHSTMT, crow: SQLULEN, pirow: *mut SQLULEN) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLParamOptions(hstmt: SQLHSTMT, crow: SQLULEN, pirow: *mut SQLULEN) -> SQLRETURN;
         #[arch(X86)]
+        #[library("ODBC32.dll")]
         extern fn SQLParamOptions(hstmt: SQLHSTMT, crow: SQLUINTEGER, pirow: *mut SQLUINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLPrimaryKeys(hstmt: SQLHSTMT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] szTableName: *mut SQLCHAR, cchTableName: SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLPrimaryKeys(hstmt: SQLHSTMT, #[len_param(2)] #[in] #[opt] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[len_param(4)] #[in] #[opt] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[len_param(6)] #[in] #[opt] szTableName: *mut SQLCHAR, cchTableName: SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLProcedureColumns(hstmt: SQLHSTMT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] szProcName: *mut SQLCHAR, cchProcName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(8)] szColumnName: *mut SQLCHAR, cchColumnName: SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLProcedureColumns(hstmt: SQLHSTMT, #[len_param(2)] #[in] #[opt] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[len_param(4)] #[in] #[opt] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[len_param(6)] #[in] #[opt] szProcName: *mut SQLCHAR, cchProcName: SQLSMALLINT, #[len_param(8)] #[in] #[opt] szColumnName: *mut SQLCHAR, cchColumnName: SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLProcedures(hstmt: SQLHSTMT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] szProcName: *mut SQLCHAR, cchProcName: SQLSMALLINT) -> SQLRETURN;
-        type SQLSTATE = [u8; 6];
-        #[library("ODBC32.dll")]
+        extern fn SQLProcedures(hstmt: SQLHSTMT, #[len_param(2)] #[in] #[opt] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[len_param(4)] #[in] #[opt] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[len_param(6)] #[in] #[opt] szProcName: *mut SQLCHAR, cchProcName: SQLSMALLINT) -> SQLRETURN;
+        type SQLSTATE = [SQLTCHAR; 6];
         #[arch(X64 | Arm64)]
+        #[library("ODBC32.dll")]
         extern fn SQLSetPos(hstmt: SQLHSTMT, irow: SQLSETPOSIROW, fOption: SQLUSMALLINT, fLock: SQLUSMALLINT) -> SQLRETURN;
-        #[library("ODBC32.dll")]
         #[arch(X86)]
+        #[library("ODBC32.dll")]
         extern fn SQLSetPos(hstmt: SQLHSTMT, irow: SQLUSMALLINT, fOption: SQLUSMALLINT, fLock: SQLUSMALLINT) -> SQLRETURN;
-        #[library("ODBC32.dll")]
         #[arch(X64 | Arm64)]
-        extern fn SQLSetScrollOptions(hstmt: SQLHSTMT, fConcurrency: SQLUSMALLINT, crowKeyset: SQLLEN, crowRowset: SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLSetScrollOptions(hstmt: SQLHSTMT, fConcurrency: SQLUSMALLINT, crowKeyset: SQLLEN, crowRowset: SQLUSMALLINT) -> SQLRETURN;
         #[arch(X86)]
+        #[library("ODBC32.dll")]
         extern fn SQLSetScrollOptions(hstmt: SQLHSTMT, fConcurrency: SQLUSMALLINT, crowKeyset: SQLINTEGER, crowRowset: SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLTablePrivileges(hstmt: SQLHSTMT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(4)] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(6)] szTableName: *mut SQLCHAR, cchTableName: SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLTablePrivileges(hstmt: SQLHSTMT, #[len_param(2)] #[in] #[opt] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[len_param(4)] #[in] #[opt] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[len_param(6)] #[in] #[opt] szTableName: *mut SQLCHAR, cchTableName: SQLSMALLINT) -> SQLRETURN;
         const SQL_AA_FALSE: i32 = 0;
         const SQL_AA_TRUE: i32 = 1;
         const SQL_ACCESS_MODE: i32 = 101;
@@ -126,9 +126,6 @@ mod Windows {
         #[encoding("ansi")]
         const SQL_ALL_TABLE_TYPES: String = "%";
         const SQL_ALTER_DOMAIN: i32 = 117;
-        const SQL_AM_CONNECTION: i32 = 1;
-        const SQL_AM_NONE: i32 = 0;
-        const SQL_AM_STATEMENT: i32 = 2;
         const SQL_API_ALL_FUNCTIONS: i32 = 0;
         const SQL_API_LOADBYORDINAL: i32 = 199;
         const SQL_API_ODBC3_ALL_FUNCTIONS: i32 = 999;
@@ -880,8 +877,6 @@ mod Windows {
         const SQL_ODBC_API_CONFORMANCE: i32 = 9;
         const SQL_ODBC_CURSORS: i32 = 110;
         const SQL_ODBC_INTERFACE_CONFORMANCE: i32 = 152;
-        #[encoding("ansi")]
-        const SQL_ODBC_KEYWORDS: String = "ABSOLUTE,ACTION,ADA,ADD,ALL,ALLOCATE,ALTER,AND,ANY,ARE,AS,ASC,ASSERTION,AT,AUTHORIZATION,AVG,BEGIN,BETWEEN,BIT,BIT_LENGTH,BOTH,BY,CASCADE,CASCADED,CASE,CAST,CATALOG,CHAR,CHAR_LENGTH,CHARACTER,CHARACTER_LENGTH,CHECK,CLOSE,COALESCE,COLLATE,COLLATION,COLUMN,COMMIT,CONNECT,CONNECTION,CONSTRAINT,CONSTRAINTS,CONTINUE,CONVERT,CORRESPONDING,COUNT,CREATE,CROSS,CURRENT,CURRENT_DATE,CURRENT_TIME,CURRENT_TIMESTAMP,CURRENT_USER,CURSOR,DATE,DAY,DEALLOCATE,DEC,DECIMAL,DECLARE,DEFAULT,DEFERRABLE,DEFERRED,DELETE,DESC,DESCRIBE,DESCRIPTOR,DIAGNOSTICS,DISCONNECT,DISTINCT,DOMAIN,DOUBLE,DROP,ELSE,END,END-EXEC,ESCAPE,EXCEPT,EXCEPTION,EXEC,EXECUTE,EXISTS,EXTERNAL,EXTRACT,FALSE,FETCH,FIRST,FLOAT,FOR,FOREIGN,FORTRAN,FOUND,FROM,FULL,GET,GLOBAL,GO,GOTO,GRANT,GROUP,HAVING,HOUR,IDENTITY,IMMEDIATE,IN,INCLUDE,INDEX,INDICATOR,INITIALLY,INNER,INPUT,INSENSITIVE,INSERT,INT,INTEGER,INTERSECT,INTERVAL,INTO,IS,ISOLATION,JOIN,KEY,LANGUAGE,LAST,LEADING,LEFT,LEVEL,LIKE,LOCAL,LOWER,MATCH,MAX,MIN,MINUTE,MODULE,MONTH,NAMES,NATIONAL,NATURAL,NCHAR,NEXT,NO,NONE,NOT,NULL,NULLIF,NUMERIC,OCTET_LENGTH,OF,ON,ONLY,OPEN,OPTION,OR,ORDER,OUTER,OUTPUT,OVERLAPS,PAD,PARTIAL,PASCAL,PLI,POSITION,PRECISION,PREPARE,PRESERVE,PRIMARY,PRIOR,PRIVILEGES,PROCEDURE,PUBLIC,READ,REAL,REFERENCES,RELATIVE,RESTRICT,REVOKE,RIGHT,ROLLBACK,ROWSSCHEMA,SCROLL,SECOND,SECTION,SELECT,SESSION,SESSION_USER,SET,SIZE,SMALLINT,SOME,SPACE,SQL,SQLCA,SQLCODE,SQLERROR,SQLSTATE,SQLWARNING,SUBSTRING,SUM,SYSTEM_USER,TABLE,TEMPORARY,THEN,TIME,TIMESTAMP,TIMEZONE_HOUR,TIMEZONE_MINUTE,TO,TRAILING,TRANSACTION,TRANSLATE,TRANSLATION,TRIM,TRUE,UNION,UNIQUE,UNKNOWN,UPDATE,UPPER,USAGE,USER,USING,VALUE,VALUES,VARCHAR,VARYING,VIEW,WHEN,WHENEVER,WHERE,WITH,WORK,WRITE,YEAR,ZONE";
         const SQL_ODBC_SAG_CLI_CONFORMANCE: i32 = 12;
         const SQL_ODBC_SQL_CONFORMANCE: i32 = 15;
         const SQL_ODBC_SQL_OPT_IEF: i32 = 73;

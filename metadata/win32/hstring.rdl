@@ -1,7 +1,6 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
         type HSTRING = *mut HSTRING__;
         type HSTRING_BUFFER = *mut HSTRING_BUFFER__;
         struct HSTRING_BUFFER__ {
@@ -10,14 +9,14 @@ mod Windows {
         #[arch(X64 | Arm64)]
         struct HSTRING_HEADER {
             Reserved: union {
-                Reserved1: PVOID,
+                Reserved1: *mut void,
                 Reserved2: [i8; 24],
             },
         }
         #[arch(X86)]
         struct HSTRING_HEADER {
             Reserved: union {
-                Reserved1: PVOID,
+                Reserved1: *mut void,
                 Reserved2: [i8; 20],
             },
         }

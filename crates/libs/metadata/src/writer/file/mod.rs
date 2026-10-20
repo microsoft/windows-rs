@@ -165,7 +165,7 @@ impl File {
             let assembly_name = self
                 .reference
                 .as_ref()
-                .and_then(|r| r.assembly_name(namespace, name))
+                .and_then(|r| r.assembly_name(namespace, trim_tick(name)))
                 .map(str::to_string);
 
             let scope = if let Some(assembly_name) = assembly_name {
@@ -313,7 +313,7 @@ impl File {
         let Type::ClassName(ty) = ty else {
             panic!("invalid event type");
         };
-        let event_type = TypeDefOrRef::TypeRef(self.TypeRef(&ty.namespace, &ty.name));
+        let event_type = self.ClassTypeDefOrRef(ty);
 
         Event(self.records.Event.push_pos(rec::Event {
             Flags: 0,
@@ -424,15 +424,7 @@ impl File {
             panic!("invalid interface type");
         };
 
-        let interface = if interface.generics.is_empty() {
-            TypeDefOrRef::TypeRef(self.TypeRef(&interface.namespace, &interface.name))
-        } else {
-            TypeDefOrRef::TypeSpec(self.TypeSpec(
-                &interface.namespace,
-                &interface.name,
-                &interface.generics,
-            ))
-        };
+        let interface = self.ClassTypeDefOrRef(interface);
 
         InterfaceImpl(self.records.InterfaceImpl.push_pos(rec::InterfaceImpl {
             Class: class,
@@ -444,6 +436,15 @@ impl File {
         buffer.write_compressed(ELEMENT_TYPE_CMOD_REQD as usize);
         let pos = self.TypeRef("System.Runtime.CompilerServices", "IsConst");
         buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
+    }
+
+    /// Encodes a class or interface reference, using a `TypeSpec` for generic instances.
+    fn ClassTypeDefOrRef(&mut self, ty: &TypeName) -> TypeDefOrRef {
+        if ty.generics.is_empty() {
+            TypeDefOrRef::TypeRef(self.TypeRef(&ty.namespace, &ty.name))
+        } else {
+            TypeDefOrRef::TypeSpec(self.TypeSpec(&ty.namespace, &ty.name, &ty.generics))
+        }
     }
 
     /// Encodes the `Type` into the buffer, adding any required `TypeRef` rows to the file.

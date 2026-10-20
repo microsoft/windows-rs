@@ -11,17 +11,17 @@ mod Windows {
         const DXCORE_HARDWARE_TYPE_ATTRIBUTE_MEDIA_ACCELERATOR: GUID = 0x66bdb96a_050b_44c7_a4fd_d144ce0ab443;
         const DXCORE_HARDWARE_TYPE_ATTRIBUTE_NPU: GUID = 0xd46140c4_add7_451b_9e56_06fe8c3b58ed;
         struct DXCoreAdapterEngineIndex {
-            physicalAdapterIndex: uint32_t,
-            engineIndex: uint32_t,
+            physicalAdapterIndex: u32,
+            engineIndex: u32,
         }
         struct DXCoreAdapterMemoryBudget {
-            budget: uint64_t,
-            currentUsage: uint64_t,
-            availableForReservation: uint64_t,
-            currentReservation: uint64_t,
+            budget: u64,
+            currentUsage: u64,
+            availableForReservation: u64,
+            currentReservation: u64,
         }
         struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-            nodeIndex: uint32_t,
+            nodeIndex: u32,
             segmentGroup: DXCoreSegmentGroup,
         }
         #[repr(u32)]
@@ -32,13 +32,12 @@ mod Windows {
             HighPerformance = 2,
         }
         struct DXCoreAdapterProcessSetQueryInput {
-            arraySize: uint32_t,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "arraySize", IsByteCount = false, MayBeNull = false)]
-            processIds: *mut uint32_t,
+            arraySize: u32,
+            processIds: *mut u32,
         }
         struct DXCoreAdapterProcessSetQueryOutput {
-            processesWritten: uint32_t,
-            processesTotal: uint32_t,
+            processesWritten: u32,
+            processesTotal: u32,
         }
         #[repr(u32)]
         #[scoped]
@@ -80,40 +79,40 @@ mod Windows {
         }
         struct DXCoreEngineNamePropertyInput {
             adapterEngineIndex: DXCoreAdapterEngineIndex,
-            engineNameLength: uint32_t,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "engineNameLength", IsByteCount = false, MayBeNull = false)]
+            engineNameLength: u32,
             engineName: *mut u16,
         }
         struct DXCoreEngineNamePropertyOutput {
-            engineNameLength: uint32_t,
+            engineNameLength: u32,
         }
         struct DXCoreEngineQueryInput {
             adapterEngineIndex: DXCoreAdapterEngineIndex,
-            processId: uint32_t,
+            processId: u32,
         }
         struct DXCoreEngineQueryOutput {
-            runningTime: uint64_t,
+            runningTime: u64,
             processQuerySucceeded: bool,
         }
         struct DXCoreFrequencyQueryOutput {
-            frequency: uint64_t,
-            maxFrequency: uint64_t,
-            maxOverclockedFrequency: uint64_t,
+            frequency: u64,
+            maxFrequency: u64,
+            maxOverclockedFrequency: u64,
         }
         struct DXCoreHardwareID {
-            vendorID: uint32_t,
-            deviceID: uint32_t,
-            subSysID: uint32_t,
-            revision: uint32_t,
+            vendorID: u32,
+            deviceID: u32,
+            subSysID: u32,
+            revision: u32,
         }
         struct DXCoreHardwareIDParts {
-            vendorID: uint32_t,
-            deviceID: uint32_t,
-            subSystemID: uint32_t,
-            subVendorID: uint32_t,
-            revisionID: uint32_t,
+            vendorID: u32,
+            deviceID: u32,
+            subSystemID: u32,
+            subVendorID: u32,
+            revisionID: u32,
         }
         #[repr(u32)]
+        #[flags]
         #[scoped]
         enum DXCoreHardwareTypeFilterFlags {
             None = 0,
@@ -123,7 +122,7 @@ mod Windows {
             MediaAccelerator = 8,
         }
         struct DXCoreMemoryQueryInput {
-            physicalAdapterIndex: uint32_t,
+            physicalAdapterIndex: u32,
             memoryType: DXCoreMemoryType,
         }
         #[repr(u32)]
@@ -133,8 +132,8 @@ mod Windows {
             Shared = 1,
         }
         struct DXCoreMemoryUsage {
-            committed: uint64_t,
-            resident: uint64_t,
+            committed: u64,
+            resident: u64,
         }
         #[repr(u32)]
         #[scoped]
@@ -145,15 +144,16 @@ mod Windows {
             AdapterHardwareContentProtectionTeardown = 3,
         }
         struct DXCoreProcessMemoryQueryInput {
-            physicalAdapterIndex: uint32_t,
+            physicalAdapterIndex: u32,
             memoryType: DXCoreMemoryType,
-            processId: uint32_t,
+            processId: u32,
         }
         struct DXCoreProcessMemoryQueryOutput {
             memoryUsage: DXCoreMemoryUsage,
             processQuerySucceeded: bool,
         }
         #[repr(u32)]
+        #[flags]
         #[scoped]
         enum DXCoreRuntimeFilterFlags {
             None = 0,
@@ -184,47 +184,42 @@ mod Windows {
         #[guid(0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e)]
         interface IDXCoreAdapter: IUnknown {
             fn IsValid(&self) -> bool;
-            fn IsAttributeSupported(&self, attributeGUID: &GUID) -> bool;
+            fn IsAttributeSupported(&self, attributeGUID: *const GUID) -> bool;
             fn IsPropertySupported(&self, property: DXCoreAdapterProperty) -> bool;
-            fn GetProperty(&self, property: DXCoreAdapterProperty, bufferSize: size_t, #[out] #[size_param(1)] propertyData: *mut void) -> HRESULT;
-            fn GetPropertySize(&self, property: DXCoreAdapterProperty, #[out] bufferSize: *mut size_t) -> HRESULT;
+            fn GetProperty(&self, property: DXCoreAdapterProperty, bufferSize: usize, #[size_param(1)] propertyData: *mut void) -> HRESULT;
+            fn GetPropertySize(&self, property: DXCoreAdapterProperty, bufferSize: *mut usize) -> HRESULT;
             fn IsQueryStateSupported(&self, property: DXCoreAdapterState) -> bool;
-            fn QueryState(&self, state: DXCoreAdapterState, inputStateDetailsSize: size_t, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] inputStateDetails: *const void, outputBufferSize: size_t, #[out] #[size_param(3)] outputBuffer: *mut void) -> HRESULT;
+            fn QueryState(&self, state: DXCoreAdapterState, inputStateDetailsSize: usize, #[size_param(1)] #[opt] inputStateDetails: *const void, outputBufferSize: usize, #[size_param(3)] outputBuffer: *mut void) -> HRESULT;
             fn IsSetStateSupported(&self, property: DXCoreAdapterState) -> bool;
-            fn SetState(&self, state: DXCoreAdapterState, inputStateDetailsSize: size_t, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] inputStateDetails: *const void, inputDataSize: size_t, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] inputData: *const void) -> HRESULT;
-            fn GetFactory(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvFactory: *mut *mut void) -> HRESULT;
+            fn SetState(&self, state: DXCoreAdapterState, inputStateDetailsSize: usize, #[size_param(1)] #[opt] inputStateDetails: *const void, inputDataSize: usize, #[size_param(3)] inputData: *const void) -> HRESULT;
+            fn GetFactory(&self, riid: *const GUID, #[iid_is] ppvFactory: *mut *mut void) -> HRESULT;
         }
         #[guid(0xa0783366_cfa3_43be_9d79_55b2da97c63c)]
         interface IDXCoreAdapter1: IDXCoreAdapter {
-            fn GetPropertyWithInput(&self, property: DXCoreAdapterProperty, inputPropertyDetailsSize: size_t, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] inputPropertyDetails: *const void, outputBufferSize: size_t, #[out] #[size_param(3)] outputBuffer: *mut void) -> HRESULT;
+            fn GetPropertyWithInput(&self, property: DXCoreAdapterProperty, inputPropertyDetailsSize: usize, #[size_param(1)] #[opt] inputPropertyDetails: *const void, outputBufferSize: usize, #[size_param(3)] outputBuffer: *mut void) -> HRESULT;
         }
         #[guid(0x78ee5945_c36e_4b13_a669_005dd11c0f06)]
         interface IDXCoreAdapterFactory: IUnknown {
-            fn CreateAdapterList(&self, numAttributes: uint32_t, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] filterAttributes: *const GUID, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvAdapterList: *mut *mut void) -> HRESULT;
-            fn GetAdapterByLuid(&self, adapterLUID: &LUID, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
+            fn CreateAdapterList(&self, numAttributes: u32, #[len_param(0)] filterAttributes: *const GUID, riid: *const GUID, #[iid_is] ppvAdapterList: *mut *mut void) -> HRESULT;
+            fn GetAdapterByLuid(&self, adapterLUID: *const LUID, riid: *const GUID, #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
             fn IsNotificationTypeSupported(&self, notificationType: DXCoreNotificationType) -> bool;
-            fn RegisterEventNotification(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dxCoreObject: IUnknown, notificationType: DXCoreNotificationType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] callbackFunction: PFN_DXCORE_NOTIFICATION_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] callbackContext: *mut void, #[out] eventCookie: *mut uint32_t) -> HRESULT;
-            fn UnregisterEventNotification(&self, eventCookie: uint32_t) -> HRESULT;
+            fn RegisterEventNotification(&self, dxCoreObject: IUnknown, notificationType: DXCoreNotificationType, callbackFunction: PFN_DXCORE_NOTIFICATION_CALLBACK, #[in] #[opt] callbackContext: *mut void, eventCookie: *mut u32) -> HRESULT;
+            fn UnregisterEventNotification(&self, eventCookie: u32) -> HRESULT;
         }
         #[guid(0xd5682e19_6d21_401c_827a_9a51a4ea35d7)]
         interface IDXCoreAdapterFactory1: IDXCoreAdapterFactory {
-            fn CreateAdapterListByWorkload(&self, workload: DXCoreWorkload, runtimeFilter: DXCoreRuntimeFilterFlags, hardwareTypeFilter: DXCoreHardwareTypeFilterFlags, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvAdapterList: *mut *mut void) -> HRESULT;
+            fn CreateAdapterListByWorkload(&self, workload: DXCoreWorkload, runtimeFilter: DXCoreRuntimeFilterFlags, hardwareTypeFilter: DXCoreHardwareTypeFilterFlags, riid: *const GUID, #[iid_is] ppvAdapterList: *mut *mut void) -> HRESULT;
         }
         #[guid(0x526c7776_40e9_459b_b711_f32ad76dfc28)]
         interface IDXCoreAdapterList: IUnknown {
-            fn GetAdapter(&self, index: uint32_t, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
-            fn GetAdapterCount(&self) -> uint32_t;
+            fn GetAdapter(&self, index: u32, riid: *const GUID, #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
+            fn GetAdapterCount(&self) -> u32;
             fn IsStale(&self) -> bool;
-            fn GetFactory(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvFactory: *mut *mut void) -> HRESULT;
-            fn Sort(&self, numPreferences: uint32_t, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] preferences: *const DXCoreAdapterPreference) -> HRESULT;
+            fn GetFactory(&self, riid: *const GUID, #[iid_is] ppvFactory: *mut *mut void) -> HRESULT;
+            fn Sort(&self, numPreferences: u32, #[len_param(0)] preferences: *const DXCoreAdapterPreference) -> HRESULT;
             fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool;
         }
-        const IID_IDXCoreAdapter: GUID = 0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e;
-        const IID_IDXCoreAdapter1: GUID = 0xa0783366_cfa3_43be_9d79_55b2da97c63c;
-        const IID_IDXCoreAdapterFactory: GUID = 0x78ee5945_c36e_4b13_a669_005dd11c0f06;
-        const IID_IDXCoreAdapterFactory1: GUID = 0xd5682e19_6d21_401c_827a_9a51a4ea35d7;
-        const IID_IDXCoreAdapterList: GUID = 0x526c7776_40e9_459b_b711_f32ad76dfc28;
-        extern fn PFN_DXCORE_NOTIFICATION_CALLBACK(notificationType: DXCoreNotificationType, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] object: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] context: *mut void);
+        extern fn PFN_DXCORE_NOTIFICATION_CALLBACK(notificationType: DXCoreNotificationType, object: IUnknown, #[in] #[opt] context: *mut void);
         const _FACDXCORE: i32 = 2176;
     }
 }

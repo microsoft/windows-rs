@@ -2031,12 +2031,12 @@ mod Windows {
                 Height: u32;
                 #[get]
                 FrameRate: f64;
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IsVariablePhotoSequenceSupported might not be available in the next major update following Windows 10, version 1709", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
-                fn get_IsVariablePhotoSequenceSupported(&self) -> bool;
-                #[special]
+                IsVariablePhotoSequenceSupported: bool;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("IsHdrVideoSupported might not be available in the next major update following Windows 10, version 1709", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
-                fn get_IsHdrVideoSupported(&self) -> bool;
+                IsHdrVideoSupported: bool;
             }
             #[guid(0xc6a6ef13_322d_413a_b85a_68a88e02f4e9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]

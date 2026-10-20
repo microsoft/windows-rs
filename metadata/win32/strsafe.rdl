@@ -7,13 +7,10 @@ mod Windows {
         const STRSAFE_FILL_BEHIND_NULL: i32 = 512;
         const STRSAFE_FILL_ON_FAILURE: i32 = 1024;
         const STRSAFE_IGNORE_NULLS: i32 = 256;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type STRSAFE_LPCSTR = *const i8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+        type STRSAFE_LPCUWSTR = *const u16;
         type STRSAFE_LPCWSTR = *const u16;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type STRSAFE_LPSTR = *mut i8;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type STRSAFE_LPWSTR = *mut u16;
         const STRSAFE_MAX_CCH: i32 = 2147483647;
         const STRSAFE_MAX_LENGTH: i32 = 2147483646;
@@ -21,6 +18,7 @@ mod Windows {
         const STRSAFE_NULL_ON_FAILURE: i32 = 2048;
         type STRSAFE_PCNZCH = *const i8;
         type STRSAFE_PCNZWCH = *const u16;
+        type STRSAFE_PCUNZWCH = *const u16;
         const STRSAFE_USE_SECURE_CRT: i32 = 0;
         const STRSAFE_VALID_FLAGS: i32 = 8191;
         const __WARNING_BANNED_API_USAGE: i32 = 28719;

@@ -1,0 +1,31 @@
+use Windows::Foundation::*;
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod AsyncMethods {
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    // The same cases for each of the four async interfaces. Progress is best effort, so clients
+    // may assign progress handlers but the component never reports progress.
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // A negative `value` fails with `E_BOUNDS` before the method returns. Otherwise they
+        // complete on another thread, and operations complete with `value`.
+        fn Action(&self, value: i32) -> IAsyncAction;
+        fn ActionWithProgress(&self, value: i32) -> IAsyncActionWithProgress<u32>;
+        fn Operation(&self, value: i32) -> IAsyncOperation<i32>;
+        fn OperationWithProgress(&self, value: i32) -> IAsyncOperationWithProgress<i32, u32>;
+
+        // Wait on another thread for the client's object, which may report progress. Operations
+        // complete with its result plus one.
+        fn AwaitAction(&self, action: IAsyncAction) -> IAsyncAction;
+        fn AwaitActionWithProgress(&self, action: IAsyncActionWithProgress<u32>)
+            -> IAsyncActionWithProgress<u32>;
+        fn AwaitOperation(&self, operation: IAsyncOperation<i32>) -> IAsyncOperation<i32>;
+        fn AwaitOperationWithProgress(&self, operation: IAsyncOperationWithProgress<i32, u32>)
+            -> IAsyncOperationWithProgress<i32, u32>;
+    }
+}

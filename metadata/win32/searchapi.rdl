@@ -1,12 +1,11 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[packed(8)]
         struct AUTHENTICATION_INFO {
-            dwSize: DWORD,
+            dwSize: u32,
             atAuthenticationType: AUTH_TYPE,
-            pcwszUser: LPCWSTR,
-            pcwszPassword: LPCWSTR,
+            pcwszUser: PCWSTR,
+            pcwszPassword: PCWSTR,
         }
         #[repr(i32)]
         enum AUTH_TYPE {
@@ -57,101 +56,107 @@ mod Windows {
         const FilterRegistration: GUID = 0x9e175b8d_f52a_11d8_b9a5_505054503030;
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef52)]
         interface IEnumSearchRoots: IUnknown {
-            fn Next(&self, celt: ULONG, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 0, IsByteCount = false, Dereference = false)] rgelt: *mut ISearchRoot, #[in] #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
-            fn Skip(&self, celt: ULONG) -> HRESULT;
+            fn Next(&self, celt: u32, rgelt: *mut ISearchRoot, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppenum: *mut IEnumSearchRoots) -> HRESULT;
+            fn Clone(&self, #[retval] ppenum: *mut IEnumSearchRoots) -> HRESULT;
         }
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef54)]
         interface IEnumSearchScopeRules: IUnknown {
-            fn Next(&self, celt: ULONG, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 0, IsByteCount = false, Dereference = false)] pprgelt: *mut ISearchScopeRule, #[in] #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
-            fn Skip(&self, celt: ULONG) -> HRESULT;
+            fn Next(&self, celt: u32, pprgelt: *mut ISearchScopeRule, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppenum: *mut IEnumSearchScopeRules) -> HRESULT;
+            fn Clone(&self, #[retval] ppenum: *mut IEnumSearchScopeRules) -> HRESULT;
         }
-        #[packed(8)]
         struct INCREMENTAL_ACCESS_INFO {
-            dwSize: DWORD,
+            dwSize: u32,
             ftLastModifiedTime: FILETIME,
         }
         #[guid(0xc731065d_ac80_11d1_8df3_00c04fb6ef4f)]
         interface IOpLockStatus: IUnknown {
-            fn IsOplockValid(&self, #[out] pfIsOplockValid: *mut BOOL) -> HRESULT;
-            fn IsOplockBroken(&self, #[out] pfIsOplockBroken: *mut BOOL) -> HRESULT;
-            fn GetOplockEventHandle(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] phOplockEv: *mut HANDLE) -> HRESULT;
+            fn IsOplockValid(&self, pfIsOplockValid: *mut BOOL) -> HRESULT;
+            fn IsOplockBroken(&self, pfIsOplockBroken: *mut BOOL) -> HRESULT;
+            fn GetOplockEventHandle(&self, phOplockEv: *mut HANDLE) -> HRESULT;
         }
         #[guid(0x0b63e385_9ccc_11d0_bcdb_00805fccce04)]
         interface IProtocolHandlerSite: IUnknown {
-            fn GetFilter(&self, pclsidObj: *mut CLSID, pcwszContentType: LPCWSTR, pcwszExtension: LPCWSTR, ppFilter: *mut IFilter) -> HRESULT;
+            fn GetFilter(&self, #[in] pclsidObj: *mut GUID, pcwszContentType: PCWSTR, pcwszExtension: PCWSTR, ppFilter: *mut IFilter) -> HRESULT;
         }
         #[guid(0x1551aea5_5d66_4b11_86f5_d5634cb211b9)]
         interface IRowsetEvents: IUnknown {
-            fn OnNewItem(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] itemID: &PROPVARIANT, newItemState: ROWSETEVENT_ITEMSTATE) -> HRESULT;
-            fn OnChangedItem(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] itemID: &PROPVARIANT, rowsetItemState: ROWSETEVENT_ITEMSTATE, changedItemState: ROWSETEVENT_ITEMSTATE) -> HRESULT;
-            fn OnDeletedItem(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] itemID: &PROPVARIANT, deletedItemState: ROWSETEVENT_ITEMSTATE) -> HRESULT;
-            fn OnRowsetEvent(&self, eventType: ROWSETEVENT_TYPE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] eventData: &PROPVARIANT) -> HRESULT;
+            fn OnNewItem(&self, itemID: *const PROPVARIANT, newItemState: ROWSETEVENT_ITEMSTATE) -> HRESULT;
+            fn OnChangedItem(&self, itemID: *const PROPVARIANT, rowsetItemState: ROWSETEVENT_ITEMSTATE, changedItemState: ROWSETEVENT_ITEMSTATE) -> HRESULT;
+            fn OnDeletedItem(&self, itemID: *const PROPVARIANT, deletedItemState: ROWSETEVENT_ITEMSTATE) -> HRESULT;
+            fn OnRowsetEvent(&self, eventType: ROWSETEVENT_TYPE, eventData: *const PROPVARIANT) -> HRESULT;
         }
         #[guid(0x42811652_079d_481b_87a2_09a69ecc5f44)]
         interface IRowsetPrioritization: IUnknown {
-            fn SetScopePriority(&self, priority: PRIORITY_LEVEL, scopeStatisticsEventFrequency: DWORD) -> HRESULT;
-            fn GetScopePriority(&self, #[out] priority: *mut PRIORITY_LEVEL, #[out] scopeStatisticsEventFrequency: *mut DWORD) -> HRESULT;
-            fn GetScopeStatistics(&self, #[out] indexedDocumentCount: *mut DWORD, #[out] oustandingAddCount: *mut DWORD, #[out] oustandingModifyCount: *mut DWORD) -> HRESULT;
+            fn SetScopePriority(&self, priority: PRIORITY_LEVEL, scopeStatisticsEventFrequency: u32) -> HRESULT;
+            fn GetScopePriority(&self, priority: *mut PRIORITY_LEVEL, scopeStatisticsEventFrequency: *mut u32) -> HRESULT;
+            fn GetScopeStatistics(&self, indexedDocumentCount: *mut u32, oustandingAddCount: *mut u32, oustandingModifyCount: *mut u32) -> HRESULT;
         }
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef50)]
         interface ISearchCatalogManager: IUnknown {
-            fn get_Name(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] pszName: *mut LPWSTR) -> HRESULT;
-            fn GetParameter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszName: LPCWSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppValue: *mut *mut PROPVARIANT) -> HRESULT;
-            fn SetParameter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValue: *mut PROPVARIANT) -> HRESULT;
-            fn GetCatalogStatus(&self, #[out] pStatus: *mut CatalogStatus, #[out] pPausedReason: *mut CatalogPausedReason) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] pszName: *mut PWSTR) -> HRESULT;
+            fn GetParameter(&self, pszName: PCWSTR, #[retval] ppValue: *mut *mut PROPVARIANT) -> HRESULT;
+            fn SetParameter(&self, pszName: PCWSTR, #[in] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetCatalogStatus(&self, pStatus: *mut CatalogStatus, pPausedReason: *mut CatalogPausedReason) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Reindex(&self) -> HRESULT;
-            fn ReindexMatchingURLs(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszPattern: LPCWSTR) -> HRESULT;
-            fn ReindexSearchRoot(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszRootURL: LPCWSTR) -> HRESULT;
-            fn put_ConnectTimeout(&self, dwConnectTimeout: DWORD) -> HRESULT;
-            fn get_ConnectTimeout(&self, #[out] #[retval] pdwConnectTimeout: *mut DWORD) -> HRESULT;
-            fn put_DataTimeout(&self, dwDataTimeout: DWORD) -> HRESULT;
-            fn get_DataTimeout(&self, #[out] #[retval] pdwDataTimeout: *mut DWORD) -> HRESULT;
-            fn NumberOfItems(&self, #[out] #[retval] plCount: *mut LONG) -> HRESULT;
-            fn NumberOfItemsToIndex(&self, #[out] plIncrementalCount: *mut LONG, #[out] plNotificationQueue: *mut LONG, #[out] plHighPriorityQueue: *mut LONG) -> HRESULT;
-            fn URLBeingIndexed(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] pszUrl: *mut LPWSTR) -> HRESULT;
-            fn GetURLIndexingState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR, #[out] #[retval] pdwState: *mut DWORD) -> HRESULT;
-            fn GetPersistentItemsChangedSink(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppISearchPersistentItemsChangedSink: *mut ISearchPersistentItemsChangedSink) -> HRESULT;
-            fn RegisterViewForNotification(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszView: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pViewChangedSink: ISearchViewChangedSink, #[out] pdwCookie: *mut DWORD) -> HRESULT;
-            fn GetItemsChangedSink(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pISearchNotifyInlineSite: ISearchNotifyInlineSite, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppv: *mut *mut void, #[out] pGUIDCatalogResetSignature: *mut GUID, #[out] pGUIDCheckPointSignature: *mut GUID, #[out] pdwLastCheckPointNumber: *mut DWORD) -> HRESULT;
-            fn UnregisterViewForNotification(&self, dwCookie: DWORD) -> HRESULT;
-            fn SetExtensionClusion(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszExtension: LPCWSTR, fExclude: BOOL) -> HRESULT;
-            fn EnumerateExcludedExtensions(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppExtensions: *mut IEnumString) -> HRESULT;
-            fn GetQueryHelper(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSearchQueryHelper: *mut ISearchQueryHelper) -> HRESULT;
+            fn ReindexMatchingURLs(&self, pszPattern: PCWSTR) -> HRESULT;
+            fn ReindexSearchRoot(&self, pszRootURL: PCWSTR) -> HRESULT;
+            #[special]
+            fn put_ConnectTimeout(&self, dwConnectTimeout: u32) -> HRESULT;
+            #[special]
+            fn get_ConnectTimeout(&self, #[retval] pdwConnectTimeout: *mut u32) -> HRESULT;
+            #[special]
+            fn put_DataTimeout(&self, dwDataTimeout: u32) -> HRESULT;
+            #[special]
+            fn get_DataTimeout(&self, #[retval] pdwDataTimeout: *mut u32) -> HRESULT;
+            fn NumberOfItems(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn NumberOfItemsToIndex(&self, plIncrementalCount: *mut i32, plNotificationQueue: *mut i32, plHighPriorityQueue: *mut i32) -> HRESULT;
+            fn URLBeingIndexed(&self, #[retval] pszUrl: *mut PWSTR) -> HRESULT;
+            fn GetURLIndexingState(&self, pszURL: PCWSTR, #[retval] pdwState: *mut u32) -> HRESULT;
+            fn GetPersistentItemsChangedSink(&self, #[retval] ppISearchPersistentItemsChangedSink: *mut ISearchPersistentItemsChangedSink) -> HRESULT;
+            fn RegisterViewForNotification(&self, pszView: PCWSTR, pViewChangedSink: ISearchViewChangedSink, pdwCookie: *mut u32) -> HRESULT;
+            fn GetItemsChangedSink(&self, pISearchNotifyInlineSite: ISearchNotifyInlineSite, riid: *const GUID, #[iid_is] ppv: *mut *mut void, pGUIDCatalogResetSignature: *mut GUID, pGUIDCheckPointSignature: *mut GUID, pdwLastCheckPointNumber: *mut u32) -> HRESULT;
+            fn UnregisterViewForNotification(&self, dwCookie: u32) -> HRESULT;
+            fn SetExtensionClusion(&self, pszExtension: PCWSTR, fExclude: BOOL) -> HRESULT;
+            fn EnumerateExcludedExtensions(&self, #[retval] ppExtensions: *mut IEnumString) -> HRESULT;
+            fn GetQueryHelper(&self, #[retval] ppSearchQueryHelper: *mut ISearchQueryHelper) -> HRESULT;
+            #[special]
             fn put_DiacriticSensitivity(&self, fDiacriticSensitive: BOOL) -> HRESULT;
-            fn get_DiacriticSensitivity(&self, #[out] #[retval] pfDiacriticSensitive: *mut BOOL) -> HRESULT;
-            fn GetCrawlScopeManager(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCrawlScopeManager: *mut ISearchCrawlScopeManager) -> HRESULT;
+            #[special]
+            fn get_DiacriticSensitivity(&self, #[retval] pfDiacriticSensitive: *mut BOOL) -> HRESULT;
+            fn GetCrawlScopeManager(&self, #[retval] ppCrawlScopeManager: *mut ISearchCrawlScopeManager) -> HRESULT;
         }
         #[guid(0x7ac3286d_4d1d_4817_84fc_c1c85e3af0d9)]
         interface ISearchCatalogManager2: ISearchCatalogManager {
-            fn PrioritizeMatchingURLs(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszPattern: LPCWSTR, dwPrioritizeFlags: PRIORITIZE_FLAGS) -> HRESULT;
+            fn PrioritizeMatchingURLs(&self, pszPattern: PCWSTR, dwPrioritizeFlags: PRIORITIZE_FLAGS) -> HRESULT;
         }
         #[guid(0xde837e8f_634f_4ab0_bdfc_9fc3a1fc50dc)]
         interface ISearchCatalogManager3: ISearchCatalogManager2 {
-            fn IsContainsSemanticSupported(&self, #[out] #[retval] isContainsSemanticSupported: *mut BOOL) -> HRESULT;
+            fn IsContainsSemanticSupported(&self, #[retval] isContainsSemanticSupported: *mut BOOL) -> HRESULT;
         }
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef55)]
         interface ISearchCrawlScopeManager: IUnknown {
-            fn AddDefaultScopeRule(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR, fInclude: BOOL, fFollowFlags: DWORD) -> HRESULT;
-            fn AddRoot(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pSearchRoot: ISearchRoot) -> HRESULT;
-            fn RemoveRoot(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszURL: LPCWSTR) -> HRESULT;
-            fn EnumerateRoots(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSearchRoots: *mut IEnumSearchRoots) -> HRESULT;
-            fn AddHierarchicalScope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR, fInclude: BOOL, fDefault: BOOL, fOverrideChildren: BOOL) -> HRESULT;
-            fn AddUserScopeRule(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR, fInclude: BOOL, fOverrideChildren: BOOL, fFollowFlags: DWORD) -> HRESULT;
-            fn RemoveScopeRule(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszRule: LPCWSTR) -> HRESULT;
-            fn EnumerateScopeRules(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSearchScopeRules: *mut IEnumSearchScopeRules) -> HRESULT;
-            fn HasParentScopeRule(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR, #[out] #[retval] pfHasParentRule: *mut BOOL) -> HRESULT;
-            fn HasChildScopeRule(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR, #[out] #[retval] pfHasChildRule: *mut BOOL) -> HRESULT;
-            fn IncludedInCrawlScope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR, #[out] #[retval] pfIsIncluded: *mut BOOL) -> HRESULT;
-            fn IncludedInCrawlScopeEx(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR, #[out] pfIsIncluded: *mut BOOL, #[out] pReason: *mut CLUSION_REASON) -> HRESULT;
+            fn AddDefaultScopeRule(&self, pszURL: PCWSTR, fInclude: BOOL, fFollowFlags: u32) -> HRESULT;
+            fn AddRoot(&self, pSearchRoot: ISearchRoot) -> HRESULT;
+            fn RemoveRoot(&self, pszURL: PCWSTR) -> HRESULT;
+            fn EnumerateRoots(&self, #[retval] ppSearchRoots: *mut IEnumSearchRoots) -> HRESULT;
+            fn AddHierarchicalScope(&self, pszURL: PCWSTR, fInclude: BOOL, fDefault: BOOL, fOverrideChildren: BOOL) -> HRESULT;
+            fn AddUserScopeRule(&self, pszURL: PCWSTR, fInclude: BOOL, fOverrideChildren: BOOL, fFollowFlags: u32) -> HRESULT;
+            fn RemoveScopeRule(&self, pszRule: PCWSTR) -> HRESULT;
+            fn EnumerateScopeRules(&self, #[retval] ppSearchScopeRules: *mut IEnumSearchScopeRules) -> HRESULT;
+            fn HasParentScopeRule(&self, pszURL: PCWSTR, #[retval] pfHasParentRule: *mut BOOL) -> HRESULT;
+            fn HasChildScopeRule(&self, pszURL: PCWSTR, #[retval] pfHasChildRule: *mut BOOL) -> HRESULT;
+            fn IncludedInCrawlScope(&self, pszURL: PCWSTR, #[retval] pfIsIncluded: *mut BOOL) -> HRESULT;
+            fn IncludedInCrawlScopeEx(&self, pszURL: PCWSTR, pfIsIncluded: *mut BOOL, pReason: *mut CLUSION_REASON) -> HRESULT;
             fn RevertToDefaultScopes(&self) -> HRESULT;
             fn SaveAll(&self) -> HRESULT;
-            fn GetParentScopeVersionId(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR, #[out] #[retval] plScopeId: *mut LONG) -> HRESULT;
-            fn RemoveDefaultScopeRule(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR) -> HRESULT;
+            fn GetParentScopeVersionId(&self, pszURL: PCWSTR, #[retval] plScopeId: *mut i32) -> HRESULT;
+            fn RemoveDefaultScopeRule(&self, pszURL: PCWSTR) -> HRESULT;
         }
         #[guid(0x6292f7ad_4e19_4717_a534_8fc22bcd5ccd)]
         interface ISearchCrawlScopeManager2: ISearchCrawlScopeManager {
@@ -159,166 +164,217 @@ mod Windows {
         }
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef58)]
         interface ISearchItemsChangedSink: IUnknown {
-            fn StartedMonitoringScope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR) -> HRESULT;
-            fn StoppedMonitoringScope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR) -> HRESULT;
-            fn OnItemsChanged(&self, dwNumberOfChanges: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(0)] rgDataChangeEntries: *mut SEARCH_ITEM_CHANGE, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 0, IsByteCount = false, Dereference = false)] rgdwDocIds: *mut DWORD, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 0, IsByteCount = false, Dereference = false)] rghrCompletionCodes: *mut HRESULT) -> HRESULT;
+            fn StartedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
+            fn StoppedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
+            fn OnItemsChanged(&self, dwNumberOfChanges: u32, #[in] rgDataChangeEntries: *mut SEARCH_ITEM_CHANGE, rgdwDocIds: *mut u32, rghrCompletionCodes: *mut HRESULT) -> HRESULT;
         }
         #[guid(0x24c3cbaa_ebc1_491a_9ef1_9f6d8deb1b8f)]
         interface ISearchLanguageSupport: IUnknown {
             fn SetDiacriticSensitivity(&self, fDiacriticSensitive: BOOL) -> HRESULT;
-            fn GetDiacriticSensitivity(&self, #[out] #[retval] pfDiacriticSensitive: *mut BOOL) -> HRESULT;
-            fn LoadWordBreaker(&self, lcid: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppWordBreaker: *mut *mut void, #[out] pLcidUsed: *mut LCID) -> HRESULT;
-            fn LoadStemmer(&self, lcid: LCID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppStemmer: *mut *mut void, #[out] pLcidUsed: *mut LCID) -> HRESULT;
-            fn IsPrefixNormalized(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] pwcsQueryToken: LPCWSTR, cwcQueryToken: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(3)] pwcsDocumentToken: LPCWSTR, cwcDocumentToken: ULONG, #[out] pulPrefixLength: *mut ULONG) -> HRESULT;
+            fn GetDiacriticSensitivity(&self, #[retval] pfDiacriticSensitive: *mut BOOL) -> HRESULT;
+            fn LoadWordBreaker(&self, lcid: LCID, riid: *const GUID, #[iid_is] ppWordBreaker: *mut *mut void, pLcidUsed: *mut LCID) -> HRESULT;
+            fn LoadStemmer(&self, lcid: LCID, riid: *const GUID, #[iid_is] ppStemmer: *mut *mut void, pLcidUsed: *mut LCID) -> HRESULT;
+            fn IsPrefixNormalized(&self, pwcsQueryToken: PCWSTR, cwcQueryToken: u32, pwcsDocumentToken: PCWSTR, cwcDocumentToken: u32, pulPrefixLength: *mut u32) -> HRESULT;
         }
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef69)]
         interface ISearchManager: IUnknown {
-            fn GetIndexerVersionStr(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] ppszVersionString: *mut LPWSTR) -> HRESULT;
-            fn GetIndexerVersion(&self, #[out] pdwMajor: *mut DWORD, #[out] pdwMinor: *mut DWORD) -> HRESULT;
-            fn GetParameter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszName: LPCWSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppValue: *mut *mut PROPVARIANT) -> HRESULT;
-            fn SetParameter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pValue: *const PROPVARIANT) -> HRESULT;
-            fn get_ProxyName(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] ppszProxyName: *mut LPWSTR) -> HRESULT;
-            fn get_BypassList(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] ppszBypassList: *mut LPWSTR) -> HRESULT;
-            fn SetProxy(&self, sUseProxy: PROXY_ACCESS, fLocalByPassProxy: BOOL, dwPortNumber: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszProxyName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszByPassList: LPCWSTR) -> HRESULT;
-            fn GetCatalog(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszCatalog: LPCWSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCatalogManager: *mut ISearchCatalogManager) -> HRESULT;
-            fn get_UserAgent(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] ppszUserAgent: *mut LPWSTR) -> HRESULT;
-            fn put_UserAgent(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszUserAgent: LPCWSTR) -> HRESULT;
-            fn get_UseProxy(&self, #[out] #[retval] pUseProxy: *mut PROXY_ACCESS) -> HRESULT;
-            fn get_LocalBypass(&self, #[out] #[retval] pfLocalBypass: *mut BOOL) -> HRESULT;
-            fn get_PortNumber(&self, #[out] #[retval] pdwPortNumber: *mut DWORD) -> HRESULT;
+            fn GetIndexerVersionStr(&self, ppszVersionString: *mut PWSTR) -> HRESULT;
+            fn GetIndexerVersion(&self, pdwMajor: *mut u32, pdwMinor: *mut u32) -> HRESULT;
+            fn GetParameter(&self, pszName: PCWSTR, #[retval] ppValue: *mut *mut PROPVARIANT) -> HRESULT;
+            fn SetParameter(&self, pszName: PCWSTR, pValue: *const PROPVARIANT) -> HRESULT;
+            #[special]
+            fn get_ProxyName(&self, #[retval] ppszProxyName: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn get_BypassList(&self, #[retval] ppszBypassList: *mut PWSTR) -> HRESULT;
+            fn SetProxy(&self, sUseProxy: PROXY_ACCESS, fLocalByPassProxy: BOOL, dwPortNumber: u32, pszProxyName: PCWSTR, pszByPassList: PCWSTR) -> HRESULT;
+            fn GetCatalog(&self, pszCatalog: PCWSTR, #[retval] ppCatalogManager: *mut ISearchCatalogManager) -> HRESULT;
+            #[special]
+            fn get_UserAgent(&self, #[retval] ppszUserAgent: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_UserAgent(&self, pszUserAgent: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_UseProxy(&self, #[retval] pUseProxy: *mut PROXY_ACCESS) -> HRESULT;
+            #[special]
+            fn get_LocalBypass(&self, #[retval] pfLocalBypass: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_PortNumber(&self, #[retval] pdwPortNumber: *mut u32) -> HRESULT;
         }
         #[guid(0xdbab3f73_db19_4a79_bfc0_a61a93886ddf)]
         interface ISearchManager2: ISearchManager {
-            fn CreateCatalog(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszCatalog: LPCWSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCatalogManager: *mut ISearchCatalogManager) -> HRESULT;
-            fn DeleteCatalog(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszCatalog: LPCWSTR) -> HRESULT;
+            fn CreateCatalog(&self, pszCatalog: PCWSTR, ppCatalogManager: *mut ISearchCatalogManager) -> HRESULT;
+            fn DeleteCatalog(&self, pszCatalog: PCWSTR) -> HRESULT;
         }
         #[guid(0xb5702e61_e75c_4b64_82a1_6cb4f832fccf)]
         interface ISearchNotifyInlineSite: IUnknown {
-            fn OnItemIndexedStatusChange(&self, sipStatus: SEARCH_INDEXING_PHASE, dwNumEntries: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] rgItemStatusEntries: *mut SEARCH_ITEM_INDEXING_STATUS) -> HRESULT;
-            fn OnCatalogStatusChange(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidCatalogResetSignature: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guidCheckPointSignature: &GUID, dwLastCheckPointNumber: DWORD) -> HRESULT;
+            fn OnItemIndexedStatusChange(&self, sipStatus: SEARCH_INDEXING_PHASE, dwNumEntries: u32, #[in] rgItemStatusEntries: *mut SEARCH_ITEM_INDEXING_STATUS) -> HRESULT;
+            fn OnCatalogStatusChange(&self, guidCatalogResetSignature: *const GUID, guidCheckPointSignature: *const GUID, dwLastCheckPointNumber: u32) -> HRESULT;
         }
         #[guid(0xa2ffdf9b_4758_4f84_b729_df81a1a0612f)]
         interface ISearchPersistentItemsChangedSink: IUnknown {
-            fn StartedMonitoringScope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR) -> HRESULT;
-            fn StoppedMonitoringScope(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR) -> HRESULT;
-            fn OnItemsChanged(&self, dwNumberOfChanges: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(0)] DataChangeEntries: *mut SEARCH_ITEM_PERSISTENT_CHANGE, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 0, IsByteCount = false, Dereference = false)] hrCompletionCodes: *mut HRESULT) -> HRESULT;
+            fn StartedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
+            fn StoppedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
+            fn OnItemsChanged(&self, dwNumberOfChanges: u32, #[in] DataChangeEntries: *mut SEARCH_ITEM_PERSISTENT_CHANGE, hrCompletionCodes: *mut HRESULT) -> HRESULT;
         }
         #[guid(0xc73106ba_ac80_11d1_8df3_00c04fb6ef4f)]
         interface ISearchProtocol: IUnknown {
-            fn Init(&self, pTimeoutInfo: *mut TIMEOUT_INFO, pProtocolHandlerSite: IProtocolHandlerSite, pProxyInfo: *mut PROXY_INFO) -> HRESULT;
-            fn CreateAccessor(&self, pcwszURL: LPCWSTR, pAuthenticationInfo: *mut AUTHENTICATION_INFO, pIncrementalAccessInfo: *mut INCREMENTAL_ACCESS_INFO, pItemInfo: *mut ITEM_INFO, ppAccessor: *mut IUrlAccessor) -> HRESULT;
+            fn Init(&self, #[in] pTimeoutInfo: *mut TIMEOUT_INFO, pProtocolHandlerSite: IProtocolHandlerSite, #[in] pProxyInfo: *mut PROXY_INFO) -> HRESULT;
+            fn CreateAccessor(&self, pcwszURL: PCWSTR, #[in] pAuthenticationInfo: *mut AUTHENTICATION_INFO, #[in] pIncrementalAccessInfo: *mut INCREMENTAL_ACCESS_INFO, #[in] pItemInfo: *mut ITEM_INFO, ppAccessor: *mut IUrlAccessor) -> HRESULT;
             fn CloseAccessor(&self, pAccessor: IUrlAccessor) -> HRESULT;
             fn ShutDown(&self) -> HRESULT;
         }
         #[guid(0x7789f0b2_b5b2_4722_8b65_5dbd150697a9)]
         interface ISearchProtocol2: ISearchProtocol {
-            fn CreateAccessorEx(&self, pcwszURL: LPCWSTR, pAuthenticationInfo: *mut AUTHENTICATION_INFO, pIncrementalAccessInfo: *mut INCREMENTAL_ACCESS_INFO, pItemInfo: *mut ITEM_INFO, pUserData: *const BLOB, ppAccessor: *mut IUrlAccessor) -> HRESULT;
+            fn CreateAccessorEx(&self, pcwszURL: PCWSTR, #[in] pAuthenticationInfo: *mut AUTHENTICATION_INFO, #[in] pIncrementalAccessInfo: *mut INCREMENTAL_ACCESS_INFO, #[in] pItemInfo: *mut ITEM_INFO, pUserData: *const BLOB, ppAccessor: *mut IUrlAccessor) -> HRESULT;
         }
         #[guid(0xc73106e1_ac80_11d1_8df3_00c04fb6ef4f)]
         interface ISearchProtocolThreadContext: IUnknown {
             fn ThreadInit(&self) -> HRESULT;
             fn ThreadShutdown(&self) -> HRESULT;
-            fn ThreadIdle(&self, dwTimeElaspedSinceLastCallInMS: DWORD) -> HRESULT;
+            fn ThreadIdle(&self, dwTimeElaspedSinceLastCallInMS: u32) -> HRESULT;
         }
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef63)]
         interface ISearchQueryHelper: IUnknown {
-            fn get_ConnectionString(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] pszConnectionString: *mut LPWSTR) -> HRESULT;
+            #[special]
+            fn get_ConnectionString(&self, #[retval] pszConnectionString: *mut PWSTR) -> HRESULT;
+            #[special]
             fn put_QueryContentLocale(&self, lcid: LCID) -> HRESULT;
-            fn get_QueryContentLocale(&self, #[out] #[retval] plcid: *mut LCID) -> HRESULT;
+            #[special]
+            fn get_QueryContentLocale(&self, #[retval] plcid: *mut LCID) -> HRESULT;
+            #[special]
             fn put_QueryKeywordLocale(&self, lcid: LCID) -> HRESULT;
-            fn get_QueryKeywordLocale(&self, #[out] #[retval] plcid: *mut LCID) -> HRESULT;
+            #[special]
+            fn get_QueryKeywordLocale(&self, #[retval] plcid: *mut LCID) -> HRESULT;
+            #[special]
             fn put_QueryTermExpansion(&self, expandTerms: SEARCH_TERM_EXPANSION) -> HRESULT;
-            fn get_QueryTermExpansion(&self, #[out] #[retval] pExpandTerms: *mut SEARCH_TERM_EXPANSION) -> HRESULT;
+            #[special]
+            fn get_QueryTermExpansion(&self, #[retval] pExpandTerms: *mut SEARCH_TERM_EXPANSION) -> HRESULT;
+            #[special]
             fn put_QuerySyntax(&self, querySyntax: SEARCH_QUERY_SYNTAX) -> HRESULT;
-            fn get_QuerySyntax(&self, #[out] #[retval] pQuerySyntax: *mut SEARCH_QUERY_SYNTAX) -> HRESULT;
-            fn put_QueryContentProperties(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContentProperties: LPCWSTR) -> HRESULT;
-            fn get_QueryContentProperties(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] ppszContentProperties: *mut LPWSTR) -> HRESULT;
-            fn put_QuerySelectColumns(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszSelectColumns: LPCWSTR) -> HRESULT;
-            fn get_QuerySelectColumns(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] ppszSelectColumns: *mut LPWSTR) -> HRESULT;
-            fn put_QueryWhereRestrictions(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszRestrictions: LPCWSTR) -> HRESULT;
-            fn get_QueryWhereRestrictions(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] ppszRestrictions: *mut LPWSTR) -> HRESULT;
-            fn put_QuerySorting(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszSorting: LPCWSTR) -> HRESULT;
-            fn get_QuerySorting(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] ppszSorting: *mut LPWSTR) -> HRESULT;
-            fn GenerateSQLFromUserQuery(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszQuery: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] ppszSQL: *mut LPWSTR) -> HRESULT;
-            fn WriteProperties(&self, itemID: ITEMID, dwNumberOfColumns: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] pColumns: *mut PROPERTYKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] pValues: *mut SEARCH_COLUMN_PROPERTIES, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pftGatherModifiedTime: *mut FILETIME) -> HRESULT;
-            fn put_QueryMaxResults(&self, cMaxResults: LONG) -> HRESULT;
-            fn get_QueryMaxResults(&self, #[out] #[retval] pcMaxResults: *mut LONG) -> HRESULT;
+            #[special]
+            fn get_QuerySyntax(&self, #[retval] pQuerySyntax: *mut SEARCH_QUERY_SYNTAX) -> HRESULT;
+            #[special]
+            fn put_QueryContentProperties(&self, pszContentProperties: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_QueryContentProperties(&self, #[retval] ppszContentProperties: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_QuerySelectColumns(&self, pszSelectColumns: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_QuerySelectColumns(&self, #[retval] ppszSelectColumns: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_QueryWhereRestrictions(&self, pszRestrictions: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_QueryWhereRestrictions(&self, #[retval] ppszRestrictions: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_QuerySorting(&self, pszSorting: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_QuerySorting(&self, #[retval] ppszSorting: *mut PWSTR) -> HRESULT;
+            fn GenerateSQLFromUserQuery(&self, pszQuery: PCWSTR, #[retval] ppszSQL: *mut PWSTR) -> HRESULT;
+            fn WriteProperties(&self, itemID: ITEMID, dwNumberOfColumns: u32, #[in] pColumns: *mut PROPERTYKEY, #[in] pValues: *mut SEARCH_COLUMN_PROPERTIES, #[in] pftGatherModifiedTime: *mut FILETIME) -> HRESULT;
+            #[special]
+            fn put_QueryMaxResults(&self, cMaxResults: i32) -> HRESULT;
+            #[special]
+            fn get_QueryMaxResults(&self, #[retval] pcMaxResults: *mut i32) -> HRESULT;
         }
         #[guid(0x04c18ccf_1f57_4cbd_88cc_3900f5195ce3)]
         interface ISearchRoot: IUnknown {
-            fn put_Schedule(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszTaskArg: LPCWSTR) -> HRESULT;
-            fn get_Schedule(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] ppszTaskArg: *mut LPWSTR) -> HRESULT;
-            fn put_RootURL(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszURL: LPCWSTR) -> HRESULT;
-            fn get_RootURL(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] ppszURL: *mut LPWSTR) -> HRESULT;
+            #[special]
+            fn put_Schedule(&self, pszTaskArg: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_Schedule(&self, #[retval] ppszTaskArg: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_RootURL(&self, pszURL: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_RootURL(&self, #[retval] ppszURL: *mut PWSTR) -> HRESULT;
+            #[special]
             fn put_IsHierarchical(&self, fIsHierarchical: BOOL) -> HRESULT;
-            fn get_IsHierarchical(&self, #[out] #[retval] pfIsHierarchical: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_IsHierarchical(&self, #[retval] pfIsHierarchical: *mut BOOL) -> HRESULT;
+            #[special]
             fn put_ProvidesNotifications(&self, fProvidesNotifications: BOOL) -> HRESULT;
-            fn get_ProvidesNotifications(&self, #[out] #[retval] pfProvidesNotifications: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_ProvidesNotifications(&self, #[retval] pfProvidesNotifications: *mut BOOL) -> HRESULT;
+            #[special]
             fn put_UseNotificationsOnly(&self, fUseNotificationsOnly: BOOL) -> HRESULT;
-            fn get_UseNotificationsOnly(&self, #[out] #[retval] pfUseNotificationsOnly: *mut BOOL) -> HRESULT;
-            fn put_EnumerationDepth(&self, dwDepth: DWORD) -> HRESULT;
-            fn get_EnumerationDepth(&self, #[out] #[retval] pdwDepth: *mut DWORD) -> HRESULT;
-            fn put_HostDepth(&self, dwDepth: DWORD) -> HRESULT;
-            fn get_HostDepth(&self, #[out] #[retval] pdwDepth: *mut DWORD) -> HRESULT;
+            #[special]
+            fn get_UseNotificationsOnly(&self, #[retval] pfUseNotificationsOnly: *mut BOOL) -> HRESULT;
+            #[special]
+            fn put_EnumerationDepth(&self, dwDepth: u32) -> HRESULT;
+            #[special]
+            fn get_EnumerationDepth(&self, #[retval] pdwDepth: *mut u32) -> HRESULT;
+            #[special]
+            fn put_HostDepth(&self, dwDepth: u32) -> HRESULT;
+            #[special]
+            fn get_HostDepth(&self, #[retval] pdwDepth: *mut u32) -> HRESULT;
+            #[special]
             fn put_FollowDirectories(&self, fFollowDirectories: BOOL) -> HRESULT;
-            fn get_FollowDirectories(&self, #[out] #[retval] pfFollowDirectories: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_FollowDirectories(&self, #[retval] pfFollowDirectories: *mut BOOL) -> HRESULT;
+            #[special]
             fn put_AuthenticationType(&self, authType: AUTH_TYPE) -> HRESULT;
-            fn get_AuthenticationType(&self, #[out] #[retval] pAuthType: *mut AUTH_TYPE) -> HRESULT;
-            fn put_User(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszUser: LPCWSTR) -> HRESULT;
-            fn get_User(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] ppszUser: *mut LPWSTR) -> HRESULT;
-            fn put_Password(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszPassword: LPCWSTR) -> HRESULT;
-            fn get_Password(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] ppszPassword: *mut LPWSTR) -> HRESULT;
+            #[special]
+            fn get_AuthenticationType(&self, #[retval] pAuthType: *mut AUTH_TYPE) -> HRESULT;
+            #[special]
+            fn put_User(&self, pszUser: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_User(&self, #[retval] ppszUser: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn put_Password(&self, pszPassword: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_Password(&self, #[retval] ppszPassword: *mut PWSTR) -> HRESULT;
         }
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef53)]
         interface ISearchScopeRule: IUnknown {
-            fn get_PatternOrURL(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] ppszPatternOrURL: *mut LPWSTR) -> HRESULT;
-            fn get_IsIncluded(&self, #[out] #[retval] pfIsIncluded: *mut BOOL) -> HRESULT;
-            fn get_IsDefault(&self, #[out] #[retval] pfIsDefault: *mut BOOL) -> HRESULT;
-            fn get_FollowFlags(&self, #[out] #[retval] pFollowFlags: *mut DWORD) -> HRESULT;
+            #[special]
+            fn get_PatternOrURL(&self, #[retval] ppszPatternOrURL: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn get_IsIncluded(&self, #[retval] pfIsIncluded: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_IsDefault(&self, #[retval] pfIsDefault: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_FollowFlags(&self, #[retval] pFollowFlags: *mut u32) -> HRESULT;
         }
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef65)]
         interface ISearchViewChangedSink: IUnknown {
-            fn OnChange(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pdwDocID: *mut ITEMID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pChange: *mut SEARCH_ITEM_CHANGE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pfInView: *mut BOOL) -> HRESULT;
+            fn OnChange(&self, #[in] pdwDocID: *mut ITEMID, #[in] pChange: *mut SEARCH_ITEM_CHANGE, #[in] pfInView: *mut BOOL) -> HRESULT;
         }
         type ITEMID = i32;
-        #[packed(8)]
         struct ITEM_INFO {
-            dwSize: DWORD,
-            pcwszFromEMail: LPCWSTR,
-            pcwszApplicationName: LPCWSTR,
-            pcwszCatalogName: LPCWSTR,
-            pcwszContentClass: LPCWSTR,
+            dwSize: u32,
+            pcwszFromEMail: PCWSTR,
+            pcwszApplicationName: PCWSTR,
+            pcwszCatalogName: PCWSTR,
+            pcwszContentClass: PCWSTR,
         }
         #[guid(0x0b63e318_9ccc_11d0_bcdb_00805fccce04)]
         interface IUrlAccessor: IUnknown {
-            fn AddRequestParameter(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pSpec: *mut PROPSPEC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pVar: *mut PROPVARIANT) -> HRESULT;
-            fn GetDocFormat(&self, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 1, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] wszDocFormat: *mut WCHAR, dwSize: DWORD, #[out] pdwLength: *mut DWORD) -> HRESULT;
-            fn GetCLSID(&self, #[out] pClsid: *mut CLSID) -> HRESULT;
-            fn GetHost(&self, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 1, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] wszHost: *mut WCHAR, dwSize: DWORD, #[out] pdwLength: *mut DWORD) -> HRESULT;
+            fn AddRequestParameter(&self, #[in] pSpec: *mut PROPSPEC, #[in] pVar: *mut PROPVARIANT) -> HRESULT;
+            fn GetDocFormat(&self, wszDocFormat: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetCLSID(&self, pClsid: *mut GUID) -> HRESULT;
+            fn GetHost(&self, wszHost: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
             fn IsDirectory(&self) -> HRESULT;
-            fn GetSize(&self, #[out] pllSize: *mut ULONGLONG) -> HRESULT;
-            fn GetLastModified(&self, #[out] pftLastModified: *mut FILETIME) -> HRESULT;
-            fn GetFileName(&self, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 1, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] wszFileName: *mut WCHAR, dwSize: DWORD, #[out] pdwLength: *mut DWORD) -> HRESULT;
-            fn GetSecurityDescriptor(&self, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 1, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 1, IsByteCount = false, Dereference = false)] pSD: *mut BYTE, dwSize: DWORD, #[out] pdwLength: *mut DWORD) -> HRESULT;
-            fn GetRedirectedURL(&self, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 1, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] wszRedirectedURL: *mut WCHAR, dwSize: DWORD, #[out] pdwLength: *mut DWORD) -> HRESULT;
-            fn GetSecurityProvider(&self, #[out] pSPClsid: *mut CLSID) -> HRESULT;
-            fn BindToStream(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppStream: *mut IStream) -> HRESULT;
-            fn BindToFilter(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppFilter: *mut IFilter) -> HRESULT;
+            fn GetSize(&self, pllSize: *mut u64) -> HRESULT;
+            fn GetLastModified(&self, pftLastModified: *mut FILETIME) -> HRESULT;
+            fn GetFileName(&self, wszFileName: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetSecurityDescriptor(&self, pSD: *mut u8, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetRedirectedURL(&self, wszRedirectedURL: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
+            fn GetSecurityProvider(&self, pSPClsid: *mut GUID) -> HRESULT;
+            fn BindToStream(&self, ppStream: *mut IStream) -> HRESULT;
+            fn BindToFilter(&self, ppFilter: *mut IFilter) -> HRESULT;
         }
         #[guid(0xc7310734_ac80_11d1_8df3_00c04fb6ef4f)]
         interface IUrlAccessor2: IUrlAccessor {
-            fn GetDisplayUrl(&self, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 1, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] wszDocUrl: *mut WCHAR, dwSize: DWORD, #[out] pdwLength: *mut DWORD) -> HRESULT;
+            fn GetDisplayUrl(&self, wszDocUrl: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
             fn IsDocument(&self) -> HRESULT;
-            fn GetCodePage(&self, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 1, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] wszCodePage: *mut WCHAR, dwSize: DWORD, #[out] pdwLength: *mut DWORD) -> HRESULT;
+            fn GetCodePage(&self, wszCodePage: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
         }
         #[guid(0x6fbc7005_0455_4874_b8ff_7439450241a3)]
         interface IUrlAccessor3: IUrlAccessor2 {
-            fn GetImpersonationSidBlobs(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pcwszURL: LPCWSTR, #[out] pcSidCount: *mut DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppSidBlobs: *mut *mut BLOB) -> HRESULT;
+            fn GetImpersonationSidBlobs(&self, pcwszURL: PCWSTR, pcSidCount: *mut u32, ppSidBlobs: *mut *mut BLOB) -> HRESULT;
         }
         #[guid(0x5cc51041_c8d2_41d7_bca3_9e9e286297dc)]
         interface IUrlAccessor4: IUrlAccessor3 {
-            fn ShouldIndexItemContent(&self, #[out] pfIndexContent: *mut BOOL) -> HRESULT;
-            fn ShouldIndexProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] key: &PROPERTYKEY, #[out] pfIndexProperty: *mut BOOL) -> HRESULT;
+            fn ShouldIndexItemContent(&self, pfIndexContent: *mut BOOL) -> HRESULT;
+            fn ShouldIndexProperty(&self, key: *const PROPERTYKEY, pfIndexProperty: *mut BOOL) -> HRESULT;
         }
         type PRIORITIZE_FLAGS = i32;
         #[repr(i32)]
@@ -334,15 +390,14 @@ mod Windows {
             PROXY_ACCESS_DIRECT = 1,
             PROXY_ACCESS_PROXY = 2,
         }
-        #[packed(8)]
         struct PROXY_INFO {
-            dwSize: DWORD,
-            pcwszUserAgent: LPCWSTR,
+            dwSize: u32,
+            pcwszUserAgent: PCWSTR,
             paUseProxy: PROXY_ACCESS,
             fLocalBypass: BOOL,
-            dwPortNumber: DWORD,
-            pcwszProxyName: LPCWSTR,
-            pcwszBypassList: LPCWSTR,
+            dwPortNumber: u32,
+            pcwszProxyName: PCWSTR,
+            pcwszBypassList: PCWSTR,
         }
         #[repr(i32)]
         enum ROWSETEVENT_ITEMSTATE {
@@ -370,17 +425,17 @@ mod Windows {
             Change: SEARCH_KIND_OF_CHANGE,
             Priority: SEARCH_NOTIFICATION_PRIORITY,
             pUserData: *mut BLOB,
-            lpwszURL: LPWSTR,
-            lpwszOldURL: LPWSTR,
+            lpwszURL: PWSTR,
+            lpwszOldURL: PWSTR,
         }
         struct SEARCH_ITEM_INDEXING_STATUS {
-            dwDocID: DWORD,
+            dwDocID: u32,
             hrIndexingStatus: HRESULT,
         }
         struct SEARCH_ITEM_PERSISTENT_CHANGE {
             Change: SEARCH_KIND_OF_CHANGE,
-            URL: LPWSTR,
-            OldURL: LPWSTR,
+            URL: PWSTR,
+            OldURL: PWSTR,
             Priority: SEARCH_NOTIFICATION_PRIORITY,
         }
         #[repr(i32)]
@@ -410,11 +465,10 @@ mod Windows {
             SEARCH_TERM_PREFIX_ALL = 1,
             SEARCH_TERM_STEM_ALL = 2,
         }
-        #[packed(8)]
         struct TIMEOUT_INFO {
-            dwSize: DWORD,
-            dwConnectTimeout: DWORD,
-            dwDataTimeout: DWORD,
+            dwSize: u32,
+            dwConnectTimeout: u32,
+            dwDataTimeout: u32,
         }
         #[repr(i32)]
         enum tagPRIORITIZE_FLAGS {

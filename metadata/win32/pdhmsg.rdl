@@ -88,7 +88,6 @@ mod Windows {
         const PDH_UNKNOWN_LOG_FORMAT: u32 = 3221228502;
         const PDH_UNMATCHED_APPEND_COUNTER: u32 = 3221228540;
         const PDH_WBEM_ERROR: u32 = 3221228506;
-        const S_PDH: GUID = 0x04d66358_c4a1_419b_8023_23b73902de2c;
         const S_PDH_Traits: i32 = 0;
     }
 }

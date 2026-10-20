@@ -7,23 +7,23 @@ mod Windows {
         const MSGNAME_FORWARDED_TO: i32 = 4;
         const MSGNAME_NOT_FORWARDED: i32 = 0;
         struct MSG_INFO_0 {
-            msgi0_name: LPWSTR,
+            msgi0_name: PWSTR,
         }
         struct MSG_INFO_1 {
-            msgi1_name: LPWSTR,
-            msgi1_forward_flag: DWORD,
-            msgi1_forward: LPWSTR,
+            msgi1_name: PWSTR,
+            msgi1_forward_flag: u32,
+            msgi1_forward: PWSTR,
         }
         #[library("NETAPI32.dll")]
-        extern fn NetMessageBufferSend(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] msgname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fromname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] buf: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] buflen: DWORD) -> DWORD;
+        extern fn NetMessageBufferSend(#[opt] servername: PCWSTR, msgname: PCWSTR, fromname: PCWSTR, buf: LPBYTE, buflen: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetMessageNameAdd(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] msgname: LPCWSTR) -> DWORD;
+        extern fn NetMessageNameAdd(#[opt] servername: PCWSTR, msgname: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetMessageNameDel(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] msgname: LPCWSTR) -> DWORD;
+        extern fn NetMessageNameDel(#[opt] servername: PCWSTR, msgname: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetMessageNameEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[out] resume_handle: LPDWORD) -> DWORD;
+        extern fn NetMessageNameEnum(#[opt] servername: PCWSTR, level: u32, #[in] bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[out] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetMessageNameGetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] msgname: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bufptr: *mut LPBYTE) -> DWORD;
+        extern fn NetMessageNameGetInfo(#[opt] servername: PCWSTR, msgname: PCWSTR, level: u32, #[in] bufptr: *mut LPBYTE) -> u32;
         type PMSG_INFO_0 = *mut MSG_INFO_0;
         type PMSG_INFO_1 = *mut MSG_INFO_1;
     }

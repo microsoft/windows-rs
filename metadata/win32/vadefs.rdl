@@ -1,0 +1,6 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type va_list = *mut i8;
+    }
+}

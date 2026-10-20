@@ -2,16 +2,16 @@
 mod Windows {
     mod Win32 {
         struct CONNECTION_INFO_0 {
-            coni0_id: DWORD,
+            coni0_id: u32,
         }
         struct CONNECTION_INFO_1 {
-            coni1_id: DWORD,
-            coni1_type: DWORD,
-            coni1_num_opens: DWORD,
-            coni1_num_users: DWORD,
-            coni1_time: DWORD,
-            coni1_username: LPWSTR,
-            coni1_netname: LPWSTR,
+            coni1_id: u32,
+            coni1_type: u32,
+            coni1_num_opens: u32,
+            coni1_num_users: u32,
+            coni1_time: u32,
+            coni1_username: PWSTR,
+            coni1_netname: PWSTR,
         }
         const CSC_CACHE_AUTO_REINT: i32 = 16;
         const CSC_CACHE_MANUAL_REINT: i32 = 0;
@@ -20,14 +20,14 @@ mod Windows {
         const CSC_MASK: i32 = 48;
         const CSC_MASK_EXT: i32 = 8240;
         struct FILE_INFO_2 {
-            fi2_id: DWORD,
+            fi2_id: u32,
         }
         struct FILE_INFO_3 {
-            fi3_id: DWORD,
-            fi3_permissions: DWORD,
-            fi3_num_locks: DWORD,
-            fi3_pathname: LPWSTR,
-            fi3_username: LPWSTR,
+            fi3_id: u32,
+            fi3_permissions: u32,
+            fi3_num_locks: u32,
+            fi3_pathname: PWSTR,
+            fi3_username: PWSTR,
         }
         type LPCONNECTION_INFO_0 = *mut CONNECTION_INFO_0;
         type LPCONNECTION_INFO_1 = *mut CONNECTION_INFO_1;
@@ -50,72 +50,44 @@ mod Windows {
         type LPSHARE_INFO_501 = *mut SHARE_INFO_501;
         type LPSHARE_INFO_502 = *mut SHARE_INFO_502;
         type LPSHARE_INFO_503 = *mut SHARE_INFO_503;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0 || return == 234L", "return == 0 || return == 234L")]
         #[library("NETAPI32.dll")]
-        extern fn NetConnectionEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] qualifier: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_Outptr_result_bytebuffer_(*entriesread * sizeof(CONNECTION_INFO_0))", "level == 0, _Outptr_result_bytebuffer_(*entriesread * sizeof(CONNECTION_INFO_0))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1,_Outptr_result_bytebuffer_(*entriesread * sizeof(CONNECTION_INFO_1))", "level == 1, _Outptr_result_bytebuffer_(*entriesread * sizeof(CONNECTION_INFO_1))")] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetConnectionEnum(#[opt] servername: PCWSTR, qualifier: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetFileClose(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fileid: DWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0 || return == 234L", "return == 0 || return == 234L")]
+        extern fn NetFileClose(#[opt] servername: PCWSTR, fileid: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetFileEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] basepath: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] username: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_Outptr_result_bytebuffer_(*entriesread * sizeof(FILE_INFO_2))", "level == 2, _Outptr_result_bytebuffer_(*entriesread * sizeof(FILE_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 3,_Outptr_result_bytebuffer_(*entriesread * sizeof(FILE_INFO_3))", "level == 3, _Outptr_result_bytebuffer_(*entriesread * sizeof(FILE_INFO_3))")] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: PDWORD_PTR) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn NetFileEnum(#[opt] servername: PCWSTR, #[opt] basepath: PCWSTR, #[opt] username: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: PDWORD_PTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetFileGetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fileid: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_Outptr_result_bytebuffer_(sizeof(FILE_INFO_2))", "level == 2, _Outptr_result_bytebuffer_(sizeof(FILE_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 3,_Outptr_result_bytebuffer_(sizeof(FILE_INFO_3))", "level == 3, _Outptr_result_bytebuffer_(sizeof(FILE_INFO_3))")] bufptr: *mut LPBYTE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetFileGetInfo(#[opt] servername: PCWSTR, fileid: u32, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerAliasAdd(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "sizeof(SERVER_ALIAS_INFO_0)", "sizeof(SERVER_ALIAS_INFO_0)")] #[in] buf: LPBYTE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetServerAliasAdd(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerAliasDel(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_In_reads_bytes_(sizeof(SERVER_ALIAS_INFO_0_CONTAINER))", "level == 0, _In_reads_bytes_(sizeof(SERVER_ALIAS_INFO_0_CONTAINER))")] buf: LPBYTE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0 || return == 234L", "return == 0 || return == 234L")]
+        extern fn NetServerAliasDel(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetServerAliasEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_Outptr_result_bytebuffer_(*entriesread * sizeof(SERVER_ALIAS_INFO_0_CONTAINER))", "level == 0, _Outptr_result_bytebuffer_(*entriesread * sizeof(SERVER_ALIAS_INFO_0_CONTAINER))")] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resumehandle: LPDWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetServerAliasEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resumehandle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetSessionDel(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UncClientName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] username: LPWSTR) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0 || return == 234L", "return == 0 || return == 234L")]
+        extern fn NetSessionDel(#[opt] servername: PCWSTR, #[opt] UncClientName: PCWSTR, #[opt] username: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetSessionEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UncClientName: LPWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] username: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_Outptr_result_bytebuffer_(*entriesread * sizeof(SESSION_INFO_0))", "level == 0, _Outptr_result_bytebuffer_(*entriesread * sizeof(SESSION_INFO_0))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1,_Outptr_result_bytebuffer_(*entriesread * sizeof(SESSION_INFO_1))", "level == 1, _Outptr_result_bytebuffer_(*entriesread * sizeof(SESSION_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 10,_Outptr_result_bytebuffer_(*entriesread * sizeof(SESSION_INFO_10))", "level == 10, _Outptr_result_bytebuffer_(*entriesread * sizeof(SESSION_INFO_10))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_Outptr_result_bytebuffer_(*entriesread * sizeof(SESSION_INFO_2))", "level == 2, _Outptr_result_bytebuffer_(*entriesread * sizeof(SESSION_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 502,_Outptr_result_bytebuffer_(*entriesread * sizeof(SESSION_INFO_502))", "level == 502, _Outptr_result_bytebuffer_(*entriesread * sizeof(SESSION_INFO_502))")] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+        extern fn NetSessionEnum(#[opt] servername: PCWSTR, #[opt] UncClientName: PCWSTR, #[opt] username: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetSessionGetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] UncClientName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] username: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_Outptr_result_bytebuffer_(sizeof(SESSION_INFO_0))", "level == 0, _Outptr_result_bytebuffer_(sizeof(SESSION_INFO_0))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1,_Outptr_result_bytebuffer_(sizeof(SESSION_INFO_1))", "level == 1, _Outptr_result_bytebuffer_(sizeof(SESSION_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 10,_Outptr_result_bytebuffer_(sizeof(SESSION_INFO_10))", "level == 10, _Outptr_result_bytebuffer_(sizeof(SESSION_INFO_10))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_Outptr_result_bytebuffer_(sizeof(SESSION_INFO_2))", "level == 2, _Outptr_result_bytebuffer_(sizeof(SESSION_INFO_2))")] bufptr: *mut LPBYTE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetSessionGetInfo(#[opt] servername: PCWSTR, UncClientName: PCWSTR, username: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareAdd(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_In_reads_bytes_(sizeof(SHARE_INFO_2))", "level == 2, _In_reads_bytes_(sizeof(SHARE_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 502,_In_reads_bytes_(sizeof(SHARE_INFO_502))", "level == 502, _In_reads_bytes_(sizeof(SHARE_INFO_502))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 503,_In_reads_bytes_(sizeof(SHARE_INFO_503))", "level == 503, _In_reads_bytes_(sizeof(SHARE_INFO_503))")] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetShareAdd(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareCheck(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] device: LPWSTR, #[out] r#type: LPDWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetShareCheck(#[opt] servername: PCWSTR, device: PCWSTR, #[out] r#type: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareDel(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] netname: LPWSTR, #[reserved] reserved: DWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetShareDel(#[opt] servername: PCWSTR, netname: PCWSTR, #[reserved] reserved: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareDelEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_In_reads_bytes_(sizeof(SHARE_INFO_0))", "level == 0, _In_reads_bytes_(sizeof(SHARE_INFO_0))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1,_In_reads_bytes_(sizeof(SHARE_INFO_1))", "level == 1, _In_reads_bytes_(sizeof(SHARE_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_In_reads_bytes_(sizeof(SHARE_INFO_2))", "level == 2, _In_reads_bytes_(sizeof(SHARE_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 502,_In_reads_bytes_(sizeof(SHARE_INFO_502))", "level == 502, _In_reads_bytes_(sizeof(SHARE_INFO_502))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 503,_In_reads_bytes_(sizeof(SHARE_INFO_503))", "level == 503, _In_reads_bytes_(sizeof(SHARE_INFO_503))")] buf: LPBYTE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetShareDelEx(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareDelSticky(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] netname: LPWSTR, #[reserved] reserved: DWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0 || return == 234L", "return == 0 || return == 234L")]
+        extern fn NetShareDelSticky(#[opt] servername: PCWSTR, netname: PCWSTR, #[reserved] reserved: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareEnum(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_0))", "level == 0, _Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_0))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1,_Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_1))", "level == 1, _Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_2))", "level == 2, _Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 502,_Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_502))", "level == 502, _Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_502))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 503,_Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_503))", "level == 503, _Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_503))")] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0 || return == 234L", "return == 0 || return == 234L")]
+        extern fn NetShareEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareEnumSticky(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_0))", "level == 0, _Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_0))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1,_Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_1))", "level == 1, _Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_2))", "level == 2, _Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 502,_Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_502))", "level == 502, _Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_502))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 503,_Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_503))", "level == 503, _Outptr_result_bytebuffer_(*entriesread * sizeof(SHARE_INFO_503))")] bufptr: *mut LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0 || return == 234L", "return == 0 || return == 234L")]
+        extern fn NetShareEnumSticky(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareGetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] netname: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 0,_Outptr_result_bytebuffer_(sizeof(SHARE_INFO_0))", "level == 0, _Outptr_result_bytebuffer_(sizeof(SHARE_INFO_0))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1,_Outptr_result_bytebuffer_(sizeof(SHARE_INFO_1))", "level == 1, _Outptr_result_bytebuffer_(sizeof(SHARE_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1005,_Outptr_result_bytebuffer_(sizeof(SHARE_INFO_1005))", "level == 1005, _Outptr_result_bytebuffer_(sizeof(SHARE_INFO_1005))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_Outptr_result_bytebuffer_(sizeof(SHARE_INFO_2))", "level == 2, _Outptr_result_bytebuffer_(sizeof(SHARE_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 501,_Outptr_result_bytebuffer_(sizeof(SHARE_INFO_501))", "level == 501, _Outptr_result_bytebuffer_(sizeof(SHARE_INFO_501))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 502,_Outptr_result_bytebuffer_(sizeof(SHARE_INFO_502))", "level == 502, _Outptr_result_bytebuffer_(sizeof(SHARE_INFO_502))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 503,_Outptr_result_bytebuffer_(sizeof(SHARE_INFO_503))", "level == 503, _Outptr_result_bytebuffer_(sizeof(SHARE_INFO_503))")] bufptr: *mut LPBYTE) -> DWORD;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+        extern fn NetShareGetInfo(#[opt] servername: PCWSTR, netname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetShareSetInfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servername: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] netname: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1,_In_reads_bytes_(sizeof(SHARE_INFO_1))", "level == 1, _In_reads_bytes_(sizeof(SHARE_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1004,_In_reads_bytes_(sizeof(SHARE_INFO_1004))", "level == 1004, _In_reads_bytes_(sizeof(SHARE_INFO_1004))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1005,_In_reads_bytes_(sizeof(SHARE_INFO_1005))", "level == 1005, _In_reads_bytes_(sizeof(SHARE_INFO_1005))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1006,_In_reads_bytes_(sizeof(SHARE_INFO_1006))", "level == 1006, _In_reads_bytes_(sizeof(SHARE_INFO_1006))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 1501,_In_reads_bytes_(sizeof(SHARE_INFO_1501))", "level == 1501, _In_reads_bytes_(sizeof(SHARE_INFO_1501))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 2,_In_reads_bytes_(sizeof(SHARE_INFO_2))", "level == 2, _In_reads_bytes_(sizeof(SHARE_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 502,_In_reads_bytes_(sizeof(SHARE_INFO_502))", "level == 502, _In_reads_bytes_(sizeof(SHARE_INFO_502))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "level == 503,_In_reads_bytes_(sizeof(SHARE_INFO_503))", "level == 503, _In_reads_bytes_(sizeof(SHARE_INFO_503))")] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
+        extern fn NetShareSetInfo(#[opt] servername: PCWSTR, netname: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         type PCONNECTION_INFO_0 = *mut CONNECTION_INFO_0;
         type PCONNECTION_INFO_1 = *mut CONNECTION_INFO_1;
         const PERM_FILE_CREATE: i32 = 4;
@@ -141,48 +113,48 @@ mod Windows {
         type PSHARE_INFO_502 = *mut SHARE_INFO_502;
         type PSHARE_INFO_503 = *mut SHARE_INFO_503;
         struct SERVER_ALIAS_INFO_0 {
-            srvai0_alias: LPWSTR,
-            srvai0_target: LPWSTR,
+            srvai0_alias: PWSTR,
+            srvai0_target: PWSTR,
             srvai0_default: BOOLEAN,
-            srvai0_reserved: ULONG,
+            srvai0_reserved: u32,
         }
         const SESI1_NUM_ELEMENTS: i32 = 8;
         const SESI2_NUM_ELEMENTS: i32 = 9;
         struct SESSION_INFO_0 {
-            sesi0_cname: LPWSTR,
+            sesi0_cname: PWSTR,
         }
         struct SESSION_INFO_1 {
-            sesi1_cname: LPWSTR,
-            sesi1_username: LPWSTR,
-            sesi1_num_opens: DWORD,
-            sesi1_time: DWORD,
-            sesi1_idle_time: DWORD,
-            sesi1_user_flags: DWORD,
+            sesi1_cname: PWSTR,
+            sesi1_username: PWSTR,
+            sesi1_num_opens: u32,
+            sesi1_time: u32,
+            sesi1_idle_time: u32,
+            sesi1_user_flags: u32,
         }
         struct SESSION_INFO_10 {
-            sesi10_cname: LPWSTR,
-            sesi10_username: LPWSTR,
-            sesi10_time: DWORD,
-            sesi10_idle_time: DWORD,
+            sesi10_cname: PWSTR,
+            sesi10_username: PWSTR,
+            sesi10_time: u32,
+            sesi10_idle_time: u32,
         }
         struct SESSION_INFO_2 {
-            sesi2_cname: LPWSTR,
-            sesi2_username: LPWSTR,
-            sesi2_num_opens: DWORD,
-            sesi2_time: DWORD,
-            sesi2_idle_time: DWORD,
-            sesi2_user_flags: DWORD,
-            sesi2_cltype_name: LPWSTR,
+            sesi2_cname: PWSTR,
+            sesi2_username: PWSTR,
+            sesi2_num_opens: u32,
+            sesi2_time: u32,
+            sesi2_idle_time: u32,
+            sesi2_user_flags: u32,
+            sesi2_cltype_name: PWSTR,
         }
         struct SESSION_INFO_502 {
-            sesi502_cname: LPWSTR,
-            sesi502_username: LPWSTR,
-            sesi502_num_opens: DWORD,
-            sesi502_time: DWORD,
-            sesi502_idle_time: DWORD,
-            sesi502_user_flags: DWORD,
-            sesi502_cltype_name: LPWSTR,
-            sesi502_transport: LPWSTR,
+            sesi502_cname: PWSTR,
+            sesi502_username: PWSTR,
+            sesi502_num_opens: u32,
+            sesi502_time: u32,
+            sesi502_idle_time: u32,
+            sesi502_user_flags: u32,
+            sesi502_cltype_name: PWSTR,
+            sesi502_transport: PWSTR,
         }
         const SESS_GUEST: i32 = 1;
         const SESS_NOENCRYPTION: i32 = 2;
@@ -190,68 +162,68 @@ mod Windows {
         const SHARE_FILE_SD_INFOLEVEL: i32 = 1501;
         const SHARE_FILE_SD_PARMNUM: i32 = 501;
         struct SHARE_INFO_0 {
-            shi0_netname: LPWSTR,
+            shi0_netname: PWSTR,
         }
         struct SHARE_INFO_1 {
-            shi1_netname: LPWSTR,
-            shi1_type: DWORD,
-            shi1_remark: LPWSTR,
+            shi1_netname: PWSTR,
+            shi1_type: u32,
+            shi1_remark: PWSTR,
         }
         struct SHARE_INFO_1004 {
-            shi1004_remark: LPWSTR,
+            shi1004_remark: PWSTR,
         }
         struct SHARE_INFO_1005 {
-            shi1005_flags: DWORD,
+            shi1005_flags: u32,
         }
         struct SHARE_INFO_1006 {
-            shi1006_max_uses: DWORD,
+            shi1006_max_uses: u32,
         }
         struct SHARE_INFO_1501 {
-            shi1501_reserved: DWORD,
+            shi1501_reserved: u32,
             shi1501_security_descriptor: PSECURITY_DESCRIPTOR,
         }
         struct SHARE_INFO_1503 {
             shi1503_sharefilter: GUID,
         }
         struct SHARE_INFO_2 {
-            shi2_netname: LPWSTR,
-            shi2_type: DWORD,
-            shi2_remark: LPWSTR,
-            shi2_permissions: DWORD,
-            shi2_max_uses: DWORD,
-            shi2_current_uses: DWORD,
-            shi2_path: LPWSTR,
-            shi2_passwd: LPWSTR,
+            shi2_netname: PWSTR,
+            shi2_type: u32,
+            shi2_remark: PWSTR,
+            shi2_permissions: u32,
+            shi2_max_uses: u32,
+            shi2_current_uses: u32,
+            shi2_path: PWSTR,
+            shi2_passwd: PWSTR,
         }
         struct SHARE_INFO_501 {
-            shi501_netname: LPWSTR,
-            shi501_type: DWORD,
-            shi501_remark: LPWSTR,
-            shi501_flags: DWORD,
+            shi501_netname: PWSTR,
+            shi501_type: u32,
+            shi501_remark: PWSTR,
+            shi501_flags: u32,
         }
         struct SHARE_INFO_502 {
-            shi502_netname: LPWSTR,
-            shi502_type: DWORD,
-            shi502_remark: LPWSTR,
-            shi502_permissions: DWORD,
-            shi502_max_uses: DWORD,
-            shi502_current_uses: DWORD,
-            shi502_path: LPWSTR,
-            shi502_passwd: LPWSTR,
-            shi502_reserved: DWORD,
+            shi502_netname: PWSTR,
+            shi502_type: u32,
+            shi502_remark: PWSTR,
+            shi502_permissions: u32,
+            shi502_max_uses: u32,
+            shi502_current_uses: u32,
+            shi502_path: PWSTR,
+            shi502_passwd: PWSTR,
+            shi502_reserved: u32,
             shi502_security_descriptor: PSECURITY_DESCRIPTOR,
         }
         struct SHARE_INFO_503 {
-            shi503_netname: LPWSTR,
-            shi503_type: DWORD,
-            shi503_remark: LPWSTR,
-            shi503_permissions: DWORD,
-            shi503_max_uses: DWORD,
-            shi503_current_uses: DWORD,
-            shi503_path: LPWSTR,
-            shi503_passwd: LPWSTR,
-            shi503_servername: LPWSTR,
-            shi503_reserved: DWORD,
+            shi503_netname: PWSTR,
+            shi503_type: u32,
+            shi503_remark: PWSTR,
+            shi503_permissions: u32,
+            shi503_max_uses: u32,
+            shi503_current_uses: u32,
+            shi503_path: PWSTR,
+            shi503_passwd: PWSTR,
+            shi503_servername: PWSTR,
+            shi503_reserved: u32,
             shi503_security_descriptor: PSECURITY_DESCRIPTOR,
         }
         const SHARE_MAX_USES_INFOLEVEL: i32 = 1006;
@@ -286,7 +258,7 @@ mod Windows {
         const SHI1005_VALID_FLAGS_SET: i32 = 16777008;
         const SHI1_NUM_ELEMENTS: i32 = 4;
         const SHI2_NUM_ELEMENTS: i32 = 10;
-        const SHI_USES_UNLIMITED: DWORD = 4294967295;
+        const SHI_USES_UNLIMITED: u32 = 4294967295;
         const STYPE_DEVICE: i32 = 2;
         const STYPE_DISKTREE: i32 = 0;
         const STYPE_IPC: i32 = 3;

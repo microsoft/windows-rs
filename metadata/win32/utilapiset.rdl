@@ -2,22 +2,18 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn Beep(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFreq: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDuration: DWORD) -> BOOL;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn Beep(dwFreq: u32, dwDuration: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DecodePointer(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Ptr: PVOID) -> PVOID;
+        extern fn DecodePointer(#[in] #[opt] Ptr: *mut void) -> *mut void;
         #[library("KernelBase.dll")]
-        extern fn DecodeRemotePointer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProcessHandle: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Ptr: PVOID, #[out] DecodedPtr: *mut PVOID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn DecodeRemotePointer(ProcessHandle: HANDLE, #[in] #[opt] Ptr: *mut void, DecodedPtr: *mut *mut void) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn DecodeSystemPointer(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Ptr: PVOID) -> PVOID;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn DecodeSystemPointer(#[in] #[opt] Ptr: *mut void) -> *mut void;
         #[library("KERNEL32.dll")]
-        extern fn EncodePointer(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Ptr: PVOID) -> PVOID;
+        extern fn EncodePointer(#[in] #[opt] Ptr: *mut void) -> *mut void;
         #[library("KernelBase.dll")]
-        extern fn EncodeRemotePointer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProcessHandle: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Ptr: PVOID, #[out] EncodedPtr: *mut PVOID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
+        extern fn EncodeRemotePointer(ProcessHandle: HANDLE, #[in] #[opt] Ptr: *mut void, EncodedPtr: *mut *mut void) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn EncodeSystemPointer(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Ptr: PVOID) -> PVOID;
+        extern fn EncodeSystemPointer(#[in] #[opt] Ptr: *mut void) -> *mut void;
     }
 }

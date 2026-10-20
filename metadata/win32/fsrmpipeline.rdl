@@ -20,198 +20,303 @@ mod Windows {
         const FSRM_DISPID_RULE: i32 = 87031808;
         const FSRM_DISPID_STORAGE_MODULE_DEFINITION: i32 = 88211456;
         const FSRM_DISPID_STORAGE_MODULE_IMPLEMENTATION: i32 = 102891520;
-        const FsrmAlwaysModified: ULONGLONG = 18446744073709551615;
+        const FsrmAlwaysModified: u64 = 18446744073709551615;
         const FsrmMaxNumberPropertyDefinitions: i32 = 100;
-        const FsrmNeverModified: ULONGLONG = 0;
+        const FsrmNeverModified: u64 = 0;
         #[guid(0xd2dc89da_ee91_48a0_85d8_cc72a56f7d04)]
         interface IFsrmClassificationManager: IDispatch {
-            fn get_ClassificationReportFormats(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] formats: *mut *mut SAFEARRAY) -> HRESULT;
-            fn put_ClassificationReportFormats(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] formats: *mut SAFEARRAY) -> HRESULT;
-            fn get_Logging(&self, #[out] #[retval] logging: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ClassificationReportFormats(&self, #[retval] formats: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_ClassificationReportFormats(&self, #[in] formats: *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_Logging(&self, #[retval] logging: *mut i32) -> HRESULT;
+            #[special]
             fn put_Logging(&self, logging: i32) -> HRESULT;
-            fn get_ClassificationReportMailTo(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] mailTo: *mut BSTR) -> HRESULT;
-            fn put_ClassificationReportMailTo(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] mailTo: BSTR) -> HRESULT;
-            fn get_ClassificationReportEnabled(&self, #[out] #[retval] reportEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ClassificationReportMailTo(&self, #[retval] mailTo: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ClassificationReportMailTo(&self, mailTo: BSTR) -> HRESULT;
+            #[special]
+            fn get_ClassificationReportEnabled(&self, #[retval] reportEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_ClassificationReportEnabled(&self, reportEnabled: VARIANT_BOOL) -> HRESULT;
-            fn get_ClassificationLastReportPathWithoutExtension(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] lastReportPath: *mut BSTR) -> HRESULT;
-            fn get_ClassificationLastError(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] lastError: *mut BSTR) -> HRESULT;
-            fn get_ClassificationRunningStatus(&self, #[out] #[retval] runningStatus: *mut FsrmReportRunningStatus) -> HRESULT;
-            fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] propertyDefinitions: *mut IFsrmCollection) -> HRESULT;
-            fn CreatePropertyDefinition(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] propertyDefinition: *mut IFsrmPropertyDefinition) -> HRESULT;
-            fn GetPropertyDefinition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyName: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] propertyDefinition: *mut IFsrmPropertyDefinition) -> HRESULT;
-            fn EnumRules(&self, ruleType: FsrmRuleType, options: FsrmEnumOptions, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Rules: *mut IFsrmCollection) -> HRESULT;
-            fn CreateRule(&self, ruleType: FsrmRuleType, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Rule: *mut IFsrmRule) -> HRESULT;
-            fn GetRule(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] ruleName: BSTR, ruleType: FsrmRuleType, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Rule: *mut IFsrmRule) -> HRESULT;
-            fn EnumModuleDefinitions(&self, moduleType: FsrmPipelineModuleType, options: FsrmEnumOptions, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] moduleDefinitions: *mut IFsrmCollection) -> HRESULT;
-            fn CreateModuleDefinition(&self, moduleType: FsrmPipelineModuleType, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] moduleDefinition: *mut IFsrmPipelineModuleDefinition) -> HRESULT;
-            fn GetModuleDefinition(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] moduleName: BSTR, moduleType: FsrmPipelineModuleType, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] moduleDefinition: *mut IFsrmPipelineModuleDefinition) -> HRESULT;
-            fn RunClassification(&self, context: FsrmReportGenerationContext, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] reserved: BSTR) -> HRESULT;
-            fn WaitForClassificationCompletion(&self, waitSeconds: i32, #[out] #[retval] completed: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ClassificationLastReportPathWithoutExtension(&self, #[retval] lastReportPath: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ClassificationLastError(&self, #[retval] lastError: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_ClassificationRunningStatus(&self, #[retval] runningStatus: *mut FsrmReportRunningStatus) -> HRESULT;
+            fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions, #[retval] propertyDefinitions: *mut IFsrmCollection) -> HRESULT;
+            fn CreatePropertyDefinition(&self, #[retval] propertyDefinition: *mut IFsrmPropertyDefinition) -> HRESULT;
+            fn GetPropertyDefinition(&self, propertyName: BSTR, #[retval] propertyDefinition: *mut IFsrmPropertyDefinition) -> HRESULT;
+            fn EnumRules(&self, ruleType: FsrmRuleType, options: FsrmEnumOptions, #[retval] Rules: *mut IFsrmCollection) -> HRESULT;
+            fn CreateRule(&self, ruleType: FsrmRuleType, #[retval] Rule: *mut IFsrmRule) -> HRESULT;
+            fn GetRule(&self, ruleName: BSTR, ruleType: FsrmRuleType, #[retval] Rule: *mut IFsrmRule) -> HRESULT;
+            fn EnumModuleDefinitions(&self, moduleType: FsrmPipelineModuleType, options: FsrmEnumOptions, #[retval] moduleDefinitions: *mut IFsrmCollection) -> HRESULT;
+            fn CreateModuleDefinition(&self, moduleType: FsrmPipelineModuleType, #[retval] moduleDefinition: *mut IFsrmPipelineModuleDefinition) -> HRESULT;
+            fn GetModuleDefinition(&self, moduleName: BSTR, moduleType: FsrmPipelineModuleType, #[retval] moduleDefinition: *mut IFsrmPipelineModuleDefinition) -> HRESULT;
+            fn RunClassification(&self, context: FsrmReportGenerationContext, reserved: BSTR) -> HRESULT;
+            fn WaitForClassificationCompletion(&self, waitSeconds: i32, #[retval] completed: *mut VARIANT_BOOL) -> HRESULT;
             fn CancelClassification(&self) -> HRESULT;
-            fn EnumFileProperties(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] filePath: BSTR, options: FsrmGetFilePropertyOptions, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] fileProperties: *mut IFsrmCollection) -> HRESULT;
-            fn GetFileProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] filePath: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyName: BSTR, options: FsrmGetFilePropertyOptions, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] property: *mut IFsrmProperty) -> HRESULT;
-            fn SetFileProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] filePath: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyName: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyValue: BSTR) -> HRESULT;
-            fn ClearFileProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] filePath: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] property: BSTR) -> HRESULT;
+            fn EnumFileProperties(&self, filePath: BSTR, options: FsrmGetFilePropertyOptions, #[retval] fileProperties: *mut IFsrmCollection) -> HRESULT;
+            fn GetFileProperty(&self, filePath: BSTR, propertyName: BSTR, options: FsrmGetFilePropertyOptions, #[retval] property: *mut IFsrmProperty) -> HRESULT;
+            fn SetFileProperty(&self, filePath: BSTR, propertyName: BSTR, propertyValue: BSTR) -> HRESULT;
+            fn ClearFileProperty(&self, filePath: BSTR, property: BSTR) -> HRESULT;
         }
         #[guid(0x0004c1c9_127e_4765_ba07_6a3147bca112)]
         interface IFsrmClassificationManager2: IFsrmClassificationManager {
-            fn ClassifyFiles(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] filePaths: *mut SAFEARRAY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyNames: *mut SAFEARRAY, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyValues: *mut SAFEARRAY, #[Windows::Win32::Metadata::NativeDefaultArgument("FsrmGetFilePropertyOptions_None")] options: FsrmGetFilePropertyOptions) -> HRESULT;
+            fn ClassifyFiles(&self, #[in] filePaths: *mut SAFEARRAY, #[in] propertyNames: *mut SAFEARRAY, #[in] propertyValues: *mut SAFEARRAY, options: FsrmGetFilePropertyOptions) -> HRESULT;
         }
         #[guid(0xafc052c2_5315_45ab_841b_c6db0e120148)]
         interface IFsrmClassificationRule: IFsrmRule {
-            fn get_ExecutionOption(&self, #[out] #[retval] executionOption: *mut FsrmExecutionOption) -> HRESULT;
+            #[special]
+            fn get_ExecutionOption(&self, #[retval] executionOption: *mut FsrmExecutionOption) -> HRESULT;
+            #[special]
             fn put_ExecutionOption(&self, executionOption: FsrmExecutionOption) -> HRESULT;
-            fn get_PropertyAffected(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] property: *mut BSTR) -> HRESULT;
-            fn put_PropertyAffected(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] property: BSTR) -> HRESULT;
-            fn get_Value(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
-            fn put_Value(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
+            #[special]
+            fn get_PropertyAffected(&self, #[retval] property: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_PropertyAffected(&self, property: BSTR) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Value(&self, value: BSTR) -> HRESULT;
         }
         #[guid(0xbb36ea26_6318_4b8c_8592_f72dd602e7a5)]
         interface IFsrmClassifierModuleDefinition: IFsrmPipelineModuleDefinition {
-            fn get_PropertiesAffected(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] propertiesAffected: *mut *mut SAFEARRAY) -> HRESULT;
-            fn put_PropertiesAffected(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertiesAffected: *mut SAFEARRAY) -> HRESULT;
-            fn get_PropertiesUsed(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] propertiesUsed: *mut *mut SAFEARRAY) -> HRESULT;
-            fn put_PropertiesUsed(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertiesUsed: *mut SAFEARRAY) -> HRESULT;
-            fn get_NeedsExplicitValue(&self, #[out] #[retval] needsExplicitValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_PropertiesAffected(&self, #[retval] propertiesAffected: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_PropertiesAffected(&self, #[in] propertiesAffected: *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_PropertiesUsed(&self, #[retval] propertiesUsed: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_PropertiesUsed(&self, #[in] propertiesUsed: *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_NeedsExplicitValue(&self, #[retval] needsExplicitValue: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_NeedsExplicitValue(&self, needsExplicitValue: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x4c968fc6_6edb_4051_9c18_73b7291ae106)]
         interface IFsrmClassifierModuleImplementation: IFsrmPipelineModuleImplementation {
-            fn get_LastModified(&self, #[out] #[retval] lastModified: *mut VARIANT) -> HRESULT;
-            fn UseRulesAndDefinitions(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] rules: IFsrmCollection, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyDefinitions: IFsrmCollection) -> HRESULT;
-            fn OnBeginFile(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyBag: IFsrmPropertyBag, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] arrayRuleIds: *mut SAFEARRAY) -> HRESULT;
-            fn DoesPropertyValueApply(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] property: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR, #[out] applyValue: *mut VARIANT_BOOL, idRule: FSRM_OBJECT_ID, idPropDef: FSRM_OBJECT_ID) -> HRESULT;
-            fn GetPropertyValueToApply(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] property: BSTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR, idRule: FSRM_OBJECT_ID, idPropDef: FSRM_OBJECT_ID) -> HRESULT;
+            #[special]
+            fn get_LastModified(&self, #[retval] lastModified: *mut VARIANT) -> HRESULT;
+            fn UseRulesAndDefinitions(&self, rules: IFsrmCollection, propertyDefinitions: IFsrmCollection) -> HRESULT;
+            fn OnBeginFile(&self, propertyBag: IFsrmPropertyBag, #[in] arrayRuleIds: *mut SAFEARRAY) -> HRESULT;
+            fn DoesPropertyValueApply(&self, property: BSTR, value: BSTR, applyValue: *mut VARIANT_BOOL, idRule: FSRM_OBJECT_ID, idPropDef: FSRM_OBJECT_ID) -> HRESULT;
+            fn GetPropertyValueToApply(&self, property: BSTR, value: *mut BSTR, idRule: FSRM_OBJECT_ID, idPropDef: FSRM_OBJECT_ID) -> HRESULT;
             fn OnEndFile(&self) -> HRESULT;
         }
         #[guid(0xc16014f3_9aa1_46b3_b0a7_ab146eb205f2)]
         interface IFsrmPipelineModuleConnector: IDispatch {
-            fn get_ModuleImplementation(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pipelineModuleImplementation: *mut IFsrmPipelineModuleImplementation) -> HRESULT;
-            fn get_ModuleName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] userName: *mut BSTR) -> HRESULT;
-            fn get_HostingUserAccount(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] userAccount: *mut BSTR) -> HRESULT;
-            fn get_HostingProcessPid(&self, #[out] #[retval] pid: *mut i32) -> HRESULT;
-            fn Bind(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] moduleDefinition: IFsrmPipelineModuleDefinition, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] moduleImplementation: IFsrmPipelineModuleImplementation) -> HRESULT;
+            #[special]
+            fn get_ModuleImplementation(&self, #[retval] pipelineModuleImplementation: *mut IFsrmPipelineModuleImplementation) -> HRESULT;
+            #[special]
+            fn get_ModuleName(&self, #[retval] userName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_HostingUserAccount(&self, #[retval] userAccount: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_HostingProcessPid(&self, #[retval] pid: *mut i32) -> HRESULT;
+            fn Bind(&self, moduleDefinition: IFsrmPipelineModuleDefinition, moduleImplementation: IFsrmPipelineModuleImplementation) -> HRESULT;
         }
         #[guid(0x515c1277_2c81_440e_8fcf_367921ed4f59)]
         interface IFsrmPipelineModuleDefinition: IFsrmObject {
-            fn get_ModuleClsid(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] moduleClsid: *mut BSTR) -> HRESULT;
-            fn put_ModuleClsid(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] moduleClsid: BSTR) -> HRESULT;
-            fn get_Name(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] name: *mut BSTR) -> HRESULT;
-            fn put_Name(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: BSTR) -> HRESULT;
-            fn get_Company(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] company: *mut BSTR) -> HRESULT;
-            fn put_Company(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] company: BSTR) -> HRESULT;
-            fn get_Version(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] version: *mut BSTR) -> HRESULT;
-            fn put_Version(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] version: BSTR) -> HRESULT;
-            fn get_ModuleType(&self, #[out] #[retval] moduleType: *mut FsrmPipelineModuleType) -> HRESULT;
-            fn get_Enabled(&self, #[out] #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ModuleClsid(&self, #[retval] moduleClsid: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ModuleClsid(&self, moduleClsid: BSTR) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_Company(&self, #[retval] company: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Company(&self, company: BSTR) -> HRESULT;
+            #[special]
+            fn get_Version(&self, #[retval] version: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Version(&self, version: BSTR) -> HRESULT;
+            #[special]
+            fn get_ModuleType(&self, #[retval] moduleType: *mut FsrmPipelineModuleType) -> HRESULT;
+            #[special]
+            fn get_Enabled(&self, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_Enabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
-            fn get_NeedsFileContent(&self, #[out] #[retval] needsFileContent: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_NeedsFileContent(&self, #[retval] needsFileContent: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_NeedsFileContent(&self, needsFileContent: VARIANT_BOOL) -> HRESULT;
-            fn get_Account(&self, #[out] #[retval] retrievalAccount: *mut FsrmAccountType) -> HRESULT;
+            #[special]
+            fn get_Account(&self, #[retval] retrievalAccount: *mut FsrmAccountType) -> HRESULT;
+            #[special]
             fn put_Account(&self, retrievalAccount: FsrmAccountType) -> HRESULT;
-            fn get_SupportedExtensions(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] supportedExtensions: *mut *mut SAFEARRAY) -> HRESULT;
-            fn put_SupportedExtensions(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] supportedExtensions: *mut SAFEARRAY) -> HRESULT;
-            fn get_Parameters(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] parameters: *mut *mut SAFEARRAY) -> HRESULT;
-            fn put_Parameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] parameters: *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_SupportedExtensions(&self, #[retval] supportedExtensions: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_SupportedExtensions(&self, #[in] supportedExtensions: *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_Parameters(&self, #[retval] parameters: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_Parameters(&self, #[in] parameters: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xb7907906_2b02_4cb5_84a9_fdf54613d6cd)]
         interface IFsrmPipelineModuleImplementation: IDispatch {
-            fn OnLoad(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] moduleDefinition: IFsrmPipelineModuleDefinition, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] moduleConnector: *mut IFsrmPipelineModuleConnector) -> HRESULT;
+            fn OnLoad(&self, moduleDefinition: IFsrmPipelineModuleDefinition, moduleConnector: *mut IFsrmPipelineModuleConnector) -> HRESULT;
             fn OnUnload(&self) -> HRESULT;
         }
         #[guid(0x4a73fee4_4102_4fcc_9ffb_38614f9ee768)]
         interface IFsrmProperty: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] name: *mut BSTR) -> HRESULT;
-            fn get_Value(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] value: *mut BSTR) -> HRESULT;
-            fn get_Sources(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] sources: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_PropertyFlags(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Sources(&self, #[retval] sources: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_PropertyFlags(&self, #[retval] flags: *mut i32) -> HRESULT;
         }
         #[guid(0x774589d1_d300_4f7a_9a24_f7b766800250)]
         interface IFsrmPropertyBag: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] name: *mut BSTR) -> HRESULT;
-            fn get_RelativePath(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] path: *mut BSTR) -> HRESULT;
-            fn get_VolumeName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] volumeName: *mut BSTR) -> HRESULT;
-            fn get_RelativeNamespaceRoot(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relativeNamespaceRoot: *mut BSTR) -> HRESULT;
-            fn get_VolumeIndex(&self, #[out] #[retval] volumeId: *mut u32) -> HRESULT;
-            fn get_FileId(&self, #[out] #[retval] fileId: *mut VARIANT) -> HRESULT;
-            fn get_ParentDirectoryId(&self, #[out] #[retval] parentDirectoryId: *mut VARIANT) -> HRESULT;
-            fn get_Size(&self, #[out] #[retval] size: *mut VARIANT) -> HRESULT;
-            fn get_SizeAllocated(&self, #[out] #[retval] sizeAllocated: *mut VARIANT) -> HRESULT;
-            fn get_CreationTime(&self, #[out] #[retval] creationTime: *mut VARIANT) -> HRESULT;
-            fn get_LastAccessTime(&self, #[out] #[retval] lastAccessTime: *mut VARIANT) -> HRESULT;
-            fn get_LastModificationTime(&self, #[out] #[retval] lastModificationTime: *mut VARIANT) -> HRESULT;
-            fn get_Attributes(&self, #[out] #[retval] attributes: *mut u32) -> HRESULT;
-            fn get_OwnerSid(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ownerSid: *mut BSTR) -> HRESULT;
-            fn get_FilePropertyNames(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] filePropertyNames: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_Messages(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] messages: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_PropertyBagFlags(&self, #[out] #[retval] flags: *mut u32) -> HRESULT;
-            fn GetFileProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] fileProperty: *mut IFsrmProperty) -> HRESULT;
-            fn SetFileProperty(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] value: BSTR) -> HRESULT;
-            fn AddMessage(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] message: BSTR) -> HRESULT;
-            fn GetFileStreamInterface(&self, accessMode: FsrmFileStreamingMode, interfaceType: FsrmFileStreamingInterfaceType, #[out] #[retval] pStreamInterface: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RelativePath(&self, #[retval] path: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_VolumeName(&self, #[retval] volumeName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_RelativeNamespaceRoot(&self, #[retval] relativeNamespaceRoot: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_VolumeIndex(&self, #[retval] volumeId: *mut u32) -> HRESULT;
+            #[special]
+            fn get_FileId(&self, #[retval] fileId: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_ParentDirectoryId(&self, #[retval] parentDirectoryId: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Size(&self, #[retval] size: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_SizeAllocated(&self, #[retval] sizeAllocated: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_CreationTime(&self, #[retval] creationTime: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_LastAccessTime(&self, #[retval] lastAccessTime: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_LastModificationTime(&self, #[retval] lastModificationTime: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Attributes(&self, #[retval] attributes: *mut u32) -> HRESULT;
+            #[special]
+            fn get_OwnerSid(&self, #[retval] ownerSid: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_FilePropertyNames(&self, #[retval] filePropertyNames: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_Messages(&self, #[retval] messages: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_PropertyBagFlags(&self, #[retval] flags: *mut u32) -> HRESULT;
+            fn GetFileProperty(&self, name: BSTR, #[retval] fileProperty: *mut IFsrmProperty) -> HRESULT;
+            fn SetFileProperty(&self, name: BSTR, value: BSTR) -> HRESULT;
+            fn AddMessage(&self, message: BSTR) -> HRESULT;
+            fn GetFileStreamInterface(&self, accessMode: FsrmFileStreamingMode, interfaceType: FsrmFileStreamingInterfaceType, #[retval] pStreamInterface: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x0e46bdbd_2402_4fed_9c30_9266e6eb2cc9)]
         interface IFsrmPropertyBag2: IFsrmPropertyBag {
-            fn GetFieldValue(&self, field: FsrmPropertyBagField, #[out] #[retval] value: *mut VARIANT) -> HRESULT;
-            fn GetUntrustedInFileProperties(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] props: *mut IFsrmCollection) -> HRESULT;
+            fn GetFieldValue(&self, field: FsrmPropertyBagField, #[retval] value: *mut VARIANT) -> HRESULT;
+            fn GetUntrustedInFileProperties(&self, #[retval] props: *mut IFsrmCollection) -> HRESULT;
         }
         #[guid(0xede0150f_e9a3_419c_877c_01fe5d24c5d3)]
         interface IFsrmPropertyDefinition: IFsrmObject {
-            fn get_Name(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] name: *mut BSTR) -> HRESULT;
-            fn put_Name(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: BSTR) -> HRESULT;
-            fn get_Type(&self, #[out] #[retval] r#type: *mut FsrmPropertyDefinitionType) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] r#type: *mut FsrmPropertyDefinitionType) -> HRESULT;
+            #[special]
             fn put_Type(&self, r#type: FsrmPropertyDefinitionType) -> HRESULT;
-            fn get_PossibleValues(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] possibleValues: *mut *mut SAFEARRAY) -> HRESULT;
-            fn put_PossibleValues(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] possibleValues: *mut SAFEARRAY) -> HRESULT;
-            fn get_ValueDescriptions(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] valueDescriptions: *mut *mut SAFEARRAY) -> HRESULT;
-            fn put_ValueDescriptions(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] valueDescriptions: *mut SAFEARRAY) -> HRESULT;
-            fn get_Parameters(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] parameters: *mut *mut SAFEARRAY) -> HRESULT;
-            fn put_Parameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] parameters: *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_PossibleValues(&self, #[retval] possibleValues: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_PossibleValues(&self, #[in] possibleValues: *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_ValueDescriptions(&self, #[retval] valueDescriptions: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_ValueDescriptions(&self, #[in] valueDescriptions: *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_Parameters(&self, #[retval] parameters: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_Parameters(&self, #[in] parameters: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x47782152_d16c_4229_b4e1_0ddfe308b9f6)]
         interface IFsrmPropertyDefinition2: IFsrmPropertyDefinition {
-            fn get_PropertyDefinitionFlags(&self, #[out] #[retval] propertyDefinitionFlags: *mut i32) -> HRESULT;
-            fn get_DisplayName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] name: *mut BSTR) -> HRESULT;
-            fn put_DisplayName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: BSTR) -> HRESULT;
-            fn get_AppliesTo(&self, #[out] #[retval] appliesTo: *mut i32) -> HRESULT;
-            fn get_ValueDefinitions(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] valueDefinitions: *mut IFsrmCollection) -> HRESULT;
+            #[special]
+            fn get_PropertyDefinitionFlags(&self, #[retval] propertyDefinitionFlags: *mut i32) -> HRESULT;
+            #[special]
+            fn get_DisplayName(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DisplayName(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_AppliesTo(&self, #[retval] appliesTo: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ValueDefinitions(&self, #[retval] valueDefinitions: *mut IFsrmCollection) -> HRESULT;
         }
         #[guid(0xe946d148_bd67_4178_8e22_1c44925ed710)]
         interface IFsrmPropertyDefinitionValue: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] name: *mut BSTR) -> HRESULT;
-            fn get_DisplayName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] displayName: *mut BSTR) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] description: *mut BSTR) -> HRESULT;
-            fn get_UniqueID(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] uniqueID: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DisplayName(&self, #[retval] displayName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] description: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_UniqueID(&self, #[retval] uniqueID: *mut BSTR) -> HRESULT;
         }
         #[guid(0xcb0df960_16f5_4495_9079_3f9360d831df)]
         interface IFsrmRule: IFsrmObject {
-            fn get_Name(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] name: *mut BSTR) -> HRESULT;
-            fn put_Name(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: BSTR) -> HRESULT;
-            fn get_RuleType(&self, #[out] #[retval] ruleType: *mut FsrmRuleType) -> HRESULT;
-            fn get_ModuleDefinitionName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] moduleDefinitionName: *mut BSTR) -> HRESULT;
-            fn put_ModuleDefinitionName(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] moduleDefinitionName: BSTR) -> HRESULT;
-            fn get_NamespaceRoots(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] namespaceRoots: *mut *mut SAFEARRAY) -> HRESULT;
-            fn put_NamespaceRoots(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] namespaceRoots: *mut SAFEARRAY) -> HRESULT;
-            fn get_RuleFlags(&self, #[out] #[retval] ruleFlags: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_RuleType(&self, #[retval] ruleType: *mut FsrmRuleType) -> HRESULT;
+            #[special]
+            fn get_ModuleDefinitionName(&self, #[retval] moduleDefinitionName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ModuleDefinitionName(&self, moduleDefinitionName: BSTR) -> HRESULT;
+            #[special]
+            fn get_NamespaceRoots(&self, #[retval] namespaceRoots: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_NamespaceRoots(&self, #[in] namespaceRoots: *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_RuleFlags(&self, #[retval] ruleFlags: *mut i32) -> HRESULT;
+            #[special]
             fn put_RuleFlags(&self, ruleFlags: i32) -> HRESULT;
-            fn get_Parameters(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] parameters: *mut *mut SAFEARRAY) -> HRESULT;
-            fn put_Parameters(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] parameters: *mut SAFEARRAY) -> HRESULT;
-            fn get_LastModified(&self, #[out] #[retval] lastModified: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Parameters(&self, #[retval] parameters: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn put_Parameters(&self, #[in] parameters: *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_LastModified(&self, #[retval] lastModified: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x15a81350_497d_4aba_80e9_d4dbcc5521fe)]
         interface IFsrmStorageModuleDefinition: IFsrmPipelineModuleDefinition {
-            fn get_Capabilities(&self, #[out] #[retval] capabilities: *mut FsrmStorageModuleCaps) -> HRESULT;
+            #[special]
+            fn get_Capabilities(&self, #[retval] capabilities: *mut FsrmStorageModuleCaps) -> HRESULT;
+            #[special]
             fn put_Capabilities(&self, capabilities: FsrmStorageModuleCaps) -> HRESULT;
-            fn get_StorageType(&self, #[out] #[retval] storageType: *mut FsrmStorageModuleType) -> HRESULT;
+            #[special]
+            fn get_StorageType(&self, #[retval] storageType: *mut FsrmStorageModuleType) -> HRESULT;
+            #[special]
             fn put_StorageType(&self, storageType: FsrmStorageModuleType) -> HRESULT;
-            fn get_UpdatesFileContent(&self, #[out] #[retval] updatesFileContent: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_UpdatesFileContent(&self, #[retval] updatesFileContent: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
             fn put_UpdatesFileContent(&self, updatesFileContent: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x0af4a0da_895a_4e50_8712_a96724bcec64)]
         interface IFsrmStorageModuleImplementation: IFsrmPipelineModuleImplementation {
-            fn UseDefinitions(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyDefinitions: IFsrmCollection) -> HRESULT;
-            fn LoadProperties(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyBag: IFsrmPropertyBag) -> HRESULT;
-            fn SaveProperties(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] propertyBag: IFsrmPropertyBag) -> HRESULT;
+            fn UseDefinitions(&self, propertyDefinitions: IFsrmCollection) -> HRESULT;
+            fn LoadProperties(&self, propertyBag: IFsrmPropertyBag) -> HRESULT;
+            fn SaveProperties(&self, propertyBag: IFsrmPropertyBag) -> HRESULT;
         }
         const MessageSizeLimit: i32 = 4096;
     }

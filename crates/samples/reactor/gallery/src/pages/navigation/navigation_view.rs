@@ -82,7 +82,6 @@ impl Component for NavigationViewPage {
                                 ),
                             ])
                             .content(Border::new().padding(20.0).content(left_body)),
-                        "NavigationView::new().menu_items(menu_items).content(content)",
                     ),
                 ),
                 KeyedView::new(
@@ -119,7 +118,6 @@ impl Component for NavigationViewPage {
                                 ),
                             ])
                             .content(Border::new().padding(20.0).content(top_body)),
-                        "NavigationView::new().pane_display_mode(NavigationViewPaneDisplayMode::Top)",
                     ),
                 ),
             ],

@@ -130,7 +130,8 @@ impl Component for Browser {
                 button("Back", Message::Back, 0),
                 button("Forward", Message::Forward, 1),
                 button("Reload", Message::Reload, 2),
-                TextBox::new(&self.address)
+                TextBox::new()
+                    .text(&self.address)
                     .placeholder_text("Enter a URL")
                     .on_text_changed(
                         context.callback(|value: Rc<str>| Message::Address(value.to_string())),

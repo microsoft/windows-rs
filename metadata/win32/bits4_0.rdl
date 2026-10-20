@@ -10,11 +10,11 @@ mod Windows {
         }
         #[guid(0x9a2584c3_f7d2_457a_9a5e_22b67bffc7d2)]
         interface IBitsTokenOptions: IUnknown {
-            fn SetHelperTokenFlags(&self, UsageFlags: DWORD) -> HRESULT;
-            fn GetHelperTokenFlags(&self, #[out] pFlags: *mut DWORD) -> HRESULT;
+            fn SetHelperTokenFlags(&self, UsageFlags: u32) -> HRESULT;
+            fn GetHelperTokenFlags(&self, pFlags: *mut u32) -> HRESULT;
             fn SetHelperToken(&self) -> HRESULT;
             fn ClearHelperToken(&self) -> HRESULT;
-            fn GetHelperTokenSid(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pSid: *mut LPWSTR) -> HRESULT;
+            fn GetHelperTokenSid(&self, pSid: *mut PWSTR) -> HRESULT;
         }
     }
 }

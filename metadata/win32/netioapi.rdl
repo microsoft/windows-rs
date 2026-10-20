@@ -2,67 +2,48 @@
 mod Windows {
     mod Win32 {
         const ANY_SIZE: i32 = 1;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        extern fn CancelMibChangeNotify2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NotificationHandle: HANDLE) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn CancelMibChangeNotify2(NotificationHandle: HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertCompartmentGuidToId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompartmentGuid: *const GUID, #[out] CompartmentId: PNET_IF_COMPARTMENT_ID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn ConvertCompartmentGuidToId(CompartmentGuid: *const GUID, #[out] CompartmentId: PNET_IF_COMPARTMENT_ID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertCompartmentIdToGuid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompartmentId: NET_IF_COMPARTMENT_ID, #[out] CompartmentGuid: *mut GUID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn ConvertCompartmentIdToGuid(CompartmentId: NET_IF_COMPARTMENT_ID, CompartmentGuid: *mut GUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceAliasToLuid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] InterfaceAlias: *const WCHAR, #[out] InterfaceLuid: PNET_LUID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn ConvertInterfaceAliasToLuid(InterfaceAlias: *const u16, #[out] InterfaceLuid: PNET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceGuidToLuid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceGuid: *const GUID, #[out] InterfaceLuid: PNET_LUID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn ConvertInterfaceGuidToLuid(InterfaceGuid: *const GUID, #[out] InterfaceLuid: PNET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceIndexToLuid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceIndex: NET_IFINDEX, #[out] InterfaceLuid: PNET_LUID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn ConvertInterfaceIndexToLuid(InterfaceIndex: NET_IFINDEX, #[out] InterfaceLuid: PNET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceLuidToAlias(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceLuid: *const NET_LUID, #[out] #[len_param(2)] InterfaceAlias: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Length: SIZE_T) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn ConvertInterfaceLuidToAlias(InterfaceLuid: *const NET_LUID, #[len_param(2)] #[out] InterfaceAlias: PWSTR, Length: usize) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceLuidToGuid(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceLuid: *const NET_LUID, #[out] InterfaceGuid: *mut GUID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn ConvertInterfaceLuidToGuid(InterfaceLuid: *const NET_LUID, InterfaceGuid: *mut GUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceLuidToIndex(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceLuid: *const NET_LUID, #[out] InterfaceIndex: PNET_IFINDEX) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn ConvertInterfaceLuidToIndex(InterfaceLuid: *const NET_LUID, #[out] InterfaceIndex: PNET_IFINDEX) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceLuidToNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceLuid: *const NET_LUID, #[out] #[len_param(2)] InterfaceName: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Length: SIZE_T) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn ConvertInterfaceLuidToNameA(InterfaceLuid: *const NET_LUID, #[len_param(2)] #[out] InterfaceName: PSTR, Length: usize) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceLuidToNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceLuid: *const NET_LUID, #[out] #[len_param(2)] InterfaceName: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Length: SIZE_T) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn ConvertInterfaceLuidToNameW(InterfaceLuid: *const NET_LUID, #[len_param(2)] #[out] InterfaceName: PWSTR, Length: usize) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceNameToLuidA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] InterfaceName: *const CHAR, #[out] InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn ConvertInterfaceNameToLuidA(InterfaceName: *const i8, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertInterfaceNameToLuidW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] InterfaceName: *const WCHAR, #[out] InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
+        extern fn ConvertInterfaceNameToLuidW(InterfaceName: *const u16, InterfaceLuid: *mut NET_LUID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertIpv4MaskToLength(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Mask: ULONG, #[out] MaskLength: PUINT8) -> NTSTATUS;
+        extern fn ConvertIpv4MaskToLength(Mask: u32, #[out] MaskLength: PUINT8) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn ConvertLengthToIpv4Mask(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MaskLength: ULONG, #[out] Mask: PULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn ConvertLengthToIpv4Mask(MaskLength: u32, #[out] Mask: PULONG) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn CreateAnycastIpAddressEntry(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: *const MIB_ANYCASTIPADDRESS_ROW) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn CreateAnycastIpAddressEntry(Row: *const MIB_ANYCASTIPADDRESS_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn CreateFlVirtualInterface(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn CreateFlVirtualInterface(Row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn CreateIpForwardEntry2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: *const MIB_IPFORWARD_ROW2) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn CreateIpForwardEntry2(Row: *const MIB_IPFORWARD_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn CreateIpNetEntry2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: *const MIB_IPNET_ROW2) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn CreateIpNetEntry2(Row: *const MIB_IPNET_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn CreateSortedAddressPairs(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceAddressList: PSOCKADDR_IN6, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceAddressCount: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DestinationAddressList: PSOCKADDR_IN6, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DestinationAddressCount: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddressSortOptions: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*SortedAddressPairCount", "*SortedAddressPairCount")] #[out] SortedAddressPairList: *mut PSOCKADDR_IN6_PAIR, #[out] SortedAddressPairCount: *mut ULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn CreateSortedAddressPairs(#[opt] SourceAddressList: PSOCKADDR_IN6, SourceAddressCount: u32, DestinationAddressList: PSOCKADDR_IN6, DestinationAddressCount: u32, AddressSortOptions: u32, SortedAddressPairList: *mut PSOCKADDR_IN6_PAIR, SortedAddressPairCount: *mut u32) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn CreateUnicastIpAddressEntry(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
+        extern fn CreateUnicastIpAddressEntry(Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
         const DNS_DDR_ADAPTER_ENABLE: i32 = 1;
         const DNS_DDR_ADAPTER_ENABLE_DOH: i32 = 1;
         const DNS_DDR_ADAPTER_ENABLE_UDP_FALLBACK: i32 = 2;
@@ -75,7 +56,7 @@ mod Windows {
         const DNS_DOH_POLICY_REQUIRED: i32 = 32;
         struct DNS_DOH_SERVER_SETTINGS {
             Template: PWSTR,
-            Flags: ULONG64,
+            Flags: u64,
         }
         const DNS_DOH_SERVER_SETTINGS_ENABLE: i32 = 2;
         const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: i32 = 1;
@@ -86,8 +67,8 @@ mod Windows {
         const DNS_DOT_POLICY_BLOCK: i32 = 256;
         struct DNS_DOT_SERVER_SETTINGS {
             Hostname: PWSTR,
-            Flags: ULONG64,
-            Port: USHORT,
+            Flags: u64,
+            Port: u16,
         }
         const DNS_DOT_SERVER_SETTINGS_ENABLE: i32 = 1;
         const DNS_DOT_SERVER_SETTINGS_ENABLE_AUTO: i32 = 8;
@@ -103,57 +84,57 @@ mod Windows {
         const DNS_ENCRYPTION_POLICY_NOT_CONFIGURED: i32 = 4;
         const DNS_ENCRYPTION_POLICY_REQUIRED: i32 = 32;
         struct DNS_INTERFACE_SETTINGS {
-            Version: ULONG,
-            Flags: ULONG64,
+            Version: u32,
+            Flags: u64,
             Domain: PWSTR,
             NameServer: PWSTR,
             SearchList: PWSTR,
-            RegistrationEnabled: ULONG,
-            RegisterAdapterName: ULONG,
-            EnableLLMNR: ULONG,
-            QueryAdapterName: ULONG,
+            RegistrationEnabled: u32,
+            RegisterAdapterName: u32,
+            EnableLLMNR: u32,
+            QueryAdapterName: u32,
             ProfileNameServer: PWSTR,
         }
         struct DNS_INTERFACE_SETTINGS3 {
-            Version: ULONG,
-            Flags: ULONG64,
+            Version: u32,
+            Flags: u64,
             Domain: PWSTR,
             NameServer: PWSTR,
             SearchList: PWSTR,
-            RegistrationEnabled: ULONG,
-            RegisterAdapterName: ULONG,
-            EnableLLMNR: ULONG,
-            QueryAdapterName: ULONG,
+            RegistrationEnabled: u32,
+            RegisterAdapterName: u32,
+            EnableLLMNR: u32,
+            QueryAdapterName: u32,
             ProfileNameServer: PWSTR,
-            DisableUnconstrainedQueries: ULONG,
+            DisableUnconstrainedQueries: u32,
             SupplementalSearchList: PWSTR,
-            cServerProperties: ULONG,
+            cServerProperties: u32,
             ServerProperties: *mut DNS_SERVER_PROPERTY,
-            cProfileServerProperties: ULONG,
+            cProfileServerProperties: u32,
             ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
         }
         struct DNS_INTERFACE_SETTINGS4 {
-            Version: ULONG,
-            Flags: ULONG64,
+            Version: u32,
+            Flags: u64,
             Domain: PWSTR,
             NameServer: PWSTR,
             SearchList: PWSTR,
-            RegistrationEnabled: ULONG,
-            RegisterAdapterName: ULONG,
-            EnableLLMNR: ULONG,
-            QueryAdapterName: ULONG,
+            RegistrationEnabled: u32,
+            RegisterAdapterName: u32,
+            EnableLLMNR: u32,
+            QueryAdapterName: u32,
             ProfileNameServer: PWSTR,
-            DisableUnconstrainedQueries: ULONG,
+            DisableUnconstrainedQueries: u32,
             SupplementalSearchList: PWSTR,
-            cServerProperties: ULONG,
+            cServerProperties: u32,
             ServerProperties: *mut DNS_SERVER_PROPERTY,
-            cProfileServerProperties: ULONG,
+            cProfileServerProperties: u32,
             ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
-            EncryptedDnsAdapterFlags: ULONG,
+            EncryptedDnsAdapterFlags: u32,
         }
         struct DNS_INTERFACE_SETTINGS_EX {
             SettingsV1: DNS_INTERFACE_SETTINGS,
-            DisableUnconstrainedQueries: ULONG,
+            DisableUnconstrainedQueries: u32,
             SupplementalSearchList: PWSTR,
         }
         const DNS_INTERFACE_SETTINGS_VERSION1: i32 = 1;
@@ -161,8 +142,8 @@ mod Windows {
         const DNS_INTERFACE_SETTINGS_VERSION3: i32 = 3;
         const DNS_INTERFACE_SETTINGS_VERSION4: i32 = 4;
         struct DNS_SERVER_PROPERTY {
-            Version: ULONG,
-            ServerIndex: ULONG,
+            Version: u32,
+            ServerIndex: u32,
             Type: DNS_SERVER_PROPERTY_TYPE,
             Property: DNS_SERVER_PROPERTY_TYPES,
         }
@@ -178,19 +159,19 @@ mod Windows {
         }
         const DNS_SERVER_PROPERTY_VERSION1: i32 = 1;
         struct DNS_SETTINGS {
-            Version: ULONG,
-            Flags: ULONG64,
+            Version: u32,
+            Flags: u64,
             Hostname: PWSTR,
             Domain: PWSTR,
             SearchList: PWSTR,
         }
         struct DNS_SETTINGS2 {
-            Version: ULONG,
-            Flags: ULONG64,
+            Version: u32,
+            Flags: u64,
             Hostname: PWSTR,
             Domain: PWSTR,
             SearchList: PWSTR,
-            SettingFlags: ULONG64,
+            SettingFlags: u64,
         }
         const DNS_SETTINGS_ENABLE_LLMNR: i32 = 128;
         const DNS_SETTINGS_QUERY_ADAPTER_NAME: i32 = 256;
@@ -212,158 +193,109 @@ mod Windows {
         const DNS_SETTING_REGISTRATION_ENABLED: i32 = 8;
         const DNS_SETTING_SEARCHLIST: i32 = 4;
         const DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST: i32 = 2048;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        extern fn DeleteAnycastIpAddressEntry(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: *const MIB_ANYCASTIPADDRESS_ROW) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn DeleteAnycastIpAddressEntry(Row: *const MIB_ANYCASTIPADDRESS_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn DeleteFlVirtualInterface(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn DeleteFlVirtualInterface(Row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn DeleteIpForwardEntry2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: *const MIB_IPFORWARD_ROW2) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn DeleteIpForwardEntry2(Row: *const MIB_IPFORWARD_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn DeleteIpNetEntry2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: *const MIB_IPNET_ROW2) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn DeleteIpNetEntry2(Row: *const MIB_IPNET_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn DeleteUnicastIpAddressEntry(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn DeleteUnicastIpAddressEntry(Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn FlushIpNetTable2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Family: ADDRESS_FAMILY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceIndex: NET_IFINDEX) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn FlushIpNetTable2(Family: ADDRESS_FAMILY, InterfaceIndex: NET_IFINDEX) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn FlushIpPathTable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Family: ADDRESS_FAMILY) -> NTSTATUS;
+        extern fn FlushIpPathTable(Family: ADDRESS_FAMILY) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn FreeDnsSettings(#[in] #[out] Settings: *mut DNS_SETTINGS);
         #[library("IPHLPAPI.DLL")]
         extern fn FreeInterfaceDnsSettings(#[in] #[out] Settings: *mut DNS_INTERFACE_SETTINGS);
         #[library("IPHLPAPI.DLL")]
-        extern fn FreeMibTable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Memory: PVOID);
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn FreeMibTable(#[in] Memory: *mut void);
         #[library("IPHLPAPI.DLL")]
         extern fn GetAnycastIpAddressEntry(#[in] #[out] Row: PMIB_ANYCASTIPADDRESS_ROW) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        extern fn GetAnycastIpAddressTable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Family: ADDRESS_FAMILY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Table: *mut PMIB_ANYCASTIPADDRESS_TABLE) -> NTSTATUS;
+        extern fn GetAnycastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_ANYCASTIPADDRESS_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetBestInterfaceEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DestinationAddress: *mut SOCKADDR, #[out] BestIfIndex: PULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetBestInterfaceEx(#[in] DestinationAddress: *mut SOCKADDR, #[out] BestIfIndex: PULONG) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetBestRoute2(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceLuid: *mut NET_LUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceIndex: NET_IFINDEX, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceAddress: *const SOCKADDR_INET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] DestinationAddress: *const SOCKADDR_INET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddressSortOptions: ULONG, #[out] BestRoute: PMIB_IPFORWARD_ROW2, #[out] BestSourceAddress: *mut SOCKADDR_INET) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetBestRoute2(#[in] #[opt] InterfaceLuid: *mut NET_LUID, InterfaceIndex: NET_IFINDEX, #[opt] SourceAddress: *const SOCKADDR_INET, DestinationAddress: *const SOCKADDR_INET, AddressSortOptions: u32, #[out] BestRoute: PMIB_IPFORWARD_ROW2, BestSourceAddress: *mut SOCKADDR_INET) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetCurrentThreadCompartmentId() -> NET_IF_COMPARTMENT_ID;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
         extern fn GetCurrentThreadCompartmentScope(#[out] CompartmentScope: PNET_IF_COMPARTMENT_SCOPE, #[out] CompartmentId: PNET_IF_COMPARTMENT_ID);
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
         extern fn GetDefaultCompartmentId() -> NET_IF_COMPARTMENT_ID;
         #[library("IPHLPAPI.DLL")]
         extern fn GetDnsSettings(#[in] #[out] Settings: *mut DNS_SETTINGS) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
         extern fn GetFlVirtualInterface(#[in] #[out] Row: PMIB_FL_VIRTUAL_INTERFACE_ROW) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        extern fn GetFlVirtualInterfaceTable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Family: ADDRESS_FAMILY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Table: *mut PMIB_FL_VIRTUAL_INTERFACE_TABLE) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetFlVirtualInterfaceTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_FL_VIRTUAL_INTERFACE_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetIfEntry2(#[in] #[out] Row: PMIB_IF_ROW2) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIfEntry2Ex(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Level: MIB_IF_ENTRY_LEVEL, #[in] #[out] Row: PMIB_IF_ROW2) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetIfEntry2Ex(Level: MIB_IF_ENTRY_LEVEL, #[in] #[out] Row: PMIB_IF_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIfStackTable(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Table: *mut PMIB_IFSTACK_TABLE) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetIfStackTable(Table: *mut PMIB_IFSTACK_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIfTable2(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Table: *mut PMIB_IF_TABLE2) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetIfTable2(Table: *mut PMIB_IF_TABLE2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIfTable2Ex(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Level: MIB_IF_TABLE_LEVEL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Table: *mut PMIB_IF_TABLE2) -> NTSTATUS;
+        extern fn GetIfTable2Ex(Level: MIB_IF_TABLE_LEVEL, Table: *mut PMIB_IF_TABLE2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetInterfaceDnsSettings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Interface: GUID, #[in] #[out] Settings: *mut DNS_INTERFACE_SETTINGS) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetInterfaceDnsSettings(Interface: GUID, #[in] #[out] Settings: *mut DNS_INTERFACE_SETTINGS) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetInvertedIfStackTable(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Table: *mut PMIB_INVERTEDIFSTACK_TABLE) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetInvertedIfStackTable(Table: *mut PMIB_INVERTEDIFSTACK_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetIpForwardEntry2(#[in] #[out] Row: PMIB_IPFORWARD_ROW2) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpForwardTable2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Family: ADDRESS_FAMILY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Table: *mut PMIB_IPFORWARD_TABLE2) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetIpForwardTable2(Family: ADDRESS_FAMILY, Table: *mut PMIB_IPFORWARD_TABLE2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetIpInterfaceEntry(#[in] #[out] Row: PMIB_IPINTERFACE_ROW) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpInterfaceTable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Family: ADDRESS_FAMILY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Table: *mut PMIB_IPINTERFACE_TABLE) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetIpInterfaceTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_IPINTERFACE_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetIpNetEntry2(#[in] #[out] Row: PMIB_IPNET_ROW2) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpNetTable2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Family: ADDRESS_FAMILY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Table: *mut PMIB_IPNET_TABLE2) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetIpNetTable2(Family: ADDRESS_FAMILY, Table: *mut PMIB_IPNET_TABLE2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpNetworkConnectionBandwidthEstimates(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceIndex: NET_IFINDEX, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddressFamily: ADDRESS_FAMILY, #[out] BandwidthEstimates: PMIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetIpNetworkConnectionBandwidthEstimates(InterfaceIndex: NET_IFINDEX, AddressFamily: ADDRESS_FAMILY, #[out] BandwidthEstimates: PMIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetIpPathEntry(#[in] #[out] Row: PMIB_IPPATH_ROW) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        extern fn GetIpPathTable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Family: ADDRESS_FAMILY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Table: *mut PMIB_IPPATH_TABLE) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetIpPathTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_IPPATH_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetJobCompartmentId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] JobHandle: HANDLE) -> NET_IF_COMPARTMENT_ID;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetJobCompartmentId(JobHandle: HANDLE) -> NET_IF_COMPARTMENT_ID;
         #[library("IPHLPAPI.DLL")]
         extern fn GetMulticastIpAddressEntry(#[in] #[out] Row: PMIB_MULTICASTIPADDRESS_ROW) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        extern fn GetMulticastIpAddressTable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Family: ADDRESS_FAMILY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Table: *mut PMIB_MULTICASTIPADDRESS_TABLE) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetMulticastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_MULTICASTIPADDRESS_TABLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetNetworkConnectivityHint(#[out] ConnectivityHint: *mut NL_NETWORK_CONNECTIVITY_HINT) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetNetworkConnectivityHint(ConnectivityHint: *mut NL_NETWORK_CONNECTIVITY_HINT) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetNetworkConnectivityHintForInterface(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceIndex: NET_IFINDEX, #[out] ConnectivityHint: *mut NL_NETWORK_CONNECTIVITY_HINT) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetNetworkConnectivityHintForInterface(InterfaceIndex: NET_IFINDEX, ConnectivityHint: *mut NL_NETWORK_CONNECTIVITY_HINT) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetNetworkInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NetworkGuid: *const NET_IF_NETWORK_GUID, #[out] CompartmentId: PNET_IF_COMPARTMENT_ID, #[out] SiteId: PULONG, #[out] #[len_param(4)] NetworkName: PWCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Length: ULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetNetworkInformation(NetworkGuid: *const NET_IF_NETWORK_GUID, #[out] CompartmentId: PNET_IF_COMPARTMENT_ID, #[out] SiteId: PULONG, #[len_param(4)] #[out] NetworkName: PWCHAR, Length: u32) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetSessionCompartmentId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SessionId: ULONG) -> NET_IF_COMPARTMENT_ID;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetSessionCompartmentId(SessionId: u32) -> NET_IF_COMPARTMENT_ID;
         #[library("IPHLPAPI.DLL")]
-        extern fn GetTeredoPort(#[out] Port: *mut USHORT) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn GetTeredoPort(Port: *mut u16) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetUnicastIpAddressEntry(#[in] #[out] Row: PMIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        extern fn GetUnicastIpAddressTable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Family: ADDRESS_FAMILY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Table: *mut PMIB_UNICASTIPADDRESS_TABLE) -> NTSTATUS;
+        extern fn GetUnicastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_UNICASTIPADDRESS_TABLE) -> NTSTATUS;
         const IF_NAMESIZE: i32 = 256;
         struct IP_ADDRESS_PREFIX {
             Prefix: SOCKADDR_INET,
-            PrefixLength: UINT8,
+            PrefixLength: u8,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        #[arch(X64 | Arm64)]
         extern "C" fn InitializeFlVirtualInterfaceEntry(#[out] Row: PMIB_FL_VIRTUAL_INTERFACE_ROW);
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[library("IPHLPAPI.DLL")]
-        #[arch(X86)]
-        extern fn InitializeFlVirtualInterfaceEntry(#[out] Row: PMIB_FL_VIRTUAL_INTERFACE_ROW);
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
         extern fn InitializeIpForwardEntry(#[out] Row: PMIB_IPFORWARD_ROW2);
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
         extern fn InitializeIpInterfaceEntry(#[in] #[out] Row: PMIB_IPINTERFACE_ROW);
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
         extern fn InitializeUnicastIpAddressEntry(#[out] Row: PMIB_UNICASTIPADDRESS_ROW);
         struct MIB_ANYCASTIPADDRESS_ROW {
@@ -373,39 +305,39 @@ mod Windows {
             ScopeId: SCOPE_ID,
         }
         struct MIB_ANYCASTIPADDRESS_TABLE {
-            NumEntries: ULONG,
+            NumEntries: u32,
             Table: [MIB_ANYCASTIPADDRESS_ROW; 1],
         }
         struct MIB_FL_VIRTUAL_INTERFACE_ROW {
             Family: ADDRESS_FAMILY,
             IfLuid: IF_LUID,
-            VirtualIfId: ULONG,
+            VirtualIfId: u32,
             CompartmentGuid: GUID,
             IsolationMode: NET_FL_ISOLATION_MODE,
             Origin: NET_FL_VIRTUAL_INTERFACE_ORIGIN,
             VirtualIfLuid: IF_LUID,
             VirtualIfIndex: IF_INDEX,
             AllowLocalNd: BOOLEAN,
-            AttachedFlsnpiClients: ULONG,
-            FlsnpiClientConfigErrors: ULONG,
-            FlsnpiClientInjectErrors: ULONG64,
-            FlsnpiClientCloneErrors: ULONG64,
-            InFlsnpiIndicatedPackets: ULONG64,
-            InFlsnpiClientReturnedPackets: ULONG64,
-            InFlsnpiClientSilentlyDroppedPackets: ULONG64,
-            InFlsnpiClientDroppedPackets: ULONG64,
-            InFlsnpiClientInjectedPackets: ULONG64,
-            InFlsnpiClientClonedPackets: ULONG64,
-            OutFlsnpiIndicatedPackets: ULONG64,
-            OutFlsnpiClientReturnedPackets: ULONG64,
-            OutFlsnpiClientDroppedPackets: ULONG64,
-            OutFlsnpiClientSilentlyDroppedPackets: ULONG64,
-            OutFlsnpiClientInjectedPackets: ULONG64,
-            OutFlsnpiClientClonedPackets: ULONG64,
-            OutFlsnpiClientClonedPacketsForNbSplit: ULONG64,
+            AttachedFlsnpiClients: u32,
+            FlsnpiClientConfigErrors: u32,
+            FlsnpiClientInjectErrors: u64,
+            FlsnpiClientCloneErrors: u64,
+            InFlsnpiIndicatedPackets: u64,
+            InFlsnpiClientReturnedPackets: u64,
+            InFlsnpiClientSilentlyDroppedPackets: u64,
+            InFlsnpiClientDroppedPackets: u64,
+            InFlsnpiClientInjectedPackets: u64,
+            InFlsnpiClientClonedPackets: u64,
+            OutFlsnpiIndicatedPackets: u64,
+            OutFlsnpiClientReturnedPackets: u64,
+            OutFlsnpiClientDroppedPackets: u64,
+            OutFlsnpiClientSilentlyDroppedPackets: u64,
+            OutFlsnpiClientInjectedPackets: u64,
+            OutFlsnpiClientClonedPackets: u64,
+            OutFlsnpiClientClonedPacketsForNbSplit: u64,
         }
         struct MIB_FL_VIRTUAL_INTERFACE_TABLE {
-            NumEntries: ULONG,
+            NumEntries: u32,
             Table: [MIB_FL_VIRTUAL_INTERFACE_ROW; 1],
         }
         struct MIB_IFSTACK_ROW {
@@ -413,7 +345,7 @@ mod Windows {
             LowerLayerInterfaceIndex: NET_IFINDEX,
         }
         struct MIB_IFSTACK_TABLE {
-            NumEntries: ULONG,
+            NumEntries: u32,
             Table: [MIB_IFSTACK_ROW; 1],
         }
         #[repr(i32)]
@@ -425,12 +357,12 @@ mod Windows {
             InterfaceLuid: NET_LUID,
             InterfaceIndex: NET_IFINDEX,
             InterfaceGuid: GUID,
-            Alias: [WCHAR; 257],
-            Description: [WCHAR; 257],
-            PhysicalAddressLength: ULONG,
-            PhysicalAddress: [UCHAR; 32],
-            PermanentPhysicalAddress: [UCHAR; 32],
-            Mtu: ULONG,
+            Alias: [u16; 257],
+            Description: [u16; 257],
+            PhysicalAddressLength: u32,
+            PhysicalAddress: [u8; 32],
+            PermanentPhysicalAddress: [u8; 32],
+            Mtu: u32,
             Type: IFTYPE,
             TunnelType: TUNNEL_TYPE,
             MediaType: NDIS_MEDIUM,
@@ -438,44 +370,45 @@ mod Windows {
             AccessType: NET_IF_ACCESS_TYPE,
             DirectionType: NET_IF_DIRECTION_TYPE,
             InterfaceAndOperStatusFlags: struct {
-                #[Windows::Win32::Metadata::NativeBitfield("ConnectorPresent", 2, 1, MemberType = BOOLEAN)]
-                #[Windows::Win32::Metadata::NativeBitfield("EndPointInterface", 7, 1, MemberType = BOOLEAN)]
-                #[Windows::Win32::Metadata::NativeBitfield("FilterInterface", 1, 1, MemberType = BOOLEAN)]
-                #[Windows::Win32::Metadata::NativeBitfield("HardwareInterface", 0, 1, MemberType = BOOLEAN)]
-                #[Windows::Win32::Metadata::NativeBitfield("LowPower", 6, 1, MemberType = BOOLEAN)]
-                #[Windows::Win32::Metadata::NativeBitfield("NotAuthenticated", 3, 1, MemberType = BOOLEAN)]
-                #[Windows::Win32::Metadata::NativeBitfield("NotMediaConnected", 4, 1, MemberType = BOOLEAN)]
-                #[Windows::Win32::Metadata::NativeBitfield("Paused", 5, 1, MemberType = BOOLEAN)]
-                _bitfield: u8,
+                _bitfield: BOOLEAN {
+                    HardwareInterface: 1,
+                    FilterInterface: 1,
+                    ConnectorPresent: 1,
+                    NotAuthenticated: 1,
+                    NotMediaConnected: 1,
+                    Paused: 1,
+                    LowPower: 1,
+                    EndPointInterface: 1,
+                },
             },
             OperStatus: IF_OPER_STATUS,
             AdminStatus: NET_IF_ADMIN_STATUS,
             MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
             NetworkGuid: NET_IF_NETWORK_GUID,
             ConnectionType: NET_IF_CONNECTION_TYPE,
-            TransmitLinkSpeed: ULONG64,
-            ReceiveLinkSpeed: ULONG64,
-            InOctets: ULONG64,
-            InUcastPkts: ULONG64,
-            InNUcastPkts: ULONG64,
-            InDiscards: ULONG64,
-            InErrors: ULONG64,
-            InUnknownProtos: ULONG64,
-            InUcastOctets: ULONG64,
-            InMulticastOctets: ULONG64,
-            InBroadcastOctets: ULONG64,
-            OutOctets: ULONG64,
-            OutUcastPkts: ULONG64,
-            OutNUcastPkts: ULONG64,
-            OutDiscards: ULONG64,
-            OutErrors: ULONG64,
-            OutUcastOctets: ULONG64,
-            OutMulticastOctets: ULONG64,
-            OutBroadcastOctets: ULONG64,
-            OutQLen: ULONG64,
+            TransmitLinkSpeed: u64,
+            ReceiveLinkSpeed: u64,
+            InOctets: u64,
+            InUcastPkts: u64,
+            InNUcastPkts: u64,
+            InDiscards: u64,
+            InErrors: u64,
+            InUnknownProtos: u64,
+            InUcastOctets: u64,
+            InMulticastOctets: u64,
+            InBroadcastOctets: u64,
+            OutOctets: u64,
+            OutUcastPkts: u64,
+            OutNUcastPkts: u64,
+            OutDiscards: u64,
+            OutErrors: u64,
+            OutUcastOctets: u64,
+            OutMulticastOctets: u64,
+            OutBroadcastOctets: u64,
+            OutQLen: u64,
         }
         struct MIB_IF_TABLE2 {
-            NumEntries: ULONG,
+            NumEntries: u32,
             Table: [MIB_IF_ROW2; 1],
         }
         #[repr(i32)]
@@ -490,7 +423,7 @@ mod Windows {
             HigherLayerInterfaceIndex: NET_IFINDEX,
         }
         struct MIB_INVERTEDIFSTACK_TABLE {
-            NumEntries: ULONG,
+            NumEntries: u32,
             Table: [MIB_INVERTEDIFSTACK_ROW; 1],
         }
         struct MIB_IPFORWARD_ROW2 {
@@ -498,30 +431,30 @@ mod Windows {
             InterfaceIndex: NET_IFINDEX,
             DestinationPrefix: IP_ADDRESS_PREFIX,
             NextHop: SOCKADDR_INET,
-            SitePrefixLength: UCHAR,
-            ValidLifetime: ULONG,
-            PreferredLifetime: ULONG,
-            Metric: ULONG,
+            SitePrefixLength: u8,
+            ValidLifetime: u32,
+            PreferredLifetime: u32,
+            Metric: u32,
             Protocol: NL_ROUTE_PROTOCOL,
             Loopback: BOOLEAN,
             AutoconfigureAddress: BOOLEAN,
             Publish: BOOLEAN,
             Immortal: BOOLEAN,
-            Age: ULONG,
+            Age: u32,
             Origin: NL_ROUTE_ORIGIN,
         }
         struct MIB_IPFORWARD_TABLE2 {
-            NumEntries: ULONG,
+            NumEntries: u32,
             Table: [MIB_IPFORWARD_ROW2; 1],
         }
         struct MIB_IPINTERFACE_ROW {
             Family: ADDRESS_FAMILY,
             InterfaceLuid: NET_LUID,
             InterfaceIndex: NET_IFINDEX,
-            MaxReassemblySize: ULONG,
-            InterfaceIdentifier: ULONG64,
-            MinRouterAdvertisementInterval: ULONG,
-            MaxRouterAdvertisementInterval: ULONG,
+            MaxReassemblySize: u32,
+            InterfaceIdentifier: u64,
+            MinRouterAdvertisementInterval: u32,
+            MaxRouterAdvertisementInterval: u32,
             AdvertisingEnabled: BOOLEAN,
             ForwardingEnabled: BOOLEAN,
             WeakHostSend: BOOLEAN,
@@ -532,51 +465,52 @@ mod Windows {
             OtherStatefulConfigurationSupported: BOOLEAN,
             AdvertiseDefaultRoute: BOOLEAN,
             RouterDiscoveryBehavior: NL_ROUTER_DISCOVERY_BEHAVIOR,
-            DadTransmits: ULONG,
-            BaseReachableTime: ULONG,
-            RetransmitTime: ULONG,
-            PathMtuDiscoveryTimeout: ULONG,
+            DadTransmits: u32,
+            BaseReachableTime: u32,
+            RetransmitTime: u32,
+            PathMtuDiscoveryTimeout: u32,
             LinkLocalAddressBehavior: NL_LINK_LOCAL_ADDRESS_BEHAVIOR,
-            LinkLocalAddressTimeout: ULONG,
-            ZoneIndices: [ULONG; 16],
-            SitePrefixLength: ULONG,
-            Metric: ULONG,
-            NlMtu: ULONG,
+            LinkLocalAddressTimeout: u32,
+            ZoneIndices: [u32; 16],
+            SitePrefixLength: u32,
+            Metric: u32,
+            NlMtu: u32,
             Connected: BOOLEAN,
             SupportsWakeUpPatterns: BOOLEAN,
             SupportsNeighborDiscovery: BOOLEAN,
             SupportsRouterDiscovery: BOOLEAN,
-            ReachableTime: ULONG,
+            ReachableTime: u32,
             TransmitOffload: NL_INTERFACE_OFFLOAD_ROD,
             ReceiveOffload: NL_INTERFACE_OFFLOAD_ROD,
             DisableDefaultRoutes: BOOLEAN,
         }
         struct MIB_IPINTERFACE_TABLE {
-            NumEntries: ULONG,
+            NumEntries: u32,
             Table: [MIB_IPINTERFACE_ROW; 1],
         }
         struct MIB_IPNET_ROW2 {
             Address: SOCKADDR_INET,
             InterfaceIndex: NET_IFINDEX,
             InterfaceLuid: NET_LUID,
-            PhysicalAddress: [UCHAR; 32],
-            PhysicalAddressLength: ULONG,
+            PhysicalAddress: [u8; 32],
+            PhysicalAddressLength: u32,
             State: NL_NEIGHBOR_STATE,
             Anonymous: union {
                 Anonymous: struct {
-                    #[Windows::Win32::Metadata::NativeBitfield("IsRouter", 0, 1, MemberType = BOOLEAN)]
-                    #[Windows::Win32::Metadata::NativeBitfield("IsUnreachable", 1, 1, MemberType = BOOLEAN)]
-                    _bitfield: u8,
+                    _bitfield: BOOLEAN {
+                        IsRouter: 1,
+                        IsUnreachable: 1,
+                    },
                 },
-                Flags: UCHAR,
+                Flags: u8,
             },
             ReachabilityTime: union {
-                LastReachable: ULONG,
-                LastUnreachable: ULONG,
+                LastReachable: u32,
+                LastUnreachable: u32,
             },
         }
         struct MIB_IPNET_TABLE2 {
-            NumEntries: ULONG,
+            NumEntries: u32,
             Table: [MIB_IPNET_ROW2; 1],
         }
         struct MIB_IPPATH_ROW {
@@ -585,19 +519,19 @@ mod Windows {
             InterfaceLuid: NET_LUID,
             InterfaceIndex: NET_IFINDEX,
             CurrentNextHop: SOCKADDR_INET,
-            PathMtu: ULONG,
-            RttMean: ULONG,
-            RttDeviation: ULONG,
+            PathMtu: u32,
+            RttMean: u32,
+            RttDeviation: u32,
             Anonymous: union {
-                LastReachable: ULONG,
-                LastUnreachable: ULONG,
+                LastReachable: u32,
+                LastUnreachable: u32,
             },
             IsReachable: BOOLEAN,
-            LinkTransmitSpeed: ULONG64,
-            LinkReceiveSpeed: ULONG64,
+            LinkTransmitSpeed: u64,
+            LinkReceiveSpeed: u64,
         }
         struct MIB_IPPATH_TABLE {
-            NumEntries: ULONG,
+            NumEntries: u32,
             Table: [MIB_IPPATH_ROW; 1],
         }
         struct MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
@@ -611,7 +545,7 @@ mod Windows {
             ScopeId: SCOPE_ID,
         }
         struct MIB_MULTICASTIPADDRESS_TABLE {
-            NumEntries: ULONG,
+            NumEntries: u32,
             Table: [MIB_MULTICASTIPADDRESS_ROW; 1],
         }
         #[repr(i32)]
@@ -627,16 +561,16 @@ mod Windows {
             InterfaceIndex: NET_IFINDEX,
             PrefixOrigin: NL_PREFIX_ORIGIN,
             SuffixOrigin: NL_SUFFIX_ORIGIN,
-            ValidLifetime: ULONG,
-            PreferredLifetime: ULONG,
-            OnLinkPrefixLength: UINT8,
+            ValidLifetime: u32,
+            PreferredLifetime: u32,
+            OnLinkPrefixLength: u8,
             SkipAsSource: BOOLEAN,
             DadState: NL_DAD_STATE,
             ScopeId: SCOPE_ID,
             CreationTimeStamp: LARGE_INTEGER,
         }
         struct MIB_UNICASTIPADDRESS_TABLE {
-            NumEntries: ULONG,
+            NumEntries: u32,
             Table: [MIB_UNICASTIPADDRESS_ROW; 1],
         }
         #[repr(i32)]
@@ -651,26 +585,20 @@ mod Windows {
             NetFlVirtualInterfaceOriginApi = 1,
             NetFlVirtualInterfaceOriginDefault = 2,
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyIpInterfaceChange(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Family: ADDRESS_FAMILY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PIPINTERFACE_CHANGE_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn NotifyIpInterfaceChange(Family: ADDRESS_FAMILY, Callback: PIPINTERFACE_CHANGE_CALLBACK, #[in] #[opt] CallerContext: *mut void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyNetworkConnectivityHintChange(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InitialNotification: BOOLEAN, #[out] NotificationHandle: PHANDLE) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn NotifyNetworkConnectivityHintChange(Callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, #[in] #[opt] CallerContext: *mut void, InitialNotification: BOOLEAN, #[out] NotificationHandle: PHANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyRouteChange2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddressFamily: ADDRESS_FAMILY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PIPFORWARD_CHANGE_CALLBACK, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn NotifyRouteChange2(AddressFamily: ADDRESS_FAMILY, Callback: PIPFORWARD_CHANGE_CALLBACK, #[in] CallerContext: *mut void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyStableUnicastIpAddressTable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Family: ADDRESS_FAMILY, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] Table: *mut PMIB_UNICASTIPADDRESS_TABLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerCallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerContext: PVOID, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn NotifyStableUnicastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_UNICASTIPADDRESS_TABLE, CallerCallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, #[in] CallerContext: *mut void, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyTeredoPortChange(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PTEREDO_PORT_CHANGE_CALLBACK, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn NotifyTeredoPortChange(Callback: PTEREDO_PORT_CHANGE_CALLBACK, #[in] CallerContext: *mut void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyUnicastIpAddressChange(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Family: ADDRESS_FAMILY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
-        extern fn PIPFORWARD_CHANGE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerContext: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: PMIB_IPFORWARD_ROW2, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NotificationType: MIB_NOTIFICATION_TYPE);
-        extern fn PIPINTERFACE_CHANGE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: PMIB_IPINTERFACE_ROW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NotificationType: MIB_NOTIFICATION_TYPE);
+        extern fn NotifyUnicastIpAddressChange(Family: ADDRESS_FAMILY, Callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, #[in] #[opt] CallerContext: *mut void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn PIPFORWARD_CHANGE_CALLBACK(#[in] CallerContext: *mut void, #[opt] Row: PMIB_IPFORWARD_ROW2, NotificationType: MIB_NOTIFICATION_TYPE);
+        extern fn PIPINTERFACE_CHANGE_CALLBACK(#[in] CallerContext: *mut void, Row: PMIB_IPINTERFACE_ROW, NotificationType: MIB_NOTIFICATION_TYPE);
         type PIP_ADDRESS_PREFIX = *mut IP_ADDRESS_PREFIX;
         type PMIB_ANYCASTIPADDRESS_ROW = *mut MIB_ANYCASTIPADDRESS_ROW;
         type PMIB_ANYCASTIPADDRESS_TABLE = *mut MIB_ANYCASTIPADDRESS_TABLE;
@@ -698,52 +626,39 @@ mod Windows {
         type PMIB_NOTIFICATION_TYPE = *mut MIB_NOTIFICATION_TYPE;
         type PMIB_UNICASTIPADDRESS_ROW = *mut MIB_UNICASTIPADDRESS_ROW;
         type PMIB_UNICASTIPADDRESS_TABLE = *mut MIB_UNICASTIPADDRESS_TABLE;
-        extern fn PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ConnectivityHint: NL_NETWORK_CONNECTIVITY_HINT);
-        extern fn PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddressTable: PMIB_UNICASTIPADDRESS_TABLE);
-        extern fn PTEREDO_PORT_CHANGE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerContext: PVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Port: USHORT, #[in] #[out] NotificationType: MIB_NOTIFICATION_TYPE);
-        extern fn PUNICAST_IPADDRESS_CHANGE_CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CallerContext: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: PMIB_UNICASTIPADDRESS_ROW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NotificationType: MIB_NOTIFICATION_TYPE);
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK(#[in] CallerContext: *mut void, ConnectivityHint: NL_NETWORK_CONNECTIVITY_HINT);
+        extern fn PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK(#[in] CallerContext: *mut void, AddressTable: PMIB_UNICASTIPADDRESS_TABLE);
+        extern fn PTEREDO_PORT_CHANGE_CALLBACK(#[in] CallerContext: *mut void, Port: u16, #[in] #[out] NotificationType: MIB_NOTIFICATION_TYPE);
+        extern fn PUNICAST_IPADDRESS_CHANGE_CALLBACK(#[in] CallerContext: *mut void, #[opt] Row: PMIB_UNICASTIPADDRESS_ROW, NotificationType: MIB_NOTIFICATION_TYPE);
         #[library("IPHLPAPI.DLL")]
-        extern fn ResolveIpNetEntry2(#[in] #[out] Row: PMIB_IPNET_ROW2, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SourceAddress: *const SOCKADDR_INET) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn ResolveIpNetEntry2(#[in] #[out] Row: PMIB_IPNET_ROW2, #[opt] SourceAddress: *const SOCKADDR_INET) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetCurrentThreadCompartmentId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn SetCurrentThreadCompartmentId(CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetCurrentThreadCompartmentScope(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompartmentScope: NET_IF_COMPARTMENT_SCOPE) -> NTSTATUS;
+        extern fn SetCurrentThreadCompartmentScope(CompartmentScope: NET_IF_COMPARTMENT_SCOPE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetDnsSettings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Settings: *const DNS_SETTINGS) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn SetDnsSettings(Settings: *const DNS_SETTINGS) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetFlVirtualInterface(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> NTSTATUS;
+        extern fn SetFlVirtualInterface(Row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetInterfaceDnsSettings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Interface: GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Settings: *const DNS_INTERFACE_SETTINGS) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn SetInterfaceDnsSettings(Interface: GUID, Settings: *const DNS_INTERFACE_SETTINGS) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetIpForwardEntry2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Route: *const MIB_IPFORWARD_ROW2) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn SetIpForwardEntry2(Route: *const MIB_IPFORWARD_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn SetIpInterfaceEntry(#[in] #[out] Row: PMIB_IPINTERFACE_ROW) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("IPHLPAPI.DLL")]
-        extern fn SetIpNetEntry2(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: PMIB_IPNET_ROW2) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn SetIpNetEntry2(Row: PMIB_IPNET_ROW2) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetJobCompartmentId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] JobHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn SetJobCompartmentId(JobHandle: HANDLE, CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetNetworkInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NetworkGuid: *const NET_IF_NETWORK_GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompartmentId: NET_IF_COMPARTMENT_ID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] NetworkName: *const WCHAR) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn SetNetworkInformation(NetworkGuid: *const NET_IF_NETWORK_GUID, CompartmentId: NET_IF_COMPARTMENT_ID, NetworkName: *const u16) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetSessionCompartmentId(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SessionId: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn SetSessionCompartmentId(SessionId: u32, CompartmentId: NET_IF_COMPARTMENT_ID) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn SetUnicastIpAddressEntry(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn SetUnicastIpAddressEntry(Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn if_indextoname(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceIndex: NET_IFINDEX, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "256", "256")] #[out] InterfaceName: PCHAR) -> PCHAR;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        extern fn if_indextoname(InterfaceIndex: NET_IFINDEX, #[out] InterfaceName: PCHAR) -> PCHAR;
         #[library("IPHLPAPI.DLL")]
-        extern fn if_nametoindex(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InterfaceName: PCSTR) -> NET_IFINDEX;
+        extern fn if_nametoindex(InterfaceName: PCSTR) -> NET_IFINDEX;
     }
 }

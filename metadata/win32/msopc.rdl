@@ -3,248 +3,248 @@ mod Windows {
     mod Win32 {
         #[guid(0x85131937_8f24_421f_b439_59ab24d140b8)]
         interface IOpcCertificateEnumerator: IUnknown {
-            fn MoveNext(&self, #[out] #[retval] hasNext: *mut BOOL) -> HRESULT;
-            fn MovePrevious(&self, #[out] #[retval] hasPrevious: *mut BOOL) -> HRESULT;
-            fn GetCurrent(&self, #[out] #[retval] certificate: *mut *const CERT_CONTEXT) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] copy: *mut IOpcCertificateEnumerator) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+            fn MovePrevious(&self, #[retval] hasPrevious: *mut BOOL) -> HRESULT;
+            fn GetCurrent(&self, #[retval] #[out] certificate: *const *const CERT_CONTEXT) -> HRESULT;
+            fn Clone(&self, #[retval] copy: *mut IOpcCertificateEnumerator) -> HRESULT;
         }
         #[guid(0x56ea4325_8e2d_4167_b1a4_e486d24c8fa7)]
         interface IOpcCertificateSet: IUnknown {
             fn Add(&self, certificate: *const CERT_CONTEXT) -> HRESULT;
             fn Remove(&self, certificate: *const CERT_CONTEXT) -> HRESULT;
-            fn GetEnumerator(&self, #[out] #[retval] certificateEnumerator: *mut IOpcCertificateEnumerator) -> HRESULT;
+            fn GetEnumerator(&self, #[retval] certificateEnumerator: *mut IOpcCertificateEnumerator) -> HRESULT;
         }
         #[guid(0x52ab21dd_1cd0_4949_bc80_0c1232d00cb4)]
         interface IOpcDigitalSignature: IUnknown {
-            fn GetNamespaces(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*count", "*count")] prefixes: *mut *mut LPWSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*count", "*count")] namespaces: *mut *mut LPWSTR, count: *mut UINT32) -> HRESULT;
-            fn GetSignatureId(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] signatureId: *mut LPWSTR) -> HRESULT;
-            fn GetSignaturePartName(&self, #[out] #[retval] signaturePartName: *mut IOpcPartUri) -> HRESULT;
-            fn GetSignatureMethod(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] signatureMethod: *mut LPWSTR) -> HRESULT;
-            fn GetCanonicalizationMethod(&self, #[out] #[retval] canonicalizationMethod: *mut OPC_CANONICALIZATION_METHOD) -> HRESULT;
-            fn GetSignatureValue(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*count", "*count")] signatureValue: *mut *mut UINT8, count: *mut UINT32) -> HRESULT;
-            fn GetSignaturePartReferenceEnumerator(&self, #[out] #[retval] partReferenceEnumerator: *mut IOpcSignaturePartReferenceEnumerator) -> HRESULT;
-            fn GetSignatureRelationshipReferenceEnumerator(&self, #[out] #[retval] relationshipReferenceEnumerator: *mut IOpcSignatureRelationshipReferenceEnumerator) -> HRESULT;
-            fn GetSigningTime(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] signingTime: *mut LPWSTR) -> HRESULT;
-            fn GetTimeFormatA(&self, #[out] #[retval] timeFormat: *mut OPC_SIGNATURE_TIME_FORMAT) -> HRESULT;
-            fn GetPackageObjectReference(&self, #[out] #[retval] packageObjectReference: *mut IOpcSignatureReference) -> HRESULT;
-            fn GetCertificateEnumerator(&self, #[out] #[retval] certificateEnumerator: *mut IOpcCertificateEnumerator) -> HRESULT;
-            fn GetCustomReferenceEnumerator(&self, #[out] #[retval] customReferenceEnumerator: *mut IOpcSignatureReferenceEnumerator) -> HRESULT;
-            fn GetCustomObjectEnumerator(&self, #[out] #[retval] customObjectEnumerator: *mut IOpcSignatureCustomObjectEnumerator) -> HRESULT;
-            fn GetSignatureXml(&self, signatureXml: *mut *mut UINT8, count: *mut UINT32) -> HRESULT;
+            fn GetNamespaces(&self, prefixes: *mut *mut PWSTR, namespaces: *mut *mut PWSTR, count: *mut u32) -> HRESULT;
+            fn GetSignatureId(&self, #[retval] signatureId: *mut PWSTR) -> HRESULT;
+            fn GetSignaturePartName(&self, #[retval] signaturePartName: *mut IOpcPartUri) -> HRESULT;
+            fn GetSignatureMethod(&self, #[retval] signatureMethod: *mut PWSTR) -> HRESULT;
+            fn GetCanonicalizationMethod(&self, #[retval] canonicalizationMethod: *mut OPC_CANONICALIZATION_METHOD) -> HRESULT;
+            fn GetSignatureValue(&self, signatureValue: *mut *mut u8, count: *mut u32) -> HRESULT;
+            fn GetSignaturePartReferenceEnumerator(&self, #[retval] partReferenceEnumerator: *mut IOpcSignaturePartReferenceEnumerator) -> HRESULT;
+            fn GetSignatureRelationshipReferenceEnumerator(&self, #[retval] relationshipReferenceEnumerator: *mut IOpcSignatureRelationshipReferenceEnumerator) -> HRESULT;
+            fn GetSigningTime(&self, #[retval] signingTime: *mut PWSTR) -> HRESULT;
+            fn GetTimeFormat(&self, #[retval] timeFormat: *mut OPC_SIGNATURE_TIME_FORMAT) -> HRESULT;
+            fn GetPackageObjectReference(&self, #[retval] packageObjectReference: *mut IOpcSignatureReference) -> HRESULT;
+            fn GetCertificateEnumerator(&self, #[retval] certificateEnumerator: *mut IOpcCertificateEnumerator) -> HRESULT;
+            fn GetCustomReferenceEnumerator(&self, #[retval] customReferenceEnumerator: *mut IOpcSignatureReferenceEnumerator) -> HRESULT;
+            fn GetCustomObjectEnumerator(&self, #[retval] customObjectEnumerator: *mut IOpcSignatureCustomObjectEnumerator) -> HRESULT;
+            fn GetSignatureXml(&self, signatureXml: *mut *mut u8, count: *mut u32) -> HRESULT;
         }
         #[guid(0x967b6882_0ba3_4358_b9e7_b64c75063c5e)]
         interface IOpcDigitalSignatureEnumerator: IUnknown {
-            fn MoveNext(&self, #[out] #[retval] hasNext: *mut BOOL) -> HRESULT;
-            fn MovePrevious(&self, #[out] #[retval] hasPrevious: *mut BOOL) -> HRESULT;
-            fn GetCurrent(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] digitalSignature: *mut IOpcDigitalSignature) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] copy: *mut IOpcDigitalSignatureEnumerator) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+            fn MovePrevious(&self, #[retval] hasPrevious: *mut BOOL) -> HRESULT;
+            fn GetCurrent(&self, #[retval] digitalSignature: *mut IOpcDigitalSignature) -> HRESULT;
+            fn Clone(&self, #[retval] copy: *mut IOpcDigitalSignatureEnumerator) -> HRESULT;
         }
         #[guid(0xd5e62a0b_696d_462f_94df_72e33cef2659)]
         interface IOpcDigitalSignatureManager: IUnknown {
-            fn GetSignatureOriginPartName(&self, #[out] #[retval] signatureOriginPartName: *mut IOpcPartUri) -> HRESULT;
+            fn GetSignatureOriginPartName(&self, #[retval] signatureOriginPartName: *mut IOpcPartUri) -> HRESULT;
             fn SetSignatureOriginPartName(&self, signatureOriginPartName: IOpcPartUri) -> HRESULT;
-            fn GetSignatureEnumerator(&self, #[out] #[retval] signatureEnumerator: *mut IOpcDigitalSignatureEnumerator) -> HRESULT;
+            fn GetSignatureEnumerator(&self, #[retval] signatureEnumerator: *mut IOpcDigitalSignatureEnumerator) -> HRESULT;
             fn RemoveSignature(&self, signaturePartName: IOpcPartUri) -> HRESULT;
-            fn CreateSigningOptions(&self, #[out] #[retval] signingOptions: *mut IOpcSigningOptions) -> HRESULT;
-            fn Validate(&self, signature: IOpcDigitalSignature, certificate: *const CERT_CONTEXT, #[out] #[retval] validationResult: *mut OPC_SIGNATURE_VALIDATION_RESULT) -> HRESULT;
-            fn Sign(&self, certificate: *const CERT_CONTEXT, signingOptions: IOpcSigningOptions, #[out] #[retval] digitalSignature: *mut IOpcDigitalSignature) -> HRESULT;
-            fn ReplaceSignatureXml(&self, signaturePartName: IOpcPartUri, newSignatureXml: *const UINT8, count: UINT32, #[out] #[retval] digitalSignature: *mut IOpcDigitalSignature) -> HRESULT;
+            fn CreateSigningOptions(&self, #[retval] signingOptions: *mut IOpcSigningOptions) -> HRESULT;
+            fn Validate(&self, signature: IOpcDigitalSignature, certificate: *const CERT_CONTEXT, #[retval] validationResult: *mut OPC_SIGNATURE_VALIDATION_RESULT) -> HRESULT;
+            fn Sign(&self, certificate: *const CERT_CONTEXT, signingOptions: IOpcSigningOptions, #[retval] digitalSignature: *mut IOpcDigitalSignature) -> HRESULT;
+            fn ReplaceSignatureXml(&self, signaturePartName: IOpcPartUri, newSignatureXml: *const u8, count: u32, #[retval] digitalSignature: *mut IOpcDigitalSignature) -> HRESULT;
         }
         #[guid(0x6d0b4446_cd73_4ab3_94f4_8ccdf6116154)]
         interface IOpcFactory: IUnknown {
-            fn CreatePackageRootUri(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] rootUri: *mut IOpcUri) -> HRESULT;
-            fn CreatePartUri(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pwzUri: LPCWSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] partUri: *mut IOpcPartUri) -> HRESULT;
-            fn CreateStreamOnFile(&self, filename: LPCWSTR, ioMode: OPC_STREAM_IO_MODE, securityAttributes: LPSECURITY_ATTRIBUTES, dwFlagsAndAttributes: DWORD, #[out] #[retval] stream: *mut IStream) -> HRESULT;
-            fn CreatePackage(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] package: *mut IOpcPackage) -> HRESULT;
-            fn ReadPackageFromStream(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] stream: IStream, flags: OPC_READ_FLAGS, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] package: *mut IOpcPackage) -> HRESULT;
-            fn WritePackageToStream(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] package: IOpcPackage, flags: OPC_WRITE_FLAGS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] stream: IStream) -> HRESULT;
-            fn CreateDigitalSignatureManager(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] package: IOpcPackage, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] signatureManager: *mut IOpcDigitalSignatureManager) -> HRESULT;
+            fn CreatePackageRootUri(&self, #[retval] rootUri: *mut IOpcUri) -> HRESULT;
+            fn CreatePartUri(&self, pwzUri: PCWSTR, #[retval] partUri: *mut IOpcPartUri) -> HRESULT;
+            fn CreateStreamOnFile(&self, filename: PCWSTR, ioMode: OPC_STREAM_IO_MODE, securityAttributes: LPSECURITY_ATTRIBUTES, dwFlagsAndAttributes: u32, #[retval] stream: *mut IStream) -> HRESULT;
+            fn CreatePackage(&self, #[retval] package: *mut IOpcPackage) -> HRESULT;
+            fn ReadPackageFromStream(&self, stream: IStream, flags: OPC_READ_FLAGS, #[retval] package: *mut IOpcPackage) -> HRESULT;
+            fn WritePackageToStream(&self, package: IOpcPackage, flags: OPC_WRITE_FLAGS, stream: IStream) -> HRESULT;
+            fn CreateDigitalSignatureManager(&self, package: IOpcPackage, #[retval] signatureManager: *mut IOpcDigitalSignatureManager) -> HRESULT;
         }
         #[guid(0x42195949_3b79_4fc8_89c6_fc7fb979ee70)]
         interface IOpcPackage: IUnknown {
-            fn GetPartSet(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] partSet: *mut IOpcPartSet) -> HRESULT;
-            fn GetRelationshipSet(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationshipSet: *mut IOpcRelationshipSet) -> HRESULT;
+            fn GetPartSet(&self, #[retval] partSet: *mut IOpcPartSet) -> HRESULT;
+            fn GetRelationshipSet(&self, #[retval] relationshipSet: *mut IOpcRelationshipSet) -> HRESULT;
         }
         #[guid(0x42195949_3b79_4fc8_89c6_fc7fb979ee71)]
         interface IOpcPart: IUnknown {
-            fn GetRelationshipSet(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationshipSet: *mut IOpcRelationshipSet) -> HRESULT;
-            fn GetContentStream(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] stream: *mut IStream) -> HRESULT;
-            fn GetName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] name: *mut IOpcPartUri) -> HRESULT;
-            fn GetContentType(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] contentType: *mut LPWSTR) -> HRESULT;
-            fn GetCompressionOptions(&self, #[out] #[retval] compressionOptions: *mut OPC_COMPRESSION_OPTIONS) -> HRESULT;
+            fn GetRelationshipSet(&self, #[retval] relationshipSet: *mut IOpcRelationshipSet) -> HRESULT;
+            fn GetContentStream(&self, #[retval] stream: *mut IStream) -> HRESULT;
+            fn GetName(&self, #[retval] name: *mut IOpcPartUri) -> HRESULT;
+            fn GetContentType(&self, #[retval] contentType: *mut PWSTR) -> HRESULT;
+            fn GetCompressionOptions(&self, #[retval] compressionOptions: *mut OPC_COMPRESSION_OPTIONS) -> HRESULT;
         }
         #[guid(0x42195949_3b79_4fc8_89c6_fc7fb979ee75)]
         interface IOpcPartEnumerator: IUnknown {
-            fn MoveNext(&self, #[out] #[retval] hasNext: *mut BOOL) -> HRESULT;
-            fn MovePrevious(&self, #[out] #[retval] hasPrevious: *mut BOOL) -> HRESULT;
-            fn GetCurrent(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] part: *mut IOpcPart) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] copy: *mut IOpcPartEnumerator) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+            fn MovePrevious(&self, #[retval] hasPrevious: *mut BOOL) -> HRESULT;
+            fn GetCurrent(&self, #[retval] part: *mut IOpcPart) -> HRESULT;
+            fn Clone(&self, #[retval] copy: *mut IOpcPartEnumerator) -> HRESULT;
         }
         #[guid(0x42195949_3b79_4fc8_89c6_fc7fb979ee73)]
         interface IOpcPartSet: IUnknown {
-            fn GetPart(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: IOpcPartUri, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] part: *mut IOpcPart) -> HRESULT;
-            fn CreatePart(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: IOpcPartUri, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] contentType: LPCWSTR, compressionOptions: OPC_COMPRESSION_OPTIONS, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] part: *mut IOpcPart) -> HRESULT;
-            fn DeletePart(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: IOpcPartUri) -> HRESULT;
-            fn PartExists(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] name: IOpcPartUri, #[out] #[retval] partExists: *mut BOOL) -> HRESULT;
-            fn GetEnumerator(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] partEnumerator: *mut IOpcPartEnumerator) -> HRESULT;
+            fn GetPart(&self, name: IOpcPartUri, #[retval] part: *mut IOpcPart) -> HRESULT;
+            fn CreatePart(&self, name: IOpcPartUri, contentType: PCWSTR, compressionOptions: OPC_COMPRESSION_OPTIONS, #[retval] part: *mut IOpcPart) -> HRESULT;
+            fn DeletePart(&self, name: IOpcPartUri) -> HRESULT;
+            fn PartExists(&self, name: IOpcPartUri, #[retval] partExists: *mut BOOL) -> HRESULT;
+            fn GetEnumerator(&self, #[retval] partEnumerator: *mut IOpcPartEnumerator) -> HRESULT;
         }
         #[guid(0x7d3babe7_88b2_46ba_85cb_4203cb016c87)]
         interface IOpcPartUri: IOpcUri {
-            fn ComparePartUri(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] partUri: IOpcPartUri, #[out] #[retval] comparisonResult: *mut INT32) -> HRESULT;
-            fn GetSourceUri(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] sourceUri: *mut IOpcUri) -> HRESULT;
-            fn IsRelationshipsPartUri(&self, #[out] #[retval] isRelationshipUri: *mut BOOL) -> HRESULT;
+            fn ComparePartUri(&self, partUri: IOpcPartUri, #[retval] comparisonResult: *mut i32) -> HRESULT;
+            fn GetSourceUri(&self, #[retval] sourceUri: *mut IOpcUri) -> HRESULT;
+            fn IsRelationshipsPartUri(&self, #[retval] isRelationshipUri: *mut BOOL) -> HRESULT;
         }
         #[guid(0x42195949_3b79_4fc8_89c6_fc7fb979ee72)]
         interface IOpcRelationship: IUnknown {
-            fn GetId(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] relationshipIdentifier: *mut LPWSTR) -> HRESULT;
-            fn GetRelationshipType(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] relationshipType: *mut LPWSTR) -> HRESULT;
-            fn GetSourceUri(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] sourceUri: *mut IOpcUri) -> HRESULT;
-            fn GetTargetUri(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] targetUri: *mut IUri) -> HRESULT;
-            fn GetTargetMode(&self, #[out] #[retval] targetMode: *mut OPC_URI_TARGET_MODE) -> HRESULT;
+            fn GetId(&self, #[retval] relationshipIdentifier: *mut PWSTR) -> HRESULT;
+            fn GetRelationshipType(&self, #[retval] relationshipType: *mut PWSTR) -> HRESULT;
+            fn GetSourceUri(&self, #[retval] sourceUri: *mut IOpcUri) -> HRESULT;
+            fn GetTargetUri(&self, #[retval] targetUri: *mut IUri) -> HRESULT;
+            fn GetTargetMode(&self, #[retval] targetMode: *mut OPC_URI_TARGET_MODE) -> HRESULT;
         }
         #[guid(0x42195949_3b79_4fc8_89c6_fc7fb979ee76)]
         interface IOpcRelationshipEnumerator: IUnknown {
-            fn MoveNext(&self, #[out] #[retval] hasNext: *mut BOOL) -> HRESULT;
-            fn MovePrevious(&self, #[out] #[retval] hasPrevious: *mut BOOL) -> HRESULT;
-            fn GetCurrent(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationship: *mut IOpcRelationship) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] copy: *mut IOpcRelationshipEnumerator) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+            fn MovePrevious(&self, #[retval] hasPrevious: *mut BOOL) -> HRESULT;
+            fn GetCurrent(&self, #[retval] relationship: *mut IOpcRelationship) -> HRESULT;
+            fn Clone(&self, #[retval] copy: *mut IOpcRelationshipEnumerator) -> HRESULT;
         }
         #[guid(0xf8f26c7f_b28f_4899_84c8_5d5639ede75f)]
         interface IOpcRelationshipSelector: IUnknown {
-            fn GetSelectorType(&self, #[out] #[retval] selector: *mut OPC_RELATIONSHIP_SELECTOR) -> HRESULT;
-            fn GetSelectionCriterion(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] selectionCriterion: *mut LPWSTR) -> HRESULT;
+            fn GetSelectorType(&self, #[retval] selector: *mut OPC_RELATIONSHIP_SELECTOR) -> HRESULT;
+            fn GetSelectionCriterion(&self, #[retval] selectionCriterion: *mut PWSTR) -> HRESULT;
         }
         #[guid(0x5e50a181_a91b_48ac_88d2_bca3d8f8c0b1)]
         interface IOpcRelationshipSelectorEnumerator: IUnknown {
-            fn MoveNext(&self, #[out] #[retval] hasNext: *mut BOOL) -> HRESULT;
-            fn MovePrevious(&self, #[out] #[retval] hasPrevious: *mut BOOL) -> HRESULT;
-            fn GetCurrent(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationshipSelector: *mut IOpcRelationshipSelector) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] copy: *mut IOpcRelationshipSelectorEnumerator) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+            fn MovePrevious(&self, #[retval] hasPrevious: *mut BOOL) -> HRESULT;
+            fn GetCurrent(&self, #[retval] relationshipSelector: *mut IOpcRelationshipSelector) -> HRESULT;
+            fn Clone(&self, #[retval] copy: *mut IOpcRelationshipSelectorEnumerator) -> HRESULT;
         }
         #[guid(0x6e34c269_a4d3_47c0_b5c4_87ff2b3b6136)]
         interface IOpcRelationshipSelectorSet: IUnknown {
-            fn Create(&self, selector: OPC_RELATIONSHIP_SELECTOR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] selectionCriterion: LPCWSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationshipSelector: *mut IOpcRelationshipSelector) -> HRESULT;
-            fn Delete(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] relationshipSelector: IOpcRelationshipSelector) -> HRESULT;
-            fn GetEnumerator(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationshipSelectorEnumerator: *mut IOpcRelationshipSelectorEnumerator) -> HRESULT;
+            fn Create(&self, selector: OPC_RELATIONSHIP_SELECTOR, selectionCriterion: PCWSTR, #[retval] relationshipSelector: *mut IOpcRelationshipSelector) -> HRESULT;
+            fn Delete(&self, relationshipSelector: IOpcRelationshipSelector) -> HRESULT;
+            fn GetEnumerator(&self, #[retval] relationshipSelectorEnumerator: *mut IOpcRelationshipSelectorEnumerator) -> HRESULT;
         }
         #[guid(0x42195949_3b79_4fc8_89c6_fc7fb979ee74)]
         interface IOpcRelationshipSet: IUnknown {
-            fn GetRelationship(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] relationshipIdentifier: LPCWSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationship: *mut IOpcRelationship) -> HRESULT;
-            fn CreateRelationship(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] relationshipIdentifier: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] relationshipType: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] targetUri: IUri, targetMode: OPC_URI_TARGET_MODE, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationship: *mut IOpcRelationship) -> HRESULT;
-            fn DeleteRelationship(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] relationshipIdentifier: LPCWSTR) -> HRESULT;
-            fn RelationshipExists(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] relationshipIdentifier: LPCWSTR, #[out] #[retval] relationshipExists: *mut BOOL) -> HRESULT;
-            fn GetEnumerator(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationshipEnumerator: *mut IOpcRelationshipEnumerator) -> HRESULT;
-            fn GetEnumeratorForType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] relationshipType: LPCWSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationshipEnumerator: *mut IOpcRelationshipEnumerator) -> HRESULT;
-            fn GetRelationshipsContentStream(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] contents: *mut IStream) -> HRESULT;
+            fn GetRelationship(&self, relationshipIdentifier: PCWSTR, #[retval] relationship: *mut IOpcRelationship) -> HRESULT;
+            fn CreateRelationship(&self, relationshipIdentifier: PCWSTR, relationshipType: PCWSTR, targetUri: IUri, targetMode: OPC_URI_TARGET_MODE, #[retval] relationship: *mut IOpcRelationship) -> HRESULT;
+            fn DeleteRelationship(&self, relationshipIdentifier: PCWSTR) -> HRESULT;
+            fn RelationshipExists(&self, relationshipIdentifier: PCWSTR, #[retval] relationshipExists: *mut BOOL) -> HRESULT;
+            fn GetEnumerator(&self, #[retval] relationshipEnumerator: *mut IOpcRelationshipEnumerator) -> HRESULT;
+            fn GetEnumeratorForType(&self, relationshipType: PCWSTR, #[retval] relationshipEnumerator: *mut IOpcRelationshipEnumerator) -> HRESULT;
+            fn GetRelationshipsContentStream(&self, #[retval] contents: *mut IStream) -> HRESULT;
         }
         #[guid(0x5d77a19e_62c1_44e7_becd_45da5ae51a56)]
         interface IOpcSignatureCustomObject: IUnknown {
-            fn GetXml(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*count", "*count")] xmlMarkup: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
+            fn GetXml(&self, xmlMarkup: *mut *mut u8, count: *mut u32) -> HRESULT;
         }
         #[guid(0x5ee4fe1d_e1b0_4683_8079_7ea0fcf80b4c)]
         interface IOpcSignatureCustomObjectEnumerator: IUnknown {
-            fn MoveNext(&self, #[out] #[retval] hasNext: *mut BOOL) -> HRESULT;
-            fn MovePrevious(&self, #[out] #[retval] hasPrevious: *mut BOOL) -> HRESULT;
-            fn GetCurrent(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] customObject: *mut IOpcSignatureCustomObject) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] copy: *mut IOpcSignatureCustomObjectEnumerator) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+            fn MovePrevious(&self, #[retval] hasPrevious: *mut BOOL) -> HRESULT;
+            fn GetCurrent(&self, #[retval] customObject: *mut IOpcSignatureCustomObject) -> HRESULT;
+            fn Clone(&self, #[retval] copy: *mut IOpcSignatureCustomObjectEnumerator) -> HRESULT;
         }
         #[guid(0x8f792ac5_7947_4e11_bc3d_2659ff046ae1)]
         interface IOpcSignatureCustomObjectSet: IUnknown {
-            fn Create(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] xmlMarkup: *const UINT8, count: UINT32, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] customObject: *mut IOpcSignatureCustomObject) -> HRESULT;
-            fn Delete(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] customObject: IOpcSignatureCustomObject) -> HRESULT;
-            fn GetEnumerator(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] customObjectEnumerator: *mut IOpcSignatureCustomObjectEnumerator) -> HRESULT;
+            fn Create(&self, xmlMarkup: *const u8, count: u32, #[retval] customObject: *mut IOpcSignatureCustomObject) -> HRESULT;
+            fn Delete(&self, customObject: IOpcSignatureCustomObject) -> HRESULT;
+            fn GetEnumerator(&self, #[retval] customObjectEnumerator: *mut IOpcSignatureCustomObjectEnumerator) -> HRESULT;
         }
         #[guid(0xe24231ca_59f4_484e_b64b_36eeda36072c)]
         interface IOpcSignaturePartReference: IUnknown {
-            fn GetPartName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] partName: *mut IOpcPartUri) -> HRESULT;
-            fn GetContentType(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] contentType: *mut LPWSTR) -> HRESULT;
-            fn GetDigestMethod(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] digestMethod: *mut LPWSTR) -> HRESULT;
-            fn GetDigestValue(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*count", "*count")] digestValue: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
-            fn GetTransformMethod(&self, #[out] #[retval] transformMethod: *mut OPC_CANONICALIZATION_METHOD) -> HRESULT;
+            fn GetPartName(&self, #[retval] partName: *mut IOpcPartUri) -> HRESULT;
+            fn GetContentType(&self, #[retval] contentType: *mut PWSTR) -> HRESULT;
+            fn GetDigestMethod(&self, #[retval] digestMethod: *mut PWSTR) -> HRESULT;
+            fn GetDigestValue(&self, digestValue: *mut *mut u8, count: *mut u32) -> HRESULT;
+            fn GetTransformMethod(&self, #[retval] transformMethod: *mut OPC_CANONICALIZATION_METHOD) -> HRESULT;
         }
         #[guid(0x80eb1561_8c77_49cf_8266_459b356ee99a)]
         interface IOpcSignaturePartReferenceEnumerator: IUnknown {
-            fn MoveNext(&self, #[out] #[retval] hasNext: *mut BOOL) -> HRESULT;
-            fn MovePrevious(&self, #[out] #[retval] hasPrevious: *mut BOOL) -> HRESULT;
-            fn GetCurrent(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] partReference: *mut IOpcSignaturePartReference) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] copy: *mut IOpcSignaturePartReferenceEnumerator) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+            fn MovePrevious(&self, #[retval] hasPrevious: *mut BOOL) -> HRESULT;
+            fn GetCurrent(&self, #[retval] partReference: *mut IOpcSignaturePartReference) -> HRESULT;
+            fn Clone(&self, #[retval] copy: *mut IOpcSignaturePartReferenceEnumerator) -> HRESULT;
         }
         #[guid(0x6c9fe28c_ecd9_4b22_9d36_7fdde670fec0)]
         interface IOpcSignaturePartReferenceSet: IUnknown {
-            fn Create(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] partUri: IOpcPartUri, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] digestMethod: LPCWSTR, transformMethod: OPC_CANONICALIZATION_METHOD, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] partReference: *mut IOpcSignaturePartReference) -> HRESULT;
-            fn Delete(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] partReference: IOpcSignaturePartReference) -> HRESULT;
-            fn GetEnumerator(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] partReferenceEnumerator: *mut IOpcSignaturePartReferenceEnumerator) -> HRESULT;
+            fn Create(&self, partUri: IOpcPartUri, digestMethod: PCWSTR, transformMethod: OPC_CANONICALIZATION_METHOD, #[retval] partReference: *mut IOpcSignaturePartReference) -> HRESULT;
+            fn Delete(&self, partReference: IOpcSignaturePartReference) -> HRESULT;
+            fn GetEnumerator(&self, #[retval] partReferenceEnumerator: *mut IOpcSignaturePartReferenceEnumerator) -> HRESULT;
         }
         #[guid(0x1b47005e_3011_4edc_be6f_0f65e5ab0342)]
         interface IOpcSignatureReference: IUnknown {
-            fn GetId(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] referenceId: *mut LPWSTR) -> HRESULT;
-            fn GetUri(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] referenceUri: *mut IUri) -> HRESULT;
-            fn GetType(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] r#type: *mut LPWSTR) -> HRESULT;
-            fn GetTransformMethod(&self, #[out] #[retval] transformMethod: *mut OPC_CANONICALIZATION_METHOD) -> HRESULT;
-            fn GetDigestMethod(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] digestMethod: *mut LPWSTR) -> HRESULT;
-            fn GetDigestValue(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*count", "*count")] digestValue: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
+            fn GetId(&self, #[retval] referenceId: *mut PWSTR) -> HRESULT;
+            fn GetUri(&self, #[retval] referenceUri: *mut IUri) -> HRESULT;
+            fn GetType(&self, #[retval] r#type: *mut PWSTR) -> HRESULT;
+            fn GetTransformMethod(&self, #[retval] transformMethod: *mut OPC_CANONICALIZATION_METHOD) -> HRESULT;
+            fn GetDigestMethod(&self, #[retval] digestMethod: *mut PWSTR) -> HRESULT;
+            fn GetDigestValue(&self, digestValue: *mut *mut u8, count: *mut u32) -> HRESULT;
         }
         #[guid(0xcfa59a45_28b1_4868_969e_fa8097fdc12a)]
         interface IOpcSignatureReferenceEnumerator: IUnknown {
-            fn MoveNext(&self, #[out] #[retval] hasNext: *mut BOOL) -> HRESULT;
-            fn MovePrevious(&self, #[out] #[retval] hasPrevious: *mut BOOL) -> HRESULT;
-            fn GetCurrent(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] reference: *mut IOpcSignatureReference) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] copy: *mut IOpcSignatureReferenceEnumerator) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+            fn MovePrevious(&self, #[retval] hasPrevious: *mut BOOL) -> HRESULT;
+            fn GetCurrent(&self, #[retval] reference: *mut IOpcSignatureReference) -> HRESULT;
+            fn Clone(&self, #[retval] copy: *mut IOpcSignatureReferenceEnumerator) -> HRESULT;
         }
         #[guid(0xf3b02d31_ab12_42dd_9e2f_2b16761c3c1e)]
         interface IOpcSignatureReferenceSet: IUnknown {
-            fn Create(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] referenceUri: IUri, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] referenceId: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] r#type: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] digestMethod: LPCWSTR, transformMethod: OPC_CANONICALIZATION_METHOD, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] reference: *mut IOpcSignatureReference) -> HRESULT;
-            fn Delete(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] reference: IOpcSignatureReference) -> HRESULT;
-            fn GetEnumerator(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] referenceEnumerator: *mut IOpcSignatureReferenceEnumerator) -> HRESULT;
+            fn Create(&self, referenceUri: IUri, referenceId: PCWSTR, r#type: PCWSTR, digestMethod: PCWSTR, transformMethod: OPC_CANONICALIZATION_METHOD, #[retval] reference: *mut IOpcSignatureReference) -> HRESULT;
+            fn Delete(&self, reference: IOpcSignatureReference) -> HRESULT;
+            fn GetEnumerator(&self, #[retval] referenceEnumerator: *mut IOpcSignatureReferenceEnumerator) -> HRESULT;
         }
         #[guid(0x57babac6_9d4a_4e50_8b86_e5d4051eae7c)]
         interface IOpcSignatureRelationshipReference: IUnknown {
-            fn GetSourceUri(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] sourceUri: *mut IOpcUri) -> HRESULT;
-            fn GetDigestMethod(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] digestMethod: *mut LPWSTR) -> HRESULT;
-            fn GetDigestValue(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*count", "*count")] digestValue: *mut *mut UINT8, #[out] count: *mut UINT32) -> HRESULT;
-            fn GetTransformMethod(&self, #[out] #[retval] transformMethod: *mut OPC_CANONICALIZATION_METHOD) -> HRESULT;
-            fn GetRelationshipSigningOption(&self, #[out] #[retval] relationshipSigningOption: *mut OPC_RELATIONSHIPS_SIGNING_OPTION) -> HRESULT;
-            fn GetRelationshipSelectorEnumerator(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] selectorEnumerator: *mut IOpcRelationshipSelectorEnumerator) -> HRESULT;
+            fn GetSourceUri(&self, #[retval] sourceUri: *mut IOpcUri) -> HRESULT;
+            fn GetDigestMethod(&self, #[retval] digestMethod: *mut PWSTR) -> HRESULT;
+            fn GetDigestValue(&self, digestValue: *mut *mut u8, count: *mut u32) -> HRESULT;
+            fn GetTransformMethod(&self, #[retval] transformMethod: *mut OPC_CANONICALIZATION_METHOD) -> HRESULT;
+            fn GetRelationshipSigningOption(&self, #[retval] relationshipSigningOption: *mut OPC_RELATIONSHIPS_SIGNING_OPTION) -> HRESULT;
+            fn GetRelationshipSelectorEnumerator(&self, #[retval] selectorEnumerator: *mut IOpcRelationshipSelectorEnumerator) -> HRESULT;
         }
         #[guid(0x773ba3e4_f021_48e4_aa04_9816db5d3495)]
         interface IOpcSignatureRelationshipReferenceEnumerator: IUnknown {
-            fn MoveNext(&self, #[out] #[retval] hasNext: *mut BOOL) -> HRESULT;
-            fn MovePrevious(&self, #[out] #[retval] hasPrevious: *mut BOOL) -> HRESULT;
-            fn GetCurrent(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationshipReference: *mut IOpcSignatureRelationshipReference) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] copy: *mut IOpcSignatureRelationshipReferenceEnumerator) -> HRESULT;
+            fn MoveNext(&self, #[retval] hasNext: *mut BOOL) -> HRESULT;
+            fn MovePrevious(&self, #[retval] hasPrevious: *mut BOOL) -> HRESULT;
+            fn GetCurrent(&self, #[retval] relationshipReference: *mut IOpcSignatureRelationshipReference) -> HRESULT;
+            fn Clone(&self, #[retval] copy: *mut IOpcSignatureRelationshipReferenceEnumerator) -> HRESULT;
         }
         #[guid(0x9f863ca5_3631_404c_828d_807e0715069b)]
         interface IOpcSignatureRelationshipReferenceSet: IUnknown {
-            fn Create(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] sourceUri: IOpcUri, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] digestMethod: LPCWSTR, relationshipSigningOption: OPC_RELATIONSHIPS_SIGNING_OPTION, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] selectorSet: IOpcRelationshipSelectorSet, transformMethod: OPC_CANONICALIZATION_METHOD, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationshipReference: *mut IOpcSignatureRelationshipReference) -> HRESULT;
-            fn CreateRelationshipSelectorSet(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] selectorSet: *mut IOpcRelationshipSelectorSet) -> HRESULT;
-            fn Delete(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] relationshipReference: IOpcSignatureRelationshipReference) -> HRESULT;
-            fn GetEnumerator(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationshipReferenceEnumerator: *mut IOpcSignatureRelationshipReferenceEnumerator) -> HRESULT;
+            fn Create(&self, sourceUri: IOpcUri, digestMethod: PCWSTR, relationshipSigningOption: OPC_RELATIONSHIPS_SIGNING_OPTION, selectorSet: IOpcRelationshipSelectorSet, transformMethod: OPC_CANONICALIZATION_METHOD, #[retval] relationshipReference: *mut IOpcSignatureRelationshipReference) -> HRESULT;
+            fn CreateRelationshipSelectorSet(&self, selectorSet: *mut IOpcRelationshipSelectorSet) -> HRESULT;
+            fn Delete(&self, relationshipReference: IOpcSignatureRelationshipReference) -> HRESULT;
+            fn GetEnumerator(&self, #[retval] relationshipReferenceEnumerator: *mut IOpcSignatureRelationshipReferenceEnumerator) -> HRESULT;
         }
         #[guid(0x50d2d6a5_7aeb_46c0_b241_43ab0e9b407e)]
         interface IOpcSigningOptions: IUnknown {
-            fn GetSignatureId(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] signatureId: *mut LPWSTR) -> HRESULT;
-            fn SetSignatureId(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] signatureId: LPCWSTR) -> HRESULT;
-            fn GetSignatureMethod(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] signatureMethod: *mut LPWSTR) -> HRESULT;
-            fn SetSignatureMethod(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] signatureMethod: LPCWSTR) -> HRESULT;
-            fn GetDefaultDigestMethod(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_opt_string", "", "")] #[out] #[retval] digestMethod: *mut LPWSTR) -> HRESULT;
-            fn SetDefaultDigestMethod(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] digestMethod: LPCWSTR) -> HRESULT;
-            fn GetCertificateEmbeddingOption(&self, #[out] #[retval] embeddingOption: *mut OPC_CERTIFICATE_EMBEDDING_OPTION) -> HRESULT;
+            fn GetSignatureId(&self, #[retval] signatureId: *mut PWSTR) -> HRESULT;
+            fn SetSignatureId(&self, signatureId: PCWSTR) -> HRESULT;
+            fn GetSignatureMethod(&self, #[retval] signatureMethod: *mut PWSTR) -> HRESULT;
+            fn SetSignatureMethod(&self, signatureMethod: PCWSTR) -> HRESULT;
+            fn GetDefaultDigestMethod(&self, #[retval] digestMethod: *mut PWSTR) -> HRESULT;
+            fn SetDefaultDigestMethod(&self, digestMethod: PCWSTR) -> HRESULT;
+            fn GetCertificateEmbeddingOption(&self, #[retval] embeddingOption: *mut OPC_CERTIFICATE_EMBEDDING_OPTION) -> HRESULT;
             fn SetCertificateEmbeddingOption(&self, embeddingOption: OPC_CERTIFICATE_EMBEDDING_OPTION) -> HRESULT;
-            fn GetTimeFormatA(&self, #[out] #[retval] timeFormat: *mut OPC_SIGNATURE_TIME_FORMAT) -> HRESULT;
+            fn GetTimeFormat(&self, #[retval] timeFormat: *mut OPC_SIGNATURE_TIME_FORMAT) -> HRESULT;
             fn SetTimeFormat(&self, timeFormat: OPC_SIGNATURE_TIME_FORMAT) -> HRESULT;
-            fn GetSignaturePartReferenceSet(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] partReferenceSet: *mut IOpcSignaturePartReferenceSet) -> HRESULT;
-            fn GetSignatureRelationshipReferenceSet(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationshipReferenceSet: *mut IOpcSignatureRelationshipReferenceSet) -> HRESULT;
-            fn GetCustomObjectSet(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] customObjectSet: *mut IOpcSignatureCustomObjectSet) -> HRESULT;
-            fn GetCustomReferenceSet(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] customReferenceSet: *mut IOpcSignatureReferenceSet) -> HRESULT;
-            fn GetCertificateSet(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] certificateSet: *mut IOpcCertificateSet) -> HRESULT;
-            fn GetSignaturePartName(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] signaturePartName: *mut IOpcPartUri) -> HRESULT;
-            fn SetSignaturePartName(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] signaturePartName: IOpcPartUri) -> HRESULT;
+            fn GetSignaturePartReferenceSet(&self, #[retval] partReferenceSet: *mut IOpcSignaturePartReferenceSet) -> HRESULT;
+            fn GetSignatureRelationshipReferenceSet(&self, #[retval] relationshipReferenceSet: *mut IOpcSignatureRelationshipReferenceSet) -> HRESULT;
+            fn GetCustomObjectSet(&self, #[retval] customObjectSet: *mut IOpcSignatureCustomObjectSet) -> HRESULT;
+            fn GetCustomReferenceSet(&self, #[retval] customReferenceSet: *mut IOpcSignatureReferenceSet) -> HRESULT;
+            fn GetCertificateSet(&self, #[retval] certificateSet: *mut IOpcCertificateSet) -> HRESULT;
+            fn GetSignaturePartName(&self, #[retval] signaturePartName: *mut IOpcPartUri) -> HRESULT;
+            fn SetSignaturePartName(&self, signaturePartName: IOpcPartUri) -> HRESULT;
         }
         #[guid(0xbc9c1b9b_d62c_49eb_aef0_3b4e0b28ebed)]
         interface IOpcUri: IUri {
-            fn GetRelationshipsPartUri(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relationshipPartUri: *mut IOpcPartUri) -> HRESULT;
-            fn GetRelativeUri(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] targetPartUri: IOpcPartUri, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] relativeUri: *mut IUri) -> HRESULT;
-            fn CombinePartUri(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] relativeUri: IUri, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] combinedUri: *mut IOpcPartUri) -> HRESULT;
+            fn GetRelationshipsPartUri(&self, #[retval] relationshipPartUri: *mut IOpcPartUri) -> HRESULT;
+            fn GetRelativeUri(&self, targetPartUri: IOpcPartUri, #[retval] relativeUri: *mut IUri) -> HRESULT;
+            fn CombinePartUri(&self, relativeUri: IUri, #[retval] combinedUri: *mut IOpcPartUri) -> HRESULT;
         }
         #[repr(i32)]
         enum OPC_CANONICALIZATION_METHOD {
@@ -368,7 +368,8 @@ mod Windows {
         const OPC_E_ZIP_NAME_TOO_LARGE: HRESULT = -2142171126;
         const OPC_E_ZIP_REQUIRES_64_BIT: HRESULT = -2142171120;
         const OPC_E_ZIP_UNSUPPORTEDARCHIVE: HRESULT = -2142171128;
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum OPC_READ_FLAGS {
             OPC_READ_DEFAULT = 0,
             OPC_VALIDATE_ON_LOAD = 1,
@@ -408,7 +409,8 @@ mod Windows {
             OPC_URI_TARGET_MODE_INTERNAL = 0,
             OPC_URI_TARGET_MODE_EXTERNAL = 1,
         }
-        #[repr(i32)]
+        #[repr(u32)]
+        #[flags]
         enum OPC_WRITE_FLAGS {
             OPC_WRITE_DEFAULT = 0,
             OPC_WRITE_FORCE_ZIP32 = 1,

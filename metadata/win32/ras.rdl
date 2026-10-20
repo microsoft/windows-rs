@@ -6,7 +6,6 @@ mod Windows {
         const ET_Require: i32 = 1;
         const ET_RequireMax: i32 = 2;
         type HRASCONN = *mut HRASCONN__;
-        #[packed(4)]
         struct HRASCONN__ {
             unused: i32,
         }
@@ -26,21 +25,21 @@ mod Windows {
             IKEV2_ID_PAYLOAD_TYPE_KEY_ID = 11,
             IKEV2_ID_PAYLOAD_TYPE_MAX = 12,
         }
-        extern fn ORASADFUNC(param0: HWND, param1: LPSTR, param2: DWORD, param3: LPDWORD) -> BOOL;
-        extern fn PFNRASFREEBUFFER(pBufer: PBYTE) -> DWORD;
-        extern fn PFNRASGETBUFFER(ppBuffer: *mut PBYTE, pdwSize: PDWORD) -> DWORD;
-        extern fn PFNRASRECEIVEBUFFER(hPort: HANDLE, pBuffer: PBYTE, pdwSize: PDWORD, dwTimeOut: DWORD, hEvent: HANDLE) -> DWORD;
-        extern fn PFNRASRETRIEVEBUFFER(hPort: HANDLE, pBuffer: PBYTE, pdwSize: PDWORD) -> DWORD;
-        extern fn PFNRASSENDBUFFER(hPort: HANDLE, pBuffer: PBYTE, dwSize: DWORD) -> DWORD;
-        extern fn PFNRASSETCOMMSETTINGS(hPort: HANDLE, pRasCommSettings: *mut tagRASCOMMSETTINGS, pvReserved: PVOID) -> DWORD;
+        extern fn ORASADFUNC(param0: HWND, param1: PSTR, param2: u32, param3: LPDWORD) -> BOOL;
+        extern fn PFNRASFREEBUFFER(pBufer: PBYTE) -> u32;
+        extern fn PFNRASGETBUFFER(ppBuffer: *mut PBYTE, pdwSize: PDWORD) -> u32;
+        extern fn PFNRASRECEIVEBUFFER(hPort: HANDLE, pBuffer: PBYTE, pdwSize: PDWORD, dwTimeOut: u32, hEvent: HANDLE) -> u32;
+        extern fn PFNRASRETRIEVEBUFFER(hPort: HANDLE, pBuffer: PBYTE, pdwSize: PDWORD) -> u32;
+        extern fn PFNRASSENDBUFFER(hPort: HANDLE, pBuffer: PBYTE, dwSize: u32) -> u32;
+        extern fn PFNRASSETCOMMSETTINGS(hPort: HANDLE, pRasCommSettings: *mut tagRASCOMMSETTINGS, pvReserved: *mut void) -> u32;
         type PRASDEVSPECIFICINFO = *mut RASDEVSPECIFICINFO;
         type PRASIKEV2_PROJECTION_INFO = *mut RASIKEV2_PROJECTION_INFO;
         type PRASPPP_PROJECTION_INFO = *mut RASPPP_PROJECTION_INFO;
         type PRAS_PROJECTION_INFO = *mut RAS_PROJECTION_INFO;
         type PRAS_STATS = *mut RAS_STATS;
         const RASADFLG_PositionDlg: i32 = 1;
-        extern fn RASADFUNCA(param0: LPSTR, param1: LPSTR, param2: *mut tagRASADPARAMS, param3: LPDWORD) -> BOOL;
-        extern fn RASADFUNCW(param0: LPWSTR, param1: LPWSTR, param2: *mut tagRASADPARAMS, param3: LPDWORD) -> BOOL;
+        extern fn RASADFUNCA(param0: PSTR, param1: PSTR, param2: *mut tagRASADPARAMS, param3: LPDWORD) -> BOOL;
+        extern fn RASADFUNCW(param0: PWSTR, param1: PWSTR, param2: *mut tagRASADPARAMS, param3: LPDWORD) -> BOOL;
         const RASADP_ConnectionQueryTimeout: i32 = 4;
         const RASADP_DisableConnectionQuery: i32 = 0;
         const RASADP_FailedConnectionTimeout: i32 = 3;
@@ -54,6 +53,8 @@ mod Windows {
             RASAPIVERSION_601 = 4,
         }
         const RASAPIVERSION_CURRENT: RASAPIVERSION = 4;
+        const RASCCPCA_MPPC: i32 = 6;
+        const RASCCPCA_STAC: i32 = 5;
         const RASCCPO_Compression: i32 = 1;
         const RASCCPO_Encryption128bit: i32 = 64;
         const RASCCPO_Encryption40bit: i32 = 32;
@@ -80,52 +81,29 @@ mod Windows {
         const RASCSS_DONE: i32 = 8192;
         const RASCS_DONE: i32 = 8192;
         const RASCS_PAUSED: i32 = 4096;
-        #[packed(4)]
         struct RASCTRYINFO {
-            dwSize: DWORD,
-            dwCountryID: DWORD,
-            dwNextCountryID: DWORD,
-            dwCountryCode: DWORD,
-            dwCountryNameOffset: DWORD,
+            dwSize: u32,
+            dwCountryID: u32,
+            dwNextCountryID: u32,
+            dwCountryCode: u32,
+            dwCountryNameOffset: u32,
+        }
+        #[arch(X86)]
+        struct RASDEVSPECIFICINFO {
+            dwSize: u32,
+            pbDevSpecificInfo: *mut u8,
         }
         #[packed(4)]
+        #[arch(X64 | Arm64)]
         struct RASDEVSPECIFICINFO {
-            dwSize: DWORD,
-            pbDevSpecificInfo: *mut BYTE,
+            dwSize: u32,
+            pbDevSpecificInfo: *mut u8,
         }
         #[encoding("ansi")]
         const RASDIALEVENT: String = "RasDialEvent";
-        extern fn RASDIALFUNC(param0: UINT, param1: tagRASCONNSTATE, param2: DWORD);
-        extern fn RASDIALFUNC1(param0: HRASCONN, param1: UINT, param2: tagRASCONNSTATE, param3: DWORD, param4: DWORD);
-        extern fn RASDIALFUNC2(param0: ULONG_PTR, param1: DWORD, param2: HRASCONN, param3: UINT, param4: tagRASCONNSTATE, param5: DWORD, param6: DWORD) -> DWORD;
-        #[encoding("ansi")]
-        const RASDT_Atm: String = "ATM";
-        #[encoding("ansi")]
-        const RASDT_FrameRelay: String = "FRAMERELAY";
-        #[encoding("ansi")]
-        const RASDT_Generic: String = "GENERIC";
-        #[encoding("ansi")]
-        const RASDT_Irda: String = "IRDA";
-        #[encoding("ansi")]
-        const RASDT_Isdn: String = "isdn";
-        #[encoding("ansi")]
-        const RASDT_Modem: String = "modem";
-        #[encoding("ansi")]
-        const RASDT_PPPoE: String = "PPPoE";
-        #[encoding("ansi")]
-        const RASDT_Pad: String = "pad";
-        #[encoding("ansi")]
-        const RASDT_Parallel: String = "PARALLEL";
-        #[encoding("ansi")]
-        const RASDT_SW56: String = "SW56";
-        #[encoding("ansi")]
-        const RASDT_Serial: String = "SERIAL";
-        #[encoding("ansi")]
-        const RASDT_Sonet: String = "SONET";
-        #[encoding("ansi")]
-        const RASDT_Vpn: String = "vpn";
-        #[encoding("ansi")]
-        const RASDT_X25: String = "x25";
+        extern fn RASDIALFUNC(param0: u32, param1: tagRASCONNSTATE, param2: u32);
+        extern fn RASDIALFUNC1(param0: HRASCONN, param1: u32, param2: tagRASCONNSTATE, param3: u32, param4: u32);
+        extern fn RASDIALFUNC2(param0: usize, param1: u32, param2: HRASCONN, param3: u32, param4: tagRASCONNSTATE, param5: u32, param6: u32) -> u32;
         const RASEAPF_Logon: i32 = 4;
         const RASEAPF_NonInteractive: i32 = 2;
         const RASEAPF_Preview: i32 = 8;
@@ -203,22 +181,41 @@ mod Windows {
         const RASFP_Slip: i32 = 2;
         const RASIDS_Disabled: u32 = 4294967295;
         const RASIDS_UseGlobalValue: i32 = 0;
-        #[packed(4)]
+        #[arch(X86)]
         struct RASIKEV2_PROJECTION_INFO {
-            dwIPv4NegotiationError: DWORD,
+            dwIPv4NegotiationError: u32,
             ipv4Address: RASIPV4ADDR,
             ipv4ServerAddress: RASIPV4ADDR,
-            dwIPv6NegotiationError: DWORD,
+            dwIPv6NegotiationError: u32,
             ipv6Address: RASIPV6ADDR,
             ipv6ServerAddress: RASIPV6ADDR,
-            dwPrefixLength: DWORD,
-            dwAuthenticationProtocol: DWORD,
-            dwEapTypeId: DWORD,
-            dwFlags: DWORD,
-            dwEncryptionMethod: DWORD,
-            numIPv4ServerAddresses: DWORD,
+            dwPrefixLength: u32,
+            dwAuthenticationProtocol: u32,
+            dwEapTypeId: u32,
+            dwFlags: u32,
+            dwEncryptionMethod: u32,
+            numIPv4ServerAddresses: u32,
             ipv4ServerAddresses: *mut RASIPV4ADDR,
-            numIPv6ServerAddresses: DWORD,
+            numIPv6ServerAddresses: u32,
+            ipv6ServerAddresses: *mut RASIPV6ADDR,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct RASIKEV2_PROJECTION_INFO {
+            dwIPv4NegotiationError: u32,
+            ipv4Address: RASIPV4ADDR,
+            ipv4ServerAddress: RASIPV4ADDR,
+            dwIPv6NegotiationError: u32,
+            ipv6Address: RASIPV6ADDR,
+            ipv6ServerAddress: RASIPV6ADDR,
+            dwPrefixLength: u32,
+            dwAuthenticationProtocol: u32,
+            dwEapTypeId: u32,
+            dwFlags: u32,
+            dwEncryptionMethod: u32,
+            numIPv4ServerAddresses: u32,
+            ipv4ServerAddresses: *mut RASIPV4ADDR,
+            numIPv6ServerAddresses: u32,
             ipv6ServerAddresses: *mut RASIPV6ADDR,
         }
         const RASIKEv2_AUTH_EAP: i32 = 2;
@@ -227,12 +224,11 @@ mod Windows {
         const RASIKEv2_FLAGS_BEHIND_NAT: i32 = 2;
         const RASIKEv2_FLAGS_MOBIKESUPPORTED: i32 = 1;
         const RASIKEv2_FLAGS_SERVERBEHIND_NAT: i32 = 4;
-        #[packed(4)]
         struct RASIPADDR {
-            a: BYTE,
-            b: BYTE,
-            c: BYTE,
-            d: BYTE,
+            a: u8,
+            b: u8,
+            c: u8,
+            d: u8,
         }
         const RASIPO_VJ: i32 = 1;
         type RASIPV4ADDR = IN_ADDR;
@@ -259,31 +255,30 @@ mod Windows {
         const RASNP_Ipv6: i32 = 8;
         const RASNP_Ipx: i32 = 2;
         const RASNP_NetBEUI: i32 = 1;
-        #[packed(4)]
         struct RASPPP_PROJECTION_INFO {
-            dwIPv4NegotiationError: DWORD,
+            dwIPv4NegotiationError: u32,
             ipv4Address: RASIPV4ADDR,
             ipv4ServerAddress: RASIPV4ADDR,
-            dwIPv4Options: DWORD,
-            dwIPv4ServerOptions: DWORD,
-            dwIPv6NegotiationError: DWORD,
-            bInterfaceIdentifier: [BYTE; 8],
-            bServerInterfaceIdentifier: [BYTE; 8],
+            dwIPv4Options: u32,
+            dwIPv4ServerOptions: u32,
+            dwIPv6NegotiationError: u32,
+            bInterfaceIdentifier: [u8; 8],
+            bServerInterfaceIdentifier: [u8; 8],
             fBundled: BOOL,
             fMultilink: BOOL,
-            dwAuthenticationProtocol: DWORD,
-            dwAuthenticationData: DWORD,
-            dwServerAuthenticationProtocol: DWORD,
-            dwServerAuthenticationData: DWORD,
-            dwEapTypeId: DWORD,
-            dwServerEapTypeId: DWORD,
-            dwLcpOptions: DWORD,
-            dwLcpServerOptions: DWORD,
-            dwCcpError: DWORD,
-            dwCcpCompressionAlgorithm: DWORD,
-            dwCcpServerCompressionAlgorithm: DWORD,
-            dwCcpOptions: DWORD,
-            dwCcpServerOptions: DWORD,
+            dwAuthenticationProtocol: u32,
+            dwAuthenticationData: u32,
+            dwServerAuthenticationProtocol: u32,
+            dwServerAuthenticationData: u32,
+            dwEapTypeId: u32,
+            dwServerEapTypeId: u32,
+            dwLcpOptions: u32,
+            dwLcpServerOptions: u32,
+            dwCcpError: u32,
+            dwCcpCompressionAlgorithm: u32,
+            dwCcpServerCompressionAlgorithm: u32,
+            dwCcpOptions: u32,
+            dwCcpServerOptions: u32,
         }
         #[repr(i32)]
         enum RASPROJECTION_INFO_TYPE {
@@ -308,32 +303,30 @@ mod Windows {
         const RAS_MaxReplyMessage: i32 = 1024;
         const RAS_MaxUserData: i32 = 200;
         const RAS_MaxX25Address: i32 = 200;
-        #[packed(4)]
         struct RAS_PROJECTION_INFO {
             version: RASAPIVERSION,
             r#type: RASPROJECTION_INFO_TYPE,
-            Anonymous: #[packed(4)] union {
+            Anonymous: union {
                 ppp: RASPPP_PROJECTION_INFO,
                 ikev2: RASIKEV2_PROJECTION_INFO,
             },
         }
-        #[packed(4)]
         struct RAS_STATS {
-            dwSize: DWORD,
-            dwBytesXmited: DWORD,
-            dwBytesRcved: DWORD,
-            dwFramesXmited: DWORD,
-            dwFramesRcved: DWORD,
-            dwCrcErr: DWORD,
-            dwTimeoutErr: DWORD,
-            dwAlignmentErr: DWORD,
-            dwHardwareOverrunErr: DWORD,
-            dwFramingErr: DWORD,
-            dwBufferOverrunErr: DWORD,
-            dwCompressionRatioIn: DWORD,
-            dwCompressionRatioOut: DWORD,
-            dwBps: DWORD,
-            dwConnectDuration: DWORD,
+            dwSize: u32,
+            dwBytesXmited: u32,
+            dwBytesRcved: u32,
+            dwFramesXmited: u32,
+            dwFramesRcved: u32,
+            dwCrcErr: u32,
+            dwTimeoutErr: u32,
+            dwAlignmentErr: u32,
+            dwHardwareOverrunErr: u32,
+            dwFramingErr: u32,
+            dwBufferOverrunErr: u32,
+            dwCompressionRatioIn: u32,
+            dwCompressionRatioOut: u32,
+            dwBps: u32,
+            dwConnectDuration: u32,
         }
         const RCD_AllUsers: i32 = 1;
         const RCD_Eap: i32 = 2;
@@ -358,253 +351,177 @@ mod Windows {
         const REN_AllUsers: i32 = 1;
         const REN_User: i32 = 0;
         #[library("RASAPI32.dll")]
-        extern fn RasClearConnectionStatistics(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hRasConn: HRASCONN) -> DWORD;
+        extern fn RasClearConnectionStatistics(hRasConn: HRASCONN) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasClearLinkStatistics(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hRasConn: HRASCONN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSubEntry: DWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasConnectionNotificationA")]
-        extern fn RasConnectionNotification(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: DWORD) -> DWORD;
+        extern fn RasClearLinkStatistics(hRasConn: HRASCONN, dwSubEntry: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasConnectionNotificationA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: DWORD) -> DWORD;
+        extern fn RasConnectionNotificationA(param0: HRASCONN, param1: HANDLE, param2: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasConnectionNotificationW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: DWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasCreatePhonebookEntryA")]
-        extern fn RasCreatePhonebookEntry(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR) -> DWORD;
+        extern fn RasConnectionNotificationW(param0: HRASCONN, param1: HANDLE, param2: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasCreatePhonebookEntryA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR) -> DWORD;
+        extern fn RasCreatePhonebookEntryA(param0: HWND, #[opt] param1: PCSTR) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasCreatePhonebookEntryW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR) -> DWORD;
-        extern fn RasCustomDeleteEntryNotifyFn(lpszPhonebook: LPCWSTR, lpszEntry: LPCWSTR, dwFlags: DWORD) -> DWORD;
-        extern fn RasCustomDialFn(hInstDll: HINSTANCE, lpRasDialExtensions: *mut tagRASDIALEXTENSIONS, lpszPhonebook: LPCWSTR, lpRasDialParams: *mut tagRASDIALPARAMSA, dwNotifierType: DWORD, lpvNotifier: LPVOID, lphRasConn: *mut HRASCONN, dwFlags: DWORD) -> DWORD;
-        extern fn RasCustomHangUpFn(hRasConn: HRASCONN) -> DWORD;
-        extern fn RasCustomScriptExecuteFn(hPort: HANDLE, lpszPhonebook: LPCWSTR, lpszEntryName: LPCWSTR, pfnRasGetBuffer: PFNRASGETBUFFER, pfnRasFreeBuffer: PFNRASFREEBUFFER, pfnRasSendBuffer: PFNRASSENDBUFFER, pfnRasReceiveBuffer: PFNRASRECEIVEBUFFER, pfnRasRetrieveBuffer: PFNRASRETRIEVEBUFFER, hWnd: HWND, pRasDialParams: *mut tagRASDIALPARAMSA, pvReserved: PVOID) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasDeleteEntryA")]
-        extern fn RasDeleteEntry(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR) -> DWORD;
+        extern fn RasCreatePhonebookEntryW(param0: HWND, #[opt] param1: PCWSTR) -> u32;
+        extern fn RasCustomDeleteEntryNotifyFn(lpszPhonebook: PCWSTR, lpszEntry: PCWSTR, dwFlags: u32) -> u32;
+        extern fn RasCustomDialFn(hInstDll: HINSTANCE, lpRasDialExtensions: *mut tagRASDIALEXTENSIONS, lpszPhonebook: PCWSTR, lpRasDialParams: *mut tagRASDIALPARAMSA, dwNotifierType: u32, lpvNotifier: *mut void, lphRasConn: *mut HRASCONN, dwFlags: u32) -> u32;
+        extern fn RasCustomHangUpFn(hRasConn: HRASCONN) -> u32;
+        extern fn RasCustomScriptExecuteFn(hPort: HANDLE, lpszPhonebook: PCWSTR, lpszEntryName: PCWSTR, pfnRasGetBuffer: PFNRASGETBUFFER, pfnRasFreeBuffer: PFNRASFREEBUFFER, pfnRasSendBuffer: PFNRASSENDBUFFER, pfnRasReceiveBuffer: PFNRASRECEIVEBUFFER, pfnRasRetrieveBuffer: PFNRASRETRIEVEBUFFER, hWnd: HWND, pRasDialParams: *mut tagRASDIALPARAMSA, pvReserved: *mut void) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasDeleteEntryA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR) -> DWORD;
+        extern fn RasDeleteEntryA(#[opt] param0: PCSTR, param1: PCSTR) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasDeleteEntryW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasDeleteSubEntryA")]
-        extern fn RasDeleteSubEntry(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSubentryId: DWORD) -> DWORD;
+        extern fn RasDeleteEntryW(#[opt] param0: PCWSTR, param1: PCWSTR) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasDeleteSubEntryA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSubentryId: DWORD) -> DWORD;
+        extern fn RasDeleteSubEntryA(#[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, dwSubentryId: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasDeleteSubEntryW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSubEntryId: DWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasDialA")]
-        extern fn RasDial(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: *mut tagRASDIALEXTENSIONS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: *mut tagRASDIALPARAMSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param4: LPVOID, #[out] param5: *mut HRASCONN) -> DWORD;
+        extern fn RasDeleteSubEntryW(#[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, dwSubEntryId: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasDialA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: *mut tagRASDIALEXTENSIONS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: *mut tagRASDIALPARAMSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param4: LPVOID, #[out] param5: *mut HRASCONN) -> DWORD;
+        extern fn RasDialA(#[in] #[opt] param0: *mut tagRASDIALEXTENSIONS, #[opt] param1: PCSTR, #[in] param2: *mut tagRASDIALPARAMSA, param3: u32, #[in] #[opt] param4: *mut void, param5: *mut HRASCONN) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasDialW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: *mut tagRASDIALEXTENSIONS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: *mut tagRASDIALPARAMSW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param4: LPVOID, #[out] param5: *mut HRASCONN) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasEditPhonebookEntryA")]
-        extern fn RasEditPhonebookEntry(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: LPCSTR) -> DWORD;
+        extern fn RasDialW(#[in] #[opt] param0: *mut tagRASDIALEXTENSIONS, #[opt] param1: PCWSTR, #[in] param2: *mut tagRASDIALPARAMSW, param3: u32, #[in] #[opt] param4: *mut void, param5: *mut HRASCONN) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEditPhonebookEntryA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: LPCSTR) -> DWORD;
+        extern fn RasEditPhonebookEntryA(param0: HWND, #[opt] param1: PCSTR, param2: PCSTR) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEditPhonebookEntryW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HWND, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: LPCWSTR) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasEnumAutodialAddressesA")]
-        extern fn RasEnumAutodialAddresses(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_opt_", "*lpdwcbRasAutodialAddresses", "*lpdwcbRasAutodialAddresses")] #[in] #[out] #[opt] lppRasAutodialAddresses: *mut LPSTR, #[in] #[out] lpdwcbRasAutodialAddresses: LPDWORD, #[out] lpdwcRasAutodialAddresses: LPDWORD) -> DWORD;
+        extern fn RasEditPhonebookEntryW(param0: HWND, #[opt] param1: PCWSTR, param2: PCWSTR) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumAutodialAddressesA(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_opt_", "*lpdwcbRasAutodialAddresses", "*lpdwcbRasAutodialAddresses")] #[in] #[out] #[opt] lppRasAutodialAddresses: *mut LPSTR, #[in] #[out] lpdwcbRasAutodialAddresses: LPDWORD, #[out] lpdwcRasAutodialAddresses: LPDWORD) -> DWORD;
+        extern fn RasEnumAutodialAddressesA(#[size_param(1)] #[in] #[out] #[opt] lppRasAutodialAddresses: *mut PSTR, #[in] #[out] lpdwcbRasAutodialAddresses: LPDWORD, #[out] lpdwcRasAutodialAddresses: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumAutodialAddressesW(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_opt_", "*lpdwcbRasAutodialAddresses", "*lpdwcbRasAutodialAddresses")] #[in] #[out] #[opt] lppRasAutodialAddresses: *mut LPWSTR, #[in] #[out] lpdwcbRasAutodialAddresses: LPDWORD, #[out] lpdwcRasAutodialAddresses: LPDWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasEnumConnectionsA")]
-        extern fn RasEnumConnections(#[in] #[out] #[opt] param0: *mut tagRASCONNA, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> DWORD;
+        extern fn RasEnumAutodialAddressesW(#[size_param(1)] #[in] #[out] #[opt] lppRasAutodialAddresses: *mut PWSTR, #[in] #[out] lpdwcbRasAutodialAddresses: LPDWORD, #[out] lpdwcRasAutodialAddresses: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumConnectionsA(#[in] #[out] #[opt] param0: *mut tagRASCONNA, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> DWORD;
+        extern fn RasEnumConnectionsA(#[in] #[out] #[opt] param0: *mut tagRASCONNA, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumConnectionsW(#[in] #[out] #[opt] param0: *mut tagRASCONNW, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasEnumDevicesA")]
-        extern fn RasEnumDevices(#[in] #[out] #[opt] param0: *mut tagRASDEVINFOA, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> DWORD;
+        extern fn RasEnumConnectionsW(#[in] #[out] #[opt] param0: *mut tagRASCONNW, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumDevicesA(#[in] #[out] #[opt] param0: *mut tagRASDEVINFOA, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> DWORD;
+        extern fn RasEnumDevicesA(#[in] #[out] #[opt] param0: *mut tagRASDEVINFOA, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumDevicesW(#[in] #[out] #[opt] param0: *mut tagRASDEVINFOW, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasEnumEntriesA")]
-        extern fn RasEnumEntries(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYNAMEA, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> DWORD;
+        extern fn RasEnumDevicesW(#[in] #[out] #[opt] param0: *mut tagRASDEVINFOW, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumEntriesA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYNAMEA, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> DWORD;
+        extern fn RasEnumEntriesA(#[opt] param0: PCSTR, #[opt] param1: PCSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYNAMEA, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumEntriesW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYNAMEW, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasFreeEapUserIdentityA")]
-        extern fn RasFreeEapUserIdentity(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRasEapUserIdentity: *mut tagRASEAPUSERIDENTITYA);
+        extern fn RasEnumEntriesW(#[opt] param0: PCWSTR, #[opt] param1: PCWSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYNAMEW, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasFreeEapUserIdentityA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRasEapUserIdentity: *mut tagRASEAPUSERIDENTITYA);
+        extern fn RasFreeEapUserIdentityA(#[in] pRasEapUserIdentity: *mut tagRASEAPUSERIDENTITYA);
         #[library("RASAPI32.dll")]
-        extern fn RasFreeEapUserIdentityW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pRasEapUserIdentity: *mut tagRASEAPUSERIDENTITYW);
-        #[library("RASAPI32.dll", import = "RasGetAutodialAddressA")]
-        extern fn RasGetAutodialAddress(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPDWORD, #[in] #[out] #[opt] param2: *mut tagRASAUTODIALENTRYA, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> DWORD;
+        extern fn RasFreeEapUserIdentityW(#[in] pRasEapUserIdentity: *mut tagRASEAPUSERIDENTITYW);
         #[library("RASAPI32.dll")]
-        extern fn RasGetAutodialAddressA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPDWORD, #[in] #[out] #[opt] param2: *mut tagRASAUTODIALENTRYA, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> DWORD;
+        extern fn RasGetAutodialAddressA(#[opt] param0: PCSTR, #[opt] param1: LPDWORD, #[in] #[out] #[opt] param2: *mut tagRASAUTODIALENTRYA, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetAutodialAddressW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPDWORD, #[in] #[out] #[opt] param2: *mut tagRASAUTODIALENTRYW, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetAutodialEnableA")]
-        extern fn RasGetAutodialEnable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: DWORD, #[out] param1: LPBOOL) -> DWORD;
+        extern fn RasGetAutodialAddressW(#[opt] param0: PCWSTR, #[opt] param1: LPDWORD, #[in] #[out] #[opt] param2: *mut tagRASAUTODIALENTRYW, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetAutodialEnableA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: DWORD, #[out] param1: LPBOOL) -> DWORD;
+        extern fn RasGetAutodialEnableA(param0: u32, #[out] param1: LPBOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetAutodialEnableW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: DWORD, #[out] param1: LPBOOL) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetAutodialParamA")]
-        extern fn RasGetAutodialParam(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: DWORD, #[out] param1: LPVOID, #[in] #[out] param2: LPDWORD) -> DWORD;
+        extern fn RasGetAutodialEnableW(param0: u32, #[out] param1: LPBOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetAutodialParamA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: DWORD, #[out] param1: LPVOID, #[in] #[out] param2: LPDWORD) -> DWORD;
+        extern fn RasGetAutodialParamA(param0: u32, param1: *mut void, #[in] #[out] param2: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetAutodialParamW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: DWORD, #[out] param1: LPVOID, #[in] #[out] param2: LPDWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetConnectStatusA")]
-        extern fn RasGetConnectStatus(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN, #[in] #[out] param1: *mut tagRASCONNSTATUSA) -> DWORD;
+        extern fn RasGetAutodialParamW(param0: u32, param1: *mut void, #[in] #[out] param2: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetConnectStatusA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN, #[in] #[out] param1: *mut tagRASCONNSTATUSA) -> DWORD;
+        extern fn RasGetConnectStatusA(param0: HRASCONN, #[in] #[out] param1: *mut tagRASCONNSTATUSA) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetConnectStatusW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN, #[in] #[out] param1: *mut tagRASCONNSTATUSW) -> DWORD;
+        extern fn RasGetConnectStatusW(param0: HRASCONN, #[in] #[out] param1: *mut tagRASCONNSTATUSW) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetConnectionStatistics(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hRasConn: HRASCONN, #[in] #[out] lpStatistics: *mut RAS_STATS) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetCountryInfoA")]
-        extern fn RasGetCountryInfo(#[in] #[out] #[opt] param0: *mut RASCTRYINFO, #[in] #[out] param1: LPDWORD) -> DWORD;
+        extern fn RasGetConnectionStatistics(hRasConn: HRASCONN, #[in] #[out] lpStatistics: *mut RAS_STATS) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetCountryInfoA(#[in] #[out] #[opt] param0: *mut RASCTRYINFO, #[in] #[out] param1: LPDWORD) -> DWORD;
+        extern fn RasGetCountryInfoA(#[in] #[out] #[opt] param0: *mut RASCTRYINFO, #[in] #[out] param1: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetCountryInfoW(#[in] #[out] #[opt] param0: *mut RASCTRYINFO, #[in] #[out] param1: LPDWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetCredentialsA")]
-        extern fn RasGetCredentials(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[out] param2: *mut tagRASCREDENTIALSA) -> DWORD;
+        extern fn RasGetCountryInfoW(#[in] #[out] #[opt] param0: *mut RASCTRYINFO, #[in] #[out] param1: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetCredentialsA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[out] param2: *mut tagRASCREDENTIALSA) -> DWORD;
+        extern fn RasGetCredentialsA(#[opt] param0: PCSTR, param1: PCSTR, #[in] #[out] param2: *mut tagRASCREDENTIALSA) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetCredentialsW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR, #[in] #[out] param2: *mut tagRASCREDENTIALSW) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetCustomAuthDataA")]
-        extern fn RasGetCustomAuthData(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pdwSizeofCustomAuthData", "*pdwSizeofCustomAuthData")] #[out] #[opt] pbCustomAuthData: *mut BYTE, #[in] #[out] pdwSizeofCustomAuthData: *mut DWORD) -> DWORD;
+        extern fn RasGetCredentialsW(#[opt] param0: PCWSTR, param1: PCWSTR, #[in] #[out] param2: *mut tagRASCREDENTIALSW) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetCustomAuthDataA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pdwSizeofCustomAuthData", "*pdwSizeofCustomAuthData")] #[out] #[opt] pbCustomAuthData: *mut BYTE, #[in] #[out] pdwSizeofCustomAuthData: *mut DWORD) -> DWORD;
+        extern fn RasGetCustomAuthDataA(#[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, #[size_param(3)] #[opt] pbCustomAuthData: *mut u8, #[in] #[out] pdwSizeofCustomAuthData: *mut u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetCustomAuthDataW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pdwSizeofCustomAuthData", "*pdwSizeofCustomAuthData")] #[out] #[opt] pbCustomAuthData: *mut BYTE, #[in] #[out] pdwSizeofCustomAuthData: *mut DWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetEapUserDataA")]
-        extern fn RasGetEapUserData(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCSTR, #[out] #[opt] pbEapData: *mut BYTE, #[in] #[out] pdwSizeofEapData: *mut DWORD) -> DWORD;
+        extern fn RasGetCustomAuthDataW(#[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, #[size_param(3)] #[opt] pbCustomAuthData: *mut u8, #[in] #[out] pdwSizeofCustomAuthData: *mut u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetEapUserDataA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCSTR, #[out] #[opt] pbEapData: *mut BYTE, #[in] #[out] pdwSizeofEapData: *mut DWORD) -> DWORD;
+        extern fn RasGetEapUserDataA(#[opt] hToken: HANDLE, #[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, #[opt] pbEapData: *mut u8, #[in] #[out] pdwSizeofEapData: *mut u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetEapUserDataW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCWSTR, #[out] #[opt] pbEapData: *mut BYTE, #[in] #[out] pdwSizeofEapData: *mut DWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetEapUserIdentityA")]
-        extern fn RasGetEapUserIdentity(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[out] ppRasEapUserIdentity: *mut *mut tagRASEAPUSERIDENTITYA) -> DWORD;
+        extern fn RasGetEapUserDataW(#[opt] hToken: HANDLE, #[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, #[opt] pbEapData: *mut u8, #[in] #[out] pdwSizeofEapData: *mut u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetEapUserIdentityA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[out] ppRasEapUserIdentity: *mut *mut tagRASEAPUSERIDENTITYA) -> DWORD;
+        extern fn RasGetEapUserIdentityA(#[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, dwFlags: u32, hwnd: HWND, ppRasEapUserIdentity: *mut *mut tagRASEAPUSERIDENTITYA) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetEapUserIdentityW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwnd: HWND, #[out] ppRasEapUserIdentity: *mut *mut tagRASEAPUSERIDENTITYW) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetEntryDialParamsA")]
-        extern fn RasGetEntryDialParams(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[out] param1: *mut tagRASDIALPARAMSA, #[out] param2: LPBOOL) -> DWORD;
+        extern fn RasGetEapUserIdentityW(#[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, dwFlags: u32, hwnd: HWND, ppRasEapUserIdentity: *mut *mut tagRASEAPUSERIDENTITYW) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetEntryDialParamsA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[out] param1: *mut tagRASDIALPARAMSA, #[out] param2: LPBOOL) -> DWORD;
+        extern fn RasGetEntryDialParamsA(#[opt] param0: PCSTR, #[in] #[out] param1: *mut tagRASDIALPARAMSA, #[out] param2: LPBOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetEntryDialParamsW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[out] param1: *mut tagRASDIALPARAMSW, #[out] param2: LPBOOL) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetEntryPropertiesA")]
-        extern fn RasGetEntryProperties(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYA, #[in] #[out] param3: LPDWORD, #[out] #[opt] param4: LPBYTE, #[in] #[out] #[opt] param5: LPDWORD) -> DWORD;
+        extern fn RasGetEntryDialParamsW(#[opt] param0: PCWSTR, #[in] #[out] param1: *mut tagRASDIALPARAMSW, #[out] param2: LPBOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetEntryPropertiesA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYA, #[in] #[out] param3: LPDWORD, #[out] #[opt] param4: LPBYTE, #[in] #[out] #[opt] param5: LPDWORD) -> DWORD;
+        extern fn RasGetEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYA, #[in] #[out] param3: LPDWORD, #[out] #[opt] param4: LPBYTE, #[in] #[out] #[opt] param5: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetEntryPropertiesW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYW, #[in] #[out] param3: LPDWORD, #[out] #[opt] param4: LPBYTE, #[in] #[out] #[opt] param5: LPDWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetErrorStringA")]
-        extern fn RasGetErrorString(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ResourceId: UINT, #[out] #[len_param(2)] lpszString: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InBufSize: DWORD) -> DWORD;
+        extern fn RasGetEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYW, #[in] #[out] param3: LPDWORD, #[out] #[opt] param4: LPBYTE, #[in] #[out] #[opt] param5: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetErrorStringA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ResourceId: UINT, #[out] #[len_param(2)] lpszString: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InBufSize: DWORD) -> DWORD;
+        extern fn RasGetErrorStringA(ResourceId: u32, #[len_param(2)] #[out] lpszString: PSTR, InBufSize: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetErrorStringW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ResourceId: UINT, #[out] #[len_param(2)] lpszString: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] InBufSize: DWORD) -> DWORD;
+        extern fn RasGetErrorStringW(ResourceId: u32, #[len_param(2)] #[out] lpszString: PWSTR, InBufSize: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetLinkStatistics(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hRasConn: HRASCONN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSubEntry: DWORD, #[in] #[out] lpStatistics: *mut RAS_STATS) -> DWORD;
+        extern fn RasGetLinkStatistics(hRasConn: HRASCONN, dwSubEntry: u32, #[in] #[out] lpStatistics: *mut RAS_STATS) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetPCscf(#[out] lpszPCscf: LPWSTR) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetProjectionInfoA")]
-        extern fn RasGetProjectionInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: tagRASPROJECTION, #[out] param2: LPVOID, #[in] #[out] param3: LPDWORD) -> DWORD;
+        extern fn RasGetPCscf(#[out] lpszPCscf: PWSTR) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetProjectionInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: tagRASPROJECTION, #[out] param2: LPVOID, #[in] #[out] param3: LPDWORD) -> DWORD;
+        extern fn RasGetProjectionInfoA(param0: HRASCONN, param1: tagRASPROJECTION, param2: *mut void, #[in] #[out] param3: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetProjectionInfoEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hrasconn: HRASCONN, #[in] #[out] #[opt] pRasProjection: PRAS_PROJECTION_INFO, #[in] #[out] lpdwSize: LPDWORD) -> DWORD;
+        extern fn RasGetProjectionInfoEx(hrasconn: HRASCONN, #[in] #[out] #[opt] pRasProjection: PRAS_PROJECTION_INFO, #[in] #[out] lpdwSize: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetProjectionInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: tagRASPROJECTION, #[out] param2: LPVOID, #[in] #[out] param3: LPDWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetSubEntryHandleA")]
-        extern fn RasGetSubEntryHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: DWORD, #[out] param2: *mut HRASCONN) -> DWORD;
+        extern fn RasGetProjectionInfoW(param0: HRASCONN, param1: tagRASPROJECTION, param2: *mut void, #[in] #[out] param3: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetSubEntryHandleA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: DWORD, #[out] param2: *mut HRASCONN) -> DWORD;
+        extern fn RasGetSubEntryHandleA(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetSubEntryHandleW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: DWORD, #[out] param2: *mut HRASCONN) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasGetSubEntryPropertiesA")]
-        extern fn RasGetSubEntryProperties(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: DWORD, #[in] #[out] #[opt] param3: *mut tagRASSUBENTRYA, #[in] #[out] #[opt] param4: LPDWORD, #[out] #[opt] param5: LPBYTE, #[in] #[out] #[opt] param6: LPDWORD) -> DWORD;
+        extern fn RasGetSubEntryHandleW(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetSubEntryPropertiesA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: DWORD, #[in] #[out] #[opt] param3: *mut tagRASSUBENTRYA, #[in] #[out] #[opt] param4: LPDWORD, #[out] #[opt] param5: LPBYTE, #[in] #[out] #[opt] param6: LPDWORD) -> DWORD;
+        extern fn RasGetSubEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, param2: u32, #[in] #[out] #[opt] param3: *mut tagRASSUBENTRYA, #[in] #[out] #[opt] param4: LPDWORD, #[out] #[opt] param5: LPBYTE, #[in] #[out] #[opt] param6: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetSubEntryPropertiesW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: DWORD, #[in] #[out] #[opt] param3: *mut tagRASSUBENTRYW, #[in] #[out] #[opt] param4: LPDWORD, #[out] #[opt] param5: LPBYTE, #[in] #[out] #[opt] param6: LPDWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasHangUpA")]
-        extern fn RasHangUp(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN) -> DWORD;
+        extern fn RasGetSubEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: u32, #[in] #[out] #[opt] param3: *mut tagRASSUBENTRYW, #[in] #[out] #[opt] param4: LPDWORD, #[out] #[opt] param5: LPBYTE, #[in] #[out] #[opt] param6: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasHangUpA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN) -> DWORD;
+        extern fn RasHangUpA(param0: HRASCONN) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasHangUpW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN) -> DWORD;
+        extern fn RasHangUpW(param0: HRASCONN) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasInvokeEapUI(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: HRASCONN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: *mut tagRASDIALEXTENSIONS, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: HWND) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasRenameEntryA")]
-        extern fn RasRenameEntry(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: LPCSTR) -> DWORD;
+        extern fn RasInvokeEapUI(param0: HRASCONN, param1: u32, #[in] param2: *mut tagRASDIALEXTENSIONS, param3: HWND) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasRenameEntryA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: LPCSTR) -> DWORD;
+        extern fn RasRenameEntryA(#[opt] param0: PCSTR, param1: PCSTR, param2: PCSTR) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasRenameEntryW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: LPCWSTR) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasSetAutodialAddressA")]
-        extern fn RasSetAutodialAddress(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: *mut tagRASAUTODIALENTRYA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param4: DWORD) -> DWORD;
+        extern fn RasRenameEntryW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: PCWSTR) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetAutodialAddressA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: *mut tagRASAUTODIALENTRYA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param4: DWORD) -> DWORD;
+        extern fn RasSetAutodialAddressA(#[opt] param0: PCSTR, param1: u32, #[in] #[opt] param2: *mut tagRASAUTODIALENTRYA, param3: u32, param4: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetAutodialAddressW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: *mut tagRASAUTODIALENTRYW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param4: DWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasSetAutodialEnableA")]
-        extern fn RasSetAutodialEnable(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: BOOL) -> DWORD;
+        extern fn RasSetAutodialAddressW(#[opt] param0: PCWSTR, param1: u32, #[in] #[opt] param2: *mut tagRASAUTODIALENTRYW, param3: u32, param4: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetAutodialEnableA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: BOOL) -> DWORD;
+        extern fn RasSetAutodialEnableA(param0: u32, param1: BOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetAutodialEnableW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: BOOL) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasSetAutodialParamA")]
-        extern fn RasSetAutodialParam(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: DWORD) -> DWORD;
+        extern fn RasSetAutodialEnableW(param0: u32, param1: BOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetAutodialParamA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: DWORD) -> DWORD;
+        extern fn RasSetAutodialParamA(param0: u32, #[in] param1: *mut void, param2: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetAutodialParamW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: DWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasSetCredentialsA")]
-        extern fn RasSetCredentials(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: *mut tagRASCREDENTIALSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: BOOL) -> DWORD;
+        extern fn RasSetAutodialParamW(param0: u32, #[in] param1: *mut void, param2: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetCredentialsA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: *mut tagRASCREDENTIALSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: BOOL) -> DWORD;
+        extern fn RasSetCredentialsA(#[opt] param0: PCSTR, param1: PCSTR, #[in] param2: *mut tagRASCREDENTIALSA, param3: BOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetCredentialsW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: *mut tagRASCREDENTIALSW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: BOOL) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasSetCustomAuthDataA")]
-        extern fn RasSetCustomAuthData(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pbCustomAuthData: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSizeofCustomAuthData: DWORD) -> DWORD;
+        extern fn RasSetCredentialsW(#[opt] param0: PCWSTR, param1: PCWSTR, #[in] param2: *mut tagRASCREDENTIALSW, param3: BOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetCustomAuthDataA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pbCustomAuthData: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSizeofCustomAuthData: DWORD) -> DWORD;
+        extern fn RasSetCustomAuthDataA(#[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, #[size_param(3)] #[in] pbCustomAuthData: *mut u8, dwSizeofCustomAuthData: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetCustomAuthDataW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] pbCustomAuthData: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSizeofCustomAuthData: DWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasSetEapUserDataA")]
-        extern fn RasSetEapUserData(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pbEapData: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSizeofEapData: DWORD) -> DWORD;
+        extern fn RasSetCustomAuthDataW(#[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, #[size_param(3)] #[in] pbCustomAuthData: *mut u8, dwSizeofCustomAuthData: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetEapUserDataA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pbEapData: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSizeofEapData: DWORD) -> DWORD;
+        extern fn RasSetEapUserDataA(#[opt] hToken: HANDLE, #[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, #[in] pbEapData: *mut u8, dwSizeofEapData: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetEapUserDataW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hToken: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszPhonebook: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszEntry: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pbEapData: *mut BYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwSizeofEapData: DWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasSetEntryDialParamsA")]
-        extern fn RasSetEntryDialParams(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: *mut tagRASDIALPARAMSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: BOOL) -> DWORD;
+        extern fn RasSetEapUserDataW(#[opt] hToken: HANDLE, #[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, #[in] pbEapData: *mut u8, dwSizeofEapData: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetEntryDialParamsA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: *mut tagRASDIALPARAMSA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: BOOL) -> DWORD;
+        extern fn RasSetEntryDialParamsA(#[opt] param0: PCSTR, #[in] param1: *mut tagRASDIALPARAMSA, param2: BOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetEntryDialParamsW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: *mut tagRASDIALPARAMSW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: BOOL) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasSetEntryPropertiesA")]
-        extern fn RasSetEntryProperties(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: *mut tagRASENTRYA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param4: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param5: DWORD) -> DWORD;
+        extern fn RasSetEntryDialParamsW(#[opt] param0: PCWSTR, #[in] param1: *mut tagRASDIALPARAMSW, param2: BOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetEntryPropertiesA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: *mut tagRASENTRYA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param4: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param5: DWORD) -> DWORD;
+        extern fn RasSetEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, #[in] param2: *mut tagRASENTRYA, param3: u32, #[opt] param4: LPBYTE, param5: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetEntryPropertiesW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: *mut tagRASENTRYW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param4: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param5: DWORD) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasSetSubEntryPropertiesA")]
-        extern fn RasSetSubEntryProperties(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: *mut tagRASSUBENTRYA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param4: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param5: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param6: DWORD) -> DWORD;
+        extern fn RasSetEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, #[in] param2: *mut tagRASENTRYW, param3: u32, #[opt] param4: LPBYTE, param5: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetSubEntryPropertiesA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: *mut tagRASSUBENTRYA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param4: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param5: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param6: DWORD) -> DWORD;
+        extern fn RasSetSubEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, param2: u32, #[in] param3: *mut tagRASSUBENTRYA, param4: u32, #[opt] param5: LPBYTE, param6: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetSubEntryPropertiesW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param2: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param3: *mut tagRASSUBENTRYW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param4: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param5: LPBYTE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param6: DWORD) -> DWORD;
+        extern fn RasSetSubEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: u32, #[in] param3: *mut tagRASSUBENTRYW, param4: u32, #[opt] param5: LPBYTE, param6: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasUpdateConnection(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hrasconn: HRASCONN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lprasupdateconn: *mut tagRASUPDATECONN) -> DWORD;
-        #[library("RASAPI32.dll", import = "RasValidateEntryNameA")]
-        extern fn RasValidateEntryName(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR) -> DWORD;
+        extern fn RasUpdateConnection(hrasconn: HRASCONN, #[in] lprasupdateconn: *mut tagRASUPDATECONN) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasValidateEntryNameA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCSTR) -> DWORD;
+        extern fn RasValidateEntryNameA(#[opt] param0: PCSTR, param1: PCSTR) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasValidateEntryNameW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param0: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] param1: LPCWSTR) -> DWORD;
+        extern fn RasValidateEntryNameW(#[opt] param0: PCWSTR, param1: PCWSTR) -> u32;
         const VS_Default: i32 = 0;
         const VS_GREOnly: i32 = 9;
         const VS_Ikev2First: i32 = 8;
@@ -620,61 +537,80 @@ mod Windows {
         const VS_SstpFirst: i32 = 6;
         const VS_SstpOnly: i32 = 5;
         const WM_RASDIALEVENT: i32 = 52429;
-        #[packed(4)]
+        #[arch(X86)]
         struct tagRASADPARAMS {
-            dwSize: DWORD,
+            dwSize: u32,
             hwndOwner: HWND,
-            dwFlags: DWORD,
-            xDlg: LONG,
-            yDlg: LONG,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
         }
         #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASADPARAMS {
+            dwSize: u32,
+            hwndOwner: HWND,
+            dwFlags: u32,
+            xDlg: i32,
+            yDlg: i32,
+        }
         struct tagRASAMBA {
-            dwSize: DWORD,
-            dwError: DWORD,
-            szNetBiosError: [CHAR; 17],
-            bLana: BYTE,
+            dwSize: u32,
+            dwError: u32,
+            szNetBiosError: [i8; 17],
+            bLana: u8,
         }
-        #[packed(4)]
         struct tagRASAMBW {
-            dwSize: DWORD,
-            dwError: DWORD,
-            szNetBiosError: [WCHAR; 17],
-            bLana: BYTE,
+            dwSize: u32,
+            dwError: u32,
+            szNetBiosError: [u16; 17],
+            bLana: u8,
         }
-        #[packed(4)]
         struct tagRASAUTODIALENTRYA {
-            dwSize: DWORD,
-            dwFlags: DWORD,
-            dwDialingLocation: DWORD,
-            szEntry: [CHAR; 257],
+            dwSize: u32,
+            dwFlags: u32,
+            dwDialingLocation: u32,
+            szEntry: [i8; 257],
         }
-        #[packed(4)]
         struct tagRASAUTODIALENTRYW {
-            dwSize: DWORD,
-            dwFlags: DWORD,
-            dwDialingLocation: DWORD,
-            szEntry: [WCHAR; 257],
+            dwSize: u32,
+            dwFlags: u32,
+            dwDialingLocation: u32,
+            szEntry: [u16; 257],
         }
-        #[packed(4)]
         struct tagRASCOMMSETTINGS {
-            dwSize: DWORD,
-            bParity: BYTE,
-            bStop: BYTE,
-            bByteSize: BYTE,
-            bAlign: BYTE,
+            dwSize: u32,
+            bParity: u8,
+            bStop: u8,
+            bByteSize: u8,
+            bAlign: u8,
+        }
+        #[arch(X86)]
+        struct tagRASCONNA {
+            dwSize: u32,
+            hrasconn: HRASCONN,
+            szEntryName: [i8; 257],
+            szDeviceType: [i8; 17],
+            szDeviceName: [i8; 129],
+            szPhonebook: [i8; 260],
+            dwSubEntry: u32,
+            guidEntry: GUID,
+            dwFlags: u32,
+            luid: LUID,
+            guidCorrelationId: GUID,
         }
         #[packed(4)]
+        #[arch(X64 | Arm64)]
         struct tagRASCONNA {
-            dwSize: DWORD,
+            dwSize: u32,
             hrasconn: HRASCONN,
-            szEntryName: [CHAR; 257],
-            szDeviceType: [CHAR; 17],
-            szDeviceName: [CHAR; 129],
-            szPhonebook: [CHAR; 260],
-            dwSubEntry: DWORD,
+            szEntryName: [i8; 257],
+            szDeviceType: [i8; 17],
+            szDeviceName: [i8; 129],
+            szPhonebook: [i8; 260],
+            dwSubEntry: u32,
             guidEntry: GUID,
-            dwFlags: DWORD,
+            dwFlags: u32,
             luid: LUID,
             guidCorrelationId: GUID,
         }
@@ -713,26 +649,24 @@ mod Windows {
             RASCS_Connected = 8192,
             RASCS_Disconnected = 8193,
         }
-        #[packed(4)]
         struct tagRASCONNSTATUSA {
-            dwSize: DWORD,
+            dwSize: u32,
             rasconnstate: tagRASCONNSTATE,
-            dwError: DWORD,
-            szDeviceType: [CHAR; 17],
-            szDeviceName: [CHAR; 129],
-            szPhoneNumber: [CHAR; 129],
+            dwError: u32,
+            szDeviceType: [i8; 17],
+            szDeviceName: [i8; 129],
+            szPhoneNumber: [i8; 129],
             localEndPoint: tagRASTUNNELENDPOINT,
             remoteEndPoint: tagRASTUNNELENDPOINT,
             rasconnsubstate: tagRASCONNSUBSTATE,
         }
-        #[packed(4)]
         struct tagRASCONNSTATUSW {
-            dwSize: DWORD,
+            dwSize: u32,
             rasconnstate: tagRASCONNSTATE,
-            dwError: DWORD,
-            szDeviceType: [WCHAR; 17],
-            szDeviceName: [WCHAR; 129],
-            szPhoneNumber: [WCHAR; 129],
+            dwError: u32,
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+            szPhoneNumber: [u16; 129],
             localEndPoint: tagRASTUNNELENDPOINT,
             remoteEndPoint: tagRASTUNNELENDPOINT,
             rasconnsubstate: tagRASCONNSUBSTATE,
@@ -744,352 +678,401 @@ mod Windows {
             RASCSS_Reconnecting = 2,
             RASCSS_Reconnected = 8192,
         }
-        #[packed(4)]
+        #[arch(X86)]
         struct tagRASCONNW {
-            dwSize: DWORD,
+            dwSize: u32,
             hrasconn: HRASCONN,
-            szEntryName: [WCHAR; 257],
-            szDeviceType: [WCHAR; 17],
-            szDeviceName: [WCHAR; 129],
-            szPhonebook: [WCHAR; 260],
-            dwSubEntry: DWORD,
+            szEntryName: [u16; 257],
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+            szPhonebook: [u16; 260],
+            dwSubEntry: u32,
             guidEntry: GUID,
-            dwFlags: DWORD,
+            dwFlags: u32,
             luid: LUID,
             guidCorrelationId: GUID,
         }
         #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASCONNW {
+            dwSize: u32,
+            hrasconn: HRASCONN,
+            szEntryName: [u16; 257],
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+            szPhonebook: [u16; 260],
+            dwSubEntry: u32,
+            guidEntry: GUID,
+            dwFlags: u32,
+            luid: LUID,
+            guidCorrelationId: GUID,
+        }
         struct tagRASCREDENTIALSA {
-            dwSize: DWORD,
-            dwMask: DWORD,
-            szUserName: [CHAR; 257],
-            szPassword: [CHAR; 257],
-            szDomain: [CHAR; 16],
+            dwSize: u32,
+            dwMask: u32,
+            szUserName: [i8; 257],
+            szPassword: [i8; 257],
+            szDomain: [i8; 16],
         }
-        #[packed(4)]
         struct tagRASCREDENTIALSW {
-            dwSize: DWORD,
-            dwMask: DWORD,
-            szUserName: [WCHAR; 257],
-            szPassword: [WCHAR; 257],
-            szDomain: [WCHAR; 16],
+            dwSize: u32,
+            dwMask: u32,
+            szUserName: [u16; 257],
+            szPassword: [u16; 257],
+            szDomain: [u16; 16],
         }
-        #[packed(4)]
+        #[arch(X86)]
         struct tagRASCUSTOMSCRIPTEXTENSIONS {
-            dwSize: DWORD,
+            dwSize: u32,
             pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
         }
         #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASCUSTOMSCRIPTEXTENSIONS {
+            dwSize: u32,
+            pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
+        }
         struct tagRASDEVINFOA {
-            dwSize: DWORD,
-            szDeviceType: [CHAR; 17],
-            szDeviceName: [CHAR; 129],
+            dwSize: u32,
+            szDeviceType: [i8; 17],
+            szDeviceName: [i8; 129],
         }
-        #[packed(4)]
         struct tagRASDEVINFOW {
-            dwSize: DWORD,
-            szDeviceType: [WCHAR; 17],
-            szDeviceName: [WCHAR; 129],
+            dwSize: u32,
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
         }
-        #[packed(4)]
+        #[arch(X86)]
         struct tagRASDIALEXTENSIONS {
-            dwSize: DWORD,
-            dwfOptions: DWORD,
+            dwSize: u32,
+            dwfOptions: u32,
             hwndParent: HWND,
-            reserved: ULONG_PTR,
-            reserved1: ULONG_PTR,
+            reserved: usize,
+            reserved1: usize,
             RasEapInfo: tagRASEAPINFO,
             fSkipPppAuth: BOOL,
             RasDevSpecificInfo: RASDEVSPECIFICINFO,
         }
         #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASDIALEXTENSIONS {
+            dwSize: u32,
+            dwfOptions: u32,
+            hwndParent: HWND,
+            reserved: usize,
+            reserved1: usize,
+            RasEapInfo: tagRASEAPINFO,
+            fSkipPppAuth: BOOL,
+            RasDevSpecificInfo: RASDEVSPECIFICINFO,
+        }
+        #[arch(X86)]
         struct tagRASDIALPARAMSA {
-            dwSize: DWORD,
-            szEntryName: [CHAR; 257],
-            szPhoneNumber: [CHAR; 129],
-            szCallbackNumber: [CHAR; 129],
-            szUserName: [CHAR; 257],
-            szPassword: [CHAR; 257],
-            szDomain: [CHAR; 16],
-            dwSubEntry: DWORD,
-            dwCallbackId: ULONG_PTR,
-            dwIfIndex: DWORD,
-            szEncPassword: LPSTR,
+            dwSize: u32,
+            szEntryName: [i8; 257],
+            szPhoneNumber: [i8; 129],
+            szCallbackNumber: [i8; 129],
+            szUserName: [i8; 257],
+            szPassword: [i8; 257],
+            szDomain: [i8; 16],
+            dwSubEntry: u32,
+            dwCallbackId: usize,
+            dwIfIndex: u32,
+            szEncPassword: PSTR,
         }
         #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASDIALPARAMSA {
+            dwSize: u32,
+            szEntryName: [i8; 257],
+            szPhoneNumber: [i8; 129],
+            szCallbackNumber: [i8; 129],
+            szUserName: [i8; 257],
+            szPassword: [i8; 257],
+            szDomain: [i8; 16],
+            dwSubEntry: u32,
+            dwCallbackId: usize,
+            dwIfIndex: u32,
+            szEncPassword: PSTR,
+        }
+        #[arch(X86)]
         struct tagRASDIALPARAMSW {
-            dwSize: DWORD,
-            szEntryName: [WCHAR; 257],
-            szPhoneNumber: [WCHAR; 129],
-            szCallbackNumber: [WCHAR; 129],
-            szUserName: [WCHAR; 257],
-            szPassword: [WCHAR; 257],
-            szDomain: [WCHAR; 16],
-            dwSubEntry: DWORD,
-            dwCallbackId: ULONG_PTR,
-            dwIfIndex: DWORD,
-            szEncPassword: LPWSTR,
+            dwSize: u32,
+            szEntryName: [u16; 257],
+            szPhoneNumber: [u16; 129],
+            szCallbackNumber: [u16; 129],
+            szUserName: [u16; 257],
+            szPassword: [u16; 257],
+            szDomain: [u16; 16],
+            dwSubEntry: u32,
+            dwCallbackId: usize,
+            dwIfIndex: u32,
+            szEncPassword: PWSTR,
         }
         #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASDIALPARAMSW {
+            dwSize: u32,
+            szEntryName: [u16; 257],
+            szPhoneNumber: [u16; 129],
+            szCallbackNumber: [u16; 129],
+            szUserName: [u16; 257],
+            szPassword: [u16; 257],
+            szDomain: [u16; 16],
+            dwSubEntry: u32,
+            dwCallbackId: usize,
+            dwIfIndex: u32,
+            szEncPassword: PWSTR,
+        }
+        #[arch(X86)]
         struct tagRASEAPINFO {
-            dwSizeofEapInfo: DWORD,
-            pbEapInfo: *mut BYTE,
+            dwSizeofEapInfo: u32,
+            pbEapInfo: *mut u8,
         }
         #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct tagRASEAPINFO {
+            dwSizeofEapInfo: u32,
+            pbEapInfo: *mut u8,
+        }
         struct tagRASEAPUSERIDENTITYA {
-            szUserName: [CHAR; 257],
-            dwSizeofEapInfo: DWORD,
-            pbEapInfo: [BYTE; 1],
+            szUserName: [i8; 257],
+            dwSizeofEapInfo: u32,
+            pbEapInfo: [u8; 1],
         }
-        #[packed(4)]
         struct tagRASEAPUSERIDENTITYW {
-            szUserName: [WCHAR; 257],
-            dwSizeofEapInfo: DWORD,
-            pbEapInfo: [BYTE; 1],
+            szUserName: [u16; 257],
+            dwSizeofEapInfo: u32,
+            pbEapInfo: [u8; 1],
         }
-        #[packed(4)]
         struct tagRASENTRYA {
-            dwSize: DWORD,
-            dwfOptions: DWORD,
-            dwCountryID: DWORD,
-            dwCountryCode: DWORD,
-            szAreaCode: [CHAR; 11],
-            szLocalPhoneNumber: [CHAR; 129],
-            dwAlternateOffset: DWORD,
+            dwSize: u32,
+            dwfOptions: u32,
+            dwCountryID: u32,
+            dwCountryCode: u32,
+            szAreaCode: [i8; 11],
+            szLocalPhoneNumber: [i8; 129],
+            dwAlternateOffset: u32,
             ipaddr: RASIPADDR,
             ipaddrDns: RASIPADDR,
             ipaddrDnsAlt: RASIPADDR,
             ipaddrWins: RASIPADDR,
             ipaddrWinsAlt: RASIPADDR,
-            dwFrameSize: DWORD,
-            dwfNetProtocols: DWORD,
-            dwFramingProtocol: DWORD,
-            szScript: [CHAR; 260],
-            szAutodialDll: [CHAR; 260],
-            szAutodialFunc: [CHAR; 260],
-            szDeviceType: [CHAR; 17],
-            szDeviceName: [CHAR; 129],
-            szX25PadType: [CHAR; 33],
-            szX25Address: [CHAR; 201],
-            szX25Facilities: [CHAR; 201],
-            szX25UserData: [CHAR; 201],
-            dwChannels: DWORD,
-            dwReserved1: DWORD,
-            dwReserved2: DWORD,
-            dwSubEntries: DWORD,
-            dwDialMode: DWORD,
-            dwDialExtraPercent: DWORD,
-            dwDialExtraSampleSeconds: DWORD,
-            dwHangUpExtraPercent: DWORD,
-            dwHangUpExtraSampleSeconds: DWORD,
-            dwIdleDisconnectSeconds: DWORD,
-            dwType: DWORD,
-            dwEncryptionType: DWORD,
-            dwCustomAuthKey: DWORD,
+            dwFrameSize: u32,
+            dwfNetProtocols: u32,
+            dwFramingProtocol: u32,
+            szScript: [i8; 260],
+            szAutodialDll: [i8; 260],
+            szAutodialFunc: [i8; 260],
+            szDeviceType: [i8; 17],
+            szDeviceName: [i8; 129],
+            szX25PadType: [i8; 33],
+            szX25Address: [i8; 201],
+            szX25Facilities: [i8; 201],
+            szX25UserData: [i8; 201],
+            dwChannels: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+            dwSubEntries: u32,
+            dwDialMode: u32,
+            dwDialExtraPercent: u32,
+            dwDialExtraSampleSeconds: u32,
+            dwHangUpExtraPercent: u32,
+            dwHangUpExtraSampleSeconds: u32,
+            dwIdleDisconnectSeconds: u32,
+            dwType: u32,
+            dwEncryptionType: u32,
+            dwCustomAuthKey: u32,
             guidId: GUID,
-            szCustomDialDll: [CHAR; 260],
-            dwVpnStrategy: DWORD,
-            dwfOptions2: DWORD,
-            dwfOptions3: DWORD,
-            szDnsSuffix: [CHAR; 256],
-            dwTcpWindowSize: DWORD,
-            szPrerequisitePbk: [CHAR; 260],
-            szPrerequisiteEntry: [CHAR; 257],
-            dwRedialCount: DWORD,
-            dwRedialPause: DWORD,
+            szCustomDialDll: [i8; 260],
+            dwVpnStrategy: u32,
+            dwfOptions2: u32,
+            dwfOptions3: u32,
+            szDnsSuffix: [i8; 256],
+            dwTcpWindowSize: u32,
+            szPrerequisitePbk: [i8; 260],
+            szPrerequisiteEntry: [i8; 257],
+            dwRedialCount: u32,
+            dwRedialPause: u32,
             ipv6addrDns: RASIPV6ADDR,
             ipv6addrDnsAlt: RASIPV6ADDR,
-            dwIPv4InterfaceMetric: DWORD,
-            dwIPv6InterfaceMetric: DWORD,
+            dwIPv4InterfaceMetric: u32,
+            dwIPv6InterfaceMetric: u32,
             ipv6addr: RASIPV6ADDR,
-            dwIPv6PrefixLength: DWORD,
-            dwNetworkOutageTime: DWORD,
-            szIDi: [CHAR; 257],
-            szIDr: [CHAR; 257],
+            dwIPv6PrefixLength: u32,
+            dwNetworkOutageTime: u32,
+            szIDi: [i8; 257],
+            szIDr: [i8; 257],
             fIsImsConfig: BOOL,
             IdiType: IKEV2_ID_PAYLOAD_TYPE,
             IdrType: IKEV2_ID_PAYLOAD_TYPE,
             fDisableIKEv2Fragmentation: BOOL,
         }
-        #[packed(4)]
         struct tagRASENTRYNAMEA {
-            dwSize: DWORD,
-            szEntryName: [CHAR; 257],
-            dwFlags: DWORD,
-            szPhonebookPath: [CHAR; 261],
+            dwSize: u32,
+            szEntryName: [i8; 257],
+            dwFlags: u32,
+            szPhonebookPath: [i8; 261],
         }
-        #[packed(4)]
         struct tagRASENTRYNAMEW {
-            dwSize: DWORD,
-            szEntryName: [WCHAR; 257],
-            dwFlags: DWORD,
-            szPhonebookPath: [WCHAR; 261],
+            dwSize: u32,
+            szEntryName: [u16; 257],
+            dwFlags: u32,
+            szPhonebookPath: [u16; 261],
         }
-        #[packed(4)]
         struct tagRASENTRYW {
-            dwSize: DWORD,
-            dwfOptions: DWORD,
-            dwCountryID: DWORD,
-            dwCountryCode: DWORD,
-            szAreaCode: [WCHAR; 11],
-            szLocalPhoneNumber: [WCHAR; 129],
-            dwAlternateOffset: DWORD,
+            dwSize: u32,
+            dwfOptions: u32,
+            dwCountryID: u32,
+            dwCountryCode: u32,
+            szAreaCode: [u16; 11],
+            szLocalPhoneNumber: [u16; 129],
+            dwAlternateOffset: u32,
             ipaddr: RASIPADDR,
             ipaddrDns: RASIPADDR,
             ipaddrDnsAlt: RASIPADDR,
             ipaddrWins: RASIPADDR,
             ipaddrWinsAlt: RASIPADDR,
-            dwFrameSize: DWORD,
-            dwfNetProtocols: DWORD,
-            dwFramingProtocol: DWORD,
-            szScript: [WCHAR; 260],
-            szAutodialDll: [WCHAR; 260],
-            szAutodialFunc: [WCHAR; 260],
-            szDeviceType: [WCHAR; 17],
-            szDeviceName: [WCHAR; 129],
-            szX25PadType: [WCHAR; 33],
-            szX25Address: [WCHAR; 201],
-            szX25Facilities: [WCHAR; 201],
-            szX25UserData: [WCHAR; 201],
-            dwChannels: DWORD,
-            dwReserved1: DWORD,
-            dwReserved2: DWORD,
-            dwSubEntries: DWORD,
-            dwDialMode: DWORD,
-            dwDialExtraPercent: DWORD,
-            dwDialExtraSampleSeconds: DWORD,
-            dwHangUpExtraPercent: DWORD,
-            dwHangUpExtraSampleSeconds: DWORD,
-            dwIdleDisconnectSeconds: DWORD,
-            dwType: DWORD,
-            dwEncryptionType: DWORD,
-            dwCustomAuthKey: DWORD,
+            dwFrameSize: u32,
+            dwfNetProtocols: u32,
+            dwFramingProtocol: u32,
+            szScript: [u16; 260],
+            szAutodialDll: [u16; 260],
+            szAutodialFunc: [u16; 260],
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+            szX25PadType: [u16; 33],
+            szX25Address: [u16; 201],
+            szX25Facilities: [u16; 201],
+            szX25UserData: [u16; 201],
+            dwChannels: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+            dwSubEntries: u32,
+            dwDialMode: u32,
+            dwDialExtraPercent: u32,
+            dwDialExtraSampleSeconds: u32,
+            dwHangUpExtraPercent: u32,
+            dwHangUpExtraSampleSeconds: u32,
+            dwIdleDisconnectSeconds: u32,
+            dwType: u32,
+            dwEncryptionType: u32,
+            dwCustomAuthKey: u32,
             guidId: GUID,
-            szCustomDialDll: [WCHAR; 260],
-            dwVpnStrategy: DWORD,
-            dwfOptions2: DWORD,
-            dwfOptions3: DWORD,
-            szDnsSuffix: [WCHAR; 256],
-            dwTcpWindowSize: DWORD,
-            szPrerequisitePbk: [WCHAR; 260],
-            szPrerequisiteEntry: [WCHAR; 257],
-            dwRedialCount: DWORD,
-            dwRedialPause: DWORD,
+            szCustomDialDll: [u16; 260],
+            dwVpnStrategy: u32,
+            dwfOptions2: u32,
+            dwfOptions3: u32,
+            szDnsSuffix: [u16; 256],
+            dwTcpWindowSize: u32,
+            szPrerequisitePbk: [u16; 260],
+            szPrerequisiteEntry: [u16; 257],
+            dwRedialCount: u32,
+            dwRedialPause: u32,
             ipv6addrDns: RASIPV6ADDR,
             ipv6addrDnsAlt: RASIPV6ADDR,
-            dwIPv4InterfaceMetric: DWORD,
-            dwIPv6InterfaceMetric: DWORD,
+            dwIPv4InterfaceMetric: u32,
+            dwIPv6InterfaceMetric: u32,
             ipv6addr: RASIPV6ADDR,
-            dwIPv6PrefixLength: DWORD,
-            dwNetworkOutageTime: DWORD,
-            szIDi: [WCHAR; 257],
-            szIDr: [WCHAR; 257],
+            dwIPv6PrefixLength: u32,
+            dwNetworkOutageTime: u32,
+            szIDi: [u16; 257],
+            szIDr: [u16; 257],
             fIsImsConfig: BOOL,
             IdiType: IKEV2_ID_PAYLOAD_TYPE,
             IdrType: IKEV2_ID_PAYLOAD_TYPE,
             fDisableIKEv2Fragmentation: BOOL,
         }
-        #[packed(4)]
         struct tagRASIPXW {
-            dwSize: DWORD,
-            dwError: DWORD,
-            szIpxAddress: [WCHAR; 22],
+            dwSize: u32,
+            dwError: u32,
+            szIpxAddress: [u16; 22],
         }
-        #[packed(4)]
         struct tagRASPPPCCP {
-            dwSize: DWORD,
-            dwError: DWORD,
-            dwCompressionAlgorithm: DWORD,
-            dwOptions: DWORD,
-            dwServerCompressionAlgorithm: DWORD,
-            dwServerOptions: DWORD,
+            dwSize: u32,
+            dwError: u32,
+            dwCompressionAlgorithm: u32,
+            dwOptions: u32,
+            dwServerCompressionAlgorithm: u32,
+            dwServerOptions: u32,
         }
-        #[packed(4)]
         struct tagRASPPPIPA {
-            dwSize: DWORD,
-            dwError: DWORD,
-            szIpAddress: [CHAR; 16],
-            szServerIpAddress: [CHAR; 16],
-            dwOptions: DWORD,
-            dwServerOptions: DWORD,
+            dwSize: u32,
+            dwError: u32,
+            szIpAddress: [i8; 16],
+            szServerIpAddress: [i8; 16],
+            dwOptions: u32,
+            dwServerOptions: u32,
         }
-        #[packed(4)]
         struct tagRASPPPIPV6 {
-            dwSize: DWORD,
-            dwError: DWORD,
-            bLocalInterfaceIdentifier: [BYTE; 8],
-            bPeerInterfaceIdentifier: [BYTE; 8],
-            bLocalCompressionProtocol: [BYTE; 2],
-            bPeerCompressionProtocol: [BYTE; 2],
+            dwSize: u32,
+            dwError: u32,
+            bLocalInterfaceIdentifier: [u8; 8],
+            bPeerInterfaceIdentifier: [u8; 8],
+            bLocalCompressionProtocol: [u8; 2],
+            bPeerCompressionProtocol: [u8; 2],
         }
-        #[packed(4)]
         struct tagRASPPPIPW {
-            dwSize: DWORD,
-            dwError: DWORD,
-            szIpAddress: [WCHAR; 16],
-            szServerIpAddress: [WCHAR; 16],
-            dwOptions: DWORD,
-            dwServerOptions: DWORD,
+            dwSize: u32,
+            dwError: u32,
+            szIpAddress: [u16; 16],
+            szServerIpAddress: [u16; 16],
+            dwOptions: u32,
+            dwServerOptions: u32,
         }
-        #[packed(4)]
         struct tagRASPPPIPXA {
-            dwSize: DWORD,
-            dwError: DWORD,
-            szIpxAddress: [CHAR; 22],
+            dwSize: u32,
+            dwError: u32,
+            szIpxAddress: [i8; 22],
         }
-        #[packed(4)]
         struct tagRASPPPLCPA {
-            dwSize: DWORD,
+            dwSize: u32,
             fBundled: BOOL,
-            dwError: DWORD,
-            dwAuthenticationProtocol: DWORD,
-            dwAuthenticationData: DWORD,
-            dwEapTypeId: DWORD,
-            dwServerAuthenticationProtocol: DWORD,
-            dwServerAuthenticationData: DWORD,
-            dwServerEapTypeId: DWORD,
+            dwError: u32,
+            dwAuthenticationProtocol: u32,
+            dwAuthenticationData: u32,
+            dwEapTypeId: u32,
+            dwServerAuthenticationProtocol: u32,
+            dwServerAuthenticationData: u32,
+            dwServerEapTypeId: u32,
             fMultilink: BOOL,
-            dwTerminateReason: DWORD,
-            dwServerTerminateReason: DWORD,
-            szReplyMessage: [CHAR; 1024],
-            dwOptions: DWORD,
-            dwServerOptions: DWORD,
+            dwTerminateReason: u32,
+            dwServerTerminateReason: u32,
+            szReplyMessage: [i8; 1024],
+            dwOptions: u32,
+            dwServerOptions: u32,
         }
-        #[packed(4)]
         struct tagRASPPPLCPW {
-            dwSize: DWORD,
+            dwSize: u32,
             fBundled: BOOL,
-            dwError: DWORD,
-            dwAuthenticationProtocol: DWORD,
-            dwAuthenticationData: DWORD,
-            dwEapTypeId: DWORD,
-            dwServerAuthenticationProtocol: DWORD,
-            dwServerAuthenticationData: DWORD,
-            dwServerEapTypeId: DWORD,
+            dwError: u32,
+            dwAuthenticationProtocol: u32,
+            dwAuthenticationData: u32,
+            dwEapTypeId: u32,
+            dwServerAuthenticationProtocol: u32,
+            dwServerAuthenticationData: u32,
+            dwServerEapTypeId: u32,
             fMultilink: BOOL,
-            dwTerminateReason: DWORD,
-            dwServerTerminateReason: DWORD,
-            szReplyMessage: [WCHAR; 1024],
-            dwOptions: DWORD,
-            dwServerOptions: DWORD,
+            dwTerminateReason: u32,
+            dwServerTerminateReason: u32,
+            szReplyMessage: [u16; 1024],
+            dwOptions: u32,
+            dwServerOptions: u32,
         }
-        #[packed(4)]
         struct tagRASPPPNBFA {
-            dwSize: DWORD,
-            dwError: DWORD,
-            dwNetBiosError: DWORD,
-            szNetBiosError: [CHAR; 17],
-            szWorkstationName: [CHAR; 17],
-            bLana: BYTE,
+            dwSize: u32,
+            dwError: u32,
+            dwNetBiosError: u32,
+            szNetBiosError: [i8; 17],
+            szWorkstationName: [i8; 17],
+            bLana: u8,
         }
-        #[packed(4)]
         struct tagRASPPPNBFW {
-            dwSize: DWORD,
-            dwError: DWORD,
-            dwNetBiosError: DWORD,
-            szNetBiosError: [WCHAR; 17],
-            szWorkstationName: [WCHAR; 17],
-            bLana: BYTE,
+            dwSize: u32,
+            dwError: u32,
+            dwNetBiosError: u32,
+            szNetBiosError: [u16; 17],
+            szWorkstationName: [u16; 17],
+            bLana: u8,
         }
         #[repr(i32)]
         enum tagRASPROJECTION {
@@ -1101,38 +1084,34 @@ mod Windows {
             RASP_PppLcp = 49185,
             RASP_PppIpv6 = 32855,
         }
-        #[packed(4)]
         struct tagRASSUBENTRYA {
-            dwSize: DWORD,
-            dwfFlags: DWORD,
-            szDeviceType: [CHAR; 17],
-            szDeviceName: [CHAR; 129],
-            szLocalPhoneNumber: [CHAR; 129],
-            dwAlternateOffset: DWORD,
+            dwSize: u32,
+            dwfFlags: u32,
+            szDeviceType: [i8; 17],
+            szDeviceName: [i8; 129],
+            szLocalPhoneNumber: [i8; 129],
+            dwAlternateOffset: u32,
         }
-        #[packed(4)]
         struct tagRASSUBENTRYW {
-            dwSize: DWORD,
-            dwfFlags: DWORD,
-            szDeviceType: [WCHAR; 17],
-            szDeviceName: [WCHAR; 129],
-            szLocalPhoneNumber: [WCHAR; 129],
-            dwAlternateOffset: DWORD,
+            dwSize: u32,
+            dwfFlags: u32,
+            szDeviceType: [u16; 17],
+            szDeviceName: [u16; 129],
+            szLocalPhoneNumber: [u16; 129],
+            dwAlternateOffset: u32,
         }
-        #[packed(4)]
         struct tagRASTUNNELENDPOINT {
-            dwType: DWORD,
-            Anonymous: #[packed(4)] union {
+            dwType: u32,
+            Anonymous: union {
                 ipv4: RASIPV4ADDR,
                 ipv6: RASIPV6ADDR,
             },
         }
-        #[packed(4)]
         struct tagRASUPDATECONN {
             version: RASAPIVERSION,
-            dwSize: DWORD,
-            dwFlags: DWORD,
-            dwIfIndex: DWORD,
+            dwSize: u32,
+            dwFlags: u32,
+            dwIfIndex: u32,
             localEndPoint: tagRASTUNNELENDPOINT,
             remoteEndPoint: tagRASTUNNELENDPOINT,
         }

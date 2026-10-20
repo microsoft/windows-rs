@@ -316,60 +316,36 @@ mod Windows {
             #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(DisplayProperties)]
             interface IDisplayPropertiesStatics {
-                #[special]
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_CurrentOrientation(&self) -> DisplayOrientations;
-                #[special]
+                CurrentOrientation: DisplayOrientations;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_NativeOrientation(&self) -> DisplayOrientations;
-                #[special]
+                NativeOrientation: DisplayOrientations;
                 #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_AutoRotationPreferences(&self) -> DisplayOrientations;
-                #[special]
+                AutoRotationPreferences: DisplayOrientations;
                 #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn put_AutoRotationPreferences(&self, value: DisplayOrientations);
-                #[special]
+                event OrientationChanged: DisplayPropertiesEventHandler;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn add_OrientationChanged(&self, handler: DisplayPropertiesEventHandler) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
+                ResolutionScale: ResolutionScale;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn remove_OrientationChanged(&self, token: super::super::Foundation::EventRegistrationToken);
-                #[special]
+                LogicalDpi: f32;
                 #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_ResolutionScale(&self) -> ResolutionScale;
-                #[special]
+                event LogicalDpiChanged: DisplayPropertiesEventHandler;
+                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_LogicalDpi(&self) -> f32;
-                #[special]
+                StereoEnabled: bool;
                 #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn add_LogicalDpiChanged(&self, handler: DisplayPropertiesEventHandler) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn remove_LogicalDpiChanged(&self, token: super::super::Foundation::EventRegistrationToken);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn get_StereoEnabled(&self) -> bool;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn add_StereoEnabledChanged(&self, handler: DisplayPropertiesEventHandler) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn remove_StereoEnabledChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                event StereoEnabledChanged: DisplayPropertiesEventHandler;
                 #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetColorProfileAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>;
-                #[special]
                 #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn add_ColorProfileChanged(&self, handler: DisplayPropertiesEventHandler) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
+                event ColorProfileChanged: DisplayPropertiesEventHandler;
                 #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn remove_ColorProfileChanged(&self, token: super::super::Foundation::EventRegistrationToken);
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn add_DisplayContentsInvalidated(&self, handler: DisplayPropertiesEventHandler) -> super::super::Foundation::EventRegistrationToken;
-                #[special]
-                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn remove_DisplayContentsInvalidated(&self, token: super::super::Foundation::EventRegistrationToken);
+                event DisplayContentsInvalidated: DisplayPropertiesEventHandler;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DisplayServices)]

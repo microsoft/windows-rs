@@ -79,21 +79,21 @@ mod Windows {
         const VS_FF_PRERELEASE: i32 = 2;
         const VS_FF_PRIVATEBUILD: i32 = 8;
         const VS_FF_SPECIALBUILD: i32 = 32;
-        const VS_FILE_INFO: LPSTR = 16;
+        const VS_FILE_INFO: PSTR = 16;
         struct VS_FIXEDFILEINFO {
-            dwSignature: DWORD,
-            dwStrucVersion: DWORD,
-            dwFileVersionMS: DWORD,
-            dwFileVersionLS: DWORD,
-            dwProductVersionMS: DWORD,
-            dwProductVersionLS: DWORD,
-            dwFileFlagsMask: DWORD,
-            dwFileFlags: DWORD,
-            dwFileOS: DWORD,
-            dwFileType: DWORD,
-            dwFileSubtype: DWORD,
-            dwFileDateMS: DWORD,
-            dwFileDateLS: DWORD,
+            dwSignature: u32,
+            dwStrucVersion: u32,
+            dwFileVersionMS: u32,
+            dwFileVersionLS: u32,
+            dwProductVersionMS: u32,
+            dwProductVersionLS: u32,
+            dwFileFlagsMask: u32,
+            dwFileFlags: u32,
+            dwFileOS: u32,
+            dwFileType: u32,
+            dwFileSubtype: u32,
+            dwFileDateMS: u32,
+            dwFileDateLS: u32,
         }
         const VS_USER_DEFINED: i32 = 100;
         const VS_VERSION_INFO: i32 = 1;

@@ -1,0 +1,23 @@
+#[winrt]
+mod Collections {
+    #[Windows::Foundation::Metadata::Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
+    interface IWidget {
+        fn Numbers(&self) -> Windows::Foundation::Collections::IVector<i32>;
+        fn Lookup(&self, map: Windows::Foundation::Collections::IMapView<String, i32>, key: String) -> i32;
+        fn Values(&self) -> Windows::Foundation::Collections::IIterable<String>;
+
+        // Reads a collection created by the client or the component.
+        fn Sum(&self, values: Windows::Foundation::Collections::IIterable<i32>) -> i32;
+
+        // Maps each of the client's values to its index.
+        fn Index(
+            &self,
+            values: Windows::Foundation::Collections::IVectorView<String>,
+        ) -> Windows::Foundation::Collections::IMap<String, i32>;
+    }
+}

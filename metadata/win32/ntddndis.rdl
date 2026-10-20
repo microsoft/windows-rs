@@ -8,11 +8,11 @@ mod Windows {
         const CLOCK_NETWORK_DERIVED: i32 = 2;
         const CLOCK_PRECISION: i32 = 4;
         struct GEN_GET_NETCARD_TIME {
-            ReadTime: ULONGLONG,
+            ReadTime: u64,
         }
         struct GEN_GET_TIME_CAPS {
-            Flags: ULONG,
-            ClockPrecision: ULONG,
+            Flags: u32,
+            ClockPrecision: u32,
         }
         const IOCTL_NDIS_ADD_TDI_DEVICE: i32 = 1507348;
         const IOCTL_NDIS_DO_PNP_OPERATION: i32 = 1507336;
@@ -52,34 +52,36 @@ mod Windows {
         const IOCTL_NDIS_RESERVED7: i32 = 1507390;
         const IOCTL_NDIS_RESERVED8: i32 = 1507392;
         const IOCTL_NDIS_RESERVED9: i32 = 1507396;
+        type IPAddr = u32;
+        type IPMask = u32;
         const MAXIMUM_IP_OPER_STATUS_ADDRESS_FAMILIES_SUPPORTED: i32 = 32;
         struct NDIS_802_11_AI_REQFI {
-            Capabilities: USHORT,
-            ListenInterval: USHORT,
+            Capabilities: u16,
+            ListenInterval: u16,
             CurrentAPAddress: NDIS_802_11_MAC_ADDRESS,
         }
         const NDIS_802_11_AI_REQFI_CAPABILITIES: i32 = 1;
         const NDIS_802_11_AI_REQFI_CURRENTAPADDRESS: i32 = 4;
         const NDIS_802_11_AI_REQFI_LISTENINTERVAL: i32 = 2;
         struct NDIS_802_11_AI_RESFI {
-            Capabilities: USHORT,
-            StatusCode: USHORT,
-            AssociationId: USHORT,
+            Capabilities: u16,
+            StatusCode: u16,
+            AssociationId: u16,
         }
         const NDIS_802_11_AI_RESFI_ASSOCIATIONID: i32 = 4;
         const NDIS_802_11_AI_RESFI_CAPABILITIES: i32 = 1;
         const NDIS_802_11_AI_RESFI_STATUSCODE: i32 = 2;
         type NDIS_802_11_ANTENNA = u32;
         struct NDIS_802_11_ASSOCIATION_INFORMATION {
-            Length: ULONG,
-            AvailableRequestFixedIEs: USHORT,
+            Length: u32,
+            AvailableRequestFixedIEs: u16,
             RequestFixedIEs: NDIS_802_11_AI_REQFI,
-            RequestIELength: ULONG,
-            OffsetRequestIEs: ULONG,
-            AvailableResponseFixedIEs: USHORT,
+            RequestIELength: u32,
+            OffsetRequestIEs: u32,
+            AvailableResponseFixedIEs: u16,
             ResponseFixedIEs: NDIS_802_11_AI_RESFI,
-            ResponseIELength: ULONG,
-            OffsetResponseIEs: ULONG,
+            ResponseIELength: u32,
+            OffsetResponseIEs: u32,
         }
         struct NDIS_802_11_AUTHENTICATION_ENCRYPTION {
             AuthModeSupported: NDIS_802_11_AUTHENTICATION_MODE,
@@ -106,9 +108,9 @@ mod Windows {
             Ndis802_11AuthModeMax = 11,
         }
         struct NDIS_802_11_AUTHENTICATION_REQUEST {
-            Length: ULONG,
+            Length: u32,
             Bssid: NDIS_802_11_MAC_ADDRESS,
-            Flags: ULONG,
+            Flags: u32,
         }
         const NDIS_802_11_AUTH_REQUEST_AUTH_FIELDS: i32 = 15;
         const NDIS_802_11_AUTH_REQUEST_GROUP_ERROR: i32 = 14;
@@ -116,48 +118,47 @@ mod Windows {
         const NDIS_802_11_AUTH_REQUEST_PAIRWISE_ERROR: i32 = 6;
         const NDIS_802_11_AUTH_REQUEST_REAUTH: i32 = 1;
         struct NDIS_802_11_BSSID_LIST {
-            NumberOfItems: ULONG,
+            NumberOfItems: u32,
             Bssid: [NDIS_WLAN_BSSID; 1],
         }
         struct NDIS_802_11_BSSID_LIST_EX {
-            NumberOfItems: ULONG,
+            NumberOfItems: u32,
             Bssid: [NDIS_WLAN_BSSID_EX; 1],
         }
         struct NDIS_802_11_CAPABILITY {
-            Length: ULONG,
-            Version: ULONG,
-            NoOfPMKIDs: ULONG,
-            NoOfAuthEncryptPairsSupported: ULONG,
+            Length: u32,
+            Version: u32,
+            NoOfPMKIDs: u32,
+            NoOfAuthEncryptPairsSupported: u32,
             AuthenticationEncryptionSupported: [NDIS_802_11_AUTHENTICATION_ENCRYPTION; 1],
         }
         struct NDIS_802_11_CONFIGURATION {
-            Length: ULONG,
-            BeaconPeriod: ULONG,
-            ATIMWindow: ULONG,
-            DSConfig: ULONG,
+            Length: u32,
+            BeaconPeriod: u32,
+            ATIMWindow: u32,
+            DSConfig: u32,
             FHConfig: NDIS_802_11_CONFIGURATION_FH,
         }
         struct NDIS_802_11_CONFIGURATION_FH {
-            Length: ULONG,
-            HopPattern: ULONG,
-            HopSet: ULONG,
-            DwellTime: ULONG,
+            Length: u32,
+            HopPattern: u32,
+            HopSet: u32,
+            DwellTime: u32,
         }
-        type NDIS_802_11_ENCRYPTION_STATUS = _NDIS_802_11_WEP_STATUS;
+        type NDIS_802_11_ENCRYPTION_STATUS = NDIS_802_11_WEP_STATUS;
         struct NDIS_802_11_FIXED_IEs {
-            Timestamp: [UCHAR; 8],
-            BeaconInterval: USHORT,
-            Capabilities: USHORT,
+            Timestamp: [u8; 8],
+            BeaconInterval: u16,
+            Capabilities: u16,
         }
         type NDIS_802_11_FRAGMENTATION_THRESHOLD = u32;
         struct NDIS_802_11_KEY {
-            Length: ULONG,
-            KeyIndex: ULONG,
-            KeyLength: ULONG,
+            Length: u32,
+            KeyIndex: u32,
+            KeyLength: u32,
             BSSID: NDIS_802_11_MAC_ADDRESS,
             KeyRSC: NDIS_802_11_KEY_RSC,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "KeyLength", IsByteCount = true, MayBeNull = false)]
-            KeyMaterial: [UCHAR; 1],
+            KeyMaterial: [u8; 1],
         }
         type NDIS_802_11_KEY_INDEX = u32;
         type NDIS_802_11_KEY_RSC = u64;
@@ -187,21 +188,21 @@ mod Windows {
             Ndis802_11NetworkTypeMax = 5,
         }
         struct NDIS_802_11_NETWORK_TYPE_LIST {
-            NumberOfItems: ULONG,
+            NumberOfItems: u32,
             NetworkType: [NDIS_802_11_NETWORK_TYPE; 1],
         }
         struct NDIS_802_11_NON_BCAST_SSID_LIST {
-            NumberOfItems: ULONG,
+            NumberOfItems: u32,
             Non_Bcast_Ssid: [NDIS_802_11_SSID; 1],
         }
         struct NDIS_802_11_PMKID {
-            Length: ULONG,
-            BSSIDInfoCount: ULONG,
+            Length: u32,
+            BSSIDInfoCount: u32,
             BSSIDInfo: [BSSID_INFO; 1],
         }
         struct NDIS_802_11_PMKID_CANDIDATE_LIST {
-            Version: ULONG,
-            NumCandidates: ULONG,
+            Version: u32,
+            NumCandidates: u32,
             CandidateList: [PMKID_CANDIDATE; 1],
         }
         const NDIS_802_11_PMKID_CANDIDATE_PREAUTH_ENABLED: i32 = 1;
@@ -233,18 +234,18 @@ mod Windows {
             Ndis802_11ReloadWEPKeys = 0,
         }
         struct NDIS_802_11_REMOVE_KEY {
-            Length: ULONG,
-            KeyIndex: ULONG,
+            Length: u32,
+            KeyIndex: u32,
             BSSID: NDIS_802_11_MAC_ADDRESS,
         }
         type NDIS_802_11_RSSI = i32;
         type NDIS_802_11_RTS_THRESHOLD = u32;
         struct NDIS_802_11_SSID {
-            SsidLength: ULONG,
-            Ssid: [UCHAR; 32],
+            SsidLength: u32,
+            Ssid: [u8; 32],
         }
         struct NDIS_802_11_STATISTICS {
-            Length: ULONG,
+            Length: u32,
             TransmittedFragmentCount: LARGE_INTEGER,
             MulticastTransmittedFrameCount: LARGE_INTEGER,
             FailedCount: LARGE_INTEGER,
@@ -281,8 +282,8 @@ mod Windows {
             Ndis802_11StatusTypeMax = 3,
         }
         struct NDIS_802_11_TEST {
-            Length: ULONG,
-            Type: ULONG,
+            Length: u32,
+            Type: u32,
             Anonymous: union {
                 AuthenticationEvent: NDIS_802_11_AUTHENTICATION_EVENT,
                 RssiTrigger: NDIS_802_11_RSSI,
@@ -290,17 +291,31 @@ mod Windows {
         }
         type NDIS_802_11_TX_POWER_LEVEL = u32;
         struct NDIS_802_11_VARIABLE_IEs {
-            ElementID: UCHAR,
-            Length: UCHAR,
-            data: [UCHAR; 1],
+            ElementID: u8,
+            Length: u8,
+            data: [u8; 1],
         }
         struct NDIS_802_11_WEP {
-            Length: ULONG,
-            KeyIndex: ULONG,
-            KeyLength: ULONG,
-            KeyMaterial: [UCHAR; 1],
+            Length: u32,
+            KeyIndex: u32,
+            KeyLength: u32,
+            KeyMaterial: [u8; 1],
         }
-        type NDIS_802_11_WEP_STATUS = _NDIS_802_11_WEP_STATUS;
+        #[repr(i32)]
+        enum NDIS_802_11_WEP_STATUS {
+            Ndis802_11WEPEnabled = 0,
+            Ndis802_11Encryption1Enabled = 0,
+            Ndis802_11WEPDisabled = 1,
+            Ndis802_11EncryptionDisabled = 1,
+            Ndis802_11WEPKeyAbsent = 2,
+            Ndis802_11Encryption1KeyAbsent = 2,
+            Ndis802_11WEPNotSupported = 3,
+            Ndis802_11EncryptionNotSupported = 3,
+            Ndis802_11Encryption2Enabled = 4,
+            Ndis802_11Encryption2KeyAbsent = 5,
+            Ndis802_11Encryption3Enabled = 6,
+            Ndis802_11Encryption3KeyAbsent = 7,
+        }
         const NDIS_802_3_MAC_OPTION_PRIORITY: i32 = 1;
         #[repr(i32)]
         enum NDIS_802_5_RING_STATE {
@@ -314,36 +329,36 @@ mod Windows {
         struct NDIS_CO_DEVICE_PROFILE {
             DeviceDescription: NDIS_VAR_DATA_DESC,
             DevSpecificInfo: NDIS_VAR_DATA_DESC,
-            ulTAPISupplementaryPassThru: ULONG,
-            ulAddressModes: ULONG,
-            ulNumAddresses: ULONG,
-            ulBearerModes: ULONG,
-            ulMaxTxRate: ULONG,
-            ulMinTxRate: ULONG,
-            ulMaxRxRate: ULONG,
-            ulMinRxRate: ULONG,
-            ulMediaModes: ULONG,
-            ulGenerateToneModes: ULONG,
-            ulGenerateToneMaxNumFreq: ULONG,
-            ulGenerateDigitModes: ULONG,
-            ulMonitorToneMaxNumFreq: ULONG,
-            ulMonitorToneMaxNumEntries: ULONG,
-            ulMonitorDigitModes: ULONG,
-            ulGatherDigitsMinTimeout: ULONG,
-            ulGatherDigitsMaxTimeout: ULONG,
-            ulDevCapFlags: ULONG,
-            ulMaxNumActiveCalls: ULONG,
-            ulAnswerMode: ULONG,
-            ulUUIAcceptSize: ULONG,
-            ulUUIAnswerSize: ULONG,
-            ulUUIMakeCallSize: ULONG,
-            ulUUIDropSize: ULONG,
-            ulUUISendUserUserInfoSize: ULONG,
-            ulUUICallInfoSize: ULONG,
+            ulTAPISupplementaryPassThru: u32,
+            ulAddressModes: u32,
+            ulNumAddresses: u32,
+            ulBearerModes: u32,
+            ulMaxTxRate: u32,
+            ulMinTxRate: u32,
+            ulMaxRxRate: u32,
+            ulMinRxRate: u32,
+            ulMediaModes: u32,
+            ulGenerateToneModes: u32,
+            ulGenerateToneMaxNumFreq: u32,
+            ulGenerateDigitModes: u32,
+            ulMonitorToneMaxNumFreq: u32,
+            ulMonitorToneMaxNumEntries: u32,
+            ulMonitorDigitModes: u32,
+            ulGatherDigitsMinTimeout: u32,
+            ulGatherDigitsMaxTimeout: u32,
+            ulDevCapFlags: u32,
+            ulMaxNumActiveCalls: u32,
+            ulAnswerMode: u32,
+            ulUUIAcceptSize: u32,
+            ulUUIAnswerSize: u32,
+            ulUUIMakeCallSize: u32,
+            ulUUIDropSize: u32,
+            ulUUISendUserUserInfoSize: u32,
+            ulUUICallInfoSize: u32,
         }
         struct NDIS_CO_LINK_SPEED {
-            Outbound: ULONG,
-            Inbound: ULONG,
+            Outbound: u32,
+            Inbound: u32,
         }
         const NDIS_CO_MAC_OPTION_DYNAMIC_LINK_SPEED: i32 = 1;
         #[repr(i32)]
@@ -411,15 +426,15 @@ mod Windows {
                 Oid: NDIS_OID,
                 Status: NDIS_STATUS,
             },
-            Size: ULONG,
-            Flags: ULONG,
+            Size: u32,
+            Flags: u32,
         }
         struct NDIS_HARDWARE_CROSSTIMESTAMP {
             Header: NDIS_OBJECT_HEADER,
-            Flags: ULONG,
-            SystemTimestamp1: ULONG64,
-            HardwareClockTimestamp: ULONG64,
-            SystemTimestamp2: ULONG64,
+            Flags: u32,
+            SystemTimestamp1: u64,
+            HardwareClockTimestamp: u64,
+            SystemTimestamp2: u64,
         }
         const NDIS_HARDWARE_CROSSTIMESTAMP_REVISION_1: i32 = 1;
         #[repr(i32)]
@@ -430,9 +445,9 @@ mod Windows {
             NdisHardwareStatusClosing = 3,
             NdisHardwareStatusNotReady = 4,
         }
-        type NDIS_IF_COUNTED_STRING = IF_COUNTED_STRING_LH;
+        type NDIS_IF_COUNTED_STRING = IF_COUNTED_STRING;
         const NDIS_IF_MAX_STRING_SIZE: i32 = 256;
-        type NDIS_IF_PHYSICAL_ADDRESS = IF_PHYSICAL_ADDRESS_LH;
+        type NDIS_IF_PHYSICAL_ADDRESS = IF_PHYSICAL_ADDRESS;
         #[repr(i32)]
         enum NDIS_INTERRUPT_MODERATION {
             NdisInterruptModerationUnknown = 0,
@@ -444,83 +459,85 @@ mod Windows {
         const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_RESET: i32 = 1;
         struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
-            Flags: ULONG,
+            Flags: u32,
             InterruptModeration: NDIS_INTERRUPT_MODERATION,
         }
         const NDIS_INTERRUPT_MODERATION_PARAMETERS_REVISION_1: i32 = 1;
         struct NDIS_IPSEC_OFFLOAD_V1 {
             Supported: struct {
-                Encapsulation: ULONG,
-                AhEspCombined: ULONG,
-                TransportTunnelCombined: ULONG,
-                IPv4Options: ULONG,
-                Flags: ULONG,
+                Encapsulation: u32,
+                AhEspCombined: u32,
+                TransportTunnelCombined: u32,
+                IPv4Options: u32,
+                Flags: u32,
             },
             IPv4AH: struct {
-                #[Windows::Win32::Metadata::NativeBitfield("Md5", 0, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("Receive", 10, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("Send", 8, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("Sha_1", 2, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("Transport", 4, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("Tunnel", 6, 2, MemberType = ULONG)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Md5: 2,
+                    Sha_1: 2,
+                    Transport: 2,
+                    Tunnel: 2,
+                    Send: 2,
+                    Receive: 2,
+                },
             },
             IPv4ESP: struct {
-                #[Windows::Win32::Metadata::NativeBitfield("Des", 0, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("NullEsp", 6, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("Receive", 14, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("Send", 12, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("Transport", 8, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("TripleDes", 4, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("Tunnel", 10, 2, MemberType = ULONG)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Des: 2,
+                    Reserved: 2,
+                    TripleDes: 2,
+                    NullEsp: 2,
+                    Transport: 2,
+                    Tunnel: 2,
+                    Send: 2,
+                    Receive: 2,
+                },
             },
         }
         struct NDIS_IP_OPER_STATE {
             Header: NDIS_OBJECT_HEADER,
-            Flags: ULONG,
+            Flags: u32,
             IpOperationalStatus: NDIS_IP_OPER_STATUS,
         }
         const NDIS_IP_OPER_STATE_REVISION_1: i32 = 1;
         struct NDIS_IP_OPER_STATUS {
-            AddressFamily: ULONG,
+            AddressFamily: u32,
             OperationalStatus: NET_IF_OPER_STATUS,
-            OperationalStatusFlags: ULONG,
+            OperationalStatusFlags: u32,
         }
         struct NDIS_IP_OPER_STATUS_INFO {
             Header: NDIS_OBJECT_HEADER,
-            Flags: ULONG,
-            NumberofAddressFamiliesReturned: ULONG,
+            Flags: u32,
+            NumberofAddressFamiliesReturned: u32,
             IpOperationalStatus: [NDIS_IP_OPER_STATUS; 32],
         }
         const NDIS_IP_OPER_STATUS_INFO_REVISION_1: i32 = 1;
         struct NDIS_IRDA_PACKET_INFO {
-            ExtraBOFs: ULONG,
-            MinTurnAroundTime: ULONG,
+            ExtraBOFs: u32,
+            MinTurnAroundTime: u32,
         }
         struct NDIS_LINK_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             MediaDuplexState: NDIS_MEDIA_DUPLEX_STATE,
-            XmitLinkSpeed: ULONG64,
-            RcvLinkSpeed: ULONG64,
+            XmitLinkSpeed: u64,
+            RcvLinkSpeed: u64,
             PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
-            AutoNegotiationFlags: ULONG,
+            AutoNegotiationFlags: u32,
         }
         const NDIS_LINK_PARAMETERS_REVISION_1: i32 = 1;
         struct NDIS_LINK_SPEED {
-            XmitLinkSpeed: ULONG64,
-            RcvLinkSpeed: ULONG64,
+            XmitLinkSpeed: u64,
+            RcvLinkSpeed: u64,
         }
-        const NDIS_LINK_SPEED_UNKNOWN: ULONG64 = 18446744073709551615;
+        const NDIS_LINK_SPEED_UNKNOWN: u64 = 18446744073709551615;
         struct NDIS_LINK_STATE {
             Header: NDIS_OBJECT_HEADER,
             MediaConnectState: NDIS_MEDIA_CONNECT_STATE,
             MediaDuplexState: NDIS_MEDIA_DUPLEX_STATE,
-            XmitLinkSpeed: ULONG64,
-            RcvLinkSpeed: ULONG64,
+            XmitLinkSpeed: u64,
+            RcvLinkSpeed: u64,
             PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
-            AutoNegotiationFlags: ULONG,
+            AutoNegotiationFlags: u32,
         }
         const NDIS_LINK_STATE_DUPLEX_AUTO_NEGOTIATED: i32 = 4;
         const NDIS_LINK_STATE_PAUSE_FUNCTIONS_AUTO_NEGOTIATED: i32 = 8;
@@ -634,23 +651,23 @@ mod Windows {
             LsoV1: NDIS_TCP_LARGE_SEND_OFFLOAD_V1,
             IPsecV1: NDIS_IPSEC_OFFLOAD_V1,
             LsoV2: NDIS_TCP_LARGE_SEND_OFFLOAD_V2,
-            Flags: ULONG,
+            Flags: u32,
         }
         const NDIS_OFFLOAD_FLAGS_GROUP_CHECKSUM_CAPABILITIES: i32 = 1;
         struct NDIS_OFFLOAD_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
-            IPv4Checksum: UCHAR,
-            TCPIPv4Checksum: UCHAR,
-            UDPIPv4Checksum: UCHAR,
-            TCPIPv6Checksum: UCHAR,
-            UDPIPv6Checksum: UCHAR,
-            LsoV1: UCHAR,
-            IPsecV1: UCHAR,
-            LsoV2IPv4: UCHAR,
-            LsoV2IPv6: UCHAR,
-            TcpConnectionIPv4: UCHAR,
-            TcpConnectionIPv6: UCHAR,
-            Flags: ULONG,
+            IPv4Checksum: u8,
+            TCPIPv4Checksum: u8,
+            UDPIPv4Checksum: u8,
+            TCPIPv6Checksum: u8,
+            UDPIPv6Checksum: u8,
+            LsoV1: u8,
+            IPsecV1: u8,
+            LsoV2IPv4: u8,
+            LsoV2IPv6: u8,
+            TcpConnectionIPv4: u8,
+            TcpConnectionIPv6: u8,
+            Flags: u32,
         }
         const NDIS_OFFLOAD_PARAMETERS_CONNECTION_OFFLOAD_DISABLED: i32 = 1;
         const NDIS_OFFLOAD_PARAMETERS_CONNECTION_OFFLOAD_ENABLED: i32 = 2;
@@ -672,7 +689,7 @@ mod Windows {
         struct NDIS_OPER_STATE {
             Header: NDIS_OBJECT_HEADER,
             OperationalStatus: NET_IF_OPER_STATUS,
-            OperationalStatusFlags: ULONG,
+            OperationalStatusFlags: u32,
         }
         const NDIS_OPER_STATE_REVISION_1: i32 = 1;
         const NDIS_PACKET_TYPE_ALL_FUNCTIONAL: i32 = 8192;
@@ -690,18 +707,18 @@ mod Windows {
         const NDIS_PACKET_TYPE_SOURCE_ROUTING: i32 = 16;
         struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
             Header: NDIS_OBJECT_HEADER,
-            DeviceType: UINT32,
-            CurrentSpeedAndMode: UINT32,
-            CurrentPayloadSize: UINT32,
-            MaxPayloadSize: UINT32,
-            MaxReadRequestSize: UINT32,
-            CurrentLinkSpeed: UINT32,
-            CurrentLinkWidth: UINT32,
-            MaxLinkSpeed: UINT32,
-            MaxLinkWidth: UINT32,
-            PciExpressVersion: UINT32,
-            InterruptType: UINT32,
-            MaxInterruptMessages: UINT32,
+            DeviceType: u32,
+            CurrentSpeedAndMode: u32,
+            CurrentPayloadSize: u32,
+            MaxPayloadSize: u32,
+            MaxReadRequestSize: u32,
+            CurrentLinkSpeed: u32,
+            CurrentLinkWidth: u32,
+            MaxLinkSpeed: u32,
+            MaxLinkWidth: u32,
+            PciExpressVersion: u32,
+            InterruptType: u32,
+            MaxInterruptMessages: u32,
         }
         #[repr(i32)]
         enum NDIS_PHYSICAL_MEDIUM {
@@ -729,12 +746,12 @@ mod Windows {
             NdisPhysicalMediumMax = 21,
         }
         struct NDIS_PM_PACKET_PATTERN {
-            Priority: ULONG,
-            Reserved: ULONG,
-            MaskSize: ULONG,
-            PatternOffset: ULONG,
-            PatternSize: ULONG,
-            PatternFlags: ULONG,
+            Priority: u32,
+            Reserved: u32,
+            MaskSize: u32,
+            PatternOffset: u32,
+            PatternSize: u32,
+            PatternFlags: u32,
         }
         struct NDIS_PM_WAKE_UP_CAPABILITIES {
             MinMagicPacketWakeUp: NDIS_DEVICE_POWER_STATE,
@@ -742,18 +759,24 @@ mod Windows {
             MinLinkChangeWakeUp: NDIS_DEVICE_POWER_STATE,
         }
         struct NDIS_PNP_CAPABILITIES {
-            Flags: ULONG,
+            Flags: u32,
             WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES,
         }
         const NDIS_PNP_WAKE_UP_LINK_CHANGE: i32 = 4;
         const NDIS_PNP_WAKE_UP_MAGIC_PACKET: i32 = 1;
         const NDIS_PNP_WAKE_UP_PATTERN_MATCH: i32 = 2;
-        type NDIS_PORT = _NDIS_PORT;
+        struct NDIS_PORT {
+            Next: PNDIS_PORT,
+            NdisReserved: *mut void,
+            MiniportReserved: *mut void,
+            ProtocolReserved: *mut void,
+            PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
+        }
         struct NDIS_PORT_ARRAY {
             Header: NDIS_OBJECT_HEADER,
-            NumberOfPorts: ULONG,
-            OffsetFirstPort: ULONG,
-            ElementSize: ULONG,
+            NumberOfPorts: u32,
+            OffsetFirstPort: u32,
+            ElementSize: u32,
             Ports: [NDIS_PORT_CHARACTERISTICS; 1],
         }
         const NDIS_PORT_ARRAY_REVISION_1: i32 = 1;
@@ -775,11 +798,11 @@ mod Windows {
         struct NDIS_PORT_CHARACTERISTICS {
             Header: NDIS_OBJECT_HEADER,
             PortNumber: NDIS_PORT_NUMBER,
-            Flags: ULONG,
+            Flags: u32,
             Type: NDIS_PORT_TYPE,
             MediaConnectState: NDIS_MEDIA_CONNECT_STATE,
-            XmitLinkSpeed: ULONG64,
-            RcvLinkSpeed: ULONG64,
+            XmitLinkSpeed: u64,
+            RcvLinkSpeed: u64,
             Direction: NET_IF_DIRECTION_TYPE,
             SendControlState: NDIS_PORT_CONTROL_STATE,
             RcvControlState: NDIS_PORT_CONTROL_STATE,
@@ -798,14 +821,14 @@ mod Windows {
         struct NDIS_PORT_STATE {
             Header: NDIS_OBJECT_HEADER,
             MediaConnectState: NDIS_MEDIA_CONNECT_STATE,
-            XmitLinkSpeed: ULONG64,
-            RcvLinkSpeed: ULONG64,
+            XmitLinkSpeed: u64,
+            RcvLinkSpeed: u64,
             Direction: NET_IF_DIRECTION_TYPE,
             SendControlState: NDIS_PORT_CONTROL_STATE,
             RcvControlState: NDIS_PORT_CONTROL_STATE,
             SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
             RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-            Flags: ULONG,
+            Flags: u32,
         }
         const NDIS_PORT_STATE_REVISION_1: i32 = 1;
         #[repr(i32)]
@@ -831,28 +854,28 @@ mod Windows {
         const NDIS_RECEIVE_HASH_FLAG_HASH_KEY_UNCHANGED: i32 = 4;
         struct NDIS_RECEIVE_HASH_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
-            Flags: ULONG,
-            HashInformation: ULONG,
-            HashSecretKeySize: USHORT,
-            HashSecretKeyOffset: ULONG,
+            Flags: u32,
+            HashInformation: u32,
+            HashSecretKeySize: u16,
+            HashSecretKeyOffset: u32,
         }
         const NDIS_RECEIVE_HASH_PARAMETERS_REVISION_1: i32 = 1;
         struct NDIS_RECEIVE_SCALE_CAPABILITIES {
             Header: NDIS_OBJECT_HEADER,
             CapabilitiesFlags: NDIS_RSS_CAPS_FLAGS,
-            NumberOfInterruptMessages: ULONG,
-            NumberOfReceiveQueues: ULONG,
+            NumberOfInterruptMessages: u32,
+            NumberOfReceiveQueues: u32,
         }
         const NDIS_RECEIVE_SCALE_CAPABILITIES_REVISION_1: i32 = 1;
         struct NDIS_RECEIVE_SCALE_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
-            Flags: USHORT,
-            BaseCpuNumber: USHORT,
-            HashInformation: ULONG,
-            IndirectionTableSize: USHORT,
-            IndirectionTableOffset: ULONG,
-            HashSecretKeySize: USHORT,
-            HashSecretKeyOffset: ULONG,
+            Flags: u16,
+            BaseCpuNumber: u16,
+            HashInformation: u32,
+            IndirectionTableSize: u16,
+            IndirectionTableOffset: u32,
+            HashSecretKeySize: u16,
+            HashSecretKeyOffset: u32,
         }
         const NDIS_RECEIVE_SCALE_PARAMETERS_REVISION_1: i32 = 1;
         const NDIS_RING_AUTO_REMOVAL_ERROR: i32 = 1024;
@@ -1017,40 +1040,37 @@ mod Windows {
         const NDIS_STATISTICS_FLAGS_VALID_XMIT_ERROR: i32 = 1024;
         struct NDIS_STATISTICS_INFO {
             Header: NDIS_OBJECT_HEADER,
-            SupportedStatistics: ULONG,
-            ifInDiscards: ULONG64,
-            ifInErrors: ULONG64,
-            ifHCInOctets: ULONG64,
-            ifHCInUcastPkts: ULONG64,
-            ifHCInMulticastPkts: ULONG64,
-            ifHCInBroadcastPkts: ULONG64,
-            ifHCOutOctets: ULONG64,
-            ifHCOutUcastPkts: ULONG64,
-            ifHCOutMulticastPkts: ULONG64,
-            ifHCOutBroadcastPkts: ULONG64,
-            ifOutErrors: ULONG64,
-            ifOutDiscards: ULONG64,
-            ifHCInUcastOctets: ULONG64,
-            ifHCInMulticastOctets: ULONG64,
-            ifHCInBroadcastOctets: ULONG64,
-            ifHCOutUcastOctets: ULONG64,
-            ifHCOutMulticastOctets: ULONG64,
-            ifHCOutBroadcastOctets: ULONG64,
+            SupportedStatistics: u32,
+            ifInDiscards: u64,
+            ifInErrors: u64,
+            ifHCInOctets: u64,
+            ifHCInUcastPkts: u64,
+            ifHCInMulticastPkts: u64,
+            ifHCInBroadcastPkts: u64,
+            ifHCOutOctets: u64,
+            ifHCOutUcastPkts: u64,
+            ifHCOutMulticastPkts: u64,
+            ifHCOutBroadcastPkts: u64,
+            ifOutErrors: u64,
+            ifOutDiscards: u64,
+            ifHCInUcastOctets: u64,
+            ifHCInMulticastOctets: u64,
+            ifHCInBroadcastOctets: u64,
+            ifHCOutUcastOctets: u64,
+            ifHCOutMulticastOctets: u64,
+            ifHCOutBroadcastOctets: u64,
         }
         const NDIS_STATISTICS_INFO_REVISION_1: i32 = 1;
         struct NDIS_STATISTICS_VALUE {
             Oid: NDIS_OID,
-            DataLength: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DataLength", IsByteCount = true, MayBeNull = false)]
-            Data: [UCHAR; 1],
+            DataLength: u32,
+            Data: [u8; 1],
         }
-        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Length", "Length", TypedefName = "NDIS_STATISTICS_VALUE_EX")]
         struct NDIS_STATISTICS_VALUE_EX {
             Oid: NDIS_OID,
-            DataLength: ULONG,
-            Length: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "DataLength", IsByteCount = true, MayBeNull = false)]
-            Data: [UCHAR; 1],
+            DataLength: u32,
+            Length: u32,
+            Data: [u8; 1],
         }
         #[repr(i32)]
         enum NDIS_SUPPORTED_PAUSE_FUNCTIONS {
@@ -1062,90 +1082,97 @@ mod Windows {
         }
         struct NDIS_TCP_CONNECTION_OFFLOAD {
             Header: NDIS_OBJECT_HEADER,
-            Encapsulation: ULONG,
-            #[Windows::Win32::Metadata::NativeBitfield("SupportIPv4", 0, 2, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("SupportIPv6", 2, 2, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("SupportIPv6ExtensionHeaders", 4, 2, MemberType = ULONG)]
-            #[Windows::Win32::Metadata::NativeBitfield("SupportSack", 6, 2, MemberType = ULONG)]
-            _bitfield: u32,
-            TcpConnectionOffloadCapacity: ULONG,
-            Flags: ULONG,
+            Encapsulation: u32,
+            _bitfield: u32 {
+                SupportIPv4: 2,
+                SupportIPv6: 2,
+                SupportIPv6ExtensionHeaders: 2,
+                SupportSack: 2,
+            },
+            TcpConnectionOffloadCapacity: u32,
+            Flags: u32,
         }
         const NDIS_TCP_CONNECTION_OFFLOAD_REVISION_1: i32 = 1;
         struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
             IPv4Transmit: struct {
-                Encapsulation: ULONG,
-                #[Windows::Win32::Metadata::NativeBitfield("IpChecksum", 8, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("IpOptionsSupported", 0, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("TcpChecksum", 4, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("TcpOptionsSupported", 2, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("UdpChecksum", 6, 2, MemberType = ULONG)]
-                _bitfield: u32,
+                Encapsulation: u32,
+                _bitfield: u32 {
+                    IpOptionsSupported: 2,
+                    TcpOptionsSupported: 2,
+                    TcpChecksum: 2,
+                    UdpChecksum: 2,
+                    IpChecksum: 2,
+                },
             },
             IPv4Receive: struct {
-                Encapsulation: ULONG,
-                #[Windows::Win32::Metadata::NativeBitfield("IpChecksum", 8, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("IpOptionsSupported", 0, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("TcpChecksum", 4, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("TcpOptionsSupported", 2, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("UdpChecksum", 6, 2, MemberType = ULONG)]
-                _bitfield: u32,
+                Encapsulation: u32,
+                _bitfield: u32 {
+                    IpOptionsSupported: 2,
+                    TcpOptionsSupported: 2,
+                    TcpChecksum: 2,
+                    UdpChecksum: 2,
+                    IpChecksum: 2,
+                },
             },
             IPv6Transmit: struct {
-                Encapsulation: ULONG,
-                #[Windows::Win32::Metadata::NativeBitfield("IpExtensionHeadersSupported", 0, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("TcpChecksum", 4, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("TcpOptionsSupported", 2, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("UdpChecksum", 6, 2, MemberType = ULONG)]
-                _bitfield: u32,
+                Encapsulation: u32,
+                _bitfield: u32 {
+                    IpExtensionHeadersSupported: 2,
+                    TcpOptionsSupported: 2,
+                    TcpChecksum: 2,
+                    UdpChecksum: 2,
+                },
             },
             IPv6Receive: struct {
-                Encapsulation: ULONG,
-                #[Windows::Win32::Metadata::NativeBitfield("IpExtensionHeadersSupported", 0, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("TcpChecksum", 4, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("TcpOptionsSupported", 2, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("UdpChecksum", 6, 2, MemberType = ULONG)]
-                _bitfield: u32,
+                Encapsulation: u32,
+                _bitfield: u32 {
+                    IpExtensionHeadersSupported: 2,
+                    TcpOptionsSupported: 2,
+                    TcpChecksum: 2,
+                    UdpChecksum: 2,
+                },
             },
         }
         struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
             IPv4: struct {
-                Encapsulation: ULONG,
-                MaxOffLoadSize: ULONG,
-                MinSegmentCount: ULONG,
-                #[Windows::Win32::Metadata::NativeBitfield("IpOptions", 2, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("TcpOptions", 0, 2, MemberType = ULONG)]
-                _bitfield: u32,
+                Encapsulation: u32,
+                MaxOffLoadSize: u32,
+                MinSegmentCount: u32,
+                _bitfield: u32 {
+                    TcpOptions: 2,
+                    IpOptions: 2,
+                },
             },
         }
         struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
             IPv4: struct {
-                Encapsulation: ULONG,
-                MaxOffLoadSize: ULONG,
-                MinSegmentCount: ULONG,
+                Encapsulation: u32,
+                MaxOffLoadSize: u32,
+                MinSegmentCount: u32,
             },
             IPv6: struct {
-                Encapsulation: ULONG,
-                MaxOffLoadSize: ULONG,
-                MinSegmentCount: ULONG,
-                #[Windows::Win32::Metadata::NativeBitfield("IpExtensionHeadersSupported", 0, 2, MemberType = ULONG)]
-                #[Windows::Win32::Metadata::NativeBitfield("TcpOptionsSupported", 2, 2, MemberType = ULONG)]
-                _bitfield: u32,
+                Encapsulation: u32,
+                MaxOffLoadSize: u32,
+                MinSegmentCount: u32,
+                _bitfield: u32 {
+                    IpExtensionHeadersSupported: 2,
+                    TcpOptionsSupported: 2,
+                },
             },
         }
         struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
             Header: NDIS_OBJECT_HEADER,
-            Flags: ULONG,
-            TimeoutArrayLength: ULONG,
-            TimeoutArray: [ULONG; 1],
+            Flags: u32,
+            TimeoutArrayLength: u32,
+            TimeoutArray: [u32; 1],
         }
         const NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES_REVISION_1: i32 = 1;
         struct NDIS_TIMESTAMP_CAPABILITIES {
             Header: NDIS_OBJECT_HEADER,
-            HardwareClockFrequencyHz: ULONG64,
+            HardwareClockFrequencyHz: u64,
             CrossTimestamp: BOOLEAN,
-            Reserved1: ULONG64,
-            Reserved2: ULONG64,
+            Reserved1: u64,
+            Reserved2: u64,
             TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
         }
         const NDIS_TIMESTAMP_CAPABILITIES_REVISION_1: i32 = 1;
@@ -1166,9 +1193,9 @@ mod Windows {
             TaggedTransmitSw: BOOLEAN,
         }
         struct NDIS_VAR_DATA_DESC {
-            Length: USHORT,
-            MaximumLength: USHORT,
-            Offset: ULONG_PTR,
+            Length: u16,
+            MaximumLength: u16,
+            Offset: usize,
         }
         type NDIS_VLAN_ID = u32;
         #[repr(i32)]
@@ -1197,10 +1224,8 @@ mod Windows {
             NdisWanMediumSubTypeMax = 16,
         }
         struct NDIS_WAN_PROTOCOL_CAPS {
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
-            Flags: ULONG,
-            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
-            Reserved: ULONG,
+            Flags: u32,
+            Reserved: u32,
         }
         #[repr(i32)]
         enum NDIS_WAN_QUALITY {
@@ -1209,11 +1234,11 @@ mod Windows {
             NdisWanReliable = 2,
         }
         struct NDIS_WLAN_BSSID {
-            Length: ULONG,
+            Length: u32,
             MacAddress: NDIS_802_11_MAC_ADDRESS,
-            Reserved: [UCHAR; 2],
+            Reserved: [u8; 2],
             Ssid: NDIS_802_11_SSID,
-            Privacy: ULONG,
+            Privacy: u32,
             Rssi: NDIS_802_11_RSSI,
             NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
             Configuration: NDIS_802_11_CONFIGURATION,
@@ -1221,73 +1246,73 @@ mod Windows {
             SupportedRates: NDIS_802_11_RATES,
         }
         struct NDIS_WLAN_BSSID_EX {
-            Length: ULONG,
+            Length: u32,
             MacAddress: NDIS_802_11_MAC_ADDRESS,
-            Reserved: [UCHAR; 2],
+            Reserved: [u8; 2],
             Ssid: NDIS_802_11_SSID,
-            Privacy: ULONG,
+            Privacy: u32,
             Rssi: NDIS_802_11_RSSI,
             NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
             Configuration: NDIS_802_11_CONFIGURATION,
             InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
             SupportedRates: NDIS_802_11_RATES_EX,
-            IELength: ULONG,
-            IEs: [UCHAR; 1],
+            IELength: u32,
+            IEs: [u8; 1],
         }
         const NDIS_WMI_DEFAULT_METHOD_ID: i32 = 1;
         struct NDIS_WMI_ENUM_ADAPTER {
             Header: NDIS_OBJECT_HEADER,
             IfIndex: NET_IFINDEX,
             NetLuid: NET_LUID,
-            DeviceNameLength: USHORT,
-            DeviceName: [CHAR; 1],
+            DeviceNameLength: u16,
+            DeviceName: [i8; 1],
         }
         const NDIS_WMI_ENUM_ADAPTER_REVISION_1: i32 = 1;
         struct NDIS_WMI_EVENT_HEADER {
             Header: NDIS_OBJECT_HEADER,
             IfIndex: NET_IFINDEX,
             NetLuid: NET_LUID,
-            RequestId: ULONG64,
+            RequestId: u64,
             PortNumber: NDIS_PORT_NUMBER,
-            DeviceNameLength: ULONG,
-            DeviceNameOffset: ULONG,
-            Padding: [UCHAR; 4],
+            DeviceNameLength: u32,
+            DeviceNameOffset: u32,
+            Padding: [u8; 4],
         }
         const NDIS_WMI_EVENT_HEADER_REVISION_1: i32 = 1;
         struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
             Supported: struct {
-                Encapsulation: ULONG,
-                AhEspCombined: ULONG,
-                TransportTunnelCombined: ULONG,
-                IPv4Options: ULONG,
-                Flags: ULONG,
+                Encapsulation: u32,
+                AhEspCombined: u32,
+                TransportTunnelCombined: u32,
+                IPv4Options: u32,
+                Flags: u32,
             },
             IPv4AH: struct {
-                Md5: ULONG,
-                Sha_1: ULONG,
-                Transport: ULONG,
-                Tunnel: ULONG,
-                Send: ULONG,
-                Receive: ULONG,
+                Md5: u32,
+                Sha_1: u32,
+                Transport: u32,
+                Tunnel: u32,
+                Send: u32,
+                Receive: u32,
             },
             IPv4ESP: struct {
-                Des: ULONG,
-                Reserved: ULONG,
-                TripleDes: ULONG,
-                NullEsp: ULONG,
-                Transport: ULONG,
-                Tunnel: ULONG,
-                Send: ULONG,
-                Receive: ULONG,
+                Des: u32,
+                Reserved: u32,
+                TripleDes: u32,
+                NullEsp: u32,
+                Transport: u32,
+                Tunnel: u32,
+                Send: u32,
+                Receive: u32,
             },
         }
         struct NDIS_WMI_METHOD_HEADER {
             Header: NDIS_OBJECT_HEADER,
             PortNumber: NDIS_PORT_NUMBER,
             NetLuid: NET_LUID,
-            RequestId: ULONG64,
-            Timeout: ULONG,
-            Padding: [UCHAR; 4],
+            RequestId: u64,
+            Timeout: u32,
+            Padding: [u8; 4],
         }
         const NDIS_WMI_METHOD_HEADER_REVISION_1: i32 = 1;
         const NDIS_WMI_OBJECT_TYPE_ENUM_ADAPTER: i32 = 4;
@@ -1301,108 +1326,109 @@ mod Windows {
             LsoV1: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1,
             IPsecV1: NDIS_WMI_IPSEC_OFFLOAD_V1,
             LsoV2: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2,
-            Flags: ULONG,
+            Flags: u32,
         }
         struct NDIS_WMI_OUTPUT_INFO {
             Header: NDIS_OBJECT_HEADER,
-            Flags: ULONG,
-            SupportedRevision: UCHAR,
-            DataOffset: ULONG,
+            Flags: u32,
+            SupportedRevision: u8,
+            DataOffset: u32,
         }
+        const NDIS_WMI_OUTPUT_INFO_REVISION_1: i32 = 1;
         struct NDIS_WMI_SET_HEADER {
             Header: NDIS_OBJECT_HEADER,
             PortNumber: NDIS_PORT_NUMBER,
             NetLuid: NET_LUID,
-            RequestId: ULONG64,
-            Timeout: ULONG,
-            Padding: [UCHAR; 4],
+            RequestId: u64,
+            Timeout: u32,
+            Padding: [u8; 4],
         }
         const NDIS_WMI_SET_HEADER_REVISION_1: i32 = 1;
         struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
             Header: NDIS_OBJECT_HEADER,
-            Encapsulation: ULONG,
-            SupportIPv4: ULONG,
-            SupportIPv6: ULONG,
-            SupportIPv6ExtensionHeaders: ULONG,
-            SupportSack: ULONG,
-            TcpConnectionOffloadCapacity: ULONG,
-            Flags: ULONG,
+            Encapsulation: u32,
+            SupportIPv4: u32,
+            SupportIPv6: u32,
+            SupportIPv6ExtensionHeaders: u32,
+            SupportSack: u32,
+            TcpConnectionOffloadCapacity: u32,
+            Flags: u32,
         }
         struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
             IPv4Transmit: struct {
-                Encapsulation: ULONG,
-                IpOptionsSupported: ULONG,
-                TcpOptionsSupported: ULONG,
-                TcpChecksum: ULONG,
-                UdpChecksum: ULONG,
-                IpChecksum: ULONG,
+                Encapsulation: u32,
+                IpOptionsSupported: u32,
+                TcpOptionsSupported: u32,
+                TcpChecksum: u32,
+                UdpChecksum: u32,
+                IpChecksum: u32,
             },
             IPv4Receive: struct {
-                Encapsulation: ULONG,
-                IpOptionsSupported: ULONG,
-                TcpOptionsSupported: ULONG,
-                TcpChecksum: ULONG,
-                UdpChecksum: ULONG,
-                IpChecksum: ULONG,
+                Encapsulation: u32,
+                IpOptionsSupported: u32,
+                TcpOptionsSupported: u32,
+                TcpChecksum: u32,
+                UdpChecksum: u32,
+                IpChecksum: u32,
             },
             IPv6Transmit: struct {
-                Encapsulation: ULONG,
-                IpExtensionHeadersSupported: ULONG,
-                TcpOptionsSupported: ULONG,
-                TcpChecksum: ULONG,
-                UdpChecksum: ULONG,
+                Encapsulation: u32,
+                IpExtensionHeadersSupported: u32,
+                TcpOptionsSupported: u32,
+                TcpChecksum: u32,
+                UdpChecksum: u32,
             },
             IPv6Receive: struct {
-                Encapsulation: ULONG,
-                IpExtensionHeadersSupported: ULONG,
-                TcpOptionsSupported: ULONG,
-                TcpChecksum: ULONG,
-                UdpChecksum: ULONG,
+                Encapsulation: u32,
+                IpExtensionHeadersSupported: u32,
+                TcpOptionsSupported: u32,
+                TcpChecksum: u32,
+                UdpChecksum: u32,
             },
         }
         struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
             IPv4: struct {
-                Encapsulation: ULONG,
-                MaxOffLoadSize: ULONG,
-                MinSegmentCount: ULONG,
-                TcpOptions: ULONG,
-                IpOptions: ULONG,
+                Encapsulation: u32,
+                MaxOffLoadSize: u32,
+                MinSegmentCount: u32,
+                TcpOptions: u32,
+                IpOptions: u32,
             },
         }
         struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
             IPv4: struct {
-                Encapsulation: ULONG,
-                MaxOffLoadSize: ULONG,
-                MinSegmentCount: ULONG,
+                Encapsulation: u32,
+                MaxOffLoadSize: u32,
+                MinSegmentCount: u32,
             },
             IPv6: struct {
-                Encapsulation: ULONG,
-                MaxOffLoadSize: ULONG,
-                MinSegmentCount: ULONG,
-                IpExtensionHeadersSupported: ULONG,
-                TcpOptionsSupported: ULONG,
+                Encapsulation: u32,
+                MaxOffLoadSize: u32,
+                MinSegmentCount: u32,
+                IpExtensionHeadersSupported: u32,
+                TcpOptionsSupported: u32,
             },
         }
         struct NETWORK_ADDRESS {
-            AddressLength: USHORT,
-            AddressType: USHORT,
-            Address: [UCHAR; 1],
+            AddressLength: u16,
+            AddressType: u16,
+            Address: [u8; 1],
         }
         struct NETWORK_ADDRESS_IP {
-            sin_port: USHORT,
-            in_addr: ULONG,
-            sin_zero: [UCHAR; 8],
+            sin_port: u16,
+            in_addr: u32,
+            sin_zero: [u8; 8],
         }
         struct NETWORK_ADDRESS_IP6 {
-            sin6_port: USHORT,
-            sin6_flowinfo: ULONG,
-            sin6_addr: [USHORT; 8],
-            sin6_scope_id: ULONG,
+            sin6_port: u16,
+            sin6_flowinfo: u32,
+            sin6_addr: [u16; 8],
+            sin6_scope_id: u32,
         }
         struct NETWORK_ADDRESS_IPX {
-            NetworkAddress: ULONG,
-            NodeAddress: [UCHAR; 6],
-            Socket: USHORT,
+            NetworkAddress: u32,
+            NodeAddress: [u8; 6],
+            Socket: u16,
         }
         #[arch(X64 | Arm64)]
         const NETWORK_ADDRESS_LENGTH_IP: u64 = 16;
@@ -1417,14 +1443,14 @@ mod Windows {
         #[arch(X86)]
         const NETWORK_ADDRESS_LENGTH_IPX: u32 = 12;
         struct NETWORK_ADDRESS_LIST {
-            AddressCount: LONG,
-            AddressType: USHORT,
+            AddressCount: i32,
+            AddressType: u16,
             Address: [NETWORK_ADDRESS; 1],
         }
         struct OFFLOAD_ALGO_INFO {
-            algoIdentifier: ULONG,
-            algoKeylen: ULONG,
-            algoRounds: ULONG,
+            algoIdentifier: u32,
+            algoKeylen: u32,
+            algoRounds: u32,
         }
         #[repr(i32)]
         enum OFFLOAD_CONF_ALGO {
@@ -1447,36 +1473,36 @@ mod Windows {
             SrcMask: IPMask,
             DestAddr: IPAddr,
             DestMask: IPMask,
-            Protocol: ULONG,
-            SrcPort: USHORT,
-            DestPort: USHORT,
+            Protocol: u32,
+            SrcPort: u16,
+            DestPort: u16,
             SrcTunnelAddr: IPAddr,
             DestTunnelAddr: IPAddr,
-            Flags: USHORT,
-            NumSAs: SHORT,
+            Flags: u16,
+            NumSAs: i16,
             SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
             OffloadHandle: HANDLE,
-            KeyLen: ULONG,
-            KeyMat: [UCHAR; 1],
+            KeyLen: u32,
+            KeyMat: [u8; 1],
         }
         struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
             SrcAddr: IPAddr,
             SrcMask: IPMask,
             DstAddr: IPAddr,
             DstMask: IPMask,
-            Protocol: ULONG,
-            SrcPort: USHORT,
-            DstPort: USHORT,
+            Protocol: u32,
+            SrcPort: u16,
+            DstPort: u16,
             SrcTunnelAddr: IPAddr,
             DstTunnelAddr: IPAddr,
-            Flags: USHORT,
-            NumSAs: SHORT,
+            Flags: u16,
+            NumSAs: i16,
             SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
             OffloadHandle: HANDLE,
             EncapTypeEntry: OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY,
             EncapTypeEntryOffldHandle: HANDLE,
-            KeyLen: ULONG,
-            KeyMat: [UCHAR; 1],
+            KeyLen: u32,
+            KeyMat: [u8; 1],
         }
         struct OFFLOAD_IPSEC_DELETE_SA {
             OffloadHandle: HANDLE,
@@ -1487,7 +1513,7 @@ mod Windows {
         }
         struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
             UdpEncapType: UDP_ENCAP_TYPE,
-            DstEncapPort: USHORT,
+            DstEncapPort: u16,
         }
         const OFFLOAD_MAX_SAS: i32 = 3;
         #[repr(i32)]
@@ -2218,7 +2244,7 @@ mod Windows {
         type PGEN_GET_TIME_CAPS = *mut GEN_GET_TIME_CAPS;
         struct PMKID_CANDIDATE {
             BSSID: NDIS_802_11_MAC_ADDRESS,
-            Flags: ULONG,
+            Flags: u32,
         }
         type PNDIS_802_11_AI_REQFI = *mut NDIS_802_11_AI_REQFI;
         type PNDIS_802_11_AI_RESFI = *mut NDIS_802_11_AI_RESFI;
@@ -2232,7 +2258,7 @@ mod Windows {
         type PNDIS_802_11_CAPABILITY = *mut NDIS_802_11_CAPABILITY;
         type PNDIS_802_11_CONFIGURATION = *mut NDIS_802_11_CONFIGURATION;
         type PNDIS_802_11_CONFIGURATION_FH = *mut NDIS_802_11_CONFIGURATION_FH;
-        type PNDIS_802_11_ENCRYPTION_STATUS = *mut _NDIS_802_11_WEP_STATUS;
+        type PNDIS_802_11_ENCRYPTION_STATUS = *mut NDIS_802_11_WEP_STATUS;
         type PNDIS_802_11_FIXED_IEs = *mut NDIS_802_11_FIXED_IEs;
         type PNDIS_802_11_KEY = *mut NDIS_802_11_KEY;
         type PNDIS_802_11_MEDIA_STREAM_MODE = *mut NDIS_802_11_MEDIA_STREAM_MODE;
@@ -2254,7 +2280,7 @@ mod Windows {
         type PNDIS_802_11_TEST = *mut NDIS_802_11_TEST;
         type PNDIS_802_11_VARIABLE_IEs = *mut NDIS_802_11_VARIABLE_IEs;
         type PNDIS_802_11_WEP = *mut NDIS_802_11_WEP;
-        type PNDIS_802_11_WEP_STATUS = *mut _NDIS_802_11_WEP_STATUS;
+        type PNDIS_802_11_WEP_STATUS = *mut NDIS_802_11_WEP_STATUS;
         type PNDIS_802_5_RING_STATE = *mut NDIS_802_5_RING_STATE;
         type PNDIS_CO_DEVICE_PROFILE = *mut NDIS_CO_DEVICE_PROFILE;
         type PNDIS_CO_LINK_SPEED = *mut NDIS_CO_LINK_SPEED;
@@ -2265,8 +2291,8 @@ mod Windows {
         type PNDIS_GUID = *mut NDIS_GUID;
         type PNDIS_HARDWARE_CROSSTIMESTAMP = *mut NDIS_HARDWARE_CROSSTIMESTAMP;
         type PNDIS_HARDWARE_STATUS = *mut NDIS_HARDWARE_STATUS;
-        type PNDIS_IF_COUNTED_STRING = *mut IF_COUNTED_STRING_LH;
-        type PNDIS_IF_PHYSICAL_ADDRESS = *mut IF_PHYSICAL_ADDRESS_LH;
+        type PNDIS_IF_COUNTED_STRING = *mut IF_COUNTED_STRING;
+        type PNDIS_IF_PHYSICAL_ADDRESS = *mut IF_PHYSICAL_ADDRESS;
         type PNDIS_INTERRUPT_MODERATION = *mut NDIS_INTERRUPT_MODERATION;
         type PNDIS_INTERRUPT_MODERATION_PARAMETERS = *mut NDIS_INTERRUPT_MODERATION_PARAMETERS;
         type PNDIS_IPSEC_OFFLOAD_V1 = *mut NDIS_IPSEC_OFFLOAD_V1;
@@ -2290,12 +2316,12 @@ mod Windows {
         type PNDIS_PM_PACKET_PATTERN = *mut NDIS_PM_PACKET_PATTERN;
         type PNDIS_PM_WAKE_UP_CAPABILITIES = *mut NDIS_PM_WAKE_UP_CAPABILITIES;
         type PNDIS_PNP_CAPABILITIES = *mut NDIS_PNP_CAPABILITIES;
-        type PNDIS_PORT = *mut _NDIS_PORT;
+        type PNDIS_PORT = *mut NDIS_PORT;
         type PNDIS_PORT_ARRAY = *mut NDIS_PORT_ARRAY;
         type PNDIS_PORT_AUTHENTICATION_PARAMETERS = *mut NDIS_PORT_AUTHENTICATION_PARAMETERS;
         type PNDIS_PORT_AUTHORIZATION_STATE = *mut NDIS_PORT_AUTHORIZATION_STATE;
         type PNDIS_PORT_CHARACTERISTICS = *mut NDIS_PORT_CHARACTERISTICS;
-        type PNDIS_PORT_CONTROLL_STATE = *mut NDIS_PORT_CONTROL_STATE;
+        type PNDIS_PORT_CONTROLL_STATE = PNDIS_PORT_CONTROL_STATE;
         type PNDIS_PORT_CONTROL_STATE = *mut NDIS_PORT_CONTROL_STATE;
         type PNDIS_PORT_STATE = *mut NDIS_PORT_STATE;
         type PNDIS_PROCESSOR_VENDOR = *mut NDIS_PROCESSOR_VENDOR;
@@ -2303,6 +2329,8 @@ mod Windows {
         type PNDIS_RECEIVE_SCALE_CAPABILITIES = *mut NDIS_RECEIVE_SCALE_CAPABILITIES;
         type PNDIS_RECEIVE_SCALE_PARAMETERS = *mut NDIS_RECEIVE_SCALE_PARAMETERS;
         type PNDIS_STATISTICS_INFO = *mut NDIS_STATISTICS_INFO;
+        type PNDIS_STATISTICS_VALUE = *mut NDIS_STATISTICS_VALUE;
+        type PNDIS_STATISTICS_VALUE_EX = *mut NDIS_STATISTICS_VALUE_EX;
         type PNDIS_SUPPORTED_PAUSE_FUNCTIONS = *mut NDIS_SUPPORTED_PAUSE_FUNCTIONS;
         type PNDIS_TCP_CONNECTION_OFFLOAD = *mut NDIS_TCP_CONNECTION_OFFLOAD;
         type PNDIS_TCP_IP_CHECKSUM_OFFLOAD = *mut NDIS_TCP_IP_CHECKSUM_OFFLOAD;
@@ -2351,8 +2379,8 @@ mod Windows {
         const TIMED_SEND_CAPABLE: i32 = 16;
         const TIME_STAMP_CAPABLE: i32 = 32;
         struct TRANSPORT_HEADER_OFFSET {
-            ProtocolType: USHORT,
-            HeaderOffset: USHORT,
+            ProtocolType: u16,
+            HeaderOffset: u16,
         }
         #[repr(i32)]
         enum UDP_ENCAP_TYPE {
@@ -2360,28 +2388,6 @@ mod Windows {
             OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_OTHER = 1,
         }
         const WAN_PROTOCOL_KEEPS_STATS: i32 = 1;
-        #[repr(i32)]
-        enum _NDIS_802_11_WEP_STATUS {
-            Ndis802_11WEPEnabled = 0,
-            Ndis802_11Encryption1Enabled = 0,
-            Ndis802_11WEPDisabled = 1,
-            Ndis802_11EncryptionDisabled = 1,
-            Ndis802_11WEPKeyAbsent = 2,
-            Ndis802_11Encryption1KeyAbsent = 2,
-            Ndis802_11WEPNotSupported = 3,
-            Ndis802_11EncryptionNotSupported = 3,
-            Ndis802_11Encryption2Enabled = 4,
-            Ndis802_11Encryption2KeyAbsent = 5,
-            Ndis802_11Encryption3Enabled = 6,
-            Ndis802_11Encryption3KeyAbsent = 7,
-        }
-        struct _NDIS_PORT {
-            Next: PNDIS_PORT,
-            NdisReserved: PVOID,
-            MiniportReserved: PVOID,
-            ProtocolReserved: PVOID,
-            PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
-        }
         const fNDIS_GUID_ALLOW_READ: i32 = 32;
         const fNDIS_GUID_ALLOW_WRITE: i32 = 64;
         const fNDIS_GUID_ANSI_STRING: i32 = 4;

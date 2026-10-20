@@ -83,82 +83,6 @@ mod Windows {
             INSTALLMODE_EXISTING = -1,
             INSTALLMODE_DEFAULT = 0,
         }
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_ASSIGNMENTTYPE: String = "AssignmentType";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_AUTHORIZED_LUA_APP: String = "AuthorizedLUAApp";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_DISKPROMPT: String = "DiskPrompt";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_DISPLAYNAME: String = "DisplayName";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_HELPLINK: String = "HelpLink";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_HELPTELEPHONE: String = "HelpTelephone";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_INSTALLDATE: String = "InstallDate";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_INSTALLEDLANGUAGE: String = "InstalledLanguage";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_INSTALLEDPRODUCTNAME: String = "InstalledProductName";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_INSTALLLOCATION: String = "InstallLocation";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_INSTALLSOURCE: String = "InstallSource";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_INSTANCETYPE: String = "InstanceType";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_LANGUAGE: String = "Language";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_LASTUSEDSOURCE: String = "LastUsedSource";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_LASTUSEDTYPE: String = "LastUsedType";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_LOCALPACKAGE: String = "LocalPackage";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_LUAENABLED: String = "LUAEnabled";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_MEDIAPACKAGEPATH: String = "MediaPackagePath";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_MOREINFOURL: String = "MoreInfoURL";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_PACKAGECODE: String = "PackageCode";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_PACKAGENAME: String = "PackageName";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_PATCHSTATE: String = "State";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_PATCHTYPE: String = "PatchType";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_PRODUCTICON: String = "ProductIcon";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_PRODUCTID: String = "ProductID";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_PRODUCTNAME: String = "ProductName";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_PRODUCTSTATE: String = "State";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_PUBLISHER: String = "Publisher";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_REGCOMPANY: String = "RegCompany";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_REGOWNER: String = "RegOwner";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_TRANSFORMS: String = "Transforms";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_UNINSTALLABLE: String = "Uninstallable";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_URLINFOABOUT: String = "URLInfoAbout";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_URLUPDATEINFO: String = "URLUpdateInfo";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_VERSION: String = "Version";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_VERSIONMAJOR: String = "VersionMajor";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_VERSIONMINOR: String = "VersionMinor";
-        #[encoding("ansi")]
-        const INSTALLPROPERTY_VERSIONSTRING: String = "VersionString";
         #[repr(i32)]
         enum INSTALLSTATE {
             INSTALLSTATE_NOTUSED = -7,
@@ -196,9 +120,9 @@ mod Windows {
             INSTALLUILEVEL_SOURCERESONLY = 256,
             INSTALLUILEVEL_UACONLY = 512,
         }
-        extern fn INSTALLUI_HANDLERA(pvContext: LPVOID, iMessageType: UINT, szMessage: LPCSTR) -> i32;
-        extern fn INSTALLUI_HANDLERW(pvContext: LPVOID, iMessageType: UINT, szMessage: LPCWSTR) -> i32;
-        extern fn INSTALLUI_HANDLER_RECORD(pvContext: LPVOID, iMessageType: UINT, hRecord: MSIHANDLE) -> i32;
+        extern fn INSTALLUI_HANDLERA(pvContext: *mut void, iMessageType: u32, szMessage: PCSTR) -> i32;
+        extern fn INSTALLUI_HANDLERW(pvContext: *mut void, iMessageType: u32, szMessage: PCWSTR) -> i32;
+        extern fn INSTALLUI_HANDLER_RECORD(pvContext: *mut void, iMessageType: u32, hRecord: MSIHANDLE) -> i32;
         const MAX_FEATURE_CHARS: i32 = 38;
         const MAX_GUID_CHARS: i32 = 38;
         #[repr(i32)]
@@ -220,8 +144,8 @@ mod Windows {
             MSICODE_PATCH = 1073741824,
         }
         struct MSIFILEHASHINFO {
-            dwFileHashInfoSize: ULONG,
-            dwData: [ULONG; 4],
+            dwFileHashInfoSize: u32,
+            dwData: [u32; 4],
         }
         type MSIHANDLE = u32;
         #[repr(i32)]
@@ -246,16 +170,16 @@ mod Windows {
         }
         type MSIPATCHSEQUENCEINFO = MSIPATCHSEQUENCEINFOA;
         struct MSIPATCHSEQUENCEINFOA {
-            szPatchData: LPCSTR,
+            szPatchData: PCSTR,
             ePatchDataType: MSIPATCHDATATYPE,
-            dwOrder: DWORD,
-            uStatus: UINT,
+            dwOrder: u32,
+            uStatus: u32,
         }
         struct MSIPATCHSEQUENCEINFOW {
-            szPatchData: LPCWSTR,
+            szPatchData: PCWSTR,
             ePatchDataType: MSIPATCHDATATYPE,
-            dwOrder: DWORD,
-            uStatus: UINT,
+            dwOrder: u32,
+            uStatus: u32,
         }
         #[repr(i32)]
         enum MSIPATCHSTATE {
@@ -284,502 +208,342 @@ mod Windows {
             MSITRANSACTIONSTATE_COMMIT = 1,
         }
         const MSI_INVALID_HASH_IS_FATAL: i32 = 1;
-        #[library("msi.dll", import = "MsiAdvertiseProductA")]
-        extern fn MsiAdvertiseProduct(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptfilePath: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szTransforms: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lgidLanguage: LANGID) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiAdvertiseProductA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptfilePath: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szTransforms: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lgidLanguage: LANGID) -> UINT;
-        #[library("msi.dll", import = "MsiAdvertiseProductExA")]
-        extern fn MsiAdvertiseProductEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptfilePath: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szTransforms: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lgidLanguage: LANGID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPlatform: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD) -> UINT;
+        extern fn MsiAdvertiseProductA(szPackagePath: PCSTR, #[opt] szScriptfilePath: PCSTR, #[opt] szTransforms: PCSTR, lgidLanguage: LANGID) -> u32;
         #[library("msi.dll")]
-        extern fn MsiAdvertiseProductExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptfilePath: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szTransforms: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lgidLanguage: LANGID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPlatform: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD) -> UINT;
+        extern fn MsiAdvertiseProductExA(szPackagePath: PCSTR, #[opt] szScriptfilePath: PCSTR, #[opt] szTransforms: PCSTR, lgidLanguage: LANGID, dwPlatform: u32, dwOptions: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiAdvertiseProductExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptfilePath: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szTransforms: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lgidLanguage: LANGID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwPlatform: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD) -> UINT;
+        extern fn MsiAdvertiseProductExW(szPackagePath: PCWSTR, #[opt] szScriptfilePath: PCWSTR, #[opt] szTransforms: PCWSTR, lgidLanguage: LANGID, dwPlatform: u32, dwOptions: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiAdvertiseProductW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptfilePath: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szTransforms: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lgidLanguage: LANGID) -> UINT;
-        #[library("msi.dll", import = "MsiAdvertiseScriptA")]
-        extern fn MsiAdvertiseScript(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptFile: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phRegData: PHKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fRemoveItems: BOOL) -> UINT;
+        extern fn MsiAdvertiseProductW(szPackagePath: PCWSTR, #[opt] szScriptfilePath: PCWSTR, #[opt] szTransforms: PCWSTR, lgidLanguage: LANGID) -> u32;
         #[library("msi.dll")]
-        extern fn MsiAdvertiseScriptA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptFile: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phRegData: PHKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fRemoveItems: BOOL) -> UINT;
+        extern fn MsiAdvertiseScriptA(szScriptFile: PCSTR, dwFlags: u32, #[opt] phRegData: PHKEY, fRemoveItems: BOOL) -> u32;
         #[library("msi.dll")]
-        extern fn MsiAdvertiseScriptW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptFile: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] phRegData: PHKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fRemoveItems: BOOL) -> UINT;
-        #[library("msi.dll", import = "MsiApplyMultiplePatchesA")]
-        extern fn MsiApplyMultiplePatches(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchPackages: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPropertiesList: LPCSTR) -> UINT;
+        extern fn MsiAdvertiseScriptW(szScriptFile: PCWSTR, dwFlags: u32, #[opt] phRegData: PHKEY, fRemoveItems: BOOL) -> u32;
         #[library("msi.dll")]
-        extern fn MsiApplyMultiplePatchesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchPackages: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPropertiesList: LPCSTR) -> UINT;
+        extern fn MsiApplyMultiplePatchesA(szPatchPackages: PCSTR, #[opt] szProductCode: PCSTR, #[opt] szPropertiesList: PCSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiApplyMultiplePatchesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchPackages: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPropertiesList: LPCWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiApplyPatchA")]
-        extern fn MsiApplyPatch(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchPackage: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szInstallPackage: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallType: INSTALLTYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCommandLine: LPCSTR) -> UINT;
+        extern fn MsiApplyMultiplePatchesW(szPatchPackages: PCWSTR, #[opt] szProductCode: PCWSTR, #[opt] szPropertiesList: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiApplyPatchA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchPackage: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szInstallPackage: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallType: INSTALLTYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCommandLine: LPCSTR) -> UINT;
+        extern fn MsiApplyPatchA(szPatchPackage: PCSTR, #[opt] szInstallPackage: PCSTR, eInstallType: INSTALLTYPE, #[opt] szCommandLine: PCSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiApplyPatchW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchPackage: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szInstallPackage: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallType: INSTALLTYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCommandLine: LPCWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiBeginTransactionA")]
-        extern fn MsiBeginTransaction(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTransactionAttributes: DWORD, #[out] phTransactionHandle: *mut MSIHANDLE, #[out] phChangeOfOwnerEvent: *mut HANDLE) -> UINT;
+        extern fn MsiApplyPatchW(szPatchPackage: PCWSTR, #[opt] szInstallPackage: PCWSTR, eInstallType: INSTALLTYPE, #[opt] szCommandLine: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiBeginTransactionA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szName: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTransactionAttributes: DWORD, #[out] phTransactionHandle: *mut MSIHANDLE, #[out] phChangeOfOwnerEvent: *mut HANDLE) -> UINT;
+        extern fn MsiBeginTransactionA(szName: PCSTR, dwTransactionAttributes: u32, phTransactionHandle: *mut MSIHANDLE, phChangeOfOwnerEvent: *mut HANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiBeginTransactionW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szName: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTransactionAttributes: DWORD, #[out] phTransactionHandle: *mut MSIHANDLE, #[out] phChangeOfOwnerEvent: *mut HANDLE) -> UINT;
+        extern fn MsiBeginTransactionW(szName: PCWSTR, dwTransactionAttributes: u32, phTransactionHandle: *mut MSIHANDLE, phChangeOfOwnerEvent: *mut HANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiCloseAllHandles() -> UINT;
+        extern fn MsiCloseAllHandles() -> u32;
         #[library("msi.dll")]
-        extern fn MsiCloseHandle(hAny: MSIHANDLE) -> UINT;
-        #[library("msi.dll", import = "MsiCollectUserInfoA")]
-        extern fn MsiCollectUserInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR) -> UINT;
+        extern fn MsiCloseHandle(hAny: MSIHANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiCollectUserInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR) -> UINT;
+        extern fn MsiCollectUserInfoA(szProduct: PCSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiCollectUserInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiConfigureFeatureA")]
-        extern fn MsiConfigureFeature(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallState: INSTALLSTATE) -> UINT;
+        extern fn MsiCollectUserInfoW(szProduct: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiConfigureFeatureA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallState: INSTALLSTATE) -> UINT;
+        extern fn MsiConfigureFeatureA(szProduct: PCSTR, szFeature: PCSTR, eInstallState: INSTALLSTATE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiConfigureFeatureW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallState: INSTALLSTATE) -> UINT;
-        #[library("msi.dll", import = "MsiConfigureProductA")]
-        extern fn MsiConfigureProduct(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iInstallLevel: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallState: INSTALLSTATE) -> UINT;
+        extern fn MsiConfigureFeatureW(szProduct: PCWSTR, szFeature: PCWSTR, eInstallState: INSTALLSTATE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiConfigureProductA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iInstallLevel: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallState: INSTALLSTATE) -> UINT;
-        #[library("msi.dll", import = "MsiConfigureProductExA")]
-        extern fn MsiConfigureProductEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iInstallLevel: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallState: INSTALLSTATE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCommandLine: LPCSTR) -> UINT;
+        extern fn MsiConfigureProductA(szProduct: PCSTR, iInstallLevel: i32, eInstallState: INSTALLSTATE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiConfigureProductExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iInstallLevel: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallState: INSTALLSTATE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCommandLine: LPCSTR) -> UINT;
+        extern fn MsiConfigureProductExA(szProduct: PCSTR, iInstallLevel: i32, eInstallState: INSTALLSTATE, #[opt] szCommandLine: PCSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiConfigureProductExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iInstallLevel: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallState: INSTALLSTATE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCommandLine: LPCWSTR) -> UINT;
+        extern fn MsiConfigureProductExW(szProduct: PCWSTR, iInstallLevel: i32, eInstallState: INSTALLSTATE, #[opt] szCommandLine: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiConfigureProductW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iInstallLevel: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallState: INSTALLSTATE) -> UINT;
-        #[library("msi.dll", import = "MsiDetermineApplicablePatchesA")]
-        extern fn MsiDetermineApplicablePatches(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductPackagePath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cPatchInfo: DWORD, #[in] #[out] #[len_param(1)] pPatchInfo: PMSIPATCHSEQUENCEINFOA) -> UINT;
+        extern fn MsiConfigureProductW(szProduct: PCWSTR, iInstallLevel: i32, eInstallState: INSTALLSTATE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiDetermineApplicablePatchesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductPackagePath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cPatchInfo: DWORD, #[in] #[out] #[len_param(1)] pPatchInfo: PMSIPATCHSEQUENCEINFOA) -> UINT;
+        extern fn MsiDetermineApplicablePatchesA(szProductPackagePath: PCSTR, cPatchInfo: u32, #[len_param(1)] #[in] #[out] pPatchInfo: PMSIPATCHSEQUENCEINFOA) -> u32;
         #[library("msi.dll")]
-        extern fn MsiDetermineApplicablePatchesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductPackagePath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cPatchInfo: DWORD, #[in] #[out] #[len_param(1)] pPatchInfo: PMSIPATCHSEQUENCEINFOW) -> UINT;
-        #[library("msi.dll", import = "MsiDeterminePatchSequenceA")]
-        extern fn MsiDeterminePatchSequence(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cPatchInfo: DWORD, #[in] #[out] #[len_param(3)] pPatchInfo: PMSIPATCHSEQUENCEINFOA) -> UINT;
+        extern fn MsiDetermineApplicablePatchesW(szProductPackagePath: PCWSTR, cPatchInfo: u32, #[len_param(1)] #[in] #[out] pPatchInfo: PMSIPATCHSEQUENCEINFOW) -> u32;
         #[library("msi.dll")]
-        extern fn MsiDeterminePatchSequenceA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cPatchInfo: DWORD, #[in] #[out] #[len_param(3)] pPatchInfo: PMSIPATCHSEQUENCEINFOA) -> UINT;
+        extern fn MsiDeterminePatchSequenceA(szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, cPatchInfo: u32, #[len_param(3)] #[in] #[out] pPatchInfo: PMSIPATCHSEQUENCEINFOA) -> u32;
         #[library("msi.dll")]
-        extern fn MsiDeterminePatchSequenceW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cPatchInfo: DWORD, #[in] #[out] #[len_param(3)] pPatchInfo: PMSIPATCHSEQUENCEINFOW) -> UINT;
-        #[library("msi.dll", import = "MsiEnableLogA")]
-        extern fn MsiEnableLog(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLogMode: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szLogFile: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLogAttributes: DWORD) -> UINT;
+        extern fn MsiDeterminePatchSequenceW(szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, cPatchInfo: u32, #[len_param(3)] #[in] #[out] pPatchInfo: PMSIPATCHSEQUENCEINFOW) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnableLogA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLogMode: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szLogFile: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLogAttributes: DWORD) -> UINT;
+        extern fn MsiEnableLogA(dwLogMode: u32, #[opt] szLogFile: PCSTR, dwLogAttributes: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnableLogW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLogMode: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szLogFile: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwLogAttributes: DWORD) -> UINT;
+        extern fn MsiEnableLogW(dwLogMode: u32, #[opt] szLogFile: PCWSTR, dwLogAttributes: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEndTransaction(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTransactionState: DWORD) -> UINT;
-        #[library("msi.dll", import = "MsiEnumClientsA")]
-        extern fn MsiEnumClients(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iProductIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpProductBuf: LPSTR) -> UINT;
+        extern fn MsiEndTransaction(dwTransactionState: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumClientsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iProductIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpProductBuf: LPSTR) -> UINT;
-        #[library("msi.dll", import = "MsiEnumClientsExA")]
-        extern fn MsiEnumClientsEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProductIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szProductBuf: *mut CHAR, #[out] #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSid", "*pcchSid")] #[out] #[opt] szSid: LPSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> UINT;
+        extern fn MsiEnumClientsA(szComponent: PCSTR, iProductIndex: u32, #[out] lpProductBuf: PSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumClientsExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProductIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szProductBuf: *mut CHAR, #[out] #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSid", "*pcchSid")] #[out] #[opt] szSid: LPSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> UINT;
+        extern fn MsiEnumClientsExA(szComponent: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwProductIndex: u32, #[opt] szProductBuf: *mut i8, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumClientsExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwProductIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szProductBuf: *mut WCHAR, #[out] #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSid", "*pcchSid")] #[out] #[opt] szSid: LPWSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> UINT;
+        extern fn MsiEnumClientsExW(szComponent: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwProductIndex: u32, #[opt] szProductBuf: *mut u16, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumClientsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iProductIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpProductBuf: LPWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiEnumComponentQualifiersA")]
-        extern fn MsiEnumComponentQualifiers(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchQualifierBuf", "*pcchQualifierBuf")] #[out] lpQualifierBuf: LPSTR, #[in] #[out] pcchQualifierBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchApplicationDataBuf", "*pcchApplicationDataBuf")] #[out] #[opt] lpApplicationDataBuf: LPSTR, #[in] #[out] #[opt] pcchApplicationDataBuf: LPDWORD) -> UINT;
+        extern fn MsiEnumClientsW(szComponent: PCWSTR, iProductIndex: u32, #[out] lpProductBuf: PWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumComponentQualifiersA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchQualifierBuf", "*pcchQualifierBuf")] #[out] lpQualifierBuf: LPSTR, #[in] #[out] pcchQualifierBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchApplicationDataBuf", "*pcchApplicationDataBuf")] #[out] #[opt] lpApplicationDataBuf: LPSTR, #[in] #[out] #[opt] pcchApplicationDataBuf: LPDWORD) -> UINT;
+        extern fn MsiEnumComponentQualifiersA(szComponent: PCSTR, iIndex: u32, #[len_param(3)] #[out] lpQualifierBuf: PSTR, #[in] #[out] pcchQualifierBuf: LPDWORD, #[len_param(5)] #[out] #[opt] lpApplicationDataBuf: PSTR, #[in] #[out] #[opt] pcchApplicationDataBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumComponentQualifiersW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchQualifierBuf", "*pcchQualifierBuf")] #[out] lpQualifierBuf: LPWSTR, #[in] #[out] pcchQualifierBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchApplicationDataBuf", "*pcchApplicationDataBuf")] #[out] #[opt] lpApplicationDataBuf: LPWSTR, #[in] #[out] #[opt] pcchApplicationDataBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiEnumComponentsA")]
-        extern fn MsiEnumComponents(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iComponentIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpComponentBuf: LPSTR) -> UINT;
+        extern fn MsiEnumComponentQualifiersW(szComponent: PCWSTR, iIndex: u32, #[len_param(3)] #[out] lpQualifierBuf: PWSTR, #[in] #[out] pcchQualifierBuf: LPDWORD, #[len_param(5)] #[out] #[opt] lpApplicationDataBuf: PWSTR, #[in] #[out] #[opt] pcchApplicationDataBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumComponentsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iComponentIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpComponentBuf: LPSTR) -> UINT;
-        #[library("msi.dll", import = "MsiEnumComponentsExA")]
-        extern fn MsiEnumComponentsEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szInstalledComponentCode: *mut CHAR, #[out] #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSid", "*pcchSid")] #[out] #[opt] szSid: LPSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> UINT;
+        extern fn MsiEnumComponentsA(iComponentIndex: u32, #[out] lpComponentBuf: PSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumComponentsExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szInstalledComponentCode: *mut CHAR, #[out] #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSid", "*pcchSid")] #[out] #[opt] szSid: LPSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> UINT;
+        extern fn MsiEnumComponentsExA(#[opt] szUserSid: PCSTR, dwContext: u32, dwIndex: u32, #[opt] szInstalledComponentCode: *mut i8, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(6)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumComponentsExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szInstalledComponentCode: *mut WCHAR, #[out] #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSid", "*pcchSid")] #[out] #[opt] szSid: LPWSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> UINT;
+        extern fn MsiEnumComponentsExW(#[opt] szUserSid: PCWSTR, dwContext: u32, dwIndex: u32, #[opt] szInstalledComponentCode: *mut u16, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(6)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumComponentsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iComponentIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpComponentBuf: LPWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiEnumFeaturesA")]
-        extern fn MsiEnumFeatures(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iFeatureIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpFeatureBuf: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] lpParentBuf: LPSTR) -> UINT;
+        extern fn MsiEnumComponentsW(iComponentIndex: u32, #[out] lpComponentBuf: PWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumFeaturesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iFeatureIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpFeatureBuf: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] lpParentBuf: LPSTR) -> UINT;
+        extern fn MsiEnumFeaturesA(szProduct: PCSTR, iFeatureIndex: u32, #[out] lpFeatureBuf: PSTR, #[out] #[opt] lpParentBuf: PSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumFeaturesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iFeatureIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpFeatureBuf: LPWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] lpParentBuf: LPWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiEnumPatchesA")]
-        extern fn MsiEnumPatches(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPatchIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpPatchBuf: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchTransformsBuf", "*pcchTransformsBuf")] #[out] lpTransformsBuf: LPSTR, #[in] #[out] pcchTransformsBuf: LPDWORD) -> UINT;
+        extern fn MsiEnumFeaturesW(szProduct: PCWSTR, iFeatureIndex: u32, #[out] lpFeatureBuf: PWSTR, #[out] #[opt] lpParentBuf: PWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumPatchesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPatchIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpPatchBuf: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchTransformsBuf", "*pcchTransformsBuf")] #[out] lpTransformsBuf: LPSTR, #[in] #[out] pcchTransformsBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiEnumPatchesExA")]
-        extern fn MsiEnumPatchesEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFilter: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szPatchCode: *mut CHAR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szTargetProductCode: *mut CHAR, #[out] #[opt] pdwTargetProductContext: *mut MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchTargetUserSid", "*pcchTargetUserSid")] #[out] #[opt] szTargetUserSid: LPSTR, #[in] #[out] #[opt] pcchTargetUserSid: LPDWORD) -> UINT;
+        extern fn MsiEnumPatchesA(szProduct: PCSTR, iPatchIndex: u32, #[out] lpPatchBuf: PSTR, #[len_param(4)] #[out] lpTransformsBuf: PSTR, #[in] #[out] pcchTransformsBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumPatchesExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFilter: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szPatchCode: *mut CHAR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szTargetProductCode: *mut CHAR, #[out] #[opt] pdwTargetProductContext: *mut MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchTargetUserSid", "*pcchTargetUserSid")] #[out] #[opt] szTargetUserSid: LPSTR, #[in] #[out] #[opt] pcchTargetUserSid: LPDWORD) -> UINT;
+        extern fn MsiEnumPatchesExA(#[opt] szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwFilter: u32, dwIndex: u32, #[opt] szPatchCode: *mut i8, #[opt] szTargetProductCode: *mut i8, #[opt] pdwTargetProductContext: *mut MSIINSTALLCONTEXT, #[len_param(9)] #[out] #[opt] szTargetUserSid: PSTR, #[in] #[out] #[opt] pcchTargetUserSid: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumPatchesExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFilter: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szPatchCode: *mut WCHAR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szTargetProductCode: *mut WCHAR, #[out] #[opt] pdwTargetProductContext: *mut MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchTargetUserSid", "*pcchTargetUserSid")] #[out] #[opt] szTargetUserSid: LPWSTR, #[in] #[out] #[opt] pcchTargetUserSid: LPDWORD) -> UINT;
+        extern fn MsiEnumPatchesExW(#[opt] szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwFilter: u32, dwIndex: u32, #[opt] szPatchCode: *mut u16, #[opt] szTargetProductCode: *mut u16, #[opt] pdwTargetProductContext: *mut MSIINSTALLCONTEXT, #[len_param(9)] #[out] #[opt] szTargetUserSid: PWSTR, #[in] #[out] #[opt] pcchTargetUserSid: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumPatchesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iPatchIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpPatchBuf: LPWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*pcchTransformsBuf", "*pcchTransformsBuf")] #[out] lpTransformsBuf: LPWSTR, #[in] #[out] pcchTransformsBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiEnumProductsA")]
-        extern fn MsiEnumProducts(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iProductIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpProductBuf: LPSTR) -> UINT;
+        extern fn MsiEnumPatchesW(szProduct: PCWSTR, iPatchIndex: u32, #[out] lpPatchBuf: PWSTR, #[len_param(4)] #[out] lpTransformsBuf: PWSTR, #[in] #[out] pcchTransformsBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumProductsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iProductIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpProductBuf: LPSTR) -> UINT;
-        #[library("msi.dll", import = "MsiEnumProductsExA")]
-        extern fn MsiEnumProductsEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szInstalledProductCode: *mut CHAR, #[out] #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSid", "*pcchSid")] #[out] #[opt] szSid: LPSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> UINT;
+        extern fn MsiEnumProductsA(iProductIndex: u32, #[out] lpProductBuf: PSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumProductsExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szInstalledProductCode: *mut CHAR, #[out] #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSid", "*pcchSid")] #[out] #[opt] szSid: LPSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> UINT;
+        extern fn MsiEnumProductsExA(#[opt] szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwIndex: u32, #[opt] szInstalledProductCode: *mut i8, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumProductsExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szInstalledProductCode: *mut WCHAR, #[out] #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSid", "*pcchSid")] #[out] #[opt] szSid: LPWSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> UINT;
+        extern fn MsiEnumProductsExW(#[opt] szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwIndex: u32, #[opt] szInstalledProductCode: *mut u16, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumProductsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iProductIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpProductBuf: LPWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiEnumRelatedProductsA")]
-        extern fn MsiEnumRelatedProducts(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUpgradeCode: LPCSTR, #[reserved] dwReserved: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iProductIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpProductBuf: LPSTR) -> UINT;
+        extern fn MsiEnumProductsW(iProductIndex: u32, #[out] lpProductBuf: PWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumRelatedProductsA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUpgradeCode: LPCSTR, #[reserved] dwReserved: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iProductIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpProductBuf: LPSTR) -> UINT;
+        extern fn MsiEnumRelatedProductsA(lpUpgradeCode: PCSTR, #[reserved] dwReserved: u32, iProductIndex: u32, #[out] lpProductBuf: PSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumRelatedProductsW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpUpgradeCode: LPCWSTR, #[reserved] dwReserved: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iProductIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpProductBuf: LPWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiExtractPatchXMLDataA")]
-        extern fn MsiExtractPatchXMLData(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchPath: LPCSTR, #[reserved] dwReserved: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchXMLData", "*pcchXMLData")] #[out] #[opt] szXMLData: LPSTR, #[in] #[out] #[opt] pcchXMLData: LPDWORD) -> UINT;
+        extern fn MsiEnumRelatedProductsW(lpUpgradeCode: PCWSTR, #[reserved] dwReserved: u32, iProductIndex: u32, #[out] lpProductBuf: PWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiExtractPatchXMLDataA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchPath: LPCSTR, #[reserved] dwReserved: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchXMLData", "*pcchXMLData")] #[out] #[opt] szXMLData: LPSTR, #[in] #[out] #[opt] pcchXMLData: LPDWORD) -> UINT;
+        extern fn MsiExtractPatchXMLDataA(szPatchPath: PCSTR, #[reserved] dwReserved: u32, #[len_param(3)] #[out] #[opt] szXMLData: PSTR, #[in] #[out] #[opt] pcchXMLData: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiExtractPatchXMLDataW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchPath: LPCWSTR, #[reserved] dwReserved: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchXMLData", "*pcchXMLData")] #[out] #[opt] szXMLData: LPWSTR, #[in] #[out] #[opt] pcchXMLData: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiGetComponentPathA")]
-        extern fn MsiGetComponentPath(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchBuf", "*pcchBuf")] #[out] #[opt] lpPathBuf: LPSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
+        extern fn MsiExtractPatchXMLDataW(szPatchPath: PCWSTR, #[reserved] dwReserved: u32, #[len_param(3)] #[out] #[opt] szXMLData: PWSTR, #[in] #[out] #[opt] pcchXMLData: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetComponentPathA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchBuf", "*pcchBuf")] #[out] #[opt] lpPathBuf: LPSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
-        #[library("msi.dll", import = "MsiGetComponentPathExA")]
-        extern fn MsiGetComponentPathEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponentCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchOutPathBuffer", "*pcchOutPathBuffer")] #[out] #[opt] lpOutPathBuffer: LPSTR, #[in] #[out] #[opt] pcchOutPathBuffer: LPDWORD) -> INSTALLSTATE;
+        extern fn MsiGetComponentPathA(szProduct: PCSTR, szComponent: PCSTR, #[len_param(3)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiGetComponentPathExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponentCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchOutPathBuffer", "*pcchOutPathBuffer")] #[out] #[opt] lpOutPathBuffer: LPSTR, #[in] #[out] #[opt] pcchOutPathBuffer: LPDWORD) -> INSTALLSTATE;
+        extern fn MsiGetComponentPathExA(szProductCode: PCSTR, szComponentCode: PCSTR, #[opt] szUserSid: PCSTR, #[opt] dwContext: MSIINSTALLCONTEXT, #[len_param(5)] #[out] #[opt] lpOutPathBuffer: PSTR, #[in] #[out] #[opt] pcchOutPathBuffer: LPDWORD) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiGetComponentPathExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponentCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchOutPathBuffer", "*pcchOutPathBuffer")] #[out] #[opt] lpOutPathBuffer: LPWSTR, #[in] #[out] #[opt] pcchOutPathBuffer: LPDWORD) -> INSTALLSTATE;
+        extern fn MsiGetComponentPathExW(szProductCode: PCWSTR, szComponentCode: PCWSTR, #[opt] szUserSid: PCWSTR, #[opt] dwContext: MSIINSTALLCONTEXT, #[len_param(5)] #[out] #[opt] lpOutPathBuffer: PWSTR, #[in] #[out] #[opt] pcchOutPathBuffer: LPDWORD) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiGetComponentPathW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchBuf", "*pcchBuf")] #[out] #[opt] lpPathBuf: LPWSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
-        #[library("msi.dll", import = "MsiGetFeatureInfoA")]
-        extern fn MsiGetFeatureInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProduct: MSIHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[out] #[opt] lpAttributes: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchTitleBuf", "*pcchTitleBuf")] #[out] #[opt] lpTitleBuf: LPSTR, #[in] #[out] #[opt] pcchTitleBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchHelpBuf", "*pcchHelpBuf")] #[out] #[opt] lpHelpBuf: LPSTR, #[in] #[out] #[opt] pcchHelpBuf: LPDWORD) -> UINT;
+        extern fn MsiGetComponentPathW(szProduct: PCWSTR, szComponent: PCWSTR, #[len_param(3)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiGetFeatureInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProduct: MSIHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[out] #[opt] lpAttributes: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchTitleBuf", "*pcchTitleBuf")] #[out] #[opt] lpTitleBuf: LPSTR, #[in] #[out] #[opt] pcchTitleBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchHelpBuf", "*pcchHelpBuf")] #[out] #[opt] lpHelpBuf: LPSTR, #[in] #[out] #[opt] pcchHelpBuf: LPDWORD) -> UINT;
+        extern fn MsiGetFeatureInfoA(hProduct: MSIHANDLE, szFeature: PCSTR, #[out] #[opt] lpAttributes: LPDWORD, #[len_param(4)] #[out] #[opt] lpTitleBuf: PSTR, #[in] #[out] #[opt] pcchTitleBuf: LPDWORD, #[len_param(6)] #[out] #[opt] lpHelpBuf: PSTR, #[in] #[out] #[opt] pcchHelpBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFeatureInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProduct: MSIHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCWSTR, #[out] #[opt] lpAttributes: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchTitleBuf", "*pcchTitleBuf")] #[out] #[opt] lpTitleBuf: LPWSTR, #[in] #[out] #[opt] pcchTitleBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchHelpBuf", "*pcchHelpBuf")] #[out] #[opt] lpHelpBuf: LPWSTR, #[in] #[out] #[opt] pcchHelpBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiGetFeatureUsageA")]
-        extern fn MsiGetFeatureUsage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[out] #[opt] pdwUseCount: LPDWORD, #[out] #[opt] pwDateUsed: LPWORD) -> UINT;
+        extern fn MsiGetFeatureInfoW(hProduct: MSIHANDLE, szFeature: PCWSTR, #[out] #[opt] lpAttributes: LPDWORD, #[len_param(4)] #[out] #[opt] lpTitleBuf: PWSTR, #[in] #[out] #[opt] pcchTitleBuf: LPDWORD, #[len_param(6)] #[out] #[opt] lpHelpBuf: PWSTR, #[in] #[out] #[opt] pcchHelpBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFeatureUsageA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[out] #[opt] pdwUseCount: LPDWORD, #[out] #[opt] pwDateUsed: LPWORD) -> UINT;
+        extern fn MsiGetFeatureUsageA(szProduct: PCSTR, szFeature: PCSTR, #[out] #[opt] pdwUseCount: LPDWORD, #[out] #[opt] pwDateUsed: LPWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFeatureUsageW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCWSTR, #[out] #[opt] pdwUseCount: LPDWORD, #[out] #[opt] pwDateUsed: LPWORD) -> UINT;
-        #[library("msi.dll", import = "MsiGetFileHashA")]
-        extern fn MsiGetFileHash(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFilePath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[out] pHash: PMSIFILEHASHINFO) -> UINT;
+        extern fn MsiGetFeatureUsageW(szProduct: PCWSTR, szFeature: PCWSTR, #[out] #[opt] pdwUseCount: LPDWORD, #[out] #[opt] pwDateUsed: LPWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFileHashA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFilePath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[out] pHash: PMSIFILEHASHINFO) -> UINT;
+        extern fn MsiGetFileHashA(szFilePath: PCSTR, dwOptions: u32, #[in] #[out] pHash: PMSIFILEHASHINFO) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFileHashW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFilePath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[out] pHash: PMSIFILEHASHINFO) -> UINT;
-        #[library("msi.dll", import = "MsiGetFileSignatureInformationA")]
-        extern fn MsiGetFileSignatureInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSignedObjectPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppcCertContext: *mut PCCERT_CONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbHashData", "*pcbHashData")] #[out] #[opt] pbHashData: LPBYTE, #[in] #[out] #[opt] pcbHashData: LPDWORD) -> HRESULT;
+        extern fn MsiGetFileHashW(szFilePath: PCWSTR, dwOptions: u32, #[in] #[out] pHash: PMSIFILEHASHINFO) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFileSignatureInformationA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSignedObjectPath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppcCertContext: *mut PCCERT_CONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbHashData", "*pcbHashData")] #[out] #[opt] pbHashData: LPBYTE, #[in] #[out] #[opt] pcbHashData: LPDWORD) -> HRESULT;
+        extern fn MsiGetFileSignatureInformationA(szSignedObjectPath: PCSTR, dwFlags: u32, ppcCertContext: *mut PCCERT_CONTEXT, #[size_param(4)] #[out] #[opt] pbHashData: LPBYTE, #[in] #[out] #[opt] pcbHashData: LPDWORD) -> HRESULT;
         #[library("msi.dll")]
-        extern fn MsiGetFileSignatureInformationW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSignedObjectPath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppcCertContext: *mut PCCERT_CONTEXT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*pcbHashData", "*pcbHashData")] #[out] #[opt] pbHashData: LPBYTE, #[in] #[out] #[opt] pcbHashData: LPDWORD) -> HRESULT;
-        #[library("msi.dll", import = "MsiGetFileVersionA")]
-        extern fn MsiGetFileVersion(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFilePath: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchVersionBuf", "*pcchVersionBuf")] #[out] #[opt] lpVersionBuf: LPSTR, #[in] #[out] #[opt] pcchVersionBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchLangBuf", "*pcchLangBuf")] #[out] #[opt] lpLangBuf: LPSTR, #[in] #[out] #[opt] pcchLangBuf: LPDWORD) -> UINT;
+        extern fn MsiGetFileSignatureInformationW(szSignedObjectPath: PCWSTR, dwFlags: u32, ppcCertContext: *mut PCCERT_CONTEXT, #[size_param(4)] #[out] #[opt] pbHashData: LPBYTE, #[in] #[out] #[opt] pcbHashData: LPDWORD) -> HRESULT;
         #[library("msi.dll")]
-        extern fn MsiGetFileVersionA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFilePath: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchVersionBuf", "*pcchVersionBuf")] #[out] #[opt] lpVersionBuf: LPSTR, #[in] #[out] #[opt] pcchVersionBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchLangBuf", "*pcchLangBuf")] #[out] #[opt] lpLangBuf: LPSTR, #[in] #[out] #[opt] pcchLangBuf: LPDWORD) -> UINT;
+        extern fn MsiGetFileVersionA(szFilePath: PCSTR, #[len_param(2)] #[out] #[opt] lpVersionBuf: PSTR, #[in] #[out] #[opt] pcchVersionBuf: LPDWORD, #[len_param(4)] #[out] #[opt] lpLangBuf: PSTR, #[in] #[out] #[opt] pcchLangBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFileVersionW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFilePath: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchVersionBuf", "*pcchVersionBuf")] #[out] #[opt] lpVersionBuf: LPWSTR, #[in] #[out] #[opt] pcchVersionBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchLangBuf", "*pcchLangBuf")] #[out] #[opt] lpLangBuf: LPWSTR, #[in] #[out] #[opt] pcchLangBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiGetPatchFileListA")]
-        extern fn MsiGetPatchFileList(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchPackages: LPCSTR, #[out] pcFiles: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcFiles", "*pcFiles")] #[out] pphFileRecords: *mut *mut MSIHANDLE) -> UINT;
+        extern fn MsiGetFileVersionW(szFilePath: PCWSTR, #[len_param(2)] #[out] #[opt] lpVersionBuf: PWSTR, #[in] #[out] #[opt] pcchVersionBuf: LPDWORD, #[len_param(4)] #[out] #[opt] lpLangBuf: PWSTR, #[in] #[out] #[opt] pcchLangBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetPatchFileListA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchPackages: LPCSTR, #[out] pcFiles: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcFiles", "*pcFiles")] #[out] pphFileRecords: *mut *mut MSIHANDLE) -> UINT;
+        extern fn MsiGetPatchFileListA(szProductCode: PCSTR, szPatchPackages: PCSTR, #[out] pcFiles: LPDWORD, pphFileRecords: *mut *mut MSIHANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetPatchFileListW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchPackages: LPCWSTR, #[out] pcFiles: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "*pcFiles", "*pcFiles")] #[out] pphFileRecords: *mut *mut MSIHANDLE) -> UINT;
-        #[library("msi.dll", import = "MsiGetPatchInfoA")]
-        extern fn MsiGetPatchInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatch: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAttribute: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValueBuf", "*pcchValueBuf")] #[out] #[opt] lpValueBuf: LPSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
+        extern fn MsiGetPatchFileListW(szProductCode: PCWSTR, szPatchPackages: PCWSTR, #[out] pcFiles: LPDWORD, pphFileRecords: *mut *mut MSIHANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetPatchInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatch: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAttribute: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValueBuf", "*pcchValueBuf")] #[out] #[opt] lpValueBuf: LPSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiGetPatchInfoExA")]
-        extern fn MsiGetPatchInfoEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchCode: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValue", "*pcchValue")] #[out] #[opt] lpValue: LPSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> UINT;
+        extern fn MsiGetPatchInfoA(szPatch: PCSTR, szAttribute: PCSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetPatchInfoExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchCode: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValue", "*pcchValue")] #[out] #[opt] lpValue: LPSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> UINT;
+        extern fn MsiGetPatchInfoExA(szPatchCode: PCSTR, szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, szProperty: PCSTR, #[len_param(6)] #[out] #[opt] lpValue: PSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetPatchInfoExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchCode: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValue", "*pcchValue")] #[out] #[opt] lpValue: LPWSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> UINT;
+        extern fn MsiGetPatchInfoExW(szPatchCode: PCWSTR, szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, szProperty: PCWSTR, #[len_param(6)] #[out] #[opt] lpValue: PWSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetPatchInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatch: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAttribute: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValueBuf", "*pcchValueBuf")] #[out] #[opt] lpValueBuf: LPWSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiGetProductCodeA")]
-        extern fn MsiGetProductCode(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpBuf39: LPSTR) -> UINT;
+        extern fn MsiGetPatchInfoW(szPatch: PCWSTR, szAttribute: PCWSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PWSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductCodeA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpBuf39: LPSTR) -> UINT;
+        extern fn MsiGetProductCodeA(szComponent: PCSTR, #[out] lpBuf39: PSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductCodeW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "38+1", "38+1")] #[out] lpBuf39: LPWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiGetProductInfoA")]
-        extern fn MsiGetProductInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAttribute: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValueBuf", "*pcchValueBuf")] #[out] #[opt] lpValueBuf: LPSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
+        extern fn MsiGetProductCodeW(szComponent: PCWSTR, #[out] lpBuf39: PWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAttribute: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValueBuf", "*pcchValueBuf")] #[out] #[opt] lpValueBuf: LPSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiGetProductInfoExA")]
-        extern fn MsiGetProductInfoEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValue", "*pcchValue")] #[out] #[opt] szValue: LPSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> UINT;
+        extern fn MsiGetProductInfoA(szProduct: PCSTR, szAttribute: PCSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductInfoExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValue", "*pcchValue")] #[out] #[opt] szValue: LPSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> UINT;
+        extern fn MsiGetProductInfoExA(szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, szProperty: PCSTR, #[len_param(5)] #[out] #[opt] szValue: PSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductInfoExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValue", "*pcchValue")] #[out] #[opt] szValue: LPWSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiGetProductInfoFromScriptA")]
-        extern fn MsiGetProductInfoFromScript(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptFile: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] lpProductBuf39: LPSTR, #[out] #[opt] plgidLanguage: *mut LANGID, #[out] #[opt] pdwVersion: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchNameBuf", "*pcchNameBuf")] #[out] #[opt] lpNameBuf: LPSTR, #[in] #[out] #[opt] pcchNameBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPackageBuf", "*pcchPackageBuf")] #[out] #[opt] lpPackageBuf: LPSTR, #[in] #[out] #[opt] pcchPackageBuf: LPDWORD) -> UINT;
+        extern fn MsiGetProductInfoExW(szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, szProperty: PCWSTR, #[len_param(5)] #[out] #[opt] szValue: PWSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductInfoFromScriptA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptFile: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] lpProductBuf39: LPSTR, #[out] #[opt] plgidLanguage: *mut LANGID, #[out] #[opt] pdwVersion: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchNameBuf", "*pcchNameBuf")] #[out] #[opt] lpNameBuf: LPSTR, #[in] #[out] #[opt] pcchNameBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPackageBuf", "*pcchPackageBuf")] #[out] #[opt] lpPackageBuf: LPSTR, #[in] #[out] #[opt] pcchPackageBuf: LPDWORD) -> UINT;
+        extern fn MsiGetProductInfoFromScriptA(szScriptFile: PCSTR, #[out] #[opt] lpProductBuf39: PSTR, #[opt] plgidLanguage: *mut LANGID, #[out] #[opt] pdwVersion: LPDWORD, #[len_param(5)] #[out] #[opt] lpNameBuf: PSTR, #[in] #[out] #[opt] pcchNameBuf: LPDWORD, #[len_param(7)] #[out] #[opt] lpPackageBuf: PSTR, #[in] #[out] #[opt] pcchPackageBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductInfoFromScriptW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptFile: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] lpProductBuf39: LPWSTR, #[out] #[opt] plgidLanguage: *mut LANGID, #[out] #[opt] pdwVersion: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchNameBuf", "*pcchNameBuf")] #[out] #[opt] lpNameBuf: LPWSTR, #[in] #[out] #[opt] pcchNameBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPackageBuf", "*pcchPackageBuf")] #[out] #[opt] lpPackageBuf: LPWSTR, #[in] #[out] #[opt] pcchPackageBuf: LPDWORD) -> UINT;
+        extern fn MsiGetProductInfoFromScriptW(szScriptFile: PCWSTR, #[out] #[opt] lpProductBuf39: PWSTR, #[opt] plgidLanguage: *mut LANGID, #[out] #[opt] pdwVersion: LPDWORD, #[len_param(5)] #[out] #[opt] lpNameBuf: PWSTR, #[in] #[out] #[opt] pcchNameBuf: LPDWORD, #[len_param(7)] #[out] #[opt] lpPackageBuf: PWSTR, #[in] #[out] #[opt] pcchPackageBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAttribute: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValueBuf", "*pcchValueBuf")] #[out] #[opt] lpValueBuf: LPWSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiGetProductPropertyA")]
-        extern fn MsiGetProductProperty(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProduct: MSIHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValueBuf", "*pcchValueBuf")] #[out] #[opt] lpValueBuf: LPSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
+        extern fn MsiGetProductInfoW(szProduct: PCWSTR, szAttribute: PCWSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PWSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductPropertyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProduct: MSIHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValueBuf", "*pcchValueBuf")] #[out] #[opt] lpValueBuf: LPSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
+        extern fn MsiGetProductPropertyA(hProduct: MSIHANDLE, szProperty: PCSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductPropertyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProduct: MSIHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValueBuf", "*pcchValueBuf")] #[out] #[opt] lpValueBuf: LPWSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiGetShortcutTargetA")]
-        extern fn MsiGetShortcutTarget(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szShortcutPath: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szProductCode: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szFeatureId: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szComponentCode: LPSTR) -> UINT;
+        extern fn MsiGetProductPropertyW(hProduct: MSIHANDLE, szProperty: PCWSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PWSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetShortcutTargetA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szShortcutPath: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szProductCode: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szFeatureId: LPSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szComponentCode: LPSTR) -> UINT;
+        extern fn MsiGetShortcutTargetA(szShortcutPath: PCSTR, #[out] #[opt] szProductCode: PSTR, #[out] #[opt] szFeatureId: PSTR, #[out] #[opt] szComponentCode: PSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetShortcutTargetW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szShortcutPath: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szProductCode: LPWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szFeatureId: LPWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "38+1", "38+1")] #[out] #[opt] szComponentCode: LPWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiGetUserInfoA")]
-        extern fn MsiGetUserInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchUserNameBuf", "*pcchUserNameBuf")] #[out] #[opt] lpUserNameBuf: LPSTR, #[in] #[out] #[opt] pcchUserNameBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchOrgNameBuf", "*pcchOrgNameBuf")] #[out] #[opt] lpOrgNameBuf: LPSTR, #[in] #[out] #[opt] pcchOrgNameBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSerialBuf", "*pcchSerialBuf")] #[out] #[opt] lpSerialBuf: LPSTR, #[in] #[out] #[opt] pcchSerialBuf: LPDWORD) -> USERINFOSTATE;
+        extern fn MsiGetShortcutTargetW(szShortcutPath: PCWSTR, #[out] #[opt] szProductCode: PWSTR, #[out] #[opt] szFeatureId: PWSTR, #[out] #[opt] szComponentCode: PWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetUserInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchUserNameBuf", "*pcchUserNameBuf")] #[out] #[opt] lpUserNameBuf: LPSTR, #[in] #[out] #[opt] pcchUserNameBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchOrgNameBuf", "*pcchOrgNameBuf")] #[out] #[opt] lpOrgNameBuf: LPSTR, #[in] #[out] #[opt] pcchOrgNameBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSerialBuf", "*pcchSerialBuf")] #[out] #[opt] lpSerialBuf: LPSTR, #[in] #[out] #[opt] pcchSerialBuf: LPDWORD) -> USERINFOSTATE;
+        extern fn MsiGetUserInfoA(szProduct: PCSTR, #[len_param(2)] #[out] #[opt] lpUserNameBuf: PSTR, #[in] #[out] #[opt] pcchUserNameBuf: LPDWORD, #[len_param(4)] #[out] #[opt] lpOrgNameBuf: PSTR, #[in] #[out] #[opt] pcchOrgNameBuf: LPDWORD, #[len_param(6)] #[out] #[opt] lpSerialBuf: PSTR, #[in] #[out] #[opt] pcchSerialBuf: LPDWORD) -> USERINFOSTATE;
         #[library("msi.dll")]
-        extern fn MsiGetUserInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchUserNameBuf", "*pcchUserNameBuf")] #[out] #[opt] lpUserNameBuf: LPWSTR, #[in] #[out] #[opt] pcchUserNameBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchOrgNameBuf", "*pcchOrgNameBuf")] #[out] #[opt] lpOrgNameBuf: LPWSTR, #[in] #[out] #[opt] pcchOrgNameBuf: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSerialBuf", "*pcchSerialBuf")] #[out] #[opt] lpSerialBuf: LPWSTR, #[in] #[out] #[opt] pcchSerialBuf: LPDWORD) -> USERINFOSTATE;
-        #[library("msi.dll", import = "MsiInstallMissingComponentA")]
-        extern fn MsiInstallMissingComponent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallState: INSTALLSTATE) -> UINT;
+        extern fn MsiGetUserInfoW(szProduct: PCWSTR, #[len_param(2)] #[out] #[opt] lpUserNameBuf: PWSTR, #[in] #[out] #[opt] pcchUserNameBuf: LPDWORD, #[len_param(4)] #[out] #[opt] lpOrgNameBuf: PWSTR, #[in] #[out] #[opt] pcchOrgNameBuf: LPDWORD, #[len_param(6)] #[out] #[opt] lpSerialBuf: PWSTR, #[in] #[out] #[opt] pcchSerialBuf: LPDWORD) -> USERINFOSTATE;
         #[library("msi.dll")]
-        extern fn MsiInstallMissingComponentA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallState: INSTALLSTATE) -> UINT;
+        extern fn MsiInstallMissingComponentA(szProduct: PCSTR, szComponent: PCSTR, eInstallState: INSTALLSTATE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiInstallMissingComponentW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eInstallState: INSTALLSTATE) -> UINT;
-        #[library("msi.dll", import = "MsiInstallMissingFileA")]
-        extern fn MsiInstallMissingFile(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFile: LPCSTR) -> UINT;
+        extern fn MsiInstallMissingComponentW(szProduct: PCWSTR, szComponent: PCWSTR, eInstallState: INSTALLSTATE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiInstallMissingFileA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFile: LPCSTR) -> UINT;
+        extern fn MsiInstallMissingFileA(szProduct: PCSTR, szFile: PCSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiInstallMissingFileW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFile: LPCWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiInstallProductA")]
-        extern fn MsiInstallProduct(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCommandLine: LPCSTR) -> UINT;
+        extern fn MsiInstallMissingFileW(szProduct: PCWSTR, szFile: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiInstallProductA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCommandLine: LPCSTR) -> UINT;
+        extern fn MsiInstallProductA(szPackagePath: PCSTR, #[opt] szCommandLine: PCSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiInstallProductW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCommandLine: LPCWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiIsProductElevatedA")]
-        extern fn MsiIsProductElevated(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[out] pfElevated: *mut BOOL) -> UINT;
+        extern fn MsiInstallProductW(szPackagePath: PCWSTR, #[opt] szCommandLine: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiIsProductElevatedA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[out] pfElevated: *mut BOOL) -> UINT;
+        extern fn MsiIsProductElevatedA(szProduct: PCSTR, pfElevated: *mut BOOL) -> u32;
         #[library("msi.dll")]
-        extern fn MsiIsProductElevatedW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[out] pfElevated: *mut BOOL) -> UINT;
+        extern fn MsiIsProductElevatedW(szProduct: PCWSTR, pfElevated: *mut BOOL) -> u32;
         #[library("msi.dll")]
-        extern fn MsiJoinTransaction(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTransactionHandle: MSIHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwTransactionAttributes: DWORD, #[out] phChangeOfOwnerEvent: *mut HANDLE) -> UINT;
-        #[library("msi.dll", import = "MsiLocateComponentA")]
-        extern fn MsiLocateComponent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchBuf", "*pcchBuf")] #[out] #[opt] lpPathBuf: LPSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
+        extern fn MsiJoinTransaction(hTransactionHandle: MSIHANDLE, dwTransactionAttributes: u32, phChangeOfOwnerEvent: *mut HANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiLocateComponentA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchBuf", "*pcchBuf")] #[out] #[opt] lpPathBuf: LPSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
+        extern fn MsiLocateComponentA(szComponent: PCSTR, #[len_param(2)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiLocateComponentW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchBuf", "*pcchBuf")] #[out] #[opt] lpPathBuf: LPWSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
-        #[library("msi.dll", import = "MsiNotifySidChangeA")]
-        extern fn MsiNotifySidChange(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOldSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pNewSid: LPCSTR) -> UINT;
+        extern fn MsiLocateComponentW(szComponent: PCWSTR, #[len_param(2)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiNotifySidChangeA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOldSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pNewSid: LPCSTR) -> UINT;
+        extern fn MsiNotifySidChangeA(pOldSid: PCSTR, pNewSid: PCSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiNotifySidChangeW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pOldSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pNewSid: LPCWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiOpenPackageA")]
-        extern fn MsiOpenPackage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCSTR, #[out] hProduct: *mut MSIHANDLE) -> UINT;
+        extern fn MsiNotifySidChangeW(pOldSid: PCWSTR, pNewSid: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiOpenPackageA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCSTR, #[out] hProduct: *mut MSIHANDLE) -> UINT;
-        #[library("msi.dll", import = "MsiOpenPackageExA")]
-        extern fn MsiOpenPackageEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[out] hProduct: *mut MSIHANDLE) -> UINT;
+        extern fn MsiOpenPackageA(szPackagePath: PCSTR, hProduct: *mut MSIHANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiOpenPackageExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[out] hProduct: *mut MSIHANDLE) -> UINT;
+        extern fn MsiOpenPackageExA(szPackagePath: PCSTR, dwOptions: u32, hProduct: *mut MSIHANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiOpenPackageExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[out] hProduct: *mut MSIHANDLE) -> UINT;
+        extern fn MsiOpenPackageExW(szPackagePath: PCWSTR, dwOptions: u32, hProduct: *mut MSIHANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiOpenPackageW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCWSTR, #[out] hProduct: *mut MSIHANDLE) -> UINT;
-        #[library("msi.dll", import = "MsiOpenProductA")]
-        extern fn MsiOpenProduct(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[out] hProduct: *mut MSIHANDLE) -> UINT;
+        extern fn MsiOpenPackageW(szPackagePath: PCWSTR, hProduct: *mut MSIHANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiOpenProductA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[out] hProduct: *mut MSIHANDLE) -> UINT;
+        extern fn MsiOpenProductA(szProduct: PCSTR, hProduct: *mut MSIHANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiOpenProductW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[out] hProduct: *mut MSIHANDLE) -> UINT;
-        #[library("msi.dll", import = "MsiProcessAdvertiseScriptA")]
-        extern fn MsiProcessAdvertiseScript(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptFile: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szIconFolder: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hRegData: HKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fShortcuts: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fRemoveItems: BOOL) -> UINT;
+        extern fn MsiOpenProductW(szProduct: PCWSTR, hProduct: *mut MSIHANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProcessAdvertiseScriptA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptFile: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szIconFolder: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hRegData: HKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fShortcuts: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fRemoveItems: BOOL) -> UINT;
+        extern fn MsiProcessAdvertiseScriptA(szScriptFile: PCSTR, #[opt] szIconFolder: PCSTR, #[opt] hRegData: HKEY, fShortcuts: BOOL, fRemoveItems: BOOL) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProcessAdvertiseScriptW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szScriptFile: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szIconFolder: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hRegData: HKEY, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fShortcuts: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fRemoveItems: BOOL) -> UINT;
-        #[library("msi.dll", import = "MsiProvideAssemblyA")]
-        extern fn MsiProvideAssembly(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAssemblyName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAppContext: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAssemblyInfo: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPathBuf", "*pcchPathBuf")] #[out] #[opt] lpPathBuf: LPSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
+        extern fn MsiProcessAdvertiseScriptW(szScriptFile: PCWSTR, #[opt] szIconFolder: PCWSTR, #[opt] hRegData: HKEY, fShortcuts: BOOL, fRemoveItems: BOOL) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideAssemblyA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAssemblyName: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAppContext: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAssemblyInfo: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPathBuf", "*pcchPathBuf")] #[out] #[opt] lpPathBuf: LPSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
+        extern fn MsiProvideAssemblyA(szAssemblyName: PCSTR, #[opt] szAppContext: PCSTR, dwInstallMode: u32, dwAssemblyInfo: u32, #[len_param(5)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideAssemblyW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAssemblyName: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szAppContext: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwAssemblyInfo: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPathBuf", "*pcchPathBuf")] #[out] #[opt] lpPathBuf: LPWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiProvideComponentA")]
-        extern fn MsiProvideComponent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPathBuf", "*pcchPathBuf")] #[out] #[opt] lpPathBuf: LPSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
+        extern fn MsiProvideAssemblyW(szAssemblyName: PCWSTR, #[opt] szAppContext: PCWSTR, dwInstallMode: u32, dwAssemblyInfo: u32, #[len_param(5)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideComponentA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPathBuf", "*pcchPathBuf")] #[out] #[opt] lpPathBuf: LPSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
+        extern fn MsiProvideComponentA(szProduct: PCSTR, szFeature: PCSTR, szComponent: PCSTR, dwInstallMode: u32, #[len_param(5)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideComponentW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponent: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPathBuf", "*pcchPathBuf")] #[out] #[opt] lpPathBuf: LPWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiProvideQualifiedComponentA")]
-        extern fn MsiProvideQualifiedComponent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCategory: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szQualifier: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPathBuf", "*pcchPathBuf")] #[out] #[opt] lpPathBuf: LPSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
+        extern fn MsiProvideComponentW(szProduct: PCWSTR, szFeature: PCWSTR, szComponent: PCWSTR, dwInstallMode: u32, #[len_param(5)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideQualifiedComponentA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCategory: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szQualifier: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPathBuf", "*pcchPathBuf")] #[out] #[opt] lpPathBuf: LPSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiProvideQualifiedComponentExA")]
-        extern fn MsiProvideQualifiedComponentEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCategory: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szQualifier: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[reserved] dwUnused1: DWORD, #[reserved] dwUnused2: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPathBuf", "*pcchPathBuf")] #[out] #[opt] lpPathBuf: LPSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
+        extern fn MsiProvideQualifiedComponentA(szCategory: PCSTR, szQualifier: PCSTR, dwInstallMode: u32, #[len_param(4)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideQualifiedComponentExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCategory: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szQualifier: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[reserved] dwUnused1: DWORD, #[reserved] dwUnused2: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPathBuf", "*pcchPathBuf")] #[out] #[opt] lpPathBuf: LPSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
+        extern fn MsiProvideQualifiedComponentExA(szCategory: PCSTR, szQualifier: PCSTR, dwInstallMode: u32, #[opt] szProduct: PCSTR, #[reserved] dwUnused1: u32, #[reserved] dwUnused2: u32, #[len_param(7)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideQualifiedComponentExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCategory: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szQualifier: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[reserved] dwUnused1: DWORD, #[reserved] dwUnused2: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPathBuf", "*pcchPathBuf")] #[out] #[opt] lpPathBuf: LPWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
+        extern fn MsiProvideQualifiedComponentExW(szCategory: PCWSTR, szQualifier: PCWSTR, dwInstallMode: u32, #[opt] szProduct: PCWSTR, #[reserved] dwUnused1: u32, #[reserved] dwUnused2: u32, #[len_param(7)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideQualifiedComponentW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szCategory: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szQualifier: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchPathBuf", "*pcchPathBuf")] #[out] #[opt] lpPathBuf: LPWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiQueryComponentStateA")]
-        extern fn MsiQueryComponentState(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponentCode: LPCSTR, #[out] #[opt] pdwState: *mut INSTALLSTATE) -> UINT;
+        extern fn MsiProvideQualifiedComponentW(szCategory: PCWSTR, szQualifier: PCWSTR, dwInstallMode: u32, #[len_param(4)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiQueryComponentStateA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponentCode: LPCSTR, #[out] #[opt] pdwState: *mut INSTALLSTATE) -> UINT;
+        extern fn MsiQueryComponentStateA(szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, szComponentCode: PCSTR, #[opt] pdwState: *mut INSTALLSTATE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiQueryComponentStateW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szComponentCode: LPCWSTR, #[out] #[opt] pdwState: *mut INSTALLSTATE) -> UINT;
-        #[library("msi.dll", import = "MsiQueryFeatureStateA")]
-        extern fn MsiQueryFeatureState(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR) -> INSTALLSTATE;
+        extern fn MsiQueryComponentStateW(szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, szComponentCode: PCWSTR, #[opt] pdwState: *mut INSTALLSTATE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiQueryFeatureStateA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR) -> INSTALLSTATE;
-        #[library("msi.dll", import = "MsiQueryFeatureStateExA")]
-        extern fn MsiQueryFeatureStateEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[out] #[opt] pdwState: *mut INSTALLSTATE) -> UINT;
+        extern fn MsiQueryFeatureStateA(szProduct: PCSTR, szFeature: PCSTR) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiQueryFeatureStateExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[out] #[opt] pdwState: *mut INSTALLSTATE) -> UINT;
+        extern fn MsiQueryFeatureStateExA(szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, szFeature: PCSTR, #[opt] pdwState: *mut INSTALLSTATE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiQueryFeatureStateExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCWSTR, #[out] #[opt] pdwState: *mut INSTALLSTATE) -> UINT;
+        extern fn MsiQueryFeatureStateExW(szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, szFeature: PCWSTR, #[opt] pdwState: *mut INSTALLSTATE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiQueryFeatureStateW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCWSTR) -> INSTALLSTATE;
-        #[library("msi.dll", import = "MsiQueryProductStateA")]
-        extern fn MsiQueryProductState(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR) -> INSTALLSTATE;
+        extern fn MsiQueryFeatureStateW(szProduct: PCWSTR, szFeature: PCWSTR) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiQueryProductStateA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR) -> INSTALLSTATE;
+        extern fn MsiQueryProductStateA(szProduct: PCSTR) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiQueryProductStateW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR) -> INSTALLSTATE;
-        #[library("msi.dll", import = "MsiReinstallFeatureA")]
-        extern fn MsiReinstallFeature(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReinstallMode: DWORD) -> UINT;
+        extern fn MsiQueryProductStateW(szProduct: PCWSTR) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiReinstallFeatureA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReinstallMode: DWORD) -> UINT;
+        extern fn MsiReinstallFeatureA(szProduct: PCSTR, szFeature: PCSTR, dwReinstallMode: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiReinstallFeatureW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwReinstallMode: DWORD) -> UINT;
-        #[library("msi.dll", import = "MsiReinstallProductA")]
-        extern fn MsiReinstallProduct(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szReinstallMode: DWORD) -> UINT;
+        extern fn MsiReinstallFeatureW(szProduct: PCWSTR, szFeature: PCWSTR, dwReinstallMode: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiReinstallProductA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szReinstallMode: DWORD) -> UINT;
+        extern fn MsiReinstallProductA(szProduct: PCSTR, szReinstallMode: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiReinstallProductW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szReinstallMode: DWORD) -> UINT;
-        #[library("msi.dll", import = "MsiRemovePatchesA")]
-        extern fn MsiRemovePatches(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchList: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eUninstallType: INSTALLTYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPropertyList: LPCSTR) -> UINT;
+        extern fn MsiReinstallProductW(szProduct: PCWSTR, szReinstallMode: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiRemovePatchesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchList: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eUninstallType: INSTALLTYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPropertyList: LPCSTR) -> UINT;
+        extern fn MsiRemovePatchesA(szPatchList: PCSTR, szProductCode: PCSTR, eUninstallType: INSTALLTYPE, #[opt] szPropertyList: PCSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiRemovePatchesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPatchList: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCode: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eUninstallType: INSTALLTYPE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPropertyList: LPCWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiSetExternalUIA")]
-        extern fn MsiSetExternalUI(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] puiHandler: INSTALLUI_HANDLERA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMessageFilter: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvContext: LPVOID) -> INSTALLUI_HANDLERA;
+        extern fn MsiRemovePatchesW(szPatchList: PCWSTR, szProductCode: PCWSTR, eUninstallType: INSTALLTYPE, #[opt] szPropertyList: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSetExternalUIA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] puiHandler: INSTALLUI_HANDLERA, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMessageFilter: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvContext: LPVOID) -> INSTALLUI_HANDLERA;
+        extern fn MsiSetExternalUIA(#[opt] puiHandler: INSTALLUI_HANDLERA, dwMessageFilter: u32, #[in] #[opt] pvContext: *mut void) -> INSTALLUI_HANDLERA;
         #[library("msi.dll")]
-        extern fn MsiSetExternalUIRecord(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] puiHandler: INSTALLUI_HANDLER_RECORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMessageFilter: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvContext: LPVOID, #[out] #[opt] ppuiPrevHandler: PINSTALLUI_HANDLER_RECORD) -> UINT;
+        extern fn MsiSetExternalUIRecord(#[opt] puiHandler: INSTALLUI_HANDLER_RECORD, dwMessageFilter: u32, #[in] #[opt] pvContext: *mut void, #[out] #[opt] ppuiPrevHandler: PINSTALLUI_HANDLER_RECORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSetExternalUIW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] puiHandler: INSTALLUI_HANDLERW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMessageFilter: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pvContext: LPVOID) -> INSTALLUI_HANDLERW;
+        extern fn MsiSetExternalUIW(#[opt] puiHandler: INSTALLUI_HANDLERW, dwMessageFilter: u32, #[in] #[opt] pvContext: *mut void) -> INSTALLUI_HANDLERW;
         #[library("msi.dll")]
-        extern fn MsiSetInternalUI(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwUILevel: INSTALLUILEVEL, #[in] #[out] #[opt] phWnd: *mut HWND) -> INSTALLUILEVEL;
-        #[library("msi.dll", import = "MsiSourceListAddMediaDiskA")]
-        extern fn MsiSourceListAddMediaDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDiskId: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szVolumeLabel: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szDiskPrompt: LPCSTR) -> UINT;
+        extern fn MsiSetInternalUI(dwUILevel: INSTALLUILEVEL, #[in] #[out] #[opt] phWnd: *mut HWND) -> INSTALLUILEVEL;
         #[library("msi.dll")]
-        extern fn MsiSourceListAddMediaDiskA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDiskId: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szVolumeLabel: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szDiskPrompt: LPCSTR) -> UINT;
+        extern fn MsiSourceListAddMediaDiskA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwDiskId: u32, #[opt] szVolumeLabel: PCSTR, #[opt] szDiskPrompt: PCSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListAddMediaDiskW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDiskId: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szVolumeLabel: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szDiskPrompt: LPCWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiSourceListAddSourceA")]
-        extern fn MsiSourceListAddSource(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserName: LPCSTR, #[reserved] dwReserved: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSource: LPCSTR) -> UINT;
+        extern fn MsiSourceListAddMediaDiskW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwDiskId: u32, #[opt] szVolumeLabel: PCWSTR, #[opt] szDiskPrompt: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListAddSourceA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserName: LPCSTR, #[reserved] dwReserved: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSource: LPCSTR) -> UINT;
-        #[library("msi.dll", import = "MsiSourceListAddSourceExA")]
-        extern fn MsiSourceListAddSourceEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSource: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD) -> UINT;
+        extern fn MsiSourceListAddSourceA(szProduct: PCSTR, #[opt] szUserName: PCSTR, #[reserved] dwReserved: u32, szSource: PCSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListAddSourceExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSource: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD) -> UINT;
+        extern fn MsiSourceListAddSourceExA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szSource: PCSTR, dwIndex: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListAddSourceExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSource: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD) -> UINT;
+        extern fn MsiSourceListAddSourceExW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szSource: PCWSTR, dwIndex: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListAddSourceW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserName: LPCWSTR, #[reserved] dwReserved: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSource: LPCWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiSourceListClearAllA")]
-        extern fn MsiSourceListClearAll(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserName: LPCSTR, #[reserved] dwReserved: DWORD) -> UINT;
+        extern fn MsiSourceListAddSourceW(szProduct: PCWSTR, #[opt] szUserName: PCWSTR, #[reserved] dwReserved: u32, szSource: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListClearAllA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserName: LPCSTR, #[reserved] dwReserved: DWORD) -> UINT;
-        #[library("msi.dll", import = "MsiSourceListClearAllExA")]
-        extern fn MsiSourceListClearAllEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD) -> UINT;
+        extern fn MsiSourceListClearAllA(szProduct: PCSTR, #[opt] szUserName: PCSTR, #[reserved] dwReserved: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListClearAllExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD) -> UINT;
+        extern fn MsiSourceListClearAllExA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListClearAllExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD) -> UINT;
+        extern fn MsiSourceListClearAllExW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListClearAllW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserName: LPCWSTR, #[reserved] dwReserved: DWORD) -> UINT;
-        #[library("msi.dll", import = "MsiSourceListClearMediaDiskA")]
-        extern fn MsiSourceListClearMediaDisk(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDiskId: DWORD) -> UINT;
+        extern fn MsiSourceListClearAllW(szProduct: PCWSTR, #[opt] szUserName: PCWSTR, #[reserved] dwReserved: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListClearMediaDiskA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDiskId: DWORD) -> UINT;
+        extern fn MsiSourceListClearMediaDiskA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwDiskId: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListClearMediaDiskW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDiskId: DWORD) -> UINT;
-        #[library("msi.dll", import = "MsiSourceListClearSourceA")]
-        extern fn MsiSourceListClearSource(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSource: LPCSTR) -> UINT;
+        extern fn MsiSourceListClearMediaDiskW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwDiskId: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListClearSourceA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSource: LPCSTR) -> UINT;
+        extern fn MsiSourceListClearSourceA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szSource: PCSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListClearSourceW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szSource: LPCWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiSourceListEnumMediaDisksA")]
-        extern fn MsiSourceListEnumMediaDisks(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[out] #[opt] pdwDiskId: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchVolumeLabel", "*pcchVolumeLabel")] #[out] #[opt] szVolumeLabel: LPSTR, #[in] #[out] #[opt] pcchVolumeLabel: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchDiskPrompt", "*pcchDiskPrompt")] #[out] #[opt] szDiskPrompt: LPSTR, #[in] #[out] #[opt] pcchDiskPrompt: LPDWORD) -> UINT;
+        extern fn MsiSourceListClearSourceW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szSource: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListEnumMediaDisksA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[out] #[opt] pdwDiskId: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchVolumeLabel", "*pcchVolumeLabel")] #[out] #[opt] szVolumeLabel: LPSTR, #[in] #[out] #[opt] pcchVolumeLabel: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchDiskPrompt", "*pcchDiskPrompt")] #[out] #[opt] szDiskPrompt: LPSTR, #[in] #[out] #[opt] pcchDiskPrompt: LPDWORD) -> UINT;
+        extern fn MsiSourceListEnumMediaDisksA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwIndex: u32, #[out] #[opt] pdwDiskId: LPDWORD, #[len_param(7)] #[out] #[opt] szVolumeLabel: PSTR, #[in] #[out] #[opt] pcchVolumeLabel: LPDWORD, #[len_param(9)] #[out] #[opt] szDiskPrompt: PSTR, #[in] #[out] #[opt] pcchDiskPrompt: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListEnumMediaDisksW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[out] #[opt] pdwDiskId: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchVolumeLabel", "*pcchVolumeLabel")] #[out] #[opt] szVolumeLabel: LPWSTR, #[in] #[out] #[opt] pcchVolumeLabel: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchDiskPrompt", "*pcchDiskPrompt")] #[out] #[opt] szDiskPrompt: LPWSTR, #[in] #[out] #[opt] pcchDiskPrompt: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiSourceListEnumSourcesA")]
-        extern fn MsiSourceListEnumSources(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSource", "*pcchSource")] #[out] #[opt] szSource: LPSTR, #[in] #[out] #[opt] pcchSource: LPDWORD) -> UINT;
+        extern fn MsiSourceListEnumMediaDisksW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwIndex: u32, #[out] #[opt] pdwDiskId: LPDWORD, #[len_param(7)] #[out] #[opt] szVolumeLabel: PWSTR, #[in] #[out] #[opt] pcchVolumeLabel: LPDWORD, #[len_param(9)] #[out] #[opt] szDiskPrompt: PWSTR, #[in] #[out] #[opt] pcchDiskPrompt: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListEnumSourcesA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSource", "*pcchSource")] #[out] #[opt] szSource: LPSTR, #[in] #[out] #[opt] pcchSource: LPDWORD) -> UINT;
+        extern fn MsiSourceListEnumSourcesA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwIndex: u32, #[len_param(6)] #[out] #[opt] szSource: PSTR, #[in] #[out] #[opt] pcchSource: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListEnumSourcesW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwIndex: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchSource", "*pcchSource")] #[out] #[opt] szSource: LPWSTR, #[in] #[out] #[opt] pcchSource: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiSourceListForceResolutionA")]
-        extern fn MsiSourceListForceResolution(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserName: LPCSTR, #[reserved] dwReserved: DWORD) -> UINT;
+        extern fn MsiSourceListEnumSourcesW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwIndex: u32, #[len_param(6)] #[out] #[opt] szSource: PWSTR, #[in] #[out] #[opt] pcchSource: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListForceResolutionA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserName: LPCSTR, #[reserved] dwReserved: DWORD) -> UINT;
-        #[library("msi.dll", import = "MsiSourceListForceResolutionExA")]
-        extern fn MsiSourceListForceResolutionEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD) -> UINT;
+        extern fn MsiSourceListForceResolutionA(szProduct: PCSTR, #[opt] szUserName: PCSTR, #[reserved] dwReserved: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListForceResolutionExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD) -> UINT;
+        extern fn MsiSourceListForceResolutionExA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListForceResolutionExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD) -> UINT;
+        extern fn MsiSourceListForceResolutionExW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListForceResolutionW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserName: LPCWSTR, #[reserved] dwReserved: DWORD) -> UINT;
-        #[library("msi.dll", import = "MsiSourceListGetInfoA")]
-        extern fn MsiSourceListGetInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValue", "*pcchValue")] #[out] #[opt] szValue: LPSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> UINT;
+        extern fn MsiSourceListForceResolutionW(szProduct: PCWSTR, #[opt] szUserName: PCWSTR, #[reserved] dwReserved: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListGetInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValue", "*pcchValue")] #[out] #[opt] szValue: LPSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> UINT;
+        extern fn MsiSourceListGetInfoA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szProperty: PCSTR, #[len_param(6)] #[out] #[opt] szValue: PSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListGetInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "*pcchValue", "*pcchValue")] #[out] #[opt] szValue: LPWSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> UINT;
-        #[library("msi.dll", import = "MsiSourceListSetInfoA")]
-        extern fn MsiSourceListSetInfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szValue: LPCSTR) -> UINT;
+        extern fn MsiSourceListGetInfoW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szProperty: PCWSTR, #[len_param(6)] #[out] #[opt] szValue: PWSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListSetInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szValue: LPCSTR) -> UINT;
+        extern fn MsiSourceListSetInfoA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szProperty: PCSTR, szValue: PCSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListSetInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProductCodeOrPatchCode: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szUserSid: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwContext: MSIINSTALLCONTEXT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProperty: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szValue: LPCWSTR) -> UINT;
-        #[library("msi.dll", import = "MsiUseFeatureA")]
-        extern fn MsiUseFeature(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR) -> INSTALLSTATE;
+        extern fn MsiSourceListSetInfoW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szProperty: PCWSTR, szValue: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiUseFeatureA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR) -> INSTALLSTATE;
-        #[library("msi.dll", import = "MsiUseFeatureExA")]
-        extern fn MsiUseFeatureEx(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[reserved] dwReserved: DWORD) -> INSTALLSTATE;
+        extern fn MsiUseFeatureA(szProduct: PCSTR, szFeature: PCSTR) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiUseFeatureExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[reserved] dwReserved: DWORD) -> INSTALLSTATE;
+        extern fn MsiUseFeatureExA(szProduct: PCSTR, szFeature: PCSTR, dwInstallMode: u32, #[reserved] dwReserved: u32) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiUseFeatureExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwInstallMode: DWORD, #[reserved] dwReserved: DWORD) -> INSTALLSTATE;
+        extern fn MsiUseFeatureExW(szProduct: PCWSTR, szFeature: PCWSTR, dwInstallMode: u32, #[reserved] dwReserved: u32) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiUseFeatureW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szProduct: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szFeature: LPCWSTR) -> INSTALLSTATE;
-        #[library("msi.dll", import = "MsiVerifyPackageA")]
-        extern fn MsiVerifyPackage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCSTR) -> UINT;
+        extern fn MsiUseFeatureW(szProduct: PCWSTR, szFeature: PCWSTR) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiVerifyPackageA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCSTR) -> UINT;
+        extern fn MsiVerifyPackageA(szPackagePath: PCSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiVerifyPackageW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] szPackagePath: LPCWSTR) -> UINT;
+        extern fn MsiVerifyPackageW(szPackagePath: PCWSTR) -> u32;
         type PINSTALLUI_HANDLER_RECORD = *mut INSTALLUI_HANDLER_RECORD;
         type PMSIFILEHASHINFO = *mut MSIFILEHASHINFO;
         type PMSIPATCHDATATYPE = *mut MSIPATCHDATATYPE;
-        type PMSIPATCHSEQUENCEINFO = *mut MSIPATCHSEQUENCEINFOA;
+        type PMSIPATCHSEQUENCEINFO = PMSIPATCHSEQUENCEINFOA;
         type PMSIPATCHSEQUENCEINFOA = *mut MSIPATCHSEQUENCEINFOA;
         type PMSIPATCHSEQUENCEINFOW = *mut MSIPATCHSEQUENCEINFOW;
         #[repr(i32)]

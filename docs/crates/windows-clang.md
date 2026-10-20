@@ -13,13 +13,23 @@
 headers -> windows-clang -> RDL -> windows-rdl -> WinMD
 ```
 
-It extracts declarations and source annotations into immutable facts, then plans and emits RDL
-from the completed fact graph. It does not generate Rust bindings or provision libclang.
+It extracts declarations and source annotations from C and C++ headers. Compile the resulting
+RDL with [`windows-rdl`](windows-rdl.md), then use [`windows-bindgen`](windows-bindgen.md) to
+generate Rust bindings.
 
-## High-level generation
+## Setup
 
-`clang()` returns a `Clang` builder for the common case of extracting one set of headers and
-writing RDL directly:
+The [README](../../crates/libs/clang/readme.md) shows the Cargo dependency. Install a compatible
+libclang and set `LIBCLANG_PATH` to its directory if it is not discoverable on your system.
+The crate loads libclang at runtime; it does not install it or the headers you want to process.
+
+Supply compiler arguments for the language, target architecture, include directories, and
+preprocessor definitions your headers require. Metadata references do not supply C/C++ headers
+or compiler include paths.
+
+## Generate RDL
+
+Configure the builder, then call `write()`:
 
 ```rust,no_run
 windows_clang::clang()
@@ -33,31 +43,36 @@ windows_clang::clang()
     .unwrap();
 ```
 
-The builder is an adapter over the extraction and emission APIs described below. `input` and
-`input_text` construct `Input` values, `filter` selects included headers by path suffix,
-`reference_default` supplies the Windows metadata references, and `write` calls `extract` and
-emits with `EmitOptions`. It does not have a separate parser or projection path.
+At least one input, a namespace, and an output path are required. Paths are relative to the
+generator's working directory.
 
-Use the lower-level API when a generator must inspect facts, compare architectures, merge
-snapshots, assign libraries per function, or control output promotion.
-
-## Extraction
-
-Each `Input` contains:
-
-| Field | Purpose |
+| Builder method | Purpose |
 | --- | --- |
-| `name` | Translation-unit name used for diagnostics and default ownership. |
-| `source` | C or C++ source passed to libclang. |
-| `roots` | Header paths whose declarations may become output roots. |
-| `root_dirs` | Directory prefixes whose declarations may become output roots. |
-| `root_suffixes` | Header path suffixes whose declarations may become output roots. |
-| `excluded_roots` | Header paths excluded from output ownership. |
+| `input(path)` / `inputs(paths)` | Read header files as separate translation units. |
+| `input_text(source)` | Add an in-memory translation unit. |
+| `args(arguments)` | Pass compiler arguments to libclang. |
+| `filter(suffix)` | Include declarations from included headers matching a path suffix. |
+| `symbols(names)` | Restrict emitted free functions to the supplied names. |
+| `reference(path)` | Resolve existing declarations from a WinMD file. |
+| `reference_default()` | Use the bundled Windows metadata as references. |
+| `namespace(name)` | Set the output RDL namespace. |
+| `library(name)` | Set the DLL name attached to emitted functions. |
+| `output(path)` | Set the output RDL file. |
 
-`Input::new(name, source)` treats `name` as a root. `with_roots`, `with_root_dirs`,
-`with_root_suffixes`, and `with_excluded_roots` extend that policy. The caller supplies all
-compiler arguments to `extract`, including the language, target, include paths, defines, forced
-includes, and extensions.
+Declarations from input headers are output roots. Included headers can supply dependencies without
+having all their declarations emitted; use `filter` to include their declarations as roots too.
+This is a header-path filter, not a function-name filter.
+
+References let generated RDL use existing types without redefining them. Use `reference_default`
+when your headers depend on Windows APIs and `reference` for your own metadata.
+
+The [builder reference](https://docs.rs/windows-clang/latest/windows_clang/struct.Clang.html)
+documents all methods.
+
+## Inspect extraction results
+
+Use `Input`, `extract`, and `EmitOptions` directly when a generator needs to inspect declarations,
+assign different DLLs to functions, or emit separate header partitions.
 
 ```rust,no_run
 let input = windows_clang::Input::new(
@@ -74,7 +89,17 @@ let snapshot = windows_clang::extract(
 The resulting `Snapshot` owns translation-unit-local facts and constants. `facts`, `constants`,
 `unsupported`, and `dump` expose the extraction result for diagnostics and validation.
 
-## Emission
+`Input::new(name, source)` treats `name` as a root. The following methods control which included
+headers contribute output roots:
+
+| Method | Selects |
+| --- | --- |
+| `with_roots(paths)` | Individual header paths. |
+| `with_root_dirs(paths)` | Headers under directory prefixes. |
+| `with_root_suffixes(suffixes)` | Headers matching path suffixes. |
+| `with_excluded_roots(paths)` | Headers excluded from output ownership. |
+
+## Configure emission
 
 Use `Snapshot::emit(namespace)` for one namespace, `emit_with_library` to attach one DLL to all
 functions, or `emit_with_options` for generator policy. `emit_by_header_with_options` returns a
@@ -97,14 +122,10 @@ Referenced enum member names let an overlay emit an enum only when it adds membe
 `MetadataReferences` builds that map from WinMD files and records existing type, function, and
 constant names for exclusion. `apply_reference_exclusions` excludes only types with an
 unambiguous external reference, while `apply_exclusions` is available for overlays that must omit
-every item from a known base. Both the high-level builder and repository generators use this
-indexing path.
+every item from a known base.
 
 Exclusions filter root declarations; they do not establish that a dependency has an external
-definition. Before collecting dependencies, the planner resolves unambiguous external aliases.
-Dependencies with a direct reference or a resolved external alias use that definition. Other
-dependencies pass through the normal canonicalization and pointer-boundary rules, even when they
-underlie an excluded typedef. Required local definitions are collected rather than suppressed.
+definition. Supply references for external types; required local dependencies are still emitted.
 
 ## Architecture
 
@@ -319,22 +340,22 @@ The Win32 input lists live in `crates/tools/win32/src/headers.rs`, shared with `
 
 ## Known limits
 
-- RDL cannot represent mixed raw pointer-chain mutability. The projection normalizes each run to
-  uniform mutability, losing per-level qualifiers as described above.
+- RDL cannot represent mixed raw pointer-chain mutability. If any level in a raw pointer run is
+  const, every level in that run is emitted as const.
 - Coverage is limited to declarations reachable from configured roots.
-- The flat Win32 namespace cannot preserve distinct declarations that differ only by curated
-  namespace placement.
+- Conflicting declarations can fail emission as ambiguous; extraction is not a general C++ binding
+  generator.
+- SAL projection supports only a subset of annotations and size relationships.
+- Non-finite floating-point constants and interface-valued constants cannot be emitted.
 - Header extraction cannot infer curated handle cleanup, last-error, or documentation policy.
 - Stable Rust has no function-pointer ABI corresponding to every native calling convention.
 
-## Testing
+## Contributing
 
-The crate's integration tests cover fact isolation, constants, layouts, interfaces, annotations,
-dependency closure, header ownership, external references, incomplete declarations, macros,
-callbacks, arrays, variadics, recursion, and cross-translation-unit resolution. Declarative
-input/output cases live in `test_clang`: each `input/<name>.h` fixture generates
-`expected/<name>.rdl`, which is parsed with `windows-rdl` before the golden is updated. CI rejects
-any uncommitted output change.
+Run `cargo test -p windows-clang` and `cargo test -p test_clang`. Header fixtures and expected RDL
+live in `crates/tests/libs/clang`; tests regenerate the expected output, and CI rejects output
+changes that are not committed. After changing extraction or emission, run the affected `tool-*`
+generators and review the output diffs.
 
 Fixtures default to C++, the `Test` namespace, and `test.dll`. Leading `//!` lines may override the
 setup:

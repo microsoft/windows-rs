@@ -2,47 +2,50 @@
 mod Windows {
     mod Win32 {
         struct ADDRESS_LIST_DESCRIPTOR {
-            MediaType: ULONG,
+            MediaType: u32,
             AddressList: NETWORK_ADDRESS_LIST,
         }
         const CURRENT_TCI_VERSION: i32 = 2;
         struct ENUMERATION_BUFFER {
-            Length: ULONG,
-            OwnerProcessId: ULONG,
-            FlowNameLength: USHORT,
-            FlowName: [WCHAR; 256],
+            Length: u32,
+            OwnerProcessId: u32,
+            FlowNameLength: u16,
+            FlowName: [u16; 256],
             pFlow: PTC_GEN_FLOW,
-            NumberOfFilters: ULONG,
+            NumberOfFilters: u32,
             GenericFilter: [TC_GEN_FILTER; 1],
         }
         struct IPX_PATTERN {
-            struct IPX_PATTERN_0 {
-                NetworkAddress: ULONG,
-                NodeAddress: [UCHAR; 6],
-                Socket: USHORT,
-            }
-            Src: IPX_PATTERN::IPX_PATTERN_0,
-            Dest: IPX_PATTERN::IPX_PATTERN_0,
+            Src: struct {
+                NetworkAddress: u32,
+                NodeAddress: [u8; 6],
+                Socket: u16,
+            },
+            Dest: struct {
+                NetworkAddress: u32,
+                NodeAddress: [u8; 6],
+                Socket: u16,
+            },
         }
         struct IP_PATTERN {
-            Reserved1: ULONG,
-            Reserved2: ULONG,
-            SrcAddr: ULONG,
-            DstAddr: ULONG,
+            Reserved1: u32,
+            Reserved2: u32,
+            SrcAddr: u32,
+            DstAddr: u32,
             S_un: union {
                 S_un_ports: struct {
-                    s_srcport: USHORT,
-                    s_dstport: USHORT,
+                    s_srcport: u16,
+                    s_dstport: u16,
                 },
                 S_un_icmp: struct {
-                    s_type: UCHAR,
-                    s_code: UCHAR,
-                    filler: USHORT,
+                    s_type: u8,
+                    s_code: u8,
+                    filler: u16,
                 },
-                S_Spi: ULONG,
+                S_Spi: u32,
             },
-            ProtocolId: UCHAR,
-            Reserved3: [UCHAR; 3],
+            ProtocolId: u8,
+            Reserved3: [u8; 3],
         }
         const MAX_STRING_LENGTH: i32 = 256;
         type PADDRESS_LIST_DESCRIPTOR = *mut ADDRESS_LIST_DESCRIPTOR;
@@ -54,34 +57,32 @@ mod Windows {
         type PTC_GEN_FLOW = *mut TC_GEN_FLOW;
         type PTC_IFC_DESCRIPTOR = *mut TC_IFC_DESCRIPTOR;
         type PTC_SUPPORTED_INFO_BUFFER = *mut TC_SUPPORTED_INFO_BUFFER;
-        extern fn TCI_ADD_FLOW_COMPLETE_HANDLER(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClFlowCtx: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Status: ULONG);
+        extern fn TCI_ADD_FLOW_COMPLETE_HANDLER(ClFlowCtx: HANDLE, Status: u32);
         struct TCI_CLIENT_FUNC_LIST {
             ClNotifyHandler: TCI_NOTIFY_HANDLER,
             ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER,
             ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
             ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
         }
-        extern fn TCI_DEL_FLOW_COMPLETE_HANDLER(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClFlowCtx: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Status: ULONG);
-        extern fn TCI_MOD_FLOW_COMPLETE_HANDLER(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClFlowCtx: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Status: ULONG);
-        extern fn TCI_NOTIFY_HANDLER(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClRegCtx: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClIfcCtx: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Event: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SubCode: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] Buffer: PVOID);
+        extern fn TCI_DEL_FLOW_COMPLETE_HANDLER(ClFlowCtx: HANDLE, Status: u32);
+        extern fn TCI_MOD_FLOW_COMPLETE_HANDLER(ClFlowCtx: HANDLE, Status: u32);
+        extern fn TCI_NOTIFY_HANDLER(ClRegCtx: HANDLE, ClIfcCtx: HANDLE, Event: u32, SubCode: HANDLE, BufSize: u32, #[size_param(4)] #[in] Buffer: *mut void);
         struct TC_GEN_FILTER {
-            AddressType: USHORT,
-            PatternSize: ULONG,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "PatternSize", IsByteCount = true, MayBeNull = false)]
-            Pattern: PVOID,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "PatternSize", IsByteCount = true, MayBeNull = false)]
-            Mask: PVOID,
+            AddressType: u16,
+            PatternSize: u32,
+            Pattern: *mut void,
+            Mask: *mut void,
         }
         struct TC_GEN_FLOW {
             SendingFlowspec: FLOWSPEC,
             ReceivingFlowspec: FLOWSPEC,
-            TcObjectsLength: ULONG,
+            TcObjectsLength: u32,
             TcObjects: [QOS_OBJECT_HDR; 1],
         }
         struct TC_IFC_DESCRIPTOR {
-            Length: ULONG,
-            pInterfaceName: LPWSTR,
-            pInterfaceID: LPWSTR,
+            Length: u32,
+            pInterfaceName: PWSTR,
+            pInterfaceID: PWSTR,
             AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
         }
         const TC_INVALID_HANDLE: HANDLE = 0;
@@ -91,58 +92,50 @@ mod Windows {
         const TC_NOTIFY_IFC_UP: i32 = 1;
         const TC_NOTIFY_PARAM_CHANGED: i32 = 4;
         struct TC_SUPPORTED_INFO_BUFFER {
-            InstanceIDLength: USHORT,
-            InstanceID: [WCHAR; 256],
-            InterfaceLuid: ULONG64,
+            InstanceIDLength: u16,
+            InstanceID: [u16; 256],
+            InterfaceLuid: u64,
             AddrListDesc: ADDRESS_LIST_DESCRIPTOR,
         }
         #[library("TRAFFIC.dll")]
-        extern fn TcAddFilter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FlowHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGenericFilter: PTC_GEN_FILTER, #[out] pFilterHandle: PHANDLE) -> ULONG;
+        extern fn TcAddFilter(FlowHandle: HANDLE, pGenericFilter: PTC_GEN_FILTER, #[out] pFilterHandle: PHANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcAddFlow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfcHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClFlowCtx: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGenericFlow: PTC_GEN_FLOW, #[out] pFlowHandle: PHANDLE) -> ULONG;
+        extern fn TcAddFlow(IfcHandle: HANDLE, ClFlowCtx: HANDLE, Flags: u32, pGenericFlow: PTC_GEN_FLOW, #[out] pFlowHandle: PHANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcCloseInterface(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfcHandle: HANDLE) -> ULONG;
+        extern fn TcCloseInterface(IfcHandle: HANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcDeleteFilter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FilterHandle: HANDLE) -> ULONG;
+        extern fn TcDeleteFilter(FilterHandle: HANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcDeleteFlow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FlowHandle: HANDLE) -> ULONG;
+        extern fn TcDeleteFlow(FlowHandle: HANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcDeregisterClient(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientHandle: HANDLE) -> ULONG;
+        extern fn TcDeregisterClient(ClientHandle: HANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcEnumerateFlows(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfcHandle: HANDLE, #[in] #[out] pEnumHandle: PHANDLE, #[in] #[out] pFlowCount: PULONG, #[in] #[out] pBufSize: PULONG, #[out] Buffer: PENUMERATION_BUFFER) -> ULONG;
+        extern fn TcEnumerateFlows(IfcHandle: HANDLE, #[in] #[out] pEnumHandle: PHANDLE, #[in] #[out] pFlowCount: PULONG, #[in] #[out] pBufSize: PULONG, #[out] Buffer: PENUMERATION_BUFFER) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcEnumerateInterfaces(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientHandle: HANDLE, #[in] #[out] pBufferSize: PULONG, #[out] InterfaceBuffer: PTC_IFC_DESCRIPTOR) -> ULONG;
-        #[library("TRAFFIC.dll", import = "TcGetFlowNameA")]
-        extern fn TcGetFlowName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FlowHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StrSize: ULONG, #[out] #[len_param(1)] pFlowName: LPSTR) -> ULONG;
+        extern fn TcEnumerateInterfaces(ClientHandle: HANDLE, #[in] #[out] pBufferSize: PULONG, #[out] InterfaceBuffer: PTC_IFC_DESCRIPTOR) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcGetFlowNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FlowHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StrSize: ULONG, #[out] #[len_param(1)] pFlowName: LPSTR) -> ULONG;
+        extern fn TcGetFlowNameA(FlowHandle: HANDLE, StrSize: u32, #[len_param(1)] #[out] pFlowName: PSTR) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcGetFlowNameW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FlowHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StrSize: ULONG, #[out] #[len_param(1)] pFlowName: LPWSTR) -> ULONG;
+        extern fn TcGetFlowNameW(FlowHandle: HANDLE, StrSize: u32, #[len_param(1)] #[out] pFlowName: PWSTR) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcModifyFlow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] FlowHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGenericFlow: PTC_GEN_FLOW) -> ULONG;
-        #[library("TRAFFIC.dll", import = "TcOpenInterfaceA")]
-        extern fn TcOpenInterface(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClIfcCtx: HANDLE, #[out] pIfcHandle: PHANDLE) -> ULONG;
+        extern fn TcModifyFlow(FlowHandle: HANDLE, pGenericFlow: PTC_GEN_FLOW) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcOpenInterfaceA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClIfcCtx: HANDLE, #[out] pIfcHandle: PHANDLE) -> ULONG;
+        extern fn TcOpenInterfaceA(pInterfaceName: PCSTR, ClientHandle: HANDLE, ClIfcCtx: HANDLE, #[out] pIfcHandle: PHANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcOpenInterfaceW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pInterfaceName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClIfcCtx: HANDLE, #[out] pIfcHandle: PHANDLE) -> ULONG;
-        #[library("TRAFFIC.dll", import = "TcQueryFlowA")]
-        extern fn TcQueryFlow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFlowName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidParam: LPGUID, #[in] #[out] pBufferSize: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*pBufferSize", "*pBufferSize")] #[out] Buffer: PVOID) -> ULONG;
+        extern fn TcOpenInterfaceW(pInterfaceName: PCWSTR, ClientHandle: HANDLE, ClIfcCtx: HANDLE, #[out] pIfcHandle: PHANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcQueryFlowA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFlowName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidParam: LPGUID, #[in] #[out] pBufferSize: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*pBufferSize", "*pBufferSize")] #[out] Buffer: PVOID) -> ULONG;
+        extern fn TcQueryFlowA(pFlowName: PCSTR, pGuidParam: LPGUID, #[in] #[out] pBufferSize: PULONG, #[size_param(2)] Buffer: *mut void) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcQueryFlowW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFlowName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidParam: LPGUID, #[in] #[out] pBufferSize: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*pBufferSize", "*pBufferSize")] #[out] Buffer: PVOID) -> ULONG;
+        extern fn TcQueryFlowW(pFlowName: PCWSTR, pGuidParam: LPGUID, #[in] #[out] pBufferSize: PULONG, #[size_param(2)] Buffer: *mut void) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcQueryInterface(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfcHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidParam: LPGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] NotifyChange: BOOLEAN, #[in] #[out] pBufferSize: PULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*pBufferSize", "*pBufferSize")] #[out] Buffer: PVOID) -> ULONG;
+        extern fn TcQueryInterface(IfcHandle: HANDLE, pGuidParam: LPGUID, NotifyChange: BOOLEAN, #[in] #[out] pBufferSize: PULONG, #[size_param(3)] Buffer: *mut void) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcRegisterClient(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TciVersion: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClRegCtx: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ClientHandlerList: PTCI_CLIENT_FUNC_LIST, #[out] pClientHandle: PHANDLE) -> ULONG;
-        #[library("TRAFFIC.dll", import = "TcSetFlowA")]
-        extern fn TcSetFlow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFlowName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidParam: LPGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] Buffer: PVOID) -> ULONG;
+        extern fn TcRegisterClient(TciVersion: u32, ClRegCtx: HANDLE, ClientHandlerList: PTCI_CLIENT_FUNC_LIST, #[out] pClientHandle: PHANDLE) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcSetFlowA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFlowName: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidParam: LPGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] Buffer: PVOID) -> ULONG;
+        extern fn TcSetFlowA(pFlowName: PCSTR, pGuidParam: LPGUID, BufferSize: u32, #[size_param(2)] #[in] Buffer: *mut void) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcSetFlowW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFlowName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidParam: LPGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] Buffer: PVOID) -> ULONG;
+        extern fn TcSetFlowW(pFlowName: PCWSTR, pGuidParam: LPGUID, BufferSize: u32, #[size_param(2)] #[in] Buffer: *mut void) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcSetInterface(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] IfcHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pGuidParam: LPGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] BufferSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] Buffer: PVOID) -> ULONG;
+        extern fn TcSetInterface(IfcHandle: HANDLE, pGuidParam: LPGUID, BufferSize: u32, #[size_param(2)] #[in] Buffer: *mut void) -> u32;
     }
 }

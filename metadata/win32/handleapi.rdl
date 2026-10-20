@@ -2,14 +2,15 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn CloseHandle(#[Windows::Win32::Metadata::NativeSal("2", "_Post_ptr_invalid_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hObject: HANDLE) -> BOOL;
+        extern fn CloseHandle(hObject: HANDLE) -> BOOL;
         #[library("api-ms-win-core-handle-l1-1-0.dll")]
-        extern fn CompareObjectHandles(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFirstObjectHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSecondObjectHandle: HANDLE) -> BOOL;
+        extern fn CompareObjectHandles(hFirstObjectHandle: HANDLE, hSecondObjectHandle: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DuplicateHandle(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSourceProcessHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hSourceHandle: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hTargetProcessHandle: HANDLE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] lpTargetHandle: LPHANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwDesiredAccess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] bInheritHandle: BOOL, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwOptions: DWORD) -> BOOL;
+        extern fn DuplicateHandle(hSourceProcessHandle: HANDLE, hSourceHandle: HANDLE, hTargetProcessHandle: HANDLE, lpTargetHandle: LPHANDLE, dwDesiredAccess: u32, bInheritHandle: BOOL, dwOptions: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetHandleInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hObject: HANDLE, #[out] lpdwFlags: LPDWORD) -> BOOL;
+        extern fn GetHandleInformation(hObject: HANDLE, #[out] lpdwFlags: LPDWORD) -> BOOL;
+        const INVALID_HANDLE_VALUE: HANDLE = -1;
         #[library("KERNEL32.dll")]
-        extern fn SetHandleInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hObject: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwMask: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> BOOL;
+        extern fn SetHandleInformation(hObject: HANDLE, dwMask: u32, dwFlags: u32) -> BOOL;
     }
 }

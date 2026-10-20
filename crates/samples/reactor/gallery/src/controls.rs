@@ -1,6 +1,5 @@
-//! Shared page-building blocks used by every gallery destination: page headers, sample cards
-//! with a collapsible source panel, scrollable page content, and the card grid used by the home
-//! and category pages to link to their child destinations.
+//! Shared page headers, live sample cards, scrollable content, and navigation card grids.
+//! Examples stay in compiled page components rather than duplicated display-only snippets.
 
 use windows_reactor::*;
 
@@ -54,8 +53,8 @@ pub fn page_header(title: &str, description: &str) -> View {
         .into()
 }
 
-/// Wraps a live sample in a card with its source snippet shown underneath.
-pub fn sample_card(title: &str, sample: impl Into<View>, source: &str) -> View {
+/// Wraps a live sample in a titled card.
+pub fn sample_card(title: &str, sample: impl Into<View>) -> View {
     StackPanel::new()
         .spacing(8.0)
         .children((
@@ -69,15 +68,10 @@ pub fn sample_card(title: &str, sample: impl Into<View>, source: &str) -> View {
                 .background(ThemeBrush::CardBackground)
                 .border_brush(ThemeBrush::CardStroke)
                 .content(
-                    StackPanel::new().children((
-                        Border::new()
-                            .padding(24.0)
-                            .background(ThemeBrush::SolidBackground)
-                            .content(sample),
-                        Border::new()
-                            .padding(Thickness::new(12.0, 8.0, 12.0, 8.0))
-                            .content(TextBlock::new().text(source).font_size(13.0)),
-                    )),
+                    Border::new()
+                        .padding(24.0)
+                        .background(ThemeBrush::SolidBackground)
+                        .content(sample),
                 ),
         ))
         .into()

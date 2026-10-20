@@ -69,10 +69,6 @@ impl Component for PersonPicturePage {
                             })
                             .opacity(0.6),
                     )),
-                    r#"ToggleSwitch::new().is_on(value).on_toggled(...).header(
-    "Use display names")
-PersonPicture::new().display_name("Alice Smith")
-PersonPicture::new().initials("AS")"#,
                 ),
             )],
         )

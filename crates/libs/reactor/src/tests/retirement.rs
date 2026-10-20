@@ -128,6 +128,7 @@ fn exit_retirement_leaves_only_native_state_until_completion() {
         runtime.graph().object_count()
     );
     assert!(!runtime.adapter_mut().complete_retirement(old));
+    assert_eq!(runtime.graph().full_reference_scan_count(), 0);
 }
 
 #[test]
@@ -354,7 +355,7 @@ fn observations_survive_a_later_planning_failure() {
             ),
             keyed(
                 "holder",
-                Button::new().content(
+                Button::new().is_enabled(true).content(
                     TextBlock::new()
                         .text("nested")
                         .exit_fade(Duration::from_millis(100)),
@@ -636,6 +637,118 @@ fn mixed_duplicate_and_stale_retirement_completions_are_idempotent() {
     runtime.dispatch_native_events().unwrap();
     assert_eq!(runtime.adapter().batches().len(), batches);
     assert_eq!(runtime.graph().kind(replacement), Some(ObjectType::Button));
+}
+
+#[test]
+fn native_queue_retirement_boundary_preserves_later_observation_rollback() {
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    runtime
+        .update(Grid::new().width(100.0).keyed_children([keyed(
+            "retiring",
+            Button::new().exit_fade(Duration::from_millis(100)),
+        )]))
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    let retiring = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()[0];
+    runtime.update(Grid::new().width(100.0)).unwrap();
+    assert_eq!(runtime.graph().retired_count(), 1);
+    assert!(runtime.adapter_mut().complete_retirement(retiring));
+    for property in [
+        Property {
+            id: PropertyId::Width,
+            value: PropertyValue::F64(200.0),
+        },
+        Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from("Invalid")),
+        },
+    ] {
+        runtime.adapter_mut().observe(Observation::SetProperty {
+            object: root,
+            property,
+        });
+    }
+
+    assert!(matches!(
+        runtime.next_native_work().unwrap(),
+        Some(NativeWork::Maintenance)
+    ));
+    assert_eq!(runtime.graph().retired_count(), 0);
+    assert_eq!(runtime.adapter().retirement_count(), 0);
+    assert_eq!(runtime.adapter().object_count(), 1);
+    let graph = runtime.graph().clone();
+    let adapter = runtime.adapter().clone();
+    assert_eq!(
+        runtime.prepare_update(),
+        Err(UpdateError::InvalidNativeEvent(
+            GraphError::InvalidProperty(ObjectType::Grid, PropertyId::Text)
+        ))
+    );
+    assert_eq!(runtime.graph(), &graph);
+    assert_eq!(runtime.adapter(), &adapter);
+    assert_eq!(runtime.prepare_update(), Err(UpdateError::Poisoned));
+}
+
+#[test]
+fn native_queue_retirement_cleanup_does_not_consume_later_callback() {
+    let calls = Rc::new(Cell::new(0));
+    let called = Rc::clone(&calls);
+    let callback = Callback::new(move |()| called.set(called.get() + 1));
+    let mut runtime = Runtime::new(RecordingAdapter::new());
+    runtime
+        .update(
+            Grid::new().keyed_children([
+                keyed(
+                    "retiring",
+                    TextBox::new()
+                        .text("Retiring")
+                        .exit_fade(Duration::from_millis(100)),
+                ),
+                keyed("active", Button::new().on_click(callback.clone())),
+            ]),
+        )
+        .unwrap();
+    let root = runtime.graph().root().unwrap();
+    let children = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap();
+    let (retiring, active) = (children[0], children[1]);
+    runtime
+        .update(
+            Grid::new().keyed_children([keyed("active", Button::new().on_click(callback.clone()))]),
+        )
+        .unwrap();
+    runtime.adapter_mut().queue_retirement_completion(retiring);
+    runtime.adapter_mut().observe(Observation::SetProperty {
+        object: retiring,
+        property: Property {
+            id: PropertyId::Text,
+            value: PropertyValue::String(Rc::from("Stale")),
+        },
+    });
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        active,
+        EventId::Click,
+        EventValue::Unit(callback),
+        EventPayload::Unit,
+    ));
+
+    assert_eq!(
+        runtime.prepare_update(),
+        Err(UpdateError::PendingNativeEvent)
+    );
+    assert_eq!(runtime.graph().retired_count(), 0);
+    assert_eq!(runtime.adapter().retirement_count(), 0);
+    let Some(NativeWork::Event(mut event)) = runtime.next_native_work().unwrap() else {
+        panic!("expected callback after native cleanup");
+    };
+    event.invoke();
+    drop(event);
+    assert_eq!(calls.get(), 1);
 }
 
 #[test]

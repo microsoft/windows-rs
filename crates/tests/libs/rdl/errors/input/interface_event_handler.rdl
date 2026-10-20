@@ -1,0 +1,6 @@
+#[winrt]
+mod Test {
+    interface IInterface {
+        event Changed: i32;
+    }
+}

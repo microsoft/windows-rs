@@ -1,28 +1,28 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        type LPPROFILEINFO = *mut PROFILEINFOA;
+        type LPPROFILEINFO = LPPROFILEINFOA;
         type LPPROFILEINFOA = *mut PROFILEINFOA;
         type LPPROFILEINFOW = *mut PROFILEINFOW;
         type PROFILEINFO = PROFILEINFOA;
         struct PROFILEINFOA {
-            dwSize: DWORD,
-            dwFlags: DWORD,
-            lpUserName: LPSTR,
-            lpProfilePath: LPSTR,
-            lpDefaultPath: LPSTR,
-            lpServerName: LPSTR,
-            lpPolicyPath: LPSTR,
+            dwSize: u32,
+            dwFlags: u32,
+            lpUserName: PSTR,
+            lpProfilePath: PSTR,
+            lpDefaultPath: PSTR,
+            lpServerName: PSTR,
+            lpPolicyPath: PSTR,
             hProfile: HANDLE,
         }
         struct PROFILEINFOW {
-            dwSize: DWORD,
-            dwFlags: DWORD,
-            lpUserName: LPWSTR,
-            lpProfilePath: LPWSTR,
-            lpDefaultPath: LPWSTR,
-            lpServerName: LPWSTR,
-            lpPolicyPath: LPWSTR,
+            dwSize: u32,
+            dwFlags: u32,
+            lpUserName: PWSTR,
+            lpProfilePath: PWSTR,
+            lpDefaultPath: PWSTR,
+            lpServerName: PWSTR,
+            lpPolicyPath: PWSTR,
             hProfile: HANDLE,
         }
     }

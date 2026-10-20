@@ -46,7 +46,6 @@ impl Component for NumberBoxPage {
                                 .header("Quantity"),
                             format!("Value: {:?}", self.value),
                         )),
-                        "NumberBox::new().value(value).on_value_changed(handler)",
                     ),
                 ),
                 KeyedView::new(
@@ -63,7 +62,6 @@ impl Component for NumberBoxPage {
                                 .text(format!("Clamped value: {:?}", self.clamped))
                                 .opacity(0.6),
                         )),
-                        "NumberBox::new().minimum(1.0).maximum(10.0).value(value)",
                     ),
                 ),
                 KeyedView::new(
@@ -71,7 +69,6 @@ impl Component for NumberBoxPage {
                     sample_card(
                         "Disabled NumberBox",
                         NumberBox::new().value(99.0).is_enabled(false),
-                        "NumberBox::new().value(99.0).is_enabled(false)",
                     ),
                 ),
             ],
