@@ -23,4 +23,10 @@ void test()
 
     shape = make<Shape>();
     check(widget.Echo(shape) == shape);
+
+    Square square;
+    check(square.Area() == 4);
+    check(widget.Echo(square) == square);
+    shape = square;
+    check(shape.Area() == 4);
 }

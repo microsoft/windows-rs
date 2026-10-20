@@ -14,6 +14,12 @@ public static class Client
 
         shape = new Shape();
         Check(ReferenceEquals(widget.Echo(shape), shape));
+
+        var square = new Square();
+        Check(square.Area() == 4);
+        Check(ReferenceEquals(widget.Echo(square), square));
+        shape = square;
+        Check(shape.Area() == 4);
     }
 }
 

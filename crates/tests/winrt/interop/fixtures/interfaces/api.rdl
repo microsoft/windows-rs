@@ -2,7 +2,8 @@ use Windows::Foundation::Metadata::*;
 
 #[winrt]
 mod Interfaces {
-    // A non-default interface of `Widget`, also implemented by the clients.
+    // A non-default interface of `Widget`, the default interface of `Square`, and implemented by
+    // the clients.
     interface IShape {
         fn Area(&self) -> i32;
     }
@@ -10,6 +11,13 @@ mod Interfaces {
     #[Activatable(1)]
     class Widget {
         IWidget,
+        IShape,
+    }
+
+    // A class whose default interface is not exclusive to it, so a `Square` is an `IShape`
+    // without a cast.
+    #[Activatable(1)]
+    class Square {
         IShape,
     }
 
