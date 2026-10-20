@@ -143,7 +143,7 @@ struct ImplementInputs {
 
 /// Describes one COM interface chain.
 struct InterfaceChain {
-    /// The name of the field for the vtable chain, e.g. `interface4_ifoo`.
+    /// The name of the field for the vtable chain, e.g. `__interface4_ifoo`.
     field_ident: syn::Ident,
 
     /// The name of the associated constant item for the vtable chain's initializer,
@@ -389,7 +389,7 @@ fn convert_implements_to_interface_chains(implements: Vec<ImplementType>) -> Vec
             ident_string.push('_');
             ident_string.push_str(&suffix);
         }
-        let field_ident = syn::Ident::new(&ident_string, implement.span);
+        let field_ident = syn::Ident::new(&format!("__{ident_string}"), implement.span);
 
         let mut vtable_const_string = ident_string.clone();
         vtable_const_string.make_ascii_uppercase();

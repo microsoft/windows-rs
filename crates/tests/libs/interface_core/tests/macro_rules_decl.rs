@@ -115,6 +115,40 @@ where
     }
 }
 
+// Field names that `implement_decl!` must not shadow on `Fields_Impl`.
+struct Fields {
+    base: i32,
+    identity: i32,
+    this: i32,
+    count: i32,
+}
+
+implement_decl! {
+    impl Fields as Fields_Impl: [IOther]
+}
+
+impl IOther_Impl for Fields_Impl {
+    unsafe fn Sum(&self, a: i32, b: i32, out: *mut i32) -> Result<()> {
+        unsafe { *out = a + b + self.base + self.identity + self.this + self.count };
+        Ok(())
+    }
+}
+
+#[test]
+fn user_fields_not_shadowed() {
+    let other: IOther = Fields {
+        base: 1,
+        identity: 2,
+        this: 4,
+        count: 8,
+    }
+    .into();
+
+    let mut value = 0;
+    unsafe { other.Sum(16, 32, &mut value).unwrap() };
+    assert_eq!(value, 63);
+}
+
 #[test]
 fn test_itest() {
     unsafe {
