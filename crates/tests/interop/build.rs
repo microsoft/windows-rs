@@ -1,7 +1,7 @@
 use std::fmt::Write;
 use std::path::Path;
 
-const WINDOWS_WINMD: &str = "../../../libs/default/Windows.winmd";
+const WINDOWS_WINMD: &str = "../../libs/default/Windows.winmd";
 
 fn main() {
     println!("cargo:rerun-if-changed=fixtures");

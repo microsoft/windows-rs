@@ -4,7 +4,9 @@ members = [
     "crates/libs/*",
     "crates/tools/*",
     "crates/samples/*/*",
-    "crates/tests/*/*",
+    "crates/tests/interop",
+    "crates/tests/libs/*",
+    "crates/tests/misc/*",
 ]
 
 [profile.release]
