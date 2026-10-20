@@ -2,7 +2,11 @@ use super::*;
 use Interfaces::*;
 
 pub fn factory(name: &str) -> Option<IActivationFactory> {
-    (name == "Interfaces.Widget").then(activatable::<Widget, Interfaces::Widget>)
+    match name {
+        "Interfaces.Widget" => Some(activatable::<Widget, Interfaces::Widget>()),
+        "Interfaces.Square" => Some(activatable::<Square, Interfaces::Square>()),
+        _ => None,
+    }
 }
 
 #[implement(Interfaces::Widget, IShape)]
@@ -18,5 +22,15 @@ impl IWidget_Impl for Widget_Impl {
 impl IShape_Impl for Widget_Impl {
     fn Area(&self) -> Result<i32> {
         Ok(1)
+    }
+}
+
+#[implement(Interfaces::Square)]
+#[derive(Default)]
+struct Square;
+
+impl IShape_Impl for Square_Impl {
+    fn Area(&self) -> Result<i32> {
+        Ok(4)
     }
 }

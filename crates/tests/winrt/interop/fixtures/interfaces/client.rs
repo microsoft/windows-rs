@@ -12,6 +12,12 @@ pub fn test() -> Result<()> {
     let shape: IShape = Shape.into();
     assert!(same(&widget.Echo(&shape)?, &shape)?);
 
+    let square = Square::new()?;
+    assert_eq!(square.Area()?, 4);
+    assert!(same(&widget.Echo(&square)?, &square)?);
+    let shape: IShape = square.into();
+    assert_eq!(shape.Area()?, 4);
+
     Ok(())
 }
 
