@@ -12,8 +12,10 @@ doctest = false
 workspace = true
 default-features = true
 features = [
+    "activation",
     "audioclient",
     "errhandlingapi",
+    "Foundation",
     "oaidl",
     "oleauto",
     "ro",

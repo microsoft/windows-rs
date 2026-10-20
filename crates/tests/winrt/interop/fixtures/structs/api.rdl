@@ -1,0 +1,54 @@
+use Windows::Foundation::*;
+use Windows::Foundation::Collections::*;
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Structs {
+    struct Point {
+        X: i32,
+        Y: i32,
+    }
+
+    // Fields of different sizes, so each language must agree on padding.
+    struct Mixed {
+        Flag: bool,
+        Value: i64,
+        Code: u8,
+        Ratio: f32,
+    }
+
+    // A non-blittable struct with nested struct, string, and optional fields.
+    struct Label {
+        Text: String,
+        Position: Point,
+        Width: IReference<i32>,
+    }
+
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        fn Offset(&self, point: Point, delta: i32) -> Point;
+
+        // Negates `Flag` and adds one to `Value`, `Code`, and `Ratio`.
+        fn Step(&self, value: Mixed) -> Mixed;
+
+        // Initially "label" at (1, 2) with no width.
+        Label: Label;
+
+        // "<text> (<x>, <y>) <width or none>"
+        fn Describe(&self, label: Label) -> String;
+
+        // Structs as generic arguments and array elements.
+        fn Points(&self) -> IVectorView<Point>;
+        fn Sum(&self, points: IIterable<Point>) -> Point;
+        fn Labels(&self, count: i32) -> [Label];
+
+        // Boxes `point`, and unboxes a value boxed by the client.
+        fn BoxPoint(&self, point: Point) -> Object;
+        fn UnboxPoint(&self, value: Object) -> Point;
+    }
+}
