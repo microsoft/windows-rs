@@ -1,0 +1,11 @@
+#[winrt]
+mod External {
+    #[guid(0x3d52ad5b_147c_4387_8f04_f4eb9a71b483)]
+    delegate fn Handler(value: u32) -> u32;
+    #[guid(0x905a0fef_bc53_11df_8c49_001e4fc686da)]
+    interface IBuffer {
+        fn get_Capacity(&self) -> u32;
+        fn get_Length(&self) -> u32;
+        fn put_Length(&self, value: u32);
+    }
+}

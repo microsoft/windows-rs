@@ -9,16 +9,18 @@ requirement. Ranks order the remaining work; individual exclusions and cutover a
 | Control | Identity and status |
 | --- | --- |
 | Frozen comparison baseline | `6e68e56081340eaa932f4dbc92ec54c56ed51473` |
-| Working source checkpoint | `58ee55b4d3`, plus contracts, named linkage, context, per-function ABI, GUID-less interfaces, and allocator repairs |
-| Working `metadata/win32` | Regenerated GUID-less inheritance partial candidate; visible, uncommitted |
+| Working source checkpoint | `ca1d04954b`, plus import accounting, external ownership, PDH, root reachability, flags, WinRT scope, scoped termination, member alignment and native reference ABI |
+| Working `metadata/win32` | Regenerated `member-alignment-after` partial candidate; visible and uncommitted |
+| Current-master audit control | `afcb0ab1f8cf7a71ec563f659451748b26e7f5b6`; separate from the frozen baseline |
 | Reviewed metadata control | `breadth-noreturn-repeat`; not an accepted replacement |
 | Ordinal candidate | `breadth-ordinal-imports`; unresolved x86 import gaps |
 | Stdcall trial | `breadth-sdk-stdcall`; not accepted as the canonical configuration |
-| Scratch output | `target/win32-2/Windows.Win32.winmd` matches the GUID-less inheritance run |
-| Toolchain | LLVM 22.1.8, companion ABI 17, SDK 10.0.28000.2270; x86/x64/ARM64 |
+| Scratch output | `target/win32-2/Windows.Win32.winmd` matches the member-alignment run |
+| Toolchain | LLVM 22.1.8, companion ABI 19, SDK 10.0.28000.2270; x86/x64/ARM64 |
 
-The configuration uses the existing 370 headers and seven translation units, with unchanged compiler
-defaults. The global stdcall switch is removed. Historical controls and SHA-256 identities are in
+The configuration uses 371 headers, including the inspected master's `PdhMsg.h`, and seven
+translation units, with unchanged compiler defaults. The global stdcall switch is removed.
+Historical controls and SHA-256 identities are in
 `rewrite-handoff.json` in Copilot session
 `e8bd0450-292d-42c8-a2b2-45d86a4711e5`; the original artifacts are in session
 `1810274b-2842-4eda-8537-79e6ac99f61c`. These are recovery evidence, not a clean-checkout
@@ -26,8 +28,367 @@ reproduction path. They must not silently become the accepted source/toolchain c
 
 The proposed scope is the frozen baseline's required Win32 surface and contracts on all three
 targets, with explicit corrections and exclusions. The proposed resource limits remain a matched
-legacy run, provisionally 480 seconds and 8 GB peak process-tree working set. Neither scope
-exceptions nor performance acceptance have been established by this review.
+legacy run, provisionally 480 seconds and 8 GB peak process-tree working set. The recorded
+availability/provider corrections are approved; final scope and performance acceptance remain open.
+
+## Namespace ownership and updated landing review
+
+The namespace-only checkpoint below is the comparison control for the completed composition slice.
+Current function accounting is 289 raw missing pairs, 91 approved availability corrections and
+198 unapproved missing pairs across 70 names. Four provider corrections remain approved, with no
+unapproved linkage changes. The 6,433 new function pairs remain unapproved.
+
+Qualified native identities remain intact through reconciliation and intermediate type comparisons.
+Local Win32 names flatten only at emission, with type/value collision checks across targets.
+Explicit authoritative WinRT references own supported non-generic interfaces and delegates;
+configured SDK namespace/delegate spellings require matching metadata kind, UUID, base, slots and
+scalar ABI. Unsupported external contracts remain omissions, not duplicate local definitions.
+Automatic namespace roots are restricted to the selected memorybuffer/robuffer headers; dependencies
+retain their native ownership. The workload remains 370 headers and seven translation units.
+
+The exact comparison against the fixed-pointer control changes only `activationregistration.rdl`,
+`memorybuffer.rdl` and `robuffer.rdl`. Five declarations match checked-in SDK goldens:
+`IMemoryBufferByteAccess`, `IBufferByteAccess`, `ActivationType`, `RegisteredTrustLevel` and
+`RegistrationScope`. Every retained declaration, owner, target and body is byte-identical.
+The three activation-registration dependencies have native three-target evidence, not public-scope
+approval. Raw function rows and constant coverage are unchanged: 298 missing pairs, 91 approved
+availability corrections, 207 unapproved pairs across 73 names, four approved provider corrections,
+and 6,433 unapproved new pairs.
+
+The `namespaces`, `namespace_functions` and `namespace_references` fixtures cover collisions,
+reference conflicts, unsupported dependency pruning, scoped imports and aliases. The SDK consumer
+builds on all three targets and executes on x86/x64, checking IIDs, vtables, casts, shared buffer
+mutation, WinRT properties/HRESULT errors and delegate invocation. ARM64 execution is not claimed.
+
+The candidate archive is `namespace-ownership-after.zip`, SHA-256
+`BBABDAD9E1F16D61A3023F24B7A41ADA259C6AF15C5F0D595D7C280F53C71C62`.
+The driver reports 35,421 omission diagnostics. The comparison's 37,536 unique physical diagnostic
+lines are a different measure because diagnostics span lines; neither the line reduction nor the
+diagnostic reduction establishes API recovery. The 216.366-second capture/merge/project observation
+and 7,319,359,488-byte sampled peak process working set are uncontrolled, not budget acceptance.
+
+The updated `clang-ground` review is adopted as the ordered landing checklist in `plan.md`.
+The additional master control exposes the #5083/#5084 PDH fix without replacing the frozen baseline.
+Resource/CRT/driver-input root ownership (#4943) is corrected below. Issue-linked fixture ports,
+executable SDK acceptance, publication semantics, delivery and hosted/native ARM64 qualification
+remain open.
+`data_classes.h` contains no constructors/destructors; `template_private_records.h` requires that
+unused private templates not suppress unrelated public declarations. These repros do not by
+themselves justify general C++ lifetime/template support.
+
+### Composition and metadata-owned definitions
+
+The approved external-definition boundary is implemented. `References::native_interfaces` supplies
+explicit qualified identities for capture. Native evidence retains ownership, UUID, attributes,
+layout and bases; authoritative metadata owns member definitions. Local contracts still undergo
+full reconciliation. Missing authority, conflicting ownership or UUID, unsupported use-site
+qualifiers, by-value use and local inheritance from external definitions remain rejected. No
+generic parser fallback or local WinRT stand-in is used.
+
+The existing selected composition header recovers all ten baseline interop interfaces, including
+`ICompositorInterop`, `ICompositionDrawingSurfaceInterop` and `ICompositorDesktopInterop`.
+The latter needs the SDK's `windows.ui.composition.desktop.h` definition of `IDesktopWindowTarget`;
+the interop header alone only forward-declares it. The driver supplies that support include only
+when composition interop is selected. This adds a dependency header, not another selected namespace
+root or translation unit. A negative SDK fixture still rejects the incomplete dependency.
+
+Exact comparison against `namespace-ownership-after` changes only three partitions:
+
+| Partition | Change |
+| --- | --- |
+| `windowsuicompositioninterop.rdl` | Ten native interop interfaces referencing authoritative WinRT types |
+| `dispatcherqueue.rdl` | `CreateDispatcherQueueController` on all targets and its two authored pointer aliases |
+| `windowsuicompositiondesktop.rdl` | Two SDK WinRT name strings; publication scope remains unapproved |
+
+All additions match three-target SDK header/RDL goldens. Every retained declaration, owner, target
+and body is byte-identical. Function comparison changes only the three recovered dispatcher-queue
+target pairs. Constant coverage retains every existing row and adds
+`InterfaceName_Windows_UI_Composition_Desktop_IDesktopWindowTarget` and
+`RuntimeClass_Windows_UI_Composition_Desktop_DesktopWindowTarget`. These two strings belong to the
+existing WinRT-name publication decision, not a new scope approval. The support header also exposes
+the undefined `IID___x_ABI_CWindows_CUI_CComposition_CDesktop_CIDesktopWindowTarget` value.
+It remains an explicit omission. Do not manufacture its definition from the interface UUID.
+
+The SDK consumer builds for x86/x64/ARM64 and executes on x86/x64. It checks native slots and IIDs,
+COM casts, returned interface identity, BOOL arguments, HRESULT failures, and real dispatcher-queue
+creation/shutdown. The ordinary external-reference fixtures check ownership, alias contracts,
+missing definitions and use-site rejection. CI selects the namespace and composition SDK consumers;
+hosted CI and native ARM64 execution remain unqualified.
+
+The final run reports 35,406 omission diagnostics. After accounting for the support include's
+one-line shift in synthetic macro probes, 16 physical diagnostic lines disappear and one appears:
+the undefined SDK IID value above. Physical lines and diagnostic counts are different measures.
+Capture/merge/project took 232.450 seconds and compilation 3.658 seconds. Sampled peak process
+working set was 7,483,949,056 bytes. These are uncontrolled observations, not budget acceptance.
+
+Recovery evidence is in session `74520e25-3a04-448f-bca8-a0140634a829`:
+`verify-composition.py`, `composition-comparison.json`, the after configuration/omissions/coverage
+files, and `composition-after.zip` with SHA-256
+`3E08016E9B1B3832346A1D8ED351828D43340BA63B1A19D86FEEDAA385DA10C8`.
+The generator logs/resources are `composition-final-*` in the preceding implementation session.
+All partial output remains visible and uncommitted. The later controls below cover master-side PDH
+and publication ownership; issue-linked regressions and replacement qualification remain open.
+
+### Inspected master and PDH
+
+`--compare-constants` now writes separate frozen-baseline and inspected-master reports. The fixed
+master is `afcb0ab1f8cf7a71ec563f659451748b26e7f5b6`; its metadata changes from the frozen
+baseline are the already-covered `WM_CTLCOLOR` correction and 88 PDH constants from #5083/#5084.
+The shared manifest now includes `PdhMsg.h`. Its three-target header/RDL fixture reproduces all
+88 declarations byte-for-byte and retains the real native `S_PDH` provider GUID as a separately
+identified, unapproved addition. No other partition or function row changes in this slice.
+The master report's missing constant names fall from 110 to 22; the frozen report stays at 22.
+These reports count names, not type/value/architecture parity.
+
+Recovery archive `pdh-after.zip` has SHA-256
+`EAC4F4E06D4749D18D7308F823DA57CE0A4E2D6A2AAB96BA77E7A1A300C0FABE`.
+The fixed controls and approval accounting are unchanged; no rebase or baseline reset occurred.
+
+### Publication roots and surviving dependencies
+
+The SDK driver selects automatic roots from its SDK `um`, `shared`, `winrt` and `cppwinrt`
+directories. Compiler resource, UCRT and implicitly discovered MSVC declarations remain available
+as native dependencies but do not become automatic public roots. Excluding only resource/UCRT paths
+was insufficient: the compiler also finds MSVC's `setjmp.h`, `stdint.h` and `vadefs.h`.
+The directory contract avoids installation-path guesses and per-symbol exclusions.
+
+Synthetic UUID-probe tags are not public roots. The bogus `LaunchTargetMonitor` declaration came
+from `SID_LaunchTargetMonitor`'s inline UUID tag in generated probe text, not a separately selected
+SDK type. The macro value remains. Authored expansions retain their native declarations.
+Partial pruning follows surviving roots after native validation, removing orphan dependencies
+without inventing omission errors. A rejected macro alias likewise cannot keep its otherwise
+unselected target public. Native conflicts still fail before pruning.
+
+Compared with the PDH control, 15 partitions change and 12 disappear. No lines are added or
+rewritten; every retained declaration body and target is unchanged. The removals are 19 records,
+three enums, 39 aliases and the synthetic tag's GUID constant. Two of those enums and one alias
+are the unapproved `ActivationType`, `RegistrationScope` and `RegisteredTrustLevel` dependencies
+from the namespace slice, now unreachable from surviving roots. Other removals are unused support
+declarations, including five CRT callbacks. No function-coverage row changes and no required
+constant name is lost in either control.
+
+Required `FILE`, `time_t`, `__time64_t`, fixed-width integer aliases, `size_t` and `va_list` remain.
+Their native support-header ownership is retained rather than erased or routed by filename. Any
+different public partition policy for those required contracts is a separate design decision.
+Current output has 10,274 records, 4,531 enums, 13,517 aliases, 93,175 constants, 16,237 functions
+and 4,287 interfaces in 782 partitions. There are 32,901 omission diagnostics. Both constant
+controls have 22 missing names; function accounting remains 204 unapproved missing target pairs
+across 72 names, four approved provider corrections and no unapproved linkage changes.
+
+Capture/merge/project took 189.893 seconds and compilation 2.917 seconds. Sampled peak process
+working set was 7,426,891,776 bytes; these are uncontrolled observations, not budget acceptance.
+`root_scope` covers directory eligibility, explicit selections, retained observations, conflicts and
+orphan dependencies on all targets. The macro collision golden now retains the real native root
+without publishing the rejected alias's unselected dependency.
+
+Recovery evidence is `verify-ownership.py`, `ownership-comparison.json`, `ownership.diff`, the
+after configuration/omissions/coverage files and `ownership-after.zip` in session
+`74520e25-3a04-448f-bca8-a0140634a829`. The archive SHA-256 is
+`7D1C17AA5631337887ED352F1C82C17D7727CA753EFEE123E9C43D9643CE09C2`.
+
+### Issue-linked regressions and executable SDK acceptance
+
+`test_clang2` now has dedicated header/RDL fixtures and eleven ordinary issue-regression tests:
+
+| Case | Current disposition |
+| --- | --- |
+| #5047 | Native Clang/GNU flags attributes reach RDL and WinMD; plain, scoped, unsigned and signed controls retain their backing types and values. Conflicting observations fail before pruning. |
+| #4932 | Concrete public data classes, anonymous unions and pointer parameters pass. The legacy COM fixture adds its intended x86 stdcall spelling, not constructors or destructors. |
+| #5062 | Private primary/partial-template members never become roots. Automatic partial capture reports the unsupported templates; explicit unrelated roots pass strict capture. |
+| #4935 | All nine non-finite value/macro cases are explicit omissions; the two finite controls retain exact bits. |
+| #4982 | Identical cross-input C declarations merge; changed return types still fail. |
+| #4995 | Macro expansion retains distinct `PublicValue`/`PrivateValue` native declarations. An explicitly selected conflicting macro alias is omitted without replacing either native declaration. |
+| Legacy collisions and strings | Authored `BYTE` remains a record. Named string aliases retain their types and parameter directions through the configured SAL transport. |
+| Unnamed enum fields | Explicit unsupported boundary; unrelated records survive. No flat enum type or invented constants are emitted. |
+| #5042 | Direct pre/post single- and double-NUL properties reach phase-specific metadata through real SDK macros. Conditional and indirect forms retain scoped evidence; arbitrary user `annotate` strings are not treated as configured SAL transport. |
+
+The flags change is the only new parser mechanism in these ports. All 782 SDK RDL partitions and
+the three comparison reports are byte-identical to the ownership control after regeneration.
+The repeat reports 207.058 seconds for capture/merge/project and 3.143 seconds for compilation;
+these are uncontrolled observations. The original legacy fixtures remain unchanged.
+
+The documented acceptance command combines `sdk_acceptance`, `pdh`, `namespaces` and
+`composition_interop`. It runs locally without updating goldens and is selected by CI in SDK and
+cross-target steps. The new SDK fixture covers SAPI grammar/error and IWTS channel/bitmap
+interfaces, DOS-header layout, `NtQuerySystemInformation`, and `SOMAXCONN` on all three targets.
+The pinned SDK and current metadata both give `SOMAXCONN = 2147483647`; this does not establish
+the behavior of every published version reported in #5081. Hosted CI/native ARM64 execution and
+paired release qualification remain open.
+
+### Approved WinRT support scope
+
+The maintainer approved excluding WinRT name-string support declarations from automatic Win32
+publication while retaining required dependencies. `Input.root_paths` accepts canonical files as
+well as directories. The SDK driver keeps its Win32 directories and explicitly selected WinRT
+interop headers as roots; transitively included WinRT headers supply dependencies only. No symbol
+prefix is filtered, and explicit root selections remain eligible. The source-ownership fixture
+checks that identical-looking `InterfaceName_*` names follow header selection, not their spelling.
+
+Compared with the ownership control, exactly 104 partitions disappear; every retained partition
+is byte-identical. This removes all 5,119 new WinRT name strings and the unused global
+`EventRegistrationToken` support record. That record is absent from both required Git controls
+and has no surviving local metadata use. Required native references, all function rows and every
+retained constant row are unchanged. No required constant is lost.
+
+Current output has 10,273 records, 4,531 enums, 13,517 aliases, 88,056 constants, 16,237 functions
+and 4,287 interfaces in 678 partitions. Both controls still have 22 missing constant names.
+New constants fall to 5,462 against the frozen control and 5,374 against inspected master.
+The 6,433 new function-target pairs remain unapproved; the missing-function and linkage accounting
+is unchanged. The 29,610 omission diagnostics reflect root selection, not newly supported APIs.
+Capture/merge/project took 222.709 seconds and compilation 2.957 seconds, uncontrolled.
+
+Recovery evidence is `verify-winrt-scope.py`, `winrt-scope-comparison.json`, `winrt-scope.diff`,
+the after configuration/omissions/coverage files and `winrt-scope-after.zip` in the current session.
+Its SHA-256 is `F9B3F6A0DC6C2939E5AC85BA03B74E6C5483D7851F4AF8C14079ABDFA0CB8263`.
+Remaining publication semantics, required omissions, maintainability cleanup and release
+qualification still prevent replacement acceptance.
+
+### Scoped single- and double-NUL termination
+
+The approved scoped-termination work fixes two reproduced failures: real SDK `_Pre_`/`_Post_`
+qualifiers vanished before capture, and sorting their raw atoms could accept swapped pre/post
+properties as equivalent. The transport retains raw qualifiers and intervening validity properties.
+Reconciliation binds qualifiers to their next property or group before sorting, without changing
+the captured observations. Ordered residual qualifiers use `NativeSal.Modifiers`.
+
+Direct single- and double-NUL properties emit `NativeNullTerminated` with independent entry and
+successful-return phases. `DoubleNullOnEntry` and `DoubleNullOnSuccess` distinguish two trailing
+zero elements from single-NUL termination. Bare, conditional, grouped, and indirect properties
+remain evidence; no capacity, encoding, or direction is inferred. Readers interpreting these
+contracts must support the new properties. This does not reinterpret arbitrary `annotate` strings
+as SAL or claim release qualification for #5042.
+
+The six `scoped_termination` tests cover native conflicts, reordering complete scoped pairs,
+typedef covering, invalid buffer storage, imports/callbacks/methods, and real SDK macros through
+RDL/WinMD on all three targets. The full ordinary parser/driver suites and SDK annotation cases
+pass. A stale `buffer_sizes` golden also needed the earlier `NativeInput` and transport-free nested
+evidence updates; its test now supports the existing explicit golden-update switch.
+
+Against `winrt-scope-after`, only seven SDK partitions change. Thirteen raw double-NUL properties
+become canonical contracts: six entry requirements on Free/SetEnvironmentStrings variants and
+seven success requirements on GetVolumePathNamesForVolumeName, CryptGetDefaultOIDDllList, and
+SCardListReaderGroups variants. Three RegGetValue conditional annotations and one
+RoGetServerActivatableClasses failure annotation retain their nested `_Post_` evidence.
+All remaining declaration text and all three constant/function comparison CSVs are unchanged.
+The 29,610 omissions retain the same coverage and reasons; eight non-value SAL macro probes have
+new definition locations and diagnostic columns because their definitions now live in the transport.
+
+Capture/merge/project took 230.149 seconds and compilation 3.108 seconds, uncontrolled.
+`verify-scoped-termination.py`, `scoped-termination-comparison.json`, `scoped-termination.diff`,
+the after configuration/omission/coverage files, and `scoped-termination-after.zip` preserve the
+control. The archive SHA-256 is
+`A742A7A10015265F383B1749141F54C7AC81704541F50DE68C681788BD59082A`.
+
+### Constant typing and bounded member alignment
+
+`issue_contracts` gives #4977 and #4967 their own reproductions rather than inferring support from
+the earlier flags or record-alignment fixtures.
+
+For #4977, compiler assertions and native snapshots agree on all three targets: `CTRL_C_EVENT`
+and `WINEVENT_OUTOFCONTEXT` are signed `int`; `ERROR_INVALID_DATA` is signed `long`. The associated
+callback/function contracts use unsigned `DWORD`. Header/RDL/WinMD evidence preserves this
+difference. Retagging those constants is a public semantic policy, not a capture correction.
+No constant-name association or unsigned conversion has been added.
+
+For #4967, the dedicated `member_alignment` fixture reproduces the two reported WDK shapes.
+Native capture retains both requested field alignment and exact offsets:
+
+| Shape | x86 offsets / size | x64 and ARM64 offsets / size |
+| --- | --- | --- |
+| DeviceIoControl | 0, 4, 8, 12 / 16 | 0, 8, 16, 24 / 32 |
+| QuerySecurity | 0, 4 / 8 | 0, 8 / 16 |
+
+The approved implementation publishes field-owned `AlignmentAttribute` and preserves public field
+types. Bindgen emits target-evaluated `MaybeUninit<u8>` padding and the required containing alignment.
+Padding is not assumed initialized or included in derived equality/debug formatting. Ordinary
+non-union clone behavior is retained. By-value callable uses, including containing records and
+arrays, remain rejected pending calling-ABI qualification. Pointers and adjusted arrays work;
+packed combinations and aligned bitfields remain explicit omissions.
+
+The fixtures check thirteen storage records, same-layout request conflicts, sys/minimal Rust
+layouts on all three targets, and x86/x64 execution with uninitialized padding. The SDK fixture
+checks actual CLFS and hypervisor native offsets, field attributes, size, and alignment against
+generated Rust, including 4096-byte member alignment. Native ARM64 execution is not claimed.
+
+Against `scoped-termination-after`, only `clfs.rdl`, `clfsw32.rdl`, and `winhvplatformdefs.rdl`
+change. The delta adds four record types, five aliases, and two functions; all retained RDL lines
+are unchanged. `CreateLogContainerScanContext` and `ScanLogContainers` recover six required target
+pairs with the frozen DLL/export linkage. Other function rows and both constant reports are
+unchanged. Three root field-alignment omissions and their dependents disappear: 18 diagnostics
+removed, none added. New API scope approval is unchanged.
+
+Current output has 10,277 records, 4,531 enums, 13,522 aliases, 88,056 constants, 16,239 functions,
+and 4,287 interfaces in 678 partitions, with 29,592 omission diagnostics. Capture/merge/project took
+213.733 seconds and compilation 2.787 seconds, uncontrolled.
+`verify-member-alignment.py`, `member-alignment-comparison.json`, `member-alignment.diff`, the
+after reports, and `member-alignment-after.zip` preserve the control. Its SHA-256 is
+`58874C37A86289D6EBFA56D7AD3CD6120668261B4DC9C06067251ADB4FB16E6B`.
+
+The bindings, composition, reactor, webview, and clang-sys generators complete before and after
+the bindgen change; 3,010 source/configuration hashes are unchanged outside the implementation
+and fixture scope. `tool-package` fails the same routing assertion in both controls: the committed
+default WinMD still has flat declarations not routed by the partial RDL ownership map. That
+package gate remains blocked; no default WinMD or production projection was replaced.
+Full ordinary parser, driver, and bindgen regressions pass. No issue closure or replacement
+acceptance is claimed.
+
+### Isolated candidate package gate
+
+The current candidate can be packaged without replacing production metadata. The session
+`candidate-package-probe` compiles current Win32 and WDK RDL with the existing WinRT reference,
+uses `tool_package::remap` and the production filter files, and writes only session outputs.
+Combined compilation, routing into 593 namespaces, and both package generators complete.
+All-feature x64 `windows-sys` compilation passes. This is compilation evidence, not ABI acceptance.
+The direct production `tool-package` invocation still mixes partial routing inputs with committed
+default metadata; that control is not the isolated candidate.
+
+All-feature x64 `windows` compilation exposes one error in `IDXCoreAdapterFactory::CreateAdapterList`:
+the query-return heuristic consumes `filterAttributes`, then emits its now-missing length expression.
+The compiler-owned RDL preserves `filterAttributes: *const GUID` with its element-count relationship
+and `riid: &IID`. Bindgen's query selection recognizes only the GUID pointer, not the reference.
+It must not choose a counted GUID buffer as an interface ID.
+
+The trace also exposes a more serious ABI defect: native `RefConst` and `RefMut` parameters follow
+WinRT-specific reference handling and can become by-value native arguments. The generated
+`GetAdapterByLuid` vtable takes `LUID` and `IID` values where the SDK takes references.
+The separate `native-reference-probe.rdl` and Rust function-pointer assertion reproduce
+`fn(Value, u32)` instead of `fn(*const Value, *mut u32)` on x86, x64, and ARM64. Merely making the
+GUID-buffer method compile would leave this defect.
+
+The responsible consumer boundary is bindgen's native callable type conversion, including imports,
+callbacks, and COM methods, not clang2 capture or metadata publication. A bounded fix must preserve
+reference evidence in metadata, lower native reference ABI without changing WinRT byref semantics,
+preserve mutable references, and exclude buffer contracts from query-ID selection. Native-backed
+three-target ABI checks and x86/x64 execution are required before claiming this gate closed.
+No production metadata or generated library files were overwritten by these probes.
+
+The approved fix is implemented at that boundary. Native method and function-pointer signatures
+share reference conversion; WinRT retains its own handling. Mutable references keep their pointer
+type even with input flags and do not become heuristic return values. Explicit retval contracts
+remain distinct. Query selection excludes declared element/byte buffers for both GUID and object
+parameters, including buffers whose relationships cannot be projected as slices.
+
+`native_references.h/.cpp/.rdl` and its Rust consumer cover named and anonymous callbacks,
+imports, native interface calls, and Rust-produced vtables invoked by C++. All three target
+consumers compile; x86/x64 execute with existing mutable values preserved. Bindgen fixtures also
+cover input-marked mutable references, WinRT byrefs, GUID buffers before/after the IID, fixed/byte
+buffers, and counted object outputs. The query-forwarding behavior executes on x86/x64.
+The CI cross-target command includes the native consumer fixture.
+
+Both isolated all-feature packages compile on x64 and ARM64 with warnings denied. The x86 package
+gate remains blocked by a separate existing generator mechanism: hard-coded
+`GetWindowLongPtr*`/`SetWindowLongPtr*` aliases are emitted alongside the candidate's native
+function variants. This produces duplicate names. The rich package also has unused namespace
+reexports where architecture gating leaves an empty module. Neither defect is hidden by excluding
+features or relaxing warning settings; neither is a native-reference ABI failure.
+
+All bindgen regressions and warnings-denied clippy pass. The five bindings/composition/reactor/
+webview/clang-sys generators preserve all 3,013 recorded source/configuration hashes.
+`candidate-package-reference-after.log`, `candidate-reference-<target>.log`,
+`native-reference-consumers.log`, `native-reference-regressions.log`, and the
+`member-generators-reference-*` controls retain the evidence. No parser or SDK publication changes
+were needed; the current SDK output and coverage controls remain `member-alignment-after`.
+The direct production package invocation still requires matched metadata/routing inputs at cutover.
 
 ## Implemented: managed companion freshness
 
@@ -1395,3 +1756,46 @@ new generator loss. `tool-bindings` and `tool-reactor` leave tracked library out
 The final SDK source run reports 203.209 seconds capture/merge/project and 3.161 seconds compilation;
 the sampled peak process working set is 7,488,094,208 bytes. These are uncontrolled observations,
 not process-tree budget acceptance.
+
+### Remaining NDR imports and Rtl providers
+
+The checked-in `sdk_ndr_import_availability` fixture captures and reconciles all four declarations
+on x86, x64 and ARM64. Exact compiler symbols, named exports, code kinds and machines establish
+that the pinned SDK provides `Ndr64AsyncClientCall`, `Ndr64DcomAsyncClientCall` and `NdrClientCall3`
+only for x64/ARM64. `NdrClientCall2` provides the all-target control. Neither the native symbol
+nor another named import supplies the three x86 entries.
+
+The x86 process loader observes those three exports missing from `rpcrt4.dll`, with
+`NdrClientCall2` present. The x64 loader observes all four present. Both RPC DLLs have version
+10.0.26709.1000. The Microsoft Learn pages for `NdrClientCall3` and `Ndr64AsyncClientCall` do not
+state an architecture guarantee; their requirements table alone cannot settle these losses.
+These observations support a bounded pinned-workload correction, not a universal Windows claim.
+No availability approval is added by the fixture.
+
+The `sdk_import_providers` fixture independently checks raw import-library members and the ordered
+SDK policy, retaining the compiler ABI and linker symbol:
+
+| API | Targets selecting `ntdll.dll` instead of baseline `kernel32.dll` |
+| --- | --- |
+| `RtlCompareMemory` | x86 |
+| `RtlRaiseException` | x86 and ARM64 |
+| `RtlRestoreContext` | x86 |
+
+`kernel32.lib` lacks the matching native-machine imports for those four pairs; `ntdll.lib`
+supplies them. The x86 loader likewise finds all three exports absent from `kernel32.dll` and
+present in `ntdll.dll`. Both providers expose all three names in the x64 process. Native ARM64
+runtime behavior and older Windows versions remain unmeasured. The diagnostic invokes none of
+these functions.
+
+The shared `import_exports` diagnostic now reads the availability, NDR and provider fixtures.
+Session `ndr-import-exports-x86.csv` and `ndr-import-exports-x64.csv` preserve 99 observations each.
+All three SDK evidence checks pass. The maintainer approved the three x86 NDR availability
+corrections and four Rtl provider corrections for the pinned workload. `approved-availability.txt`
+contains the exact 91 approved availability pairs; `approved-providers.txt` records the four
+target/name/provider transitions. Comparison rejects stale approvals, changed export names,
+missing functions and mismatched baseline or SDK pins.
+
+Raw accounting remains 298 missing pairs and four provider differences. Acceptance accounting is
+91 approved availability pairs, 207 unapproved missing pairs across 73 names, four approved
+provider changes and zero unapproved provider changes. Both missing `RtlCaptureContext2` pairs
+remain required. No parser policy, native signature or generated RDL changes.

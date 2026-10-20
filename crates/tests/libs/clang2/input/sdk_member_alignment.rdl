@@ -1,0 +1,173 @@
+#[win32]
+mod Fixture {
+    #[arch(X64 | Arm64)]
+    type UINT16 = u16;
+    type UINT32 = u32;
+    #[arch(X64 | Arm64)]
+    type UINT64 = u64;
+    #[arch(X64 | Arm64)]
+    type UINT8 = u8;
+}
+#[win32]
+mod Fixture {
+    type CLFS_CONTAINER_ID = u32;
+    type CLFS_CONTAINER_STATE = u32;
+    struct CLFS_NODE_ID {
+        cType: ULONG,
+        cbNode: ULONG,
+    }
+    type CLFS_SCAN_MODE = u8;
+    type CLS_CONTAINER_STATE = u32;
+    struct CLS_SCAN_CONTEXT {
+        cidNode: CLFS_NODE_ID,
+        hLog: HANDLE,
+        #[Windows::Win32::Metadata::Alignment(8)]
+        cIndex: ULONG,
+        #[Windows::Win32::Metadata::Alignment(8)]
+        cContainers: ULONG,
+        #[Windows::Win32::Metadata::Alignment(8)]
+        cContainersReturned: ULONG,
+        #[Windows::Win32::Metadata::Alignment(8)]
+        eScanMode: CLFS_SCAN_MODE,
+        #[Windows::Win32::Metadata::Alignment(8)]
+        pinfoContainer: PCLS_CONTAINER_INFORMATION,
+    }
+    type PCLS_CONTAINER_INFORMATION = *mut _CLS_CONTAINER_INFORMATION;
+    struct _CLS_CONTAINER_INFORMATION {
+        FileAttributes: ULONG,
+        CreationTime: ULONGLONG,
+        LastAccessTime: ULONGLONG,
+        LastWriteTime: ULONGLONG,
+        ContainerSize: LONGLONG,
+        FileNameActualLength: ULONG,
+        FileNameLength: ULONG,
+        FileName: [WCHAR; 256],
+        State: CLFS_CONTAINER_STATE,
+        PhysicalContainerId: CLFS_CONTAINER_ID,
+        LogicalContainerId: CLFS_CONTAINER_ID,
+    }
+}
+#[win32]
+mod Fixture {
+    type UCHAR = u8;
+    type ULONG = u32;
+}
+#[win32]
+mod Fixture {
+    #[arch(X64 | Arm64)]
+    struct WHV_NESTED_ENLIGHTENMENTS_CONTROL {
+        Features: union {
+            AsUINT32: UINT32,
+            Anonymous: struct {
+                #[Windows::Win32::Metadata::NativeBitfield("DirectHypercall", 0, 1, MemberType = UINT32)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 30, MemberType = UINT32)]
+                #[Windows::Win32::Metadata::NativeBitfield("VirtualizationException", 1, 1, MemberType = UINT32)]
+                _bitfield: u32,
+            },
+        },
+        HypercallControls: union {
+            AsUINT32: UINT32,
+            Anonymous: struct {
+                #[Windows::Win32::Metadata::NativeBitfield("InterPartitionCommunication", 0, 1, MemberType = UINT32)]
+                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 1, 31, MemberType = UINT32)]
+                _bitfield: u32,
+            },
+        },
+    }
+    #[repr(i32)]
+    #[arch(X64 | Arm64)]
+    enum WHV_NESTED_STATE_TYPE {
+        WHvNestedStateTypeVmx = 0,
+        WHvNestedStateTypeSvm = 1,
+    }
+    #[arch(X64 | Arm64)]
+    struct WHV_SVM_NESTED_HOST_STATE {
+        Rip: UINT64,
+        Rsp: UINT64,
+        Rflags: UINT64,
+        Rax: UINT64,
+        Es: WHV_SVM_VMCB_SELECTOR,
+        Cs: WHV_SVM_VMCB_SELECTOR,
+        Ss: WHV_SVM_VMCB_SELECTOR,
+        Ds: WHV_SVM_VMCB_SELECTOR,
+        Gdtr: WHV_SVM_VMCB_SELECTOR,
+        Idtr: WHV_SVM_VMCB_SELECTOR,
+        Efer: UINT64,
+        Cr0: UINT64,
+        Cr3: UINT64,
+        Cr4: UINT64,
+        VirtualTpr: UINT64,
+        Reserved: [UINT64; 6],
+    }
+    #[packed(1)]
+    #[arch(X64 | Arm64)]
+    struct WHV_SVM_VMCB_SELECTOR {
+        Selector: UINT16,
+        Attrib: UINT16,
+        Limit: UINT32,
+        Base: UINT64,
+    }
+    #[arch(X64 | Arm64)]
+    union WHV_X64_NESTED_STATE {
+        Vmx: WHV_X64_VMX_NESTED_STATE,
+        Svm: WHV_X64_SVM_NESTED_STATE,
+    }
+    #[arch(X64 | Arm64)]
+    struct WHV_X64_SVM_NESTED_STATE {
+        Vendor: WHV_NESTED_STATE_TYPE,
+        Flags: struct {
+            #[Windows::Win32::Metadata::NativeBitfield("CurrentVmcbValid", 3, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("GuestMode", 0, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("HostSaveGpaValid", 2, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved", 4, 28, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("VmEntryPending", 1, 1, MemberType = UINT32)]
+            _bitfield: u32,
+        },
+        NestedEnlightenmentsControl: WHV_NESTED_ENLIGHTENMENTS_CONTROL,
+        HostSaveGpa: UINT64,
+        VmControlMsr: UINT64,
+        VirtualTscRatioMsr: UINT64,
+        VmcbGpa: UINT64,
+        HostState: WHV_SVM_NESTED_HOST_STATE,
+        Reserved: [UINT8; 3832],
+        #[Windows::Win32::Metadata::Alignment(4096)]
+        VmcbBytes: [UINT8; 4096],
+    }
+    #[arch(X64 | Arm64)]
+    struct WHV_X64_VMX_NESTED_STATE {
+        Vendor: WHV_NESTED_STATE_TYPE,
+        Flags: struct {
+            #[Windows::Win32::Metadata::NativeBitfield("CurrentVmcsValid", 2, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("EnlightenedVmEntry", 5, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("GuestMode", 0, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("Reserved", 6, 26, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("VmEntryPending", 3, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("VmcsEnlightened", 4, 1, MemberType = UINT32)]
+            #[Windows::Win32::Metadata::NativeBitfield("Vmxon", 1, 1, MemberType = UINT32)]
+            _bitfield: u32,
+        },
+        NestedEnlightenmentsControl: WHV_NESTED_ENLIGHTENMENTS_CONTROL,
+        Pdpt: [UINT64; 4],
+        VmxonRegionGpa: UINT64,
+        VmcsGpa: UINT64,
+        CurrentEnlightenedVmcs: UINT64,
+        VirtualApicRegs: struct {
+            Tpr: UINT32,
+            Ppr: UINT32,
+            Isr: [UINT32; 8],
+            Irr: [UINT32; 8],
+            IcrLow: UINT32,
+            IcrHigh: UINT32,
+        },
+        Reserved: [UINT8; 3944],
+        #[Windows::Win32::Metadata::Alignment(4096)]
+        VmcsBytes: [UINT8; 4096],
+    }
+}
+#[win32]
+mod Fixture {
+    type HANDLE = *mut void;
+    type LONGLONG = i64;
+    type ULONGLONG = u64;
+    type WCHAR = u16;
+}

@@ -78,7 +78,7 @@ impl Issues {
     }
 }
 
-/// Removes failed entities and their dependents on every target, not just the failing target.
+/// Removes failures, their dependents, and dependencies unreachable from surviving roots.
 pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
     let mut dependents: HashMap<Key, BTreeSet<Key>> = HashMap::new();
     for snapshot in snapshots.iter() {
@@ -191,8 +191,37 @@ pub(crate) fn prune(snapshots: &mut [Snapshot], issues: &mut Issues) {
             }
         }
     }
+    let mut dependencies: HashMap<Key, BTreeSet<Key>> = HashMap::new();
+    for (dependency, owners) in dependents {
+        for owner in owners {
+            dependencies
+                .entry(owner)
+                .or_default()
+                .insert(dependency.clone());
+        }
+    }
+    let mut pending = Vec::new();
+    // Share reachability across inputs and targets to retain every required native observation.
+    for snapshot in snapshots.iter() {
+        pending.extend(snapshot.roots.iter().map(|id| Key::of(snapshot, *id)));
+        // Nested declarations belong to the public owner even without a field using them.
+        for (id, record) in snapshot.records.iter().enumerate() {
+            if let Some(owner) = record.owner {
+                dependencies
+                    .entry(Key::of(snapshot, DeclarationId::Record(owner.record)))
+                    .or_default()
+                    .insert(Key::of(snapshot, DeclarationId::Record(RecordId(id))));
+            }
+        }
+    }
+    let mut reachable = HashSet::new();
+    while let Some(key) = pending.pop() {
+        if !issues.excluded.contains_key(&key) && reachable.insert(key.clone()) {
+            pending.extend(dependencies.remove(&key).unwrap_or_default());
+        }
+    }
     for snapshot in snapshots {
-        compact(snapshot, &issues.excluded);
+        compact(snapshot, &issues.excluded, &reachable);
     }
 }
 
@@ -250,24 +279,22 @@ fn retain<T>(values: &mut Vec<T>, map: &[Option<usize>]) {
     });
 }
 
-fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>) {
+fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>, reachable: &HashSet<Key>) {
     let records = remap(snapshot.records.iter().enumerate().map(|(id, _)| {
-        !excluded.contains_key(&Key::of(snapshot, DeclarationId::Record(RecordId(id))))
+        let key = Key::of(snapshot, DeclarationId::Record(RecordId(id)));
+        !excluded.contains_key(&key) && reachable.contains(&key)
     }));
-    let aliases = remap(
-        snapshot
-            .aliases
-            .iter()
-            .map(|value| !excluded.contains_key(&Key::Alias(value.name.clone()))),
-    );
-    let enums = remap(
-        snapshot
-            .enums
-            .iter()
-            .map(|value| !excluded.contains_key(&Key::Tag(value.name.clone()))),
-    );
-    let values = remap(snapshot.values.iter().map(|value| {
-        !excluded.contains_key(&Key::Value(value.name.clone()))
+    let aliases = remap(snapshot.aliases.iter().map(|value| {
+        let key = Key::Alias(value.name.clone());
+        !excluded.contains_key(&key) && reachable.contains(&key)
+    }));
+    let enums = remap(snapshot.enums.iter().map(|value| {
+        let key = Key::Tag(value.name.clone());
+        !excluded.contains_key(&key) && reachable.contains(&key)
+    }));
+    let values = remap(snapshot.values.iter().enumerate().map(|(id, value)| {
+        reachable.contains(&Key::of(snapshot, DeclarationId::Value(ValueId(id))))
+            && !excluded.contains_key(&Key::Value(value.name.clone()))
             && (!excluded.contains_key(&Key::Macro(value.name.clone()))
                 || value.observations.iter().any(|observation| {
                     matches!(observation.kind, ValueKind::Function { alias: None, .. })

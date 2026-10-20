@@ -476,7 +476,7 @@ impl Type {
             ),
             windows_metadata::Type::FnPtr(signature) => Self::FnPtr(Box::new(FunctionPointer {
                 flags: signature.flags.0,
-                result: Self::from_metadata_type(
+                result: Self::from_native_signature_type(
                     &signature.return_type,
                     enclosing,
                     generics,
@@ -485,7 +485,7 @@ impl Type {
                 parameters: signature
                     .types
                     .iter()
-                    .map(|ty| Self::from_metadata_type(ty, enclosing, generics, reader))
+                    .map(|ty| Self::from_native_signature_type(ty, enclosing, generics, reader))
                     .collect(),
             })),
             // IsConst modifier (ELEMENT_TYPE_CMOD_REQD IsConst)
@@ -500,6 +500,25 @@ impl Type {
                 )),
                 _ => Self::from_metadata_type(inner, enclosing, generics, reader),
             },
+        }
+    }
+
+    pub fn from_native_signature_type(
+        ty: &windows_metadata::Type,
+        enclosing: Option<&CppStruct>,
+        generics: &[Self],
+        reader: &Reader,
+    ) -> Self {
+        match ty {
+            windows_metadata::Type::RefConst(inner) => Self::PtrConst(
+                Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
+                1,
+            ),
+            windows_metadata::Type::RefMut(inner) => Self::PtrMut(
+                Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
+                1,
+            ),
+            _ => Self::from_metadata_type(ty, enclosing, generics, reader),
         }
     }
 

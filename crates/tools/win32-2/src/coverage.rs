@@ -3,6 +3,7 @@ use std::collections::BTreeSet;
 use std::process::Command;
 
 use named_exports::BASELINE;
+const MASTER: &str = "afcb0ab1f8cf7a71ec563f659451748b26e7f5b6";
 type Constants = BTreeMap<String, BTreeSet<String>>;
 
 pub fn run() -> Result<(), Box<dyn std::error::Error>> {
@@ -11,33 +12,8 @@ pub fn run() -> Result<(), Box<dyn std::error::Error>> {
     if !candidate.is_dir() {
         return Err("working-tree RDL is missing; run tool-win32-2 --partial first".into());
     }
-    let result = Command::new("git")
-        .args([
-            "--no-pager",
-            "grep",
-            "-n",
-            "-E",
-            "^[[:space:]]*const ",
-            BASELINE,
-            "--",
-            "metadata\\win32",
-        ])
-        .output()?;
-    if !result.status.success() {
-        return Err(format!(
-            "baseline scan failed: {}",
-            String::from_utf8_lossy(&result.stderr)
-        )
-        .into());
-    }
-    let mut baseline = Constants::new();
-    for line in std::str::from_utf8(&result.stdout)?.lines() {
-        let parts: Vec<_> = line.splitn(4, ':').collect();
-        let [_, header, _, declaration] = parts.as_slice() else {
-            return Err(format!("invalid git grep result: {line}").into());
-        };
-        add(&mut baseline, header, declaration)?;
-    }
+    let mut baseline = read_git_constants(BASELINE)?;
+    let master = read_git_constants(MASTER)?;
     let supplement = Path::new(env!("CARGO_MANIFEST_DIR")).join("src\\baseline");
     for (name, headers) in read_constants(&supplement)? {
         if baseline.insert(name.clone(), headers).is_some() {
@@ -58,10 +34,63 @@ pub fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
     std::fs::create_dir_all(directory)?;
-    std::fs::write(
-        directory.join("constant-coverage.csv"),
-        report(&baseline, &current, &members),
+    println!(
+        "Baseline: {BASELINE} + reviewed source supplement ({})",
+        supplement.display()
+    );
+    write_comparison(
+        &baseline,
+        &current,
+        &members,
+        &directory.join("constant-coverage.csv"),
     )?;
+    println!("Inspected master: {MASTER} (separate control; frozen approvals unchanged)");
+    write_comparison(
+        &master,
+        &current,
+        &members,
+        &directory.join("constant-coverage-master.csv"),
+    )
+}
+
+fn read_git_constants(revision: &str) -> Result<Constants, Box<dyn std::error::Error>> {
+    let result = Command::new("git")
+        .args([
+            "--no-pager",
+            "grep",
+            "-n",
+            "-E",
+            "^[[:space:]]*const ",
+            revision,
+            "--",
+            "metadata\\win32",
+        ])
+        .output()?;
+    if !result.status.success() {
+        return Err(format!(
+            "constant control scan failed; fetch {revision}: {}",
+            String::from_utf8_lossy(&result.stderr)
+        )
+        .into());
+    }
+    let mut constants = Constants::new();
+    for line in std::str::from_utf8(&result.stdout)?.lines() {
+        let parts: Vec<_> = line.splitn(4, ':').collect();
+        let [_, header, _, declaration] = parts.as_slice() else {
+            return Err(format!("invalid git grep result: {line}").into());
+        };
+        add(&mut constants, header, declaration)?;
+    }
+    Ok(constants)
+}
+
+fn write_comparison(
+    baseline: &Constants,
+    current: &Constants,
+    members: &Constants,
+    path: &Path,
+) -> Result<(), Box<dyn std::error::Error>> {
+    std::fs::write(path, report(baseline, current, members))?;
     let present = baseline
         .keys()
         .filter(|name| current.contains_key(*name))
@@ -73,16 +102,13 @@ pub fn run() -> Result<(), Box<dyn std::error::Error>> {
     let missing = baseline.len() - present - enum_members;
     let added = current.len() - present;
     println!(
-        "Baseline: {BASELINE} + reviewed source supplement ({})",
-        supplement.display()
-    );
-    println!(
         "Constants: {} baseline, {} current; {present} present, {enum_members} enum members, {missing} missing, {added} new",
         baseline.len(),
         current.len()
     );
     println!(
-        "Name presence only, not type/scope/value/architecture parity. See target\\win32-2\\constant-coverage.csv"
+        "Name presence only, not type/scope/value/architecture parity. See {}",
+        path.display()
     );
     Ok(())
 }

@@ -139,25 +139,66 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         macro_headers.sort();
         macro_headers.dedup();
     }
-    let arguments = sdk_arguments(&include, Path::new(&helpers::clang_resource_dir()))?;
+    let resource = std::path::PathBuf::from(helpers::clang_resource_dir());
+    let arguments = sdk_arguments(&include, &resource)?;
     let mut inputs = inputs(&headers, &arguments);
     for input in &mut inputs {
         input.macros.clone_from(&macros);
         input.macro_headers.clone_from(&macro_headers);
     }
     inputs.extend(guid_inputs(&headers, &arguments));
+    let namespace_headers: Vec<_> = headers
+        .iter()
+        .filter(|header| {
+            matches!(
+                header.as_str(),
+                "memorybuffer.h" | "robuffer.h" | "windows.ui.composition.interop.h"
+            )
+        })
+        .cloned()
+        .collect();
+    for input in &mut inputs {
+        input.namespace_headers = Some(namespace_headers.clone());
+        input.root_paths = Some(
+            ["um", "shared", "cppwinrt"]
+                .iter()
+                .map(|directory| include.join(directory))
+                .chain(
+                    headers
+                        .iter()
+                        .map(|header| include.join("winrt").join(header))
+                        .filter(|path| path.is_file()),
+                )
+                .collect(),
+        );
+    }
     let started = Instant::now();
     let scratch = Path::new("target\\win32-2");
     std::fs::create_dir_all(scratch)?;
+    let reference_path = "crates\\libs\\default\\Windows.winmd";
+    let native_prefixes = ["", "ABI"];
+    let delegate_prefix = Some("I");
+    let reference_metadata = windows_metadata::reader::Index::read(reference_path)
+        .ok_or("failed to read authoritative WinRT metadata")?;
+    let references = projection::References {
+        metadata: &reference_metadata,
+        native_prefixes: &native_prefixes,
+        delegate_prefix,
+    };
+    let external_interfaces = references.native_interfaces()?;
+    for input in &mut inputs {
+        input.external_interfaces.clone_from(&external_interfaces);
+    }
     let mut configuration = format!(
-        "SDK: {SDK_VERSION}\nLLVM: {}\nTargets: x86, x64, ARM64\nPartial: {partial}\nCommand arguments: {:?}\n",
+        "SDK: {SDK_VERSION}\nLLVM: {}\nTargets: x86, x64, ARM64\nPartial: {partial}\nCommand arguments: {:?}\nWinRT reference: {reference_path}\nNative namespace wrappers: {native_prefixes:?}\nNative delegate prefix: {delegate_prefix:?}\nExternal COM definitions: authoritative metadata\n",
         helpers::LIBCLANG_VERSION,
         std::env::args().skip(1).collect::<Vec<_>>(),
     );
     for input in &inputs {
         configuration.push_str(&format!(
-            "\nInput: {}\nArguments: {:?}\nMacros: {:?}\nMacro headers: {:?}\nSource:\n{}\n",
-            input.name, input.arguments, input.macros, input.macro_headers, input.source,
+            "\nInput: {}\nArguments: {:?}\nMacros: {:?}\nMacro headers: {:?}\nNamespace headers: {:?}\nRoot paths: {:?}\nSource:\n{}\n",
+            input.name, input.arguments, input.macros, input.macro_headers, input.namespace_headers,
+            input.root_paths, input.source,
         ));
     }
     let evidence = sdk_imports
@@ -267,9 +308,13 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         println!("Configuration only; see target\\win32-2\\capture-configuration.txt");
         return Ok(());
     }
+    let options = projection::Options {
+        imports: Some(&imports),
+        references: Some(&references),
+    };
     let output = if partial {
         let projection_started = Instant::now();
-        let result = projection::project_partial_with_imports(captured, "Windows.Win32", &imports)?;
+        let result = projection::project_partial_with_options(captured, "Windows.Win32", &options)?;
         if std::env::var_os("WINDOWS_CLANG_PROFILE").is_some() {
             eprintln!(
                 "clang-profile\tall-targets\tprojection\twall\t1\t{:.6}",
@@ -286,10 +331,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         );
         result.output
     } else {
-        projection::project_with_imports(
+        projection::project_with_options(
             &windows_clang2::merge(&captured.snapshots)?,
             "Windows.Win32",
-            &imports,
+            &options,
         )?
     };
     let generated = started.elapsed();
@@ -309,6 +354,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let started = Instant::now();
     windows_rdl::reader()
         .input("metadata\\metadata.rdl")
+        .reference(reference_path)
         .input_texts(output.partitions.values().map(|partition| &partition.rdl))
         .output(scratch.join("Windows.Win32.winmd"))
         .write()?;
@@ -693,6 +739,10 @@ fn inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
             if reset && header == "devicetopology.h" {
                 source.push_str("#include <ks.h>\n#define _KS_\n");
             }
+            if header == "windows.ui.composition.interop.h" {
+                // The interop header only forward-declares its desktop WinRT dependency.
+                source.push_str("#include <windows.ui.composition.desktop.h>\n");
+            }
             source.push_str(&format!("#include <{header}>\n"));
             if reset {
                 source.push_str(GUID_RESET);
@@ -712,6 +762,22 @@ fn inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
 mod tests {
     use super::*;
     use windows_rdl::implib::{Import, ImportKind, ImportName};
+
+    #[test]
+    fn composition_dependency_scope() {
+        let selected = inputs(&["windows.ui.composition.interop.h".into()], &[]);
+        assert_eq!(selected.len(), 1);
+        assert!(selected[0].source.ends_with(
+            "#include <windows.ui.composition.desktop.h>\n\
+             #include <windows.ui.composition.interop.h>\n"
+        ));
+        let unrelated = inputs(&["robuffer.h".into()], &[]);
+        assert!(
+            unrelated
+                .iter()
+                .all(|input| !input.source.contains("windows.ui.composition.desktop.h"))
+        );
+    }
 
     #[test]
     fn import_names_and_explicit_overrides() {

@@ -94,6 +94,9 @@ pub fn scale(tus: usize) {
             source: template.source.clone(),
             arguments: template.arguments.clone(),
             roots: template.roots.clone(),
+            namespace_headers: template.namespace_headers.clone(),
+            root_paths: template.root_paths.clone(),
+            external_interfaces: template.external_interfaces.clone(),
             macros: template.macros.clone(),
             macro_headers: template.macro_headers.clone(),
         })

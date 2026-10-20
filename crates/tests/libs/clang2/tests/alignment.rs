@@ -228,12 +228,11 @@ fn rejections() {
     let result =
         projection::generate_partial(&[selected_fixture("alignment_rejections", &[])], "Fixture")
             .unwrap();
-    assert_eq!(result.output.records, 13);
+    assert_eq!(result.output.records, 14);
     for name in [
         "PackedAligned",
         "PackedContainer",
         "PackedArray",
-        "FieldAligned",
         "AlignedAlias",
         "AliasUser",
         "ConstAlignedAlias",

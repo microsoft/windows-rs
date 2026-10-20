@@ -24,6 +24,27 @@
 #undef _SAL_L_Source_
 #define _SAL_L_Source_(Name, args, annotes) __attribute__((annotate("windows_clang:sal:L:" #Name "\n" #args "\n" __windows_clang_stringify(args))))
 
+// Raw qualifiers and validity properties bypass source hooks. Keep the properties too,
+// so a qualifier cannot skip an erased property and attach to a later annotation.
+#define __windows_clang_primitive(Name) \
+    __attribute__((annotate("windows_clang:sal:2:" Name "\n()\n()")))
+#undef _Pre_
+#define _Pre_ __windows_clang_primitive("_Pre_")
+#undef _Post_
+#define _Post_ __windows_clang_primitive("_Post_")
+#undef _Notref_
+#define _Notref_ __windows_clang_primitive("_Notref_")
+#undef _Pre_defensive_
+#define _Pre_defensive_ __windows_clang_primitive("_Pre_defensive_")
+#undef _Post_defensive_
+#define _Post_defensive_ __windows_clang_primitive("_Post_defensive_")
+#undef _Valid_
+#define _Valid_ __windows_clang_primitive("_Valid_")
+#undef _Notvalid_
+#define _Notvalid_ __windows_clang_primitive("_Notvalid_")
+#undef _Maybevalid_
+#define _Maybevalid_ __windows_clang_primitive("_Maybevalid_")
+
 // Structural SAL bypasses the source hooks. Preserve the scope rather than emitting
 // its nested annotations as unconditional contracts on the enclosing declaration.
 #define __windows_clang_structure(Name, source, ...) \

@@ -57,7 +57,7 @@ pub fn sdk_fixture() -> Input {
             .display()
             .to_string(),
     ];
-    for directory in ["ucrt", "um", "shared"] {
+    for directory in ["ucrt", "um", "shared", "winrt"] {
         input.arguments.extend([
             "-isystem".into(),
             include.join(directory).display().to_string(),

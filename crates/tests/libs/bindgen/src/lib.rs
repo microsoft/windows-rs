@@ -10,6 +10,78 @@
 include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));
 
 #[test]
+fn query_id_is_not_a_guid_buffer() {
+    use query_buffers::*;
+    use windows_core::{GUID, HRESULT, IUnknown, Interface, Result};
+
+    struct Producer;
+    impl Factory_Impl for Producer {
+        fn Reference(
+            &self,
+            count: u32,
+            filters: *const GUID,
+            riid: *const IID,
+            result: *mut *mut core::ffi::c_void,
+        ) -> Result<()> {
+            assert_eq!(count, 2);
+            unsafe {
+                assert_eq!(*filters, GUID::from_u128(11));
+                assert_eq!(*filters.add(1), GUID::from_u128(22));
+                assert_eq!(*riid, IUnknown::IID);
+            }
+            assert!(!result.is_null());
+            Err(HRESULT(0x80004002u32 as i32).into())
+        }
+
+        fn BufferAfterId(
+            &self,
+            riid: *const GUID,
+            count: u32,
+            filters: *const GUID,
+            result: *mut *mut core::ffi::c_void,
+        ) -> Result<()> {
+            self.Reference(count, filters, riid, result)
+        }
+
+        fn BufferOnly(&self, _: u32, _: *const GUID, _: *mut *mut core::ffi::c_void) -> Result<()> {
+            unreachable!()
+        }
+
+        fn ByteBuffer(&self, _: u32, _: *const GUID, _: *mut *mut core::ffi::c_void) -> Result<()> {
+            unreachable!()
+        }
+
+        fn FixedBuffer(&self, _: *const GUID, _: *mut *mut core::ffi::c_void) -> Result<()> {
+            unreachable!()
+        }
+
+        fn OutputBuffer(
+            &self,
+            _: *const GUID,
+            _: u32,
+            _: *mut *mut core::ffi::c_void,
+        ) -> Result<()> {
+            unreachable!()
+        }
+    }
+    let factory = Factory::new(&Producer);
+    let filters = [GUID::from_u128(11), GUID::from_u128(22)];
+    unsafe {
+        assert_eq!(
+            factory.Reference::<IUnknown>(&filters).unwrap_err().code(),
+            HRESULT(0x80004002u32 as i32)
+        );
+        assert_eq!(
+            factory
+                .BufferAfterId::<IUnknown>(&filters)
+                .unwrap_err()
+                .code(),
+            HRESULT(0x80004002u32 as i32)
+        );
+    }
+}
+
+#[test]
 fn arch_bitfield_storage() {
     use struct_arch_bitfield::*;
     let mut member = Member { storage: 0xa0 };

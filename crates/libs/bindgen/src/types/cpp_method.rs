@@ -886,9 +886,11 @@ fn signature_param_is_query(params: &[Param], reader: &Reader) -> Option<(usize,
     if let Some(guid) = params.iter().rposition(|param| {
         param.projection_type(reader) == Type::PtrConst(Box::new(Type::GUID), 1)
             && param.is_input_only()
+            && !param.has_buffer_attributes()
     }) && let Some(object) = params.iter().rposition(|param| {
         param.projection_type(reader) == Type::PtrMut(Box::new(Type::Void), 2)
             && param.has_attribute("ComOutPtrAttribute")
+            && !param.has_buffer_attributes()
     }) {
         return Some((guid, object));
     }

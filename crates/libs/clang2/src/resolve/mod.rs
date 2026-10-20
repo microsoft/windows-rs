@@ -196,6 +196,14 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             )));
         }
         let mut definitions = Vec::new();
+        if records.iter().any(|reference| {
+            snapshots[reference.snapshot].records[reference.record.0].external != first.external
+        }) {
+            return Err(Error(format!(
+                "native record ownership differs for `{}`",
+                first.name
+            )));
+        }
         let mut identified: Option<(u128, ObservationRef)> = None;
         for reference in &records {
             membership[reference.snapshot][reference.record.0] = groups.len();
@@ -669,6 +677,8 @@ pub(crate) fn alignments(attributes: &[Attribute]) -> Vec<(u32, AlignmentKind)> 
 
 pub(crate) fn abi_attributes_equal(a: &[Attribute], b: &[Attribute]) -> bool {
     packing(a) == packing(b)
+        && a.iter().any(|value| value.kind == AttributeKind::FlagEnum)
+            == b.iter().any(|value| value.kind == AttributeKind::FlagEnum)
         && alignments(a) == alignments(b)
         && default_type_visibility(a) == default_type_visibility(b)
         && deprecations(a) == deprecations(b)
@@ -766,7 +776,7 @@ pub(crate) fn midl_parameter(parameter: &Parameter) -> MidlParameter {
         return MidlParameter::default();
     }
     for value in sal(&parameter.attributes) {
-        if let Some((direction, _)) = sal::direction(value) {
+        if let Some((direction, _)) = value.unscoped().and_then(sal::direction) {
             result.input |= direction != sal::Direction::Output;
             result.output |= direction != sal::Direction::Input;
         }
@@ -774,17 +784,29 @@ pub(crate) fn midl_parameter(parameter: &Parameter) -> MidlParameter {
     result
 }
 
-pub(crate) fn sal(attributes: &[Attribute]) -> Vec<&SalAnnotation> {
-    let mut result: Vec<_> = attributes
-        .iter()
-        .filter_map(|attribute| {
-            if let AttributeKind::Sal(value) = &attribute.kind {
-                Some(value.as_ref())
-            } else {
-                None
-            }
-        })
-        .collect();
+pub(crate) fn sal(attributes: &[Attribute]) -> Vec<sal::Annotation<'_>> {
+    let mut result = Vec::new();
+    let mut modifiers = Vec::new();
+    for value in attributes.iter().filter_map(|attribute| {
+        if let AttributeKind::Sal(value) = &attribute.kind {
+            Some(value.as_ref())
+        } else {
+            None
+        }
+    }) {
+        if sal::modifier(value) {
+            modifiers.push(value);
+        } else {
+            result.push(sal::Annotation {
+                value,
+                modifiers: std::mem::take(&mut modifiers),
+            });
+        }
+    }
+    // Retain an unattached qualifier as evidence rather than assigning it to another owner.
+    if let Some(value) = modifiers.pop() {
+        result.push(sal::Annotation { value, modifiers });
+    }
     result.sort_unstable();
     result.dedup();
     result

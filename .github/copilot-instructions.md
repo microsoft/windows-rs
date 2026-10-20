@@ -430,8 +430,10 @@ evaluated `AlignedAttr` requests with their semantic form.
 `test_clang2` `fidelity.rs` `opaque_packing` distinguishes `pack(1)` and `pack(2)` despite identical
 char-only layouts. Reconciliation checks requested packing, and projection preserves it.
 Complete-record alignment projects through `#[align(N)]`; request sets are checked even when
-layouts match. Field, typedef, and enum alignment, combined packing/alignment, and packed
-containment of aligned records remain unsupported.
+layouts match. Member alignment uses field-owned `AlignmentAttribute`; updated bindgen preserves
+field types with target-evaluated `MaybeUninit<u8>` padding and containing alignment. By-value
+callables containing these members remain rejected pending ABI qualification. Typedef/enum
+alignment, aligned bitfields, combined packing/alignment, and packed containment remain unsupported.
 The native `TypeVisibilityAttr` query decodes default/hidden/protected requests, including the
 implicit tokenless attribute on `_GUID`. `clang2` retains and compares default requests; hidden
 and protected requests remain unsupported. Supported plain records/enums do not project C++ RTTI

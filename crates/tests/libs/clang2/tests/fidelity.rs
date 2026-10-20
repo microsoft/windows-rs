@@ -264,15 +264,6 @@ fn attributes() {
             }
         }
         let merged = merge(&snapshots).unwrap();
-        if root == "FieldAligned" {
-            assert!(
-                projection::project(&merged, "Fixture")
-                    .unwrap_err()
-                    .to_string()
-                    .contains("attributed or const field")
-            );
-        } else {
-            assert_eq!(projection::project(&merged, "Fixture").unwrap().records, 1);
-        }
+        assert_eq!(projection::project(&merged, "Fixture").unwrap().records, 1);
     }
 }

@@ -2,6 +2,60 @@ use super::*;
 
 pub(crate) mod transport;
 
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub(crate) struct Annotation<'a> {
+    pub value: &'a SalAnnotation,
+    pub modifiers: Vec<&'a SalAnnotation>,
+}
+
+impl<'a> Annotation<'a> {
+    pub fn unscoped(&self) -> Option<&'a SalAnnotation> {
+        self.modifiers.is_empty().then_some(self.value)
+    }
+}
+
+pub(crate) fn modifier(value: &SalAnnotation) -> bool {
+    value.version == "2"
+        && value.arguments.is_empty()
+        && value.expanded.is_empty()
+        && matches!(
+            value.name.as_str(),
+            "_Pre_" | "_Post_" | "_Notref_" | "_Pre_defensive_" | "_Post_defensive_"
+        )
+}
+
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub(crate) struct Termination {
+    pub on_entry: bool,
+    pub on_success: bool,
+    pub double: bool,
+}
+
+fn scoped_termination(value: &Annotation<'_>) -> Option<Termination> {
+    let [modifier] = value.modifiers.as_slice() else {
+        return None;
+    };
+    let on_entry = match modifier.name.as_str() {
+        "_Pre_" => true,
+        "_Post_" => false,
+        _ => return None,
+    };
+    let value = value.value;
+    if value.version != "2" || !value.arguments.is_empty() || !value.expanded.is_empty() {
+        return None;
+    }
+    let double = match value.name.as_str() {
+        "_Null_terminated_" => false,
+        "_NullNull_terminated_" => true,
+        _ => return None,
+    };
+    Some(Termination {
+        on_entry,
+        on_success: !on_entry,
+        double,
+    })
+}
+
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub(crate) enum Direction {
     Input,
@@ -64,8 +118,9 @@ enum ContractKind {
 #[derive(Eq, Ord, PartialEq, PartialOrd)]
 pub(crate) enum ParameterAnnotation<'a> {
     Contract(ParameterContract),
+    Termination(Termination),
     Reserved,
-    Evidence(&'a SalAnnotation),
+    Evidence(Annotation<'a>),
 }
 
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
@@ -79,7 +134,7 @@ pub(crate) struct FieldContract {
 #[derive(Eq, Ord, PartialEq, PartialOrd)]
 pub(crate) enum FieldAnnotation<'a> {
     Contract(FieldContract),
-    Evidence(&'a SalAnnotation),
+    Evidence(Annotation<'a>),
 }
 
 fn field(value: &SalAnnotation, fields: &[Field]) -> Option<FieldContract> {
@@ -127,13 +182,17 @@ pub(crate) fn fields<'a>(
     fields: &[Field],
 ) -> Vec<FieldAnnotation<'a>> {
     let values = resolve::sal(attributes);
-    let mut contracts = values.iter().filter_map(|value| field(value, fields));
+    let mut contracts = values
+        .iter()
+        .filter_map(|value| value.unscoped().and_then(|value| field(value, fields)));
     let first = contracts.next();
     let distinct = contracts.any(|value| Some(value) != first);
     let mut result: Vec<_> = values
         .into_iter()
         .map(|value| {
-            if !distinct && let Some(contract) = field(value, fields) {
+            if !distinct
+                && let Some(contract) = value.unscoped().and_then(|value| field(value, fields))
+            {
                 FieldAnnotation::Contract(contract)
             } else {
                 FieldAnnotation::Evidence(value)
@@ -357,23 +416,38 @@ pub(crate) fn capacity(value: &SalAnnotation, parameters: &[Parameter]) -> Optio
 
 #[cfg(feature = "projection")]
 pub(crate) fn termination(
-    value: &SalAnnotation,
+    value: &Annotation<'_>,
     contract: Option<ParameterContract>,
-) -> Option<(bool, bool)> {
+) -> Option<Termination> {
+    if let Some(termination) = scoped_termination(value) {
+        return Some(termination);
+    }
+    let value = value.unscoped()?;
     if value.version == "1.2" && value.arguments.is_empty() && value.expanded.is_empty() {
         match value.name.as_str() {
             "__RPC__inout_opt_string" => {
-                return Some((true, false));
+                return Some(Termination {
+                    on_entry: true,
+                    on_success: false,
+                    double: false,
+                });
             }
-            "__RPC__inout_string" => return Some((true, true)),
+            "__RPC__inout_string" => {
+                return Some(Termination {
+                    on_entry: true,
+                    on_success: true,
+                    double: false,
+                });
+            }
             _ => {}
         }
     }
     let contract = contract?;
-    contract.terminated.then_some((
-        contract.direction != Direction::Output,
-        contract.direction != Direction::Input,
-    ))
+    contract.terminated.then_some(Termination {
+        on_entry: contract.direction != Direction::Output,
+        on_success: contract.direction != Direction::Input,
+        double: false,
+    })
 }
 
 pub(crate) fn direction(value: &SalAnnotation) -> Option<(Direction, bool)> {
@@ -642,23 +716,32 @@ pub(crate) fn parameters<'a>(
     parameters: &[Parameter],
 ) -> Vec<ParameterAnnotation<'a>> {
     let values = resolve::sal(attributes);
-    let mut contracts = values
-        .iter()
-        .filter_map(|value| parameter(value, parameters));
+    let mut contracts = values.iter().filter_map(|value| {
+        value
+            .unscoped()
+            .and_then(|value| parameter(value, parameters))
+    });
     let first = contracts.next();
     let distinct = contracts.any(|value| Some(value) != first);
     let mut result: Vec<_> = values
         .into_iter()
         .map(|value| {
             // Do not replace several written contracts with their permissive union.
-            if !distinct && let Some(contract) = parameter(value, parameters) {
-                ParameterAnnotation::Contract(contract)
-            } else if matches!(
-                (value.version.as_str(), value.name.as_str()),
-                ("2", "_Reserved_") | ("1", "__reserved")
-            ) && value.arguments.is_empty()
-                && value.expanded.is_empty()
+            if !distinct
+                && let Some(contract) = value
+                    .unscoped()
+                    .and_then(|value| parameter(value, parameters))
             {
+                ParameterAnnotation::Contract(contract)
+            } else if let Some(termination) = scoped_termination(&value) {
+                ParameterAnnotation::Termination(termination)
+            } else if value.unscoped().is_some_and(|value| {
+                matches!(
+                    (value.version.as_str(), value.name.as_str()),
+                    ("2", "_Reserved_") | ("1", "__reserved")
+                ) && value.arguments.is_empty()
+                    && value.expanded.is_empty()
+            }) {
                 ParameterAnnotation::Reserved
             } else {
                 ParameterAnnotation::Evidence(value)

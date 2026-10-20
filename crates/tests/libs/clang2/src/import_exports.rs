@@ -27,7 +27,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         _ => return Err(format!("unsupported Windows target: {target}").into()),
     };
     let mut libraries = BTreeMap::<_, Vec<_>>::new();
-    for line in include_str!("..\\input\\sdk_import_availability.txt").lines() {
+    for line in [
+        include_str!("..\\input\\sdk_import_availability.txt"),
+        include_str!("..\\input\\sdk_ndr_import_availability.txt"),
+        include_str!("..\\input\\sdk_import_providers.txt"),
+    ]
+    .into_iter()
+    .flat_map(str::lines)
+    {
         if line.starts_with('#') {
             continue;
         }

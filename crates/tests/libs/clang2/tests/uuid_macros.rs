@@ -1,6 +1,35 @@
 use windows_clang2::*;
 
 #[test]
+fn probe_declarations_are_not_roots() {
+    helpers::ensure_libclang();
+    for authored in [false, true] {
+        let mut input = test_clang2::fixture("probe_declarations");
+        input.macros.push("PROBE_IDENTITY".into());
+        if authored {
+            input.arguments.push("-DAUTHORED_EXPANSION".into());
+        }
+        let snapshots = capture(&[input], &[Target::X86, Target::X64, Target::Arm64]).unwrap();
+        for snapshot in &snapshots {
+            assert_eq!(
+                snapshot
+                    .records
+                    .iter()
+                    .any(|record| record.name == "ProbeIdentity"),
+                authored
+            );
+        }
+        let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
+        assert_eq!(output.constants, if authored { 3 } else { 1 });
+        let actual = &output.partitions["probe_declarations"].rdl;
+        assert!(
+            actual.contains("const PROBE_IDENTITY: GUID = 0x12345678_1234_5678_90ab_cdef01234567;")
+        );
+        assert_eq!(actual.contains("const ProbeIdentity:"), authored);
+    }
+}
+
+#[test]
 #[ignore = "libclang PCH does not materialize its builtin GUID declaration"]
 fn explicit_and_discovered_uuid() {
     helpers::ensure_libclang();

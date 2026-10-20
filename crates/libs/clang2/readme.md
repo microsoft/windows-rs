@@ -21,11 +21,14 @@ Supply the matched `windows-clang-sys` DLL pair through `LIBCLANG_PATH` or its l
 record definitions from the same target and compiler configuration, retaining original observations
 and completion decisions.
 
-`Input.arguments` supplies include paths and compiler flags. `Input.roots` selects global declaration
-names and their transitive dependencies within each TU; empty selects all declarations. Missing
-roots and unsupported reachable declarations fail. `merge` reconciles each target, then groups
-native identities with separate target layouts and type graphs. An unobserved target is not proof
-of absence.
+`Input.arguments` supplies include paths and compiler flags. `Input.roots` selects namespace-qualified
+declaration names and their transitive dependencies within each TU; empty selects all declarations.
+`Input.namespace_headers` optionally limits namespace roots to listed header filenames without
+restricting dependencies or global roots. `Input.root_paths` limits automatic roots from
+included headers to configured files or directories; `None` permits all headers. The input source,
+explicit roots, selected macros and required dependencies remain eligible. Missing roots and
+unsupported reachable declarations fail. `merge` reconciles each target, then groups native
+identities with separate target layouts and type graphs. An unobserved target is not proof of absence.
 
 Indices are created before parallel capture and reused across TUs. Batches are serialized; other
 libclang callers must not create indices during a batch. Native hangs affect the whole process.
@@ -33,6 +36,8 @@ libclang callers must not create indices during a batch. Native hangs affect the
 Supported: named structs, unions, and integer-backed enums; typedefs, non-template `using` aliases,
 forwards, scalars, qualified pointers, arrays, pragma packing, explicit record alignment, and
 plain C/stdcall callback prototypes. Written aliases and attributed calling conventions are retained.
+Native `clang::flag_enum` attributes emit enum flags without changing the compiler's backing type
+or signed member values. Plain enums remain unflagged.
 Global class definitions use the same public-field and interface contracts as structs. Native
 access controls still apply; constructors, destructors and private fields remain unsupported.
 Fixed array extents are compiler-evaluated; fixed and unsized array parameters use native pointer
@@ -77,6 +82,23 @@ their dependencies. Alias declarations retain canonical storage types. Unnamed f
 use compatible callback names resolved across the target, independent of the representative TU.
 Without a compatible name they use inline `extern "C" fn(...)` or `extern fn(...)` types, encoded
 as ECMA-335 `FNPTR` signatures. No public callback names are synthesized.
+
+Named namespaces remain distinct in native evidence. Local publication uses flat Win32 names and
+rejects collisions instead of renaming or merging unrelated declarations. `projection::Options`
+can supply authoritative metadata through `References`, separately from import policy. Explicit
+namespace wrappers resolve external WinRT ownership; namespace spelling alone does not.
+`References::native_interfaces()` supplies the qualified names for `Input.external_interfaces`.
+These explicitly external COM definitions retain native identity, attributes, layout and bases,
+but their member definitions belong to the supplied metadata. `Record.external` records that
+boundary; inconsistent ownership across inputs fails. Publication requires matching UUID and
+native interface storage/base evidence. Pointer shape and qualifiers remain checked at use sites.
+Incomplete external definitions, by-value use and local inheritance from external definitions
+remain unsupported.
+
+Without external capture ownership, references validate non-generic scalar interface/delegate
+methods against their native ABI. A configured SDK delegate-name prefix applies only to metadata
+delegates. Unsupported external contracts remain explicit omissions in partial mode; identity or
+ABI conflicts fail. Neither mode can fall back to a local Win32 declaration.
 
 Scalar constants with conflicting unannotated aliases use their common native primitive type.
 Unique written aliases remain preserved. Alias contracts are checked across all observations,
@@ -250,8 +272,11 @@ Direct/full RPC input arrays use typed input and element-count contracts, includ
 counted-string forms. RPC input contracts do not acquire SAL1/SAL2's additional read-access guarantee.
 Partial input readable lengths remain entry evidence; output/inout `xcount` arguments do not become
 counts.
-Zero termination records distinct entry and successful-output conditions without inferring an
-encoding. Initialized length records a separate
+Single- and double-NUL termination record distinct entry and successful-output conditions without
+inferring an encoding. Raw pre/post qualifiers bind before reconciliation; bare properties have no
+inferred phase. Readers must support the double-NUL properties on `NativeNullTerminatedAttribute`
+and ordered `NativeSalAttribute.Modifiers` for residual scoped evidence.
+Initialized length records a separate
 integer parameter or one dereference, with byte/element units; it is not substituted for capacity.
 The bounded `p ? *p : n` form records `n` as a fallback when the count pointer is null. The condition
 and dereference must reference the same pointer, and the fallback must be a by-value integer.
@@ -280,7 +305,11 @@ compatibility is checked; conflicting names are errors, including in partial mod
 Requested packing is emitted as `#[packed(N)]`, including requests with no visible layout effect.
 Complete-record alignment is emitted as `#[align(N)]`. Native checks retain every requested
 alignment and its GNU, standard, or declspec form, even when layout is unchanged. Projection uses
-the maximum request; zero adds no alignment attribute. Field, typedef, and enum alignment,
+the maximum request; zero adds no alignment attribute. Member alignment uses field-owned
+`AlignmentAttribute` and requires an updated generator. Public field types remain unchanged;
+Rust storage uses uninitialized padding and the required containing alignment. By-value callable
+uses of these records remain rejected, including containing records and arrays. Ordinary pointers
+and adjusted array parameters remain supported. Typedef/enum alignment, aligned bitfields,
 combined packing/alignment, and packed records containing aligned types remain unsupported.
 Unions retain their record kind, publish explicit-layout fields at offset zero, and must match
 captured size and alignment. Structs and unions never share a public family, even with identical
@@ -322,6 +351,9 @@ observations remain distinct; foundation routing never resolves a type conflict.
 `projection::project_partial` accepts an existing partial capture without reparsing.
 Successfully captured observations undergo native reconciliation before failed entities and their
 dependents are removed across targets. Known conflicts remain fatal even in excluded dependents.
+Dependencies unreachable from surviving roots are then removed across inputs and targets. Nested
+declarations remain with their surviving owner. This does not suppress conflicting observations
+or turn unsupported declarations into compatible ones.
 Failed observations are reported as omissions, not validated as compatible. A non-value typedef,
 such as `void`, can remain as native evidence and expand at use sites. A named value alias or callback
 that cannot be published is removed with its dependents rather than replaced by its canonical type.

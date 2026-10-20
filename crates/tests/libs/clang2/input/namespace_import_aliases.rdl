@@ -1,0 +1,7 @@
+#[win32]
+mod Fixture {
+    #[library("native.dll")]
+    extern "C" fn Equivalent(value: Number) -> i32;
+    type Number = i32;
+    type Other = i32;
+}

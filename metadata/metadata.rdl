@@ -35,8 +35,9 @@ mod Windows {
             attribute SupportedArchitectureAttribute {
                 fn(architecture: i32);
             }
-            // Carries a raised structure alignment that packing alone cannot express.
-            // RDL: `#[align(N)]`.
+            // Raises record or member alignment without changing a member's type.
+            // Record RDL: `#[align(N)]`.
+            // Member RDL: `#[Windows::Win32::Metadata::Alignment(N)]`.
             attribute AlignmentAttribute {
                 fn(alignment: i32);
             }
@@ -74,10 +75,14 @@ mod Windows {
             }
             // Zero termination is independent of capacity and does not specify an encoding.
             // OnSuccess is a postcondition subject to the callable's success contract.
+            // DoubleNullOnEntry/DoubleNullOnSuccess require two trailing zero elements at that
+            // phase; absence means single zero termination. The corresponding phase must be true.
             attribute NativeNullTerminatedAttribute {
                 fn();
                 OnEntry: bool,
                 OnSuccess: bool,
+                DoubleNullOnEntry: bool,
+                DoubleNullOnSuccess: bool,
             }
             // Initialized length on successful completion, not allocated capacity.
             // CountParamIndex is zero-based. False IsByteCount means elements.
@@ -142,6 +147,8 @@ mod Windows {
             attribute NativeSalAttribute {
                 fn(version: String, name: String, arguments: String, expanded: String);
                 TypedefName: String,
+                // Space-separated raw SAL qualifiers in source order, scoped to this annotation.
+                Modifiers: String,
             }
             attribute NativeDeprecatedAttribute {
                 fn(message: String, replacement: String);

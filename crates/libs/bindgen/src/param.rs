@@ -5,6 +5,7 @@ pub struct Param {
     pub def: Option<MethodParam>,
     pub name: String,
     pub ty: Type,
+    pub native_reference: bool,
 }
 
 impl std::ops::Deref for Param {
@@ -90,6 +91,15 @@ impl Param {
         self.def?.buffer_relationship()
     }
 
+    pub fn has_buffer_attributes(&self) -> bool {
+        self.attributes().any(|attribute| {
+            matches!(
+                attribute.name(),
+                "NativeArrayInfoAttribute" | "MemorySizeAttribute"
+            )
+        })
+    }
+
     pub fn is_explicit_retval_candidate(&self, reader: &Reader) -> bool {
         self.is_retval_candidate(reader, true)
     }
@@ -99,6 +109,9 @@ impl Param {
     }
 
     fn is_retval_candidate(&self, reader: &Reader, explicit: bool) -> bool {
+        if self.native_reference && !explicit {
+            return false;
+        }
         let ty = self.projection_type(reader);
 
         if !ty.is_pointer() {
@@ -120,13 +133,8 @@ impl Param {
             return false;
         }
 
-        for attribute in self.attributes() {
-            if matches!(
-                attribute.name(),
-                "NativeArrayInfoAttribute" | "MemorySizeAttribute"
-            ) {
-                return false;
-            }
+        if self.has_buffer_attributes() {
+            return false;
         }
 
         // Void-pointee and size limits are only heuristics for unmarked trailing pointers. An

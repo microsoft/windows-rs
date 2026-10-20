@@ -1,0 +1,50 @@
+#[win32]
+mod Fixture {
+    const CTRL_C_EVENT: i32 = 0;
+    extern fn PHANDLER_ROUTINE(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] CtrlType: DWORD) -> BOOL;
+}
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "")]
+    #[Windows::Win32::Metadata::NativeSal("2", "_Post_equals_last_error_", "", "")]
+    #[library("kernel32.dll")]
+    extern fn GetLastError() -> DWORD;
+    #[library("kernel32.dll")]
+    extern fn SetLastError(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwErrCode: DWORD);
+}
+#[win32]
+mod Fixture {
+    type BOOL = i32;
+    type DWORD = u32;
+    type HINSTANCE = *mut HINSTANCE__;
+    struct HINSTANCE__ {
+        unused: i32,
+    }
+    type HMODULE = *mut HINSTANCE__;
+}
+#[win32]
+mod Fixture {
+    type HWINEVENTHOOK = *mut HWINEVENTHOOK__;
+    struct HWINEVENTHOOK__ {
+        unused: i32,
+    }
+    type HWND = *mut HWND__;
+    struct HWND__ {
+        unused: i32,
+    }
+}
+#[win32]
+mod Fixture {
+    const ERROR_INVALID_DATA: i32 = 13;
+}
+#[win32]
+mod Fixture {
+    type LONG = i32;
+}
+#[win32]
+mod Fixture {
+    #[library("user32.dll")]
+    extern fn SetWinEventHook(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eventMin: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] eventMax: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hmodWinEventProc: HMODULE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnWinEventProc: WINEVENTPROC, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] idProcess: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] idThread: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD) -> HWINEVENTHOOK;
+    extern fn WINEVENTPROC(hWinEventHook: HWINEVENTHOOK, event: DWORD, hwnd: HWND, idObject: LONG, idChild: LONG, idEventThread: DWORD, dwmsEventTime: DWORD);
+    const WINEVENT_OUTOFCONTEXT: i32 = 0;
+}

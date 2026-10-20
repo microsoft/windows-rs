@@ -15,10 +15,8 @@ fn buffer_capacity_rdl() {
     let mut inputs = [input("buffer_sizes"), input("buffer_sizes")];
     inputs[1].name = "second.h".into();
     let mut targets = [Target::X86, Target::X64, Target::Arm64];
-    let expected = std::fs::read_to_string(test_clang2::input_dir().join("buffer_sizes.rdl"))
-        .unwrap()
-        .replace("\r\n", "\n");
-    for _ in 0..2 {
+    let path = test_clang2::input_dir().join("buffer_sizes.rdl");
+    for iteration in 0..2 {
         let snapshots = capture(&inputs, &targets).unwrap();
         let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
         let actual: String = output
@@ -26,6 +24,12 @@ fn buffer_capacity_rdl() {
             .values()
             .map(|part| part.rdl.as_str())
             .collect();
+        if iteration == 0 && std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+            std::fs::write(&path, &actual).unwrap();
+        }
+        let expected = std::fs::read_to_string(&path)
+            .unwrap()
+            .replace("\r\n", "\n");
         assert_eq!(actual, expected);
         inputs.reverse();
         targets.reverse();

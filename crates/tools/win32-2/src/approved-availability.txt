@@ -68,9 +68,12 @@ X86 LPSAFEARRAY_UserFree64
 X86 LPSAFEARRAY_UserMarshal64
 X86 LPSAFEARRAY_UserSize64
 X86 LPSAFEARRAY_UserUnmarshal64
+X86 Ndr64AsyncClientCall
 X86 Ndr64AsyncServerCall64
 X86 Ndr64AsyncServerCallAll
+X86 Ndr64DcomAsyncClientCall
 X86 Ndr64DcomAsyncStubCall
+X86 NdrClientCall3
 X86 NdrServerCallAll
 X86 NdrServerCallNdr64
 X86 NdrStubCall3

@@ -1,0 +1,26 @@
+#[win32]
+mod Fixture {
+    extern fn Callback(item: *mut Item) -> Number;
+    struct Callbacks {
+        callback: Callback,
+    }
+    struct Container {
+        struct Child {
+            item: *mut Item,
+        }
+        child: Container::Child,
+        anonymous: struct {
+            value: Number,
+        },
+    }
+    struct Item {
+        value: Number,
+    }
+    #[repr(i32)]
+    enum Kind {
+        First = 1,
+    }
+    const Loose: i32 = 7;
+    type Number = i32;
+    const Value: Number = 1;
+}

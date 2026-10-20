@@ -20,14 +20,21 @@ pub(super) fn write_guid(value: u128) -> TokenStream {
 }
 
 pub(super) fn check_constant<'a>(
-    constants: &mut HashMap<&'a str, (&'a TypeKind, Option<Layout>, ConstantValue)>,
+    constants: &mut HashMap<
+        std::borrow::Cow<'a, str>,
+        (&'a TypeKind, Option<Layout>, ConstantValue),
+    >,
     target: Target,
-    name: &'a str,
+    name: impl Into<std::borrow::Cow<'a, str>>,
     ty: &'a Type,
     value: ConstantValue,
 ) -> Result<(), Error> {
+    let name = name.into();
     let native = (&ty.kind, ty.layout, value);
-    if constants.get(name).is_some_and(|old| old != &native) {
+    if constants
+        .get(name.as_ref())
+        .is_some_and(|old| old != &native)
+    {
         return Err(Error(format!(
             "conflicting native definitions for constant `{name}` on {target:?}"
         )));
@@ -77,8 +84,8 @@ impl Projector<'_, '_> {
         if alias.is_some()
             && imports.functions.get(name).is_some_and(|explicit| {
                 !explicit.library.eq_ignore_ascii_case(&import.library)
-                    || explicit.name.as_deref().unwrap_or(name)
-                        != import.name.as_deref().unwrap_or(native_name)
+                    || explicit.name.as_deref().unwrap_or(public_name(name))
+                        != import.name.as_deref().unwrap_or(public_name(native_name))
             })
         {
             return Err(Error(format!(
@@ -136,15 +143,20 @@ impl Projector<'_, '_> {
                 let library = import.map(|resolved| {
                     let native_name = alias.as_ref().map_or(name, |alias| alias.name.as_str());
                     let library = &resolved.import.library;
-                    let export = resolved.import.name.as_deref().unwrap_or(native_name);
-                    let import_name = (export != name).then(|| quote! { , import = #export });
+                    let export = resolved
+                        .import
+                        .name
+                        .as_deref()
+                        .unwrap_or(public_name(native_name));
+                    let import_name =
+                        (export != public_name(name)).then(|| quote! { , import = #export });
                     quote! { #[library(#library #import_name)] }
                 });
                 let (parameters, result) = self.callable(snapshot, observation, true)?;
                 let written = import.map_or(observation.written, |resolved| resolved.written);
                 let function = written_function(self.resolution.snapshots[snapshot], written)?;
                 let abi = callable_abi(function);
-                let name = ident(name)?;
+                let name = ident(public_name(name))?;
                 let native = annotations::write(&observation.attributes)?;
                 let contracts = annotations::function(function.prototype, &observation.attributes);
                 Ok(Body {
@@ -170,7 +182,7 @@ impl Projector<'_, '_> {
                 }
                 if let ConstantValue::String { value, wide } = value {
                     let encoding = if *wide { "utf-16" } else { "ansi" };
-                    let name = ident(name)?;
+                    let name = ident(public_name(name))?;
                     let native = annotations::write(&observation.attributes)?;
                     return Ok(Body {
                         attributes: quote! { #native #[encoding(#encoding)] },
@@ -195,7 +207,7 @@ impl Projector<'_, '_> {
                     }
                     let ty = write_type(self.namespace, &ty);
                     let guid = write_guid(*guid);
-                    let name = ident(name)?;
+                    let name = ident(public_name(name))?;
                     let native = annotations::write(&observation.attributes)?;
                     return Ok(match value {
                         ConstantValue::Guid(_) => Body {
@@ -278,7 +290,7 @@ impl Projector<'_, '_> {
             | ConstantValue::String { .. } => unreachable!(),
         };
         let value = write_value(self.namespace, &value);
-        let name = ident(name)?;
+        let name = ident(public_name(name))?;
         Ok(Body {
             attributes: annotations::write(&observation.attributes)?,
             declaration: quote! { const #name: #ty = #value; },
@@ -646,6 +658,14 @@ impl Projector<'_, '_> {
                 let reference = group.definition.as_ref().unwrap();
                 let inherited = &self.resolution.snapshots[reference.snapshot].observations
                     [reference.observation.0];
+                if self.resolution.snapshots[reference.snapshot].records[inherited.record.0]
+                    .external
+                {
+                    return Err(Error(format!(
+                        "native inheritance from externally owned interface `{}` is unsupported",
+                        self.resolution.name(group)
+                    )));
+                }
                 let inherited = inherited.definition.as_ref().unwrap();
                 base_alignment.get_or_insert(inherited.layout.alignment);
                 for method in &inherited.methods {
@@ -660,7 +680,10 @@ impl Projector<'_, '_> {
                 base_snapshot = reference.snapshot;
                 record = base.record;
             }
-            let base = ident(&self.plan.names[self.plan.family(snapshot_id, base.record)])?;
+            let base = write_type(
+                self.namespace,
+                &self.interface_type(snapshot_id, base.record),
+            );
             quote! { : #base }
         } else {
             TokenStream::new()

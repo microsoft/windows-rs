@@ -35,10 +35,14 @@ pub(super) fn field(
         &field.attributes,
         None,
         normalized.iter().filter_map(|value| match value {
-            sal::FieldAnnotation::Evidence(value) => Some(*value),
+            sal::FieldAnnotation::Evidence(value) => Some(value.clone()),
             sal::FieldAnnotation::Contract(_) => None,
         }),
     )?;
+    if let Some(alignment) = field_alignment(&field.attributes)? {
+        let alignment = proc_macro2::Literal::u16_unsuffixed(alignment);
+        result.extend(quote! { #[Windows::Win32::Metadata::Alignment(#alignment)] });
+    }
     for value in normalized {
         let sal::FieldAnnotation::Contract(contract) = value else {
             continue;
@@ -78,6 +82,20 @@ pub(super) fn field(
         });
     }
     Ok(result)
+}
+
+pub(super) fn field_alignment(attributes: &[Attribute]) -> Result<Option<u16>, Error> {
+    resolve::alignments(attributes)
+        .into_iter()
+        .map(|(bits, _)| bits / 8)
+        .filter(|bytes| *bytes != 0)
+        .max()
+        .map(|bytes| {
+            bytes
+                .try_into()
+                .map_err(|_| Error("field alignment exceeds metadata limits".into()))
+        })
+        .transpose()
 }
 
 pub(super) fn function(function: &Function, attributes: &[Attribute]) -> TokenStream {
@@ -158,19 +176,23 @@ fn write_owned(attributes: &[Attribute], typedef: Option<&str>) -> Result<TokenS
 fn write_with_sal<'a>(
     attributes: &[Attribute],
     typedef: Option<&str>,
-    sal: impl IntoIterator<Item = &'a SalAnnotation>,
+    sal: impl IntoIterator<Item = sal::Annotation<'a>>,
 ) -> Result<TokenStream, Error> {
     let owner = typedef.map(|name| quote! { , TypedefName = #name });
     let sal = sal.into_iter().map(|value| {
+        let modifiers = (!value.modifiers.is_empty()).then(|| {
+            let names = value.modifiers.iter().map(|value| value.name.as_str()).collect::<Vec<_>>().join(" ");
+            quote! { , Modifiers = #names }
+        });
         let SalAnnotation {
             version,
             name,
             arguments,
             expanded,
-        } = value;
+        } = value.value;
         let arguments = sal::transport::expression(arguments)?;
         let expanded = sal::transport::expression(expanded)?;
-        Ok(quote! { #[Windows::Win32::Metadata::NativeSal(#version, #name, #arguments, #expanded #owner)] })
+        Ok(quote! { #[Windows::Win32::Metadata::NativeSal(#version, #name, #arguments, #expanded #owner #modifiers)] })
     }).collect::<Result<Vec<_>, Error>>()?;
     let deprecated = resolve::deprecations(attributes).into_iter().map(|value| {
         let Deprecation {
@@ -207,7 +229,7 @@ pub(super) fn parameter(
     }
     let (mut input, mut output, mut optional) = (false, false, false);
     for value in resolve::sal(attributes) {
-        if let Some((direction, argument_optional)) = sal::direction(value) {
+        if let Some((direction, argument_optional)) = value.unscoped().and_then(sal::direction) {
             input |= direction != sal::Direction::Output;
             output |= direction != sal::Direction::Input;
             optional |= argument_optional;
@@ -235,8 +257,10 @@ pub(super) fn parameter(
             attributes,
             None,
             normalized.iter().filter_map(|value| match value {
-                sal::ParameterAnnotation::Evidence(value) => Some(*value),
-                sal::ParameterAnnotation::Contract(_) | sal::ParameterAnnotation::Reserved => None,
+                sal::ParameterAnnotation::Evidence(value) => Some(value.clone()),
+                sal::ParameterAnnotation::Contract(_)
+                | sal::ParameterAnnotation::Termination(_)
+                | sal::ParameterAnnotation::Reserved => None,
             }),
         )
     }?;
@@ -308,9 +332,11 @@ pub(super) fn buffer(
     let mut post_writable = false;
     let mut initialized = None;
     let (mut on_entry, mut on_success) = (false, false);
+    let (mut double_entry, mut double_success) = (false, false);
     for value in resolve::sal(&parameters[index].attributes) {
-        let contract =
-            sal::parameter(value, parameters).or_else(|| sal::rpc_buffer(value, parameters));
+        let contract = value.unscoped().and_then(|value| {
+            sal::parameter(value, parameters).or_else(|| sal::rpc_buffer(value, parameters))
+        });
         post_writable |= contract.is_some_and(|contract| contract.post_writable);
         if let Some(pointer) = contract.and_then(|contract| contract.returned_pointer) {
             let TypeKind::Pointer(inner) = snapshot.types[function.parameters[index].0].kind else {
@@ -328,10 +354,12 @@ pub(super) fn buffer(
                 && snapshot.types[inner.0].qualifiers == Qualifiers::default()
                 && snapshot.types[pointee.0].qualifiers == Qualifiers::default();
         }
-        let capacity = contract
-            .and_then(|contract| contract.capacity)
-            .or_else(|| sal::capacity(value, parameters));
-        let termination = sal::termination(value, contract);
+        let capacity = contract.and_then(|contract| contract.capacity).or_else(|| {
+            value
+                .unscoped()
+                .and_then(|value| sal::capacity(value, parameters))
+        });
+        let termination = sal::termination(&value, contract);
         let length = contract.and_then(|contract| contract.initialized);
         if capacity.is_none() && termination.is_none() && length.is_none() {
             continue;
@@ -345,9 +373,11 @@ pub(super) fn buffer(
                 "SAL buffer contract requires a buffer pointer".into(),
             ));
         }
-        if let Some((entry, success)) = termination {
-            on_entry |= entry;
-            on_success |= success;
+        if let Some(termination) = termination {
+            on_entry |= termination.on_entry;
+            on_success |= termination.on_success;
+            double_entry |= termination.double && termination.on_entry;
+            double_success |= termination.double && termination.on_success;
         }
         if let Some(length) = length {
             if let Some(fallback) = length.null_fallback
@@ -423,9 +453,11 @@ pub(super) fn buffer(
         });
     }
     if on_entry || on_success {
+        let double_entry = double_entry.then(|| quote! { , DoubleNullOnEntry = true });
+        let double_success = double_success.then(|| quote! { , DoubleNullOnSuccess = true });
         attributes.extend(quote! {
             #[Windows::Win32::Metadata::NativeNullTerminated(
-                OnEntry = #on_entry, OnSuccess = #on_success)]
+                OnEntry = #on_entry, OnSuccess = #on_success #double_entry #double_success)]
         });
     }
     if let Some(length) = initialized {

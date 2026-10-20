@@ -223,15 +223,19 @@ pub fn refresh() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-fn approved_corrections(text: &str) -> Result<BTreeSet<(Target, String)>, String> {
+fn correction_rows(text: &str) -> Result<impl Iterator<Item = &str>, String> {
     let mut lines = text.lines();
     if lines.next() != Some(format!("# Baseline: {BASELINE}").as_str())
         || lines.next() != Some(format!("# SDK: {SDK_VERSION}").as_str())
     {
-        return Err("availability corrections do not identify the frozen baseline and SDK".into());
+        return Err("corrections do not identify the frozen baseline and SDK".into());
     }
+    Ok(lines.filter(|line| !line.starts_with('#')))
+}
+
+fn approved_corrections(text: &str) -> Result<BTreeSet<(Target, String)>, String> {
     let mut corrections = BTreeSet::new();
-    for line in lines.filter(|line| !line.starts_with('#')) {
+    for line in correction_rows(text)? {
         let columns: Vec<_> = line.split_whitespace().collect();
         let ["X86", name] = columns.as_slice() else {
             return Err(format!("invalid approved availability correction: {line}"));
@@ -268,15 +272,80 @@ fn validate_corrections(
     Ok(())
 }
 
+struct ProviderCorrection {
+    baseline: String,
+    current: String,
+}
+
+fn approved_providers(
+    text: &str,
+) -> Result<BTreeMap<(Target, String), ProviderCorrection>, String> {
+    let mut corrections = BTreeMap::new();
+    for line in correction_rows(text)? {
+        let columns: Vec<_> = line.split_whitespace().collect();
+        let [target, name, baseline, current] = columns.as_slice() else {
+            return Err(format!("invalid approved provider correction: {line}"));
+        };
+        let target = match *target {
+            "X86" => Target::X86,
+            "Arm64" => Target::Arm64,
+            _ => return Err(format!("invalid provider correction target: {line}")),
+        };
+        if baseline.eq_ignore_ascii_case(current) {
+            return Err(format!(
+                "provider correction does not change provider: {line}"
+            ));
+        }
+        let correction = ProviderCorrection {
+            baseline: baseline.to_ascii_lowercase(),
+            current: current.to_ascii_lowercase(),
+        };
+        if corrections
+            .insert((target, (*name).into()), correction)
+            .is_some()
+        {
+            return Err(format!("duplicate approved provider correction: {line}"));
+        }
+    }
+    if corrections.is_empty() {
+        return Err("approved provider corrections are empty".into());
+    }
+    Ok(corrections)
+}
+
+fn validate_providers(
+    corrections: &BTreeMap<(Target, String), ProviderCorrection>,
+    baseline: &Evidence,
+    current: &BTreeMap<(Target, String), Export>,
+) -> Result<(), String> {
+    for (key @ (target, name), correction) in corrections {
+        let old = baseline.0.get(key);
+        let new = current.get(key);
+        if !matches!((old, new), (Some(old), Some(new))
+            if old.library == correction.baseline
+                && new.library == correction.current
+                && old.name == new.name)
+        {
+            return Err(format!(
+                "stale approved provider correction `{name}` on {target:?}: expected {} -> {} with unchanged export, found {old:?} -> {new:?}",
+                correction.baseline, correction.current
+            ));
+        }
+    }
+    Ok(())
+}
+
 pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
     let baseline = Evidence::load()?;
     let corrections = approved_corrections(include_str!("approved-availability.txt"))?;
+    let providers = approved_providers(include_str!("approved-providers.txt"))?;
     let directory = Path::new("target\\win32-2");
     std::fs::create_dir_all(directory)?;
     let winmd = directory.join("function-coverage.winmd");
     windows_rdl::reader()
         .input("metadata\\metadata.rdl")
         .input("metadata\\win32")
+        .reference("crates\\libs\\default\\Windows.winmd")
         .output(&winmd)
         .write()?;
     let index = reader::Index::read(&winmd).ok_or("invalid current metadata")?;
@@ -305,6 +374,7 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
     validate_corrections(&corrections, &baseline, &current)?;
+    validate_providers(&providers, &baseline, &current)?;
     let keys: BTreeSet<_> = baseline.0.keys().chain(current.keys()).collect();
     let mut rows = String::from(
         "Target,Name,Status,BaselineLibrary,BaselineExport,CurrentLibrary,CurrentExport,Acceptance\n",
@@ -313,6 +383,7 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
     let mut missing = BTreeSet::new();
     let mut unapproved_names = BTreeSet::new();
     let mut unapproved_pairs = 0;
+    let mut unapproved_linkage = 0;
     let current_names: BTreeSet<_> = current.keys().map(|key| &key.1).collect();
     for key in keys {
         let old = baseline.0.get(key);
@@ -327,7 +398,14 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
             (None, Some(_)) => "new",
             _ => unreachable!(),
         };
-        let acceptance = if status != "missing" {
+        let acceptance = if status == "changed-linkage" {
+            if providers.contains_key(key) {
+                "approved-provider"
+            } else {
+                unapproved_linkage += 1;
+                "unapproved"
+            }
+        } else if status != "missing" {
             ""
         } else if corrections.contains(key) {
             "approved-availability"
@@ -363,9 +441,13 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
         missing.len()
     );
     println!(
-        "{} approved availability corrections; {unapproved_pairs} unapproved missing target pairs across {} names. Changed linkage and additions are not approved by this accounting.",
+        "{} approved availability corrections; {unapproved_pairs} unapproved missing target pairs across {} names.",
         corrections.len(),
         unapproved_names.len()
+    );
+    println!(
+        "{} approved provider corrections; {unapproved_linkage} unapproved linkage changes. Additions remain unapproved.",
+        providers.len()
     );
     Ok(())
 }
@@ -376,12 +458,133 @@ mod tests {
     use windows_rdl::implib::ImportName;
 
     #[test]
+    fn reviewed_provider_corrections() {
+        let corrections = approved_providers(include_str!("approved-providers.txt")).unwrap();
+        assert_eq!(corrections.len(), 4);
+        let fixture =
+            include_str!("..\\..\\..\\tests\\libs\\clang2\\input\\sdk_import_providers.txt");
+        let mut expected = BTreeSet::new();
+        for line in fixture.lines().filter(|line| !line.starts_with('#')) {
+            let fields: Vec<_> = line.split_whitespace().collect();
+            let [mask, name, library] = fields.as_slice() else {
+                panic!("{line}")
+            };
+            if *library != "kernel32.dll" {
+                continue;
+            }
+            let mask: u8 = mask.parse().unwrap();
+            for (target, bit) in [(Target::X86, 1), (Target::X64, 2), (Target::Arm64, 4)] {
+                if mask & bit == 0 {
+                    expected.insert((target, (*name).to_string()));
+                }
+            }
+        }
+        assert_eq!(
+            corrections.keys().cloned().collect::<BTreeSet<_>>(),
+            expected
+        );
+        let baseline = Evidence::load().unwrap();
+        let current = corrections
+            .iter()
+            .map(|(key, correction)| {
+                assert_eq!(correction.baseline, "kernel32.dll");
+                assert_eq!(correction.current, "ntdll.dll");
+                (
+                    key.clone(),
+                    Export {
+                        library: correction.current.clone(),
+                        name: baseline.0[key].name.clone(),
+                    },
+                )
+            })
+            .collect();
+        validate_providers(&corrections, &baseline, &current).unwrap();
+    }
+
+    #[test]
+    fn invalid_provider_corrections() {
+        let header = format!("# Baseline: {BASELINE}\n# SDK: {SDK_VERSION}\n");
+        for rows in [
+            "",
+            "X64 F old.dll new.dll\n",
+            "Other F old.dll new.dll\n",
+            "X86 F old.dll\n",
+            "X86 F old.dll new.dll extra\n",
+            "X86 F old.dll OLD.dll\n",
+            "X86 F old.dll new.dll\nX86 F old.dll new.dll\n",
+        ] {
+            assert!(approved_providers(&format!("{header}{rows}")).is_err());
+        }
+        for header in [
+            format!("# Baseline: other\n# SDK: {SDK_VERSION}\n"),
+            format!("# Baseline: {BASELINE}\n# SDK: other\n"),
+        ] {
+            assert!(approved_providers(&format!("{header}X86 F old.dll new.dll\n")).is_err());
+        }
+    }
+
+    #[test]
+    fn stale_provider_corrections() {
+        let baseline =
+            Evidence::parse(&format!("# {BASELINE}:{SOURCE}\n7\tF\told.dll\tExport\n")).unwrap();
+        let corrections = approved_providers(&format!(
+            "# Baseline: {BASELINE}\n# SDK: {SDK_VERSION}\nX86 F old.dll new.dll\n"
+        ))
+        .unwrap();
+        let current = |target, source: &str, library: &str, name: &str| {
+            BTreeMap::from([(
+                (target, source.into()),
+                Export {
+                    library: library.into(),
+                    name: name.into(),
+                },
+            )])
+        };
+        validate_providers(
+            &corrections,
+            &baseline,
+            &current(Target::X86, "F", "new.dll", "Export"),
+        )
+        .unwrap();
+        for changed in [
+            BTreeMap::new(),
+            current(Target::X64, "F", "new.dll", "Export"),
+            current(Target::X86, "Other", "new.dll", "Export"),
+            current(Target::X86, "F", "old.dll", "Export"),
+            current(Target::X86, "F", "other.dll", "Export"),
+            current(Target::X86, "F", "new.dll", "Changed"),
+        ] {
+            assert!(validate_providers(&corrections, &baseline, &changed).is_err());
+        }
+        let changed_baseline =
+            Evidence::parse(&format!("# {BASELINE}:{SOURCE}\n7\tF\tother.dll\tExport\n")).unwrap();
+        assert!(
+            validate_providers(
+                &corrections,
+                &changed_baseline,
+                &current(Target::X86, "F", "new.dll", "Export"),
+            )
+            .is_err()
+        );
+        assert!(
+            validate_providers(
+                &corrections,
+                &Evidence(BTreeMap::new()),
+                &current(Target::X86, "F", "new.dll", "Export"),
+            )
+            .is_err()
+        );
+    }
+
+    #[test]
     fn reviewed_availability_corrections() {
         let corrections = approved_corrections(include_str!("approved-availability.txt")).unwrap();
-        assert_eq!(corrections.len(), 88);
-        let fixtures = Path::new(env!("CARGO_MANIFEST_DIR"))
-            .join("..\\..\\tests\\libs\\clang2\\input\\sdk_import_availability.txt");
-        let observed = std::fs::read_to_string(fixtures).unwrap();
+        assert_eq!(corrections.len(), 91);
+        let observed = [
+            include_str!("..\\..\\..\\tests\\libs\\clang2\\input\\sdk_import_availability.txt"),
+            include_str!("..\\..\\..\\tests\\libs\\clang2\\input\\sdk_ndr_import_availability.txt"),
+        ]
+        .join("\n");
         let expected: BTreeSet<_> = observed
             .lines()
             .filter_map(|line| {
@@ -394,13 +597,8 @@ mod tests {
             .collect();
         assert_eq!(corrections, expected);
         validate_corrections(&corrections, &Evidence::load().unwrap(), &BTreeMap::new()).unwrap();
-        for name in [
-            "RtlCaptureContext2",
-            "Ndr64AsyncClientCall",
-            "Ndr64DcomAsyncClientCall",
-            "NdrClientCall3",
-        ] {
-            assert!(!corrections.contains(&(Target::X86, name.into())));
+        for target in [Target::X86, Target::Arm64] {
+            assert!(!corrections.contains(&(target, "RtlCaptureContext2".into())));
         }
     }
 

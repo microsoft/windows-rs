@@ -52,6 +52,77 @@ workers deduplicate diagnostics between TUs, and dependency edges are deduplicat
 `validation_pruning.h` covers conflicting records and functions behind unsupported dependencies,
 input ordering, target-specific conflicts, and failed enum/alias observations.
 
+### Namespaces and external ownership
+
+Named namespaces retain qualified native names through capture, reconciliation, root selection,
+and pruning. Reopened namespaces share that identity. Publication removes namespace qualification
+only from local Win32 names and references. Different native declarations cannot share a flat
+public type or value name, even with identical bodies or disjoint target availability. Anonymous
+enum constants retain the namespace of their owning enum.
+
+`Input.namespace_headers` bounds namespace roots when `roots` is empty. `None` selects all named
+namespaces; `Some` selects roots from the listed header filenames. Global roots and transitive
+dependencies remain unaffected. The SDK driver enables namespace roots only for the selected
+memorybuffer/robuffer and composition-interop headers. It does not expand the header workload.
+The composition input includes `windows.ui.composition.desktop.h` as a support header because
+the interop header only forward-declares `IDesktopWindowTarget`. Its native definition supplies
+the external UUID, layout and base checks; the support header is not a namespace root selection.
+
+`Input.root_paths` bounds automatic roots from included headers using canonical file or directory
+paths. `None` permits all headers; an empty list permits only the input source and explicit
+root/macro selections. All declaration observations remain indexed for dependencies and native
+reconciliation. The SDK driver selects the SDK's `um`, `shared` and `cppwinrt` directories and
+explicitly selected `winrt` headers, not all included WinRT support headers. Resource, UCRT and
+implicitly discovered MSVC headers remain dependencies, not roots. Required support types keep
+their real header ownership; `FILE`, `time_t`, fixed-width integer aliases, `size_t` and `va_list`
+are not deleted or renamed to avoid CRT partitions. This source-ownership policy excludes unselected
+WinRT name strings without a symbol-prefix blacklist. Explicit selections remain eligible.
+
+Generated macro-probe declarations cannot become automatic roots. Capture identifies probe text by
+its exact input-file expansion offsets, retaining the selected macro value and any required type
+evidence. Authored expansions before the generated probe text retain their declarations.
+After native validation, partial pruning removes failed declarations, their dependents, and
+dependencies unreachable from surviving roots across inputs and targets. Nested declarations stay
+with their public owner. `root_scope` and `uuid_macros` exercise these ownership boundaries,
+including conflicting support observations and rejected roots with orphan dependencies.
+
+`projection::Options` keeps import policy separate from `References`. References supply an
+authoritative metadata index and explicit native namespace wrappers: an empty wrapper uses the
+metadata namespace directly, while `ABI` selects the SDK ABI namespace. A configured delegate-name
+prefix maps the SDK's `IName` spelling only to a metadata delegate named `Name`. Ambiguous matches
+fail. Namespace placement, an `I` prefix, and IInspectable inheritance alone never establish
+external ownership.
+
+`References::native_interfaces()` derives the native names for `Input.external_interfaces` from
+non-generic WinRT interfaces and delegates. Capture records their external ownership, native
+identity, attributes, layout and bases without traversing member definitions. Metadata owns those
+members, including their generic contracts. Reconciliation checks the retained evidence and rejects
+mixed local/external ownership across inputs. Publication checks the UUID, interface storage and
+IUnknown/IInspectable base. Native pointer shape, qualifiers and local callable ABI remain checked
+at use sites. Local definitions retain full reconciliation.
+
+Ordinary capture with references instead validates scalar native member contracts: method names,
+slots, convention, HRESULT, scalar widths/signedness and output indirection. This does not supply
+general WinRT ABI lowering. External ownership is explicit, not a fallback after a capture failure.
+Incomplete external definitions remain unsupported; a known UUID disagreement still fails before
+partial omission. By-value use and local inheritance from externally owned definitions are rejected.
+Unsupported contracts prune dependents in partial mode without local stand-ins. Referenced
+definitions and same-identity typedefs are not emitted into Win32 metadata. Distinct authored alias
+names remain publishable; attributes on externally owned aliases cannot be silently discarded.
+
+The `namespace*` fixtures cover scoped aliases, callbacks, nested records, constants, function
+aliases, collisions, input order, bounded roots, external references, and mismatched native ABI.
+The SDK fixture keeps `IMemoryBufferByteAccess` and `IBufferByteAccess` as local COM helpers while
+using authoritative `Windows.Storage.Streams.IBuffer` and `Windows.System.DispatcherQueueHandler`
+references in the same consumer. It builds on all three targets and exercises casts, buffer
+access, WinRT properties, HRESULT errors and delegate invocation on runnable host targets.
+`external_references` checks identity, ownership, local conflicts, alias contracts and rejected
+use sites. `composition_interop` checks ten native interop vtables and external WinRT references
+on all targets. Its generated consumer exercises COM result identity and HRESULT errors, plus
+real dispatcher-queue creation and shutdown on x86/x64; ARM64 is build-only on an x64 host.
+The fixture also checks rejection without the desktop dependency definition. The CI cross-target
+consumer step runs both SDK namespace and composition fixtures without regenerating their goldens.
+
 ### Nested records
 
 `Record::owner` identifies the enclosing record. Named children correspond by their scoped name;
@@ -289,6 +360,12 @@ restrict, and ref-qualified methods. Callback signatures cannot carry method qua
 
 C++ lvalue reference parameters retain a distinct native type and emit metadata byrefs, including
 the const `REFIID` used by COM. Reference fields and reference returns remain unsupported.
+Bindgen lowers native callable byrefs to const/mutable pointer ABI without changing WinRT
+reference handling or replacing caller-owned mutable storage with a heuristic return value.
+The `native_references` fixture checks metadata round trips and native C++/Rust imports, callbacks,
+and interface consumer/producer calls. Its cross-target case compiles all three MSVC targets and
+executes x86/x64 on an x64 host. Older generators can silently emit reference parameters by value
+and must not consume this metadata.
 An interface pointer becomes a metadata interface reference; another native pointer level remains
 explicit. On x86, methods must use stdcall; on x64/ARM64, the native unified convention applies.
 RDL's non-WinRT interface contract supplies the COM convention without new method syntax.
@@ -643,6 +720,12 @@ buffer-iteration or failure scopes into unconditional attributes. Native observa
 including distinctions that produce the same published expression. Malformed nested transport is
 an explicit publication error; it is not stripped or replaced by an empty contract.
 
+Raw `_Pre_`/`_Post_` qualifiers and intervening validity properties have their own transport.
+Qualifiers bind to the following property or group before annotation sets are sorted or compared.
+Swapping the phases of two properties cannot pass reconciliation merely because the raw atoms match.
+Unsupported qualified properties retain ordered, space-separated `NativeSal.Modifiers`; groups,
+conditions, and indirect targets remain scoped evidence rather than unconditional contracts.
+
 Simple parameter direction and argument-optionality contracts normalize to typed values shared
 by reconciliation and publication. SAL2 `_In_`, `_Out_`, and `_Inout_`, their optional forms, and
 the SDK's six corresponding SAL1 aliases emit canonical `#[in]`, `#[out]`, and `#[opt]` flags
@@ -806,6 +889,14 @@ The six SAL2 input/output/update zero-termination forms and three direct SAL1 al
 successful-output postcondition. They derive from each written contract, not the union of parameter
 direction flags. Termination specifies no character encoding. Output/update termination lowers only
 when its capacity is representable; other forms retain raw evidence.
+
+Direct `_Pre_`/`_Post_` plus `_Null_terminated_` or `_NullNull_terminated_` use the same attribute.
+`DoubleNullOnEntry` and `DoubleNullOnSuccess` require two trailing zero elements at the corresponding
+phase; absent properties retain single-NUL semantics. A bare low-level property has no inferred
+phase. These annotations do not infer parameter direction, capacity, or encoding.
+`scoped_termination` checks imports, callbacks, and methods on all three targets, including actual
+SDK macros and RDL/WinMD round trips. Readers interpreting termination or residual SAL must support
+the new double-NUL and modifier properties; ignoring them loses contract information.
 
 Constant, indirect, compound, and conditional capacities retain their raw contracts without a
 size/count attribute. No arithmetic is evaluated from annotation text. `buffer_sizes.h` and its
@@ -1181,14 +1272,18 @@ The driver's `sdk_import_availability` fixture captures and reconciles 89 functi
 targets, then checks their exact compiler symbols, SDK providers, export names and machine kinds.
 Its 90 missing target imports record SDK evidence independently of acceptance decisions. ARM64 archive
 members for `RtlCaptureContext2` are ARM64EC-only and cannot establish native ARM64 linkage.
+The separate `sdk_ndr_import_availability` fixture checks three NDR variadic imports plus
+`NdrClientCall2` as an all-target control. The provider fixture checks the raw `kernel32.lib` and
+`ntdll.lib` members against compiler symbols and the driver's ordered selection. These fixtures
+record observations without extending the approved availability corrections.
 Run the pinned SDK check with:
 
 ```console
-cargo test -p tool-win32-2 sdk_import_availability -- --ignored
+cargo test -p tool-win32-2 import_availability -- --ignored
 ```
 
-The `import_exports` diagnostic resolves the same names through the system loader without calling
-them, including API-set resolution in the process architecture:
+The `import_exports` diagnostic resolves all three fixture sets through the system loader without
+calling them, including API-set resolution in the process architecture:
 
 ```console
 cargo run -p test_clang2 --bin import_exports --target i686-pc-windows-msvc
@@ -1251,17 +1346,22 @@ target-specific names and linkage with the frozen snapshot, writing
 same-linkage entries. This is required-surface accounting, not signature or behavior parity.
 Raw missing entries include reviewed target-availability corrections; the comparison does not
 rewrite the frozen baseline or suppress those differences. An additional `Acceptance` column marks
-missing rows as `approved-availability` or `unapproved`; other rows have an empty acceptance field.
-The summary reports approved pairs and remaining unapproved pairs and names separately. Changed
-linkage and additions remain separate obligations, not implicit approvals.
+missing rows as `approved-availability` or `unapproved`, and changed linkage as `approved-provider`
+or `unapproved`; other rows have an empty acceptance field. The summary reports approved and
+unapproved availability and linkage changes separately. Additions remain separate obligations.
 
 `crates/tools/win32-2/src/approved-availability.txt` owns the explicit approved x86 correction list,
 pinned to the frozen baseline and SDK. Comparison fails for mismatched pins, malformed or duplicate
 entries, corrections absent from the baseline, or corrected functions present in current output.
-The availability fixture independently checks SDK evidence; a unit test verifies that the approval
-list is exactly the 88 reviewed mask-6 entries. `RtlCaptureContext2` and the three remaining NDR
-import names are not approved. This accounting does not establish availability on other SDK or OS
-versions, nor does it change capture or publication policy.
+The availability fixtures independently check SDK evidence; a unit test verifies that the approval
+list is exactly the 91 reviewed mask-6 entries, including the three NDR x86 corrections.
+Both missing `RtlCaptureContext2` pairs remain unapproved.
+
+`approved-providers.txt` records four reviewed target/name/provider transitions. Comparison checks
+both the baseline and current provider and requires the export name to remain unchanged. Missing
+functions, stale transitions, duplicate entries and mismatched pins are errors. Provider approvals
+do not affect import selection. Neither correction list establishes availability on other SDK or
+OS versions, nor does either change capture or publication policy.
 
 Implicit x86 C imports can use a compiler-derived stdcall alternative. The native companion reads
 written convention provenance and constructs the alternative through Clang's type system and name
@@ -1301,6 +1401,41 @@ declaration. Enum names come from the RDL parser, including scoped members. Neit
 equivalent type, scope, value, or architecture. New constants do not offset missing names.
 A capture or compilation failure leaves the preceding RDL unchanged; run comparison only after
 generation succeeds.
+
+The same command separately compares against inspected master
+`afcb0ab1f8cf7a71ec563f659451748b26e7f5b6`, writing
+`target/win32-2/constant-coverage-master.csv`. The frozen report retains its reviewed source
+supplement and approvals; the master report does not apply that supplement. Missing Git objects
+are errors with fetch guidance, including on shallow checkouts. Neither report measures semantic
+parity. The shared workload includes `PdhMsg.h`; the issue-linked `pdh` SDK fixture checks its
+88 status constants from #5083/#5084 and the separately observed native `S_PDH` provider GUID.
+
+The SDK acceptance command is:
+
+```sh
+cargo test -p test_clang2 --test sdk_acceptance --test pdh --test namespaces --test composition_interop -- --include-ignored
+```
+
+It requires the pinned SDK/native companion and all three MSVC Rust targets for the interop
+consumers. The `sdk_acceptance` header checks SAPI grammar/error interfaces, IWTS channel/bitmap
+interfaces, `IMAGE_DOS_HEADER`, `NtQuerySystemInformation` and `SOMAXCONN`. Compiler assertions fix
+the DOS header at size 64, alignment 2 and `e_lfanew` offset 60. Header/RDL/WinMD checks run on all
+three targets. This confirms the pinned SDK's `SOMAXCONN` is `2147483647`, not the behavior of every
+published crate version. PDH and namespace/composition consumers retain their separate fixtures.
+CI selects the SDK metadata checks and cross-target consumers in separate steps.
+
+`issue_regressions` ports the legacy cases without removing their original fixtures. Native
+`clang::flag_enum` and GNU `flag_enum` attributes emit `#[flags]`, preserving signed backing types
+and negative members; plain enums remain unflagged. Native comparison rejects disagreeing flags.
+The fixtures also cover concrete data classes, private template ownership, finite-value rejection,
+identical function declarations, macro-expanded native linkage, type-name collisions and string
+alias directions. The data-class COM fixture spells x86 `__stdcall`; it does not add object-lifetime
+support. Unused templates remain explicit automatic-capture omissions, but their private members
+never become roots; explicit unrelated roots also pass strict capture.
+
+An unnamed enum used as a record field remains unsupported rather than flattened. Double-NUL
+postcondition annotations retain `NativeSal` evidence through the configured transport, but do not
+yet emit canonical double-NUL semantics. These are coverage boundaries, not issue closures.
 
 The full manifest includes `UNICODE_STRING` bindings to both `_LSA_UNICODE_STRING` and
 `_UNICODE_STRING`. Native merge preserves both identities; publication checks their definitions
@@ -1525,11 +1660,25 @@ Complete structs and unions emit the maximum nonzero request as `#[align(N)]`, w
 alignment against native evidence. The `alignment_*` fixtures cover all three parsing targets,
 RDL/WinMD round trips, same-layout request conflicts, and generated Rust layout assertions on
 the host. The ignored alignment test compiles those assertions for all three MSVC targets and
-requires their Rust standard libraries to be installed. Field, typedef, and enum alignment remain
+requires their Rust standard libraries to be installed. Typedef and enum alignment remain
 unsupported, including primary record aliases and non-value typedefs. Combined packing/alignment
 and packed containment of aligned records are rejected; Rust disallows that containment even
 through arrays and intermediate records.
 Partial projection removes these declarations and their dependents rather than losing alignment.
+
+Member requests use `AlignmentAttribute` on the field without changing its type. Projection checks
+each requested alignment, native offset, and containing size/alignment; zero requests add no
+attribute. Packed containment and aligned bitfields remain rejected. By-value imports, methods,
+callbacks, and returns containing aligned members remain rejected pending calling-ABI support.
+Pointers and adjusted array parameters remain supported.
+
+Bindgen uses target-evaluated Rust layout expressions and `MaybeUninit<u8>` padding, since native
+padding may be uninitialized. It raises containing alignment and avoids deriving equality over
+padding. Public field types remain unchanged; padding names avoid authored fields. `issue_contracts`
+checks the #4967 layouts, unions, arrays, pointer-width changes, single `Value` fields, and name
+collisions through RDL/WinMD and both sys/minimal Rust projections. The cross-target case compiles
+x86/x64/ARM64 assertions and executes x86/x64 consumers; native ARM64 execution is separate.
+Consumers must support field-owned `AlignmentAttribute`; older generators silently ignore it.
 
 The runtime is pinned through `windows-clang-sys::LIBCLANG_VERSION`. LLVM 23.1.3's stock C API
 also lacks the packing payload accessor, so newer Rust bindings alone cannot expose it.

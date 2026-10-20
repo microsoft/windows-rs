@@ -50,7 +50,10 @@ impl CppStruct {
             return false;
         };
 
-        if field.name() != "Value" || !field.field_type(Some(self), reader).is_primitive(reader) {
+        if field.name() != "Value"
+            || member_alignment(field).is_some()
+            || !field.field_type(Some(self), reader).is_primitive(reader)
+        {
             return false;
         }
 
@@ -177,16 +180,34 @@ impl CppStruct {
             .def
             .fields()
             .filter(|field| !field.flags().contains(FieldAttributes::Literal))
-            .map(|field| (field.name(), field.field_type(Some(self), config.reader)))
+            .map(|field| {
+                (
+                    field.name(),
+                    field.field_type(Some(self), config.reader),
+                    member_alignment(field),
+                )
+            })
             .collect();
 
         let is_copyable = self.is_copyable(config.reader);
-        let is_eq = fields.iter().all(|(_, ty)| ty.is_eq(config.reader));
+        let is_eq = fields.iter().all(|(_, ty, _)| ty.is_eq(config.reader));
+        let aligned_members = fields.iter().any(|(_, _, alignment)| alignment.is_some());
+        assert!(
+            !aligned_members || self.def.class_layout().is_none(),
+            "member alignment combined with packing is unsupported: {}",
+            self.name
+        );
 
         let field_config = &config.with_self_ty(self.type_name(), &[]);
 
         let fields = {
-            let fields = fields.iter().map(|(name, ty)| {
+            let mut names: BTreeSet<String> = if aligned_members {
+                fields.iter().map(|(name, _, _)| (*name).into()).collect()
+            } else {
+                BTreeSet::new()
+            };
+            let mut layout = TokenStream::new();
+            let fields = fields.iter().enumerate().map(|(position, (name, ty, alignment))| {
                 let name = to_ident(name);
 
                 let ty =
@@ -207,7 +228,41 @@ impl CppStruct {
                         ty.write_default(field_config)
                     };
 
-                quote! { pub #name: #ty, }
+                let padding = if let Some(alignment) = alignment.filter(|_| !is_union) {
+                    let mut padding = format!("__padding_{position}");
+                    while !names.insert(padding.clone()) {
+                        padding.push('_');
+                    }
+                    let padding = to_ident(&padding);
+                    let alignment = Literal::usize_unsuffixed(alignment);
+                    // Native padding may be uninitialized even when every real field is valid.
+                    quote! {
+                        #[doc(hidden)]
+                        pub #padding: [core::mem::MaybeUninit<u8>; {
+                            let offset = 0usize;
+                            #layout
+                            let natural = core::mem::align_of::<#ty>();
+                            let required = if natural < #alignment { #alignment } else { natural };
+                            ((offset + required - 1) & !(required - 1))
+                                - ((offset + natural - 1) & !(natural - 1))
+                        }],
+                    }
+                } else {
+                    TokenStream::new()
+                };
+                if aligned_members && !is_union {
+                    let requested = alignment.map(|alignment| {
+                        let alignment = Literal::usize_unsuffixed(alignment);
+                        quote! { let alignment = if alignment < #alignment { #alignment } else { alignment }; }
+                    });
+                    layout.extend(quote! {
+                        let alignment = core::mem::align_of::<#ty>();
+                        #requested
+                        let offset = ((offset + alignment - 1) & !(alignment - 1))
+                            + core::mem::size_of::<#ty>();
+                    });
+                }
+                quote! { #padding pub #name: #ty, }
             });
 
             let fields = quote! { #(#fields)* };
@@ -247,7 +302,11 @@ impl CppStruct {
             derive.extend(["Clone"]);
         }
 
-        if !config.bindgen.style.is_sys() && !has_explicit_layout && !has_packing {
+        if !config.bindgen.style.is_sys()
+            && !has_explicit_layout
+            && !has_packing
+            && !self.has_member_alignment(config.reader)
+        {
             derive.extend(["Debug"]);
 
             if !self.has_cpp_delegate(config.reader) {
@@ -349,6 +408,7 @@ impl CppStruct {
 
     fn can_derive_default(&self, config: &Config) -> bool {
         !self.has_explicit_layout(config.reader)
+            && !self.has_member_alignment(config.reader)
             && !self.def.fields().any(|field| {
                 let ty = field.field_type(Some(self), config.reader);
 
@@ -391,6 +451,7 @@ impl CppStruct {
         self.def.flags().contains(TypeAttributes::ExplicitLayout)
             || self
                 .multi_struct_fields(reader)
+                .chain(self.nested.values().cloned())
                 .any(|ty| ty.has_explicit_layout(reader))
     }
 
@@ -398,7 +459,17 @@ impl CppStruct {
         self.def.class_layout().is_some()
             || self
                 .multi_struct_fields(reader)
+                .chain(self.nested.values().cloned())
                 .any(|ty| ty.has_packing(reader))
+    }
+
+    fn has_member_alignment(&self, reader: &Reader) -> bool {
+        self.def
+            .fields()
+            .any(|field| member_alignment(field).is_some())
+            || self
+                .multi_struct_fields(reader)
+                .any(|ty| ty.has_member_alignment(reader))
     }
 
     // Include arch-specific overloads when checking layout and packing.
@@ -425,11 +496,10 @@ impl CppStruct {
                     None
                 }
             })
-            .chain(self.nested.values().cloned())
     }
 
     pub fn size(&self, reader: &Reader) -> usize {
-        if self.def.flags().contains(TypeAttributes::ExplicitLayout) {
+        let size = if self.def.flags().contains(TypeAttributes::ExplicitLayout) {
             self.def
                 .fields()
                 .map(|field| field.field_type(Some(self), reader).size(reader))
@@ -440,11 +510,21 @@ impl CppStruct {
             for field in self.def.fields() {
                 let ty = field.field_type(Some(self), reader);
                 let size = ty.size(reader);
-                let align = ty.align(reader);
+                let align = ty.align(reader).max(member_alignment(field).unwrap_or(1));
                 sum = (sum + (align - 1)) & !(align - 1);
                 sum += size;
             }
             sum
+        };
+        if self
+            .def
+            .fields()
+            .any(|field| member_alignment(field).is_some())
+        {
+            let align = self.align(reader);
+            (size + align - 1) & !(align - 1)
+        } else {
+            size
         }
     }
 
@@ -461,17 +541,20 @@ impl CppStruct {
             .map_or(derived, |forced| forced.max(derived))
     }
 
-    /// Forced over-alignment in bytes from `[AlignmentAttribute(N)]`, if present.
+    /// Required over-alignment from record and member attributes.
     pub fn forced_align(&self) -> Option<usize> {
-        match self
+        let record = match self
             .def
-            .find_attribute("AlignmentAttribute")?
-            .value()
-            .first()
+            .find_attribute("AlignmentAttribute")
+            .and_then(|attribute| attribute.value().into_iter().next())
         {
-            Some((_, Value::I32(n))) if *n > 0 => Some(*n as usize),
+            Some((_, Value::I32(n))) if n > 0 => Some(n as usize),
             _ => None,
-        }
+        };
+        record
+            .into_iter()
+            .chain(self.def.fields().filter_map(member_alignment))
+            .max()
     }
 
     pub fn bitfield_types(&self, reader: &Reader) -> impl Iterator<Item = Type> {
@@ -606,6 +689,21 @@ impl CppStruct {
 
         quote! { #(#accessors)* }
     }
+}
+
+fn member_alignment(field: Field) -> Option<usize> {
+    let attribute = field.find_attribute("AlignmentAttribute")?;
+    let values = attribute.value();
+    let [(_, Value::I32(alignment))] = values.as_slice() else {
+        panic!("invalid member alignment on `{}`", field.name());
+    };
+    let alignment = usize::try_from(*alignment).unwrap();
+    assert!(
+        alignment.is_power_of_two() && alignment <= u16::MAX as usize,
+        "unsupported member alignment on `{}`",
+        field.name()
+    );
+    Some(alignment)
 }
 
 fn bitfield_member_type(

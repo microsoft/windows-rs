@@ -1,0 +1,6 @@
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern "C" fn MultiString(#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = false, OnSuccess = true, DoubleNullOnSuccess = true)] value: *mut WCHAR);
+    type WCHAR = u16;
+}

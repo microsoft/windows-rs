@@ -5,13 +5,21 @@ use proc_macro2::TokenStream;
 use quote::quote;
 use std::collections::BTreeSet;
 use windows_metadata::Type as MetadataType;
-use windows_rdl::emit::{write_ident, write_type, write_value};
+use windows_rdl::emit::{write_ident, write_value};
 
 mod annotations;
 mod bitfields;
 mod plan;
+mod references;
 mod values;
 use plan::Plan;
+pub use references::References;
+
+#[derive(Default)]
+pub struct Options<'a> {
+    pub imports: Option<&'a Imports>,
+    pub references: Option<&'a References<'a>>,
+}
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
@@ -83,6 +91,21 @@ pub fn project_partial_with_imports(
     namespace: &str,
     imports: &Imports,
 ) -> Result<PartialOutput, Error> {
+    project_partial_with_options(
+        captured,
+        namespace,
+        &Options {
+            imports: Some(imports),
+            ..Default::default()
+        },
+    )
+}
+
+pub fn project_partial_with_options(
+    captured: PartialCapture,
+    namespace: &str,
+    options: &Options<'_>,
+) -> Result<PartialOutput, Error> {
     let mut snapshots = captured.snapshots;
     let published_aliases: HashSet<_> = snapshots
         .iter()
@@ -121,7 +144,7 @@ pub fn project_partial_with_imports(
         let remaining: usize = snapshots.iter().map(count).sum();
         let merged = merge(&snapshots).map_err(|error| Error(format!("merge: {error}")))?;
         let mut rejected = partial::Issues::default();
-        let output = project_impl(&merged, namespace, imports, Some(&mut rejected))
+        let output = project_impl(&merged, namespace, options, Some(&mut rejected))
             .map_err(|error| Error(format!("projection: {error}")))?;
         if rejected.excluded.is_empty() {
             issues.messages.extend(rejected.messages);
@@ -187,15 +210,32 @@ pub fn project_with_imports(
     namespace: &str,
     imports: &Imports,
 ) -> Result<Output, Error> {
-    project_impl(merged, namespace, imports, None)
+    project_with_options(
+        merged,
+        namespace,
+        &Options {
+            imports: Some(imports),
+            ..Default::default()
+        },
+    )
+}
+
+pub fn project_with_options(
+    merged: &Merged<'_>,
+    namespace: &str,
+    options: &Options<'_>,
+) -> Result<Output, Error> {
+    project_impl(merged, namespace, options, None)
 }
 
 fn project_impl(
     merged: &Merged<'_>,
     namespace: &str,
-    imports: &Imports,
+    options: &Options<'_>,
     mut rejected: Option<&mut partial::Issues>,
 ) -> Result<Output, Error> {
+    let default_imports = Imports::default();
+    let imports = options.imports.unwrap_or(&default_imports);
     if merged.targets.keys().copied().collect::<Vec<_>>() != TARGETS {
         return Err(Error(
             "projection requires x86, x64, and ARM64 observations".into(),
@@ -217,8 +257,20 @@ fn project_impl(
         })
         .collect();
     let mut declarations = BTreeMap::new();
+    let mut external_names = BTreeSet::new();
     for (&target, resolution) in &merged.targets {
         let plan = Plan::new(resolution)?;
+        let external = options
+            .references
+            .map(|references| references.bind(resolution, &plan, &mut rejected))
+            .transpose()?
+            .unwrap_or_default();
+        external_names.extend(
+            external
+                .values()
+                .filter(|definition| definition.namespace() == namespace)
+                .map(|definition| definition.name().to_string()),
+        );
         let typedef_attributes = resolution
             .aliases
             .iter()
@@ -239,7 +291,9 @@ fn project_impl(
             namespace,
             resolution,
             plan: &plan,
+            external: &external,
         };
+        projector.validate_references(&mut rejected)?;
         let mut published = HashSet::new();
         let mut constants = HashMap::new();
         let mut unpublished_values = HashSet::new();
@@ -410,7 +464,7 @@ fn project_impl(
                                 "unsupported UUID tag attributes on `{name}`"
                             )));
                         }
-                        let name = ident(name)?;
+                        let name = ident(public_name(name))?;
                         let guid = values::write_guid(uuid);
                         bodies.push(Body {
                             attributes: annotations::write(&observation.attributes)?,
@@ -435,7 +489,7 @@ fn project_impl(
             }
         }
         for (id, family) in plan.families.iter().enumerate() {
-            if family.is_empty() || plan.owned[id] {
+            if family.is_empty() || plan.owned[id] || external.contains_key(&id) {
                 continue;
             }
             if projector.uuid_tag(&resolution.groups[family[0]]).is_some() {
@@ -467,7 +521,7 @@ fn project_impl(
                             bodies.push(projector.record(
                                 reference.snapshot,
                                 observation,
-                                &ident(name)?,
+                                &ident(public_name(name))?,
                                 false,
                             ));
                         }
@@ -565,17 +619,21 @@ fn project_impl(
                 for (member, (attributes, member_name, value)) in
                     observation.members.as_ref().unwrap().iter().zip(fields)
                 {
+                    let member_identity = name.rsplit_once("::").map_or_else(
+                        || member.name.clone(),
+                        |(scope, _)| format!("{scope}::{}", member.name),
+                    );
                     values::check_constant(
                         &mut constants,
                         target,
-                        &member.name,
+                        member_identity.clone(),
                         &snapshot.types[observation.canonical.0],
                         ConstantValue::Integer(member.value),
                     )?;
                     publish(
                         &mut declarations,
                         target,
-                        &member.name,
+                        &member_identity,
                         Body {
                             attributes,
                             declaration: quote! { const #member_name: #repr = #value; },
@@ -603,8 +661,11 @@ fn project_impl(
                 let observation = &resolution.snapshots[reference.snapshot].enums
                     [reference.enumeration.0]
                     .observations[reference.observation];
-                let mut body =
-                    projector.enumeration(reference.snapshot, observation, &ident(name)?)?;
+                let mut body = projector.enumeration(
+                    reference.snapshot,
+                    observation,
+                    &ident(public_name(name))?,
+                )?;
                 if let Some(attributes) = typedef_attributes.get(name.as_str()) {
                     body.attributes.extend(attributes.clone());
                 }
@@ -640,6 +701,26 @@ fn project_impl(
                         alias.name
                     )),
                 )?;
+                continue;
+            }
+            if let Some(references) = options.references
+                && references.get(&alias.name)?.is_some()
+            {
+                if alias.observations.iter().any(|reference| {
+                    !resolution.snapshots[reference.snapshot].aliases[reference.alias.0]
+                        .observations[reference.observation]
+                        .attributes
+                        .is_empty()
+                }) {
+                    reject(
+                        &mut rejected,
+                        [partial::Key::Alias(alias.name.clone())],
+                        Error(format!(
+                            "attributed external alias `{}` is unsupported",
+                            alias.name
+                        )),
+                    )?;
+                }
                 continue;
             }
             let first = alias_source(resolution, alias).unwrap_or(alias.observations[0]);
@@ -697,7 +778,9 @@ fn project_impl(
             if observation.implicit
                 || (!root_aliases.contains(alias.name.as_str())
                     && !publishable_alias(snapshot, observation))
-                || plan.aliases[id].is_some_and(|family| plan.names[family] == alias.name)
+                || plan.aliases[id].is_some_and(|family| {
+                    plan.names[family] == alias.name && !external.contains_key(&family)
+                })
                 || plan.enum_aliases[id].is_some_and(|group| plan.enum_names[group] == alias.name)
             {
                 continue;
@@ -750,6 +833,18 @@ fn project_impl(
                     PublishedKind::Alias,
                 )?,
                 Err(error) => reject(&mut rejected, keys, error)?,
+            }
+        }
+    }
+    if rejected
+        .as_deref()
+        .is_none_or(|issues| issues.excluded.is_empty())
+    {
+        for name in external_names {
+            if declarations.contains_key(&(name.clone(), NameSpace::Type)) {
+                return Err(Error(format!(
+                    "local type `{name}` collides with external metadata"
+                )));
             }
         }
     }
@@ -813,6 +908,7 @@ fn project_impl(
 
 #[derive(Default)]
 struct Declaration {
+    native_name: String,
     headers: BTreeSet<String>,
     bodies: BTreeMap<String, (Body, Vec<Target>)>,
     keys: BTreeSet<partial::Key>,
@@ -852,7 +948,17 @@ fn publish(
     } else {
         NameSpace::Type
     };
-    let item = items.entry((name.to_string(), space)).or_default();
+    let item = items
+        .entry((public_name(name).to_string(), space))
+        .or_default();
+    if !item.native_name.is_empty() && item.native_name != name {
+        return Err(Error(format!(
+            "public name `{}` collides between native declarations `{}` and `{name}`",
+            public_name(name),
+            item.native_name
+        )));
+    }
+    item.native_name = name.to_string();
     let key = body.key();
     if item
         .bodies
@@ -896,6 +1002,7 @@ struct Projector<'a, 'b> {
     namespace: &'a str,
     resolution: &'a Resolution<'b>,
     plan: &'a Plan,
+    external: &'a BTreeMap<usize, windows_metadata::reader::TypeDef<'a>>,
 }
 
 fn publishable_alias(snapshot: &Snapshot, observation: &AliasObservation) -> bool {
@@ -1189,7 +1296,7 @@ impl Projector<'_, '_> {
             )?);
             return Ok(body);
         }
-        let name = ident(name)?;
+        let name = ident(public_name(name))?;
         if observation
             .parameters
             .as_ref()
@@ -1202,10 +1309,7 @@ impl Projector<'_, '_> {
         let ty = if let TypeKind::Record(record) = snapshot.types[observation.canonical.0].kind
             && self.interface_record(snapshot_id, record)
         {
-            MetadataType::class_named(
-                self.namespace,
-                &self.plan.names[self.plan.family(snapshot_id, record)],
-            )
+            self.interface_type(snapshot_id, record)
         } else if callback_parameters(snapshot, observation).is_some()
             || has_fixed_pointer(snapshot, observation.underlying)
         {
@@ -1231,7 +1335,7 @@ impl Projector<'_, '_> {
     ) -> Result<Body, Error> {
         let signature = self.signature(snapshot, function, Some(written))?;
         let abi = callable_abi(written);
-        let name = ident(name)?;
+        let name = ident(public_name(name))?;
         let parameters = if let Some(declarations) = declarations {
             self.parameters(snapshot, function, declarations)?
         } else {
@@ -1382,6 +1486,11 @@ impl Projector<'_, '_> {
                     ));
                 }
                 for field in &definition.fields {
+                    if annotations::field_alignment(&field.attributes)?.is_some() {
+                        return Err(Error(
+                            "by-value member alignment requires a calling-ABI contract".into(),
+                        ));
+                    }
                     self.check_value_abi(reference.snapshot, field.canonical, seen)?;
                     self.check_value_abi(reference.snapshot, field.written, seen)?;
                 }
@@ -1652,10 +1761,7 @@ impl Projector<'_, '_> {
                     }
                     // COM references do not express C++ object constness. Outer pointer
                     // qualifiers still describe pointer storage and are projected normally.
-                    return Ok(MetadataType::class_named(
-                        self.namespace,
-                        &self.plan.names[self.plan.family(snapshot_id, record)],
-                    ));
+                    return Ok(self.interface_type(snapshot_id, record));
                 }
                 let inner = self.ty(snapshot_id, *pointee)?;
                 let constant = snapshot.types[pointee.0].qualifiers.constant;
@@ -1734,10 +1840,15 @@ impl Projector<'_, '_> {
             .into_iter()
             .map(|(attributes, name, value)| quote! { #attributes #name = #value, });
         let scoped = observation.scoped.then(|| quote! { #[scoped] });
+        let flags = observation
+            .attributes
+            .iter()
+            .any(|attribute| attribute.kind == AttributeKind::FlagEnum)
+            .then(|| quote! { #[flags] });
         let native = annotations::write(&observation.attributes)?;
         Ok(Body {
             attributes: quote! { #native #[repr(#repr)] },
-            declaration: quote! { #scoped enum #name { #(#fields)* } },
+            declaration: quote! { #flags #scoped enum #name { #(#fields)* } },
         })
     }
 
@@ -1882,8 +1993,14 @@ impl Projector<'_, '_> {
                 )));
             }
             let native = &snapshot.types[field.canonical.0];
-            if !annotations::only_contracts(&field.attributes)
-                || native.qualifiers.constant
+            if !field.attributes.iter().all(|attribute| {
+                matches!(
+                    attribute.kind,
+                    AttributeKind::Sal(_)
+                        | AttributeKind::Deprecated(_)
+                        | AttributeKind::Aligned { .. }
+                )
+            }) || native.qualifiers.constant
                 || field.bit_width.is_some() && !field.attributes.is_empty()
             {
                 return Err(Error(format!(
@@ -1892,7 +2009,8 @@ impl Projector<'_, '_> {
                 )));
             }
             if packing.is_some()
-                && self.contains_alignment(snapshot_id, field.canonical, &mut HashSet::new())
+                && (annotations::field_alignment(&field.attributes)?.is_some()
+                    || self.contains_alignment(snapshot_id, field.canonical, &mut HashSet::new()))
             {
                 return Err(Error(format!(
                     "packed record `{name}` contains an aligned type"
@@ -1995,10 +2113,12 @@ impl Projector<'_, '_> {
                     && *leaf
                         == format!(
                             "{}_{position}",
-                            self.plan.names[self.plan.family(snapshot_id, observation.record)]
-                                .rsplit('/')
-                                .next()
-                                .unwrap()
+                            public_name(
+                                self.plan.names[self.plan.family(snapshot_id, observation.record)]
+                                    .rsplit('/')
+                                    .next()
+                                    .unwrap()
+                            )
                         )
                 {
                     Some(*record)
@@ -2152,8 +2272,11 @@ impl Projector<'_, '_> {
             let layout = snapshot.types[field.canonical.0]
                 .layout
                 .ok_or_else(|| Error(format!("field `{name}.{field_name}` has no layout")))?;
-            let field_alignment =
-                packing.map_or(layout.alignment, |packing| layout.alignment.min(packing));
+            let field_alignment = packing
+                .map_or(layout.alignment, |packing| layout.alignment.min(packing))
+                .max(u64::from(
+                    annotations::field_alignment(&field.attributes)?.unwrap_or(1),
+                ));
             let offset = if kind == RecordKind::Union {
                 0
             } else {
@@ -2228,7 +2351,10 @@ impl Projector<'_, '_> {
                     .any(|(bits, _)| *bits != 0)
                     || observation.definition.as_ref().is_some_and(|definition| {
                         definition.fields.iter().any(|field| {
-                            self.contains_alignment(snapshot_id, field.canonical, seen)
+                            resolve::alignments(&field.attributes)
+                                .iter()
+                                .any(|(bits, _)| *bits != 0)
+                                || self.contains_alignment(snapshot_id, field.canonical, seen)
                         }) || definition.bases.iter().any(|base| {
                             self.record_contains_alignment(snapshot_id, base.record, seen)
                         })
@@ -2239,6 +2365,59 @@ impl Projector<'_, '_> {
 
 fn round_up(value: u64, alignment: u64) -> u64 {
     value.div_ceil(alignment) * alignment
+}
+
+fn public_name(value: &str) -> &str {
+    value.rsplit_once("::").map_or(value, |(_, name)| name)
+}
+
+fn write_type(namespace: &str, ty: &MetadataType) -> TokenStream {
+    fn flatten(namespace: &str, ty: &mut MetadataType) {
+        match ty {
+            MetadataType::ClassName(name) | MetadataType::ValueName(name) => {
+                if name.namespace == namespace && name.name.contains("::") {
+                    name.name = public_name(&name.name).to_string();
+                }
+                for ty in &mut name.generics {
+                    flatten(namespace, ty);
+                }
+            }
+            MetadataType::Array(ty)
+            | MetadataType::ArrayFixed(ty, _)
+            | MetadataType::PtrMut(ty, _)
+            | MetadataType::PtrConst(ty, _)
+            | MetadataType::Ptr64(ty, _)
+            | MetadataType::RefMut(ty)
+            | MetadataType::RefConst(ty) => flatten(namespace, ty),
+            MetadataType::FnPtr(signature) => {
+                flatten(namespace, &mut signature.return_type);
+                for ty in &mut signature.types {
+                    flatten(namespace, ty);
+                }
+            }
+            MetadataType::Void
+            | MetadataType::Bool
+            | MetadataType::Char
+            | MetadataType::I8
+            | MetadataType::U8
+            | MetadataType::I16
+            | MetadataType::U16
+            | MetadataType::I32
+            | MetadataType::U32
+            | MetadataType::I64
+            | MetadataType::U64
+            | MetadataType::F32
+            | MetadataType::F64
+            | MetadataType::ISize
+            | MetadataType::USize
+            | MetadataType::String
+            | MetadataType::Object
+            | MetadataType::Generic(..) => {}
+        }
+    }
+    let mut ty = ty.clone();
+    flatten(namespace, &mut ty);
+    windows_rdl::emit::write_type(namespace, &ty)
 }
 
 fn ident(value: &str) -> Result<TokenStream, Error> {

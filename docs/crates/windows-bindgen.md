@@ -62,6 +62,13 @@ return type. Select an interface or its members explicitly when you also need to
 Structural C/stdcall `FNPTR` signatures become `Option<unsafe extern "C"/"system" fn(...)>`.
 Their result and parameter dependencies are included without creating public callback names.
 
+Native callable byrefs use pointer ABI: const references become `*const T`, mutable references
+become `*mut T`, and written pointee aliases remain intact. This applies to imports, named and
+structural callbacks, and COM methods. WinRT byref projection has a separate path. Native
+references are not heuristic return values: the caller's existing mutable storage must remain
+available unless metadata explicitly marks a return value. Query-return projection excludes
+counted GUID buffers and counted object outputs from its scalar parameter candidates.
+
 Win32 `NativeOverrideSlotAttribute` methods redeclare inherited entries. Bindgen validates their
 slot, name, and resolved signature, preserving pointer depth and qualifiers. Rust exposes these
 calls through inherited methods and vtable fields, without additional `_Impl` requirements.
@@ -69,6 +76,14 @@ For member-only filters, select the callable on its declaring base.
 The redeclaration's annotations remain in metadata. Out-of-range, duplicate, or incompatible
 overrides fail generation rather than shifting the vtable. Older generators that ignore the
 attribute must not consume metadata using this encoding.
+
+Field-owned `AlignmentAttribute` raises a member's alignment without wrapping its public type.
+Bindgen emits target-evaluated `MaybeUninit<u8>` padding and raises the record alignment as needed;
+native padding need not be initialized. Padding names avoid authored field names. Records with
+this storage, and their containers, do not derive equality or debug formatting over padding.
+Packed combinations are unsupported. The clang2 producer rejects by-value callable uses until
+their calling ABI is qualified; correct field offsets alone do not establish that ABI.
+Older generators that ignore member alignment must not consume this metadata.
 
 The bundled Win32 metadata places APIs in `Windows.Win32`. Bare names such as `GetTickCount` and
 qualified names such as `Windows.Win32.GetTickCount` both work. The subsystem paths used by

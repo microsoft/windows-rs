@@ -2,6 +2,7 @@ use super::*;
 
 // MIDL supplies reserved, numbered tags for anonymous IDL enums.
 fn midl_enum_name(name: &str) -> bool {
+    let name = public_name(name);
     name.starts_with("__MIDL_")
         && name.rsplit_once('_').is_some_and(|(_, suffix)| {
             suffix.len() >= 4 && suffix.bytes().all(|byte| byte.is_ascii_digit())
@@ -184,7 +185,7 @@ impl Plan {
                 let leaf = match member {
                     RecordMember::Named(name) => name,
                     RecordMember::Anonymous(field) => {
-                        format!("{}_{field}", name.rsplit('/').next().unwrap())
+                        format!("{}_{field}", public_name(name.rsplit('/').next().unwrap()))
                     }
                 };
                 name.push('/');
@@ -467,6 +468,8 @@ impl Plan {
                 if !resolution.snapshots[a.snapshot].records[left.record.0]
                     .kind
                     .compatible(resolution.snapshots[b.snapshot].records[right.record.0].kind)
+                    || resolution.snapshots[a.snapshot].records[left.record.0].external
+                        != resolution.snapshots[b.snapshot].records[right.record.0].external
                     || x.layout != y.layout
                     || x.fields.len() != y.fields.len()
                     || x.bases.len() != y.bases.len()

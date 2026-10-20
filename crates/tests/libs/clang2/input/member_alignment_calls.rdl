@@ -1,0 +1,29 @@
+#[win32]
+mod Fixture {
+    #[arch(X64 | Arm64)]
+    struct DeviceIoControl {
+        OutputBufferLength: u32,
+        #[Windows::Win32::Metadata::Alignment(8)]
+        InputBufferLength: u32,
+        #[Windows::Win32::Metadata::Alignment(8)]
+        IoControlCode: u32,
+        Type3InputBuffer: *mut void,
+    }
+    #[arch(X86)]
+    struct DeviceIoControl {
+        OutputBufferLength: u32,
+        InputBufferLength: u32,
+        IoControlCode: u32,
+        Type3InputBuffer: *mut void,
+    }
+}
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern "C" fn AliasArrayParameter(values: *mut DeviceIoControl);
+    #[library("fixture.dll")]
+    extern "C" fn ArrayParameter(values: *mut DeviceIoControl);
+    #[library("fixture.dll")]
+    extern "C" fn ByPointer(value: *mut DeviceIoControl);
+    type Items = [DeviceIoControl; 2];
+}

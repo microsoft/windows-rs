@@ -61,10 +61,6 @@ fn function_macro_expressions_are_not_aliases() {
     for (name, message) in [
         ("Comma", "function macro must directly reference a function"),
         ("Pointer", "numeric pointer initializer unavailable"),
-        (
-            "ScopedAlias",
-            "function alias target is not a captured global declaration",
-        ),
     ] {
         let mut input = test_clang2::selected_fixture("function_macros", &["Native"]);
         input.macros.push(name.into());
@@ -239,7 +235,7 @@ fn function_alias_native_collision() {
         "{error}"
     );
     let result = projection::project_partial_with_imports(captured, "Fixture", &imports).unwrap();
-    assert_eq!(result.output.functions, 2);
+    assert_eq!(result.output.functions, 1);
     assert!(
         result
             .omissions
@@ -252,6 +248,7 @@ fn function_alias_native_collision() {
         .values()
         .map(|part| part.rdl.as_str())
         .collect();
+    assert!(!actual.contains("fn Narrow("));
     let golden = test_clang2::input_dir().join("function_macro_collision.rdl");
     if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
         std::fs::write(&golden, &actual).unwrap();

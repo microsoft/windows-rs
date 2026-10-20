@@ -49,11 +49,30 @@ pub(super) fn macro_definition(
 
 pub(super) fn read(
     unit: CXTranslationUnit,
-    roots: &[String],
+    input: &Input,
     macros: &[MacroProbe],
     snapshot: &mut Snapshot,
     partial: bool,
 ) -> Result<partial::Issues, Error> {
+    let roots = &input.roots;
+    let namespace_headers = input.namespace_headers.as_deref();
+    let root_paths = input
+        .root_paths
+        .iter()
+        .flatten()
+        .map(|path| {
+            let canonical = std::fs::canonicalize(path)
+                .map_err(|error| Error(format!("root path {}: {error}", path.display())))?;
+            if !canonical.is_dir() && !canonical.is_file() {
+                return Err(Error(format!(
+                    "root path {} is not a file or directory",
+                    path.display()
+                )));
+            }
+            Ok(canonical)
+        })
+        .collect::<Result<Vec<_>, Error>>()?;
+    let mut root_files = HashMap::new();
     let mut issues = partial::Issues::default();
     let declarations = declarations(unsafe { clang_getTranslationUnitCursor(unit) });
     let mut sites = HashMap::new();
@@ -64,17 +83,7 @@ pub(super) fn read(
         for &cursor in &declarations {
             let kind = unsafe { clang_getCursorKind(cursor) };
             if kind == CXCursor_VarDecl {
-                let mut file = std::ptr::null_mut();
-                let mut offset = 0;
-                unsafe {
-                    clang_getExpansionLocation(
-                        clang_getCursorLocation(cursor),
-                        &raw mut file,
-                        std::ptr::null_mut(),
-                        std::ptr::null_mut(),
-                        &raw mut offset,
-                    );
-                }
+                let (file, offset) = expansion_site(cursor);
                 if !file.is_null() && file == main_file {
                     sites.insert((kind, offset), cursor);
                 }
@@ -109,12 +118,14 @@ pub(super) fn read(
         types: HashMap::new(),
         files: HashMap::new(),
         partial,
+        external_interfaces: &input.external_interfaces,
         snapshot,
     };
     let mut names: HashMap<String, Vec<Cursor>> = HashMap::new();
     let mut all = Vec::new();
+    let mut all_seen = HashSet::new();
     for &cursor in &declarations {
-        let name = text(unsafe { clang_getCursorSpelling(cursor) });
+        let name = declaration_name(cursor);
         let name = capture
             .probes
             .get(&Cursor(unsafe { clang_getCanonicalCursor(cursor) }))
@@ -134,6 +145,43 @@ pub(super) fn read(
             capture.declarations.entry(key).or_default().push(cursor);
             continue;
         }
+        let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
+        let synthetic = !capture.probes.contains_key(&key)
+            && macros.first().is_some_and(|probe| {
+                let (file, offset) = expansion_site(cursor);
+                file == main_file && offset >= probe.start
+            });
+        let mut included = true;
+        if input.root_paths.is_some() && !capture.probes.contains_key(&key) && !synthetic {
+            let file = capture.location(cursor).file;
+            if let Some(allowed) = root_files.get(&file) {
+                included = *allowed;
+            } else {
+                let name = &capture.snapshot.files[file.0];
+                if !name.is_empty() && name != &capture.snapshot.input {
+                    let path = std::fs::canonicalize(name)
+                        .map_err(|error| Error(format!("root header {name}: {error}")))?;
+                    included = root_paths.iter().any(|root| path.starts_with(root));
+                }
+                root_files.insert(file, included);
+            }
+        }
+        let automatic_root = !synthetic
+            && included
+            && namespace_headers.is_none_or(|headers| {
+                let mut parent = unsafe { clang_getCursorSemanticParent(cursor) };
+                while unsafe { clang_getCursorKind(parent) } == CXCursor_LinkageSpec {
+                    parent = unsafe { clang_getCursorSemanticParent(parent) };
+                }
+                if unsafe { clang_getCursorKind(parent) } != CXCursor_Namespace {
+                    return true;
+                }
+                let location = capture.location(cursor);
+                let file = std::path::Path::new(&capture.snapshot.files[location.file.0]);
+                headers
+                    .iter()
+                    .any(|header| file.file_name().is_some_and(|name| name == header.as_str()))
+            });
         if !matches!(
             kind,
             CXCursor_StructDecl
@@ -146,7 +194,7 @@ pub(super) fn read(
                 | CXCursor_VarDecl
         ) || name.is_empty()
         {
-            if roots.is_empty() {
+            if roots.is_empty() && automatic_root {
                 let error = unsupported(cursor, "expected a supported global declaration");
                 if !partial {
                     return Err(error);
@@ -173,13 +221,14 @@ pub(super) fn read(
             }
             continue;
         }
-        let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
         let observations = capture.declarations.entry(key).or_insert_with(|| {
             names.entry(name).or_default().push(key);
-            all.push(key);
             Vec::new()
         });
         observations.push(cursor);
+        if automatic_root && all_seen.insert(key) {
+            all.push(key);
+        }
     }
     let mut selected = HashSet::new();
     let selected = if roots.is_empty() {
@@ -204,13 +253,13 @@ pub(super) fn read(
             && unsafe { clang_getCursorLinkage(cursor.0) } == CXLinkage_External
             && values::language_linkage(cursor.0)? == LanguageLinkage::C
         {
-            c_functions.insert(text(unsafe { clang_getCursorSpelling(cursor.0) }));
+            c_functions.insert(declaration_name(cursor.0));
         }
     }
     for cursor in selected {
         if unsafe { clang_getCursorKind(cursor.0) } == CXCursor_FunctionDecl
             && unsafe { clang_getCursorLinkage(cursor.0) } == CXLinkage_External
-            && c_functions.contains(&text(unsafe { clang_getCursorSpelling(cursor.0) }))
+            && c_functions.contains(&declaration_name(cursor.0))
             && values::language_linkage(cursor.0)? == LanguageLinkage::Cxx
         {
             let observations = &capture.declarations[&cursor];
@@ -230,7 +279,7 @@ pub(super) fn read(
                         ));
                     }
                     let function = InlineFunction {
-                        name: text(unsafe { clang_getCursorSpelling(observation) }),
+                        name: declaration_name(observation),
                         usr,
                         location: capture.location(observation),
                     };
@@ -307,10 +356,31 @@ pub(super) fn read(
     Ok(issues)
 }
 
+fn expansion_site(cursor: CXCursor) -> (CXFile, u32) {
+    let mut file = std::ptr::null_mut();
+    let mut offset = 0;
+    unsafe {
+        clang_getExpansionLocation(
+            clang_getCursorLocation(cursor),
+            &raw mut file,
+            std::ptr::null_mut(),
+            std::ptr::null_mut(),
+            &raw mut offset,
+        );
+    }
+    (file, offset)
+}
+
 fn declarations(cursor: CXCursor) -> Vec<CXCursor> {
     let mut result = Vec::new();
     for child in children(cursor) {
-        if unsafe { clang_getCursorKind(child) } == CXCursor_LinkageSpec {
+        let kind = unsafe { clang_getCursorKind(child) };
+        let namespace = kind == CXCursor_Namespace
+            && !text(unsafe { clang_getCursorSpelling(child) }).is_empty()
+            && !children(child)
+                .iter()
+                .any(|child| unsafe { clang_isAttribute(clang_getCursorKind(*child)) } != 0);
+        if kind == CXCursor_LinkageSpec || namespace {
             result.extend(declarations(child));
         } else {
             result.push(child);
@@ -331,6 +401,23 @@ fn declarations(cursor: CXCursor) -> Vec<CXCursor> {
     result
 }
 
+fn declaration_name(cursor: CXCursor) -> String {
+    let name = text(unsafe { clang_getCursorSpelling(cursor) });
+    let mut scope = Vec::new();
+    let mut parent = unsafe { clang_getCursorSemanticParent(cursor) };
+    while unsafe { clang_Cursor_isNull(parent) } == 0 {
+        match unsafe { clang_getCursorKind(parent) } {
+            CXCursor_Namespace => scope.push(text(unsafe { clang_getCursorSpelling(parent) })),
+            CXCursor_LinkageSpec => {}
+            _ => break,
+        }
+        parent = unsafe { clang_getCursorSemanticParent(parent) };
+    }
+    scope.reverse();
+    scope.push(name);
+    scope.join("::")
+}
+
 struct Capture<'a> {
     declarations: HashMap<Cursor, Vec<CXCursor>>,
     pending: Vec<Cursor>,
@@ -343,6 +430,7 @@ struct Capture<'a> {
     types: HashMap<Type, TypeId>,
     files: HashMap<String, FileId>,
     partial: bool,
+    external_interfaces: &'a BTreeSet<String>,
     snapshot: &'a mut Snapshot,
 }
 
@@ -361,7 +449,7 @@ impl Capture<'_> {
         }
         let id = EnumId(self.snapshot.enums.len());
         self.snapshot.enums.push(Enum {
-            name: text(unsafe { clang_getCursorSpelling(cursor) }),
+            name: declaration_name(cursor),
             usr,
             observations: Vec::new(),
         });
@@ -403,7 +491,7 @@ impl Capture<'_> {
                     },
                     attributes,
                 });
-            } else if kind != CXCursor_TypeRef {
+            } else if !matches!(kind, CXCursor_TypeRef | CXCursor_NamespaceRef) {
                 return Err(unsupported(child, "unsupported enum declaration child"));
             }
         }
@@ -444,7 +532,7 @@ impl Capture<'_> {
         }
         let id = AliasId(self.snapshot.aliases.len());
         self.snapshot.aliases.push(Alias {
-            name: text(unsafe { clang_getCursorSpelling(cursor) }),
+            name: declaration_name(cursor),
             usr,
             observations: Vec::new(),
         });
@@ -541,10 +629,11 @@ impl Capture<'_> {
         }
         let id = RecordId(self.snapshot.records.len());
         self.snapshot.records.push(Record {
+            external: self.external_interfaces.contains(&declaration_name(cursor)),
             name: if owner.is_some_and(|owner| owner.field.is_some()) {
                 String::new()
             } else {
-                text(unsafe { clang_getCursorSpelling(cursor) })
+                declaration_name(cursor)
             },
             usr,
             owner,
@@ -564,6 +653,13 @@ impl Capture<'_> {
         let mut attributes = Vec::new();
         let definition = if unsafe { clang_isCursorDefinition(cursor) } != 0 {
             let native_fields = record_fields(cursor);
+            let external = self.snapshot.records[record.0].external;
+            if external && !native_fields.is_empty() {
+                return Err(unsupported(
+                    cursor,
+                    "external COM definitions cannot contain data fields",
+                ));
+            }
             let mut fields = Vec::new();
             let mut bases = Vec::new();
             let mut methods = Vec::new();
@@ -574,11 +670,16 @@ impl Capture<'_> {
                     attributes.push(self.attribute(child)?);
                     continue;
                 }
+                if external && kind != CXCursor_CXXBaseSpecifier {
+                    continue;
+                }
                 if matches!(kind, CXCursor_StructDecl | CXCursor_UnionDecl) {
                     self.record(child)?;
                     continue;
                 }
-                if kind == CXCursor_TypeRef && owner_reference(cursor, child) {
+                if kind == CXCursor_NamespaceRef
+                    || (kind == CXCursor_TypeRef && owner_reference(cursor, child))
+                {
                     continue;
                 }
                 if kind == CXCursor_CXXAccessSpecifier {
@@ -812,6 +913,7 @@ impl Capture<'_> {
         let name = unsafe { std::ffi::CStr::from_ptr(name) }.to_string_lossy();
         let kind = match name.as_ref() {
             "Packed" => AttributeKind::Packed,
+            "FlagEnum" => AttributeKind::FlagEnum,
             "NoTrivialAutoVarInit" => AttributeKind::NoTrivialAutoVarInit,
             "MSAllocator" => AttributeKind::MSAllocator,
             "MSNoVTable" => AttributeKind::NoVTable,
@@ -951,7 +1053,7 @@ impl Capture<'_> {
                 }
             } else if default.is_some_and(|default| Cursor(default) == Cursor(child)) {
                 continue;
-            } else if kind != CXCursor_TypeRef
+            } else if !matches!(kind, CXCursor_TypeRef | CXCursor_NamespaceRef)
                 && !(unsafe { clang_isExpression(kind) } != 0 && layout_expression(cursor, child)?)
             {
                 let is_underlying_record = unsafe {

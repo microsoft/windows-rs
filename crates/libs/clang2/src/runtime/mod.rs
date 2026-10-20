@@ -458,7 +458,7 @@ fn parse(
         snapshot.diagnostics.extend(issues.messages.iter().cloned());
         issues.extend(capture::read(
             parsed.unit.0,
-            &input.roots,
+            input,
             &source.probes,
             &mut snapshot,
             partial,

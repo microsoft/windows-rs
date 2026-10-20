@@ -1,0 +1,113 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type UINT32 = u32;
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        type ULONG = u32;
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct GUID {
+            Data1: u32,
+            Data2: u16,
+            Data3: u16,
+            Data4: [u8; 8],
+        }
+        type IID = GUID;
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type HSTRING = *mut HSTRING__;
+        struct HSTRING__ {
+            unused: i32,
+        }
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90)]
+        interface IInspectable: IUnknown {
+            fn GetIids(&self, #[out] iidCount: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_out_ecount_full_opt", "*iidCount", "*iidCount")] iids: *mut *mut IID) -> HRESULT;
+            fn GetRuntimeClassName(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] className: *mut HSTRING) -> HRESULT;
+            fn GetTrustLevel(&self, #[out] trustLevel: *mut TrustLevel) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum TrustLevel {
+            BaseTrust = 0,
+            PartialTrust = 1,
+            FullTrust = 2,
+        }
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x5b0d3235_4dba_4d44_865e_8f1d0e4fd04d)]
+        interface IMemoryBufferByteAccess: IUnknown {
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn GetBuffer(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "*capacity", "*capacity")] #[out] value: *mut *mut BYTE, #[out] capacity: *mut UINT32) -> HRESULT;
+        }
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        type BYTE = u8;
+        type DWORD = u32;
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x905a0fef_bc53_11df_8c49_001e4fc686da)]
+        interface IBufferByteAccess: IUnknown {
+            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Buffer(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"size given by different API\")", "_Inexpressible_(\"size given by different API\")")] #[out] value: *mut *mut byte) -> HRESULT;
+        }
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        type byte = u8;
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct NamespaceConsumer {
+            memory: IMemoryBufferByteAccess,
+            access: IBufferByteAccess,
+            buffer: super::Storage::Streams::IBuffer,
+            handler: super::System::DispatcherQueueHandler,
+        }
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x00000000_0000_0000_c000_000000000046)]
+        interface IUnknown {
+            fn QueryInterface(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> ULONG;
+            fn Release(&self) -> ULONG;
+        }
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+        type HRESULT = i32;
+    }
+}

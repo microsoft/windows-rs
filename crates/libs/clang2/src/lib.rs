@@ -16,7 +16,7 @@ pub use resolve::{
 };
 pub use runtime::{PartialCapture, capture, capture_partial};
 
-use std::collections::{BTreeMap, HashMap, HashSet};
+use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum Target {
@@ -41,8 +41,18 @@ pub struct Input {
     pub source: String,
     /// Additional compiler arguments, such as include paths and macro definitions.
     pub arguments: Vec<String>,
-    /// Global declaration roots and their dependencies. Empty selects all declarations.
+    /// Namespace-qualified declaration roots and their dependencies. Empty selects all declarations.
     pub roots: Vec<String>,
+    /// With no explicit roots, limit namespace-level roots to these header filenames.
+    /// None selects every named namespace. Dependencies and global roots are unaffected.
+    pub namespace_headers: Option<Vec<String>>,
+    /// Limit automatic roots from included headers to these files or directories.
+    /// None selects all headers.
+    /// The input source, explicit roots, macros and dependencies remain eligible.
+    pub root_paths: Option<Vec<std::path::PathBuf>>,
+    /// Explicitly externally owned COM types, using qualified native names.
+    /// Capture retains identity, attributes, layout and bases, but not member definitions.
+    pub external_interfaces: BTreeSet<String>,
     /// Object-like macros to evaluate as constant expressions after this input's declarations.
     pub macros: Vec<String>,
     /// Header filenames in which to discover object-like macros at the end of this input.
@@ -214,6 +224,7 @@ pub struct Field {
 #[derive(Debug, Eq, PartialEq)]
 pub enum AttributeKind {
     Packed,
+    FlagEnum,
     DefaultTypeVisibility,
     /// Compiler auto-initialization opt-out, not a layout or caller initialization contract.
     NoTrivialAutoVarInit,
@@ -271,6 +282,7 @@ pub struct Deprecation {
 
 #[derive(Debug, Eq, PartialEq)]
 pub struct Alias {
+    /// Namespace-qualified native name.
     pub name: String,
     pub usr: String,
     pub observations: Vec<AliasObservation>,
@@ -292,10 +304,13 @@ pub struct AliasObservation {
 
 #[derive(Debug, Eq, PartialEq)]
 pub struct Record {
+    /// Namespace-qualified native name, or the local name when owned by another record.
     pub name: String,
     pub usr: String,
     pub owner: Option<RecordOwner>,
     pub kind: RecordKind,
+    /// Member definitions belong to an explicit external authority, not this snapshot.
+    pub external: bool,
     pub observations: Vec<ObservationId>,
 }
 
@@ -401,6 +416,7 @@ pub struct DefaultArgument {
 
 #[derive(Debug, Eq, PartialEq)]
 pub struct ValueDeclaration {
+    /// Namespace-qualified native name. Macro names remain unqualified.
     pub name: String,
     pub usr: String,
     pub observations: Vec<ValueObservation>,
@@ -499,6 +515,7 @@ pub enum ConstantOrigin {
 
 #[derive(Debug, Eq, PartialEq)]
 pub struct Enum {
+    /// Namespace-qualified native name.
     pub name: String,
     pub usr: String,
     pub observations: Vec<EnumObservation>,
@@ -617,6 +634,7 @@ impl Snapshot {
                     .iter()
                     .map(|value| match &value.kind {
                         AttributeKind::Packed
+                        | AttributeKind::FlagEnum
                         | AttributeKind::DefaultTypeVisibility
                         | AttributeKind::NoTrivialAutoVarInit
                         | AttributeKind::MSAllocator

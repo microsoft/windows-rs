@@ -19,7 +19,7 @@ impl Capture<'_> {
         if let Some(&id) = self.values.get(&key) {
             return Ok(id);
         }
-        let name = text(unsafe { clang_getCursorSpelling(cursor) });
+        let name = declaration_name(cursor);
         let (name, origin) = self.probes.get(&key).cloned().unwrap_or((name, cursor));
         let usr = text(unsafe { clang_getCursorUSR(origin) });
         if usr.is_empty() {
@@ -73,7 +73,7 @@ impl Capture<'_> {
             let mut observation = self.free_function_observation(target)?;
             let definition = self.probes[&key].1;
             let origin = FunctionAlias {
-                name: text(unsafe { clang_getCursorSpelling(target) }),
+                name: declaration_name(target),
                 usr: text(unsafe { clang_getCursorUSR(clang_getCanonicalCursor(target)) }),
                 location: self.location(definition),
             };
@@ -324,7 +324,9 @@ impl Capture<'_> {
             let kind = unsafe { clang_getCursorKind(child) };
             if unsafe { clang_isAttribute(kind) } != 0 {
                 attributes.push(self.attribute(child)?);
-            } else if kind != CXCursor_TypeRef && unsafe { clang_isExpression(kind) } == 0 {
+            } else if !matches!(kind, CXCursor_TypeRef | CXCursor_NamespaceRef)
+                && unsafe { clang_isExpression(kind) } == 0
+            {
                 return Err(unsupported(child, "unsupported constant declaration child"));
             }
         }
