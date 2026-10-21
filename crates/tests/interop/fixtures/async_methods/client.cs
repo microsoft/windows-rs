@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using AsyncMethods;
@@ -50,6 +51,34 @@ public static class Client
             return 41;
         });
         Check(widget.AwaitOperationWithProgress(operationWithProgress).AsTask().GetAwaiter().GetResult() == 42);
+
+        CheckError(() => { _ = widget.RejectOperation(); }, "component-sync");
+        var failed = widget.FailOperation();
+        CheckError(() => failed.AsTask().GetAwaiter().GetResult(), "component-async");
+        var clientFailure = AsyncInfo.Run<int>(async _ =>
+        {
+            await Task.Yield();
+            throw new COMException("client-async", CustomError);
+        });
+        var relayed = widget.AwaitOperation(clientFailure);
+        CheckError(() => relayed.AsTask().GetAwaiter().GetResult(), "client-async");
+    }
+
+    const int CustomError = unchecked((int)0x8004A123);
+
+    static void CheckError(Action call, string message)
+    {
+        try
+        {
+            call();
+        }
+        catch (COMException error)
+        {
+            Check(error.HResult == CustomError);
+            Check(error.Message.Contains(message, StringComparison.Ordinal));
+            return;
+        }
+        Check(false);
     }
 
     static void CheckBounds(Func<Task> start)

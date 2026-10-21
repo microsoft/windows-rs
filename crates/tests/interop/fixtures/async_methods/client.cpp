@@ -26,9 +26,15 @@ IAsyncActionWithProgress<uint32_t> action_with_progress(bool fail = false)
     progress(1);
 }
 
-IAsyncOperation<int32_t> operation()
+constexpr hresult custom_error{ static_cast<int32_t>(0x8004A123) };
+
+IAsyncOperation<int32_t> operation(bool fail = false)
 {
     co_await resume_background();
+    if (fail)
+    {
+        throw hresult_error(custom_error, L"client-async");
+    }
     co_return 41;
 }
 
@@ -77,4 +83,23 @@ void test()
     check_bounds(widget.AwaitActionWithProgress(action_with_progress(true)));
     check(widget.AwaitOperation(operation()).get() == 42);
     check(widget.AwaitOperationWithProgress(operation_with_progress()).get() == 42);
+
+    auto verify_error = [](auto&& call, hstring const& message)
+    {
+        try
+        {
+            call();
+            check(false);
+        }
+        catch (hresult_error const& error)
+        {
+            check(error.code() == custom_error);
+            check(error.message() == message);
+        }
+    };
+    verify_error([&] { widget.RejectOperation(); }, L"component-sync");
+    auto failed = widget.FailOperation();
+    verify_error([&] { failed.get(); }, L"component-async");
+    auto relayed = widget.AwaitOperation(operation(true));
+    verify_error([&] { relayed.get(); }, L"client-async");
 }

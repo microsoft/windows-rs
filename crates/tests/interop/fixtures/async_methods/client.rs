@@ -60,5 +60,21 @@ pub fn test() -> Result<()> {
         42
     );
 
+    let code = HRESULT(0x8004_a123_u32 as i32);
+    let error = widget.RejectOperation().unwrap_err();
+    assert_eq!(error.code(), code);
+    assert_eq!(error.message(), "component-sync");
+
+    let operation = widget.FailOperation()?;
+    let error = operation.join().unwrap_err();
+    assert_eq!(error.code(), code);
+    assert_eq!(error.message(), "component-async");
+
+    let operation = IAsyncOperation::<i32>::spawn(move || Err(Error::new(code, "client-async")));
+    let operation = widget.AwaitOperation(&operation)?;
+    let error = operation.join().unwrap_err();
+    assert_eq!(error.code(), code);
+    assert_eq!(error.message(), "client-async");
+
     Ok(())
 }

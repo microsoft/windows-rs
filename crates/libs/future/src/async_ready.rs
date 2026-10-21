@@ -32,11 +32,11 @@ impl<T: Async> ReadyState<T> {
         }
     }
 
-    // Preserve the error object until GetResults transfers it to the calling thread.
+    // C# projects ErrorCode as an exception and reads the calling thread's error info.
     fn error_code(&self) -> HRESULT {
         match &self.result {
             Ok(_) => HRESULT(0),
-            Err(error) => error.code(),
+            Err(error) => error.clone().into(),
         }
     }
 }

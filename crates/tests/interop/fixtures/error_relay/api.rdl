@@ -1,0 +1,19 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod ErrorRelay {
+    interface ICallback {
+        fn Fail(&self, code: i32, message: String);
+    }
+
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // Returns the error from callback.Fail without replacing its code or message.
+        fn Relay(&self, callback: ICallback, code: i32, message: String);
+    }
+}

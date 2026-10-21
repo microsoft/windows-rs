@@ -18,7 +18,7 @@ impl<T: Async> State<T> {
 
     fn error_code(&self) -> HRESULT {
         match &self.result {
-            Some(Err(error)) => error.code(),
+            Some(Err(error)) => error.clone().into(),
             _ => HRESULT(0),
         }
     }

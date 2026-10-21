@@ -12,12 +12,19 @@ mod AsyncMethods {
     // may assign progress handlers but the component never reports progress.
     #[ExclusiveTo(Widget)]
     interface IWidget {
-        // A negative `value` fails with `E_BOUNDS` before the method returns. Otherwise they
-        // complete on another thread, and operations complete with `value`.
+        // A negative value returns an already-failed async object with E_BOUNDS.
+        // Otherwise they complete on another thread, and operations complete with value.
         fn Action(&self, value: i32) -> IAsyncAction;
         fn ActionWithProgress(&self, value: i32) -> IAsyncActionWithProgress<u32>;
         fn Operation(&self, value: i32) -> IAsyncOperation<i32>;
         fn OperationWithProgress(&self, value: i32) -> IAsyncOperationWithProgress<i32, u32>;
+
+        // Fails at the method call with HRESULT 0x8004A123 and "component-sync".
+        fn RejectOperation(&self) -> IAsyncOperation<i32>;
+
+        // Returns an operation that fails on a background thread with the same HRESULT
+        // and "component-async".
+        fn FailOperation(&self) -> IAsyncOperation<i32>;
 
         // Wait on another thread for the client's object, which may report progress. Operations
         // complete with its result plus one.

@@ -36,6 +36,10 @@ including C# array-to-`Object` conversion and rejection of an incompatible boxed
 `struct_directions` distinguishes value input, const-reference input, output, and return slots for
 blittable and nested non-blittable structs, both in component methods and client delegates.
 
+`error_relay` preserves HRESULTs and messages from client callbacks through the component and back
+to the client. `async_methods` separates synchronous method failures from failed async results,
+including custom error details originating in the component or a client-produced operation.
+
 ### Component
 
 `component.rs` is a module of this crate's library and starts with `use super::*;`, which brings in

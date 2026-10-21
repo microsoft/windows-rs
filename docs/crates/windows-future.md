@@ -75,6 +75,10 @@ helpers remain available.
 - `ready` and `spawn` expose `Cancel` and `Close` through `IAsyncInfo`, but these constructors do
   not interrupt the supplied closure.
 
+Async errors retain their extended error information for both `GetResults` and `ErrorCode`.
+The latter restores a copy to the calling thread so C# task adapters can retrieve the message
+through the projected exception property without consuming the operation's stored error.
+
 ## Sample and next steps
 
 The [`spawn` sample](../../crates/samples/future/spawn) contrasts an immediately ready operation

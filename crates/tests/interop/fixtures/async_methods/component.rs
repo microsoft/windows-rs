@@ -47,6 +47,22 @@ impl IWidget_Impl for Widget_Impl {
         })
     }
 
+    fn RejectOperation(&self) -> Result<IAsyncOperation<i32>> {
+        Err(Error::new(
+            HRESULT(0x8004_a123_u32 as i32),
+            "component-sync",
+        ))
+    }
+
+    fn FailOperation(&self) -> Result<IAsyncOperation<i32>> {
+        Ok(IAsyncOperation::spawn(|| {
+            Err(Error::new(
+                HRESULT(0x8004_a123_u32 as i32),
+                "component-async",
+            ))
+        }))
+    }
+
     fn AwaitAction(&self, action: Ref<IAsyncAction>) -> Result<IAsyncAction> {
         let action = action.ok()?.clone();
         Ok(IAsyncAction::spawn(move || action.join()))
