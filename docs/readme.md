@@ -68,7 +68,7 @@ Each crate page covers usage and maintenance. Generated API documentation is ava
 | --- | --- |
 | [windows-clang](crates/windows-clang.md) | Generates RDL from C and C++ headers using libclang. |
 | [windows-clang-sys](crates/windows-clang-sys.md) | Raw Clang bindings and native semantic queries. |
-| [windows-clang2](crates/windows-clang2.md) | Unpublished experiment in native header capture. |
+| [windows-clang2](crates/windows-clang2.md) | Native header capture experiment; [replacement acceptance](clang2-acceptance.md). |
 | [windows-default](crates/windows-default.md) | Embedded Windows metadata for build tools. |
 | [windows-metadata](crates/windows-metadata.md) | Reads and writes ECMA-335 metadata. |
 | [windows-rdl](crates/windows-rdl.md) | Parses RDL and generates ECMA-335 metadata. |

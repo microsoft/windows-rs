@@ -130,7 +130,7 @@ fn discovery_uses_the_active_definition_owner() {
 }
 
 #[test]
-fn constant_probes_do_not_exclude_native_functions() {
+fn constant_probes_do_not_exclude_native_declarations() {
     helpers::ensure_libclang();
     let mut input = test_clang2::fixture("macro_function_aliases");
     input.macro_headers = vec!["macro_function_aliases.h".into()];
@@ -162,16 +162,23 @@ fn constant_probes_do_not_exclude_native_functions() {
         .unwrap()
     };
     let output = generate(&TARGETS);
-    let expected =
-        std::fs::read_to_string(test_clang2::input_dir().join("macro_function_aliases.rdl"))
-            .unwrap()
-            .replace("\r\n", "\n");
+    let golden = test_clang2::input_dir().join("macro_function_aliases.rdl");
+    if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+        std::fs::write(
+            &golden,
+            &output.output.partitions["macro_function_aliases"].rdl,
+        )
+        .unwrap();
+    }
+    let expected = std::fs::read_to_string(golden)
+        .unwrap()
+        .replace("\r\n", "\n");
     assert_eq!(
         output.output.partitions["macro_function_aliases"].rdl,
         expected
     );
     assert_eq!(output.output.functions, 5);
-    assert_eq!(output.output.constants, 0);
+    assert_eq!(output.output.constants, 1);
     for name in [
         "FunctionAlias",
         "AddressAlias",

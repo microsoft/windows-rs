@@ -341,6 +341,7 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
     let providers = approved_providers(include_str!("approved-providers.txt"))?;
     let directory = Path::new("target\\win32-2");
     std::fs::create_dir_all(directory)?;
+    let origins = function_aliases::read(directory)?;
     let winmd = directory.join("function-coverage.winmd");
     windows_rdl::reader()
         .input("metadata\\metadata.rdl")
@@ -377,13 +378,14 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
     validate_providers(&providers, &baseline, &current)?;
     let keys: BTreeSet<_> = baseline.0.keys().chain(current.keys()).collect();
     let mut rows = String::from(
-        "Target,Name,Status,BaselineLibrary,BaselineExport,CurrentLibrary,CurrentExport,Acceptance\n",
+        "Target,Name,Status,BaselineLibrary,BaselineExport,CurrentLibrary,CurrentExport,Acceptance,Origin,AliasTarget\n",
     );
     let mut totals = BTreeMap::<&str, usize>::new();
     let mut missing = BTreeSet::new();
     let mut unapproved_names = BTreeSet::new();
     let mut unapproved_pairs = 0;
     let mut unapproved_linkage = 0;
+    let mut additions = BTreeMap::<&str, usize>::new();
     let current_names: BTreeSet<_> = current.keys().map(|key| &key.1).collect();
     for key in keys {
         let old = baseline.0.get(key);
@@ -415,6 +417,20 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
             "unapproved"
         };
         *totals.entry(status).or_default() += 1;
+        let origin = new
+            .map(|export| {
+                let origin = origins.get(key).ok_or_else(|| {
+                    format!(
+                        "missing captured provenance for current function `{}` on {:?}",
+                        key.1, key.0
+                    )
+                })?;
+                Ok::<_, String>((origin.category(&export.name), origin.references()))
+            })
+            .transpose()?;
+        if status == "new" {
+            *additions.entry(origin.as_ref().unwrap().0).or_default() += 1;
+        }
         let row = [
             format!("{:?}", key.0),
             key.1.clone(),
@@ -424,6 +440,8 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
             new.map_or("", |v| &v.library).into(),
             new.map_or("", |v| &v.name).into(),
             acceptance.into(),
+            origin.as_ref().map_or("", |origin| origin.0).into(),
+            origin.map_or_else(String::new, |origin| origin.1),
         ];
         rows.push_str(
             &row.iter()
@@ -435,6 +453,10 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
     }
     std::fs::write(directory.join("function-coverage.csv"), rows)?;
     println!("Baseline: {BASELINE}\nFunction target pairs: {totals:?}");
+    println!("New target pairs by captured origin: {additions:?}");
+    println!(
+        "The A-export category describes the export suffix, not an inferred encoding contract."
+    );
     let absent = missing.difference(&current_names).count();
     println!(
         "{absent} names absent; {} names missing on at least one baseline target. Presence/linkage only, not signature or behavior parity. See target\\win32-2\\function-coverage.csv",
@@ -446,7 +468,7 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
         unapproved_names.len()
     );
     println!(
-        "{} approved provider corrections; {unapproved_linkage} unapproved linkage changes. Additions remain unapproved.",
+        "{} approved provider corrections; {unapproved_linkage} unapproved linkage changes. Addition scope approvals are recorded separately; ABI and consumer qualification remain required.",
         providers.len()
     );
     Ok(())
@@ -456,6 +478,27 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
 mod tests {
     use super::*;
     use windows_rdl::implib::ImportName;
+
+    #[test]
+    fn selected_function_aliases_preserve_required_public_names() {
+        let baseline = Evidence::load().unwrap();
+        for (target, names) in function_aliases::selection().unwrap() {
+            for name in names {
+                let generator_alias = target == Target::X86
+                    && matches!(
+                        name.as_str(),
+                        "GetWindowLongPtrA"
+                            | "GetWindowLongPtrW"
+                            | "SetWindowLongPtrA"
+                            | "SetWindowLongPtrW"
+                    );
+                assert!(
+                    generator_alias || baseline.0.contains_key(&(target, name.clone())),
+                    "unreviewed function alias selection: {target:?} {name}"
+                );
+            }
+        }
+    }
 
     #[test]
     fn reviewed_provider_corrections() {

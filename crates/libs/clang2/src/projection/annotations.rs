@@ -222,6 +222,7 @@ pub(super) fn parameter(
     parameter: &Parameter,
     parameters: &[Parameter],
     ty: &MetadataType,
+    native_kind: &TypeKind,
 ) -> Result<TokenStream, Error> {
     let attributes = &parameter.attributes;
     if !only_contracts(attributes) {
@@ -291,6 +292,9 @@ pub(super) fn parameter(
         })
     });
     let entry = normalized.iter().filter_map(|value| {
+        if matches!(native_kind, TypeKind::Scalar(_) | TypeKind::Enum(_)) {
+            return None;
+        }
         let sal::ParameterAnnotation::Contract(contract) = value else {
             return None;
         };

@@ -98,19 +98,19 @@ mod Fixture {
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
         fn Release(&self) -> ULONG;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn Info(&self, #[out] #[size_param(1)] pfi: *mut AVIFILEINFOW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lSize: LONG) -> HRESULT;
+        fn Info(&self, #[out] #[size_param(1)] pfi: *mut AVIFILEINFOW, #[in] lSize: LONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetStream(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppStream: *mut PAVISTREAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fccType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LONG) -> HRESULT;
+        fn GetStream(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppStream: *mut PAVISTREAM, #[in] fccType: DWORD, #[in] lParam: LONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
         fn CreateStream(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppStream: *mut PAVISTREAM, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] psi: *mut AVISTREAMINFOW) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn WriteData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ckid: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lpData: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbData: LONG) -> HRESULT;
+        fn WriteData(&self, #[in] ckid: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lpData: LPVOID, #[in] cbData: LONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn ReadData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ckid: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpcbData,*lpcbData", "*lpcbData,*lpcbData")] #[out] lpData: LPVOID, #[in] #[out] lpcbData: *mut LONG) -> HRESULT;
+        fn ReadData(&self, #[in] ckid: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpcbData,*lpcbData", "*lpcbData,*lpcbData")] #[out] lpData: LPVOID, #[in] #[out] lpcbData: *mut LONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
         fn EndRecord(&self) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn DeleteStream(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fccType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lParam: LONG) -> HRESULT;
+        fn DeleteStream(&self, #[in] fccType: DWORD, #[in] lParam: LONG) -> HRESULT;
     }
     #[no_guid]
     interface IAVIStream: IUnknown {
@@ -126,25 +126,25 @@ mod Fixture {
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
         fn Create(&self, lParam1: LPARAM, lParam2: LPARAM) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn Info(&self, #[out] #[size_param(1)] psi: *mut AVISTREAMINFOW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lSize: LONG) -> HRESULT;
+        fn Info(&self, #[out] #[size_param(1)] psi: *mut AVISTREAMINFOW, #[in] lSize: LONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn FindSample(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lPos: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lFlags: LONG) -> LONG;
+        fn FindSample(&self, #[in] lPos: LONG, #[in] lFlags: LONG) -> LONG;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn ReadFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lPos: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*lpcbFormat,*lpcbFormat", "*lpcbFormat,*lpcbFormat")] #[out] #[opt] lpFormat: LPVOID, #[in] #[out] lpcbFormat: *mut LONG) -> HRESULT;
+        fn ReadFormat(&self, #[in] lPos: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*lpcbFormat,*lpcbFormat", "*lpcbFormat,*lpcbFormat")] #[out] #[opt] lpFormat: LPVOID, #[in] #[out] lpcbFormat: *mut LONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn SetFormat(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lPos: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lpFormat: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbFormat: LONG) -> HRESULT;
+        fn SetFormat(&self, #[in] lPos: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lpFormat: LPVOID, #[in] cbFormat: LONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn Read(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lStart: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lSamples: LONG, #[out] #[opt] #[size_param(3)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: LONG, #[out] #[opt] plBytes: *mut LONG, #[out] #[opt] plSamples: *mut LONG) -> HRESULT;
+        fn Read(&self, #[in] lStart: LONG, #[in] lSamples: LONG, #[out] #[opt] #[size_param(3)] lpBuffer: LPVOID, #[in] cbBuffer: LONG, #[out] #[opt] plBytes: *mut LONG, #[out] #[opt] plSamples: *mut LONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn Write(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lStart: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lSamples: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] lpBuffer: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbBuffer: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] dwFlags: DWORD, #[out] #[opt] plSampWritten: *mut LONG, #[out] #[opt] plBytesWritten: *mut LONG) -> HRESULT;
+        fn Write(&self, #[in] lStart: LONG, #[in] lSamples: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] lpBuffer: LPVOID, #[in] cbBuffer: LONG, #[in] dwFlags: DWORD, #[out] #[opt] plSampWritten: *mut LONG, #[out] #[opt] plBytesWritten: *mut LONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn Delete(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lStart: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lSamples: LONG) -> HRESULT;
+        fn Delete(&self, #[in] lStart: LONG, #[in] lSamples: LONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn ReadData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fcc: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*lpcb,*lpcb", "*lpcb,*lpcb")] #[out] #[opt] lp: LPVOID, #[in] #[out] lpcb: *mut LONG) -> HRESULT;
+        fn ReadData(&self, #[in] fcc: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*lpcb,*lpcb", "*lpcb,*lpcb")] #[out] #[opt] lp: LPVOID, #[in] #[out] lpcb: *mut LONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn WriteData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fcc: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lp: LPVOID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: LONG) -> HRESULT;
+        fn WriteData(&self, #[in] fcc: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lp: LPVOID, #[in] cb: LONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn SetInfo(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] lpInfo: *mut AVISTREAMINFOW, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cbInfo: LONG) -> HRESULT;
+        fn SetInfo(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] lpInfo: *mut AVISTREAMINFOW, #[in] cbInfo: LONG) -> HRESULT;
     }
     #[no_guid]
     interface IAVIStreaming: IUnknown {
@@ -158,7 +158,7 @@ mod Fixture {
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
         fn Release(&self) -> ULONG;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn Begin(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lStart: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lEnd: LONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lRate: LONG) -> HRESULT;
+        fn Begin(&self, #[in] lStart: LONG, #[in] lEnd: LONG, #[in] lRate: LONG) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
         fn End(&self) -> HRESULT;
     }

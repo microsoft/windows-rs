@@ -119,8 +119,8 @@ mod Fixture {
 mod Fixture {
     #[guid(0x0c733a30_2a1c_11ce_ade5_00aa0044773d)]
     interface ISequentialStream: IUnknown {
-        fn Read(&self, #[out] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] pv: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: ULONG, #[out] #[opt] pcbRead: *mut ULONG) -> HRESULT;
-        fn Write(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pv: *const void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cb: ULONG, #[out] #[opt] pcbWritten: *mut ULONG) -> HRESULT;
+        fn Read(&self, #[out] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] pv: *mut void, #[in] cb: ULONG, #[out] #[opt] pcbRead: *mut ULONG) -> HRESULT;
+        fn Write(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pv: *const void, #[in] cb: ULONG, #[out] #[opt] pcbWritten: *mut ULONG) -> HRESULT;
     }
     #[guid(0x0000000c_0000_0000_c000_000000000046)]
     interface IStream: ISequentialStream {

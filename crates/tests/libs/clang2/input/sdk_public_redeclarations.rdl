@@ -14,7 +14,7 @@ mod Fixture {
     type ULONG = u32;
     type ULONGLONG = u64;
     #[library("KERNEL32.dll")]
-    extern fn VerSetConditionMask(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ConditionMask: ULONGLONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] TypeMask: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Condition: BYTE) -> ULONGLONG;
+    extern fn VerSetConditionMask(#[in] ConditionMask: ULONGLONG, #[in] TypeMask: DWORD, #[in] Condition: BYTE) -> ULONGLONG;
 }
 #[win32]
 mod Fixture {

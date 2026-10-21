@@ -1,4 +1,6 @@
 mod coverage;
+mod function_aliases;
+mod header_contexts;
 #[path = "../../win32/src/headers.rs"]
 mod headers;
 #[cfg(test)]
@@ -140,6 +142,13 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         macro_headers.dedup();
     }
     let resource = std::path::PathBuf::from(helpers::clang_resource_dir());
+    let mut selected_aliases = function_aliases::selection()?;
+    for target in [Target::X86, Target::X64, Target::Arm64] {
+        selected_aliases
+            .entry(target)
+            .or_default()
+            .extend(macros.iter().cloned());
+    }
     let arguments = sdk_arguments(&include, &resource)?;
     let mut inputs = inputs(&headers, &arguments);
     for input in &mut inputs {
@@ -147,31 +156,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         input.macro_headers.clone_from(&macro_headers);
     }
     inputs.extend(guid_inputs(&headers, &arguments));
-    let namespace_headers: Vec<_> = headers
-        .iter()
-        .filter(|header| {
-            matches!(
-                header.as_str(),
-                "memorybuffer.h" | "robuffer.h" | "windows.ui.composition.interop.h"
-            )
-        })
-        .cloned()
-        .collect();
-    for input in &mut inputs {
-        input.namespace_headers = Some(namespace_headers.clone());
-        input.root_paths = Some(
-            ["um", "shared", "cppwinrt"]
-                .iter()
-                .map(|directory| include.join(directory))
-                .chain(
-                    headers
-                        .iter()
-                        .map(|header| include.join("winrt").join(header))
-                        .filter(|path| path.is_file()),
-                )
-                .collect(),
-        );
-    }
+    configure_roots(&mut inputs, &headers, &include);
     let started = Instant::now();
     let scratch = Path::new("target\\win32-2");
     std::fs::create_dir_all(scratch)?;
@@ -194,6 +179,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         helpers::LIBCLANG_VERSION,
         std::env::args().skip(1).collect::<Vec<_>>(),
     );
+    configuration.push_str(&format!(
+        "\nSelected function macro aliases: {selected_aliases:?}\n"
+    ));
     for input in &inputs {
         configuration.push_str(&format!(
             "\nInput: {}\nArguments: {:?}\nMacros: {:?}\nMacro headers: {:?}\nNamespace headers: {:?}\nRoot paths: {:?}\nSource:\n{}\n",
@@ -308,9 +296,23 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         println!("Configuration only; see target\\win32-2\\capture-configuration.txt");
         return Ok(());
     }
+    let function_origins = function_aliases::observe(&captured.snapshots);
+    let excluded_aliases = function_origins
+        .iter()
+        .filter(|((target, name), origin)| {
+            matches!(origin, function_aliases::Origin::Alias(_))
+                && !selected_aliases
+                    .get(target)
+                    .is_some_and(|names| names.contains(name))
+        })
+        .count();
+    println!(
+        "Function alias policy excludes {excluded_aliases} captured target pairs from publication."
+    );
     let options = projection::Options {
         imports: Some(&imports),
         references: Some(&references),
+        function_aliases: Some(&selected_aliases),
     };
     let output = if partial {
         let projection_started = Instant::now();
@@ -383,6 +385,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     for (stem, partition) in &output.partitions {
         std::fs::write(destination.join(format!("{stem}.rdl")), &partition.rdl)?;
     }
+    function_aliases::write(scratch, &function_origins, &output.partitions)?;
     println!(
         "SDK projection: {} records, {} enums, {} aliases, {} constants, {} functions, {} interfaces, {} partitions; capture/merge/project {:.3}s, compile {:.3}s",
         output.records,
@@ -400,6 +403,24 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         destination.display()
     );
     Ok(())
+}
+
+fn configure_roots(inputs: &mut [Input], headers: &[String], include: &Path) {
+    let namespace_headers = header_contexts::namespace_headers(headers);
+    let root_paths: Vec<_> = ["um", "shared", "cppwinrt"]
+        .iter()
+        .map(|directory| include.join(directory))
+        .chain(
+            headers
+                .iter()
+                .map(|header| include.join("winrt").join(header))
+                .filter(|path| path.is_file()),
+        )
+        .collect();
+    for input in inputs {
+        input.namespace_headers = Some(namespace_headers.clone());
+        input.root_paths = Some(root_paths.clone());
+    }
 }
 
 fn sdk_macro_headers(include: &Path, selected: &[String]) -> Result<Vec<String>, std::io::Error> {
@@ -432,7 +453,10 @@ fn sdk_macro_headers(include: &Path, selected: &[String]) -> Result<Vec<String>,
                         format!("SDK header filename is not UTF-8: {name:?}"),
                     )
                 })?;
-                headers.insert(name.to_ascii_lowercase());
+                let name = name.to_ascii_lowercase();
+                if !header_contexts::MACRO_SUPPORT_HEADERS.contains(&name.as_str()) {
+                    headers.insert(name);
+                }
             }
         }
     }
@@ -638,11 +662,17 @@ fn sdk_arguments(include: &Path, resource: &Path) -> Result<Vec<String>, std::io
 }
 
 fn guid_inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
+    let mut source = format!(
+        "#define WIN32_LEAN_AND_MEAN\n#define WIN32_NO_STATUS\n#define INITGUID\n{SUPPORT_PRELUDE}#include <windows.h>\n"
+    );
+    for (selected, include) in header_contexts::LEAN_GUID_HEADERS {
+        if headers.iter().any(|header| header == selected) {
+            source.push_str(&format!("#include <{include}>\n"));
+        }
+    }
     let mut inputs = vec![Input {
         name: "win32-2-guid-definitions.h".into(),
-        source: format!(
-            "#define WIN32_LEAN_AND_MEAN\n#define WIN32_NO_STATUS\n#define INITGUID\n{SUPPORT_PRELUDE}#include <windows.h>\n"
-        ),
+        source,
         arguments: arguments.to_vec(),
         ..Default::default()
     }];
@@ -664,7 +694,7 @@ fn guid_inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
             groups[0].push("shlguid.h");
         }
     }
-    let topology = headers.iter().any(|header| header == "devicetopology.h");
+    let preload = header_contexts::preload(headers);
     for (name, group) in [
         "win32-2-main-guid-definitions.h",
         "win32-2-satellite-guid-definitions.h",
@@ -679,12 +709,10 @@ fn guid_inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
         // The Windows prelude supplies prerequisites in declaration mode.
         let mut source =
             format!("{SUPPORT_PRELUDE}{PRELUDE}#define INITGUID\n#include <guiddef.h>\n");
-        if topology {
-            source.push_str("#include <ks.h>\n");
-        }
+        source.push_str(&preload);
         for header in group {
-            if header == "devicetopology.h" {
-                source.push_str("#define _KS_\n");
+            if let Some(context) = header_contexts::get(header) {
+                source.push_str(context.definition);
             }
             source.push_str(&format!("#include <{header}>\n"));
         }
@@ -719,7 +747,7 @@ fn inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
         .iter()
         .map(String::as_str)
         .partition(|header| headers::SATELLITE_HEADERS.contains(header));
-    let topology = satellite.contains(&"devicetopology.h");
+    let preload = header_contexts::preload(headers);
     let mut inputs = Vec::new();
     for (name, group, reset) in [
         ("win32-2-main.h", main, false),
@@ -731,17 +759,12 @@ fn inputs(headers: &[String], arguments: &[String]) -> Vec<Input> {
         let mut source = format!("{SUPPORT_PRELUDE}{PRELUDE}");
         if reset {
             source.push_str(GUID_RESET);
-        } else if topology {
-            // Load KS before any main header can select devicetopology's fallback types.
-            source.push_str("#include <ks.h>\n");
+        } else {
+            source.push_str(&preload);
         }
         for header in group {
-            if reset && header == "devicetopology.h" {
-                source.push_str("#include <ks.h>\n#define _KS_\n");
-            }
-            if header == "windows.ui.composition.interop.h" {
-                // The interop header only forward-declares its desktop WinRT dependency.
-                source.push_str("#include <windows.ui.composition.desktop.h>\n");
+            if let Some(context) = header_contexts::get(header) {
+                source.push_str(context.declaration);
             }
             source.push_str(&format!("#include <{header}>\n"));
             if reset {
@@ -1189,6 +1212,27 @@ mod tests {
             assert!(headers.iter().any(|header| header == name), "{name}");
         }
         assert!(!headers.iter().any(|header| header == "stdio.h"));
+        for name in header_contexts::MACRO_SUPPORT_HEADERS {
+            assert!(!headers.iter().any(|header| header == name), "{name}");
+        }
+        let explicit_support = sdk_macro_headers(
+            &include,
+            &[
+                "shared\\SpecStrings.h".into(),
+                "RPCSAL.H".into(),
+                "driverspecs.h".into(),
+                "specstrings.h".into(),
+            ],
+        )
+        .unwrap();
+        assert_eq!(
+            explicit_support
+                .iter()
+                .filter(|header| headers.binary_search(header).is_err())
+                .map(String::as_str)
+                .collect::<Vec<_>>(),
+            header_contexts::MACRO_SUPPORT_HEADERS
+        );
         assert!(
             headers
                 .iter()
@@ -1347,13 +1391,18 @@ mod tests {
             let discovered = read_sdk_imports(&directory, target, &mut String::new()).unwrap();
             add_sdk_imports(&mut imports, target, discovered, &evidence, &snapshots).unwrap();
         }
-        let output = projection::project_with_imports(
+        let selected = function_aliases::selection().unwrap();
+        let output = projection::project_with_options(
             &windows_clang2::merge(&snapshots).unwrap(),
             "Fixture",
-            &imports,
+            &projection::Options {
+                imports: Some(&imports),
+                function_aliases: Some(&selected),
+                ..Default::default()
+            },
         )
         .unwrap();
-        assert_eq!(output.functions, 61);
+        assert_eq!(output.functions, 54);
         let actual: String = output
             .partitions
             .values()
@@ -1394,7 +1443,7 @@ mod tests {
             .write()
             .unwrap();
         for path in [&winmd, &again] {
-            for bit in [1, 2, 4] {
+            for (target, bit) in [(Target::X86, 1), (Target::X64, 2), (Target::Arm64, 4)] {
                 let index = windows_metadata::reader::Index::new_for_architecture(
                     vec![windows_metadata::reader::File::read(path).unwrap()],
                     bit,
@@ -1404,8 +1453,12 @@ mod tests {
                     .methods()
                     .map(|method| (method.name(), method))
                     .collect();
-                assert_eq!(methods.len(), 61);
+                assert_eq!(methods.len(), 54);
                 for (alias, native) in &aliases {
+                    if !selected[&target].contains(alias) {
+                        assert!(!methods.contains_key(alias.as_str()), "{alias}");
+                        continue;
+                    }
                     let alias = methods[alias.as_str()];
                     let target = methods[native.as_str()];
                     assert_eq!(alias.signature(&[]), target.signature(&[]));
@@ -1513,6 +1566,23 @@ mod tests {
 
     #[test]
     fn guid_definition_scope() {
+        for (selected, included) in header_contexts::LEAN_GUID_HEADERS {
+            assert!(headers::HEADERS.contains(selected));
+            let inputs = guid_inputs(&[(*selected).into(), (*selected).into()], &[]);
+            assert_eq!(
+                inputs[0]
+                    .source
+                    .matches(&format!("#include <{included}>\n"))
+                    .count(),
+                1
+            );
+            let unrelated = guid_inputs(&["robuffer.h".into()], &[]);
+            assert!(
+                !unrelated[0]
+                    .source
+                    .contains(&format!("#include <{included}>"))
+            );
+        }
         let headers = ["ntddtape.h", "ntddcdrm.h", "ntddstor.h", "devpkey.h"].map(String::from);
         let inputs = guid_inputs(&headers, &[]);
         assert_eq!(inputs.len(), 2);
@@ -1569,6 +1639,7 @@ mod tests {
             .collect();
         let mut inputs = inputs(&headers, &arguments);
         inputs.extend(guid_inputs(&headers, &arguments));
+        configure_roots(&mut inputs, &headers, &include);
         let targets = [Target::X86, Target::X64, Target::Arm64];
         let captured = windows_clang2::capture_partial(&inputs, &targets).unwrap();
         for target in targets {

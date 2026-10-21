@@ -2,9 +2,9 @@
 mod Fixture {
     #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
     #[library("KERNEL32.dll")]
-    extern fn ReadFileScatter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] aSegmentArray: *mut FILE_SEGMENT_ELEMENT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nNumberOfBytesToRead: DWORD, #[reserved] lpReserved: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
+    extern fn ReadFileScatter(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] aSegmentArray: *mut FILE_SEGMENT_ELEMENT, #[in] nNumberOfBytesToRead: DWORD, #[reserved] lpReserved: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
     #[library("KERNEL32.dll")]
-    extern fn WriteFileGather(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] aSegmentArray: *mut FILE_SEGMENT_ELEMENT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nNumberOfBytesToWrite: DWORD, #[reserved] lpReserved: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
+    extern fn WriteFileGather(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hFile: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] aSegmentArray: *mut FILE_SEGMENT_ELEMENT, #[in] nNumberOfBytesToWrite: DWORD, #[reserved] lpReserved: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
 }
 #[win32]
 mod Fixture {

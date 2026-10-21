@@ -1,0 +1,524 @@
+#[win32]
+mod Fixture {
+    type BYTE = u8;
+    type CHAR = i8;
+    type DISPID = i32;
+    type DWORD = u32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    type HRESULT = i32;
+    type INT = i32;
+    type LCID = u32;
+    type LONG = i32;
+    type LONGLONG = i64;
+    #[arch(X64 | Arm64)]
+    type LONG_PTR = i64;
+    #[arch(X86)]
+    type LONG_PTR = i32;
+    type MEMBERID = i32;
+    type SHORT = i16;
+    type UINT = u32;
+    #[arch(X64 | Arm64)]
+    type UINT_PTR = u64;
+    #[arch(X86)]
+    type UINT_PTR = u32;
+    type ULONG = u32;
+    type ULONGLONG = u64;
+    #[arch(X64 | Arm64)]
+    type ULONG_PTR = u64;
+    #[arch(X86)]
+    type ULONG_PTR = u32;
+    type USHORT = u16;
+    type WORD = u16;
+}
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type IID = GUID;
+}
+#[win32]
+mod Fixture {
+    type BOOL = i32;
+    type FLOAT = f32;
+    #[arch(X64 | Arm64)]
+    type LPARAM = i64;
+    #[arch(X86)]
+    type LPARAM = i32;
+    #[arch(X64 | Arm64)]
+    type LRESULT = i64;
+    #[arch(X86)]
+    type LRESULT = i32;
+    #[arch(X64 | Arm64)]
+    type WPARAM = u64;
+    #[arch(X86)]
+    type WPARAM = u32;
+}
+#[win32]
+mod Fixture {
+    #[packed(8)]
+    union BINDPTR {
+        lpfuncdesc: *mut FUNCDESC,
+        lpvardesc: *mut VARDESC,
+        lptcomp: ITypeComp,
+    }
+    #[repr(i32)]
+    enum CALLCONV {
+        CC_FASTCALL = 0,
+        CC_CDECL = 1,
+        CC_MSCPASCAL = 2,
+        CC_PASCAL = 2,
+        CC_MACPASCAL = 3,
+        CC_STDCALL = 4,
+        CC_FPFASTCALL = 5,
+        CC_SYSCALL = 6,
+        CC_MPWCDECL = 7,
+        CC_MPWPASCAL = 8,
+        CC_MAX = 9,
+    }
+    #[repr(i32)]
+    enum DESCKIND {
+        DESCKIND_NONE = 0,
+        DESCKIND_FUNCDESC = 1,
+        DESCKIND_VARDESC = 2,
+        DESCKIND_TYPECOMP = 3,
+        DESCKIND_IMPLICITAPPOBJ = 4,
+        DESCKIND_MAX = 5,
+    }
+    #[packed(8)]
+    struct DISPPARAMS {
+        rgvarg: *mut VARIANTARG,
+        rgdispidNamedArgs: *mut DISPID,
+        cArgs: UINT,
+        cNamedArgs: UINT,
+    }
+    #[packed(8)]
+    struct ELEMDESC {
+        tdesc: TYPEDESC,
+        Anonymous: #[packed(8)] union {
+            idldesc: IDLDESC,
+            paramdesc: PARAMDESC,
+        },
+    }
+    #[packed(8)]
+    struct EXCEPINFO {
+        wCode: WORD,
+        wReserved: WORD,
+        bstrSource: BSTR,
+        bstrDescription: BSTR,
+        bstrHelpFile: BSTR,
+        dwHelpContext: DWORD,
+        pvReserved: PVOID,
+        pfnDeferredFillIn: extern fn(*mut EXCEPINFO) -> HRESULT,
+        scode: SCODE,
+    }
+    #[packed(8)]
+    struct FUNCDESC {
+        memid: MEMBERID,
+        lprgscode: *mut SCODE,
+        lprgelemdescParam: *mut ELEMDESC,
+        funckind: FUNCKIND,
+        invkind: INVOKEKIND,
+        callconv: CALLCONV,
+        cParams: SHORT,
+        cParamsOpt: SHORT,
+        oVft: SHORT,
+        cScodes: SHORT,
+        elemdescFunc: ELEMDESC,
+        wFuncFlags: WORD,
+    }
+    #[repr(i32)]
+    enum FUNCKIND {
+        FUNC_VIRTUAL = 0,
+        FUNC_PUREVIRTUAL = 1,
+        FUNC_NONVIRTUAL = 2,
+        FUNC_STATIC = 3,
+        FUNC_DISPATCH = 4,
+    }
+    type HREFTYPE = u32;
+    #[packed(8)]
+    struct IDLDESC {
+        dwReserved: ULONG_PTR,
+        wIDLFlags: USHORT,
+    }
+    #[guid(0x00020400_0000_0000_c000_000000000046)]
+    interface IDispatch: IUnknown {
+        fn GetTypeInfoCount(&self, #[out] pctinfo: *mut UINT) -> HRESULT;
+        fn GetTypeInfo(&self, iTInfo: UINT, lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
+        fn GetIDsOfNames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(2)] rgszNames: *mut LPOLESTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "0,16384", "0,16384")] cNames: UINT, lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = false)] rgDispId: *mut DISPID) -> HRESULT;
+        fn Invoke(&self, #[in] dispIdMember: DISPID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] lcid: LCID, #[in] wFlags: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDispParams: *mut DISPPARAMS, #[out] #[opt] pVarResult: *mut VARIANT, #[out] #[opt] pExcepInfo: *mut EXCEPINFO, #[out] #[opt] puArgErr: *mut UINT) -> HRESULT;
+    }
+    #[repr(i32)]
+    enum INVOKEKIND {
+        INVOKE_FUNC = 1,
+        INVOKE_PROPERTYGET = 2,
+        INVOKE_PROPERTYPUT = 4,
+        INVOKE_PROPERTYPUTREF = 8,
+    }
+    #[guid(0x0000002f_0000_0000_c000_000000000046)]
+    interface IRecordInfo: IUnknown {
+        fn RecordInit(&self, pvNew: PVOID) -> HRESULT;
+        fn RecordClear(&self, pvExisting: PVOID) -> HRESULT;
+        fn RecordCopy(&self, pvExisting: PVOID, pvNew: PVOID) -> HRESULT;
+        fn GetGuid(&self, pguid: *mut GUID) -> HRESULT;
+        fn GetName(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pbstrName: *mut BSTR) -> HRESULT;
+        fn GetSize(&self, pcbSize: *mut ULONG) -> HRESULT;
+        fn GetTypeInfo(&self, ppTypeInfo: *mut ITypeInfo) -> HRESULT;
+        fn GetField(&self, pvData: PVOID, szFieldName: LPCOLESTR, pvarField: *mut VARIANT) -> HRESULT;
+        fn GetFieldNoCopy(&self, pvData: PVOID, szFieldName: LPCOLESTR, pvarField: *mut VARIANT, ppvDataCArray: *mut PVOID) -> HRESULT;
+        fn PutField(&self, wFlags: ULONG, pvData: PVOID, szFieldName: LPCOLESTR, pvarField: *mut VARIANT) -> HRESULT;
+        fn PutFieldNoCopy(&self, wFlags: ULONG, pvData: PVOID, szFieldName: LPCOLESTR, pvarField: *mut VARIANT) -> HRESULT;
+        fn GetFieldNames(&self, pcNames: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__out_ecount_part", "*pcNames,*pcNames", "*pcNames,*pcNames")] #[out] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 0, IsByteCount = false, Dereference = true)] rgBstrNames: *mut BSTR) -> HRESULT;
+        fn IsMatchingType(&self, pRecordInfo: IRecordInfo) -> BOOL;
+        fn RecordCreate(&self) -> PVOID;
+        fn RecordCreateCopy(&self, pvSource: PVOID, ppvDest: *mut PVOID) -> HRESULT;
+        fn RecordDestroy(&self, pvRecord: PVOID) -> HRESULT;
+    }
+    #[guid(0x00020403_0000_0000_c000_000000000046)]
+    interface ITypeComp: IUnknown {
+        fn Bind(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] szName: LPOLESTR, lHashVal: ULONG, wFlags: WORD, ppTInfo: *mut ITypeInfo, pDescKind: *mut DESCKIND, pBindPtr: *mut BINDPTR) -> HRESULT;
+        fn BindType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] szName: LPOLESTR, lHashVal: ULONG, ppTInfo: *mut ITypeInfo, ppTComp: *mut ITypeComp) -> HRESULT;
+    }
+    #[guid(0x00020401_0000_0000_c000_000000000046)]
+    interface ITypeInfo: IUnknown {
+        fn GetTypeAttr(&self, ppTypeAttr: *mut *mut TYPEATTR) -> HRESULT;
+        fn GetTypeComp(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTComp: *mut ITypeComp) -> HRESULT;
+        fn GetFuncDesc(&self, index: UINT, ppFuncDesc: *mut *mut FUNCDESC) -> HRESULT;
+        fn GetVarDesc(&self, index: UINT, ppVarDesc: *mut *mut VARDESC) -> HRESULT;
+        fn GetNames(&self, memid: MEMBERID, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] rgBstrNames: *mut BSTR, cMaxNames: UINT, #[out] pcNames: *mut UINT) -> HRESULT;
+        fn GetRefTypeOfImplType(&self, index: UINT, #[out] pRefType: *mut HREFTYPE) -> HRESULT;
+        fn GetImplTypeFlags(&self, index: UINT, #[out] pImplTypeFlags: *mut INT) -> HRESULT;
+        fn GetIDsOfNames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] rgszNames: *mut LPOLESTR, cNames: UINT, pMemId: *mut MEMBERID) -> HRESULT;
+        fn Invoke(&self, pvInstance: PVOID, memid: MEMBERID, wFlags: WORD, pDispParams: *mut DISPPARAMS, pVarResult: *mut VARIANT, pExcepInfo: *mut EXCEPINFO, puArgErr: *mut UINT) -> HRESULT;
+        fn GetDocumentation(&self, memid: MEMBERID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDocString: *mut BSTR, pdwHelpContext: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrHelpFile: *mut BSTR) -> HRESULT;
+        fn GetDllEntry(&self, memid: MEMBERID, invKind: INVOKEKIND, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDllName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, pwOrdinal: *mut WORD) -> HRESULT;
+        fn GetRefTypeInfo(&self, hRefType: HREFTYPE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
+        fn AddressOfMember(&self, memid: MEMBERID, invKind: INVOKEKIND, ppv: *mut PVOID) -> HRESULT;
+        fn CreateInstance(&self, pUnkOuter: IUnknown, riid: &IID, #[out] #[iid_is] ppvObj: *mut PVOID) -> HRESULT;
+        fn GetMops(&self, memid: MEMBERID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrMops: *mut BSTR) -> HRESULT;
+        fn GetContainingTypeLib(&self, ppTLib: *mut ITypeLib, pIndex: *mut UINT) -> HRESULT;
+        fn ReleaseTypeAttr(&self, pTypeAttr: *mut TYPEATTR);
+        fn ReleaseFuncDesc(&self, pFuncDesc: *mut FUNCDESC);
+        fn ReleaseVarDesc(&self, pVarDesc: *mut VARDESC);
+    }
+    #[guid(0x00020402_0000_0000_c000_000000000046)]
+    interface ITypeLib: IUnknown {
+        fn GetTypeInfoCount(&self) -> UINT;
+        fn GetTypeInfo(&self, index: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
+        fn GetTypeInfoType(&self, index: UINT, #[out] pTKind: *mut TYPEKIND) -> HRESULT;
+        fn GetTypeInfoOfGuid(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guid: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTinfo: *mut ITypeInfo) -> HRESULT;
+        fn GetLibAttr(&self, ppTLibAttr: *mut *mut TLIBATTR) -> HRESULT;
+        fn GetTypeComp(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTComp: *mut ITypeComp) -> HRESULT;
+        fn GetDocumentation(&self, index: INT, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDocString: *mut BSTR, pdwHelpContext: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrHelpFile: *mut BSTR) -> HRESULT;
+        fn IsName(&self, #[in] #[out] szNameBuf: LPOLESTR, lHashVal: ULONG, pfName: *mut BOOL) -> HRESULT;
+        fn FindName(&self, #[in] #[out] szNameBuf: LPOLESTR, lHashVal: ULONG, ppTInfo: *mut ITypeInfo, rgMemId: *mut MEMBERID, pcFound: *mut USHORT) -> HRESULT;
+        fn ReleaseTLibAttr(&self, pTLibAttr: *mut TLIBATTR);
+    }
+    type LPPARAMDESCEX = *mut tagPARAMDESCEX;
+    #[packed(8)]
+    struct PARAMDESC {
+        pparamdescex: LPPARAMDESCEX,
+        wParamFlags: USHORT,
+    }
+    #[packed(8)]
+    struct SAFEARRAY {
+        cDims: USHORT,
+        fFeatures: USHORT,
+        cbElements: ULONG,
+        cLocks: ULONG,
+        pvData: PVOID,
+        rgsabound: [SAFEARRAYBOUND; 1],
+    }
+    #[packed(8)]
+    struct SAFEARRAYBOUND {
+        cElements: ULONG,
+        lLbound: LONG,
+    }
+    #[repr(i32)]
+    enum SYSKIND {
+        SYS_WIN16 = 0,
+        SYS_WIN32 = 1,
+        SYS_MAC = 2,
+        SYS_WIN64 = 3,
+    }
+    #[packed(8)]
+    struct TLIBATTR {
+        guid: GUID,
+        lcid: LCID,
+        syskind: SYSKIND,
+        wMajorVerNum: WORD,
+        wMinorVerNum: WORD,
+        wLibFlags: WORD,
+    }
+    #[packed(8)]
+    struct TYPEATTR {
+        guid: GUID,
+        lcid: LCID,
+        dwReserved: DWORD,
+        memidConstructor: MEMBERID,
+        memidDestructor: MEMBERID,
+        lpstrSchema: LPOLESTR,
+        cbSizeInstance: ULONG,
+        typekind: TYPEKIND,
+        cFuncs: WORD,
+        cVars: WORD,
+        cImplTypes: WORD,
+        cbSizeVft: WORD,
+        cbAlignment: WORD,
+        wTypeFlags: WORD,
+        wMajorVerNum: WORD,
+        wMinorVerNum: WORD,
+        tdescAlias: TYPEDESC,
+        idldescType: IDLDESC,
+    }
+    #[packed(8)]
+    struct TYPEDESC {
+        Anonymous: #[packed(8)] union {
+            lptdesc: *mut TYPEDESC,
+            lpadesc: *mut tagARRAYDESC,
+            hreftype: HREFTYPE,
+        },
+        vt: VARTYPE,
+    }
+    #[repr(i32)]
+    enum TYPEKIND {
+        TKIND_ENUM = 0,
+        TKIND_RECORD = 1,
+        TKIND_MODULE = 2,
+        TKIND_INTERFACE = 3,
+        TKIND_DISPATCH = 4,
+        TKIND_COCLASS = 5,
+        TKIND_ALIAS = 6,
+        TKIND_UNION = 7,
+        TKIND_MAX = 8,
+    }
+    #[packed(8)]
+    struct VARDESC {
+        memid: MEMBERID,
+        lpstrSchema: LPOLESTR,
+        Anonymous: #[packed(8)] union {
+            oInst: ULONG,
+            lpvarValue: *mut VARIANT,
+        },
+        elemdescVar: ELEMDESC,
+        wVarFlags: WORD,
+        varkind: VARKIND,
+    }
+    type VARIANT = tagVARIANT;
+    type VARIANTARG = tagVARIANT;
+    #[repr(i32)]
+    enum VARKIND {
+        VAR_PERINSTANCE = 0,
+        VAR_STATIC = 1,
+        VAR_CONST = 2,
+        VAR_DISPATCH = 3,
+    }
+    #[packed(8)]
+    struct tagARRAYDESC {
+        tdescElem: TYPEDESC,
+        cDims: USHORT,
+        rgbounds: [SAFEARRAYBOUND; 1],
+    }
+    #[packed(8)]
+    struct tagPARAMDESCEX {
+        cBytes: ULONG,
+        varDefaultValue: VARIANTARG,
+    }
+    #[packed(8)]
+    struct tagVARIANT {
+        Anonymous: #[packed(8)] union {
+            Anonymous: #[packed(8)] struct {
+                vt: VARTYPE,
+                wReserved1: WORD,
+                wReserved2: WORD,
+                wReserved3: WORD,
+                Anonymous: #[packed(8)] union {
+                    llVal: LONGLONG,
+                    lVal: LONG,
+                    bVal: BYTE,
+                    iVal: SHORT,
+                    fltVal: FLOAT,
+                    dblVal: DOUBLE,
+                    boolVal: VARIANT_BOOL,
+                    __OBSOLETE__VARIANT_BOOL: VARIANT_BOOL,
+                    scode: SCODE,
+                    cyVal: CY,
+                    date: DATE,
+                    bstrVal: BSTR,
+                    punkVal: IUnknown,
+                    pdispVal: IDispatch,
+                    parray: *mut SAFEARRAY,
+                    pbVal: *mut BYTE,
+                    piVal: *mut SHORT,
+                    plVal: *mut LONG,
+                    pllVal: *mut LONGLONG,
+                    pfltVal: *mut FLOAT,
+                    pdblVal: *mut DOUBLE,
+                    pboolVal: *mut VARIANT_BOOL,
+                    __OBSOLETE__VARIANT_PBOOL: *mut VARIANT_BOOL,
+                    pscode: *mut SCODE,
+                    pcyVal: *mut CY,
+                    pdate: *mut DATE,
+                    pbstrVal: *mut BSTR,
+                    ppunkVal: *mut IUnknown,
+                    ppdispVal: *mut IDispatch,
+                    pparray: *mut *mut SAFEARRAY,
+                    pvarVal: *mut VARIANT,
+                    byref: PVOID,
+                    cVal: CHAR,
+                    uiVal: USHORT,
+                    ulVal: ULONG,
+                    ullVal: ULONGLONG,
+                    intVal: INT,
+                    uintVal: UINT,
+                    pdecVal: *mut DECIMAL,
+                    pcVal: *mut CHAR,
+                    puiVal: *mut USHORT,
+                    pulVal: *mut ULONG,
+                    pullVal: *mut ULONGLONG,
+                    pintVal: *mut INT,
+                    puintVal: *mut UINT,
+                    Anonymous: #[packed(8)] struct {
+                        pvRecord: PVOID,
+                        pRecInfo: IRecordInfo,
+                    },
+                },
+            },
+            decVal: DECIMAL,
+        },
+    }
+}
+#[win32]
+mod Fixture {
+    const UIA_ButtonControlTypeId: i32 = 50000;
+    const UIA_InvokePatternId: i32 = 10000;
+    const UIA_Invoke_InvokedEventId: i32 = 20009;
+    const UIA_NamePropertyId: i32 = 30005;
+}
+#[win32]
+mod Fixture {
+    type EVENTID = i32;
+    #[guid(0xd6dd68d1_86fd_4332_8666_9abedea2d24c)]
+    interface IRawElementProviderSimple: IUnknown {
+        fn get_ProviderOptions(&self, #[out] #[retval] pRetVal: *mut ProviderOptions) -> HRESULT;
+        fn GetPatternProvider(&self, patternId: PATTERNID, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pRetVal: *mut IUnknown) -> HRESULT;
+        fn GetPropertyValue(&self, propertyId: PROPERTYID, #[out] #[retval] pRetVal: *mut VARIANT) -> HRESULT;
+        fn get_HostRawElementProvider(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+    }
+    type PATTERNID = i32;
+    type PROPERTYID = i32;
+    #[repr(i32)]
+    enum ProviderOptions {
+        ProviderOptions_ClientSideProvider = 1,
+        ProviderOptions_ServerSideProvider = 2,
+        ProviderOptions_NonClientAreaProvider = 4,
+        ProviderOptions_OverrideProvider = 8,
+        ProviderOptions_ProviderOwnsSetFocus = 16,
+        ProviderOptions_UseComThreading = 32,
+        ProviderOptions_RefuseNonClientSupport = 64,
+        ProviderOptions_HasNativeIAccessible = 128,
+        ProviderOptions_UseClientCoordinates = 256,
+    }
+}
+#[win32]
+mod Fixture {
+    #[repr(i32)]
+    enum AutomationIdentifierType {
+        AutomationIdentifierType_Property = 0,
+        AutomationIdentifierType_Pattern = 1,
+        AutomationIdentifierType_Event = 2,
+        AutomationIdentifierType_ControlType = 3,
+        AutomationIdentifierType_TextAttribute = 4,
+        AutomationIdentifierType_LandmarkType = 5,
+        AutomationIdentifierType_Annotation = 6,
+        AutomationIdentifierType_Changes = 7,
+        AutomationIdentifierType_Style = 8,
+    }
+    #[library("UIAutomationCore.DLL")]
+    extern fn UiaClientsAreListening() -> BOOL;
+    #[library("UIAutomationCore.DLL")]
+    extern fn UiaDisconnectProvider(pProvider: IRawElementProviderSimple) -> HRESULT;
+    #[library("UIAutomationCore.DLL")]
+    extern fn UiaGetReservedMixedAttributeValue(punkMixedAttributeValue: *mut IUnknown) -> HRESULT;
+    #[library("UIAutomationCore.DLL")]
+    extern fn UiaGetReservedNotSupportedValue(punkNotSupportedValue: *mut IUnknown) -> HRESULT;
+    #[library("UIAutomationCore.DLL")]
+    extern fn UiaHostProviderFromHwnd(hwnd: HWND, ppProvider: *mut IRawElementProviderSimple) -> HRESULT;
+    #[library("UIAutomationCore.DLL")]
+    extern fn UiaLookupId(r#type: AutomationIdentifierType, pGuid: *const GUID) -> i32;
+    #[library("UIAutomationCore.DLL")]
+    extern fn UiaRaiseAutomationEvent(pProvider: IRawElementProviderSimple, id: EVENTID) -> HRESULT;
+    #[library("UIAutomationCore.DLL")]
+    extern fn UiaRaiseAutomationPropertyChangedEvent(pProvider: IRawElementProviderSimple, id: PROPERTYID, oldValue: VARIANT, newValue: VARIANT) -> HRESULT;
+    #[library("UIAutomationCore.DLL")]
+    extern fn UiaReturnRawElementProvider(hwnd: HWND, wParam: WPARAM, lParam: LPARAM, el: IRawElementProviderSimple) -> LRESULT;
+    const UiaRootObjectId: i32 = -25;
+}
+#[win32]
+mod Fixture {
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn QueryInterface(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+}
+#[win32]
+mod Fixture {
+    type HWND = *mut HWND__;
+    struct HWND__ {
+        unused: i32,
+    }
+}
+#[win32]
+mod Fixture {
+    type PVOID = *mut void;
+    type WCHAR = u16;
+}
+#[win32]
+mod Fixture {
+    type BSTR = *mut u16;
+    #[packed(8)]
+    union CY {
+        Anonymous: #[packed(8)] struct {
+            Lo: ULONG,
+            Hi: LONG,
+        },
+        int64: LONGLONG,
+    }
+    type DATE = f64;
+    #[packed(8)]
+    struct DECIMAL {
+        wReserved: USHORT,
+        Anonymous: #[packed(8)] union {
+            Anonymous: #[packed(8)] struct {
+                scale: BYTE,
+                sign: BYTE,
+            },
+            signscale: USHORT,
+        },
+        Hi32: ULONG,
+        Anonymous2: #[packed(8)] union {
+            Anonymous: #[packed(8)] struct {
+                Lo32: ULONG,
+                Mid32: ULONG,
+            },
+            Lo64: ULONGLONG,
+        },
+    }
+    type VARIANT_BOOL = i16;
+    type VARTYPE = u16;
+}
+#[win32]
+mod Fixture {
+    type DOUBLE = f64;
+    #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_string", "", "")]
+    type LPCOLESTR = *const u16;
+    #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_string", "", "")]
+    type LPOLESTR = *mut u16;
+    type OLECHAR = u16;
+    type SCODE = i32;
+}

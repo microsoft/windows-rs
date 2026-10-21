@@ -4064,7 +4064,7 @@ fn interface_overload_bindings() {
         .output(&winmd)
         .write()
         .unwrap();
-    let bindings = directory.join("lib.rs");
+    let bindings = directory.join("bindings.rs");
     windows_bindgen::builder()
         .input(&winmd)
         .filter("Fixture")
@@ -4072,23 +4072,8 @@ fn interface_overload_bindings() {
         .implement_all()
         .output(&bindings)
         .write();
-    let mut rust = std::fs::read_to_string(&bindings).unwrap();
-    rust.push_str(
-        "\npub fn check_vtable(value: &IOverloaded_Vtbl) {\n\
-         let _: unsafe extern \"system\" fn(*mut core::ffi::c_void, i32) -> i32 = value.Read;\n\
-         let _: unsafe extern \"system\" fn(*mut core::ffi::c_void, f32) -> i32 = value.Read2;\n\
-         let _: unsafe extern \"system\" fn(*mut core::ffi::c_void, i32) -> i32 = value.Read3;\n\
-         }\n\
-         const _: () = {\n\
-         let pointer = core::mem::size_of::<usize>();\n\
-         assert!(core::mem::offset_of!(IOverloaded_Vtbl, Read) == 3 * pointer);\n\
-         assert!(core::mem::offset_of!(IOverloaded_Vtbl, Read2) == 4 * pointer);\n\
-         assert!(core::mem::offset_of!(IOverloaded_Vtbl, Read3) == 5 * pointer);\n\
-         assert!(core::mem::offset_of!(IOverloaded_Vtbl, Tail) == 6 * pointer);\n\
-         assert!(core::mem::size_of::<IOverloaded_Vtbl>() == 7 * pointer);\n\
-         };\n",
-    );
-    std::fs::write(&bindings, rust).unwrap();
+    let library = directory.join("lib.rs");
+    std::fs::copy(input_dir().join("interface_overloads.rs"), &library).unwrap();
     let manifest = directory.join("Cargo.toml");
     std::fs::write(&manifest, format!(
         "[package]\nname = \"test-clang2-interface-overloads\"\nversion = \"0.0.0\"\nedition = \"2024\"\n\
@@ -4116,7 +4101,13 @@ fn interface_overload_bindings() {
             String::from_utf8_lossy(&result.stderr)
         );
     }
-    for path in [winmd, bindings, manifest, directory.join("Cargo.lock")] {
+    for path in [
+        winmd,
+        bindings,
+        library,
+        manifest,
+        directory.join("Cargo.lock"),
+    ] {
         std::fs::remove_file(path).unwrap();
     }
     std::fs::remove_dir(directory).unwrap();

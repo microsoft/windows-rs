@@ -16,6 +16,7 @@ windows-rdl = { workspace = true }
 windows-metadata = { workspace = true }
 
 [dev-dependencies]
+tool-package = { path = "../../../tools/package" }
 windows-bindgen = { workspace = true }
 
 [lints]

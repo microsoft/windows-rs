@@ -15,7 +15,7 @@ mod Windows {
             #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Resize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sizePixels: SIZE) -> HRESULT;
             #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Scroll(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scrollRect: *const RECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clipRect: *const RECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offsetX: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offsetY: i32) -> HRESULT;
+            fn Scroll(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scrollRect: *const RECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clipRect: *const RECT, #[in] offsetX: i32, #[in] offsetY: i32) -> HRESULT;
             #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn ResumeDraw(&self) -> HRESULT;
             #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
@@ -24,7 +24,7 @@ mod Windows {
         #[guid(0x41e64aae_98c0_4239_8e95_a330dd6aa18b)]
         interface ICompositionDrawingSurfaceInterop2: ICompositionDrawingSurfaceInterop {
             #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CopySurface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] destinationResource: IUnknown, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] destinationOffsetX: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] destinationOffsetY: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sourceRectangle: *const RECT) -> HRESULT;
+            fn CopySurface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] destinationResource: IUnknown, #[in] destinationOffsetX: i32, #[in] destinationOffsetY: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sourceRectangle: *const RECT) -> HRESULT;
         }
         #[guid(0xa116ff71_f8bf_4c8a_9c98_70779a32a9c8)]
         interface ICompositionGraphicsDeviceInterop: IUnknown {
@@ -41,9 +41,9 @@ mod Windows {
         #[guid(0x29e691fa_4567_4dca_b319_d0f207eb6807)]
         interface ICompositorDesktopInterop: IUnknown {
             #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn CreateDesktopWindowTarget(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndTarget: HWND, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] isTopmost: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] result: *mut super::UI::Composition::Desktop::IDesktopWindowTarget) -> HRESULT;
+            fn CreateDesktopWindowTarget(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hwndTarget: HWND, #[in] isTopmost: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] result: *mut super::UI::Composition::Desktop::IDesktopWindowTarget) -> HRESULT;
             #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn EnsureOnThread(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] threadId: DWORD) -> HRESULT;
+            fn EnsureOnThread(&self, #[in] threadId: DWORD) -> HRESULT;
         }
         #[guid(0x25297d5c_3ad4_4c9c_b5cf_e36a38512330)]
         interface ICompositorInterop: IUnknown {

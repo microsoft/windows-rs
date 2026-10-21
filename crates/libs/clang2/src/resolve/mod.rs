@@ -1,6 +1,8 @@
 use super::*;
 
 mod enums;
+mod records;
+mod values;
 pub use enums::{EnumGroup, EnumObservationRef, EnumRef};
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -98,6 +100,7 @@ impl Resolution<'_> {
 }
 
 type TypeRef = (usize, TypeId);
+type TypeCheck = (TypeRef, TypeRef, Owner, Owner);
 pub(crate) type TypePair = (TypeRef, TypeRef);
 
 /// Checks all observed definitions for one target without discarding original observations.
@@ -122,19 +125,61 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             "resolve requires the same target, compiler, and arguments".into(),
         ));
     }
+    validate_observation_attributes(&snapshots)?;
+    let mut membership: Vec<Vec<usize>> = snapshots
+        .iter()
+        .map(|snapshot| vec![0; snapshot.records.len()])
+        .collect();
+    let mut pending = Vec::new();
+    let groups = records::groups(&snapshots, &mut membership, &mut pending)?;
+    let mut work = Work::default();
+    let mut types = Vec::new();
+    records::definitions(&snapshots, &membership, pending, &mut work, &mut types)?;
+    let aliases = alias_groups(&snapshots);
+    // Record edges refer to groups whose definitions all have independent obligations above.
+    // No recursive assumption is published unless the entire worklist succeeds.
+    let (enums, enum_groups) = enums::resolve(&snapshots, &mut work)?;
+    let values = values::resolve(&snapshots, &mut types)?;
+    let mut seen = HashSet::new();
+    while let Some((left, right, owner_left, owner_right)) = types.pop() {
+        if !types_equal(&snapshots, left, right, &mut seen, &enum_groups, &|a, b| {
+            membership[a.snapshot][a.record.0] == membership[b.snapshot][b.record.0]
+        }) {
+            return Err(conflict(
+                &snapshots,
+                owner_left,
+                owner_right,
+                "native field types differ",
+            ));
+        }
+    }
+    work.type_pairs = seen.len();
+    Ok(Resolution {
+        snapshots,
+        groups,
+        aliases,
+        enums,
+        values,
+        enum_groups,
+        work,
+        record_groups: membership,
+    })
+}
+
+fn validate_observation_attributes(snapshots: &[&Snapshot]) -> Result<(), Error> {
     for (id, snapshot) in snapshots.iter().enumerate() {
         for (observation, value) in snapshot.observations.iter().enumerate() {
             let owner = Owner::Record(ObservationRef {
                 snapshot: id,
                 observation: ObservationId(observation),
             });
-            attributes(&snapshots, owner, &value.attributes)?;
+            attributes(snapshots, owner, &value.attributes)?;
             if let Some(definition) = &value.definition {
                 for field in &definition.fields {
-                    attributes(&snapshots, owner, &field.attributes)?;
+                    attributes(snapshots, owner, &field.attributes)?;
                 }
                 for method in &definition.methods {
-                    value_attributes(&snapshots, owner, &method.observation)?;
+                    value_attributes(snapshots, owner, &method.observation)?;
                 }
             }
         }
@@ -142,7 +187,7 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             for (observation, value) in value.observations.iter().enumerate() {
                 for parameter in value.parameters.iter().flatten() {
                     attributes(
-                        &snapshots,
+                        snapshots,
                         Owner::Alias(AliasObservationRef {
                             snapshot: id,
                             alias: AliasId(alias),
@@ -152,7 +197,7 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
                     )?;
                 }
                 attributes(
-                    &snapshots,
+                    snapshots,
                     Owner::Alias(AliasObservationRef {
                         snapshot: id,
                         alias: AliasId(alias),
@@ -163,211 +208,10 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             }
         }
     }
-    let mut candidates = BTreeMap::new();
-    for (snapshot, value) in snapshots.iter().enumerate() {
-        for id in 0..value.records.len() {
-            candidates
-                .entry(value.record_identity(RecordId(id)))
-                .or_insert_with(Vec::new)
-                .push(RecordRef {
-                    snapshot,
-                    record: RecordId(id),
-                });
-        }
-    }
-    let mut membership: Vec<Vec<usize>> = snapshots
-        .iter()
-        .map(|snapshot| vec![0; snapshot.records.len()])
-        .collect();
-    let mut groups = Vec::new();
-    let mut work = Work::default();
-    let mut pending = Vec::new();
-    for records in candidates.into_values() {
-        let first = records[0];
-        let first = &snapshots[first.snapshot].records[first.record.0];
-        if records.iter().any(|reference| {
-            !snapshots[reference.snapshot].records[reference.record.0]
-                .kind
-                .compatible(first.kind)
-        }) {
-            return Err(Error(format!(
-                "native record kind differs for `{}`",
-                first.name
-            )));
-        }
-        let mut definitions = Vec::new();
-        if records.iter().any(|reference| {
-            snapshots[reference.snapshot].records[reference.record.0].external != first.external
-        }) {
-            return Err(Error(format!(
-                "native record ownership differs for `{}`",
-                first.name
-            )));
-        }
-        let mut identified: Option<(u128, ObservationRef)> = None;
-        for reference in &records {
-            membership[reference.snapshot][reference.record.0] = groups.len();
-            let snapshot = &snapshots[reference.snapshot];
-            for &id in &snapshot.records[reference.record.0].observations {
-                if let Some(value) = uuid(&snapshot.observations[id.0].attributes) {
-                    let current = ObservationRef {
-                        snapshot: reference.snapshot,
-                        observation: id,
-                    };
-                    if let Some((previous, owner)) = identified
-                        && previous != value
-                    {
-                        return Err(conflict(
-                            &snapshots,
-                            Owner::Record(owner),
-                            Owner::Record(current),
-                            "record UUID differs",
-                        ));
-                    }
-                    identified = Some((value, current));
-                }
-                if snapshot.observations[id.0].definition.is_some() {
-                    definitions.push(ObservationRef {
-                        snapshot: reference.snapshot,
-                        observation: id,
-                    });
-                }
-            }
-        }
-        definitions.sort_by_key(|reference| {
-            let snapshot = &snapshots[reference.snapshot];
-            let location = &snapshot.observations[reference.observation.0].location;
-            (
-                snapshot.input.as_str(),
-                snapshot.files[location.file.0].as_str(),
-                location.offset,
-            )
-        });
-        if let Some(&first) = definitions.first() {
-            let attributes =
-                &snapshots[first.snapshot].observations[first.observation.0].attributes;
-            let required = alignments(attributes);
-            let visible = default_type_visibility(attributes);
-            for reference in &records {
-                let snapshot = &snapshots[reference.snapshot];
-                for &id in &snapshot.records[reference.record.0].observations {
-                    let observation = &snapshot.observations[id.0];
-                    if observation.definition.is_some() {
-                        continue;
-                    }
-                    let reason = if alignments(&observation.attributes)
-                        .iter()
-                        .any(|request| !required.contains(request))
-                    {
-                        "forward alignment request differs"
-                    } else if default_type_visibility(&observation.attributes) && !visible {
-                        "forward type visibility request differs"
-                    } else if no_trivial_auto_var_init(&observation.attributes)
-                        && !no_trivial_auto_var_init(attributes)
-                    {
-                        "forward auto-initialization policy differs"
-                    } else if uuid(&observation.attributes)
-                        .is_some_and(|value| Some(value) != uuid(attributes))
-                    {
-                        "forward UUID differs"
-                    } else {
-                        continue;
-                    };
-                    return Err(conflict(
-                        &snapshots,
-                        Owner::Record(ObservationRef {
-                            snapshot: reference.snapshot,
-                            observation: id,
-                        }),
-                        Owner::Record(first),
-                        reason,
-                    ));
-                }
-            }
-            for &other in &definitions[1..] {
-                pending.push((first, other));
-            }
-        }
-        groups.push(Group {
-            records,
-            definition: definitions.first().copied(),
-        });
-    }
-    let mut types = Vec::new();
-    for (left, right) in pending {
-        work.definition_pairs += 1;
-        let a = snapshots[left.snapshot].observations[left.observation.0]
-            .definition
-            .as_ref()
-            .unwrap();
-        let b = snapshots[right.snapshot].observations[right.observation.0]
-            .definition
-            .as_ref()
-            .unwrap();
-        let conflict = |reason| {
-            conflict(
-                &snapshots,
-                Owner::Record(left),
-                Owner::Record(right),
-                reason,
-            )
-        };
-        if a.layout != b.layout
-            || a.fields.len() != b.fields.len()
-            || a.bases.len() != b.bases.len()
-            || a.methods.len() != b.methods.len()
-            || !attributes_equal(
-                &snapshots[left.snapshot].observations[left.observation.0].attributes,
-                &snapshots[right.snapshot].observations[right.observation.0].attributes,
-            )
-        {
-            return Err(conflict("record layout or field count differs"));
-        }
-        for (&a, &b) in a.bases.iter().zip(&b.bases) {
-            if membership[left.snapshot][a.record.0] != membership[right.snapshot][b.record.0]
-                || a.offset_bits != b.offset_bits
-            {
-                return Err(conflict("native base identities, order, or offsets differ"));
-            }
-        }
-        for (a, b) in a.methods.iter().zip(&b.methods) {
-            if a.pure != b.pure {
-                return Err(conflict("native method purity differs"));
-            }
-            if a.name != b.name
-                || a.slot != b.slot
-                || a.overrides != b.overrides
-                || !value_shape_equal(&a.observation, &b.observation, false)
-            {
-                return Err(conflict("native method names, slots, or attributes differ"));
-            }
-            types.push((
-                (left.snapshot, a.observation.canonical),
-                (right.snapshot, b.observation.canonical),
-                Owner::Record(left),
-                Owner::Record(right),
-            ));
-        }
-        for (x, y) in a.fields.iter().zip(&b.fields) {
-            if x.name != y.name
-                || x.offset_bits != y.offset_bits
-                || x.bit_width != y.bit_width
-                || !field_attributes_equal(x, &a.fields, y, &b.fields)
-            {
-                return Err(conflict(
-                    "field name, order, offset, bit width, or attributes differ",
-                ));
-            }
-            // Typedef names are retained as evidence, but do not create nominal native types.
-            let (a, b) = (x.canonical, y.canonical);
-            types.push((
-                (left.snapshot, a),
-                (right.snapshot, b),
-                Owner::Record(left),
-                Owner::Record(right),
-            ));
-        }
-    }
+    Ok(())
+}
+
+fn alias_groups(snapshots: &[&Snapshot]) -> Vec<AliasGroup> {
     let mut aliases: BTreeMap<&str, Vec<AliasObservationRef>> = BTreeMap::new();
     for (snapshot, value) in snapshots.iter().enumerate() {
         for (id, alias) in value.aliases.iter().enumerate() {
@@ -399,112 +243,7 @@ pub(super) fn resolve_snapshots(snapshots: Vec<&Snapshot>) -> Result<Resolution<
             observations,
         });
     }
-    // Record edges refer to groups whose definitions all have independent obligations above.
-    // No recursive assumption is published unless the entire worklist succeeds.
-    let (enums, enum_groups) = enums::resolve(&snapshots, &mut work)?;
-    let mut values: BTreeMap<(bool, String), Vec<ValueObservationRef>> = BTreeMap::new();
-    for (snapshot, source) in snapshots.iter().enumerate() {
-        for (value, declaration) in source.values.iter().enumerate() {
-            for observation in 0..declaration.observations.len() {
-                let alias = matches!(
-                    declaration.observations[observation].kind,
-                    ValueKind::Function { alias: Some(_), .. }
-                );
-                values
-                    .entry((alias, declaration.name.clone()))
-                    .or_default()
-                    .push(ValueObservationRef {
-                        snapshot,
-                        value: ValueId(value),
-                        observation,
-                    });
-            }
-        }
-    }
-    for observations in values.values_mut() {
-        observations.sort_by_key(|reference| {
-            let snapshot = snapshots[reference.snapshot];
-            let observation =
-                &snapshot.values[reference.value.0].observations[reference.observation];
-            let location = &observation.location;
-            (
-                // A declaration must not hide disagreements between definitions.
-                matches!(observation.kind, ValueKind::Constant { value: None, .. }),
-                snapshot.input.as_str(),
-                snapshot.files[location.file.0].as_str(),
-                location.offset,
-            )
-        });
-        let first = observations[0];
-        let a = &snapshots[first.snapshot].values[first.value.0].observations[first.observation];
-        let mut declaration_linkage = None;
-        for &reference in observations.iter() {
-            let b = &snapshots[reference.snapshot].values[reference.value.0].observations
-                [reference.observation];
-            value_attributes(&snapshots, Owner::Value(reference), b)?;
-            if let ValueKind::Constant {
-                origin: ConstantOrigin::Declaration,
-                linkage,
-                ..
-            } = &b.kind
-            {
-                if let Some((previous, expected)) = declaration_linkage {
-                    if expected != linkage {
-                        return Err(conflict(
-                            &snapshots,
-                            Owner::Value(previous),
-                            Owner::Value(reference),
-                            "native constant linkages differ",
-                        ));
-                    }
-                } else {
-                    declaration_linkage = Some((reference, linkage));
-                }
-            }
-            if !value_shape_equal(a, b, true) {
-                return Err(conflict(
-                    &snapshots,
-                    Owner::Value(first),
-                    Owner::Value(reference),
-                    "native value declarations differ",
-                ));
-            }
-            types.push((
-                (first.snapshot, a.canonical),
-                (reference.snapshot, b.canonical),
-                Owner::Value(first),
-                Owner::Value(reference),
-            ));
-        }
-    }
-    let values = values
-        .into_iter()
-        .map(|((_, name), observations)| ValueGroup { name, observations })
-        .collect();
-    let mut seen = HashSet::new();
-    while let Some((left, right, owner_left, owner_right)) = types.pop() {
-        if !types_equal(&snapshots, left, right, &mut seen, &enum_groups, &|a, b| {
-            membership[a.snapshot][a.record.0] == membership[b.snapshot][b.record.0]
-        }) {
-            return Err(conflict(
-                &snapshots,
-                owner_left,
-                owner_right,
-                "native field types differ",
-            ));
-        }
-    }
-    work.type_pairs = seen.len();
-    Ok(Resolution {
-        snapshots,
-        groups,
-        aliases: alias_groups,
-        enums,
-        values,
-        enum_groups,
-        work,
-        record_groups: membership,
-    })
+    alias_groups
 }
 
 /// Record relations supply independent definition checks; a failed comparison invalidates the pass.
@@ -875,7 +614,8 @@ pub(crate) fn value_shape_equal(a: &ValueObservation, b: &ValueObservation, symb
                 },
             ) => {
                 // Probe storage is synthetic, not the native symbol's linkage.
-                (xo == &ConstantOrigin::Macro || yo == &ConstantOrigin::Macro || x == y)
+                xo == yo
+                    && (xo == &ConstantOrigin::Macro || x == y)
                     && (a.is_none() || b.is_none() || a == b)
             }
             _ => false,

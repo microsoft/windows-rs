@@ -141,7 +141,7 @@ impl CppFn {
             ty.combine_sys(dependencies, reader);
         }
 
-        if let Some(dependency) = self.window_long_dependency() {
+        if let Some(dependency) = self.window_long_dependency(reader) {
             reader
                 .unwrap_full_name(self.namespace, dependency)
                 .combine_sys(dependencies, reader);
@@ -171,7 +171,7 @@ impl CppFn {
         let arches = write_arches(self.method);
         let cfg = self.write_cfg(config);
         let cfg = quote! { #arches #cfg };
-        let window_long = self.write_window_long();
+        let window_long = self.write_window_long(config.reader);
 
         if config.bindgen.style.is_sys() || config.bindgen.style.is_minimal() {
             // `link!` already emits the function-pointer alias unless `--extern` bypasses it.
@@ -316,38 +316,42 @@ impl CppFn {
         }
     }
 
-    /// On 32-bit targets `GetWindowLongPtr*` / `SetWindowLongPtr*` are aliased
-    /// to the non-`Ptr` variants (which is what `write_window_long` emits), so
-    /// those siblings must be generated alongside them.
-    pub fn window_long_dependency(&self) -> Option<&'static str> {
-        match self.method.name() {
-            "GetWindowLongPtrA" => Some("GetWindowLongA"),
-            "GetWindowLongPtrW" => Some("GetWindowLongW"),
-            "SetWindowLongPtrA" => Some("SetWindowLongA"),
-            "SetWindowLongPtrW" => Some("SetWindowLongW"),
-            _ => None,
+    /// Supplies the legacy x86 alias once, only when metadata lacks an x86 declaration.
+    pub fn window_long_dependency(&self, reader: &Reader) -> Option<&'static str> {
+        let dependency = match self.method.name() {
+            "GetWindowLongPtrA" => "GetWindowLongA",
+            "GetWindowLongPtrW" => "GetWindowLongW",
+            "SetWindowLongPtrA" => "SetWindowLongA",
+            "SetWindowLongPtrW" => "SetWindowLongW",
+            _ => return None,
+        };
+        let mut declarations = reader
+            .with_full_name(self.namespace, self.method.name())
+            .filter_map(|ty| match ty {
+                Type::CppFn(function) => Some(function),
+                _ => None,
+            });
+        let first = declarations.next()?;
+        if first != *self
+            || std::iter::once(first).chain(declarations).any(|function| {
+                let arches = function.method.arches();
+                arches == 0 || arches & 1 != 0
+            })
+        {
+            return None;
         }
+        Some(dependency)
     }
 
-    fn write_window_long(&self) -> TokenStream {
-        match self.method.name() {
-            "GetWindowLongPtrA" => quote! {
-                #[cfg(target_pointer_width = "32")]
-                pub use GetWindowLongA as GetWindowLongPtrA;
-            },
-            "GetWindowLongPtrW" => quote! {
-                #[cfg(target_pointer_width = "32")]
-                pub use GetWindowLongW as GetWindowLongPtrW;
-            },
-            "SetWindowLongPtrA" => quote! {
-                #[cfg(target_pointer_width = "32")]
-                pub use SetWindowLongA as SetWindowLongPtrA;
-            },
-            "SetWindowLongPtrW" => quote! {
-                #[cfg(target_pointer_width = "32")]
-                pub use SetWindowLongW as SetWindowLongPtrW;
-            },
-            _ => quote! {},
+    fn write_window_long(&self, reader: &Reader) -> TokenStream {
+        let Some(dependency) = self.window_long_dependency(reader) else {
+            return quote! {};
+        };
+        let dependency = to_ident(dependency);
+        let name = to_ident(self.method.name());
+        quote! {
+            #[cfg(target_pointer_width = "32")]
+            pub use #dependency as #name;
         }
     }
 }
@@ -358,7 +362,7 @@ impl Dependencies for CppFn {
             .method_signature(&[], reader)
             .combine(dependencies, reader);
 
-        let dependency = self.window_long_dependency();
+        let dependency = self.window_long_dependency(reader);
 
         if let Some(dependency) = dependency {
             reader

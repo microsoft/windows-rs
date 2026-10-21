@@ -97,7 +97,7 @@ jobs:
           cargo test -p test_clang2 --test initialization sdk_context -- --ignored &&
           cargo test -p test_clang2 --test annotations -- --include-ignored &&
           cargo test -p test_clang2 --test breadth sdk_import_gaps -- --ignored &&
-          cargo test -p test_clang2 --test sdk_acceptance --test pdh --test scoped_termination -- --ignored &&
+          cargo test -p test_clang2 --test sdk_acceptance --test pdh --test scoped_termination --test sdk_storage_guids --test uia_core_api -- --ignored &&
           cargo test -p test_clang2 --test issue_contracts sdk_ -- --ignored &&
           cargo test -p test_clang2 --test guidless_interfaces sdk_ -- --ignored &&
           cargo test -p test_clang2 --test allocator sdk_allocator -- --ignored
@@ -108,11 +108,14 @@ jobs:
           rustup target add i686-pc-windows-msvc aarch64-pc-windows-msvc &&
           cargo test -p test_clang2 --test named_import_consumers named_import_consumers_cross_targets -- --ignored &&
           cargo test -p test_clang2 --test guidless_interfaces guidless_consumers -- --ignored &&
+          cargo test -p test_clang2 --test breadth interface_overload_bindings -- --ignored &&
           cargo test -p test_clang2 --test bitfields -- --include-ignored &&
           cargo test -p test_clang2 --test fixed_pointers --test native_references -- --include-ignored &&
           cargo test -p test_clang2 --test issue_contracts member_alignment_cross_targets -- --ignored &&
           cargo test -p test_clang2 --test member_alignment_sdk -- --ignored &&
           cargo test -p test_clang2 --test namespaces --test composition_interop -- --include-ignored &&
+          cargo test -p test_clang2 --release --test package_acceptance -- --ignored &&
+          cargo test -p test_bindgen --test package -- --ignored &&
           cargo test -p test_bindgen --test errors invalid_target_bitfield_width -- --ignored
       - name: Check diff
         shell: bash

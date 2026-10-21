@@ -50,5 +50,5 @@ mod Fixture {
     }
     #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
     #[library("WS2_32.dll", import = "#115")]
-    extern fn WSAStartup(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wVersionRequested: WORD, #[out] lpWSAData: LPWSADATA) -> i32;
+    extern fn WSAStartup(#[in] wVersionRequested: WORD, #[out] lpWSAData: LPWSADATA) -> i32;
 }

@@ -10,7 +10,7 @@ mod Windows {
             #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn Resize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sizePixels: SIZE) -> HRESULT;
             #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Scroll(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scrollRect: *const RECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clipRect: *const RECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offsetX: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] offsetY: i32) -> HRESULT;
+            fn Scroll(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scrollRect: *const RECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clipRect: *const RECT, #[in] offsetX: i32, #[in] offsetY: i32) -> HRESULT;
             #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn ResumeDraw(&self) -> HRESULT;
             #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]

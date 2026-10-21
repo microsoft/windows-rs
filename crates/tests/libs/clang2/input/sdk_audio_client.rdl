@@ -2,11 +2,11 @@
 mod Fixture {
     #[guid(0x1cb9ad4c_dbfa_4c32_b178_c2f568a703b2)]
     interface IAudioClient: IUnknown {
-        fn Initialize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ShareMode: AUDCLNT_SHAREMODE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] StreamFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hnsBufferDuration: REFERENCE_TIME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hnsPeriodicity: REFERENCE_TIME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFormat: *const WAVEFORMATEX, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AudioSessionGuid: LPCGUID) -> HRESULT;
+        fn Initialize(&self, #[in] ShareMode: AUDCLNT_SHAREMODE, #[in] StreamFlags: DWORD, #[in] hnsBufferDuration: REFERENCE_TIME, #[in] hnsPeriodicity: REFERENCE_TIME, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFormat: *const WAVEFORMATEX, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AudioSessionGuid: LPCGUID) -> HRESULT;
         fn GetBufferSize(&self, #[out] pNumBufferFrames: *mut UINT32) -> HRESULT;
         fn GetStreamLatency(&self, #[out] phnsLatency: *mut REFERENCE_TIME) -> HRESULT;
         fn GetCurrentPadding(&self, #[out] pNumPaddingFrames: *mut UINT32) -> HRESULT;
-        fn IsFormatSupported(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ShareMode: AUDCLNT_SHAREMODE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFormat: *const WAVEFORMATEX, #[out] #[opt] ppClosestMatch: *mut *mut WAVEFORMATEX) -> HRESULT;
+        fn IsFormatSupported(&self, #[in] ShareMode: AUDCLNT_SHAREMODE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pFormat: *const WAVEFORMATEX, #[out] #[opt] ppClosestMatch: *mut *mut WAVEFORMATEX) -> HRESULT;
         fn GetMixFormat(&self, #[out] ppDeviceFormat: *mut *mut WAVEFORMATEX) -> HRESULT;
         fn GetDevicePeriod(&self, #[out] #[opt] phnsDefaultDevicePeriod: *mut REFERENCE_TIME, #[out] #[opt] phnsMinimumDevicePeriod: *mut REFERENCE_TIME) -> HRESULT;
         fn Start(&self) -> HRESULT;

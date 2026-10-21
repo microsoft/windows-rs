@@ -456,6 +456,19 @@ pub enum ValueKind {
     },
 }
 
+impl ValueKind {
+    pub(crate) fn is_macro(&self) -> bool {
+        matches!(
+            self,
+            Self::Function { alias: Some(_), .. }
+                | Self::Constant {
+                    origin: ConstantOrigin::Macro,
+                    ..
+                }
+        )
+    }
+}
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum CallingConventionOrigin {
     Unknown,

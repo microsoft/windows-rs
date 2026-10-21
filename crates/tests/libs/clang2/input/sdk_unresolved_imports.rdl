@@ -41,7 +41,7 @@ mod Fixture {
     }
     #[library("DNSAPI.dll")]
     #[arch(X64 | Arm64)]
-    extern "C" fn DnsValidateName_W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
+    extern "C" fn DnsValidateName_W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCWSTR, #[in] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
 }
 #[win32]
 mod Fixture {

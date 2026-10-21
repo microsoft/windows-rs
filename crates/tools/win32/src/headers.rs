@@ -132,6 +132,7 @@ pub const HEADERS: &[&str] = &[
     "wcmapi.h",
     "uiautomationcore.h",
     "uiautomationclient.h",
+    "uiautomationcoreapi.h",
     "oleacc.h",
     "msctf.h",
     "textstor.h",

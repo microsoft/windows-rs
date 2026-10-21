@@ -250,16 +250,18 @@ impl Type {
             _ => -1,
         };
 
-        let arches = match self {
+        (kind != 0, self.type_name(), self.arches(), kind)
+    }
+
+    pub fn arches(&self) -> i32 {
+        match self {
             Self::CppFn(ty) => ty.method.arches(),
             Self::CppStruct(ty) => ty.def.arches(),
             Self::CppDelegate(ty) => ty.def.arches(),
             Self::CppEnum(ty) => ty.def.arches(),
             Self::CppConst(ty) => ty.effective_arches(),
             _ => 0,
-        };
-
-        (kind != 0, self.type_name(), arches, kind)
+        }
     }
 
     /// Stable tie-breaker for same-name `--flat` collisions.

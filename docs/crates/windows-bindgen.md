@@ -80,10 +80,18 @@ attribute must not consume metadata using this encoding.
 Field-owned `AlignmentAttribute` raises a member's alignment without wrapping its public type.
 Bindgen emits target-evaluated `MaybeUninit<u8>` padding and raises the record alignment as needed;
 native padding need not be initialized. Padding names avoid authored field names. Records with
-this storage, and their containers, do not derive equality or debug formatting over padding.
+this storage, and their by-value containers, omit Debug, PartialEq, and Eq implementations.
+Storage traversal uses qualified nested type identities, including nested types referenced by
+other records or arrays. Merely declaring or pointing to an aligned nested type does not suppress
+these traits on its owner.
 Packed combinations are unsupported. The clang2 producer rejects by-value callable uses until
 their calling ABI is qualified; correct field offsets alone do not establish that ABI.
 Older generators that ignore member alignment must not consume this metadata.
+
+Legacy x86 `GetWindowLongPtr*`/`SetWindowLongPtr*` aliases are emitted only when no native x86
+declaration exists, once across separate wide-target declarations. Dependency selection follows
+the same rule. Flat package namespace reexports follow their declarations' architecture masks;
+architecture-empty public modules remain available without unused glob reexports.
 
 The bundled Win32 metadata places APIs in `Windows.Win32`. Bare names such as `GetTickCount` and
 qualified names such as `Windows.Win32.GetTickCount` both work. The subsystem paths used by

@@ -254,7 +254,7 @@ impl CombineClosure for Type {
                 for dep_ty in sig.types() {
                     dep_ty.combine_closure(types, reader, references);
                 }
-                if let Some(dependency) = f.window_long_dependency() {
+                if let Some(dependency) = f.window_long_dependency(reader) {
                     reader
                         .unwrap_full_name(f.namespace, dependency)
                         .combine_closure(types, reader, references);

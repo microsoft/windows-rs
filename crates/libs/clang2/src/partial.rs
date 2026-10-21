@@ -6,7 +6,7 @@ pub(crate) enum Key {
     Tag(String),
     Alias(String),
     Value(String),
-    /// Failed macro probes do not exclude native functions with the same spelling.
+    /// Failed macro probes do not exclude native declarations with the same spelling.
     Macro(String),
     Nested(Box<Self>, RecordMember),
 }
@@ -25,15 +25,11 @@ impl Key {
             DeclarationId::Enum(id) => Self::Tag(snapshot.enums[id.0].name.clone()),
             DeclarationId::Value(id) => {
                 let value = &snapshot.values[id.0];
-                if value.observations.iter().any(|observation| {
-                    matches!(
-                        observation.kind,
-                        ValueKind::Constant {
-                            origin: ConstantOrigin::Macro,
-                            ..
-                        } | ValueKind::Function { alias: Some(_), .. }
-                    )
-                }) {
+                if value
+                    .observations
+                    .iter()
+                    .any(|observation| observation.kind.is_macro())
+                {
                     Self::Macro(value.name.clone())
                 } else {
                     Self::Value(value.name.clone())
@@ -296,9 +292,10 @@ fn compact(snapshot: &mut Snapshot, excluded: &BTreeMap<Key, String>, reachable:
         reachable.contains(&Key::of(snapshot, DeclarationId::Value(ValueId(id))))
             && !excluded.contains_key(&Key::Value(value.name.clone()))
             && (!excluded.contains_key(&Key::Macro(value.name.clone()))
-                || value.observations.iter().any(|observation| {
-                    matches!(observation.kind, ValueKind::Function { alias: None, .. })
-                }))
+                || value
+                    .observations
+                    .iter()
+                    .any(|observation| !observation.kind.is_macro()))
     }));
     let declaration = |id| match id {
         DeclarationId::Record(id) => records[id.0].map(|id| DeclarationId::Record(RecordId(id))),

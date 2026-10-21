@@ -201,6 +201,7 @@ fn sdk_compositor_external() {
         &projection::Options {
             references: Some(&references),
             imports: Some(&imports),
+            ..Default::default()
         },
     )
     .unwrap();

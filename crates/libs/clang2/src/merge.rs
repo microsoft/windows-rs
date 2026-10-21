@@ -52,9 +52,8 @@ pub fn merge(snapshots: &[Snapshot]) -> Result<Merged<'_>, Error> {
             let first = value.observations[0];
             let observation = &resolution.snapshots[first.snapshot].values[first.value.0]
                 .observations[first.observation];
-            let alias = matches!(observation.kind, ValueKind::Function { alias: Some(_), .. });
             values
-                .entry((alias, &value.name))
+                .entry((observation.kind.is_macro(), &value.name))
                 .or_default()
                 .insert(target, id);
         }

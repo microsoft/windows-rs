@@ -9,6 +9,38 @@
 
 include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));
 
+#[cfg(target_pointer_width = "32")]
+const _: unsafe fn() -> i32 = package_arches::Windows::Win32::legacy::GetWindowLongPtrA;
+#[cfg(target_pointer_width = "32")]
+const _: unsafe fn() -> i32 = package_arches::Windows::Win32::split_legacy::SetWindowLongPtrW;
+
+#[test]
+fn nested_member_alignment() {
+    use struct_nested_member_alignment::*;
+
+    const {
+        assert!(size_of::<Outer>() == 24);
+        assert!(align_of::<Outer>() == 8);
+        assert!(core::mem::offset_of!(Outer, value) == 8);
+        assert!(size_of::<Outer_0>() == 16);
+        assert!(core::mem::offset_of!(Outer_0, second) == 8);
+        assert!(size_of::<Named>() == 32);
+        assert!(size_of::<External>() == 32);
+        assert!(size_of::<Matrix>() == 64);
+        assert!(size_of::<Named_0>() == 16);
+        assert!(core::mem::offset_of!(Named_0, second) == 8);
+        assert!(size_of::<PointerOnly>() == size_of::<*mut ()>());
+    }
+    let mut value = Outer::default();
+    value.value.second = 42;
+    let copied = value;
+    assert_eq!(copied.value.second, 42);
+    let mut external = External::default();
+    external.values[1].second = 43;
+    assert_eq!(external.values[1].second, 43);
+    assert_eq!(PointerOnly::default(), PointerOnly::default());
+}
+
 #[test]
 fn query_id_is_not_a_guid_buffer() {
     use query_buffers::*;

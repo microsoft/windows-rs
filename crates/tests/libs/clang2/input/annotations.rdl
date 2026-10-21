@@ -1,6 +1,6 @@
 #[win32]
 mod Fixture {
-    extern fn AContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, _Out_writes_bytes_to_(capacity,*written)")] buffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] capacity: u32, #[out] written: *mut u32) -> Status;
+    extern fn AContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, _Out_writes_bytes_to_(capacity,*written)")] buffer: *mut void, #[in] capacity: u32, #[out] written: *mut u32) -> Status;
     #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
     extern "C" fn AResultContract(context: *mut void) -> Status;
     struct BufferView {
@@ -22,7 +22,7 @@ mod Fixture {
     #[library("example.dll")]
     extern "C" fn Conditional(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_(capacity)", "capacity > 0, _Out_writes_(capacity)")] buffer: *mut void, capacity: u32);
     type ContractAddress = *mut AContract;
-    extern fn CopiedContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, _Out_writes_bytes_to_(capacity,*written)")] buffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] capacity: u32, #[out] written: *mut u32) -> Status;
+    extern fn CopiedContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, _Out_writes_bytes_to_(capacity,*written)")] buffer: *mut void, #[in] capacity: u32, #[out] written: *mut u32) -> Status;
     #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "", TypedefName = "AResultContract")]
     extern "C" fn CopiedResult(context: *mut void) -> Status;
     #[Windows::Win32::Metadata::NativeSal("2", "_On_failure_", "_Unchanged_(*value)", "_Unchanged_(*value)")]
@@ -40,7 +40,7 @@ mod Fixture {
     extern "C" fn OptionalResult(#[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] result: *mut *mut void);
     #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
     #[library("example.dll")]
-    extern "C" fn ReadBuffer(#[out] #[opt] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] buffer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] capacity: u32, #[out] #[opt] written: *mut u32) -> Status;
+    extern "C" fn ReadBuffer(#[out] #[opt] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] buffer: *mut void, #[in] capacity: u32, #[out] #[opt] written: *mut u32) -> Status;
     #[library("example.dll")]
     extern "C" fn ReadFixed(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "16", "16")] #[in] values: *const i32);
     #[library("example.dll")]

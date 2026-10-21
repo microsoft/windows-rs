@@ -19,11 +19,11 @@ pub(super) fn write_guid(value: u128) -> TokenStream {
     .unwrap()
 }
 
+pub(super) type Constants<'a> =
+    HashMap<std::borrow::Cow<'a, str>, (&'a TypeKind, Option<Layout>, ConstantValue)>;
+
 pub(super) fn check_constant<'a>(
-    constants: &mut HashMap<
-        std::borrow::Cow<'a, str>,
-        (&'a TypeKind, Option<Layout>, ConstantValue),
-    >,
+    constants: &mut Constants<'a>,
     target: Target,
     name: impl Into<std::borrow::Cow<'a, str>>,
     ty: &'a Type,
@@ -513,15 +513,15 @@ impl Projector<'_, '_> {
                 let ty = self
                     .parameter_ty(snapshot_id, parameter.written, canonical)
                     .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
-                let attributes = annotations::parameter(parameter, parameters, &ty)?;
-                let size = annotations::buffer(
-                    self.resolution.snapshots[snapshot_id],
-                    function,
+                let snapshot = self.resolution.snapshots[snapshot_id];
+                let attributes = annotations::parameter(
+                    parameter,
                     parameters,
-                    index,
                     &ty,
-                )
-                .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
+                    &snapshot.types[canonical.0].kind,
+                )?;
+                let size = annotations::buffer(snapshot, function, parameters, index, &ty)
+                    .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
                 let default = parameter.default.as_ref().map(|value| {
                     let expression = &value.expression;
                     quote! { #[Windows::Win32::Metadata::NativeDefaultArgument(#expression)] }

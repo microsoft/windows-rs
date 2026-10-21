@@ -2,7 +2,7 @@
 mod Fixture {
     type TRACELOGGER_HANDLE = u64;
     #[library("ADVAPI32.dll")]
-    extern "C" fn TraceMessage(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LoggerHandle: TRACELOGGER_HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageFlags: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageGuid: LPCGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageNumber: USHORT, ...) -> ULONG;
+    extern "C" fn TraceMessage(#[in] LoggerHandle: TRACELOGGER_HANDLE, #[in] MessageFlags: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageGuid: LPCGUID, #[in] MessageNumber: USHORT, ...) -> ULONG;
 }
 #[win32]
 mod Fixture {
@@ -524,16 +524,16 @@ mod Fixture {
 #[win32]
 mod Fixture {
     #[library("SETUPAPI.dll")]
-    extern "C" fn SetupWriteTextLog(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LogToken: SP_LOG_TOKEN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Category: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageStr: PCSTR, ...);
+    extern "C" fn SetupWriteTextLog(#[in] LogToken: SP_LOG_TOKEN, #[in] Category: DWORD, #[in] Flags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageStr: PCSTR, ...);
     #[library("SETUPAPI.dll")]
-    extern "C" fn SetupWriteTextLogError(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LogToken: SP_LOG_TOKEN, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Category: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] LogFlags: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] Error: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageStr: PCSTR, ...);
+    extern "C" fn SetupWriteTextLogError(#[in] LogToken: SP_LOG_TOKEN, #[in] Category: DWORD, #[in] LogFlags: DWORD, #[in] Error: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] MessageStr: PCSTR, ...);
 }
 #[win32]
 mod Fixture {
     #[library("SHLWAPI.dll")]
-    extern "C" fn wnsprintfA(#[out] #[len_param(1)] pszDest: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFmt: PCSTR, ...) -> i32;
+    extern "C" fn wnsprintfA(#[out] #[len_param(1)] pszDest: PSTR, #[in] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFmt: PCSTR, ...) -> i32;
     #[library("SHLWAPI.dll")]
-    extern "C" fn wnsprintfW(#[out] #[len_param(1)] pszDest: PWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFmt: PCWSTR, ...) -> i32;
+    extern "C" fn wnsprintfW(#[out] #[len_param(1)] pszDest: PWSTR, #[in] cchDest: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszFmt: PCWSTR, ...) -> i32;
 }
 #[win32]
 mod Fixture {

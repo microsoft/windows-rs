@@ -241,7 +241,7 @@ impl CppStruct {
                         pub #padding: [core::mem::MaybeUninit<u8>; {
                             let offset = 0usize;
                             #layout
-                            let natural = core::mem::align_of::<#ty>();
+                            let natural = ::core::mem::align_of::<#ty>();
                             let required = if natural < #alignment { #alignment } else { natural };
                             ((offset + required - 1) & !(required - 1))
                                 - ((offset + natural - 1) & !(natural - 1))
@@ -256,10 +256,10 @@ impl CppStruct {
                         quote! { let alignment = if alignment < #alignment { #alignment } else { alignment }; }
                     });
                     layout.extend(quote! {
-                        let alignment = core::mem::align_of::<#ty>();
+                        let alignment = ::core::mem::align_of::<#ty>();
                         #requested
                         let offset = ((offset + alignment - 1) & !(alignment - 1))
-                            + core::mem::size_of::<#ty>();
+                            + ::core::mem::size_of::<#ty>();
                     });
                 }
                 quote! { #padding pub #name: #ty, }
@@ -477,18 +477,19 @@ impl CppStruct {
         self.def
             .fields()
             .map(move |field| field.field_type(Some(self), reader))
-            .filter_map(|ty| match ty {
-                Type::CppStruct(ty) => Some(ty),
-                Type::ArrayFixed(ty, _) => {
-                    if let Type::CppStruct(ty) = *ty {
-                        Some(ty)
-                    } else {
-                        None
+            .filter_map(|mut ty| {
+                loop {
+                    match ty {
+                        Type::CppStruct(ty) => return Some(ty),
+                        Type::ArrayFixed(inner, _) => ty = *inner,
+                        _ => return None,
                     }
                 }
-                _ => None,
             })
-            .flat_map(|ty| reader.with_full_name(ty.def.namespace(), ty.def.name()))
+            .flat_map(|ty| {
+                let name = ty.def.full_name();
+                reader.with_full_name(&name.namespace, &name.name)
+            })
             .filter_map(|ty| {
                 if let Type::CppStruct(ty) = ty {
                     Some(ty)

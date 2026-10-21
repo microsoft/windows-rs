@@ -164,6 +164,12 @@ Terminated ASCII and UTF-16 arrays publish strings with explicit encodings, pres
 zeros and padding. Typed constant declarations retain their native evidence and reconcile with
 definitions in the same or another input. Definitions must agree on type, linkage, contracts, and
 value; a missing initializer is distinct from an invalid initializer.
+Native and macro constants retain separate identities. Failed macros cannot erase same-named
+native constants; conflicts within each identity still fail. Strict publication rejects public
+collisions, while partial publication retains the defined native constant and reports the omitted
+macro. If the native object has only declarations, partial publication may emit an independently
+captured constant macro while reporting the missing native definition. This does not define the
+native object; failed native definitions cannot enable macro substitution.
 Macros are evaluated after the input and retain native definition ownership and written typedefs,
 including selected string and GUID expressions. `Input.macro_headers` discovers object-like macros
 in selected header filenames. Isolated compiler probes report invalid expressions without accepting
@@ -248,6 +254,9 @@ Seven direct RPC SAL aliases share this normalization. RPC input forms emit
 `ReadOnly = true` for their additional read-access contract. Pointer arguments are non-null unless
 optional. Neither value changes native qualifiers or implies a count, and false does not require
 writable storage. Composed contracts retain raw evidence.
+By-value scalar and enum parameters omit `NativeInput`, including through typedefs, while retaining
+input direction and native SAL reconciliation. Pointer-backed handles, pointers, references, COM
+objects and records keep their input attributes.
 RPC dereferenced-pointer forms lower outer direction and optionality without confusing inner-pointer
 nullability with optional argument storage. RPC output-pointer aliases, four SAL1 aliases, and ten
 SAL2 out-pointer forms replace fully represented evidence with `NativeReturnedPointerAttribute`:
@@ -361,9 +370,12 @@ Failed macro probes exclude macro values across targets, not observed native fun
 the same spelling. Native declaration failures and known-conflict checks retain their own scope.
 
 Selected object-like macros can also expose function aliases. A compiler-proven direct function
-reference preserves its native target, signature, parameters, and annotations. Both names remain
-public and use the native target's DLL/export mapping; publication does not infer targets from
-macro spelling or copy baseline signatures. Pointer expressions, casts, and calls are not aliases.
+reference preserves its native target, signature, parameters, and annotations. Published aliases
+use the native target's DLL/export mapping; publication does not infer targets from macro spelling
+or copy baseline signatures. `projection::Options::function_aliases` can restrict publication by
+target and name without changing native declarations or reconciliation. The SDK driver selects
+required compatibility aliases explicitly rather than publishing every discovered alias.
+Pointer expressions, casts, and calls are not aliases.
 
 Fixtures, inspection, and scaling live in `test_clang2`. See
 [crate notes](../../../docs/crates/windows-clang2.md) for commands.
