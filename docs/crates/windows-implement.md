@@ -8,8 +8,8 @@
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/implement)
 
 `windows-implement` provides `#[implement]`. The macro builds the vtables, identity object,
-reference count, `QueryInterface` routing, and conversions needed to expose a Rust struct through
-one or more generated interfaces.
+reference count, `QueryInterface` routing, and conversions needed to expose a Rust struct or enum
+through one or more generated interfaces.
 
 ## Intended audience
 
@@ -33,6 +33,10 @@ See [`windows-core`](windows-core.md) for a compact end-to-end example.
 For `#[implement(IValue)] struct Value`, the interface declaration or generated bindings provide an
 `IValue_Impl` trait. The macro creates a `Value_Impl` wrapper. Implement the generated trait for
 that wrapper, then convert the original `Value` into an interface type.
+
+Enums use the same wrapper and ownership model. Match on `&**self` in an implementation method to
+access the variants and their data. Type and variant attributes, generics, and where clauses are
+preserved.
 
 For an inherited interface, implement the `*_Impl` traits required by the interface and its parent
 chain. List each independently exposed interface in `#[implement(...)]`; do not list a base merely
@@ -107,7 +111,7 @@ interfaces, agility, and error propagation.
   temporary raw pointers that outlive their owner.
 - `cast` success is governed by the interface list and inheritance graph generated into
   `QueryInterface`.
-- Generic constraints from the annotated struct are carried into the generated wrapper. Keep them
+- Generic constraints from the annotated type are carried into the generated wrapper. Keep them
   compatible with every generated `*_Impl` trait.
 
 When procedural macros are disabled, `windows-core::implement_decl!` covers the common always-agile
@@ -119,8 +123,8 @@ grammar reference.
 ## Internal documentation
 
 `windows-implement` is a `syn`/`quote` procedural macro crate. `src/lib.rs` parses the annotated
-struct, interface list, generics, `Agile`, and `TrustLevel` options. `src/gen.rs` emits the wrapper,
-vtable chains, identity and reference-counting implementation, interface conversions, and
+struct or enum, interface list, generics, `Agile`, and `TrustLevel` options. `src/gen.rs` emits the
+wrapper, vtable chains, identity and reference-counting implementation, interface conversions, and
 `QueryInterface` routing.
 
 The crate depends on the `*_Impl` traits and vtable constructors emitted by

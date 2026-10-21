@@ -273,12 +273,21 @@ fn gen_impl_compose(inputs: &ImplementInputs) -> syn::Item {
     let generics = &inputs.generics;
     let generics_idents = &inputs.generics_idents;
     let constraints = &inputs.constraints;
+    let mut lifetime = syn::Lifetime::new("'a", proc_macro2::Span::call_site());
+    while inputs
+        .original_type
+        .generics
+        .lifetimes()
+        .any(|param| param.lifetime.ident == lifetime.ident)
+    {
+        lifetime.ident = quote::format_ident!("{}_", lifetime.ident);
+    }
 
     parse_quote! {
         impl #generics ::windows_core::Compose for #original_ident::#generics_idents where #constraints {
-            unsafe fn compose<'a>(
+            unsafe fn compose<#lifetime>(
                 implementation: Self,
-            ) -> (::windows_core::IInspectable, &'a mut ::core::option::Option<::windows_core::IInspectable>) {
+            ) -> (::windows_core::IInspectable, &#lifetime mut ::core::option::Option<::windows_core::IInspectable>) {
                 unsafe {
                     let inspectable: ::windows_core::IInspectable = implementation.into();
                     // The IInspectable points at the `identity` field; `base` lives at

@@ -10,7 +10,7 @@ use r#gen::gen_all;
 #[cfg(test)]
 mod tests;
 
-/// Implements one or more COM interfaces.
+/// Implements one or more COM interfaces for a struct or enum.
 ///
 /// ```
 /// use windows_core::*;
@@ -48,10 +48,14 @@ fn implement_core(
         Ok(a) => a,
         Err(e) => return e.into_compile_error(),
     };
-    let original_type = match syn::parse2::<syn::ItemStruct>(item_tokens) {
+    let original_type = match syn::parse2::<syn::DeriveInput>(item_tokens) {
         Ok(t) => t,
         Err(e) => return e.into_compile_error(),
     };
+    if let syn::Data::Union(union) = &original_type.data {
+        return syn::Error::new_spanned(union.union_token, "expected a struct or enum")
+            .into_compile_error();
+    }
 
     let inputs = ImplementInputs {
         original_ident: original_type.ident.clone(),
@@ -109,7 +113,7 @@ fn implement_core(
 /// This provides the inputs to the `gen_*` functions, which generate the proc macro output.
 struct ImplementInputs {
     /// The user's type that was marked with `#[implement]`.
-    original_type: syn::ItemStruct,
+    original_type: syn::DeriveInput,
 
     /// The identifier for the user's original type definition.
     original_ident: syn::Ident,

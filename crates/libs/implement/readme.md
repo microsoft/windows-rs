@@ -3,6 +3,9 @@
 The [windows-implement](https://crates.io/crates/windows-implement) crate provides the
 `#[implement]` macro for implementing COM and WinRT interfaces in Rust.
 
+Apply it to a struct or enum. For an enum, match on `&**self` in the implementation methods to
+access its variants through the generated wrapper.
+
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-implement.md)
 

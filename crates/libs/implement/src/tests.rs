@@ -282,3 +282,22 @@ fn namespaced_interface() {
         ],
     );
 }
+
+#[test]
+fn union_is_rejected() {
+    let output = crate::implement_core(
+        quote!(IFoo),
+        quote! {
+            union Value {
+                number: u32,
+            }
+        },
+    );
+    let error: syn::ItemMacro = syn::parse2(output).unwrap();
+    assert_eq!(
+        error.mac.path.segments.last().unwrap().ident,
+        "compile_error"
+    );
+    let message: syn::LitStr = syn::parse2(error.mac.tokens).unwrap();
+    assert_eq!(message.value(), "expected a struct or enum");
+}
