@@ -57,15 +57,21 @@ fn changes_and_reopens(ui: &Automation, initial: &str) -> Result<()> {
         assert!(unsafe { ui.client.CompareElements(&original, &current)?.as_bool() });
     }
     for theme in ["Dark", "Light"] {
-        ui.invoke("CloseButton")?;
-        ui.gone("scheme")?;
+        close(ui)?;
         ui.invoke(&format!("window-{}", theme.to_lowercase()))?;
         ui.invoke("open")?;
         let current = follows_owner(ui, theme)?;
         assert!(unsafe { ui.client.CompareElements(&original, &current)?.as_bool() });
     }
+    close(ui)
+}
+
+// UIA drops the dialog content when the close animation starts, but `on_closed` runs after it
+// ends. Wait for the app to observe the close so a later `open` is not absorbed by the old state.
+fn close(ui: &Automation) -> Result<()> {
     ui.invoke("CloseButton")?;
-    ui.gone("scheme")
+    ui.gone("scheme")?;
+    ui.name("dialog-state", "Closed")
 }
 
 #[test]
