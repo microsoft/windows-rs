@@ -27,13 +27,13 @@ mod Fixture {
 #[win32]
 mod Fixture {
     #[library("d3dcompiler_47.dll")]
-    extern fn D3DCompile(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: SIZE_T, #[opt] pSourceName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(pDefines->Name != 0)", "_Inexpressible_(pDefines->Name != 0)")] #[opt] pDefines: *const D3D_SHADER_MACRO, #[opt] pInclude: ID3DInclude, #[opt] pEntrypoint: LPCSTR, pTarget: LPCSTR, Flags1: UINT, Flags2: UINT, ppCode: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
+    extern fn D3DCompile(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] #[opt] pSourceName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(pDefines->Name != 0)", "_Inexpressible_(pDefines->Name != 0)")] #[in] #[opt] pDefines: *const D3D_SHADER_MACRO, #[in] #[opt] pInclude: ID3DInclude, #[in] #[opt] pEntrypoint: LPCSTR, #[in] pTarget: LPCSTR, #[in] Flags1: UINT, #[in] Flags2: UINT, #[out] ppCode: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
 }
 #[win32]
 mod Fixture {
     type CHAR = i8;
     type DWORD = u32;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    #[success(return >= 0)]
     type HRESULT = i32;
     #[arch(X64 | Arm64)]
     type SIZE_T = u64;
@@ -67,22 +67,22 @@ mod Fixture {
 mod Fixture {
     #[guid(0x0000010c_0000_0000_c000_000000000046)]
     interface IPersist: IUnknown {
-        fn GetClassID(&self, pClassID: *mut CLSID) -> HRESULT;
+        fn GetClassID(&self, #[out] pClassID: *mut CLSID) -> HRESULT;
     }
     #[guid(0x0000010b_0000_0000_c000_000000000046)]
     interface IPersistFile: IPersist {
         fn IsDirty(&self) -> HRESULT;
-        fn Load(&self, pszFileName: LPCOLESTR, dwMode: DWORD) -> HRESULT;
-        fn Save(&self, #[opt] pszFileName: LPCOLESTR, fRemember: BOOL) -> HRESULT;
-        fn SaveCompleted(&self, #[opt] pszFileName: LPCOLESTR) -> HRESULT;
-        fn GetCurFile(&self, #[out_ptr] ppszFileName: *mut LPOLESTR) -> HRESULT;
+        fn Load(&self, #[in] pszFileName: LPCOLESTR, dwMode: DWORD) -> HRESULT;
+        fn Save(&self, #[in] #[opt] pszFileName: LPCOLESTR, fRemember: BOOL) -> HRESULT;
+        fn SaveCompleted(&self, #[in] #[opt] pszFileName: LPCOLESTR) -> HRESULT;
+        fn GetCurFile(&self, #[out] #[out_ptr] ppszFileName: *mut LPOLESTR) -> HRESULT;
     }
 }
 #[win32]
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

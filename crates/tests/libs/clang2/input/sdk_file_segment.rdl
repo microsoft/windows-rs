@@ -9,7 +9,7 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    extern "C" fn SegmentConsumer(segments: *mut FILE_SEGMENT_ELEMENT);
+    extern "C" fn SegmentConsumer(#[out] segments: *mut FILE_SEGMENT_ELEMENT);
 }
 #[win32]
 mod Fixture {

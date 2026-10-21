@@ -5,5 +5,5 @@ mod Test {
         y: i32,
     }
     #[library("test.dll")]
-    extern "C" fn UsePoint(value: *mut Point);
+    extern "C" fn UsePoint(#[out] value: *mut Point);
 }

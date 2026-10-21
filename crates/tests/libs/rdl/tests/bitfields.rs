@@ -3,7 +3,7 @@ use windows_metadata::{HasAttributes, reader};
 const SCHEMA: &str = r#"
 #[win32] mod Windows { mod Win32 { mod Metadata {
     attribute NativeBitfieldAttribute {
-        fn(name: String, offset: i64, width: i64);
+        fn(#[in] name: String, #[in] offset: i64, #[in] width: i64);
         MemberType: Type,
         Future: bool,
     }

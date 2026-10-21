@@ -7,7 +7,7 @@ mod Fixture {
     #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
     extern fn HSTRING_UserMarshal(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pFlags: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] pBuffer: *mut UCHAR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] ppidl: *mut HSTRING) -> *mut UCHAR;
     #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-    extern fn HSTRING_UserSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pFlags: *mut ULONG, StartingSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] ppidl: *mut HSTRING) -> ULONG;
+    extern fn HSTRING_UserSize(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pFlags: *mut ULONG, #[in] StartingSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] ppidl: *mut HSTRING) -> ULONG;
     #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
     extern fn HSTRING_UserUnmarshal(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pFlags: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_xcount", "0", "0")] #[in] pBuffer: *mut UCHAR, #[out] ppidl: *mut HSTRING) -> *mut UCHAR;
     type UCHAR = u8;
@@ -36,7 +36,7 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    extern fn PERFLIBREQUEST(RequestCode: ULONG, Buffer: PVOID, BufferSize: ULONG) -> ULONG;
+    extern fn PERFLIBREQUEST(#[in] RequestCode: ULONG, #[in] Buffer: PVOID, #[in] BufferSize: ULONG) -> ULONG;
     #[library("ADVAPI32.dll")]
     extern fn PerfStartProvider(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ProviderGuid: LPGUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] ControlCallback: PERFLIBREQUEST, #[out] Provider: PHANDLE) -> ULONG;
 }

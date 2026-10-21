@@ -1,7 +1,7 @@
 #[win32]
 mod Fixture {
     const CTRL_C_EVENT: i32 = 0;
-    extern fn PHANDLER_ROUTINE(CtrlType: DWORD) -> BOOL;
+    extern fn PHANDLER_ROUTINE(#[in] CtrlType: DWORD) -> BOOL;
 }
 #[win32]
 mod Fixture {
@@ -10,7 +10,7 @@ mod Fixture {
     #[library("kernel32.dll")]
     extern fn GetLastError() -> DWORD;
     #[library("kernel32.dll")]
-    extern fn SetLastError(dwErrCode: DWORD);
+    extern fn SetLastError(#[in] dwErrCode: DWORD);
 }
 #[win32]
 mod Fixture {
@@ -44,7 +44,7 @@ mod Fixture {
 #[win32]
 mod Fixture {
     #[library("user32.dll")]
-    extern fn SetWinEventHook(eventMin: DWORD, eventMax: DWORD, #[opt] hmodWinEventProc: HMODULE, pfnWinEventProc: WINEVENTPROC, idProcess: DWORD, idThread: DWORD, dwFlags: DWORD) -> HWINEVENTHOOK;
-    extern fn WINEVENTPROC(hWinEventHook: HWINEVENTHOOK, event: DWORD, hwnd: HWND, idObject: LONG, idChild: LONG, idEventThread: DWORD, dwmsEventTime: DWORD);
+    extern fn SetWinEventHook(#[in] eventMin: DWORD, #[in] eventMax: DWORD, #[in] #[opt] hmodWinEventProc: HMODULE, #[in] pfnWinEventProc: WINEVENTPROC, #[in] idProcess: DWORD, #[in] idThread: DWORD, #[in] dwFlags: DWORD) -> HWINEVENTHOOK;
+    extern fn WINEVENTPROC(#[in] hWinEventHook: HWINEVENTHOOK, #[in] event: DWORD, #[in] hwnd: HWND, #[in] idObject: LONG, #[in] idChild: LONG, #[in] idEventThread: DWORD, #[in] dwmsEventTime: DWORD);
     const WINEVENT_OUTOFCONTEXT: i32 = 0;
 }

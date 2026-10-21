@@ -1,13 +1,13 @@
 #[win32]
 mod Fixture {
-    extern "C" fn Buffer(#[in] raw: *mut void, handle: Handle, reference: &ValueAlias);
+    extern "C" fn Buffer(#[in] raw: *mut void, #[in] handle: Handle, #[in] reference: &ValueAlias);
     #[library("example.dll")]
-    extern "C" fn BufferFunction(#[in] raw: *mut void, handle: Handle, reference: &ValueAlias);
+    extern "C" fn BufferFunction(#[in] raw: *mut void, #[in] handle: Handle, #[in] reference: &ValueAlias);
     type Handle = *mut Handle__;
     struct Handle__ {}
     #[guid(0x22222222_2222_2222_2222_222222222222)]
     interface IBuffer {
-        fn Read(&self, #[in] raw: *mut void, handle: Handle, reference: &ValueAlias);
+        fn Read(&self, #[in] raw: *mut void, #[in] handle: Handle, #[in] reference: &ValueAlias);
     }
     struct Value {
         data: i32,

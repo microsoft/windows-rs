@@ -1,8 +1,8 @@
 #[win32]
 mod Test {
-    extern "C" fn CALLBACK(input: *const LPVOID, output: *mut *mut void);
+    extern "C" fn CALLBACK(#[in] input: *const LPVOID, #[out] output: *mut *mut void);
     #[library("test.dll")]
-    extern "C" fn Compare(direct: *mut void, output: *mut *mut void, input: *const PVOID, handle: HANDLE, view: VIEW);
+    extern "C" fn Compare(#[out] direct: *mut void, #[out] output: *mut *mut void, #[in] input: *const PVOID, #[in] handle: HANDLE, #[in] view: VIEW);
     type HANDLE = *mut void;
     type LPVOID = *mut void;
     type PVOID = *mut void;

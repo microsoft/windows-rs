@@ -5,5 +5,5 @@ mod Records {
         value: u32,
     }
     #[library("test.dll")]
-    extern "C" fn UseShared(value: SHARED);
+    extern "C" fn UseShared(#[in] value: SHARED);
 }

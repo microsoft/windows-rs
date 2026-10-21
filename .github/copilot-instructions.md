@@ -382,11 +382,23 @@ references. Qualification review must not hold up unrelated breadth work.
 Keep annotation interpretation bounded: preserve owner and evidence, and expand semantic lowering
 only when a concrete API or consumer requires it.
 
+RDL direction is explicit: known In/Out flags are always written, and missing direction has no
+attribute. Do not infer direction from types or emit `direction(unspecified)`.
+Complementary pointer-null `_When_` branches publish
+only common direction/optionality facts and retain both conditions. RegQueryValueExA/W's count
+remains conditionally input; shared out/opt flags do not authorize an output-only conversion.
+
 Direct, unscoped, argument-free SAL2 result checking on imports, methods and named callbacks emits
 `#[must_use]`. Callback aliases inherit the contract; duplicate annotations emit one marker.
 Parameter/global inspection, scoped annotations and success predicates remain separate evidence.
 Native SAL identities still participate in reconciliation; canonical result use does not promise
 Rust diagnostics or reproduce SAL dataflow analysis.
+
+Bounded success predicates emit `#[success(return == 0)]`, `!= 0`, `== 1`, `>= 0` or `> 0`
+through enum-valued SuccessConditionAttribute. Native type checks guard lowering; do not turn
+ordered pointer comparisons, complex expressions or competing defaults into interpreted contracts.
+Value aliases preserve links to return-default owners, including annotations from other inputs.
+Callable conditions override typedef defaults; neither means automatic Rust Result conversion.
 
 Use these slices to assess whether the shared architecture remains simpler and preserves more
 native information across equivalent responsibilities. Record/alias counts alone cannot establish
@@ -428,9 +440,23 @@ Incomplete unions, classes, nested records, and layout/UUID-attributed forwards 
 contract names, source-hook arguments, and further macro expansion in `NativeSalAttribute`.
 These strings are evidence, not evaluated expressions or guaranteed original header tokens.
 Common direction/argument-optionality flags are projected; result nullability is distinct.
-Direct named integer capacities emit `size_param` for bytes and `len_param` for elements through
-the shared function/callback/method parameter path. Capacity is not initialized length; indirect,
-compound, constant, and conditional expressions retain SAL evidence without guessed relationships.
+Buffer contracts use named `readable`/`writable` RDL backed by `BufferExtentAttribute`. Keep entry,
+success and valid-record phases separate. Native counts support integer parameters, one dereference
+and direct sibling fields; `bytes(...)` selects byte units. Full SAL buffers use `on_entry(*count)` for
+successful lengths tied to entry values. Null fallbacks remain `or(*written, capacity)`.
+Struct fields use `readable(length)` and `writable(capacity)` without a phase argument; their owner
+establishes valid-record state. Parameter contracts keep explicit `entry` or `success`.
+Returned-buffer SAL2 forms use indirect success extents. Capacity-only forms emit writable extents,
+`_to_` adds readable length, and `_all_` emits only readable length using the successful count.
+Do not add `out_ptr`'s one-readable-element guarantee. `if_present(*count)` leaves the extent unknown
+when optional count storage is null, without weakening returned-pointer initialization/nullability.
+Explicit matching returned-pointer and buffer contracts retain both guarantees, including
+null-on-failure. Other distinct combinations remain evidence; do not form permissive unions.
+Derive count optionality from the same unconditional facts as parameter flags; retain explicit
+fallbacks instead of adding `if_present`. RDL also represents constants and return counts, but those
+native lowering families remain separate work. Do not infer them from SAL tokens. Public comparison
+binds count references positionally while publication retains observed names. Legacy attributes stay
+readable.
 Typedef reconciliation selects an observed annotation set containing every other observed set;
 incomparable sets fail, and original observations remain unchanged. Native definitions and
 callable observations still require matching annotations. Annotation owners that cannot be

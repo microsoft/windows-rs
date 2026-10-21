@@ -85,8 +85,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UsbConfigurationDescriptor)]
             interface IUsbConfigurationDescriptorStatics {
-                fn TryParse(&self, descriptor: UsbDescriptor, parsed: &mut UsbConfigurationDescriptor) -> bool;
-                fn Parse(&self, descriptor: UsbDescriptor) -> UsbConfigurationDescriptor;
+                fn TryParse(&self, #[in] descriptor: UsbDescriptor, #[out] parsed: &mut UsbConfigurationDescriptor) -> bool;
+                fn Parse(&self, #[in] descriptor: UsbDescriptor) -> UsbConfigurationDescriptor;
             }
             #[guid(0x8e9465a6_d73d_46de_94be_aae7f07c0f5c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -105,20 +105,20 @@ mod Windows {
                 Length: u8;
                 #[get]
                 DescriptorType: u8;
-                fn ReadDescriptorBuffer(&self, buffer: super::super::Storage::Streams::IBuffer);
+                fn ReadDescriptorBuffer(&self, #[in] buffer: super::super::Storage::Streams::IBuffer);
             }
             #[guid(0x5249b992_c456_44d5_ad5e_24f5a089f63b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UsbDevice)]
             interface IUsbDevice: super::super::Foundation::IClosable {
                 #[Windows::Foundation::Metadata::Overload("SendControlOutTransferAsync")]
-                fn SendControlOutTransferAsync(&self, setupPacket: UsbSetupPacket, buffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<u32>;
+                fn SendControlOutTransferAsync(&self, #[in] setupPacket: UsbSetupPacket, #[in] buffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<u32>;
                 #[Windows::Foundation::Metadata::Overload("SendControlOutTransferAsyncNoBuffer")]
-                fn SendControlOutTransferAsync(&self, setupPacket: UsbSetupPacket) -> super::super::Foundation::IAsyncOperation<u32>;
+                fn SendControlOutTransferAsync(&self, #[in] setupPacket: UsbSetupPacket) -> super::super::Foundation::IAsyncOperation<u32>;
                 #[Windows::Foundation::Metadata::Overload("SendControlInTransferAsync")]
-                fn SendControlInTransferAsync(&self, setupPacket: UsbSetupPacket, buffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>;
+                fn SendControlInTransferAsync(&self, #[in] setupPacket: UsbSetupPacket, #[in] buffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>;
                 #[Windows::Foundation::Metadata::Overload("SendControlInTransferAsyncNoBuffer")]
-                fn SendControlInTransferAsync(&self, setupPacket: UsbSetupPacket) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>;
+                fn SendControlInTransferAsync(&self, #[in] setupPacket: UsbSetupPacket) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>;
                 #[get]
                 DefaultInterface: UsbInterface;
                 #[get]
@@ -183,14 +183,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(UsbDevice)]
             interface IUsbDeviceStatics {
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
-                fn GetDeviceSelector(&self, vendorId: u32, productId: u32, winUsbInterfaceClass: GUID) -> String;
+                fn GetDeviceSelector(&self, #[in] vendorId: u32, #[in] productId: u32, #[in] winUsbInterfaceClass: GUID) -> String;
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorGuidOnly")]
-                fn GetDeviceSelector(&self, winUsbInterfaceClass: GUID) -> String;
+                fn GetDeviceSelector(&self, #[in] winUsbInterfaceClass: GUID) -> String;
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorVidPidOnly")]
-                fn GetDeviceSelector(&self, vendorId: u32, productId: u32) -> String;
-                fn GetDeviceClassSelector(&self, usbClass: UsbDeviceClass) -> String;
+                fn GetDeviceSelector(&self, #[in] vendorId: u32, #[in] productId: u32) -> String;
+                fn GetDeviceClassSelector(&self, #[in] usbClass: UsbDeviceClass) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<UsbDevice>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<UsbDevice>;
             }
             #[guid(0x6b4862d9_8df7_4b40_ac83_578f139f0575)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -215,8 +215,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UsbEndpointDescriptor)]
             interface IUsbEndpointDescriptorStatics {
-                fn TryParse(&self, descriptor: UsbDescriptor, parsed: &mut UsbEndpointDescriptor) -> bool;
-                fn Parse(&self, descriptor: UsbDescriptor) -> UsbEndpointDescriptor;
+                fn TryParse(&self, #[in] descriptor: UsbDescriptor, #[out] parsed: &mut UsbEndpointDescriptor) -> bool;
+                fn Parse(&self, #[in] descriptor: UsbDescriptor) -> UsbEndpointDescriptor;
             }
             #[guid(0xa0322b95_7f47_48ab_a727_678c25be2112)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -256,8 +256,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UsbInterfaceDescriptor)]
             interface IUsbInterfaceDescriptorStatics {
-                fn TryParse(&self, descriptor: UsbDescriptor, parsed: &mut UsbInterfaceDescriptor) -> bool;
-                fn Parse(&self, descriptor: UsbDescriptor) -> UsbInterfaceDescriptor;
+                fn TryParse(&self, #[in] descriptor: UsbDescriptor, #[out] parsed: &mut UsbInterfaceDescriptor) -> bool;
+                fn Parse(&self, #[in] descriptor: UsbDescriptor) -> UsbInterfaceDescriptor;
             }
             #[guid(0x1827bba7_8da7_4af7_8f4c_7f3032e781f5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -352,7 +352,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UsbSetupPacket)]
             interface IUsbSetupPacketFactory {
-                fn CreateWithEightByteBuffer(&self, eightByteBuffer: super::super::Storage::Streams::IBuffer) -> UsbSetupPacket;
+                fn CreateWithEightByteBuffer(&self, #[in] eightByteBuffer: super::super::Storage::Streams::IBuffer) -> UsbSetupPacket;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]

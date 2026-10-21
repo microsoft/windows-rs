@@ -6,6 +6,8 @@ use std::cmp::Ordering;
 use std::collections::*;
 
 mod attributes;
+mod buffer_extent;
+pub use buffer_extent::*;
 pub mod reader;
 mod value;
 pub mod writer;

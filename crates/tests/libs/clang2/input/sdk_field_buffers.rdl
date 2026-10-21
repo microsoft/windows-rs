@@ -2,11 +2,11 @@
 mod Fixture {
     struct AUTHZ_ACCESS_REPLY {
         ResultListLength: DWORD,
-        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResultListLength", IsByteCount = false, MayBeNull = false)]
+        #[writable(ResultListLength)]
         GrantedAccessMask: PACCESS_MASK,
-        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResultListLength", IsByteCount = false, MayBeNull = true)]
+        #[writable(ResultListLength, nullable)]
         SaclEvaluationResults: PDWORD,
-        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ResultListLength", IsByteCount = false, MayBeNull = false)]
+        #[writable(ResultListLength)]
         Error: PDWORD,
     }
 }
@@ -20,7 +20,7 @@ mod Fixture {
     struct BCRYPT_MULTI_HASH_OPERATION {
         iHash: ULONG,
         hashOperation: BCRYPT_HASH_OPERATION_TYPE,
-        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "cbBuffer", IsByteCount = false, MayBeNull = false)]
+        #[writable(cbBuffer)]
         pbBuffer: PUCHAR,
         cbBuffer: ULONG,
     }

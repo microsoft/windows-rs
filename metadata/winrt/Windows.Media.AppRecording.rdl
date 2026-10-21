@@ -60,13 +60,13 @@ mod Windows {
             interface IAppRecordingManager {
                 fn GetStatus(&self) -> AppRecordingStatus;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn StartRecordingToFileAsync(&self, file: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<AppRecordingResult>;
+                fn StartRecordingToFileAsync(&self, #[in] file: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<AppRecordingResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RecordTimeSpanToFileAsync(&self, startTime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<AppRecordingResult>;
+                fn RecordTimeSpanToFileAsync(&self, #[in] startTime: super::super::Foundation::DateTime, #[in] duration: super::super::Foundation::TimeSpan, #[in] file: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<AppRecordingResult>;
                 #[get]
                 SupportedScreenshotMediaEncodingSubtypes: super::super::Foundation::Collections::IVectorView<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SaveScreenshotToFilesAsync(&self, folder: super::super::Storage::StorageFolder, filenamePrefix: String, option: AppRecordingSaveScreenshotOption, requestedFormats: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>;
+                fn SaveScreenshotToFilesAsync(&self, #[in] folder: super::super::Storage::StorageFolder, #[in] filenamePrefix: String, #[in] option: AppRecordingSaveScreenshotOption, #[in] requestedFormats: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>;
             }
             #[guid(0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]

@@ -746,6 +746,7 @@ impl Projector<'_, '_> {
                 self.resolution,
                 snapshot,
                 observation.underlying,
+                function.result,
                 attributes,
             )?);
             return Ok(body);
@@ -760,12 +761,15 @@ impl Projector<'_, '_> {
                 "nested callback contract on `{name}` has no metadata owner"
             )));
         }
+        let inherited =
+            annotations::value_alias_attributes(self.resolution, snapshot, observation.underlying)?;
         let ty = if let TypeKind::Record(record) = snapshot.types[observation.canonical.0].kind
             && self.interface_record(snapshot_id, record)
         {
             self.interface_type(snapshot_id, record)
         } else if callback_parameters(snapshot, observation).is_some()
             || has_fixed_pointer(snapshot, observation.underlying)
+            || !inherited.is_empty()
         {
             self.written_ty(snapshot_id, observation.underlying, observation.canonical)?
         } else {
@@ -773,7 +777,12 @@ impl Projector<'_, '_> {
         };
         let ty = write_type(self.namespace, &ty);
         Ok(Body {
-            attributes: annotations::write(attributes)?,
+            attributes: annotations::write_value_typedef(
+                snapshot,
+                observation.canonical,
+                attributes,
+                &inherited,
+            )?,
             declaration: quote! { type #name = #ty; },
         })
     }

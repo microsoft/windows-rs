@@ -134,11 +134,11 @@ mod Windows {
             interface IActivationViewSwitcher {
                 #[Windows::Foundation::Metadata::Overload("ShowAsStandaloneAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAsStandaloneAsync(&self, viewId: i32) -> super::super::Foundation::IAsyncAction;
+                fn ShowAsStandaloneAsync(&self, #[in] viewId: i32) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("ShowAsStandaloneWithSizePreferenceAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAsStandaloneAsync(&self, viewId: i32, sizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncAction;
-                fn IsViewPresentedOnActivationVirtualDesktop(&self, viewId: i32) -> bool;
+                fn ShowAsStandaloneAsync(&self, #[in] viewId: i32, #[in] sizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncAction;
+                fn IsViewPresentedOnActivationVirtualDesktop(&self, #[in] viewId: i32) -> bool;
             }
             #[guid(0xd222d519_4361_451e_96c4_60f4f9742db0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -173,7 +173,7 @@ mod Windows {
                 #[get]
                 VisibleBounds: super::super::Foundation::Rect;
                 event VisibleBoundsChanged: super::super::Foundation::TypedEventHandler<ApplicationView, Object>;
-                fn SetDesiredBoundsMode(&self, boundsMode: ApplicationViewBoundsMode) -> bool;
+                fn SetDesiredBoundsMode(&self, #[in] boundsMode: ApplicationViewBoundsMode) -> bool;
                 #[get]
                 DesiredBoundsMode: ApplicationViewBoundsMode;
             }
@@ -189,8 +189,8 @@ mod Windows {
                 fn TryEnterFullScreenMode(&self) -> bool;
                 fn ExitFullScreenMode(&self);
                 fn ShowStandardSystemOverlays(&self);
-                fn TryResizeView(&self, value: super::super::Foundation::Size) -> bool;
-                fn SetPreferredMinSize(&self, minSize: super::super::Foundation::Size);
+                fn TryResizeView(&self, #[in] value: super::super::Foundation::Size) -> bool;
+                fn SetPreferredMinSize(&self, #[in] minSize: super::super::Foundation::Size);
             }
             #[guid(0x15e5cbec_9e0f_46b5_bc3f_9bf653e74b5e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -198,13 +198,13 @@ mod Windows {
             interface IApplicationView4 {
                 #[get]
                 ViewMode: ApplicationViewMode;
-                fn IsViewModeSupported(&self, viewMode: ApplicationViewMode) -> bool;
+                fn IsViewModeSupported(&self, #[in] viewMode: ApplicationViewMode) -> bool;
                 #[Windows::Foundation::Metadata::Overload("TryEnterViewModeAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryEnterViewModeAsync(&self, viewMode: ApplicationViewMode) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryEnterViewModeAsync(&self, #[in] viewMode: ApplicationViewMode) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("TryEnterViewModeWithPreferencesAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryEnterViewModeAsync(&self, viewMode: ApplicationViewMode, viewModePreferences: ViewModePreferences) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryEnterViewModeAsync(&self, #[in] viewMode: ApplicationViewMode, #[in] viewModePreferences: ViewModePreferences) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryConsolidateAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
             }
@@ -251,7 +251,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IApplicationViewInteropStatics {
-                fn GetApplicationViewIdForWindow(&self, window: super::Core::ICoreWindow) -> i32;
+                fn GetApplicationViewIdForWindow(&self, #[in] window: super::Core::ICoreWindow) -> i32;
             }
             #[guid(0x1d0ddc23_23f3_4b2d_84fe_74bf37b48b66)]
             #[Windows::Foundation::Metadata::ContractVersion(ViewManagementViewScalingContract, 65536)]
@@ -263,7 +263,7 @@ mod Windows {
             interface IApplicationViewScalingStatics {
                 #[get]
                 DisableLayoutScaling: bool;
-                fn TrySetDisableLayoutScaling(&self, disableLayoutScaling: bool) -> bool;
+                fn TrySetDisableLayoutScaling(&self, #[in] disableLayoutScaling: bool) -> bool;
             }
             #[guid(0x010a6306_c433_44e5_a9f2_bd84d4030a95)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -296,7 +296,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IApplicationViewStatics4 {
                 fn ClearAllPersistedState(&self);
-                fn ClearPersistedState(&self, key: String);
+                fn ClearPersistedState(&self, #[in] key: String);
             }
             #[guid(0x975f2f1e_e656_4c5e_a0a1_717c6ffa7d64)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -305,24 +305,24 @@ mod Windows {
                 fn DisableShowingMainViewOnActivation(&self);
                 #[Windows::Foundation::Metadata::Overload("TryShowAsStandaloneAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryShowAsStandaloneAsync(&self, viewId: i32) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryShowAsStandaloneAsync(&self, #[in] viewId: i32) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("TryShowAsStandaloneWithSizePreferenceAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryShowAsStandaloneAsync(&self, viewId: i32, sizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryShowAsStandaloneAsync(&self, #[in] viewId: i32, #[in] sizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryShowAsStandaloneAsync(&self, viewId: i32, sizePreference: ViewSizePreference, anchorViewId: i32, anchorSizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryShowAsStandaloneAsync(&self, #[in] viewId: i32, #[in] sizePreference: ViewSizePreference, #[in] anchorViewId: i32, #[in] anchorSizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("SwitchAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SwitchAsync(&self, viewId: i32) -> super::super::Foundation::IAsyncAction;
+                fn SwitchAsync(&self, #[in] viewId: i32) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("SwitchFromViewAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SwitchAsync(&self, toViewId: i32, fromViewId: i32) -> super::super::Foundation::IAsyncAction;
+                fn SwitchAsync(&self, #[in] toViewId: i32, #[in] fromViewId: i32) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("SwitchFromViewWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SwitchAsync(&self, toViewId: i32, fromViewId: i32, options: ApplicationViewSwitchingOptions) -> super::super::Foundation::IAsyncAction;
+                fn SwitchAsync(&self, #[in] toViewId: i32, #[in] fromViewId: i32, #[in] options: ApplicationViewSwitchingOptions) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn PrepareForCustomAnimatedSwitchAsync(&self, toViewId: i32, fromViewId: i32, options: ApplicationViewSwitchingOptions) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn PrepareForCustomAnimatedSwitchAsync(&self, #[in] toViewId: i32, #[in] fromViewId: i32, #[in] options: ApplicationViewSwitchingOptions) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x60e995cd_4fc2_48c4_b8e3_395f2b9f0fc1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -336,10 +336,10 @@ mod Windows {
             interface IApplicationViewSwitcherStatics3 {
                 #[Windows::Foundation::Metadata::Overload("TryShowAsViewModeAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryShowAsViewModeAsync(&self, viewId: i32, viewMode: ApplicationViewMode) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryShowAsViewModeAsync(&self, #[in] viewId: i32, #[in] viewMode: ApplicationViewMode) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("TryShowAsViewModeWithPreferencesAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryShowAsViewModeAsync(&self, viewId: i32, viewMode: ApplicationViewMode, viewModePreferences: ViewModePreferences) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryShowAsViewModeAsync(&self, #[in] viewId: i32, #[in] viewMode: ApplicationViewMode, #[in] viewModePreferences: ViewModePreferences) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x00924ac0_932b_4a6b_9c4b_dc38c82478ce)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -447,7 +447,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(InputPane)]
             interface IInputPaneStatics2 {
-                fn GetForUIContext(&self, context: super::UIContext) -> InputPane;
+                fn GetForUIContext(&self, #[in] context: super::UIContext) -> InputPane;
             }
             #[guid(0xd243e016_d907_4fcc_bb8d_f77baa5028f1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -466,11 +466,11 @@ mod Windows {
             interface IProjectionManagerStatics {
                 #[Windows::Foundation::Metadata::Overload("StartProjectingAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn StartProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32) -> super::super::Foundation::IAsyncAction;
+                fn StartProjectingAsync(&self, #[in] projectionViewId: i32, #[in] anchorViewId: i32) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SwapDisplaysForViewsAsync(&self, projectionViewId: i32, anchorViewId: i32) -> super::super::Foundation::IAsyncAction;
+                fn SwapDisplaysForViewsAsync(&self, #[in] projectionViewId: i32, #[in] anchorViewId: i32) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn StopProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32) -> super::super::Foundation::IAsyncAction;
+                fn StopProjectingAsync(&self, #[in] projectionViewId: i32, #[in] anchorViewId: i32) -> super::super::Foundation::IAsyncAction;
                 #[get]
                 ProjectionDisplayAvailable: bool;
                 event ProjectionDisplayAvailableChanged: super::super::Foundation::EventHandler<Object>;
@@ -481,13 +481,13 @@ mod Windows {
             interface IProjectionManagerStatics2 {
                 #[Windows::Foundation::Metadata::Overload("StartProjectingWithDeviceInfoAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn StartProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32, displayDeviceInfo: super::super::Devices::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncAction;
+                fn StartProjectingAsync(&self, #[in] projectionViewId: i32, #[in] anchorViewId: i32, #[in] displayDeviceInfo: super::super::Devices::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("RequestStartProjectingAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestStartProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestStartProjectingAsync(&self, #[in] projectionViewId: i32, #[in] anchorViewId: i32, #[in] selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("RequestStartProjectingWithPlacementAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestStartProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32, selection: super::super::Foundation::Rect, prefferedPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestStartProjectingAsync(&self, #[in] projectionViewId: i32, #[in] anchorViewId: i32, #[in] selection: super::super::Foundation::Rect, #[in] prefferedPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
                 fn GetDeviceSelector(&self) -> String;
             }
             #[guid(0x85361600_1c63_4627_bcb1_3a89e0bc9c55)]
@@ -518,7 +518,7 @@ mod Windows {
                 DoubleClickTime: u32;
                 #[get]
                 MouseHoverTime: u32;
-                fn UIElementColor(&self, desiredElement: UIElementType) -> super::Color;
+                fn UIElementColor(&self, #[in] desiredElement: UIElementType) -> super::Color;
             }
             #[guid(0xbad82401_2721_44f9_bb91_2bb228be442f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -532,7 +532,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UISettings)]
             interface IUISettings3 {
-                fn GetColorValue(&self, desiredColor: UIColorType) -> super::Color;
+                fn GetColorValue(&self, #[in] desiredColor: UIColorType) -> super::Color;
                 event ColorValuesChanged: super::super::Foundation::TypedEventHandler<UISettings, Object>;
             }
             #[guid(0x52bb3002_919b_4d6b_9b78_8dd66ff4b93b)]
@@ -578,7 +578,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UIViewSettings)]
             interface IUIViewSettingsPreferredInteractionMode {
-                fn GetPreferredInteractionMode(&self, supportedModes: [UserInteractionMode]) -> UserInteractionMode;
+                fn GetPreferredInteractionMode(&self, #[in] supportedModes: [UserInteractionMode]) -> UserInteractionMode;
                 event PreferredInteractionModeChanged: super::super::Foundation::TypedEventHandler<UIViewSettings, Object>;
             }
             #[guid(0x595c97a5_f8f6_41cf_b0fb_aacdb81fd5f6)]
@@ -598,7 +598,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ViewModePreferences)]
             interface IViewModePreferencesStatics {
-                fn CreateDefault(&self, mode: ApplicationViewMode) -> ViewModePreferences;
+                fn CreateDefault(&self, #[in] mode: ApplicationViewMode) -> ViewModePreferences;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]

@@ -4,7 +4,7 @@ mod PointerIncompleteCollision {
     }
     type PITEM = *mut _ITEM;
     #[library("api.dll")]
-    extern "C" fn UseItem(value: *mut ITEM);
+    extern "C" fn UseItem(#[out] value: *mut ITEM);
     struct _ITEM {
     }
 }

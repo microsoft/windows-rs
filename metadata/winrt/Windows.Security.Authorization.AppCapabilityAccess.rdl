@@ -53,11 +53,11 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppCapability)]
                 interface IAppCapabilityStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RequestAccessForCapabilitiesAsync(&self, capabilityNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<String, AppCapabilityAccessStatus>>;
+                    fn RequestAccessForCapabilitiesAsync(&self, #[in] capabilityNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<String, AppCapabilityAccessStatus>>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RequestAccessForCapabilitiesForUserAsync(&self, user: super::super::super::System::User, capabilityNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<String, AppCapabilityAccessStatus>>;
-                    fn Create(&self, capabilityName: String) -> AppCapability;
-                    fn CreateWithProcessIdForUser(&self, user: super::super::super::System::User, capabilityName: String, pid: u32) -> AppCapability;
+                    fn RequestAccessForCapabilitiesForUserAsync(&self, #[in] user: super::super::super::System::User, #[in] capabilityNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<String, AppCapabilityAccessStatus>>;
+                    fn Create(&self, #[in] capabilityName: String) -> AppCapability;
+                    fn CreateWithProcessIdForUser(&self, #[in] user: super::super::super::System::User, #[in] capabilityName: String, #[in] pid: u32) -> AppCapability;
                 }
             }
         }

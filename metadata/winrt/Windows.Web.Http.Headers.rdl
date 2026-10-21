@@ -326,8 +326,8 @@ mod Windows {
                     MaxStale: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
                     MinFresh: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
                     SharedMaxAge: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
-                    fn ParseAdd(&self, input: String);
-                    fn TryParseAdd(&self, input: String) -> bool;
+                    fn ParseAdd(&self, #[in] input: String);
+                    fn TryParseAdd(&self, #[in] input: String) -> bool;
                 }
                 #[guid(0x393361af_0f7d_4820_9fdd_a2b956eeaeab)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -344,22 +344,22 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpChallengeHeaderValueCollection)]
                 interface IHttpChallengeHeaderValueCollection {
-                    fn ParseAdd(&self, input: String);
-                    fn TryParseAdd(&self, input: String) -> bool;
+                    fn ParseAdd(&self, #[in] input: String);
+                    fn TryParseAdd(&self, #[in] input: String) -> bool;
                 }
                 #[guid(0xc452c451_d99c_40aa_9399_90eeb98fc613)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpChallengeHeaderValue)]
                 interface IHttpChallengeHeaderValueFactory {
-                    fn CreateFromScheme(&self, scheme: String) -> HttpChallengeHeaderValue;
-                    fn CreateFromSchemeWithToken(&self, scheme: String, token: String) -> HttpChallengeHeaderValue;
+                    fn CreateFromScheme(&self, #[in] scheme: String) -> HttpChallengeHeaderValue;
+                    fn CreateFromSchemeWithToken(&self, #[in] scheme: String, #[in] token: String) -> HttpChallengeHeaderValue;
                 }
                 #[guid(0xf3d38a72_fc01_4d01_a008_fcb7c459d635)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpChallengeHeaderValue)]
                 interface IHttpChallengeHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpChallengeHeaderValue;
-                    fn TryParse(&self, input: String, challengeHeaderValue: &mut HttpChallengeHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpChallengeHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] challengeHeaderValue: &mut HttpChallengeHeaderValue) -> bool;
                 }
                 #[guid(0xcb4af27a_4e90_45eb_8dcd_fd1408f4c44f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -372,21 +372,21 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpConnectionOptionHeaderValueCollection)]
                 interface IHttpConnectionOptionHeaderValueCollection {
-                    fn ParseAdd(&self, input: String);
-                    fn TryParseAdd(&self, input: String) -> bool;
+                    fn ParseAdd(&self, #[in] input: String);
+                    fn TryParseAdd(&self, #[in] input: String) -> bool;
                 }
                 #[guid(0xd93ccc1e_0b7d_4c3f_a58d_a2a1bdeabc0a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpConnectionOptionHeaderValue)]
                 interface IHttpConnectionOptionHeaderValueFactory {
-                    fn Create(&self, token: String) -> HttpConnectionOptionHeaderValue;
+                    fn Create(&self, #[in] token: String) -> HttpConnectionOptionHeaderValue;
                 }
                 #[guid(0xaaa75d37_a946_4b1f_85af_48b68b3c50bd)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpConnectionOptionHeaderValue)]
                 interface IHttpConnectionOptionHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpConnectionOptionHeaderValue;
-                    fn TryParse(&self, input: String, connectionOptionHeaderValue: &mut HttpConnectionOptionHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpConnectionOptionHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] connectionOptionHeaderValue: &mut HttpConnectionOptionHeaderValue) -> bool;
                 }
                 #[guid(0xbcf7f92a_9376_4d85_bccc_9f4f9acab434)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -399,21 +399,21 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentCodingHeaderValueCollection)]
                 interface IHttpContentCodingHeaderValueCollection {
-                    fn ParseAdd(&self, input: String);
-                    fn TryParseAdd(&self, input: String) -> bool;
+                    fn ParseAdd(&self, #[in] input: String);
+                    fn TryParseAdd(&self, #[in] input: String) -> bool;
                 }
                 #[guid(0xc53d2bd7_332b_4350_8510_2e67a2289a5a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentCodingHeaderValue)]
                 interface IHttpContentCodingHeaderValueFactory {
-                    fn Create(&self, contentCoding: String) -> HttpContentCodingHeaderValue;
+                    fn Create(&self, #[in] contentCoding: String) -> HttpContentCodingHeaderValue;
                 }
                 #[guid(0x94d8602e_f9bf_42f7_aa46_ed272a41e212)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentCodingHeaderValue)]
                 interface IHttpContentCodingHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpContentCodingHeaderValue;
-                    fn TryParse(&self, input: String, contentCodingHeaderValue: &mut HttpContentCodingHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpContentCodingHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] contentCodingHeaderValue: &mut HttpContentCodingHeaderValue) -> bool;
                 }
                 #[guid(0x94531cd5_8b13_4d73_8651_f76b38f88495)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -428,22 +428,22 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentCodingWithQualityHeaderValueCollection)]
                 interface IHttpContentCodingWithQualityHeaderValueCollection {
-                    fn ParseAdd(&self, input: String);
-                    fn TryParseAdd(&self, input: String) -> bool;
+                    fn ParseAdd(&self, #[in] input: String);
+                    fn TryParseAdd(&self, #[in] input: String) -> bool;
                 }
                 #[guid(0xc45eee1a_c553_46fc_ade2_d75c1d53df7b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentCodingWithQualityHeaderValue)]
                 interface IHttpContentCodingWithQualityHeaderValueFactory {
-                    fn CreateFromValue(&self, contentCoding: String) -> HttpContentCodingWithQualityHeaderValue;
-                    fn CreateFromValueWithQuality(&self, contentCoding: String, quality: f64) -> HttpContentCodingWithQualityHeaderValue;
+                    fn CreateFromValue(&self, #[in] contentCoding: String) -> HttpContentCodingWithQualityHeaderValue;
+                    fn CreateFromValueWithQuality(&self, #[in] contentCoding: String, #[in] quality: f64) -> HttpContentCodingWithQualityHeaderValue;
                 }
                 #[guid(0xe8c9357c_8f89_4801_8e75_4c9abfc3de71)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentCodingWithQualityHeaderValue)]
                 interface IHttpContentCodingWithQualityHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpContentCodingWithQualityHeaderValue;
-                    fn TryParse(&self, input: String, contentCodingWithQualityHeaderValue: &mut HttpContentCodingWithQualityHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpContentCodingWithQualityHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] contentCodingWithQualityHeaderValue: &mut HttpContentCodingWithQualityHeaderValue) -> bool;
                 }
                 #[guid(0xf2a2eedc_2629_4b49_9908_96a168e9365e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -461,14 +461,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentDispositionHeaderValue)]
                 interface IHttpContentDispositionHeaderValueFactory {
-                    fn Create(&self, dispositionType: String) -> HttpContentDispositionHeaderValue;
+                    fn Create(&self, #[in] dispositionType: String) -> HttpContentDispositionHeaderValue;
                 }
                 #[guid(0x29c56067_5a37_46e4_b074_c5177d69ca66)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentDispositionHeaderValue)]
                 interface IHttpContentDispositionHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpContentDispositionHeaderValue;
-                    fn TryParse(&self, input: String, contentDispositionHeaderValue: &mut HttpContentDispositionHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpContentDispositionHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] contentDispositionHeaderValue: &mut HttpContentDispositionHeaderValue) -> bool;
                 }
                 #[guid(0x40612a44_47ae_4b7e_9124_69628b64aa18)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -486,8 +486,8 @@ mod Windows {
                     ContentType: HttpMediaTypeHeaderValue;
                     Expires: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
                     LastModified: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
-                    fn Append(&self, name: String, value: String);
-                    fn TryAppendWithoutValidation(&self, name: String, value: String) -> bool;
+                    fn Append(&self, #[in] name: String, #[in] value: String);
+                    fn TryAppendWithoutValidation(&self, #[in] name: String, #[in] value: String) -> bool;
                 }
                 #[guid(0x04d967d3_a4f6_495c_9530_8579fcba8aa9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -505,16 +505,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentRangeHeaderValue)]
                 interface IHttpContentRangeHeaderValueFactory {
-                    fn CreateFromLength(&self, length: u64) -> HttpContentRangeHeaderValue;
-                    fn CreateFromRange(&self, from: u64, to: u64) -> HttpContentRangeHeaderValue;
-                    fn CreateFromRangeWithLength(&self, from: u64, to: u64, length: u64) -> HttpContentRangeHeaderValue;
+                    fn CreateFromLength(&self, #[in] length: u64) -> HttpContentRangeHeaderValue;
+                    fn CreateFromRange(&self, #[in] from: u64, #[in] to: u64) -> HttpContentRangeHeaderValue;
+                    fn CreateFromRangeWithLength(&self, #[in] from: u64, #[in] to: u64, #[in] length: u64) -> HttpContentRangeHeaderValue;
                 }
                 #[guid(0x80a346ca_174c_4fae_821c_134cd294aa38)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentRangeHeaderValue)]
                 interface IHttpContentRangeHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpContentRangeHeaderValue;
-                    fn TryParse(&self, input: String, contentRangeHeaderValue: &mut HttpContentRangeHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpContentRangeHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] contentRangeHeaderValue: &mut HttpContentRangeHeaderValue) -> bool;
                 }
                 #[guid(0xcbd46217_4b29_412b_bd90_b3d814ab8e1b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -528,22 +528,22 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpCookiePairHeaderValueCollection)]
                 interface IHttpCookiePairHeaderValueCollection {
-                    fn ParseAdd(&self, input: String);
-                    fn TryParseAdd(&self, input: String) -> bool;
+                    fn ParseAdd(&self, #[in] input: String);
+                    fn TryParseAdd(&self, #[in] input: String) -> bool;
                 }
                 #[guid(0x635e326f_146f_4f56_aa21_2cb7d6d58b1e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpCookiePairHeaderValue)]
                 interface IHttpCookiePairHeaderValueFactory {
-                    fn CreateFromName(&self, name: String) -> HttpCookiePairHeaderValue;
-                    fn CreateFromNameWithValue(&self, name: String, value: String) -> HttpCookiePairHeaderValue;
+                    fn CreateFromName(&self, #[in] name: String) -> HttpCookiePairHeaderValue;
+                    fn CreateFromNameWithValue(&self, #[in] name: String, #[in] value: String) -> HttpCookiePairHeaderValue;
                 }
                 #[guid(0x6e866d48_06af_4462_8158_99388d5dca81)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpCookiePairHeaderValue)]
                 interface IHttpCookiePairHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpCookiePairHeaderValue;
-                    fn TryParse(&self, input: String, cookiePairHeaderValue: &mut HttpCookiePairHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpCookiePairHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] cookiePairHeaderValue: &mut HttpCookiePairHeaderValue) -> bool;
                 }
                 #[guid(0xc34cc3cb_542e_4177_a6c7_b674ce193fbf)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -560,15 +560,15 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpCredentialsHeaderValue)]
                 interface IHttpCredentialsHeaderValueFactory {
-                    fn CreateFromScheme(&self, scheme: String) -> HttpCredentialsHeaderValue;
-                    fn CreateFromSchemeWithToken(&self, scheme: String, token: String) -> HttpCredentialsHeaderValue;
+                    fn CreateFromScheme(&self, #[in] scheme: String) -> HttpCredentialsHeaderValue;
+                    fn CreateFromSchemeWithToken(&self, #[in] scheme: String, #[in] token: String) -> HttpCredentialsHeaderValue;
                 }
                 #[guid(0xa69b2be6_ce8c_4443_a35a_1b727b131036)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpCredentialsHeaderValue)]
                 interface IHttpCredentialsHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpCredentialsHeaderValue;
-                    fn TryParse(&self, input: String, credentialsHeaderValue: &mut HttpCredentialsHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpCredentialsHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] credentialsHeaderValue: &mut HttpCredentialsHeaderValue) -> bool;
                 }
                 #[guid(0xeafcaa6a_c4dc_49e2_a27d_043adf5867a3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -583,8 +583,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpDateOrDeltaHeaderValue)]
                 interface IHttpDateOrDeltaHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpDateOrDeltaHeaderValue;
-                    fn TryParse(&self, input: String, dateOrDeltaHeaderValue: &mut HttpDateOrDeltaHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpDateOrDeltaHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] dateOrDeltaHeaderValue: &mut HttpDateOrDeltaHeaderValue) -> bool;
                 }
                 #[guid(0x4ce585cd_3a99_43af_a2e6_ec232fea9658)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -600,29 +600,29 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpExpectationHeaderValueCollection)]
                 interface IHttpExpectationHeaderValueCollection {
-                    fn ParseAdd(&self, input: String);
-                    fn TryParseAdd(&self, input: String) -> bool;
+                    fn ParseAdd(&self, #[in] input: String);
+                    fn TryParseAdd(&self, #[in] input: String) -> bool;
                 }
                 #[guid(0x4ea275cb_d53e_4868_8856_1e21a5030dc0)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpExpectationHeaderValue)]
                 interface IHttpExpectationHeaderValueFactory {
-                    fn CreateFromName(&self, name: String) -> HttpExpectationHeaderValue;
-                    fn CreateFromNameWithValue(&self, name: String, value: String) -> HttpExpectationHeaderValue;
+                    fn CreateFromName(&self, #[in] name: String) -> HttpExpectationHeaderValue;
+                    fn CreateFromNameWithValue(&self, #[in] name: String, #[in] value: String) -> HttpExpectationHeaderValue;
                 }
                 #[guid(0x3019abe2_cfe5_473b_a57f_fba5b14eb257)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpExpectationHeaderValue)]
                 interface IHttpExpectationHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpExpectationHeaderValue;
-                    fn TryParse(&self, input: String, expectationHeaderValue: &mut HttpExpectationHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpExpectationHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] expectationHeaderValue: &mut HttpExpectationHeaderValue) -> bool;
                 }
                 #[guid(0x9ebd7ca3_8219_44f6_9902_8c56dfd3340c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpLanguageHeaderValueCollection)]
                 interface IHttpLanguageHeaderValueCollection {
-                    fn ParseAdd(&self, input: String);
-                    fn TryParseAdd(&self, input: String) -> bool;
+                    fn ParseAdd(&self, #[in] input: String);
+                    fn TryParseAdd(&self, #[in] input: String) -> bool;
                 }
                 #[guid(0x7256e102_0080_4db4_a083_7de7b2e5ba4c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -637,22 +637,22 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpLanguageRangeWithQualityHeaderValueCollection)]
                 interface IHttpLanguageRangeWithQualityHeaderValueCollection {
-                    fn ParseAdd(&self, input: String);
-                    fn TryParseAdd(&self, input: String) -> bool;
+                    fn ParseAdd(&self, #[in] input: String);
+                    fn TryParseAdd(&self, #[in] input: String) -> bool;
                 }
                 #[guid(0x7bb83970_780f_4c83_9fe4_dc3087f6bd55)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpLanguageRangeWithQualityHeaderValue)]
                 interface IHttpLanguageRangeWithQualityHeaderValueFactory {
-                    fn CreateFromLanguageRange(&self, languageRange: String) -> HttpLanguageRangeWithQualityHeaderValue;
-                    fn CreateFromLanguageRangeWithQuality(&self, languageRange: String, quality: f64) -> HttpLanguageRangeWithQualityHeaderValue;
+                    fn CreateFromLanguageRange(&self, #[in] languageRange: String) -> HttpLanguageRangeWithQualityHeaderValue;
+                    fn CreateFromLanguageRangeWithQuality(&self, #[in] languageRange: String, #[in] quality: f64) -> HttpLanguageRangeWithQualityHeaderValue;
                 }
                 #[guid(0x2541e146_f308_46f5_b695_42f54024ec68)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpLanguageRangeWithQualityHeaderValue)]
                 interface IHttpLanguageRangeWithQualityHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpLanguageRangeWithQualityHeaderValue;
-                    fn TryParse(&self, input: String, languageRangeWithQualityHeaderValue: &mut HttpLanguageRangeWithQualityHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpLanguageRangeWithQualityHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] languageRangeWithQualityHeaderValue: &mut HttpLanguageRangeWithQualityHeaderValue) -> bool;
                 }
                 #[guid(0x16b28533_e728_4fcb_bdb0_08a431a14844)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -667,14 +667,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpMediaTypeHeaderValue)]
                 interface IHttpMediaTypeHeaderValueFactory {
-                    fn Create(&self, mediaType: String) -> HttpMediaTypeHeaderValue;
+                    fn Create(&self, #[in] mediaType: String) -> HttpMediaTypeHeaderValue;
                 }
                 #[guid(0xe04d83df_1d41_4d8c_a2de_6fd2ed87399b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpMediaTypeHeaderValue)]
                 interface IHttpMediaTypeHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpMediaTypeHeaderValue;
-                    fn TryParse(&self, input: String, mediaTypeHeaderValue: &mut HttpMediaTypeHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpMediaTypeHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] mediaTypeHeaderValue: &mut HttpMediaTypeHeaderValue) -> bool;
                 }
                 #[guid(0x188d5e32_76be_44a0_b1cd_2074bded2dde)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -690,29 +690,29 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpMediaTypeWithQualityHeaderValueCollection)]
                 interface IHttpMediaTypeWithQualityHeaderValueCollection {
-                    fn ParseAdd(&self, input: String);
-                    fn TryParseAdd(&self, input: String) -> bool;
+                    fn ParseAdd(&self, #[in] input: String);
+                    fn TryParseAdd(&self, #[in] input: String) -> bool;
                 }
                 #[guid(0x4c6d20f4_9457_44e6_a323_d122b958780b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpMediaTypeWithQualityHeaderValue)]
                 interface IHttpMediaTypeWithQualityHeaderValueFactory {
-                    fn CreateFromMediaType(&self, mediaType: String) -> HttpMediaTypeWithQualityHeaderValue;
-                    fn CreateFromMediaTypeWithQuality(&self, mediaType: String, quality: f64) -> HttpMediaTypeWithQualityHeaderValue;
+                    fn CreateFromMediaType(&self, #[in] mediaType: String) -> HttpMediaTypeWithQualityHeaderValue;
+                    fn CreateFromMediaTypeWithQuality(&self, #[in] mediaType: String, #[in] quality: f64) -> HttpMediaTypeWithQualityHeaderValue;
                 }
                 #[guid(0x5b070cd9_b560_4fc8_9835_7e6c0a657b24)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpMediaTypeWithQualityHeaderValue)]
                 interface IHttpMediaTypeWithQualityHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpMediaTypeWithQualityHeaderValue;
-                    fn TryParse(&self, input: String, mediaTypeWithQualityHeaderValue: &mut HttpMediaTypeWithQualityHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpMediaTypeWithQualityHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] mediaTypeWithQualityHeaderValue: &mut HttpMediaTypeWithQualityHeaderValue) -> bool;
                 }
                 #[guid(0x43bc3ff4_6119_4adf_938c_34bfffcf92ed)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpMethodHeaderValueCollection)]
                 interface IHttpMethodHeaderValueCollection {
-                    fn ParseAdd(&self, input: String);
-                    fn TryParseAdd(&self, input: String) -> bool;
+                    fn ParseAdd(&self, #[in] input: String);
+                    fn TryParseAdd(&self, #[in] input: String) -> bool;
                 }
                 #[guid(0xd8ba7463_5b9a_4d1b_93f9_aa5b44ecfddf)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -726,15 +726,15 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpNameValueHeaderValue)]
                 interface IHttpNameValueHeaderValueFactory {
-                    fn CreateFromName(&self, name: String) -> HttpNameValueHeaderValue;
-                    fn CreateFromNameWithValue(&self, name: String, value: String) -> HttpNameValueHeaderValue;
+                    fn CreateFromName(&self, #[in] name: String) -> HttpNameValueHeaderValue;
+                    fn CreateFromNameWithValue(&self, #[in] name: String, #[in] value: String) -> HttpNameValueHeaderValue;
                 }
                 #[guid(0xffd4030f_1130_4152_8659_256909a9d115)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpNameValueHeaderValue)]
                 interface IHttpNameValueHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpNameValueHeaderValue;
-                    fn TryParse(&self, input: String, nameValueHeaderValue: &mut HttpNameValueHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpNameValueHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] nameValueHeaderValue: &mut HttpNameValueHeaderValue) -> bool;
                 }
                 #[guid(0xf4feee03_ebd4_4160_b9ff_807c5183b6e6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -749,15 +749,15 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpProductHeaderValue)]
                 interface IHttpProductHeaderValueFactory {
-                    fn CreateFromName(&self, productName: String) -> HttpProductHeaderValue;
-                    fn CreateFromNameWithVersion(&self, productName: String, productVersion: String) -> HttpProductHeaderValue;
+                    fn CreateFromName(&self, #[in] productName: String) -> HttpProductHeaderValue;
+                    fn CreateFromNameWithVersion(&self, #[in] productName: String, #[in] productVersion: String) -> HttpProductHeaderValue;
                 }
                 #[guid(0x90c33e29_befc_4337_be62_49f097975f53)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpProductHeaderValue)]
                 interface IHttpProductHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpProductHeaderValue;
-                    fn TryParse(&self, input: String, productHeaderValue: &mut HttpProductHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpProductHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] productHeaderValue: &mut HttpProductHeaderValue) -> bool;
                 }
                 #[guid(0x1b1a8732_4c35_486a_966f_646489198e4d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -772,22 +772,22 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpProductInfoHeaderValueCollection)]
                 interface IHttpProductInfoHeaderValueCollection {
-                    fn ParseAdd(&self, input: String);
-                    fn TryParseAdd(&self, input: String) -> bool;
+                    fn ParseAdd(&self, #[in] input: String);
+                    fn TryParseAdd(&self, #[in] input: String) -> bool;
                 }
                 #[guid(0x24220fbe_eabe_4464_b460_ec010b7c41e2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpProductInfoHeaderValue)]
                 interface IHttpProductInfoHeaderValueFactory {
-                    fn CreateFromComment(&self, productComment: String) -> HttpProductInfoHeaderValue;
-                    fn CreateFromNameWithVersion(&self, productName: String, productVersion: String) -> HttpProductInfoHeaderValue;
+                    fn CreateFromComment(&self, #[in] productComment: String) -> HttpProductInfoHeaderValue;
+                    fn CreateFromNameWithVersion(&self, #[in] productName: String, #[in] productVersion: String) -> HttpProductInfoHeaderValue;
                 }
                 #[guid(0xdb7fd857_327a_4e73_81e5_7059a302b042)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpProductInfoHeaderValue)]
                 interface IHttpProductInfoHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpProductInfoHeaderValue;
-                    fn TryParse(&self, input: String, productInfoHeaderValue: &mut HttpProductInfoHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpProductInfoHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] productInfoHeaderValue: &mut HttpProductInfoHeaderValue) -> bool;
                 }
                 #[guid(0xaf40329b_b544_469b_86b9_ac3d466fea36)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -820,8 +820,8 @@ mod Windows {
                     TransferEncoding: HttpTransferCodingHeaderValueCollection;
                     #[get]
                     UserAgent: HttpProductInfoHeaderValueCollection;
-                    fn Append(&self, name: String, value: String);
-                    fn TryAppendWithoutValidation(&self, name: String, value: String) -> bool;
+                    fn Append(&self, #[in] name: String, #[in] value: String);
+                    fn TryAppendWithoutValidation(&self, #[in] name: String, #[in] value: String) -> bool;
                 }
                 #[guid(0x7a990969_fa3f_41ed_aac6_bf957975c16b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -843,8 +843,8 @@ mod Windows {
                     TransferEncoding: HttpTransferCodingHeaderValueCollection;
                     #[get]
                     WwwAuthenticate: HttpChallengeHeaderValueCollection;
-                    fn Append(&self, name: String, value: String);
-                    fn TryAppendWithoutValidation(&self, name: String, value: String) -> bool;
+                    fn Append(&self, #[in] name: String, #[in] value: String);
+                    fn TryAppendWithoutValidation(&self, #[in] name: String, #[in] value: String) -> bool;
                 }
                 #[guid(0x436f32f9_3ded_42bd_b38a_5496a2511ce6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -859,21 +859,21 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpTransferCodingHeaderValueCollection)]
                 interface IHttpTransferCodingHeaderValueCollection {
-                    fn ParseAdd(&self, input: String);
-                    fn TryParseAdd(&self, input: String) -> bool;
+                    fn ParseAdd(&self, #[in] input: String);
+                    fn TryParseAdd(&self, #[in] input: String) -> bool;
                 }
                 #[guid(0xbb62dffc_e361_4f08_8e4f_c9e723de703b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpTransferCodingHeaderValue)]
                 interface IHttpTransferCodingHeaderValueFactory {
-                    fn Create(&self, input: String) -> HttpTransferCodingHeaderValue;
+                    fn Create(&self, #[in] input: String) -> HttpTransferCodingHeaderValue;
                 }
                 #[guid(0x6ab8892a_1a98_4d32_a906_7470a9875ce5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpTransferCodingHeaderValue)]
                 interface IHttpTransferCodingHeaderValueStatics {
-                    fn Parse(&self, input: String) -> HttpTransferCodingHeaderValue;
-                    fn TryParse(&self, input: String, transferCodingHeaderValue: &mut HttpTransferCodingHeaderValue) -> bool;
+                    fn Parse(&self, #[in] input: String) -> HttpTransferCodingHeaderValue;
+                    fn TryParse(&self, #[in] input: String, #[out] transferCodingHeaderValue: &mut HttpTransferCodingHeaderValue) -> bool;
                 }
             }
         }

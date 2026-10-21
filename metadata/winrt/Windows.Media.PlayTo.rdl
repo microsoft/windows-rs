@@ -110,11 +110,11 @@ mod Windows {
                 event VolumeChangeRequested: super::super::Foundation::TypedEventHandler<PlayToReceiver, VolumeChangeRequestedEventArgs>;
                 event TimeUpdateRequested: super::super::Foundation::TypedEventHandler<PlayToReceiver, Object>;
                 event StopRequested: super::super::Foundation::TypedEventHandler<PlayToReceiver, Object>;
-                fn NotifyVolumeChange(&self, volume: f64, mute: bool);
-                fn NotifyRateChange(&self, rate: f64);
+                fn NotifyVolumeChange(&self, #[in] volume: f64, #[in] mute: bool);
+                fn NotifyRateChange(&self, #[in] rate: f64);
                 fn NotifyLoadedMetadata(&self);
-                fn NotifyTimeUpdate(&self, currentTime: super::super::Foundation::TimeSpan);
-                fn NotifyDurationChange(&self, duration: super::super::Foundation::TimeSpan);
+                fn NotifyTimeUpdate(&self, #[in] currentTime: super::super::Foundation::TimeSpan);
+                fn NotifyDurationChange(&self, #[in] duration: super::super::Foundation::TimeSpan);
                 fn NotifySeeking(&self);
                 fn NotifySeeked(&self);
                 fn NotifyPaused(&self);
@@ -172,11 +172,11 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("PlayToSourceRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 Deadline: super::super::Foundation::DateTime;
                 #[Windows::Foundation::Metadata::Deprecated("PlayToSourceRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn DisplayErrorString(&self, errorString: String);
+                fn DisplayErrorString(&self, #[in] errorString: String);
                 #[Windows::Foundation::Metadata::Deprecated("PlayToSourceRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 fn GetDeferral(&self) -> PlayToSourceDeferral;
                 #[Windows::Foundation::Metadata::Deprecated("PlayToSourceRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn SetSource(&self, value: PlayToSource);
+                fn SetSource(&self, #[in] value: PlayToSource);
             }
             #[guid(0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

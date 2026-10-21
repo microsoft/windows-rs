@@ -25,9 +25,9 @@ mod Fixture {
 #[win32]
 mod Fixture {
     #[library("kernel32.dll")]
-    extern fn GetThreadContext(hThread: HANDLE, #[in] #[out] lpContext: LPCONTEXT) -> BOOL;
+    extern fn GetThreadContext(#[in] hThread: HANDLE, #[in] #[out] lpContext: LPCONTEXT) -> BOOL;
     #[library("kernel32.dll")]
-    extern fn SetThreadContext(hThread: HANDLE, lpContext: *const CONTEXT) -> BOOL;
+    extern fn SetThreadContext(#[in] hThread: HANDLE, #[in] lpContext: *const CONTEXT) -> BOOL;
 }
 #[win32]
 mod Fixture {

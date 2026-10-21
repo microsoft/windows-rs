@@ -35,17 +35,17 @@ mod Windows {
                 #[get]
                 OutputStream: super::super::Storage::Streams::IOutputStream;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SendIOControlAsync(&self, ioControlCode: IIOControlCode, inputBuffer: super::super::Storage::Streams::IBuffer, outputBuffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<u32>;
+                fn SendIOControlAsync(&self, #[in] ioControlCode: IIOControlCode, #[in] inputBuffer: super::super::Storage::Streams::IBuffer, #[in] outputBuffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<u32>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TrySendIOControlAsync(&self, ioControlCode: IIOControlCode, inputBuffer: super::super::Storage::Streams::IBuffer, outputBuffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TrySendIOControlAsync(&self, #[in] ioControlCode: IIOControlCode, #[in] inputBuffer: super::super::Storage::Streams::IBuffer, #[in] outputBuffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0xc8220312_ef4c_46b1_a58e_eeb308dc8917)]
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CustomDevice)]
             interface ICustomDeviceStatics {
-                fn GetDeviceSelector(&self, classGuid: GUID) -> String;
+                fn GetDeviceSelector(&self, #[in] classGuid: GUID) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String, desiredAccess: DeviceAccessMode, sharingMode: DeviceSharingMode) -> super::super::Foundation::IAsyncOperation<CustomDevice>;
+                fn FromIdAsync(&self, #[in] deviceId: String, #[in] desiredAccess: DeviceAccessMode, #[in] sharingMode: DeviceSharingMode) -> super::super::Foundation::IAsyncOperation<CustomDevice>;
             }
             #[guid(0x0e9559e7_60c8_4375_a761_7f8808066c60)]
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
@@ -65,7 +65,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(IOControlCode)]
             interface IIOControlCodeFactory {
-                fn CreateIOControlCode(&self, deviceType: u16, function: u16, accessMode: IOControlAccessMode, bufferingMethod: IOControlBufferingMethod) -> IOControlCode;
+                fn CreateIOControlCode(&self, #[in] deviceType: u16, #[in] function: u16, #[in] accessMode: IOControlAccessMode, #[in] bufferingMethod: IOControlBufferingMethod) -> IOControlCode;
             }
             #[guid(0xee5479c2_5448_45da_ad1b_24948c239094)]
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]

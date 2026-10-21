@@ -11,7 +11,6 @@ impl Encoder<'_> {
     fn parse_param_attributes(
         &mut self,
         attrs: &[syn::Attribute],
-        ty: &metadata::Type,
     ) -> Result<metadata::ParamAttributes, Error> {
         let mut attributes = metadata::ParamAttributes::default();
 
@@ -34,16 +33,6 @@ impl Encoder<'_> {
             }
         }
 
-        if !attributes.contains(metadata::ParamAttributes::Out)
-            && !attributes.contains(metadata::ParamAttributes::In)
-        {
-            if matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..)) {
-                attributes |= metadata::ParamAttributes::Out;
-            } else {
-                attributes |= metadata::ParamAttributes::In;
-            }
-        }
-
         Ok(attributes)
     }
 
@@ -54,7 +43,7 @@ impl Encoder<'_> {
 
         let name = name.ident.unraw_to_string();
         let ty = self.encode_type(&param.ty)?;
-        let attributes = self.parse_param_attributes(&param.attrs, &ty)?;
+        let attributes = self.parse_param_attributes(&param.attrs)?;
 
         Ok(Param {
             name,
@@ -70,7 +59,7 @@ impl Encoder<'_> {
         };
 
         let ty = self.encode_type(&param.ty)?;
-        let attributes = self.parse_param_attributes(&param.attrs, &ty)?;
+        let attributes = self.parse_param_attributes(&param.attrs)?;
 
         Ok(Param {
             name: name.unraw_to_string(),
@@ -94,7 +83,13 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    pub fn encode_params(&mut self, params: &[Param]) -> Result<(), Error> {
+    pub fn encode_params(
+        &mut self,
+        params: &[Param],
+        result: &metadata::Type,
+    ) -> Result<(), Error> {
+        let names: Vec<_> = params.iter().map(|param| param.name.as_str()).collect();
+        let types: Vec<_> = params.iter().map(|param| param.ty.clone()).collect();
         for (sequence, param) in params.iter().enumerate() {
             let param_id = self.output.Param(
                 &param.name,
@@ -116,7 +111,18 @@ impl Encoder<'_> {
                 }
             }
 
-            let mut skip: Vec<&str> = vec!["r#in", "out", "opt"];
+            self.encode_buffer_extents(
+                metadata::writer::HasAttribute::Param(param_id),
+                &param.attrs,
+                &names,
+                false,
+                attribute_ref::ExtentTypes {
+                    counts: &types,
+                    subject: &param.ty,
+                    result: Some(result),
+                },
+            )?;
+            let mut skip: Vec<&str> = vec!["r#in", "out", "opt", "readable", "writable"];
             skip.extend(PSEUDO_ATTRS.iter().map(|p| p.short));
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),
@@ -127,21 +133,14 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    pub fn encode_simple_params(
-        &mut self,
-        params: &[(&str, &metadata::Type)],
-    ) -> Result<(), Error> {
-        for (sequence, (name, ty)) in params.iter().enumerate() {
-            let attributes = if matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
-            {
-                metadata::ParamAttributes::Out
-            } else {
-                metadata::ParamAttributes::In
-            };
-            self.output
-                .Param(name, (sequence + 1).try_into().unwrap(), attributes);
+    pub fn encode_input_params(&mut self, params: &[&str]) {
+        for (sequence, name) in params.iter().enumerate() {
+            self.output.Param(
+                name,
+                (sequence + 1).try_into().unwrap(),
+                metadata::ParamAttributes::In,
+            );
         }
-        Ok(())
     }
 
     pub fn collect_params(&mut self, sig: &syn::Signature) -> Result<Vec<Param>, Error> {

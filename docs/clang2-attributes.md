@@ -195,37 +195,158 @@ remain unsupported; no native decoding or rejection is weakened.
 As with NativeInput, the schema keeps the legacy definition for existing explicit metadata inputs.
 New canonical declarations do not use it.
 
+## Named buffer extents
+
+D36 uses named `readable` and `writable` attributes rather than extending positional legacy
+attributes. `BufferExtentAttribute` keeps access, phase, units and count source separate.
+The first native slice covers existing parameter/field contracts and one indirect count:
+
+```rust
+#[out] #[opt]
+#[writable(entry, bytes(if_present(*lpcbData)))]
+#[readable(success, bytes(if_present(*lpcbData)))]
+lpData: *mut u8
+```
+
+The two occurrences of `*lpcbData` refer to different values: capacity on entry and readable bytes
+on successful completion. Full SAL buffers retain entry values through `on_entry(*count)`. RPC
+post-writable capacity is a separate `writable(success, count)` contract. Field extents use sibling
+names without a phase argument, such as `writable(capacity)` and `readable(length)`; nullable fields
+keep that permission. Null count fallbacks become
+`or(*written, capacity)`, not an unconditional dereference. Direction and termination remain separate.
+
+| Measure | D35 control | D36 candidate |
+| --- | ---: | ---: |
+| Readable extents | 0 | 3,262 |
+| Writable extents | 0 | 4,018 |
+| Positional `len_param` / `size_param` | 4,466 | 0 |
+| Qualified initialized-length / field-buffer / extended-array attributes | 1,255 | 0 |
+| Residual SAL occurrences | 4,259 | 3,344 |
+| Residual SAL names | 147 | 142 |
+| UTF-8 bytes, normalized LF | 18,239,397 | 18,169,981 |
+
+All 915 removed SAL occurrences belong to supported buffer forms with indirect capacities; no raw
+SAL is added. Legacy schema attributes remain readable for existing authored inputs. Native capture
+and reconciliation retain their evidence, including SAL/RPC distinctions. Public comparison binds
+count references positionally even when observed parameter labels differ.
+
+RDL also represents literal and return counts and nonzero literal offsets. Native lowering of those
+counts, return-owned allocation extents, containing-record extents, field expressions and compound
+success conditions still require focused header/RDL cases. No consumer or ownership conversion is
+implied.
+
+### Returned buffers and optional counts
+
+D37 uses indirect successful extents for the 24 SAL2 returned-buffer forms. The pinned SAL definitions
+make their access guarantees different:
+
+| Family | Successful returned-buffer guarantee |
+| --- | --- |
+| `_Outptr_result_buffer_(size)` | Writable capacity, without an initialized-length promise. |
+| `_Outptr_result_buffer_to_(size, count)` | Writable capacity and readable initialized length. |
+| `_Outptr_result_buffer_all_(size)` | Readable length only; no separate writable extent or incoming count. |
+| Byte, optional-storage and maybenull variants | Preserve units, outer optionality and inner nullability independently. |
+
+`IMFMediaBuffer::Lock` supplies both capacity and initialized length through optional output pointers:
+
+```rust
+#[out]
+#[writable(success, bytes(if_present(*pcbMaxLength)), indirect)]
+#[readable(success, bytes(if_present(*pcbCurrentLength)), indirect)]
+ppbBuffer: *mut *mut BYTE
+```
+
+Both count parameters retain `#[out] #[opt]`. A null count pointer means that size was not requested;
+it is unknown, not zero and not a fallback. The successful returned pointer is still initialized and
+non-null. `nullable` would permit a null returned pointer; outer `opt` would permit missing pointer
+storage. Neither follows from count optionality.
+
+The same `if_present` rule applies to ordinary buffers such as `ReadFile` and conditional count
+optionality in registry queries. Explicit null fallbacks keep `or(*count, fallback)`. Parameter flags
+and count availability share the same unconditional direction/optionality analysis.
+
+Buffer-only forms do not acquire `out_ptr`'s one-readable-element promise, including when the count
+is zero. If a separate matching returned-pointer contract is written, both contracts survive:
+the ten SDK combinations with explicit null-on-failure retain that guarantee. Mismatched optionality,
+nullability and other distinct contracts remain evidence rather than a permissive union.
+Constant and compound count expressions remain SAL evidence; no allocator or ownership is inferred.
+
+| Measure | D36 control | D37 candidate |
+| --- | ---: | ---: |
+| Readable extents | 3,262 | 3,283 |
+| Writable extents | 4,018 | 4,335 |
+| Counts with unavailable-value semantics | 0 | 489 |
+| Residual SAL occurrences | 3,344 | 3,011 |
+| Residual SAL names | 142 | 136 |
+| UTF-8 bytes, normalized LF | 18,169,981 | 18,156,697 |
+
+The 333 removed SAL occurrences belong to supported returned-buffer families; no SAL is added.
+They produce 338 extents because five `_to_` annotations each describe two independent extents.
+All-target metadata comparisons preserve existing extents apart from count availability and retain
+all non-buffer contracts. Complete SDK RDL/WinMD round trips preserve every attribute. Declaration
+totals, omission diagnostics and frozen constant/function coverage are unchanged.
+
 ## Remaining publication review
 
-The candidate has 6,742 qualified attribute occurrences across eight families. Residual SAL
-accounts for 4,815 of them. Native capture is not, by itself, a reason to publish each source spelling.
+Direction evidence is corrected under D34 and represented without type inference under D35.
+Known directions use explicit `in`/`out`; missing direction has no attribute. The two registry-query
+count parameters publish only the output/optional facts shared by their complementary branches,
+retaining both conditions. Unresolved direction needs neither an invented contract nor an escape
+attribute.
+
+The D35 review control has 6,186 qualified attribute occurrences across eight families. Residual SAL
+accounts for 4,259 of them. D36's buffer changes are recorded above; the table retains the review
+control counts. Native capture is not, by itself, a reason to publish each source spelling.
 
 | Family | Current count | Review finding and next decision |
 | --- | ---: | --- |
-| Residual SAL | 4,815 | Still 148 annotation names after D32 result-use normalization. Separate success predicates, conditional relationships and analysis-only evidence. Do not blanket-delete unresolved safety contracts. |
-| Field buffers | 596 | Sibling-field capacity/readable relationships, units and optional storage carry distinct information. A concise field-owned form must preserve them. |
-| Initialized length | 523 | Thirty-five payload forms include indirect counts and null fallback. These are successful initialized extents, not caller-supplied capacity. |
-| Extended array capacity | 136 | Seven payload forms add `PostWritable = true`. Extending `len_param` must retain this phase guarantee. |
+| Residual SAL | 4,259 | Still 147 annotation names after D32 result use and D33 bounded success predicates. Preserve complex success conditions, conditional relationships and unresolved safety contracts. |
+| Field buffers | 596 | D36 uses readable/writable value-phase extents, preserving sibling names, units and nullable storage. |
+| Initialized length | 523 | D36 uses readable success-phase extents, preserving dereference and null fallback. |
+| Extended array capacity | 136 | D36 preserves `PostWritable = true` as a writable success-phase extent. |
 | Default arguments | 432 | Forty expression spellings; 292 are `"0"`. Candidate for native-only C++ evidence, not `opt` or a change in callable arity. |
 | Const methods | 139 | C++ method qualification is not a Rust shared-reference or COM immutability contract. Candidate for native-only evidence. |
 | Deprecation | 76 | Messages, replacements and typedef ownership can support useful diagnostics. Prefer normalized syntax over removal. |
 | Native bases | 25 | Base storage already has a field. Decide whether consumers need the inheritance-origin marker separately. |
 
-The publication decisions above remain open; this review does not remove further families.
+The non-buffer publication decisions above remain open; this review does not remove further families.
 Missing `flags`, `special` and constant-count attributes also remain unresolved, as do required
 API/partition losses. The unchanged 198 unapproved function-target gaps and 15 missing constant
 names are not excused by smaller RDL. Downstream qualification remains deferred.
 
+### Direction evidence
+
+Unannotated parameters have no direction attribute and round-trip neither ECMA-335 direction flag.
+Known directions are always explicit. Reserved, termination and other independent contracts do
+not manufacture direction.
+
+For exactly two unscoped SAL2 `_When_` branches testing the same native pointer parameter against
+zero with `==` and `!=`, plain direction contracts contribute only their intersection. Optionality
+requires both branches and cannot relax a direct required contract. Typedef-spelled subjects resolve
+to their native types; scalar, compound, scoped and nonexhaustive predicates remain evidence.
+The existing SAL transport decoder handles nested hook serialization, not a C-expression evaluator.
+
+`RegQueryValueExA/W::lpcbData` is output and optional in both branches. Input is conditional on
+`lpData != NULL` and remains in the retained `_When_` evidence. Do not interpret the common flags
+as an output-only binding contract or replace them with unconditional input/output.
+
+The D34 metadata correction changes only the intended parameter flags on x86, x64 and ARM64.
+D35 changes spelling without changing metadata: existing authored inputs explicitly retain their
+established flags, while clang2 generates directions from native evidence. The legacy clang producer
+materializes its established projection policy; that compatibility step does not add defaults to
+RDL or clang2. Buffer capacities and initialized lengths are the next normalization slice; the review's
+analysis-only removal proposals still need per-contract decisions.
+
 ## Residual SAL is not a canonical vocabulary
 
-After D32, 4,815 `NativeSal` occurrences contain 148 source annotation names and 1,493 complete payload
-spellings. Fifty-four carry `TypedefName`; none in this candidate carry `Modifiers`. Scoped
+After D33, 4,259 `NativeSal` occurrences contain 147 source annotation names. Fifty-four carry
+`TypedefName`; none in this candidate carry `Modifiers`. Scoped
 termination fixtures still exercise qualifier ownership outside this workload.
 
 | Representative residual evidence | Count | Candidate canonical treatment |
 | --- | ---: | --- |
 | `_Check_return_`, `_Must_inspect_result_` | 0 direct occurrences | The 1,071 + 350 callable-result occurrences normalize to `#[must_use]` under D32. Nested conditional occurrences remain evidence, not unconditional contracts. |
-| `_Success_` | 591 | Success predicate governing postconditions. Do not replace different return-code conventions with an assumed Boolean success. |
+| `_Success_` | 56 | Remaining compound, cast, sentinel and constant-true conditions. D33 normalizes 535 SAL2 callable predicates; do not reduce the remaining contracts to Boolean success. |
 | `_When_` | 341 | Conditional contract; must retain condition and owner or remain unsupported evidence. |
 | `_Out_writes_opt_`, `_Out_writes_` | 363 + 215 | Some forms already lower to counts; these residual instances require expression/owner analysis, not another direction attribute. |
 | `_Outptr_result_buffer_`, `_Outptr_result_bytebuffer_` | 177 + 118 | Returned buffer extent, separate from caller-supplied capacity and outer optionality. |
@@ -261,10 +382,105 @@ remain errors. This is a result-use contract, not a reproduction of SAL's datafl
 
 The spelling follows Rust's [must-use attribute][rust-must-use], without message arguments or a
 downstream lint implementation. `_Success_` and `_Return_type_success_` remain unchanged and are
-the next review: they describe successful outcomes and postconditions, not whether a result is used.
+reviewed separately below: they describe postconditions, not whether a result is used.
 
 [sal-function]: https://learn.microsoft.com/en-us/cpp/code-quality/annotating-function-behavior
 [rust-must-use]: https://doc.rust-lang.org/reference/attributes/diagnostics.html#the-must_use-attribute
+
+## Success-predicate investigation
+
+This investigation established the D33 boundary implemented below. Its D32 control contains 614
+direct success annotations, with 34 complete payload spellings:
+
+| Source annotation | Count | Actual metadata owners |
+| --- | ---: | --- |
+| SAL2 `_Success_` | 591 | 563 methods/imports and 28 named callbacks |
+| SAL1.1 `__success` | 11 | Methods/imports |
+| SAL2 `_Return_type_success_` | 12 | Ten scalar typedefs and two pointer typedefs |
+
+The pinned SDK's `sal.h` defines `__success(expr)` through `_Success_(expr)`. These belong to the
+same semantic review, rather than leaving a legacy spelling outside the inventory.
+All current payloads have equal captured argument and expansion strings; none has a relocated
+typedef owner or scope modifier. That does not establish compiler evaluation of the expressions.
+
+The [SAL specification][sal-function] defines success as the condition under which ordinary
+postconditions apply. `_On_failure_` uses its negation; `_Always_` applies on both outcomes.
+A function's explicit `_Success_` overrides the default supplied by its return typedef's
+`_Return_type_success_`. This is separate from `must_use`, output direction and the error model
+chosen by a language binding.
+
+| Callable predicate family | Occurrences | Boundary |
+| --- | ---: | --- |
+| Truth/nonzero spellings | 295 | Integer/Boolean truth and pointer non-nullness need the actual result type. |
+| Equal to zero | 205 | Includes null-handle success on GlobalFree/LocalFree; not always an integer status. |
+| Equal to one | 30 | Do not weaken to arbitrary nonzero on BOOL or BOOLEAN results. |
+| Nonnegative | 12 | Requires signedness and enum/backing-type analysis. |
+| Positive | 4 | Distinct from nonzero on signed results. |
+| Constant true | 3 | Postconditions apply unconditionally; this is not an infallibility promise. |
+| Compound, cast or sentinel | 53 | Preserve parameter relationships, alternatives, types and unresolved names. |
+
+The first six rows cover 549 of 602 callable annotations by textual shape, not 549 proven
+lowerings. The remaining 53 comprise 31 buffer-bound predicates, ten alternate-status predicates,
+nine sentinel/handle comparisons, two reallocation conditions and one HRESULT cast.
+
+Concrete cases constrain the design:
+
+- `GetCurrentDirectoryA` requires a nonzero result smaller than `nBufferLength`. A nonzero-only
+  rule would wrongly treat an insufficient buffer as satisfying the ordinary output guarantees.
+- `NetConnectionEnum` accepts zero or 234 (`ERROR_MORE_DATA`) for its postconditions.
+  Its [API documentation][connection-enum] requires freeing the returned buffer even with
+  `ERROR_MORE_DATA`. This must not become an automatic complete-success/error split.
+- `CryptXmlClose` returns HRESULT but explicitly requires zero. Keep that override rather than
+  assuming every HRESULT-returning function uses the typedef's nonnegative default.
+- `GlobalReAlloc` and `LocalReAlloc` refer to `_Curr_` and an input size. Do not reinterpret the
+  SAL subject or simplify away the zero-size case without establishing its binding.
+- `PNTSTATUS` and `PNDIS_STATUS` carry `return >= 0` because the SDK places the annotation on
+  shared scalar/pointer typedef declarations. This is present in native capture on all three
+  targets, not invented by projection. It does not justify a nonnegative pointer test or applying
+  the pointee's status convention to a function with such an output parameter.
+
+The shared declarations are in SDK 10.0.28000.2270's `um/ntsecapi.h:895` and
+`shared/ndis/types.h:13`. `shared/ntdef.h:1074-1076` also supplies a separate, unannotated pointer
+typedef. Keep the observed annotation sets and their ownership; do not repair these cases by name.
+The legacy success wrapper is at `shared/sal.h:2848`.
+
+### Implemented bounded predicates
+
+D33 adds expression-form `#[success(...)]` backed by `SuccessConditionAttribute` and its typed
+enum. The supported predicates are `return == 0`, `return != 0`, `return == 1`, `return >= 0`
+and `return > 0`. Integer/Boolean and unscoped-enum return types retain distinct comparisons;
+nonnegative requires signed storage. Data pointers support only zero/null equality or inequality.
+The remaining expressions, floats, scoped enums, incompatible pointer predicates and relocated
+nominal-type defaults retain evidence. This is not a C/SAL expression evaluator.
+
+The candidate normalizes 556 occurrences: 535 SAL2 callable predicates, eleven SAL1.1 predicates
+and ten scalar typedef defaults. The 58 remaining direct annotations comprise 56 callable
+conditions and the two pointer-typedef defaults. All five canonical predicates retain their exact
+metadata enum discriminants through RDL/WinMD round trips. Unknown values or extra properties keep
+full spelling; unsupported short expressions and parameter/field owners are errors.
+
+Explicit callable conditions remain independent of return-type defaults. Agreeing inherited
+callback conditions coalesce; conflicting conditions and source ownership stay as evidence.
+Value aliases retain their written links when a return-default owner would otherwise be flattened
+away, including annotations from another input. The SDK changes three such definitions:
+`CONFIGRET = RETURN_TYPE`, `APP_DEPRECATED_HRESULT = HRESULT`, and
+`DEPRECATED_HRESULT = HRESULT`. Their underlying storage is unchanged. Do not traverse pointers
+to inherit a default or guess precedence between competing typedef defaults.
+
+Across 74 partitions this removes 35,090 bytes, leaving 17,882,343 bytes and 92,557 attributes.
+The only metadata changes are the new enum/attribute definitions, the 556 normalized contracts
+and those three alias links. All other RDL text, signatures, flags, constants and attributes are
+unchanged on all targets; omission diagnostics and coverage are unchanged. Native conflicts remain
+errors even when different source spellings would publish the same predicate.
+
+The `success` header/RDL fixture covers defaults, explicit overrides, alias/callback inheritance,
+cross-input annotations, native type guards, competing defaults, scoped and expanded evidence,
+partial-result/buffer conditions and the shared-declarator pointer boundary. Downstream error
+conversion and diagnostic generation remain deferred. Extending this model to the remaining 58
+annotations requires parameter binding, sentinel/cast semantics or a separate constant-true form,
+not weaker rejection or guessed numeric values.
+
+[connection-enum]: https://learn.microsoft.com/en-us/windows/win32/api/lmshare/nf-lmshare-netconnectionenum
 
 ## Representation and next decisions
 
@@ -281,12 +497,10 @@ useful. Decide semantics first, then add reversible syntax for the retained cont
 
 The reader/writer share `PSEUDO_ATTRS` for one-property short forms. Multi-property contracts need
 explicit parsing/rendering, not a lossy entry in that table. Direction rendering uses
-`windows_rdl::emit::write_param_direction` in both the RDL writer and clang2. It omits input on
-nonmutable written types and output on mutable pointers/references, retaining both flags for
-input/output parameters. A named pointer alias has the reader's default input direction, not the
-default of its underlying pointer. An absent source direction still uses the reader's defaults.
-Equivalent import declarations render comparison directions after normalizing comparison types;
-an output pointer and its typedef must not conflict because only one spelling needs `out`.
+`windows_rdl::emit::write_param_direction` in both the RDL writer and clang2. It emits each established
+flag without consulting the parameter type. Pointer mutability and alias spelling cannot supply
+missing direction or change equivalent import comparisons. Property setters and event accessors
+have input parameters by their member contracts, not by type inference.
 
 Direction spelling retains parameter flags and optionality. D30 separately removes redundant
 NativeInput publication while retaining native annotations and every other custom attribute.

@@ -35,9 +35,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchorExporter)]
             interface ISpatialAnchorExporter {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetAnchorExportSufficiencyAsync(&self, anchor: SpatialAnchor, purpose: SpatialAnchorExportPurpose) -> super::super::Foundation::IAsyncOperation<SpatialAnchorExportSufficiency>;
+                fn GetAnchorExportSufficiencyAsync(&self, #[in] anchor: SpatialAnchor, #[in] purpose: SpatialAnchorExportPurpose) -> super::super::Foundation::IAsyncOperation<SpatialAnchorExportSufficiency>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryExportAnchorAsync(&self, anchor: SpatialAnchor, purpose: SpatialAnchorExportPurpose, stream: super::super::Storage::Streams::IOutputStream) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryExportAnchorAsync(&self, #[in] anchor: SpatialAnchor, #[in] purpose: SpatialAnchorExportPurpose, #[in] stream: super::super::Storage::Streams::IOutputStream) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0xed2507b8_2475_439c_85ff_7fed341fdc88)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
@@ -66,19 +66,19 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchor)]
             interface ISpatialAnchorStatics {
                 #[Windows::Foundation::Metadata::Overload("TryCreateRelativeTo")]
-                fn TryCreateRelativeTo(&self, coordinateSystem: SpatialCoordinateSystem) -> SpatialAnchor;
+                fn TryCreateRelativeTo(&self, #[in] coordinateSystem: SpatialCoordinateSystem) -> SpatialAnchor;
                 #[Windows::Foundation::Metadata::Overload("TryCreateWithPositionRelativeTo")]
-                fn TryCreateRelativeTo(&self, coordinateSystem: SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3) -> SpatialAnchor;
+                fn TryCreateRelativeTo(&self, #[in] coordinateSystem: SpatialCoordinateSystem, #[in] position: super::super::Foundation::Numerics::Vector3) -> SpatialAnchor;
                 #[Windows::Foundation::Metadata::Overload("TryCreateWithPositionAndOrientationRelativeTo")]
-                fn TryCreateRelativeTo(&self, coordinateSystem: SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> SpatialAnchor;
+                fn TryCreateRelativeTo(&self, #[in] coordinateSystem: SpatialCoordinateSystem, #[in] position: super::super::Foundation::Numerics::Vector3, #[in] orientation: super::super::Foundation::Numerics::Quaternion) -> SpatialAnchor;
             }
             #[guid(0xb0bc3636_486a_3cb0_9e6f_1245165c4db6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchorStore)]
             interface ISpatialAnchorStore {
                 fn GetAllSavedAnchors(&self) -> super::super::Foundation::Collections::IMapView<String, SpatialAnchor>;
-                fn TrySave(&self, id: String, anchor: SpatialAnchor) -> bool;
-                fn Remove(&self, id: String);
+                fn TrySave(&self, #[in] id: String, #[in] anchor: SpatialAnchor) -> bool;
+                fn Remove(&self, #[in] id: String);
                 fn Clear(&self);
             }
             #[guid(0x03bbf9b9_12d8_4bce_8835_c5df3ac0adab)]
@@ -88,10 +88,10 @@ mod Windows {
             interface ISpatialAnchorTransferManagerStatics {
                 #[Windows::Foundation::Metadata::Deprecated("Use SpatialEntityStore instead of SpatialAnchorTransferManager. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryImportAnchorsAsync(&self, stream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<String, SpatialAnchor>>;
+                fn TryImportAnchorsAsync(&self, #[in] stream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<String, SpatialAnchor>>;
                 #[Windows::Foundation::Metadata::Deprecated("Use SpatialEntityStore instead of SpatialAnchorTransferManager. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryExportAnchorsAsync(&self, anchors: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, SpatialAnchor>>, stream: super::super::Storage::Streams::IOutputStream) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryExportAnchorsAsync(&self, #[in] anchors: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, SpatialAnchor>>, #[in] stream: super::super::Storage::Streams::IOutputStream) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Deprecated("Use SpatialEntityStore instead of SpatialAnchorTransferManager. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>;
@@ -104,16 +104,16 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpatialBoundingVolume)]
             interface ISpatialBoundingVolumeStatics {
-                fn FromBox(&self, coordinateSystem: SpatialCoordinateSystem, r#box: SpatialBoundingBox) -> SpatialBoundingVolume;
-                fn FromOrientedBox(&self, coordinateSystem: SpatialCoordinateSystem, r#box: SpatialBoundingOrientedBox) -> SpatialBoundingVolume;
-                fn FromSphere(&self, coordinateSystem: SpatialCoordinateSystem, sphere: SpatialBoundingSphere) -> SpatialBoundingVolume;
-                fn FromFrustum(&self, coordinateSystem: SpatialCoordinateSystem, frustum: SpatialBoundingFrustum) -> SpatialBoundingVolume;
+                fn FromBox(&self, #[in] coordinateSystem: SpatialCoordinateSystem, #[in] r#box: SpatialBoundingBox) -> SpatialBoundingVolume;
+                fn FromOrientedBox(&self, #[in] coordinateSystem: SpatialCoordinateSystem, #[in] r#box: SpatialBoundingOrientedBox) -> SpatialBoundingVolume;
+                fn FromSphere(&self, #[in] coordinateSystem: SpatialCoordinateSystem, #[in] sphere: SpatialBoundingSphere) -> SpatialBoundingVolume;
+                fn FromFrustum(&self, #[in] coordinateSystem: SpatialCoordinateSystem, #[in] frustum: SpatialBoundingFrustum) -> SpatialBoundingVolume;
             }
             #[guid(0x69ebca4b_60a3_3586_a653_59a7bd676d07)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpatialCoordinateSystem)]
             interface ISpatialCoordinateSystem {
-                fn TryGetTransformTo(&self, target: SpatialCoordinateSystem) -> super::super::Foundation::IReference<super::super::Foundation::Numerics::Matrix4x4>;
+                fn TryGetTransformTo(&self, #[in] target: SpatialCoordinateSystem) -> super::super::Foundation::IReference<super::super::Foundation::Numerics::Matrix4x4>;
             }
             #[guid(0x166de955_e1eb_454c_ba08_e6c0668ddc65)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -137,8 +137,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpatialEntity)]
             interface ISpatialEntityFactory {
-                fn CreateWithSpatialAnchor(&self, spatialAnchor: SpatialAnchor) -> SpatialEntity;
-                fn CreateWithSpatialAnchorAndProperties(&self, spatialAnchor: SpatialAnchor, propertySet: super::super::Foundation::Collections::ValueSet) -> SpatialEntity;
+                fn CreateWithSpatialAnchor(&self, #[in] spatialAnchor: SpatialAnchor) -> SpatialEntity;
+                fn CreateWithSpatialAnchorAndProperties(&self, #[in] spatialAnchor: SpatialAnchor, #[in] propertySet: super::super::Foundation::Collections::ValueSet) -> SpatialEntity;
             }
             #[guid(0x91741800_536d_4e9f_abf6_415b5444d651)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -152,9 +152,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(SpatialEntityStore)]
             interface ISpatialEntityStore {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SaveAsync(&self, entity: SpatialEntity) -> super::super::Foundation::IAsyncAction;
+                fn SaveAsync(&self, #[in] entity: SpatialEntity) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RemoveAsync(&self, entity: SpatialEntity) -> super::super::Foundation::IAsyncAction;
+                fn RemoveAsync(&self, #[in] entity: SpatialEntity) -> super::super::Foundation::IAsyncAction;
                 fn CreateEntityWatcher(&self) -> SpatialEntityWatcher;
             }
             #[guid(0x6b4b389e_7c50_4e92_8a62_4d1d4b7ccd3e)]
@@ -164,7 +164,7 @@ mod Windows {
                 #[get]
                 IsSupported: bool;
                 #[Windows::Foundation::Metadata::Overload("TryGetForRemoteSystemSession")]
-                fn TryGet(&self, session: super::super::System::RemoteSystems::RemoteSystemSession) -> SpatialEntityStore;
+                fn TryGet(&self, #[in] session: super::super::System::RemoteSystems::RemoteSystemSession) -> SpatialEntityStore;
             }
             #[guid(0xe5671766_627b_43cb_a49f_b3be6d47deed)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -222,23 +222,23 @@ mod Windows {
                 Locatability: SpatialLocatability;
                 event LocatabilityChanged: super::super::Foundation::TypedEventHandler<SpatialLocator, Object>;
                 event PositionalTrackingDeactivating: super::super::Foundation::TypedEventHandler<SpatialLocator, SpatialLocatorPositionalTrackingDeactivatingEventArgs>;
-                fn TryLocateAtTimestamp(&self, timestamp: super::PerceptionTimestamp, coordinateSystem: SpatialCoordinateSystem) -> SpatialLocation;
+                fn TryLocateAtTimestamp(&self, #[in] timestamp: super::PerceptionTimestamp, #[in] coordinateSystem: SpatialCoordinateSystem) -> SpatialLocation;
                 #[Windows::Foundation::Metadata::Overload("CreateAttachedFrameOfReferenceAtCurrentHeading")]
                 fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self) -> SpatialLocatorAttachedFrameOfReference;
                 #[Windows::Foundation::Metadata::Overload("CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition")]
-                fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self, relativePosition: super::super::Foundation::Numerics::Vector3) -> SpatialLocatorAttachedFrameOfReference;
+                fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self, #[in] relativePosition: super::super::Foundation::Numerics::Vector3) -> SpatialLocatorAttachedFrameOfReference;
                 #[Windows::Foundation::Metadata::Overload("CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation")]
-                fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion) -> SpatialLocatorAttachedFrameOfReference;
+                fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self, #[in] relativePosition: super::super::Foundation::Numerics::Vector3, #[in] relativeOrientation: super::super::Foundation::Numerics::Quaternion) -> SpatialLocatorAttachedFrameOfReference;
                 #[Windows::Foundation::Metadata::Overload("CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading")]
-                fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion, relativeHeadingInRadians: f64) -> SpatialLocatorAttachedFrameOfReference;
+                fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self, #[in] relativePosition: super::super::Foundation::Numerics::Vector3, #[in] relativeOrientation: super::super::Foundation::Numerics::Quaternion, #[in] relativeHeadingInRadians: f64) -> SpatialLocatorAttachedFrameOfReference;
                 #[Windows::Foundation::Metadata::Overload("CreateStationaryFrameOfReferenceAtCurrentLocation")]
                 fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self) -> SpatialStationaryFrameOfReference;
                 #[Windows::Foundation::Metadata::Overload("CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition")]
-                fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self, relativePosition: super::super::Foundation::Numerics::Vector3) -> SpatialStationaryFrameOfReference;
+                fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self, #[in] relativePosition: super::super::Foundation::Numerics::Vector3) -> SpatialStationaryFrameOfReference;
                 #[Windows::Foundation::Metadata::Overload("CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation")]
-                fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion) -> SpatialStationaryFrameOfReference;
+                fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self, #[in] relativePosition: super::super::Foundation::Numerics::Vector3, #[in] relativeOrientation: super::super::Foundation::Numerics::Quaternion) -> SpatialStationaryFrameOfReference;
                 #[Windows::Foundation::Metadata::Overload("CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading")]
-                fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion, relativeHeadingInRadians: f64) -> SpatialStationaryFrameOfReference;
+                fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self, #[in] relativePosition: super::super::Foundation::Numerics::Vector3, #[in] relativeOrientation: super::super::Foundation::Numerics::Quaternion, #[in] relativeHeadingInRadians: f64) -> SpatialStationaryFrameOfReference;
             }
             #[guid(0xe1774ef6_1f4f_499c_9625_ef5e6ed7a048)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -246,9 +246,9 @@ mod Windows {
             interface ISpatialLocatorAttachedFrameOfReference {
                 RelativePosition: super::super::Foundation::Numerics::Vector3;
                 RelativeOrientation: super::super::Foundation::Numerics::Quaternion;
-                fn AdjustHeading(&self, headingOffsetInRadians: f64);
-                fn GetStationaryCoordinateSystemAtTimestamp(&self, timestamp: super::PerceptionTimestamp) -> SpatialCoordinateSystem;
-                fn TryGetRelativeHeadingAtTimestamp(&self, timestamp: super::PerceptionTimestamp) -> super::super::Foundation::IReference<f64>;
+                fn AdjustHeading(&self, #[in] headingOffsetInRadians: f64);
+                fn GetStationaryCoordinateSystemAtTimestamp(&self, #[in] timestamp: super::PerceptionTimestamp) -> SpatialCoordinateSystem;
+                fn TryGetRelativeHeadingAtTimestamp(&self, #[in] timestamp: super::PerceptionTimestamp) -> super::super::Foundation::IReference<f64>;
             }
             #[guid(0xb8a84063_e3f4_368b_9061_9ea9d1d6cc16)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -272,8 +272,8 @@ mod Windows {
                 MovementRange: SpatialMovementRange;
                 #[get]
                 LookDirectionRange: SpatialLookDirectionRange;
-                fn GetCoordinateSystemAtCurrentLocation(&self, locator: SpatialLocator) -> SpatialCoordinateSystem;
-                fn TryGetMovementBounds(&self, coordinateSystem: SpatialCoordinateSystem) -> [super::super::Foundation::Numerics::Vector3];
+                fn GetCoordinateSystemAtCurrentLocation(&self, #[in] locator: SpatialLocator) -> SpatialCoordinateSystem;
+                fn TryGetMovementBounds(&self, #[in] coordinateSystem: SpatialCoordinateSystem) -> [super::super::Foundation::Numerics::Vector3];
             }
             #[guid(0xf78d5c4d_a0a4_499c_8d91_a8c965d40654)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]

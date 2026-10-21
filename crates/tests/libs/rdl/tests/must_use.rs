@@ -5,7 +5,7 @@ fn must_use_roundtrip() {
     let source = r#"
         #[win32] mod Test {
             #[must_use] #[library("test.dll")] extern fn Read() -> i32;
-            #[must_use] extern fn Callback(value: i32) -> i32;
+            #[must_use] extern fn Callback(#[in] value: i32) -> i32;
             #[no_guid] interface Object {
                 #[must_use] fn Read(&self) -> i32;
             }

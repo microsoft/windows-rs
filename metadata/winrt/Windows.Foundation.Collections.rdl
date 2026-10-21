@@ -44,22 +44,22 @@ mod Windows {
             #[guid(0xe480ce40_a338_4ada_adcf_272272e48cb9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
             interface IMapView<K, V>: IIterable<IKeyValuePair<K, V>> {
-                fn Lookup(&self, key: K) -> V;
+                fn Lookup(&self, #[in] key: K) -> V;
                 #[get]
                 Size: u32;
-                fn HasKey(&self, key: K) -> bool;
-                fn Split(&self, first: &mut IMapView<K, V>, second: &mut IMapView<K, V>);
+                fn HasKey(&self, #[in] key: K) -> bool;
+                fn Split(&self, #[out] first: &mut IMapView<K, V>, #[out] second: &mut IMapView<K, V>);
             }
             #[guid(0x3c2925fe_8519_45c1_aa79_197b6718c1c1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
             interface IMap<K, V>: IIterable<IKeyValuePair<K, V>> {
-                fn Lookup(&self, key: K) -> V;
+                fn Lookup(&self, #[in] key: K) -> V;
                 #[get]
                 Size: u32;
-                fn HasKey(&self, key: K) -> bool;
+                fn HasKey(&self, #[in] key: K) -> bool;
                 fn GetView(&self) -> IMapView<K, V>;
-                fn Insert(&self, key: K, value: V) -> bool;
-                fn Remove(&self, key: K);
+                fn Insert(&self, #[in] key: K, #[in] value: V) -> bool;
+                fn Remove(&self, #[in] key: K);
                 fn Clear(&self);
             }
             #[guid(0x65df2bf5_bf39_41b5_aebc_5a9d865e472b)]
@@ -87,32 +87,32 @@ mod Windows {
             #[guid(0xbbe1fa4c_b0e3_4583_baef_1f1b2e483e56)]
             #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
             interface IVectorView<T>: IIterable<T> {
-                fn GetAt(&self, index: u32) -> T;
+                fn GetAt(&self, #[in] index: u32) -> T;
                 #[get]
                 Size: u32;
-                fn IndexOf(&self, value: T, index: &mut u32) -> bool;
-                fn GetMany(&self, startIndex: u32, #[Windows::Foundation::Metadata::LengthIs(0)] #[out] items: [T]) -> u32;
+                fn IndexOf(&self, #[in] value: T, #[out] index: &mut u32) -> bool;
+                fn GetMany(&self, #[in] startIndex: u32, #[Windows::Foundation::Metadata::LengthIs(0)] #[out] items: [T]) -> u32;
             }
             #[guid(0x913337e9_11a1_4345_a3a2_4e7f956e222d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
             interface IVector<T>: IIterable<T> {
-                fn GetAt(&self, index: u32) -> T;
+                fn GetAt(&self, #[in] index: u32) -> T;
                 #[get]
                 Size: u32;
                 fn GetView(&self) -> IVectorView<T>;
-                fn IndexOf(&self, value: T, index: &mut u32) -> bool;
-                fn SetAt(&self, index: u32, value: T);
-                fn InsertAt(&self, index: u32, value: T);
-                fn RemoveAt(&self, index: u32);
-                fn Append(&self, value: T);
+                fn IndexOf(&self, #[in] value: T, #[out] index: &mut u32) -> bool;
+                fn SetAt(&self, #[in] index: u32, #[in] value: T);
+                fn InsertAt(&self, #[in] index: u32, #[in] value: T);
+                fn RemoveAt(&self, #[in] index: u32);
+                fn Append(&self, #[in] value: T);
                 fn RemoveAtEnd(&self);
                 fn Clear(&self);
-                fn GetMany(&self, startIndex: u32, #[Windows::Foundation::Metadata::LengthIs(0)] #[out] items: [T]) -> u32;
-                fn ReplaceAll(&self, items: [T]);
+                fn GetMany(&self, #[in] startIndex: u32, #[Windows::Foundation::Metadata::LengthIs(0)] #[out] items: [T]) -> u32;
+                fn ReplaceAll(&self, #[in] items: [T]);
             }
             #[guid(0x179517f3_94ee_41f8_bddc_768a895544f3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
-            delegate fn MapChangedEventHandler<K, V>(sender: IObservableMap<K, V>, event: IMapChangedEventArgs<K>);
+            delegate fn MapChangedEventHandler<K, V>(#[in] sender: IObservableMap<K, V>, #[in] event: IMapChangedEventArgs<K>);
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.FoundationContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
@@ -147,7 +147,7 @@ mod Windows {
             }
             #[guid(0x0c051752_9fbf_4c70_aa0c_0e4c82d9a761)]
             #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
-            delegate fn VectorChangedEventHandler<T>(sender: IObservableVector<T>, event: IVectorChangedEventArgs);
+            delegate fn VectorChangedEventHandler<T>(#[in] sender: IObservableVector<T>, #[in] event: IVectorChangedEventArgs);
         }
     }
 }

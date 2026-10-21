@@ -72,27 +72,27 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowInsightsForImageAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowInsightsForImageAsync(&self, imageStream: super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::Foundation::IAsyncAction;
+                fn ShowInsightsForImageAsync(&self, #[in] imageStream: super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowInsightsForImageWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowInsightsForImageAsync(&self, imageStream: super::super::Storage::Streams::IRandomAccessStreamReference, options: CortanaActionableInsightsOptions) -> super::super::Foundation::IAsyncAction;
+                fn ShowInsightsForImageAsync(&self, #[in] imageStream: super::super::Storage::Streams::IRandomAccessStreamReference, #[in] options: CortanaActionableInsightsOptions) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowInsightsForTextAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowInsightsForTextAsync(&self, text: String) -> super::super::Foundation::IAsyncAction;
+                fn ShowInsightsForTextAsync(&self, #[in] text: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowInsightsForTextWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowInsightsForTextAsync(&self, text: String, options: CortanaActionableInsightsOptions) -> super::super::Foundation::IAsyncAction;
+                fn ShowInsightsForTextAsync(&self, #[in] text: String, #[in] options: CortanaActionableInsightsOptions) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowInsightsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowInsightsAsync(&self, datapackage: super::super::ApplicationModel::DataTransfer::DataPackage) -> super::super::Foundation::IAsyncAction;
+                fn ShowInsightsAsync(&self, #[in] datapackage: super::super::ApplicationModel::DataTransfer::DataPackage) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowInsightsWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowInsightsAsync(&self, datapackage: super::super::ApplicationModel::DataTransfer::DataPackage, options: CortanaActionableInsightsOptions) -> super::super::Foundation::IAsyncAction;
+                fn ShowInsightsAsync(&self, #[in] datapackage: super::super::ApplicationModel::DataTransfer::DataPackage, #[in] options: CortanaActionableInsightsOptions) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0xaac2bbcf_9782_5420_b81e_7ae56af31815)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
@@ -112,7 +112,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 fn GetDefault(&self) -> CortanaActionableInsights;
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
-                fn GetForUser(&self, user: super::super::System::User) -> CortanaActionableInsights;
+                fn GetForUser(&self, #[in] user: super::super::System::User) -> CortanaActionableInsights;
             }
             #[guid(0x191330e0_8695_438a_9545_3da4e822ddb4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -123,13 +123,13 @@ mod Windows {
                 fn IsSupported(&self) -> bool;
                 #[Windows::Foundation::Metadata::Deprecated("ICortanaPermissionsManager is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ArePermissionsGrantedAsync(&self, permissions: super::super::Foundation::Collections::IIterable<CortanaPermission>) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn ArePermissionsGrantedAsync(&self, #[in] permissions: super::super::Foundation::Collections::IIterable<CortanaPermission>) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Deprecated("ICortanaPermissionsManager is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GrantPermissionsAsync(&self, permissions: super::super::Foundation::Collections::IIterable<CortanaPermission>) -> super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>;
+                fn GrantPermissionsAsync(&self, #[in] permissions: super::super::Foundation::Collections::IIterable<CortanaPermission>) -> super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>;
                 #[Windows::Foundation::Metadata::Deprecated("ICortanaPermissionsManager is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RevokePermissionsAsync(&self, permissions: super::super::Foundation::Collections::IIterable<CortanaPermission>) -> super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>;
+                fn RevokePermissionsAsync(&self, #[in] permissions: super::super::Foundation::Collections::IIterable<CortanaPermission>) -> super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>;
             }
             #[guid(0x76b1e67a_b045_4414_9d6d_2ad3a5fe3a7e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]

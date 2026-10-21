@@ -67,11 +67,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AsyncCausalityTracer)]
             interface IAsyncCausalityTracerStatics {
-                fn TraceOperationCreation(&self, traceLevel: CausalityTraceLevel, source: CausalitySource, platformId: GUID, operationId: u64, operationName: String, relatedContext: u64);
-                fn TraceOperationCompletion(&self, traceLevel: CausalityTraceLevel, source: CausalitySource, platformId: GUID, operationId: u64, status: super::AsyncStatus);
-                fn TraceOperationRelation(&self, traceLevel: CausalityTraceLevel, source: CausalitySource, platformId: GUID, operationId: u64, relation: CausalityRelation);
-                fn TraceSynchronousWorkStart(&self, traceLevel: CausalityTraceLevel, source: CausalitySource, platformId: GUID, operationId: u64, work: CausalitySynchronousWork);
-                fn TraceSynchronousWorkCompletion(&self, traceLevel: CausalityTraceLevel, source: CausalitySource, work: CausalitySynchronousWork);
+                fn TraceOperationCreation(&self, #[in] traceLevel: CausalityTraceLevel, #[in] source: CausalitySource, #[in] platformId: GUID, #[in] operationId: u64, #[in] operationName: String, #[in] relatedContext: u64);
+                fn TraceOperationCompletion(&self, #[in] traceLevel: CausalityTraceLevel, #[in] source: CausalitySource, #[in] platformId: GUID, #[in] operationId: u64, #[in] status: super::AsyncStatus);
+                fn TraceOperationRelation(&self, #[in] traceLevel: CausalityTraceLevel, #[in] source: CausalitySource, #[in] platformId: GUID, #[in] operationId: u64, #[in] relation: CausalityRelation);
+                fn TraceSynchronousWorkStart(&self, #[in] traceLevel: CausalityTraceLevel, #[in] source: CausalitySource, #[in] platformId: GUID, #[in] operationId: u64, #[in] work: CausalitySynchronousWork);
+                fn TraceSynchronousWorkCompletion(&self, #[in] traceLevel: CausalityTraceLevel, #[in] source: CausalitySource, #[in] work: CausalitySynchronousWork);
                 event TracingStatusChanged: super::EventHandler<TracingStatusChangedEventArgs>;
             }
             #[guid(0x378cbb01_2cc9_428f_8c55_2c990d463e8f)]
@@ -90,12 +90,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ErrorDetails)]
             interface IErrorDetailsStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateFromHResultAsync(&self, errorCode: i32) -> super::IAsyncOperation<ErrorDetails>;
+                fn CreateFromHResultAsync(&self, #[in] errorCode: i32) -> super::IAsyncOperation<ErrorDetails>;
             }
             #[guid(0x16369792_b03e_4ba1_8bb8_d28f4ab4d2c0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             interface IErrorReportingSettings {
-                fn SetErrorOptions(&self, value: ErrorOptions);
+                fn SetErrorOptions(&self, #[in] value: ErrorOptions);
                 fn GetErrorOptions(&self) -> ErrorOptions;
             }
             #[guid(0x24c74216_fed2_404c_895f_1f9699cb02f7)]
@@ -104,10 +104,10 @@ mod Windows {
                 #[get]
                 Name: String;
                 #[Windows::Foundation::Metadata::Overload("AddLoggingChannel")]
-                fn AddLoggingChannel(&self, loggingChannel: ILoggingChannel);
+                fn AddLoggingChannel(&self, #[in] loggingChannel: ILoggingChannel);
                 #[Windows::Foundation::Metadata::Overload("AddLoggingChannelWithLevel")]
-                fn AddLoggingChannel(&self, loggingChannel: ILoggingChannel, maxLevel: LoggingLevel);
-                fn RemoveLoggingChannel(&self, loggingChannel: ILoggingChannel);
+                fn AddLoggingChannel(&self, #[in] loggingChannel: ILoggingChannel, #[in] maxLevel: LoggingLevel);
+                fn RemoveLoggingChannel(&self, #[in] loggingChannel: ILoggingChannel);
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CloseAndSaveToFileAsync(&self) -> super::IAsyncOperation<super::super::Storage::StorageFile>;
                 event LogFileGenerated: super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>;
@@ -116,7 +116,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileLoggingSession)]
             interface IFileLoggingSessionFactory {
-                fn Create(&self, name: String) -> FileLoggingSession;
+                fn Create(&self, #[in] name: String) -> FileLoggingSession;
             }
             #[guid(0x269e976f_0d38_4c1a_b53f_b395d881df84)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
@@ -141,18 +141,18 @@ mod Windows {
                 #[get]
                 Channel: LoggingChannel;
                 #[Windows::Foundation::Metadata::Overload("StopActivity")]
-                fn StopActivity(&self, stopEventName: String);
+                fn StopActivity(&self, #[in] stopEventName: String);
                 #[Windows::Foundation::Metadata::Overload("StopActivityWithFields")]
-                fn StopActivity(&self, stopEventName: String, fields: LoggingFields);
+                fn StopActivity(&self, #[in] stopEventName: String, #[in] fields: LoggingFields);
                 #[Windows::Foundation::Metadata::Overload("StopActivityWithFieldsAndOptions")]
-                fn StopActivity(&self, stopEventName: String, fields: LoggingFields, options: LoggingOptions);
+                fn StopActivity(&self, #[in] stopEventName: String, #[in] fields: LoggingFields, #[in] options: LoggingOptions);
             }
             #[guid(0x6b33b483_e10a_4c58_97d5_10fb451074fb)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LoggingActivity)]
             interface ILoggingActivityFactory {
-                fn CreateLoggingActivity(&self, activityName: String, loggingChannel: ILoggingChannel) -> LoggingActivity;
-                fn CreateLoggingActivityWithLevel(&self, activityName: String, loggingChannel: ILoggingChannel, level: LoggingLevel) -> LoggingActivity;
+                fn CreateLoggingActivity(&self, #[in] activityName: String, #[in] loggingChannel: ILoggingChannel) -> LoggingActivity;
+                fn CreateLoggingActivityWithLevel(&self, #[in] activityName: String, #[in] loggingChannel: ILoggingChannel, #[in] level: LoggingLevel) -> LoggingActivity;
             }
             #[guid(0xe9a50343_11d7_4f01_b5ca_cf495278c0a8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
@@ -164,13 +164,13 @@ mod Windows {
                 #[get]
                 Level: LoggingLevel;
                 #[Windows::Foundation::Metadata::Overload("LogMessage")]
-                fn LogMessage(&self, eventString: String);
+                fn LogMessage(&self, #[in] eventString: String);
                 #[Windows::Foundation::Metadata::Overload("LogMessageWithLevel")]
-                fn LogMessage(&self, eventString: String, level: LoggingLevel);
+                fn LogMessage(&self, #[in] eventString: String, #[in] level: LoggingLevel);
                 #[Windows::Foundation::Metadata::Overload("LogValuePair")]
-                fn LogValuePair(&self, value1: String, value2: i32);
+                fn LogValuePair(&self, #[in] value1: String, #[in] value2: i32);
                 #[Windows::Foundation::Metadata::Overload("LogValuePairWithLevel")]
-                fn LogValuePair(&self, value1: String, value2: i32, level: LoggingLevel);
+                fn LogValuePair(&self, #[in] value1: String, #[in] value2: i32, #[in] level: LoggingLevel);
                 event LoggingEnabled: super::TypedEventHandler<ILoggingChannel, Object>;
             }
             #[guid(0x9f4c3cf3_0bac_45a5_9e33_baf3f3a246a5)]
@@ -185,14 +185,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(LoggingChannel)]
             interface ILoggingChannelFactory {
                 #[Windows::Foundation::Metadata::Deprecated("This constructor creates a LoggingChannel in Windows 8.1 compatibility mode. Prefer the two-parameter constructor.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn Create(&self, name: String) -> LoggingChannel;
+                fn Create(&self, #[in] name: String) -> LoggingChannel;
             }
             #[guid(0x4c6ef5dd_3b27_4dc9_99f0_299c6e4603a1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LoggingChannel)]
             interface ILoggingChannelFactory2 {
-                fn CreateWithOptions(&self, name: String, options: LoggingChannelOptions) -> LoggingChannel;
-                fn CreateWithOptionsAndId(&self, name: String, options: LoggingChannelOptions, id: GUID) -> LoggingChannel;
+                fn CreateWithOptions(&self, #[in] name: String, #[in] options: LoggingChannelOptions) -> LoggingChannel;
+                fn CreateWithOptionsAndId(&self, #[in] name: String, #[in] options: LoggingChannelOptions, #[in] id: GUID) -> LoggingChannel;
             }
             #[guid(0xc3e847ff_0ebb_4a53_8c54_dec24926cb2c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
@@ -204,7 +204,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LoggingChannelOptions)]
             interface ILoggingChannelOptionsFactory {
-                fn Create(&self, group: GUID) -> LoggingChannelOptions;
+                fn Create(&self, #[in] group: GUID) -> LoggingChannelOptions;
             }
             #[guid(0xd7f6b7af_762d_4579_83bd_52c23bc333bc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
@@ -212,232 +212,232 @@ mod Windows {
             interface ILoggingFields {
                 fn Clear(&self);
                 #[Windows::Foundation::Metadata::Overload("BeginStruct")]
-                fn BeginStruct(&self, name: String);
+                fn BeginStruct(&self, #[in] name: String);
                 #[Windows::Foundation::Metadata::Overload("BeginStructWithTags")]
-                fn BeginStruct(&self, name: String, tags: i32);
+                fn BeginStruct(&self, #[in] name: String, #[in] tags: i32);
                 fn EndStruct(&self);
                 #[Windows::Foundation::Metadata::Overload("AddEmpty")]
-                fn AddEmpty(&self, name: String);
+                fn AddEmpty(&self, #[in] name: String);
                 #[Windows::Foundation::Metadata::Overload("AddEmptyWithFormat")]
-                fn AddEmpty(&self, name: String, format: LoggingFieldFormat);
+                fn AddEmpty(&self, #[in] name: String, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddEmptyWithFormatAndTags")]
-                fn AddEmpty(&self, name: String, format: LoggingFieldFormat, tags: i32);
+                fn AddEmpty(&self, #[in] name: String, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddUInt8")]
-                fn AddUInt8(&self, name: String, value: u8);
+                fn AddUInt8(&self, #[in] name: String, #[in] value: u8);
                 #[Windows::Foundation::Metadata::Overload("AddUInt8WithFormat")]
-                fn AddUInt8(&self, name: String, value: u8, format: LoggingFieldFormat);
+                fn AddUInt8(&self, #[in] name: String, #[in] value: u8, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddUInt8WithFormatAndTags")]
-                fn AddUInt8(&self, name: String, value: u8, format: LoggingFieldFormat, tags: i32);
+                fn AddUInt8(&self, #[in] name: String, #[in] value: u8, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddUInt8Array")]
-                fn AddUInt8Array(&self, name: String, value: [u8]);
+                fn AddUInt8Array(&self, #[in] name: String, #[in] value: [u8]);
                 #[Windows::Foundation::Metadata::Overload("AddUInt8ArrayWithFormat")]
-                fn AddUInt8Array(&self, name: String, value: [u8], format: LoggingFieldFormat);
+                fn AddUInt8Array(&self, #[in] name: String, #[in] value: [u8], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddUInt8ArrayWithFormatAndTags")]
-                fn AddUInt8Array(&self, name: String, value: [u8], format: LoggingFieldFormat, tags: i32);
+                fn AddUInt8Array(&self, #[in] name: String, #[in] value: [u8], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddInt16")]
-                fn AddInt16(&self, name: String, value: i16);
+                fn AddInt16(&self, #[in] name: String, #[in] value: i16);
                 #[Windows::Foundation::Metadata::Overload("AddInt16WithFormat")]
-                fn AddInt16(&self, name: String, value: i16, format: LoggingFieldFormat);
+                fn AddInt16(&self, #[in] name: String, #[in] value: i16, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddInt16WithFormatAndTags")]
-                fn AddInt16(&self, name: String, value: i16, format: LoggingFieldFormat, tags: i32);
+                fn AddInt16(&self, #[in] name: String, #[in] value: i16, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddInt16Array")]
-                fn AddInt16Array(&self, name: String, value: [i16]);
+                fn AddInt16Array(&self, #[in] name: String, #[in] value: [i16]);
                 #[Windows::Foundation::Metadata::Overload("AddInt16ArrayWithFormat")]
-                fn AddInt16Array(&self, name: String, value: [i16], format: LoggingFieldFormat);
+                fn AddInt16Array(&self, #[in] name: String, #[in] value: [i16], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddInt16ArrayWithFormatAndTags")]
-                fn AddInt16Array(&self, name: String, value: [i16], format: LoggingFieldFormat, tags: i32);
+                fn AddInt16Array(&self, #[in] name: String, #[in] value: [i16], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddUInt16")]
-                fn AddUInt16(&self, name: String, value: u16);
+                fn AddUInt16(&self, #[in] name: String, #[in] value: u16);
                 #[Windows::Foundation::Metadata::Overload("AddUInt16WithFormat")]
-                fn AddUInt16(&self, name: String, value: u16, format: LoggingFieldFormat);
+                fn AddUInt16(&self, #[in] name: String, #[in] value: u16, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddUInt16WithFormatAndTags")]
-                fn AddUInt16(&self, name: String, value: u16, format: LoggingFieldFormat, tags: i32);
+                fn AddUInt16(&self, #[in] name: String, #[in] value: u16, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddUInt16Array")]
-                fn AddUInt16Array(&self, name: String, value: [u16]);
+                fn AddUInt16Array(&self, #[in] name: String, #[in] value: [u16]);
                 #[Windows::Foundation::Metadata::Overload("AddUInt16ArrayWithFormat")]
-                fn AddUInt16Array(&self, name: String, value: [u16], format: LoggingFieldFormat);
+                fn AddUInt16Array(&self, #[in] name: String, #[in] value: [u16], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddUInt16ArrayWithFormatAndTags")]
-                fn AddUInt16Array(&self, name: String, value: [u16], format: LoggingFieldFormat, tags: i32);
+                fn AddUInt16Array(&self, #[in] name: String, #[in] value: [u16], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddInt32")]
-                fn AddInt32(&self, name: String, value: i32);
+                fn AddInt32(&self, #[in] name: String, #[in] value: i32);
                 #[Windows::Foundation::Metadata::Overload("AddInt32WithFormat")]
-                fn AddInt32(&self, name: String, value: i32, format: LoggingFieldFormat);
+                fn AddInt32(&self, #[in] name: String, #[in] value: i32, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddInt32WithFormatAndTags")]
-                fn AddInt32(&self, name: String, value: i32, format: LoggingFieldFormat, tags: i32);
+                fn AddInt32(&self, #[in] name: String, #[in] value: i32, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddInt32Array")]
-                fn AddInt32Array(&self, name: String, value: [i32]);
+                fn AddInt32Array(&self, #[in] name: String, #[in] value: [i32]);
                 #[Windows::Foundation::Metadata::Overload("AddInt32ArrayWithFormat")]
-                fn AddInt32Array(&self, name: String, value: [i32], format: LoggingFieldFormat);
+                fn AddInt32Array(&self, #[in] name: String, #[in] value: [i32], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddInt32ArrayWithFormatAndTags")]
-                fn AddInt32Array(&self, name: String, value: [i32], format: LoggingFieldFormat, tags: i32);
+                fn AddInt32Array(&self, #[in] name: String, #[in] value: [i32], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddUInt32")]
-                fn AddUInt32(&self, name: String, value: u32);
+                fn AddUInt32(&self, #[in] name: String, #[in] value: u32);
                 #[Windows::Foundation::Metadata::Overload("AddUInt32WithFormat")]
-                fn AddUInt32(&self, name: String, value: u32, format: LoggingFieldFormat);
+                fn AddUInt32(&self, #[in] name: String, #[in] value: u32, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddUInt32WithFormatAndTags")]
-                fn AddUInt32(&self, name: String, value: u32, format: LoggingFieldFormat, tags: i32);
+                fn AddUInt32(&self, #[in] name: String, #[in] value: u32, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddUInt32Array")]
-                fn AddUInt32Array(&self, name: String, value: [u32]);
+                fn AddUInt32Array(&self, #[in] name: String, #[in] value: [u32]);
                 #[Windows::Foundation::Metadata::Overload("AddUInt32ArrayWithFormat")]
-                fn AddUInt32Array(&self, name: String, value: [u32], format: LoggingFieldFormat);
+                fn AddUInt32Array(&self, #[in] name: String, #[in] value: [u32], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddUInt32ArrayWithFormatAndTags")]
-                fn AddUInt32Array(&self, name: String, value: [u32], format: LoggingFieldFormat, tags: i32);
+                fn AddUInt32Array(&self, #[in] name: String, #[in] value: [u32], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddInt64")]
-                fn AddInt64(&self, name: String, value: i64);
+                fn AddInt64(&self, #[in] name: String, #[in] value: i64);
                 #[Windows::Foundation::Metadata::Overload("AddInt64WithFormat")]
-                fn AddInt64(&self, name: String, value: i64, format: LoggingFieldFormat);
+                fn AddInt64(&self, #[in] name: String, #[in] value: i64, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddInt64WithFormatAndTags")]
-                fn AddInt64(&self, name: String, value: i64, format: LoggingFieldFormat, tags: i32);
+                fn AddInt64(&self, #[in] name: String, #[in] value: i64, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddInt64Array")]
-                fn AddInt64Array(&self, name: String, value: [i64]);
+                fn AddInt64Array(&self, #[in] name: String, #[in] value: [i64]);
                 #[Windows::Foundation::Metadata::Overload("AddInt64ArrayWithFormat")]
-                fn AddInt64Array(&self, name: String, value: [i64], format: LoggingFieldFormat);
+                fn AddInt64Array(&self, #[in] name: String, #[in] value: [i64], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddInt64ArrayWithFormatAndTags")]
-                fn AddInt64Array(&self, name: String, value: [i64], format: LoggingFieldFormat, tags: i32);
+                fn AddInt64Array(&self, #[in] name: String, #[in] value: [i64], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddUInt64")]
-                fn AddUInt64(&self, name: String, value: u64);
+                fn AddUInt64(&self, #[in] name: String, #[in] value: u64);
                 #[Windows::Foundation::Metadata::Overload("AddUInt64WithFormat")]
-                fn AddUInt64(&self, name: String, value: u64, format: LoggingFieldFormat);
+                fn AddUInt64(&self, #[in] name: String, #[in] value: u64, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddUInt64WithFormatAndTags")]
-                fn AddUInt64(&self, name: String, value: u64, format: LoggingFieldFormat, tags: i32);
+                fn AddUInt64(&self, #[in] name: String, #[in] value: u64, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddUInt64Array")]
-                fn AddUInt64Array(&self, name: String, value: [u64]);
+                fn AddUInt64Array(&self, #[in] name: String, #[in] value: [u64]);
                 #[Windows::Foundation::Metadata::Overload("AddUInt64ArrayWithFormat")]
-                fn AddUInt64Array(&self, name: String, value: [u64], format: LoggingFieldFormat);
+                fn AddUInt64Array(&self, #[in] name: String, #[in] value: [u64], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddUInt64ArrayWithFormatAndTags")]
-                fn AddUInt64Array(&self, name: String, value: [u64], format: LoggingFieldFormat, tags: i32);
+                fn AddUInt64Array(&self, #[in] name: String, #[in] value: [u64], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddSingle")]
-                fn AddSingle(&self, name: String, value: f32);
+                fn AddSingle(&self, #[in] name: String, #[in] value: f32);
                 #[Windows::Foundation::Metadata::Overload("AddSingleWithFormat")]
-                fn AddSingle(&self, name: String, value: f32, format: LoggingFieldFormat);
+                fn AddSingle(&self, #[in] name: String, #[in] value: f32, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddSingleWithFormatAndTags")]
-                fn AddSingle(&self, name: String, value: f32, format: LoggingFieldFormat, tags: i32);
+                fn AddSingle(&self, #[in] name: String, #[in] value: f32, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddSingleArray")]
-                fn AddSingleArray(&self, name: String, value: [f32]);
+                fn AddSingleArray(&self, #[in] name: String, #[in] value: [f32]);
                 #[Windows::Foundation::Metadata::Overload("AddSingleArrayWithFormat")]
-                fn AddSingleArray(&self, name: String, value: [f32], format: LoggingFieldFormat);
+                fn AddSingleArray(&self, #[in] name: String, #[in] value: [f32], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddSingleArrayWithFormatAndTags")]
-                fn AddSingleArray(&self, name: String, value: [f32], format: LoggingFieldFormat, tags: i32);
+                fn AddSingleArray(&self, #[in] name: String, #[in] value: [f32], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddDouble")]
-                fn AddDouble(&self, name: String, value: f64);
+                fn AddDouble(&self, #[in] name: String, #[in] value: f64);
                 #[Windows::Foundation::Metadata::Overload("AddDoubleWithFormat")]
-                fn AddDouble(&self, name: String, value: f64, format: LoggingFieldFormat);
+                fn AddDouble(&self, #[in] name: String, #[in] value: f64, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddDoubleWithFormatAndTags")]
-                fn AddDouble(&self, name: String, value: f64, format: LoggingFieldFormat, tags: i32);
+                fn AddDouble(&self, #[in] name: String, #[in] value: f64, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddDoubleArray")]
-                fn AddDoubleArray(&self, name: String, value: [f64]);
+                fn AddDoubleArray(&self, #[in] name: String, #[in] value: [f64]);
                 #[Windows::Foundation::Metadata::Overload("AddDoubleArrayWithFormat")]
-                fn AddDoubleArray(&self, name: String, value: [f64], format: LoggingFieldFormat);
+                fn AddDoubleArray(&self, #[in] name: String, #[in] value: [f64], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddDoubleArrayWithFormatAndTags")]
-                fn AddDoubleArray(&self, name: String, value: [f64], format: LoggingFieldFormat, tags: i32);
+                fn AddDoubleArray(&self, #[in] name: String, #[in] value: [f64], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddChar16")]
-                fn AddChar16(&self, name: String, value: Char16);
+                fn AddChar16(&self, #[in] name: String, #[in] value: Char16);
                 #[Windows::Foundation::Metadata::Overload("AddChar16WithFormat")]
-                fn AddChar16(&self, name: String, value: Char16, format: LoggingFieldFormat);
+                fn AddChar16(&self, #[in] name: String, #[in] value: Char16, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddChar16WithFormatAndTags")]
-                fn AddChar16(&self, name: String, value: Char16, format: LoggingFieldFormat, tags: i32);
+                fn AddChar16(&self, #[in] name: String, #[in] value: Char16, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddChar16Array")]
-                fn AddChar16Array(&self, name: String, value: [Char16]);
+                fn AddChar16Array(&self, #[in] name: String, #[in] value: [Char16]);
                 #[Windows::Foundation::Metadata::Overload("AddChar16ArrayWithFormat")]
-                fn AddChar16Array(&self, name: String, value: [Char16], format: LoggingFieldFormat);
+                fn AddChar16Array(&self, #[in] name: String, #[in] value: [Char16], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddChar16ArrayWithFormatAndTags")]
-                fn AddChar16Array(&self, name: String, value: [Char16], format: LoggingFieldFormat, tags: i32);
+                fn AddChar16Array(&self, #[in] name: String, #[in] value: [Char16], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddBoolean")]
-                fn AddBoolean(&self, name: String, value: bool);
+                fn AddBoolean(&self, #[in] name: String, #[in] value: bool);
                 #[Windows::Foundation::Metadata::Overload("AddBooleanWithFormat")]
-                fn AddBoolean(&self, name: String, value: bool, format: LoggingFieldFormat);
+                fn AddBoolean(&self, #[in] name: String, #[in] value: bool, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddBooleanWithFormatAndTags")]
-                fn AddBoolean(&self, name: String, value: bool, format: LoggingFieldFormat, tags: i32);
+                fn AddBoolean(&self, #[in] name: String, #[in] value: bool, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddBooleanArray")]
-                fn AddBooleanArray(&self, name: String, value: [bool]);
+                fn AddBooleanArray(&self, #[in] name: String, #[in] value: [bool]);
                 #[Windows::Foundation::Metadata::Overload("AddBooleanArrayWithFormat")]
-                fn AddBooleanArray(&self, name: String, value: [bool], format: LoggingFieldFormat);
+                fn AddBooleanArray(&self, #[in] name: String, #[in] value: [bool], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddBooleanArrayWithFormatAndTags")]
-                fn AddBooleanArray(&self, name: String, value: [bool], format: LoggingFieldFormat, tags: i32);
+                fn AddBooleanArray(&self, #[in] name: String, #[in] value: [bool], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddString")]
-                fn AddString(&self, name: String, value: String);
+                fn AddString(&self, #[in] name: String, #[in] value: String);
                 #[Windows::Foundation::Metadata::Overload("AddStringWithFormat")]
-                fn AddString(&self, name: String, value: String, format: LoggingFieldFormat);
+                fn AddString(&self, #[in] name: String, #[in] value: String, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddStringWithFormatAndTags")]
-                fn AddString(&self, name: String, value: String, format: LoggingFieldFormat, tags: i32);
+                fn AddString(&self, #[in] name: String, #[in] value: String, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddStringArray")]
-                fn AddStringArray(&self, name: String, value: [String]);
+                fn AddStringArray(&self, #[in] name: String, #[in] value: [String]);
                 #[Windows::Foundation::Metadata::Overload("AddStringArrayWithFormat")]
-                fn AddStringArray(&self, name: String, value: [String], format: LoggingFieldFormat);
+                fn AddStringArray(&self, #[in] name: String, #[in] value: [String], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddStringArrayWithFormatAndTags")]
-                fn AddStringArray(&self, name: String, value: [String], format: LoggingFieldFormat, tags: i32);
+                fn AddStringArray(&self, #[in] name: String, #[in] value: [String], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddGuid")]
-                fn AddGuid(&self, name: String, value: GUID);
+                fn AddGuid(&self, #[in] name: String, #[in] value: GUID);
                 #[Windows::Foundation::Metadata::Overload("AddGuidWithFormat")]
-                fn AddGuid(&self, name: String, value: GUID, format: LoggingFieldFormat);
+                fn AddGuid(&self, #[in] name: String, #[in] value: GUID, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddGuidWithFormatAndTags")]
-                fn AddGuid(&self, name: String, value: GUID, format: LoggingFieldFormat, tags: i32);
+                fn AddGuid(&self, #[in] name: String, #[in] value: GUID, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddGuidArray")]
-                fn AddGuidArray(&self, name: String, value: [GUID]);
+                fn AddGuidArray(&self, #[in] name: String, #[in] value: [GUID]);
                 #[Windows::Foundation::Metadata::Overload("AddGuidArrayWithFormat")]
-                fn AddGuidArray(&self, name: String, value: [GUID], format: LoggingFieldFormat);
+                fn AddGuidArray(&self, #[in] name: String, #[in] value: [GUID], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddGuidArrayWithFormatAndTags")]
-                fn AddGuidArray(&self, name: String, value: [GUID], format: LoggingFieldFormat, tags: i32);
+                fn AddGuidArray(&self, #[in] name: String, #[in] value: [GUID], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddDateTime")]
-                fn AddDateTime(&self, name: String, value: super::DateTime);
+                fn AddDateTime(&self, #[in] name: String, #[in] value: super::DateTime);
                 #[Windows::Foundation::Metadata::Overload("AddDateTimeWithFormat")]
-                fn AddDateTime(&self, name: String, value: super::DateTime, format: LoggingFieldFormat);
+                fn AddDateTime(&self, #[in] name: String, #[in] value: super::DateTime, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddDateTimeWithFormatAndTags")]
-                fn AddDateTime(&self, name: String, value: super::DateTime, format: LoggingFieldFormat, tags: i32);
+                fn AddDateTime(&self, #[in] name: String, #[in] value: super::DateTime, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddDateTimeArray")]
-                fn AddDateTimeArray(&self, name: String, value: [super::DateTime]);
+                fn AddDateTimeArray(&self, #[in] name: String, #[in] value: [super::DateTime]);
                 #[Windows::Foundation::Metadata::Overload("AddDateTimeArrayWithFormat")]
-                fn AddDateTimeArray(&self, name: String, value: [super::DateTime], format: LoggingFieldFormat);
+                fn AddDateTimeArray(&self, #[in] name: String, #[in] value: [super::DateTime], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddDateTimeArrayWithFormatAndTags")]
-                fn AddDateTimeArray(&self, name: String, value: [super::DateTime], format: LoggingFieldFormat, tags: i32);
+                fn AddDateTimeArray(&self, #[in] name: String, #[in] value: [super::DateTime], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddTimeSpan")]
-                fn AddTimeSpan(&self, name: String, value: super::TimeSpan);
+                fn AddTimeSpan(&self, #[in] name: String, #[in] value: super::TimeSpan);
                 #[Windows::Foundation::Metadata::Overload("AddTimeSpanWithFormat")]
-                fn AddTimeSpan(&self, name: String, value: super::TimeSpan, format: LoggingFieldFormat);
+                fn AddTimeSpan(&self, #[in] name: String, #[in] value: super::TimeSpan, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddTimeSpanWithFormatAndTags")]
-                fn AddTimeSpan(&self, name: String, value: super::TimeSpan, format: LoggingFieldFormat, tags: i32);
+                fn AddTimeSpan(&self, #[in] name: String, #[in] value: super::TimeSpan, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddTimeSpanArray")]
-                fn AddTimeSpanArray(&self, name: String, value: [super::TimeSpan]);
+                fn AddTimeSpanArray(&self, #[in] name: String, #[in] value: [super::TimeSpan]);
                 #[Windows::Foundation::Metadata::Overload("AddTimeSpanArrayWithFormat")]
-                fn AddTimeSpanArray(&self, name: String, value: [super::TimeSpan], format: LoggingFieldFormat);
+                fn AddTimeSpanArray(&self, #[in] name: String, #[in] value: [super::TimeSpan], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddTimeSpanArrayWithFormatAndTags")]
-                fn AddTimeSpanArray(&self, name: String, value: [super::TimeSpan], format: LoggingFieldFormat, tags: i32);
+                fn AddTimeSpanArray(&self, #[in] name: String, #[in] value: [super::TimeSpan], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddPoint")]
-                fn AddPoint(&self, name: String, value: super::Point);
+                fn AddPoint(&self, #[in] name: String, #[in] value: super::Point);
                 #[Windows::Foundation::Metadata::Overload("AddPointWithFormat")]
-                fn AddPoint(&self, name: String, value: super::Point, format: LoggingFieldFormat);
+                fn AddPoint(&self, #[in] name: String, #[in] value: super::Point, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddPointWithFormatAndTags")]
-                fn AddPoint(&self, name: String, value: super::Point, format: LoggingFieldFormat, tags: i32);
+                fn AddPoint(&self, #[in] name: String, #[in] value: super::Point, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddPointArray")]
-                fn AddPointArray(&self, name: String, value: [super::Point]);
+                fn AddPointArray(&self, #[in] name: String, #[in] value: [super::Point]);
                 #[Windows::Foundation::Metadata::Overload("AddPointArrayWithFormat")]
-                fn AddPointArray(&self, name: String, value: [super::Point], format: LoggingFieldFormat);
+                fn AddPointArray(&self, #[in] name: String, #[in] value: [super::Point], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddPointArrayWithFormatAndTags")]
-                fn AddPointArray(&self, name: String, value: [super::Point], format: LoggingFieldFormat, tags: i32);
+                fn AddPointArray(&self, #[in] name: String, #[in] value: [super::Point], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddSize")]
-                fn AddSize(&self, name: String, value: super::Size);
+                fn AddSize(&self, #[in] name: String, #[in] value: super::Size);
                 #[Windows::Foundation::Metadata::Overload("AddSizeWithFormat")]
-                fn AddSize(&self, name: String, value: super::Size, format: LoggingFieldFormat);
+                fn AddSize(&self, #[in] name: String, #[in] value: super::Size, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddSizeWithFormatAndTags")]
-                fn AddSize(&self, name: String, value: super::Size, format: LoggingFieldFormat, tags: i32);
+                fn AddSize(&self, #[in] name: String, #[in] value: super::Size, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddSizeArray")]
-                fn AddSizeArray(&self, name: String, value: [super::Size]);
+                fn AddSizeArray(&self, #[in] name: String, #[in] value: [super::Size]);
                 #[Windows::Foundation::Metadata::Overload("AddSizeArrayWithFormat")]
-                fn AddSizeArray(&self, name: String, value: [super::Size], format: LoggingFieldFormat);
+                fn AddSizeArray(&self, #[in] name: String, #[in] value: [super::Size], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddSizeArrayWithFormatAndTags")]
-                fn AddSizeArray(&self, name: String, value: [super::Size], format: LoggingFieldFormat, tags: i32);
+                fn AddSizeArray(&self, #[in] name: String, #[in] value: [super::Size], #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddRect")]
-                fn AddRect(&self, name: String, value: super::Rect);
+                fn AddRect(&self, #[in] name: String, #[in] value: super::Rect);
                 #[Windows::Foundation::Metadata::Overload("AddRectWithFormat")]
-                fn AddRect(&self, name: String, value: super::Rect, format: LoggingFieldFormat);
+                fn AddRect(&self, #[in] name: String, #[in] value: super::Rect, #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddRectWithFormatAndTags")]
-                fn AddRect(&self, name: String, value: super::Rect, format: LoggingFieldFormat, tags: i32);
+                fn AddRect(&self, #[in] name: String, #[in] value: super::Rect, #[in] format: LoggingFieldFormat, #[in] tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddRectArray")]
-                fn AddRectArray(&self, name: String, value: [super::Rect]);
+                fn AddRectArray(&self, #[in] name: String, #[in] value: [super::Rect]);
                 #[Windows::Foundation::Metadata::Overload("AddRectArrayWithFormat")]
-                fn AddRectArray(&self, name: String, value: [super::Rect], format: LoggingFieldFormat);
+                fn AddRectArray(&self, #[in] name: String, #[in] value: [super::Rect], #[in] format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddRectArrayWithFormatAndTags")]
-                fn AddRectArray(&self, name: String, value: [super::Rect], format: LoggingFieldFormat, tags: i32);
+                fn AddRectArray(&self, #[in] name: String, #[in] value: [super::Rect], #[in] format: LoggingFieldFormat, #[in] tags: i32);
             }
             #[guid(0x90bc7850_0192_4f5d_ac26_006adaca12d8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
@@ -454,7 +454,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LoggingOptions)]
             interface ILoggingOptionsFactory {
-                fn CreateWithKeywords(&self, keywords: i64) -> LoggingOptions;
+                fn CreateWithKeywords(&self, #[in] keywords: i64) -> LoggingOptions;
             }
             #[guid(0x6221f306_9380_4ad7_baf5_41ea9310d768)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
@@ -462,18 +462,18 @@ mod Windows {
                 #[get]
                 Name: String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SaveToFileAsync(&self, folder: super::super::Storage::IStorageFolder, fileName: String) -> super::IAsyncOperation<super::super::Storage::StorageFile>;
+                fn SaveToFileAsync(&self, #[in] folder: super::super::Storage::IStorageFolder, #[in] fileName: String) -> super::IAsyncOperation<super::super::Storage::StorageFile>;
                 #[Windows::Foundation::Metadata::Overload("AddLoggingChannel")]
-                fn AddLoggingChannel(&self, loggingChannel: ILoggingChannel);
+                fn AddLoggingChannel(&self, #[in] loggingChannel: ILoggingChannel);
                 #[Windows::Foundation::Metadata::Overload("AddLoggingChannelWithLevel")]
-                fn AddLoggingChannel(&self, loggingChannel: ILoggingChannel, maxLevel: LoggingLevel);
-                fn RemoveLoggingChannel(&self, loggingChannel: ILoggingChannel);
+                fn AddLoggingChannel(&self, #[in] loggingChannel: ILoggingChannel, #[in] maxLevel: LoggingLevel);
+                fn RemoveLoggingChannel(&self, #[in] loggingChannel: ILoggingChannel);
             }
             #[guid(0x4e937ee5_58fd_45e0_8c2f_a132eff95c1e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LoggingSession)]
             interface ILoggingSessionFactory {
-                fn Create(&self, name: String) -> LoggingSession;
+                fn Create(&self, #[in] name: String) -> LoggingSession;
             }
             #[guid(0x65f16c35_e388_4e26_b17a_f51cd3a83916)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
@@ -481,25 +481,25 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("IsEnabled")]
                 fn IsEnabled(&self) -> bool;
                 #[Windows::Foundation::Metadata::Overload("IsEnabledWithLevel")]
-                fn IsEnabled(&self, level: LoggingLevel) -> bool;
+                fn IsEnabled(&self, #[in] level: LoggingLevel) -> bool;
                 #[Windows::Foundation::Metadata::Overload("IsEnabledWithLevelAndKeywords")]
-                fn IsEnabled(&self, level: LoggingLevel, keywords: i64) -> bool;
+                fn IsEnabled(&self, #[in] level: LoggingLevel, #[in] keywords: i64) -> bool;
                 #[Windows::Foundation::Metadata::Overload("LogEvent")]
-                fn LogEvent(&self, eventName: String);
+                fn LogEvent(&self, #[in] eventName: String);
                 #[Windows::Foundation::Metadata::Overload("LogEventWithFields")]
-                fn LogEvent(&self, eventName: String, fields: LoggingFields);
+                fn LogEvent(&self, #[in] eventName: String, #[in] fields: LoggingFields);
                 #[Windows::Foundation::Metadata::Overload("LogEventWithFieldsAndLevel")]
-                fn LogEvent(&self, eventName: String, fields: LoggingFields, level: LoggingLevel);
+                fn LogEvent(&self, #[in] eventName: String, #[in] fields: LoggingFields, #[in] level: LoggingLevel);
                 #[Windows::Foundation::Metadata::Overload("LogEventWithFieldsAndOptions")]
-                fn LogEvent(&self, eventName: String, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions);
+                fn LogEvent(&self, #[in] eventName: String, #[in] fields: LoggingFields, #[in] level: LoggingLevel, #[in] options: LoggingOptions);
                 #[Windows::Foundation::Metadata::Overload("StartActivity")]
-                fn StartActivity(&self, startEventName: String) -> LoggingActivity;
+                fn StartActivity(&self, #[in] startEventName: String) -> LoggingActivity;
                 #[Windows::Foundation::Metadata::Overload("StartActivityWithFields")]
-                fn StartActivity(&self, startEventName: String, fields: LoggingFields) -> LoggingActivity;
+                fn StartActivity(&self, #[in] startEventName: String, #[in] fields: LoggingFields) -> LoggingActivity;
                 #[Windows::Foundation::Metadata::Overload("StartActivityWithFieldsAndLevel")]
-                fn StartActivity(&self, startEventName: String, fields: LoggingFields, level: LoggingLevel) -> LoggingActivity;
+                fn StartActivity(&self, #[in] startEventName: String, #[in] fields: LoggingFields, #[in] level: LoggingLevel) -> LoggingActivity;
                 #[Windows::Foundation::Metadata::Overload("StartActivityWithFieldsAndOptions")]
-                fn StartActivity(&self, startEventName: String, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions) -> LoggingActivity;
+                fn StartActivity(&self, #[in] startEventName: String, #[in] fields: LoggingFields, #[in] level: LoggingLevel, #[in] options: LoggingOptions) -> LoggingActivity;
             }
             #[guid(0x410b7711_ff3b_477f_9c9a_d2efda302dc3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]

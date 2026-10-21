@@ -129,7 +129,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(Block)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IBlockFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Block;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> Block;
                 }
                 #[guid(0xf86a8c34_8d18_4c53_aebd_91e610a5e010)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -187,7 +187,7 @@ mod Windows {
                     event Invoked: super::super::super::Foundation::TypedEventHandler<ContentLink, ContentLinkInvokedEventArgs>;
                     event GotFocus: super::RoutedEventHandler;
                     event LostFocus: super::RoutedEventHandler;
-                    fn Focus(&self, value: super::FocusState) -> bool;
+                    fn Focus(&self, #[in] value: super::FocusState) -> bool;
                 }
                 #[guid(0x546717c1_e8df_4593_9639_97595fdf8310)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -213,7 +213,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContentLinkProvider)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IContentLinkProviderFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> ContentLinkProvider;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ContentLinkProvider;
                 }
                 #[guid(0xa34e3063_eb16_484e_a3df_522b9a832e6e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -342,7 +342,7 @@ mod Windows {
                     XYFocusRightNavigationStrategy: super::Input::XYFocusNavigationStrategy;
                     event GotFocus: super::RoutedEventHandler;
                     event LostFocus: super::RoutedEventHandler;
-                    fn Focus(&self, value: super::FocusState) -> bool;
+                    fn Focus(&self, #[in] value: super::FocusState) -> bool;
                 }
                 #[guid(0x607dd7d2_0945_4328_91ee_94ccec2ea6c3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -425,7 +425,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(Inline)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IInlineFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Inline;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> Inline;
                 }
                 #[guid(0x1416ce81_28ee_452e_b121_5fc4f60b86a6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -494,7 +494,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(Span)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ISpanFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Span;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> Span;
                 }
                 #[guid(0xe83b0062_d776_4f92_baea_40e77d4791d5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -519,7 +519,7 @@ mod Windows {
                     ElementStart: TextPointer;
                     #[get]
                     ElementEnd: TextPointer;
-                    fn FindName(&self, name: String) -> Object;
+                    fn FindName(&self, #[in] name: String) -> Object;
                 }
                 #[guid(0xa8076aa8_f892_49f6_8cd2_89addaf06d2d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -656,7 +656,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextHighlighter)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITextHighlighterFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> TextHighlighter;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> TextHighlighter;
                 }
                 #[guid(0xb3b009c4_3a7e_49cc_ab84_29c405488765)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -681,8 +681,8 @@ mod Windows {
                     LogicalDirection: LogicalDirection;
                     #[get]
                     Offset: i32;
-                    fn GetCharacterRect(&self, direction: LogicalDirection) -> super::super::super::Foundation::Rect;
-                    fn GetPositionAtOffset(&self, offset: i32, direction: LogicalDirection) -> TextPointer;
+                    fn GetCharacterRect(&self, #[in] direction: LogicalDirection) -> super::super::super::Foundation::Rect;
+                    fn GetPositionAtOffset(&self, #[in] offset: i32, #[in] direction: LogicalDirection) -> TextPointer;
                 }
                 #[guid(0x866f65d5_ea97_42ab_9288_9c01aebc7a97)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -696,176 +696,176 @@ mod Windows {
                 interface ITypographyStatics {
                     #[get]
                     AnnotationAlternatesProperty: super::DependencyProperty;
-                    fn GetAnnotationAlternates(&self, element: super::DependencyObject) -> i32;
-                    fn SetAnnotationAlternates(&self, element: super::DependencyObject, value: i32);
+                    fn GetAnnotationAlternates(&self, #[in] element: super::DependencyObject) -> i32;
+                    fn SetAnnotationAlternates(&self, #[in] element: super::DependencyObject, #[in] value: i32);
                     #[get]
                     EastAsianExpertFormsProperty: super::DependencyProperty;
-                    fn GetEastAsianExpertForms(&self, element: super::DependencyObject) -> bool;
-                    fn SetEastAsianExpertForms(&self, element: super::DependencyObject, value: bool);
+                    fn GetEastAsianExpertForms(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetEastAsianExpertForms(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     EastAsianLanguageProperty: super::DependencyProperty;
-                    fn GetEastAsianLanguage(&self, element: super::DependencyObject) -> super::FontEastAsianLanguage;
-                    fn SetEastAsianLanguage(&self, element: super::DependencyObject, value: super::FontEastAsianLanguage);
+                    fn GetEastAsianLanguage(&self, #[in] element: super::DependencyObject) -> super::FontEastAsianLanguage;
+                    fn SetEastAsianLanguage(&self, #[in] element: super::DependencyObject, #[in] value: super::FontEastAsianLanguage);
                     #[get]
                     EastAsianWidthsProperty: super::DependencyProperty;
-                    fn GetEastAsianWidths(&self, element: super::DependencyObject) -> super::FontEastAsianWidths;
-                    fn SetEastAsianWidths(&self, element: super::DependencyObject, value: super::FontEastAsianWidths);
+                    fn GetEastAsianWidths(&self, #[in] element: super::DependencyObject) -> super::FontEastAsianWidths;
+                    fn SetEastAsianWidths(&self, #[in] element: super::DependencyObject, #[in] value: super::FontEastAsianWidths);
                     #[get]
                     StandardLigaturesProperty: super::DependencyProperty;
-                    fn GetStandardLigatures(&self, element: super::DependencyObject) -> bool;
-                    fn SetStandardLigatures(&self, element: super::DependencyObject, value: bool);
+                    fn GetStandardLigatures(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStandardLigatures(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     ContextualLigaturesProperty: super::DependencyProperty;
-                    fn GetContextualLigatures(&self, element: super::DependencyObject) -> bool;
-                    fn SetContextualLigatures(&self, element: super::DependencyObject, value: bool);
+                    fn GetContextualLigatures(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetContextualLigatures(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     DiscretionaryLigaturesProperty: super::DependencyProperty;
-                    fn GetDiscretionaryLigatures(&self, element: super::DependencyObject) -> bool;
-                    fn SetDiscretionaryLigatures(&self, element: super::DependencyObject, value: bool);
+                    fn GetDiscretionaryLigatures(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetDiscretionaryLigatures(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     HistoricalLigaturesProperty: super::DependencyProperty;
-                    fn GetHistoricalLigatures(&self, element: super::DependencyObject) -> bool;
-                    fn SetHistoricalLigatures(&self, element: super::DependencyObject, value: bool);
+                    fn GetHistoricalLigatures(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetHistoricalLigatures(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StandardSwashesProperty: super::DependencyProperty;
-                    fn GetStandardSwashes(&self, element: super::DependencyObject) -> i32;
-                    fn SetStandardSwashes(&self, element: super::DependencyObject, value: i32);
+                    fn GetStandardSwashes(&self, #[in] element: super::DependencyObject) -> i32;
+                    fn SetStandardSwashes(&self, #[in] element: super::DependencyObject, #[in] value: i32);
                     #[get]
                     ContextualSwashesProperty: super::DependencyProperty;
-                    fn GetContextualSwashes(&self, element: super::DependencyObject) -> i32;
-                    fn SetContextualSwashes(&self, element: super::DependencyObject, value: i32);
+                    fn GetContextualSwashes(&self, #[in] element: super::DependencyObject) -> i32;
+                    fn SetContextualSwashes(&self, #[in] element: super::DependencyObject, #[in] value: i32);
                     #[get]
                     ContextualAlternatesProperty: super::DependencyProperty;
-                    fn GetContextualAlternates(&self, element: super::DependencyObject) -> bool;
-                    fn SetContextualAlternates(&self, element: super::DependencyObject, value: bool);
+                    fn GetContextualAlternates(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetContextualAlternates(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticAlternatesProperty: super::DependencyProperty;
-                    fn GetStylisticAlternates(&self, element: super::DependencyObject) -> i32;
-                    fn SetStylisticAlternates(&self, element: super::DependencyObject, value: i32);
+                    fn GetStylisticAlternates(&self, #[in] element: super::DependencyObject) -> i32;
+                    fn SetStylisticAlternates(&self, #[in] element: super::DependencyObject, #[in] value: i32);
                     #[get]
                     StylisticSet1Property: super::DependencyProperty;
-                    fn GetStylisticSet1(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet1(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet1(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet1(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet2Property: super::DependencyProperty;
-                    fn GetStylisticSet2(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet2(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet2(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet2(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet3Property: super::DependencyProperty;
-                    fn GetStylisticSet3(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet3(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet3(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet3(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet4Property: super::DependencyProperty;
-                    fn GetStylisticSet4(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet4(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet4(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet4(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet5Property: super::DependencyProperty;
-                    fn GetStylisticSet5(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet5(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet5(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet5(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet6Property: super::DependencyProperty;
-                    fn GetStylisticSet6(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet6(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet6(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet6(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet7Property: super::DependencyProperty;
-                    fn GetStylisticSet7(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet7(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet7(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet7(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet8Property: super::DependencyProperty;
-                    fn GetStylisticSet8(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet8(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet8(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet8(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet9Property: super::DependencyProperty;
-                    fn GetStylisticSet9(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet9(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet9(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet9(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet10Property: super::DependencyProperty;
-                    fn GetStylisticSet10(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet10(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet10(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet10(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet11Property: super::DependencyProperty;
-                    fn GetStylisticSet11(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet11(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet11(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet11(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet12Property: super::DependencyProperty;
-                    fn GetStylisticSet12(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet12(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet12(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet12(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet13Property: super::DependencyProperty;
-                    fn GetStylisticSet13(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet13(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet13(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet13(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet14Property: super::DependencyProperty;
-                    fn GetStylisticSet14(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet14(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet14(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet14(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet15Property: super::DependencyProperty;
-                    fn GetStylisticSet15(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet15(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet15(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet15(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet16Property: super::DependencyProperty;
-                    fn GetStylisticSet16(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet16(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet16(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet16(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet17Property: super::DependencyProperty;
-                    fn GetStylisticSet17(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet17(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet17(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet17(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet18Property: super::DependencyProperty;
-                    fn GetStylisticSet18(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet18(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet18(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet18(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet19Property: super::DependencyProperty;
-                    fn GetStylisticSet19(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet19(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet19(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet19(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     StylisticSet20Property: super::DependencyProperty;
-                    fn GetStylisticSet20(&self, element: super::DependencyObject) -> bool;
-                    fn SetStylisticSet20(&self, element: super::DependencyObject, value: bool);
+                    fn GetStylisticSet20(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetStylisticSet20(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     CapitalsProperty: super::DependencyProperty;
-                    fn GetCapitals(&self, element: super::DependencyObject) -> super::FontCapitals;
-                    fn SetCapitals(&self, element: super::DependencyObject, value: super::FontCapitals);
+                    fn GetCapitals(&self, #[in] element: super::DependencyObject) -> super::FontCapitals;
+                    fn SetCapitals(&self, #[in] element: super::DependencyObject, #[in] value: super::FontCapitals);
                     #[get]
                     CapitalSpacingProperty: super::DependencyProperty;
-                    fn GetCapitalSpacing(&self, element: super::DependencyObject) -> bool;
-                    fn SetCapitalSpacing(&self, element: super::DependencyObject, value: bool);
+                    fn GetCapitalSpacing(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetCapitalSpacing(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     KerningProperty: super::DependencyProperty;
-                    fn GetKerning(&self, element: super::DependencyObject) -> bool;
-                    fn SetKerning(&self, element: super::DependencyObject, value: bool);
+                    fn GetKerning(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetKerning(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     CaseSensitiveFormsProperty: super::DependencyProperty;
-                    fn GetCaseSensitiveForms(&self, element: super::DependencyObject) -> bool;
-                    fn SetCaseSensitiveForms(&self, element: super::DependencyObject, value: bool);
+                    fn GetCaseSensitiveForms(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetCaseSensitiveForms(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     HistoricalFormsProperty: super::DependencyProperty;
-                    fn GetHistoricalForms(&self, element: super::DependencyObject) -> bool;
-                    fn SetHistoricalForms(&self, element: super::DependencyObject, value: bool);
+                    fn GetHistoricalForms(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetHistoricalForms(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     FractionProperty: super::DependencyProperty;
-                    fn GetFraction(&self, element: super::DependencyObject) -> super::FontFraction;
-                    fn SetFraction(&self, element: super::DependencyObject, value: super::FontFraction);
+                    fn GetFraction(&self, #[in] element: super::DependencyObject) -> super::FontFraction;
+                    fn SetFraction(&self, #[in] element: super::DependencyObject, #[in] value: super::FontFraction);
                     #[get]
                     NumeralStyleProperty: super::DependencyProperty;
-                    fn GetNumeralStyle(&self, element: super::DependencyObject) -> super::FontNumeralStyle;
-                    fn SetNumeralStyle(&self, element: super::DependencyObject, value: super::FontNumeralStyle);
+                    fn GetNumeralStyle(&self, #[in] element: super::DependencyObject) -> super::FontNumeralStyle;
+                    fn SetNumeralStyle(&self, #[in] element: super::DependencyObject, #[in] value: super::FontNumeralStyle);
                     #[get]
                     NumeralAlignmentProperty: super::DependencyProperty;
-                    fn GetNumeralAlignment(&self, element: super::DependencyObject) -> super::FontNumeralAlignment;
-                    fn SetNumeralAlignment(&self, element: super::DependencyObject, value: super::FontNumeralAlignment);
+                    fn GetNumeralAlignment(&self, #[in] element: super::DependencyObject) -> super::FontNumeralAlignment;
+                    fn SetNumeralAlignment(&self, #[in] element: super::DependencyObject, #[in] value: super::FontNumeralAlignment);
                     #[get]
                     SlashedZeroProperty: super::DependencyProperty;
-                    fn GetSlashedZero(&self, element: super::DependencyObject) -> bool;
-                    fn SetSlashedZero(&self, element: super::DependencyObject, value: bool);
+                    fn GetSlashedZero(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetSlashedZero(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     MathematicalGreekProperty: super::DependencyProperty;
-                    fn GetMathematicalGreek(&self, element: super::DependencyObject) -> bool;
-                    fn SetMathematicalGreek(&self, element: super::DependencyObject, value: bool);
+                    fn GetMathematicalGreek(&self, #[in] element: super::DependencyObject) -> bool;
+                    fn SetMathematicalGreek(&self, #[in] element: super::DependencyObject, #[in] value: bool);
                     #[get]
                     VariantsProperty: super::DependencyProperty;
-                    fn GetVariants(&self, element: super::DependencyObject) -> super::FontVariants;
-                    fn SetVariants(&self, element: super::DependencyObject, value: super::FontVariants);
+                    fn GetVariants(&self, #[in] element: super::DependencyObject) -> super::FontVariants;
+                    fn SetVariants(&self, #[in] element: super::DependencyObject, #[in] value: super::FontVariants);
                 }
                 #[guid(0xa5fa8202_61c0_47d7_93ef_bc0b577c5f26)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

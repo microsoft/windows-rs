@@ -1,5 +1,5 @@
 #[win32]
 mod Test {
     #[library("test.dll")]
-    extern "C" fn UseUnknown(value: Windows::Win32::IUnknown);
+    extern "C" fn UseUnknown(#[in] value: Windows::Win32::IUnknown);
 }

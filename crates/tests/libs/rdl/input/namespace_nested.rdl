@@ -6,6 +6,6 @@ mod Test {
         }
     }
     interface IConsumer {
-        fn Process(&self, data: Inner::Data) -> i32;
+        fn Process(&self, #[in] data: Inner::Data) -> i32;
     }
 }

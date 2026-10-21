@@ -8,8 +8,8 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    extern fn ENUMRESNAMEPROCA(#[opt] hModule: HMODULE, lpType: LPCSTR, lpName: LPSTR, lParam: LONG_PTR) -> BOOL;
-    extern fn ENUMRESTYPEPROCW(#[opt] hModule: HMODULE, lpType: LPWSTR, lParam: LONG_PTR) -> BOOL;
+    extern fn ENUMRESNAMEPROCA(#[in] #[opt] hModule: HMODULE, #[in] lpType: LPCSTR, #[in] lpName: LPSTR, #[in] lParam: LONG_PTR) -> BOOL;
+    extern fn ENUMRESTYPEPROCW(#[in] #[opt] hModule: HMODULE, #[in] lpType: LPWSTR, #[in] lParam: LONG_PTR) -> BOOL;
 }
 #[win32]
 mod Fixture {

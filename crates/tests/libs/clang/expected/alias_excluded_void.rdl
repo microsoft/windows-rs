@@ -1,9 +1,9 @@
 #[win32]
 mod Test {
     type AMBIGUOUS = *mut void;
-    extern "C" fn CALLBACK(input: *const LPVOID, output: *mut *mut void);
+    extern "C" fn CALLBACK(#[in] input: *const LPVOID, #[out] output: *mut *mut void);
     #[library("test.dll")]
-    extern "C" fn Compare(direct: *mut void, output: *mut *mut void, input: *const PVOID) -> *const PVOID;
+    extern "C" fn Compare(#[out] direct: *mut void, #[out] output: *mut *mut void, #[in] input: *const PVOID) -> *const PVOID;
     struct Example {
         direct: *mut void,
         output: *mut *mut void,

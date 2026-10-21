@@ -7,15 +7,15 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
                 #[Windows::Foundation::Metadata::Experimental]
                 interface IMcpMessageFilterExperimental {
-                    fn Initialize(&self, clientAppUserModelId: String, clientProcessId: u32, serverIdentity: String, serverName: String, serverProcessId: u32);
-                    fn OnMessage(&self, message: String, direction: McpMessageDirection, filterResponse: McpMessageFilterResponse);
+                    fn Initialize(&self, #[in] clientAppUserModelId: String, #[in] clientProcessId: u32, #[in] serverIdentity: String, #[in] serverName: String, #[in] serverProcessId: u32);
+                    fn OnMessage(&self, #[in] message: String, #[in] direction: McpMessageDirection, #[in] filterResponse: McpMessageFilterResponse);
                 }
                 #[guid(0x8127e075_4652_5645_b2eb_0e5772ee5c6f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
                 #[Windows::Foundation::Metadata::Experimental]
                 interface IMcpMessageFilterExperimental2 {
-                    fn Initialize(&self, clientProcessIdentifier: String, clientProcessId: u32, serverProcessIdentifier: String, serverProcessId: u32, serverId: String) -> bool;
-                    fn OnMessage(&self, message: String, direction: McpMessageDirection, filterResponse: McpMessageFilterResponse);
+                    fn Initialize(&self, #[in] clientProcessIdentifier: String, #[in] clientProcessId: u32, #[in] serverProcessIdentifier: String, #[in] serverProcessId: u32, #[in] serverId: String) -> bool;
+                    fn OnMessage(&self, #[in] message: String, #[in] direction: McpMessageDirection, #[in] filterResponse: McpMessageFilterResponse);
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(McpMessageFilterResponse)]
@@ -33,7 +33,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Experimental]
                 interface IMcpMessageFilterResponseExperimental2 {
                     fn Allow(&self);
-                    fn Reject(&self, reason: String);
+                    fn Reject(&self, #[in] reason: String);
                 }
                 #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]

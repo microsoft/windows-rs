@@ -34,10 +34,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(FileOpenPickerUI)]
                 interface IFileOpenPickerUI {
-                    fn AddFile(&self, id: String, file: super::super::IStorageFile) -> AddFileResult;
-                    fn RemoveFile(&self, id: String);
-                    fn ContainsFile(&self, id: String) -> bool;
-                    fn CanAddFile(&self, file: super::super::IStorageFile) -> bool;
+                    fn AddFile(&self, #[in] id: String, #[in] file: super::super::IStorageFile) -> AddFileResult;
+                    fn RemoveFile(&self, #[in] id: String);
+                    fn ContainsFile(&self, #[in] id: String) -> bool;
+                    fn CanAddFile(&self, #[in] file: super::super::IStorageFile) -> bool;
                     #[get]
                     AllowedFileTypes: super::super::super::Foundation::Collections::IVectorView<String>;
                     #[get]
@@ -69,7 +69,7 @@ mod Windows {
                     SettingsIdentifier: String;
                     #[get]
                     FileName: String;
-                    fn TrySetFileName(&self, value: String) -> SetFileNameResult;
+                    fn TrySetFileName(&self, #[in] value: String) -> SetFileNameResult;
                     event FileNameChanged: super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, Object>;
                     event TargetFileRequested: super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, TargetFileRequestedEventArgs>;
                 }

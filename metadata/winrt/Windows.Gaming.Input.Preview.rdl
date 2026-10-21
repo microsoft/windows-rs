@@ -80,8 +80,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GameControllerProviderInfo)]
                 interface IGameControllerProviderInfoStatics {
-                    fn GetParentProviderId(&self, provider: super::Custom::IGameControllerProvider) -> String;
-                    fn GetProviderId(&self, provider: super::Custom::IGameControllerProvider) -> String;
+                    fn GetParentProviderId(&self, #[in] provider: super::Custom::IGameControllerProvider) -> String;
+                    fn GetProviderId(&self, #[in] provider: super::Custom::IGameControllerProvider) -> String;
                 }
                 #[guid(0x2da3ed52_ffd9_43e2_825c_1d2790e04d14)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
@@ -96,31 +96,31 @@ mod Windows {
                     fn GetDeviceFirmwareCorruptionState(&self) -> GameControllerFirmwareCorruptReason;
                     #[get]
                     IsFirmwareCorrupted: bool;
-                    fn IsInterfaceSupported(&self, interfaceId: GUID) -> bool;
+                    fn IsInterfaceSupported(&self, #[in] interfaceId: GUID) -> bool;
                     #[get]
                     IsSyntheticDevice: bool;
                     #[get]
                     PreferredTypes: super::super::super::Foundation::Collections::IVectorView<String>;
-                    fn ExecuteCommand(&self, command: DeviceCommand);
-                    fn SetHomeLedIntensity(&self, intensity: u8);
+                    fn ExecuteCommand(&self, #[in] command: DeviceCommand);
+                    fn SetHomeLedIntensity(&self, #[in] intensity: u8);
                     fn GetExtendedDeviceInfo(&self) -> [u8];
-                    fn SetHeadsetOperation(&self, operation: HeadsetOperation, buffer: [u8]);
-                    fn GetHeadsetOperation(&self, operation: HeadsetOperation) -> [u8];
+                    fn SetHeadsetOperation(&self, #[in] operation: HeadsetOperation, #[in] buffer: [u8]);
+                    fn GetHeadsetOperation(&self, #[in] operation: HeadsetOperation) -> [u8];
                     #[get]
                     AppCompatVersion: u32;
-                    fn SetStandardControllerButtonRemapping(&self, user: super::super::super::System::User, previous: bool, remapping: super::super::super::Foundation::Collections::IMapView<RemappingButtonCategory, Object>);
-                    fn GetStandardControllerButtonRemapping(&self, user: super::super::super::System::User, previous: bool) -> super::super::super::Foundation::Collections::IMapView<RemappingButtonCategory, Object>;
+                    fn SetStandardControllerButtonRemapping(&self, #[in] user: super::super::super::System::User, #[in] previous: bool, #[in] remapping: super::super::super::Foundation::Collections::IMapView<RemappingButtonCategory, Object>);
+                    fn GetStandardControllerButtonRemapping(&self, #[in] user: super::super::super::System::User, #[in] previous: bool) -> super::super::super::Foundation::Collections::IMapView<RemappingButtonCategory, Object>;
                 }
                 #[guid(0xd40dda17_b1f4_499a_874c_7095aac15291)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LegacyGipGameControllerProvider)]
                 interface ILegacyGipGameControllerProviderStatics {
-                    fn FromGameController(&self, controller: super::IGameController) -> LegacyGipGameControllerProvider;
-                    fn FromGameControllerProvider(&self, provider: super::Custom::IGameControllerProvider) -> LegacyGipGameControllerProvider;
-                    fn PairPilotToCopilot(&self, user: super::super::super::System::User, pilotControllerProviderId: String, copilotControllerProviderId: String);
-                    fn ClearPairing(&self, user: super::super::super::System::User, controllerProviderId: String);
-                    fn IsPilot(&self, user: super::super::super::System::User, controllerProviderId: String) -> String;
-                    fn IsCopilot(&self, user: super::super::super::System::User, controllerProviderId: String) -> String;
+                    fn FromGameController(&self, #[in] controller: super::IGameController) -> LegacyGipGameControllerProvider;
+                    fn FromGameControllerProvider(&self, #[in] provider: super::Custom::IGameControllerProvider) -> LegacyGipGameControllerProvider;
+                    fn PairPilotToCopilot(&self, #[in] user: super::super::super::System::User, #[in] pilotControllerProviderId: String, #[in] copilotControllerProviderId: String);
+                    fn ClearPairing(&self, #[in] user: super::super::super::System::User, #[in] controllerProviderId: String);
+                    fn IsPilot(&self, #[in] user: super::super::super::System::User, #[in] controllerProviderId: String) -> String;
+                    fn IsCopilot(&self, #[in] user: super::super::super::System::User, #[in] controllerProviderId: String) -> String;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772168)]

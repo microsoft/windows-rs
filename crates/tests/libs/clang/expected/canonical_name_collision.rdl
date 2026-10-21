@@ -4,5 +4,5 @@ mod CanonicalNameCollision {
         value: i32,
     }
     #[library("api.dll")]
-    extern "C" fn UseByte(value: BYTE);
+    extern "C" fn UseByte(#[in] value: BYTE);
 }

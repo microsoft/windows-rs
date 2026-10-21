@@ -11,17 +11,17 @@ mod Fixture {
     }
     #[guid(0x01b7bd23_fb88_4a77_8490_5891d3e4653a)]
     interface IBackgroundCopyFile: IUnknown {
-        fn GetRemoteName(&self, #[out_ptr] pVal: *mut LPWSTR) -> HRESULT;
-        fn GetLocalName(&self, #[out_ptr] pVal: *mut LPWSTR) -> HRESULT;
-        fn GetProgress(&self, pVal: *mut BG_FILE_PROGRESS) -> HRESULT;
+        fn GetRemoteName(&self, #[out] #[out_ptr] pVal: *mut LPWSTR) -> HRESULT;
+        fn GetLocalName(&self, #[out] #[out_ptr] pVal: *mut LPWSTR) -> HRESULT;
+        fn GetProgress(&self, #[out] pVal: *mut BG_FILE_PROGRESS) -> HRESULT;
     }
     #[guid(0xca51e165_c365_424c_8d41_24aaa4ff3c40)]
     interface IEnumBackgroundCopyFiles: IUnknown {
-        fn Next(&self, celt: ULONG, #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true, NullFallbackParamIndex = 0)] rgelt: *mut IBackgroundCopyFile, #[in] #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+        fn Next(&self, celt: ULONG, #[out] #[writable(entry, celt)] #[writable(success, celt)] #[readable(success, or(*pceltFetched, celt))] rgelt: *mut IBackgroundCopyFile, #[in] #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
         fn Skip(&self, celt: ULONG) -> HRESULT;
         fn Reset(&self) -> HRESULT;
-        fn Clone(&self, #[out_ptr] ppenum: *mut IEnumBackgroundCopyFiles) -> HRESULT;
-        fn GetCount(&self, puCount: *mut ULONG) -> HRESULT;
+        fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumBackgroundCopyFiles) -> HRESULT;
+        fn GetCount(&self, #[out] puCount: *mut ULONG) -> HRESULT;
     }
 }
 #[win32]
@@ -47,14 +47,14 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }
 }
 #[win32]
 mod Fixture {
-    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    #[success(return >= 0)]
     type HRESULT = i32;
     #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type LPWSTR = *mut u16;

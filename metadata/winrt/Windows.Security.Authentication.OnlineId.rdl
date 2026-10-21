@@ -15,9 +15,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdAuthenticator)]
                 interface IOnlineIdAuthenticator {
                     #[Windows::Foundation::Metadata::Overload("AuthenticateUserAsync")]
-                    fn AuthenticateUserAsync(&self, request: OnlineIdServiceTicketRequest) -> UserAuthenticationOperation;
+                    fn AuthenticateUserAsync(&self, #[in] request: OnlineIdServiceTicketRequest) -> UserAuthenticationOperation;
                     #[Windows::Foundation::Metadata::Overload("AuthenticateUserAsyncAdvanced")]
-                    fn AuthenticateUserAsync(&self, requests: super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>, credentialPromptType: CredentialPromptType) -> UserAuthenticationOperation;
+                    fn AuthenticateUserAsync(&self, #[in] requests: super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>, #[in] credentialPromptType: CredentialPromptType) -> UserAuthenticationOperation;
                     fn SignOutUserAsync(&self) -> SignOutUserOperation;
                     #[set]
                     ApplicationId: GUID;
@@ -52,8 +52,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdServiceTicketRequest)]
                 interface IOnlineIdServiceTicketRequestFactory {
-                    fn CreateOnlineIdServiceTicketRequest(&self, service: String, policy: String) -> OnlineIdServiceTicketRequest;
-                    fn CreateOnlineIdServiceTicketRequestAdvanced(&self, service: String) -> OnlineIdServiceTicketRequest;
+                    fn CreateOnlineIdServiceTicketRequest(&self, #[in] service: String, #[in] policy: String) -> OnlineIdServiceTicketRequest;
+                    fn CreateOnlineIdServiceTicketRequestAdvanced(&self, #[in] service: String) -> OnlineIdServiceTicketRequest;
                 }
                 #[guid(0x5798befb_1de4_4186_a2e6_b563f86aaf44)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -61,7 +61,7 @@ mod Windows {
                 interface IOnlineIdSystemAuthenticatorForUser {
                     #[Windows::Foundation::Metadata::Overload("GetTicketAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetTicketAsync(&self, request: OnlineIdServiceTicketRequest) -> super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>;
+                    fn GetTicketAsync(&self, #[in] request: OnlineIdServiceTicketRequest) -> super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>;
                     #[set]
                     ApplicationId: GUID;
                     #[get]
@@ -75,7 +75,7 @@ mod Windows {
                 interface IOnlineIdSystemAuthenticatorStatics {
                     #[get]
                     Default: OnlineIdSystemAuthenticatorForUser;
-                    fn GetForUser(&self, user: super::super::super::System::User) -> OnlineIdSystemAuthenticatorForUser;
+                    fn GetForUser(&self, #[in] user: super::super::super::System::User) -> OnlineIdSystemAuthenticatorForUser;
                 }
                 #[guid(0x743cd20d_b6ca_434d_8124_53ea12685307)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]

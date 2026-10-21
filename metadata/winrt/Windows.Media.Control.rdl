@@ -92,13 +92,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryTogglePlayPauseAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryChangeAutoRepeatModeAsync(&self, requestedAutoRepeatMode: super::MediaPlaybackAutoRepeatMode) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryChangeAutoRepeatModeAsync(&self, #[in] requestedAutoRepeatMode: super::MediaPlaybackAutoRepeatMode) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryChangePlaybackRateAsync(&self, requestedPlaybackRate: f64) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryChangePlaybackRateAsync(&self, #[in] requestedPlaybackRate: f64) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryChangeShuffleActiveAsync(&self, requestedShuffleState: bool) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryChangeShuffleActiveAsync(&self, #[in] requestedShuffleState: bool) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryChangePlaybackPositionAsync(&self, requestedPlaybackPosition: i64) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryChangePlaybackPositionAsync(&self, #[in] requestedPlaybackPosition: i64) -> super::super::Foundation::IAsyncOperation<bool>;
                 event TimelinePropertiesChanged: super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, TimelinePropertiesChangedEventArgs>;
                 event PlaybackInfoChanged: super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, PlaybackInfoChangedEventArgs>;
                 event MediaPropertiesChanged: super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, MediaPropertiesChangedEventArgs>;

@@ -20,6 +20,12 @@ typedef void (*ExpressionBytes)(
     _Out_writes_bytes_(capacity + 1) void* buffer, Count capacity);
 typedef void (*IndirectBytes)(
     _Out_writes_bytes_(*capacity) void* buffer, Count* capacity);
+typedef void (*QueryBytes)(
+    _Out_writes_bytes_to_opt_(*size, *size) void* buffer, _Inout_ Count* size);
+typedef void (*FullBytes)(
+    _Out_writes_bytes_all_(*size) void* buffer, Count* size);
+typedef void (*NestedCount)(
+    _Out_writes_bytes_to_(capacity, **written) void* buffer, Count capacity, Count** written);
 typedef void (*ConstantBytes)(_Out_writes_bytes_(16) void* buffer);
 typedef void (*ElementCount)(
     _In_reads_(capacity) const unsigned short* buffer, Count capacity);

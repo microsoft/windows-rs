@@ -5,8 +5,8 @@ mod Test {
     }
     interface ICharTest {
         fn GetChar(&self) -> Char16;
-        fn SetChar(&self, value: Char16);
-        fn GetCharArray(&self, value: &mut [Char16]);
-        fn CreateCharArray(&self, value: [Char16]) -> Object;
+        fn SetChar(&self, #[in] value: Char16);
+        fn GetCharArray(&self, #[out] value: &mut [Char16]);
+        fn CreateCharArray(&self, #[in] value: [Char16]) -> Object;
     }
 }

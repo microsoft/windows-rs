@@ -42,7 +42,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Deprecated("PhoneCallOriginManager is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
                     fn ShowPhoneCallOriginSettingsUI(&self);
                     #[Windows::Foundation::Metadata::Deprecated("PhoneCallOriginManager is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
-                    fn SetCallOrigin(&self, requestId: GUID, callOrigin: PhoneCallOrigin);
+                    fn SetCallOrigin(&self, #[in] requestId: GUID, #[in] callOrigin: PhoneCallOrigin);
                 }
                 #[guid(0x8bf3ee3f_40f4_4380_8c7c_aea2c9b8dd7a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::CallsPhoneContract, 196608)]

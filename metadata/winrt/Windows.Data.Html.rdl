@@ -13,7 +13,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(HtmlUtilities)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IHtmlUtilities {
-                fn ConvertToText(&self, html: String) -> String;
+                fn ConvertToText(&self, #[in] html: String) -> String;
             }
         }
     }

@@ -157,7 +157,11 @@ impl Projector<'_, '_> {
                 let function = written_function(self.resolution.snapshots[snapshot], written)?;
                 let abi = callable_abi(function);
                 let name = ident(public_name(name))?;
-                let native = annotations::write_callable(&observation.attributes)?;
+                let native = annotations::write_callable(
+                    self.resolution.snapshots[snapshot],
+                    function.prototype.result,
+                    &observation.attributes,
+                )?;
                 let contracts = annotations::function(function.prototype, &observation.attributes);
                 Ok(Body {
                     attributes: quote! { #native #contracts #library },
@@ -492,6 +496,18 @@ impl Projector<'_, '_> {
             ));
         }
         let mut names = HashSet::new();
+        let extent_names: Vec<_> = parameters
+            .iter()
+            .enumerate()
+            .map(|(index, parameter)| {
+                if named && !parameter.name.is_empty() {
+                    parameter.name.clone()
+                } else {
+                    format!("param{index}")
+                }
+            })
+            .collect();
+        let extent_names: Vec<_> = extent_names.iter().map(String::as_str).collect();
         parameters
             .iter()
             .zip(&function.parameters)
@@ -515,9 +531,19 @@ impl Projector<'_, '_> {
                     .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
                 let ty = if named { ty } else { self.comparison_type(ty)? };
                 let snapshot = self.resolution.snapshots[snapshot_id];
-                let attributes = annotations::parameter(parameter, parameters, &ty)?;
-                let size = annotations::buffer(snapshot, function, parameters, index, &ty)
-                    .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
+                let attributes =
+                    annotations::parameter(snapshot, function, parameter, parameters, &ty)?;
+                let buffer_ty = self.parameter_ty(snapshot_id, canonical, canonical)?;
+                let size = annotations::buffer(
+                    snapshot,
+                    function,
+                    parameters,
+                    index,
+                    &ty,
+                    &buffer_ty,
+                    &extent_names,
+                )
+                .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
                 let default = parameter.default.as_ref().map(|value| {
                     let expression = &value.expression;
                     quote! { #[Windows::Win32::Metadata::NativeDefaultArgument(#expression)] }
@@ -773,7 +799,11 @@ impl Projector<'_, '_> {
                     ))
                 })?;
             let method_name = ident(&method.name)?;
-            let attributes = annotations::write_callable(&method.observation.attributes)?;
+            let attributes = annotations::write_callable(
+                snapshot,
+                function.result,
+                &method.observation.attributes,
+            )?;
             let contracts = annotations::function(
                 written_function(snapshot, method.observation.written)?.prototype,
                 &method.observation.attributes,

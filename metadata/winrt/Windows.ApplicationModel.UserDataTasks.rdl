@@ -54,13 +54,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("GetTaskReader")]
                 fn GetTaskReader(&self) -> UserDataTaskReader;
                 #[Windows::Foundation::Metadata::Overload("GetTaskReaderWithOptions")]
-                fn GetTaskReader(&self, options: UserDataTaskQueryOptions) -> UserDataTaskReader;
+                fn GetTaskReader(&self, #[in] options: UserDataTaskQueryOptions) -> UserDataTaskReader;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetTaskAsync(&self, userDataTask: String) -> super::super::Foundation::IAsyncOperation<UserDataTask>;
+                fn GetTaskAsync(&self, #[in] userDataTask: String) -> super::super::Foundation::IAsyncOperation<UserDataTask>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SaveTaskAsync(&self, userDataTask: UserDataTask) -> super::super::Foundation::IAsyncAction;
+                fn SaveTaskAsync(&self, #[in] userDataTask: UserDataTask) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DeleteTaskAsync(&self, userDataTaskId: String) -> super::super::Foundation::IAsyncAction;
+                fn DeleteTaskAsync(&self, #[in] userDataTaskId: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn DeleteAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -71,13 +71,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskListLimitedWriteOperations)]
             interface IUserDataTaskListLimitedWriteOperations {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryCompleteTaskAsync(&self, userDataTaskId: String) -> super::super::Foundation::IAsyncOperation<String>;
+                fn TryCompleteTaskAsync(&self, #[in] userDataTaskId: String) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryCreateOrUpdateTaskAsync(&self, userDataTask: UserDataTask) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryCreateOrUpdateTaskAsync(&self, #[in] userDataTask: UserDataTask) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryDeleteTaskAsync(&self, userDataTaskId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryDeleteTaskAsync(&self, #[in] userDataTaskId: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TrySkipOccurrenceAsync(&self, userDataTaskId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TrySkipOccurrenceAsync(&self, #[in] userDataTaskId: String) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x8e591a95_1dcf_469f_93ec_ba48bb553c6b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -95,7 +95,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskManager)]
             interface IUserDataTaskManager {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestStoreAsync(&self, accessType: UserDataTaskStoreAccessType) -> super::super::Foundation::IAsyncOperation<UserDataTaskStore>;
+                fn RequestStoreAsync(&self, #[in] accessType: UserDataTaskStoreAccessType) -> super::super::Foundation::IAsyncOperation<UserDataTaskStore>;
                 #[get]
                 User: super::super::System::User;
             }
@@ -104,7 +104,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskManager)]
             interface IUserDataTaskManagerStatics {
                 fn GetDefault(&self) -> UserDataTaskManager;
-                fn GetForUser(&self, user: super::super::System::User) -> UserDataTaskManager;
+                fn GetForUser(&self, #[in] user: super::super::System::User) -> UserDataTaskManager;
             }
             #[guid(0x959f27ed_909a_4d30_8c1b_331d8fe667e2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -148,14 +148,14 @@ mod Windows {
             interface IUserDataTaskStore {
                 #[Windows::Foundation::Metadata::Overload("CreateListAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateListAsync(&self, name: String) -> super::super::Foundation::IAsyncOperation<UserDataTaskList>;
+                fn CreateListAsync(&self, #[in] name: String) -> super::super::Foundation::IAsyncOperation<UserDataTaskList>;
                 #[Windows::Foundation::Metadata::Overload("CreateListInAccountAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateListAsync(&self, name: String, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<UserDataTaskList>;
+                fn CreateListAsync(&self, #[in] name: String, #[in] userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<UserDataTaskList>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindListsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataTaskList>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetListAsync(&self, taskListId: String) -> super::super::Foundation::IAsyncOperation<UserDataTaskList>;
+                fn GetListAsync(&self, #[in] taskListId: String) -> super::super::Foundation::IAsyncOperation<UserDataTaskList>;
             }
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]

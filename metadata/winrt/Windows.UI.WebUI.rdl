@@ -9,7 +9,7 @@ mod Windows {
             }
             #[guid(0x50f1e730_c5d1_4b6b_9adb_8a11756be29c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn ActivatedEventHandler(sender: Object, eventArgs: super::super::ApplicationModel::Activation::IActivatedEventArgs);
+            delegate fn ActivatedEventHandler(#[in] sender: Object, #[in] eventArgs: super::super::ApplicationModel::Activation::IActivatedEventArgs);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             class ActivatedOperation {
@@ -22,7 +22,7 @@ mod Windows {
             }
             #[guid(0xedb19fbb_0761_47cc_9a77_24d7072965ca)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
-            delegate fn BackgroundActivatedEventHandler(sender: Object, eventArgs: super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs);
+            delegate fn BackgroundActivatedEventHandler(#[in] sender: Object, #[in] eventArgs: super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class EnteredBackgroundEventArgs {
@@ -30,7 +30,7 @@ mod Windows {
             }
             #[guid(0x2b09a173_b68e_4def_88c1_8de84e5aab2f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            delegate fn EnteredBackgroundEventHandler(sender: Object, e: super::super::ApplicationModel::IEnteredBackgroundEventArgs);
+            delegate fn EnteredBackgroundEventHandler(#[in] sender: Object, #[in] e: super::super::ApplicationModel::IEnteredBackgroundEventArgs);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HtmlPrintDocumentSource {
@@ -70,7 +70,7 @@ mod Windows {
                 PercentScale: f32;
                 #[get]
                 PageRange: String;
-                fn TrySetPageRange(&self, strPageRange: String) -> bool;
+                fn TrySetPageRange(&self, #[in] strPageRange: String) -> bool;
             }
             #[guid(0xe8e1b216_be2b_4c9e_85e7_083143ec4be7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
@@ -99,16 +99,16 @@ mod Windows {
             interface IWebUIActivationStatics2 {
                 event LeavingBackground: LeavingBackgroundEventHandler;
                 event EnteredBackground: EnteredBackgroundEventHandler;
-                fn EnablePrelaunch(&self, value: bool);
+                fn EnablePrelaunch(&self, #[in] value: bool);
             }
             #[guid(0x91abb686_1af5_4445_b49f_9459f40fc8de)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WebUIApplication)]
             interface IWebUIActivationStatics3 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestRestartAsync(&self, launchArguments: String) -> super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>;
+                fn RequestRestartAsync(&self, #[in] launchArguments: String) -> super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestRestartForUserAsync(&self, user: super::super::System::User, launchArguments: String) -> super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>;
+                fn RequestRestartForUserAsync(&self, #[in] user: super::super::System::User, #[in] launchArguments: String) -> super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>;
             }
             #[guid(0x5e391429_183f_478d_8a25_67f80d03935b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
@@ -166,7 +166,7 @@ mod Windows {
                 fn CreateAsync(&self) -> super::super::Foundation::IAsyncOperation<WebUIView>;
                 #[Windows::Foundation::Metadata::Overload("CreateWithUriAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperation<WebUIView>;
+                fn CreateAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperation<WebUIView>;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -175,10 +175,10 @@ mod Windows {
             }
             #[guid(0x00b4ccd9_7a9c_4b6b_9ac4_13474f268bc4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            delegate fn LeavingBackgroundEventHandler(sender: Object, e: super::super::ApplicationModel::ILeavingBackgroundEventArgs);
+            delegate fn LeavingBackgroundEventHandler(#[in] sender: Object, #[in] e: super::super::ApplicationModel::ILeavingBackgroundEventArgs);
             #[guid(0x7af46fe6_40ca_4e49_a7d6_dbdb330cd1a3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn NavigatedEventHandler(sender: Object, e: IWebUINavigatedEventArgs);
+            delegate fn NavigatedEventHandler(#[in] sender: Object, #[in] e: IWebUINavigatedEventArgs);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             class NewWebUIViewCreatedEventArgs {
@@ -194,7 +194,7 @@ mod Windows {
             }
             #[guid(0x26599ba9_a22d_4806_a728_acadc1d075fa)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn ResumingEventHandler(sender: Object);
+            delegate fn ResumingEventHandler(#[in] sender: Object);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             class SuspendingDeferral {
@@ -207,7 +207,7 @@ mod Windows {
             }
             #[guid(0x509c429c_78e2_4883_abc8_8960dcde1b5c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn SuspendingEventHandler(sender: Object, e: super::super::ApplicationModel::ISuspendingEventArgs);
+            delegate fn SuspendingEventHandler(#[in] sender: Object, #[in] e: super::super::ApplicationModel::ISuspendingEventArgs);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             class SuspendingOperation {

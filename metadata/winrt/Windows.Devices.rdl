@@ -22,7 +22,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(DevicesLowLevelContract, 131072)]
         #[Windows::Foundation::Metadata::ExclusiveTo(LowLevelDevicesAggregateProvider)]
         interface ILowLevelDevicesAggregateProviderFactory {
-            fn Create(&self, adc: Adc::Provider::IAdcControllerProvider, pwm: Pwm::Provider::IPwmControllerProvider, gpio: Gpio::Provider::IGpioControllerProvider, i2c: I2c::Provider::II2cControllerProvider, spi: Spi::Provider::ISpiControllerProvider) -> LowLevelDevicesAggregateProvider;
+            fn Create(&self, #[in] adc: Adc::Provider::IAdcControllerProvider, #[in] pwm: Pwm::Provider::IPwmControllerProvider, #[in] gpio: Gpio::Provider::IGpioControllerProvider, #[in] i2c: I2c::Provider::II2cControllerProvider, #[in] spi: Spi::Provider::ISpiControllerProvider) -> LowLevelDevicesAggregateProvider;
         }
         #[guid(0x2ec23dd4_179b_45de_9b39_3ae02527de52)]
         #[Windows::Foundation::Metadata::ContractVersion(DevicesLowLevelContract, 131072)]

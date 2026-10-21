@@ -24,14 +24,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(CustomXamlResourceLoader)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICustomXamlResourceLoaderFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> CustomXamlResourceLoader;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> CustomXamlResourceLoader;
                 }
                 #[guid(0xf851e991_af02_46e8_9af8_427b7ebfe9f8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CustomXamlResourceLoader)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICustomXamlResourceLoaderOverrides {
-                    fn GetResource(&self, resourceId: String, objectType: String, propertyName: String, propertyType: String) -> Object;
+                    fn GetResource(&self, #[in] resourceId: String, #[in] objectType: String, #[in] propertyName: String, #[in] propertyType: String) -> Object;
                 }
                 #[guid(0x224ff617_e4dc_4c27_ad32_db93d5d0e5da)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

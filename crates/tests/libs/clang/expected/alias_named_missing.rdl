@@ -1,12 +1,12 @@
 #[win32]
 mod Test {
-    extern "C" fn CALLBACK(input: LPWSTR) -> LPCWSTR;
+    extern "C" fn CALLBACK(#[in] input: LPWSTR) -> LPCWSTR;
     type LPCSTR = *const i8;
     type LPCWSTR = *const u16;
     type LPSTR = *mut i8;
     type LPWSTR = *mut u16;
     #[library("test.dll")]
-    extern "C" fn Narrow(input: LPCSTR, output: LPSTR);
+    extern "C" fn Narrow(#[in] input: LPCSTR, #[in] output: LPSTR);
     struct Strings {
         narrow: LPCSTR,
         wide: LPWSTR,
@@ -15,5 +15,5 @@ mod Test {
     #[library("test.dll")]
     extern "C" fn Text() -> LPCSTR;
     #[library("test.dll")]
-    extern "C" fn Wide(input: LPCWSTR, output: LPWSTR);
+    extern "C" fn Wide(#[in] input: LPCWSTR, #[in] output: LPWSTR);
 }

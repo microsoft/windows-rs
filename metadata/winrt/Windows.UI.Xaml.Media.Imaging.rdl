@@ -52,7 +52,7 @@ mod Windows {
                     #[guid(0x1abaee23_74ee_4cc7_99ba_b171e3cda61e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
-                    delegate fn DownloadProgressEventHandler(sender: Object, e: DownloadProgressEventArgs);
+                    delegate fn DownloadProgressEventHandler(#[in] sender: Object, #[in] e: DownloadProgressEventArgs);
                     #[guid(0x31af3271_e3b4_442d_a341_4c0226b2725b)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(BitmapImage)]
@@ -91,7 +91,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(BitmapImage)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IBitmapImageFactory {
-                        fn CreateInstanceWithUriSource(&self, uriSource: super::super::super::super::Foundation::Uri) -> BitmapImage;
+                        fn CreateInstanceWithUriSource(&self, #[in] uriSource: super::super::super::super::Foundation::Uri) -> BitmapImage;
                     }
                     #[guid(0x9e282143_70e8_437c_9fa4_2cbf295cff84)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -136,16 +136,16 @@ mod Windows {
                         PixelWidth: i32;
                         #[get]
                         PixelHeight: i32;
-                        fn SetSource(&self, streamSource: super::super::super::super::Storage::Streams::IRandomAccessStream);
+                        fn SetSource(&self, #[in] streamSource: super::super::super::super::Storage::Streams::IRandomAccessStream);
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn SetSourceAsync(&self, streamSource: super::super::super::super::Storage::Streams::IRandomAccessStream) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn SetSourceAsync(&self, #[in] streamSource: super::super::super::super::Storage::Streams::IRandomAccessStream) -> super::super::super::super::Foundation::IAsyncAction;
                     }
                     #[guid(0xe240420e_d4a7_49a4_a0b4_a59fdd77e508)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(BitmapSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IBitmapSourceFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> BitmapSource;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> BitmapSource;
                     }
                     #[guid(0x9a9c9981_827b_4e51_891b_8a15b511842d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -175,10 +175,10 @@ mod Windows {
                         PixelHeight: i32;
                         #[Windows::Foundation::Metadata::Overload("RenderAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn RenderAsync(&self, element: super::super::UIElement) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn RenderAsync(&self, #[in] element: super::super::UIElement) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::Overload("RenderToSizeAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn RenderAsync(&self, element: super::super::UIElement, scaledWidth: i32, scaledHeight: i32) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn RenderAsync(&self, #[in] element: super::super::UIElement, #[in] scaledWidth: i32, #[in] scaledHeight: i32) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn GetPixelsAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>;
                     }
@@ -198,7 +198,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ISoftwareBitmapSource {
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn SetBitmapAsync(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn SetBitmapAsync(&self, #[in] softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::super::super::Foundation::IAsyncAction;
                     }
                     #[guid(0x62f7d416_c714_4c4c_8273_f839bc58135c)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -210,8 +210,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(SurfaceImageSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ISurfaceImageSourceFactory {
-                        fn CreateInstanceWithDimensions(&self, pixelWidth: i32, pixelHeight: i32, baseInterface: Object, innerInterface: &mut Object) -> SurfaceImageSource;
-                        fn CreateInstanceWithDimensionsAndOpacity(&self, pixelWidth: i32, pixelHeight: i32, isOpaque: bool, baseInterface: Object, innerInterface: &mut Object) -> SurfaceImageSource;
+                        fn CreateInstanceWithDimensions(&self, #[in] pixelWidth: i32, #[in] pixelHeight: i32, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> SurfaceImageSource;
+                        fn CreateInstanceWithDimensionsAndOpacity(&self, #[in] pixelWidth: i32, #[in] pixelHeight: i32, #[in] isOpaque: bool, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> SurfaceImageSource;
                     }
                     #[guid(0x03e1cec3_0ca8_4a4e_8d7c_c808a0838586)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -224,15 +224,15 @@ mod Windows {
                         event Opened: super::super::super::super::Foundation::TypedEventHandler<SvgImageSource, SvgImageSourceOpenedEventArgs>;
                         event OpenFailed: super::super::super::super::Foundation::TypedEventHandler<SvgImageSource, SvgImageSourceFailedEventArgs>;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn SetSourceAsync(&self, streamSource: super::super::super::super::Storage::Streams::IRandomAccessStream) -> super::super::super::super::Foundation::IAsyncOperation<SvgImageSourceLoadStatus>;
+                        fn SetSourceAsync(&self, #[in] streamSource: super::super::super::super::Storage::Streams::IRandomAccessStream) -> super::super::super::super::Foundation::IAsyncOperation<SvgImageSourceLoadStatus>;
                     }
                     #[guid(0xc794e9e7_cf23_4d72_bf1a_dfaa16d8ea52)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(SvgImageSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ISvgImageSourceFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> SvgImageSource;
-                        fn CreateInstanceWithUriSource(&self, uriSource: super::super::super::super::Foundation::Uri, baseInterface: Object, innerInterface: &mut Object) -> SvgImageSource;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> SvgImageSource;
+                        fn CreateInstanceWithUriSource(&self, #[in] uriSource: super::super::super::super::Foundation::Uri, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> SvgImageSource;
                     }
                     #[guid(0x68bb3170_3ccc_4035_ac01_9834543d744e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -269,8 +269,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(VirtualSurfaceImageSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IVirtualSurfaceImageSourceFactory {
-                        fn CreateInstanceWithDimensions(&self, pixelWidth: i32, pixelHeight: i32) -> VirtualSurfaceImageSource;
-                        fn CreateInstanceWithDimensionsAndOpacity(&self, pixelWidth: i32, pixelHeight: i32, isOpaque: bool) -> VirtualSurfaceImageSource;
+                        fn CreateInstanceWithDimensions(&self, #[in] pixelWidth: i32, #[in] pixelHeight: i32) -> VirtualSurfaceImageSource;
+                        fn CreateInstanceWithDimensionsAndOpacity(&self, #[in] pixelWidth: i32, #[in] pixelHeight: i32, #[in] isOpaque: bool) -> VirtualSurfaceImageSource;
                     }
                     #[guid(0xbf0b7e6f_df7c_4a85_8413_a1216285835c)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -286,7 +286,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(WriteableBitmap)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IWriteableBitmapFactory {
-                        fn CreateInstanceWithDimensions(&self, pixelWidth: i32, pixelHeight: i32) -> WriteableBitmap;
+                        fn CreateInstanceWithDimensions(&self, #[in] pixelWidth: i32, #[in] pixelHeight: i32) -> WriteableBitmap;
                     }
                     #[guid(0x5d5fe9aa_533e_44b8_a975_fc5f1e3bff52)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -298,14 +298,14 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(XamlRenderingBackgroundTask)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IXamlRenderingBackgroundTaskFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> XamlRenderingBackgroundTask;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> XamlRenderingBackgroundTask;
                     }
                     #[guid(0x9c2a6997_a908_4711_b4b2_a960db3d8e5a)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(XamlRenderingBackgroundTask)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IXamlRenderingBackgroundTaskOverrides {
-                        fn OnRun(&self, taskInstance: super::super::super::super::ApplicationModel::Background::IBackgroundTaskInstance);
+                        fn OnRun(&self, #[in] taskInstance: super::super::super::super::ApplicationModel::Background::IBackgroundTaskInstance);
                     }
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]

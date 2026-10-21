@@ -246,8 +246,8 @@ order. The emitted prototype retains that observation's written typedef names.
 
 The SDK driver retains SAL source-hook evidence in native observations. Simple parameter direction
 and optionality contracts share semantic normalization across reconciliation and publication,
-including the SDK's corresponding SAL1/SAL2 forms. Direct named buffer capacities normalize to
-parameter indices with byte/element units. Reserved parameter contracts emit `#[reserved]` for the
+including the SDK's corresponding SAL1/SAL2 forms. Named buffer counts bind to parameter positions
+in metadata and retain names in readable/writable RDL. Reserved contracts emit `#[reserved]` for the
 zero/null requirement without inventing direction or optionality. These contracts emit canonical
 flags and count attributes rather than duplicate `NativeSalAttribute` payloads.
 Seven direct RPC SAL aliases share this normalization.
@@ -255,15 +255,27 @@ Seven direct RPC SAL aliases share this normalization.
 Direct, unscoped SAL2 result-check annotations emit `#[must_use]` on imports, methods and named
 callbacks. It means callers should use the result rather than accidentally discard it, not that
 any particular value means success. Duplicate and inherited callback annotations produce one
-marker. Native SAL identities remain checked; output-parameter inspection, conditional contracts
-and success predicates keep their separate evidence. Rust diagnostic generation is separate work.
+marker. Native SAL identities remain checked; output-parameter inspection and conditional contracts
+keep their separate evidence. Rust diagnostic generation is separate work.
+
+Bounded success predicates use `#[success(return == 0)]`, `!= 0`, `== 1`, `>= 0` or `> 0`,
+with typed metadata rather than source strings. Callable conditions override return-type defaults.
+Value aliases retain links to annotated status types; output pointers do not inherit their
+pointee's return convention. Native type checks leave incompatible, complex and competing
+predicates as evidence. These conditions govern postconditions, not a complete-success/error split
+or automatic Rust `Result` conversion.
 
 SAL1/SAL2 and RPC input forms normalize to RDL input direction and optionality, including handles,
-pointers, references, COM objects and records. Explicit `in` is omitted only when RDL's written-type
-default supplies it. Native SAL/RPC distinctions remain checked during reconciliation, not published
+pointers, references, COM objects and records. Known direction is always explicit in RDL.
+Native SAL/RPC distinctions remain checked during reconciliation, not published
 as duplicate `NativeInput` attributes. Input direction does not promise COM object immutability.
 Composed contracts retain raw evidence; counts, termination and returned-pointer guarantees remain
 separate.
+
+Unspecified parameter direction emits no attribute, not a type-inferred input or output contract.
+Complementary pointer-null `_When_` branches contribute only shared direction
+and optionality; both conditions remain evidence. A conditional input requirement must not become
+an unconditional input requirement or be discarded by an output-only consumer conversion.
 
 RPC dereferenced-pointer forms lower outer direction and optionality without confusing inner-pointer
 nullability with optional argument storage. RPC output-pointer aliases, four SAL1 aliases, and ten
@@ -276,8 +288,14 @@ Explicit COM output-pointer forms also emit `#[iid_is]` for unqualified native `
 typedef aliases. Ordinary out pointers do not supply this marker. Compiler-bounded leading parameter
 comments preserve explicit MIDL `[iid_is]` and `[retval]` result markers without guessing a GUID
 association. Other MIDL comment contracts remain unimplemented source evidence.
-Input/inout inner-pointer contracts remain evidence. Returned-buffer forms lower outer output
-direction and argument optionality without treating the returned allocation as caller capacity.
+Input/inout inner-pointer contracts remain evidence. Returned-buffer forms use indirect success
+extents, not caller capacity or `out_ptr`'s one-readable-element guarantee. Capacity-only forms
+emit writable extents; `_to_` forms add readable lengths. `_all_` forms promise readable contents
+without a writable extent or entry-count selection. Outer optionality, returned nullability and
+count availability remain separate.
+An explicit returned-pointer contract can accompany a buffer contract when their direction,
+optionality and nullability match. Both guarantees survive, including explicit null-on-failure
+and one-element promises. Other distinct combinations retain evidence.
 Direct RPC input strings replace native evidence with typed input and entry termination contracts.
 RPC inout strings retain evidence; optional inout strings require termination on entry, without
 promising it on success.
@@ -298,19 +316,26 @@ integer parameter or one dereference, with byte/element units; it is not substit
 The bounded `p ? *p : n` form records `n` as a fallback when the count pointer is null. The condition
 and dereference must reference the same pointer, and the fallback must be a by-value integer.
 Other conditional expressions remain explicit evidence.
-Full-output/update contracts use the same direct integer count for capacity and initialized length.
+Full-output/update contracts preserve the entry count for initialized length, using `on_entry(*count)`
+when the count is indirect. Ordinary output-length contracts use the successful-exit count instead.
+Optional count pointers use `if_present(*count)`: a null pointer leaves the extent unknown,
+not zero. Explicit null fallbacks still use `or(*count, fallback)`. The count permission comes from
+the same unconditional optionality facts as parameter flags, including common conditional facts.
 Success predicates and count-pointer optionality remain separate contracts. This is not a complete
 SAL interpreter; unsupported expressions and nested contracts retain `NativeSalAttribute` evidence.
 Published nested evidence uses SAL names and expanded arguments, not internal annotation transport.
 Native observations retain the original strings for reconciliation; conditional scopes remain
 evidence rather than unconditional contracts.
-Direct integer sibling-field counts use `NativeFieldBufferAttribute`, preserving writable capacity,
-optional readable extent, byte/element units, and nullable storage. These describe a valid containing
-value, not call pre/postconditions. Expressions, bitfield counts, and member paths remain evidence.
-Direct named integer buffer capacities emit
-`size_param` for bytes and `len_param` for elements, using the declared parameter index.
-Other expressions retain SAL evidence without
-an inferred count relationship. Typedef publication accepts an observed annotation
+Direct integer sibling-field counts use `writable(capacity)` and `readable(length)`,
+with `bytes(...)` and `nullable` preserving units and storage permissions. These describe a valid
+containing value, so fields need no call phase. Expressions, bitfield counts and paths remain evidence.
+Parameter extents use `readable(entry, count)`, `writable(entry, count)` and
+`readable(success, count)`. Direct integer counts and one dereference are supported; byte counts
+use `bytes(...)`. RDL binds names to checked positions in `BufferExtentAttribute`, independently
+of direction, termination and ownership. Legacy count attributes remain readable, but consumers
+must interpret the new extent model before relying on it.
+Other expressions retain SAL evidence without an inferred count relationship.
+Typedef publication accepts an observed annotation
 set that contains all other observations, but never invents a union of incomparable sets.
 Callback parameter names and contracts belong to declaration observations, not shared ABI types.
 ABI-based callback naming excludes annotated and indirect prototypes. Defining-typedef annotations

@@ -26,7 +26,7 @@ mod Windows {
                 fn StartAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("StartWithModeAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn StartAsync(&self, mode: SpeechContinuousRecognitionMode) -> super::super::Foundation::IAsyncAction;
+                fn StartAsync(&self, #[in] mode: SpeechContinuousRecognitionMode) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StopAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -64,8 +64,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognitionGrammarFileConstraint)]
             interface ISpeechRecognitionGrammarFileConstraintFactory {
-                fn Create(&self, file: super::super::Storage::StorageFile) -> SpeechRecognitionGrammarFileConstraint;
-                fn CreateWithTag(&self, file: super::super::Storage::StorageFile, tag: String) -> SpeechRecognitionGrammarFileConstraint;
+                fn Create(&self, #[in] file: super::super::Storage::StorageFile) -> SpeechRecognitionGrammarFileConstraint;
+                fn CreateWithTag(&self, #[in] file: super::super::Storage::StorageFile, #[in] tag: String) -> SpeechRecognitionGrammarFileConstraint;
             }
             #[guid(0x7a7b25b0_99c5_4f7d_bf84_10aa1302b634)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -92,8 +92,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognitionListConstraint)]
             interface ISpeechRecognitionListConstraintFactory {
-                fn Create(&self, commands: super::super::Foundation::Collections::IIterable<String>) -> SpeechRecognitionListConstraint;
-                fn CreateWithTag(&self, commands: super::super::Foundation::Collections::IIterable<String>, tag: String) -> SpeechRecognitionListConstraint;
+                fn Create(&self, #[in] commands: super::super::Foundation::Collections::IIterable<String>) -> SpeechRecognitionListConstraint;
+                fn CreateWithTag(&self, #[in] commands: super::super::Foundation::Collections::IIterable<String>, #[in] tag: String) -> SpeechRecognitionListConstraint;
             }
             #[guid(0x4fe24105_8c3a_4c7e_8d0a_5bd4f5b14ad8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -114,7 +114,7 @@ mod Windows {
                 Confidence: SpeechRecognitionConfidence;
                 #[get]
                 SemanticInterpretation: SpeechRecognitionSemanticInterpretation;
-                fn GetAlternates(&self, maxAlternates: u32) -> super::super::Foundation::Collections::IVectorView<SpeechRecognitionResult>;
+                fn GetAlternates(&self, #[in] maxAlternates: u32) -> super::super::Foundation::Collections::IVectorView<SpeechRecognitionResult>;
                 #[get]
                 Constraint: ISpeechRecognitionConstraint;
                 #[get]
@@ -151,8 +151,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognitionTopicConstraint)]
             interface ISpeechRecognitionTopicConstraintFactory {
-                fn Create(&self, scenario: SpeechRecognitionScenario, topicHint: String) -> SpeechRecognitionTopicConstraint;
-                fn CreateWithTag(&self, scenario: SpeechRecognitionScenario, topicHint: String, tag: String) -> SpeechRecognitionTopicConstraint;
+                fn Create(&self, #[in] scenario: SpeechRecognitionScenario, #[in] topicHint: String) -> SpeechRecognitionTopicConstraint;
+                fn CreateWithTag(&self, #[in] scenario: SpeechRecognitionScenario, #[in] topicHint: String, #[in] tag: String) -> SpeechRecognitionTopicConstraint;
             }
             #[guid(0xf2791c2b_1ef4_4ae7_9d77_b6ff10b8a3c2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -195,7 +195,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognizer)]
             interface ISpeechRecognizerFactory {
-                fn Create(&self, language: super::super::Globalization::Language) -> SpeechRecognizer;
+                fn Create(&self, #[in] language: super::super::Globalization::Language) -> SpeechRecognizer;
             }
             #[guid(0x563d4f09_ba03_4bad_ad81_ddc6c4dab0c3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -220,7 +220,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognizer)]
             interface ISpeechRecognizerStatics2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TrySetSystemSpeechLanguageAsync(&self, speechLanguage: super::super::Globalization::Language) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TrySetSystemSpeechLanguageAsync(&self, #[in] speechLanguage: super::super::Globalization::Language) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x2ef76fca_6a3c_4dca_a153_df1bc88a79af)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

@@ -84,16 +84,16 @@ mod Windows {
                     AppUserModelId: String;
                     event DesignerAppExited: super::super::super::Foundation::TypedEventHandler<DesignerAppManager, DesignerAppExitedEventArgs>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateNewViewAsync(&self, initialViewState: DesignerAppViewState, initialViewSize: super::super::super::Foundation::Size) -> super::super::super::Foundation::IAsyncOperation<DesignerAppView>;
+                    fn CreateNewViewAsync(&self, #[in] initialViewState: DesignerAppViewState, #[in] initialViewSize: super::super::super::Foundation::Size) -> super::super::super::Foundation::IAsyncOperation<DesignerAppView>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn LoadObjectIntoAppAsync(&self, dllName: String, classId: GUID, initializationData: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn LoadObjectIntoAppAsync(&self, #[in] dllName: String, #[in] classId: GUID, #[in] initializationData: String) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x8f9d633b_1266_4c0e_8499_0db85bbd4c43)]
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DesignerAppManager)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IDesignerAppManagerFactory {
-                    fn Create(&self, appUserModelId: String) -> DesignerAppManager;
+                    fn Create(&self, #[in] appUserModelId: String) -> DesignerAppManager;
                 }
                 #[guid(0x5c777cea_dd71_4a84_a56f_dacb4b14706f)]
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 131072)]
@@ -109,7 +109,7 @@ mod Windows {
                     #[get]
                     ViewSize: super::super::super::Foundation::Size;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn UpdateViewAsync(&self, viewState: DesignerAppViewState, viewSize: super::super::super::Foundation::Size) -> super::super::super::Foundation::IAsyncAction;
+                    fn UpdateViewAsync(&self, #[in] viewState: DesignerAppViewState, #[in] viewSize: super::super::super::Foundation::Size) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xd585bfe1_00ff_51be_ba1d_a1329956ea0a)]
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
@@ -121,14 +121,14 @@ mod Windows {
                     HasFocus: bool;
                     event TakeFocusRequested: super::super::super::Foundation::TypedEventHandler<DesktopWindowXamlSource, DesktopWindowXamlSourceTakeFocusRequestedEventArgs>;
                     event GotFocus: super::super::super::Foundation::TypedEventHandler<DesktopWindowXamlSource, DesktopWindowXamlSourceGotFocusEventArgs>;
-                    fn NavigateFocus(&self, request: XamlSourceFocusNavigationRequest) -> XamlSourceFocusNavigationResult;
+                    fn NavigateFocus(&self, #[in] request: XamlSourceFocusNavigationRequest) -> XamlSourceFocusNavigationResult;
                 }
                 #[guid(0x5cd61dc0_2561_56e1_8e75_6e44173805e3)]
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DesktopWindowXamlSource)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IDesktopWindowXamlSourceFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> DesktopWindowXamlSource;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> DesktopWindowXamlSource;
                 }
                 #[guid(0x39be4849_d9cc_5b70_8f05_1ad9a4aaa342)]
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
@@ -156,28 +156,28 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(ElementCompositionPreview)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IElementCompositionPreviewStatics {
-                    fn GetElementVisual(&self, element: super::UIElement) -> super::super::Composition::Visual;
-                    fn GetElementChildVisual(&self, element: super::UIElement) -> super::super::Composition::Visual;
-                    fn SetElementChildVisual(&self, element: super::UIElement, visual: super::super::Composition::Visual);
-                    fn GetScrollViewerManipulationPropertySet(&self, scrollViewer: super::Controls::ScrollViewer) -> super::super::Composition::CompositionPropertySet;
+                    fn GetElementVisual(&self, #[in] element: super::UIElement) -> super::super::Composition::Visual;
+                    fn GetElementChildVisual(&self, #[in] element: super::UIElement) -> super::super::Composition::Visual;
+                    fn SetElementChildVisual(&self, #[in] element: super::UIElement, #[in] visual: super::super::Composition::Visual);
+                    fn GetScrollViewerManipulationPropertySet(&self, #[in] scrollViewer: super::Controls::ScrollViewer) -> super::super::Composition::CompositionPropertySet;
                 }
                 #[guid(0x24148fbb_23d6_4f37_ba0c_0733e799722d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ElementCompositionPreview)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IElementCompositionPreviewStatics2 {
-                    fn SetImplicitShowAnimation(&self, element: super::UIElement, animation: super::super::Composition::ICompositionAnimationBase);
-                    fn SetImplicitHideAnimation(&self, element: super::UIElement, animation: super::super::Composition::ICompositionAnimationBase);
-                    fn SetIsTranslationEnabled(&self, element: super::UIElement, value: bool);
-                    fn GetPointerPositionPropertySet(&self, targetElement: super::UIElement) -> super::super::Composition::CompositionPropertySet;
+                    fn SetImplicitShowAnimation(&self, #[in] element: super::UIElement, #[in] animation: super::super::Composition::ICompositionAnimationBase);
+                    fn SetImplicitHideAnimation(&self, #[in] element: super::UIElement, #[in] animation: super::super::Composition::ICompositionAnimationBase);
+                    fn SetIsTranslationEnabled(&self, #[in] element: super::UIElement, #[in] value: bool);
+                    fn GetPointerPositionPropertySet(&self, #[in] targetElement: super::UIElement) -> super::super::Composition::CompositionPropertySet;
                 }
                 #[guid(0x843bc4c3_c105_59fe_a3d1_373c1d3e6fbc)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ElementCompositionPreview)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IElementCompositionPreviewStatics3 {
-                    fn SetAppWindowContent(&self, appWindow: super::super::WindowManagement::AppWindow, xamlContent: super::UIElement);
-                    fn GetAppWindowContent(&self, appWindow: super::super::WindowManagement::AppWindow) -> super::UIElement;
+                    fn SetAppWindowContent(&self, #[in] appWindow: super::super::WindowManagement::AppWindow, #[in] xamlContent: super::UIElement);
+                    fn GetAppWindowContent(&self, #[in] appWindow: super::super::WindowManagement::AppWindow) -> super::UIElement;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WindowsXamlManager)]
@@ -207,9 +207,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(XamlSourceFocusNavigationRequest)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlSourceFocusNavigationRequestFactory {
-                    fn CreateInstance(&self, reason: XamlSourceFocusNavigationReason) -> XamlSourceFocusNavigationRequest;
-                    fn CreateInstanceWithHintRect(&self, reason: XamlSourceFocusNavigationReason, hintRect: super::super::super::Foundation::Rect) -> XamlSourceFocusNavigationRequest;
-                    fn CreateInstanceWithHintRectAndCorrelationId(&self, reason: XamlSourceFocusNavigationReason, hintRect: super::super::super::Foundation::Rect, correlationId: GUID) -> XamlSourceFocusNavigationRequest;
+                    fn CreateInstance(&self, #[in] reason: XamlSourceFocusNavigationReason) -> XamlSourceFocusNavigationRequest;
+                    fn CreateInstanceWithHintRect(&self, #[in] reason: XamlSourceFocusNavigationReason, #[in] hintRect: super::super::super::Foundation::Rect) -> XamlSourceFocusNavigationRequest;
+                    fn CreateInstanceWithHintRectAndCorrelationId(&self, #[in] reason: XamlSourceFocusNavigationReason, #[in] hintRect: super::super::super::Foundation::Rect, #[in] correlationId: GUID) -> XamlSourceFocusNavigationRequest;
                 }
                 #[guid(0x88d55a5f_9603_5d8f_9cc7_d1c4070d9801)]
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
@@ -224,7 +224,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(XamlSourceFocusNavigationResult)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlSourceFocusNavigationResultFactory {
-                    fn CreateInstance(&self, focusMoved: bool) -> XamlSourceFocusNavigationResult;
+                    fn CreateInstance(&self, #[in] focusMoved: bool) -> XamlSourceFocusNavigationResult;
                 }
                 #[guid(0xa714944a_1619_4fc6_b31b_89512ef022a2)]
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 65536)]
@@ -234,7 +234,7 @@ mod Windows {
                     RootElement: super::UIElement;
                     ThemeKey: String;
                     ThemeResourcesXaml: String;
-                    fn SetSize(&self, width: i32, height: i32);
+                    fn SetSize(&self, #[in] width: i32, #[in] height: i32);
                     fn Render(&self);
                     fn Present(&self);
                 }
@@ -242,7 +242,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlUIPresenterHost {
-                    fn ResolveFileResource(&self, path: String) -> String;
+                    fn ResolveFileResource(&self, #[in] path: String) -> String;
                 }
                 #[guid(0x61595672_7ca4_4a21_b56a_88f4812388ca)]
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 65536)]
@@ -254,7 +254,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlUIPresenterHost3 {
-                    fn ResolveDictionaryResource(&self, dictionary: super::ResourceDictionary, dictionaryKey: Object, suggestedValue: Object) -> Object;
+                    fn ResolveDictionaryResource(&self, #[in] dictionary: super::ResourceDictionary, #[in] dictionaryKey: Object, #[in] suggestedValue: Object) -> Object;
                 }
                 #[guid(0x71eaeac8_45e1_4192_85aa_3a422edd23cf)]
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 65536)]
@@ -262,7 +262,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlUIPresenterStatics {
                     CompleteTimelinesAutomatically: bool;
-                    fn SetHost(&self, host: IXamlUIPresenterHost);
+                    fn SetHost(&self, #[in] host: IXamlUIPresenterHost);
                     fn NotifyWindowSizeChanged(&self);
                 }
                 #[guid(0x5c6b68d2_cf1c_4f53_bf09_6a745f7a9703)]
@@ -270,8 +270,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(XamlUIPresenter)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlUIPresenterStatics2 {
-                    fn GetFlyoutPlacementTargetInfo(&self, placementTarget: super::FrameworkElement, preferredPlacement: super::Controls::Primitives::FlyoutPlacementMode, targetPreferredPlacement: &mut super::Controls::Primitives::FlyoutPlacementMode, allowFallbacks: &mut bool) -> super::super::super::Foundation::Rect;
-                    fn GetFlyoutPlacement(&self, placementTargetBounds: super::super::super::Foundation::Rect, controlSize: super::super::super::Foundation::Size, minControlSize: super::super::super::Foundation::Size, containerRect: super::super::super::Foundation::Rect, targetPreferredPlacement: super::Controls::Primitives::FlyoutPlacementMode, allowFallbacks: bool, chosenPlacement: &mut super::Controls::Primitives::FlyoutPlacementMode) -> super::super::super::Foundation::Rect;
+                    fn GetFlyoutPlacementTargetInfo(&self, #[in] placementTarget: super::FrameworkElement, #[in] preferredPlacement: super::Controls::Primitives::FlyoutPlacementMode, #[out] targetPreferredPlacement: &mut super::Controls::Primitives::FlyoutPlacementMode, #[out] allowFallbacks: &mut bool) -> super::super::super::Foundation::Rect;
+                    fn GetFlyoutPlacement(&self, #[in] placementTargetBounds: super::super::super::Foundation::Rect, #[in] controlSize: super::super::super::Foundation::Size, #[in] minControlSize: super::super::super::Foundation::Size, #[in] containerRect: super::super::super::Foundation::Rect, #[in] targetPreferredPlacement: super::Controls::Primitives::FlyoutPlacementMode, #[in] allowFallbacks: bool, #[out] chosenPlacement: &mut super::Controls::Primitives::FlyoutPlacementMode) -> super::super::super::Foundation::Rect;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

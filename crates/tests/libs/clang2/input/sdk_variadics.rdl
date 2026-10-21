@@ -203,7 +203,7 @@ mod Fixture {
         U_PLUGIN_DIDNT_SET_LEVEL = 66817,
     }
     #[library("icuin.dll")]
-    extern "C" fn u_formatMessage(locale: *const i8, pattern: *const UChar, patternLength: int32_t, result: *mut UChar, resultLength: int32_t, status: *mut UErrorCode, ...) -> int32_t;
+    extern "C" fn u_formatMessage(#[in] locale: *const i8, #[in] pattern: *const UChar, #[in] patternLength: int32_t, #[out] result: *mut UChar, #[in] resultLength: int32_t, #[out] status: *mut UErrorCode, ...) -> int32_t;
 }
 #[win32]
 mod Fixture {
@@ -313,19 +313,19 @@ mod Fixture {
         CommOffset: i16,
         FaultOffset: i16,
     }
-    extern fn CS_TAG_GETTING_ROUTINE(hBinding: RPC_BINDING_HANDLE, fServerSide: i32, pulSendingTag: *mut u32, pulDesiredReceivingTag: *mut u32, pulReceivingTag: *mut u32, pStatus: *mut error_status_t);
-    extern fn CS_TYPE_FROM_NETCS_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, pNetworkData: *mut byte, ulNetworkDataLength: u32, ulLocalBufferSize: u32, pLocalData: *mut void, pulLocalDataLength: *mut u32, pStatus: *mut error_status_t);
-    extern fn CS_TYPE_LOCAL_SIZE_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, ulNetworkBufferSize: u32, conversionType: *mut IDL_CS_CONVERT, pulLocalBufferSize: *mut u32, pStatus: *mut error_status_t);
-    extern fn CS_TYPE_NET_SIZE_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, ulLocalBufferSize: u32, conversionType: *mut IDL_CS_CONVERT, pulNetworkBufferSize: *mut u32, pStatus: *mut error_status_t);
-    extern fn CS_TYPE_TO_NETCS_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, pLocalData: *mut void, ulLocalDataLength: u32, pNetworkData: *mut byte, pulNetworkDataLength: *mut u32, pStatus: *mut error_status_t);
-    extern fn EXPR_EVAL(param0: *mut _MIDL_STUB_MESSAGE);
-    extern fn GENERIC_BINDING_ROUTINE(param0: *mut void) -> *mut void;
+    extern fn CS_TAG_GETTING_ROUTINE(#[in] hBinding: RPC_BINDING_HANDLE, #[in] fServerSide: i32, #[out] pulSendingTag: *mut u32, #[out] pulDesiredReceivingTag: *mut u32, #[out] pulReceivingTag: *mut u32, #[out] pStatus: *mut error_status_t);
+    extern fn CS_TYPE_FROM_NETCS_ROUTINE(#[in] hBinding: RPC_BINDING_HANDLE, #[in] ulNetworkCodeSet: u32, #[out] pNetworkData: *mut byte, #[in] ulNetworkDataLength: u32, #[in] ulLocalBufferSize: u32, #[out] pLocalData: *mut void, #[out] pulLocalDataLength: *mut u32, #[out] pStatus: *mut error_status_t);
+    extern fn CS_TYPE_LOCAL_SIZE_ROUTINE(#[in] hBinding: RPC_BINDING_HANDLE, #[in] ulNetworkCodeSet: u32, #[in] ulNetworkBufferSize: u32, #[out] conversionType: *mut IDL_CS_CONVERT, #[out] pulLocalBufferSize: *mut u32, #[out] pStatus: *mut error_status_t);
+    extern fn CS_TYPE_NET_SIZE_ROUTINE(#[in] hBinding: RPC_BINDING_HANDLE, #[in] ulNetworkCodeSet: u32, #[in] ulLocalBufferSize: u32, #[out] conversionType: *mut IDL_CS_CONVERT, #[out] pulNetworkBufferSize: *mut u32, #[out] pStatus: *mut error_status_t);
+    extern fn CS_TYPE_TO_NETCS_ROUTINE(#[in] hBinding: RPC_BINDING_HANDLE, #[in] ulNetworkCodeSet: u32, #[out] pLocalData: *mut void, #[in] ulLocalDataLength: u32, #[out] pNetworkData: *mut byte, #[out] pulNetworkDataLength: *mut u32, #[out] pStatus: *mut error_status_t);
+    extern fn EXPR_EVAL(#[out] param0: *mut _MIDL_STUB_MESSAGE);
+    extern fn GENERIC_BINDING_ROUTINE(#[out] param0: *mut void) -> *mut void;
     #[packed(8)]
     struct GENERIC_BINDING_ROUTINE_PAIR {
         pfnBind: GENERIC_BINDING_ROUTINE,
         pfnUnbind: GENERIC_UNBIND_ROUTINE,
     }
-    extern fn GENERIC_UNBIND_ROUTINE(param0: *mut void, param1: *mut u8);
+    extern fn GENERIC_UNBIND_ROUTINE(#[out] param0: *mut void, #[out] param1: *mut u8);
     #[repr(i32)]
     enum IDL_CS_CONVERT {
         IDL_CS_NO_CONVERT = 0,
@@ -384,10 +384,10 @@ mod Fixture {
     }
     extern fn NDR_NOTIFY_ROUTINE();
     struct NDR_POINTER_QUEUE_STATE {}
-    extern fn NDR_RUNDOWN(context: *mut void);
+    extern fn NDR_RUNDOWN(#[out] context: *mut void);
     type NDR_SCONTEXT = *mut _NDR_SCONTEXT;
     #[library("RPCRT4.dll")]
-    extern "C" fn NdrClientCall2(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
+    extern "C" fn NdrClientCall2(#[in] pStubDescriptor: PMIDL_STUB_DESC, #[in] pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
     type PARRAY_INFO = *mut ARRAY_INFO;
     type PFORMAT_STRING = *const u8;
     type PGENERIC_BINDING_INFO = *mut __GENERIC_BINDING_INFO;
@@ -395,8 +395,8 @@ mod Fixture {
     type PMIDL_STUB_MESSAGE = *mut _MIDL_STUB_MESSAGE;
     type PNDR_ASYNC_MESSAGE = *mut _NDR_ASYNC_MESSAGE;
     type PNDR_CORRELATION_INFO = *mut _NDR_CORRELATION_INFO;
-    extern fn USER_MARSHAL_FREEING_ROUTINE(param0: *mut u32, param1: *mut void);
-    extern fn USER_MARSHAL_MARSHALLING_ROUTINE(param0: *mut u32, param1: *mut u8, param2: *mut void) -> *mut u8;
+    extern fn USER_MARSHAL_FREEING_ROUTINE(#[out] param0: *mut u32, #[out] param1: *mut void);
+    extern fn USER_MARSHAL_MARSHALLING_ROUTINE(#[out] param0: *mut u32, #[out] param1: *mut u8, #[out] param2: *mut void) -> *mut u8;
     #[packed(8)]
     struct USER_MARSHAL_ROUTINE_QUADRUPLE {
         pfnBufferSize: USER_MARSHAL_SIZING_ROUTINE,
@@ -404,14 +404,14 @@ mod Fixture {
         pfnUnmarshall: USER_MARSHAL_UNMARSHALLING_ROUTINE,
         pfnFree: USER_MARSHAL_FREEING_ROUTINE,
     }
-    extern fn USER_MARSHAL_SIZING_ROUTINE(param0: *mut u32, param1: u32, param2: *mut void) -> u32;
-    extern fn USER_MARSHAL_UNMARSHALLING_ROUTINE(param0: *mut u32, param1: *mut u8, param2: *mut void) -> *mut u8;
+    extern fn USER_MARSHAL_SIZING_ROUTINE(#[out] param0: *mut u32, #[in] param1: u32, #[out] param2: *mut void) -> u32;
+    extern fn USER_MARSHAL_UNMARSHALLING_ROUTINE(#[out] param0: *mut u32, #[out] param1: *mut u8, #[out] param2: *mut void) -> *mut u8;
     #[repr(i32)]
     enum XLAT_SIDE {
         XLAT_SERVER = 1,
         XLAT_CLIENT = 2,
     }
-    extern fn XMIT_HELPER_ROUTINE(param0: PMIDL_STUB_MESSAGE);
+    extern fn XMIT_HELPER_ROUTINE(#[in] param0: PMIDL_STUB_MESSAGE);
     #[packed(8)]
     struct XMIT_ROUTINE_QUINTUPLE {
         pfnTranslateToXmit: XMIT_HELPER_ROUTINE,
@@ -547,7 +547,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

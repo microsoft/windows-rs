@@ -5,8 +5,8 @@ mod Test {
     const INVALID: Handle = -1;
 
     #[library("test.dll")]
-    extern fn CloseHandle(handle: Handle) -> i32;
+    extern fn CloseHandle(#[in] handle: Handle) -> i32;
 
     #[library("test.dll")]
-    extern fn OpenHandle(name: u32) -> Handle;
+    extern fn OpenHandle(#[in] name: u32) -> Handle;
 }

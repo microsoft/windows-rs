@@ -6,22 +6,22 @@ mod Test {
     }
     #[guid(0x981a8ac7_36ca_4b94_a186_a201ed0ed052)]
     interface ITranslator {
-        fn Mutate(&self, context: IContext) -> HRESULT;
-        fn MutateOptional(&self, #[opt] context: IContext) -> HRESULT;
-        fn Fill(&self, context: IContext) -> HRESULT;
-        fn MutateAlias(&self, context: IContext) -> HRESULT;
-        fn MutateUnknown(&self, object: IUnknown) -> HRESULT;
-        fn FillReferenceAlias(&self, context: IContext) -> HRESULT;
-        fn MutateReference(&self, context: IContext) -> HRESULT;
-        fn Read(&self, context: IContext) -> HRESULT;
-        fn Create(&self, context: *mut IContext) -> HRESULT;
+        fn Mutate(&self, #[in] context: IContext) -> HRESULT;
+        fn MutateOptional(&self, #[in] #[opt] context: IContext) -> HRESULT;
+        fn Fill(&self, #[in] context: IContext) -> HRESULT;
+        fn MutateAlias(&self, #[in] context: IContext) -> HRESULT;
+        fn MutateUnknown(&self, #[in] object: IUnknown) -> HRESULT;
+        fn FillReferenceAlias(&self, #[in] context: IContext) -> HRESULT;
+        fn MutateReference(&self, #[in] context: IContext) -> HRESULT;
+        fn Read(&self, #[in] context: IContext) -> HRESULT;
+        fn Create(&self, #[out] context: *mut IContext) -> HRESULT;
         fn Replace(&self, #[in] #[out] context: *mut IContext) -> HRESULT;
     }
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
         fn Unused(&self);
     }
-    extern fn MUTATE_CALLBACK(context: IContext) -> HRESULT;
+    extern fn MUTATE_CALLBACK(#[in] context: IContext) -> HRESULT;
     #[library("test.dll")]
-    extern fn MutateContext(context: IContext, callback: MUTATE_CALLBACK) -> HRESULT;
+    extern fn MutateContext(#[in] context: IContext, #[in] callback: MUTATE_CALLBACK) -> HRESULT;
 }

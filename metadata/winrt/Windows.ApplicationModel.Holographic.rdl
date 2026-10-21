@@ -14,9 +14,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(HolographicKeyboard)]
             interface IHolographicKeyboard {
                 #[Windows::Foundation::Metadata::Overload("SetPlacementOverride")]
-                fn SetPlacementOverride(&self, coordinateSystem: super::super::Perception::Spatial::SpatialCoordinateSystem, topCenterPosition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion);
+                fn SetPlacementOverride(&self, #[in] coordinateSystem: super::super::Perception::Spatial::SpatialCoordinateSystem, #[in] topCenterPosition: super::super::Foundation::Numerics::Vector3, #[in] orientation: super::super::Foundation::Numerics::Quaternion);
                 #[Windows::Foundation::Metadata::Overload("SetPlacementOverrideWithMaxSize")]
-                fn SetPlacementOverride(&self, coordinateSystem: super::super::Perception::Spatial::SpatialCoordinateSystem, topCenterPosition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxSize: super::super::Foundation::Numerics::Vector2);
+                fn SetPlacementOverride(&self, #[in] coordinateSystem: super::super::Perception::Spatial::SpatialCoordinateSystem, #[in] topCenterPosition: super::super::Foundation::Numerics::Vector3, #[in] orientation: super::super::Foundation::Numerics::Quaternion, #[in] maxSize: super::super::Foundation::Numerics::Vector2);
                 fn ResetPlacementOverride(&self);
             }
             #[guid(0xb676c624_63d7_58cf_b06b_08baa032a23f)]

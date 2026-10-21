@@ -125,7 +125,14 @@ fn callable_result_use() {
             }
             for name in ["Status", "InspectedValue"] {
                 let ty = index.expect("Fixture", name);
-                assert!(ty.find_attribute("NativeSalAttribute").is_some());
+                assert!(
+                    ty.find_attribute(if name == "Status" {
+                        "SuccessConditionAttribute"
+                    } else {
+                        "NativeSalAttribute"
+                    })
+                    .is_some()
+                );
                 assert!(ty.find_attribute("MustUseAttribute").is_none());
             }
             for field in index

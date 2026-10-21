@@ -1,7 +1,9 @@
 use std::collections::BTreeMap;
+use test_clang2::buffer_extent;
 use test_clang2::{input_dir, selected_fixture};
 use windows_clang2::*;
 use windows_metadata::reader::HasAttributes;
+use windows_metadata::{BufferAccess, BufferCount, BufferPhase, BufferUnits};
 use windows_metadata::{Type as MetadataType, reader};
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
@@ -457,16 +459,19 @@ fn annotation_normalization_residuals() {
     let input = test_clang2::fixture("annotation_residuals");
     let output = projection::generate(&[input], "Fixture").unwrap();
     roundtrip("annotation_residuals", &output, |index, _| {
-        // RDL defaults mutable pointers to output when no direction is emitted.
         for (name, count, direction) in [
-            ("Conditional", 1, reader::ParamDirection::Output),
+            ("Conditional", 1, reader::ParamDirection::Unspecified),
             ("Mixed", 2, reader::ParamDirection::InputOutput),
             ("NullableResult", 0, reader::ParamDirection::Output),
             ("ObjectInput", 0, reader::ParamDirection::Input),
             ("ObjectOutput", 1, reader::ParamDirection::Input),
             ("ObjectUpdate", 1, reader::ParamDirection::Input),
             ("Terminated", 0, reader::ParamDirection::Input),
-            ("UnexpectedArguments", 1, reader::ParamDirection::Output),
+            (
+                "UnexpectedArguments",
+                1,
+                reader::ParamDirection::Unspecified,
+            ),
         ] {
             let method = index
                 .expect("Fixture", name)
@@ -686,7 +691,7 @@ fn buffer_normalization_conflicts() {
             &imports(),
         )
         .unwrap();
-        assert_eq!(output.output.functions, 1);
+        assert_eq!(output.output.functions, 1, "{:?}", output.omissions);
         assert!(output.omissions.is_empty());
         inputs.reverse();
     }
@@ -706,7 +711,7 @@ fn buffer_normalization_conflicts() {
             output
                 .omissions
                 .iter()
-                .any(|error| error.contains("requires a by-value integer"))
+                .any(|error| error.contains("requires an integer"))
         );
     }
 }
@@ -773,10 +778,10 @@ fn buffer_full() {
             inputs.reverse();
         }
     }
-    for count in ["capacity + 1", "*written", "16"] {
+    for count in ["capacity + 1", "16"] {
         let output = project(&[postcondition_input("_Out_writes_bytes_all_", count, false)]);
         let rdl = &output.partitions["buffer_postconditions"].rdl;
-        assert!(rdl.contains("NativeSal(") && !rdl.contains("#[out]"));
+        assert!(rdl.contains("NativeSal(") && rdl.contains("#[out]"));
         assert!(!rdl.contains("size_param") && !rdl.contains("NativeInitializedLength"));
         roundtrip_metadata("buffer_full_residual", rdl, |index, _| {
             for name in ["Apis", "Buffer", "IBuffer"] {
@@ -787,6 +792,21 @@ fn buffer_full() {
             }
         });
     }
+    let output = project(&[postcondition_input(
+        "_Out_writes_bytes_all_",
+        "*written",
+        true,
+    )]);
+    let text = &output.partitions["buffer_postconditions"].rdl;
+    assert!(
+        text.contains("#[writable(entry, bytes(*written))]"),
+        "{text}"
+    );
+    assert!(
+        text.contains("#[readable(success, bytes(on_entry(*written)))]"),
+        "{text}"
+    );
+    assert!(!text.contains("NativeSal("), "{text}");
 }
 
 #[test]
@@ -852,13 +872,14 @@ fn returned_buffer_flags() {
             .replace("BUFFER unsigned short*", "BUFFER unsigned short**");
         let output = project(&[input]);
         let rdl = &output.partitions["buffer_postconditions"].rdl;
-        assert!(!rdl.contains("#[out]"), "{name}");
+        assert!(rdl.contains("#[out]"), "{name}");
         assert_eq!(
             rdl.matches("#[opt]").count(),
             if optional { 3 } else { 0 },
             "{name}"
         );
-        assert_eq!(rdl.matches("NativeSal(").count(), 3, "{name}");
+        assert!(!rdl.contains("NativeSal("), "{name}: {rdl}");
+        assert!(!rdl.contains("out_ptr"), "{name}: {rdl}");
         assert!(
             !rdl.contains("size_param")
                 && !rdl.contains("len_param")
@@ -872,6 +893,42 @@ fn returned_buffer_flags() {
                 assert_eq!(parameter.direction(), reader::ParamDirection::Output);
                 assert_eq!(parameter.is_optional(), optional);
                 assert!(parameter.buffer_relationship().is_none());
+                use windows_metadata::{
+                    BufferAccess, BufferCount, BufferExtent, BufferPhase, BufferUnits,
+                };
+                for access in [BufferAccess::Read, BufferAccess::Write] {
+                    let expected = if access == BufferAccess::Read {
+                        (name.contains("_to") || name.contains("_all"))
+                            .then_some(BufferCount::Dereference(2))
+                    } else if name.contains("_all") {
+                        None
+                    } else if name.contains("_to") {
+                        Some(BufferCount::Parameter(1))
+                    } else {
+                        Some(BufferCount::Dereference(2))
+                    };
+                    let expected = expected.map(|count| {
+                        let mut extent = BufferExtent::new(
+                            access,
+                            BufferPhase::Success,
+                            if name.contains("bytebuffer") {
+                                BufferUnits::Bytes
+                            } else {
+                                BufferUnits::Elements
+                            },
+                            count,
+                        );
+                        extent.indirect = true;
+                        extent.nullable = name.contains("_maybenull");
+                        extent
+                    });
+                    assert_eq!(
+                        buffer_extent(parameter, access, BufferPhase::Success),
+                        expected,
+                        "{name}"
+                    );
+                    assert!(buffer_extent(parameter, access, BufferPhase::Entry).is_none());
+                }
             }
         };
         if name == "_Outptr_opt_result_bytebuffer_all_maybenull_" {
@@ -946,8 +1003,8 @@ fn sdk_bcrypt() {
     assert_eq!(rdl.matches("fn BCryptDeleteContext(").count(), 1);
     assert_eq!(rdl.matches("fn BCryptFinishHash(").count(), 1);
     assert!(rdl.contains("extern fn BCryptDeleteContext("));
-    assert!(rdl.contains("#[opt] ppBuffer: *mut PCRYPT_CONTEXTS"));
-    assert!(rdl.contains("#[out] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = false)] pbOutput: PUCHAR"));
+    assert!(rdl.contains("#[opt] #[readable(success, bytes(*pcbBuffer), indirect, nullable)] ppBuffer: *mut PCRYPT_CONTEXTS"), "{rdl}");
+    assert!(rdl.contains("#[out] #[writable(entry, bytes(cbOutput))] #[readable(success, bytes(cbOutput))] pbOutput: PUCHAR"), "{rdl}");
     roundtrip("sdk_bcrypt", &output, |index, _| {
         let method = index
             .expect("Fixture", "Apis")
@@ -1776,30 +1833,16 @@ fn conditional_length() {
             );
             assert!(parameter.find_attribute("NativeSalAttribute").is_none());
             assert_eq!(
-                parameter
-                    .find_attribute("NativeArrayInfoAttribute")
+                buffer_extent(parameter, BufferAccess::Write, BufferPhase::Success)
                     .unwrap()
-                    .value(),
-                [
-                    ("CountParamIndex".into(), windows_metadata::Value::I16(0)),
-                    ("PostWritable".into(), windows_metadata::Value::Bool(true)),
-                ]
+                    .count,
+                BufferCount::Parameter(0)
             );
-            assert_eq!(
-                parameter
-                    .find_attribute("NativeInitializedLengthAttribute")
-                    .unwrap()
-                    .value(),
-                [
-                    ("CountParamIndex".into(), windows_metadata::Value::I16(2)),
-                    ("IsByteCount".into(), windows_metadata::Value::Bool(false)),
-                    ("Dereference".into(), windows_metadata::Value::Bool(true)),
-                    (
-                        "NullFallbackParamIndex".into(),
-                        windows_metadata::Value::I16(0)
-                    ),
-                ]
-            );
+            let extent =
+                buffer_extent(parameter, BufferAccess::Read, BufferPhase::Success).unwrap();
+            assert_eq!(extent.count, BufferCount::Dereference(2));
+            assert_eq!(extent.units, BufferUnits::Elements);
+            assert_eq!(extent.null_fallback, Some(0));
         }
     });
     for expression in [
@@ -1826,11 +1869,10 @@ fn conditional_length() {
         let output = project(&[input]);
         let text = &output.partitions["conditional_length"].rdl;
         assert!(
-            text.contains("NativeSal(")
-                && text.contains("NativeArrayInfo(CountParamIndex = 0, PostWritable = true)"),
+            text.contains("NativeSal(") && text.contains("#[writable(success, capacity)]"),
             "{text}"
         );
-        assert!(!text.contains("NativeInitializedLength("), "{text}");
+        assert!(!text.contains("#[readable(success,"), "{text}");
     }
     for definition in [
         "#define COUNT_TYPE unsigned int\n",
@@ -1907,21 +1949,10 @@ fn sdk_background_copy_enumerator() {
             array.buffer_relationship(),
             Some(reader::BufferRelationship::ElementsParam(0))
         );
-        assert_eq!(
-            array
-                .find_attribute("NativeInitializedLengthAttribute")
-                .unwrap()
-                .value(),
-            [
-                ("CountParamIndex".into(), windows_metadata::Value::I16(2)),
-                ("IsByteCount".into(), windows_metadata::Value::Bool(false)),
-                ("Dereference".into(), windows_metadata::Value::Bool(true)),
-                (
-                    "NullFallbackParamIndex".into(),
-                    windows_metadata::Value::I16(0)
-                ),
-            ]
-        );
+        let extent = buffer_extent(array, BufferAccess::Read, BufferPhase::Success).unwrap();
+        assert_eq!(extent.count, BufferCount::Dereference(2));
+        assert_eq!(extent.units, BufferUnits::Elements);
+        assert_eq!(extent.null_fallback, Some(0));
         assert!(next.params().nth(2).unwrap().is_optional());
     });
 }
@@ -1935,7 +1966,7 @@ fn rpc_buffers() {
         false,
     )]);
     let text = &output.partitions.values().next().unwrap().rdl;
-    assert!(text.contains("NativeInitializedLength("), "{text}");
+    assert!(text.contains("#[readable(success, written)]"), "{text}");
     roundtrip("rpc_buffers", &output, |index, _| {
         for (owner, name) in [
             ("Apis", "BufferFunction"),
@@ -1955,18 +1986,13 @@ fn rpc_buffers() {
             );
             assert!(parameter.find_attribute("NativeSalAttribute").is_none());
             assert_eq!(
-                parameter
-                    .find_attribute("NativeInitializedLengthAttribute")
-                    .unwrap()
-                    .value()
-                    .into_iter()
-                    .collect::<BTreeMap<_, _>>(),
-                [
-                    ("CountParamIndex".into(), windows_metadata::Value::I16(2)),
-                    ("IsByteCount".into(), windows_metadata::Value::Bool(false)),
-                    ("Dereference".into(), windows_metadata::Value::Bool(false)),
-                ]
-                .into()
+                buffer_extent(parameter, BufferAccess::Read, BufferPhase::Success).unwrap(),
+                windows_metadata::BufferExtent::new(
+                    BufferAccess::Read,
+                    BufferPhase::Success,
+                    BufferUnits::Elements,
+                    BufferCount::Parameter(2)
+                )
             );
         }
     });
@@ -2015,12 +2041,12 @@ fn rpc_input_buffer_agreement() {
         inputs.reverse();
     }
     for name in ["__RPC__in_ecount_full", "__RPC__in_ecount_full_string"] {
-        for arguments in ["*written", "capacity + 1", "42"] {
+        for arguments in ["capacity + 1", "42"] {
             let output = project(&[rpc_buffer_input(name, arguments, true)]);
             let text = &output.partitions.values().next().unwrap().rdl;
             assert!(text.contains("NativeSal("), "{text}");
             assert!(text.contains("#[in]"), "{text}");
-            for attribute in ["NativeInput(", "len_param(", "NativeInitializedLength("] {
+            for attribute in ["NativeInput(", "#[readable(", "#[writable("] {
                 assert!(!text.contains(attribute), "{text}");
             }
         }
@@ -2281,29 +2307,25 @@ fn check_rpc_buffers(sdk: bool) {
                         capacity.then_some(reader::BufferRelationship::ElementsParam(1)),
                         "{name}"
                     );
-                    let post_writable = parameter
-                        .find_attribute("NativeArrayInfoAttribute")
-                        .is_some_and(|attribute| {
-                            attribute
-                                .value()
-                                .contains(&("PostWritable".into(), Value::Bool(true)))
-                        });
+                    let post_writable =
+                        buffer_extent(parameter, BufferAccess::Write, BufferPhase::Success)
+                            .is_some();
                     assert_eq!(
                         post_writable,
                         output_buffer && direction == Output,
                         "{name}"
                     );
-                    let length = parameter.find_attribute("NativeInitializedLengthAttribute");
+                    let length = buffer_extent(parameter, BufferAccess::Read, BufferPhase::Success);
                     assert_eq!(length.is_some(), initialized.is_some(), "{name}");
                     if let Some(length) = length {
                         assert_eq!(
-                            length.value().into_iter().collect::<BTreeMap<_, _>>(),
-                            [
-                                ("CountParamIndex".into(), Value::I16(initialized.unwrap())),
-                                ("IsByteCount".into(), Value::Bool(false)),
-                                ("Dereference".into(), Value::Bool(false)),
-                            ]
-                            .into(),
+                            length,
+                            windows_metadata::BufferExtent::new(
+                                BufferAccess::Read,
+                                BufferPhase::Success,
+                                BufferUnits::Elements,
+                                BufferCount::Parameter(initialized.unwrap() as u16)
+                            ),
                             "{name}"
                         );
                     }
@@ -2379,7 +2401,7 @@ fn rpc_output_buffer_agreement() {
             inputs.reverse();
         }
     }
-    for arguments in ["42", "*written", "capacity + 1"] {
+    for arguments in ["42", "capacity + 1"] {
         let output = project(&[rpc_buffer_input(
             "__RPC__out_ecount_full_string",
             arguments,
@@ -2387,7 +2409,7 @@ fn rpc_output_buffer_agreement() {
         )]);
         let text = &output.partitions.values().next().unwrap().rdl;
         assert!(text.contains("NativeSal("), "{text}");
-        assert!(!text.contains("PostWritable = true"), "{text}");
+        assert!(!text.contains("#[writable(success,"), "{text}");
         assert!(text.contains("#[null_terminated(success)]"), "{text}");
     }
 }
@@ -2438,12 +2460,7 @@ fn rpc_buffer_residuals() {
     let output = project(&[rpc_buffer_input("__RPC__out_ecount_full", "*written", true)]);
     let text = &output.partitions.values().next().unwrap().rdl;
     assert!(!text.contains("len_param("), "{text}");
-    assert!(
-        text.contains(
-            "NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)"
-        ),
-        "{text}"
-    );
+    assert!(text.contains("#[readable(success, *written)]"), "{text}");
     roundtrip_metadata("rpc_buffer_indirect_full", text, |index, _| {
         let parameter = index
             .expect("Fixture", "Buffer")
@@ -2454,20 +2471,10 @@ fn rpc_buffer_residuals() {
             .next()
             .unwrap();
         assert_eq!(parameter.buffer_relationship(), None);
-        assert_eq!(
-            parameter
-                .find_attribute("NativeInitializedLengthAttribute")
-                .unwrap()
-                .value()
-                .into_iter()
-                .collect::<BTreeMap<_, _>>(),
-            [
-                ("CountParamIndex".into(), windows_metadata::Value::I16(2)),
-                ("IsByteCount".into(), windows_metadata::Value::Bool(false)),
-                ("Dereference".into(), windows_metadata::Value::Bool(true)),
-            ]
-            .into()
-        );
+        let extent = buffer_extent(parameter, BufferAccess::Read, BufferPhase::Success).unwrap();
+        assert_eq!(extent.count, BufferCount::Dereference(2));
+        assert_eq!(extent.units, BufferUnits::Elements);
+        assert!(!extent.count_on_entry);
     });
     for (arguments, indirect, capacity, length) in [
         ("capacity, *written", true, true, true),
@@ -2483,13 +2490,13 @@ fn rpc_buffer_residuals() {
         let text = &output.partitions.values().next().unwrap().rdl;
         assert_eq!(text.contains("NativeSal("), !(capacity && length), "{text}");
         assert_eq!(
-            text.contains("len_param(1)") || text.contains("PostWritable = true"),
+            text.contains("#[writable(entry, capacity)]"),
             capacity,
             "{text}"
         );
-        assert_eq!(text.contains("NativeInitializedLength("), length, "{text}");
+        assert_eq!(text.contains("#[readable(success,"), length, "{text}");
         if length {
-            assert!(text.contains("Dereference = true"), "{text}");
+            assert!(text.contains("#[readable(success, *written)]"), "{text}");
         }
     }
     for name in [
@@ -2525,7 +2532,7 @@ fn rpc_buffer_residuals() {
             ),
             (
                 ("unsigned int capacity", "float capacity"),
-                "requires a by-value integer",
+                "requires an integer",
             ),
             (
                 ("LENGTH_TYPE unsigned int", "LENGTH_TYPE float"),
@@ -2604,10 +2611,10 @@ fn reserved_parameters() {
                 assert!(parameter.find_attribute("NativeSalAttribute").is_none());
                 assert_eq!(
                     parameter.direction(),
-                    if index == 1 {
-                        reader::ParamDirection::Output
-                    } else {
+                    if index == 2 {
                         reader::ParamDirection::Input
+                    } else {
+                        reader::ParamDirection::Unspecified
                     }
                 );
             }
@@ -2960,7 +2967,7 @@ fn rpc_annotation_residuals() {
             "{text}"
         );
         assert_eq!(
-            text.contains("NativeArrayInfo(CountParamIndex = 1, PostWritable = true)"),
+            text.contains("#[writable(success, capacity)]"),
             rpc == "__RPC__out_ecount",
             "{text}"
         );
@@ -3105,18 +3112,27 @@ fn buffer_postconditions() {
                                 .into()
                             );
                         }
-                        let length = parameter.find_attribute("NativeInitializedLengthAttribute");
+                        let length =
+                            buffer_extent(parameter, BufferAccess::Read, BufferPhase::Success);
                         assert_eq!(length.is_some(), case >= 6);
                         let bytes = current.contains("_bytes_");
                         if let Some(length) = length {
                             assert_eq!(
-                                length.value().into_iter().collect::<BTreeMap<_, _>>(),
-                                [
-                                    ("CountParamIndex".into(), Value::I16(2)),
-                                    ("IsByteCount".into(), Value::Bool(bytes)),
-                                    ("Dereference".into(), Value::Bool(indirect)),
-                                ]
-                                .into()
+                                length,
+                                windows_metadata::BufferExtent::new(
+                                    BufferAccess::Read,
+                                    BufferPhase::Success,
+                                    if bytes {
+                                        BufferUnits::Bytes
+                                    } else {
+                                        BufferUnits::Elements
+                                    },
+                                    if indirect {
+                                        BufferCount::Dereference(2)
+                                    } else {
+                                        BufferCount::Parameter(2)
+                                    }
+                                )
                             );
                         }
                         assert_eq!(
@@ -3288,7 +3304,7 @@ fn buffer_postcondition_residuals() {
         for (name, raw, capacity, entry, success, length) in [
             ("Expression", 1, true, false, false, false),
             ("ReturnLength", 1, true, false, false, false),
-            ("IndirectCapacity", 1, false, false, false, false),
+            ("IndirectCapacity", 0, false, false, false, true),
             ("ConstantCapacity", 1, false, false, false, false),
             ("Conditional", 1, false, false, false, false),
             ("PointerDifference", 1, false, false, false, false),
@@ -3319,9 +3335,7 @@ fn buffer_postcondition_residuals() {
                 "{name}"
             );
             assert_eq!(
-                parameter
-                    .find_attribute("NativeInitializedLengthAttribute")
-                    .is_some(),
+                buffer_extent(parameter, BufferAccess::Read, BufferPhase::Success).is_some(),
                 length,
                 "{name}"
             );
@@ -3342,16 +3356,15 @@ fn buffer_postcondition_residuals() {
                 assert!(method.params().nth(2).unwrap().is_optional());
             }
             if name == "Successful" {
-                let sal = owner.find_attribute("NativeSalAttribute").unwrap();
-                assert!(
-                    sal.value()
-                        .iter()
-                        .any(|(_, value)| value == &Value::Utf8("_Success_".into()))
-                );
-                assert!(
-                    sal.value()
-                        .iter()
-                        .any(|(_, value)| value == &Value::Utf8("return != 0".into()))
+                assert_eq!(
+                    owner
+                        .find_attribute("SuccessConditionAttribute")
+                        .unwrap()
+                        .value(),
+                    vec![(
+                        String::new(),
+                        windows_rdl::emit::SuccessCondition::NotEqualZero.to_value()
+                    )]
                 );
             }
         }
@@ -6894,7 +6907,6 @@ fn field_buffer_input(name: &str, arguments: &str) -> Input {
 
 #[test]
 fn field_buffers() {
-    use windows_metadata::Value;
     helpers::ensure_libclang();
     for (case, (name, bytes, optional, full, partial)) in FIELD_CONTRACTS.into_iter().enumerate() {
         let arguments = if partial {
@@ -6916,27 +6928,28 @@ fn field_buffers() {
                 .fields()
                 .find(|field| field.name() == "values")
                 .unwrap();
-            let mut expected: BTreeMap<_, _> = [
-                ("CapacityFieldName".into(), Value::Utf8("capacity".into())),
-                ("IsByteCount".into(), Value::Bool(bytes)),
-                ("MayBeNull".into(), Value::Bool(optional)),
-            ]
-            .into();
-            if full || partial {
-                expected.insert(
-                    "ReadableFieldName".into(),
-                    Value::Utf8(if full { "capacity" } else { "readable" }.into()),
-                );
-            }
+            let extent = buffer_extent(field, BufferAccess::Write, BufferPhase::Value).unwrap();
+            assert_eq!(extent.count, BufferCount::Field("capacity".into()));
             assert_eq!(
-                field
-                    .find_attribute("NativeFieldBufferAttribute")
-                    .unwrap()
-                    .value()
-                    .into_iter()
-                    .collect::<BTreeMap<_, _>>(),
-                expected
+                extent.units,
+                if bytes {
+                    BufferUnits::Bytes
+                } else {
+                    BufferUnits::Elements
+                }
             );
+            assert_eq!(extent.nullable, optional);
+            let readable = buffer_extent(field, BufferAccess::Read, BufferPhase::Value);
+            assert_eq!(readable.is_some(), full || partial);
+            if full || partial {
+                let readable = readable.unwrap();
+                assert_eq!(
+                    readable.count,
+                    BufferCount::Field(if full { "capacity" } else { "readable" }.into())
+                );
+                assert_eq!(readable.units, extent.units);
+                assert_eq!(readable.nullable, optional);
+            }
         };
         if case == 0 {
             roundtrip("field_buffers", &output, check);
@@ -7007,20 +7020,10 @@ fn field_buffers_sdk() {
                 .find(|f| f.name() == field)
                 .unwrap();
             assert!(field.find_attribute("NativeSalAttribute").is_none());
-            assert_eq!(
-                field
-                    .find_attribute("NativeFieldBufferAttribute")
-                    .unwrap()
-                    .value(),
-                [
-                    (
-                        "CapacityFieldName".into(),
-                        windows_metadata::Value::Utf8(count.into())
-                    ),
-                    ("IsByteCount".into(), windows_metadata::Value::Bool(false)),
-                    ("MayBeNull".into(), windows_metadata::Value::Bool(optional)),
-                ]
-            );
+            let extent = buffer_extent(field, BufferAccess::Write, BufferPhase::Value).unwrap();
+            assert_eq!(extent.count, BufferCount::Field(count.into()));
+            assert_eq!(extent.units, BufferUnits::Elements);
+            assert_eq!(extent.nullable, optional);
         }
     });
 }
@@ -7085,7 +7088,7 @@ fn field_buffer_residuals() {
             .map(|part| part.rdl.as_str())
             .collect();
         assert!(text.contains("NativeSal("), "{text}");
-        assert!(!text.contains("NativeFieldBuffer("), "{text}");
+        assert!(!text.contains("#[writable("), "{text}");
     }
     for (change, reason) in [
         ("#define COUNT_TYPE float\n", "requires an integer field"),
@@ -7120,7 +7123,7 @@ fn field_buffer_residuals() {
         !output
             .partitions
             .values()
-            .any(|p| p.rdl.contains("NativeFieldBuffer("))
+            .any(|p| p.rdl.contains("#[writable("))
     );
     let mut input = field_buffer_input("_Field_size_", "capacity");
     input.source = input
@@ -7131,7 +7134,7 @@ fn field_buffer_residuals() {
         !output
             .partitions
             .values()
-            .any(|p| p.rdl.contains("NativeFieldBuffer("))
+            .any(|p| p.rdl.contains("#[writable("))
     );
     let mut input = field_buffer_input("_Field_size_", "capacity");
     input.source = input.source.replace(
@@ -7159,7 +7162,7 @@ fn field_buffer_residuals() {
     let output = project(&[input]);
     let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
     assert!(text.contains("NativeSal("), "{text}");
-    assert!(!text.contains("NativeFieldBuffer("), "{text}");
+    assert!(!text.contains("#[writable("), "{text}");
     let mut input = field_buffer_input("_Field_size_", "capacity");
     input.source = input.source.replace("        COUNT_TYPE capacity;", "");
     let output = project(&[input]);
@@ -7174,10 +7177,6 @@ fn field_buffer_residuals() {
             .find(|field| field.name() == "values")
             .unwrap();
         assert!(values.find_attribute("NativeSalAttribute").is_some());
-        assert!(
-            values
-                .find_attribute("NativeFieldBufferAttribute")
-                .is_none()
-        );
+        assert!(buffer_extent(values, BufferAccess::Write, BufferPhase::Value).is_none());
     });
 }

@@ -23,10 +23,10 @@ mod Windows {
                         DeviceConfigurationData: super::super::super::super::Storage::Streams::IBuffer;
                         #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn FinishAuthenticationAsync(&self, deviceHmac: super::super::super::super::Storage::Streams::IBuffer, sessionHmac: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorFinishAuthenticationStatus>;
+                        fn FinishAuthenticationAsync(&self, #[in] deviceHmac: super::super::super::super::Storage::Streams::IBuffer, #[in] sessionHmac: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorFinishAuthenticationStatus>;
                         #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn AbortAuthenticationAsync(&self, errorLogMessage: String) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn AbortAuthenticationAsync(&self, #[in] errorLogMessage: String) -> super::super::super::super::Foundation::IAsyncAction;
                     }
                     #[guid(0x9cbb5987_ef6d_4bc2_bf49_4617515a0f9a)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -70,10 +70,10 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorAuthentication)]
                     interface ISecondaryAuthenticationFactorAuthenticationStatics {
                         #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
-                        fn ShowNotificationMessageAsync(&self, deviceName: String, message: SecondaryAuthenticationFactorAuthenticationMessage) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn ShowNotificationMessageAsync(&self, #[in] deviceName: String, #[in] message: SecondaryAuthenticationFactorAuthenticationMessage) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn StartAuthenticationAsync(&self, deviceId: String, serviceAuthenticationNonce: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationResult>;
+                        fn StartAuthenticationAsync(&self, #[in] deviceId: String, #[in] serviceAuthenticationNonce: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationResult>;
                         #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                         event AuthenticationStageChanged: super::super::super::super::Foundation::EventHandler<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs>;
                         #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
@@ -88,14 +88,14 @@ mod Windows {
                         #[Windows::Foundation::Metadata::Deprecated("RegisterDevicePresenceMonitoringAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
                         #[Windows::Foundation::Metadata::Overload("RegisterDevicePresenceMonitoringAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn RegisterDevicePresenceMonitoringAsync(&self, deviceId: String, deviceInstancePath: String, monitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>;
+                        fn RegisterDevicePresenceMonitoringAsync(&self, #[in] deviceId: String, #[in] deviceInstancePath: String, #[in] monitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>;
                         #[Windows::Foundation::Metadata::Deprecated("RegisterDevicePresenceMonitoringWithNewDeviceAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
                         #[Windows::Foundation::Metadata::Overload("RegisterDevicePresenceMonitoringWithNewDeviceAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn RegisterDevicePresenceMonitoringAsync(&self, deviceId: String, deviceInstancePath: String, monitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, deviceFriendlyName: String, deviceModelNumber: String, deviceConfigurationData: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>;
+                        fn RegisterDevicePresenceMonitoringAsync(&self, #[in] deviceId: String, #[in] deviceInstancePath: String, #[in] monitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, #[in] deviceFriendlyName: String, #[in] deviceModelNumber: String, #[in] deviceConfigurationData: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>;
                         #[Windows::Foundation::Metadata::Deprecated("UnregisterDevicePresenceMonitoringAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn UnregisterDevicePresenceMonitoringAsync(&self, deviceId: String) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn UnregisterDevicePresenceMonitoringAsync(&self, #[in] deviceId: String) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::Deprecated("IsDevicePresenceMonitoringSupported is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
                         fn IsDevicePresenceMonitoringSupported(&self) -> bool;
                     }
@@ -127,7 +127,7 @@ mod Windows {
                         PresenceMonitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode;
                         #[Windows::Foundation::Metadata::Deprecated("UpdateDevicePresenceAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn UpdateDevicePresenceAsync(&self, presenceState: SecondaryAuthenticationFactorDevicePresence) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn UpdateDevicePresenceAsync(&self, #[in] presenceState: SecondaryAuthenticationFactorDevicePresence) -> super::super::super::super::Foundation::IAsyncAction;
                         #[get]
                         #[Windows::Foundation::Metadata::Deprecated("IsAuthenticationSupported is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
                         IsAuthenticationSupported: bool;
@@ -139,10 +139,10 @@ mod Windows {
                     interface ISecondaryAuthenticationFactorRegistration {
                         #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn FinishRegisteringDeviceAsync(&self, deviceConfigurationData: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn FinishRegisteringDeviceAsync(&self, #[in] deviceConfigurationData: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn AbortRegisteringDeviceAsync(&self, errorLogMessage: String) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn AbortRegisteringDeviceAsync(&self, #[in] errorLogMessage: String) -> super::super::super::super::Foundation::IAsyncAction;
                     }
                     #[guid(0xa4fe35f0_ade3_4981_af6b_ec195921682a)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -162,16 +162,16 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorRegistration)]
                     interface ISecondaryAuthenticationFactorRegistrationStatics {
                         #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
-                        fn RequestStartRegisteringDeviceAsync(&self, deviceId: String, capabilities: SecondaryAuthenticationFactorDeviceCapabilities, deviceFriendlyName: String, deviceModelNumber: String, deviceKey: super::super::super::super::Storage::Streams::IBuffer, mutualAuthenticationKey: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorRegistrationResult>;
+                        fn RequestStartRegisteringDeviceAsync(&self, #[in] deviceId: String, #[in] capabilities: SecondaryAuthenticationFactorDeviceCapabilities, #[in] deviceFriendlyName: String, #[in] deviceModelNumber: String, #[in] deviceKey: super::super::super::super::Storage::Streams::IBuffer, #[in] mutualAuthenticationKey: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorRegistrationResult>;
                         #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn FindAllRegisteredDeviceInfoAsync(&self, queryType: SecondaryAuthenticationFactorDeviceFindScope) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<SecondaryAuthenticationFactorInfo>>;
+                        fn FindAllRegisteredDeviceInfoAsync(&self, #[in] queryType: SecondaryAuthenticationFactorDeviceFindScope) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<SecondaryAuthenticationFactorInfo>>;
                         #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn UnregisterDeviceAsync(&self, deviceId: String) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn UnregisterDeviceAsync(&self, #[in] deviceId: String) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn UpdateDeviceConfigurationDataAsync(&self, deviceId: String, deviceConfigurationData: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn UpdateDeviceConfigurationDataAsync(&self, #[in] deviceId: String, #[in] deviceConfigurationData: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncAction;
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]

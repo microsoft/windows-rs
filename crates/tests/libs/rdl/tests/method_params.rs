@@ -5,7 +5,7 @@ use windows_metadata::HasAttributes;
 const METADATA_NAMESPACE: &str = "Windows.Win32.Metadata";
 
 #[test]
-fn compact_direction_flags_preserve_parameter_metadata() {
+fn explicit_direction_flags_preserve_parameter_metadata() {
     let types = [
         metadata::Type::I32,
         metadata::Type::PtrMut(Box::new(metadata::Type::I32), 1),
@@ -18,14 +18,8 @@ fn compact_direction_flags_preserve_parameter_metadata() {
     let mut compact = explicit.clone();
     for (index, ty) in types.iter().enumerate() {
         for (input, output) in [(false, false), (true, false), (false, true), (true, true)] {
-            let direction = windows_rdl::emit::write_param_direction(ty, input, output);
-            let mutable = matches!(ty, metadata::Type::PtrMut(..) | metadata::Type::RefMut(_));
-            assert_eq!(
-                direction.is_empty(),
-                (!input && !output)
-                    || (input && !output && !mutable)
-                    || (output && !input && mutable)
-            );
+            let direction = windows_rdl::emit::write_param_direction(input, output);
+            assert_eq!(direction.is_empty(), !input && !output);
             let ty = windows_rdl::emit::write_type("Test", ty);
             let signature =
                 format!("#[library(\"fixture.dll\")] extern fn Case{index}{input}{output}(");
@@ -64,6 +58,65 @@ fn compact_direction_flags_preserve_parameter_metadata() {
         let compact = compact.params().next().unwrap();
         assert_eq!(original.name(), compact.name());
         assert_eq!(original.flags(), compact.flags());
+    }
+    let roundtrip = scratch.join("roundtrip.rdl");
+    let again = scratch.join("again.winmd");
+    windows_rdl::writer()
+        .input(scratch.join("compact.winmd"))
+        .output(&roundtrip)
+        .write()
+        .unwrap();
+    windows_rdl::reader()
+        .input(&roundtrip)
+        .output(&again)
+        .write()
+        .unwrap();
+    let index = metadata::reader::Index::read(&again).unwrap();
+    for (first, second) in compact
+        .methods()
+        .zip(index.expect("Test", "Apis").methods())
+    {
+        let flags = first.params().next().unwrap().flags();
+        assert_eq!(flags, second.params().next().unwrap().flags());
+        let unspecified = first.name().ends_with("falsefalse");
+        assert_eq!(flags == metadata::ParamAttributes::Optional, unspecified);
+    }
+}
+
+#[test]
+fn obsolete_direction_attribute_is_rejected() {
+    for attribute in [
+        "#[direction]",
+        "#[direction(unspecified)]",
+        "#[direction(input)]",
+        "#[direction(unspecified, output)]",
+        "#[direction(unspecified)] #[direction(unspecified)]",
+        "#[direction(unspecified)] #[in]",
+        "#[out] #[direction(unspecified)]",
+    ] {
+        let source =
+            format!("#[win32] mod Test {{ extern fn Call({attribute} value: *mut i32); }}");
+        assert!(
+            windows_rdl::reader()
+                .input_text(&source)
+                .output(scratch("invalid_direction").join("output.winmd"))
+                .write()
+                .is_err(),
+            "{attribute}"
+        );
+    }
+    for source in [
+        "#[win32] mod Test { #[direction(unspecified)] extern fn Call(); }",
+        "#[win32] mod Test { struct Value { #[direction(unspecified)] value: i32, } }",
+        "#[win32] mod Test { extern fn Call() -> #[direction(unspecified)] i32; }",
+    ] {
+        assert!(
+            windows_rdl::reader()
+                .input_text(source)
+                .output(scratch("invalid_direction").join("owner.winmd"))
+                .write()
+                .is_err()
+        );
     }
 }
 
@@ -329,7 +382,7 @@ fn sparse_out_of_order_params_round_trip_with_flags_and_pseudos() {
 
     let second = params.params()[1].unwrap();
     assert_eq!(second.name(), "p1");
-    assert_eq!(second.flags(), metadata::ParamAttributes::Out);
+    assert_eq!(second.flags(), metadata::ParamAttributes::default());
 
     let third = params.params()[2].unwrap();
     assert_eq!(third.name(), "third");
@@ -478,12 +531,12 @@ fn all_supported_param_attributes_and_directions_round_trip() {
     assert!(
         method.contains("#[iid_is] #[retval] #[in] #[out] #[opt] inout_optional: *mut *mut i32")
     );
-    assert!(method.contains("#[len_param(2)] counted: *const i32"));
-    assert!(method.contains("#[len_const(4)] fixed: *const i32"));
-    assert!(method.contains("#[size_param(0)] bytes: *mut u8"));
-    assert!(
-        method.contains("#[encoding(\"utf-16\")] #[noreturn] #[reserved] #[scoped] decorated: i32")
-    );
+    assert!(method.contains("#[len_param(2)] #[in] counted: *const i32"));
+    assert!(method.contains("#[len_const(4)] #[in] fixed: *const i32"));
+    assert!(method.contains("#[size_param(0)] #[out] bytes: *mut u8"));
+    assert!(method.contains(
+        "#[encoding(\"utf-16\")] #[noreturn] #[reserved] #[scoped] #[in] decorated: i32"
+    ));
     assert!(method.contains("-> #[encoding(\"ansi\")] #[noreturn] i32"));
 
     windows_rdl::reader()
@@ -499,11 +552,11 @@ fn all_supported_param_attributes_and_directions_round_trip() {
 
     let p0 = params.params()[0].unwrap();
     assert_eq!(p0.name(), "p0");
-    assert_eq!(p0.flags(), metadata::ParamAttributes::In);
+    assert_eq!(p0.flags(), metadata::ParamAttributes::default());
 
     let p1 = params.params()[1].unwrap();
     assert_eq!(p1.name(), "p1");
-    assert_eq!(p1.flags(), metadata::ParamAttributes::Out);
+    assert_eq!(p1.flags(), metadata::ParamAttributes::default());
 
     let implicit_in = params.params()[2].unwrap();
     assert_eq!(implicit_in.flags(), metadata::ParamAttributes::In);
@@ -570,41 +623,6 @@ fn all_supported_param_attributes_and_directions_round_trip() {
         "NativeEncodingAttribute",
         &[(String::new(), metadata::Value::Utf8("ansi".to_string()))],
     );
-}
-
-#[test]
-fn production_parameter_directions_are_representable() {
-    let manifest = Path::new(env!("CARGO_MANIFEST_DIR"));
-
-    for name in ["Windows.winmd", "Windows.Win32.winmd"] {
-        let path = manifest.join("../../../libs/default").join(name);
-        let index = metadata::reader::Index::read(&path).unwrap();
-
-        for ty in index.types() {
-            let generics: Vec<_> = ty
-                .generic_params()
-                .map(|generic| {
-                    metadata::Type::Generic(generic.name().to_string(), generic.sequence())
-                })
-                .collect();
-            for method in ty.methods() {
-                let signature = method.signature(&generics);
-                let params = method.params_by_sequence(signature.types.len()).unwrap();
-
-                for param in params.params().iter().flatten() {
-                    let flags = param.flags();
-                    assert!(
-                        flags.contains(metadata::ParamAttributes::In)
-                            || flags.contains(metadata::ParamAttributes::Out),
-                        "{name}: {}.{} parameter {} has neither In nor Out",
-                        ty.namespace(),
-                        method.name(),
-                        param.sequence()
-                    );
-                }
-            }
-        }
-    }
 }
 
 #[test]

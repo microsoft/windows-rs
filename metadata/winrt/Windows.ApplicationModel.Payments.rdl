@@ -31,7 +31,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PaymentCanMakePaymentResult)]
             interface IPaymentCanMakePaymentResultFactory {
-                fn Create(&self, value: PaymentCanMakePaymentResultStatus) -> PaymentCanMakePaymentResult;
+                fn Create(&self, #[in] value: PaymentCanMakePaymentResultStatus) -> PaymentCanMakePaymentResult;
             }
             #[guid(0xe3a3e9e0_b41f_4987_bdcb_071331f2daa4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -45,8 +45,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PaymentCurrencyAmount)]
             interface IPaymentCurrencyAmountFactory {
-                fn Create(&self, value: String, currency: String) -> PaymentCurrencyAmount;
-                fn CreateWithCurrencySystem(&self, value: String, currency: String, currencySystem: String) -> PaymentCurrencyAmount;
+                fn Create(&self, #[in] value: String, #[in] currency: String) -> PaymentCurrencyAmount;
+                fn CreateWithCurrencySystem(&self, #[in] value: String, #[in] currency: String, #[in] currencySystem: String) -> PaymentCurrencyAmount;
             }
             #[guid(0x53bb2d7d_e0eb_4053_8eae_ce7c48e02945)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -61,8 +61,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PaymentDetails)]
             interface IPaymentDetailsFactory {
-                fn Create(&self, total: PaymentItem) -> PaymentDetails;
-                fn CreateWithDisplayItems(&self, total: PaymentItem, displayItems: super::super::Foundation::Collections::IIterable<PaymentItem>) -> PaymentDetails;
+                fn Create(&self, #[in] total: PaymentItem) -> PaymentDetails;
+                fn CreateWithDisplayItems(&self, #[in] total: PaymentItem, #[in] displayItems: super::super::Foundation::Collections::IIterable<PaymentItem>) -> PaymentDetails;
             }
             #[guid(0xbe1c7d65_4323_41d7_b305_dfcb765f69de)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -81,9 +81,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PaymentDetailsModifier)]
             interface IPaymentDetailsModifierFactory {
-                fn Create(&self, supportedMethodIds: super::super::Foundation::Collections::IIterable<String>, total: PaymentItem) -> PaymentDetailsModifier;
-                fn CreateWithAdditionalDisplayItems(&self, supportedMethodIds: super::super::Foundation::Collections::IIterable<String>, total: PaymentItem, additionalDisplayItems: super::super::Foundation::Collections::IIterable<PaymentItem>) -> PaymentDetailsModifier;
-                fn CreateWithAdditionalDisplayItemsAndJsonData(&self, supportedMethodIds: super::super::Foundation::Collections::IIterable<String>, total: PaymentItem, additionalDisplayItems: super::super::Foundation::Collections::IIterable<PaymentItem>, jsonData: String) -> PaymentDetailsModifier;
+                fn Create(&self, #[in] supportedMethodIds: super::super::Foundation::Collections::IIterable<String>, #[in] total: PaymentItem) -> PaymentDetailsModifier;
+                fn CreateWithAdditionalDisplayItems(&self, #[in] supportedMethodIds: super::super::Foundation::Collections::IIterable<String>, #[in] total: PaymentItem, #[in] additionalDisplayItems: super::super::Foundation::Collections::IIterable<PaymentItem>) -> PaymentDetailsModifier;
+                fn CreateWithAdditionalDisplayItemsAndJsonData(&self, #[in] supportedMethodIds: super::super::Foundation::Collections::IIterable<String>, #[in] total: PaymentItem, #[in] additionalDisplayItems: super::super::Foundation::Collections::IIterable<PaymentItem>, #[in] jsonData: String) -> PaymentDetailsModifier;
             }
             #[guid(0x685ac88b_79b2_4b76_9e03_a876223dfe72)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -97,7 +97,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PaymentItem)]
             interface IPaymentItemFactory {
-                fn Create(&self, label: String, amount: PaymentCurrencyAmount) -> PaymentItem;
+                fn Create(&self, #[in] label: String, #[in] amount: PaymentCurrencyAmount) -> PaymentItem;
             }
             #[guid(0xfb0ee829_ec0c_449a_83da_7ae3073365a2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -107,17 +107,17 @@ mod Windows {
                 fn GetSupportedMethodIdsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
                 #[Windows::Foundation::Metadata::Overload("SubmitPaymentRequestAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SubmitPaymentRequestAsync(&self, paymentRequest: PaymentRequest) -> super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>;
+                fn SubmitPaymentRequestAsync(&self, #[in] paymentRequest: PaymentRequest) -> super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>;
                 #[Windows::Foundation::Metadata::Overload("SubmitPaymentRequestWithChangeHandlerAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SubmitPaymentRequestAsync(&self, paymentRequest: PaymentRequest, changeHandler: PaymentRequestChangedHandler) -> super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>;
+                fn SubmitPaymentRequestAsync(&self, #[in] paymentRequest: PaymentRequest, #[in] changeHandler: PaymentRequestChangedHandler) -> super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>;
             }
             #[guid(0xceef98f1_e407_4128_8e73_d93d5f822786)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PaymentMediator)]
             interface IPaymentMediator2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CanMakePaymentAsync(&self, paymentRequest: PaymentRequest) -> super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>;
+                fn CanMakePaymentAsync(&self, #[in] paymentRequest: PaymentRequest) -> super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>;
             }
             #[guid(0x63445050_0e94_4ed6_aacb_e6012bd327a7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -132,7 +132,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PaymentMerchantInfo)]
             interface IPaymentMerchantInfoFactory {
-                fn Create(&self, uri: super::super::Foundation::Uri) -> PaymentMerchantInfo;
+                fn Create(&self, #[in] uri: super::super::Foundation::Uri) -> PaymentMerchantInfo;
             }
             #[guid(0xd1d3caf4_de98_4129_b1b7_c3ad86237bf4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -147,8 +147,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PaymentMethodData)]
             interface IPaymentMethodDataFactory {
-                fn Create(&self, supportedMethodIds: super::super::Foundation::Collections::IIterable<String>) -> PaymentMethodData;
-                fn CreateWithJsonData(&self, supportedMethodIds: super::super::Foundation::Collections::IIterable<String>, jsonData: String) -> PaymentMethodData;
+                fn Create(&self, #[in] supportedMethodIds: super::super::Foundation::Collections::IIterable<String>) -> PaymentMethodData;
+                fn CreateWithJsonData(&self, #[in] supportedMethodIds: super::super::Foundation::Collections::IIterable<String>, #[in] jsonData: String) -> PaymentMethodData;
             }
             #[guid(0xaaa30854_1f2b_4365_8251_01b58915a5bc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -190,7 +190,7 @@ mod Windows {
                 ShippingAddress: PaymentAddress;
                 #[get]
                 SelectedShippingOption: PaymentShippingOption;
-                fn Acknowledge(&self, changeResult: PaymentRequestChangedResult);
+                fn Acknowledge(&self, #[in] changeResult: PaymentRequestChangedResult);
             }
             #[guid(0xdf699e5c_16c4_47ad_9401_8440ec0757db)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -204,22 +204,22 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PaymentRequestChangedResult)]
             interface IPaymentRequestChangedResultFactory {
-                fn Create(&self, changeAcceptedByMerchant: bool) -> PaymentRequestChangedResult;
-                fn CreateWithPaymentDetails(&self, changeAcceptedByMerchant: bool, updatedPaymentDetails: PaymentDetails) -> PaymentRequestChangedResult;
+                fn Create(&self, #[in] changeAcceptedByMerchant: bool) -> PaymentRequestChangedResult;
+                fn CreateWithPaymentDetails(&self, #[in] changeAcceptedByMerchant: bool, #[in] updatedPaymentDetails: PaymentDetails) -> PaymentRequestChangedResult;
             }
             #[guid(0x3e8a79dc_6b74_42d3_b103_f0de35fb1848)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PaymentRequest)]
             interface IPaymentRequestFactory {
-                fn Create(&self, details: PaymentDetails, methodData: super::super::Foundation::Collections::IIterable<PaymentMethodData>) -> PaymentRequest;
-                fn CreateWithMerchantInfo(&self, details: PaymentDetails, methodData: super::super::Foundation::Collections::IIterable<PaymentMethodData>, merchantInfo: PaymentMerchantInfo) -> PaymentRequest;
-                fn CreateWithMerchantInfoAndOptions(&self, details: PaymentDetails, methodData: super::super::Foundation::Collections::IIterable<PaymentMethodData>, merchantInfo: PaymentMerchantInfo, options: PaymentOptions) -> PaymentRequest;
+                fn Create(&self, #[in] details: PaymentDetails, #[in] methodData: super::super::Foundation::Collections::IIterable<PaymentMethodData>) -> PaymentRequest;
+                fn CreateWithMerchantInfo(&self, #[in] details: PaymentDetails, #[in] methodData: super::super::Foundation::Collections::IIterable<PaymentMethodData>, #[in] merchantInfo: PaymentMerchantInfo) -> PaymentRequest;
+                fn CreateWithMerchantInfoAndOptions(&self, #[in] details: PaymentDetails, #[in] methodData: super::super::Foundation::Collections::IIterable<PaymentMethodData>, #[in] merchantInfo: PaymentMerchantInfo, #[in] options: PaymentOptions) -> PaymentRequest;
             }
             #[guid(0xe6ce1325_a506_4372_b7ef_1a031d5662d1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PaymentRequest)]
             interface IPaymentRequestFactory2 {
-                fn CreateWithMerchantInfoOptionsAndId(&self, details: PaymentDetails, methodData: super::super::Foundation::Collections::IIterable<PaymentMethodData>, merchantInfo: PaymentMerchantInfo, options: PaymentOptions, id: String) -> PaymentRequest;
+                fn CreateWithMerchantInfoOptionsAndId(&self, #[in] details: PaymentDetails, #[in] methodData: super::super::Foundation::Collections::IIterable<PaymentMethodData>, #[in] merchantInfo: PaymentMerchantInfo, #[in] options: PaymentOptions, #[in] id: String) -> PaymentRequest;
             }
             #[guid(0x7b9c3912_30f2_4e90_b249_8ce7d78ffe56)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -247,7 +247,7 @@ mod Windows {
                 #[get]
                 PayerPhoneNumber: String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CompleteAsync(&self, status: PaymentRequestCompletionStatus) -> super::super::Foundation::IAsyncAction;
+                fn CompleteAsync(&self, #[in] status: PaymentRequestCompletionStatus) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x13372ada_9753_4574_8966_93145a76c7f9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -262,9 +262,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PaymentShippingOption)]
             interface IPaymentShippingOptionFactory {
-                fn Create(&self, label: String, amount: PaymentCurrencyAmount) -> PaymentShippingOption;
-                fn CreateWithSelected(&self, label: String, amount: PaymentCurrencyAmount, selected: bool) -> PaymentShippingOption;
-                fn CreateWithSelectedAndTag(&self, label: String, amount: PaymentCurrencyAmount, selected: bool, tag: String) -> PaymentShippingOption;
+                fn Create(&self, #[in] label: String, #[in] amount: PaymentCurrencyAmount) -> PaymentShippingOption;
+                fn CreateWithSelected(&self, #[in] label: String, #[in] amount: PaymentCurrencyAmount, #[in] selected: bool) -> PaymentShippingOption;
+                fn CreateWithSelectedAndTag(&self, #[in] label: String, #[in] amount: PaymentCurrencyAmount, #[in] selected: bool, #[in] tag: String) -> PaymentShippingOption;
             }
             #[guid(0xbbcac013_ccd0_41f2_b2a1_0a2e4b5dce25)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -279,8 +279,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PaymentToken)]
             interface IPaymentTokenFactory {
-                fn Create(&self, paymentMethodId: String) -> PaymentToken;
-                fn CreateWithJsonDetails(&self, paymentMethodId: String, jsonDetails: String) -> PaymentToken;
+                fn Create(&self, #[in] paymentMethodId: String) -> PaymentToken;
+                fn CreateWithJsonDetails(&self, #[in] paymentMethodId: String, #[in] jsonDetails: String) -> PaymentToken;
             }
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -397,7 +397,7 @@ mod Windows {
             }
             #[guid(0x5078b9e1_f398_4f2c_a27e_94d371cf6c7d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            delegate fn PaymentRequestChangedHandler(paymentRequest: PaymentRequest, args: PaymentRequestChangedArgs);
+            delegate fn PaymentRequestChangedHandler(#[in] paymentRequest: PaymentRequest, #[in] args: PaymentRequestChangedArgs);
             #[Windows::Foundation::Metadata::Activatable(IPaymentRequestChangedResultFactory, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

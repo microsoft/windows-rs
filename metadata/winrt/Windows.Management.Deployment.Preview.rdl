@@ -16,7 +16,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(DeploymentPreviewContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ClassicAppManager)]
                 interface IClassicAppManagerStatics {
-                    fn FindInstalledApp(&self, appUninstallKey: String) -> InstalledClassicAppInfo;
+                    fn FindInstalledApp(&self, #[in] appUninstallKey: String) -> InstalledClassicAppInfo;
                 }
                 #[guid(0x0a7d3da3_65d0_4086_80d6_0610d760207d)]
                 #[Windows::Foundation::Metadata::ContractVersion(DeploymentPreviewContract, 65536)]

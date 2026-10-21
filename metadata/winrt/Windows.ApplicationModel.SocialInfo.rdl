@@ -106,7 +106,7 @@ mod Windows {
                 BitmapSize: super::super::Graphics::Imaging::BitmapSize;
                 #[Windows::Foundation::Metadata::Deprecated("ISocialItemThumbnail is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetImageAsync(&self, image: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncAction;
+                fn SetImageAsync(&self, #[in] image: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x9e5e1bd1_90d0_4e1d_9554_844d46607f61)]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]

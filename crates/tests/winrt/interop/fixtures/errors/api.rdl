@@ -19,9 +19,9 @@ mod Errors {
         fn Fail(&self);
 
         // Fails with `E_BOUNDS` and `message`.
-        fn FailWithMessage(&self, message: String);
+        fn FailWithMessage(&self, #[in] message: String);
 
         // Calls `callback.Fail` and checks the error it returns.
-        fn Check(&self, callback: ICallback);
+        fn Check(&self, #[in] callback: ICallback);
     }
 }

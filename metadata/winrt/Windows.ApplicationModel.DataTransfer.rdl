@@ -100,7 +100,7 @@ mod Windows {
             }
             #[guid(0xe7ecd720_f2f4_4a2d_920e_170a2f482a27)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn DataProviderHandler(request: DataProviderRequest);
+            delegate fn DataProviderHandler(#[in] request: DataProviderRequest);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -176,7 +176,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Clipboard)]
             interface IClipboardStatics {
                 fn GetContent(&self) -> DataPackageView;
-                fn SetContent(&self, content: DataPackage);
+                fn SetContent(&self, #[in] content: DataPackage);
                 fn Flush(&self);
                 fn Clear(&self);
                 event ContentChanged: super::super::Foundation::EventHandler<Object>;
@@ -188,11 +188,11 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetHistoryItemsAsync(&self) -> super::super::Foundation::IAsyncOperation<ClipboardHistoryItemsResult>;
                 fn ClearHistory(&self) -> bool;
-                fn DeleteItemFromHistory(&self, item: ClipboardHistoryItem) -> bool;
-                fn SetHistoryItemAsContent(&self, item: ClipboardHistoryItem) -> SetHistoryItemAsContentStatus;
+                fn DeleteItemFromHistory(&self, #[in] item: ClipboardHistoryItem) -> bool;
+                fn SetHistoryItemAsContent(&self, #[in] item: ClipboardHistoryItem) -> SetHistoryItemAsContentStatus;
                 fn IsHistoryEnabled(&self) -> bool;
                 fn IsRoamingEnabled(&self) -> bool;
-                fn SetContentWithOptions(&self, content: DataPackage, options: ClipboardContentOptions) -> bool;
+                fn SetContentWithOptions(&self, #[in] content: DataPackage, #[in] options: ClipboardContentOptions) -> bool;
                 event HistoryChanged: super::super::Foundation::EventHandler<ClipboardHistoryChangedEventArgs>;
                 event RoamingEnabledChanged: super::super::Foundation::EventHandler<Object>;
                 event HistoryEnabledChanged: super::super::Foundation::EventHandler<Object>;
@@ -207,27 +207,27 @@ mod Windows {
                 RequestedOperation: DataPackageOperation;
                 event OperationCompleted: super::super::Foundation::TypedEventHandler<DataPackage, OperationCompletedEventArgs>;
                 event Destroyed: super::super::Foundation::TypedEventHandler<DataPackage, Object>;
-                fn SetData(&self, formatId: String, #[Windows::Foundation::Metadata::HasVariant] value: Object);
-                fn SetDataProvider(&self, formatId: String, delayRenderer: DataProviderHandler);
-                fn SetText(&self, value: String);
+                fn SetData(&self, #[in] formatId: String, #[in] #[Windows::Foundation::Metadata::HasVariant] value: Object);
+                fn SetDataProvider(&self, #[in] formatId: String, #[in] delayRenderer: DataProviderHandler);
+                fn SetText(&self, #[in] value: String);
                 #[Windows::Foundation::Metadata::Deprecated("SetUri may be altered or unavailable for releases after Windows Phone 'OSVersion' (TBD).Instead, use SetWebLink or SetApplicationLink.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn SetUri(&self, value: super::super::Foundation::Uri);
-                fn SetHtmlFormat(&self, value: String);
+                fn SetUri(&self, #[in] value: super::super::Foundation::Uri);
+                fn SetHtmlFormat(&self, #[in] value: String);
                 #[get]
                 ResourceMap: super::super::Foundation::Collections::IMap<String, super::super::Storage::Streams::RandomAccessStreamReference>;
-                fn SetRtf(&self, value: String);
-                fn SetBitmap(&self, value: super::super::Storage::Streams::RandomAccessStreamReference);
+                fn SetRtf(&self, #[in] value: String);
+                fn SetBitmap(&self, #[in] value: super::super::Storage::Streams::RandomAccessStreamReference);
                 #[Windows::Foundation::Metadata::Overload("SetStorageItemsReadOnly")]
-                fn SetStorageItems(&self, value: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>);
+                fn SetStorageItems(&self, #[in] value: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>);
                 #[Windows::Foundation::Metadata::Overload("SetStorageItems")]
-                fn SetStorageItems(&self, value: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, readOnly: bool);
+                fn SetStorageItems(&self, #[in] value: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, #[in] readOnly: bool);
             }
             #[guid(0x041c1fe9_2409_45e1_a538_4c53eeee04a7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackage)]
             interface IDataPackage2 {
-                fn SetApplicationLink(&self, value: super::super::Foundation::Uri);
-                fn SetWebLink(&self, value: super::super::Foundation::Uri);
+                fn SetApplicationLink(&self, #[in] value: super::super::Foundation::Uri);
+                fn SetWebLink(&self, #[in] value: super::super::Foundation::Uri);
             }
             #[guid(0x88f31f5d_787b_4d32_965a_a9838105a056)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -338,18 +338,18 @@ mod Windows {
                 Properties: DataPackagePropertySetView;
                 #[get]
                 RequestedOperation: DataPackageOperation;
-                fn ReportOperationCompleted(&self, value: DataPackageOperation);
+                fn ReportOperationCompleted(&self, #[in] value: DataPackageOperation);
                 #[get]
                 AvailableFormats: super::super::Foundation::Collections::IVectorView<String>;
-                fn Contains(&self, formatId: String) -> bool;
+                fn Contains(&self, #[in] formatId: String) -> bool;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetDataAsync(&self, formatId: String) -> #[Windows::Foundation::Metadata::HasVariant] super::super::Foundation::IAsyncOperation<Object>;
+                fn GetDataAsync(&self, #[in] formatId: String) -> #[Windows::Foundation::Metadata::HasVariant] super::super::Foundation::IAsyncOperation<Object>;
                 #[Windows::Foundation::Metadata::Overload("GetTextAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetTextAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::Overload("GetCustomTextAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetTextAsync(&self, formatId: String) -> super::super::Foundation::IAsyncOperation<String>;
+                fn GetTextAsync(&self, #[in] formatId: String) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::Deprecated("GetUriAsync may be altered or unavailable for releases after Windows 8.1. Instead, use GetWebLinkAsync or GetApplicationLinkAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetUriAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>;
@@ -380,14 +380,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("RequestAccessAsync")]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>;
                 #[Windows::Foundation::Metadata::Overload("RequestAccessWithEnterpriseIdAsync")]
-                fn RequestAccessAsync(&self, enterpriseId: String) -> super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>;
+                fn RequestAccessAsync(&self, #[in] enterpriseId: String) -> super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>;
                 fn UnlockAndAssumeEnterpriseIdentity(&self) -> super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult;
             }
             #[guid(0xdfe96f1f_e042_4433_a09f_26d6ffda8b85)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackageView)]
             interface IDataPackageView4 {
-                fn SetAcceptedFormatId(&self, formatId: String);
+                fn SetAcceptedFormatId(&self, #[in] formatId: String);
             }
             #[guid(0xc2cf2373_2d26_43d9_b69d_dcb86d03f6da)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -404,7 +404,7 @@ mod Windows {
                 #[get]
                 Deadline: super::super::Foundation::DateTime;
                 fn GetDeferral(&self) -> DataProviderDeferral;
-                fn SetData(&self, #[Windows::Foundation::Metadata::HasVariant] value: Object);
+                fn SetData(&self, #[in] #[Windows::Foundation::Metadata::HasVariant] value: Object);
             }
             #[guid(0x4341ae3b_fc12_4e53_8c02_ac714c415a27)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -413,7 +413,7 @@ mod Windows {
                 Data: DataPackage;
                 #[get]
                 Deadline: super::super::Foundation::DateTime;
-                fn FailWithDisplayText(&self, value: String);
+                fn FailWithDisplayText(&self, #[in] value: String);
                 fn GetDeferral(&self) -> DataRequestDeferral;
             }
             #[guid(0x6dc4b89f_0386_4263_87c1_ed7dce30890e)]
@@ -460,14 +460,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(DataTransferManager)]
             interface IDataTransferManagerStatics3 {
                 #[Windows::Foundation::Metadata::Overload("ShowShareUIWithOptions")]
-                fn ShowShareUI(&self, options: ShareUIOptions);
+                fn ShowShareUI(&self, #[in] options: ShareUIOptions);
             }
             #[guid(0xe22e7749_dd70_446f_aefc_61cee59f655e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HtmlFormatHelper)]
             interface IHtmlFormatHelperStatics {
-                fn GetStaticFragment(&self, htmlFormat: String) -> String;
-                fn CreateHtmlFormat(&self, htmlFragment: String) -> String;
+                fn GetStaticFragment(&self, #[in] htmlFormat: String) -> String;
+                fn CreateHtmlFormat(&self, #[in] htmlFragment: String) -> String;
             }
             #[guid(0xe7af329d_051d_4fab_b1a9_47fd77f70a41)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -506,7 +506,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ShareProvider)]
             interface IShareProviderFactory {
-                fn Create(&self, title: String, displayIcon: super::super::Storage::Streams::RandomAccessStreamReference, backgroundColor: super::super::UI::Color, handler: ShareProviderHandler) -> ShareProvider;
+                fn Create(&self, #[in] title: String, #[in] displayIcon: super::super::Storage::Streams::RandomAccessStreamReference, #[in] backgroundColor: super::super::UI::Color, #[in] handler: ShareProviderHandler) -> ShareProvider;
             }
             #[guid(0x19cef937_d435_4179_b6af_14e0492b69f6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -548,10 +548,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SharedStorageAccessManager)]
             interface ISharedStorageAccessManagerStatics {
-                fn AddFile(&self, file: super::super::Storage::IStorageFile) -> String;
+                fn AddFile(&self, #[in] file: super::super::Storage::IStorageFile) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RedeemTokenForFileAsync(&self, token: String) -> super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>;
-                fn RemoveFile(&self, token: String);
+                fn RedeemTokenForFileAsync(&self, #[in] token: String) -> super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>;
+                fn RemoveFile(&self, #[in] token: String);
             }
             #[guid(0x7ed681a1_a880_40c9_b4ed_0bee1e15f549)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -627,7 +627,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TransferTargetDiscoveryOptions)]
             interface ITransferTargetDiscoveryOptionsFactory {
-                fn CreateInstance(&self, dataPackage: DataPackageView) -> TransferTargetDiscoveryOptions;
+                fn CreateInstance(&self, #[in] dataPackage: DataPackageView) -> TransferTargetDiscoveryOptions;
             }
             #[guid(0x15f220a6_cffe_56f5_b403_ed44e9c3ad38)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
@@ -642,7 +642,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TransferTarget)]
             interface ITransferTargetStatics {
-                fn CreateWatcher(&self, options: TransferTargetDiscoveryOptions) -> TransferTargetWatcher;
+                fn CreateWatcher(&self, #[in] options: TransferTargetDiscoveryOptions) -> TransferTargetWatcher;
             }
             #[guid(0x2f85ca29_0100_5d09_907c_fe554d2fcd1a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
@@ -651,7 +651,7 @@ mod Windows {
                 fn Start(&self);
                 fn Stop(&self);
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TransferToAsync(&self, target: TransferTarget, parentWindowHandle: super::super::UI::WindowId) -> super::super::Foundation::IAsyncOperationWithProgress<TransferTargetInvokeResult, f64>;
+                fn TransferToAsync(&self, #[in] target: TransferTarget, #[in] parentWindowHandle: super::super::UI::WindowId) -> super::super::Foundation::IAsyncOperationWithProgress<TransferTargetInvokeResult, f64>;
                 event Added: super::super::Foundation::TypedEventHandler<TransferTargetWatcher, TransferTargetChangedEventArgs>;
                 event Removed: super::super::Foundation::TypedEventHandler<TransferTargetWatcher, TransferTargetChangedEventArgs>;
                 event Updated: super::super::Foundation::TypedEventHandler<TransferTargetWatcher, TransferTargetChangedEventArgs>;
@@ -662,7 +662,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TransferTargetWatcher)]
             interface ITransferTargetWatcherStatics {
-                fn IsSupported(&self, dataPackage: DataPackageView) -> bool;
+                fn IsSupported(&self, #[in] dataPackage: DataPackageView) -> bool;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
@@ -691,7 +691,7 @@ mod Windows {
             }
             #[guid(0xe7f9d9ba_e1ba_4e4d_bd65_d43845d3212f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            delegate fn ShareProviderHandler(operation: ShareProviderOperation);
+            delegate fn ShareProviderHandler(#[in] operation: ShareProviderOperation);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ShareProviderOperation {

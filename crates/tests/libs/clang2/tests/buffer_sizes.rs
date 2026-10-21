@@ -31,6 +31,36 @@ fn buffer_capacity_rdl() {
             .unwrap()
             .replace("\r\n", "\n");
         assert_eq!(actual, expected);
+        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+        let metadata = root.join("target\\test-clang2-buffer-sizes.winmd");
+        windows_rdl::reader()
+            .input(root.join("metadata\\metadata.rdl"))
+            .input_text(&actual)
+            .output(&metadata)
+            .write()
+            .unwrap();
+        for arch in [1, 2, 4] {
+            use windows_metadata::{BufferAccess, BufferCount, BufferPhase, BufferUnits};
+            let index = windows_metadata::reader::Index::new_for_architecture(
+                vec![windows_metadata::reader::File::read(&metadata).unwrap()],
+                arch,
+            );
+            for (name, old) in [("QueryBytes", false), ("FullBytes", true)] {
+                let method = index.expect("Fixture", name).methods().next().unwrap();
+                let param = method.params().next().unwrap();
+                let entry =
+                    test_clang2::buffer_extent(param, BufferAccess::Write, BufferPhase::Entry)
+                        .unwrap();
+                let success =
+                    test_clang2::buffer_extent(param, BufferAccess::Read, BufferPhase::Success)
+                        .unwrap();
+                assert_eq!(entry.count, BufferCount::Dereference(1));
+                assert_eq!(success.count, entry.count);
+                assert_eq!(entry.units, BufferUnits::Bytes);
+                assert_eq!(success.units, entry.units);
+                assert_eq!(success.count_on_entry, old);
+            }
+        }
         inputs.reverse();
         targets.reverse();
     }
@@ -42,7 +72,7 @@ fn invalid_buffer_capacity() {
     helpers::ensure_libclang();
     for (case, message) in [
         (1, "conflicting SAL buffer capacity"),
-        (2, "requires a by-value integer"),
+        (2, "requires an integer"),
         (3, "requires a buffer pointer"),
         (4, "conflicting SAL buffer capacity"),
     ] {
@@ -68,7 +98,10 @@ fn invalid_buffer_capacity() {
             .values()
             .map(|part| part.rdl.as_str())
             .collect();
-        assert!(actual.contains("#[size_param(1)] buffer:"), "{actual}");
+        assert!(
+            actual.contains("#[writable(entry, bytes(capacity))] buffer:"),
+            "{actual}"
+        );
         assert!(!actual.contains("fn Invalid("), "{actual}");
     }
 }

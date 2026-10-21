@@ -130,7 +130,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreFrameworkInputView)]
                 interface ICoreFrameworkInputViewStatics {
-                    fn GetForUIContext(&self, context: super::super::UIContext) -> CoreFrameworkInputView;
+                    fn GetForUIContext(&self, #[in] context: super::super::UIContext) -> CoreFrameworkInputView;
                     fn GetForCurrentView(&self) -> CoreFrameworkInputView;
                 }
                 #[guid(0xc770cd7a_7001_4c32_bf94_25c1f554cbf1)]
@@ -148,7 +148,7 @@ mod Windows {
                 interface ICoreInputView2 {
                     event XYFocusTransferringFromPrimaryView: super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewTransferringXYFocusEventArgs>;
                     event XYFocusTransferredToPrimaryView: super::super::super::Foundation::TypedEventHandler<CoreInputView, Object>;
-                    fn TryTransferXYFocusToPrimaryView(&self, origin: super::super::super::Foundation::Rect, direction: CoreInputViewXYFocusTransferDirection) -> bool;
+                    fn TryTransferXYFocusToPrimaryView(&self, #[in] origin: super::super::super::Foundation::Rect, #[in] direction: CoreInputViewXYFocusTransferDirection) -> bool;
                 }
                 #[guid(0xbc941653_3ab9_4849_8f58_46e7f0353cfc)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
@@ -157,7 +157,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Overload("TryShow")]
                     fn TryShow(&self) -> bool;
                     #[Windows::Foundation::Metadata::Overload("TryShowWithKind")]
-                    fn TryShow(&self, r#type: CoreInputViewKind) -> bool;
+                    fn TryShow(&self, #[in] r#type: CoreInputViewKind) -> bool;
                     fn TryHide(&self) -> bool;
                 }
                 #[guid(0x002863d6_d9ef_57eb_8cef_77f6ce1b7ee7)]
@@ -171,7 +171,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputView)]
                 interface ICoreInputView5 {
-                    fn IsKindSupported(&self, r#type: CoreInputViewKind) -> bool;
+                    fn IsKindSupported(&self, #[in] r#type: CoreInputViewKind) -> bool;
                     event SupportedKindsChanged: super::super::super::Foundation::TypedEventHandler<CoreInputView, Object>;
                     event PrimaryViewAnimationStarting: super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewAnimationStartingEventArgs>;
                 }
@@ -224,7 +224,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputView)]
                 interface ICoreInputViewStatics2 {
-                    fn GetForUIContext(&self, context: super::super::UIContext) -> CoreInputView;
+                    fn GetForUIContext(&self, #[in] context: super::super::UIContext) -> CoreInputView;
                 }
                 #[guid(0x04de169f_ba02_4850_8b55_d82d03ba6d7f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -247,11 +247,11 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(UISettingsController)]
                 interface IUISettingsController {
-                    fn SetAdvancedEffectsEnabled(&self, value: bool);
-                    fn SetAnimationsEnabled(&self, value: bool);
-                    fn SetAutoHideScrollBars(&self, value: bool);
-                    fn SetMessageDuration(&self, value: u32);
-                    fn SetTextScaleFactor(&self, value: f64);
+                    fn SetAdvancedEffectsEnabled(&self, #[in] value: bool);
+                    fn SetAnimationsEnabled(&self, #[in] value: bool);
+                    fn SetAutoHideScrollBars(&self, #[in] value: bool);
+                    fn SetMessageDuration(&self, #[in] value: u32);
+                    fn SetTextScaleFactor(&self, #[in] value: f64);
                 }
                 #[guid(0xeb3c68cc_c220_578c_8119_7db324ed26a6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]

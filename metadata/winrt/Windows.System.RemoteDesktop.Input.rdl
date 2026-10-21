@@ -8,27 +8,27 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteTextConnection)]
                 interface IRemoteTextConnection {
                     IsEnabled: bool;
-                    fn RegisterThread(&self, threadId: u32);
-                    fn UnregisterThread(&self, threadId: u32);
-                    fn ReportDataReceived(&self, pduData: [u8]);
+                    fn RegisterThread(&self, #[in] threadId: u32);
+                    fn UnregisterThread(&self, #[in] threadId: u32);
+                    fn ReportDataReceived(&self, #[in] pduData: [u8]);
                 }
                 #[guid(0x05f99345_84c8_56c5_934f_73ea00f8c2d5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1048576)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteTextConnection)]
                 interface IRemoteTextConnection2 {
-                    fn ReportPredictedKeyEvent(&self, scanCode: u16, attributes: RemoteKeyEventAttributes);
+                    fn ReportPredictedKeyEvent(&self, #[in] scanCode: u16, #[in] attributes: RemoteKeyEventAttributes);
                 }
                 #[guid(0x88e075c2_0cae_596c_850f_78d345cd728b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteTextConnection)]
                 interface IRemoteTextConnectionFactory {
-                    fn CreateInstance(&self, connectionId: GUID, pduForwarder: RemoteTextConnectionDataHandler) -> RemoteTextConnection;
+                    fn CreateInstance(&self, #[in] connectionId: GUID, #[in] pduForwarder: RemoteTextConnectionDataHandler) -> RemoteTextConnection;
                 }
                 #[guid(0x9425c7d9_ed9b_5d00_99cc_b0b8dc9e4c60)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1048576)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteTextConnection)]
                 interface IRemoteTextConnectionFactory2 {
-                    fn CreateInstance(&self, connectionId: GUID, pduForwarder: RemoteTextConnectionDataHandler, options: RemoteTextConnectionOptions) -> RemoteTextConnection;
+                    fn CreateInstance(&self, #[in] connectionId: GUID, #[in] pduForwarder: RemoteTextConnectionDataHandler, #[in] options: RemoteTextConnectionOptions) -> RemoteTextConnection;
                 }
                 #[repr(u32)]
                 #[flags]
@@ -52,7 +52,7 @@ mod Windows {
                 }
                 #[guid(0x099ffbc8_8bcb_41b5_b056_57e77021bf1b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
-                delegate fn RemoteTextConnectionDataHandler(pduData: [u8]) -> bool;
+                delegate fn RemoteTextConnectionDataHandler(#[in] pduData: [u8]) -> bool;
                 #[repr(u32)]
                 #[flags]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1048576)]

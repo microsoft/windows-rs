@@ -18,7 +18,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayBitmapEffect)]
                 interface ILampArrayBitmapEffectFactory {
-                    fn CreateInstance(&self, lampArray: super::LampArray, lampIndexes: [i32]) -> LampArrayBitmapEffect;
+                    fn CreateInstance(&self, #[in] lampArray: super::LampArray, #[in] lampIndexes: [i32]) -> LampArrayBitmapEffect;
                 }
                 #[guid(0xc8b4af9e_fe63_4d51_babd_619defb454ba)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
@@ -26,7 +26,7 @@ mod Windows {
                 interface ILampArrayBitmapRequestedEventArgs {
                     #[get]
                     SinceStarted: super::super::super::Foundation::TimeSpan;
-                    fn UpdateBitmap(&self, bitmap: super::super::super::Graphics::Imaging::SoftwareBitmap);
+                    fn UpdateBitmap(&self, #[in] bitmap: super::super::super::Graphics::Imaging::SoftwareBitmap);
                 }
                 #[guid(0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
@@ -45,7 +45,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayBlinkEffect)]
                 interface ILampArrayBlinkEffectFactory {
-                    fn CreateInstance(&self, lampArray: super::LampArray, lampIndexes: [i32]) -> LampArrayBlinkEffect;
+                    fn CreateInstance(&self, #[in] lampArray: super::LampArray, #[in] lampIndexes: [i32]) -> LampArrayBlinkEffect;
                 }
                 #[guid(0x2b004437_40a7_432e_a0b9_0d570c2153ff)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
@@ -60,7 +60,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayColorRampEffect)]
                 interface ILampArrayColorRampEffectFactory {
-                    fn CreateInstance(&self, lampArray: super::LampArray, lampIndexes: [i32]) -> LampArrayColorRampEffect;
+                    fn CreateInstance(&self, #[in] lampArray: super::LampArray, #[in] lampIndexes: [i32]) -> LampArrayColorRampEffect;
                 }
                 #[guid(0xec579170_3c34_4876_818b_5765f78b0ee4)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
@@ -74,7 +74,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayCustomEffect)]
                 interface ILampArrayCustomEffectFactory {
-                    fn CreateInstance(&self, lampArray: super::LampArray, lampIndexes: [i32]) -> LampArrayCustomEffect;
+                    fn CreateInstance(&self, #[in] lampArray: super::LampArray, #[in] lampIndexes: [i32]) -> LampArrayCustomEffect;
                 }
                 #[guid(0x11d45590_57fb_4546_b1ce_863107f740df)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
@@ -85,8 +85,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayEffectPlaylist)]
                 interface ILampArrayEffectPlaylist {
-                    fn Append(&self, effect: ILampArrayEffect);
-                    fn OverrideZIndex(&self, zIndex: i32);
+                    fn Append(&self, #[in] effect: ILampArrayEffect);
+                    fn OverrideZIndex(&self, #[in] zIndex: i32);
                     fn Start(&self);
                     fn Stop(&self);
                     fn Pause(&self);
@@ -98,9 +98,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayEffectPlaylist)]
                 interface ILampArrayEffectPlaylistStatics {
-                    fn StartAll(&self, value: super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>);
-                    fn StopAll(&self, value: super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>);
-                    fn PauseAll(&self, value: super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>);
+                    fn StartAll(&self, #[in] value: super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>);
+                    fn StopAll(&self, #[in] value: super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>);
+                    fn PauseAll(&self, #[in] value: super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>);
                 }
                 #[guid(0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
@@ -115,7 +115,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LampArraySolidEffect)]
                 interface ILampArraySolidEffectFactory {
-                    fn CreateInstance(&self, lampArray: super::LampArray, lampIndexes: [i32]) -> LampArraySolidEffect;
+                    fn CreateInstance(&self, #[in] lampArray: super::LampArray, #[in] lampIndexes: [i32]) -> LampArraySolidEffect;
                 }
                 #[guid(0x73560d6a_576a_48af_8539_67ffa0ab3516)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
@@ -123,10 +123,10 @@ mod Windows {
                 interface ILampArrayUpdateRequestedEventArgs {
                     #[get]
                     SinceStarted: super::super::super::Foundation::TimeSpan;
-                    fn SetColor(&self, desiredColor: super::super::super::UI::Color);
-                    fn SetColorForIndex(&self, lampIndex: i32, desiredColor: super::super::super::UI::Color);
-                    fn SetSingleColorForIndices(&self, desiredColor: super::super::super::UI::Color, lampIndexes: [i32]);
-                    fn SetColorsForIndices(&self, desiredColors: [super::super::super::UI::Color], lampIndexes: [i32]);
+                    fn SetColor(&self, #[in] desiredColor: super::super::super::UI::Color);
+                    fn SetColorForIndex(&self, #[in] lampIndex: i32, #[in] desiredColor: super::super::super::UI::Color);
+                    fn SetSingleColorForIndices(&self, #[in] desiredColor: super::super::super::UI::Color, #[in] lampIndexes: [i32]);
+                    fn SetColorsForIndices(&self, #[in] desiredColors: [super::super::super::UI::Color], #[in] lampIndexes: [i32]);
                 }
                 #[Windows::Foundation::Metadata::Activatable(ILampArrayBitmapEffectFactory, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]

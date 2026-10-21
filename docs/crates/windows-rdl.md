@@ -52,11 +52,15 @@ value, or architecture equivalence.
 
 ## RDL syntax
 
-Without direction attributes, mutable pointers and references default to output; other written
-types, including named pointer aliases, default to input. Explicit input/output parameters require
-both flags. The writer and clang2 share `emit::write_param_direction` to omit only redundant
-spellings. Import-redeclaration comparison renders directions against the normalized comparison
-type, not a discarded typedef spelling.
+Parameter direction is explicit: `in`, `out`, both, or neither. No attributes means unspecified
+direction, regardless of pointer mutability or typedef spelling. `opt` is independent. The writer
+and clang2 share `emit::write_param_direction`, which does not inspect types or suppress flags.
+Unflagged or absent metadata parameter rows need no marker. Property setters and event
+add/remove methods have input parameters by their member contracts, not by type inference.
+
+This reader does not accept `direction(unspecified)` or apply legacy direction defaults. Existing
+inputs must materialize their old flags before migrating. The repository migration preserves
+metadata meanings; the binary encoding is unchanged.
 
 Win32 pointer types preserve qualifiers at each depth: `*mut *const T` and `*const *mut T` have
 different metadata signatures and round-trip without flattening. Homogeneous chains retain their
@@ -81,6 +85,13 @@ The writer rejects unsupported imported signature flags rather than changing the
 interface methods and named callbacks. It says the caller should use the result rather than
 accidentally discard it. It is not a success predicate, purity promise or signature change.
 Language-specific diagnostics and output-parameter inspection are separate concerns.
+
+`#[success(return == 0)]`, `!= 0`, `== 1`, `>= 0` and `> 0` encode the enum-valued
+`SuccessConditionAttribute`. The formatter treats these arguments as expressions, preserving
+comparison tokens. Callable conditions override return-type defaults; they govern ordinary
+postconditions rather than defining a language binding's error model. The reader rejects other
+expressions and parameter/field owners. The writer retains full spelling for unfamiliar payloads.
+Canonical success syntax requires an updated RDL reader.
 
 Custom attributes on `type Name = Type;` declarations attach to the metadata typedef and survive
 RDL/WinMD round trips, including architecture-specific aliases. The provisional `NativeSalAttribute`
@@ -125,7 +136,7 @@ mod Example {
 
     #[guid(0x00000001_0002_0003_0004_000000000005)]
     interface ICustom : Windows::Win32::System::Com::IUnknown {
-        fn Method(&self, value: i32) -> i32;
+        fn Method(&self, #[in] value: i32) -> i32;
     }
 }
 ```
@@ -189,7 +200,7 @@ mod Robotics {
 
     #[ExclusiveTo(Robot)]
     interface IRobot {
-        fn Speak(&self, message: String);
+        fn Speak(&self, #[in] message: String);
         Name: String;
     }
 }
@@ -258,8 +269,7 @@ C/C++ headers -- clang() --> .rdl -- reader() --> .winmd -- bindgen() --> bindin
 - Mixed pointer chains require a metadata reader that understands per-level `IsConst` modifiers.
 - `len_param` and `size_param` store raw zero-based signature positions. Update the attribute when
   parameters move.
-- RDL cannot spell a metadata parameter with neither In nor Out. Omitting direction invokes the
-  type-based default.
+- Omitting direction preserves neither In nor Out; it does not infer a contract from the type.
 - Attributes on a void return row cannot round-trip because there is no return type to carry them.
 - `split` and `partition` clear existing `.rdl` files in the output directory before writing.
 
@@ -429,26 +439,32 @@ The winmd writer uses `MethodDef::params_by_sequence` from
 [`windows-metadata`](windows-metadata.md). Sequence 0 supplies return-type attributes. Nonzero rows
 are matched to one-based signature positions, so sparse or out-of-order metadata cannot rename or
 reflag another parameter. Every signature parameter is emitted; a missing row uses `pN` with no
-explicit direction or optional marker, which the RDL reader lowers with its existing type-based
-direction default. Duplicate and out-of-range sequences stop the write with a diagnostic.
+direction or optional marker and retains neither direction flag. Duplicate and out-of-range
+sequences stop the write with a diagnostic.
 
 Direction and optionality come from `MethodParam::direction()` and `is_optional()`. Reserved,
 retval, and count attributes remain independent pseudos or custom attributes. The writer applies
 RDL's format boundary only when spelling them: In+Out emits both markers, while Unspecified emits
-the input spelling because RDL has no literal unspecified-direction syntax.
+neither. Optionality remains independent in all four direction states.
 
 `test_rdl::method_params` authors sparse and out-of-order rows directly, checks parameter and
 return pseudos in the generated RDL, and compiles the RDL back to dense metadata with the same
-associations. It also checks that every non-return `Param` row in the committed WinRT, Win32, and
-WDK metadata has at least one representable direction flag.
+associations. Its parameter matrix covers all four direction states independently of optionality,
+pointer mutability and alias spelling.
 
 ### Lossless round-trip limits
 
-- **Direction flags:** RDL has no spelling for a `Param` row with neither In nor Out. Omitting both
-  invokes the type-based default, so a metadata row with neither flag reads back as In.
 - **Void return rows:** Return attributes are written after `->`. A void method has no return type
   to carry them, so attributes on its sequence 0 row are not represented.
-- **Count relationships:** `#[len_param(N)]` and `#[size_param(N)]` store raw zero-based signature
+- **Buffer extents:** `readable` and `writable` bind count names to their owning signature or
+  record. Parameters name entry/success phases; field ownership establishes valid-record state
+  without a phase argument. `on_entry(count)` retains a call-entry count in a success contract.
+  `if_present(*count)` leaves an extent unknown when its count pointer is null; it cannot combine
+  with a null fallback. Indirect pointer initialization and nullability do not depend on whether
+  the count was requested.
+  Parameter/field short forms validate count and storage types; unrecognized metadata payloads
+  keep full spelling.
+- **Legacy count relationships:** `#[len_param(N)]` and `#[size_param(N)]` store raw zero-based signature
   positions. Reordering parameters without updating `N` changes the relationship.
 - **Function pointers:** Inline signatures support plain C and system/stdcall only. Other flags,
   WinRT use, and parameter annotations are rejected rather than normalized.

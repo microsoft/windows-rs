@@ -22,10 +22,10 @@ fn returned_pointer_spelling_preserves_properties() {
     {
         let short = windows_rdl::emit::write_returned_pointer(nullable, null_on_failure);
         explicit.push_str(&format!(
-            "extern fn Callback{index}(#[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = {nullable}, NullOnFailure = {null_on_failure})] value: *mut *mut u8);"
+            "extern fn Callback{index}(#[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = {nullable}, NullOnFailure = {null_on_failure})] value: *mut *mut u8);"
         ));
         compact.push_str(&format!(
-            "extern fn Callback{index}(#[opt] {short} value: *mut *mut u8);"
+            "extern fn Callback{index}(#[out] #[opt] {short} value: *mut *mut u8);"
         ));
     }
     for source in [&mut explicit, &mut compact] {

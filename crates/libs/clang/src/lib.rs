@@ -3605,10 +3605,13 @@ fn param_attributes(
     if annotation.com_out_ptr {
         result.push_str("#[iid_is] ");
     }
-    if annotation.input && (output || emitted_mutable) {
+    // Preserve the legacy projection's defaults explicitly; RDL does not infer direction.
+    let input = annotation.input || (!output && !emitted_mutable);
+    let output = output || (!annotation.input && emitted_mutable);
+    if input {
         result.push_str("#[in] ");
     }
-    if output && (annotation.input || !emitted_mutable) {
+    if output {
         result.push_str("#[out] ");
     }
     if annotation.optional {

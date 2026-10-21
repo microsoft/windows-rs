@@ -62,7 +62,7 @@ mod Windows {
                     #[get]
                     Bounds: SceneBoundingBox;
                     PrimitiveTopology: super::super::super::Graphics::DirectX::DirectXPrimitiveTopology;
-                    fn FillMeshAttribute(&self, semantic: SceneAttributeSemantic, format: super::super::super::Graphics::DirectX::DirectXPixelFormat, memory: super::super::super::Foundation::MemoryBuffer);
+                    fn FillMeshAttribute(&self, #[in] semantic: SceneAttributeSemantic, #[in] format: super::super::super::Graphics::DirectX::DirectXPixelFormat, #[in] memory: super::super::super::Foundation::MemoryBuffer);
                 }
                 #[guid(0xce843171_3d43_4855_aa69_31ff988d049d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
@@ -84,14 +84,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneMeshRendererComponent)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ISceneMeshRendererComponentStatics {
-                    fn Create(&self, compositor: super::Compositor) -> SceneMeshRendererComponent;
+                    fn Create(&self, #[in] compositor: super::Compositor) -> SceneMeshRendererComponent;
                 }
                 #[guid(0x8412316c_7b57_473f_966b_81dc277b1751)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneMesh)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ISceneMeshStatics {
-                    fn Create(&self, compositor: super::Compositor) -> SceneMesh;
+                    fn Create(&self, #[in] compositor: super::Compositor) -> SceneMesh;
                 }
                 #[guid(0xc1d91446_799c_429e_a4e4_5da645f18e61)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
@@ -109,7 +109,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneMetallicRoughnessMaterial)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ISceneMetallicRoughnessMaterialStatics {
-                    fn Create(&self, compositor: super::Compositor) -> SceneMetallicRoughnessMaterial;
+                    fn Create(&self, #[in] compositor: super::Compositor) -> SceneMetallicRoughnessMaterial;
                 }
                 #[guid(0xc05576c2_32b1_4269_980d_b98537100ae4)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
@@ -136,7 +136,7 @@ mod Windows {
                     Parent: SceneNode;
                     #[get]
                     Transform: SceneModelTransform;
-                    fn FindFirstComponentOfType(&self, value: SceneComponentType) -> SceneComponent;
+                    fn FindFirstComponentOfType(&self, #[in] value: SceneComponentType) -> SceneComponent;
                 }
                 #[guid(0x29ada101_2dd9_4332_be63_60d2cf4269f2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
@@ -148,7 +148,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneNode)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ISceneNodeStatics {
-                    fn Create(&self, compositor: super::Compositor) -> SceneNode;
+                    fn Create(&self, #[in] compositor: super::Compositor) -> SceneNode;
                 }
                 #[guid(0x1e94249b_0f1b_49eb_a819_877d8450005b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
@@ -202,7 +202,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneSurfaceMaterialInput)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ISceneSurfaceMaterialInputStatics {
-                    fn Create(&self, compositor: super::Compositor) -> SceneSurfaceMaterialInput;
+                    fn Create(&self, #[in] compositor: super::Compositor) -> SceneSurfaceMaterialInput;
                 }
                 #[guid(0x8e672c1e_d734_47b1_be14_3d694ffa4301)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
@@ -216,7 +216,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneVisual)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ISceneVisualStatics {
-                    fn Create(&self, compositor: super::Compositor) -> SceneVisual;
+                    fn Create(&self, #[in] compositor: super::Compositor) -> SceneVisual;
                 }
                 #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]

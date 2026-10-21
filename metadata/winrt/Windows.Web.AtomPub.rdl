@@ -17,32 +17,32 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(AtomPubClient)]
             interface IAtomPubClient: super::Syndication::ISyndicationClient {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RetrieveServiceDocumentAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>;
+                fn RetrieveServiceDocumentAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RetrieveMediaResourceAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>;
+                fn RetrieveMediaResourceAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RetrieveResourceAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>;
+                fn RetrieveResourceAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateResourceAsync(&self, uri: super::super::Foundation::Uri, description: String, item: super::Syndication::SyndicationItem) -> super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>;
+                fn CreateResourceAsync(&self, #[in] uri: super::super::Foundation::Uri, #[in] description: String, #[in] item: super::Syndication::SyndicationItem) -> super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateMediaResourceAsync(&self, uri: super::super::Foundation::Uri, mediaType: String, description: String, mediaStream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>;
+                fn CreateMediaResourceAsync(&self, #[in] uri: super::super::Foundation::Uri, #[in] mediaType: String, #[in] description: String, #[in] mediaStream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn UpdateMediaResourceAsync(&self, uri: super::super::Foundation::Uri, mediaType: String, mediaStream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
+                fn UpdateMediaResourceAsync(&self, #[in] uri: super::super::Foundation::Uri, #[in] mediaType: String, #[in] mediaStream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn UpdateResourceAsync(&self, uri: super::super::Foundation::Uri, item: super::Syndication::SyndicationItem) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
+                fn UpdateResourceAsync(&self, #[in] uri: super::super::Foundation::Uri, #[in] item: super::Syndication::SyndicationItem) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn UpdateResourceItemAsync(&self, item: super::Syndication::SyndicationItem) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
+                fn UpdateResourceItemAsync(&self, #[in] item: super::Syndication::SyndicationItem) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DeleteResourceAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
+                fn DeleteResourceAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DeleteResourceItemAsync(&self, item: super::Syndication::SyndicationItem) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
+                fn DeleteResourceItemAsync(&self, #[in] item: super::Syndication::SyndicationItem) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
                 fn CancelAsyncOperations(&self);
             }
             #[guid(0x49d55012_57cb_4bde_ab9f_2610b172777b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AtomPubClient)]
             interface IAtomPubClientFactory {
-                fn CreateAtomPubClientWithCredentials(&self, serverCredential: super::super::Security::Credentials::PasswordCredential) -> AtomPubClient;
+                fn CreateAtomPubClientWithCredentials(&self, #[in] serverCredential: super::super::Security::Credentials::PasswordCredential) -> AtomPubClient;
             }
             #[guid(0x7f5fd609_bc88_41d4_88fa_3de6704d428e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

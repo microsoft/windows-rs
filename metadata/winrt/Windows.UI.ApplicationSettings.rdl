@@ -38,7 +38,7 @@ mod Windows {
             }
             #[guid(0x61c0e185_0977_4678_b4e2_98727afbeed9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn CredentialCommandCredentialDeletedHandler(command: CredentialCommand);
+            delegate fn CredentialCommandCredentialDeletedHandler(#[in] command: CredentialCommand);
             #[guid(0x81ea942c_4f09_4406_a538_838d9b14b7e6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AccountsSettingsPane)]
@@ -94,9 +94,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(AccountsSettingsPane)]
             interface IAccountsSettingsPaneStatics3 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowManageAccountsForUserAsync(&self, user: super::super::System::User) -> super::super::Foundation::IAsyncAction;
+                fn ShowManageAccountsForUserAsync(&self, #[in] user: super::super::System::User) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAddAccountForUserAsync(&self, user: super::super::System::User) -> super::super::Foundation::IAsyncAction;
+                fn ShowAddAccountForUserAsync(&self, #[in] user: super::super::System::User) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0xa5f665e6_6143_4a7a_a971_b017ba978ce2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -111,14 +111,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CredentialCommand)]
             interface ICredentialCommandFactory {
-                fn CreateCredentialCommand(&self, passwordCredential: super::super::Security::Credentials::PasswordCredential) -> CredentialCommand;
-                fn CreateCredentialCommandWithHandler(&self, passwordCredential: super::super::Security::Credentials::PasswordCredential, deleted: CredentialCommandCredentialDeletedHandler) -> CredentialCommand;
+                fn CreateCredentialCommand(&self, #[in] passwordCredential: super::super::Security::Credentials::PasswordCredential) -> CredentialCommand;
+                fn CreateCredentialCommandWithHandler(&self, #[in] passwordCredential: super::super::Security::Credentials::PasswordCredential, #[in] deleted: CredentialCommandCredentialDeletedHandler) -> CredentialCommand;
             }
             #[guid(0x68e15b33_1c83_433a_aa5a_ceeea5bd4764)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SettingsCommand)]
             interface ISettingsCommandFactory {
-                fn CreateSettingsCommand(&self, #[Windows::Foundation::Metadata::Variant] settingsCommandId: Object, label: String, handler: super::Popups::UICommandInvokedHandler) -> SettingsCommand;
+                fn CreateSettingsCommand(&self, #[in] #[Windows::Foundation::Metadata::Variant] settingsCommandId: Object, #[in] label: String, #[in] handler: super::Popups::UICommandInvokedHandler) -> SettingsCommand;
             }
             #[guid(0x749ae954_2f69_4b17_8aba_d05ce5778e46)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -181,7 +181,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountCommand)]
             interface IWebAccountCommandFactory {
-                fn CreateWebAccountCommand(&self, webAccount: super::super::Security::Credentials::WebAccount, invoked: WebAccountCommandInvokedHandler, actions: SupportedWebAccountActions) -> WebAccountCommand;
+                fn CreateWebAccountCommand(&self, #[in] webAccount: super::super::Security::Credentials::WebAccount, #[in] invoked: WebAccountCommandInvokedHandler, #[in] actions: SupportedWebAccountActions) -> WebAccountCommand;
             }
             #[guid(0xe7abcc40_a1d8_4c5d_9a7f_1d34b2f90ad2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -203,7 +203,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountProviderCommand)]
             interface IWebAccountProviderCommandFactory {
-                fn CreateWebAccountProviderCommand(&self, webAccountProvider: super::super::Security::Credentials::WebAccountProvider, invoked: WebAccountProviderCommandInvokedHandler) -> WebAccountProviderCommand;
+                fn CreateWebAccountProviderCommand(&self, #[in] webAccountProvider: super::super::Security::Credentials::WebAccountProvider, #[in] invoked: WebAccountProviderCommandInvokedHandler) -> WebAccountProviderCommand;
             }
             #[Windows::Foundation::Metadata::Activatable(ISettingsCommandFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -272,7 +272,7 @@ mod Windows {
             }
             #[guid(0x1ee6e459_1705_4a9a_b599_a0c3d6921973)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn WebAccountCommandInvokedHandler(command: WebAccountCommand, args: WebAccountInvokedArgs);
+            delegate fn WebAccountCommandInvokedHandler(#[in] command: WebAccountCommand, #[in] args: WebAccountInvokedArgs);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
@@ -289,7 +289,7 @@ mod Windows {
             }
             #[guid(0xb7de5527_4c8f_42dd_84da_5ec493abdb9a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn WebAccountProviderCommandInvokedHandler(command: WebAccountProviderCommand);
+            delegate fn WebAccountProviderCommandInvokedHandler(#[in] command: WebAccountProviderCommand);
         }
     }
 }

@@ -11,7 +11,7 @@ mod Windows {
                 Public = 2,
             }
             attribute ComposableAttribute {
-                fn(factory_type: Type, composition_type: CompositionType, version: u32);
+                fn(#[in] factory_type: Type, #[in] composition_type: CompositionType, #[in] version: u32);
             }
         }
     }
@@ -26,7 +26,7 @@ mod Test {
         Value: i32;
     }
     interface IMemberOnlyFactory {
-        fn CreateInstance(&self, outer: Object, inner: &mut Object) -> MemberOnly;
+        fn CreateInstance(&self, #[in] outer: Object, #[out] inner: &mut Object) -> MemberOnly;
     }
 
     #[Windows::Foundation::Metadata::Composable(IConstructedFactory, Public, 1)]
@@ -35,12 +35,12 @@ mod Test {
     }
     interface IConstructed {}
     interface IConstructedFactory {
-        fn CreateInstance(&self, outer: Object, inner: &mut Object) -> Constructed;
+        fn CreateInstance(&self, #[in] outer: Object, #[out] inner: &mut Object) -> Constructed;
         fn CreateInstanceWithValue(
             &self,
-            value: i32,
-            outer: Object,
-            inner: &mut Object,
+            #[in] value: i32,
+            #[in] outer: Object,
+            #[out] inner: &mut Object,
         ) -> Constructed;
     }
 

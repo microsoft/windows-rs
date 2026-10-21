@@ -17,6 +17,13 @@ fn array_expressions() {
     );
     let output = projection::generate(&[input], "Fixture").unwrap();
     assert_eq!((output.records, output.aliases), (1, 5));
+    if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+        std::fs::write(
+            input_dir().join("array_expressions.rdl"),
+            &output.partitions["array_expressions"].rdl,
+        )
+        .unwrap();
+    }
     let expected = std::fs::read_to_string(input_dir().join("array_expressions.rdl"))
         .unwrap()
         .replace("\r\n", "\n");

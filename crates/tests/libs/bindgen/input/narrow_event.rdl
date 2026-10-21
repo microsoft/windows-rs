@@ -3,12 +3,12 @@
 mod Test {
     interface ISource {
         #[special]
-        fn add_Changed(&self, handler: Handler) -> i64;
+        fn add_Changed(&self, #[in] handler: Handler) -> i64;
         #[special]
-        fn remove_Changed(&self, token: i64);
+        fn remove_Changed(&self, #[in] token: i64);
         fn Unused(&self) -> i32;
     }
-    delegate fn Handler(value: Value);
+    delegate fn Handler(#[in] value: Value);
     struct Value {
         Number: i32,
     }

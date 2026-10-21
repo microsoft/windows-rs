@@ -40,98 +40,108 @@ fn check_output(name: &str, snapshots: &[Snapshot]) {
         .output(&winmd)
         .write()
         .unwrap();
-    for architecture in [1, 2, 4] {
-        let index = reader::Index::new_for_architecture(
-            vec![reader::File::read(&winmd).unwrap()],
-            architecture,
-        );
-        for (owner, method, entry, success, double_entry, double_success) in [
-            ("Apis", "InputSingle", true, false, false, false),
-            ("Apis", "OutputSingle", false, true, false, false),
-            ("Apis", "InputMulti", true, false, true, false),
-            ("Apis", "OutputMulti", false, true, false, true),
-            ("Apis", "Both", true, true, true, true),
-            ("Apis", "Mixed", true, true, false, true),
-            ("MultiCallback", "Invoke", false, true, false, true),
-            ("IMultiString", "Get", false, true, false, true),
-        ] {
-            let parameter = index
-                .expect("Fixture", owner)
-                .methods()
-                .find(|value| value.name() == method)
-                .unwrap()
-                .params()
-                .next()
-                .unwrap();
-            let attribute = parameter
-                .find_attribute("NativeNullTerminatedAttribute")
-                .unwrap();
-            let mut expected = vec![
-                ("OnEntry".into(), Value::Bool(entry)),
-                ("OnSuccess".into(), Value::Bool(success)),
-            ];
-            if double_entry {
-                expected.push(("DoubleNullOnEntry".into(), Value::Bool(true)));
-            }
-            if double_success {
-                expected.push(("DoubleNullOnSuccess".into(), Value::Bool(true)));
-            }
-            assert_eq!(attribute.value(), expected, "{owner}::{method}");
-            assert!(parameter.find_attribute("NativeSalAttribute").is_none());
-        }
-        for name in [
-            "OtherProperty",
-            "Conditional",
-            "Grouped",
-            "Indirect",
-            "Modified",
-            "Bare",
-            "QualifiedContract",
-        ] {
-            let parameter = index
-                .expect("Fixture", "Apis")
-                .methods()
-                .find(|method| method.name() == name)
-                .unwrap()
-                .params()
-                .next()
-                .unwrap();
-            assert!(
-                parameter
-                    .find_attribute("NativeNullTerminatedAttribute")
-                    .is_none(),
-                "{name}"
-            );
-            let evidence: Vec<_> = parameter
-                .attributes()
-                .filter(|attribute| attribute.name() == "NativeSalAttribute")
-                .flat_map(|attribute| attribute.value())
-                .collect();
-            assert!(!evidence.is_empty(), "{name}");
-            let modifiers = match name {
-                "OtherProperty" | "Grouped" | "QualifiedContract" => Some("_Post_"),
-                "Modified" => Some("_Post_ _Notref_"),
-                _ => None,
-            };
-            assert_eq!(
-                evidence
-                    .iter()
-                    .find(|(name, _)| name == "Modifiers")
-                    .map(|(_, value)| value),
-                modifiers.map(|value| Value::Utf8(value.into())).as_ref(),
-            );
-        }
-    }
-    let roundtrip = root.join(format!("target\\test-clang2-{name}.rdl"));
+    let roundtrip = winmd.with_extension("rdl");
+    let again = winmd.with_extension("again.winmd");
     windows_rdl::writer()
         .input(&winmd)
         .filter("Fixture")
         .output(&roundtrip)
         .write()
         .unwrap();
-    assert_eq!(std::fs::read_to_string(&roundtrip).unwrap(), rdl);
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input(&roundtrip)
+        .output(&again)
+        .write()
+        .unwrap();
+    for path in [&winmd, &again] {
+        for architecture in [1, 2, 4] {
+            let index = reader::Index::new_for_architecture(
+                vec![reader::File::read(path).unwrap()],
+                architecture,
+            );
+            for (owner, method, entry, success, double_entry, double_success) in [
+                ("Apis", "InputSingle", true, false, false, false),
+                ("Apis", "OutputSingle", false, true, false, false),
+                ("Apis", "InputMulti", true, false, true, false),
+                ("Apis", "OutputMulti", false, true, false, true),
+                ("Apis", "Both", true, true, true, true),
+                ("Apis", "Mixed", true, true, false, true),
+                ("MultiCallback", "Invoke", false, true, false, true),
+                ("IMultiString", "Get", false, true, false, true),
+            ] {
+                let parameter = index
+                    .expect("Fixture", owner)
+                    .methods()
+                    .find(|value| value.name() == method)
+                    .unwrap()
+                    .params()
+                    .next()
+                    .unwrap();
+                let attribute = parameter
+                    .find_attribute("NativeNullTerminatedAttribute")
+                    .unwrap();
+                assert_eq!(parameter.direction(), reader::ParamDirection::Unspecified);
+                let mut expected = vec![
+                    ("OnEntry".into(), Value::Bool(entry)),
+                    ("OnSuccess".into(), Value::Bool(success)),
+                ];
+                if double_entry {
+                    expected.push(("DoubleNullOnEntry".into(), Value::Bool(true)));
+                }
+                if double_success {
+                    expected.push(("DoubleNullOnSuccess".into(), Value::Bool(true)));
+                }
+                assert_eq!(attribute.value(), expected, "{owner}::{method}");
+                assert!(parameter.find_attribute("NativeSalAttribute").is_none());
+            }
+            for name in [
+                "OtherProperty",
+                "Conditional",
+                "Grouped",
+                "Indirect",
+                "Modified",
+                "Bare",
+                "QualifiedContract",
+            ] {
+                let parameter = index
+                    .expect("Fixture", "Apis")
+                    .methods()
+                    .find(|method| method.name() == name)
+                    .unwrap()
+                    .params()
+                    .next()
+                    .unwrap();
+                assert!(
+                    parameter
+                        .find_attribute("NativeNullTerminatedAttribute")
+                        .is_none(),
+                    "{name}"
+                );
+                let evidence: Vec<_> = parameter
+                    .attributes()
+                    .filter(|attribute| attribute.name() == "NativeSalAttribute")
+                    .flat_map(|attribute| attribute.value())
+                    .collect();
+                assert!(!evidence.is_empty(), "{name}");
+                let modifiers = match name {
+                    "OtherProperty" | "Grouped" | "QualifiedContract" => Some("_Post_"),
+                    "Modified" => Some("_Post_ _Notref_"),
+                    _ => None,
+                };
+                assert_eq!(
+                    evidence
+                        .iter()
+                        .find(|(name, _)| name == "Modifiers")
+                        .map(|(_, value)| value),
+                    modifiers.map(|value| Value::Utf8(value.into())).as_ref(),
+                );
+            }
+        }
+    }
     std::fs::remove_file(winmd).unwrap();
     std::fs::remove_file(roundtrip).unwrap();
+    std::fs::remove_file(again).unwrap();
 }
 
 #[test]

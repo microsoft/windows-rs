@@ -285,37 +285,37 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpBufferContent)]
             interface IHttpBufferContentFactory {
-                fn CreateFromBuffer(&self, content: super::super::Storage::Streams::IBuffer) -> HttpBufferContent;
-                fn CreateFromBufferWithOffset(&self, content: super::super::Storage::Streams::IBuffer, offset: u32, count: u32) -> HttpBufferContent;
+                fn CreateFromBuffer(&self, #[in] content: super::super::Storage::Streams::IBuffer) -> HttpBufferContent;
+                fn CreateFromBufferWithOffset(&self, #[in] content: super::super::Storage::Streams::IBuffer, #[in] offset: u32, #[in] count: u32) -> HttpBufferContent;
             }
             #[guid(0x7fda1151_3574_4880_a8ba_e6b1e0061f3d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpClient)]
             interface IHttpClient {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DeleteAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
+                fn DeleteAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
                 #[Windows::Foundation::Metadata::Overload("GetAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
+                fn GetAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
                 #[Windows::Foundation::Metadata::Overload("GetWithOptionAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetAsync(&self, uri: super::super::Foundation::Uri, completionOption: HttpCompletionOption) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
+                fn GetAsync(&self, #[in] uri: super::super::Foundation::Uri, #[in] completionOption: HttpCompletionOption) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetBufferAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, HttpProgress>;
+                fn GetBufferAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, HttpProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetInputStreamAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, HttpProgress>;
+                fn GetInputStreamAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, HttpProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetStringAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<String, HttpProgress>;
+                fn GetStringAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<String, HttpProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn PostAsync(&self, uri: super::super::Foundation::Uri, content: IHttpContent) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
+                fn PostAsync(&self, #[in] uri: super::super::Foundation::Uri, #[in] content: IHttpContent) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn PutAsync(&self, uri: super::super::Foundation::Uri, content: IHttpContent) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
+                fn PutAsync(&self, #[in] uri: super::super::Foundation::Uri, #[in] content: IHttpContent) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
                 #[Windows::Foundation::Metadata::Overload("SendRequestAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SendRequestAsync(&self, request: HttpRequestMessage) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
+                fn SendRequestAsync(&self, #[in] request: HttpRequestMessage) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
                 #[Windows::Foundation::Metadata::Overload("SendRequestWithOptionAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SendRequestAsync(&self, request: HttpRequestMessage, completionOption: HttpCompletionOption) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
+                fn SendRequestAsync(&self, #[in] request: HttpRequestMessage, #[in] completionOption: HttpCompletionOption) -> super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>;
                 #[get]
                 DefaultRequestHeaders: Headers::HttpRequestHeaderCollection;
             }
@@ -324,29 +324,29 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpClient)]
             interface IHttpClient2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryDeleteAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
+                fn TryDeleteAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
                 #[Windows::Foundation::Metadata::Overload("TryGetAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryGetAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
+                fn TryGetAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
                 #[Windows::Foundation::Metadata::Overload("TryGetAsync2")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryGetAsync(&self, uri: super::super::Foundation::Uri, completionOption: HttpCompletionOption) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
+                fn TryGetAsync(&self, #[in] uri: super::super::Foundation::Uri, #[in] completionOption: HttpCompletionOption) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryGetBufferAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpGetBufferResult, HttpProgress>;
+                fn TryGetBufferAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpGetBufferResult, HttpProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryGetInputStreamAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpGetInputStreamResult, HttpProgress>;
+                fn TryGetInputStreamAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpGetInputStreamResult, HttpProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryGetStringAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpGetStringResult, HttpProgress>;
+                fn TryGetStringAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<HttpGetStringResult, HttpProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryPostAsync(&self, uri: super::super::Foundation::Uri, content: IHttpContent) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
+                fn TryPostAsync(&self, #[in] uri: super::super::Foundation::Uri, #[in] content: IHttpContent) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryPutAsync(&self, uri: super::super::Foundation::Uri, content: IHttpContent) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
+                fn TryPutAsync(&self, #[in] uri: super::super::Foundation::Uri, #[in] content: IHttpContent) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
                 #[Windows::Foundation::Metadata::Overload("TrySendRequestAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TrySendRequestAsync(&self, request: HttpRequestMessage) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
+                fn TrySendRequestAsync(&self, #[in] request: HttpRequestMessage) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
                 #[Windows::Foundation::Metadata::Overload("TrySendRequestAsync2")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TrySendRequestAsync(&self, request: HttpRequestMessage, completionOption: HttpCompletionOption) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
+                fn TrySendRequestAsync(&self, #[in] request: HttpRequestMessage, #[in] completionOption: HttpCompletionOption) -> super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>;
             }
             #[guid(0x1172fd01_9899_4194_963f_8f9d72a7ec15)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -358,7 +358,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpClient)]
             interface IHttpClientFactory {
-                fn Create(&self, filter: Filters::IHttpFilter) -> HttpClient;
+                fn Create(&self, #[in] filter: Filters::IHttpFilter) -> HttpClient;
             }
             #[guid(0x6b14a441_fba7_4bd2_af0a_839de7c295da)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -373,9 +373,9 @@ mod Windows {
                 fn ReadAsInputStreamAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ReadAsStringAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<String, u64>;
-                fn TryComputeLength(&self, length: &mut u64) -> bool;
+                fn TryComputeLength(&self, #[out] length: &mut u64) -> bool;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn WriteToStreamAsync(&self, outputStream: super::super::Storage::Streams::IOutputStream) -> super::super::Foundation::IAsyncOperationWithProgress<u64, u64>;
+                fn WriteToStreamAsync(&self, #[in] outputStream: super::super::Storage::Streams::IOutputStream) -> super::super::Foundation::IAsyncOperationWithProgress<u64, u64>;
             }
             #[guid(0x1f5488e2_cc2d_4779_86a7_88f10687d249)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -396,24 +396,24 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpCookie)]
             interface IHttpCookieFactory {
-                fn Create(&self, name: String, domain: String, path: String) -> HttpCookie;
+                fn Create(&self, #[in] name: String, #[in] domain: String, #[in] path: String) -> HttpCookie;
             }
             #[guid(0x7a431780_cd4f_4e57_a84a_5b0a53d6bb96)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpCookieManager)]
             interface IHttpCookieManager {
                 #[Windows::Foundation::Metadata::Overload("SetCookie")]
-                fn SetCookie(&self, cookie: HttpCookie) -> bool;
+                fn SetCookie(&self, #[in] cookie: HttpCookie) -> bool;
                 #[Windows::Foundation::Metadata::Overload("SetCookieWithThirdParty")]
-                fn SetCookie(&self, cookie: HttpCookie, thirdParty: bool) -> bool;
-                fn DeleteCookie(&self, cookie: HttpCookie);
-                fn GetCookies(&self, uri: super::super::Foundation::Uri) -> HttpCookieCollection;
+                fn SetCookie(&self, #[in] cookie: HttpCookie, #[in] thirdParty: bool) -> bool;
+                fn DeleteCookie(&self, #[in] cookie: HttpCookie);
+                fn GetCookies(&self, #[in] uri: super::super::Foundation::Uri) -> HttpCookieCollection;
             }
             #[guid(0x43f0138c_2f73_4302_b5f3_eae9238a5e01)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpFormUrlEncodedContent)]
             interface IHttpFormUrlEncodedContentFactory {
-                fn Create(&self, content: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, String>>) -> HttpFormUrlEncodedContent;
+                fn Create(&self, #[in] content: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, String>>) -> HttpFormUrlEncodedContent;
             }
             #[guid(0x53d08e7c_e209_404e_9a49_742d8236fd3a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
@@ -471,7 +471,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpMethod)]
             interface IHttpMethodFactory {
-                fn Create(&self, method: String) -> HttpMethod;
+                fn Create(&self, #[in] method: String) -> HttpMethod;
             }
             #[guid(0x64d171f0_d99a_4153_8dc6_d68cc4cce317)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -496,31 +496,31 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpMultipartContent)]
             interface IHttpMultipartContent {
-                fn Add(&self, content: IHttpContent);
+                fn Add(&self, #[in] content: IHttpContent);
             }
             #[guid(0x7eb42e62_0222_4f20_b372_47d5db5d33b4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpMultipartContent)]
             interface IHttpMultipartContentFactory {
-                fn CreateWithSubtype(&self, subtype: String) -> HttpMultipartContent;
-                fn CreateWithSubtypeAndBoundary(&self, subtype: String, boundary: String) -> HttpMultipartContent;
+                fn CreateWithSubtype(&self, #[in] subtype: String) -> HttpMultipartContent;
+                fn CreateWithSubtypeAndBoundary(&self, #[in] subtype: String, #[in] boundary: String) -> HttpMultipartContent;
             }
             #[guid(0x64d337e2_e967_4624_b6d1_cf74604a4a42)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpMultipartFormDataContent)]
             interface IHttpMultipartFormDataContent {
                 #[Windows::Foundation::Metadata::Overload("Add")]
-                fn Add(&self, content: IHttpContent);
+                fn Add(&self, #[in] content: IHttpContent);
                 #[Windows::Foundation::Metadata::Overload("AddWithName")]
-                fn Add(&self, content: IHttpContent, name: String);
+                fn Add(&self, #[in] content: IHttpContent, #[in] name: String);
                 #[Windows::Foundation::Metadata::Overload("AddWithNameAndFileName")]
-                fn Add(&self, content: IHttpContent, name: String, fileName: String);
+                fn Add(&self, #[in] content: IHttpContent, #[in] name: String, #[in] fileName: String);
             }
             #[guid(0xa04d7311_5017_4622_93a8_49b24a4fcbfc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpMultipartFormDataContent)]
             interface IHttpMultipartFormDataContentFactory {
-                fn CreateWithBoundary(&self, boundary: String) -> HttpMultipartFormDataContent;
+                fn CreateWithBoundary(&self, #[in] boundary: String) -> HttpMultipartFormDataContent;
             }
             #[guid(0xf5762b3c_74d4_4811_b5dc_9f8b4e2f9abf)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -546,7 +546,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpRequestMessage)]
             interface IHttpRequestMessageFactory {
-                fn Create(&self, method: HttpMethod, uri: super::super::Foundation::Uri) -> HttpRequestMessage;
+                fn Create(&self, #[in] method: HttpMethod, #[in] uri: super::super::Foundation::Uri) -> HttpRequestMessage;
             }
             #[guid(0x6acf4da8_b5eb_4a35_a902_4217fbe820c5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
@@ -581,21 +581,21 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpResponseMessage)]
             interface IHttpResponseMessageFactory {
-                fn Create(&self, statusCode: HttpStatusCode) -> HttpResponseMessage;
+                fn Create(&self, #[in] statusCode: HttpStatusCode) -> HttpResponseMessage;
             }
             #[guid(0xf3e64d9d_f725_407e_942f_0eda189809f4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpStreamContent)]
             interface IHttpStreamContentFactory {
-                fn CreateFromInputStream(&self, content: super::super::Storage::Streams::IInputStream) -> HttpStreamContent;
+                fn CreateFromInputStream(&self, #[in] content: super::super::Storage::Streams::IInputStream) -> HttpStreamContent;
             }
             #[guid(0x46649d5b_2e93_48eb_8e61_19677878e57f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HttpStringContent)]
             interface IHttpStringContentFactory {
-                fn CreateFromString(&self, content: String) -> HttpStringContent;
-                fn CreateFromStringWithEncoding(&self, content: String, encoding: super::super::Storage::Streams::UnicodeEncoding) -> HttpStringContent;
-                fn CreateFromStringWithEncodingAndMediaType(&self, content: String, encoding: super::super::Storage::Streams::UnicodeEncoding, mediaType: String) -> HttpStringContent;
+                fn CreateFromString(&self, #[in] content: String) -> HttpStringContent;
+                fn CreateFromStringWithEncoding(&self, #[in] content: String, #[in] encoding: super::super::Storage::Streams::UnicodeEncoding) -> HttpStringContent;
+                fn CreateFromStringWithEncodingAndMediaType(&self, #[in] content: String, #[in] encoding: super::super::Storage::Streams::UnicodeEncoding, #[in] mediaType: String) -> HttpStringContent;
             }
             #[guid(0x70127198_c6a7_4ed0_833a_83fd8b8f178d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

@@ -96,7 +96,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AnimationDescription)]
                 interface IAnimationDescriptionFactory {
-                    fn CreateInstance(&self, effect: AnimationEffect, target: AnimationEffectTarget) -> AnimationDescription;
+                    fn CreateInstance(&self, #[in] effect: AnimationEffect, #[in] target: AnimationEffectTarget) -> AnimationDescription;
                 }
                 #[guid(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]

@@ -12,5 +12,5 @@ mod Test {
     type PSTR = *mut i8;
     type PWSTR = *mut u16;
     #[library("test.dll")]
-    extern "C" fn Text(input: PCSTR, #[out] output: PWSTR) -> PCSTR;
+    extern "C" fn Text(#[in] input: PCSTR, #[out] output: PWSTR) -> PCSTR;
 }

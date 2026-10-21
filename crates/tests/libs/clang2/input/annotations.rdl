@@ -1,11 +1,11 @@
 #[win32]
 mod Fixture {
-    extern fn AContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, _Out_writes_bytes_to_(capacity,*written)")] buffer: *mut void, capacity: u32, written: *mut u32) -> Status;
+    extern fn AContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, _Out_writes_bytes_to_(capacity,*written)")] buffer: *mut void, #[in] capacity: u32, #[out] written: *mut u32) -> Status;
     #[must_use]
     extern "C" fn AResultContract(context: *mut void) -> Status;
     struct BufferView {
         count: u32,
-        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "count", IsByteCount = false, MayBeNull = false)]
+        #[writable(count)]
         data: *mut u8,
     }
     struct CallbackHolder {
@@ -22,36 +22,36 @@ mod Fixture {
     #[library("example.dll")]
     extern "C" fn Conditional(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_(capacity)", "capacity > 0, _Out_writes_(capacity)")] buffer: *mut void, capacity: u32);
     type ContractAddress = *mut AContract;
-    extern fn CopiedContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, _Out_writes_bytes_to_(capacity,*written)")] buffer: *mut void, capacity: u32, written: *mut u32) -> Status;
+    extern fn CopiedContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, _Out_writes_bytes_to_(capacity,*written)")] buffer: *mut void, #[in] capacity: u32, #[out] written: *mut u32) -> Status;
     #[must_use]
     extern "C" fn CopiedResult(context: *mut void) -> Status;
     #[Windows::Win32::Metadata::NativeSal("2", "_On_failure_", "_Unchanged_(*value)", "_Unchanged_(*value)")]
     extern "C" fn Failure(value: *mut i32);
     #[guid(0x11111111_1111_1111_1111_111111111111)]
     interface IAnnotated {
-        fn Get(&self, #[out_ptr(null_on_failure)] #[iid_is] object: *mut *mut void) -> Status;
+        fn Get(&self, #[out] #[out_ptr(null_on_failure)] #[iid_is] object: *mut *mut void) -> Status;
     }
     #[library("example.dll")]
-    extern "C" fn InspectResult(#[out_ptr(nullable)] result: *mut *mut void);
+    extern "C" fn InspectResult(#[out] #[out_ptr(nullable)] result: *mut *mut void);
     struct OnlyInferred {
         callback: ZPlain,
     }
     #[library("example.dll")]
-    extern "C" fn OptionalResult(#[opt] #[out_ptr] result: *mut *mut void);
+    extern "C" fn OptionalResult(#[out] #[opt] #[out_ptr] result: *mut *mut void);
     #[must_use]
     #[library("example.dll")]
-    extern "C" fn ReadBuffer(#[opt] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] buffer: *mut void, capacity: u32, #[opt] written: *mut u32) -> Status;
+    extern "C" fn ReadBuffer(#[out] #[opt] #[writable(entry, bytes(capacity))] #[readable(success, bytes(if_present(*written)))] buffer: *mut void, #[in] capacity: u32, #[out] #[opt] written: *mut u32) -> Status;
     #[library("example.dll")]
-    extern "C" fn ReadFixed(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "16", "16")] values: *const i32);
+    extern "C" fn ReadFixed(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "16", "16")] #[in] values: *const i32);
     #[library("example.dll")]
-    extern "C" fn ReadHook(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "REVIEW_LIMIT", "16")] values: *const i32);
+    extern "C" fn ReadHook(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "REVIEW_LIMIT", "16")] #[in] values: *const i32);
     type ResultAddress = *mut AResultContract;
     struct ResultOnly {
         callback: extern "C" fn(*mut void) -> Status,
     }
     extern "C" fn Scoped(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_At_(value, _Group_(_In_reads_(REVIEW_LIMIT) _Always_(_In_)))", "capacity > 0, _At_(value, _Group_(_In_reads_(16) _Always_(_In_)))")] value: *mut i32, capacity: u32);
     extern "C" fn ScopedBuffer(#[Windows::Win32::Metadata::NativeSal("2", "_At_buffer_", "value,index,capacity,_When_(index > 0, _Out_)", "value, index, capacity, _When_(index > 0, _Out_)")] value: *mut i32, capacity: u32);
-    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    #[success(return >= 0)]
     type Status = i32;
     #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "bytes", "bytes")]
     #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "bytes", "bytes", TypedefName = "Tagged")]

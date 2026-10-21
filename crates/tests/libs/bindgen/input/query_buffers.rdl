@@ -4,12 +4,12 @@ mod Test {
     type IID = GUID;
 
     interface Factory {
-        fn Reference(&self, count: u32, #[len_param(0)] filters: *const GUID, riid: &IID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
-        fn BufferAfterId(&self, riid: *const GUID, count: u32, #[len_param(1)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
-        fn BufferOnly(&self, count: u32, #[len_param(0)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
-        fn ByteBuffer(&self, count: u32, #[size_param(0)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
-        fn FixedBuffer(&self, #[len_const(1)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
-        fn OutputBuffer(&self, riid: *const GUID, count: u32, #[out] #[len_param(1)] #[iid_is] results: *mut *mut void) -> HRESULT;
+        fn Reference(&self, #[in] count: u32, #[in] #[len_param(0)] filters: *const GUID, #[in] riid: &IID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn BufferAfterId(&self, #[in] riid: *const GUID, #[in] count: u32, #[in] #[len_param(1)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn BufferOnly(&self, #[in] count: u32, #[in] #[len_param(0)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn ByteBuffer(&self, #[in] count: u32, #[in] #[size_param(0)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn FixedBuffer(&self, #[in] #[len_const(1)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn OutputBuffer(&self, #[in] riid: *const GUID, #[in] count: u32, #[out] #[len_param(1)] #[iid_is] results: *mut *mut void) -> HRESULT;
     }
 }
 

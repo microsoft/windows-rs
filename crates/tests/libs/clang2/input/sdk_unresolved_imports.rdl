@@ -41,11 +41,11 @@ mod Fixture {
     }
     #[library("DNSAPI.dll")]
     #[arch(X64 | Arm64)]
-    extern "C" fn DnsValidateName_W(pszName: PCWSTR, Format: DNS_NAME_FORMAT) -> DNS_STATUS;
+    extern "C" fn DnsValidateName_W(#[in] pszName: PCWSTR, #[in] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
 }
 #[win32]
 mod Fixture {
-    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return == 0", "return == 0")]
+    #[success(return == 0)]
     type DNS_STATUS = i32;
 }
 #[win32]

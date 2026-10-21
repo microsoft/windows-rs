@@ -1,4 +1,4 @@
 #[win32]
 mod CallbackConvention {
-    extern fn CALLBACK_TYPE(context: *mut void);
+    extern fn CALLBACK_TYPE(#[out] context: *mut void);
 }

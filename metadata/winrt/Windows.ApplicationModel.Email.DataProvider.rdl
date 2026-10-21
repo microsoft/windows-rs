@@ -234,9 +234,9 @@ mod Windows {
                     #[get]
                     Name: String;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportCompletedAsync(&self, folder: super::EmailFolder) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportCompletedAsync(&self, #[in] folder: super::EmailFolder) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, status: super::EmailMailboxCreateFolderStatus) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] status: super::EmailMailboxCreateFolderStatus) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x03e4c02c_241c_4ea9_a68f_ff20bc5afc85)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -257,7 +257,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, status: super::EmailMailboxDeleteFolderStatus) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] status: super::EmailMailboxDeleteFolderStatus) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xb4d32d06_2332_4678_8378_28b579336846)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -322,7 +322,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, status: super::EmailMailboxEmptyFolderStatus) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] status: super::EmailMailboxEmptyFolderStatus) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x7183f484_985a_4ac0_b33f_ee0e2627a3c0)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -372,7 +372,7 @@ mod Windows {
                     #[get]
                     RequestedFormat: super::EmailMailboxAutoReplyMessageResponseKind;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportCompletedAsync(&self, autoReplySettings: super::EmailMailboxAutoReplySettings) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportCompletedAsync(&self, #[in] autoReplySettings: super::EmailMailboxAutoReplySettings) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
@@ -447,7 +447,7 @@ mod Windows {
                     #[get]
                     Recipients: super::super::super::Foundation::Collections::IVectorView<String>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportCompletedAsync(&self, resolutionResults: super::super::super::Foundation::Collections::IIterable<super::EmailRecipientResolutionResult>) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportCompletedAsync(&self, #[in] resolutionResults: super::super::super::Foundation::Collections::IIterable<super::EmailRecipientResolutionResult>) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
@@ -474,11 +474,11 @@ mod Windows {
                     #[get]
                     SuggestedBatchSize: u32;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SaveMessageAsync(&self, message: super::EmailMessage) -> super::super::super::Foundation::IAsyncAction;
+                    fn SaveMessageAsync(&self, #[in] message: super::EmailMessage) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, batchStatus: super::EmailBatchStatus) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] batchStatus: super::EmailBatchStatus) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x14101b4e_ed9e_45d1_ad7a_cc9b7f643ae2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -566,7 +566,7 @@ mod Windows {
                     #[get]
                     Certificates: super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportCompletedAsync(&self, validationStatuses: super::super::super::Foundation::Collections::IIterable<super::EmailCertificateValidationStatus>) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportCompletedAsync(&self, #[in] validationStatuses: super::super::super::Foundation::Collections::IIterable<super::EmailCertificateValidationStatus>) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }

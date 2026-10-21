@@ -79,7 +79,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(AppListEntry)]
             interface IAppListEntry3 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn LaunchForUserAsync(&self, user: super::super::System::User) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn LaunchForUserAsync(&self, #[in] user: super::super::System::User) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x2a131ed2_56f5_487c_8697_5166f3b33da0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 720896)]
@@ -100,8 +100,8 @@ mod Windows {
                 #[get]
                 Properties: super::super::Foundation::Collections::IPropertySet;
                 fn GetCurrentView(&self) -> CoreApplicationView;
-                fn Run(&self, viewSource: IFrameworkViewSource);
-                fn RunWithActivationFactories(&self, activationFactoryCallback: super::super::Foundation::IGetActivationFactory);
+                fn Run(&self, #[in] viewSource: IFrameworkViewSource);
+                fn RunWithActivationFactories(&self, #[in] activationFactoryCallback: super::super::Foundation::IGetActivationFactory);
             }
             #[guid(0x998681fb_1ab6_4b7f_be4a_9a0645224c04)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -111,7 +111,7 @@ mod Windows {
                 event BackgroundActivated: super::super::Foundation::EventHandler<super::Activation::BackgroundActivatedEventArgs>;
                 event LeavingBackground: super::super::Foundation::EventHandler<super::LeavingBackgroundEventArgs>;
                 event EnteredBackground: super::super::Foundation::EventHandler<super::EnteredBackgroundEventArgs>;
-                fn EnablePrelaunch(&self, value: bool);
+                fn EnablePrelaunch(&self, #[in] value: bool);
             }
             #[guid(0xfeec0d39_598b_4507_8a67_772632580a57)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -119,9 +119,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreApplication3 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestRestartAsync(&self, launchArguments: String) -> super::super::Foundation::IAsyncOperation<AppRestartFailureReason>;
+                fn RequestRestartAsync(&self, #[in] launchArguments: String) -> super::super::Foundation::IAsyncOperation<AppRestartFailureReason>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestRestartForUserAsync(&self, user: super::super::System::User, launchArguments: String) -> super::super::Foundation::IAsyncOperation<AppRestartFailureReason>;
+                fn RequestRestartForUserAsync(&self, #[in] user: super::super::System::User, #[in] launchArguments: String) -> super::super::Foundation::IAsyncOperation<AppRestartFailureReason>;
             }
             #[guid(0xcf86461d_261e_4b72_9acd_44ed2ace6a29)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -222,7 +222,7 @@ mod Windows {
                 Views: super::super::Foundation::Collections::IVectorView<CoreApplicationView>;
                 #[Windows::Foundation::Metadata::DefaultOverload]
                 #[Windows::Foundation::Metadata::Overload("CreateNewView")]
-                fn CreateNewView(&self, runtimeType: String, entryPoint: String) -> CoreApplicationView;
+                fn CreateNewView(&self, #[in] runtimeType: String, #[in] entryPoint: String) -> CoreApplicationView;
                 #[get]
                 MainView: CoreApplicationView;
             }
@@ -240,15 +240,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreImmersiveApplication3 {
                 #[Windows::Foundation::Metadata::Overload("CreateNewViewWithViewSource")]
-                fn CreateNewView(&self, viewSource: IFrameworkViewSource) -> CoreApplicationView;
+                fn CreateNewView(&self, #[in] viewSource: IFrameworkViewSource) -> CoreApplicationView;
             }
             #[guid(0xfaab5cd0_8924_45ac_ad0f_a08fae5d0324)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IFrameworkView {
-                fn Initialize(&self, applicationView: CoreApplicationView);
-                fn SetWindow(&self, window: super::super::UI::Core::CoreWindow);
-                fn Load(&self, entryPoint: String);
+                fn Initialize(&self, #[in] applicationView: CoreApplicationView);
+                fn SetWindow(&self, #[in] window: super::super::UI::Core::CoreWindow);
+                fn Load(&self, #[in] entryPoint: String);
                 fn Run(&self);
                 fn Uninitialize(&self);
             }

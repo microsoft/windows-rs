@@ -441,6 +441,16 @@ fn sdk_guidless() {
 #[test]
 #[ignore = "requires the pinned SDK"]
 fn sdk_overrides() {
+    sdk_override_contracts(true);
+}
+
+#[test]
+#[ignore = "requires the pinned SDK"]
+fn sdk_overrides_metadata() {
+    sdk_override_contracts(false);
+}
+
+fn sdk_override_contracts(consumers: bool) {
     helpers::ensure_libclang();
     let mut input = test_clang2::annotated_sdk_fixture();
     input.name = "sdk_overrides.h".into();
@@ -499,6 +509,9 @@ fn sdk_overrides() {
                 }
             }
         }
+    }
+    if !consumers {
+        return;
     }
     let scratch = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("..\\..\\..\\..\\target\\test-clang2-guidless\\sdk-overrides");

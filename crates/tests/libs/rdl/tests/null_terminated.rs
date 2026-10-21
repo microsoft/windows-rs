@@ -45,10 +45,10 @@ fn termination_preserves_phases_and_properties() {
             }
             expected.push(values);
             full.push_str(&format!(
-                "extern fn Callback{index}(#[opt] #[Windows::Win32::Metadata::NativeNullTerminated({properties})] value: *mut u16);"
+                "extern fn Callback{index}(#[out] #[opt] #[Windows::Win32::Metadata::NativeNullTerminated({properties})] value: *mut u16);"
             ));
             compact.push_str(&format!(
-                "extern fn Callback{index}(#[opt] {short} value: *mut u16);"
+                "extern fn Callback{index}(#[out] #[opt] {short} value: *mut u16);"
             ));
         }
     }

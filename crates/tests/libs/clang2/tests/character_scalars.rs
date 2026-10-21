@@ -27,6 +27,13 @@ fn character_scalars() {
     }
     let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
     assert_eq!((output.records, output.enums, output.aliases), (4, 2, 6));
+    if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+        std::fs::write(
+            input_dir().join("character_scalars.rdl"),
+            &output.partitions["character_scalars"].rdl,
+        )
+        .unwrap();
+    }
     let expected = std::fs::read_to_string(input_dir().join("character_scalars.rdl"))
         .unwrap()
         .replace("\r\n", "\n");

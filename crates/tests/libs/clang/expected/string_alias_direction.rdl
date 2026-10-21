@@ -5,5 +5,5 @@ mod StringAliases {
     type PSTR = *mut i8;
     type PWSTR = *mut u16;
     #[library("api.dll")]
-    extern "C" fn Strings(legacy_input: PCSTR, #[out] legacy_output: PSTR, explicit_input: PSTR, wide_input: PCWSTR, #[out] wide_output: PWSTR);
+    extern "C" fn Strings(#[in] legacy_input: PCSTR, #[out] legacy_output: PSTR, #[in] explicit_input: PSTR, #[in] wide_input: PCWSTR, #[out] wide_output: PWSTR);
 }

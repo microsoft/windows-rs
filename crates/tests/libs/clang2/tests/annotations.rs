@@ -1,4 +1,3 @@
-use std::collections::BTreeMap;
 use windows_clang2::*;
 use windows_metadata::{Value, reader, reader::HasAttributes};
 
@@ -128,11 +127,14 @@ fn annotation_roundtrip() {
             let index =
                 reader::Index::new_for_architecture(vec![reader::File::read(path).unwrap()], bit);
             assert_eq!(
-                attributes(index.expect("Fixture", "Status")),
-                vec![annotation(
-                    "_Return_type_success_",
-                    "return >= 0",
-                    "return >= 0"
+                index
+                    .expect("Fixture", "Status")
+                    .find_attribute("SuccessConditionAttribute")
+                    .unwrap()
+                    .value(),
+                vec![(
+                    String::new(),
+                    windows_rdl::emit::SuccessCondition::Nonnegative.to_value()
                 )]
             );
             let apis = index.expect("Fixture", "Apis");
@@ -150,18 +152,20 @@ fn annotation_roundtrip() {
             let params: Vec<_> = read.params().collect();
             assert!(attributes(params[0]).is_empty());
             assert_eq!(
-                params[0]
-                    .find_attribute("NativeInitializedLengthAttribute")
-                    .unwrap()
-                    .value()
-                    .into_iter()
-                    .collect::<BTreeMap<_, _>>(),
-                [
-                    ("CountParamIndex".into(), Value::I16(2)),
-                    ("IsByteCount".into(), Value::Bool(true)),
-                    ("Dereference".into(), Value::Bool(true)),
-                ]
-                .into()
+                test_clang2::buffer_extent(
+                    params[0],
+                    windows_metadata::BufferAccess::Read,
+                    windows_metadata::BufferPhase::Success
+                ),
+                Some(windows_metadata::BufferExtent {
+                    count_optional: true,
+                    ..windows_metadata::BufferExtent::new(
+                        windows_metadata::BufferAccess::Read,
+                        windows_metadata::BufferPhase::Success,
+                        windows_metadata::BufferUnits::Bytes,
+                        windows_metadata::BufferCount::Dereference(2),
+                    )
+                })
             );
             assert!(params[0].is_optional());
             assert_eq!(params[0].direction(), reader::ParamDirection::Output);
@@ -210,15 +214,17 @@ fn annotation_roundtrip() {
                 .unwrap();
             assert!(attributes(field).is_empty());
             assert_eq!(
-                field
-                    .find_attribute("NativeFieldBufferAttribute")
-                    .unwrap()
-                    .value(),
-                [
-                    ("CapacityFieldName".into(), Value::Utf8("count".into())),
-                    ("IsByteCount".into(), Value::Bool(false)),
-                    ("MayBeNull".into(), Value::Bool(false)),
-                ]
+                test_clang2::buffer_extent(
+                    field,
+                    windows_metadata::BufferAccess::Write,
+                    windows_metadata::BufferPhase::Value
+                ),
+                Some(windows_metadata::BufferExtent::new(
+                    windows_metadata::BufferAccess::Write,
+                    windows_metadata::BufferPhase::Value,
+                    windows_metadata::BufferUnits::Elements,
+                    windows_metadata::BufferCount::Field("count".into())
+                ))
             );
             let conditional = attributes(method("Conditional").params().next().unwrap());
             assert_eq!(conditional.len(), 1);
@@ -451,9 +457,15 @@ fn sdk_annotations() {
     let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
     assert!(!text.contains("_COM_Outptr_"));
     assert!(text.contains("#[out_ptr(null_on_failure)]"));
-    assert!(text.contains("_Return_type_success_"));
-    assert!(text.contains("#[size_param(2)]"), "{text}");
-    assert!(text.contains("#[len_param(2)] lpFilename:"), "{text}");
+    assert!(text.contains("#[success(return >= 0)]"));
+    assert!(
+        text.contains("#[writable(entry, bytes(nNumberOfBytesToRead))]"),
+        "{text}"
+    );
+    assert!(
+        text.contains("#[writable(entry, nSize)] lpFilename:"),
+        "{text}"
+    );
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
     let path = root.join("target\\test-clang2-sdk-annotations.winmd");
     windows_rdl::reader()
@@ -473,31 +485,24 @@ fn sdk_annotations() {
             })
             .unwrap();
         assert_eq!(
-            method
-                .params()
-                .nth(1)
-                .unwrap()
-                .find_attribute("NativeInitializedLengthAttribute")
-                .unwrap()
-                .value()
-                .into_iter()
-                .collect::<BTreeMap<_, _>>(),
-            [
-                ("CountParamIndex".into(), Value::I16(3)),
-                ("IsByteCount".into(), Value::Bool(true)),
-                ("Dereference".into(), Value::Bool(true)),
-            ]
-            .into()
+            test_clang2::buffer_extent(
+                method.params().nth(1).unwrap(),
+                windows_metadata::BufferAccess::Read,
+                windows_metadata::BufferPhase::Success
+            ),
+            Some(windows_metadata::BufferExtent {
+                count_optional: true,
+                ..windows_metadata::BufferExtent::new(
+                    windows_metadata::BufferAccess::Read,
+                    windows_metadata::BufferPhase::Success,
+                    windows_metadata::BufferUnits::Bytes,
+                    windows_metadata::BufferCount::Dereference(3)
+                )
+            })
         );
         assert_eq!(
-            method
-                .params()
-                .nth(1)
-                .unwrap()
-                .find_attribute("MemorySizeAttribute")
-                .unwrap()
-                .value(),
-            [("BytesParamIndex".into(), Value::I16(2))]
+            method.params().nth(1).unwrap().buffer_relationship(),
+            Some(reader::BufferRelationship::BytesParam(2))
         );
         let module_name = index
             .expect("Fixture", "Apis")
@@ -508,14 +513,8 @@ fn sdk_annotations() {
             })
             .unwrap();
         assert_eq!(
-            module_name
-                .params()
-                .nth(1)
-                .unwrap()
-                .find_attribute("NativeArrayInfoAttribute")
-                .unwrap()
-                .value(),
-            [("CountParamIndex".into(), Value::I16(2))]
+            module_name.params().nth(1).unwrap().buffer_relationship(),
+            Some(reader::BufferRelationship::ElementsParam(2))
         );
         let create = index
             .expect("Fixture", "IClassFactory")
@@ -562,7 +561,8 @@ fn alias_annotation_reconciliation() {
             .values()
             .map(|part| part.rdl.as_str())
             .collect();
-        assert_eq!(text.matches("NativeSal(").count(), 2);
+        assert_eq!(text.matches("NativeSal(").count(), 1);
+        assert!(text.contains("#[success(return >= 0)]"));
         if let Some(expected) = &expected {
             assert_eq!(&output, expected);
         } else {

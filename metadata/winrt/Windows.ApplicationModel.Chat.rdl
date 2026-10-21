@@ -318,10 +318,10 @@ mod Windows {
             interface IChatCapabilitiesManagerStatics {
                 #[Windows::Foundation::Metadata::Overload("GetCachedCapabilitiesAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetCachedCapabilitiesAsync(&self, address: String) -> super::super::Foundation::IAsyncOperation<ChatCapabilities>;
+                fn GetCachedCapabilitiesAsync(&self, #[in] address: String) -> super::super::Foundation::IAsyncOperation<ChatCapabilities>;
                 #[Windows::Foundation::Metadata::Overload("GetCapabilitiesFromNetworkAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetCapabilitiesFromNetworkAsync(&self, address: String) -> super::super::Foundation::IAsyncOperation<ChatCapabilities>;
+                fn GetCapabilitiesFromNetworkAsync(&self, #[in] address: String) -> super::super::Foundation::IAsyncOperation<ChatCapabilities>;
             }
             #[guid(0xe30d4274_d5c1_4ac9_9ffc_40e69184fec8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
@@ -329,10 +329,10 @@ mod Windows {
             interface IChatCapabilitiesManagerStatics2 {
                 #[Windows::Foundation::Metadata::Overload("GetCachedCapabilitiesForTransportAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetCachedCapabilitiesAsync(&self, address: String, transportId: String) -> super::super::Foundation::IAsyncOperation<ChatCapabilities>;
+                fn GetCachedCapabilitiesAsync(&self, #[in] address: String, #[in] transportId: String) -> super::super::Foundation::IAsyncOperation<ChatCapabilities>;
                 #[Windows::Foundation::Metadata::Overload("GetCapabilitiesFromNetworkForTransportAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetCapabilitiesFromNetworkAsync(&self, address: String, transportId: String) -> super::super::Foundation::IAsyncOperation<ChatCapabilities>;
+                fn GetCapabilitiesFromNetworkAsync(&self, #[in] address: String, #[in] transportId: String) -> super::super::Foundation::IAsyncOperation<ChatCapabilities>;
             }
             #[guid(0xa58c080d_1a6f_46dc_8f3d_f5028660b6ee)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -358,11 +358,11 @@ mod Windows {
                 fn MarkMessagesAsReadAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("MarkMessagesAsReadAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn MarkMessagesAsReadAsync(&self, value: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncAction;
+                fn MarkMessagesAsReadAsync(&self, #[in] value: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SaveAsync(&self) -> super::super::Foundation::IAsyncAction;
-                fn NotifyLocalParticipantComposing(&self, transportId: String, participantAddress: String, isComposing: bool);
-                fn NotifyRemoteParticipantComposing(&self, transportId: String, participantAddress: String, isComposing: bool);
+                fn NotifyLocalParticipantComposing(&self, #[in] transportId: String, #[in] participantAddress: String, #[in] isComposing: bool);
+                fn NotifyRemoteParticipantComposing(&self, #[in] transportId: String, #[in] participantAddress: String, #[in] isComposing: bool);
                 event RemoteParticipantComposingChanged: super::super::Foundation::TypedEventHandler<ChatConversation, RemoteParticipantComposingChangedEventArgs>;
             }
             #[guid(0x0a030cd1_983a_47aa_9a90_ee48ee997b59)]
@@ -380,7 +380,7 @@ mod Windows {
                 fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatConversation>>;
                 #[Windows::Foundation::Metadata::Overload("ReadBatchWithCountAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ReadBatchAsync(&self, count: i32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatConversation>>;
+                fn ReadBatchAsync(&self, #[in] count: i32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatConversation>>;
             }
             #[guid(0x331c21dc_7a07_4422_a32c_24be7c6dab24)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -503,14 +503,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageAttachment)]
             interface IChatMessageAttachmentFactory {
-                fn CreateChatMessageAttachment(&self, mimeType: String, dataStreamReference: super::super::Storage::Streams::IRandomAccessStreamReference) -> ChatMessageAttachment;
+                fn CreateChatMessageAttachment(&self, #[in] mimeType: String, #[in] dataStreamReference: super::super::Storage::Streams::IRandomAccessStreamReference) -> ChatMessageAttachment;
             }
             #[guid(0xf6b9a380_cdea_11e4_8830_0800200c9a66)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageBlocking)]
             interface IChatMessageBlockingStatic {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn MarkMessageAsBlockedAsync(&self, localChatMessageId: String, blocked: bool) -> super::super::Foundation::IAsyncAction;
+                fn MarkMessageAsBlockedAsync(&self, #[in] localChatMessageId: String, #[in] blocked: bool) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x1c18c355_421e_54b8_6d38_6b3a6c82fccc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -526,7 +526,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageChangeReader)]
             interface IChatMessageChangeReader {
                 fn AcceptChanges(&self);
-                fn AcceptChangesThrough(&self, lastChangeToAcknowledge: ChatMessageChange);
+                fn AcceptChangesThrough(&self, #[in] lastChangeToAcknowledge: ChatMessageChange);
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessageChange>>;
             }
@@ -557,7 +557,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RegisterTransportAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetTransportAsync(&self, transportId: String) -> super::super::Foundation::IAsyncOperation<ChatMessageTransport>;
+                fn GetTransportAsync(&self, #[in] transportId: String) -> super::super::Foundation::IAsyncOperation<ChatMessageTransport>;
             }
             #[guid(0xf15c60f7_d5e8_5e92_556d_e03b60253104)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -567,7 +567,7 @@ mod Windows {
                 fn GetTransportsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessageTransport>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestStoreAsync(&self) -> super::super::Foundation::IAsyncOperation<ChatMessageStore>;
-                fn ShowComposeSmsMessageAsync(&self, message: ChatMessage) -> super::super::Foundation::IAsyncAction;
+                fn ShowComposeSmsMessageAsync(&self, #[in] message: ChatMessage) -> super::super::Foundation::IAsyncAction;
                 fn ShowSmsSettings(&self);
             }
             #[guid(0x208b830d_6755_48cc_9ab3_fd03c463fc92)]
@@ -610,7 +610,7 @@ mod Windows {
             interface IChatMessageReader2 {
                 #[Windows::Foundation::Metadata::Overload("ReadBatchWithCountAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ReadBatchAsync(&self, count: i32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessage>>;
+                fn ReadBatchAsync(&self, #[in] count: i32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessage>>;
             }
             #[guid(0x31f2fd01_ccf6_580b_4976_0a07dd5d3b47)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -619,21 +619,21 @@ mod Windows {
                 #[get]
                 ChangeTracker: ChatMessageChangeTracker;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DeleteMessageAsync(&self, localMessageId: String) -> super::super::Foundation::IAsyncAction;
+                fn DeleteMessageAsync(&self, #[in] localMessageId: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DownloadMessageAsync(&self, localChatMessageId: String) -> super::super::Foundation::IAsyncAction;
+                fn DownloadMessageAsync(&self, #[in] localChatMessageId: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetMessageAsync(&self, localChatMessageId: String) -> super::super::Foundation::IAsyncOperation<ChatMessage>;
+                fn GetMessageAsync(&self, #[in] localChatMessageId: String) -> super::super::Foundation::IAsyncOperation<ChatMessage>;
                 #[Windows::Foundation::Metadata::Overload("GetMessageReader1")]
                 fn GetMessageReader(&self) -> ChatMessageReader;
                 #[Windows::Foundation::Metadata::Overload("GetMessageReader2")]
-                fn GetMessageReader(&self, recentTimeLimit: super::super::Foundation::TimeSpan) -> ChatMessageReader;
+                fn GetMessageReader(&self, #[in] recentTimeLimit: super::super::Foundation::TimeSpan) -> ChatMessageReader;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn MarkMessageReadAsync(&self, localChatMessageId: String) -> super::super::Foundation::IAsyncAction;
+                fn MarkMessageReadAsync(&self, #[in] localChatMessageId: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RetrySendMessageAsync(&self, localChatMessageId: String) -> super::super::Foundation::IAsyncAction;
-                fn SendMessageAsync(&self, chatMessage: ChatMessage) -> super::super::Foundation::IAsyncAction;
-                fn ValidateMessage(&self, chatMessage: ChatMessage) -> ChatMessageValidationResult;
+                fn RetrySendMessageAsync(&self, #[in] localChatMessageId: String) -> super::super::Foundation::IAsyncAction;
+                fn SendMessageAsync(&self, #[in] chatMessage: ChatMessage) -> super::super::Foundation::IAsyncAction;
+                fn ValidateMessage(&self, #[in] chatMessage: ChatMessage) -> ChatMessageValidationResult;
                 event MessageChanged: super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageChangedEventArgs>;
             }
             #[guid(0xad4dc4ee_3ad4_491b_b311_abdf9bb22768)]
@@ -641,36 +641,36 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageStore)]
             interface IChatMessageStore2: IChatMessageStore {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ForwardMessageAsync(&self, localChatMessageId: String, addresses: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<ChatMessage>;
+                fn ForwardMessageAsync(&self, #[in] localChatMessageId: String, #[in] addresses: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<ChatMessage>;
                 #[Windows::Foundation::Metadata::Overload("GetConversationAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetConversationAsync(&self, conversationId: String) -> super::super::Foundation::IAsyncOperation<ChatConversation>;
+                fn GetConversationAsync(&self, #[in] conversationId: String) -> super::super::Foundation::IAsyncOperation<ChatConversation>;
                 #[Windows::Foundation::Metadata::Overload("GetConversationForTransportsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetConversationAsync(&self, conversationId: String, transportIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<ChatConversation>;
-                fn GetConversationFromThreadingInfoAsync(&self, threadingInfo: ChatConversationThreadingInfo) -> super::super::Foundation::IAsyncOperation<ChatConversation>;
+                fn GetConversationAsync(&self, #[in] conversationId: String, #[in] transportIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<ChatConversation>;
+                fn GetConversationFromThreadingInfoAsync(&self, #[in] threadingInfo: ChatConversationThreadingInfo) -> super::super::Foundation::IAsyncOperation<ChatConversation>;
                 #[Windows::Foundation::Metadata::Overload("GetConversationReader")]
                 fn GetConversationReader(&self) -> ChatConversationReader;
                 #[Windows::Foundation::Metadata::Overload("GetConversationForTransportsReader")]
-                fn GetConversationReader(&self, transportIds: super::super::Foundation::Collections::IIterable<String>) -> ChatConversationReader;
+                fn GetConversationReader(&self, #[in] transportIds: super::super::Foundation::Collections::IIterable<String>) -> ChatConversationReader;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetMessageByRemoteIdAsync(&self, transportId: String, remoteId: String) -> super::super::Foundation::IAsyncOperation<ChatMessage>;
+                fn GetMessageByRemoteIdAsync(&self, #[in] transportId: String, #[in] remoteId: String) -> super::super::Foundation::IAsyncOperation<ChatMessage>;
                 #[Windows::Foundation::Metadata::Overload("GetUnseenCountAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetUnseenCountAsync(&self) -> super::super::Foundation::IAsyncOperation<i32>;
                 #[Windows::Foundation::Metadata::Overload("GetUnseenCountForTransportsReaderAsync")]
-                fn GetUnseenCountAsync(&self, transportIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<i32>;
+                fn GetUnseenCountAsync(&self, #[in] transportIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<i32>;
                 #[Windows::Foundation::Metadata::Overload("MarkAsSeenAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn MarkAsSeenAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("MarkAsSeenForTransportsAsync")]
-                fn MarkAsSeenAsync(&self, transportIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncAction;
-                fn GetSearchReader(&self, value: ChatQueryOptions) -> ChatSearchReader;
-                fn SaveMessageAsync(&self, chatMessage: ChatMessage) -> super::super::Foundation::IAsyncAction;
+                fn MarkAsSeenAsync(&self, #[in] transportIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncAction;
+                fn GetSearchReader(&self, #[in] value: ChatQueryOptions) -> ChatSearchReader;
+                fn SaveMessageAsync(&self, #[in] chatMessage: ChatMessage) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryCancelDownloadMessageAsync(&self, localChatMessageId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryCancelDownloadMessageAsync(&self, #[in] localChatMessageId: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryCancelSendMessageAsync(&self, localChatMessageId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryCancelSendMessageAsync(&self, #[in] localChatMessageId: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 event StoreChanged: super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageStoreChangedEventArgs>;
             }
             #[guid(0x9adbbb09_4345_4ec1_8b74_b7338243719c)]
@@ -678,7 +678,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageStore)]
             interface IChatMessageStore3: IChatMessageStore {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetMessageBySyncIdAsync(&self, syncId: String) -> super::super::Foundation::IAsyncOperation<ChatMessage>;
+                fn GetMessageBySyncIdAsync(&self, #[in] syncId: String) -> super::super::Foundation::IAsyncOperation<ChatMessage>;
             }
             #[guid(0x65c66fac_fe8c_46d4_9119_57b8410311d5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -774,7 +774,7 @@ mod Windows {
                 fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IChatItem>>;
                 #[Windows::Foundation::Metadata::Overload("ReadBatchWithCountAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ReadBatchAsync(&self, count: i32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IChatItem>>;
+                fn ReadBatchAsync(&self, #[in] count: i32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IChatItem>>;
             }
             #[guid(0x09f869b2_69f4_4aff_82b6_06992ff402d2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -790,13 +790,13 @@ mod Windows {
                 #[get]
                 Configuration: ChatSyncConfiguration;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn AssociateAccountAsync(&self, webAccount: super::super::Security::Credentials::WebAccount) -> super::super::Foundation::IAsyncAction;
+                fn AssociateAccountAsync(&self, #[in] webAccount: super::super::Security::Credentials::WebAccount) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn UnassociateAccountAsync(&self) -> super::super::Foundation::IAsyncAction;
-                fn IsAccountAssociated(&self, webAccount: super::super::Security::Credentials::WebAccount) -> bool;
+                fn IsAccountAssociated(&self, #[in] webAccount: super::super::Security::Credentials::WebAccount) -> bool;
                 fn StartSync(&self);
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetConfigurationAsync(&self, configuration: ChatSyncConfiguration) -> super::super::Foundation::IAsyncAction;
+                fn SetConfigurationAsync(&self, #[in] configuration: ChatSyncConfiguration) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0xd7cda5eb_cbd7_4f3b_8526_b506dec35c53)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -813,9 +813,9 @@ mod Windows {
                 #[get]
                 Actions: super::super::Foundation::Collections::IVectorView<RcsEndUserMessageAction>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SendResponseAsync(&self, action: RcsEndUserMessageAction) -> super::super::Foundation::IAsyncAction;
+                fn SendResponseAsync(&self, #[in] action: RcsEndUserMessageAction) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SendResponseWithPinAsync(&self, action: RcsEndUserMessageAction, pin: String) -> super::super::Foundation::IAsyncAction;
+                fn SendResponseWithPinAsync(&self, #[in] action: RcsEndUserMessageAction, #[in] pin: String) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x92378737_9b42_46d3_9d5e_3c1b2dae7cb8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -856,8 +856,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetTransportsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<RcsTransport>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetTransportAsync(&self, transportId: String) -> super::super::Foundation::IAsyncOperation<RcsTransport>;
-                fn LeaveConversationAsync(&self, conversation: ChatConversation) -> super::super::Foundation::IAsyncAction;
+                fn GetTransportAsync(&self, #[in] transportId: String) -> super::super::Foundation::IAsyncOperation<RcsTransport>;
+                fn LeaveConversationAsync(&self, #[in] conversation: ChatConversation) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0xcd49ad18_ad8a_42aa_8eeb_a798a8808959)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
@@ -886,8 +886,8 @@ mod Windows {
                 TransportId: String;
                 #[get]
                 Configuration: RcsTransportConfiguration;
-                fn IsStoreAndForwardEnabled(&self, serviceKind: RcsServiceKind) -> bool;
-                fn IsServiceKindSupported(&self, serviceKind: RcsServiceKind) -> bool;
+                fn IsStoreAndForwardEnabled(&self, #[in] serviceKind: RcsServiceKind) -> bool;
+                fn IsServiceKindSupported(&self, #[in] serviceKind: RcsServiceKind) -> bool;
                 event ServiceKindSupportedChanged: super::super::Foundation::TypedEventHandler<RcsTransport, RcsServiceKindSupportedChangedEventArgs>;
             }
             #[guid(0x1fccb102_2472_4bb9_9988_c1211c83e8a9)]

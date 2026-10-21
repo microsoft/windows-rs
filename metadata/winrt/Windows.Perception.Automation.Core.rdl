@@ -15,7 +15,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(CorePerceptionAutomation)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICorePerceptionAutomationStatics {
-                    fn SetActivationFactoryProvider(&self, provider: super::super::super::Foundation::IGetActivationFactory);
+                    fn SetActivationFactoryProvider(&self, #[in] provider: super::super::super::Foundation::IGetActivationFactory);
                 }
                 #[Windows::Foundation::Metadata::ApiContract]
                 #[Windows::Foundation::Metadata::ContractVersion(65536)]

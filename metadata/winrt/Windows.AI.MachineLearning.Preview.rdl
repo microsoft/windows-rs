@@ -62,10 +62,10 @@ mod Windows {
                 interface ILearningModelBindingPreview: super::super::super::Foundation::Collections::IMapView<String, Object> + super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, Object>> {
                     #[Windows::Foundation::Metadata::Deprecated("Use ILearningModelBinding instead of ILearningModelBindingPreview. For more info, see MSDN.", Deprecate, 131072, "Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract")]
                     #[Windows::Foundation::Metadata::Overload("Bind")]
-                    fn Bind(&self, name: String, value: Object);
+                    fn Bind(&self, #[in] name: String, #[in] value: Object);
                     #[Windows::Foundation::Metadata::Deprecated("Use ILearningModelBinding instead of ILearningModelBindingPreview. For more info, see MSDN.", Deprecate, 131072, "Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract")]
                     #[Windows::Foundation::Metadata::Overload("BindWithProperties")]
-                    fn Bind(&self, name: String, value: Object, metadata: super::super::super::Foundation::Collections::IPropertySet);
+                    fn Bind(&self, #[in] name: String, #[in] value: Object, #[in] metadata: super::super::super::Foundation::Collections::IPropertySet);
                     #[Windows::Foundation::Metadata::Deprecated("Use ILearningModelBinding instead of ILearningModelBindingPreview. For more info, see MSDN.", Deprecate, 131072, "Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract")]
                     fn Clear(&self);
                 }
@@ -75,7 +75,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelBindingPreview)]
                 interface ILearningModelBindingPreviewFactory {
                     #[Windows::Foundation::Metadata::Deprecated("Use ILearningModelBindingFactory instead of ILearningModelBindingPreviewFactory. For more info, see MSDN.", Deprecate, 131072, "Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract")]
-                    fn CreateFromModel(&self, model: LearningModelPreview) -> LearningModelBindingPreview;
+                    fn CreateFromModel(&self, #[in] model: LearningModelPreview) -> LearningModelBindingPreview;
                 }
                 #[guid(0xf52c09c6_8611_40ad_8e59_de3fd7030a40)]
                 #[Windows::Foundation::Metadata::ContractVersion(MachineLearningPreviewContract, 65536)]
@@ -126,10 +126,10 @@ mod Windows {
                 interface ILearningModelPreview {
                     #[Windows::Foundation::Metadata::Deprecated("Use ILearningModel instead of ILearningModelPreview. For more info, see MSDN.", Deprecate, 131072, "Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn EvaluateAsync(&self, binding: LearningModelBindingPreview, correlationId: String) -> super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>;
+                    fn EvaluateAsync(&self, #[in] binding: LearningModelBindingPreview, #[in] correlationId: String) -> super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>;
                     #[Windows::Foundation::Metadata::Deprecated("Use ILearningModel instead of ILearningModelPreview. For more info, see MSDN.", Deprecate, 131072, "Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn EvaluateFeaturesAsync(&self, features: super::super::super::Foundation::Collections::IMap<String, Object>, correlationId: String) -> super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>;
+                    fn EvaluateFeaturesAsync(&self, #[in] features: super::super::super::Foundation::Collections::IMap<String, Object>, #[in] correlationId: String) -> super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>;
                     #[get]
                     #[Windows::Foundation::Metadata::Deprecated("Use ILearningModel instead of ILearningModelPreview. For more info, see MSDN.", Deprecate, 131072, "Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract")]
                     Description: LearningModelDescriptionPreview;
@@ -143,10 +143,10 @@ mod Windows {
                 interface ILearningModelPreviewStatics {
                     #[Windows::Foundation::Metadata::Deprecated("Use ILearningModelStatics instead of ILearningModelPreviewStatics. For more info, see MSDN.", Deprecate, 131072, "Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn LoadModelFromStorageFileAsync(&self, modelFile: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::IAsyncOperation<LearningModelPreview>;
+                    fn LoadModelFromStorageFileAsync(&self, #[in] modelFile: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::IAsyncOperation<LearningModelPreview>;
                     #[Windows::Foundation::Metadata::Deprecated("Use ILearningModelStatics instead of ILearningModelPreviewStatics. For more info, see MSDN.", Deprecate, 131072, "Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn LoadModelFromStreamAsync(&self, modelStream: super::super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::super::Foundation::IAsyncOperation<LearningModelPreview>;
+                    fn LoadModelFromStreamAsync(&self, #[in] modelStream: super::super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::super::Foundation::IAsyncOperation<LearningModelPreview>;
                 }
                 #[guid(0xb13df682_fc30_492b_8ea0_ed1f53c0b038)]
                 #[Windows::Foundation::Metadata::ContractVersion(MachineLearningPreviewContract, 65536)]

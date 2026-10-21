@@ -2,7 +2,7 @@
 mod Fixture {
     type BYTE = u8;
     type DWORD = u32;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    #[success(return >= 0)]
     type HRESULT = i32;
     type LONG = i32;
     type LONGLONG = i64;
@@ -43,13 +43,13 @@ mod Fixture {
 mod Fixture {
     #[guid(0x4ea48a35_60ae_446f_8fd6_e6a8d82459f7)]
     interface ITfSource: IUnknown {
-        fn AdviseSink(&self, riid: &IID, #[opt] punk: IUnknown, pdwCookie: *mut DWORD) -> HRESULT;
+        fn AdviseSink(&self, #[in] riid: &IID, #[in] #[opt] punk: IUnknown, #[out] pdwCookie: *mut DWORD) -> HRESULT;
         fn UnadviseSink(&self, dwCookie: DWORD) -> HRESULT;
     }
     #[guid(0x73131f9c_56a9_49dd_b0ee_d046633f7528)]
     interface ITfSourceSingle: IUnknown {
-        fn AdviseSingleSink(&self, tid: TfClientId, riid: &IID, #[opt] punk: IUnknown) -> HRESULT;
-        fn UnadviseSingleSink(&self, tid: TfClientId, riid: &IID) -> HRESULT;
+        fn AdviseSingleSink(&self, tid: TfClientId, #[in] riid: &IID, #[in] #[opt] punk: IUnknown) -> HRESULT;
+        fn UnadviseSingleSink(&self, tid: TfClientId, #[in] riid: &IID) -> HRESULT;
     }
     type TfClientId = u32;
 }
@@ -74,28 +74,28 @@ mod Fixture {
     }
     #[guid(0x0000000d_0000_0000_c000_000000000046)]
     interface IEnumSTATSTG: IUnknown {
-        fn Next(&self, celt: ULONG, #[len_param(0)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] rgelt: *mut STATSTG, #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+        fn Next(&self, celt: ULONG, #[out] #[writable(entry, celt)] #[readable(success, if_present(*pceltFetched))] rgelt: *mut STATSTG, #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
         fn Skip(&self, celt: ULONG) -> HRESULT;
         fn Reset(&self) -> HRESULT;
-        fn Clone(&self, #[out_ptr] ppenum: *mut IEnumSTATSTG) -> HRESULT;
+        fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumSTATSTG) -> HRESULT;
     }
     #[guid(0x0000000b_0000_0000_c000_000000000046)]
     interface IStorage: IUnknown {
-        fn CreateStream(&self, #[null_terminated(entry)] pwcsName: *const OLECHAR, grfMode: DWORD, reserved1: DWORD, reserved2: DWORD, #[out_ptr] ppstm: *mut IStream) -> HRESULT;
-        fn OpenStream(&self, #[null_terminated(entry)] pwcsName: *const OLECHAR, #[reserved] reserved1: *mut void, grfMode: DWORD, reserved2: DWORD, #[out_ptr] ppstm: *mut IStream) -> HRESULT;
-        fn CreateStorage(&self, #[null_terminated(entry)] pwcsName: *const OLECHAR, grfMode: DWORD, reserved1: DWORD, reserved2: DWORD, #[out_ptr] ppstg: *mut IStorage) -> HRESULT;
-        fn OpenStorage(&self, #[opt] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[opt] pstgPriority: IStorage, grfMode: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_in_opt", "", "")] #[opt] snbExclude: SNB, reserved: DWORD, #[out_ptr] ppstg: *mut IStorage) -> HRESULT;
-        fn CopyTo(&self, ciidExclude: DWORD, #[opt] #[len_param(0)] rgiidExclude: *const IID, #[opt] snbExclude: SNB, pstgDest: IStorage) -> HRESULT;
-        fn MoveElementTo(&self, #[null_terminated(entry)] pwcsName: *const OLECHAR, #[opt] pstgDest: IStorage, #[null_terminated(entry)] pwcsNewName: *const OLECHAR, grfFlags: DWORD) -> HRESULT;
+        fn CreateStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, grfMode: DWORD, reserved1: DWORD, reserved2: DWORD, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
+        fn OpenStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[reserved] reserved1: *mut void, grfMode: DWORD, reserved2: DWORD, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
+        fn CreateStorage(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, grfMode: DWORD, reserved1: DWORD, reserved2: DWORD, #[out] #[out_ptr] ppstg: *mut IStorage) -> HRESULT;
+        fn OpenStorage(&self, #[in] #[opt] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[opt] pstgPriority: IStorage, grfMode: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_in_opt", "", "")] #[in] #[opt] snbExclude: SNB, reserved: DWORD, #[out] #[out_ptr] ppstg: *mut IStorage) -> HRESULT;
+        fn CopyTo(&self, ciidExclude: DWORD, #[in] #[opt] #[readable(entry, ciidExclude)] rgiidExclude: *const IID, #[in] #[opt] snbExclude: SNB, #[in] pstgDest: IStorage) -> HRESULT;
+        fn MoveElementTo(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[opt] pstgDest: IStorage, #[in] #[null_terminated(entry)] pwcsNewName: *const OLECHAR, grfFlags: DWORD) -> HRESULT;
         fn Commit(&self, grfCommitFlags: DWORD) -> HRESULT;
         fn Revert(&self) -> HRESULT;
-        fn EnumElements(&self, #[reserved] reserved1: DWORD, #[reserved] reserved2: *mut void, #[reserved] reserved3: DWORD, #[out_ptr] ppenum: *mut IEnumSTATSTG) -> HRESULT;
-        fn DestroyElement(&self, #[null_terminated(entry)] pwcsName: *const OLECHAR) -> HRESULT;
-        fn RenameElement(&self, #[null_terminated(entry)] pwcsOldName: *const OLECHAR, #[null_terminated(entry)] pwcsNewName: *const OLECHAR) -> HRESULT;
-        fn SetElementTimes(&self, #[opt] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[opt] pctime: *const FILETIME, #[opt] patime: *const FILETIME, #[opt] pmtime: *const FILETIME) -> HRESULT;
-        fn SetClass(&self, clsid: &IID) -> HRESULT;
+        fn EnumElements(&self, #[reserved] reserved1: DWORD, #[reserved] reserved2: *mut void, #[reserved] reserved3: DWORD, #[out] #[out_ptr] ppenum: *mut IEnumSTATSTG) -> HRESULT;
+        fn DestroyElement(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR) -> HRESULT;
+        fn RenameElement(&self, #[in] #[null_terminated(entry)] pwcsOldName: *const OLECHAR, #[in] #[null_terminated(entry)] pwcsNewName: *const OLECHAR) -> HRESULT;
+        fn SetElementTimes(&self, #[in] #[opt] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[opt] pctime: *const FILETIME, #[in] #[opt] patime: *const FILETIME, #[in] #[opt] pmtime: *const FILETIME) -> HRESULT;
+        fn SetClass(&self, #[in] clsid: &IID) -> HRESULT;
         fn SetStateBits(&self, grfStateBits: DWORD, grfMask: DWORD) -> HRESULT;
-        fn Stat(&self, pstatstg: *mut STATSTG, grfStatFlag: DWORD) -> HRESULT;
+        fn Stat(&self, #[out] pstatstg: *mut STATSTG, grfStatFlag: DWORD) -> HRESULT;
     }
     #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
     type SNB = *mut *mut u16;
@@ -119,20 +119,20 @@ mod Fixture {
 mod Fixture {
     #[guid(0x0c733a30_2a1c_11ce_ade5_00aa0044773d)]
     interface ISequentialStream: IUnknown {
-        fn Read(&self, #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] pv: *mut void, cb: ULONG, #[opt] pcbRead: *mut ULONG) -> HRESULT;
-        fn Write(&self, #[size_param(1)] pv: *const void, cb: ULONG, #[opt] pcbWritten: *mut ULONG) -> HRESULT;
+        fn Read(&self, #[out] #[writable(entry, bytes(cb))] #[readable(success, bytes(if_present(*pcbRead)))] pv: *mut void, #[in] cb: ULONG, #[out] #[opt] pcbRead: *mut ULONG) -> HRESULT;
+        fn Write(&self, #[in] #[readable(entry, bytes(cb))] pv: *const void, #[in] cb: ULONG, #[out] #[opt] pcbWritten: *mut ULONG) -> HRESULT;
     }
     #[guid(0x0000000c_0000_0000_c000_000000000046)]
     interface IStream: ISequentialStream {
-        fn Seek(&self, dlibMove: LARGE_INTEGER, dwOrigin: DWORD, #[opt] plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
+        fn Seek(&self, dlibMove: LARGE_INTEGER, dwOrigin: DWORD, #[out] #[opt] plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
         fn SetSize(&self, libNewSize: ULARGE_INTEGER) -> HRESULT;
-        fn CopyTo(&self, pstm: IStream, cb: ULARGE_INTEGER, #[opt] pcbRead: *mut ULARGE_INTEGER, #[opt] pcbWritten: *mut ULARGE_INTEGER) -> HRESULT;
+        fn CopyTo(&self, #[in] pstm: IStream, cb: ULARGE_INTEGER, #[out] #[opt] pcbRead: *mut ULARGE_INTEGER, #[out] #[opt] pcbWritten: *mut ULARGE_INTEGER) -> HRESULT;
         fn Commit(&self, grfCommitFlags: DWORD) -> HRESULT;
         fn Revert(&self) -> HRESULT;
         fn LockRegion(&self, libOffset: ULARGE_INTEGER, cb: ULARGE_INTEGER, dwLockType: DWORD) -> HRESULT;
         fn UnlockRegion(&self, libOffset: ULARGE_INTEGER, cb: ULARGE_INTEGER, dwLockType: DWORD) -> HRESULT;
-        fn Stat(&self, pstatstg: *mut STATSTG, grfStatFlag: DWORD) -> HRESULT;
-        fn Clone(&self, #[out_ptr] ppstm: *mut IStream) -> HRESULT;
+        fn Stat(&self, #[out] pstatstg: *mut STATSTG, grfStatFlag: DWORD) -> HRESULT;
+        fn Clone(&self, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
     }
     #[packed(8)]
     struct STATSTG {
@@ -153,15 +153,15 @@ mod Fixture {
 mod Fixture {
     #[guid(0x0c733abf_2a1c_11ce_ade5_00aa0044773d)]
     interface ICommandStream: IUnknown {
-        fn GetCommandStream(&self, #[opt] piid: *mut IID, #[in] #[out] #[opt] pguidDialect: *mut GUID, #[out_ptr] #[iid_is] ppCommandStream: *mut IUnknown) -> HRESULT;
-        fn SetCommandStream(&self, riid: &IID, rguidDialect: &GUID, #[opt] pCommandStream: IUnknown) -> HRESULT;
+        fn GetCommandStream(&self, #[out] #[opt] piid: *mut IID, #[in] #[out] #[opt] pguidDialect: *mut GUID, #[out] #[out_ptr] #[iid_is] ppCommandStream: *mut IUnknown) -> HRESULT;
+        fn SetCommandStream(&self, riid: &IID, rguidDialect: &GUID, #[in] #[opt] pCommandStream: IUnknown) -> HRESULT;
     }
 }
 #[win32]
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }
@@ -187,14 +187,14 @@ mod Fixture {
     }
     #[guid(0x79eac9c1_baf9_11ce_8c82_00aa004ba90b)]
     interface IBindStatusCallback: IUnknown {
-        fn OnStartBinding(&self, dwReserved: DWORD, #[opt] pib: IBinding) -> HRESULT;
-        fn GetPriority(&self, pnPriority: *mut LONG) -> HRESULT;
+        fn OnStartBinding(&self, dwReserved: DWORD, #[in] #[opt] pib: IBinding) -> HRESULT;
+        fn GetPriority(&self, #[out] pnPriority: *mut LONG) -> HRESULT;
         fn OnLowResource(&self, reserved: DWORD) -> HRESULT;
-        fn OnProgress(&self, ulProgress: ULONG, ulProgressMax: ULONG, ulStatusCode: ULONG, #[opt] szStatusText: LPCWSTR) -> HRESULT;
-        fn OnStopBinding(&self, hresult: HRESULT, #[opt] szError: LPCWSTR) -> HRESULT;
+        fn OnProgress(&self, ulProgress: ULONG, ulProgressMax: ULONG, ulStatusCode: ULONG, #[in] #[opt] szStatusText: LPCWSTR) -> HRESULT;
+        fn OnStopBinding(&self, hresult: HRESULT, #[in] #[opt] szError: LPCWSTR) -> HRESULT;
         fn GetBindInfo(&self, grfBINDF: *mut DWORD, pbindinfo: *mut BINDINFO) -> HRESULT;
         fn OnDataAvailable(&self, grfBSCF: DWORD, dwSize: DWORD, pformatetc: *mut FORMATETC, pstgmed: *mut STGMEDIUM) -> HRESULT;
-        fn OnObjectAvailable(&self, riid: &IID, #[opt] punk: IUnknown) -> HRESULT;
+        fn OnObjectAvailable(&self, #[in] riid: &IID, #[in] #[opt] punk: IUnknown) -> HRESULT;
     }
     #[guid(0x79eac9c0_baf9_11ce_8c82_00aa004ba90b)]
     interface IBinding: IUnknown {
@@ -202,8 +202,8 @@ mod Fixture {
         fn Suspend(&self) -> HRESULT;
         fn Resume(&self) -> HRESULT;
         fn SetPriority(&self, nPriority: LONG) -> HRESULT;
-        fn GetPriority(&self, pnPriority: *mut LONG) -> HRESULT;
-        fn GetBindResult(&self, pclsidProtocol: *mut CLSID, pdwResult: *mut DWORD, pszResult: *mut LPOLESTR, pdwReserved: *mut DWORD) -> HRESULT;
+        fn GetPriority(&self, #[out] pnPriority: *mut LONG) -> HRESULT;
+        fn GetBindResult(&self, pclsidProtocol: *mut CLSID, pdwResult: *mut DWORD, #[out] pszResult: *mut LPOLESTR, pdwReserved: *mut DWORD) -> HRESULT;
     }
 }
 #[win32]

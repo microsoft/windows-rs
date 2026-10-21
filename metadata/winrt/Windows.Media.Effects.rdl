@@ -84,7 +84,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AcousticEchoCancellationConfiguration)]
             interface IAcousticEchoCancellationConfiguration {
-                fn SetEchoCancellationRenderEndpoint(&self, deviceId: String);
+                fn SetEchoCancellationRenderEndpoint(&self, #[in] deviceId: String);
             }
             #[guid(0x8f85c271_038d_4393_8298_540110608eef)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -110,7 +110,7 @@ mod Windows {
                 CanSetState: bool;
                 #[get]
                 State: AudioEffectState;
-                fn SetState(&self, newState: AudioEffectState);
+                fn SetState(&self, #[in] newState: AudioEffectState);
             }
             #[guid(0xe4d7f974_7d80_4f73_9089_e31c9db9c294)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -124,21 +124,21 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AudioEffectDefinition)]
             interface IAudioEffectDefinitionFactory {
-                fn Create(&self, activatableClassId: String) -> AudioEffectDefinition;
-                fn CreateWithProperties(&self, activatableClassId: String, props: super::super::Foundation::Collections::IPropertySet) -> AudioEffectDefinition;
+                fn Create(&self, #[in] activatableClassId: String) -> AudioEffectDefinition;
+                fn CreateWithProperties(&self, #[in] activatableClassId: String, #[in] props: super::super::Foundation::Collections::IPropertySet) -> AudioEffectDefinition;
             }
             #[guid(0x66406c04_86fa_47cc_a315_f489d8c3fe10)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AudioEffectsManager)]
             interface IAudioEffectsManagerStatics {
                 #[Windows::Foundation::Metadata::Overload("CreateAudioRenderEffectsManager")]
-                fn CreateAudioRenderEffectsManager(&self, deviceId: String, category: super::Render::AudioRenderCategory) -> AudioRenderEffectsManager;
+                fn CreateAudioRenderEffectsManager(&self, #[in] deviceId: String, #[in] category: super::Render::AudioRenderCategory) -> AudioRenderEffectsManager;
                 #[Windows::Foundation::Metadata::Overload("CreateAudioRenderEffectsManagerWithMode")]
-                fn CreateAudioRenderEffectsManager(&self, deviceId: String, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> AudioRenderEffectsManager;
+                fn CreateAudioRenderEffectsManager(&self, #[in] deviceId: String, #[in] category: super::Render::AudioRenderCategory, #[in] mode: super::AudioProcessing) -> AudioRenderEffectsManager;
                 #[Windows::Foundation::Metadata::Overload("CreateAudioCaptureEffectsManager")]
-                fn CreateAudioCaptureEffectsManager(&self, deviceId: String, category: super::Capture::MediaCategory) -> AudioCaptureEffectsManager;
+                fn CreateAudioCaptureEffectsManager(&self, #[in] deviceId: String, #[in] category: super::Capture::MediaCategory) -> AudioCaptureEffectsManager;
                 #[Windows::Foundation::Metadata::Overload("CreateAudioCaptureEffectsManagerWithMode")]
-                fn CreateAudioCaptureEffectsManager(&self, deviceId: String, category: super::Capture::MediaCategory, mode: super::AudioProcessing) -> AudioCaptureEffectsManager;
+                fn CreateAudioCaptureEffectsManager(&self, #[in] deviceId: String, #[in] category: super::Capture::MediaCategory, #[in] mode: super::AudioProcessing) -> AudioCaptureEffectsManager;
             }
             #[guid(0x4dc98966_8751_42b2_bfcb_39ca7864bd47)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -168,9 +168,9 @@ mod Windows {
                 UseInputFrameForOutput: bool;
                 #[get]
                 SupportedEncodingProperties: super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>;
-                fn SetEncodingProperties(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties);
-                fn ProcessFrame(&self, context: ProcessAudioFrameContext);
-                fn Close(&self, reason: MediaEffectClosedReason);
+                fn SetEncodingProperties(&self, #[in] encodingProperties: super::MediaProperties::AudioEncodingProperties);
+                fn ProcessFrame(&self, #[in] context: ProcessAudioFrameContext);
+                fn Close(&self, #[in] reason: MediaEffectClosedReason);
                 fn DiscardQueuedFrames(&self);
             }
             #[guid(0x8262c7ef_b360_40be_949b_2ff42ff35693)]
@@ -184,9 +184,9 @@ mod Windows {
                 TimeIndependent: bool;
                 #[get]
                 SupportedEncodingProperties: super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>;
-                fn SetEncodingProperties(&self, encodingProperties: super::MediaProperties::VideoEncodingProperties, device: super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice);
-                fn ProcessFrame(&self, context: ProcessVideoFrameContext);
-                fn Close(&self, reason: MediaEffectClosedReason);
+                fn SetEncodingProperties(&self, #[in] encodingProperties: super::MediaProperties::VideoEncodingProperties, #[in] device: super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice);
+                fn ProcessFrame(&self, #[in] context: ProcessVideoFrameContext);
+                fn Close(&self, #[in] reason: MediaEffectClosedReason);
                 fn DiscardQueuedFrames(&self);
             }
             #[guid(0x6c30024b_f514_4278_a5f7_b9188049d110)]
@@ -199,7 +199,7 @@ mod Windows {
                 BackgroundFrame: super::VideoFrame;
                 #[get]
                 OutputFrame: super::VideoFrame;
-                fn GetOverlayForSurface(&self, surfaceToOverlay: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface) -> super::Editing::MediaOverlay;
+                fn GetOverlayForSurface(&self, #[in] surfaceToOverlay: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface) -> super::Editing::MediaOverlay;
             }
             #[guid(0x4cd92946_1222_4a27_a586_fb3e20273255)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -224,9 +224,9 @@ mod Windows {
             interface IVideoCompositor: super::IMediaExtension {
                 #[get]
                 TimeIndependent: bool;
-                fn SetEncodingProperties(&self, backgroundProperties: super::MediaProperties::VideoEncodingProperties, device: super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice);
-                fn CompositeFrame(&self, context: CompositeVideoFrameContext);
-                fn Close(&self, reason: MediaEffectClosedReason);
+                fn SetEncodingProperties(&self, #[in] backgroundProperties: super::MediaProperties::VideoEncodingProperties, #[in] device: super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice);
+                fn CompositeFrame(&self, #[in] context: CompositeVideoFrameContext);
+                fn Close(&self, #[in] reason: MediaEffectClosedReason);
                 fn DiscardQueuedFrames(&self);
             }
             #[guid(0x7946b8d0_2010_4ae3_9ab2_2cef42edd4d2)]
@@ -241,8 +241,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VideoCompositorDefinition)]
             interface IVideoCompositorDefinitionFactory {
-                fn Create(&self, activatableClassId: String) -> VideoCompositorDefinition;
-                fn CreateWithProperties(&self, activatableClassId: String, props: super::super::Foundation::Collections::IPropertySet) -> VideoCompositorDefinition;
+                fn Create(&self, #[in] activatableClassId: String) -> VideoCompositorDefinition;
+                fn CreateWithProperties(&self, #[in] activatableClassId: String, #[in] props: super::super::Foundation::Collections::IPropertySet) -> VideoCompositorDefinition;
             }
             #[guid(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -256,8 +256,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VideoEffectDefinition)]
             interface IVideoEffectDefinitionFactory {
-                fn Create(&self, activatableClassId: String) -> VideoEffectDefinition;
-                fn CreateWithProperties(&self, activatableClassId: String, props: super::super::Foundation::Collections::IPropertySet) -> VideoEffectDefinition;
+                fn Create(&self, #[in] activatableClassId: String) -> VideoEffectDefinition;
+                fn CreateWithProperties(&self, #[in] activatableClassId: String, #[in] props: super::super::Foundation::Collections::IPropertySet) -> VideoEffectDefinition;
             }
             #[guid(0x9664bb6a_1ea6_4aa6_8074_abe8851ecae2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

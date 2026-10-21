@@ -28,7 +28,7 @@ mod Fixture {
         fn Inspected(&self) -> i32;
         #[must_use]
         fn Combined(&self) -> i32;
-        fn Outputs(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")] value: *mut i32);
+        fn Outputs(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")] #[out] value: *mut i32);
     }
     #[must_use]
     #[library("fixture.dll")]
@@ -45,23 +45,23 @@ mod Fixture {
     #[library("fixture.dll")]
     extern "C" fn OldVersion() -> i32;
     #[library("fixture.dll")]
-    extern "C" fn Outputs(#[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")] value: *mut i32);
+    extern "C" fn Outputs(#[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")] #[out] value: *mut i32);
     #[must_use]
     #[library("fixture.dll")]
     extern "C" fn ReadStatus() -> Status;
     #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "", Modifiers = "_Post_")]
     #[library("fixture.dll")]
     extern "C" fn Scoped() -> i32;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    #[success(return >= 0)]
     type Status = i32;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return >= 0", "return >= 0", TypedefName = "SuccessCallback")]
     #[must_use]
+    #[success(return >= 0)]
     extern fn SuccessAlias(value: i32) -> i32;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return >= 0", "return >= 0")]
     #[must_use]
+    #[success(return >= 0)]
     extern fn SuccessCallback(value: i32) -> i32;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return >= 0", "return >= 0")]
     #[must_use]
+    #[success(return >= 0)]
     #[library("fixture.dll")]
     extern "C" fn Successful() -> i32;
     #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "unexpected", "unexpected")]

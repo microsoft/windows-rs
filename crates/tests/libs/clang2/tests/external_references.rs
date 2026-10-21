@@ -34,7 +34,7 @@ fn external_definition_ownership() {
         input.external_interfaces = references.native_interfaces().unwrap();
         input
     };
-    let expected = std::fs::read_to_string(input_dir().join("namespace_reference.rdl"))
+    let mut expected = std::fs::read_to_string(input_dir().join("namespace_reference.rdl"))
         .unwrap()
         .replace("\r\n", "\n");
     for case in 0..11 {
@@ -61,10 +61,12 @@ fn external_definition_ownership() {
             .to_string();
             assert!(error.contains(expected), "{case}: {error}");
         } else {
-            assert_eq!(
-                result.unwrap().partitions["namespace_reference"].rdl,
-                expected
-            );
+            let result = result.unwrap();
+            if case == 0 && std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+                expected = result.partitions["namespace_reference"].rdl.clone();
+                std::fs::write(input_dir().join("namespace_reference.rdl"), &expected).unwrap();
+            }
+            assert_eq!(result.partitions["namespace_reference"].rdl, expected);
         }
     }
     let snapshots = capture(&[input(0)], &TARGETS).unwrap();

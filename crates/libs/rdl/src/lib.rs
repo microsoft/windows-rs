@@ -1,6 +1,8 @@
 #![doc = include_str!("../readme.md")]
 
 mod accessor;
+mod buffer_extent;
+pub use buffer_extent::write_buffer_extent;
 /// RDL source-emission primitives shared with the `windows-clang` scraper.
 pub mod emit;
 mod error;

@@ -7,19 +7,19 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(XsltProcessor)]
                 interface IXsltProcessor {
-                    fn TransformToString(&self, inputNode: super::Dom::IXmlNode) -> String;
+                    fn TransformToString(&self, #[in] inputNode: super::Dom::IXmlNode) -> String;
                 }
                 #[guid(0x8da45c56_97a5_44cb_a8be_27d86280c70a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(XsltProcessor)]
                 interface IXsltProcessor2 {
-                    fn TransformToDocument(&self, inputNode: super::Dom::IXmlNode) -> super::Dom::XmlDocument;
+                    fn TransformToDocument(&self, #[in] inputNode: super::Dom::IXmlNode) -> super::Dom::XmlDocument;
                 }
                 #[guid(0x274146c0_9a51_4663_bf30_0ef742146f20)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(XsltProcessor)]
                 interface IXsltProcessorFactory {
-                    fn CreateInstance(&self, document: super::Dom::XmlDocument) -> XsltProcessor;
+                    fn CreateInstance(&self, #[in] document: super::Dom::XmlDocument) -> XsltProcessor;
                 }
                 #[Windows::Foundation::Metadata::Activatable(IXsltProcessorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

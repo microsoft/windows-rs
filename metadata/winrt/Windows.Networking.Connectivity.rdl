@@ -184,10 +184,10 @@ mod Windows {
                 NetworkAdapter: NetworkAdapter;
                 #[Windows::Foundation::Metadata::Deprecated("GetLocalUsage may be altered or unavailable for releases after Windows 8.1. Instead, use GetNetworkUsageAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("GetLocalUsage")]
-                fn GetLocalUsage(&self, StartTime: super::super::Foundation::DateTime, EndTime: super::super::Foundation::DateTime) -> DataUsage;
+                fn GetLocalUsage(&self, #[in] StartTime: super::super::Foundation::DateTime, #[in] EndTime: super::super::Foundation::DateTime) -> DataUsage;
                 #[Windows::Foundation::Metadata::Deprecated("GetLocalUsage may be altered or unavailable for releases after Windows 8.1. Instead, use GetNetworkUsageAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("GetLocalUsagePerRoamingStates")]
-                fn GetLocalUsage(&self, StartTime: super::super::Foundation::DateTime, EndTime: super::super::Foundation::DateTime, States: RoamingStates) -> DataUsage;
+                fn GetLocalUsage(&self, #[in] StartTime: super::super::Foundation::DateTime, #[in] EndTime: super::super::Foundation::DateTime, #[in] States: RoamingStates) -> DataUsage;
                 #[get]
                 NetworkSecuritySettings: NetworkSecuritySettings;
             }
@@ -208,23 +208,23 @@ mod Windows {
                 fn GetSignalBars(&self) -> super::super::Foundation::IReference<u8>;
                 fn GetDomainConnectivityLevel(&self) -> DomainConnectivityLevel;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetNetworkUsageAsync(&self, startTime: super::super::Foundation::DateTime, endTime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>;
+                fn GetNetworkUsageAsync(&self, #[in] startTime: super::super::Foundation::DateTime, #[in] endTime: super::super::Foundation::DateTime, #[in] granularity: DataUsageGranularity, #[in] states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetConnectivityIntervalsAsync(&self, startTime: super::super::Foundation::DateTime, endTime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>;
+                fn GetConnectivityIntervalsAsync(&self, #[in] startTime: super::super::Foundation::DateTime, #[in] endTime: super::super::Foundation::DateTime, #[in] states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>;
             }
             #[guid(0x578c2528_4cd9_4161_8045_201cfd5b115c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
             interface IConnectionProfile3 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetAttributedNetworkUsageAsync(&self, startTime: super::super::Foundation::DateTime, endTime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>;
+                fn GetAttributedNetworkUsageAsync(&self, #[in] startTime: super::super::Foundation::DateTime, #[in] endTime: super::super::Foundation::DateTime, #[in] states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>;
             }
             #[guid(0x7a2d42cd_81e0_4ae6_abed_ab9ca13eb714)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
             interface IConnectionProfile4 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetProviderNetworkUsageAsync(&self, startTime: super::super::Foundation::DateTime, endTime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>;
+                fn GetProviderNetworkUsageAsync(&self, #[in] startTime: super::super::Foundation::DateTime, #[in] endTime: super::super::Foundation::DateTime, #[in] states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>;
             }
             #[guid(0x85361ec7_9c73_4be0_8f14_578eec71ee0e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
@@ -239,7 +239,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
             interface IConnectionProfile6 {
-                fn IsDomainAuthenticatedBy(&self, kind: DomainAuthenticationKind) -> bool;
+                fn IsDomainAuthenticatedBy(&self, #[in] kind: DomainAuthenticationKind) -> bool;
             }
             #[guid(0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -315,9 +315,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ConnectivityManager)]
             interface IConnectivityManagerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn AcquireConnectionAsync(&self, cellularApnContext: CellularApnContext) -> super::super::Foundation::IAsyncOperation<ConnectionSession>;
-                fn AddHttpRoutePolicy(&self, routePolicy: RoutePolicy);
-                fn RemoveHttpRoutePolicy(&self, routePolicy: RoutePolicy);
+                fn AcquireConnectionAsync(&self, #[in] cellularApnContext: CellularApnContext) -> super::super::Foundation::IAsyncOperation<ConnectionSession>;
+                fn AddHttpRoutePolicy(&self, #[in] routePolicy: RoutePolicy);
+                fn RemoveHttpRoutePolicy(&self, #[in] routePolicy: RoutePolicy);
             }
             #[guid(0x977a8b8c_3885_40f3_8851_42cd2bd568bb)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -412,8 +412,8 @@ mod Windows {
                 fn GetLanIdentifiers(&self) -> super::super::Foundation::Collections::IVectorView<LanIdentifier>;
                 fn GetHostNames(&self) -> super::super::Foundation::Collections::IVectorView<super::HostName>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetProxyConfigurationAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperation<ProxyConfiguration>;
-                fn GetSortedEndpointPairs(&self, destinationList: super::super::Foundation::Collections::IIterable<super::EndpointPair>, sortOptions: super::HostNameSortOptions) -> super::super::Foundation::Collections::IVectorView<super::EndpointPair>;
+                fn GetProxyConfigurationAsync(&self, #[in] uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperation<ProxyConfiguration>;
+                fn GetSortedEndpointPairs(&self, #[in] destinationList: super::super::Foundation::Collections::IIterable<super::EndpointPair>, #[in] sortOptions: super::HostNameSortOptions) -> super::super::Foundation::Collections::IVectorView<super::EndpointPair>;
                 event NetworkStatusChanged: NetworkStatusChangedEventHandler;
             }
             #[guid(0x459ced14_2832_49b6_ba6e_e265f04786a8)]
@@ -421,7 +421,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(NetworkInformation)]
             interface INetworkInformationStatics2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindConnectionProfilesAsync(&self, pProfileFilter: ConnectionProfileFilter) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>;
+                fn FindConnectionProfilesAsync(&self, #[in] pProfileFilter: ConnectionProfileFilter) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>;
             }
             #[guid(0x01bc4d39_f5e0_4567_a28c_42080c831b2b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -518,7 +518,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RoutePolicy)]
             interface IRoutePolicyFactory {
-                fn CreateRoutePolicy(&self, connectionProfile: ConnectionProfile, hostName: super::HostName, r#type: super::DomainNameType) -> RoutePolicy;
+                fn CreateRoutePolicy(&self, #[in] connectionProfile: ConnectionProfile, #[in] hostName: super::HostName, #[in] r#type: super::DomainNameType) -> RoutePolicy;
             }
             #[guid(0x562098cb_b35a_4bf1_a884_b7557e88ff86)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -642,7 +642,7 @@ mod Windows {
             }
             #[guid(0x71ba143f_598e_49d0_84eb_8febaedcc195)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn NetworkStatusChangedEventHandler(sender: Object);
+            delegate fn NetworkStatusChangedEventHandler(#[in] sender: Object);
             #[repr(u32)]
             #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

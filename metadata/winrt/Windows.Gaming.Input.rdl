@@ -226,7 +226,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ArcadeStick)]
             interface IArcadeStick: IGameController {
-                fn GetButtonLabel(&self, button: ArcadeStickButtons) -> GameControllerButtonLabel;
+                fn GetButtonLabel(&self, #[in] button: ArcadeStickButtons) -> GameControllerButtonLabel;
                 fn GetCurrentReading(&self) -> ArcadeStickReading;
             }
             #[guid(0x5c37b8c8_37b1_4ad8_9458_200f1a30018e)]
@@ -242,7 +242,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ArcadeStick)]
             interface IArcadeStickStatics2: IArcadeStickStatics {
-                fn FromGameController(&self, gameController: IGameController) -> ArcadeStick;
+                fn FromGameController(&self, #[in] gameController: IGameController) -> ArcadeStick;
             }
             #[guid(0xb4a2c01c_b83b_4459_a1a9_97b03c33da7c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -250,7 +250,7 @@ mod Windows {
             interface IFlightStick: IGameController {
                 #[get]
                 HatSwitchKind: GameControllerSwitchKind;
-                fn GetButtonLabel(&self, button: FlightStickButtons) -> GameControllerButtonLabel;
+                fn GetButtonLabel(&self, #[in] button: FlightStickButtons) -> GameControllerButtonLabel;
                 fn GetCurrentReading(&self) -> FlightStickReading;
             }
             #[guid(0x5514924a_fecc_435e_83dc_5cec8a18a520)]
@@ -261,7 +261,7 @@ mod Windows {
                 event FlightStickRemoved: super::super::Foundation::EventHandler<FlightStick>;
                 #[get]
                 FlightSticks: super::super::Foundation::Collections::IVectorView<FlightStick>;
-                fn FromGameController(&self, gameController: IGameController) -> FlightStick;
+                fn FromGameController(&self, #[in] gameController: IGameController) -> FlightStick;
             }
             #[guid(0x1baf6522_5f64_42c5_8267_b9fe2215bfbd)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -292,7 +292,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Gamepad)]
             interface IGamepad2: IGamepad + IGameController {
-                fn GetButtonLabel(&self, button: GamepadButtons) -> GameControllerButtonLabel;
+                fn GetButtonLabel(&self, #[in] button: GamepadButtons) -> GameControllerButtonLabel;
             }
             #[guid(0x8bbce529_d49c_39e9_9560_e47dde96b7c8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -307,7 +307,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Gamepad)]
             interface IGamepadStatics2: IGamepadStatics {
-                fn FromGameController(&self, gameController: IGameController) -> Gamepad;
+                fn FromGameController(&self, #[in] gameController: IGameController) -> Gamepad;
             }
             #[guid(0x3fd156ef_6925_3fa8_9181_029c5223ae3b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -334,7 +334,7 @@ mod Windows {
                 MaxWheelAngle: f64;
                 #[get]
                 WheelMotor: ForceFeedback::ForceFeedbackMotor;
-                fn GetButtonLabel(&self, button: RacingWheelButtons) -> GameControllerButtonLabel;
+                fn GetButtonLabel(&self, #[in] button: RacingWheelButtons) -> GameControllerButtonLabel;
                 fn GetCurrentReading(&self) -> RacingWheelReading;
             }
             #[guid(0x3ac12cd5_581b_4936_9f94_69f1e6514c7d)]
@@ -350,7 +350,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RacingWheel)]
             interface IRacingWheelStatics2: IRacingWheelStatics {
-                fn FromGameController(&self, gameController: IGameController) -> RacingWheel;
+                fn FromGameController(&self, #[in] gameController: IGameController) -> RacingWheel;
             }
             #[guid(0x7cad6d91_a7e1_4f71_9a78_33e9c5dfea62)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -368,9 +368,9 @@ mod Windows {
                 HardwareVendorId: u16;
                 #[get]
                 SwitchCount: i32;
-                fn GetButtonLabel(&self, buttonIndex: i32) -> GameControllerButtonLabel;
+                fn GetButtonLabel(&self, #[in] buttonIndex: i32) -> GameControllerButtonLabel;
                 fn GetCurrentReading(&self, #[out] buttonArray: [bool], #[out] switchArray: [GameControllerSwitchPosition], #[out] axisArray: [f64]) -> u64;
-                fn GetSwitchKind(&self, switchIndex: i32) -> GameControllerSwitchKind;
+                fn GetSwitchKind(&self, #[in] switchIndex: i32) -> GameControllerSwitchKind;
             }
             #[guid(0x43c0c035_bb73_4756_a787_3ed6bea617bd)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -391,15 +391,15 @@ mod Windows {
                 event RawGameControllerRemoved: super::super::Foundation::EventHandler<RawGameController>;
                 #[get]
                 RawGameControllers: super::super::Foundation::Collections::IVectorView<RawGameController>;
-                fn FromGameController(&self, gameController: IGameController) -> RawGameController;
+                fn FromGameController(&self, #[in] gameController: IGameController) -> RawGameController;
             }
             #[guid(0xe5aeefdd_f50e_4a55_8cdc_d33229548175)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UINavigationController)]
             interface IUINavigationController: IGameController {
                 fn GetCurrentReading(&self) -> UINavigationReading;
-                fn GetOptionalButtonLabel(&self, button: OptionalUINavigationButtons) -> GameControllerButtonLabel;
-                fn GetRequiredButtonLabel(&self, button: RequiredUINavigationButtons) -> GameControllerButtonLabel;
+                fn GetOptionalButtonLabel(&self, #[in] button: OptionalUINavigationButtons) -> GameControllerButtonLabel;
+                fn GetRequiredButtonLabel(&self, #[in] button: RequiredUINavigationButtons) -> GameControllerButtonLabel;
             }
             #[guid(0x2f14930a_f6f8_4a48_8d89_94786cca0c2e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -414,7 +414,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UINavigationController)]
             interface IUINavigationControllerStatics2: IUINavigationControllerStatics {
-                fn FromGameController(&self, gameController: IGameController) -> UINavigationController;
+                fn FromGameController(&self, #[in] gameController: IGameController) -> UINavigationController;
             }
             #[repr(u32)]
             #[flags]

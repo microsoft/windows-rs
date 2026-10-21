@@ -7,7 +7,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Radio)]
             interface IRadio {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetStateAsync(&self, value: RadioState) -> super::super::Foundation::IAsyncOperation<RadioAccessStatus>;
+                fn SetStateAsync(&self, #[in] value: RadioState) -> super::super::Foundation::IAsyncOperation<RadioAccessStatus>;
                 event StateChanged: super::super::Foundation::TypedEventHandler<Radio, Object>;
                 #[get]
                 State: RadioState;
@@ -25,7 +25,7 @@ mod Windows {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::Overload("FromIdAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Radio>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<Radio>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<RadioAccessStatus>;
             }

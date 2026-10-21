@@ -3,10 +3,10 @@ mod Windows {
     mod Win32 {
         #[guid(0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee)]
         interface ICompositionDrawingSurfaceInterop: IUnknown {
-            fn BeginDraw(&self, #[opt] updateRect: *const RECT, iid: &IID, #[out_ptr(null_on_failure)] #[iid_is] updateObject: *mut *mut void, updateOffset: *mut POINT) -> HRESULT;
+            fn BeginDraw(&self, #[in] #[opt] updateRect: *const RECT, #[in] iid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] updateObject: *mut *mut void, #[out] updateOffset: *mut POINT) -> HRESULT;
             fn EndDraw(&self) -> HRESULT;
-            fn Resize(&self, sizePixels: SIZE) -> HRESULT;
-            fn Scroll(&self, #[opt] scrollRect: *const RECT, #[opt] clipRect: *const RECT, offsetX: i32, offsetY: i32) -> HRESULT;
+            fn Resize(&self, #[in] sizePixels: SIZE) -> HRESULT;
+            fn Scroll(&self, #[in] #[opt] scrollRect: *const RECT, #[in] #[opt] clipRect: *const RECT, #[in] offsetX: i32, #[in] offsetY: i32) -> HRESULT;
             fn ResumeDraw(&self) -> HRESULT;
             fn SuspendDraw(&self) -> HRESULT;
         }

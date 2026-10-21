@@ -16,7 +16,7 @@ mod Windows {
                 interface IGeolocationProvider {
                     #[get]
                     IsOverridden: bool;
-                    fn SetOverridePosition(&self, newPosition: super::BasicGeoposition, positionSource: super::PositionSource, accuracyInMeters: f64) -> LocationOverrideStatus;
+                    fn SetOverridePosition(&self, #[in] newPosition: super::BasicGeoposition, #[in] positionSource: super::PositionSource, #[in] accuracyInMeters: f64) -> LocationOverrideStatus;
                     fn ClearOverridePosition(&self);
                     event IsOverriddenChanged: super::super::super::Foundation::EventHandler<Object>;
                 }

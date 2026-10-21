@@ -176,16 +176,16 @@ mod Windows {
                 interface ICertificate {
                     #[Windows::Foundation::Metadata::Overload("BuildChainAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn BuildChainAsync(&self, certificates: super::super::super::Foundation::Collections::IIterable<Certificate>) -> super::super::super::Foundation::IAsyncOperation<CertificateChain>;
+                    fn BuildChainAsync(&self, #[in] certificates: super::super::super::Foundation::Collections::IIterable<Certificate>) -> super::super::super::Foundation::IAsyncOperation<CertificateChain>;
                     #[Windows::Foundation::Metadata::Overload("BuildChainWithParametersAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn BuildChainAsync(&self, certificates: super::super::super::Foundation::Collections::IIterable<Certificate>, parameters: ChainBuildingParameters) -> super::super::super::Foundation::IAsyncOperation<CertificateChain>;
+                    fn BuildChainAsync(&self, #[in] certificates: super::super::super::Foundation::Collections::IIterable<Certificate>, #[in] parameters: ChainBuildingParameters) -> super::super::super::Foundation::IAsyncOperation<CertificateChain>;
                     #[get]
                     SerialNumber: [u8];
                     #[Windows::Foundation::Metadata::Overload("GetHashValue")]
                     fn GetHashValue(&self) -> [u8];
                     #[Windows::Foundation::Metadata::Overload("GetHashValueWithAlgorithm")]
-                    fn GetHashValue(&self, hashAlgorithmName: String) -> [u8];
+                    fn GetHashValue(&self, #[in] hashAlgorithmName: String) -> [u8];
                     fn GetCertificateBlob(&self) -> super::super::super::Storage::Streams::IBuffer;
                     #[get]
                     Subject: String;
@@ -241,20 +241,20 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Overload("Validate")]
                     fn Validate(&self) -> ChainValidationResult;
                     #[Windows::Foundation::Metadata::Overload("ValidateWithParameters")]
-                    fn Validate(&self, parameter: ChainValidationParameters) -> ChainValidationResult;
-                    fn GetCertificates(&self, includeRoot: bool) -> super::super::super::Foundation::Collections::IVectorView<Certificate>;
+                    fn Validate(&self, #[in] parameter: ChainValidationParameters) -> ChainValidationResult;
+                    fn GetCertificates(&self, #[in] includeRoot: bool) -> super::super::super::Foundation::Collections::IVectorView<Certificate>;
                 }
                 #[guid(0x8846ef3f_a986_48fb_9fd7_9aec06935bf1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CertificateEnrollmentManager)]
                 interface ICertificateEnrollmentManagerStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateRequestAsync(&self, request: CertificateRequestProperties) -> super::super::super::Foundation::IAsyncOperation<String>;
+                    fn CreateRequestAsync(&self, #[in] request: CertificateRequestProperties) -> super::super::super::Foundation::IAsyncOperation<String>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn InstallCertificateAsync(&self, certificate: String, installOption: InstallOptions) -> super::super::super::Foundation::IAsyncAction;
+                    fn InstallCertificateAsync(&self, #[in] certificate: String, #[in] installOption: InstallOptions) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("ImportPfxDataAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ImportPfxDataAsync(&self, pfxData: String, password: String, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn ImportPfxDataAsync(&self, #[in] pfxData: String, #[in] password: String, #[in] exportable: ExportOption, #[in] keyProtectionLevel: KeyProtectionLevel, #[in] installOption: InstallOptions, #[in] friendlyName: String) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xdc5b1c33_6429_4014_999c_5d9735802d1d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -264,7 +264,7 @@ mod Windows {
                     UserCertificateEnrollmentManager: UserCertificateEnrollmentManager;
                     #[Windows::Foundation::Metadata::Overload("ImportPfxDataToKspAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ImportPfxDataAsync(&self, pfxData: String, password: String, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: String, keyStorageProvider: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn ImportPfxDataAsync(&self, #[in] pfxData: String, #[in] password: String, #[in] exportable: ExportOption, #[in] keyProtectionLevel: KeyProtectionLevel, #[in] installOption: InstallOptions, #[in] friendlyName: String, #[in] keyStorageProvider: String) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xfdec82be_617c_425a_b72d_398b26ac7264)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -272,7 +272,7 @@ mod Windows {
                 interface ICertificateEnrollmentManagerStatics3 {
                     #[Windows::Foundation::Metadata::Overload("ImportPfxDataToKspWithParametersAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ImportPfxDataAsync(&self, pfxData: String, password: String, pfxImportParameters: PfxImportParameters) -> super::super::super::Foundation::IAsyncAction;
+                    fn ImportPfxDataAsync(&self, #[in] pfxData: String, #[in] password: String, #[in] pfxImportParameters: PfxImportParameters) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x84cf0656_a9e6_454d_8e45_2ea7c4bcd53b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -280,14 +280,14 @@ mod Windows {
                 interface ICertificateExtension {
                     ObjectId: String;
                     IsCritical: bool;
-                    fn EncodeValue(&self, value: String);
+                    fn EncodeValue(&self, #[in] value: String);
                     Value: [u8];
                 }
                 #[guid(0x17b4221c_4baf_44a2_9608_04fb62b16942)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Certificate)]
                 interface ICertificateFactory {
-                    fn CreateCertificate(&self, certBlob: super::super::super::Storage::Streams::IBuffer) -> Certificate;
+                    fn CreateCertificate(&self, #[in] certBlob: super::super::super::Storage::Streams::IBuffer) -> Certificate;
                 }
                 #[guid(0x6ac6206f_e1cf_486a_b485_a69c83e46fd1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -368,8 +368,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CertificateStore)]
                 interface ICertificateStore {
-                    fn Add(&self, certificate: Certificate);
-                    fn Delete(&self, certificate: Certificate);
+                    fn Add(&self, #[in] certificate: Certificate);
+                    fn Delete(&self, #[in] certificate: Certificate);
                 }
                 #[guid(0xc7e68e4a_417d_4d1a_babd_15687e549974)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -387,18 +387,18 @@ mod Windows {
                     fn FindAllAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>;
                     #[Windows::Foundation::Metadata::Overload("FindAllWithQueryAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn FindAllAsync(&self, query: CertificateQuery) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>;
+                    fn FindAllAsync(&self, #[in] query: CertificateQuery) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>;
                     #[get]
                     TrustedRootCertificationAuthorities: CertificateStore;
                     #[get]
                     IntermediateCertificationAuthorities: CertificateStore;
-                    fn GetStoreByName(&self, storeName: String) -> CertificateStore;
+                    fn GetStoreByName(&self, #[in] storeName: String) -> CertificateStore;
                 }
                 #[guid(0xfa900b79_a0d4_4b8c_bc55_c0a37eb141ed)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CertificateStores)]
                 interface ICertificateStoresStatics2 {
-                    fn GetUserStoreByName(&self, storeName: String) -> UserCertificateStore;
+                    fn GetUserStoreByName(&self, #[in] storeName: String) -> UserCertificateStore;
                 }
                 #[guid(0x422ba922_7c8d_47b7_b59b_b12703733ac3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -437,14 +437,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CmsAttachedSignature)]
                 interface ICmsAttachedSignatureFactory {
-                    fn CreateCmsAttachedSignature(&self, inputBlob: super::super::super::Storage::Streams::IBuffer) -> CmsAttachedSignature;
+                    fn CreateCmsAttachedSignature(&self, #[in] inputBlob: super::super::super::Storage::Streams::IBuffer) -> CmsAttachedSignature;
                 }
                 #[guid(0x87989c8e_b0ad_498d_a7f5_78b59bce4b36)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CmsAttachedSignature)]
                 interface ICmsAttachedSignatureStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GenerateSignatureAsync(&self, data: super::super::super::Storage::Streams::IBuffer, signers: super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>, certificates: super::super::super::Foundation::Collections::IIterable<Certificate>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
+                    fn GenerateSignatureAsync(&self, #[in] data: super::super::super::Storage::Streams::IBuffer, #[in] signers: super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>, #[in] certificates: super::super::super::Foundation::Collections::IIterable<Certificate>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
                 }
                 #[guid(0x0f1ef154_f65e_4536_8339_5944081db2ca)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -455,20 +455,20 @@ mod Windows {
                     #[get]
                     Signers: super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn VerifySignatureAsync(&self, data: super::super::super::Storage::Streams::IInputStream) -> super::super::super::Foundation::IAsyncOperation<SignatureValidationResult>;
+                    fn VerifySignatureAsync(&self, #[in] data: super::super::super::Storage::Streams::IInputStream) -> super::super::super::Foundation::IAsyncOperation<SignatureValidationResult>;
                 }
                 #[guid(0xc4ab3503_ae7f_4387_ad19_00f150e48ebb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CmsDetachedSignature)]
                 interface ICmsDetachedSignatureFactory {
-                    fn CreateCmsDetachedSignature(&self, inputBlob: super::super::super::Storage::Streams::IBuffer) -> CmsDetachedSignature;
+                    fn CreateCmsDetachedSignature(&self, #[in] inputBlob: super::super::super::Storage::Streams::IBuffer) -> CmsDetachedSignature;
                 }
                 #[guid(0x3d114cfd_bf9b_4682_9be6_91f57c053808)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CmsDetachedSignature)]
                 interface ICmsDetachedSignatureStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GenerateSignatureAsync(&self, data: super::super::super::Storage::Streams::IInputStream, signers: super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>, certificates: super::super::super::Foundation::Collections::IIterable<Certificate>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
+                    fn GenerateSignatureAsync(&self, #[in] data: super::super::super::Storage::Streams::IInputStream, #[in] signers: super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>, #[in] certificates: super::super::super::Foundation::Collections::IIterable<Certificate>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
                 }
                 #[guid(0x50d020db_1d2f_4c1a_b5c5_d0188ff91f47)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -526,8 +526,8 @@ mod Windows {
                 interface IKeyAttestationHelperStatics {
                     #[Windows::Foundation::Metadata::Overload("DecryptTpmAttestationCredentialAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn DecryptTpmAttestationCredentialAsync(&self, credential: String) -> super::super::super::Foundation::IAsyncOperation<String>;
-                    fn GetTpmAttestationCredentialId(&self, credential: String) -> String;
+                    fn DecryptTpmAttestationCredentialAsync(&self, #[in] credential: String) -> super::super::super::Foundation::IAsyncOperation<String>;
+                    fn GetTpmAttestationCredentialId(&self, #[in] credential: String) -> String;
                 }
                 #[guid(0x9c590b2c_a6c6_4a5e_9e64_e85d5279df97)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -535,7 +535,7 @@ mod Windows {
                 interface IKeyAttestationHelperStatics2 {
                     #[Windows::Foundation::Metadata::Overload("DecryptTpmAttestationCredentialWithContainerNameAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn DecryptTpmAttestationCredentialAsync(&self, credential: String, containerName: String) -> super::super::super::Foundation::IAsyncOperation<String>;
+                    fn DecryptTpmAttestationCredentialAsync(&self, #[in] credential: String, #[in] containerName: String) -> super::super::super::Foundation::IAsyncOperation<String>;
                 }
                 #[guid(0xaf186ae0_5529_4602_bd94_0aab91957b5c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -619,15 +619,15 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(UserCertificateEnrollmentManager)]
                 interface IUserCertificateEnrollmentManager {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateRequestAsync(&self, request: CertificateRequestProperties) -> super::super::super::Foundation::IAsyncOperation<String>;
+                    fn CreateRequestAsync(&self, #[in] request: CertificateRequestProperties) -> super::super::super::Foundation::IAsyncOperation<String>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn InstallCertificateAsync(&self, certificate: String, installOption: InstallOptions) -> super::super::super::Foundation::IAsyncAction;
+                    fn InstallCertificateAsync(&self, #[in] certificate: String, #[in] installOption: InstallOptions) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("ImportPfxDataAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ImportPfxDataAsync(&self, pfxData: String, password: String, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn ImportPfxDataAsync(&self, #[in] pfxData: String, #[in] password: String, #[in] exportable: ExportOption, #[in] keyProtectionLevel: KeyProtectionLevel, #[in] installOption: InstallOptions, #[in] friendlyName: String) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("ImportPfxDataToKspAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ImportPfxDataAsync(&self, pfxData: String, password: String, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: String, keyStorageProvider: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn ImportPfxDataAsync(&self, #[in] pfxData: String, #[in] password: String, #[in] exportable: ExportOption, #[in] keyProtectionLevel: KeyProtectionLevel, #[in] installOption: InstallOptions, #[in] friendlyName: String, #[in] keyStorageProvider: String) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x0dad9cb1_65de_492a_b86d_fc5c482c3747)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -635,16 +635,16 @@ mod Windows {
                 interface IUserCertificateEnrollmentManager2 {
                     #[Windows::Foundation::Metadata::Overload("ImportPfxDataToKspWithParametersAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ImportPfxDataAsync(&self, pfxData: String, password: String, pfxImportParameters: PfxImportParameters) -> super::super::super::Foundation::IAsyncAction;
+                    fn ImportPfxDataAsync(&self, #[in] pfxData: String, #[in] password: String, #[in] pfxImportParameters: PfxImportParameters) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xc9fb1d83_789f_4b4e_9180_045a757aac6d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(UserCertificateStore)]
                 interface IUserCertificateStore {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RequestAddAsync(&self, certificate: Certificate) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    fn RequestAddAsync(&self, #[in] certificate: Certificate) -> super::super::super::Foundation::IAsyncOperation<bool>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RequestDeleteAsync(&self, certificate: Certificate) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    fn RequestDeleteAsync(&self, #[in] certificate: Certificate) -> super::super::super::Foundation::IAsyncOperation<bool>;
                     #[get]
                     Name: String;
                 }

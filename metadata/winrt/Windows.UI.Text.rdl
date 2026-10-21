@@ -150,9 +150,9 @@ mod Windows {
                 TextScript: TextScript;
                 Underline: UnderlineType;
                 Weight: i32;
-                fn SetClone(&self, value: ITextCharacterFormat);
+                fn SetClone(&self, #[in] value: ITextCharacterFormat);
                 fn GetClone(&self) -> ITextCharacterFormat;
-                fn IsEqual(&self, format: ITextCharacterFormat) -> bool;
+                fn IsEqual(&self, #[in] format: ITextCharacterFormat) -> bool;
             }
             #[guid(0x779e7c33_189d_4bfa_97c8_10db135d976e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -195,15 +195,15 @@ mod Windows {
                 fn EndUndoGroup(&self);
                 fn GetDefaultCharacterFormat(&self) -> ITextCharacterFormat;
                 fn GetDefaultParagraphFormat(&self) -> ITextParagraphFormat;
-                fn GetRange(&self, startPosition: i32, endPosition: i32) -> ITextRange;
-                fn GetRangeFromPoint(&self, point: super::super::Foundation::Point, options: PointOptions) -> ITextRange;
-                fn GetText(&self, options: TextGetOptions, value: &mut String);
-                fn LoadFromStream(&self, options: TextSetOptions, value: super::super::Storage::Streams::IRandomAccessStream);
+                fn GetRange(&self, #[in] startPosition: i32, #[in] endPosition: i32) -> ITextRange;
+                fn GetRangeFromPoint(&self, #[in] point: super::super::Foundation::Point, #[in] options: PointOptions) -> ITextRange;
+                fn GetText(&self, #[in] options: TextGetOptions, #[out] value: &mut String);
+                fn LoadFromStream(&self, #[in] options: TextSetOptions, #[in] value: super::super::Storage::Streams::IRandomAccessStream);
                 fn Redo(&self);
-                fn SaveToStream(&self, options: TextGetOptions, value: super::super::Storage::Streams::IRandomAccessStream);
-                fn SetDefaultCharacterFormat(&self, value: ITextCharacterFormat);
-                fn SetDefaultParagraphFormat(&self, value: ITextParagraphFormat);
-                fn SetText(&self, options: TextSetOptions, value: String);
+                fn SaveToStream(&self, #[in] options: TextGetOptions, #[in] value: super::super::Storage::Streams::IRandomAccessStream);
+                fn SetDefaultCharacterFormat(&self, #[in] value: ITextCharacterFormat);
+                fn SetDefaultParagraphFormat(&self, #[in] value: ITextParagraphFormat);
+                fn SetText(&self, #[in] options: TextSetOptions, #[in] value: String);
                 fn Undo(&self);
             }
             #[guid(0xf2311112_8c89_49c9_9118_f057cbb814ee)]
@@ -226,9 +226,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextDocument)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ITextDocument4 {
-                fn SetMath(&self, value: String);
-                fn GetMath(&self, value: &mut String);
-                fn SetMathMode(&self, mode: RichEditMathMode);
+                fn SetMath(&self, #[in] value: String);
+                fn GetMath(&self, #[out] value: &mut String);
+                fn SetMathMode(&self, #[in] mode: RichEditMathMode);
             }
             #[guid(0x2cf8cfa6_4676_498a_93f5_bbdbfc0bd883)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -261,15 +261,15 @@ mod Windows {
                 WidowControl: FormatEffect;
                 #[get]
                 TabCount: i32;
-                fn AddTab(&self, position: f32, align: TabAlignment, leader: TabLeader);
+                fn AddTab(&self, #[in] position: f32, #[in] align: TabAlignment, #[in] leader: TabLeader);
                 fn ClearAllTabs(&self);
-                fn DeleteTab(&self, position: f32);
+                fn DeleteTab(&self, #[in] position: f32);
                 fn GetClone(&self) -> ITextParagraphFormat;
-                fn GetTab(&self, index: i32, position: &mut f32, align: &mut TabAlignment, leader: &mut TabLeader);
-                fn IsEqual(&self, format: ITextParagraphFormat) -> bool;
-                fn SetClone(&self, format: ITextParagraphFormat);
-                fn SetIndents(&self, start: f32, left: f32, right: f32);
-                fn SetLineSpacing(&self, rule: LineSpacingRule, spacing: f32);
+                fn GetTab(&self, #[in] index: i32, #[out] position: &mut f32, #[out] align: &mut TabAlignment, #[out] leader: &mut TabLeader);
+                fn IsEqual(&self, #[in] format: ITextParagraphFormat) -> bool;
+                fn SetClone(&self, #[in] format: ITextParagraphFormat);
+                fn SetIndents(&self, #[in] start: f32, #[in] left: f32, #[in] right: f32);
+                fn SetLineSpacing(&self, #[in] rule: LineSpacingRule, #[in] spacing: f32);
             }
             #[guid(0x5b9e4e57_c072_42a0_8945_af503ee54768)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -288,38 +288,38 @@ mod Windows {
                 #[get]
                 StoryLength: i32;
                 Text: String;
-                fn CanPaste(&self, format: i32) -> bool;
-                fn ChangeCase(&self, value: LetterCase);
-                fn Collapse(&self, value: bool);
+                fn CanPaste(&self, #[in] format: i32) -> bool;
+                fn ChangeCase(&self, #[in] value: LetterCase);
+                fn Collapse(&self, #[in] value: bool);
                 fn Copy(&self);
                 fn Cut(&self);
-                fn Delete(&self, unit: TextRangeUnit, count: i32) -> i32;
-                fn EndOf(&self, unit: TextRangeUnit, extend: bool) -> i32;
-                fn Expand(&self, unit: TextRangeUnit) -> i32;
-                fn FindText(&self, value: String, scanLength: i32, options: FindOptions) -> i32;
-                fn GetCharacterUtf32(&self, value: &mut u32, offset: i32);
+                fn Delete(&self, #[in] unit: TextRangeUnit, #[in] count: i32) -> i32;
+                fn EndOf(&self, #[in] unit: TextRangeUnit, #[in] extend: bool) -> i32;
+                fn Expand(&self, #[in] unit: TextRangeUnit) -> i32;
+                fn FindText(&self, #[in] value: String, #[in] scanLength: i32, #[in] options: FindOptions) -> i32;
+                fn GetCharacterUtf32(&self, #[out] value: &mut u32, #[in] offset: i32);
                 fn GetClone(&self) -> ITextRange;
-                fn GetIndex(&self, unit: TextRangeUnit) -> i32;
-                fn GetPoint(&self, horizontalAlign: HorizontalCharacterAlignment, verticalAlign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point);
-                fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32);
-                fn GetText(&self, options: TextGetOptions, value: &mut String);
-                fn GetTextViaStream(&self, options: TextGetOptions, value: super::super::Storage::Streams::IRandomAccessStream);
-                fn InRange(&self, range: ITextRange) -> bool;
-                fn InsertImage(&self, width: i32, height: i32, ascent: i32, verticalAlign: VerticalCharacterAlignment, alternateText: String, value: super::super::Storage::Streams::IRandomAccessStream);
-                fn InStory(&self, range: ITextRange) -> bool;
-                fn IsEqual(&self, range: ITextRange) -> bool;
-                fn Move(&self, unit: TextRangeUnit, count: i32) -> i32;
-                fn MoveEnd(&self, unit: TextRangeUnit, count: i32) -> i32;
-                fn MoveStart(&self, unit: TextRangeUnit, count: i32) -> i32;
-                fn Paste(&self, format: i32);
-                fn ScrollIntoView(&self, value: PointOptions);
+                fn GetIndex(&self, #[in] unit: TextRangeUnit) -> i32;
+                fn GetPoint(&self, #[in] horizontalAlign: HorizontalCharacterAlignment, #[in] verticalAlign: VerticalCharacterAlignment, #[in] options: PointOptions, #[out] point: &mut super::super::Foundation::Point);
+                fn GetRect(&self, #[in] options: PointOptions, #[out] rect: &mut super::super::Foundation::Rect, #[out] hit: &mut i32);
+                fn GetText(&self, #[in] options: TextGetOptions, #[out] value: &mut String);
+                fn GetTextViaStream(&self, #[in] options: TextGetOptions, #[in] value: super::super::Storage::Streams::IRandomAccessStream);
+                fn InRange(&self, #[in] range: ITextRange) -> bool;
+                fn InsertImage(&self, #[in] width: i32, #[in] height: i32, #[in] ascent: i32, #[in] verticalAlign: VerticalCharacterAlignment, #[in] alternateText: String, #[in] value: super::super::Storage::Streams::IRandomAccessStream);
+                fn InStory(&self, #[in] range: ITextRange) -> bool;
+                fn IsEqual(&self, #[in] range: ITextRange) -> bool;
+                fn Move(&self, #[in] unit: TextRangeUnit, #[in] count: i32) -> i32;
+                fn MoveEnd(&self, #[in] unit: TextRangeUnit, #[in] count: i32) -> i32;
+                fn MoveStart(&self, #[in] unit: TextRangeUnit, #[in] count: i32) -> i32;
+                fn Paste(&self, #[in] format: i32);
+                fn ScrollIntoView(&self, #[in] value: PointOptions);
                 fn MatchSelection(&self);
-                fn SetIndex(&self, unit: TextRangeUnit, index: i32, extend: bool);
-                fn SetPoint(&self, point: super::super::Foundation::Point, options: PointOptions, extend: bool);
-                fn SetRange(&self, startPosition: i32, endPosition: i32);
-                fn SetText(&self, options: TextSetOptions, value: String);
-                fn SetTextViaStream(&self, options: TextSetOptions, value: super::super::Storage::Streams::IRandomAccessStream);
-                fn StartOf(&self, unit: TextRangeUnit, extend: bool) -> i32;
+                fn SetIndex(&self, #[in] unit: TextRangeUnit, #[in] index: i32, #[in] extend: bool);
+                fn SetPoint(&self, #[in] point: super::super::Foundation::Point, #[in] options: PointOptions, #[in] extend: bool);
+                fn SetRange(&self, #[in] startPosition: i32, #[in] endPosition: i32);
+                fn SetText(&self, #[in] options: TextSetOptions, #[in] value: String);
+                fn SetTextViaStream(&self, #[in] options: TextSetOptions, #[in] value: super::super::Storage::Streams::IRandomAccessStream);
+                fn StartOf(&self, #[in] unit: TextRangeUnit, #[in] extend: bool) -> i32;
             }
             #[guid(0xa6d36724_f28f_430a_b2cf_c343671ec0e9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -328,13 +328,13 @@ mod Windows {
                 Options: SelectionOptions;
                 #[get]
                 Type: SelectionType;
-                fn EndKey(&self, unit: TextRangeUnit, extend: bool) -> i32;
-                fn HomeKey(&self, unit: TextRangeUnit, extend: bool) -> i32;
-                fn MoveDown(&self, unit: TextRangeUnit, count: i32, extend: bool) -> i32;
-                fn MoveLeft(&self, unit: TextRangeUnit, count: i32, extend: bool) -> i32;
-                fn MoveRight(&self, unit: TextRangeUnit, count: i32, extend: bool) -> i32;
-                fn MoveUp(&self, unit: TextRangeUnit, count: i32, extend: bool) -> i32;
-                fn TypeText(&self, value: String);
+                fn EndKey(&self, #[in] unit: TextRangeUnit, #[in] extend: bool) -> i32;
+                fn HomeKey(&self, #[in] unit: TextRangeUnit, #[in] extend: bool) -> i32;
+                fn MoveDown(&self, #[in] unit: TextRangeUnit, #[in] count: i32, #[in] extend: bool) -> i32;
+                fn MoveLeft(&self, #[in] unit: TextRangeUnit, #[in] count: i32, #[in] extend: bool) -> i32;
+                fn MoveRight(&self, #[in] unit: TextRangeUnit, #[in] count: i32, #[in] extend: bool) -> i32;
+                fn MoveUp(&self, #[in] unit: TextRangeUnit, #[in] count: i32, #[in] extend: bool) -> i32;
+                fn TypeText(&self, #[in] value: String);
             }
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

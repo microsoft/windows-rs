@@ -6,5 +6,5 @@ mod CanonicalStringTypedef {
     type LPSTR = *mut i8;
     type LPTSTR = LPSTR;
     #[library("api.dll")]
-    extern "C" fn ReadText(text: *const i8);
+    extern "C" fn ReadText(#[in] text: *const i8);
 }

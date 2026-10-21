@@ -5,30 +5,30 @@ mod Test {
 
     interface Interface {
         fn OutFixed(&self, #[out] #[len_const(4)] buffer: *mut u32) -> i32;
-        fn OutLen(&self, count: u32, #[out] #[len_param(0)] buffer: *mut u32) -> i32;
-        fn OutOpt(&self, count: u32, #[opt] #[out] #[len_param(0)] buffer: *mut u32) -> i32;
-        fn OutBytes(&self, size: u32, #[out] #[size_param(0)] buffer: *mut u8) -> i32;
+        fn OutLen(&self, #[in] count: u32, #[out] #[len_param(0)] buffer: *mut u32) -> i32;
+        fn OutOpt(&self, #[in] count: u32, #[opt] #[out] #[len_param(0)] buffer: *mut u32) -> i32;
+        fn OutBytes(&self, #[in] size: u32, #[out] #[size_param(0)] buffer: *mut u8) -> i32;
         fn OutInterfaces(
             &self,
-            count: u32,
+            #[in] count: u32,
             #[out] #[len_param(0)] values: *mut Object,
         ) -> i32;
         fn InOutLen(
             &self,
-            count: u32,
+            #[in] count: u32,
             #[in] #[out] #[len_param(0)] buffer: *mut u32,
         ) -> i32;
         fn SharedCount(
             &self,
-            count: u32,
+            #[in] count: u32,
             #[in] #[len_param(0)] input: *const u32,
             #[out] #[len_param(0)] output: *mut u32,
         ) -> i32;
-        fn InLen(&self, count: u32, #[in] #[len_param(0)] buffer: *const u32) -> i32;
-        fn InSignedLen(&self, count: i32, #[in] #[len_param(0)] buffer: *const u32) -> i32;
+        fn InLen(&self, #[in] count: u32, #[in] #[len_param(0)] buffer: *const u32) -> i32;
+        fn InSignedLen(&self, #[in] count: i32, #[in] #[len_param(0)] buffer: *const u32) -> i32;
         fn InOptionalSignedLen(
             &self,
-            count: i32,
+            #[in] count: i32,
             #[opt] #[in] #[len_param(0)] buffer: *const u32,
         ) -> i32;
     }

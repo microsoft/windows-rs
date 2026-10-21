@@ -51,20 +51,7 @@ fn remapper_routes_attribute_type_values() {
     let output = dir.join("output.winmd");
     windows_rdl::reader()
         .input_text(
-            "#[win32] mod Flat {
-                attribute MemberAttribute {
-                    fn(ty: Type);
-                    MemberType: Type,
-                }
-                #[repr(i32)]
-                enum Mode { A = 0 }
-                struct Bits {
-                    #[Member(Mode, MemberType = Mode)]
-                    named: u32,
-                    #[Member(i32, MemberType = i32)]
-                    primitive: u32,
-                }
-            }",
+            "#[win32] mod Flat {\n                attribute MemberAttribute {\n                    fn(#[in] ty: Type);\n                    MemberType: Type,\n                }\n                #[repr(i32)]\n                enum Mode { A = 0 }\n                struct Bits {\n                    #[Member(Mode, MemberType = Mode)]\n                    named: u32,\n                    #[Member(i32, MemberType = i32)]\n                    primitive: u32,\n                }\n            }",
         )
         .output(&input)
         .write()

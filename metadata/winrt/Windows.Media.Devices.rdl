@@ -79,7 +79,7 @@ mod Windows {
             struct CallControlContract {}
             #[guid(0x596f759f_50df_4454_bc63_4d3d01b61958)]
             #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
-            delegate fn CallControlEventHandler(sender: CallControl);
+            delegate fn CallControlEventHandler(#[in] sender: CallControl);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -165,7 +165,7 @@ mod Windows {
             }
             #[guid(0x5abbffdb_c21f_4bc4_891b_257e28c1b1a4)]
             #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
-            delegate fn DialRequestedEventHandler(sender: CallControl, e: DialRequestedEventArgs);
+            delegate fn DialRequestedEventHandler(#[in] sender: CallControl, #[in] e: DialRequestedEventArgs);
             #[Windows::Foundation::Metadata::Activatable(786432, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -283,14 +283,14 @@ mod Windows {
                 SupportedModes: super::super::Foundation::Collections::IVectorView<AdvancedPhotoMode>;
                 #[get]
                 Mode: AdvancedPhotoMode;
-                fn Configure(&self, settings: AdvancedPhotoCaptureSettings);
+                fn Configure(&self, #[in] settings: AdvancedPhotoCaptureSettings);
             }
             #[guid(0xde6ff4d3_2b96_4583_80ab_b5b01dc6a8d7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
             interface IAdvancedVideoCaptureDeviceController {
-                fn SetDeviceProperty(&self, propertyId: String, #[Windows::Foundation::Metadata::Variant] propertyValue: Object);
-                fn GetDeviceProperty(&self, propertyId: String) -> #[Windows::Foundation::Metadata::Variant] Object;
+                fn SetDeviceProperty(&self, #[in] propertyId: String, #[in] #[Windows::Foundation::Metadata::Variant] propertyValue: Object);
+                fn GetDeviceProperty(&self, #[in] propertyId: String) -> #[Windows::Foundation::Metadata::Variant] Object;
             }
             #[guid(0xc621b82d_d6f0_5c1b_a388_a6e938407146)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
@@ -303,7 +303,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
             interface IAdvancedVideoCaptureDeviceController11 {
-                fn TryAcquireExclusiveControl(&self, deviceId: String, mode: super::Capture::MediaCaptureDeviceExclusiveControlReleaseMode) -> bool;
+                fn TryAcquireExclusiveControl(&self, #[in] deviceId: String, #[in] mode: super::Capture::MediaCaptureDeviceExclusiveControlReleaseMode) -> bool;
             }
             #[guid(0x8bb94f8f_f11a_43db_b402_11930b80ae56)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -364,10 +364,10 @@ mod Windows {
             interface IAdvancedVideoCaptureDeviceController5 {
                 #[get]
                 Id: String;
-                fn GetDevicePropertyById(&self, propertyId: String, maxPropertyValueSize: super::super::Foundation::IReference<u32>) -> VideoDeviceControllerGetDevicePropertyResult;
-                fn SetDevicePropertyById(&self, propertyId: String, #[Windows::Foundation::Metadata::Variant] propertyValue: Object) -> VideoDeviceControllerSetDevicePropertyStatus;
-                fn GetDevicePropertyByExtendedId(&self, extendedPropertyId: [u8], maxPropertyValueSize: super::super::Foundation::IReference<u32>) -> VideoDeviceControllerGetDevicePropertyResult;
-                fn SetDevicePropertyByExtendedId(&self, extendedPropertyId: [u8], propertyValue: [u8]) -> VideoDeviceControllerSetDevicePropertyStatus;
+                fn GetDevicePropertyById(&self, #[in] propertyId: String, #[in] maxPropertyValueSize: super::super::Foundation::IReference<u32>) -> VideoDeviceControllerGetDevicePropertyResult;
+                fn SetDevicePropertyById(&self, #[in] propertyId: String, #[in] #[Windows::Foundation::Metadata::Variant] propertyValue: Object) -> VideoDeviceControllerSetDevicePropertyStatus;
+                fn GetDevicePropertyByExtendedId(&self, #[in] extendedPropertyId: [u8], #[in] maxPropertyValueSize: super::super::Foundation::IReference<u32>) -> VideoDeviceControllerGetDevicePropertyResult;
+                fn SetDevicePropertyByExtendedId(&self, #[in] extendedPropertyId: [u8], #[in] propertyValue: [u8]) -> VideoDeviceControllerSetDevicePropertyStatus;
             }
             #[guid(0xb6563a53_68a1_44b7_9f89_b5fa97ac0cbe)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -432,7 +432,7 @@ mod Windows {
                 #[get]
                 MinorVersion: u32;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SendCommandAsync(&self, Command: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<ModuleCommandResult>;
+                fn SendCommandAsync(&self, #[in] Command: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<ModuleCommandResult>;
             }
             #[guid(0xe3e3ccaf_224c_48be_956b_9a13134e96e8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -448,23 +448,23 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(AudioDeviceModulesManager)]
             interface IAudioDeviceModulesManager {
                 event ModuleNotificationReceived: super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>;
-                fn FindAllById(&self, moduleId: String) -> super::super::Foundation::Collections::IVectorView<AudioDeviceModule>;
+                fn FindAllById(&self, #[in] moduleId: String) -> super::super::Foundation::Collections::IVectorView<AudioDeviceModule>;
                 fn FindAll(&self) -> super::super::Foundation::Collections::IVectorView<AudioDeviceModule>;
             }
             #[guid(0x8db03670_e64d_4773_96c0_bc7ebf0e063f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AudioDeviceModulesManager)]
             interface IAudioDeviceModulesManagerFactory {
-                fn Create(&self, deviceId: String) -> AudioDeviceModulesManager;
+                fn Create(&self, #[in] deviceId: String) -> AudioDeviceModulesManager;
             }
             #[guid(0xa520d0d6_ae8d_45db_8011_ca49d3b3e578)]
             #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CallControl)]
             interface ICallControl {
-                fn IndicateNewIncomingCall(&self, enableRinger: bool, callerId: String) -> u64;
+                fn IndicateNewIncomingCall(&self, #[in] enableRinger: bool, #[in] callerId: String) -> u64;
                 fn IndicateNewOutgoingCall(&self) -> u64;
-                fn IndicateActiveCall(&self, callToken: u64);
-                fn EndCall(&self, callToken: u64);
+                fn IndicateActiveCall(&self, #[in] callToken: u64);
+                fn EndCall(&self, #[in] callToken: u64);
                 #[get]
                 HasRinger: bool;
                 event AnswerRequested: CallControlEventHandler;
@@ -479,14 +479,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(CallControl)]
             interface ICallControlStatics {
                 fn GetDefault(&self) -> CallControl;
-                fn FromId(&self, deviceId: String) -> CallControl;
+                fn FromId(&self, #[in] deviceId: String) -> CallControl;
             }
             #[guid(0xaf6c4ad0_a84d_5db6_be58_a5da21cfe011)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CameraOcclusionInfo)]
             interface ICameraOcclusionInfo {
                 fn GetState(&self) -> CameraOcclusionState;
-                fn IsOcclusionKindSupported(&self, occlusionKind: CameraOcclusionKind) -> bool;
+                fn IsOcclusionKindSupported(&self, #[in] occlusionKind: CameraOcclusionKind) -> bool;
                 event StateChanged: super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>;
             }
             #[guid(0x430adeb8_6842_5e55_9bde_04b4ef3a8a57)]
@@ -495,7 +495,7 @@ mod Windows {
             interface ICameraOcclusionState {
                 #[get]
                 IsOccluded: bool;
-                fn IsOcclusionKind(&self, occlusionKind: CameraOcclusionKind) -> bool;
+                fn IsOcclusionKind(&self, #[in] occlusionKind: CameraOcclusionKind) -> bool;
             }
             #[guid(0x8512d848_c0de_57ca_a1ca_fb2c3d23df55)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
@@ -557,12 +557,12 @@ mod Windows {
                 CurrentMode: DigitalWindowMode;
                 fn GetBounds(&self) -> DigitalWindowBounds;
                 #[Windows::Foundation::Metadata::Overload("Configure")]
-                fn Configure(&self, digitalWindowMode: DigitalWindowMode);
+                fn Configure(&self, #[in] digitalWindowMode: DigitalWindowMode);
                 #[Windows::Foundation::Metadata::Overload("ConfigureWithBounds")]
-                fn Configure(&self, digitalWindowMode: DigitalWindowMode, digitalWindowBounds: DigitalWindowBounds);
+                fn Configure(&self, #[in] digitalWindowMode: DigitalWindowMode, #[in] digitalWindowBounds: DigitalWindowBounds);
                 #[get]
                 SupportedCapabilities: super::super::Foundation::Collections::IVectorView<DigitalWindowCapability>;
-                fn GetCapabilityForSize(&self, width: i32, height: i32) -> DigitalWindowCapability;
+                fn GetCapabilityForSize(&self, #[in] width: i32, #[in] height: i32) -> DigitalWindowCapability;
             }
             #[guid(0x81c8e834_dcec_4011_a610_1f3847e64aca)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -579,7 +579,7 @@ mod Windows {
                 #[get]
                 Value: f32;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetValueAsync(&self, value: f32) -> super::super::Foundation::IAsyncAction;
+                fn SetValueAsync(&self, #[in] value: f32) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x09e8cbe2_ad96_4f28_a0e0_96ed7e1b5fd2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -590,7 +590,7 @@ mod Windows {
                 #[get]
                 Auto: bool;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetAutoAsync(&self, value: bool) -> super::super::Foundation::IAsyncAction;
+                fn SetAutoAsync(&self, #[in] value: bool) -> super::super::Foundation::IAsyncAction;
                 #[get]
                 Min: super::super::Foundation::TimeSpan;
                 #[get]
@@ -600,7 +600,7 @@ mod Windows {
                 #[get]
                 Value: super::super::Foundation::TimeSpan;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetValueAsync(&self, shutterDuration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncAction;
+                fn SetValueAsync(&self, #[in] shutterDuration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x2cb240a3_5168_4271_9ea5_47621a98a352)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -645,10 +645,10 @@ mod Windows {
                 Preset: FocusPreset;
                 #[Windows::Foundation::Metadata::Overload("SetPresetAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetPresetAsync(&self, preset: FocusPreset) -> super::super::Foundation::IAsyncAction;
+                fn SetPresetAsync(&self, #[in] preset: FocusPreset) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("SetPresetWithCompletionOptionAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetPresetAsync(&self, preset: FocusPreset, completeBeforeFocus: bool) -> super::super::Foundation::IAsyncAction;
+                fn SetPresetAsync(&self, #[in] preset: FocusPreset, #[in] completeBeforeFocus: bool) -> super::super::Foundation::IAsyncAction;
                 #[get]
                 Min: u32;
                 #[get]
@@ -658,7 +658,7 @@ mod Windows {
                 #[get]
                 Value: u32;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetValueAsync(&self, focus: u32) -> super::super::Foundation::IAsyncAction;
+                fn SetValueAsync(&self, #[in] focus: u32) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FocusAsync(&self) -> super::super::Foundation::IAsyncAction;
             }
@@ -684,7 +684,7 @@ mod Windows {
                 fn UnlockAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn LockAsync(&self) -> super::super::Foundation::IAsyncAction;
-                fn Configure(&self, settings: FocusSettings);
+                fn Configure(&self, #[in] settings: FocusSettings);
             }
             #[guid(0x79958f6b_3263_4275_85d6_aeae891c96ee)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -738,7 +738,7 @@ mod Windows {
                 Preset: IsoSpeedPreset;
                 #[Windows::Foundation::Metadata::Deprecated("SetPresetAsync may not be available in future versions of Windows Phone. Starting with Windows Phone 8.1, use SetAutoAsync, Auto, SetValueAsync, and Value instead", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetPresetAsync(&self, preset: IsoSpeedPreset) -> super::super::Foundation::IAsyncAction;
+                fn SetPresetAsync(&self, #[in] preset: IsoSpeedPreset) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x6f1578f2_6d77_4f8a_8c2f_6130b6395053)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -753,7 +753,7 @@ mod Windows {
                 #[get]
                 Value: u32;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetValueAsync(&self, isoSpeed: u32) -> super::super::Foundation::IAsyncAction;
+                fn SetValueAsync(&self, #[in] isoSpeed: u32) -> super::super::Foundation::IAsyncAction;
                 #[get]
                 Auto: bool;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -770,7 +770,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LowLagPhotoControl)]
             interface ILowLagPhotoControl {
-                fn GetHighestConcurrentFrameRate(&self, captureProperties: super::MediaProperties::IMediaEncodingProperties) -> super::MediaProperties::MediaRatio;
+                fn GetHighestConcurrentFrameRate(&self, #[in] captureProperties: super::MediaProperties::IMediaEncodingProperties) -> super::MediaProperties::MediaRatio;
                 fn GetCurrentFrameRate(&self) -> super::MediaProperties::MediaRatio;
                 ThumbnailEnabled: bool;
                 ThumbnailFormat: super::MediaProperties::MediaThumbnailFormat;
@@ -790,7 +790,7 @@ mod Windows {
                 MaxPhotosPerSecond: f32;
                 PastPhotoLimit: u32;
                 PhotosPerSecondLimit: f32;
-                fn GetHighestConcurrentFrameRate(&self, captureProperties: super::MediaProperties::IMediaEncodingProperties) -> super::MediaProperties::MediaRatio;
+                fn GetHighestConcurrentFrameRate(&self, #[in] captureProperties: super::MediaProperties::IMediaEncodingProperties) -> super::MediaProperties::MediaRatio;
                 fn GetCurrentFrameRate(&self) -> super::MediaProperties::MediaRatio;
                 ThumbnailEnabled: bool;
                 ThumbnailFormat: super::MediaProperties::MediaThumbnailFormat;
@@ -804,10 +804,10 @@ mod Windows {
             interface IMediaDeviceControl {
                 #[get]
                 Capabilities: MediaDeviceControlCapabilities;
-                fn TryGetValue(&self, value: &mut f64) -> bool;
-                fn TrySetValue(&self, value: f64) -> bool;
-                fn TryGetAuto(&self, value: &mut bool) -> bool;
-                fn TrySetAuto(&self, value: bool) -> bool;
+                fn TryGetValue(&self, #[out] value: &mut f64) -> bool;
+                fn TrySetValue(&self, #[in] value: f64) -> bool;
+                fn TryGetAuto(&self, #[out] value: &mut bool) -> bool;
+                fn TrySetAuto(&self, #[in] value: bool) -> bool;
             }
             #[guid(0x23005816_eb85_43e2_b92b_8240d5ee70ec)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -829,9 +829,9 @@ mod Windows {
             #[guid(0xf6f8f5ce_209a_48fb_86fc_d44578f317e6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IMediaDeviceController {
-                fn GetAvailableMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>;
-                fn GetMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> super::MediaProperties::IMediaEncodingProperties;
-                fn SetMediaStreamPropertiesAsync(&self, mediaStreamType: super::Capture::MediaStreamType, mediaEncodingProperties: super::MediaProperties::IMediaEncodingProperties) -> super::super::Foundation::IAsyncAction;
+                fn GetAvailableMediaStreamProperties(&self, #[in] mediaStreamType: super::Capture::MediaStreamType) -> super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>;
+                fn GetMediaStreamProperties(&self, #[in] mediaStreamType: super::Capture::MediaStreamType) -> super::MediaProperties::IMediaEncodingProperties;
+                fn SetMediaStreamPropertiesAsync(&self, #[in] mediaStreamType: super::Capture::MediaStreamType, #[in] mediaEncodingProperties: super::MediaProperties::IMediaEncodingProperties) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0xaa2d9a40_909f_4bba_bf8b_0c0d296f14f0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -840,8 +840,8 @@ mod Windows {
                 fn GetAudioCaptureSelector(&self) -> String;
                 fn GetAudioRenderSelector(&self) -> String;
                 fn GetVideoCaptureSelector(&self) -> String;
-                fn GetDefaultAudioCaptureId(&self, role: AudioDeviceRole) -> String;
-                fn GetDefaultAudioRenderId(&self, role: AudioDeviceRole) -> String;
+                fn GetDefaultAudioCaptureId(&self, #[in] role: AudioDeviceRole) -> String;
+                fn GetDefaultAudioRenderId(&self, #[in] role: AudioDeviceRole) -> String;
                 event DefaultAudioCaptureDeviceChanged: super::super::Foundation::TypedEventHandler<Object, DefaultAudioCaptureDeviceChangedEventArgs>;
                 event DefaultAudioRenderDeviceChanged: super::super::Foundation::TypedEventHandler<Object, DefaultAudioRenderDeviceChangedEventArgs>;
             }
@@ -911,9 +911,9 @@ mod Windows {
                 #[get]
                 MaxRegions: u32;
                 #[Windows::Foundation::Metadata::Overload("SetRegionsAsync")]
-                fn SetRegionsAsync(&self, regions: super::super::Foundation::Collections::IIterable<RegionOfInterest>) -> super::super::Foundation::IAsyncAction;
+                fn SetRegionsAsync(&self, #[in] regions: super::super::Foundation::Collections::IIterable<RegionOfInterest>) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("SetRegionsWithLockAsync")]
-                fn SetRegionsAsync(&self, regions: super::super::Foundation::Collections::IIterable<RegionOfInterest>, lockValues: bool) -> super::super::Foundation::IAsyncAction;
+                fn SetRegionsAsync(&self, #[in] regions: super::super::Foundation::Collections::IIterable<RegionOfInterest>, #[in] lockValues: bool) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ClearRegionsAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[get]
@@ -932,7 +932,7 @@ mod Windows {
                 #[get]
                 Value: CaptureSceneMode;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetValueAsync(&self, sceneMode: CaptureSceneMode) -> super::super::Foundation::IAsyncAction;
+                fn SetValueAsync(&self, #[in] sceneMode: CaptureSceneMode) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0xa6053665_8250_416c_919a_724296afa306)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -971,8 +971,8 @@ mod Windows {
                 Exposure: MediaDeviceControl;
                 #[get]
                 Focus: MediaDeviceControl;
-                fn TrySetPowerlineFrequency(&self, value: super::Capture::PowerlineFrequency) -> bool;
-                fn TryGetPowerlineFrequency(&self, value: &mut super::Capture::PowerlineFrequency) -> bool;
+                fn TrySetPowerlineFrequency(&self, #[in] value: super::Capture::PowerlineFrequency) -> bool;
+                fn TryGetPowerlineFrequency(&self, #[out] value: &mut super::Capture::PowerlineFrequency) -> bool;
             }
             #[guid(0xc5d88395_6ed5_4790_8b5d_0ef13935d0f8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -1002,7 +1002,7 @@ mod Windows {
                 #[get]
                 Preset: ColorTemperaturePreset;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetPresetAsync(&self, preset: ColorTemperaturePreset) -> super::super::Foundation::IAsyncAction;
+                fn SetPresetAsync(&self, #[in] preset: ColorTemperaturePreset) -> super::super::Foundation::IAsyncAction;
                 #[get]
                 Min: u32;
                 #[get]
@@ -1012,7 +1012,7 @@ mod Windows {
                 #[get]
                 Value: u32;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetValueAsync(&self, temperature: u32) -> super::super::Foundation::IAsyncAction;
+                fn SetValueAsync(&self, #[in] temperature: u32) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x3a1e0b12_32da_4c17_bfd7_8d0c73c8f5a5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1036,7 +1036,7 @@ mod Windows {
                 SupportedModes: super::super::Foundation::Collections::IVectorView<ZoomTransitionMode>;
                 #[get]
                 Mode: ZoomTransitionMode;
-                fn Configure(&self, settings: ZoomSettings);
+                fn Configure(&self, #[in] settings: ZoomSettings);
             }
             #[guid(0x6ad66b24_14b4_4bfd_b18f_88fe24463b52)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1089,7 +1089,7 @@ mod Windows {
             }
             #[guid(0xe637a454_c527_422c_8926_c9af83b559a0)]
             #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
-            delegate fn KeypadPressedEventHandler(sender: CallControl, e: KeypadPressedEventArgs);
+            delegate fn KeypadPressedEventHandler(#[in] sender: CallControl, #[in] e: KeypadPressedEventArgs);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
@@ -1198,7 +1198,7 @@ mod Windows {
             }
             #[guid(0xbaf257d1_4ebd_4b84_9f47_6ec43d75d8b1)]
             #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
-            delegate fn RedialRequestedEventHandler(sender: CallControl, e: RedialRequestedEventArgs);
+            delegate fn RedialRequestedEventHandler(#[in] sender: CallControl, #[in] e: RedialRequestedEventArgs);
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]

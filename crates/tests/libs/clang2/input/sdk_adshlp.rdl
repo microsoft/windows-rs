@@ -1,49 +1,49 @@
 #[win32]
 mod Fixture {
     #[library("ACTIVEDS.dll")]
-    extern fn ADsBuildEnumerator(pADsContainer: IADsContainer, ppEnumVariant: *mut IEnumVARIANT) -> HRESULT;
+    extern fn ADsBuildEnumerator(#[in] pADsContainer: IADsContainer, #[out] ppEnumVariant: *mut IEnumVARIANT) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn ADsBuildVarArrayInt(lpdwObjectTypes: LPDWORD, dwObjectTypes: DWORD, pVar: *mut VARIANT) -> HRESULT;
+    extern fn ADsBuildVarArrayInt(#[in] lpdwObjectTypes: LPDWORD, #[in] dwObjectTypes: DWORD, #[out] pVar: *mut VARIANT) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn ADsBuildVarArrayStr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] lppPathNames: *mut LPWSTR, dwPathNames: DWORD, pVar: *mut VARIANT) -> HRESULT;
+    extern fn ADsBuildVarArrayStr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(1)] lppPathNames: *mut LPWSTR, #[in] dwPathNames: DWORD, #[out] pVar: *mut VARIANT) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn ADsDecodeBinaryData(szSrcData: LPCWSTR, ppbDestData: *mut PBYTE, pdwDestLen: *mut ULONG) -> HRESULT;
+    extern fn ADsDecodeBinaryData(#[in] szSrcData: LPCWSTR, #[out] ppbDestData: *mut PBYTE, #[out] pdwDestLen: *mut ULONG) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn ADsEncodeBinaryData(pbSrcData: PBYTE, dwSrcLen: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszDestData: *mut LPWSTR) -> HRESULT;
+    extern fn ADsEncodeBinaryData(#[in] pbSrcData: PBYTE, #[in] dwSrcLen: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszDestData: *mut LPWSTR) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn ADsEnumerateNext(pEnumVariant: IEnumVARIANT, cElements: ULONG, pvar: *mut VARIANT, pcElementsFetched: *mut ULONG) -> HRESULT;
+    extern fn ADsEnumerateNext(#[in] pEnumVariant: IEnumVARIANT, #[in] cElements: ULONG, #[out] pvar: *mut VARIANT, #[out] pcElementsFetched: *mut ULONG) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn ADsFreeEnumerator(pEnumVariant: IEnumVARIANT) -> HRESULT;
+    extern fn ADsFreeEnumerator(#[in] pEnumVariant: IEnumVARIANT) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn ADsGetLastError(lpError: LPDWORD, #[out] #[len_param(2)] lpErrorBuf: LPWSTR, dwErrorBufLen: DWORD, #[out] #[len_param(4)] lpNameBuf: LPWSTR, dwNameBufLen: DWORD) -> HRESULT;
+    extern fn ADsGetLastError(#[in] lpError: LPDWORD, #[out] #[len_param(2)] lpErrorBuf: LPWSTR, #[in] dwErrorBufLen: DWORD, #[out] #[len_param(4)] lpNameBuf: LPWSTR, #[in] dwNameBufLen: DWORD) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn ADsGetObject(lpszPathName: LPCWSTR, riid: &IID, ppObject: *mut *mut void) -> HRESULT;
+    extern fn ADsGetObject(#[in] lpszPathName: LPCWSTR, #[in] riid: &IID, #[out] ppObject: *mut *mut void) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn ADsOpenObject(lpszPathName: LPCWSTR, lpszUserName: LPCWSTR, lpszPassword: LPCWSTR, dwReserved: DWORD, riid: &IID, ppObject: *mut *mut void) -> HRESULT;
+    extern fn ADsOpenObject(#[in] lpszPathName: LPCWSTR, #[in] lpszUserName: LPCWSTR, #[in] lpszPassword: LPCWSTR, #[in] dwReserved: DWORD, #[in] riid: &IID, #[out] ppObject: *mut *mut void) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn ADsSetLastError(dwErr: DWORD, pszError: LPCWSTR, pszProvider: LPCWSTR);
+    extern fn ADsSetLastError(#[in] dwErr: DWORD, #[in] pszError: LPCWSTR, #[in] pszProvider: LPCWSTR);
     #[library("ACTIVEDS.dll")]
-    extern fn AdsFreeAdsValues(pAdsValues: PADSVALUE, dwNumValues: DWORD);
+    extern fn AdsFreeAdsValues(#[in] pAdsValues: PADSVALUE, #[in] dwNumValues: DWORD);
     #[library("ACTIVEDS.dll")]
-    extern fn AdsTypeToPropVariant(pAdsValues: PADSVALUE, dwNumValues: DWORD, pVariant: *mut VARIANT) -> HRESULT;
+    extern fn AdsTypeToPropVariant(#[in] pAdsValues: PADSVALUE, #[in] dwNumValues: DWORD, #[out] pVariant: *mut VARIANT) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn AllocADsMem(cb: DWORD) -> LPVOID;
+    extern fn AllocADsMem(#[in] cb: DWORD) -> LPVOID;
     #[library("ACTIVEDS.dll")]
-    extern fn AllocADsStr(pStr: LPCWSTR) -> LPWSTR;
+    extern fn AllocADsStr(#[in] pStr: LPCWSTR) -> LPWSTR;
     #[library("ACTIVEDS.dll")]
-    extern fn BinarySDToSecurityDescriptor(pSecurityDescriptor: PSECURITY_DESCRIPTOR, pVarsec: *mut VARIANT, pszServerName: LPCWSTR, userName: LPCWSTR, passWord: LPCWSTR, dwFlags: DWORD) -> HRESULT;
+    extern fn BinarySDToSecurityDescriptor(#[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] pVarsec: *mut VARIANT, #[in] pszServerName: LPCWSTR, #[in] userName: LPCWSTR, #[in] passWord: LPCWSTR, #[in] dwFlags: DWORD) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn FreeADsMem(pMem: LPVOID) -> BOOL;
+    extern fn FreeADsMem(#[in] pMem: LPVOID) -> BOOL;
     #[library("ACTIVEDS.dll")]
     extern fn FreeADsStr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStr: LPWSTR) -> BOOL;
     #[library("ACTIVEDS.dll")]
-    extern fn PropVariantToAdsType(pVariant: *mut VARIANT, dwNumVariant: DWORD, ppAdsValues: *mut PADSVALUE, pdwNumValues: PDWORD) -> HRESULT;
+    extern fn PropVariantToAdsType(#[out] pVariant: *mut VARIANT, #[in] dwNumVariant: DWORD, #[out] ppAdsValues: *mut PADSVALUE, #[in] pdwNumValues: PDWORD) -> HRESULT;
     #[library("ACTIVEDS.dll")]
-    extern fn ReallocADsMem(pOldMem: LPVOID, cbOld: DWORD, cbNew: DWORD) -> LPVOID;
+    extern fn ReallocADsMem(#[in] pOldMem: LPVOID, #[in] cbOld: DWORD, #[in] cbNew: DWORD) -> LPVOID;
     #[library("ACTIVEDS.dll")]
     extern fn ReallocADsStr(#[in] #[out] ppStr: *mut LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStr: LPWSTR) -> BOOL;
     #[library("ACTIVEDS.dll")]
-    extern fn SecurityDescriptorToBinarySD(vVarSecDes: VARIANT, ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, pdwSDLength: PDWORD, pszServerName: LPCWSTR, userName: LPCWSTR, passWord: LPCWSTR, dwFlags: DWORD) -> HRESULT;
+    extern fn SecurityDescriptorToBinarySD(#[in] vVarSecDes: VARIANT, #[out] ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[in] pdwSDLength: PDWORD, #[in] pszServerName: LPCWSTR, #[in] userName: LPCWSTR, #[in] passWord: LPCWSTR, #[in] dwFlags: DWORD) -> HRESULT;
 }
 #[win32]
 mod Fixture {
@@ -159,9 +159,9 @@ mod Fixture {
         fn get_Count(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
         fn get__NewEnum(&self, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] retval: *mut IUnknown) -> HRESULT;
         fn get_Filter(&self, #[out] #[retval] pVar: *mut VARIANT) -> HRESULT;
-        fn put_Filter(&self, Var: VARIANT) -> HRESULT;
+        fn put_Filter(&self, #[in] Var: VARIANT) -> HRESULT;
         fn get_Hints(&self, #[out] #[retval] pvFilter: *mut VARIANT) -> HRESULT;
-        fn put_Hints(&self, vHints: VARIANT) -> HRESULT;
+        fn put_Hints(&self, #[in] vHints: VARIANT) -> HRESULT;
         fn GetObjectA(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] ClassName: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] RelativeName: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppObject: *mut IDispatch) -> HRESULT;
         fn Create(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] ClassName: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] RelativeName: BSTR, #[out] #[retval] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppObject: *mut IDispatch) -> HRESULT;
         fn Delete(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrClassName: BSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bstrRelativeName: BSTR) -> HRESULT;
@@ -371,14 +371,14 @@ mod Fixture {
     #[guid(0x00020400_0000_0000_c000_000000000046)]
     interface IDispatch: IUnknown {
         fn GetTypeInfoCount(&self, #[out] pctinfo: *mut UINT) -> HRESULT;
-        fn GetTypeInfo(&self, iTInfo: UINT, lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
-        fn GetIDsOfNames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(2)] rgszNames: *mut LPOLESTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "0,16384", "0,16384")] cNames: UINT, lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = false)] rgDispId: *mut DISPID) -> HRESULT;
+        fn GetTypeInfo(&self, #[in] iTInfo: UINT, #[in] lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
+        fn GetIDsOfNames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(2)] rgszNames: *mut LPOLESTR, #[in] #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "0,16384", "0,16384")] cNames: UINT, #[in] lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = false)] rgDispId: *mut DISPID) -> HRESULT;
         fn Invoke(&self, #[in] dispIdMember: DISPID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] lcid: LCID, #[in] wFlags: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDispParams: *mut DISPPARAMS, #[out] #[opt] pVarResult: *mut VARIANT, #[out] #[opt] pExcepInfo: *mut EXCEPINFO, #[out] #[opt] puArgErr: *mut UINT) -> HRESULT;
     }
     #[guid(0x00020404_0000_0000_c000_000000000046)]
     interface IEnumVARIANT: IUnknown {
-        fn Next(&self, celt: ULONG, rgVar: *mut VARIANT, pCeltFetched: *mut ULONG) -> HRESULT;
-        fn Skip(&self, celt: ULONG) -> HRESULT;
+        fn Next(&self, #[in] celt: ULONG, #[out] rgVar: *mut VARIANT, #[out] pCeltFetched: *mut ULONG) -> HRESULT;
+        fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
         fn Reset(&self) -> HRESULT;
         fn Clone(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppEnum: *mut IEnumVARIANT) -> HRESULT;
     }
@@ -391,62 +391,62 @@ mod Fixture {
     }
     #[guid(0x0000002f_0000_0000_c000_000000000046)]
     interface IRecordInfo: IUnknown {
-        fn RecordInit(&self, pvNew: PVOID) -> HRESULT;
-        fn RecordClear(&self, pvExisting: PVOID) -> HRESULT;
-        fn RecordCopy(&self, pvExisting: PVOID, pvNew: PVOID) -> HRESULT;
-        fn GetGuid(&self, pguid: *mut GUID) -> HRESULT;
+        fn RecordInit(&self, #[in] pvNew: PVOID) -> HRESULT;
+        fn RecordClear(&self, #[in] pvExisting: PVOID) -> HRESULT;
+        fn RecordCopy(&self, #[in] pvExisting: PVOID, #[in] pvNew: PVOID) -> HRESULT;
+        fn GetGuid(&self, #[out] pguid: *mut GUID) -> HRESULT;
         fn GetName(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pbstrName: *mut BSTR) -> HRESULT;
-        fn GetSize(&self, pcbSize: *mut ULONG) -> HRESULT;
-        fn GetTypeInfo(&self, ppTypeInfo: *mut ITypeInfo) -> HRESULT;
-        fn GetField(&self, pvData: PVOID, szFieldName: LPCOLESTR, pvarField: *mut VARIANT) -> HRESULT;
-        fn GetFieldNoCopy(&self, pvData: PVOID, szFieldName: LPCOLESTR, pvarField: *mut VARIANT, ppvDataCArray: *mut PVOID) -> HRESULT;
-        fn PutField(&self, wFlags: ULONG, pvData: PVOID, szFieldName: LPCOLESTR, pvarField: *mut VARIANT) -> HRESULT;
-        fn PutFieldNoCopy(&self, wFlags: ULONG, pvData: PVOID, szFieldName: LPCOLESTR, pvarField: *mut VARIANT) -> HRESULT;
-        fn GetFieldNames(&self, pcNames: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__out_ecount_part", "*pcNames,*pcNames", "*pcNames,*pcNames")] #[out] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 0, IsByteCount = false, Dereference = true)] rgBstrNames: *mut BSTR) -> HRESULT;
-        fn IsMatchingType(&self, pRecordInfo: IRecordInfo) -> BOOL;
+        fn GetSize(&self, #[out] pcbSize: *mut ULONG) -> HRESULT;
+        fn GetTypeInfo(&self, #[out] ppTypeInfo: *mut ITypeInfo) -> HRESULT;
+        fn GetField(&self, #[in] pvData: PVOID, #[in] szFieldName: LPCOLESTR, #[out] pvarField: *mut VARIANT) -> HRESULT;
+        fn GetFieldNoCopy(&self, #[in] pvData: PVOID, #[in] szFieldName: LPCOLESTR, #[out] pvarField: *mut VARIANT, #[out] ppvDataCArray: *mut PVOID) -> HRESULT;
+        fn PutField(&self, #[in] wFlags: ULONG, #[in] pvData: PVOID, #[in] szFieldName: LPCOLESTR, #[out] pvarField: *mut VARIANT) -> HRESULT;
+        fn PutFieldNoCopy(&self, #[in] wFlags: ULONG, #[in] pvData: PVOID, #[in] szFieldName: LPCOLESTR, #[out] pvarField: *mut VARIANT) -> HRESULT;
+        fn GetFieldNames(&self, #[out] pcNames: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__out_ecount_part", "*pcNames,*pcNames", "*pcNames,*pcNames")] #[out] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 0, IsByteCount = false, Dereference = true)] rgBstrNames: *mut BSTR) -> HRESULT;
+        fn IsMatchingType(&self, #[in] pRecordInfo: IRecordInfo) -> BOOL;
         fn RecordCreate(&self) -> PVOID;
-        fn RecordCreateCopy(&self, pvSource: PVOID, ppvDest: *mut PVOID) -> HRESULT;
-        fn RecordDestroy(&self, pvRecord: PVOID) -> HRESULT;
+        fn RecordCreateCopy(&self, #[in] pvSource: PVOID, #[out] ppvDest: *mut PVOID) -> HRESULT;
+        fn RecordDestroy(&self, #[in] pvRecord: PVOID) -> HRESULT;
     }
     #[guid(0x00020403_0000_0000_c000_000000000046)]
     interface ITypeComp: IUnknown {
-        fn Bind(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] szName: LPOLESTR, lHashVal: ULONG, wFlags: WORD, ppTInfo: *mut ITypeInfo, pDescKind: *mut DESCKIND, pBindPtr: *mut BINDPTR) -> HRESULT;
-        fn BindType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] szName: LPOLESTR, lHashVal: ULONG, ppTInfo: *mut ITypeInfo, ppTComp: *mut ITypeComp) -> HRESULT;
+        fn Bind(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] szName: LPOLESTR, #[in] lHashVal: ULONG, #[in] wFlags: WORD, #[out] ppTInfo: *mut ITypeInfo, #[out] pDescKind: *mut DESCKIND, #[out] pBindPtr: *mut BINDPTR) -> HRESULT;
+        fn BindType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] szName: LPOLESTR, #[in] lHashVal: ULONG, #[out] ppTInfo: *mut ITypeInfo, #[out] ppTComp: *mut ITypeComp) -> HRESULT;
     }
     #[guid(0x00020401_0000_0000_c000_000000000046)]
     interface ITypeInfo: IUnknown {
-        fn GetTypeAttr(&self, ppTypeAttr: *mut *mut TYPEATTR) -> HRESULT;
+        fn GetTypeAttr(&self, #[out] ppTypeAttr: *mut *mut TYPEATTR) -> HRESULT;
         fn GetTypeComp(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTComp: *mut ITypeComp) -> HRESULT;
-        fn GetFuncDesc(&self, index: UINT, ppFuncDesc: *mut *mut FUNCDESC) -> HRESULT;
-        fn GetVarDesc(&self, index: UINT, ppVarDesc: *mut *mut VARDESC) -> HRESULT;
-        fn GetNames(&self, memid: MEMBERID, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] rgBstrNames: *mut BSTR, cMaxNames: UINT, #[out] pcNames: *mut UINT) -> HRESULT;
-        fn GetRefTypeOfImplType(&self, index: UINT, #[out] pRefType: *mut HREFTYPE) -> HRESULT;
-        fn GetImplTypeFlags(&self, index: UINT, #[out] pImplTypeFlags: *mut INT) -> HRESULT;
-        fn GetIDsOfNames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] rgszNames: *mut LPOLESTR, cNames: UINT, pMemId: *mut MEMBERID) -> HRESULT;
-        fn Invoke(&self, pvInstance: PVOID, memid: MEMBERID, wFlags: WORD, pDispParams: *mut DISPPARAMS, pVarResult: *mut VARIANT, pExcepInfo: *mut EXCEPINFO, puArgErr: *mut UINT) -> HRESULT;
-        fn GetDocumentation(&self, memid: MEMBERID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDocString: *mut BSTR, pdwHelpContext: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrHelpFile: *mut BSTR) -> HRESULT;
-        fn GetDllEntry(&self, memid: MEMBERID, invKind: INVOKEKIND, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDllName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, pwOrdinal: *mut WORD) -> HRESULT;
-        fn GetRefTypeInfo(&self, hRefType: HREFTYPE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
-        fn AddressOfMember(&self, memid: MEMBERID, invKind: INVOKEKIND, ppv: *mut PVOID) -> HRESULT;
-        fn CreateInstance(&self, pUnkOuter: IUnknown, riid: &IID, #[out] #[iid_is] ppvObj: *mut PVOID) -> HRESULT;
-        fn GetMops(&self, memid: MEMBERID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrMops: *mut BSTR) -> HRESULT;
-        fn GetContainingTypeLib(&self, ppTLib: *mut ITypeLib, pIndex: *mut UINT) -> HRESULT;
-        fn ReleaseTypeAttr(&self, pTypeAttr: *mut TYPEATTR);
-        fn ReleaseFuncDesc(&self, pFuncDesc: *mut FUNCDESC);
-        fn ReleaseVarDesc(&self, pVarDesc: *mut VARDESC);
+        fn GetFuncDesc(&self, #[in] index: UINT, #[out] ppFuncDesc: *mut *mut FUNCDESC) -> HRESULT;
+        fn GetVarDesc(&self, #[in] index: UINT, #[out] ppVarDesc: *mut *mut VARDESC) -> HRESULT;
+        fn GetNames(&self, #[in] memid: MEMBERID, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] rgBstrNames: *mut BSTR, #[in] cMaxNames: UINT, #[out] pcNames: *mut UINT) -> HRESULT;
+        fn GetRefTypeOfImplType(&self, #[in] index: UINT, #[out] pRefType: *mut HREFTYPE) -> HRESULT;
+        fn GetImplTypeFlags(&self, #[in] index: UINT, #[out] pImplTypeFlags: *mut INT) -> HRESULT;
+        fn GetIDsOfNames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] rgszNames: *mut LPOLESTR, #[in] cNames: UINT, #[out] pMemId: *mut MEMBERID) -> HRESULT;
+        fn Invoke(&self, #[in] pvInstance: PVOID, #[in] memid: MEMBERID, #[in] wFlags: WORD, #[out] pDispParams: *mut DISPPARAMS, #[out] pVarResult: *mut VARIANT, #[out] pExcepInfo: *mut EXCEPINFO, #[out] puArgErr: *mut UINT) -> HRESULT;
+        fn GetDocumentation(&self, #[in] memid: MEMBERID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDocString: *mut BSTR, #[out] pdwHelpContext: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrHelpFile: *mut BSTR) -> HRESULT;
+        fn GetDllEntry(&self, #[in] memid: MEMBERID, #[in] invKind: INVOKEKIND, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDllName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, #[out] pwOrdinal: *mut WORD) -> HRESULT;
+        fn GetRefTypeInfo(&self, #[in] hRefType: HREFTYPE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
+        fn AddressOfMember(&self, #[in] memid: MEMBERID, #[in] invKind: INVOKEKIND, #[out] ppv: *mut PVOID) -> HRESULT;
+        fn CreateInstance(&self, #[in] pUnkOuter: IUnknown, #[in] riid: &IID, #[out] #[iid_is] ppvObj: *mut PVOID) -> HRESULT;
+        fn GetMops(&self, #[in] memid: MEMBERID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrMops: *mut BSTR) -> HRESULT;
+        fn GetContainingTypeLib(&self, #[out] ppTLib: *mut ITypeLib, #[out] pIndex: *mut UINT) -> HRESULT;
+        fn ReleaseTypeAttr(&self, #[out] pTypeAttr: *mut TYPEATTR);
+        fn ReleaseFuncDesc(&self, #[out] pFuncDesc: *mut FUNCDESC);
+        fn ReleaseVarDesc(&self, #[out] pVarDesc: *mut VARDESC);
     }
     #[guid(0x00020402_0000_0000_c000_000000000046)]
     interface ITypeLib: IUnknown {
         fn GetTypeInfoCount(&self) -> UINT;
-        fn GetTypeInfo(&self, index: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
-        fn GetTypeInfoType(&self, index: UINT, #[out] pTKind: *mut TYPEKIND) -> HRESULT;
+        fn GetTypeInfo(&self, #[in] index: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
+        fn GetTypeInfoType(&self, #[in] index: UINT, #[out] pTKind: *mut TYPEKIND) -> HRESULT;
         fn GetTypeInfoOfGuid(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guid: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTinfo: *mut ITypeInfo) -> HRESULT;
-        fn GetLibAttr(&self, ppTLibAttr: *mut *mut TLIBATTR) -> HRESULT;
+        fn GetLibAttr(&self, #[out] ppTLibAttr: *mut *mut TLIBATTR) -> HRESULT;
         fn GetTypeComp(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTComp: *mut ITypeComp) -> HRESULT;
-        fn GetDocumentation(&self, index: INT, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDocString: *mut BSTR, pdwHelpContext: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrHelpFile: *mut BSTR) -> HRESULT;
-        fn IsName(&self, #[in] #[out] szNameBuf: LPOLESTR, lHashVal: ULONG, pfName: *mut BOOL) -> HRESULT;
-        fn FindName(&self, #[in] #[out] szNameBuf: LPOLESTR, lHashVal: ULONG, ppTInfo: *mut ITypeInfo, rgMemId: *mut MEMBERID, pcFound: *mut USHORT) -> HRESULT;
-        fn ReleaseTLibAttr(&self, pTLibAttr: *mut TLIBATTR);
+        fn GetDocumentation(&self, #[in] index: INT, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDocString: *mut BSTR, #[out] pdwHelpContext: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrHelpFile: *mut BSTR) -> HRESULT;
+        fn IsName(&self, #[in] #[out] szNameBuf: LPOLESTR, #[in] lHashVal: ULONG, #[out] pfName: *mut BOOL) -> HRESULT;
+        fn FindName(&self, #[in] #[out] szNameBuf: LPOLESTR, #[in] lHashVal: ULONG, #[out] ppTInfo: *mut ITypeInfo, #[out] rgMemId: *mut MEMBERID, #[out] pcFound: *mut USHORT) -> HRESULT;
+        fn ReleaseTLibAttr(&self, #[out] pTLibAttr: *mut TLIBATTR);
     }
     type LPPARAMDESCEX = *mut tagPARAMDESCEX;
     #[packed(8)]
@@ -626,7 +626,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

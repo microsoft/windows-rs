@@ -1,5 +1,23 @@
 use windows_clang2::Input;
 
+pub fn buffer_extent<'a>(
+    owner: impl windows_metadata::HasAttributes<'a>,
+    access: windows_metadata::BufferAccess,
+    phase: windows_metadata::BufferPhase,
+) -> Option<windows_metadata::BufferExtent> {
+    let mut extents = owner
+        .attributes()
+        .filter(|attr| attr.name() == "BufferExtentAttribute")
+        .map(|attr| windows_metadata::BufferExtent::from_values(&attr.value()).unwrap())
+        .filter(|extent| extent.access == access && extent.phase == phase);
+    let result = extents.next();
+    assert!(
+        extents.next().is_none(),
+        "multiple extents for one access and phase"
+    );
+    result
+}
+
 pub fn input_dir() -> std::path::PathBuf {
     std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("input")
 }

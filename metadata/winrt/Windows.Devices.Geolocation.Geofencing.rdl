@@ -68,10 +68,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Geofence)]
                 interface IGeofenceFactory {
-                    fn Create(&self, id: String, geoshape: super::IGeoshape) -> Geofence;
-                    fn CreateWithMonitorStates(&self, id: String, geoshape: super::IGeoshape, monitoredStates: MonitoredGeofenceStates, singleUse: bool) -> Geofence;
-                    fn CreateWithMonitorStatesAndDwellTime(&self, id: String, geoshape: super::IGeoshape, monitoredStates: MonitoredGeofenceStates, singleUse: bool, dwellTime: super::super::super::Foundation::TimeSpan) -> Geofence;
-                    fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration(&self, id: String, geoshape: super::IGeoshape, monitoredStates: MonitoredGeofenceStates, singleUse: bool, dwellTime: super::super::super::Foundation::TimeSpan, startTime: super::super::super::Foundation::DateTime, duration: super::super::super::Foundation::TimeSpan) -> Geofence;
+                    fn Create(&self, #[in] id: String, #[in] geoshape: super::IGeoshape) -> Geofence;
+                    fn CreateWithMonitorStates(&self, #[in] id: String, #[in] geoshape: super::IGeoshape, #[in] monitoredStates: MonitoredGeofenceStates, #[in] singleUse: bool) -> Geofence;
+                    fn CreateWithMonitorStatesAndDwellTime(&self, #[in] id: String, #[in] geoshape: super::IGeoshape, #[in] monitoredStates: MonitoredGeofenceStates, #[in] singleUse: bool, #[in] dwellTime: super::super::super::Foundation::TimeSpan) -> Geofence;
+                    fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration(&self, #[in] id: String, #[in] geoshape: super::IGeoshape, #[in] monitoredStates: MonitoredGeofenceStates, #[in] singleUse: bool, #[in] dwellTime: super::super::super::Foundation::TimeSpan, #[in] startTime: super::super::super::Foundation::DateTime, #[in] duration: super::super::super::Foundation::TimeSpan) -> Geofence;
                 }
                 #[guid(0x4c0f5f78_1c1f_4621_bbbd_833b92247226)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

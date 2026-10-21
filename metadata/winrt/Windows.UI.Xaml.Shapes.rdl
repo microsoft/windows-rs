@@ -52,7 +52,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(Path)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IPathFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Path;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> Path;
                 }
                 #[guid(0xf627e59d_87dc_4142_81f1_97fc7ff8641c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -147,7 +147,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(Shape)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IShapeFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Shape;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> Shape;
                 }
                 #[guid(0x1d7b4c55_9df3_48dc_9194_9d306faa6089)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

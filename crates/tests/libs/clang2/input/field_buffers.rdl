@@ -5,14 +5,14 @@ mod Fixture {
     struct FieldBuffers {
         capacity: Count,
         readable: Count,
-        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "capacity", IsByteCount = false, MayBeNull = false)]
+        #[writable(capacity)]
         values: *mut u16,
     }
     struct OuterFields {
         struct Inner {
             capacity: Count,
             readable: Count,
-            #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "capacity", IsByteCount = false, MayBeNull = false)]
+            #[writable(capacity)]
             values: *mut u16,
         }
         capacity: Count,

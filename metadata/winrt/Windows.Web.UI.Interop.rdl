@@ -35,7 +35,7 @@ mod Windows {
                     #[get]
                     IsPrivateNetworkClientServerCapabilityEnabled: bool;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateWebViewControlAsync(&self, hostWindowHandle: i64, bounds: super::super::super::Foundation::Rect) -> super::super::super::Foundation::IAsyncOperation<WebViewControl>;
+                    fn CreateWebViewControlAsync(&self, #[in] hostWindowHandle: i64, #[in] bounds: super::super::super::Foundation::Rect) -> super::super::super::Foundation::IAsyncOperation<WebViewControl>;
                     fn GetWebViewControls(&self) -> super::super::super::Foundation::Collections::IVectorView<WebViewControl>;
                     fn Terminate(&self);
                     event ProcessExited: super::super::super::Foundation::TypedEventHandler<WebViewControlProcess, Object>;
@@ -44,7 +44,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlProcess)]
                 interface IWebViewControlProcessFactory {
-                    fn CreateWithOptions(&self, processOptions: WebViewControlProcessOptions) -> WebViewControlProcess;
+                    fn CreateWithOptions(&self, #[in] processOptions: WebViewControlProcessOptions) -> WebViewControlProcess;
                 }
                 #[guid(0x1cca72a7_3bd6_4826_8261_6c8189505d89)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -78,7 +78,7 @@ mod Windows {
                     #[get]
                     IsVisible: bool;
                     fn Close(&self);
-                    fn MoveFocus(&self, reason: WebViewControlMoveFocusReason);
+                    fn MoveFocus(&self, #[in] reason: WebViewControlMoveFocusReason);
                     event MoveFocusRequested: super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlMoveFocusRequestedEventArgs>;
                     event AcceleratorKeyPressed: super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlAcceleratorKeyPressedEventArgs>;
                 }

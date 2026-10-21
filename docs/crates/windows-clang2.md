@@ -428,8 +428,36 @@ named callbacks emit one `#[must_use]`. Callback aliases inherit this result con
 duplicating it. Output parameters, fields, constants and value typedefs retain their own evidence;
 scoped, conditional and unfamiliar payloads are not promoted to unconditional callable contracts.
 Native observations and agreement retain the source distinctions. The marker does not reproduce
-SAL's dataflow analysis or promise Rust diagnostics. `_Success_` and `_Return_type_success_`
-remain separate, unchanged evidence.
+SAL's dataflow analysis or promise Rust diagnostics.
+
+Direct SAL2 `_Success_`, SAL1.1 `__success` and value-typedef `_Return_type_success_` lower to
+enum-valued `#[success(...)]` for five bounded return comparisons: `== 0`, `!= 0`, `== 1`,
+`>= 0` and `> 0`. Native types gate lowering: integer/Boolean and unscoped-enum results retain
+their comparison, nonnegative requires signed storage, and data pointers accept only zero/null
+equality or inequality. Float, scoped-enum, ordered-pointer and complex predicates remain evidence.
+Scoped, competing and unfamiliar source forms also remain evidence; no C/SAL expression evaluator
+is introduced.
+
+Callable conditions remain explicit overrides, independent of typedef defaults. Value aliases
+retain written links to annotated types, including annotations observed in another input.
+Traversal stops at pointers; competing typedef defaults are not resolved by choosing an ancestor.
+Named callbacks coalesce agreeing inherited conditions but retain conflicting evidence and owners.
+Relocated nominal-type defaults retain their source ownership rather than becoming a type-wide
+condition. `success` governs postconditions, not automatic Rust `Result` conversion.
+
+Missing unconditional direction emits no direction attribute, including on raw pointers,
+typedef-spelled pointers, references, scalars and COM references. Known direction always emits
+`in`, `out` or both. Neither native mutability nor RDL type spelling establishes direction;
+the reader preserves the absence of both metadata flags.
+
+Exactly two unscoped SAL2 `_When_` branches can contribute shared direction and optionality when
+their expanded conditions compare the same native pointer parameter to zero with `==` and `!=`.
+The branch contracts must be plain `In`, `Out` or `Inout` forms, optionally nullable. Direction
+uses the intersection, not the union; optionality requires both branches and does not override a
+direct required contract. Both conditions remain evidence. For `RegQueryValueExA/W::lpcbData`,
+`out` and `opt` are unconditional facts; the input requirement remains conditional. Those flags
+do not replace the retained conditions or establish an output-only consumer conversion.
+Nonexhaustive, scoped, compound and other predicates retain evidence without inferred common facts.
 
 | Contract | Metadata semantics and limits |
 | --- | --- |
@@ -438,11 +466,13 @@ remain separate, unchanged evidence.
 | Input | SAL1/SAL2/RPC input forms use RDL direction and optionality on every parameter kind. No duplicate NativeInput attribute; input does not imply COM object immutability. |
 | NativeReturnedPointer | Successful inner nullability, one readable element for non-null success, and independent NullOnFailure. No inferred allocator/ownership. Requires native pointer-to-pointer storage. |
 | COM output | Explicit COM intent on unqualified void** emits iid_is. Ordinary/typed pointers and null-on-failure alone do not infer it. |
-| Capacity | Direct named integer parameter becomes byte size_param or element len_param. Validate storage/count types; indices exclude the COM receiver. |
-| NativeInitializedLength | Successful readable extent, distinct from capacity; integer parameter or one dereference. The bounded `p ? *p : n` form retains NullFallbackParamIndex. |
-| NativeArrayInfo.PostWritable | RPC output's successful writable-capacity guarantee; inout forms do not acquire it. |
+| BufferExtent entry | Named `readable(entry, count)` and `writable(entry, count)` distinguish readable input from writable capacity. `bytes(count)` selects byte units. Direct integer counts and one dereference are supported. |
+| BufferExtent success | `readable(success, count)` is distinct from capacity. Full SAL buffers preserve entry counts with `on_entry(*count)`. The bounded `p ? *p : n` form becomes `or(*p, n)`. |
+| Returned buffers | Indirect success extents separate capacity and initialized length. `_all_` promises only readable contents, using the successful count rather than `on_entry`. No one-element or ownership guarantee is added. |
+| Optional counts | `if_present(*count)` leaves an extent unknown when count storage is null. It does not weaken returned-pointer initialization/nullability or supply zero/a fallback. |
+| RPC output capacity | `writable(success, count)` preserves the successful writable-capacity guarantee; inout forms do not acquire it. |
 | NativeNullTerminated | Entry/success phases and separate double-NUL properties; no inferred direction, capacity or encoding. Bare properties have no inferred phase. |
-| NativeFieldBuffer | Valid-record writable capacity/readable extent, byte/element units and nullable storage; direct integer sibling fields only, not callable phases. |
+| BufferExtent field | `writable(capacity)` and `readable(length)` describe valid-record fields without a call phase. Counts name direct integer siblings; `bytes(...)` and `nullable` preserve units and optional storage. |
 | MIDL comments | Compiler-bounded leading bracket lists supply retval, output-only iid_is and direction. Other relationships stay native evidence. |
 
 RPC input/read-access distinctions survive reconciliation even if projection is identical.
@@ -452,8 +482,12 @@ native pointer storage. Bindgen does not yet consume every typed annotation.
 SAL1 `__deref_out_opt` permits null results; RPC `__RPC__deref_out_opt` instead aliases required
 output storage with a non-null result. SAL1 `__deref_opt_out` permits a null argument and its `_opt`
 variant permits both. Input/inout dereferenced-pointer forms retain inner contracts. The 24
-returned-buffer forms lower outer direction/optionality, not allocation extent as caller capacity.
+returned-buffer forms lower outer direction/optionality and indirect success extents, not caller
+capacity. Named counts and one dereference are supported; other expressions retain SAL evidence.
 `_Outptr_opt_ _Inout_` remains two distinct contracts, not a permissive union.
+Matching ordinary returned-pointer and buffer contracts can share their direction, optionality
+and nullability while retaining both guarantees. An explicit pointer contract's null-on-failure
+and one-readable-element promises are not supplied by the buffer contract itself.
 
 Direct/full RPC input/output arrays, counted strings and supported inout forms share normalized
 counts while preserving their different postconditions. Input readable lengths are entry evidence,
@@ -462,8 +496,9 @@ Output/inout xcount macros that discard count arguments do not acquire capacity.
 strings do not gain output termination absent from their SDK definition.
 
 Integer capacities, lengths and sibling fields are not parsed as arbitrary expressions.
-Compound/indirect/constant/conditional counts, outer-field paths and unsupported expressions retain
-evidence. Optional initialized-length pointers need their fallback honored before dereference.
+Compound/constant/conditional counts, deeper indirection, outer-field paths and unsupported
+expressions retain evidence. Optional initialized-length pointers need their fallback honored
+before dereference.
 Full-buffer forms can use capacity as length only when the source contract says so. Output/update
 termination requires representable capacity. Direct pre/post single/double-NUL properties preserve
 their own phases independently.

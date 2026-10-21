@@ -1,5 +1,5 @@
 //! --filter Test --flat --minimal
 #[winrt]
 mod Test {
-    delegate fn Delegate(sender: i32, args: i32);
+    delegate fn Delegate(#[in] sender: i32, #[in] args: i32);
 }

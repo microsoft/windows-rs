@@ -7,6 +7,6 @@ mod Test {
     }
 
     interface References {
-        fn Read(&self, value: &Value, result: &mut Value);
+        fn Read(&self, #[in] value: &Value, #[out] result: &mut Value);
     }
 }

@@ -4,19 +4,19 @@ mod BehavioralClasses {
         value: i32,
     }
     #[library("api.dll")]
-    extern "C" fn UseConstructor(value: *mut void);
+    extern "C" fn UseConstructor(#[out] value: *mut void);
     #[library("api.dll")]
-    extern "C" fn UseDerived(value: *mut void);
+    extern "C" fn UseDerived(#[out] value: *mut void);
     #[library("api.dll")]
-    extern "C" fn UseDestructor(value: *mut void);
+    extern "C" fn UseDestructor(#[out] value: *mut void);
     #[library("api.dll")]
-    extern "C" fn UseMethod(value: *mut void);
+    extern "C" fn UseMethod(#[out] value: *mut void);
     #[library("api.dll")]
-    extern "C" fn UseNonPodWrapper(value: *mut void);
+    extern "C" fn UseNonPodWrapper(#[out] value: *mut void);
     #[library("api.dll")]
-    extern "C" fn UsePoint(value: *mut void);
+    extern "C" fn UsePoint(#[out] value: *mut void);
     #[library("api.dll")]
-    extern "C" fn UsePrivate(value: *mut void);
+    extern "C" fn UsePrivate(#[out] value: *mut void);
     #[library("api.dll")]
-    extern "C" fn UseProtected(value: *mut void);
+    extern "C" fn UseProtected(#[out] value: *mut void);
 }

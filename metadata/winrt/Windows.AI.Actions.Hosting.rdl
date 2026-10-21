@@ -56,9 +56,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(ActionCatalog)]
                 interface IActionCatalog2 {
                     #[Windows::Foundation::Metadata::Overload("GetActionsForInputs")]
-                    fn GetActionsForInputs(&self, inputEntities: [super::ActionEntity]) -> [ActionInstance];
+                    fn GetActionsForInputs(&self, #[in] inputEntities: [super::ActionEntity]) -> [ActionInstance];
                     #[Windows::Foundation::Metadata::Overload("GetActionsForInputs2")]
-                    fn GetActionsForInputs(&self, inputEntities: [super::ActionEntity], invokerWindowId: super::super::super::UI::WindowId) -> [ActionInstance];
+                    fn GetActionsForInputs(&self, #[in] inputEntities: [super::ActionEntity], #[in] invokerWindowId: super::super::super::UI::WindowId) -> [ActionInstance];
                 }
                 #[guid(0x2e05d518_8680_55d3_820d_2605adb7d62d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 327680)]
@@ -112,7 +112,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(ActionDefinition)]
                 #[Windows::Foundation::Metadata::Experimental]
                 interface IActionDefinition5 {
-                    fn GetIconFullPath(&self, qualifierValues: super::super::super::Foundation::Collections::PropertySet) -> String;
+                    fn GetIconFullPath(&self, #[in] qualifierValues: super::super::super::Foundation::Collections::PropertySet) -> String;
                 }
                 #[guid(0xc3b92bdb_03c3_5a9e_b049_002fa0405699)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
@@ -147,13 +147,13 @@ mod Windows {
                     #[get]
                     DescriptionTemplate: String;
                     fn GetInputs(&self) -> [ActionEntityRegistrationInfo];
-                    fn InvokeAsync(&self, context: super::ActionInvocationContext) -> super::super::super::Foundation::IAsyncAction;
+                    fn InvokeAsync(&self, #[in] context: super::ActionInvocationContext) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x57ec9906_8231_5a9e_929f_bf39e952eb93)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ActionOverload)]
                 interface IActionOverload2 {
-                    fn InvokeFeedbackAsync(&self, context: super::ActionInvocationContext, feedback: super::ActionFeedback) -> super::super::super::Foundation::IAsyncAction;
+                    fn InvokeFeedbackAsync(&self, #[in] context: super::ActionInvocationContext, #[in] feedback: super::ActionFeedback) -> super::super::super::Foundation::IAsyncAction;
                     fn GetSupportsFeedback(&self) -> bool;
                 }
             }

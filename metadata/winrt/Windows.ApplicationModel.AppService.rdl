@@ -101,7 +101,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceCatalog)]
             interface IAppServiceCatalogStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindAppServiceProvidersAsync(&self, appServiceName: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>;
+                fn FindAppServiceProvidersAsync(&self, #[in] appServiceName: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>;
             }
             #[guid(0xde6016f6_cb03_4d35_ac8d_cc6303239731)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -119,7 +119,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn OpenAsync(&self) -> super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SendMessageAsync(&self, message: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<AppServiceResponse>;
+                fn SendMessageAsync(&self, #[in] message: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<AppServiceResponse>;
                 event RequestReceived: super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceRequestReceivedEventArgs>;
                 event ServiceClosed: super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceClosedEventArgs>;
             }
@@ -128,7 +128,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceConnection)]
             interface IAppServiceConnection2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn OpenRemoteAsync(&self, remoteSystemConnectionRequest: super::super::System::RemoteSystems::RemoteSystemConnectionRequest) -> super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>;
+                fn OpenRemoteAsync(&self, #[in] remoteSystemConnectionRequest: super::super::System::RemoteSystems::RemoteSystemConnectionRequest) -> super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>;
                 User: super::super::System::User;
             }
             #[guid(0xadc56ce9_d408_5673_8637_827a4b274168)]
@@ -136,7 +136,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceConnection)]
             interface IAppServiceConnectionStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SendStatelessMessageAsync(&self, connection: AppServiceConnection, connectionRequest: super::super::System::RemoteSystems::RemoteSystemConnectionRequest, message: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>;
+                fn SendStatelessMessageAsync(&self, #[in] connection: AppServiceConnection, #[in] connectionRequest: super::super::System::RemoteSystems::RemoteSystemConnectionRequest, #[in] message: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>;
             }
             #[guid(0x7e1b5322_eab0_4248_ae04_fdf93838e472)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -151,7 +151,7 @@ mod Windows {
                 #[get]
                 Message: super::super::Foundation::Collections::ValueSet;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SendResponseAsync(&self, message: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>;
+                fn SendResponseAsync(&self, #[in] message: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>;
             }
             #[guid(0x6e122360_ff65_44ae_9e45_857fe4180681)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -193,7 +193,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceTriggerDetails)]
             interface IAppServiceTriggerDetails3 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CheckCallerForCapabilityAsync(&self, capabilityName: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn CheckCallerForCapabilityAsync(&self, #[in] capabilityName: String) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x1185b180_8861_5e30_ab55_1cf4d08bbf6d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]

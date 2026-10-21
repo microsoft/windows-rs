@@ -130,10 +130,10 @@ mod Windows {
                     ImageWidth: u32;
                     #[get]
                     ImageHeight: u32;
-                    fn ProjectOntoFrame(&self, coordinate: super::super::super::Foundation::Numerics::Vector3) -> super::super::super::Foundation::Point;
-                    fn UnprojectAtUnitDepth(&self, pixelCoordinate: super::super::super::Foundation::Point) -> super::super::super::Foundation::Numerics::Vector2;
-                    fn ProjectManyOntoFrame(&self, coordinates: [super::super::super::Foundation::Numerics::Vector3], #[out] results: [super::super::super::Foundation::Point]);
-                    fn UnprojectPixelsAtUnitDepth(&self, pixelCoordinates: [super::super::super::Foundation::Point], #[out] results: [super::super::super::Foundation::Numerics::Vector2]);
+                    fn ProjectOntoFrame(&self, #[in] coordinate: super::super::super::Foundation::Numerics::Vector3) -> super::super::super::Foundation::Point;
+                    fn UnprojectAtUnitDepth(&self, #[in] pixelCoordinate: super::super::super::Foundation::Point) -> super::super::super::Foundation::Numerics::Vector2;
+                    fn ProjectManyOntoFrame(&self, #[in] coordinates: [super::super::super::Foundation::Numerics::Vector3], #[out] results: [super::super::super::Foundation::Point]);
+                    fn UnprojectPixelsAtUnitDepth(&self, #[in] pixelCoordinates: [super::super::super::Foundation::Point], #[out] results: [super::super::super::Foundation::Numerics::Vector2]);
                 }
                 #[guid(0x0cdaa447_0798_4b4d_839f_c5ec414db27a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -141,25 +141,25 @@ mod Windows {
                 interface ICameraIntrinsics2 {
                     #[get]
                     UndistortedProjectionTransform: super::super::super::Foundation::Numerics::Matrix4x4;
-                    fn DistortPoint(&self, input: super::super::super::Foundation::Point) -> super::super::super::Foundation::Point;
-                    fn DistortPoints(&self, inputs: [super::super::super::Foundation::Point], #[out] results: [super::super::super::Foundation::Point]);
-                    fn UndistortPoint(&self, input: super::super::super::Foundation::Point) -> super::super::super::Foundation::Point;
-                    fn UndistortPoints(&self, inputs: [super::super::super::Foundation::Point], #[out] results: [super::super::super::Foundation::Point]);
+                    fn DistortPoint(&self, #[in] input: super::super::super::Foundation::Point) -> super::super::super::Foundation::Point;
+                    fn DistortPoints(&self, #[in] inputs: [super::super::super::Foundation::Point], #[out] results: [super::super::super::Foundation::Point]);
+                    fn UndistortPoint(&self, #[in] input: super::super::super::Foundation::Point) -> super::super::super::Foundation::Point;
+                    fn UndistortPoints(&self, #[in] inputs: [super::super::super::Foundation::Point], #[out] results: [super::super::super::Foundation::Point]);
                 }
                 #[guid(0xc0ddc486_2132_4a34_a659_9bfe2a055712)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CameraIntrinsics)]
                 interface ICameraIntrinsicsFactory {
-                    fn Create(&self, focalLength: super::super::super::Foundation::Numerics::Vector2, principalPoint: super::super::super::Foundation::Numerics::Vector2, radialDistortion: super::super::super::Foundation::Numerics::Vector3, tangentialDistortion: super::super::super::Foundation::Numerics::Vector2, imageWidth: u32, imageHeight: u32) -> CameraIntrinsics;
+                    fn Create(&self, #[in] focalLength: super::super::super::Foundation::Numerics::Vector2, #[in] principalPoint: super::super::super::Foundation::Numerics::Vector2, #[in] radialDistortion: super::super::super::Foundation::Numerics::Vector3, #[in] tangentialDistortion: super::super::super::Foundation::Numerics::Vector2, #[in] imageWidth: u32, #[in] imageHeight: u32) -> CameraIntrinsics;
                 }
                 #[guid(0xf95d89fb_8af0_4cb0_926d_696866e5046a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DepthCorrelatedCoordinateMapper)]
                 interface IDepthCorrelatedCoordinateMapper: super::super::super::Foundation::IClosable {
-                    fn UnprojectPoint(&self, sourcePoint: super::super::super::Foundation::Point, targetCoordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> super::super::super::Foundation::Numerics::Vector3;
-                    fn UnprojectPoints(&self, sourcePoints: [super::super::super::Foundation::Point], targetCoordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem, #[out] results: [super::super::super::Foundation::Numerics::Vector3]);
-                    fn MapPoint(&self, sourcePoint: super::super::super::Foundation::Point, targetCoordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem, targetCameraIntrinsics: CameraIntrinsics) -> super::super::super::Foundation::Point;
-                    fn MapPoints(&self, sourcePoints: [super::super::super::Foundation::Point], targetCoordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem, targetCameraIntrinsics: CameraIntrinsics, #[out] results: [super::super::super::Foundation::Point]);
+                    fn UnprojectPoint(&self, #[in] sourcePoint: super::super::super::Foundation::Point, #[in] targetCoordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> super::super::super::Foundation::Numerics::Vector3;
+                    fn UnprojectPoints(&self, #[in] sourcePoints: [super::super::super::Foundation::Point], #[in] targetCoordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem, #[out] results: [super::super::super::Foundation::Numerics::Vector3]);
+                    fn MapPoint(&self, #[in] sourcePoint: super::super::super::Foundation::Point, #[in] targetCoordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem, #[in] targetCameraIntrinsics: CameraIntrinsics) -> super::super::super::Foundation::Point;
+                    fn MapPoints(&self, #[in] sourcePoints: [super::super::super::Foundation::Point], #[in] targetCoordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem, #[in] targetCameraIntrinsics: CameraIntrinsics, #[out] results: [super::super::super::Foundation::Point]);
                 }
                 #[guid(0xa8ffae60_4e9e_4377_a789_e24c4ae7e544)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -311,7 +311,7 @@ mod Windows {
                     #[get]
                     MaxPhotosPerSecond: f32;
                     PhotosPerSecondLimit: f32;
-                    fn GetHighestConcurrentFrameRate(&self, captureProperties: super::super::MediaProperties::IMediaEncodingProperties) -> super::super::MediaProperties::MediaRatio;
+                    fn GetHighestConcurrentFrameRate(&self, #[in] captureProperties: super::super::MediaProperties::IMediaEncodingProperties) -> super::super::MediaProperties::MediaRatio;
                     fn GetCurrentFrameRate(&self) -> super::super::MediaProperties::MediaRatio;
                     #[get]
                     FrameCapabilities: FrameControlCapabilities;

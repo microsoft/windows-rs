@@ -92,6 +92,13 @@ fn nominal_pointees() {
     let output =
         projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports())
             .unwrap();
+    if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+        std::fs::write(
+            test_clang2::input_dir().join("opaque_records.rdl"),
+            &output.partitions["opaque_records"].rdl,
+        )
+        .unwrap();
+    }
     let expected = std::fs::read_to_string(test_clang2::input_dir().join("opaque_records.rdl"))
         .unwrap()
         .replace("\r\n", "\n");

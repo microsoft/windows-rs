@@ -147,7 +147,7 @@ mod Fixture {
     #[library("WS2_32.dll")]
     extern fn GetHostNameW(#[out] #[len_param(1)] name: PWSTR, #[in] namelen: i32) -> i32;
     type LPAFPROTOCOLS = *mut _AFPROTOCOLS;
-    extern fn LPCONDITIONPROC(lpCallerId: LPWSABUF, lpCallerData: LPWSABUF, lpSQOS: LPQOS, lpGQOS: LPQOS, lpCalleeId: LPWSABUF, lpCalleeData: LPWSABUF, g: *mut GROUP, dwCallbackData: DWORD_PTR) -> i32;
+    extern fn LPCONDITIONPROC(#[in] lpCallerId: LPWSABUF, #[in] lpCallerData: LPWSABUF, #[in] lpSQOS: LPQOS, #[in] lpGQOS: LPQOS, #[in] lpCalleeId: LPWSABUF, #[in] lpCalleeData: LPWSABUF, #[out] g: *mut GROUP, #[in] dwCallbackData: DWORD_PTR) -> i32;
     type LPQOS = *mut _QualityOfService;
     type LPWSACOMPLETION = *mut _WSACOMPLETION;
     type LPWSADATA = *mut WSAData;
@@ -159,7 +159,7 @@ mod Fixture {
     type LPWSANSCLASSINFOA = *mut _WSANSClassInfoA;
     type LPWSANSCLASSINFOW = *mut _WSANSClassInfoW;
     type LPWSAOVERLAPPED = *mut _OVERLAPPED;
-    extern fn LPWSAOVERLAPPED_COMPLETION_ROUTINE(dwError: DWORD, cbTransferred: DWORD, lpOverlapped: LPWSAOVERLAPPED, dwFlags: DWORD);
+    extern fn LPWSAOVERLAPPED_COMPLETION_ROUTINE(#[in] dwError: DWORD, #[in] cbTransferred: DWORD, #[in] lpOverlapped: LPWSAOVERLAPPED, #[in] dwFlags: DWORD);
     type LPWSAPOLLFD = *mut pollfd;
     type LPWSAPROTOCOL_INFOA = *mut _WSAPROTOCOL_INFOA;
     type LPWSAPROTOCOL_INFOW = *mut _WSAPROTOCOL_INFOW;
@@ -233,12 +233,12 @@ mod Fixture {
     #[library("WS2_32.dll")]
     extern fn WSAConnect(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] name: *const SOCKADDR, #[in] namelen: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCallerData: LPWSABUF, #[out] #[opt] lpCalleeData: LPWSABUF, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSQOS: LPQOS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpGQOS: LPQOS) -> i32;
     #[library("WS2_32.dll")]
-    extern fn WSAConnectByList(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SocketAddress: PSOCKET_ADDRESS_LIST, #[in] #[out] #[opt] LocalAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*LocalAddressLength,*LocalAddressLength", "*LocalAddressLength,*LocalAddressLength")] #[out] #[opt] LocalAddress: LPSOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*RemoteAddressLength,*RemoteAddressLength", "*RemoteAddressLength,*RemoteAddressLength")] #[out] #[opt] RemoteAddress: LPSOCKADDR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *const timeval, #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
+    extern fn WSAConnectByList(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SocketAddress: PSOCKET_ADDRESS_LIST, #[in] #[out] #[opt] LocalAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*LocalAddressLength,*LocalAddressLength", "*LocalAddressLength,*LocalAddressLength")] #[out] #[opt] LocalAddress: LPSOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*RemoteAddressLength,*RemoteAddressLength", "*RemoteAddressLength,*RemoteAddressLength")] #[out] #[opt] RemoteAddress: LPSOCKADDR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *const timeval, #[in] #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
     #[Windows::Win32::Metadata::NativeDeprecated("Use WSAConnectByNameW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
     #[library("WS2_32.dll")]
-    extern fn WSAConnectByNameA(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nodename: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servicename: LPCSTR, #[in] #[out] #[opt] LocalAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*LocalAddressLength,*LocalAddressLength", "*LocalAddressLength,*LocalAddressLength")] #[out] #[opt] LocalAddress: LPSOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*RemoteAddressLength,*RemoteAddressLength", "*RemoteAddressLength,*RemoteAddressLength")] #[out] #[opt] RemoteAddress: LPSOCKADDR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *const timeval, #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
+    extern fn WSAConnectByNameA(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nodename: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servicename: LPCSTR, #[in] #[out] #[opt] LocalAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*LocalAddressLength,*LocalAddressLength", "*LocalAddressLength,*LocalAddressLength")] #[out] #[opt] LocalAddress: LPSOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*RemoteAddressLength,*RemoteAddressLength", "*RemoteAddressLength,*RemoteAddressLength")] #[out] #[opt] RemoteAddress: LPSOCKADDR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *const timeval, #[in] #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
     #[library("WS2_32.dll")]
-    extern fn WSAConnectByNameW(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nodename: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servicename: LPWSTR, #[in] #[out] #[opt] LocalAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*LocalAddressLength,*LocalAddressLength", "*LocalAddressLength,*LocalAddressLength")] #[out] #[opt] LocalAddress: LPSOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*RemoteAddressLength,*RemoteAddressLength", "*RemoteAddressLength,*RemoteAddressLength")] #[out] #[opt] RemoteAddress: LPSOCKADDR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *const timeval, #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
+    extern fn WSAConnectByNameW(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nodename: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servicename: LPWSTR, #[in] #[out] #[opt] LocalAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*LocalAddressLength,*LocalAddressLength", "*LocalAddressLength,*LocalAddressLength")] #[out] #[opt] LocalAddress: LPSOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*RemoteAddressLength,*RemoteAddressLength", "*RemoteAddressLength,*RemoteAddressLength")] #[out] #[opt] RemoteAddress: LPSOCKADDR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *const timeval, #[in] #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
     #[library("WS2_32.dll")]
     extern fn WSACreateEvent() -> HANDLE;
     #[arch(X64 | Arm64)]
@@ -594,7 +594,7 @@ mod Fixture {
         ecHow: WSAECOMPARATOR,
     }
     #[library("WS2_32.dll")]
-    extern fn __WSAFDIsSet(fd: SOCKET, param1: *mut fd_set) -> i32;
+    extern fn __WSAFDIsSet(#[in] fd: SOCKET, #[out] param1: *mut fd_set) -> i32;
     #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
     #[library("WS2_32.dll")]
     extern fn accept(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*addrlen", "*addrlen")] #[out] #[opt] addr: *mut SOCKADDR, #[in] #[out] #[opt] addrlen: *mut i32) -> SOCKET;
@@ -648,7 +648,7 @@ mod Fixture {
     #[library("WS2_32.dll")]
     extern fn inet_ntoa(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#in: in_addr) -> *mut i8;
     #[library("WS2_32.dll")]
-    extern fn ioctlsocket(#[in] s: SOCKET, #[in] cmd: i32, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cmd != FIONREAD,_Inout_", "cmd != (0x40000000|(((long)sizeof(u_long)&0x7f)<<16)|(('f')<<8)|(127)), _Inout_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cmd == FIONREAD,_Out_", "cmd == (0x40000000|(((long)sizeof(u_long)&0x7f)<<16)|(('f')<<8)|(127)), _Out_")] argp: *mut u_long) -> i32;
+    extern fn ioctlsocket(#[in] s: SOCKET, #[in] cmd: i32, #[out] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cmd != FIONREAD,_Inout_", "cmd != (0x40000000|(((long)sizeof(u_long)&0x7f)<<16)|(('f')<<8)|(127)), _Inout_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cmd == FIONREAD,_Out_", "cmd == (0x40000000|(((long)sizeof(u_long)&0x7f)<<16)|(('f')<<8)|(127)), _Out_")] argp: *mut u_long) -> i32;
     #[library("WS2_32.dll")]
     extern fn listen(#[in] s: SOCKET, #[in] backlog: i32) -> i32;
     #[library("WS2_32.dll")]
@@ -826,7 +826,7 @@ mod Fixture {
     #[library("WS2_32.dll")]
     extern fn InetNtopW(#[in] Family: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddr: *const void, #[out] #[len_param(3)] pStringBuf: PWSTR, #[in] StringBufSize: size_t) -> PCWSTR;
     #[library("WS2_32.dll")]
-    extern fn InetPtonW(#[in] Family: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAddrString: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET,_Out_writes_bytes_(sizeof(IN_ADDR))", "Family == 2, _Out_writes_bytes_(sizeof(IN_ADDR))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET6,_Out_writes_bytes_(sizeof(IN6_ADDR))", "Family == 23, _Out_writes_bytes_(sizeof(IN6_ADDR))")] pAddrBuf: PVOID) -> INT;
+    extern fn InetPtonW(#[in] Family: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAddrString: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET,_Out_writes_bytes_(sizeof(IN_ADDR))", "Family == 2, _Out_writes_bytes_(sizeof(IN_ADDR))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET6,_Out_writes_bytes_(sizeof(IN6_ADDR))", "Family == 23, _Out_writes_bytes_(sizeof(IN6_ADDR))")] pAddrBuf: PVOID) -> INT;
     extern fn LPLOOKUPSERVICE_COMPLETION_ROUTINE(#[in] dwError: DWORD, #[in] dwBytes: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPWSAOVERLAPPED);
     #[Windows::Win32::Metadata::NativeDeprecated("Use SetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
     #[library("WS2_32.dll")]
@@ -842,7 +842,7 @@ mod Fixture {
     #[library("WS2_32.dll")]
     extern fn inet_ntop(#[in] Family: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddr: *const void, #[out] #[len_param(3)] pStringBuf: PSTR, #[in] StringBufSize: size_t) -> PCSTR;
     #[library("WS2_32.dll")]
-    extern fn inet_pton(#[in] Family: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAddrString: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET,_Out_writes_bytes_(sizeof(IN_ADDR))", "Family == 2, _Out_writes_bytes_(sizeof(IN_ADDR))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET6,_Out_writes_bytes_(sizeof(IN6_ADDR))", "Family == 23, _Out_writes_bytes_(sizeof(IN6_ADDR))")] pAddrBuf: PVOID) -> INT;
+    extern fn inet_pton(#[in] Family: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAddrString: PCSTR, #[in] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET,_Out_writes_bytes_(sizeof(IN_ADDR))", "Family == 2, _Out_writes_bytes_(sizeof(IN_ADDR))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET6,_Out_writes_bytes_(sizeof(IN6_ADDR))", "Family == 23, _Out_writes_bytes_(sizeof(IN6_ADDR))")] pAddrBuf: PVOID) -> INT;
     type socklen_t = i32;
 }
 #[win32]

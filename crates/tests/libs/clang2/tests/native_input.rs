@@ -68,7 +68,7 @@ fn check_input(rpc: bool) -> String {
     let output =
         projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports).unwrap();
     let text = &output.partitions["native_input"].rdl;
-    assert_eq!(text.matches("#[in]").count(), 3);
+    assert_eq!(text.matches("#[in]").count(), 62);
     assert!(!text.contains("#[out]"));
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
     let winmd = root.join("target\\test-clang2-native-input.winmd");
@@ -130,7 +130,14 @@ fn check_input(rpc: bool) -> String {
                 ],
             );
             for (position, parameter) in method.params().enumerate() {
-                assert_eq!(parameter.direction(), reader::ParamDirection::Input);
+                assert_eq!(
+                    parameter.direction(),
+                    if position == 1 {
+                        reader::ParamDirection::Unspecified
+                    } else {
+                        reader::ParamDirection::Input
+                    }
+                );
                 assert_eq!(parameter.is_optional(), position == 2);
                 assert!(parameter.find_attribute("NativeInputAttribute").is_none());
             }

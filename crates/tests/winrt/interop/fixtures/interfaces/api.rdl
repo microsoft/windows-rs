@@ -24,6 +24,6 @@ mod Interfaces {
     #[ExclusiveTo(Widget)]
     interface IWidget {
         // Returns `shape`, so clients get back the object they passed.
-        fn Echo(&self, shape: IShape) -> IShape;
+        fn Echo(&self, #[in] shape: IShape) -> IShape;
     }
 }

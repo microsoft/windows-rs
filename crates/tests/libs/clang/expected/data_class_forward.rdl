@@ -5,5 +5,5 @@ mod ForwardDataClass {
     }
     type PData = *mut Data;
     #[library("api.dll")]
-    extern "C" fn UseData(value: *mut Data);
+    extern "C" fn UseData(#[out] value: *mut Data);
 }

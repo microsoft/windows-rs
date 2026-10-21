@@ -3,7 +3,7 @@ use Windows::Foundation::Metadata::*;
 
 #[winrt]
 mod Threading {
-    delegate fn Handler(value: i32);
+    delegate fn Handler(#[in] value: i32);
 
     #[Activatable(1)]
     #[MarshalingBehavior(Agile)]
@@ -26,6 +26,6 @@ mod Threading {
         // Calls `handler` with `value` on a thread pool thread. The action completes when the
         // handler returns and fails with the handler's error. Fails with `E_FAIL` if `handler` is
         // not agile.
-        fn InvokeOnBackground(&self, handler: Handler, value: i32) -> IAsyncAction;
+        fn InvokeOnBackground(&self, #[in] handler: Handler, #[in] value: i32) -> IAsyncAction;
     }
 }

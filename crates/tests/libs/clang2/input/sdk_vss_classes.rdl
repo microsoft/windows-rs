@@ -63,20 +63,20 @@ mod Fixture {
     interface IXMLDOMAttribute: IXMLDOMNode {
         fn get_name(&self, #[out] #[retval] attributeName: *mut BSTR) -> HRESULT;
         fn get_value(&self, #[out] #[retval] attributeValue: *mut VARIANT) -> HRESULT;
-        fn put_value(&self, attributeValue: VARIANT) -> HRESULT;
+        fn put_value(&self, #[in] attributeValue: VARIANT) -> HRESULT;
     }
     #[guid(0x2933bf8a_7b36_11d2_b20e_00c04f983e60)]
     interface IXMLDOMCDATASection: IXMLDOMText {}
     #[guid(0x2933bf84_7b36_11d2_b20e_00c04f983e60)]
     interface IXMLDOMCharacterData: IXMLDOMNode {
         fn get_data(&self, #[out] #[retval] data: *mut BSTR) -> HRESULT;
-        fn put_data(&self, data: BSTR) -> HRESULT;
+        fn put_data(&self, #[in] data: BSTR) -> HRESULT;
         fn get_length(&self, #[out] #[retval] dataLength: *mut i32) -> HRESULT;
-        fn substringData(&self, offset: i32, count: i32, #[out] #[retval] data: *mut BSTR) -> HRESULT;
-        fn appendData(&self, data: BSTR) -> HRESULT;
-        fn insertData(&self, offset: i32, data: BSTR) -> HRESULT;
-        fn deleteData(&self, offset: i32, count: i32) -> HRESULT;
-        fn replaceData(&self, offset: i32, count: i32, data: BSTR) -> HRESULT;
+        fn substringData(&self, #[in] offset: i32, #[in] count: i32, #[out] #[retval] data: *mut BSTR) -> HRESULT;
+        fn appendData(&self, #[in] data: BSTR) -> HRESULT;
+        fn insertData(&self, #[in] offset: i32, #[in] data: BSTR) -> HRESULT;
+        fn deleteData(&self, #[in] offset: i32, #[in] count: i32) -> HRESULT;
+        fn replaceData(&self, #[in] offset: i32, #[in] count: i32, #[in] data: BSTR) -> HRESULT;
     }
     #[guid(0x2933bf88_7b36_11d2_b20e_00c04f983e60)]
     interface IXMLDOMComment: IXMLDOMCharacterData {}
@@ -85,36 +85,36 @@ mod Fixture {
         fn get_doctype(&self, #[out] #[retval] documentType: *mut IXMLDOMDocumentType) -> HRESULT;
         fn get_implementation(&self, #[out] #[retval] r#impl: *mut IXMLDOMImplementation) -> HRESULT;
         fn get_documentElement(&self, #[out] #[retval] DOMElement: *mut IXMLDOMElement) -> HRESULT;
-        fn putref_documentElement(&self, DOMElement: IXMLDOMElement) -> HRESULT;
-        fn createElement(&self, tagName: BSTR, #[out] #[retval] element: *mut IXMLDOMElement) -> HRESULT;
+        fn putref_documentElement(&self, #[in] DOMElement: IXMLDOMElement) -> HRESULT;
+        fn createElement(&self, #[in] tagName: BSTR, #[out] #[retval] element: *mut IXMLDOMElement) -> HRESULT;
         fn createDocumentFragment(&self, #[out] #[retval] docFrag: *mut IXMLDOMDocumentFragment) -> HRESULT;
-        fn createTextNode(&self, data: BSTR, #[out] #[retval] text: *mut IXMLDOMText) -> HRESULT;
-        fn createComment(&self, data: BSTR, #[out] #[retval] comment: *mut IXMLDOMComment) -> HRESULT;
-        fn createCDATASection(&self, data: BSTR, #[out] #[retval] cdata: *mut IXMLDOMCDATASection) -> HRESULT;
-        fn createProcessingInstruction(&self, target: BSTR, data: BSTR, #[out] #[retval] pi: *mut IXMLDOMProcessingInstruction) -> HRESULT;
-        fn createAttribute(&self, name: BSTR, #[out] #[retval] attribute: *mut IXMLDOMAttribute) -> HRESULT;
-        fn createEntityReference(&self, name: BSTR, #[out] #[retval] entityRef: *mut IXMLDOMEntityReference) -> HRESULT;
-        fn getElementsByTagName(&self, tagName: BSTR, #[out] #[retval] resultList: *mut IXMLDOMNodeList) -> HRESULT;
-        fn createNode(&self, Type: VARIANT, name: BSTR, namespaceURI: BSTR, #[out] #[retval] node: *mut IXMLDOMNode) -> HRESULT;
-        fn nodeFromID(&self, idString: BSTR, #[out] #[retval] node: *mut IXMLDOMNode) -> HRESULT;
-        fn load(&self, xmlSource: VARIANT, #[out] #[retval] isSuccessful: *mut VARIANT_BOOL) -> HRESULT;
+        fn createTextNode(&self, #[in] data: BSTR, #[out] #[retval] text: *mut IXMLDOMText) -> HRESULT;
+        fn createComment(&self, #[in] data: BSTR, #[out] #[retval] comment: *mut IXMLDOMComment) -> HRESULT;
+        fn createCDATASection(&self, #[in] data: BSTR, #[out] #[retval] cdata: *mut IXMLDOMCDATASection) -> HRESULT;
+        fn createProcessingInstruction(&self, #[in] target: BSTR, #[in] data: BSTR, #[out] #[retval] pi: *mut IXMLDOMProcessingInstruction) -> HRESULT;
+        fn createAttribute(&self, #[in] name: BSTR, #[out] #[retval] attribute: *mut IXMLDOMAttribute) -> HRESULT;
+        fn createEntityReference(&self, #[in] name: BSTR, #[out] #[retval] entityRef: *mut IXMLDOMEntityReference) -> HRESULT;
+        fn getElementsByTagName(&self, #[in] tagName: BSTR, #[out] #[retval] resultList: *mut IXMLDOMNodeList) -> HRESULT;
+        fn createNode(&self, #[in] Type: VARIANT, #[in] name: BSTR, #[in] namespaceURI: BSTR, #[out] #[retval] node: *mut IXMLDOMNode) -> HRESULT;
+        fn nodeFromID(&self, #[in] idString: BSTR, #[out] #[retval] node: *mut IXMLDOMNode) -> HRESULT;
+        fn load(&self, #[in] xmlSource: VARIANT, #[out] #[retval] isSuccessful: *mut VARIANT_BOOL) -> HRESULT;
         fn get_readyState(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
         fn get_parseError(&self, #[out] #[retval] errorObj: *mut IXMLDOMParseError) -> HRESULT;
         fn get_url(&self, #[out] #[retval] urlString: *mut BSTR) -> HRESULT;
         fn get_async(&self, #[out] #[retval] isAsync: *mut VARIANT_BOOL) -> HRESULT;
-        fn put_async(&self, isAsync: VARIANT_BOOL) -> HRESULT;
+        fn put_async(&self, #[in] isAsync: VARIANT_BOOL) -> HRESULT;
         fn abort(&self) -> HRESULT;
-        fn loadXML(&self, bstrXML: BSTR, #[out] #[retval] isSuccessful: *mut VARIANT_BOOL) -> HRESULT;
-        fn save(&self, destination: VARIANT) -> HRESULT;
+        fn loadXML(&self, #[in] bstrXML: BSTR, #[out] #[retval] isSuccessful: *mut VARIANT_BOOL) -> HRESULT;
+        fn save(&self, #[in] destination: VARIANT) -> HRESULT;
         fn get_validateOnParse(&self, #[out] #[retval] isValidating: *mut VARIANT_BOOL) -> HRESULT;
-        fn put_validateOnParse(&self, isValidating: VARIANT_BOOL) -> HRESULT;
+        fn put_validateOnParse(&self, #[in] isValidating: VARIANT_BOOL) -> HRESULT;
         fn get_resolveExternals(&self, #[out] #[retval] isResolving: *mut VARIANT_BOOL) -> HRESULT;
-        fn put_resolveExternals(&self, isResolving: VARIANT_BOOL) -> HRESULT;
+        fn put_resolveExternals(&self, #[in] isResolving: VARIANT_BOOL) -> HRESULT;
         fn get_preserveWhiteSpace(&self, #[out] #[retval] isPreserving: *mut VARIANT_BOOL) -> HRESULT;
-        fn put_preserveWhiteSpace(&self, isPreserving: VARIANT_BOOL) -> HRESULT;
-        fn put_onreadystatechange(&self, readystatechangeSink: VARIANT) -> HRESULT;
-        fn put_ondataavailable(&self, ondataavailableSink: VARIANT) -> HRESULT;
-        fn put_ontransformnode(&self, ontransformnodeSink: VARIANT) -> HRESULT;
+        fn put_preserveWhiteSpace(&self, #[in] isPreserving: VARIANT_BOOL) -> HRESULT;
+        fn put_onreadystatechange(&self, #[in] readystatechangeSink: VARIANT) -> HRESULT;
+        fn put_ondataavailable(&self, #[in] ondataavailableSink: VARIANT) -> HRESULT;
+        fn put_ontransformnode(&self, #[in] ontransformnodeSink: VARIANT) -> HRESULT;
     }
     #[guid(0x3efaa413_272f_11d2_836f_0000f87a7782)]
     interface IXMLDOMDocumentFragment: IXMLDOMNode {}
@@ -127,30 +127,30 @@ mod Fixture {
     #[guid(0x2933bf86_7b36_11d2_b20e_00c04f983e60)]
     interface IXMLDOMElement: IXMLDOMNode {
         fn get_tagName(&self, #[out] #[retval] tagName: *mut BSTR) -> HRESULT;
-        fn getAttribute(&self, name: BSTR, #[out] #[retval] value: *mut VARIANT) -> HRESULT;
-        fn setAttribute(&self, name: BSTR, value: VARIANT) -> HRESULT;
-        fn removeAttribute(&self, name: BSTR) -> HRESULT;
-        fn getAttributeNode(&self, name: BSTR, #[out] #[retval] attributeNode: *mut IXMLDOMAttribute) -> HRESULT;
-        fn setAttributeNode(&self, DOMAttribute: IXMLDOMAttribute, #[out] #[retval] attributeNode: *mut IXMLDOMAttribute) -> HRESULT;
-        fn removeAttributeNode(&self, DOMAttribute: IXMLDOMAttribute, #[out] #[retval] attributeNode: *mut IXMLDOMAttribute) -> HRESULT;
-        fn getElementsByTagName(&self, tagName: BSTR, #[out] #[retval] resultList: *mut IXMLDOMNodeList) -> HRESULT;
+        fn getAttribute(&self, #[in] name: BSTR, #[out] #[retval] value: *mut VARIANT) -> HRESULT;
+        fn setAttribute(&self, #[in] name: BSTR, #[in] value: VARIANT) -> HRESULT;
+        fn removeAttribute(&self, #[in] name: BSTR) -> HRESULT;
+        fn getAttributeNode(&self, #[in] name: BSTR, #[out] #[retval] attributeNode: *mut IXMLDOMAttribute) -> HRESULT;
+        fn setAttributeNode(&self, #[in] DOMAttribute: IXMLDOMAttribute, #[out] #[retval] attributeNode: *mut IXMLDOMAttribute) -> HRESULT;
+        fn removeAttributeNode(&self, #[in] DOMAttribute: IXMLDOMAttribute, #[out] #[retval] attributeNode: *mut IXMLDOMAttribute) -> HRESULT;
+        fn getElementsByTagName(&self, #[in] tagName: BSTR, #[out] #[retval] resultList: *mut IXMLDOMNodeList) -> HRESULT;
         fn normalize(&self) -> HRESULT;
     }
     #[guid(0x2933bf8e_7b36_11d2_b20e_00c04f983e60)]
     interface IXMLDOMEntityReference: IXMLDOMNode {}
     #[guid(0x2933bf8f_7b36_11d2_b20e_00c04f983e60)]
     interface IXMLDOMImplementation: IDispatch {
-        fn hasFeature(&self, feature: BSTR, version: BSTR, #[out] #[retval] hasFeature: *mut VARIANT_BOOL) -> HRESULT;
+        fn hasFeature(&self, #[in] feature: BSTR, #[in] version: BSTR, #[out] #[retval] hasFeature: *mut VARIANT_BOOL) -> HRESULT;
     }
     #[guid(0x2933bf83_7b36_11d2_b20e_00c04f983e60)]
     interface IXMLDOMNamedNodeMap: IDispatch {
-        fn getNamedItem(&self, name: BSTR, #[out] #[retval] namedItem: *mut IXMLDOMNode) -> HRESULT;
-        fn setNamedItem(&self, newItem: IXMLDOMNode, #[out] #[retval] nameItem: *mut IXMLDOMNode) -> HRESULT;
-        fn removeNamedItem(&self, name: BSTR, #[out] #[retval] namedItem: *mut IXMLDOMNode) -> HRESULT;
-        fn get_item(&self, index: i32, #[out] #[retval] listItem: *mut IXMLDOMNode) -> HRESULT;
+        fn getNamedItem(&self, #[in] name: BSTR, #[out] #[retval] namedItem: *mut IXMLDOMNode) -> HRESULT;
+        fn setNamedItem(&self, #[in] newItem: IXMLDOMNode, #[out] #[retval] nameItem: *mut IXMLDOMNode) -> HRESULT;
+        fn removeNamedItem(&self, #[in] name: BSTR, #[out] #[retval] namedItem: *mut IXMLDOMNode) -> HRESULT;
+        fn get_item(&self, #[in] index: i32, #[out] #[retval] listItem: *mut IXMLDOMNode) -> HRESULT;
         fn get_length(&self, #[out] #[retval] listLength: *mut i32) -> HRESULT;
-        fn getQualifiedItem(&self, baseName: BSTR, namespaceURI: BSTR, #[out] #[retval] qualifiedItem: *mut IXMLDOMNode) -> HRESULT;
-        fn removeQualifiedItem(&self, baseName: BSTR, namespaceURI: BSTR, #[out] #[retval] qualifiedItem: *mut IXMLDOMNode) -> HRESULT;
+        fn getQualifiedItem(&self, #[in] baseName: BSTR, #[in] namespaceURI: BSTR, #[out] #[retval] qualifiedItem: *mut IXMLDOMNode) -> HRESULT;
+        fn removeQualifiedItem(&self, #[in] baseName: BSTR, #[in] namespaceURI: BSTR, #[out] #[retval] qualifiedItem: *mut IXMLDOMNode) -> HRESULT;
         fn nextNode(&self, #[out] #[retval] nextItem: *mut IXMLDOMNode) -> HRESULT;
         fn reset(&self) -> HRESULT;
         fn get__newEnum(&self, #[out] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
@@ -159,7 +159,7 @@ mod Fixture {
     interface IXMLDOMNode: IDispatch {
         fn get_nodeName(&self, #[out] #[retval] name: *mut BSTR) -> HRESULT;
         fn get_nodeValue(&self, #[out] #[retval] value: *mut VARIANT) -> HRESULT;
-        fn put_nodeValue(&self, value: VARIANT) -> HRESULT;
+        fn put_nodeValue(&self, #[in] value: VARIANT) -> HRESULT;
         fn get_nodeType(&self, #[out] #[retval] r#type: *mut DOMNodeType) -> HRESULT;
         fn get_parentNode(&self, #[out] #[retval] parent: *mut IXMLDOMNode) -> HRESULT;
         fn get_childNodes(&self, #[out] #[retval] childList: *mut IXMLDOMNodeList) -> HRESULT;
@@ -168,35 +168,35 @@ mod Fixture {
         fn get_previousSibling(&self, #[out] #[retval] previousSibling: *mut IXMLDOMNode) -> HRESULT;
         fn get_nextSibling(&self, #[out] #[retval] nextSibling: *mut IXMLDOMNode) -> HRESULT;
         fn get_attributes(&self, #[out] #[retval] attributeMap: *mut IXMLDOMNamedNodeMap) -> HRESULT;
-        fn insertBefore(&self, newChild: IXMLDOMNode, refChild: VARIANT, #[out] #[retval] outNewChild: *mut IXMLDOMNode) -> HRESULT;
-        fn replaceChild(&self, newChild: IXMLDOMNode, oldChild: IXMLDOMNode, #[out] #[retval] outOldChild: *mut IXMLDOMNode) -> HRESULT;
-        fn removeChild(&self, childNode: IXMLDOMNode, #[out] #[retval] oldChild: *mut IXMLDOMNode) -> HRESULT;
-        fn appendChild(&self, newChild: IXMLDOMNode, #[out] #[retval] outNewChild: *mut IXMLDOMNode) -> HRESULT;
+        fn insertBefore(&self, #[in] newChild: IXMLDOMNode, #[in] refChild: VARIANT, #[out] #[retval] outNewChild: *mut IXMLDOMNode) -> HRESULT;
+        fn replaceChild(&self, #[in] newChild: IXMLDOMNode, #[in] oldChild: IXMLDOMNode, #[out] #[retval] outOldChild: *mut IXMLDOMNode) -> HRESULT;
+        fn removeChild(&self, #[in] childNode: IXMLDOMNode, #[out] #[retval] oldChild: *mut IXMLDOMNode) -> HRESULT;
+        fn appendChild(&self, #[in] newChild: IXMLDOMNode, #[out] #[retval] outNewChild: *mut IXMLDOMNode) -> HRESULT;
         fn hasChildNodes(&self, #[out] #[retval] hasChild: *mut VARIANT_BOOL) -> HRESULT;
         fn get_ownerDocument(&self, #[out] #[retval] XMLDOMDocument: *mut IXMLDOMDocument) -> HRESULT;
-        fn cloneNode(&self, deep: VARIANT_BOOL, #[out] #[retval] cloneRoot: *mut IXMLDOMNode) -> HRESULT;
+        fn cloneNode(&self, #[in] deep: VARIANT_BOOL, #[out] #[retval] cloneRoot: *mut IXMLDOMNode) -> HRESULT;
         fn get_nodeTypeString(&self, #[out] #[retval] nodeType: *mut BSTR) -> HRESULT;
         fn get_text(&self, #[out] #[retval] text: *mut BSTR) -> HRESULT;
-        fn put_text(&self, text: BSTR) -> HRESULT;
+        fn put_text(&self, #[in] text: BSTR) -> HRESULT;
         fn get_specified(&self, #[out] #[retval] isSpecified: *mut VARIANT_BOOL) -> HRESULT;
         fn get_definition(&self, #[out] #[retval] definitionNode: *mut IXMLDOMNode) -> HRESULT;
         fn get_nodeTypedValue(&self, #[out] #[retval] typedValue: *mut VARIANT) -> HRESULT;
-        fn put_nodeTypedValue(&self, typedValue: VARIANT) -> HRESULT;
+        fn put_nodeTypedValue(&self, #[in] typedValue: VARIANT) -> HRESULT;
         fn get_dataType(&self, #[out] #[retval] dataTypeName: *mut VARIANT) -> HRESULT;
-        fn put_dataType(&self, dataTypeName: BSTR) -> HRESULT;
+        fn put_dataType(&self, #[in] dataTypeName: BSTR) -> HRESULT;
         fn get_xml(&self, #[out] #[retval] xmlString: *mut BSTR) -> HRESULT;
-        fn transformNode(&self, stylesheet: IXMLDOMNode, #[out] #[retval] xmlString: *mut BSTR) -> HRESULT;
-        fn selectNodes(&self, queryString: BSTR, #[out] #[retval] resultList: *mut IXMLDOMNodeList) -> HRESULT;
-        fn selectSingleNode(&self, queryString: BSTR, #[out] #[retval] resultNode: *mut IXMLDOMNode) -> HRESULT;
+        fn transformNode(&self, #[in] stylesheet: IXMLDOMNode, #[out] #[retval] xmlString: *mut BSTR) -> HRESULT;
+        fn selectNodes(&self, #[in] queryString: BSTR, #[out] #[retval] resultList: *mut IXMLDOMNodeList) -> HRESULT;
+        fn selectSingleNode(&self, #[in] queryString: BSTR, #[out] #[retval] resultNode: *mut IXMLDOMNode) -> HRESULT;
         fn get_parsed(&self, #[out] #[retval] isParsed: *mut VARIANT_BOOL) -> HRESULT;
         fn get_namespaceURI(&self, #[out] #[retval] namespaceURI: *mut BSTR) -> HRESULT;
         fn get_prefix(&self, #[out] #[retval] prefixString: *mut BSTR) -> HRESULT;
         fn get_baseName(&self, #[out] #[retval] nameString: *mut BSTR) -> HRESULT;
-        fn transformNodeToObject(&self, stylesheet: IXMLDOMNode, outputObject: VARIANT) -> HRESULT;
+        fn transformNodeToObject(&self, #[in] stylesheet: IXMLDOMNode, #[in] outputObject: VARIANT) -> HRESULT;
     }
     #[guid(0x2933bf82_7b36_11d2_b20e_00c04f983e60)]
     interface IXMLDOMNodeList: IDispatch {
-        fn get_item(&self, index: i32, #[out] #[retval] listItem: *mut IXMLDOMNode) -> HRESULT;
+        fn get_item(&self, #[in] index: i32, #[out] #[retval] listItem: *mut IXMLDOMNode) -> HRESULT;
         fn get_length(&self, #[out] #[retval] listLength: *mut i32) -> HRESULT;
         fn nextNode(&self, #[out] #[retval] nextItem: *mut IXMLDOMNode) -> HRESULT;
         fn reset(&self) -> HRESULT;
@@ -216,11 +216,11 @@ mod Fixture {
     interface IXMLDOMProcessingInstruction: IXMLDOMNode {
         fn get_target(&self, #[out] #[retval] name: *mut BSTR) -> HRESULT;
         fn get_data(&self, #[out] #[retval] value: *mut BSTR) -> HRESULT;
-        fn put_data(&self, value: BSTR) -> HRESULT;
+        fn put_data(&self, #[in] value: BSTR) -> HRESULT;
     }
     #[guid(0x2933bf87_7b36_11d2_b20e_00c04f983e60)]
     interface IXMLDOMText: IXMLDOMCharacterData {
-        fn splitText(&self, offset: i32, #[out] #[retval] rightHandTextNode: *mut IXMLDOMText) -> HRESULT;
+        fn splitText(&self, #[in] offset: i32, #[out] #[retval] rightHandTextNode: *mut IXMLDOMText) -> HRESULT;
     }
 }
 #[win32]
@@ -313,8 +313,8 @@ mod Fixture {
     #[guid(0x00020400_0000_0000_c000_000000000046)]
     interface IDispatch: IUnknown {
         fn GetTypeInfoCount(&self, #[out] pctinfo: *mut UINT) -> HRESULT;
-        fn GetTypeInfo(&self, iTInfo: UINT, lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
-        fn GetIDsOfNames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(2)] rgszNames: *mut LPOLESTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "0,16384", "0,16384")] cNames: UINT, lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = false)] rgDispId: *mut DISPID) -> HRESULT;
+        fn GetTypeInfo(&self, #[in] iTInfo: UINT, #[in] lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
+        fn GetIDsOfNames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(2)] rgszNames: *mut LPOLESTR, #[in] #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__in_range", "0,16384", "0,16384")] cNames: UINT, #[in] lcid: LCID, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = false)] rgDispId: *mut DISPID) -> HRESULT;
         fn Invoke(&self, #[in] dispIdMember: DISPID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[in] lcid: LCID, #[in] wFlags: WORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pDispParams: *mut DISPPARAMS, #[out] #[opt] pVarResult: *mut VARIANT, #[out] #[opt] pExcepInfo: *mut EXCEPINFO, #[out] #[opt] puArgErr: *mut UINT) -> HRESULT;
     }
     #[repr(i32)]
@@ -326,62 +326,62 @@ mod Fixture {
     }
     #[guid(0x0000002f_0000_0000_c000_000000000046)]
     interface IRecordInfo: IUnknown {
-        fn RecordInit(&self, pvNew: PVOID) -> HRESULT;
-        fn RecordClear(&self, pvExisting: PVOID) -> HRESULT;
-        fn RecordCopy(&self, pvExisting: PVOID, pvNew: PVOID) -> HRESULT;
-        fn GetGuid(&self, pguid: *mut GUID) -> HRESULT;
+        fn RecordInit(&self, #[in] pvNew: PVOID) -> HRESULT;
+        fn RecordClear(&self, #[in] pvExisting: PVOID) -> HRESULT;
+        fn RecordCopy(&self, #[in] pvExisting: PVOID, #[in] pvNew: PVOID) -> HRESULT;
+        fn GetGuid(&self, #[out] pguid: *mut GUID) -> HRESULT;
         fn GetName(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pbstrName: *mut BSTR) -> HRESULT;
-        fn GetSize(&self, pcbSize: *mut ULONG) -> HRESULT;
-        fn GetTypeInfo(&self, ppTypeInfo: *mut ITypeInfo) -> HRESULT;
-        fn GetField(&self, pvData: PVOID, szFieldName: LPCOLESTR, pvarField: *mut VARIANT) -> HRESULT;
-        fn GetFieldNoCopy(&self, pvData: PVOID, szFieldName: LPCOLESTR, pvarField: *mut VARIANT, ppvDataCArray: *mut PVOID) -> HRESULT;
-        fn PutField(&self, wFlags: ULONG, pvData: PVOID, szFieldName: LPCOLESTR, pvarField: *mut VARIANT) -> HRESULT;
-        fn PutFieldNoCopy(&self, wFlags: ULONG, pvData: PVOID, szFieldName: LPCOLESTR, pvarField: *mut VARIANT) -> HRESULT;
-        fn GetFieldNames(&self, pcNames: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__out_ecount_part", "*pcNames,*pcNames", "*pcNames,*pcNames")] #[out] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 0, IsByteCount = false, Dereference = true)] rgBstrNames: *mut BSTR) -> HRESULT;
-        fn IsMatchingType(&self, pRecordInfo: IRecordInfo) -> BOOL;
+        fn GetSize(&self, #[out] pcbSize: *mut ULONG) -> HRESULT;
+        fn GetTypeInfo(&self, #[out] ppTypeInfo: *mut ITypeInfo) -> HRESULT;
+        fn GetField(&self, #[in] pvData: PVOID, #[in] szFieldName: LPCOLESTR, #[out] pvarField: *mut VARIANT) -> HRESULT;
+        fn GetFieldNoCopy(&self, #[in] pvData: PVOID, #[in] szFieldName: LPCOLESTR, #[out] pvarField: *mut VARIANT, #[out] ppvDataCArray: *mut PVOID) -> HRESULT;
+        fn PutField(&self, #[in] wFlags: ULONG, #[in] pvData: PVOID, #[in] szFieldName: LPCOLESTR, #[out] pvarField: *mut VARIANT) -> HRESULT;
+        fn PutFieldNoCopy(&self, #[in] wFlags: ULONG, #[in] pvData: PVOID, #[in] szFieldName: LPCOLESTR, #[out] pvarField: *mut VARIANT) -> HRESULT;
+        fn GetFieldNames(&self, #[out] pcNames: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__out_ecount_part", "*pcNames,*pcNames", "*pcNames,*pcNames")] #[out] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 0, IsByteCount = false, Dereference = true)] rgBstrNames: *mut BSTR) -> HRESULT;
+        fn IsMatchingType(&self, #[in] pRecordInfo: IRecordInfo) -> BOOL;
         fn RecordCreate(&self) -> PVOID;
-        fn RecordCreateCopy(&self, pvSource: PVOID, ppvDest: *mut PVOID) -> HRESULT;
-        fn RecordDestroy(&self, pvRecord: PVOID) -> HRESULT;
+        fn RecordCreateCopy(&self, #[in] pvSource: PVOID, #[out] ppvDest: *mut PVOID) -> HRESULT;
+        fn RecordDestroy(&self, #[in] pvRecord: PVOID) -> HRESULT;
     }
     #[guid(0x00020403_0000_0000_c000_000000000046)]
     interface ITypeComp: IUnknown {
-        fn Bind(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] szName: LPOLESTR, lHashVal: ULONG, wFlags: WORD, ppTInfo: *mut ITypeInfo, pDescKind: *mut DESCKIND, pBindPtr: *mut BINDPTR) -> HRESULT;
-        fn BindType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] szName: LPOLESTR, lHashVal: ULONG, ppTInfo: *mut ITypeInfo, ppTComp: *mut ITypeComp) -> HRESULT;
+        fn Bind(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] szName: LPOLESTR, #[in] lHashVal: ULONG, #[in] wFlags: WORD, #[out] ppTInfo: *mut ITypeInfo, #[out] pDescKind: *mut DESCKIND, #[out] pBindPtr: *mut BINDPTR) -> HRESULT;
+        fn BindType(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] szName: LPOLESTR, #[in] lHashVal: ULONG, #[out] ppTInfo: *mut ITypeInfo, #[out] ppTComp: *mut ITypeComp) -> HRESULT;
     }
     #[guid(0x00020401_0000_0000_c000_000000000046)]
     interface ITypeInfo: IUnknown {
-        fn GetTypeAttr(&self, ppTypeAttr: *mut *mut TYPEATTR) -> HRESULT;
+        fn GetTypeAttr(&self, #[out] ppTypeAttr: *mut *mut TYPEATTR) -> HRESULT;
         fn GetTypeComp(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTComp: *mut ITypeComp) -> HRESULT;
-        fn GetFuncDesc(&self, index: UINT, ppFuncDesc: *mut *mut FUNCDESC) -> HRESULT;
-        fn GetVarDesc(&self, index: UINT, ppVarDesc: *mut *mut VARDESC) -> HRESULT;
-        fn GetNames(&self, memid: MEMBERID, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] rgBstrNames: *mut BSTR, cMaxNames: UINT, #[out] pcNames: *mut UINT) -> HRESULT;
-        fn GetRefTypeOfImplType(&self, index: UINT, #[out] pRefType: *mut HREFTYPE) -> HRESULT;
-        fn GetImplTypeFlags(&self, index: UINT, #[out] pImplTypeFlags: *mut INT) -> HRESULT;
-        fn GetIDsOfNames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] rgszNames: *mut LPOLESTR, cNames: UINT, pMemId: *mut MEMBERID) -> HRESULT;
-        fn Invoke(&self, pvInstance: PVOID, memid: MEMBERID, wFlags: WORD, pDispParams: *mut DISPPARAMS, pVarResult: *mut VARIANT, pExcepInfo: *mut EXCEPINFO, puArgErr: *mut UINT) -> HRESULT;
-        fn GetDocumentation(&self, memid: MEMBERID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDocString: *mut BSTR, pdwHelpContext: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrHelpFile: *mut BSTR) -> HRESULT;
-        fn GetDllEntry(&self, memid: MEMBERID, invKind: INVOKEKIND, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDllName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, pwOrdinal: *mut WORD) -> HRESULT;
-        fn GetRefTypeInfo(&self, hRefType: HREFTYPE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
-        fn AddressOfMember(&self, memid: MEMBERID, invKind: INVOKEKIND, ppv: *mut PVOID) -> HRESULT;
-        fn CreateInstance(&self, pUnkOuter: IUnknown, riid: &IID, #[out] #[iid_is] ppvObj: *mut PVOID) -> HRESULT;
-        fn GetMops(&self, memid: MEMBERID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrMops: *mut BSTR) -> HRESULT;
-        fn GetContainingTypeLib(&self, ppTLib: *mut ITypeLib, pIndex: *mut UINT) -> HRESULT;
-        fn ReleaseTypeAttr(&self, pTypeAttr: *mut TYPEATTR);
-        fn ReleaseFuncDesc(&self, pFuncDesc: *mut FUNCDESC);
-        fn ReleaseVarDesc(&self, pVarDesc: *mut VARDESC);
+        fn GetFuncDesc(&self, #[in] index: UINT, #[out] ppFuncDesc: *mut *mut FUNCDESC) -> HRESULT;
+        fn GetVarDesc(&self, #[in] index: UINT, #[out] ppVarDesc: *mut *mut VARDESC) -> HRESULT;
+        fn GetNames(&self, #[in] memid: MEMBERID, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 2, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 3, IsByteCount = false, Dereference = true)] rgBstrNames: *mut BSTR, #[in] cMaxNames: UINT, #[out] pcNames: *mut UINT) -> HRESULT;
+        fn GetRefTypeOfImplType(&self, #[in] index: UINT, #[out] pRefType: *mut HREFTYPE) -> HRESULT;
+        fn GetImplTypeFlags(&self, #[in] index: UINT, #[out] pImplTypeFlags: *mut INT) -> HRESULT;
+        fn GetIDsOfNames(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(1)] rgszNames: *mut LPOLESTR, #[in] cNames: UINT, #[out] pMemId: *mut MEMBERID) -> HRESULT;
+        fn Invoke(&self, #[in] pvInstance: PVOID, #[in] memid: MEMBERID, #[in] wFlags: WORD, #[out] pDispParams: *mut DISPPARAMS, #[out] pVarResult: *mut VARIANT, #[out] pExcepInfo: *mut EXCEPINFO, #[out] puArgErr: *mut UINT) -> HRESULT;
+        fn GetDocumentation(&self, #[in] memid: MEMBERID, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDocString: *mut BSTR, #[out] pdwHelpContext: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrHelpFile: *mut BSTR) -> HRESULT;
+        fn GetDllEntry(&self, #[in] memid: MEMBERID, #[in] invKind: INVOKEKIND, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDllName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, #[out] pwOrdinal: *mut WORD) -> HRESULT;
+        fn GetRefTypeInfo(&self, #[in] hRefType: HREFTYPE, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
+        fn AddressOfMember(&self, #[in] memid: MEMBERID, #[in] invKind: INVOKEKIND, #[out] ppv: *mut PVOID) -> HRESULT;
+        fn CreateInstance(&self, #[in] pUnkOuter: IUnknown, #[in] riid: &IID, #[out] #[iid_is] ppvObj: *mut PVOID) -> HRESULT;
+        fn GetMops(&self, #[in] memid: MEMBERID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrMops: *mut BSTR) -> HRESULT;
+        fn GetContainingTypeLib(&self, #[out] ppTLib: *mut ITypeLib, #[out] pIndex: *mut UINT) -> HRESULT;
+        fn ReleaseTypeAttr(&self, #[out] pTypeAttr: *mut TYPEATTR);
+        fn ReleaseFuncDesc(&self, #[out] pFuncDesc: *mut FUNCDESC);
+        fn ReleaseVarDesc(&self, #[out] pVarDesc: *mut VARDESC);
     }
     #[guid(0x00020402_0000_0000_c000_000000000046)]
     interface ITypeLib: IUnknown {
         fn GetTypeInfoCount(&self) -> UINT;
-        fn GetTypeInfo(&self, index: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
-        fn GetTypeInfoType(&self, index: UINT, #[out] pTKind: *mut TYPEKIND) -> HRESULT;
+        fn GetTypeInfo(&self, #[in] index: UINT, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTInfo: *mut ITypeInfo) -> HRESULT;
+        fn GetTypeInfoType(&self, #[in] index: UINT, #[out] pTKind: *mut TYPEKIND) -> HRESULT;
         fn GetTypeInfoOfGuid(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] guid: &GUID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTinfo: *mut ITypeInfo) -> HRESULT;
-        fn GetLibAttr(&self, ppTLibAttr: *mut *mut TLIBATTR) -> HRESULT;
+        fn GetLibAttr(&self, #[out] ppTLibAttr: *mut *mut TLIBATTR) -> HRESULT;
         fn GetTypeComp(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppTComp: *mut ITypeComp) -> HRESULT;
-        fn GetDocumentation(&self, index: INT, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDocString: *mut BSTR, pdwHelpContext: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrHelpFile: *mut BSTR) -> HRESULT;
-        fn IsName(&self, #[in] #[out] szNameBuf: LPOLESTR, lHashVal: ULONG, pfName: *mut BOOL) -> HRESULT;
-        fn FindName(&self, #[in] #[out] szNameBuf: LPOLESTR, lHashVal: ULONG, ppTInfo: *mut ITypeInfo, rgMemId: *mut MEMBERID, pcFound: *mut USHORT) -> HRESULT;
-        fn ReleaseTLibAttr(&self, pTLibAttr: *mut TLIBATTR);
+        fn GetDocumentation(&self, #[in] index: INT, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrName: *mut BSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrDocString: *mut BSTR, #[out] pdwHelpContext: *mut DWORD, #[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pBstrHelpFile: *mut BSTR) -> HRESULT;
+        fn IsName(&self, #[in] #[out] szNameBuf: LPOLESTR, #[in] lHashVal: ULONG, #[out] pfName: *mut BOOL) -> HRESULT;
+        fn FindName(&self, #[in] #[out] szNameBuf: LPOLESTR, #[in] lHashVal: ULONG, #[out] ppTInfo: *mut ITypeInfo, #[out] rgMemId: *mut MEMBERID, #[out] pcFound: *mut USHORT) -> HRESULT;
+        fn ReleaseTLibAttr(&self, #[out] pTLibAttr: *mut TLIBATTR);
     }
     type LPPARAMDESCEX = *mut tagPARAMDESCEX;
     #[packed(8)]
@@ -561,7 +561,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }
@@ -661,81 +661,81 @@ mod Fixture {
     #[guid(0xd2c72c96_c121_4518_b627_e5a93d010ead)]
     interface IVssComponent: IUnknown {
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetLogicalPath(&self, pbstrPath: *mut BSTR) -> HRESULT;
+        fn GetLogicalPath(&self, #[out] pbstrPath: *mut BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetComponentType(&self, pct: *mut VSS_COMPONENT_TYPE) -> HRESULT;
+        fn GetComponentType(&self, #[out] pct: *mut VSS_COMPONENT_TYPE) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetComponentName(&self, pbstrName: *mut BSTR) -> HRESULT;
+        fn GetComponentName(&self, #[out] pbstrName: *mut BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetBackupSucceeded(&self, pbSucceeded: *mut bool) -> HRESULT;
+        fn GetBackupSucceeded(&self, #[out] pbSucceeded: *mut bool) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetAlternateLocationMappingCount(&self, pcMappings: *mut UINT) -> HRESULT;
+        fn GetAlternateLocationMappingCount(&self, #[out] pcMappings: *mut UINT) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetAlternateLocationMapping(&self, iMapping: UINT, ppFiledesc: *mut IVssWMFiledesc) -> HRESULT;
+        fn GetAlternateLocationMapping(&self, #[in] iMapping: UINT, #[out] ppFiledesc: *mut IVssWMFiledesc) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn SetBackupMetadata(&self, wszData: LPCWSTR) -> HRESULT;
+        fn SetBackupMetadata(&self, #[in] wszData: LPCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetBackupMetadata(&self, pbstrData: *mut BSTR) -> HRESULT;
+        fn GetBackupMetadata(&self, #[out] pbstrData: *mut BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn AddPartialFile(&self, wszPath: LPCWSTR, wszFilename: LPCWSTR, wszRanges: LPCWSTR, wszMetadata: LPCWSTR) -> HRESULT;
+        fn AddPartialFile(&self, #[in] wszPath: LPCWSTR, #[in] wszFilename: LPCWSTR, #[in] wszRanges: LPCWSTR, #[in] wszMetadata: LPCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetPartialFileCount(&self, pcPartialFiles: *mut UINT) -> HRESULT;
+        fn GetPartialFileCount(&self, #[out] pcPartialFiles: *mut UINT) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetPartialFile(&self, iPartialFile: UINT, pbstrPath: *mut BSTR, pbstrFilename: *mut BSTR, pbstrRange: *mut BSTR, pbstrMetadata: *mut BSTR) -> HRESULT;
+        fn GetPartialFile(&self, #[in] iPartialFile: UINT, #[out] pbstrPath: *mut BSTR, #[out] pbstrFilename: *mut BSTR, #[out] pbstrRange: *mut BSTR, #[out] pbstrMetadata: *mut BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn IsSelectedForRestore(&self, pbSelectedForRestore: *mut bool) -> HRESULT;
+        fn IsSelectedForRestore(&self, #[out] pbSelectedForRestore: *mut bool) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetAdditionalRestores(&self, pbAdditionalRestores: *mut bool) -> HRESULT;
+        fn GetAdditionalRestores(&self, #[out] pbAdditionalRestores: *mut bool) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetNewTargetCount(&self, pcNewTarget: *mut UINT) -> HRESULT;
+        fn GetNewTargetCount(&self, #[out] pcNewTarget: *mut UINT) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetNewTarget(&self, iNewTarget: UINT, ppFiledesc: *mut IVssWMFiledesc) -> HRESULT;
+        fn GetNewTarget(&self, #[in] iNewTarget: UINT, #[out] ppFiledesc: *mut IVssWMFiledesc) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn AddDirectedTarget(&self, wszSourcePath: LPCWSTR, wszSourceFilename: LPCWSTR, wszSourceRangeList: LPCWSTR, wszDestinationPath: LPCWSTR, wszDestinationFilename: LPCWSTR, wszDestinationRangeList: LPCWSTR) -> HRESULT;
+        fn AddDirectedTarget(&self, #[in] wszSourcePath: LPCWSTR, #[in] wszSourceFilename: LPCWSTR, #[in] wszSourceRangeList: LPCWSTR, #[in] wszDestinationPath: LPCWSTR, #[in] wszDestinationFilename: LPCWSTR, #[in] wszDestinationRangeList: LPCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetDirectedTargetCount(&self, pcDirectedTarget: *mut UINT) -> HRESULT;
+        fn GetDirectedTargetCount(&self, #[out] pcDirectedTarget: *mut UINT) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetDirectedTarget(&self, iDirectedTarget: UINT, pbstrSourcePath: *mut BSTR, pbstrSourceFileName: *mut BSTR, pbstrSourceRangeList: *mut BSTR, pbstrDestinationPath: *mut BSTR, pbstrDestinationFilename: *mut BSTR, pbstrDestinationRangeList: *mut BSTR) -> HRESULT;
+        fn GetDirectedTarget(&self, #[in] iDirectedTarget: UINT, #[out] pbstrSourcePath: *mut BSTR, #[out] pbstrSourceFileName: *mut BSTR, #[out] pbstrSourceRangeList: *mut BSTR, #[out] pbstrDestinationPath: *mut BSTR, #[out] pbstrDestinationFilename: *mut BSTR, #[out] pbstrDestinationRangeList: *mut BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn SetRestoreMetadata(&self, wszRestoreMetadata: LPCWSTR) -> HRESULT;
+        fn SetRestoreMetadata(&self, #[in] wszRestoreMetadata: LPCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetRestoreMetadata(&self, pbstrRestoreMetadata: *mut BSTR) -> HRESULT;
+        fn GetRestoreMetadata(&self, #[out] pbstrRestoreMetadata: *mut BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn SetRestoreTarget(&self, target: VSS_RESTORE_TARGET) -> HRESULT;
+        fn SetRestoreTarget(&self, #[in] target: VSS_RESTORE_TARGET) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetRestoreTarget(&self, pTarget: *mut VSS_RESTORE_TARGET) -> HRESULT;
+        fn GetRestoreTarget(&self, #[out] pTarget: *mut VSS_RESTORE_TARGET) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn SetPreRestoreFailureMsg(&self, wszPreRestoreFailureMsg: LPCWSTR) -> HRESULT;
+        fn SetPreRestoreFailureMsg(&self, #[in] wszPreRestoreFailureMsg: LPCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetPreRestoreFailureMsg(&self, pbstrPreRestoreFailureMsg: *mut BSTR) -> HRESULT;
+        fn GetPreRestoreFailureMsg(&self, #[out] pbstrPreRestoreFailureMsg: *mut BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn SetPostRestoreFailureMsg(&self, wszPostRestoreFailureMsg: LPCWSTR) -> HRESULT;
+        fn SetPostRestoreFailureMsg(&self, #[in] wszPostRestoreFailureMsg: LPCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetPostRestoreFailureMsg(&self, pbstrPostRestoreFailureMsg: *mut BSTR) -> HRESULT;
+        fn GetPostRestoreFailureMsg(&self, #[out] pbstrPostRestoreFailureMsg: *mut BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn SetBackupStamp(&self, wszBackupStamp: LPCWSTR) -> HRESULT;
+        fn SetBackupStamp(&self, #[in] wszBackupStamp: LPCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetBackupStamp(&self, pbstrBackupStamp: *mut BSTR) -> HRESULT;
+        fn GetBackupStamp(&self, #[out] pbstrBackupStamp: *mut BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetPreviousBackupStamp(&self, pbstrBackupStamp: *mut BSTR) -> HRESULT;
+        fn GetPreviousBackupStamp(&self, #[out] pbstrBackupStamp: *mut BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetBackupOptions(&self, pbstrBackupOptions: *mut BSTR) -> HRESULT;
+        fn GetBackupOptions(&self, #[out] pbstrBackupOptions: *mut BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetRestoreOptions(&self, pbstrRestoreOptions: *mut BSTR) -> HRESULT;
+        fn GetRestoreOptions(&self, #[out] pbstrRestoreOptions: *mut BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetRestoreSubcomponentCount(&self, pcRestoreSubcomponent: *mut UINT) -> HRESULT;
+        fn GetRestoreSubcomponentCount(&self, #[out] pcRestoreSubcomponent: *mut UINT) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetRestoreSubcomponent(&self, iComponent: UINT, pbstrLogicalPath: *mut BSTR, pbstrComponentName: *mut BSTR, pbRepair: *mut bool) -> HRESULT;
+        fn GetRestoreSubcomponent(&self, #[in] iComponent: UINT, #[out] pbstrLogicalPath: *mut BSTR, #[out] pbstrComponentName: *mut BSTR, #[out] pbRepair: *mut bool) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetFileRestoreStatus(&self, pStatus: *mut VSS_FILE_RESTORE_STATUS) -> HRESULT;
+        fn GetFileRestoreStatus(&self, #[out] pStatus: *mut VSS_FILE_RESTORE_STATUS) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn AddDifferencedFilesByLastModifyTime(&self, wszPath: LPCWSTR, wszFilespec: LPCWSTR, bRecursive: BOOL, ftLastModifyTime: FILETIME) -> HRESULT;
+        fn AddDifferencedFilesByLastModifyTime(&self, #[in] wszPath: LPCWSTR, #[in] wszFilespec: LPCWSTR, #[in] bRecursive: BOOL, #[in] ftLastModifyTime: FILETIME) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn AddDifferencedFilesByLastModifyLSN(&self, wszPath: LPCWSTR, wszFilespec: LPCWSTR, bRecursive: BOOL, bstrLsnString: BSTR) -> HRESULT;
+        fn AddDifferencedFilesByLastModifyLSN(&self, #[in] wszPath: LPCWSTR, #[in] wszFilespec: LPCWSTR, #[in] bRecursive: BOOL, #[in] bstrLsnString: BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetDifferencedFilesCount(&self, pcDifferencedFiles: *mut UINT) -> HRESULT;
+        fn GetDifferencedFilesCount(&self, #[out] pcDifferencedFiles: *mut UINT) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetDifferencedFile(&self, iDifferencedFile: UINT, pbstrPath: *mut BSTR, pbstrFilespec: *mut BSTR, pbRecursive: *mut BOOL, pbstrLsnString: *mut BSTR, pftLastModifyTime: *mut FILETIME) -> HRESULT;
+        fn GetDifferencedFile(&self, #[in] iDifferencedFile: UINT, #[out] pbstrPath: *mut BSTR, #[out] pbstrFilespec: *mut BSTR, #[out] pbRecursive: *mut BOOL, #[out] pbstrLsnString: *mut BSTR, #[out] pftLastModifyTime: *mut FILETIME) -> HRESULT;
     }
     #[guid(0x156c8b5e_f131_4bd7_9c97_d1923be7e1fa)]
     interface IVssComponentEx: IVssComponent {
@@ -781,29 +781,29 @@ mod Fixture {
     #[no_guid]
     interface IVssCreateWriterMetadata {
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn AddIncludeFiles(&self, wszPath: LPCWSTR, wszFilespec: LPCWSTR, bRecursive: bool, wszAlternateLocation: LPCWSTR) -> HRESULT;
+        fn AddIncludeFiles(&self, #[in] wszPath: LPCWSTR, #[in] wszFilespec: LPCWSTR, #[in] bRecursive: bool, #[in] wszAlternateLocation: LPCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn AddExcludeFiles(&self, wszPath: LPCWSTR, wszFilespec: LPCWSTR, bRecursive: bool) -> HRESULT;
+        fn AddExcludeFiles(&self, #[in] wszPath: LPCWSTR, #[in] wszFilespec: LPCWSTR, #[in] bRecursive: bool) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, wszLogicalPath: LPCWSTR, wszComponentName: LPCWSTR, wszCaption: LPCWSTR, pbIcon: *const BYTE, cbIcon: UINT, bRestoreMetadata: bool, bNotifyOnBackupComplete: bool, bSelectable: bool, #[Windows::Win32::Metadata::NativeDefaultArgument("false")] bSelectableForRestore: bool, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] dwComponentFlags: DWORD) -> HRESULT;
+        fn AddComponent(&self, #[in] ct: VSS_COMPONENT_TYPE, #[in] wszLogicalPath: LPCWSTR, #[in] wszComponentName: LPCWSTR, #[in] wszCaption: LPCWSTR, #[in] pbIcon: *const BYTE, #[in] cbIcon: UINT, #[in] bRestoreMetadata: bool, #[in] bNotifyOnBackupComplete: bool, #[in] bSelectable: bool, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("false")] bSelectableForRestore: bool, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] dwComponentFlags: DWORD) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn AddDatabaseFiles(&self, wszLogicalPath: LPCWSTR, wszDatabaseName: LPCWSTR, wszPath: LPCWSTR, wszFilespec: LPCWSTR, #[Windows::Win32::Metadata::NativeDefaultArgument("(VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED)")] dwBackupTypeMask: DWORD) -> HRESULT;
+        fn AddDatabaseFiles(&self, #[in] wszLogicalPath: LPCWSTR, #[in] wszDatabaseName: LPCWSTR, #[in] wszPath: LPCWSTR, #[in] wszFilespec: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED)")] dwBackupTypeMask: DWORD) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn AddDatabaseLogFiles(&self, wszLogicalPath: LPCWSTR, wszDatabaseName: LPCWSTR, wszPath: LPCWSTR, wszFilespec: LPCWSTR, #[Windows::Win32::Metadata::NativeDefaultArgument("(VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED)")] dwBackupTypeMask: DWORD) -> HRESULT;
+        fn AddDatabaseLogFiles(&self, #[in] wszLogicalPath: LPCWSTR, #[in] wszDatabaseName: LPCWSTR, #[in] wszPath: LPCWSTR, #[in] wszFilespec: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED)")] dwBackupTypeMask: DWORD) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn AddFilesToFileGroup(&self, wszLogicalPath: LPCWSTR, wszGroupName: LPCWSTR, wszPath: LPCWSTR, wszFilespec: LPCWSTR, bRecursive: bool, wszAlternateLocation: LPCWSTR, #[Windows::Win32::Metadata::NativeDefaultArgument("(VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED)")] dwBackupTypeMask: DWORD) -> HRESULT;
+        fn AddFilesToFileGroup(&self, #[in] wszLogicalPath: LPCWSTR, #[in] wszGroupName: LPCWSTR, #[in] wszPath: LPCWSTR, #[in] wszFilespec: LPCWSTR, #[in] bRecursive: bool, #[in] wszAlternateLocation: LPCWSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED)")] dwBackupTypeMask: DWORD) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn SetRestoreMethod(&self, method: VSS_RESTOREMETHOD_ENUM, wszService: LPCWSTR, wszUserProcedure: LPCWSTR, writerRestore: VSS_WRITERRESTORE_ENUM, bRebootRequired: bool) -> HRESULT;
+        fn SetRestoreMethod(&self, #[in] method: VSS_RESTOREMETHOD_ENUM, #[in] wszService: LPCWSTR, #[in] wszUserProcedure: LPCWSTR, #[in] writerRestore: VSS_WRITERRESTORE_ENUM, #[in] bRebootRequired: bool) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn AddAlternateLocationMapping(&self, wszSourcePath: LPCWSTR, wszSourceFilespec: LPCWSTR, bRecursive: bool, wszDestination: LPCWSTR) -> HRESULT;
+        fn AddAlternateLocationMapping(&self, #[in] wszSourcePath: LPCWSTR, #[in] wszSourceFilespec: LPCWSTR, #[in] bRecursive: bool, #[in] wszDestination: LPCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn AddComponentDependency(&self, wszForLogicalPath: LPCWSTR, wszForComponentName: LPCWSTR, onWriterId: VSS_ID, wszOnLogicalPath: LPCWSTR, wszOnComponentName: LPCWSTR) -> HRESULT;
+        fn AddComponentDependency(&self, #[in] wszForLogicalPath: LPCWSTR, #[in] wszForComponentName: LPCWSTR, #[in] onWriterId: VSS_ID, #[in] wszOnLogicalPath: LPCWSTR, #[in] wszOnComponentName: LPCWSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn SetBackupSchema(&self, dwSchemaMask: DWORD) -> HRESULT;
+        fn SetBackupSchema(&self, #[in] dwSchemaMask: DWORD) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetDocument(&self, pDoc: *mut IXMLDOMDocument) -> HRESULT;
+        fn GetDocument(&self, #[out] pDoc: *mut IXMLDOMDocument) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn SaveAsXML(&self, pbstrXML: *mut BSTR) -> HRESULT;
+        fn SaveAsXML(&self, #[out] pbstrXML: *mut BSTR) -> HRESULT;
     }
     #[guid(0xe33affdc_59c7_47b1_97d5_4266598f6235)]
     interface IVssExpressWriter: IUnknown {
@@ -819,11 +819,11 @@ mod Fixture {
     #[no_guid]
     interface IVssWMDependency: IUnknown {
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetWriterId(&self, pWriterId: *mut VSS_ID) -> HRESULT;
+        fn GetWriterId(&self, #[out] pWriterId: *mut VSS_ID) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetLogicalPath(&self, pbstrLogicalPath: *mut BSTR) -> HRESULT;
+        fn GetLogicalPath(&self, #[out] pbstrLogicalPath: *mut BSTR) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetComponentName(&self, pbstrComponentName: *mut BSTR) -> HRESULT;
+        fn GetComponentName(&self, #[out] pbstrComponentName: *mut BSTR) -> HRESULT;
     }
     #[no_guid]
     interface IVssWMFiledesc: IUnknown {
@@ -841,11 +841,11 @@ mod Fixture {
     #[no_guid]
     interface IVssWriterComponents {
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetComponentCount(&self, pcComponents: *mut UINT) -> HRESULT;
+        fn GetComponentCount(&self, #[out] pcComponents: *mut UINT) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetWriterInfo(&self, pidInstance: *mut VSS_ID, pidWriter: *mut VSS_ID) -> HRESULT;
+        fn GetWriterInfo(&self, #[out] pidInstance: *mut VSS_ID, #[out] pidWriter: *mut VSS_ID) -> HRESULT;
         #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetComponent(&self, iComponent: UINT, ppComponent: *mut IVssComponent) -> HRESULT;
+        fn GetComponent(&self, #[in] iComponent: UINT, #[out] ppComponent: *mut IVssComponent) -> HRESULT;
     }
     #[repr(i32)]
     enum VSS_COMPONENT_TYPE {

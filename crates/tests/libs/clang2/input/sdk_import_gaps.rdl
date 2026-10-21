@@ -2,10 +2,10 @@
 mod Fixture {
     #[library("DHCPSAPI.DLL")]
     #[arch(X64 | Arm64)]
-    extern "C" fn DhcpAddServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
+    extern "C" fn DhcpAddServer(#[in] Flags: DWORD, #[in] IdInfo: LPVOID, #[in] NewServer: LPDHCP_SERVER_INFO, #[in] CallbackFn: LPVOID, #[in] CallbackData: LPVOID) -> DWORD;
     #[library("DHCPSAPI.DLL")]
     #[arch(X86)]
-    extern fn DhcpAddServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
+    extern fn DhcpAddServer(#[in] Flags: DWORD, #[in] IdInfo: LPVOID, #[in] NewServer: LPDHCP_SERVER_INFO, #[in] CallbackFn: LPVOID, #[in] CallbackData: LPVOID) -> DWORD;
     type LPDHCPDS_SERVER = *mut _DHCPDS_SERVER;
     type LPDHCP_SERVER_INFO = *mut _DHCPDS_SERVER;
     struct _DHCPDS_SERVER {

@@ -1,7 +1,7 @@
 #[win32]
 mod Test {
     attribute ContractAttribute {
-        fn(expression: String);
+        fn(#[in] expression: String);
     }
     #[arch(X86)]
     #[Contract("return >= 0")]

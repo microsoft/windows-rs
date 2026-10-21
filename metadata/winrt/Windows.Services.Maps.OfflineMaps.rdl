@@ -17,9 +17,9 @@ mod Windows {
                     #[get]
                     EstimatedSizeInBytes: u64;
                     #[special]
-                    fn remove_StatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn remove_StatusChanged(&self, #[in] token: super::super::super::Foundation::EventRegistrationToken);
                     #[special]
-                    fn add_StatusChanged(&self, value: super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, Object>) -> super::super::super::Foundation::EventRegistrationToken;
+                    fn add_StatusChanged(&self, #[in] value: super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, Object>) -> super::super::super::Foundation::EventRegistrationToken;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn RequestStartDownloadAsync(&self) -> super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>;
                 }
@@ -47,11 +47,11 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IOfflineMapPackageStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn FindPackagesAsync(&self, queryPoint: super::super::super::Devices::Geolocation::Geopoint) -> super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>;
+                    fn FindPackagesAsync(&self, #[in] queryPoint: super::super::super::Devices::Geolocation::Geopoint) -> super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn FindPackagesInBoundingBoxAsync(&self, queryBoundingBox: super::super::super::Devices::Geolocation::GeoboundingBox) -> super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>;
+                    fn FindPackagesInBoundingBoxAsync(&self, #[in] queryBoundingBox: super::super::super::Devices::Geolocation::GeoboundingBox) -> super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn FindPackagesInGeocircleAsync(&self, queryCircle: super::super::super::Devices::Geolocation::Geocircle) -> super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>;
+                    fn FindPackagesInGeocircleAsync(&self, #[in] queryCircle: super::super::super::Devices::Geolocation::Geocircle) -> super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

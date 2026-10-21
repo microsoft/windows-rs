@@ -1,7 +1,7 @@
 #[win32]
 mod Fixture {
     type DWORD = u32;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    #[success(return >= 0)]
     type HRESULT = i32;
     type LONG = i32;
     #[arch(X64 | Arm64)]
@@ -33,7 +33,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }
@@ -83,54 +83,54 @@ mod Fixture {
     #[library("avifil32.dll")]
     extern fn AVIStreamRelease(pavi: PAVISTREAM) -> ULONG;
     #[library("avifil32.dll")]
-    extern fn CreateEditableStream(#[out_ptr] ppsEditable: *mut PAVISTREAM, psSource: PAVISTREAM) -> HRESULT;
+    extern fn CreateEditableStream(#[out] #[out_ptr] ppsEditable: *mut PAVISTREAM, #[in] psSource: PAVISTREAM) -> HRESULT;
     #[library("avifil32.dll")]
-    extern fn EditStreamClone(pavi: PAVISTREAM, #[out_ptr] ppResult: *mut PAVISTREAM) -> HRESULT;
+    extern fn EditStreamClone(#[in] pavi: PAVISTREAM, #[out] #[out_ptr] ppResult: *mut PAVISTREAM) -> HRESULT;
     #[no_guid]
     interface IAVIFile: IUnknown {
         #[override_slot(0)]
-        fn QueryInterface(&self, riid: &IID, #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+        fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
         #[override_slot(1)]
         fn AddRef(&self) -> ULONG;
         #[override_slot(2)]
         fn Release(&self) -> ULONG;
-        fn Info(&self, #[size_param(1)] pfi: *mut AVIFILEINFOW, lSize: LONG) -> HRESULT;
-        fn GetStream(&self, #[out_ptr] ppStream: *mut PAVISTREAM, fccType: DWORD, lParam: LONG) -> HRESULT;
-        fn CreateStream(&self, #[out_ptr] ppStream: *mut PAVISTREAM, #[in] psi: *mut AVISTREAMINFOW) -> HRESULT;
-        fn WriteData(&self, ckid: DWORD, #[size_param(2)] lpData: LPVOID, cbData: LONG) -> HRESULT;
-        fn ReadData(&self, ckid: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpcbData,*lpcbData", "*lpcbData,*lpcbData")] #[out] lpData: LPVOID, #[in] #[out] lpcbData: *mut LONG) -> HRESULT;
+        fn Info(&self, #[out] #[writable(entry, bytes(lSize))] pfi: *mut AVIFILEINFOW, #[in] lSize: LONG) -> HRESULT;
+        fn GetStream(&self, #[out] #[out_ptr] ppStream: *mut PAVISTREAM, #[in] fccType: DWORD, #[in] lParam: LONG) -> HRESULT;
+        fn CreateStream(&self, #[out] #[out_ptr] ppStream: *mut PAVISTREAM, #[in] psi: *mut AVISTREAMINFOW) -> HRESULT;
+        fn WriteData(&self, #[in] ckid: DWORD, #[in] #[readable(entry, bytes(cbData))] lpData: LPVOID, #[in] cbData: LONG) -> HRESULT;
+        fn ReadData(&self, #[in] ckid: DWORD, #[out] #[writable(entry, bytes(*lpcbData))] #[readable(success, bytes(*lpcbData))] lpData: LPVOID, #[in] #[out] lpcbData: *mut LONG) -> HRESULT;
         fn EndRecord(&self) -> HRESULT;
-        fn DeleteStream(&self, fccType: DWORD, lParam: LONG) -> HRESULT;
+        fn DeleteStream(&self, #[in] fccType: DWORD, #[in] lParam: LONG) -> HRESULT;
     }
     #[no_guid]
     interface IAVIStream: IUnknown {
         #[override_slot(0)]
-        fn QueryInterface(&self, riid: &IID, #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+        fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
         #[override_slot(1)]
         fn AddRef(&self) -> ULONG;
         #[override_slot(2)]
         fn Release(&self) -> ULONG;
         fn Create(&self, lParam1: LPARAM, lParam2: LPARAM) -> HRESULT;
-        fn Info(&self, #[size_param(1)] psi: *mut AVISTREAMINFOW, lSize: LONG) -> HRESULT;
-        fn FindSample(&self, lPos: LONG, lFlags: LONG) -> LONG;
-        fn ReadFormat(&self, lPos: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*lpcbFormat,*lpcbFormat", "*lpcbFormat,*lpcbFormat")] #[out] #[opt] lpFormat: LPVOID, #[in] #[out] lpcbFormat: *mut LONG) -> HRESULT;
-        fn SetFormat(&self, lPos: LONG, #[size_param(2)] lpFormat: LPVOID, cbFormat: LONG) -> HRESULT;
-        fn Read(&self, lStart: LONG, lSamples: LONG, #[out] #[opt] #[size_param(3)] lpBuffer: LPVOID, cbBuffer: LONG, #[opt] plBytes: *mut LONG, #[opt] plSamples: *mut LONG) -> HRESULT;
-        fn Write(&self, lStart: LONG, lSamples: LONG, #[size_param(3)] lpBuffer: LPVOID, cbBuffer: LONG, dwFlags: DWORD, #[opt] plSampWritten: *mut LONG, #[opt] plBytesWritten: *mut LONG) -> HRESULT;
-        fn Delete(&self, lStart: LONG, lSamples: LONG) -> HRESULT;
-        fn ReadData(&self, fcc: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*lpcb,*lpcb", "*lpcb,*lpcb")] #[out] #[opt] lp: LPVOID, #[in] #[out] lpcb: *mut LONG) -> HRESULT;
-        fn WriteData(&self, fcc: DWORD, #[size_param(2)] lp: LPVOID, cb: LONG) -> HRESULT;
-        fn SetInfo(&self, #[in] #[size_param(1)] lpInfo: *mut AVISTREAMINFOW, cbInfo: LONG) -> HRESULT;
+        fn Info(&self, #[out] #[writable(entry, bytes(lSize))] psi: *mut AVISTREAMINFOW, #[in] lSize: LONG) -> HRESULT;
+        fn FindSample(&self, #[in] lPos: LONG, #[in] lFlags: LONG) -> LONG;
+        fn ReadFormat(&self, #[in] lPos: LONG, #[out] #[opt] #[writable(entry, bytes(*lpcbFormat))] #[readable(success, bytes(*lpcbFormat))] lpFormat: LPVOID, #[in] #[out] lpcbFormat: *mut LONG) -> HRESULT;
+        fn SetFormat(&self, #[in] lPos: LONG, #[in] #[readable(entry, bytes(cbFormat))] lpFormat: LPVOID, #[in] cbFormat: LONG) -> HRESULT;
+        fn Read(&self, #[in] lStart: LONG, #[in] lSamples: LONG, #[out] #[opt] #[writable(entry, bytes(cbBuffer))] lpBuffer: LPVOID, #[in] cbBuffer: LONG, #[out] #[opt] plBytes: *mut LONG, #[out] #[opt] plSamples: *mut LONG) -> HRESULT;
+        fn Write(&self, #[in] lStart: LONG, #[in] lSamples: LONG, #[in] #[readable(entry, bytes(cbBuffer))] lpBuffer: LPVOID, #[in] cbBuffer: LONG, #[in] dwFlags: DWORD, #[out] #[opt] plSampWritten: *mut LONG, #[out] #[opt] plBytesWritten: *mut LONG) -> HRESULT;
+        fn Delete(&self, #[in] lStart: LONG, #[in] lSamples: LONG) -> HRESULT;
+        fn ReadData(&self, #[in] fcc: DWORD, #[out] #[opt] #[writable(entry, bytes(*lpcb))] #[readable(success, bytes(*lpcb))] lp: LPVOID, #[in] #[out] lpcb: *mut LONG) -> HRESULT;
+        fn WriteData(&self, #[in] fcc: DWORD, #[in] #[readable(entry, bytes(cb))] lp: LPVOID, #[in] cb: LONG) -> HRESULT;
+        fn SetInfo(&self, #[in] #[readable(entry, bytes(cbInfo))] lpInfo: *mut AVISTREAMINFOW, #[in] cbInfo: LONG) -> HRESULT;
     }
     #[no_guid]
     interface IAVIStreaming: IUnknown {
         #[override_slot(0)]
-        fn QueryInterface(&self, riid: &IID, #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+        fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
         #[override_slot(1)]
         fn AddRef(&self) -> ULONG;
         #[override_slot(2)]
         fn Release(&self) -> ULONG;
-        fn Begin(&self, lStart: LONG, lEnd: LONG, lRate: LONG) -> HRESULT;
+        fn Begin(&self, #[in] lStart: LONG, #[in] lEnd: LONG, #[in] lRate: LONG) -> HRESULT;
         fn End(&self) -> HRESULT;
     }
     type PAVISTREAM = IAVIStream;

@@ -70,11 +70,11 @@ mod Test {
     delegate fn Handler();
     interface IInterface {
         #[special]
-        fn remove_Reversed(&self, token: Windows::Foundation::EventRegistrationToken);
+        fn remove_Reversed(&self, #[in] token: Windows::Foundation::EventRegistrationToken);
         #[special]
-        fn add_Reversed(&self, handler: Handler) -> Windows::Foundation::EventRegistrationToken;
+        fn add_Reversed(&self, #[in] handler: Handler) -> Windows::Foundation::EventRegistrationToken;
         #[special]
-        fn remove_Orphan(&self, token: Windows::Foundation::EventRegistrationToken);
+        fn remove_Orphan(&self, #[in] token: Windows::Foundation::EventRegistrationToken);
     }
 }
 #[win32]

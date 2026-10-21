@@ -7,5 +7,5 @@ mod Test {
         wide_constant: *mut Canonical::PCWSTR,
     }
     #[library("test.dll")]
-    extern "C" fn Text(input: Canonical::PCSTR, #[out] output: Canonical::PWSTR) -> Canonical::PCSTR;
+    extern "C" fn Text(#[in] input: Canonical::PCSTR, #[out] output: Canonical::PWSTR) -> Canonical::PCSTR;
 }

@@ -20,10 +20,10 @@ mod Fixture {
 #[win32]
 mod Fixture {
     #[library("fixture.dll")]
-    extern "C" fn AliasArrayParameter(values: *mut DeviceIoControl);
+    extern "C" fn AliasArrayParameter(#[out] values: *mut DeviceIoControl);
     #[library("fixture.dll")]
-    extern "C" fn ArrayParameter(values: *mut DeviceIoControl);
+    extern "C" fn ArrayParameter(#[out] values: *mut DeviceIoControl);
     #[library("fixture.dll")]
-    extern "C" fn ByPointer(value: *mut DeviceIoControl);
+    extern "C" fn ByPointer(#[out] value: *mut DeviceIoControl);
     type Items = [DeviceIoControl; 2];
 }

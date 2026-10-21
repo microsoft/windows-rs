@@ -20,13 +20,13 @@ mod Windows {
                     event ClosedCaptionDataReceived: super::super::super::Foundation::TypedEventHandler<NDClient, INDClosedCaptionDataReceivedEventArgs>;
                     #[Windows::Foundation::Metadata::Deprecated("INDClient is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn StartAsync(&self, contentUrl: super::super::super::Foundation::Uri, startAsyncOptions: u32, registrationCustomData: INDCustomData, licenseFetchDescriptor: INDLicenseFetchDescriptor) -> super::super::super::Foundation::IAsyncOperation<INDStartResult>;
+                    fn StartAsync(&self, #[in] contentUrl: super::super::super::Foundation::Uri, #[in] startAsyncOptions: u32, #[in] registrationCustomData: INDCustomData, #[in] licenseFetchDescriptor: INDLicenseFetchDescriptor) -> super::super::super::Foundation::IAsyncOperation<INDStartResult>;
                     #[Windows::Foundation::Metadata::Deprecated("INDClient is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn LicenseFetchAsync(&self, licenseFetchDescriptor: INDLicenseFetchDescriptor) -> super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>;
+                    fn LicenseFetchAsync(&self, #[in] licenseFetchDescriptor: INDLicenseFetchDescriptor) -> super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>;
                     #[Windows::Foundation::Metadata::Deprecated("INDClient is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReRegistrationAsync(&self, registrationCustomData: INDCustomData) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReRegistrationAsync(&self, #[in] registrationCustomData: INDCustomData) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Deprecated("INDClient is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     fn Close(&self);
                 }
@@ -36,7 +36,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(NDClient)]
                 interface INDClientFactory {
                     #[Windows::Foundation::Metadata::Deprecated("INDClientFactory is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn CreateInstance(&self, downloadEngine: INDDownloadEngine, streamParser: INDStreamParser, pMessenger: INDMessenger) -> NDClient;
+                    fn CreateInstance(&self, #[in] downloadEngine: INDDownloadEngine, #[in] streamParser: INDStreamParser, #[in] pMessenger: INDMessenger) -> NDClient;
                 }
                 #[guid(0x4738d29f_c345_4649_8468_b8c5fc357190)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -69,14 +69,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(NDCustomData)]
                 interface INDCustomDataFactory {
                     #[Windows::Foundation::Metadata::Deprecated("INDCustomDataFactory is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn CreateInstance(&self, customDataTypeIDBytes: [u8], customDataBytes: [u8]) -> NDCustomData;
+                    fn CreateInstance(&self, #[in] customDataTypeIDBytes: [u8], #[in] customDataBytes: [u8]) -> NDCustomData;
                 }
                 #[guid(0x2d223d65_c4b6_4438_8d46_b96e6d0fb21f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("INDDownloadEngine is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                 interface INDDownloadEngine {
                     #[Windows::Foundation::Metadata::Deprecated("INDDownloadEngine is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn Open(&self, uri: super::super::super::Foundation::Uri, sessionIDBytes: [u8]);
+                    fn Open(&self, #[in] uri: super::super::super::Foundation::Uri, #[in] sessionIDBytes: [u8]);
                     #[Windows::Foundation::Metadata::Deprecated("INDDownloadEngine is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     fn Pause(&self);
                     #[Windows::Foundation::Metadata::Deprecated("INDDownloadEngine is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
@@ -84,7 +84,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Deprecated("INDDownloadEngine is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     fn Close(&self);
                     #[Windows::Foundation::Metadata::Deprecated("INDDownloadEngine is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn Seek(&self, startPosition: super::super::super::Foundation::TimeSpan);
+                    fn Seek(&self, #[in] startPosition: super::super::super::Foundation::TimeSpan);
                     #[get]
                     #[Windows::Foundation::Metadata::Deprecated("INDDownloadEngine is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     CanSeek: bool;
@@ -105,11 +105,11 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Deprecated("INDDownloadEngineNotifier is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     fn OnStreamOpened(&self);
                     #[Windows::Foundation::Metadata::Deprecated("INDDownloadEngineNotifier is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn OnPlayReadyObjectReceived(&self, dataBytes: [u8]);
+                    fn OnPlayReadyObjectReceived(&self, #[in] dataBytes: [u8]);
                     #[Windows::Foundation::Metadata::Deprecated("INDDownloadEngineNotifier is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn OnContentIDReceived(&self, licenseFetchDescriptor: INDLicenseFetchDescriptor);
+                    fn OnContentIDReceived(&self, #[in] licenseFetchDescriptor: INDLicenseFetchDescriptor);
                     #[Windows::Foundation::Metadata::Deprecated("INDDownloadEngineNotifier is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn OnDataReceived(&self, dataBytes: [u8], bytesReceived: u32);
+                    fn OnDataReceived(&self, #[in] dataBytes: [u8], #[in] bytesReceived: u32);
                     #[Windows::Foundation::Metadata::Deprecated("INDDownloadEngineNotifier is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     fn OnEndOfStream(&self);
                     #[Windows::Foundation::Metadata::Deprecated("INDDownloadEngineNotifier is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
@@ -142,7 +142,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(NDLicenseFetchDescriptor)]
                 interface INDLicenseFetchDescriptorFactory {
                     #[Windows::Foundation::Metadata::Deprecated("INDLicenseFetchDescriptorFactory is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn CreateInstance(&self, contentIDType: NDContentIDType, contentIDBytes: [u8], licenseFetchChallengeCustomData: INDCustomData) -> NDLicenseFetchDescriptor;
+                    fn CreateInstance(&self, #[in] contentIDType: NDContentIDType, #[in] contentIDBytes: [u8], #[in] licenseFetchChallengeCustomData: INDCustomData) -> NDLicenseFetchDescriptor;
                 }
                 #[guid(0x21d39698_aa62_45ff_a5ff_8037e5433825)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -158,16 +158,16 @@ mod Windows {
                 interface INDMessenger {
                     #[Windows::Foundation::Metadata::Deprecated("INDMessenger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SendRegistrationRequestAsync(&self, sessionIDBytes: [u8], challengeDataBytes: [u8]) -> super::super::super::Foundation::IAsyncOperation<INDSendResult>;
+                    fn SendRegistrationRequestAsync(&self, #[in] sessionIDBytes: [u8], #[in] challengeDataBytes: [u8]) -> super::super::super::Foundation::IAsyncOperation<INDSendResult>;
                     #[Windows::Foundation::Metadata::Deprecated("INDMessenger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SendProximityDetectionStartAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: [u8], sessionIDBytes: [u8], challengeDataBytes: [u8]) -> super::super::super::Foundation::IAsyncOperation<INDSendResult>;
+                    fn SendProximityDetectionStartAsync(&self, #[in] pdType: NDProximityDetectionType, #[in] transmitterChannelBytes: [u8], #[in] sessionIDBytes: [u8], #[in] challengeDataBytes: [u8]) -> super::super::super::Foundation::IAsyncOperation<INDSendResult>;
                     #[Windows::Foundation::Metadata::Deprecated("INDMessenger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SendProximityDetectionResponseAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: [u8], sessionIDBytes: [u8], responseDataBytes: [u8]) -> super::super::super::Foundation::IAsyncOperation<INDSendResult>;
+                    fn SendProximityDetectionResponseAsync(&self, #[in] pdType: NDProximityDetectionType, #[in] transmitterChannelBytes: [u8], #[in] sessionIDBytes: [u8], #[in] responseDataBytes: [u8]) -> super::super::super::Foundation::IAsyncOperation<INDSendResult>;
                     #[Windows::Foundation::Metadata::Deprecated("INDMessenger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SendLicenseFetchRequestAsync(&self, sessionIDBytes: [u8], challengeDataBytes: [u8]) -> super::super::super::Foundation::IAsyncOperation<INDSendResult>;
+                    fn SendLicenseFetchRequestAsync(&self, #[in] sessionIDBytes: [u8], #[in] challengeDataBytes: [u8]) -> super::super::super::Foundation::IAsyncOperation<INDSendResult>;
                 }
                 #[guid(0x2a706328_da25_4f8c_9eb7_5d0fc3658bca)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -211,16 +211,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("INDStorageFileHelper is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                 interface INDStorageFileHelper {
                     #[Windows::Foundation::Metadata::Deprecated("INDStorageFileHelper is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn GetFileURLs(&self, file: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::Collections::IVector<String>;
+                    fn GetFileURLs(&self, #[in] file: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::Collections::IVector<String>;
                 }
                 #[guid(0xe0baa198_9796_41c9_8695_59437e67e66a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("INDStreamParser is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                 interface INDStreamParser {
                     #[Windows::Foundation::Metadata::Deprecated("INDStreamParser is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn ParseData(&self, dataBytes: [u8]);
+                    fn ParseData(&self, #[in] dataBytes: [u8]);
                     #[Windows::Foundation::Metadata::Deprecated("INDStreamParser is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn GetStreamInformation(&self, descriptor: super::super::Core::IMediaStreamDescriptor, streamType: &mut NDMediaStreamType) -> u32;
+                    fn GetStreamInformation(&self, #[in] descriptor: super::super::Core::IMediaStreamDescriptor, #[out] streamType: &mut NDMediaStreamType) -> u32;
                     #[Windows::Foundation::Metadata::Deprecated("INDStreamParser is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                     fn BeginOfStream(&self);
                     #[Windows::Foundation::Metadata::Deprecated("INDStreamParser is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
@@ -234,13 +234,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("INDStreamParserNotifier is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                 interface INDStreamParserNotifier {
                     #[Windows::Foundation::Metadata::Deprecated("INDStreamParserNotifier is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn OnContentIDReceived(&self, licenseFetchDescriptor: INDLicenseFetchDescriptor);
+                    fn OnContentIDReceived(&self, #[in] licenseFetchDescriptor: INDLicenseFetchDescriptor);
                     #[Windows::Foundation::Metadata::Deprecated("INDStreamParserNotifier is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn OnMediaStreamDescriptorCreated(&self, audioStreamDescriptors: super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>, videoStreamDescriptors: super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>);
+                    fn OnMediaStreamDescriptorCreated(&self, #[in] audioStreamDescriptors: super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>, #[in] videoStreamDescriptors: super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>);
                     #[Windows::Foundation::Metadata::Deprecated("INDStreamParserNotifier is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn OnSampleParsed(&self, streamID: u32, streamType: NDMediaStreamType, streamSample: super::super::Core::MediaStreamSample, pts: i64, ccFormat: NDClosedCaptionFormat, ccDataBytes: [u8]);
+                    fn OnSampleParsed(&self, #[in] streamID: u32, #[in] streamType: NDMediaStreamType, #[in] streamSample: super::super::Core::MediaStreamSample, #[in] pts: i64, #[in] ccFormat: NDClosedCaptionFormat, #[in] ccDataBytes: [u8]);
                     #[Windows::Foundation::Metadata::Deprecated("INDStreamParserNotifier is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn OnBeginSetupDecryptor(&self, descriptor: super::super::Core::IMediaStreamDescriptor, keyID: GUID, proBytes: [u8]);
+                    fn OnBeginSetupDecryptor(&self, #[in] descriptor: super::super::Core::IMediaStreamDescriptor, #[in] keyID: GUID, #[in] proBytes: [u8]);
                 }
                 #[guid(0x7dd85cfe_1b99_4f68_8f82_8177f7cedf2b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -248,7 +248,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(NDTCPMessenger)]
                 interface INDTCPMessengerFactory {
                     #[Windows::Foundation::Metadata::Deprecated("INDTCPMessengerFactory is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                    fn CreateInstance(&self, remoteHostName: String, remoteHostPort: u32) -> NDTCPMessenger;
+                    fn CreateInstance(&self, #[in] remoteHostName: String, #[in] remoteHostPort: u32) -> NDTCPMessenger;
                 }
                 #[guid(0xe536af23_ac4f_4adc_8c66_4ff7c2702dd6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -325,21 +325,21 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlayReadyContentHeader)]
                 interface IPlayReadyContentHeaderFactory {
-                    fn CreateInstanceFromWindowsMediaDrmHeader(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] headerBytes: [u8], licenseAcquisitionUrl: super::super::super::Foundation::Uri, licenseAcquisitionUserInterfaceUrl: super::super::super::Foundation::Uri, customAttributes: String, domainServiceId: GUID) -> PlayReadyContentHeader;
-                    fn CreateInstanceFromComponents(&self, contentKeyId: GUID, contentKeyIdString: String, contentEncryptionAlgorithm: PlayReadyEncryptionAlgorithm, licenseAcquisitionUrl: super::super::super::Foundation::Uri, licenseAcquisitionUserInterfaceUrl: super::super::super::Foundation::Uri, customAttributes: String, domainServiceId: GUID) -> PlayReadyContentHeader;
-                    fn CreateInstanceFromPlayReadyHeader(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] headerBytes: [u8]) -> PlayReadyContentHeader;
+                    fn CreateInstanceFromWindowsMediaDrmHeader(&self, #[in] #[Windows::Foundation::Metadata::Range(0, 2147483647)] headerBytes: [u8], #[in] licenseAcquisitionUrl: super::super::super::Foundation::Uri, #[in] licenseAcquisitionUserInterfaceUrl: super::super::super::Foundation::Uri, #[in] customAttributes: String, #[in] domainServiceId: GUID) -> PlayReadyContentHeader;
+                    fn CreateInstanceFromComponents(&self, #[in] contentKeyId: GUID, #[in] contentKeyIdString: String, #[in] contentEncryptionAlgorithm: PlayReadyEncryptionAlgorithm, #[in] licenseAcquisitionUrl: super::super::super::Foundation::Uri, #[in] licenseAcquisitionUserInterfaceUrl: super::super::super::Foundation::Uri, #[in] customAttributes: String, #[in] domainServiceId: GUID) -> PlayReadyContentHeader;
+                    fn CreateInstanceFromPlayReadyHeader(&self, #[in] #[Windows::Foundation::Metadata::Range(0, 2147483647)] headerBytes: [u8]) -> PlayReadyContentHeader;
                 }
                 #[guid(0xd1239cf5_ae6d_4778_97fd_6e3a2eeadbeb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlayReadyContentHeader)]
                 interface IPlayReadyContentHeaderFactory2 {
-                    fn CreateInstanceFromComponents2(&self, dwFlags: u32, #[Windows::Foundation::Metadata::Range(0, 2147483647)] contentKeyIds: [GUID], #[Windows::Foundation::Metadata::Range(0, 2147483647)] contentKeyIdStrings: [String], contentEncryptionAlgorithm: PlayReadyEncryptionAlgorithm, licenseAcquisitionUrl: super::super::super::Foundation::Uri, licenseAcquisitionUserInterfaceUrl: super::super::super::Foundation::Uri, customAttributes: String, domainServiceId: GUID) -> PlayReadyContentHeader;
+                    fn CreateInstanceFromComponents2(&self, #[in] dwFlags: u32, #[in] #[Windows::Foundation::Metadata::Range(0, 2147483647)] contentKeyIds: [GUID], #[in] #[Windows::Foundation::Metadata::Range(0, 2147483647)] contentKeyIdStrings: [String], #[in] contentEncryptionAlgorithm: PlayReadyEncryptionAlgorithm, #[in] licenseAcquisitionUrl: super::super::super::Foundation::Uri, #[in] licenseAcquisitionUserInterfaceUrl: super::super::super::Foundation::Uri, #[in] customAttributes: String, #[in] domainServiceId: GUID) -> PlayReadyContentHeader;
                 }
                 #[guid(0xfbfd2523_906d_4982_a6b8_6849565a7ce8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlayReadyContentResolver)]
                 interface IPlayReadyContentResolver {
-                    fn ServiceRequest(&self, contentHeader: PlayReadyContentHeader) -> IPlayReadyServiceRequest;
+                    fn ServiceRequest(&self, #[in] contentHeader: PlayReadyContentHeader) -> IPlayReadyServiceRequest;
                 }
                 #[guid(0xadcc93ac_97e6_43ef_95e4_d7868f3b16a9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -359,7 +359,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlayReadyDomainIterable)]
                 interface IPlayReadyDomainIterableFactory {
-                    fn CreateInstance(&self, domainAccountId: GUID) -> PlayReadyDomainIterable;
+                    fn CreateInstance(&self, #[in] domainAccountId: GUID) -> PlayReadyDomainIterable;
                 }
                 #[guid(0x171b4a5a_405f_4739_b040_67b9f0c38758)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -380,7 +380,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlayReadyITADataGenerator)]
                 interface IPlayReadyITADataGenerator {
-                    fn GenerateData(&self, guidCPSystemId: GUID, countOfStreams: u32, configuration: super::super::super::Foundation::Collections::IPropertySet, format: PlayReadyITADataFormat) -> [u8];
+                    fn GenerateData(&self, #[in] guidCPSystemId: GUID, #[in] countOfStreams: u32, #[in] configuration: super::super::super::Foundation::Collections::IPropertySet, #[in] format: PlayReadyITADataFormat) -> [u8];
                 }
                 #[guid(0x21f5a86b_008c_4611_ab2f_aaa6c69f0e24)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -401,7 +401,7 @@ mod Windows {
                     DomainAccountID: GUID;
                     #[get]
                     ChainDepth: u32;
-                    fn GetKIDAtChainDepth(&self, chainDepth: u32) -> GUID;
+                    fn GetKIDAtChainDepth(&self, #[in] chainDepth: u32) -> GUID;
                 }
                 #[guid(0x30f4e7a7_d8e3_48a0_bcda_ff9f40530436)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -433,37 +433,37 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlayReadyLicenseAcquisitionServiceRequest)]
                 interface IPlayReadyLicenseAcquisitionServiceRequest3: IPlayReadyLicenseAcquisitionServiceRequest2 + IPlayReadyLicenseAcquisitionServiceRequest + IPlayReadyServiceRequest + super::IMediaProtectionServiceRequest {
-                    fn CreateLicenseIterable(&self, contentHeader: PlayReadyContentHeader, fullyEvaluated: bool) -> PlayReadyLicenseIterable;
+                    fn CreateLicenseIterable(&self, #[in] contentHeader: PlayReadyContentHeader, #[in] fullyEvaluated: bool) -> PlayReadyLicenseIterable;
                 }
                 #[guid(0xd4179f08_0837_4978_8e68_be4293c8d7a6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlayReadyLicenseIterable)]
                 interface IPlayReadyLicenseIterableFactory {
-                    fn CreateInstance(&self, contentHeader: PlayReadyContentHeader, fullyEvaluated: bool) -> PlayReadyLicenseIterable;
+                    fn CreateInstance(&self, #[in] contentHeader: PlayReadyContentHeader, #[in] fullyEvaluated: bool) -> PlayReadyLicenseIterable;
                 }
                 #[guid(0xaaeb2141_0957_4405_b892_8bf3ec5dadd9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlayReadyLicenseManagement)]
                 interface IPlayReadyLicenseManagement {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn DeleteLicenses(&self, contentHeader: PlayReadyContentHeader) -> super::super::super::Foundation::IAsyncAction;
+                    fn DeleteLicenses(&self, #[in] contentHeader: PlayReadyContentHeader) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xa1723a39_87fa_4fdd_abbb_a9720e845259)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface IPlayReadyLicenseSession {
                     fn CreateLAServiceRequest(&self) -> IPlayReadyLicenseAcquisitionServiceRequest;
-                    fn ConfigureMediaProtectionManager(&self, mpm: super::MediaProtectionManager);
+                    fn ConfigureMediaProtectionManager(&self, #[in] mpm: super::MediaProtectionManager);
                 }
                 #[guid(0x4909be3a_3aed_4656_8ad7_ee0fd7799510)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 interface IPlayReadyLicenseSession2: IPlayReadyLicenseSession {
-                    fn CreateLicenseIterable(&self, contentHeader: PlayReadyContentHeader, fullyEvaluated: bool) -> PlayReadyLicenseIterable;
+                    fn CreateLicenseIterable(&self, #[in] contentHeader: PlayReadyContentHeader, #[in] fullyEvaluated: bool) -> PlayReadyLicenseIterable;
                 }
                 #[guid(0x62492699_6527_429e_98be_48d798ac2739)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlayReadyLicenseSession)]
                 interface IPlayReadyLicenseSessionFactory {
-                    fn CreateInstance(&self, configuration: super::super::super::Foundation::Collections::IPropertySet) -> PlayReadyLicenseSession;
+                    fn CreateInstance(&self, #[in] configuration: super::super::super::Foundation::Collections::IPropertySet) -> PlayReadyLicenseSession;
                 }
                 #[guid(0xc12b231c_0ecd_4f11_a185_1e24a4a67fb7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -472,7 +472,7 @@ mod Windows {
                     #[get]
                     MeteringCertificate: [u8];
                     #[special]
-                    fn put_MeteringCertificate(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] meteringCertBytes: [u8]);
+                    fn put_MeteringCertificate(&self, #[in] #[Windows::Foundation::Metadata::Range(0, 2147483647)] meteringCertBytes: [u8]);
                 }
                 #[guid(0x543d66ac_faf0_4560_84a5_0e4acec939e4)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -482,7 +482,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlayReadySecureStopIterable)]
                 interface IPlayReadySecureStopIterableFactory {
-                    fn CreateInstance(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] publisherCertBytes: [u8]) -> PlayReadySecureStopIterable;
+                    fn CreateInstance(&self, #[in] #[Windows::Foundation::Metadata::Range(0, 2147483647)] publisherCertBytes: [u8]) -> PlayReadySecureStopIterable;
                 }
                 #[guid(0xb5501ee5_01bf_4401_9677_05630a6a4cc8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -502,8 +502,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlayReadySecureStopServiceRequest)]
                 interface IPlayReadySecureStopServiceRequestFactory {
-                    fn CreateInstance(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] publisherCertBytes: [u8]) -> PlayReadySecureStopServiceRequest;
-                    fn CreateInstanceFromSessionID(&self, sessionID: GUID, #[Windows::Foundation::Metadata::Range(0, 2147483647)] publisherCertBytes: [u8]) -> PlayReadySecureStopServiceRequest;
+                    fn CreateInstance(&self, #[in] #[Windows::Foundation::Metadata::Range(0, 2147483647)] publisherCertBytes: [u8]) -> PlayReadySecureStopServiceRequest;
+                    fn CreateInstanceFromSessionID(&self, #[in] sessionID: GUID, #[in] #[Windows::Foundation::Metadata::Range(0, 2147483647)] publisherCertBytes: [u8]) -> PlayReadySecureStopServiceRequest;
                 }
                 #[guid(0x8bad2836_a703_45a6_a180_76f3565aa725)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -516,7 +516,7 @@ mod Windows {
                     fn BeginServiceRequest(&self) -> super::super::super::Foundation::IAsyncAction;
                     fn NextServiceRequest(&self) -> IPlayReadyServiceRequest;
                     fn GenerateManualEnablingChallenge(&self) -> PlayReadySoapMessage;
-                    fn ProcessManualEnablingResponse(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] responseBytes: [u8]) -> HRESULT;
+                    fn ProcessManualEnablingResponse(&self, #[in] #[Windows::Foundation::Metadata::Range(0, 2147483647)] responseBytes: [u8]) -> HRESULT;
                 }
                 #[guid(0xb659fcb5_ce41_41ba_8a0d_61df5fffa139)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -562,7 +562,7 @@ mod Windows {
                 interface IPlayReadyStatics3: IPlayReadyStatics2 + IPlayReadyStatics {
                     #[get]
                     SecureStopServiceRequestType: GUID;
-                    fn CheckSupportedHardware(&self, hwdrmFeature: PlayReadyHardwareDRMFeatures) -> bool;
+                    fn CheckSupportedHardware(&self, #[in] hwdrmFeature: PlayReadyHardwareDRMFeatures) -> bool;
                 }
                 #[guid(0x50a91300_d824_4231_9d5e_78ef8844c7d7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]

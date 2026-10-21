@@ -22,7 +22,7 @@ mod Windows {
                     ContentKinds: super::UserDataAccountContentKinds;
                     #[get]
                     PartnerAccountInfos: super::super::super::Foundation::Collections::IVectorView<UserDataAccountPartnerAccountInfo>;
-                    fn ReportCompleted(&self, userDataAccountId: String);
+                    fn ReportCompleted(&self, #[in] userDataAccountId: String);
                 }
                 #[guid(0xa20aad63_888c_4a62_a3dd_34d07a802b2b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]

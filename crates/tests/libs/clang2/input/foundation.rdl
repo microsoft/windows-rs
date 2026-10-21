@@ -2,7 +2,7 @@
 mod Fixture {
     type Count = u32;
     type PlatformCount = u32;
-    extern "C" fn SharedCallback(value: Count) -> Count;
+    extern "C" fn SharedCallback(#[in] value: Count) -> Count;
     struct SharedRecord {
         value: Count,
     }

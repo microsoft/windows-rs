@@ -41,20 +41,20 @@ mod Windows {
                 IsConnected: bool;
                 #[get]
                 SupportsVirtualKeys: bool;
-                fn GetLampInfo(&self, lampIndex: i32) -> LampInfo;
-                fn GetIndicesForKey(&self, key: super::super::System::VirtualKey) -> [i32];
-                fn GetIndicesForPurposes(&self, purposes: LampPurposes) -> [i32];
-                fn SetColor(&self, desiredColor: super::super::UI::Color);
-                fn SetColorForIndex(&self, lampIndex: i32, desiredColor: super::super::UI::Color);
-                fn SetSingleColorForIndices(&self, desiredColor: super::super::UI::Color, lampIndexes: [i32]);
-                fn SetColorsForIndices(&self, desiredColors: [super::super::UI::Color], lampIndexes: [i32]);
-                fn SetColorsForKey(&self, desiredColor: super::super::UI::Color, key: super::super::System::VirtualKey);
-                fn SetColorsForKeys(&self, desiredColors: [super::super::UI::Color], keys: [super::super::System::VirtualKey]);
-                fn SetColorsForPurposes(&self, desiredColor: super::super::UI::Color, purposes: LampPurposes);
+                fn GetLampInfo(&self, #[in] lampIndex: i32) -> LampInfo;
+                fn GetIndicesForKey(&self, #[in] key: super::super::System::VirtualKey) -> [i32];
+                fn GetIndicesForPurposes(&self, #[in] purposes: LampPurposes) -> [i32];
+                fn SetColor(&self, #[in] desiredColor: super::super::UI::Color);
+                fn SetColorForIndex(&self, #[in] lampIndex: i32, #[in] desiredColor: super::super::UI::Color);
+                fn SetSingleColorForIndices(&self, #[in] desiredColor: super::super::UI::Color, #[in] lampIndexes: [i32]);
+                fn SetColorsForIndices(&self, #[in] desiredColors: [super::super::UI::Color], #[in] lampIndexes: [i32]);
+                fn SetColorsForKey(&self, #[in] desiredColor: super::super::UI::Color, #[in] key: super::super::System::VirtualKey);
+                fn SetColorsForKeys(&self, #[in] desiredColors: [super::super::UI::Color], #[in] keys: [super::super::System::VirtualKey]);
+                fn SetColorsForPurposes(&self, #[in] desiredColor: super::super::UI::Color, #[in] purposes: LampPurposes);
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SendMessageAsync(&self, messageId: i32, message: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncAction;
+                fn SendMessageAsync(&self, #[in] messageId: i32, #[in] message: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestMessageAsync(&self, messageId: i32) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>;
+                fn RequestMessageAsync(&self, #[in] messageId: i32) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>;
             }
             #[guid(0x050c181f_60a8_4711_a1af_1b1b4c658ea2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -70,7 +70,7 @@ mod Windows {
             interface ILampArrayStatics {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<LampArray>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<LampArray>;
             }
             #[guid(0x4f6e3ded_07a2_499d_9260_67e304532ba4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -99,7 +99,7 @@ mod Windows {
                 GainLevelCount: i32;
                 #[get]
                 FixedColor: super::super::Foundation::IReference<super::super::UI::Color>;
-                fn GetNearestSupportedColor(&self, desiredColor: super::super::UI::Color) -> super::super::UI::Color;
+                fn GetNearestSupportedColor(&self, #[in] desiredColor: super::super::UI::Color) -> super::super::UI::Color;
                 #[get]
                 UpdateLatency: super::super::Foundation::TimeSpan;
             }
@@ -109,7 +109,7 @@ mod Windows {
             interface ILampStatics {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Lamp>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<Lamp>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<Lamp>;
             }

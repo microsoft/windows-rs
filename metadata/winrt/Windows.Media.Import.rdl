@@ -67,7 +67,7 @@ mod Windows {
                 fn SelectNone(&self);
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SelectNewAsync(&self) -> super::super::Foundation::IAsyncAction;
-                fn SetImportMode(&self, value: PhotoImportImportMode);
+                fn SetImportMode(&self, #[in] value: PhotoImportImportMode);
                 #[get]
                 ImportMode: PhotoImportImportMode;
                 #[get]
@@ -99,7 +99,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportFindItemsResult)]
             interface IPhotoImportFindItemsResult2 {
-                fn AddItemsInDateRangeToSelection(&self, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan);
+                fn AddItemsInDateRangeToSelection(&self, #[in] rangeStart: super::super::Foundation::DateTime, #[in] rangeLength: super::super::Foundation::TimeSpan);
             }
             #[guid(0xe4d4f478_d419_4443_a84e_f06a850c0b00)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -236,7 +236,7 @@ mod Windows {
                 #[get]
                 DestinationFileNamePrefix: String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindItemsAsync(&self, contentTypeFilter: PhotoImportContentTypeFilter, itemSelectionMode: PhotoImportItemSelectionMode) -> super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>;
+                fn FindItemsAsync(&self, #[in] contentTypeFilter: PhotoImportContentTypeFilter, #[in] itemSelectionMode: PhotoImportItemSelectionMode) -> super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>;
             }
             #[guid(0x2a526710_3ec6_469d_a375_2b9f4785391e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -305,9 +305,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportSource)]
             interface IPhotoImportSourceStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, sourceId: String) -> super::super::Foundation::IAsyncOperation<PhotoImportSource>;
+                fn FromIdAsync(&self, #[in] sourceId: String) -> super::super::Foundation::IAsyncOperation<PhotoImportSource>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromFolderAsync(&self, sourceRootFolder: super::super::Storage::IStorageFolder) -> super::super::Foundation::IAsyncOperation<PhotoImportSource>;
+                fn FromFolderAsync(&self, #[in] sourceRootFolder: super::super::Storage::IStorageFolder) -> super::super::Foundation::IAsyncOperation<PhotoImportSource>;
             }
             #[guid(0xf2b9b093_fc85_487f_87c2_58d675d05b07)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

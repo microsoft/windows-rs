@@ -3,7 +3,7 @@ mod Test {
     type PCWSTR = *const u16;
     type PSTR = *mut i8;
     #[library("test.dll")]
-    extern "C" fn Strings(text: *mut PSTR, wide: *mut PCWSTR, direct: TEXT, other: WTEXT);
+    extern "C" fn Strings(#[out] text: *mut PSTR, #[out] wide: *mut PCWSTR, #[in] direct: TEXT, #[in] other: WTEXT);
     type TEXT = PSTR;
     struct Text {
         narrow: TEXT,

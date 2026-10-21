@@ -1,6 +1,6 @@
 #[win32]
 mod Fixture {
-    extern "C" fn Callback(param0: *const *mut i32) -> *mut *const i32;
+    extern "C" fn Callback(#[in] param0: *const *mut i32) -> *mut *const i32;
     type Input = *const i32;
     type Inputs = *mut *const i32;
     type Output = *mut i32;

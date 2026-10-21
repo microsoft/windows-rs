@@ -13,19 +13,19 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnAppId)]
             interface IVpnAppIdFactory {
-                fn Create(&self, r#type: VpnAppIdType, value: String) -> VpnAppId;
+                fn Create(&self, #[in] r#type: VpnAppIdType, #[in] value: String) -> VpnAppId;
             }
             #[guid(0x4ac78d07_d1a8_4303_a091_c8d2e0915bc3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnChannel)]
             interface IVpnChannel {
-                fn AssociateTransport(&self, mainOuterTunnelTransport: Object, optionalOuterTunnelTransport: Object);
+                fn AssociateTransport(&self, #[in] mainOuterTunnelTransport: Object, #[in] optionalOuterTunnelTransport: Object);
                 #[Windows::Foundation::Metadata::Overload("Start")]
-                fn Start(&self, assignedClientIPv4list: super::super::Foundation::Collections::IVectorView<super::HostName>, assignedClientIPv6list: super::super::Foundation::Collections::IVectorView<super::HostName>, vpnInterfaceId: VpnInterfaceId, routeScope: VpnRouteAssignment, namespaceScope: VpnNamespaceAssignment, mtuSize: u32, maxFrameSize: u32, optimizeForLowCostNetwork: bool, mainOuterTunnelTransport: Object, optionalOuterTunnelTransport: Object);
+                fn Start(&self, #[in] assignedClientIPv4list: super::super::Foundation::Collections::IVectorView<super::HostName>, #[in] assignedClientIPv6list: super::super::Foundation::Collections::IVectorView<super::HostName>, #[in] vpnInterfaceId: VpnInterfaceId, #[in] routeScope: VpnRouteAssignment, #[in] namespaceScope: VpnNamespaceAssignment, #[in] mtuSize: u32, #[in] maxFrameSize: u32, #[in] optimizeForLowCostNetwork: bool, #[in] mainOuterTunnelTransport: Object, #[in] optionalOuterTunnelTransport: Object);
                 fn Stop(&self);
-                fn RequestCredentials(&self, credType: VpnCredentialType, isRetry: bool, isSingleSignOnCredential: bool, certificate: super::super::Security::Cryptography::Certificates::Certificate) -> VpnPickedCredential;
-                fn RequestVpnPacketBuffer(&self, r#type: VpnDataPathType, vpnPacketBuffer: &mut VpnPacketBuffer);
-                fn LogDiagnosticMessage(&self, message: String);
+                fn RequestCredentials(&self, #[in] credType: VpnCredentialType, #[in] isRetry: bool, #[in] isSingleSignOnCredential: bool, #[in] certificate: super::super::Security::Cryptography::Certificates::Certificate) -> VpnPickedCredential;
+                fn RequestVpnPacketBuffer(&self, #[in] r#type: VpnDataPathType, #[out] vpnPacketBuffer: &mut VpnPacketBuffer);
+                fn LogDiagnosticMessage(&self, #[in] message: String);
                 #[get]
                 Id: u32;
                 #[get]
@@ -37,44 +37,44 @@ mod Windows {
                 PlugInContext: Object;
                 #[get]
                 SystemHealth: VpnSystemHealth;
-                fn RequestCustomPrompt(&self, customPrompt: super::super::Foundation::Collections::IVectorView<IVpnCustomPrompt>);
-                fn SetErrorMessage(&self, message: String);
-                fn SetAllowedSslTlsVersions(&self, tunnelTransport: Object, useTls12: bool);
+                fn RequestCustomPrompt(&self, #[in] customPrompt: super::super::Foundation::Collections::IVectorView<IVpnCustomPrompt>);
+                fn SetErrorMessage(&self, #[in] message: String);
+                fn SetAllowedSslTlsVersions(&self, #[in] tunnelTransport: Object, #[in] useTls12: bool);
             }
             #[guid(0x2255d165_993b_4629_ad60_f1c3f3537f50)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnChannel)]
             interface IVpnChannel2 {
-                fn StartWithMainTransport(&self, assignedClientIPv4list: super::super::Foundation::Collections::IVectorView<super::HostName>, assignedClientIPv6list: super::super::Foundation::Collections::IVectorView<super::HostName>, vpnInterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedDomainName: VpnDomainNameAssignment, mtuSize: u32, maxFrameSize: u32, Reserved: bool, mainOuterTunnelTransport: Object);
-                fn StartExistingTransports(&self, assignedClientIPv4list: super::super::Foundation::Collections::IVectorView<super::HostName>, assignedClientIPv6list: super::super::Foundation::Collections::IVectorView<super::HostName>, vpnInterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedDomainName: VpnDomainNameAssignment, mtuSize: u32, maxFrameSize: u32, Reserved: bool);
+                fn StartWithMainTransport(&self, #[in] assignedClientIPv4list: super::super::Foundation::Collections::IVectorView<super::HostName>, #[in] assignedClientIPv6list: super::super::Foundation::Collections::IVectorView<super::HostName>, #[in] vpnInterfaceId: VpnInterfaceId, #[in] assignedRoutes: VpnRouteAssignment, #[in] assignedDomainName: VpnDomainNameAssignment, #[in] mtuSize: u32, #[in] maxFrameSize: u32, #[in] Reserved: bool, #[in] mainOuterTunnelTransport: Object);
+                fn StartExistingTransports(&self, #[in] assignedClientIPv4list: super::super::Foundation::Collections::IVectorView<super::HostName>, #[in] assignedClientIPv6list: super::super::Foundation::Collections::IVectorView<super::HostName>, #[in] vpnInterfaceId: VpnInterfaceId, #[in] assignedRoutes: VpnRouteAssignment, #[in] assignedDomainName: VpnDomainNameAssignment, #[in] mtuSize: u32, #[in] maxFrameSize: u32, #[in] Reserved: bool);
                 event ActivityStateChange: super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityStateChangedArgs>;
                 fn GetVpnSendPacketBuffer(&self) -> VpnPacketBuffer;
                 fn GetVpnReceivePacketBuffer(&self) -> VpnPacketBuffer;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestCustomPromptAsync(&self, customPromptElement: super::super::Foundation::Collections::IVectorView<IVpnCustomPromptElement>) -> super::super::Foundation::IAsyncAction;
+                fn RequestCustomPromptAsync(&self, #[in] customPromptElement: super::super::Foundation::Collections::IVectorView<IVpnCustomPromptElement>) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("RequestCredentialsWithCertificateAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestCredentialsAsync(&self, credType: VpnCredentialType, credOptions: u32, certificate: super::super::Security::Cryptography::Certificates::Certificate) -> super::super::Foundation::IAsyncOperation<VpnCredential>;
+                fn RequestCredentialsAsync(&self, #[in] credType: VpnCredentialType, #[in] credOptions: u32, #[in] certificate: super::super::Security::Cryptography::Certificates::Certificate) -> super::super::Foundation::IAsyncOperation<VpnCredential>;
                 #[Windows::Foundation::Metadata::Overload("RequestCredentialsWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestCredentialsAsync(&self, credType: VpnCredentialType, credOptions: u32) -> super::super::Foundation::IAsyncOperation<VpnCredential>;
+                fn RequestCredentialsAsync(&self, #[in] credType: VpnCredentialType, #[in] credOptions: u32) -> super::super::Foundation::IAsyncOperation<VpnCredential>;
                 #[Windows::Foundation::Metadata::Overload("RequestCredentialsSimpleAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestCredentialsAsync(&self, credType: VpnCredentialType) -> super::super::Foundation::IAsyncOperation<VpnCredential>;
-                fn TerminateConnection(&self, message: String);
+                fn RequestCredentialsAsync(&self, #[in] credType: VpnCredentialType) -> super::super::Foundation::IAsyncOperation<VpnCredential>;
+                fn TerminateConnection(&self, #[in] message: String);
                 #[Windows::Foundation::Metadata::Overload("StartWithTrafficFilter")]
-                fn StartWithTrafficFilter(&self, assignedClientIpv4List: super::super::Foundation::Collections::IVectorView<super::HostName>, assignedClientIpv6List: super::super::Foundation::Collections::IVectorView<super::HostName>, vpnInterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedNamespace: VpnDomainNameAssignment, mtuSize: u32, maxFrameSize: u32, reserved: bool, mainOuterTunnelTransport: Object, optionalOuterTunnelTransport: Object, assignedTrafficFilters: VpnTrafficFilterAssignment);
+                fn StartWithTrafficFilter(&self, #[in] assignedClientIpv4List: super::super::Foundation::Collections::IVectorView<super::HostName>, #[in] assignedClientIpv6List: super::super::Foundation::Collections::IVectorView<super::HostName>, #[in] vpnInterfaceId: VpnInterfaceId, #[in] assignedRoutes: VpnRouteAssignment, #[in] assignedNamespace: VpnDomainNameAssignment, #[in] mtuSize: u32, #[in] maxFrameSize: u32, #[in] reserved: bool, #[in] mainOuterTunnelTransport: Object, #[in] optionalOuterTunnelTransport: Object, #[in] assignedTrafficFilters: VpnTrafficFilterAssignment);
             }
             #[guid(0xd7266ede_2937_419d_9570_486aebb81803)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnChannel)]
             interface IVpnChannel4 {
-                fn AddAndAssociateTransport(&self, transport: Object, context: Object);
+                fn AddAndAssociateTransport(&self, #[in] transport: Object, #[in] context: Object);
                 #[Windows::Foundation::Metadata::Overload("StartWithMultipleTransports")]
-                fn StartWithTrafficFilter(&self, assignedClientIpv4Addresses: super::super::Foundation::Collections::IIterable<super::HostName>, assignedClientIpv6Addresses: super::super::Foundation::Collections::IIterable<super::HostName>, vpninterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedNamespace: VpnDomainNameAssignment, mtuSize: u32, maxFrameSize: u32, reserved: bool, transports: super::super::Foundation::Collections::IIterable<Object>, assignedTrafficFilters: VpnTrafficFilterAssignment);
-                fn ReplaceAndAssociateTransport(&self, transport: Object, context: Object);
-                fn StartReconnectingTransport(&self, transport: Object, context: Object);
-                fn GetSlotTypeForTransportContext(&self, context: Object) -> super::Sockets::ControlChannelTriggerStatus;
+                fn StartWithTrafficFilter(&self, #[in] assignedClientIpv4Addresses: super::super::Foundation::Collections::IIterable<super::HostName>, #[in] assignedClientIpv6Addresses: super::super::Foundation::Collections::IIterable<super::HostName>, #[in] vpninterfaceId: VpnInterfaceId, #[in] assignedRoutes: VpnRouteAssignment, #[in] assignedNamespace: VpnDomainNameAssignment, #[in] mtuSize: u32, #[in] maxFrameSize: u32, #[in] reserved: bool, #[in] transports: super::super::Foundation::Collections::IIterable<Object>, #[in] assignedTrafficFilters: VpnTrafficFilterAssignment);
+                fn ReplaceAndAssociateTransport(&self, #[in] transport: Object, #[in] context: Object);
+                fn StartReconnectingTransport(&self, #[in] transport: Object, #[in] context: Object);
+                fn GetSlotTypeForTransportContext(&self, #[in] context: Object) -> super::Sockets::ControlChannelTriggerStatus;
                 #[get]
                 CurrentRequestTransportContext: Object;
             }
@@ -82,8 +82,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnChannel)]
             interface IVpnChannel5 {
-                fn AppendVpnReceivePacketBuffer(&self, decapsulatedPacketBuffer: VpnPacketBuffer);
-                fn AppendVpnSendPacketBuffer(&self, encapsulatedPacketBuffer: VpnPacketBuffer);
+                fn AppendVpnReceivePacketBuffer(&self, #[in] decapsulatedPacketBuffer: VpnPacketBuffer);
+                fn AppendVpnSendPacketBuffer(&self, #[in] encapsulatedPacketBuffer: VpnPacketBuffer);
                 fn FlushVpnReceivePacketBuffers(&self);
                 fn FlushVpnSendPacketBuffers(&self);
             }
@@ -91,7 +91,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnChannel)]
             interface IVpnChannel6 {
-                fn ActivateForeground(&self, packageRelativeAppId: String, sharedContext: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::Collections::ValueSet;
+                fn ActivateForeground(&self, #[in] packageRelativeAppId: String, #[in] sharedContext: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::Collections::ValueSet;
             }
             #[guid(0xa36c88f2_afdc_4775_855d_d4ac0a35fc55)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -128,7 +128,7 @@ mod Windows {
             #[guid(0x88eb062d_e818_4ffd_98a6_363e3736c95d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IVpnChannelStatics {
-                fn ProcessEventAsync(&self, thirdPartyPlugIn: Object, event: Object);
+                fn ProcessEventAsync(&self, #[in] thirdPartyPlugIn: Object, #[in] event: Object);
             }
             #[guid(0xb7e78af3_a46d_404b_8729_1832522853ac)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -306,7 +306,7 @@ mod Windows {
             #[guid(0x2507bb75_028f_4688_8d3a_c4531df37da8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IVpnDomainNameInfoFactory {
-                fn CreateVpnDomainNameInfo(&self, name: String, nameType: VpnDomainNameType, dnsServerList: super::super::Foundation::Collections::IIterable<super::HostName>, proxyServerList: super::super::Foundation::Collections::IIterable<super::HostName>) -> VpnDomainNameInfo;
+                fn CreateVpnDomainNameInfo(&self, #[in] name: String, #[in] nameType: VpnDomainNameType, #[in] dnsServerList: super::super::Foundation::Collections::IIterable<super::HostName>, #[in] proxyServerList: super::super::Foundation::Collections::IIterable<super::HostName>) -> VpnDomainNameInfo;
             }
             #[guid(0x85b465b0_cadb_4d70_ac92_543a24dc9ebc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
@@ -323,41 +323,41 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnForegroundActivationOperation)]
             interface IVpnForegroundActivationOperation {
-                fn Complete(&self, result: super::super::Foundation::Collections::ValueSet);
+                fn Complete(&self, #[in] result: super::super::Foundation::Collections::ValueSet);
             }
             #[guid(0x9e2ddca2_1712_4ce4_b179_8c652c6d1011)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnInterfaceId)]
             interface IVpnInterfaceId {
-                fn GetAddressInfo(&self, id: &mut [u8]);
+                fn GetAddressInfo(&self, #[out] id: &mut [u8]);
             }
             #[guid(0x9e2ddca2_1712_4ce4_b179_8c652c6d1000)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IVpnInterfaceIdFactory {
-                fn CreateVpnInterfaceId(&self, #[Windows::Foundation::Metadata::Range(0, 8)] address: [u8]) -> VpnInterfaceId;
+                fn CreateVpnInterfaceId(&self, #[in] #[Windows::Foundation::Metadata::Range(0, 8)] address: [u8]) -> VpnInterfaceId;
             }
             #[guid(0x193696cd_a5c4_4abe_852b_785be4cb3e34)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnManagementAgent)]
             interface IVpnManagementAgent {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn AddProfileFromXmlAsync(&self, xml: String) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
+                fn AddProfileFromXmlAsync(&self, #[in] xml: String) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn AddProfileFromObjectAsync(&self, profile: IVpnProfile) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
+                fn AddProfileFromObjectAsync(&self, #[in] profile: IVpnProfile) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn UpdateProfileFromXmlAsync(&self, xml: String) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
+                fn UpdateProfileFromXmlAsync(&self, #[in] xml: String) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn UpdateProfileFromObjectAsync(&self, profile: IVpnProfile) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
+                fn UpdateProfileFromObjectAsync(&self, #[in] profile: IVpnProfile) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetProfilesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IVpnProfile>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DeleteProfileAsync(&self, profile: IVpnProfile) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
+                fn DeleteProfileAsync(&self, #[in] profile: IVpnProfile) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ConnectProfileAsync(&self, profile: IVpnProfile) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
+                fn ConnectProfileAsync(&self, #[in] profile: IVpnProfile) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ConnectProfileWithPasswordCredentialAsync(&self, profile: IVpnProfile, passwordCredential: super::super::Security::Credentials::PasswordCredential) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
+                fn ConnectProfileWithPasswordCredentialAsync(&self, #[in] profile: IVpnProfile, #[in] passwordCredential: super::super::Security::Credentials::PasswordCredential) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DisconnectProfileAsync(&self, profile: IVpnProfile) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
+                fn DisconnectProfileAsync(&self, #[in] profile: IVpnProfile) -> super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>;
             }
             #[guid(0xd7f7db18_307d_4c0e_bd62_8fa270bbadd6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -392,7 +392,7 @@ mod Windows {
             #[guid(0xcb3e951a_b0ce_442b_acbb_5f99b202c31c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IVpnNamespaceInfoFactory {
-                fn CreateVpnNamespaceInfo(&self, name: String, dnsServerList: super::super::Foundation::Collections::IVector<super::HostName>, proxyServerList: super::super::Foundation::Collections::IVector<super::HostName>) -> VpnNamespaceInfo;
+                fn CreateVpnNamespaceInfo(&self, #[in] name: String, #[in] dnsServerList: super::super::Foundation::Collections::IVector<super::HostName>, #[in] proxyServerList: super::super::Foundation::Collections::IVector<super::HostName>) -> VpnNamespaceInfo;
             }
             #[guid(0xa4aee29e_6417_4333_9842_f0a66db69802)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -448,14 +448,14 @@ mod Windows {
             #[guid(0x9e2ddca2_1712_4ce4_b179_8c652c6d9999)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IVpnPacketBufferFactory {
-                fn CreateVpnPacketBuffer(&self, parentBuffer: VpnPacketBuffer, offset: u32, length: u32) -> VpnPacketBuffer;
+                fn CreateVpnPacketBuffer(&self, #[in] parentBuffer: VpnPacketBuffer, #[in] offset: u32, #[in] length: u32) -> VpnPacketBuffer;
             }
             #[guid(0xc2f891fc_4d5c_4a63_b70d_4e307eacce77)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnPacketBufferList)]
             interface IVpnPacketBufferList: super::super::Foundation::Collections::IIterable<VpnPacketBuffer> {
-                fn Append(&self, nextVpnPacketBuffer: VpnPacketBuffer);
-                fn AddAtBegin(&self, nextVpnPacketBuffer: VpnPacketBuffer);
+                fn Append(&self, #[in] nextVpnPacketBuffer: VpnPacketBuffer);
+                fn AddAtBegin(&self, #[in] nextVpnPacketBuffer: VpnPacketBuffer);
                 fn RemoveAtEnd(&self) -> VpnPacketBuffer;
                 fn RemoveAtBegin(&self) -> VpnPacketBuffer;
                 fn Clear(&self);
@@ -470,9 +470,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnPacketBufferList)]
             interface IVpnPacketBufferList2: super::super::Foundation::Collections::IIterable<VpnPacketBuffer> {
-                fn AddLeadingPacket(&self, nextVpnPacketBuffer: VpnPacketBuffer);
+                fn AddLeadingPacket(&self, #[in] nextVpnPacketBuffer: VpnPacketBuffer);
                 fn RemoveLeadingPacket(&self) -> VpnPacketBuffer;
-                fn AddTrailingPacket(&self, nextVpnPacketBuffer: VpnPacketBuffer);
+                fn AddTrailingPacket(&self, #[in] nextVpnPacketBuffer: VpnPacketBuffer);
                 fn RemoveTrailingPacket(&self) -> VpnPacketBuffer;
             }
             #[guid(0x9a793ac7_8854_4e52_ad97_24dd9a842bce)]
@@ -489,11 +489,11 @@ mod Windows {
             #[guid(0xceb78d07_d0a8_4703_a091_c8c2c0915bc4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IVpnPlugIn {
-                fn Connect(&self, channel: VpnChannel);
-                fn Disconnect(&self, channel: VpnChannel);
-                fn GetKeepAlivePayload(&self, channel: VpnChannel, keepAlivePacket: &mut VpnPacketBuffer);
-                fn Encapsulate(&self, channel: VpnChannel, packets: VpnPacketBufferList, encapulatedPackets: VpnPacketBufferList);
-                fn Decapsulate(&self, channel: VpnChannel, encapBuffer: VpnPacketBuffer, decapsulatedPackets: VpnPacketBufferList, controlPacketsToSend: VpnPacketBufferList);
+                fn Connect(&self, #[in] channel: VpnChannel);
+                fn Disconnect(&self, #[in] channel: VpnChannel);
+                fn GetKeepAlivePayload(&self, #[in] channel: VpnChannel, #[out] keepAlivePacket: &mut VpnPacketBuffer);
+                fn Encapsulate(&self, #[in] channel: VpnChannel, #[in] packets: VpnPacketBufferList, #[in] encapulatedPackets: VpnPacketBufferList);
+                fn Decapsulate(&self, #[in] channel: VpnChannel, #[in] encapBuffer: VpnPacketBuffer, #[in] decapsulatedPackets: VpnPacketBufferList, #[in] controlPacketsToSend: VpnPacketBufferList);
             }
             #[guid(0x0edf0da4_4f00_4589_8d7b_4bf988f6542c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -515,7 +515,7 @@ mod Windows {
             #[guid(0x9d5a1092_bb46_4d34_9d88_f217893076f4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             interface IVpnPlugInReconnectTransport {
-                fn ReconnectTransport(&self, channel: VpnChannel, context: Object);
+                fn ReconnectTransport(&self, #[in] channel: VpnChannel, #[in] context: Object);
             }
             #[guid(0x7875b751_b0d7_43db_8a93_d3fe2479e56a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -541,7 +541,7 @@ mod Windows {
                 #[get]
                 Address: super::HostName;
                 #[special]
-                fn put_PrefixSize(&self, #[Windows::Foundation::Metadata::Range(0, 128)] value: u8);
+                fn put_PrefixSize(&self, #[in] #[Windows::Foundation::Metadata::Range(0, 128)] value: u8);
                 #[get]
                 PrefixSize: u8;
             }
@@ -573,7 +573,7 @@ mod Windows {
             #[guid(0xbdeab5ff_45cf_4b99_83fb_db3bc2672b02)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IVpnRouteFactory {
-                fn CreateVpnRoute(&self, address: super::HostName, #[Windows::Foundation::Metadata::Range(0, 128)] prefixSize: u8) -> VpnRoute;
+                fn CreateVpnRoute(&self, #[in] address: super::HostName, #[in] #[Windows::Foundation::Metadata::Range(0, 128)] prefixSize: u8) -> VpnRoute;
             }
             #[guid(0x99a8f8af_c0ee_4e75_817a_f231aee5123d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -613,7 +613,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VpnTrafficFilter)]
             interface IVpnTrafficFilterFactory {
-                fn Create(&self, appId: VpnAppId) -> VpnTrafficFilter;
+                fn Create(&self, #[in] appId: VpnAppId) -> VpnTrafficFilter;
             }
             #[Windows::Foundation::Metadata::Activatable(IVpnAppIdFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

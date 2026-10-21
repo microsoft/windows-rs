@@ -21,7 +21,7 @@ mod Windows {
     mod Win32 {
         mod Metadata {
             attribute NativeBitfieldAttribute {
-                fn(name: String, offset: i64, length: i64);
+                fn(#[in] name: String, #[in] offset: i64, #[in] length: i64);
                 MemberType: Type,
             }
             attribute NativeTypedefAttribute {

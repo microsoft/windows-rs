@@ -23,9 +23,9 @@ mod Windows {
                 #[get]
                 IsBlockingActive: bool;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn IsBlockedNumberAsync(&self, number: String) -> super::super::Foundation::IAsyncOperation<bool>;
-                fn ShowBlockNumbersUI(&self, phoneNumbers: super::super::Foundation::Collections::IIterable<String>) -> bool;
-                fn ShowUnblockNumbersUI(&self, phoneNumbers: super::super::Foundation::Collections::IIterable<String>) -> bool;
+                fn IsBlockedNumberAsync(&self, #[in] number: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn ShowBlockNumbersUI(&self, #[in] phoneNumbers: super::super::Foundation::Collections::IIterable<String>) -> bool;
+                fn ShowUnblockNumbersUI(&self, #[in] phoneNumbers: super::super::Foundation::Collections::IIterable<String>) -> bool;
                 fn ShowBlockedCallsUI(&self);
                 fn ShowBlockedMessagesUI(&self);
             }

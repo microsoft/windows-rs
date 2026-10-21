@@ -13,15 +13,15 @@ mod Windows {
                     fn GetItemsAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>;
                     #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn DeleteAsync(&self, item: super::WalletItem) -> super::super::super::Foundation::IAsyncAction;
+                    fn DeleteAsync(&self, #[in] item: super::WalletItem) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ImportItemAsync(&self, stream: super::super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::super::Foundation::IAsyncOperation<super::WalletItem>;
+                    fn ImportItemAsync(&self, #[in] stream: super::super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::super::Foundation::IAsyncOperation<super::WalletItem>;
                     #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
-                    fn GetAppStatusForItem(&self, item: super::WalletItem) -> WalletItemAppAssociation;
+                    fn GetAppStatusForItem(&self, #[in] item: super::WalletItem) -> WalletItemAppAssociation;
                     #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn LaunchAppForItemAsync(&self, item: super::WalletItem) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    fn LaunchAppForItemAsync(&self, #[in] item: super::WalletItem) -> super::super::super::Foundation::IAsyncOperation<bool>;
                 }
                 #[guid(0xf98d3a4e_be00_4fdd_9734_6c113c1ac1cb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

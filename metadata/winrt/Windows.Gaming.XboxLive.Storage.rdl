@@ -126,7 +126,7 @@ mod Windows {
                     fn GetBlobInfoAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>;
                     #[Windows::Foundation::Metadata::Overload("GetBlobInfoWithIndexAndMaxAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetBlobInfoAsync(&self, startIndex: u32, maxNumberOfItems: u32) -> super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>;
+                    fn GetBlobInfoAsync(&self, #[in] startIndex: u32, #[in] maxNumberOfItems: u32) -> super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetItemCountAsync(&self) -> super::super::super::Foundation::IAsyncOperation<u32>;
                 }
@@ -139,14 +139,14 @@ mod Windows {
                     #[get]
                     Provider: GameSaveProvider;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SubmitUpdatesAsync(&self, blobsToWrite: super::super::super::Foundation::Collections::IMapView<String, super::super::super::Storage::Streams::IBuffer>, blobsToDelete: super::super::super::Foundation::Collections::IIterable<String>, displayName: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>;
+                    fn SubmitUpdatesAsync(&self, #[in] blobsToWrite: super::super::super::Foundation::Collections::IMapView<String, super::super::super::Storage::Streams::IBuffer>, #[in] blobsToDelete: super::super::super::Foundation::Collections::IIterable<String>, #[in] displayName: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReadAsync(&self, blobsToRead: super::super::super::Foundation::Collections::IMapView<String, super::super::super::Storage::Streams::IBuffer>) -> super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>;
+                    fn ReadAsync(&self, #[in] blobsToRead: super::super::super::Foundation::Collections::IMapView<String, super::super::super::Storage::Streams::IBuffer>) -> super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetAsync(&self, blobsToRead: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>;
+                    fn GetAsync(&self, #[in] blobsToRead: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SubmitPropertySetUpdatesAsync(&self, blobsToWrite: super::super::super::Foundation::Collections::IPropertySet, blobsToDelete: super::super::super::Foundation::Collections::IIterable<String>, displayName: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>;
-                    fn CreateBlobInfoQuery(&self, blobNamePrefix: String) -> GameSaveBlobInfoQuery;
+                    fn SubmitPropertySetUpdatesAsync(&self, #[in] blobsToWrite: super::super::super::Foundation::Collections::IPropertySet, #[in] blobsToDelete: super::super::super::Foundation::Collections::IIterable<String>, #[in] displayName: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>;
+                    fn CreateBlobInfoQuery(&self, #[in] blobNamePrefix: String) -> GameSaveBlobInfoQuery;
                 }
                 #[guid(0xb7e27300_155d_4bb4_b2ba_930306f391b5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
@@ -182,7 +182,7 @@ mod Windows {
                     fn GetContainerInfoAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>;
                     #[Windows::Foundation::Metadata::Overload("GetContainerInfoWithIndexAndMaxAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetContainerInfoAsync(&self, startIndex: u32, maxNumberOfItems: u32) -> super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>;
+                    fn GetContainerInfoAsync(&self, #[in] startIndex: u32, #[in] maxNumberOfItems: u32) -> super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetItemCountAsync(&self) -> super::super::super::Foundation::IAsyncOperation<u32>;
                 }
@@ -199,14 +199,14 @@ mod Windows {
                 interface IGameSaveProvider {
                     #[get]
                     User: super::super::super::System::User;
-                    fn CreateContainer(&self, name: String) -> GameSaveContainer;
+                    fn CreateContainer(&self, #[in] name: String) -> GameSaveContainer;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn DeleteContainerAsync(&self, name: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>;
+                    fn DeleteContainerAsync(&self, #[in] name: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>;
                     #[Windows::Foundation::Metadata::DefaultOverload]
                     #[Windows::Foundation::Metadata::Overload("CreateContainerInfoQuery")]
                     fn CreateContainerInfoQuery(&self) -> GameSaveContainerInfoQuery;
                     #[Windows::Foundation::Metadata::Overload("CreateContainerInfoQueryWithName")]
-                    fn CreateContainerInfoQuery(&self, containerNamePrefix: String) -> GameSaveContainerInfoQuery;
+                    fn CreateContainerInfoQuery(&self, #[in] containerNamePrefix: String) -> GameSaveContainerInfoQuery;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetRemainingBytesInQuotaAsync(&self) -> super::super::super::Foundation::IAsyncOperation<i64>;
                     #[get]
@@ -226,9 +226,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveProvider)]
                 interface IGameSaveProviderStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetForUserAsync(&self, user: super::super::super::System::User, serviceConfigId: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>;
+                    fn GetForUserAsync(&self, #[in] user: super::super::super::System::User, #[in] serviceConfigId: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetSyncOnDemandForUserAsync(&self, user: super::super::super::System::User, serviceConfigId: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>;
+                    fn GetSyncOnDemandForUserAsync(&self, #[in] user: super::super::super::System::User, #[in] serviceConfigId: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>;
                 }
             }
         }

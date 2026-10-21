@@ -23,17 +23,17 @@ mod Test {
         #[First]
         event Changed: Handler;
         #[special]
-        fn get_Indexed(&self, index: i32) -> i32;
+        fn get_Indexed(&self, #[in] index: i32) -> i32;
         #[special]
         fn get_Annotated(&self) -> #[Second(4)] i32;
         #[special]
-        fn put_Annotated(&self, #[First] value: i32);
+        fn put_Annotated(&self, #[First] #[in] value: i32);
         #[special]
-        fn add_Custom(&self, handler: Handler) -> i32;
+        fn add_Custom(&self, #[in] handler: Handler) -> i32;
         #[special]
-        fn remove_Custom(&self, token: i32);
+        fn remove_Custom(&self, #[in] token: i32);
     }
     attribute SecondAttribute {
-        fn(value: i32);
+        fn(#[in] value: i32);
     }
 }

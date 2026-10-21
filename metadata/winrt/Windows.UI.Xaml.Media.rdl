@@ -302,7 +302,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(AcrylicBrush)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IAcrylicBrushFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> AcrylicBrush;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> AcrylicBrush;
                 }
                 #[guid(0x2787fd79_a3da_423f_b81a_599147971523)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -395,14 +395,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(Brush)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IBrushFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Brush;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> Brush;
                 }
                 #[guid(0xd092b151_d83b_5a81_a71e_a1c7f8ad6963)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Brush)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IBrushOverrides2 {
-                    fn PopulatePropertyInfoOverride(&self, propertyName: String, animationPropertyInfo: super::super::Composition::AnimationPropertyInfo);
+                    fn PopulatePropertyInfoOverride(&self, #[in] propertyName: String, #[in] animationPropertyInfo: super::super::Composition::AnimationPropertyInfo);
                 }
                 #[guid(0xe70c3102_0225_47f5_b22e_0467619f6a22)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -426,7 +426,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(CacheMode)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICacheModeFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> CacheMode;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> CacheMode;
                 }
                 #[guid(0xc8a4385b_f24a_4701_a265_a78846f142b9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -530,7 +530,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(FontFamily)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IFontFamilyFactory {
-                    fn CreateInstanceWithName(&self, familyName: String, baseInterface: Object, innerInterface: &mut Object) -> FontFamily;
+                    fn CreateInstanceWithName(&self, #[in] familyName: String, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> FontFamily;
                 }
                 #[guid(0x52ad7af9_37e6_4297_a238_97fb6a408d9e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -547,16 +547,16 @@ mod Windows {
                 interface IGeneralTransform {
                     #[get]
                     Inverse: GeneralTransform;
-                    fn TransformPoint(&self, point: super::super::super::Foundation::Point) -> super::super::super::Foundation::Point;
-                    fn TryTransform(&self, inPoint: super::super::super::Foundation::Point, outPoint: &mut super::super::super::Foundation::Point) -> bool;
-                    fn TransformBounds(&self, rect: super::super::super::Foundation::Rect) -> super::super::super::Foundation::Rect;
+                    fn TransformPoint(&self, #[in] point: super::super::super::Foundation::Point) -> super::super::super::Foundation::Point;
+                    fn TryTransform(&self, #[in] inPoint: super::super::super::Foundation::Point, #[out] outPoint: &mut super::super::super::Foundation::Point) -> bool;
+                    fn TransformBounds(&self, #[in] rect: super::super::super::Foundation::Rect) -> super::super::super::Foundation::Rect;
                 }
                 #[guid(0x7a25c930_29c4_4e31_b6f9_dedd52e4df1b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GeneralTransform)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IGeneralTransformFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> GeneralTransform;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> GeneralTransform;
                 }
                 #[guid(0x4f121083_24cf_4524_90ad_8a42b1c12783)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -565,8 +565,8 @@ mod Windows {
                 interface IGeneralTransformOverrides {
                     #[get]
                     InverseCore: GeneralTransform;
-                    fn TryTransformCore(&self, inPoint: super::super::super::Foundation::Point, outPoint: &mut super::super::super::Foundation::Point) -> bool;
-                    fn TransformBoundsCore(&self, rect: super::super::super::Foundation::Rect) -> super::super::super::Foundation::Rect;
+                    fn TryTransformCore(&self, #[in] inPoint: super::super::super::Foundation::Point, #[out] outPoint: &mut super::super::super::Foundation::Point) -> bool;
+                    fn TransformBoundsCore(&self, #[in] rect: super::super::super::Foundation::Rect) -> super::super::super::Foundation::Rect;
                 }
                 #[guid(0xfa123889_0acd_417b_b62d_5ca1bf4dfc0e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -628,7 +628,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(GradientBrush)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IGradientBrushFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> GradientBrush;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> GradientBrush;
                 }
                 #[guid(0x961661f9_8bb4_4e6c_b923_b5d787e0f1a9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -735,7 +735,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(LinearGradientBrush)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ILinearGradientBrushFactory {
-                    fn CreateInstanceWithGradientStopCollectionAndAngle(&self, gradientStopCollection: GradientStopCollection, angle: f64) -> LinearGradientBrush;
+                    fn CreateInstanceWithGradientStopCollectionAndAngle(&self, #[in] gradientStopCollection: GradientStopCollection, #[in] angle: f64) -> LinearGradientBrush;
                 }
                 #[guid(0x7af6e504_2dc3_40e3_be0b_b314c13cb991)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -774,13 +774,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ILoadedImageSurfaceStatics {
                     #[Windows::Foundation::Metadata::Overload("StartLoadFromUriWithSize")]
-                    fn StartLoadFromUri(&self, uri: super::super::super::Foundation::Uri, desiredMaxSize: super::super::super::Foundation::Size) -> LoadedImageSurface;
+                    fn StartLoadFromUri(&self, #[in] uri: super::super::super::Foundation::Uri, #[in] desiredMaxSize: super::super::super::Foundation::Size) -> LoadedImageSurface;
                     #[Windows::Foundation::Metadata::Overload("StartLoadFromUri")]
-                    fn StartLoadFromUri(&self, uri: super::super::super::Foundation::Uri) -> LoadedImageSurface;
+                    fn StartLoadFromUri(&self, #[in] uri: super::super::super::Foundation::Uri) -> LoadedImageSurface;
                     #[Windows::Foundation::Metadata::Overload("StartLoadFromStreamWithSize")]
-                    fn StartLoadFromStream(&self, stream: super::super::super::Storage::Streams::IRandomAccessStream, desiredMaxSize: super::super::super::Foundation::Size) -> LoadedImageSurface;
+                    fn StartLoadFromStream(&self, #[in] stream: super::super::super::Storage::Streams::IRandomAccessStream, #[in] desiredMaxSize: super::super::super::Foundation::Size) -> LoadedImageSurface;
                     #[Windows::Foundation::Metadata::Overload("StartLoadFromStream")]
-                    fn StartLoadFromStream(&self, stream: super::super::super::Storage::Streams::IRandomAccessStream) -> LoadedImageSurface;
+                    fn StartLoadFromStream(&self, #[in] stream: super::super::super::Storage::Streams::IRandomAccessStream) -> LoadedImageSurface;
                 }
                 #[guid(0x6f03e149_bfc9_4c01_b578_50338cec97fc)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -809,9 +809,9 @@ mod Windows {
                 interface IMatrixHelperStatics {
                     #[get]
                     Identity: Matrix;
-                    fn FromElements(&self, m11: f64, m12: f64, m21: f64, m22: f64, offsetX: f64, offsetY: f64) -> Matrix;
-                    fn GetIsIdentity(&self, target: Matrix) -> bool;
-                    fn Transform(&self, target: Matrix, point: super::super::super::Foundation::Point) -> super::super::super::Foundation::Point;
+                    fn FromElements(&self, #[in] m11: f64, #[in] m12: f64, #[in] m21: f64, #[in] m22: f64, #[in] offsetX: f64, #[in] offsetY: f64) -> Matrix;
+                    fn GetIsIdentity(&self, #[in] target: Matrix) -> bool;
+                    fn Transform(&self, #[in] target: Matrix, #[in] point: super::super::super::Foundation::Point) -> super::super::super::Foundation::Point;
                 }
                 #[guid(0xedfdd551_5fed_45fc_ae62_92a4b6cf9707)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -833,7 +833,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(MediaTransportControlsThumbnailRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IMediaTransportControlsThumbnailRequestedEventArgs {
-                    fn SetThumbnailImage(&self, source: super::super::super::Storage::Streams::IInputStream);
+                    fn SetThumbnailImage(&self, #[in] source: super::super::super::Storage::Streams::IInputStream);
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x02b65a91_e5a1_442b_88d3_2dc127bfc59b)]
@@ -1023,7 +1023,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(Projection)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IProjectionFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Projection;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> Projection;
                 }
                 #[guid(0x2c509a5b_bf18_455a_a078_914b5232d8af)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1089,7 +1089,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(RevealBackgroundBrush)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IRevealBackgroundBrushFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> RevealBackgroundBrush;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> RevealBackgroundBrush;
                 }
                 #[guid(0x060ba115_c542_483c_8202_5f03331866c9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -1101,7 +1101,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(RevealBorderBrush)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IRevealBorderBrushFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> RevealBorderBrush;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> RevealBorderBrush;
                 }
                 #[guid(0x2036a0ed_8271_4398_9019_25872093f13f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -1117,7 +1117,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(RevealBrush)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IRevealBrushFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> RevealBrush;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> RevealBrush;
                 }
                 #[guid(0x190f2625_7209_4d42_a847_1ac4bbbb3499)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -1132,8 +1132,8 @@ mod Windows {
                     AlwaysUseFallbackProperty: super::DependencyProperty;
                     #[get]
                     StateProperty: super::DependencyProperty;
-                    fn SetState(&self, element: super::UIElement, value: RevealBrushState);
-                    fn GetState(&self, element: super::UIElement) -> RevealBrushState;
+                    fn SetState(&self, #[in] element: super::UIElement, #[in] value: RevealBrushState);
+                    fn GetState(&self, #[in] element: super::UIElement) -> RevealBrushState;
                 }
                 #[guid(0x688ea9b9_1e4e_4596_86e3_428b27334faf)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1235,7 +1235,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(SolidColorBrush)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ISolidColorBrushFactory {
-                    fn CreateInstanceWithColor(&self, color: super::super::Color) -> SolidColorBrush;
+                    fn CreateInstanceWithColor(&self, #[in] color: super::super::Color) -> SolidColorBrush;
                 }
                 #[guid(0xe1a65efa_2b23_41ba_b9ba_7094ec8e4e9f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1259,7 +1259,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(ThemeShadow)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IThemeShadowFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> ThemeShadow;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ThemeShadow;
                 }
                 #[guid(0xc201cf06_cd84_48a5_9607_664d7361cd61)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1275,7 +1275,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(TileBrush)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITileBrushFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> TileBrush;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> TileBrush;
                 }
                 #[guid(0x3497c25b_b562_4e68_8435_2399f6eb94d5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1376,32 +1376,32 @@ mod Windows {
                 interface IVisualTreeHelperStatics {
                     #[Windows::Foundation::Metadata::DefaultOverload]
                     #[Windows::Foundation::Metadata::Overload("FindElementsInHostCoordinatesPoint")]
-                    fn FindElementsInHostCoordinates(&self, intersectingPoint: super::super::super::Foundation::Point, subtree: super::UIElement) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
+                    fn FindElementsInHostCoordinates(&self, #[in] intersectingPoint: super::super::super::Foundation::Point, #[in] subtree: super::UIElement) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
                     #[Windows::Foundation::Metadata::Overload("FindElementsInHostCoordinatesRect")]
-                    fn FindElementsInHostCoordinates(&self, intersectingRect: super::super::super::Foundation::Rect, subtree: super::UIElement) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
+                    fn FindElementsInHostCoordinates(&self, #[in] intersectingRect: super::super::super::Foundation::Rect, #[in] subtree: super::UIElement) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
                     #[Windows::Foundation::Metadata::DefaultOverload]
                     #[Windows::Foundation::Metadata::Overload("FindAllElementsInHostCoordinatesPoint")]
-                    fn FindElementsInHostCoordinates(&self, intersectingPoint: super::super::super::Foundation::Point, subtree: super::UIElement, includeAllElements: bool) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
+                    fn FindElementsInHostCoordinates(&self, #[in] intersectingPoint: super::super::super::Foundation::Point, #[in] subtree: super::UIElement, #[in] includeAllElements: bool) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
                     #[Windows::Foundation::Metadata::Overload("FindAllElementsInHostCoordinatesRect")]
-                    fn FindElementsInHostCoordinates(&self, intersectingRect: super::super::super::Foundation::Rect, subtree: super::UIElement, includeAllElements: bool) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
-                    fn GetChild(&self, reference: super::DependencyObject, childIndex: i32) -> super::DependencyObject;
-                    fn GetChildrenCount(&self, reference: super::DependencyObject) -> i32;
-                    fn GetParent(&self, reference: super::DependencyObject) -> super::DependencyObject;
-                    fn DisconnectChildrenRecursive(&self, element: super::UIElement);
+                    fn FindElementsInHostCoordinates(&self, #[in] intersectingRect: super::super::super::Foundation::Rect, #[in] subtree: super::UIElement, #[in] includeAllElements: bool) -> super::super::super::Foundation::Collections::IIterable<super::UIElement>;
+                    fn GetChild(&self, #[in] reference: super::DependencyObject, #[in] childIndex: i32) -> super::DependencyObject;
+                    fn GetChildrenCount(&self, #[in] reference: super::DependencyObject) -> i32;
+                    fn GetParent(&self, #[in] reference: super::DependencyObject) -> super::DependencyObject;
+                    fn DisconnectChildrenRecursive(&self, #[in] element: super::UIElement);
                 }
                 #[guid(0x07bcd176_869f_44a7_8797_2103a4c3e47a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(VisualTreeHelper)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IVisualTreeHelperStatics2 {
-                    fn GetOpenPopups(&self, window: super::Window) -> super::super::super::Foundation::Collections::IVectorView<super::Controls::Primitives::Popup>;
+                    fn GetOpenPopups(&self, #[in] window: super::Window) -> super::super::super::Foundation::Collections::IVectorView<super::Controls::Primitives::Popup>;
                 }
                 #[guid(0x40420d50_ca16_57da_8aac_944c8af577fd)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(VisualTreeHelper)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IVisualTreeHelperStatics3 {
-                    fn GetOpenPopupsForXamlRoot(&self, xamlRoot: super::XamlRoot) -> super::super::super::Foundation::Collections::IVectorView<super::Controls::Primitives::Popup>;
+                    fn GetOpenPopupsForXamlRoot(&self, #[in] xamlRoot: super::XamlRoot) -> super::super::super::Foundation::Collections::IVectorView<super::Controls::Primitives::Popup>;
                 }
                 #[guid(0x03e432d9_b35c_4a79_811c_c5652004da0e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -1415,7 +1415,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(XamlCompositionBrushBase)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlCompositionBrushBaseFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> XamlCompositionBrushBase;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> XamlCompositionBrushBase;
                 }
                 #[guid(0xd19127f1_38b4_4ea1_8f33_849629a4c9c1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -1450,7 +1450,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(XamlLight)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlLightFactory {
-                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> XamlLight;
+                    fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> XamlLight;
                 }
                 #[guid(0x7c6296c7_0173_48e1_b73d_7fa216a9ac28)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -1458,8 +1458,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlLightOverrides {
                     fn GetId(&self) -> String;
-                    fn OnConnected(&self, newElement: super::UIElement);
-                    fn OnDisconnected(&self, oldElement: super::UIElement);
+                    fn OnConnected(&self, #[in] newElement: super::UIElement);
+                    fn OnDisconnected(&self, #[in] oldElement: super::UIElement);
                 }
                 #[guid(0x5ecf220b_1252_43d0_9729_6ea692046838)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -1473,10 +1473,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(XamlLight)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlLightStatics {
-                    fn AddTargetElement(&self, lightId: String, element: super::UIElement);
-                    fn RemoveTargetElement(&self, lightId: String, element: super::UIElement);
-                    fn AddTargetBrush(&self, lightId: String, brush: Brush);
-                    fn RemoveTargetBrush(&self, lightId: String, brush: Brush);
+                    fn AddTargetElement(&self, #[in] lightId: String, #[in] element: super::UIElement);
+                    fn RemoveTargetElement(&self, #[in] lightId: String, #[in] element: super::UIElement);
+                    fn AddTargetBrush(&self, #[in] lightId: String, #[in] brush: Brush);
+                    fn RemoveTargetBrush(&self, #[in] lightId: String, #[in] brush: Brush);
                 }
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1761,7 +1761,7 @@ mod Windows {
                 #[guid(0x08e9a257_ae05_489b_8839_28c6225d2349)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                delegate fn RateChangedRoutedEventHandler(sender: Object, e: RateChangedRoutedEventArgs);
+                delegate fn RateChangedRoutedEventHandler(#[in] sender: Object, #[in] e: RateChangedRoutedEventArgs);
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -1954,7 +1954,7 @@ mod Windows {
                 #[guid(0x72e2fa9c_6dea_4cbe_a159_06ce95fbeced)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                delegate fn TimelineMarkerRoutedEventHandler(sender: Object, e: TimelineMarkerRoutedEventArgs);
+                delegate fn TimelineMarkerRoutedEventHandler(#[in] sender: Object, #[in] e: TimelineMarkerRoutedEventArgs);
                 #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(ITransformFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

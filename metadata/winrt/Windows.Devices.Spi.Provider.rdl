@@ -17,12 +17,12 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ProviderSpiConnectionSettings)]
                 interface IProviderSpiConnectionSettingsFactory {
-                    fn Create(&self, chipSelectLine: i32) -> ProviderSpiConnectionSettings;
+                    fn Create(&self, #[in] chipSelectLine: i32) -> ProviderSpiConnectionSettings;
                 }
                 #[guid(0xc1686504_02ce_4226_a385_4f11fb04b41b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
                 interface ISpiControllerProvider {
-                    fn GetDeviceProvider(&self, settings: ProviderSpiConnectionSettings) -> ISpiDeviceProvider;
+                    fn GetDeviceProvider(&self, #[in] settings: ProviderSpiConnectionSettings) -> ISpiDeviceProvider;
                 }
                 #[guid(0x0d1c3443_304b_405c_b4f7_f5ab1074461e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
@@ -31,10 +31,10 @@ mod Windows {
                     DeviceId: String;
                     #[get]
                     ConnectionSettings: ProviderSpiConnectionSettings;
-                    fn Write(&self, buffer: [u8]);
+                    fn Write(&self, #[in] buffer: [u8]);
                     fn Read(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] buffer: [u8]);
-                    fn TransferSequential(&self, writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
-                    fn TransferFullDuplex(&self, writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
+                    fn TransferSequential(&self, #[in] writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
+                    fn TransferFullDuplex(&self, #[in] writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
                 }
                 #[guid(0x96b461e2_77d4_48ce_aaa0_75715a8362cf)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]

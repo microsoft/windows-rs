@@ -5,6 +5,6 @@ mod Test {
     type PCWSTR = LPCWSTR;
     type PSTR = LPSTR;
     #[library("test.dll")]
-    extern "C" fn Strings(text: *mut LPSTR, wide: *mut LPCWSTR, direct: TEXT, wide_direct: PCWSTR);
+    extern "C" fn Strings(#[out] text: *mut LPSTR, #[out] wide: *mut LPCWSTR, #[in] direct: TEXT, #[in] wide_direct: PCWSTR);
     type TEXT = PSTR;
 }

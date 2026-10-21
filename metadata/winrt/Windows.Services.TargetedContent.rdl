@@ -29,8 +29,8 @@ mod Windows {
             interface ITargetedContentCollection {
                 #[get]
                 Id: String;
-                fn ReportInteraction(&self, interaction: TargetedContentInteraction);
-                fn ReportCustomInteraction(&self, customInteractionName: String);
+                fn ReportInteraction(&self, #[in] interaction: TargetedContentInteraction);
+                fn ReportCustomInteraction(&self, #[in] customInteractionName: String);
                 #[get]
                 Path: String;
                 #[get]
@@ -52,14 +52,14 @@ mod Windows {
                 Availability: TargetedContentAvailability;
                 #[get]
                 Content: TargetedContentCollection;
-                fn SelectSingleObject(&self, path: String) -> TargetedContentObject;
+                fn SelectSingleObject(&self, #[in] path: String) -> TargetedContentObject;
             }
             #[guid(0x5b47e7fb_2140_4c1f_a736_c59583f227d8)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentContainer)]
             interface ITargetedContentContainerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetAsync(&self, contentId: String) -> super::super::Foundation::IAsyncOperation<TargetedContentContainer>;
+                fn GetAsync(&self, #[in] contentId: String) -> super::super::Foundation::IAsyncOperation<TargetedContentContainer>;
             }
             #[guid(0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
@@ -76,8 +76,8 @@ mod Windows {
             interface ITargetedContentItem {
                 #[get]
                 Path: String;
-                fn ReportInteraction(&self, interaction: TargetedContentInteraction);
-                fn ReportCustomInteraction(&self, customInteractionName: String);
+                fn ReportInteraction(&self, #[in] interaction: TargetedContentInteraction);
+                fn ReportCustomInteraction(&self, #[in] customInteractionName: String);
                 #[get]
                 State: TargetedContentItemState;
                 #[get]
@@ -143,8 +143,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentSubscription)]
             interface ITargetedContentSubscriptionStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetAsync(&self, subscriptionId: String) -> super::super::Foundation::IAsyncOperation<TargetedContentSubscription>;
-                fn GetOptions(&self, subscriptionId: String) -> TargetedContentSubscriptionOptions;
+                fn GetAsync(&self, #[in] subscriptionId: String) -> super::super::Foundation::IAsyncOperation<TargetedContentSubscription>;
+                fn GetOptions(&self, #[in] subscriptionId: String) -> TargetedContentSubscriptionOptions;
             }
             #[guid(0xaafde4b3_4215_4bf8_867f_43f04865f9bf)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]

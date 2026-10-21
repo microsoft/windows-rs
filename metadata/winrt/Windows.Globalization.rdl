@@ -85,7 +85,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
         #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationLanguages)]
         interface IApplicationLanguagesStatics2 {
-            fn GetLanguagesForUser(&self, user: super::System::User) -> super::Foundation::Collections::IVectorView<String>;
+            fn GetLanguagesForUser(&self, #[in] user: super::System::User) -> super::Foundation::Collections::IVectorView<String>;
         }
         #[guid(0xca30221d_86d9_40fb_a26b_d44eb7cf08ea)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -98,11 +98,11 @@ mod Windows {
             Languages: super::Foundation::Collections::IVectorView<String>;
             NumeralSystem: String;
             fn GetCalendarSystem(&self) -> String;
-            fn ChangeCalendarSystem(&self, value: String);
+            fn ChangeCalendarSystem(&self, #[in] value: String);
             fn GetClock(&self) -> String;
-            fn ChangeClock(&self, value: String);
+            fn ChangeClock(&self, #[in] value: String);
             fn GetDateTime(&self) -> super::Foundation::DateTime;
-            fn SetDateTime(&self, value: super::Foundation::DateTime);
+            fn SetDateTime(&self, #[in] value: super::Foundation::DateTime);
             fn SetToNow(&self);
             #[get]
             FirstEra: i32;
@@ -111,11 +111,11 @@ mod Windows {
             #[get]
             NumberOfEras: i32;
             Era: i32;
-            fn AddEras(&self, eras: i32);
+            fn AddEras(&self, #[in] eras: i32);
             #[Windows::Foundation::Metadata::Overload("EraAsFullString")]
             fn EraAsString(&self) -> String;
             #[Windows::Foundation::Metadata::Overload("EraAsString")]
-            fn EraAsString(&self, idealLength: i32) -> String;
+            fn EraAsString(&self, #[in] idealLength: i32) -> String;
             #[get]
             FirstYearInThisEra: i32;
             #[get]
@@ -123,10 +123,10 @@ mod Windows {
             #[get]
             NumberOfYearsInThisEra: i32;
             Year: i32;
-            fn AddYears(&self, years: i32);
+            fn AddYears(&self, #[in] years: i32);
             fn YearAsString(&self) -> String;
-            fn YearAsTruncatedString(&self, remainingDigits: i32) -> String;
-            fn YearAsPaddedString(&self, minDigits: i32) -> String;
+            fn YearAsTruncatedString(&self, #[in] remainingDigits: i32) -> String;
+            fn YearAsPaddedString(&self, #[in] minDigits: i32) -> String;
             #[get]
             FirstMonthInThisYear: i32;
             #[get]
@@ -134,18 +134,18 @@ mod Windows {
             #[get]
             NumberOfMonthsInThisYear: i32;
             Month: i32;
-            fn AddMonths(&self, months: i32);
+            fn AddMonths(&self, #[in] months: i32);
             #[Windows::Foundation::Metadata::Overload("MonthAsFullString")]
             fn MonthAsString(&self) -> String;
             #[Windows::Foundation::Metadata::Overload("MonthAsString")]
-            fn MonthAsString(&self, idealLength: i32) -> String;
+            fn MonthAsString(&self, #[in] idealLength: i32) -> String;
             #[Windows::Foundation::Metadata::Overload("MonthAsFullSoloString")]
             fn MonthAsSoloString(&self) -> String;
             #[Windows::Foundation::Metadata::Overload("MonthAsSoloString")]
-            fn MonthAsSoloString(&self, idealLength: i32) -> String;
+            fn MonthAsSoloString(&self, #[in] idealLength: i32) -> String;
             fn MonthAsNumericString(&self) -> String;
-            fn MonthAsPaddedNumericString(&self, minDigits: i32) -> String;
-            fn AddWeeks(&self, weeks: i32);
+            fn MonthAsPaddedNumericString(&self, #[in] minDigits: i32) -> String;
+            fn AddWeeks(&self, #[in] weeks: i32);
             #[get]
             FirstDayInThisMonth: i32;
             #[get]
@@ -153,19 +153,19 @@ mod Windows {
             #[get]
             NumberOfDaysInThisMonth: i32;
             Day: i32;
-            fn AddDays(&self, days: i32);
+            fn AddDays(&self, #[in] days: i32);
             fn DayAsString(&self) -> String;
-            fn DayAsPaddedString(&self, minDigits: i32) -> String;
+            fn DayAsPaddedString(&self, #[in] minDigits: i32) -> String;
             #[get]
             DayOfWeek: DayOfWeek;
             #[Windows::Foundation::Metadata::Overload("DayOfWeekAsFullString")]
             fn DayOfWeekAsString(&self) -> String;
             #[Windows::Foundation::Metadata::Overload("DayOfWeekAsString")]
-            fn DayOfWeekAsString(&self, idealLength: i32) -> String;
+            fn DayOfWeekAsString(&self, #[in] idealLength: i32) -> String;
             #[Windows::Foundation::Metadata::Overload("DayOfWeekAsFullSoloString")]
             fn DayOfWeekAsSoloString(&self) -> String;
             #[Windows::Foundation::Metadata::Overload("DayOfWeekAsSoloString")]
-            fn DayOfWeekAsSoloString(&self, idealLength: i32) -> String;
+            fn DayOfWeekAsSoloString(&self, #[in] idealLength: i32) -> String;
             #[get]
             FirstPeriodInThisDay: i32;
             #[get]
@@ -173,11 +173,11 @@ mod Windows {
             #[get]
             NumberOfPeriodsInThisDay: i32;
             Period: i32;
-            fn AddPeriods(&self, periods: i32);
+            fn AddPeriods(&self, #[in] periods: i32);
             #[Windows::Foundation::Metadata::Overload("PeriodAsFullString")]
             fn PeriodAsString(&self) -> String;
             #[Windows::Foundation::Metadata::Overload("PeriodAsString")]
-            fn PeriodAsString(&self, idealLength: i32) -> String;
+            fn PeriodAsString(&self, #[in] idealLength: i32) -> String;
             #[get]
             FirstHourInThisPeriod: i32;
             #[get]
@@ -185,24 +185,24 @@ mod Windows {
             #[get]
             NumberOfHoursInThisPeriod: i32;
             Hour: i32;
-            fn AddHours(&self, hours: i32);
+            fn AddHours(&self, #[in] hours: i32);
             fn HourAsString(&self) -> String;
-            fn HourAsPaddedString(&self, minDigits: i32) -> String;
+            fn HourAsPaddedString(&self, #[in] minDigits: i32) -> String;
             Minute: i32;
-            fn AddMinutes(&self, minutes: i32);
+            fn AddMinutes(&self, #[in] minutes: i32);
             fn MinuteAsString(&self) -> String;
-            fn MinuteAsPaddedString(&self, minDigits: i32) -> String;
+            fn MinuteAsPaddedString(&self, #[in] minDigits: i32) -> String;
             Second: i32;
-            fn AddSeconds(&self, seconds: i32);
+            fn AddSeconds(&self, #[in] seconds: i32);
             fn SecondAsString(&self) -> String;
-            fn SecondAsPaddedString(&self, minDigits: i32) -> String;
+            fn SecondAsPaddedString(&self, #[in] minDigits: i32) -> String;
             Nanosecond: i32;
-            fn AddNanoseconds(&self, nanoseconds: i32);
+            fn AddNanoseconds(&self, #[in] nanoseconds: i32);
             fn NanosecondAsString(&self) -> String;
-            fn NanosecondAsPaddedString(&self, minDigits: i32) -> String;
-            fn Compare(&self, other: Calendar) -> i32;
-            fn CompareDateTime(&self, other: super::Foundation::DateTime) -> i32;
-            fn CopyTo(&self, other: Calendar);
+            fn NanosecondAsPaddedString(&self, #[in] minDigits: i32) -> String;
+            fn Compare(&self, #[in] other: Calendar) -> i32;
+            fn CompareDateTime(&self, #[in] other: super::Foundation::DateTime) -> i32;
+            fn CopyTo(&self, #[in] other: Calendar);
             #[get]
             FirstMinuteInThisHour: i32;
             #[get]
@@ -224,14 +224,14 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Calendar)]
         interface ICalendarFactory {
-            fn CreateCalendarDefaultCalendarAndClock(&self, languages: super::Foundation::Collections::IIterable<String>) -> Calendar;
-            fn CreateCalendar(&self, languages: super::Foundation::Collections::IIterable<String>, calendar: String, clock: String) -> Calendar;
+            fn CreateCalendarDefaultCalendarAndClock(&self, #[in] languages: super::Foundation::Collections::IIterable<String>) -> Calendar;
+            fn CreateCalendar(&self, #[in] languages: super::Foundation::Collections::IIterable<String>, #[in] calendar: String, #[in] clock: String) -> Calendar;
         }
         #[guid(0xb44b378c_ca7e_4590_9e72_ea2bec1a5115)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Calendar)]
         interface ICalendarFactory2 {
-            fn CreateCalendarWithTimeZone(&self, languages: super::Foundation::Collections::IIterable<String>, calendar: String, clock: String, timeZoneId: String) -> Calendar;
+            fn CreateCalendarWithTimeZone(&self, #[in] languages: super::Foundation::Collections::IIterable<String>, #[in] calendar: String, #[in] clock: String, #[in] timeZoneId: String) -> Calendar;
         }
         #[guid(0x80653f68_2cb2_4c1f_b590_f0f52bf4fd1a)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -300,7 +300,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
         #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyAmount)]
         interface ICurrencyAmountFactory {
-            fn Create(&self, amount: String, currency: String) -> CurrencyAmount;
+            fn Create(&self, #[in] amount: String, #[in] currency: String) -> CurrencyAmount;
         }
         #[guid(0x9f1d091b_d586_4913_9b6a_a9bd2dc12874)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -664,13 +664,13 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(GeographicRegion)]
         interface IGeographicRegionFactory {
-            fn CreateGeographicRegion(&self, geographicRegionCode: String) -> GeographicRegion;
+            fn CreateGeographicRegion(&self, #[in] geographicRegionCode: String) -> GeographicRegion;
         }
         #[guid(0x29e28974_7ad9_4ef4_8799_b3b44fadec08)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(GeographicRegion)]
         interface IGeographicRegionStatics {
-            fn IsSupported(&self, geographicRegionCode: String) -> bool;
+            fn IsSupported(&self, #[in] geographicRegionCode: String) -> bool;
         }
         #[guid(0x2f6a9300_e85b_43e6_897d_5d82f862df21)]
         #[Windows::Foundation::Metadata::ContractVersion(GlobalizationJapanesePhoneticAnalyzerContract, 65536)]
@@ -688,9 +688,9 @@ mod Windows {
         #[Windows::Foundation::Metadata::ExclusiveTo(JapanesePhoneticAnalyzer)]
         interface IJapanesePhoneticAnalyzerStatics {
             #[Windows::Foundation::Metadata::Overload("GetWords")]
-            fn GetWords(&self, input: String) -> super::Foundation::Collections::IVectorView<JapanesePhoneme>;
+            fn GetWords(&self, #[in] input: String) -> super::Foundation::Collections::IVectorView<JapanesePhoneme>;
             #[Windows::Foundation::Metadata::Overload("GetWordsWithMonoRubyOption")]
-            fn GetWords(&self, input: String, monoRuby: bool) -> super::Foundation::Collections::IVectorView<JapanesePhoneme>;
+            fn GetWords(&self, #[in] input: String, #[in] monoRuby: bool) -> super::Foundation::Collections::IVectorView<JapanesePhoneme>;
         }
         #[guid(0xea79a752_f7c2_4265_b1bd_c4dec4e4f080)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -723,19 +723,19 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
         interface ILanguageExtensionSubtags {
-            fn GetExtensionSubtags(&self, singleton: String) -> super::Foundation::Collections::IVectorView<String>;
+            fn GetExtensionSubtags(&self, #[in] singleton: String) -> super::Foundation::Collections::IVectorView<String>;
         }
         #[guid(0x9b0252ac_0c27_44f8_b792_9793fb66c63e)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
         interface ILanguageFactory {
-            fn CreateLanguage(&self, languageTag: String) -> Language;
+            fn CreateLanguage(&self, #[in] languageTag: String) -> Language;
         }
         #[guid(0xb23cd557_0865_46d4_89b8_d59be8990f0d)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
         interface ILanguageStatics {
-            fn IsWellFormed(&self, languageTag: String) -> bool;
+            fn IsWellFormed(&self, #[in] languageTag: String) -> bool;
             #[get]
             CurrentInputMethodLanguageTag: String;
         }
@@ -743,13 +743,13 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
         interface ILanguageStatics2 {
-            fn TrySetInputMethodLanguageTag(&self, languageTag: String) -> bool;
+            fn TrySetInputMethodLanguageTag(&self, #[in] languageTag: String) -> bool;
         }
         #[guid(0xd15ecb5a_71de_5752_9542_fac5b4f27261)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 655360)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
         interface ILanguageStatics3 {
-            fn GetMuiCompatibleLanguageListFromLanguageTags(&self, languageTags: super::Foundation::Collections::IIterable<String>) -> super::Foundation::Collections::IVector<String>;
+            fn GetMuiCompatibleLanguageListFromLanguageTags(&self, #[in] languageTags: super::Foundation::Collections::IIterable<String>) -> super::Foundation::Collections::IVector<String>;
         }
         #[guid(0xa5c662c3_68c9_4d3d_b765_972029e21dec)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -862,11 +862,11 @@ mod Windows {
         #[Windows::Foundation::Metadata::ExclusiveTo(Calendar)]
         interface ITimeZoneOnCalendar {
             fn GetTimeZone(&self) -> String;
-            fn ChangeTimeZone(&self, timeZoneId: String);
+            fn ChangeTimeZone(&self, #[in] timeZoneId: String);
             #[Windows::Foundation::Metadata::Overload("TimeZoneAsFullString")]
             fn TimeZoneAsString(&self) -> String;
             #[Windows::Foundation::Metadata::Overload("TimeZoneAsString")]
-            fn TimeZoneAsString(&self, idealLength: i32) -> String;
+            fn TimeZoneAsString(&self, #[in] idealLength: i32) -> String;
         }
         #[Windows::Foundation::Metadata::ContractVersion(GlobalizationJapanesePhoneticAnalyzerContract, 65536)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]

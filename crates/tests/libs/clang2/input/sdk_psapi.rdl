@@ -30,9 +30,9 @@ mod Fixture {
     #[library("KERNEL32.dll", import = "K32EnumDeviceDrivers")]
     extern fn EnumDeviceDrivers(#[out] #[size_param(1)] lpImageBase: *mut LPVOID, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
     #[library("KERNEL32.dll", import = "K32EnumPageFilesA")]
-    extern fn EnumPageFilesA(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKA, pContext: LPVOID) -> BOOL;
+    extern fn EnumPageFilesA(#[in] pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKA, #[in] pContext: LPVOID) -> BOOL;
     #[library("KERNEL32.dll", import = "K32EnumPageFilesW")]
-    extern fn EnumPageFilesW(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKW, pContext: LPVOID) -> BOOL;
+    extern fn EnumPageFilesW(#[in] pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKW, #[in] pContext: LPVOID) -> BOOL;
     #[library("KERNEL32.dll", import = "K32EnumProcessModules")]
     extern fn EnumProcessModules(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[size_param(2)] lphModule: *mut HMODULE, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
     #[library("KERNEL32.dll", import = "K32EnumProcessModulesEx")]
@@ -58,15 +58,15 @@ mod Fixture {
     #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "1,nSize", "1,nSize")]
     #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
     #[library("KERNEL32.dll", import = "K32GetModuleFileNameExA")]
-    extern fn GetModuleFileNameExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
+    extern fn GetModuleFileNameExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[in] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
     #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "1,nSize", "1,nSize")]
     #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
     #[library("KERNEL32.dll", import = "K32GetModuleFileNameExW")]
-    extern fn GetModuleFileNameExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+    extern fn GetModuleFileNameExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[in] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
     #[library("KERNEL32.dll", import = "K32GetModuleInformation")]
     extern fn GetModuleInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[out] lpmodinfo: LPMODULEINFO, #[in] cb: DWORD) -> BOOL;
     #[library("KERNEL32.dll", import = "K32GetPerformanceInfo")]
-    extern fn GetPerformanceInfo(pPerformanceInformation: PPERFORMANCE_INFORMATION, cb: DWORD) -> BOOL;
+    extern fn GetPerformanceInfo(#[in] pPerformanceInformation: PPERFORMANCE_INFORMATION, #[in] cb: DWORD) -> BOOL;
     #[library("KERNEL32.dll", import = "K32GetProcessImageFileNameA")]
     extern fn GetProcessImageFileNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[len_param(2)] lpImageFileName: LPSTR, #[in] nSize: DWORD) -> DWORD;
     #[library("KERNEL32.dll", import = "K32GetProcessImageFileNameW")]
@@ -84,9 +84,9 @@ mod Fixture {
     #[library("KERNEL32.dll")]
     extern fn K32EnumDeviceDrivers(#[out] #[size_param(1)] lpImageBase: *mut LPVOID, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
     #[library("KERNEL32.dll")]
-    extern fn K32EnumPageFilesA(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKA, pContext: LPVOID) -> BOOL;
+    extern fn K32EnumPageFilesA(#[in] pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKA, #[in] pContext: LPVOID) -> BOOL;
     #[library("KERNEL32.dll")]
-    extern fn K32EnumPageFilesW(pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKW, pContext: LPVOID) -> BOOL;
+    extern fn K32EnumPageFilesW(#[in] pCallBackRoutine: PENUM_PAGE_FILE_CALLBACKW, #[in] pContext: LPVOID) -> BOOL;
     #[library("KERNEL32.dll")]
     extern fn K32EnumProcessModules(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[size_param(2)] lphModule: *mut HMODULE, #[in] cb: DWORD, #[out] lpcbNeeded: LPDWORD) -> BOOL;
     #[library("KERNEL32.dll")]
@@ -112,15 +112,15 @@ mod Fixture {
     #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "1,nSize", "1,nSize")]
     #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
     #[library("KERNEL32.dll")]
-    extern fn K32GetModuleFileNameExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
+    extern fn K32GetModuleFileNameExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[in] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPSTR, #[in] nSize: DWORD) -> DWORD;
     #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "1,nSize", "1,nSize")]
     #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0", "return != 0")]
     #[library("KERNEL32.dll")]
-    extern fn K32GetModuleFileNameExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
+    extern fn K32GetModuleFileNameExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[in] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPWSTR, #[in] nSize: DWORD) -> DWORD;
     #[library("KERNEL32.dll")]
     extern fn K32GetModuleInformation(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hModule: HMODULE, #[out] lpmodinfo: LPMODULEINFO, #[in] cb: DWORD) -> BOOL;
     #[library("KERNEL32.dll")]
-    extern fn K32GetPerformanceInfo(pPerformanceInformation: PPERFORMANCE_INFORMATION, cb: DWORD) -> BOOL;
+    extern fn K32GetPerformanceInfo(#[in] pPerformanceInformation: PPERFORMANCE_INFORMATION, #[in] cb: DWORD) -> BOOL;
     #[library("KERNEL32.dll")]
     extern fn K32GetProcessImageFileNameA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hProcess: HANDLE, #[out] #[len_param(2)] lpImageFileName: LPSTR, #[in] nSize: DWORD) -> DWORD;
     #[library("KERNEL32.dll")]
@@ -142,8 +142,8 @@ mod Fixture {
     const LIST_MODULES_ALL: i32 = 3;
     const LIST_MODULES_DEFAULT: i32 = 0;
     type LPMODULEINFO = *mut _MODULEINFO;
-    extern fn PENUM_PAGE_FILE_CALLBACKA(pContext: LPVOID, pPageFileInfo: PENUM_PAGE_FILE_INFORMATION, lpFilename: LPCSTR) -> BOOL;
-    extern fn PENUM_PAGE_FILE_CALLBACKW(pContext: LPVOID, pPageFileInfo: PENUM_PAGE_FILE_INFORMATION, lpFilename: LPCWSTR) -> BOOL;
+    extern fn PENUM_PAGE_FILE_CALLBACKA(#[in] pContext: LPVOID, #[in] pPageFileInfo: PENUM_PAGE_FILE_INFORMATION, #[in] lpFilename: LPCSTR) -> BOOL;
+    extern fn PENUM_PAGE_FILE_CALLBACKW(#[in] pContext: LPVOID, #[in] pPageFileInfo: PENUM_PAGE_FILE_INFORMATION, #[in] lpFilename: LPCWSTR) -> BOOL;
     type PENUM_PAGE_FILE_INFORMATION = *mut _ENUM_PAGE_FILE_INFORMATION;
     type PPERFORMANCE_INFORMATION = *mut _PERFORMANCE_INFORMATION;
     type PPROCESS_MEMORY_COUNTERS = *mut PROCESS_MEMORY_COUNTERS;

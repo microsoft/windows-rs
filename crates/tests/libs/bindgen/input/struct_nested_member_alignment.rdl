@@ -37,7 +37,7 @@ mod Windows {
     mod Win32 {
         mod Metadata {
             attribute AlignmentAttribute {
-                fn(alignment: i32);
+                fn(#[in] alignment: i32);
             }
         }
     }

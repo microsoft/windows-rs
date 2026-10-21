@@ -316,7 +316,7 @@ impl Encoder<'_> {
                     )?;
 
                     self.encode_return_attrs(&method.return_attrs)?;
-                    self.encode_params(&params)?;
+                    self.encode_params(&params, &signature.return_type)?;
                 }
 
                 InterfaceMember::Property(prop) => {
@@ -367,7 +367,6 @@ impl Encoder<'_> {
                             &prop.attrs,
                             &["get", "set"],
                         )?;
-                        self.encode_simple_params(&[])?;
                         get_method = Some(method);
                     }
 
@@ -396,7 +395,7 @@ impl Encoder<'_> {
                             &prop.attrs,
                             &["get", "set"],
                         )?;
-                        self.encode_simple_params(&[("value", &ty)])?;
+                        self.encode_input_params(&["value"]);
                         put_method = Some(method);
                     }
 
@@ -454,7 +453,7 @@ impl Encoder<'_> {
                         &evt.attrs,
                         &[],
                     )?;
-                    self.encode_simple_params(&[("handler", &handler_ty)])?;
+                    self.encode_input_params(&["handler"]);
 
                     let remove_name = format!("remove_{}", evt.name);
                     let remove_signature = metadata::Signature {
@@ -480,7 +479,7 @@ impl Encoder<'_> {
                         &evt.attrs,
                         &[],
                     )?;
-                    self.encode_simple_params(&[("token", &token_ty)])?;
+                    self.encode_input_params(&["token"]);
 
                     accessors.push(Accessor {
                         kind: AccessorKind::Add,

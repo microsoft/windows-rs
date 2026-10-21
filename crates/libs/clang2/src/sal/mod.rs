@@ -72,6 +72,7 @@ pub(crate) struct ParameterContract {
     pub initialized: Option<InitializedLength>,
     pub terminated: bool,
     pub returned_pointer: Option<ReturnedPointer>,
+    pub returned_buffer: Option<ReturnedBuffer>,
     // Native agreement retains SAL/RPC distinctions even when publication uses the same direction.
     pub input_read_only: Option<bool>,
 }
@@ -84,6 +85,20 @@ pub(crate) struct ReturnedPointer {
 }
 
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub(crate) struct ReturnedBuffer {
+    pub writable: Option<Count>,
+    pub readable: Option<Count>,
+    pub nullable: bool,
+}
+
+#[derive(Clone, Copy)]
+enum ReturnedBufferKind {
+    Capacity,
+    Partial,
+    Full,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub(crate) enum Units {
     Elements,
     Bytes,
@@ -93,6 +108,7 @@ pub(crate) enum Units {
 pub(crate) struct Count {
     pub parameter: usize,
     pub units: Units,
+    pub dereference: bool,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
@@ -100,6 +116,7 @@ pub(crate) struct InitializedLength {
     pub count: Count,
     pub dereference: bool,
     pub null_fallback: Option<usize>,
+    pub on_entry: bool,
 }
 
 #[derive(Clone, Copy)]
@@ -114,6 +131,7 @@ enum ContractKind {
     TerminatedBuffer,
     InitializedBuffer(Units),
     OutPointer(ReturnedPointer),
+    OutBuffer(Units, ReturnedBufferKind, bool),
 }
 
 #[derive(Eq, Ord, PartialEq, PartialOrd)]
@@ -226,12 +244,35 @@ pub(crate) fn parameter(
         initialized: None,
         terminated: false,
         returned_pointer: None,
+        returned_buffer: None,
         input_read_only: None,
     };
     match kind {
         ContractKind::Value => {}
         ContractKind::Input(read_only) => contract.input_read_only = Some(read_only),
         ContractKind::OutPointer(pointer) => contract.returned_pointer = Some(pointer),
+        ContractKind::OutBuffer(units, kind, nullable) => {
+            let (writable, readable) = match kind {
+                ReturnedBufferKind::Capacity => {
+                    (Some(count(&value.expanded, parameters, units)?), None)
+                }
+                ReturnedBufferKind::Full => {
+                    (None, Some(count(&value.expanded, parameters, units)?))
+                }
+                ReturnedBufferKind::Partial => {
+                    let (capacity, length) = value.expanded.split_once(',')?;
+                    (
+                        Some(count(capacity, parameters, units)?),
+                        Some(count(length, parameters, units)?),
+                    )
+                }
+            };
+            contract.returned_buffer = Some(ReturnedBuffer {
+                writable,
+                readable,
+                nullable,
+            });
+        }
         ContractKind::Terminated(read_only) => {
             contract.input_read_only = Some(read_only);
             contract.terminated = true;
@@ -250,9 +291,13 @@ pub(crate) fn parameter(
             contract.capacity = Some(count);
             if matches!(kind, ContractKind::FullBuffer(_)) {
                 contract.initialized = Some(InitializedLength {
-                    count,
-                    dereference: false,
+                    count: Count {
+                        dereference: false,
+                        ..count
+                    },
+                    dereference: count.dereference,
                     null_fallback: None,
+                    on_entry: count.dereference,
                 });
             }
         }
@@ -273,31 +318,40 @@ pub(crate) fn parameter(
 
 fn count(name: &str, parameters: &[Parameter], units: Units) -> Option<Count> {
     let name = name.trim();
+    let dereference = name.starts_with('*');
+    let name = name.strip_prefix('*').unwrap_or(name).trim();
     let parameter = parameters
         .iter()
         .position(|parameter| !parameter.name.is_empty() && parameter.name == name)?;
-    Some(Count { parameter, units })
+    Some(Count {
+        parameter,
+        units,
+        dereference,
+    })
 }
 
 fn initialized(name: &str, parameters: &[Parameter], units: Units) -> Option<InitializedLength> {
+    let direct = |name| count(name, parameters, units).filter(|count| !count.dereference);
     let name = name.trim();
     if let Some((condition, branches)) = name.split_once('?') {
         let (present, absent) = branches.split_once(':')?;
-        let guard = count(condition, parameters, units)?;
-        let present = count(present.trim().strip_prefix('*')?, parameters, units)?;
+        let guard = direct(condition)?;
+        let present = direct(present.trim().strip_prefix('*')?)?;
         if guard != present {
             return None;
         }
         return Some(InitializedLength {
             count: present,
             dereference: true,
-            null_fallback: Some(count(absent, parameters, units)?.parameter),
+            null_fallback: Some(direct(absent)?.parameter),
+            on_entry: false,
         });
     }
     Some(InitializedLength {
-        count: count(name.strip_prefix('*').unwrap_or(name), parameters, units)?,
+        count: direct(name.strip_prefix('*').unwrap_or(name))?,
         dereference: name.starts_with('*'),
         null_fallback: None,
+        on_entry: false,
     })
 }
 
@@ -376,6 +430,7 @@ pub(crate) fn rpc_buffer(
         initialized: None,
         terminated,
         returned_pointer: None,
+        returned_buffer: None,
         input_read_only: None,
     };
     match kind {
@@ -451,42 +506,85 @@ pub(crate) fn termination(
     })
 }
 
+#[cfg(feature = "projection")]
+pub(crate) fn common_direction(
+    snapshot: &Snapshot,
+    function: &Function,
+    attributes: &[Attribute],
+    parameters: &[Parameter],
+) -> Result<Option<(bool, bool, bool)>, Error> {
+    let values = resolve::sal(attributes);
+    let conditions: Vec<_> = values
+        .iter()
+        .filter(|value| value.value.name == "_When_")
+        .collect();
+    let [first, second] = conditions.as_slice() else {
+        return Ok(None);
+    };
+    let branch = |value: &Annotation<'_>, expanded: &str| {
+        let value = value.unscoped()?;
+        if value.version != "2" || value.arguments.is_empty() {
+            return None;
+        }
+        let (condition, annotation) = expanded.split_once(',')?;
+        let (input, output, optional) = match annotation.trim() {
+            "_In_" => (true, false, false),
+            "_In_opt_" => (true, false, true),
+            "_Out_" => (false, true, false),
+            "_Out_opt_" => (false, true, true),
+            "_Inout_" => (true, true, false),
+            "_Inout_opt_" => (true, true, true),
+            _ => return None,
+        };
+        let (name, right, equal) = if let Some((name, right)) = condition.split_once("==") {
+            (name.trim(), right.trim(), true)
+        } else if let Some((name, right)) = condition.split_once("!=") {
+            (name.trim(), right.trim(), false)
+        } else {
+            return None;
+        };
+        if right != "0" {
+            return None;
+        }
+        let position = parameters
+            .iter()
+            .position(|parameter| !name.is_empty() && parameter.name == name)?;
+        let mut ty = function.parameters[position];
+        while let TypeKind::Alias(id) = snapshot.types[ty.0].kind {
+            ty = snapshot.aliases[id.0].observations[0].canonical;
+        }
+        if !matches!(snapshot.types[ty.0].kind, TypeKind::Pointer(_)) {
+            return None;
+        }
+        Some((position, equal, input, output, optional))
+    };
+    let Some(first) = branch(first, &transport::expression(&first.value.expanded)?) else {
+        return Ok(None);
+    };
+    let Some(second) = branch(second, &transport::expression(&second.value.expanded)?) else {
+        return Ok(None);
+    };
+    if first.0 != second.0 || first.1 == second.1 {
+        return Ok(None);
+    }
+    // Complementary pointer-null tests cover every entry state. Keep both source conditions;
+    // only their shared facts can be published without a conditional contract.
+    let required = values.iter().any(|value| {
+        value
+            .unscoped()
+            .and_then(direction)
+            .is_some_and(|(_, optional)| !optional)
+    });
+    Ok(Some((
+        first.2 && second.2,
+        first.3 && second.3,
+        first.4 && second.4 && !required,
+    )))
+}
+
 pub(crate) fn direction(value: &SalAnnotation) -> Option<(Direction, bool)> {
     if let Some((direction, optional, _, _)) = rpc_buffer_shape(value) {
         return Some((direction, optional));
-    }
-    if value.version == "2" && !value.arguments.is_empty() && !value.expanded.is_empty() {
-        match value.name.as_str() {
-            "_Outptr_result_buffer_"
-            | "_Outptr_result_buffer_to_"
-            | "_Outptr_result_buffer_all_"
-            | "_Outptr_result_buffer_maybenull_"
-            | "_Outptr_result_buffer_to_maybenull_"
-            | "_Outptr_result_buffer_all_maybenull_"
-            | "_Outptr_result_bytebuffer_"
-            | "_Outptr_result_bytebuffer_to_"
-            | "_Outptr_result_bytebuffer_all_"
-            | "_Outptr_result_bytebuffer_maybenull_"
-            | "_Outptr_result_bytebuffer_to_maybenull_"
-            | "_Outptr_result_bytebuffer_all_maybenull_" => {
-                return Some((Direction::Output, false));
-            }
-            "_Outptr_opt_result_buffer_"
-            | "_Outptr_opt_result_buffer_to_"
-            | "_Outptr_opt_result_buffer_all_"
-            | "_Outptr_opt_result_buffer_maybenull_"
-            | "_Outptr_opt_result_buffer_to_maybenull_"
-            | "_Outptr_opt_result_buffer_all_maybenull_"
-            | "_Outptr_opt_result_bytebuffer_"
-            | "_Outptr_opt_result_bytebuffer_to_"
-            | "_Outptr_opt_result_bytebuffer_all_"
-            | "_Outptr_opt_result_bytebuffer_maybenull_"
-            | "_Outptr_opt_result_bytebuffer_to_maybenull_"
-            | "_Outptr_opt_result_bytebuffer_all_maybenull_" => {
-                return Some((Direction::Output, true));
-            }
-            _ => {}
-        }
     }
     // Partial lowering preserves inner-pointer and failure contracts as evidence.
     if value.arguments.is_empty() && value.expanded.is_empty() {
@@ -513,8 +611,41 @@ pub(crate) fn direction(value: &SalAnnotation) -> Option<(Direction, bool)> {
     Some((direction, optional))
 }
 
+fn returned_buffer_shape(value: &SalAnnotation) -> Option<(bool, ContractKind)> {
+    if value.version != "2" || value.arguments.trim().is_empty() || value.expanded.trim().is_empty()
+    {
+        return None;
+    }
+    let (name, optional) = if let Some(name) = value.name.strip_prefix("_Outptr_result_") {
+        (name, false)
+    } else {
+        (value.name.strip_prefix("_Outptr_opt_result_")?, true)
+    };
+    use ReturnedBufferKind::*;
+    use Units::*;
+    let (units, kind, nullable) = match name {
+        "buffer_" => (Elements, Capacity, false),
+        "buffer_to_" => (Elements, Partial, false),
+        "buffer_all_" => (Elements, Full, false),
+        "buffer_maybenull_" => (Elements, Capacity, true),
+        "buffer_to_maybenull_" => (Elements, Partial, true),
+        "buffer_all_maybenull_" => (Elements, Full, true),
+        "bytebuffer_" => (Bytes, Capacity, false),
+        "bytebuffer_to_" => (Bytes, Partial, false),
+        "bytebuffer_all_" => (Bytes, Full, false),
+        "bytebuffer_maybenull_" => (Bytes, Capacity, true),
+        "bytebuffer_to_maybenull_" => (Bytes, Partial, true),
+        "bytebuffer_all_maybenull_" => (Bytes, Full, true),
+        _ => return None,
+    };
+    Some((optional, ContractKind::OutBuffer(units, kind, nullable)))
+}
+
 fn shape(value: &SalAnnotation) -> Option<(Direction, bool, ContractKind)> {
     use ContractKind::*;
+    if let Some((optional, kind)) = returned_buffer_shape(value) {
+        return Some((Direction::Output, optional, kind));
+    }
     if let Some((Direction::Input, optional, RpcBufferKind::Capacity, terminated)) =
         rpc_buffer_shape(value)
     {
@@ -723,17 +854,19 @@ pub(crate) fn parameters<'a>(
             .and_then(|value| parameter(value, parameters))
     });
     let first = contracts.next();
-    let distinct = contracts.any(|value| Some(value) != first);
+    let combined = first.and_then(|first| contracts.try_fold(first, combine_returned_contracts));
+    let distinct = first.is_some() && combined.is_none();
     let mut result: Vec<_> = values
         .into_iter()
         .map(|value| {
-            // Do not replace several written contracts with their permissive union.
+            // Only matching returned-buffer/pointer facts can share a combined contract.
             if !distinct
-                && let Some(contract) = value
+                && value
                     .unscoped()
                     .and_then(|value| parameter(value, parameters))
+                    .is_some()
             {
-                ParameterAnnotation::Contract(contract)
+                ParameterAnnotation::Contract(combined.unwrap())
             } else if let Some(termination) = scoped_termination(&value) {
                 ParameterAnnotation::Termination(termination)
             } else if value.unscoped().is_some_and(|value| {
@@ -752,4 +885,40 @@ pub(crate) fn parameters<'a>(
     result.sort_unstable();
     result.dedup();
     result
+}
+
+fn combine_returned_contracts(
+    mut left: ParameterContract,
+    mut right: ParameterContract,
+) -> Option<ParameterContract> {
+    if left == right {
+        return Some(left);
+    }
+    if [left, right]
+        .iter()
+        .any(|value| value.returned_pointer.is_none() && value.returned_buffer.is_none())
+    {
+        return None;
+    }
+    let pointer = left.returned_pointer.or(right.returned_pointer)?;
+    let buffer = left.returned_buffer.or(right.returned_buffer)?;
+    if pointer.com
+        || pointer.may_be_null != buffer.nullable
+        || [left, right].iter().any(|value| {
+            value.returned_pointer.is_some_and(|value| value != pointer)
+                || value.returned_buffer.is_some_and(|value| value != buffer)
+        })
+    {
+        return None;
+    }
+    left.returned_pointer = None;
+    left.returned_buffer = None;
+    right.returned_pointer = None;
+    right.returned_buffer = None;
+    if left != right {
+        return None;
+    }
+    left.returned_pointer = Some(pointer);
+    left.returned_buffer = Some(buffer);
+    Some(left)
 }

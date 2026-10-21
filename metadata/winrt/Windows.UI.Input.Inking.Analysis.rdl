@@ -84,7 +84,7 @@ mod Windows {
                     interface IInkAnalysisRoot: IInkAnalysisNode {
                         #[get]
                         RecognizedText: String;
-                        fn FindNodes(&self, nodeKind: InkAnalysisNodeKind) -> super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>;
+                        fn FindNodes(&self, #[in] nodeKind: InkAnalysisNodeKind) -> super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>;
                     }
                     #[guid(0xdd6d6231_bd16_4663_b5ae_941d3043ef5b)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -101,13 +101,13 @@ mod Windows {
                         AnalysisRoot: InkAnalysisRoot;
                         #[get]
                         IsAnalyzing: bool;
-                        fn AddDataForStroke(&self, stroke: super::InkStroke);
-                        fn AddDataForStrokes(&self, strokes: super::super::super::super::Foundation::Collections::IIterable<super::InkStroke>);
+                        fn AddDataForStroke(&self, #[in] stroke: super::InkStroke);
+                        fn AddDataForStrokes(&self, #[in] strokes: super::super::super::super::Foundation::Collections::IIterable<super::InkStroke>);
                         fn ClearDataForAllStrokes(&self);
-                        fn RemoveDataForStroke(&self, strokeId: u32);
-                        fn RemoveDataForStrokes(&self, strokeIds: super::super::super::super::Foundation::Collections::IIterable<u32>);
-                        fn ReplaceDataForStroke(&self, stroke: super::InkStroke);
-                        fn SetStrokeDataKind(&self, strokeId: u32, strokeKind: InkAnalysisStrokeKind);
+                        fn RemoveDataForStroke(&self, #[in] strokeId: u32);
+                        fn RemoveDataForStrokes(&self, #[in] strokeIds: super::super::super::super::Foundation::Collections::IIterable<u32>);
+                        fn ReplaceDataForStroke(&self, #[in] stroke: super::InkStroke);
+                        fn SetStrokeDataKind(&self, #[in] strokeId: u32, #[in] strokeKind: InkAnalysisStrokeKind);
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn AnalyzeAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<InkAnalysisResult>;
                     }

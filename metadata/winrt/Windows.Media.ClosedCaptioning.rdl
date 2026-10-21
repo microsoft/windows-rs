@@ -143,7 +143,7 @@ mod Windows {
             interface IClosedCaptionThemeStatics {
                 fn GetAvailableThemes(&self) -> [ClosedCaptionTheme];
                 fn GetSelectedTheme(&self) -> ClosedCaptionTheme;
-                fn TrySetSelectedTheme(&self, value: ClosedCaptionTheme) -> bool;
+                fn TrySetSelectedTheme(&self, #[in] value: ClosedCaptionTheme) -> bool;
                 event ThemesChanged: super::super::Foundation::EventHandler<Object>;
                 event SelectedThemeChanged: super::super::Foundation::EventHandler<Object>;
             }

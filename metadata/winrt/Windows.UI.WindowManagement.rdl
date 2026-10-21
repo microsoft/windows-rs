@@ -156,13 +156,13 @@ mod Windows {
                 fn CloseAsync(&self) -> super::super::Foundation::IAsyncAction;
                 fn GetPlacement(&self) -> AppWindowPlacement;
                 fn GetDisplayRegions(&self) -> super::super::Foundation::Collections::IVectorView<DisplayRegion>;
-                fn RequestMoveToDisplayRegion(&self, displayRegion: DisplayRegion);
+                fn RequestMoveToDisplayRegion(&self, #[in] displayRegion: DisplayRegion);
                 fn RequestMoveAdjacentToCurrentView(&self);
-                fn RequestMoveAdjacentToWindow(&self, anchorWindow: AppWindow);
-                fn RequestMoveRelativeToWindowContent(&self, anchorWindow: AppWindow, contentOffset: super::super::Foundation::Point);
-                fn RequestMoveRelativeToCurrentViewContent(&self, contentOffset: super::super::Foundation::Point);
-                fn RequestMoveRelativeToDisplayRegion(&self, displayRegion: DisplayRegion, displayRegionOffset: super::super::Foundation::Point);
-                fn RequestSize(&self, frameSize: super::super::Foundation::Size);
+                fn RequestMoveAdjacentToWindow(&self, #[in] anchorWindow: AppWindow);
+                fn RequestMoveRelativeToWindowContent(&self, #[in] anchorWindow: AppWindow, #[in] contentOffset: super::super::Foundation::Point);
+                fn RequestMoveRelativeToCurrentViewContent(&self, #[in] contentOffset: super::super::Foundation::Point);
+                fn RequestMoveRelativeToDisplayRegion(&self, #[in] displayRegion: DisplayRegion, #[in] displayRegionOffset: super::super::Foundation::Point);
+                fn RequestSize(&self, #[in] frameSize: super::super::Foundation::Size);
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryShowAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
                 event Changed: super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>;
@@ -221,7 +221,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAppWindowFrameStyle {
                 fn GetFrameStyle(&self) -> AppWindowFrameStyle;
-                fn SetFrameStyle(&self, frameStyle: AppWindowFrameStyle);
+                fn SetFrameStyle(&self, #[in] frameStyle: AppWindowFrameStyle);
             }
             #[guid(0x03dc815e_e7a9_5857_9c03_7d670594410e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
@@ -253,12 +253,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAppWindowPresenter {
                 fn GetConfiguration(&self) -> AppWindowPresentationConfiguration;
-                fn IsPresentationSupported(&self, presentationKind: AppWindowPresentationKind) -> bool;
+                fn IsPresentationSupported(&self, #[in] presentationKind: AppWindowPresentationKind) -> bool;
                 #[Windows::Foundation::Metadata::Overload("RequestPresentation")]
-                fn RequestPresentation(&self, configuration: AppWindowPresentationConfiguration) -> bool;
+                fn RequestPresentation(&self, #[in] configuration: AppWindowPresentationConfiguration) -> bool;
                 #[Windows::Foundation::Metadata::DefaultOverload]
                 #[Windows::Foundation::Metadata::Overload("RequestPresentationByKind")]
-                fn RequestPresentation(&self, presentationKind: AppWindowPresentationKind) -> bool;
+                fn RequestPresentation(&self, #[in] presentationKind: AppWindowPresentationKind) -> bool;
             }
             #[guid(0xff1f3ea3_b769_50ef_9873_108cd0e89746)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
@@ -268,7 +268,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryCreateAsync(&self) -> super::super::Foundation::IAsyncOperation<AppWindow>;
                 fn ClearAllPersistedState(&self);
-                fn ClearPersistedState(&self, key: String);
+                fn ClearPersistedState(&self, #[in] key: String);
             }
             #[guid(0x6e932c84_f644_541d_a2d7_0c262437842d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
@@ -306,7 +306,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAppWindowTitleBarVisibility {
                 fn GetPreferredVisibility(&self) -> AppWindowTitleBarVisibility;
-                fn SetPreferredVisibility(&self, visibilityMode: AppWindowTitleBarVisibility);
+                fn SetPreferredVisibility(&self, #[in] visibilityMode: AppWindowTitleBarVisibility);
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompactOverlayPresentationConfiguration)]
@@ -387,7 +387,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("FindAll")]
                 fn FindAll(&self) -> super::super::Foundation::Collections::IVectorView<WindowingEnvironment>;
                 #[Windows::Foundation::Metadata::Overload("FindAllWithKind")]
-                fn FindAll(&self, kind: WindowingEnvironmentKind) -> super::super::Foundation::Collections::IVectorView<WindowingEnvironment>;
+                fn FindAll(&self, #[in] kind: WindowingEnvironmentKind) -> super::super::Foundation::Collections::IVectorView<WindowingEnvironment>;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

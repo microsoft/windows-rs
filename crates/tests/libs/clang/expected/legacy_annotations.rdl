@@ -2,5 +2,5 @@
 mod LegacyAnnotations {
     extern "C" fn CALLBACK(#[in] #[out] #[opt] context: *mut void);
     #[library("api.dll")]
-    extern "C" fn Update(input: *const i32, #[opt] output: *mut i32);
+    extern "C" fn Update(#[in] input: *const i32, #[out] #[opt] output: *mut i32);
 }

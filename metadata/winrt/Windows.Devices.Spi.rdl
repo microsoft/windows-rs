@@ -29,13 +29,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpiConnectionSettings)]
             interface ISpiConnectionSettingsFactory {
-                fn Create(&self, chipSelectLine: i32) -> SpiConnectionSettings;
+                fn Create(&self, #[in] chipSelectLine: i32) -> SpiConnectionSettings;
             }
             #[guid(0xa8d3c829_9895_4159_a934_8741f1ee6d27)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpiController)]
             interface ISpiController {
-                fn GetDevice(&self, settings: SpiConnectionSettings) -> SpiDevice;
+                fn GetDevice(&self, #[in] settings: SpiConnectionSettings) -> SpiDevice;
             }
             #[guid(0x0d5229e2_138b_4e48_b964_4f2f79b9c5a2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 131072)]
@@ -44,7 +44,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<SpiController>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetControllersAsync(&self, provider: Provider::ISpiProvider) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>;
+                fn GetControllersAsync(&self, #[in] provider: Provider::ISpiProvider) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>;
             }
             #[guid(0x05d5356d_11b6_4d39_84d5_95dfb4c9f2ce)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
@@ -54,10 +54,10 @@ mod Windows {
                 DeviceId: String;
                 #[get]
                 ConnectionSettings: SpiConnectionSettings;
-                fn Write(&self, buffer: [u8]);
+                fn Write(&self, #[in] buffer: [u8]);
                 fn Read(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] buffer: [u8]);
-                fn TransferSequential(&self, writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
-                fn TransferFullDuplex(&self, writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
+                fn TransferSequential(&self, #[in] writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
+                fn TransferFullDuplex(&self, #[in] writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
             }
             #[guid(0xa278e559_5720_4d3f_bd93_56f5ff5a5879)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
@@ -65,10 +65,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorFromFriendlyName")]
-                fn GetDeviceSelector(&self, friendlyName: String) -> String;
-                fn GetBusInfo(&self, busId: String) -> SpiBusInfo;
+                fn GetDeviceSelector(&self, #[in] friendlyName: String) -> String;
+                fn GetBusInfo(&self, #[in] busId: String) -> SpiBusInfo;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, busId: String, settings: SpiConnectionSettings) -> super::super::Foundation::IAsyncOperation<SpiDevice>;
+                fn FromIdAsync(&self, #[in] busId: String, #[in] settings: SpiConnectionSettings) -> super::super::Foundation::IAsyncOperation<SpiDevice>;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]

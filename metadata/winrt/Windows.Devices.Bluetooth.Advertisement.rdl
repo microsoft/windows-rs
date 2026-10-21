@@ -173,8 +173,8 @@ mod Windows {
                     ManufacturerData: super::super::super::Foundation::Collections::IVector<BluetoothLEManufacturerData>;
                     #[get]
                     DataSections: super::super::super::Foundation::Collections::IVector<BluetoothLEAdvertisementDataSection>;
-                    fn GetManufacturerDataByCompanyId(&self, companyId: u16) -> super::super::super::Foundation::Collections::IVectorView<BluetoothLEManufacturerData>;
-                    fn GetSectionsByType(&self, r#type: u8) -> super::super::super::Foundation::Collections::IVectorView<BluetoothLEAdvertisementDataSection>;
+                    fn GetManufacturerDataByCompanyId(&self, #[in] companyId: u16) -> super::super::super::Foundation::Collections::IVectorView<BluetoothLEManufacturerData>;
+                    fn GetSectionsByType(&self, #[in] r#type: u8) -> super::super::super::Foundation::Collections::IVectorView<BluetoothLEAdvertisementDataSection>;
                 }
                 #[guid(0xfbfad7f2_b9c5_4a08_bc51_502f8ef68a79)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -188,7 +188,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementBytePattern)]
                 interface IBluetoothLEAdvertisementBytePatternFactory {
-                    fn Create(&self, dataType: u8, offset: i16, data: super::super::super::Storage::Streams::IBuffer) -> BluetoothLEAdvertisementBytePattern;
+                    fn Create(&self, #[in] dataType: u8, #[in] offset: i16, #[in] data: super::super::super::Storage::Streams::IBuffer) -> BluetoothLEAdvertisementBytePattern;
                 }
                 #[guid(0xd7213314_3a43_40f9_b6f0_92bfefc34ae3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -201,7 +201,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementDataSection)]
                 interface IBluetoothLEAdvertisementDataSectionFactory {
-                    fn Create(&self, dataType: u8, data: super::super::super::Storage::Streams::IBuffer) -> BluetoothLEAdvertisementDataSection;
+                    fn Create(&self, #[in] dataType: u8, #[in] data: super::super::super::Storage::Streams::IBuffer) -> BluetoothLEAdvertisementDataSection;
                 }
                 #[guid(0x3bb6472f_0606_434b_a76e_74159f0684d3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -292,7 +292,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementPublisher)]
                 interface IBluetoothLEAdvertisementPublisherFactory {
-                    fn Create(&self, advertisement: BluetoothLEAdvertisement) -> BluetoothLEAdvertisementPublisher;
+                    fn Create(&self, #[in] advertisement: BluetoothLEAdvertisement) -> BluetoothLEAdvertisementPublisher;
                 }
                 #[guid(0x09c2bd9f_2dff_4b23_86ee_0d14fb94aeae)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -410,7 +410,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementWatcher)]
                 interface IBluetoothLEAdvertisementWatcherFactory {
-                    fn Create(&self, advertisementFilter: BluetoothLEAdvertisementFilter) -> BluetoothLEAdvertisementWatcher;
+                    fn Create(&self, #[in] advertisementFilter: BluetoothLEAdvertisementFilter) -> BluetoothLEAdvertisementWatcher;
                 }
                 #[guid(0xdd40f84d_e7b9_43e3_9c04_0685d085fd8c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -430,7 +430,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEManufacturerData)]
                 interface IBluetoothLEManufacturerDataFactory {
-                    fn Create(&self, companyId: u16, data: super::super::super::Storage::Streams::IBuffer) -> BluetoothLEManufacturerData;
+                    fn Create(&self, #[in] companyId: u16, #[in] data: super::super::super::Storage::Streams::IBuffer) -> BluetoothLEManufacturerData;
                 }
             }
         }

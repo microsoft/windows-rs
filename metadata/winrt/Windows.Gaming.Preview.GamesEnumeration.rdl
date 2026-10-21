@@ -18,7 +18,7 @@ mod Windows {
                 }
                 #[guid(0x25f6a421_d8f5_4d91_b40e_53d5e86fde64)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
-                delegate fn GameListChangedEventHandler(game: GameListEntry);
+                delegate fn GameListChangedEventHandler(#[in] game: GameListEntry);
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
@@ -36,7 +36,7 @@ mod Windows {
                 }
                 #[guid(0x10c5648f_6c8f_4712_9b38_474bc22e76d8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
-                delegate fn GameListRemovedEventHandler(identifier: String);
+                delegate fn GameListRemovedEventHandler(#[in] identifier: String);
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
@@ -62,7 +62,7 @@ mod Windows {
                     #[get]
                     Properties: super::super::super::Foundation::Collections::IMapView<String, Object>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SetCategoryAsync(&self, value: GameListCategory) -> super::super::super::Foundation::IAsyncAction;
+                    fn SetCategoryAsync(&self, #[in] value: GameListCategory) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xd84a8f8b_8749_4a25_90d3_f6c5a427886d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]
@@ -76,14 +76,14 @@ mod Windows {
                     LaunchParameters: String;
                     #[Windows::Foundation::Metadata::Overload("SetLauncherExecutableFileAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SetLauncherExecutableFileAsync(&self, executableFile: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::IAsyncAction;
+                    fn SetLauncherExecutableFileAsync(&self, #[in] executableFile: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("SetLauncherExecutableFileWithParamsAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SetLauncherExecutableFileAsync(&self, executableFile: super::super::super::Storage::IStorageFile, launchParams: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn SetLauncherExecutableFileAsync(&self, #[in] executableFile: super::super::super::Storage::IStorageFile, #[in] launchParams: String) -> super::super::super::Foundation::IAsyncAction;
                     #[get]
                     TitleId: String;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SetTitleIdAsync(&self, id: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn SetTitleIdAsync(&self, #[in] id: String) -> super::super::super::Foundation::IAsyncAction;
                     #[get]
                     GameModeConfiguration: GameModeConfiguration;
                 }
@@ -96,7 +96,7 @@ mod Windows {
                     fn FindAllAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>;
                     #[Windows::Foundation::Metadata::Overload("FindAllAsyncPackageFamilyName")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn FindAllAsync(&self, packageFamilyName: String) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>;
+                    fn FindAllAsync(&self, #[in] packageFamilyName: String) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>;
                     event GameAdded: GameListChangedEventHandler;
                     event GameRemoved: GameListRemovedEventHandler;
                     event GameUpdated: GameListChangedEventHandler;
@@ -106,9 +106,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(GameList)]
                 interface IGameListStatics2 {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn MergeEntriesAsync(&self, left: GameListEntry, right: GameListEntry) -> super::super::super::Foundation::IAsyncOperation<GameListEntry>;
+                    fn MergeEntriesAsync(&self, #[in] left: GameListEntry, #[in] right: GameListEntry) -> super::super::super::Foundation::IAsyncOperation<GameListEntry>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn UnmergeEntryAsync(&self, mergedEntry: GameListEntry) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>;
+                    fn UnmergeEntryAsync(&self, #[in] mergedEntry: GameListEntry) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>;
                 }
                 #[guid(0x78e591af_b142_4ef0_8830_55bc2be4f5ea)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]

@@ -9,10 +9,10 @@ mod Windows {
             }
             #[guid(0xefa9da69_f6e1_49c9_a49e_8e0fc58fb911)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn DeviceArrivedEventHandler(sender: ProximityDevice);
+            delegate fn DeviceArrivedEventHandler(#[in] sender: ProximityDevice);
             #[guid(0xefa9da69_f6e2_49c9_a49e_8e0fc58fb911)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn DeviceDepartedEventHandler(sender: ProximityDevice);
+            delegate fn DeviceDepartedEventHandler(#[in] sender: ProximityDevice);
             #[guid(0xeb6891ae_4f1e_4c66_bd0d_46924a942e08)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionRequestedEventArgs)]
@@ -35,14 +35,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Start")]
                 fn Start(&self);
                 #[Windows::Foundation::Metadata::Overload("StartWithMessage")]
-                fn Start(&self, peerMessage: String);
+                fn Start(&self, #[in] peerMessage: String);
                 fn Stop(&self);
                 event TriggeredConnectionStateChanged: super::super::Foundation::TypedEventHandler<Object, TriggeredConnectionStateChangedEventArgs>;
                 event ConnectionRequested: super::super::Foundation::TypedEventHandler<Object, ConnectionRequestedEventArgs>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllPeersAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PeerInformation>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ConnectAsync(&self, peerInformation: PeerInformation) -> super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>;
+                fn ConnectAsync(&self, #[in] peerInformation: PeerInformation) -> super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>;
             }
             #[guid(0xd6e73c65_fdd0_4b0b_9312_866408935d82)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -95,21 +95,21 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ProximityDevice)]
             interface IProximityDevice {
-                fn SubscribeForMessage(&self, messageType: String, messageReceivedHandler: MessageReceivedHandler) -> i64;
+                fn SubscribeForMessage(&self, #[in] messageType: String, #[in] messageReceivedHandler: MessageReceivedHandler) -> i64;
                 #[Windows::Foundation::Metadata::Overload("PublishMessage")]
-                fn PublishMessage(&self, messageType: String, message: String) -> i64;
+                fn PublishMessage(&self, #[in] messageType: String, #[in] message: String) -> i64;
                 #[Windows::Foundation::Metadata::Overload("PublishMessageWithCallback")]
-                fn PublishMessage(&self, messageType: String, message: String, messageTransmittedHandler: MessageTransmittedHandler) -> i64;
+                fn PublishMessage(&self, #[in] messageType: String, #[in] message: String, #[in] messageTransmittedHandler: MessageTransmittedHandler) -> i64;
                 #[Windows::Foundation::Metadata::Overload("PublishBinaryMessage")]
-                fn PublishBinaryMessage(&self, messageType: String, message: super::super::Storage::Streams::IBuffer) -> i64;
+                fn PublishBinaryMessage(&self, #[in] messageType: String, #[in] message: super::super::Storage::Streams::IBuffer) -> i64;
                 #[Windows::Foundation::Metadata::Overload("PublishBinaryMessageWithCallback")]
-                fn PublishBinaryMessage(&self, messageType: String, message: super::super::Storage::Streams::IBuffer, messageTransmittedHandler: MessageTransmittedHandler) -> i64;
+                fn PublishBinaryMessage(&self, #[in] messageType: String, #[in] message: super::super::Storage::Streams::IBuffer, #[in] messageTransmittedHandler: MessageTransmittedHandler) -> i64;
                 #[Windows::Foundation::Metadata::Overload("PublishUriMessage")]
-                fn PublishUriMessage(&self, message: super::super::Foundation::Uri) -> i64;
+                fn PublishUriMessage(&self, #[in] message: super::super::Foundation::Uri) -> i64;
                 #[Windows::Foundation::Metadata::Overload("PublishUriMessageWithCallback")]
-                fn PublishUriMessage(&self, message: super::super::Foundation::Uri, messageTransmittedHandler: MessageTransmittedHandler) -> i64;
-                fn StopSubscribingForMessage(&self, subscriptionId: i64);
-                fn StopPublishingMessage(&self, messageId: i64);
+                fn PublishUriMessage(&self, #[in] message: super::super::Foundation::Uri, #[in] messageTransmittedHandler: MessageTransmittedHandler) -> i64;
+                fn StopSubscribingForMessage(&self, #[in] subscriptionId: i64);
+                fn StopPublishingMessage(&self, #[in] messageId: i64);
                 event DeviceArrived: DeviceArrivedEventHandler;
                 event DeviceDeparted: DeviceDepartedEventHandler;
                 #[get]
@@ -125,7 +125,7 @@ mod Windows {
             interface IProximityDeviceStatics {
                 fn GetDeviceSelector(&self) -> String;
                 fn GetDefault(&self) -> ProximityDevice;
-                fn FromId(&self, deviceId: String) -> ProximityDevice;
+                fn FromId(&self, #[in] deviceId: String) -> ProximityDevice;
             }
             #[guid(0xefab0782_f6e1_4675_a045_d8e320c24808)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -153,10 +153,10 @@ mod Windows {
             }
             #[guid(0xefab0782_f6e2_4675_a045_d8e320c24808)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn MessageReceivedHandler(sender: ProximityDevice, message: ProximityMessage);
+            delegate fn MessageReceivedHandler(#[in] sender: ProximityDevice, #[in] message: ProximityMessage);
             #[guid(0xefaa0b4a_f6e2_4d7d_856c_78fc8efc021e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn MessageTransmittedHandler(sender: ProximityDevice, messageId: i64);
+            delegate fn MessageTransmittedHandler(#[in] sender: ProximityDevice, #[in] messageId: i64);
             #[repr(u32)]
             #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

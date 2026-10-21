@@ -9,6 +9,6 @@ mod EventGeneric {
     #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
     interface IWidget {
         event Changed: Windows::Foundation::TypedEventHandler<Widget, i32>;
-        fn Raise(&self, value: i32);
+        fn Raise(&self, #[in] value: i32);
     }
 }

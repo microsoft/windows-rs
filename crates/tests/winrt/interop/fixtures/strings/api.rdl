@@ -12,9 +12,9 @@ mod Strings {
     #[ExclusiveTo(Widget)]
     interface IWidget {
         // The number of UTF-16 code units in `value`.
-        fn Length(&self, value: String) -> u32;
-        fn Echo(&self, value: String) -> String;
-        fn Repeat(&self, value: String, count: u32) -> String;
+        fn Length(&self, #[in] value: String) -> u32;
+        fn Echo(&self, #[in] value: String) -> String;
+        fn Repeat(&self, #[in] value: String, #[in] count: u32) -> String;
 
         // Returns "héllo 😀", created by the component.
         fn Greeting(&self) -> String;

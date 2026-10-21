@@ -8,16 +8,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(LicenseManager)]
                 interface ILicenseManagerStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn AddLicenseAsync(&self, license: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncAction;
+                    fn AddLicenseAsync(&self, #[in] license: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetSatisfactionInfosAsync(&self, contentIds: super::super::super::Foundation::Collections::IIterable<String>, keyIds: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>;
+                    fn GetSatisfactionInfosAsync(&self, #[in] contentIds: super::super::super::Foundation::Collections::IIterable<String>, #[in] keyIds: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>;
                 }
                 #[guid(0xab2ec47b_1f79_4480_b87e_2c499e601ba3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LicenseManager)]
                 interface ILicenseManagerStatics2 {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RefreshLicensesAsync(&self, refreshOption: LicenseRefreshOption) -> super::super::super::Foundation::IAsyncAction;
+                    fn RefreshLicensesAsync(&self, #[in] refreshOption: LicenseRefreshOption) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x3ccbb08f_db31_48d5_8384_fa17c81474e2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]

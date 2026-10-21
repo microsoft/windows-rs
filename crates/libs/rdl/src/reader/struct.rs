@@ -120,6 +120,27 @@ impl Encoder<'_> {
                 return self.err(record.name.as_ref().unwrap(), "duplicate nested type name");
             }
         }
+        let extent_names: Vec<_> = fields
+            .iter()
+            .map(|field| field.name.unraw_to_string())
+            .collect();
+        let extent_names: Vec<_> = extent_names.iter().map(String::as_str).collect();
+        let extent_types = if fields.iter().any(|field| {
+            field
+                .attrs
+                .iter()
+                .any(|attr| attr.path().is_ident("readable") || attr.path().is_ident("writable"))
+        }) {
+            fields
+                .iter()
+                .map(|field| match &field.ty {
+                    FieldType::Type(ty) => self.encode_type(ty),
+                    FieldType::Nested(_) => Ok(metadata::Type::Void),
+                })
+                .collect::<Result<Vec<_>, _>>()?
+        } else {
+            vec![]
+        };
         for (index, field) in fields.iter().enumerate() {
             let field_name = field.name.unraw_to_string();
             let mt = match &field.ty {
@@ -152,10 +173,21 @@ impl Encoder<'_> {
             if is_union {
                 self.output.FieldLayout(field_id, 0);
             }
+            self.encode_buffer_extents(
+                metadata::writer::HasAttribute::Field(field_id),
+                &field.attrs,
+                &extent_names,
+                true,
+                attribute_ref::ExtentTypes {
+                    counts: &extent_types,
+                    subject: &mt,
+                    result: None,
+                },
+            )?;
             self.encode_attrs(
                 metadata::writer::HasAttribute::Field(field_id),
                 &field.attrs,
-                &[],
+                &["readable", "writable"],
             )?;
 
             // Anonymous padding advances the bit offset but emits no attribute.

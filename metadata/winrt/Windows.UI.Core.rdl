@@ -377,7 +377,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreCursor)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreCursorFactory {
-                fn CreateCursor(&self, r#type: CoreCursorType, id: u32) -> CoreCursor;
+                fn CreateCursor(&self, #[in] r#type: CoreCursorType, #[in] id: u32) -> CoreCursor;
             }
             #[guid(0x60db2fa8_b705_4fde_a7d6_ebbb1891d39e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -386,11 +386,11 @@ mod Windows {
             interface ICoreDispatcher: ICoreAcceleratorKeys {
                 #[get]
                 HasThreadAccess: bool;
-                fn ProcessEvents(&self, options: CoreProcessEventsOption);
+                fn ProcessEvents(&self, #[in] options: CoreProcessEventsOption);
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RunAsync(&self, priority: CoreDispatcherPriority, agileCallback: DispatchedHandler) -> super::super::Foundation::IAsyncAction;
+                fn RunAsync(&self, #[in] priority: CoreDispatcherPriority, #[in] agileCallback: DispatchedHandler) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RunIdleAsync(&self, agileCallback: IdleDispatchedHandler) -> super::super::Foundation::IAsyncAction;
+                fn RunIdleAsync(&self, #[in] agileCallback: IdleDispatchedHandler) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x6f5e63c7_e3aa_4eae_b0e0_dcf321ca4b2f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -398,9 +398,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreDispatcher2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryRunAsync(&self, priority: CoreDispatcherPriority, agileCallback: DispatchedHandler) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryRunAsync(&self, #[in] priority: CoreDispatcherPriority, #[in] agileCallback: DispatchedHandler) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryRunIdleAsync(&self, agileCallback: IdleDispatchedHandler) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryRunIdleAsync(&self, #[in] agileCallback: IdleDispatchedHandler) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0xbafaecad_484d_41be_ba80_1d58c65263ea)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -411,7 +411,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("ShouldYield")]
                 fn ShouldYield(&self) -> bool;
                 #[Windows::Foundation::Metadata::Overload("ShouldYieldToPriority")]
-                fn ShouldYield(&self, priority: CoreDispatcherPriority) -> bool;
+                fn ShouldYield(&self, #[in] priority: CoreDispatcherPriority) -> bool;
                 fn StopProcessEvents(&self);
             }
             #[guid(0x0963261c_84fe_578a_83ca_6425309ccde4)]
@@ -423,16 +423,16 @@ mod Windows {
                 #[get]
                 Source: CoreIndependentInputSource;
                 #[Windows::Foundation::Metadata::Overload("SetControlledInput")]
-                fn SetControlledInput(&self, inputTypes: CoreInputDeviceTypes);
+                fn SetControlledInput(&self, #[in] inputTypes: CoreInputDeviceTypes);
                 #[Windows::Foundation::Metadata::Overload("SetControlledInputWithFilters")]
-                fn SetControlledInput(&self, inputTypes: CoreInputDeviceTypes, required: CoreIndependentInputFilters, excluded: CoreIndependentInputFilters);
+                fn SetControlledInput(&self, #[in] inputTypes: CoreInputDeviceTypes, #[in] required: CoreIndependentInputFilters, #[in] excluded: CoreIndependentInputFilters);
             }
             #[guid(0x3edc4e20_9a8a_5691_8586_fca4cb57526d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreIndependentInputSourceController)]
             interface ICoreIndependentInputSourceControllerStatics {
-                fn CreateForVisual(&self, visual: super::Composition::Visual) -> CoreIndependentInputSourceController;
-                fn CreateForIVisualElement(&self, visualElement: super::Composition::IVisualElement) -> CoreIndependentInputSourceController;
+                fn CreateForVisual(&self, #[in] visual: super::Composition::Visual) -> CoreIndependentInputSourceController;
+                fn CreateForIVisualElement(&self, #[in] visualElement: super::Composition::IVisualElement) -> CoreIndependentInputSourceController;
             }
             #[guid(0x9f488807_4580_4be8_be68_92a9311713bb)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -448,7 +448,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreComponentInputSource)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreKeyboardInputSource {
-                fn GetCurrentKeyState(&self, virtualKey: super::super::System::VirtualKey) -> CoreVirtualKeyStates;
+                fn GetCurrentKeyState(&self, #[in] virtualKey: super::super::System::VirtualKey) -> CoreVirtualKeyStates;
                 event CharacterReceived: super::super::Foundation::TypedEventHandler<Object, CharacterReceivedEventArgs>;
                 event KeyDown: super::super::Foundation::TypedEventHandler<Object, KeyEventArgs>;
                 event KeyUp: super::super::Foundation::TypedEventHandler<Object, KeyEventArgs>;
@@ -522,8 +522,8 @@ mod Windows {
                 Visible: bool;
                 fn Activate(&self);
                 fn Close(&self);
-                fn GetAsyncKeyState(&self, virtualKey: super::super::System::VirtualKey) -> CoreVirtualKeyStates;
-                fn GetKeyState(&self, virtualKey: super::super::System::VirtualKey) -> CoreVirtualKeyStates;
+                fn GetAsyncKeyState(&self, #[in] virtualKey: super::super::System::VirtualKey) -> CoreVirtualKeyStates;
+                fn GetKeyState(&self, #[in] virtualKey: super::super::System::VirtualKey) -> CoreVirtualKeyStates;
                 fn ReleasePointerCapture(&self);
                 fn SetPointerCapture(&self);
                 event Activated: super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>;
@@ -602,7 +602,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreWindowDialog)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreWindowDialogFactory {
-                fn CreateWithTitle(&self, title: String) -> CoreWindowDialog;
+                fn CreateWithTitle(&self, #[in] title: String) -> CoreWindowDialog;
             }
             #[guid(0x272b1ef3_c633_4da5_a26c_c6d0f56b29da)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -633,15 +633,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreWindowFlyout)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreWindowFlyoutFactory {
-                fn Create(&self, position: super::super::Foundation::Point) -> CoreWindowFlyout;
-                fn CreateWithTitle(&self, position: super::super::Foundation::Point, title: String) -> CoreWindowFlyout;
+                fn Create(&self, #[in] position: super::super::Foundation::Point) -> CoreWindowFlyout;
+                fn CreateWithTitle(&self, #[in] position: super::super::Foundation::Point, #[in] title: String) -> CoreWindowFlyout;
             }
             #[guid(0x26155fa2_5ba5_4ea4_a3b4_2dc7d63c8e26)]
             #[Windows::Foundation::Metadata::ContractVersion(CoreWindowDialogsContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreWindowPopupShowingEventArgs)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreWindowPopupShowingEventArgs {
-                fn SetDesiredSize(&self, value: super::super::Foundation::Size);
+                fn SetDesiredSize(&self, #[in] value: super::super::Foundation::Size);
             }
             #[guid(0xb8f0b925_b350_48b3_a198_5c1a84700243)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -694,7 +694,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IInitializeWithCoreWindow {
-                fn Initialize(&self, window: CoreWindow);
+                fn Initialize(&self, #[in] window: CoreWindow);
             }
             #[guid(0x80371d4f_2fd8_4c24_aa86_3163a87b4e5a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -762,9 +762,9 @@ mod Windows {
                 BoundingBox: super::super::Foundation::Rect;
                 #[Windows::Foundation::Metadata::DefaultOverload]
                 #[Windows::Foundation::Metadata::Overload("EvaluateProximityToRect")]
-                fn EvaluateProximity(&self, controlBoundingBox: super::super::Foundation::Rect) -> CoreProximityEvaluation;
+                fn EvaluateProximity(&self, #[in] controlBoundingBox: super::super::Foundation::Rect) -> CoreProximityEvaluation;
                 #[Windows::Foundation::Metadata::Overload("EvaluateProximityToPolygon")]
-                fn EvaluateProximity(&self, controlVertices: [super::super::Foundation::Point]) -> CoreProximityEvaluation;
+                fn EvaluateProximity(&self, #[in] controlVertices: [super::super::Foundation::Point]) -> CoreProximityEvaluation;
             }
             #[guid(0xbf9918ea_d801_4564_a495_b1e84f8ad085)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -793,7 +793,7 @@ mod Windows {
             #[guid(0xa42b0c24_7f21_4abc_99c1_8f01007f0880)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            delegate fn IdleDispatchedHandler(e: IdleDispatchedHandlerArgs);
+            delegate fn IdleDispatchedHandler(#[in] e: IdleDispatchedHandlerArgs);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Muse(Version = 100859904)]

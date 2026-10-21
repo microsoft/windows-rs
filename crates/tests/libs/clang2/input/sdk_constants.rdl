@@ -53,7 +53,7 @@ mod Fixture {
 mod Fixture {
     const FILE_ATTRIBUTE_NORMAL: i32 = 128;
     const GENERIC_READ: u32 = 2147483648;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    #[success(return >= 0)]
     type HRESULT = i32;
     type WCHAR = u16;
 }

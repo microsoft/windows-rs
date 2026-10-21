@@ -174,6 +174,16 @@ fn format_attribute(g: &Group, output: &mut String) {
         output.push_str("in]");
         return;
     }
+    // Predicate arguments are expressions, not type arguments or named attribute properties.
+    if let [TokenTree::Ident(name), TokenTree::Group(args)] = inner.as_slice()
+        && name == "success"
+        && args.delimiter() == Delimiter::Parenthesis
+    {
+        output.push_str("success(");
+        output.push_str(&args.stream().to_string());
+        output.push_str(")]");
+        return;
+    }
     format_seq(&inner, output, 0, true);
     trim_space(output);
     output.push(']');

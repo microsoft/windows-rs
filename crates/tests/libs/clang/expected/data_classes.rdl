@@ -16,11 +16,11 @@ mod DataClasses {
     }
     #[no_guid]
     interface IPropertyList {
-        fn Add(&self, value: *mut CProperty) -> i32;
+        fn Add(&self, #[out] value: *mut CProperty) -> i32;
     }
     type LPPROP = *mut CProperty;
     #[library("api.dll")]
-    extern "C" fn UseBitmapData(value: *mut BitmapData);
+    extern "C" fn UseBitmapData(#[out] value: *mut BitmapData);
     #[library("api.dll")]
-    extern "C" fn UseProperty(value: *mut CProperty, input: *const CProperty);
+    extern "C" fn UseProperty(#[out] value: *mut CProperty, #[in] input: *const CProperty);
 }

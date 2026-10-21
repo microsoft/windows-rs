@@ -6,6 +6,12 @@ pub struct AttributeRef {
     pub args: Vec<(String, metadata::Value)>,
 }
 
+pub(super) struct ExtentTypes<'a> {
+    pub counts: &'a [metadata::Type],
+    pub subject: &'a metadata::Type,
+    pub result: Option<&'a metadata::Type>,
+}
+
 struct AttributeInfo {
     type_name: metadata::TypeName,
     constructors: Vec<Vec<metadata::Type>>,
@@ -15,6 +21,38 @@ struct AttributeInfo {
 struct SplitArgs<'a> {
     positional: Vec<&'a syn::Expr>,
     named: Vec<(String, &'a syn::Expr)>,
+}
+
+fn extent_pointee(ty: metadata::Type) -> Option<metadata::Type> {
+    match ty {
+        metadata::Type::PtrMut(inner, depth) if depth > 1 => {
+            Some(metadata::Type::PtrMut(inner, depth - 1))
+        }
+        metadata::Type::PtrConst(inner, depth) if depth > 1 => {
+            Some(metadata::Type::PtrConst(inner, depth - 1))
+        }
+        metadata::Type::PtrMut(inner, _)
+        | metadata::Type::PtrConst(inner, _)
+        | metadata::Type::RefMut(inner)
+        | metadata::Type::RefConst(inner) => Some(*inner),
+        _ => None,
+    }
+}
+
+fn extent_integer(ty: &metadata::Type) -> bool {
+    matches!(
+        ty,
+        metadata::Type::I8
+            | metadata::Type::U8
+            | metadata::Type::I16
+            | metadata::Type::U16
+            | metadata::Type::I32
+            | metadata::Type::U32
+            | metadata::Type::I64
+            | metadata::Type::U64
+            | metadata::Type::ISize
+            | metadata::Type::USize
+    )
 }
 
 fn collect_bitor_variants(expr: &syn::Expr) -> Option<Vec<String>> {
@@ -282,33 +320,37 @@ impl Encoder<'_> {
                     let inner = self.find_enum_variant_value(tn, &variant_name, value)?;
                     return Ok(metadata::Value::EnumValue(tn.clone(), Box::new(inner)));
                 }
-                if self.enum_is_flags(tn) {
-                    if let Some(names) = collect_bitor_variants(value) {
-                        let mut combined: i32 = 0;
-                        for name in &names {
-                            let inner = self.find_enum_variant_value(tn, name, value)?;
-                            let metadata::Value::I32(v) = inner else {
-                                return self
-                                    .err(value, &format!("expected `{}` variant name", tn.name));
-                            };
-                            combined |= v;
-                        }
-                        return Ok(metadata::Value::EnumValue(
-                            tn.clone(),
-                            Box::new(metadata::Value::I32(combined)),
-                        ));
+                if self.enum_is_flags(tn)
+                    && let Some(names) = collect_bitor_variants(value)
+                {
+                    let mut combined: i32 = 0;
+                    for name in &names {
+                        let inner = self.find_enum_variant_value(tn, name, value)?;
+                        let metadata::Value::I32(v) = inner else {
+                            return self
+                                .err(value, &format!("expected `{}` variant name", tn.name));
+                        };
+                        combined |= v;
                     }
-                    if let syn::Expr::Lit(syn::ExprLit {
-                        lit: syn::Lit::Int(int),
+                    return Ok(metadata::Value::EnumValue(
+                        tn.clone(),
+                        Box::new(metadata::Value::I32(combined)),
+                    ));
+                }
+                if matches!(
+                    value,
+                    syn::Expr::Lit(syn::ExprLit {
+                        lit: syn::Lit::Int(_),
                         ..
-                    }) = value
-                        && let Ok(v) = int.base10_parse::<i32>()
-                    {
-                        return Ok(metadata::Value::EnumValue(
-                            tn.clone(),
-                            Box::new(metadata::Value::I32(v)),
-                        ));
-                    }
+                    }) | syn::Expr::Unary(syn::ExprUnary {
+                        op: syn::UnOp::Neg(_),
+                        ..
+                    })
+                ) {
+                    return Ok(metadata::Value::EnumValue(
+                        tn.clone(),
+                        Box::new(self.encode_value(ty, value)?),
+                    ));
                 }
                 self.err(value, &format!("expected `{}` variant name", tn.name))
             }
@@ -620,6 +662,115 @@ impl Encoder<'_> {
         Ok(already_has_guid)
     }
 
+    pub fn encode_buffer_extents(
+        &mut self,
+        target: metadata::writer::HasAttribute,
+        attrs: &[syn::Attribute],
+        names: &[&str],
+        field: bool,
+        types: ExtentTypes<'_>,
+    ) -> Result<(), Error> {
+        for attr in attrs {
+            if !attr.path().is_ident("readable") && !attr.path().is_ident("writable") {
+                continue;
+            }
+            let extent = buffer_extent::parse_buffer_extent(attr, names, field)
+                .map_err(|error| self.error(error.span(), &error.to_string()))?;
+            let count_type = match &extent.count {
+                metadata::BufferCount::Parameter(index)
+                | metadata::BufferCount::Dereference(index) => {
+                    Some(types.counts[*index as usize].clone())
+                }
+                metadata::BufferCount::Field(name) => names
+                    .iter()
+                    .position(|candidate| *candidate == name)
+                    .map(|index| types.counts[index].clone()),
+                metadata::BufferCount::Return => types.result.cloned(),
+                metadata::BufferCount::Constant(_) => None,
+            };
+            if !matches!(extent.count, metadata::BufferCount::Constant(_)) {
+                let mut ty = count_type.and_then(|ty| self.extent_underlying(ty));
+                if matches!(extent.count, metadata::BufferCount::Dereference(_)) {
+                    ty = ty
+                        .and_then(extent_pointee)
+                        .and_then(|ty| self.extent_underlying(ty));
+                }
+                if !ty.as_ref().is_some_and(extent_integer) {
+                    return self.err(
+                        attr,
+                        "buffer count requires an integer value at the specified indirection",
+                    );
+                }
+            }
+            if let Some(index) = extent.null_fallback
+                && !self
+                    .extent_underlying(types.counts[index as usize].clone())
+                    .as_ref()
+                    .is_some_and(extent_integer)
+            {
+                return self.err(attr, "buffer count fallback requires a by-value integer");
+            }
+            let mut subject = self.extent_underlying(types.subject.clone());
+            if extent.indirect {
+                subject = subject
+                    .and_then(extent_pointee)
+                    .and_then(|ty| self.extent_underlying(ty));
+            }
+            if !subject.is_some_and(|ty| {
+                matches!(
+                    ty,
+                    metadata::Type::PtrMut(..)
+                        | metadata::Type::PtrConst(..)
+                        | metadata::Type::RefMut(_)
+                        | metadata::Type::RefConst(_)
+                        | metadata::Type::Array(_)
+                        | metadata::Type::ArrayFixed(..)
+                )
+            }) {
+                return self.err(
+                    attr,
+                    "buffer extent requires pointer or array storage at the specified indirection",
+                );
+            }
+            self.encode_named_attribute(
+                target,
+                &AttributeRef {
+                    type_name: metadata::TypeName::named(
+                        METADATA_NAMESPACE,
+                        "BufferExtentAttribute",
+                    ),
+                    args: extent.to_values(),
+                },
+            );
+        }
+        Ok(())
+    }
+
+    fn extent_underlying(&self, mut ty: metadata::Type) -> Option<metadata::Type> {
+        let mut seen = HashSet::new();
+        while let metadata::Type::ValueName(name) = &ty {
+            let name = name.clone();
+            if !seen.insert((name.namespace.clone(), name.name.clone())) {
+                return None;
+            }
+            if let Some(Item::Typedef(alias)) = self.index.get(&name.namespace, &name.name).next() {
+                ty = self
+                    .encode_type_in_attr_ns(&name.namespace, &alias.ty)
+                    .ok()?;
+            } else if let Some(def) = self
+                .output
+                .reference()
+                .and_then(|index| index.get(&name.namespace, &name.name).next())
+                && metadata::HasAttributes::has_attribute(&def, "NativeTypedefAttribute")
+            {
+                ty = def.underlying_type()?;
+            } else {
+                return Some(ty);
+            }
+        }
+        Some(ty)
+    }
+
     pub fn encode_attrs(
         &mut self,
         has_attribute: metadata::writer::HasAttribute,
@@ -637,8 +788,42 @@ impl Encoder<'_> {
                 continue;
             }
 
+            if path.is_ident("direction") {
+                return self.err(
+                    attr,
+                    "use explicit `in`/`out` flags, or omit both for unspecified direction",
+                );
+            }
+            if path.is_ident("readable") || path.is_ident("writable") {
+                return self.err(attr, "buffer extents require a parameter or field owner");
+            }
             if path.is_ident("out_ptr") {
                 self.emit_returned_pointer_attribute(has_attribute, attr)?;
+                continue;
+            }
+            if path.is_ident("success") {
+                if !matches!(
+                    has_attribute,
+                    metadata::writer::HasAttribute::TypeDef(_)
+                        | metadata::writer::HasAttribute::MethodDef(_)
+                ) {
+                    return self.err(attr, "success requires a callable or return-type owner");
+                }
+                let expression: TokenStream = attr
+                    .parse_args()
+                    .map_err(|_| self.error(attr, "success requires a return comparison"))?;
+                let condition = SuccessCondition::from_expression(&expression)
+                    .ok_or_else(|| self.error(attr, "unsupported success predicate"))?;
+                self.encode_named_attribute(
+                    has_attribute,
+                    &AttributeRef {
+                        type_name: metadata::TypeName::named(
+                            METADATA_NAMESPACE,
+                            "SuccessConditionAttribute",
+                        ),
+                        args: vec![(String::new(), condition.to_value())],
+                    },
+                );
                 continue;
             }
             if path.is_ident("null_terminated") {

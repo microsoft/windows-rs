@@ -4,9 +4,9 @@ mod Test {
     interface Interface {
         fn Method(&self) -> i32;
         #[special]
-        fn add_Changed(&self, handler: Delegate) -> i64;
+        fn add_Changed(&self, #[in] handler: Delegate) -> i64;
         #[special]
-        fn remove_Changed(&self, token: i64);
+        fn remove_Changed(&self, #[in] token: i64);
     }
-    delegate fn Delegate(sender: i32);
+    delegate fn Delegate(#[in] sender: i32);
 }

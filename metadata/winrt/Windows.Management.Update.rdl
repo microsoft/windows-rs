@@ -53,8 +53,8 @@ mod Windows {
                 ProductCode: super::super::Foundation::IReference<GUID>;
                 #[get]
                 PackageFamilyName: String;
-                fn Approve(&self, approvalInfo: WindowsSoftwareUpdateApprovalInfo) -> WindowsSoftwareUpdateResult;
-                fn ApproveCurrentAction(&self, approve: bool) -> WindowsSoftwareUpdateResult;
+                fn Approve(&self, #[in] approvalInfo: WindowsSoftwareUpdateApprovalInfo) -> WindowsSoftwareUpdateResult;
+                fn ApproveCurrentAction(&self, #[in] approve: bool) -> WindowsSoftwareUpdateResult;
                 #[get]
                 CurrentAction: String;
                 #[get]
@@ -91,7 +91,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateActionInfo)]
             interface IWindowsSoftwareUpdateActionInfoFactory {
-                fn CreateInstance(&self, fileName: String, fileArguments: String, actionType: WindowsSoftwareUpdateActionType) -> WindowsSoftwareUpdateActionInfo;
+                fn CreateInstance(&self, #[in] fileName: String, #[in] fileArguments: String, #[in] actionType: WindowsSoftwareUpdateActionType) -> WindowsSoftwareUpdateActionInfo;
             }
             #[guid(0x17dc15fd_75f2_522b_b555_359da8de5581)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
@@ -134,7 +134,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateAppPackageInfo)]
             interface IWindowsSoftwareUpdateAppPackageInfoFactory {
-                fn CreateInstance(&self, packageFamilyName: String, packageArchitecture: WindowsSoftwareUpdateArchitecture, installUri: super::super::Foundation::Uri) -> WindowsSoftwareUpdateAppPackageInfo;
+                fn CreateInstance(&self, #[in] packageFamilyName: String, #[in] packageArchitecture: WindowsSoftwareUpdateArchitecture, #[in] installUri: super::super::Foundation::Uri) -> WindowsSoftwareUpdateAppPackageInfo;
             }
             #[guid(0x691e6b9e_80af_5882_9404_25437ecb791b)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
@@ -153,7 +153,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateApprovalInfo)]
             interface IWindowsSoftwareUpdateApprovalInfoFactory {
-                fn CreateInstance(&self, userInitiated: bool, appClosure: bool, meteredNetwork: bool, seeker: bool) -> WindowsSoftwareUpdateApprovalInfo;
+                fn CreateInstance(&self, #[in] userInitiated: bool, #[in] appClosure: bool, #[in] meteredNetwork: bool, #[in] seeker: bool) -> WindowsSoftwareUpdateApprovalInfo;
             }
             #[guid(0x091aea19_9128_5f24_afc1_a62252df55c0)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
@@ -172,15 +172,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateExecutionInfo)]
             interface IWindowsSoftwareUpdateExecutionInfoFactory {
-                fn CreateInstance(&self, downloadInfo: WindowsSoftwareUpdateActionInfo, installInfo: WindowsSoftwareUpdateActionInfo, actions: WindowsSoftwareUpdateOptionalActionInfo) -> WindowsSoftwareUpdateExecutionInfo;
-                fn CreateInstance2(&self, deployInfo: WindowsSoftwareUpdateActionInfo, actions: WindowsSoftwareUpdateOptionalActionInfo) -> WindowsSoftwareUpdateExecutionInfo;
+                fn CreateInstance(&self, #[in] downloadInfo: WindowsSoftwareUpdateActionInfo, #[in] installInfo: WindowsSoftwareUpdateActionInfo, #[in] actions: WindowsSoftwareUpdateOptionalActionInfo) -> WindowsSoftwareUpdateExecutionInfo;
+                fn CreateInstance2(&self, #[in] deployInfo: WindowsSoftwareUpdateActionInfo, #[in] actions: WindowsSoftwareUpdateOptionalActionInfo) -> WindowsSoftwareUpdateExecutionInfo;
             }
             #[guid(0x28e7e01b_4225_52c8_bb51_c68f0b071be5)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdate)]
             interface IWindowsSoftwareUpdateFactory {
-                fn CreateInstance(&self, providerId: String, installationType: WindowsSoftwareUpdateInstallationType, updateId: String, title: String, description: String, moreInfoUrl: super::super::Foundation::Uri, downloadSizeInBytes: u64, installSizeInBytes: u64, sourceVersion: WindowsSoftwareUpdateVersion, targetVersion: WindowsSoftwareUpdateVersion, appPackageInfo: WindowsSoftwareUpdateAppPackageInfo, executionInfo: WindowsSoftwareUpdateExecutionInfo, optionalInfo: WindowsSoftwareUpdateOptionalInfo) -> WindowsSoftwareUpdate;
-                fn CreateInstance2(&self, providerId: String, installationType: WindowsSoftwareUpdateInstallationType, updateId: String, title: String, description: String, moreInfoUrl: super::super::Foundation::Uri, downloadSizeInBytes: u64, installSizeInBytes: u64, productCode: super::super::Foundation::IReference<GUID>, packageFamilyName: String, sourceVersion: WindowsSoftwareUpdateVersion, targetVersion: WindowsSoftwareUpdateVersion, appPackageInfo: WindowsSoftwareUpdateAppPackageInfo, executionInfo: WindowsSoftwareUpdateExecutionInfo, optionalInfo: WindowsSoftwareUpdateOptionalInfo) -> WindowsSoftwareUpdate;
+                fn CreateInstance(&self, #[in] providerId: String, #[in] installationType: WindowsSoftwareUpdateInstallationType, #[in] updateId: String, #[in] title: String, #[in] description: String, #[in] moreInfoUrl: super::super::Foundation::Uri, #[in] downloadSizeInBytes: u64, #[in] installSizeInBytes: u64, #[in] sourceVersion: WindowsSoftwareUpdateVersion, #[in] targetVersion: WindowsSoftwareUpdateVersion, #[in] appPackageInfo: WindowsSoftwareUpdateAppPackageInfo, #[in] executionInfo: WindowsSoftwareUpdateExecutionInfo, #[in] optionalInfo: WindowsSoftwareUpdateOptionalInfo) -> WindowsSoftwareUpdate;
+                fn CreateInstance2(&self, #[in] providerId: String, #[in] installationType: WindowsSoftwareUpdateInstallationType, #[in] updateId: String, #[in] title: String, #[in] description: String, #[in] moreInfoUrl: super::super::Foundation::Uri, #[in] downloadSizeInBytes: u64, #[in] installSizeInBytes: u64, #[in] productCode: super::super::Foundation::IReference<GUID>, #[in] packageFamilyName: String, #[in] sourceVersion: WindowsSoftwareUpdateVersion, #[in] targetVersion: WindowsSoftwareUpdateVersion, #[in] appPackageInfo: WindowsSoftwareUpdateAppPackageInfo, #[in] executionInfo: WindowsSoftwareUpdateExecutionInfo, #[in] optionalInfo: WindowsSoftwareUpdateOptionalInfo) -> WindowsSoftwareUpdate;
             }
             #[guid(0xadc2de4b_5966_5f9f_ae07_00d4a285d933)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
@@ -199,7 +199,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateLocalizationInfo)]
             interface IWindowsSoftwareUpdateLocalizationInfoFactory {
-                fn CreateInstance(&self, languageId: u32, title: String, description: String, moreInfoUrl: super::super::Foundation::Uri) -> WindowsSoftwareUpdateLocalizationInfo;
+                fn CreateInstance(&self, #[in] languageId: u32, #[in] title: String, #[in] description: String, #[in] moreInfoUrl: super::super::Foundation::Uri) -> WindowsSoftwareUpdateLocalizationInfo;
             }
             #[guid(0x4ac035d0_e50e_5ccb_bfd8_a303562891d2)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
@@ -216,7 +216,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateOptionalActionInfo)]
             interface IWindowsSoftwareUpdateOptionalActionInfoFactory {
-                fn CreateInstance(&self, closeAndDeployInfo: WindowsSoftwareUpdateActionInfo, closeAndInstallInfo: WindowsSoftwareUpdateActionInfo, closeAndRestartInfo: WindowsSoftwareUpdateActionInfo) -> WindowsSoftwareUpdateOptionalActionInfo;
+                fn CreateInstance(&self, #[in] closeAndDeployInfo: WindowsSoftwareUpdateActionInfo, #[in] closeAndInstallInfo: WindowsSoftwareUpdateActionInfo, #[in] closeAndRestartInfo: WindowsSoftwareUpdateActionInfo) -> WindowsSoftwareUpdateOptionalActionInfo;
             }
             #[guid(0x78084a73_50c4_5c33_a751_7a121f5aae70)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
@@ -233,8 +233,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateOptionalInfo)]
             interface IWindowsSoftwareUpdateOptionalInfoFactory {
-                fn CreateInstance(&self, complianceDeadlineInDays: super::super::Foundation::IReference<i32>, complianceGracePeriodInDays: super::super::Foundation::IReference<i32>) -> WindowsSoftwareUpdateOptionalInfo;
-                fn CreateInstance2(&self, localizationInfo: super::super::Foundation::Collections::IIterable<WindowsSoftwareUpdateLocalizationInfo>, complianceDeadlineInDays: super::super::Foundation::IReference<i32>, complianceGracePeriodInDays: super::super::Foundation::IReference<i32>) -> WindowsSoftwareUpdateOptionalInfo;
+                fn CreateInstance(&self, #[in] complianceDeadlineInDays: super::super::Foundation::IReference<i32>, #[in] complianceGracePeriodInDays: super::super::Foundation::IReference<i32>) -> WindowsSoftwareUpdateOptionalInfo;
+                fn CreateInstance2(&self, #[in] localizationInfo: super::super::Foundation::Collections::IIterable<WindowsSoftwareUpdateLocalizationInfo>, #[in] complianceDeadlineInDays: super::super::Foundation::IReference<i32>, #[in] complianceGracePeriodInDays: super::super::Foundation::IReference<i32>) -> WindowsSoftwareUpdateOptionalInfo;
             }
             #[guid(0x20b67f4a_e28e_5d20_9c00_bf249922efbe)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
@@ -265,7 +265,7 @@ mod Windows {
                 RegistrationType: WindowsSoftwareUpdateProviderRegistrationType;
                 #[get]
                 Properties: super::super::Foundation::Collections::PropertySet;
-                fn GetPropertyValue(&self, name: String) -> Object;
+                fn GetPropertyValue(&self, #[in] name: String) -> Object;
             }
             #[guid(0xafd92b50_6bb9_54de_bdda_9dfb6cc17c16)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
@@ -284,13 +284,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateProviderActionResult)]
             interface IWindowsSoftwareUpdateProviderActionResultFactory {
-                fn CreateInstance(&self, actionResult: WindowsSoftwareUpdateActionResult, restartReason: WindowsSoftwareUpdateRestartReason, resultCode: u32, extendedError: u64) -> WindowsSoftwareUpdateProviderActionResult;
+                fn CreateInstance(&self, #[in] actionResult: WindowsSoftwareUpdateActionResult, #[in] restartReason: WindowsSoftwareUpdateRestartReason, #[in] resultCode: u32, #[in] extendedError: u64) -> WindowsSoftwareUpdateProviderActionResult;
             }
             #[guid(0xfc0d5fc4_e15e_5116_b2ed_db0a64997ffa)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateProvider)]
             interface IWindowsSoftwareUpdateProviderFactory {
-                fn CreateInstance(&self, folderPath: String) -> WindowsSoftwareUpdateProvider;
+                fn CreateInstance(&self, #[in] folderPath: String) -> WindowsSoftwareUpdateProvider;
             }
             #[guid(0xf1da16da_1b01_5367_b4ae_20db8cae1e9b)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
@@ -310,15 +310,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateProviderStatus)]
             interface IWindowsSoftwareUpdateProviderStatus {
                 event CancelRequested: super::super::Foundation::TypedEventHandler<WindowsSoftwareUpdateProviderStatus, Object>;
-                fn SetScanResult(&self, succeeded: bool, resultCode: u32, extendedError: u64, updates: super::super::Foundation::Collections::IIterable<WindowsSoftwareUpdate>) -> WindowsSoftwareUpdateResult;
-                fn SetActionProgress(&self, current: u64, total: u64) -> WindowsSoftwareUpdateResult;
-                fn SetActionResult(&self, actionResult: WindowsSoftwareUpdateProviderActionResult) -> WindowsSoftwareUpdateResult;
+                fn SetScanResult(&self, #[in] succeeded: bool, #[in] resultCode: u32, #[in] extendedError: u64, #[in] updates: super::super::Foundation::Collections::IIterable<WindowsSoftwareUpdate>) -> WindowsSoftwareUpdateResult;
+                fn SetActionProgress(&self, #[in] current: u64, #[in] total: u64) -> WindowsSoftwareUpdateResult;
+                fn SetActionResult(&self, #[in] actionResult: WindowsSoftwareUpdateProviderActionResult) -> WindowsSoftwareUpdateResult;
             }
             #[guid(0xd1e1b416_7dfd_55ef_9e3c_18d1459e3123)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateProviderStatus)]
             interface IWindowsSoftwareUpdateProviderStatusFactory {
-                fn CreateInstance(&self, providerId: String) -> WindowsSoftwareUpdateProviderStatus;
+                fn CreateInstance(&self, #[in] providerId: String) -> WindowsSoftwareUpdateProviderStatus;
             }
             #[guid(0xa6d7ed98_6212_5ad3_aa9d_15e83bb85ee4)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
@@ -337,9 +337,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateResult)]
             interface IWindowsSoftwareUpdateResultFactory {
-                fn CreateInstance(&self, succeeded: bool, resultCode: u32) -> WindowsSoftwareUpdateResult;
-                fn CreateInstance2(&self, succeeded: bool, resultCode: u32, extendedError: u64) -> WindowsSoftwareUpdateResult;
-                fn CreateInstance3(&self, succeeded: bool, cancelRequested: bool, resultCode: u32, extendedError: u64) -> WindowsSoftwareUpdateResult;
+                fn CreateInstance(&self, #[in] succeeded: bool, #[in] resultCode: u32) -> WindowsSoftwareUpdateResult;
+                fn CreateInstance2(&self, #[in] succeeded: bool, #[in] resultCode: u32, #[in] extendedError: u64) -> WindowsSoftwareUpdateResult;
+                fn CreateInstance3(&self, #[in] succeeded: bool, #[in] cancelRequested: bool, #[in] resultCode: u32, #[in] extendedError: u64) -> WindowsSoftwareUpdateResult;
             }
             #[guid(0x43ca6d96_3e6d_56da_a903_65d4ab729299)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
@@ -358,8 +358,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateScanResult)]
             interface IWindowsSoftwareUpdateScanResultFactory {
-                fn CreateInstance(&self, succeeded: bool, resultCode: u32, updates: super::super::Foundation::Collections::IIterable<WindowsSoftwareUpdate>) -> WindowsSoftwareUpdateScanResult;
-                fn CreateInstance2(&self, succeeded: bool, resultCode: u32, extendedError: u64, updates: super::super::Foundation::Collections::IIterable<WindowsSoftwareUpdate>) -> WindowsSoftwareUpdateScanResult;
+                fn CreateInstance(&self, #[in] succeeded: bool, #[in] resultCode: u32, #[in] updates: super::super::Foundation::Collections::IIterable<WindowsSoftwareUpdate>) -> WindowsSoftwareUpdateScanResult;
+                fn CreateInstance2(&self, #[in] succeeded: bool, #[in] resultCode: u32, #[in] extendedError: u64, #[in] updates: super::super::Foundation::Collections::IIterable<WindowsSoftwareUpdate>) -> WindowsSoftwareUpdateScanResult;
             }
             #[guid(0x215e22e7_6d57_5305_9c79_4ecd4a4d7871)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
@@ -378,7 +378,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsSoftwareUpdateVersion)]
             interface IWindowsSoftwareUpdateVersionFactory {
-                fn CreateInstance(&self, major: u32, minor: u32, revisionMajor: u32, revisionMinor: u32) -> WindowsSoftwareUpdateVersion;
+                fn CreateInstance(&self, #[in] major: u32, #[in] minor: u32, #[in] revisionMajor: u32, #[in] revisionMinor: u32) -> WindowsSoftwareUpdateVersion;
             }
             #[guid(0xc3c88dd7_0ef3_52b2_a9ad_66bfc6bd9582)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 65536)]
@@ -428,7 +428,7 @@ mod Windows {
                 CurrentAction: String;
                 #[get]
                 ActionProgress: WindowsUpdateActionProgress;
-                fn GetPropertyValue(&self, propertyName: String) -> Object;
+                fn GetPropertyValue(&self, #[in] propertyName: String) -> Object;
                 fn AcceptEula(&self);
             }
             #[guid(0x2c44b950_a655_5321_aec1_aee762922131)]
@@ -471,22 +471,22 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsUpdateAdministrator)]
             interface IWindowsUpdateAdministrator {
                 fn StartAdministratorScan(&self);
-                fn ApproveWindowsUpdateAction(&self, updateId: String, action: String);
-                fn RevokeWindowsUpdateActionApproval(&self, updateId: String, action: String);
-                fn ApproveWindowsUpdate(&self, updateId: String, approvalData: WindowsUpdateApprovalData);
-                fn RevokeWindowsUpdateApproval(&self, updateId: String);
+                fn ApproveWindowsUpdateAction(&self, #[in] updateId: String, #[in] action: String);
+                fn RevokeWindowsUpdateActionApproval(&self, #[in] updateId: String, #[in] action: String);
+                fn ApproveWindowsUpdate(&self, #[in] updateId: String, #[in] approvalData: WindowsUpdateApprovalData);
+                fn RevokeWindowsUpdateApproval(&self, #[in] updateId: String);
                 fn GetUpdates(&self) -> super::super::Foundation::Collections::IVectorView<WindowsUpdate>;
             }
             #[guid(0x013e6d36_ef69_53bc_8db8_c403bca550ed)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsUpdateAdministrator)]
             interface IWindowsUpdateAdministratorStatics {
-                fn GetRegisteredAdministrator(&self, organizationName: String) -> WindowsUpdateGetAdministratorResult;
-                fn RegisterForAdministration(&self, organizationName: String, options: WindowsUpdateAdministratorOptions) -> WindowsUpdateAdministratorStatus;
-                fn UnregisterForAdministration(&self, organizationName: String) -> WindowsUpdateAdministratorStatus;
+                fn GetRegisteredAdministrator(&self, #[in] organizationName: String) -> WindowsUpdateGetAdministratorResult;
+                fn RegisterForAdministration(&self, #[in] organizationName: String, #[in] options: WindowsUpdateAdministratorOptions) -> WindowsUpdateAdministratorStatus;
+                fn UnregisterForAdministration(&self, #[in] organizationName: String) -> WindowsUpdateAdministratorStatus;
                 fn GetRegisteredAdministratorName(&self) -> String;
-                fn RequestRestart(&self, restartOptions: WindowsUpdateRestartRequestOptions) -> String;
-                fn CancelRestartRequest(&self, requestRestartToken: String);
+                fn RequestRestart(&self, #[in] restartOptions: WindowsUpdateRestartRequestOptions) -> String;
+                fn CancelRestartRequest(&self, #[in] requestRestartToken: String);
             }
             #[guid(0xaadf5bfd_84db_59bc_85e2_ad4fc1f62f7c)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 65536)]
@@ -563,32 +563,32 @@ mod Windows {
                 #[get]
                 LastSuccessfulScanTimestamp: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
                 fn GetApplicableUpdates(&self) -> super::super::Foundation::Collections::IVectorView<WindowsUpdate>;
-                fn GetMostRecentCompletedUpdates(&self, count: i32) -> super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>;
+                fn GetMostRecentCompletedUpdates(&self, #[in] count: i32) -> super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetMostRecentCompletedUpdatesAsync(&self, count: i32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>>;
-                fn StartScan(&self, userInitiated: bool);
+                fn GetMostRecentCompletedUpdatesAsync(&self, #[in] count: i32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>>;
+                fn StartScan(&self, #[in] userInitiated: bool);
             }
             #[guid(0x564e7683_bd21_57a4_b17f_7bf6350f4c75)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsUpdateManager)]
             interface IWindowsUpdateManager2 {
-                fn GetProvider(&self, id: String) -> WindowsSoftwareUpdateProvider;
+                fn GetProvider(&self, #[in] id: String) -> WindowsSoftwareUpdateProvider;
                 #[get]
                 ProviderIds: [String];
                 fn GetApplicableSoftwareUpdates(&self) -> super::super::Foundation::Collections::IVectorView<WindowsSoftwareUpdate>;
-                fn PerformScan(&self, options: WindowsUpdateManagerScanOptions) -> WindowsSoftwareUpdateScanResult;
+                fn PerformScan(&self, #[in] options: WindowsUpdateManagerScanOptions) -> WindowsSoftwareUpdateScanResult;
             }
             #[guid(0x1b394df8_decb_5f44_b47c_6ccf3bcfdb37)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsUpdateManager)]
             interface IWindowsUpdateManagerFactory {
-                fn CreateInstance(&self, clientId: String) -> WindowsUpdateManager;
+                fn CreateInstance(&self, #[in] clientId: String) -> WindowsUpdateManager;
             }
             #[guid(0xba08d663_d160_59b9_9898_97a186ad52ea)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsUpdateManager)]
             interface IWindowsUpdateManagerFactory2 {
-                fn CreateInstance(&self, clientId: String, providerIdFilter: [String]) -> WindowsUpdateManager;
+                fn CreateInstance(&self, #[in] clientId: String, #[in] providerIdFilter: [String]) -> WindowsUpdateManager;
             }
             #[guid(0xb7c30113_5e4b_59d8_99ad_f58d67b2aefc)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
@@ -602,7 +602,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsUpdateManagerScanOptions)]
             interface IWindowsUpdateManagerScanOptionsFactory {
-                fn CreateInstance(&self, isUserInitiated: bool) -> WindowsUpdateManagerScanOptions;
+                fn CreateInstance(&self, #[in] isUserInitiated: bool) -> WindowsUpdateManagerScanOptions;
             }
             #[guid(0xbbfbdeeb_94c8_5aa7_b0fb_66c67c233b0a)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 65536)]
@@ -629,7 +629,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowsUpdateRestartRequestOptions)]
             interface IWindowsUpdateRestartRequestOptionsFactory {
-                fn CreateInstance(&self, title: String, description: String, moreInfoUrl: super::super::Foundation::Uri, complianceDeadlineInDays: i32, complianceGracePeriodInDays: i32) -> WindowsUpdateRestartRequestOptions;
+                fn CreateInstance(&self, #[in] title: String, #[in] description: String, #[in] moreInfoUrl: super::super::Foundation::Uri, #[in] complianceDeadlineInDays: i32, #[in] complianceGracePeriodInDays: i32) -> WindowsUpdateRestartRequestOptions;
             }
             #[guid(0x95b6953e_ba5c_5fe8_b115_12de184a6bb0)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 65536)]

@@ -89,25 +89,25 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AudioEncodingProperties)]
             interface IAudioEncodingPropertiesStatics {
-                fn CreateAac(&self, sampleRate: u32, channelCount: u32, bitrate: u32) -> AudioEncodingProperties;
-                fn CreateAacAdts(&self, sampleRate: u32, channelCount: u32, bitrate: u32) -> AudioEncodingProperties;
-                fn CreateMp3(&self, sampleRate: u32, channelCount: u32, bitrate: u32) -> AudioEncodingProperties;
-                fn CreatePcm(&self, sampleRate: u32, channelCount: u32, bitsPerSample: u32) -> AudioEncodingProperties;
-                fn CreateWma(&self, sampleRate: u32, channelCount: u32, bitrate: u32) -> AudioEncodingProperties;
+                fn CreateAac(&self, #[in] sampleRate: u32, #[in] channelCount: u32, #[in] bitrate: u32) -> AudioEncodingProperties;
+                fn CreateAacAdts(&self, #[in] sampleRate: u32, #[in] channelCount: u32, #[in] bitrate: u32) -> AudioEncodingProperties;
+                fn CreateMp3(&self, #[in] sampleRate: u32, #[in] channelCount: u32, #[in] bitrate: u32) -> AudioEncodingProperties;
+                fn CreatePcm(&self, #[in] sampleRate: u32, #[in] channelCount: u32, #[in] bitsPerSample: u32) -> AudioEncodingProperties;
+                fn CreateWma(&self, #[in] sampleRate: u32, #[in] channelCount: u32, #[in] bitrate: u32) -> AudioEncodingProperties;
             }
             #[guid(0x7489316f_77a0_433d_8ed5_4040280e8665)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AudioEncodingProperties)]
             interface IAudioEncodingPropertiesStatics2 {
-                fn CreateAlac(&self, sampleRate: u32, channelCount: u32, bitsPerSample: u32) -> AudioEncodingProperties;
-                fn CreateFlac(&self, sampleRate: u32, channelCount: u32, bitsPerSample: u32) -> AudioEncodingProperties;
+                fn CreateAlac(&self, #[in] sampleRate: u32, #[in] channelCount: u32, #[in] bitsPerSample: u32) -> AudioEncodingProperties;
+                fn CreateFlac(&self, #[in] sampleRate: u32, #[in] channelCount: u32, #[in] bitsPerSample: u32) -> AudioEncodingProperties;
             }
             #[guid(0x98f10d79_13ea_49ff_be70_2673db69702c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AudioEncodingProperties)]
             interface IAudioEncodingPropertiesWithFormatUserData {
-                fn SetFormatUserData(&self, value: [u8]);
-                fn GetFormatUserData(&self, value: &mut [u8]);
+                fn SetFormatUserData(&self, #[in] value: [u8]);
+                fn GetFormatUserData(&self, #[out] value: &mut [u8]);
             }
             #[guid(0x9105812b_7c09_5882_88a4_678008a5174d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -253,7 +253,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ImageEncodingProperties)]
             interface IImageEncodingPropertiesStatics2 {
-                fn CreateUncompressed(&self, format: MediaPixelFormat) -> ImageEncodingProperties;
+                fn CreateUncompressed(&self, #[in] format: MediaPixelFormat) -> ImageEncodingProperties;
                 fn CreateBmp(&self) -> ImageEncodingProperties;
             }
             #[guid(0x48f4814d_a2ff_48dc_8ea0_e90680663656)]
@@ -283,53 +283,53 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             interface IMediaEncodingProfile2 {
-                fn SetAudioTracks(&self, value: super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>);
+                fn SetAudioTracks(&self, #[in] value: super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>);
                 fn GetAudioTracks(&self) -> super::super::Foundation::Collections::IVector<super::Core::AudioStreamDescriptor>;
-                fn SetVideoTracks(&self, value: super::super::Foundation::Collections::IIterable<super::Core::VideoStreamDescriptor>);
+                fn SetVideoTracks(&self, #[in] value: super::super::Foundation::Collections::IIterable<super::Core::VideoStreamDescriptor>);
                 fn GetVideoTracks(&self) -> super::super::Foundation::Collections::IVector<super::Core::VideoStreamDescriptor>;
             }
             #[guid(0xba6ebe88_7570_4e69_accf_5611ad015f88)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             interface IMediaEncodingProfile3 {
-                fn SetTimedMetadataTracks(&self, value: super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataStreamDescriptor>);
+                fn SetTimedMetadataTracks(&self, #[in] value: super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataStreamDescriptor>);
                 fn GetTimedMetadataTracks(&self) -> super::super::Foundation::Collections::IVector<super::Core::TimedMetadataStreamDescriptor>;
             }
             #[guid(0x197f352c_2ede_4a45_a896_817a4854f8fe)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             interface IMediaEncodingProfileStatics {
-                fn CreateM4a(&self, quality: AudioEncodingQuality) -> MediaEncodingProfile;
-                fn CreateMp3(&self, quality: AudioEncodingQuality) -> MediaEncodingProfile;
-                fn CreateWma(&self, quality: AudioEncodingQuality) -> MediaEncodingProfile;
-                fn CreateMp4(&self, quality: VideoEncodingQuality) -> MediaEncodingProfile;
-                fn CreateWmv(&self, quality: VideoEncodingQuality) -> MediaEncodingProfile;
+                fn CreateM4a(&self, #[in] quality: AudioEncodingQuality) -> MediaEncodingProfile;
+                fn CreateMp3(&self, #[in] quality: AudioEncodingQuality) -> MediaEncodingProfile;
+                fn CreateWma(&self, #[in] quality: AudioEncodingQuality) -> MediaEncodingProfile;
+                fn CreateMp4(&self, #[in] quality: VideoEncodingQuality) -> MediaEncodingProfile;
+                fn CreateWmv(&self, #[in] quality: VideoEncodingQuality) -> MediaEncodingProfile;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateFromFileAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<MediaEncodingProfile>;
+                fn CreateFromFileAsync(&self, #[in] file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<MediaEncodingProfile>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateFromStreamAsync(&self, stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<MediaEncodingProfile>;
+                fn CreateFromStreamAsync(&self, #[in] stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<MediaEncodingProfile>;
             }
             #[guid(0xce8de74f_6af4_4288_8fe2_79adf1f79a43)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             interface IMediaEncodingProfileStatics2 {
-                fn CreateWav(&self, quality: AudioEncodingQuality) -> MediaEncodingProfile;
-                fn CreateAvi(&self, quality: VideoEncodingQuality) -> MediaEncodingProfile;
+                fn CreateWav(&self, #[in] quality: AudioEncodingQuality) -> MediaEncodingProfile;
+                fn CreateAvi(&self, #[in] quality: VideoEncodingQuality) -> MediaEncodingProfile;
             }
             #[guid(0x90dac5aa_cf76_4294_a9ed_1a1420f51f6b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             interface IMediaEncodingProfileStatics3 {
-                fn CreateAlac(&self, quality: AudioEncodingQuality) -> MediaEncodingProfile;
-                fn CreateFlac(&self, quality: AudioEncodingQuality) -> MediaEncodingProfile;
-                fn CreateHevc(&self, quality: VideoEncodingQuality) -> MediaEncodingProfile;
+                fn CreateAlac(&self, #[in] quality: AudioEncodingQuality) -> MediaEncodingProfile;
+                fn CreateFlac(&self, #[in] quality: AudioEncodingQuality) -> MediaEncodingProfile;
+                fn CreateHevc(&self, #[in] quality: VideoEncodingQuality) -> MediaEncodingProfile;
             }
             #[guid(0x6fafd7b5_9404_514a_81dd_c9444d648af0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             interface IMediaEncodingProfileStatics4 {
-                fn CreateVp9(&self, quality: VideoEncodingQuality) -> MediaEncodingProfile;
-                fn CreateAv1(&self, quality: VideoEncodingQuality) -> MediaEncodingProfile;
+                fn CreateVp9(&self, #[in] quality: VideoEncodingQuality) -> MediaEncodingProfile;
+                fn CreateAv1(&self, #[in] quality: VideoEncodingQuality) -> MediaEncodingProfile;
             }
             #[guid(0xb4002af6_acd4_4e5a_a24b_5d7498a8b8c4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -516,8 +516,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataEncodingProperties)]
             interface ITimedMetadataEncodingProperties {
-                fn SetFormatUserData(&self, value: [u8]);
-                fn GetFormatUserData(&self, value: &mut [u8]);
+                fn SetFormatUserData(&self, #[in] value: [u8]);
+                fn GetFormatUserData(&self, #[out] value: &mut [u8]);
                 fn Copy(&self) -> TimedMetadataEncodingProperties;
             }
             #[guid(0x6629bb67_6e55_5643_89a0_7a7e8d85b52c)]
@@ -526,8 +526,8 @@ mod Windows {
             interface ITimedMetadataEncodingPropertiesStatics {
                 fn CreatePgs(&self) -> TimedMetadataEncodingProperties;
                 fn CreateSrt(&self) -> TimedMetadataEncodingProperties;
-                fn CreateSsa(&self, formatUserData: [u8]) -> TimedMetadataEncodingProperties;
-                fn CreateVobSub(&self, formatUserData: [u8]) -> TimedMetadataEncodingProperties;
+                fn CreateSsa(&self, #[in] formatUserData: [u8]) -> TimedMetadataEncodingProperties;
+                fn CreateVobSub(&self, #[in] formatUserData: [u8]) -> TimedMetadataEncodingProperties;
             }
             #[guid(0x76ee6c9a_37c2_4f2a_880a_1282bbb4373d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -554,8 +554,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VideoEncodingProperties)]
             interface IVideoEncodingProperties2 {
-                fn SetFormatUserData(&self, value: [u8]);
-                fn GetFormatUserData(&self, value: &mut [u8]);
+                fn SetFormatUserData(&self, #[in] value: [u8]);
+                fn GetFormatUserData(&self, #[out] value: &mut [u8]);
                 #[set]
                 ProfileId: i32;
                 #[get]
@@ -587,7 +587,7 @@ mod Windows {
             interface IVideoEncodingPropertiesStatics {
                 fn CreateH264(&self) -> VideoEncodingProperties;
                 fn CreateMpeg2(&self) -> VideoEncodingProperties;
-                fn CreateUncompressed(&self, subtype: String, width: u32, height: u32) -> VideoEncodingProperties;
+                fn CreateUncompressed(&self, #[in] subtype: String, #[in] width: u32, #[in] height: u32) -> VideoEncodingProperties;
             }
             #[guid(0xcf1ebd5d_49fe_4d00_b59a_cfa4dfc51944)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]

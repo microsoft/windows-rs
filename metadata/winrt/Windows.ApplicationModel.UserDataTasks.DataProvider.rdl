@@ -30,7 +30,7 @@ mod Windows {
                     #[get]
                     TaskId: String;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportCompletedAsync(&self, completedTaskId: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportCompletedAsync(&self, #[in] completedTaskId: String) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
@@ -51,7 +51,7 @@ mod Windows {
                     #[get]
                     Task: super::UserDataTask;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportCompletedAsync(&self, createdOrUpdatedUserDataTask: super::UserDataTask) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportCompletedAsync(&self, #[in] createdOrUpdatedUserDataTask: super::UserDataTask) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }

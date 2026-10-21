@@ -62,13 +62,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 event ResultSuggestionChosen: super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneResultSuggestionChosenEventArgs>;
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
-                fn SetLocalContentSuggestionSettings(&self, settings: LocalContentSuggestionSettings);
+                fn SetLocalContentSuggestionSettings(&self, #[in] settings: LocalContentSuggestionSettings);
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowOverloadDefault")]
                 fn Show(&self);
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowOverloadWithQuery")]
-                fn Show(&self, query: String);
+                fn Show(&self, #[in] query: String);
                 #[set]
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 ShowOnKeyboardInput: bool;
@@ -76,7 +76,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
                 ShowOnKeyboardInput: bool;
                 #[Windows::Foundation::Metadata::Deprecated("ISearchPane may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.ApplicationModel.Search.SearchContract")]
-                fn TrySetQueryText(&self, query: String) -> bool;
+                fn TrySetQueryText(&self, #[in] query: String) -> bool;
             }
             #[guid(0x3c064fe9_2351_4248_a529_7110f464a785)]
             #[Windows::Foundation::Metadata::ContractVersion(SearchContract, 65536)]
@@ -204,7 +204,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SearchQueryLinguisticDetails)]
             interface ISearchQueryLinguisticDetailsFactory {
-                fn CreateInstance(&self, queryTextAlternatives: super::super::Foundation::Collections::IIterable<String>, queryTextCompositionStart: u32, queryTextCompositionLength: u32) -> SearchQueryLinguisticDetails;
+                fn CreateInstance(&self, #[in] queryTextAlternatives: super::super::Foundation::Collections::IIterable<String>, #[in] queryTextCompositionStart: u32, #[in] queryTextCompositionLength: u32) -> SearchQueryLinguisticDetails;
             }
             #[guid(0x323a8a4b_fbea_4446_abbc_3da7915fdd3a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -212,10 +212,10 @@ mod Windows {
             interface ISearchSuggestionCollection {
                 #[get]
                 Size: u32;
-                fn AppendQuerySuggestion(&self, text: String);
-                fn AppendQuerySuggestions(&self, suggestions: super::super::Foundation::Collections::IIterable<String>);
-                fn AppendResultSuggestion(&self, text: String, detailText: String, tag: String, image: super::super::Storage::Streams::IRandomAccessStreamReference, imageAlternateText: String);
-                fn AppendSearchSeparator(&self, label: String);
+                fn AppendQuerySuggestion(&self, #[in] text: String);
+                fn AppendQuerySuggestions(&self, #[in] suggestions: super::super::Foundation::Collections::IIterable<String>);
+                fn AppendResultSuggestion(&self, #[in] text: String, #[in] detailText: String, #[in] tag: String, #[in] image: super::super::Storage::Streams::IRandomAccessStreamReference, #[in] imageAlternateText: String);
+                fn AppendSearchSeparator(&self, #[in] label: String);
             }
             #[guid(0x4e4e26a7_44e5_4039_9099_6000ead1f0c6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

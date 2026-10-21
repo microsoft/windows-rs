@@ -43,7 +43,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(CompanionWindowCoordinator)]
                 #[Windows::Foundation::Metadata::Experimental]
                 interface ICompanionWindowCoordinator {
-                    fn RequestWindowFromAppAsync(&self, appId: String) -> super::super::super::Foundation::IAsyncOperation<CompanionWindowRequestResult>;
+                    fn RequestWindowFromAppAsync(&self, #[in] appId: String) -> super::super::super::Foundation::IAsyncOperation<CompanionWindowRequestResult>;
                     fn DetachCompanionWindow(&self);
                     #[get]
                     CompanionWindowId: super::super::WindowId;
@@ -54,14 +54,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(CompanionWindowCoordinator)]
                 #[Windows::Foundation::Metadata::Experimental]
                 interface ICompanionWindowCoordinatorStatics {
-                    fn GetForWindow(&self, windowId: super::super::WindowId) -> CompanionWindowCoordinator;
+                    fn GetForWindow(&self, #[in] windowId: super::super::WindowId) -> CompanionWindowCoordinator;
                 }
                 #[guid(0xd92c351a_2d66_59a8_b345_78489562c4d8)]
                 #[Windows::Foundation::Metadata::ContractVersion(CompanionWindowsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CompanionWindowRequest)]
                 #[Windows::Foundation::Metadata::Experimental]
                 interface ICompanionWindowRequest {
-                    fn Accept(&self, windowId: super::super::WindowId) -> CompanionWindowCoordinator;
+                    fn Accept(&self, #[in] windowId: super::super::WindowId) -> CompanionWindowCoordinator;
                     fn Reject(&self);
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                     #[get]
@@ -86,7 +86,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(CompanionWindowRequest)]
                 #[Windows::Foundation::Metadata::Experimental]
                 interface ICompanionWindowRequestStatics {
-                    fn GetFromLaunchUri(&self, launchUri: super::super::super::Foundation::Uri) -> CompanionWindowRequest;
+                    fn GetFromLaunchUri(&self, #[in] launchUri: super::super::super::Foundation::Uri) -> CompanionWindowRequest;
                 }
             }
         }

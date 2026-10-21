@@ -38,19 +38,19 @@ mod Windows {
             interface IFileInformationFactory {
                 #[Windows::Foundation::Metadata::Overload("GetItemsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetItemsAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>;
+                fn GetItemsAsync(&self, #[in] startIndex: u32, #[in] maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>;
                 #[Windows::Foundation::Metadata::Overload("GetItemsAsyncDefaultStartAndCount")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetItemsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>;
                 #[Windows::Foundation::Metadata::Overload("GetFilesAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetFilesAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>;
+                fn GetFilesAsync(&self, #[in] startIndex: u32, #[in] maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>;
                 #[Windows::Foundation::Metadata::Overload("GetFilesAsyncDefaultStartAndCount")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFilesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>;
                 #[Windows::Foundation::Metadata::Overload("GetFoldersAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetFoldersAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>;
+                fn GetFoldersAsync(&self, #[in] startIndex: u32, #[in] maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>;
                 #[Windows::Foundation::Metadata::Overload("GetFoldersAsyncDefaultStartAndCount")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFoldersAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>;
@@ -62,10 +62,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileInformationFactory)]
             interface IFileInformationFactoryFactory {
-                fn CreateWithMode(&self, queryResult: super::Search::IStorageQueryResultBase, mode: super::FileProperties::ThumbnailMode) -> FileInformationFactory;
-                fn CreateWithModeAndSize(&self, queryResult: super::Search::IStorageQueryResultBase, mode: super::FileProperties::ThumbnailMode, requestedThumbnailSize: u32) -> FileInformationFactory;
-                fn CreateWithModeAndSizeAndOptions(&self, queryResult: super::Search::IStorageQueryResultBase, mode: super::FileProperties::ThumbnailMode, requestedThumbnailSize: u32, thumbnailOptions: super::FileProperties::ThumbnailOptions) -> FileInformationFactory;
-                fn CreateWithModeAndSizeAndOptionsAndFlags(&self, queryResult: super::Search::IStorageQueryResultBase, mode: super::FileProperties::ThumbnailMode, requestedThumbnailSize: u32, thumbnailOptions: super::FileProperties::ThumbnailOptions, delayLoad: bool) -> FileInformationFactory;
+                fn CreateWithMode(&self, #[in] queryResult: super::Search::IStorageQueryResultBase, #[in] mode: super::FileProperties::ThumbnailMode) -> FileInformationFactory;
+                fn CreateWithModeAndSize(&self, #[in] queryResult: super::Search::IStorageQueryResultBase, #[in] mode: super::FileProperties::ThumbnailMode, #[in] requestedThumbnailSize: u32) -> FileInformationFactory;
+                fn CreateWithModeAndSizeAndOptions(&self, #[in] queryResult: super::Search::IStorageQueryResultBase, #[in] mode: super::FileProperties::ThumbnailMode, #[in] requestedThumbnailSize: u32, #[in] thumbnailOptions: super::FileProperties::ThumbnailOptions) -> FileInformationFactory;
+                fn CreateWithModeAndSizeAndOptionsAndFlags(&self, #[in] queryResult: super::Search::IStorageQueryResultBase, #[in] mode: super::FileProperties::ThumbnailMode, #[in] requestedThumbnailSize: u32, #[in] thumbnailOptions: super::FileProperties::ThumbnailOptions, #[in] delayLoad: bool) -> FileInformationFactory;
             }
             #[guid(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

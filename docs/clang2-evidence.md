@@ -1,16 +1,24 @@
 # Clang replacement evidence
 
 This page records the current acceptance evidence, not replacement readiness. The
-[acceptance plan and D01-D32 register](clang2-acceptance.md) own scope and approvals.
+[acceptance plan and D01-D37 register](clang2-acceptance.md) own scope and approvals.
 [windows-clang2](crates/windows-clang2.md) describes implemented contracts and repository-owned
 reproduction commands. Implementation approval is not final consumer or cutover acceptance.
 The active work is the [canonical attribute inventory](clang2-attributes.md); downstream
 qualification is deferred until the RDL model is accepted.
 
+The [success-predicate investigation](clang2-attributes.md#success-predicate-investigation)
+accounts for 614 direct annotations. D33 normalizes 556 to bounded typed predicates, retaining 58
+as evidence. Shared SDK declarations explain the predicates on `PNTSTATUS` and `PNDIS_STATUS`;
+they are not grounds for a pointer-success interpretation. Coverage is unchanged.
+
 ## Controls and current accounting
 
 The current candidate includes D27-D28, D29 canonical spelling improvements, D30 input normalization
-and D31 native-only exception specifications, plus D32 canonical result use. D27-D28 use
+and D31 native-only exception specifications, plus D32 result use, D33 success predicates and
+D34 direction evidence, D35 explicit RDL directions, D36 named buffer extents and D37 returned
+buffers with optional counts.
+D27-D28 use
 `structure-after` as their comparison control. D29 compares against the completed D27-D28 candidate,
 with the same header selection and compiler configuration.
 
@@ -18,8 +26,8 @@ with the same header selection and compiler configuration.
 | --- | --- |
 | Frozen comparison baseline | `6e68e56081340eaa932f4dbc92ec54c56ed51473` |
 | Inspected-master audit | `afcb0ab1f8cf7a71ec563f659451748b26e7f5b6` |
-| Working source and latest independent review | `1a27804432` |
-| Candidate | D27-D28 plus D29 compact spelling, D30 NativeInput removal, D31 native-only exception specifications and D32 result-use normalization |
+| Working source and latest independent review | `931a130218` |
+| Candidate | D27-D28 plus D29 compact spelling, D30 NativeInput removal, D31 native-only exception specifications, D32 result use, D33 bounded success predicates, D34 direction evidence, D35 explicit RDL directions, D36 named buffer extents and D37 returned buffers/optional counts |
 | Native toolchain | LLVM 22.1.8, companion ABI 19, SDK 10.0.28000.2270 |
 | Workload | 372 selected headers, seven translation units, x86/x64/ARM64 |
 
@@ -53,13 +61,19 @@ the comparison reports only after successful generation.
 
 ## Current review disposition
 
-The independent review at `1a27804432` reproduces the current inventory and confirms the
-function-alias selection, support-header exclusions, nested-alignment repair, explicit baseline
-controls and clang2 responsibility split. It identifies the following remaining work. D29 puts
-canonical metadata quality before the downstream items; it does not waive them.
+The independent review at `931a130218` confirms the compact spelling and D30-D32 boundaries,
+and identifies direction correctness before further annotation cleanup. D33 addresses its
+bounded success-predicate recommendation. D34 preserves unknown direction and common facts from
+complementary conditions without flattening conditional requirements. D35 represents those facts
+without type-based inference or an unspecified-direction escape. The earlier review's
+downstream obligations remain deferred, not waived.
 
 | Finding | Verified status | Required action |
 | --- | --- | --- |
+| Unknown direction becomes asserted direction | Corrected under D34-D35. Known directions are explicit; missing direction has no attribute and preserves absent flags. | Do not infer direction from types; retain raw-pointer, alias, COM and callback coverage. |
+| Conditional direction | RegQueryValueExA/W now publish shared output/optional facts while retaining both conditions. The suggested unconditional direction union is not adopted. | Do not infer exhaustive conditions generally or drop the conditional input requirement. |
+| Duplicate normalized/residual buffers | Confirmed: capacity/direction can coexist with an entire macro whose initialized-length relationship is still unresolved. | Model the remaining relationship before replacing whole-macro evidence. Buffer/initialized-length work is next. |
+| Proposed analysis-only removals | Not approved as a group. Pointer invalidation, allocation and execution-context annotations can carry useful contracts. Result inspection also has non-return owners. | Review meaning and ownership individually; lack of a consumer is not enough. SAL1 result checking remains a separate equivalence decision. |
 | CI package step tests legacy input | Confirmed. `package_acceptance` reads `metadata/win32`; `test.yml` does not generate the candidate, and `gen.yml` invokes `tool-win32-2` only with `--refresh-named-exports`. | Correct the input/provenance contract after the RDL work. Local candidate package success remains valid; candidate CI coverage is not established. |
 | Required missing APIs | The report retains 198 unapproved target pairs across 70 names. Examples include WaitOnAddress, MiniDumpWriteDump, XAudio2Create, IsEqualGUID, CfRegisterSyncRoot, PDH, WSD, RoGetActivatableClassRegistration and uaw helpers. | Classify native support, public requirements and baseline correctness. Fix or obtain a justified disposition; do not treat zero differences as the goal. |
 | Unrecorded partition losses | `activationregistration` and `windowsfoundation` are absent. The Arm64 `__FIMapView_2_HSTRING_IInspectable_t` alias fails on an unsupported `TemplateRef IMapView`; `IActivatableClassRegistration`, its pointer alias and the RoGet import are pruned as dependents. | Add a focused canonical metadata case and decide the required surface. ActivationType, RegistrationScope and RegisteredTrustLevel are also absent with this partition; this is not an approved exclusion. |
@@ -101,6 +115,11 @@ for this work.
 | D30 | Removes 28,329 NativeInput uses in 432 partitions and 1,648,268 bytes. All other RDL text, metadata signatures, flags and attributes remain unchanged, as do omissions and coverage. CoIsHandlerConnected now uses inferred input with no extra attribute. | Native SAL/RPC distinctions still reject incompatible observations. Legacy schema support remains for explicit older metadata inputs; no new NativeInput uses are published. |
 | D31 | Removes 5,807 exception attributes in 43 partitions and 470,310 bytes. All other RDL text, signatures, flags, attributes, omissions and coverage remain unchanged, including four SDK noreturn contracts. Anonymous noexcept/empty-throw pointers have C/stdcall FNPTR metadata coverage. | Native conflicts and callback distinctions remain checked. Computed/dependent/nonempty forms stay unsupported. No unwind ABI, exception translation or downstream qualification is claimed. |
 | D32 | Normalizes 1,421 callable-result SAL annotations to must_use in 55 partitions, removing 84,868 bytes. Canonical RDL is 17,917,433 bytes, with 6,742 qualified attributes and 4,815 residual SAL occurrences. All unrelated text, signatures, flags, attributes, omissions and coverage remain unchanged. | Native conflicts remain checked. Parameter/global inspection, conditional annotations and success predicates stay separate. Duplicate and inherited callback contracts have header/RDL and metadata round-trip coverage. Downstream diagnostics are deferred. |
+| D33 | Normalizes 556 success annotations in 74 partitions, removing 35,090 bytes. RDL is 17,882,343 bytes, with 6,186 qualified attributes and 4,259 residual SAL occurrences. Three value aliases retain status-type links instead of flattening to primitives. All other text, signatures, flags, constants and attributes remain unchanged on all targets, as do omissions and coverage. | Typed predicates preserve callable overrides versus typedef defaults. Fifty-eight direct success annotations remain evidence. Native type guards, cross-input alias ownership, conflicting defaults and round trips have focused coverage. No downstream Result conversion is claimed. |
+| D34 | Corrects 29,938 unknown directions and adds shared out/opt facts on the two registry-query count parameters. Its explicit-marker control is 18,660,759 bytes; D35 supersedes that spelling. All other signatures, custom attributes, constants, omissions and coverage remain unchanged. | All-target metadata comparison and full RDL/WinMD round trip preserve the corrected flags. Conditional input remains evidence, not an unconditional requirement. No downstream conversion is qualified. |
+| D35 | Removes all 29,938 unspecified markers and writes every known direction explicitly. Canonical RDL is 18,239,397 bytes, 421,362 bytes smaller than D34, with 149,452 attributes. | Regenerated SDK WinMD is byte-identical to D34 and retains signatures, flags, constants and attributes through a full RDL round trip on all three architectures. Migrated WinRT/WDK metadata is also byte-identical. The source migration preserves 116,317 parameter flag sets across 1,598 inputs; clang2 fixtures are regenerated from native evidence rather than retaining old guesses. Omissions and frozen coverage are unchanged. |
+| D36 | Emits 3,262 readable and 4,018 writable extents; resolves 915 residual SAL occurrences without adding any. Canonical RDL is 18,169,981 bytes, with 150,096 attributes and 3,344 residual SAL occurrences across 142 names. | All-target comparison preserves signatures, parameter names/flags, constants and non-buffer attributes. Full SDK RDL/WinMD round trips preserve the new contracts. Existing initialized-length, null-fallback, field and RPC post-writable cases have typed assertions; SDK fixtures distinguish entry capacity, successful length and `on_entry(*count)`. Phase-free field spelling and the `on_entry` refinement preserve byte-identical SDK WinMD. Declaration totals, omission diagnostics and frozen constant/function coverage are unchanged. Consumer interpretation remains unqualified. |
+| D37 | Adds 338 indirect success extents from 333 returned-buffer SAL occurrences: 21 readable and 317 writable. Canonical RDL contains 489 `if_present` counts, 150,101 attributes and 3,011 residual SAL occurrences across 136 names, totaling 18,156,697 bytes. | All-target comparison preserves signatures, names, flags, constants and non-buffer contracts, including ten explicit null-on-failure pointer contracts. Existing extents differ only by optional-count availability. New extents use successful counts; full-buffer forms do not acquire writable capacity. All metadata survives a complete SDK RDL/WinMD round trip. Declaration totals, byte-for-byte omission diagnostics and frozen constant/function coverage are unchanged. Native fixtures cover all 24 families, real IMFMediaBuffer::Lock, optional storage/counts, nullability, pointer aliases/arrays, conflicting observations and matching pointer/buffer conjunctions. Consumer interpretation remains unqualified. |
 
 D26's exact set is the non-UIA `new`, `native-declaration` rows in the `structure-after` function
 report. Family labels do not approve future members:

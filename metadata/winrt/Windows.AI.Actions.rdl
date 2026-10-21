@@ -201,50 +201,50 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
             interface IActionEntityFactory2 {
-                fn CreateFileEntity(&self, path: String) -> FileActionEntity;
-                fn CreateDocumentEntity(&self, path: String) -> DocumentActionEntity;
-                fn CreatePhotoEntity(&self, path: String) -> PhotoActionEntity;
-                fn CreateTextEntity(&self, text: String) -> TextActionEntity;
+                fn CreateFileEntity(&self, #[in] path: String) -> FileActionEntity;
+                fn CreateDocumentEntity(&self, #[in] path: String) -> DocumentActionEntity;
+                fn CreatePhotoEntity(&self, #[in] path: String) -> PhotoActionEntity;
+                fn CreateTextEntity(&self, #[in] text: String) -> TextActionEntity;
             }
             #[guid(0x4910e689_00b5_56bb_9c65_0fcc76215283)]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
             interface IActionEntityFactory3 {
-                fn CreateRemoteFileEntity(&self, sourceId: String, fileKind: RemoteFileKind, sourceUri: super::super::Foundation::Uri, fileId: String, contentType: String, driveId: String, accountId: String, extension: String) -> RemoteFileActionEntity;
+                fn CreateRemoteFileEntity(&self, #[in] sourceId: String, #[in] fileKind: RemoteFileKind, #[in] sourceUri: super::super::Foundation::Uri, #[in] fileId: String, #[in] contentType: String, #[in] driveId: String, #[in] accountId: String, #[in] extension: String) -> RemoteFileActionEntity;
                 #[Windows::Foundation::Metadata::Overload("CreateTextEntityWithTextFormat")]
-                fn CreateTextEntity(&self, text: String, textFormat: ActionEntityTextFormat) -> TextActionEntity;
-                fn CreateStreamingTextActionEntityWriter(&self, textFormat: ActionEntityTextFormat) -> StreamingTextActionEntityWriter;
+                fn CreateTextEntity(&self, #[in] text: String, #[in] textFormat: ActionEntityTextFormat) -> TextActionEntity;
+                fn CreateStreamingTextActionEntityWriter(&self, #[in] textFormat: ActionEntityTextFormat) -> StreamingTextActionEntityWriter;
             }
             #[guid(0x332eda05_de0e_5a58_b318_a2ad771f013d)]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
             interface IActionEntityFactory4 {
-                fn CreateTableEntity(&self, data: [String], columnCount: u32) -> TableActionEntity;
-                fn CreateContactEntity(&self, contact: super::super::ApplicationModel::Contacts::Contact) -> ContactActionEntity;
+                fn CreateTableEntity(&self, #[in] data: [String], #[in] columnCount: u32) -> TableActionEntity;
+                fn CreateContactEntity(&self, #[in] contact: super::super::ApplicationModel::Contacts::Contact) -> ContactActionEntity;
             }
             #[guid(0xb59faab1_cfe4_564a_a5ba_53ad7ff6f924)]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
             #[Windows::Foundation::Metadata::Experimental]
             interface IActionEntityFactory5 {
-                fn CreateUriEntity(&self, Uri: super::super::Foundation::Uri) -> UriActionEntity;
-                fn CreateArrayEntity(&self, kind: ActionEntityKind, entities: [ActionEntity]) -> ArrayActionEntity;
+                fn CreateUriEntity(&self, #[in] Uri: super::super::Foundation::Uri) -> UriActionEntity;
+                fn CreateArrayEntity(&self, #[in] kind: ActionEntityKind, #[in] entities: [ActionEntity]) -> ArrayActionEntity;
             }
             #[guid(0xda7123da_5639_590f_a2db_c3b5e221f3b6)]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
             #[Windows::Foundation::Metadata::Experimental]
             interface IActionEntityFactory6 {
-                fn CreateDateTimeEntity(&self, dateTime: super::super::Foundation::DateTime) -> DateTimeActionEntity;
-                fn CreateAppointmentEntity(&self, sourceId: String, appointment: super::super::ApplicationModel::Appointments::Appointment, attendees: [ContactActionEntity]) -> AppointmentActionEntity;
+                fn CreateDateTimeEntity(&self, #[in] dateTime: super::super::Foundation::DateTime) -> DateTimeActionEntity;
+                fn CreateAppointmentEntity(&self, #[in] sourceId: String, #[in] appointment: super::super::ApplicationModel::Appointments::Appointment, #[in] attendees: [ContactActionEntity]) -> AppointmentActionEntity;
             }
             #[guid(0xb814b8d5_c9b2_51b5_a342_9fe054d8a1eb)]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
             #[Windows::Foundation::Metadata::Experimental]
             interface IActionEntityFactory7 {
-                fn CreateCustomTextEntity(&self, kind: String, keyPhrase: String, props: super::super::Foundation::Collections::IMapView<String, Object>) -> CustomTextActionEntity;
-                fn CreateArrayEntityWithCustomKind(&self, elementKind: ActionEntityKind, customKind: String, entities: [ActionEntity]) -> ArrayActionEntity;
+                fn CreateCustomTextEntity(&self, #[in] kind: String, #[in] keyPhrase: String, #[in] props: super::super::Foundation::Collections::IMapView<String, Object>) -> CustomTextActionEntity;
+                fn CreateArrayEntityWithCustomKind(&self, #[in] elementKind: ActionEntityKind, #[in] customKind: String, #[in] entities: [ActionEntity]) -> ArrayActionEntity;
             }
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
@@ -262,9 +262,9 @@ mod Windows {
             interface IActionInvocationContext {
                 #[get]
                 EntityFactory: ActionEntityFactory;
-                fn SetInputEntity(&self, inputName: String, inputValue: ActionEntity);
+                fn SetInputEntity(&self, #[in] inputName: String, #[in] inputValue: ActionEntity);
                 fn GetInputEntities(&self) -> [NamedActionEntity];
-                fn SetOutputEntity(&self, outputName: String, outputValue: ActionEntity);
+                fn SetOutputEntity(&self, #[in] outputName: String, #[in] outputValue: ActionEntity);
                 fn GetOutputEntities(&self) -> [NamedActionEntity];
                 Result: ActionInvocationResult;
                 ExtendedError: HRESULT;
@@ -307,22 +307,22 @@ mod Windows {
                 ActionCatalog: Hosting::ActionCatalog;
                 #[get]
                 EntityFactory: ActionEntityFactory;
-                fn CreateInvocationContext(&self, actionId: String) -> ActionInvocationContext;
+                fn CreateInvocationContext(&self, #[in] actionId: String) -> ActionInvocationContext;
             }
             #[guid(0x2da4d2c0_e593_5350_8143_15bb24f63411)]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionRuntime)]
             interface IActionRuntime2 {
-                fn CreateActionFeedback(&self, feedbackKind: ActionFeedbackKind) -> ActionFeedback;
-                fn SetActionAvailability(&self, actionId: String, isAvailable: bool);
-                fn GetActionAvailability(&self, actionId: String) -> bool;
+                fn CreateActionFeedback(&self, #[in] feedbackKind: ActionFeedbackKind) -> ActionFeedback;
+                fn SetActionAvailability(&self, #[in] actionId: String, #[in] isAvailable: bool);
+                fn GetActionAvailability(&self, #[in] actionId: String) -> bool;
             }
             #[guid(0xf020c3c0_caec_5928_ad00_81069b80fbc1)]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionRuntime)]
             interface IActionRuntime3 {
-                fn CreateInvocationContextWithWindowId(&self, actionId: String, invokerWindowId: super::super::UI::WindowId) -> ActionInvocationContext;
-                fn GetActionEntityById(&self, entityId: String) -> ActionEntity;
+                fn CreateInvocationContextWithWindowId(&self, #[in] actionId: String, #[in] invokerWindowId: super::super::UI::WindowId) -> ActionInvocationContext;
+                fn GetActionEntityById(&self, #[in] entityId: String) -> ActionEntity;
                 #[get]
                 LatestSupportedSchemaVersion: u32;
             }
@@ -330,7 +330,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionRuntime)]
             interface IActionRuntime4 {
-                fn GetActionInvocationContextFromToken(&self, token: String) -> ActionInvocationContext;
+                fn GetActionInvocationContextFromToken(&self, #[in] token: String) -> ActionInvocationContext;
             }
             #[guid(0xc2e995b1_52a9_5f3a_bebb_a04655e96218)]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
@@ -360,9 +360,9 @@ mod Windows {
                 Appointment: super::super::ApplicationModel::Appointments::Appointment;
                 fn GetAttendees(&self) -> [ContactActionEntity];
                 fn GetPresentedFiles(&self) -> [RemoteFileActionEntity];
-                fn SetPresentedFiles(&self, files: [RemoteFileActionEntity]);
+                fn SetPresentedFiles(&self, #[in] files: [RemoteFileActionEntity]);
                 fn GetSharedFiles(&self) -> [RemoteFileActionEntity];
-                fn SetSharedFiles(&self, files: [RemoteFileActionEntity]);
+                fn SetSharedFiles(&self, #[in] files: [RemoteFileActionEntity]);
             }
             #[guid(0x45798e78_1059_5311_8a1b_de0081a4ca3b)]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 393216)]
@@ -393,10 +393,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(CustomActionEntityStore)]
             #[Windows::Foundation::Metadata::Experimental]
             interface ICustomActionEntityStore {
-                fn GetLastModifiedTime(&self, kind: String) -> super::super::Foundation::DateTime;
-                fn Insert(&self, entity: CustomTextActionEntity);
-                fn InsertMany(&self, entities: [CustomTextActionEntity]);
-                fn Delete(&self, kind: String);
+                fn GetLastModifiedTime(&self, #[in] kind: String) -> super::super::Foundation::DateTime;
+                fn Insert(&self, #[in] entity: CustomTextActionEntity);
+                fn InsertMany(&self, #[in] entities: [CustomTextActionEntity]);
+                fn Delete(&self, #[in] kind: String);
             }
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CustomActionEntityStore)]
@@ -479,7 +479,7 @@ mod Windows {
                 Filename: String;
                 Creator: ContactActionEntity;
                 LastUpdatedTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
-                fn SetContributors(&self, contributors: [ContactActionEntity]);
+                fn SetContributors(&self, #[in] contributors: [ContactActionEntity]);
                 fn GetContributors(&self) -> [ContactActionEntity];
             }
             #[guid(0x44cd8a16_abc9_5703_b4bf_6fe8b7a802fd)]
@@ -510,7 +510,7 @@ mod Windows {
                 ReaderEntity: StreamingTextActionEntity;
                 #[get]
                 TextFormat: ActionEntityTextFormat;
-                fn SetText(&self, text: String);
+                fn SetText(&self, #[in] text: String);
             }
             #[guid(0x0f252cdb_ba24_5dbb_9d17_1b300773d141)]
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 196608)]

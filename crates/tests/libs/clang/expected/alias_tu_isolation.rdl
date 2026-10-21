@@ -2,9 +2,9 @@
 mod Test {
     type LPCSTR = *const i8;
     #[library("test.dll")]
-    extern "C" fn Missing(#[in] text: *mut i8, named: LPCSTR);
+    extern "C" fn Missing(#[in] text: *mut i8, #[in] named: LPCSTR);
     type PCSTR = *const i8;
     type PSTR = *mut i8;
     #[library("test.dll")]
-    extern "C" fn Present(text: PSTR, named: PCSTR);
+    extern "C" fn Present(#[in] text: PSTR, #[in] named: PCSTR);
 }

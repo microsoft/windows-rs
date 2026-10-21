@@ -15,10 +15,10 @@ mod Windows {
                     #[get]
                     MaxValue: i32;
                     ChannelMode: ProviderAdcChannelMode;
-                    fn IsChannelModeSupported(&self, channelMode: ProviderAdcChannelMode) -> bool;
-                    fn AcquireChannel(&self, channel: i32);
-                    fn ReleaseChannel(&self, channel: i32);
-                    fn ReadValue(&self, channelNumber: i32) -> i32;
+                    fn IsChannelModeSupported(&self, #[in] channelMode: ProviderAdcChannelMode) -> bool;
+                    fn AcquireChannel(&self, #[in] channel: i32);
+                    fn ReleaseChannel(&self, #[in] channel: i32);
+                    fn ReadValue(&self, #[in] channelNumber: i32) -> i32;
                 }
                 #[guid(0x28953668_9359_4c57_bc88_e275e81638c9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 65536)]

@@ -42,8 +42,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Compressor)]
             interface ICompressorFactory {
-                fn CreateCompressor(&self, underlyingStream: super::Streams::IOutputStream) -> Compressor;
-                fn CreateCompressorEx(&self, underlyingStream: super::Streams::IOutputStream, algorithm: CompressAlgorithm, blockSize: u32) -> Compressor;
+                fn CreateCompressor(&self, #[in] underlyingStream: super::Streams::IOutputStream) -> Compressor;
+                fn CreateCompressorEx(&self, #[in] underlyingStream: super::Streams::IOutputStream, #[in] algorithm: CompressAlgorithm, #[in] blockSize: u32) -> Compressor;
             }
             #[guid(0xb883fe46_d68a_4c8b_ada0_4ee813fc5283)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -55,7 +55,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Decompressor)]
             interface IDecompressorFactory {
-                fn CreateDecompressor(&self, underlyingStream: super::Streams::IInputStream) -> Decompressor;
+                fn CreateDecompressor(&self, #[in] underlyingStream: super::Streams::IInputStream) -> Decompressor;
             }
         }
     }
