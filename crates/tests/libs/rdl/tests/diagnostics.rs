@@ -9,12 +9,20 @@ fn run(name: &str) {
         .output(output)
         .write()
         .unwrap_err();
-    let actual = error.to_string();
+    let actual = format!("{}\n", error.to_string().trim_start_matches('\n'));
     let expected = root.join("errors").join("expected");
     std::fs::create_dir_all(&expected).unwrap();
-    std::fs::write(
-        expected.join(format!("{name}.txt")),
-        format!("{}\n", actual.trim_start_matches('\n')),
-    )
-    .unwrap();
+    let expected = expected.join(format!("{name}.txt"));
+    let original = match std::fs::read_to_string(&expected) {
+        Ok(text) => Some(text),
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => None,
+        Err(error) => panic!("failed to read {}: {error}", expected.display()),
+    };
+    std::fs::write(&expected, &actual).unwrap();
+    assert_eq!(
+        original.as_deref(),
+        Some(actual.as_str()),
+        "{name}: diagnostic mismatch - expected output has been updated.\n\
+         Review the diff with `git diff` and commit if correct."
+    );
 }

@@ -244,6 +244,9 @@ Dedicated test crates cover the crate:
 - `test_interop` compiles `fixtures/*/api.rdl`, implements each API in Rust, and runs C++/WinRT
   and C#/WinRT clients against the Rust component. See `crates/tests/interop/readme.md`.
 
+Diagnostic fixtures compare the full message, file name, line, and column. A mismatch updates the
+expected file and fails the test so the change can be reviewed.
+
 Run targeted tests with:
 
 ```sh
