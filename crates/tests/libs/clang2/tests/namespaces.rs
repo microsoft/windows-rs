@@ -282,6 +282,16 @@ fn namespace_native_conflicts() {
 #[test]
 #[ignore = "requires the pinned SDK, clang resource headers, and three MSVC Rust targets"]
 fn sdk_namespaces() {
+    sdk_namespaces_case(true);
+}
+
+#[test]
+#[ignore = "requires the pinned SDK and clang resource headers"]
+fn sdk_namespaces_metadata() {
+    sdk_namespaces_case(false);
+}
+
+fn sdk_namespaces_case(consumers: bool) {
     helpers::ensure_libclang();
     let mut input = test_clang2::annotated_sdk_fixture();
     let fixture = fixture("sdk_namespaces");
@@ -321,7 +331,7 @@ fn sdk_namespaces() {
             .unwrap()
             .replace("\r\n", "\n")
     );
-    let scratch = root.join("target\\test-clang2-sdk-namespaces");
+    let scratch = root.join(format!("target\\test-clang2-sdk-namespaces-{consumers}"));
     std::fs::create_dir_all(&scratch).unwrap();
     let winmd = scratch.join("input.winmd");
     windows_rdl::reader()
@@ -354,6 +364,10 @@ fn sdk_namespaces() {
             .count(),
         0
     );
+    if !consumers {
+        std::fs::remove_file(winmd).unwrap();
+        return;
+    }
     windows_bindgen::builder()
         .input(&winmd)
         .input(&reference_path)

@@ -12,6 +12,12 @@ mod Windows {
             attribute DoesNotReturnAttribute {
                 fn();
             }
+            // The caller should use the callable's result rather than accidentally discard it.
+            // This is not a success predicate, purity promise or change to the signature.
+            // RDL: `#[must_use]`.
+            attribute MustUseAttribute {
+                fn();
+            }
             // Records the native character encoding of a string constant or field.
             // RDL: `#[encoding("…")]`.
             attribute NativeEncodingAttribute {
@@ -96,6 +102,8 @@ mod Windows {
                 // Absence means there is no fallback; it is distinct from parameter index zero.
                 NullFallbackParamIndex: i16,
             }
+            // Legacy input annotation for existing explicit metadata inputs. Clang2 publishes
+            // input direction and optionality instead.
             // Valid input on entry. Pointer arguments are non-null unless optional.
             // ReadOnly records the additional SAL pointee-read-access contract. False does not
             // require writable storage. This does not change native qualifiers or imply a count.
@@ -154,6 +162,7 @@ mod Windows {
                 fn(message: String, replacement: String);
                 TypedefName: String,
             }
+            // Legacy explicit inputs only; clang2 keeps exception specifications in native evidence.
             attribute NativeExceptionSpecificationAttribute {
                 fn(specification: String);
             }

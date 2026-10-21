@@ -41,6 +41,11 @@ fn member_alignment_preserves_native_layout() {
 }
 
 #[test]
+fn member_alignment_metadata() {
+    member_alignment("member-alignment-metadata", &[]);
+}
+
+#[test]
 #[ignore = "requires x86, x64, and ARM64 MSVC Rust targets"]
 fn member_alignment_cross_targets() {
     member_alignment("member-alignment-cross", &TARGETS.map(Some));
@@ -125,6 +130,11 @@ fn member_alignment(name: &str, targets: &[Option<Target>]) {
         .write()
         .unwrap();
     assert_eq!(std::fs::read_to_string(&rewritten).unwrap(), rdl);
+    if targets.is_empty() {
+        std::fs::remove_file(winmd).unwrap();
+        std::fs::remove_file(rewritten).unwrap();
+        return;
+    }
     for sys in [true, false] {
         let bindings = root.join(format!("target\\test-clang2-{name}-{sys}.rs"));
         let mut builder = windows_bindgen::builder();

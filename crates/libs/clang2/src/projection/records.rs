@@ -150,7 +150,7 @@ impl Projector<'_, '_> {
         let mut anonymous = 0;
         for (position, group) in groups.into_iter().enumerate() {
             let field = &group[0];
-            let (field_name, ty, members, member_attributes) = if field.bit_width.is_some() {
+            let (field_name, ty, members) = if field.bit_width.is_some() {
                 bitfield_index += 1;
                 let backing = if bitfield_count == 1 {
                     "_bitfield".to_string()
@@ -201,7 +201,7 @@ impl Projector<'_, '_> {
                         &self.written_ty(snapshot_id, field.written, field.canonical)?,
                     )
                 };
-                (field_name, ty, TokenStream::new(), TokenStream::new())
+                (field_name, ty, TokenStream::new())
             };
             let layout = snapshot.types[field.canonical.0]
                 .layout
@@ -224,7 +224,7 @@ impl Projector<'_, '_> {
             size = size.max(offset + layout.size);
             alignment = alignment.max(field_alignment);
             let attributes = annotations::field(snapshot, field, &definition.fields)?;
-            fields.push(quote! { #attributes #member_attributes #field_name: #ty #members, });
+            fields.push(quote! { #attributes #field_name: #ty #members, });
         }
         alignment = alignment.max(u64::from(forced.unwrap_or(1)));
         if definition.layout
@@ -306,11 +306,18 @@ impl Projector<'_, '_> {
         let snapshot = self.resolution.snapshots[snapshot_id];
         let mut names = HashSet::new();
         for field in fields {
-            if !field.name.is_empty() && !names.insert(ident(&field.name)?.to_string()) {
-                return Err(Error(format!(
-                    "duplicate projected field `{}` in `{name}`",
-                    field.name
-                )));
+            if !field.name.is_empty() {
+                let projected = if field.bit_width.is_some() {
+                    field.name.clone()
+                } else {
+                    ident(&field.name)?.to_string()
+                };
+                if !names.insert(projected) {
+                    return Err(Error(format!(
+                        "duplicate projected field `{}` in `{name}`",
+                        field.name
+                    )));
+                }
             }
             let native = &snapshot.types[field.canonical.0];
             if !field.attributes.iter().all(|attribute| {

@@ -8,25 +8,29 @@ mod Fixture {
     type ChoiceAlias = Choice;
     type ChoiceChain = Choice;
     #[library("fixture.dll")]
-    extern "C" fn EnumConflict(#[in] value: Choice);
+    extern "C" fn EnumConflict(value: Choice);
     type Handle = *mut void;
     #[guid(0x22222222_2222_3333_4444_555555555555)]
     interface IInputs {
-        fn Apply(&self, #[in] integer: i32, #[in] unsigned_integer: u32, #[in] boolean: bool, #[in] single: f32, #[in] real: f64, #[in] character: u16, #[in] wide: i64, #[in] choice: Choice, #[in] choice_alias: ChoiceAlias, #[in] choice_chain: ChoiceChain, #[in] number: Number, #[in] number_chain: NumberChain, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pointer: *const i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] optional_pointer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handle: Handle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] opaque_handle: OpaqueHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] record: Value, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] reference: &i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] object: IObject);
+        fn Apply(&self, integer: i32, unsigned_integer: u32, boolean: bool, single: f32, real: f64, character: u16, wide: i64, choice: Choice, choice_alias: ChoiceAlias, choice_chain: ChoiceChain, number: Number, number_chain: NumberChain, pointer: *const i32, #[in] #[opt] optional_pointer: *mut void, handle: Handle, opaque_handle: OpaqueHandle, record: Value, reference: &i32, object: IObject);
     }
     #[guid(0x11111111_2222_3333_4444_555555555555)]
     interface IObject {
         fn Call(&self);
     }
-    extern fn InputCallback(#[in] integer: i32, #[in] unsigned_integer: u32, #[in] boolean: bool, #[in] single: f32, #[in] real: f64, #[in] character: u16, #[in] wide: i64, #[in] choice: Choice, #[in] choice_alias: ChoiceAlias, #[in] choice_chain: ChoiceChain, #[in] number: Number, #[in] number_chain: NumberChain, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pointer: *const i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] optional_pointer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handle: Handle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] opaque_handle: OpaqueHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] record: Value, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] reference: &i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] object: IObject);
+    extern fn InputCallback(integer: i32, unsigned_integer: u32, boolean: bool, single: f32, real: f64, character: u16, wide: i64, choice: Choice, choice_alias: ChoiceAlias, choice_chain: ChoiceChain, number: Number, number_chain: NumberChain, pointer: *const i32, #[in] #[opt] optional_pointer: *mut void, handle: Handle, opaque_handle: OpaqueHandle, record: Value, reference: &i32, object: IObject);
     #[library("fixture.dll")]
-    extern "C" fn Inputs(#[in] integer: i32, #[in] unsigned_integer: u32, #[in] boolean: bool, #[in] single: f32, #[in] real: f64, #[in] character: u16, #[in] wide: i64, #[in] choice: Choice, #[in] choice_alias: ChoiceAlias, #[in] choice_chain: ChoiceChain, #[in] number: Number, #[in] number_chain: NumberChain, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pointer: *const i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] optional_pointer: *mut void, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] handle: Handle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] opaque_handle: OpaqueHandle, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] record: Value, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] reference: &i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] object: IObject);
+    extern "C" fn InputContracts(valid: *const i32, unspecified: *const i32, #[opt] optional: *const i32);
+    #[library("fixture.dll")]
+    extern "C" fn Inputs(integer: i32, unsigned_integer: u32, boolean: bool, single: f32, real: f64, character: u16, wide: i64, choice: Choice, choice_alias: ChoiceAlias, choice_chain: ChoiceChain, number: Number, number_chain: NumberChain, pointer: *const i32, #[in] #[opt] optional_pointer: *mut void, handle: Handle, opaque_handle: OpaqueHandle, record: Value, reference: &i32, object: IObject);
+    #[library("fixture.dll")]
+    extern "C" fn InterfaceConflict(value: IObject);
     type Number = i32;
     type NumberChain = i32;
     struct Opaque {}
     type OpaqueHandle = *mut Opaque;
     #[library("fixture.dll")]
-    extern "C" fn ScalarConflict(#[in] value: i32);
+    extern "C" fn ScalarConflict(value: i32);
     struct Value {
         data: *mut i32,
     }

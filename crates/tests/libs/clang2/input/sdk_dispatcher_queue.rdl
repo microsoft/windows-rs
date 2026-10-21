@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[library("CoreMessaging.dll")]
-        extern fn CreateDispatcherQueueController(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] options: DispatcherQueueOptions, #[Windows::Win32::Metadata::NativeSal("1.1", "_Deref_out_", "", "")] dispatcherQueueController: *mut PDISPATCHERQUEUECONTROLLER) -> HRESULT;
+        extern fn CreateDispatcherQueueController(options: DispatcherQueueOptions, #[Windows::Win32::Metadata::NativeSal("1.1", "_Deref_out_", "", "")] dispatcherQueueController: *mut PDISPATCHERQUEUECONTROLLER) -> HRESULT;
         #[repr(i32)]
         enum DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
             DQTAT_COM_NONE = 0,

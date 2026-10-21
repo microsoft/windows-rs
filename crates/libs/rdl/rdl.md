@@ -224,6 +224,31 @@ mod Contoso {
 }
 ```
 
+#### Bitfields
+
+A backing field can contain logical bitfield members. Offsets accumulate from zero; anonymous
+padding advances the offset without declaring a member:
+
+```rust
+struct Options {
+    storage: u32 {
+        enabled: bool: 1,
+        _: 2,
+        mode: Mode: 3,
+        legacy: 2,
+    },
+}
+```
+
+`name: Type: width` preserves a member type independently of the backing field. Primitive, enum
+and typedef names are supported. `name: width` retains the untyped form; it does not add a
+`MemberType` property. Anonymous padding uses `_: width` and cannot have a member type.
+Both forms encode `NativeBitfieldAttribute` with the member name, offset and width. Typed members
+also encode its `MemberType` property. The full attribute spelling remains accepted. The writer
+keeps full attributes for overlapping members, unrepresentable offsets or additional properties.
+Names that cannot round-trip as identifiers use string literals, such as `"self": i32: 1`.
+`"_": i32: 1` is a named member, distinct from anonymous padding.
+
 #### Unions
 
 Unions define fields that share one memory location. All fields start at offset zero.
@@ -532,6 +557,53 @@ homogeneous chains retain their existing encoding.
 `#[len_param(N)]` and `#[size_param(N)]` record a raw zero-based parameter position. They do not
 refer to a parameter by name. If parameters are reordered, these values must be updated by hand.
 `#[len_const(N)]` records a constant element count and has no parameter relationship.
+
+`#[out_ptr]` describes storage for a returned pointer. When storage is supplied, success initializes
+it to a non-null pointer to one readable element. It does not specify an allocator, transfer
+ownership, or turn the parameter into a COM return value.
+
+| Spelling | Additional guarantee or permission |
+| --- | --- |
+| `#[out_ptr]` | The returned pointer is non-null on success. |
+| `#[out_ptr(nullable)]` | The returned pointer may be null on success. |
+| `#[out_ptr(null_on_failure)]` | Failure sets the returned pointer to null. |
+| `#[out_ptr(nullable, null_on_failure)]` | Both the success-nullability permission and failure guarantee. |
+
+Success and failure follow the callable's contract. Outer `#[opt]` separately permits omitting the
+output storage itself; `#[out]` is still needed when the written type does not imply output.
+These forms encode both Boolean properties of `NativeReturnedPointerAttribute`. Unknown and
+duplicate flags are errors. Full attributes with missing or additional properties retain their
+explicit spelling rather than silently acquiring defaults.
+
+`#[must_use]` marks a callable result that callers should use rather than accidentally discard.
+It applies to imports, interface methods and named callbacks and encodes the parameterless
+`Windows.Win32.Metadata.MustUseAttribute`. It does not define success, change the return type,
+imply purity or promise a particular language's diagnostics. Message arguments are not supported.
+Output-parameter inspection and conditional result checking are separate contracts.
+
+`#[override_slot(N)]` marks a Win32 interface method that reuses absolute inherited virtual slot
+`N`. It encodes `NativeOverrideSlotAttribute` and clears the method's `NewSlot` flag.
+`#[align(N)]` on a field encodes the existing `AlignmentAttribute` without changing the field type;
+record alignment uses the same spelling.
+
+#### Null termination
+
+`#[null_terminated(...)]` specifies trailing zero elements independently of encoding, capacity,
+initialized length and optionality. Choose one or both phases:
+
+| Flag | Contract |
+| --- | --- |
+| `entry` | Single-zero termination on entry. |
+| `double_entry` | Double-zero termination on entry. |
+| `success` | Single-zero termination on successful completion. |
+| `double_success` | Double-zero termination on successful completion. |
+
+For example, `#[null_terminated(entry, double_success)]` preserves different termination at the
+two phases. Success follows the callable's contract; this does not imply termination after failure.
+An empty list, repeated phase or unknown flag is an error. Direction is not inferred from these
+flags. The short form preserves the two phase properties and any true double-termination properties
+of `NativeNullTerminatedAttribute`. The writer retains full spelling for other payload shapes,
+including explicitly false double-termination properties.
 
 ### Array types
 

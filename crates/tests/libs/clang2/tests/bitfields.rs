@@ -7,6 +7,16 @@ const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 #[test]
 #[ignore = "requires the pinned SDK, clang resource headers, and three MSVC Rust targets"]
 fn sdk_working_set() {
+    working_set(true);
+}
+
+#[test]
+#[ignore = "requires the pinned SDK and clang resource headers"]
+fn sdk_working_set_metadata() {
+    working_set(false);
+}
+
+fn working_set(consumers: bool) {
     helpers::ensure_libclang();
     let mut input = test_clang2::annotated_sdk_fixture();
     let fixture = test_clang2::fixture("sdk_psapi");
@@ -50,7 +60,7 @@ fn sdk_working_set() {
             .replace("\r\n", "\n")
     );
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
-    let scratch = root.join("target\\test-clang2-sdk-working-set");
+    let scratch = root.join(format!("target\\test-clang2-sdk-working-set-{consumers}"));
     std::fs::create_dir_all(&scratch).unwrap();
     let winmd = scratch.join("input.winmd");
     windows_rdl::reader()
@@ -59,6 +69,10 @@ fn sdk_working_set() {
         .output(&winmd)
         .write()
         .unwrap();
+    if !consumers {
+        std::fs::remove_file(winmd).unwrap();
+        return;
+    }
     let bindings = scratch.join("bindings.rs");
     windows_bindgen::builder()
         .input(&winmd)
@@ -143,11 +157,21 @@ fn typed_bitfields() {
     }
 }
 
+#[test]
+fn bitfield_metadata() {
+    helpers::ensure_libclang();
+    roundtrip("bitfields", "bitfield-metadata", &[]);
+    roundtrip("typed_bitfields", "typed-bitfield-metadata", &[]);
+}
+
 fn roundtrip(fixture: &str, name: &str, targets: &[Option<Target>]) {
     let snapshots = capture(&[selected_fixture(fixture, &[])], &TARGETS).unwrap();
     let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
-    assert_eq!(output.records, if fixture == "bitfields" { 16 } else { 6 });
+    assert_eq!(output.records, if fixture == "bitfields" { 16 } else { 7 });
     let rdl = &output.partitions[fixture].rdl;
+    if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+        std::fs::write(input_dir().join(format!("{fixture}.rdl")), rdl).unwrap();
+    }
     assert_eq!(
         *rdl,
         std::fs::read_to_string(input_dir().join(format!("{fixture}.rdl")))
@@ -232,6 +256,11 @@ fn roundtrip(fixture: &str, name: &str, targets: &[Option<Target>]) {
         .write()
         .unwrap();
     assert_eq!(*rdl, std::fs::read_to_string(&rewritten).unwrap());
+    if targets.is_empty() {
+        std::fs::remove_file(winmd).unwrap();
+        std::fs::remove_file(rewritten).unwrap();
+        return;
+    }
     let bindings = root.join(format!("target\\test-clang2-{name}.rs"));
     windows_bindgen::builder()
         .input(&winmd)

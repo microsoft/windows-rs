@@ -86,7 +86,7 @@ impl Projector<'_, '_> {
         snapshot_id: usize,
         group: &[Field],
         backing: &str,
-    ) -> Result<(TokenStream, TokenStream, TokenStream, TokenStream), Error> {
+    ) -> Result<(TokenStream, TokenStream, TokenStream), Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
         let field = &group[0];
         let first = group
@@ -110,50 +110,31 @@ impl Projector<'_, '_> {
         let typed = named
             .iter()
             .any(|(member, member_ty)| *member_ty != ty || member.bit_width == Some(1));
-        let member_attributes = if typed {
-            let mut attributes: Vec<_> = named
-                .iter()
-                .map(|(member, member_ty)| {
-                    let name = &member.name;
-                    let offset = proc_macro2::Literal::u64_unsuffixed(
-                        member.offset_bits - field.offset_bits,
-                    );
-                    let width = proc_macro2::Literal::u32_unsuffixed(member.bit_width.unwrap());
-                    let member_ty = write_type(self.namespace, member_ty);
-                    quote! {
-                        #[Windows::Win32::Metadata::NativeBitfield(
-                            #name, #offset, #width, MemberType = #member_ty
-                        )]
-                    }
-                })
-                .collect();
-            attributes.sort_by_key(TokenStream::to_string);
-            quote! { #(#attributes)* }
-        } else {
-            TokenStream::new()
-        };
-        let members = (!typed).then(|| {
-            group
-                .iter()
-                .rposition(|member| !member.name.is_empty())
-                .map(|last| {
-                    let members = group[..=last].iter().map(|member| {
-                        let member_name = if member.name.is_empty() {
-                            quote! { _ }
-                        } else {
-                            ident(&member.name).unwrap()
-                        };
-                        let width = proc_macro2::Literal::u32_unsuffixed(member.bit_width.unwrap());
-                        quote! { #member_name: #width, }
-                    });
-                    quote! { { #(#members)* } }
-                })
-        });
+        let members = group
+            .iter()
+            .rposition(|member| !member.name.is_empty())
+            .map(|last| {
+                let mut named = named.iter();
+                let members = group[..=last].iter().map(|member| {
+                    let member_type = if member.name.is_empty() {
+                        None
+                    } else {
+                        let (_, ty) = named.next().unwrap();
+                        typed.then_some(ty)
+                    };
+                    windows_rdl::emit::write_bitfield_member(
+                        self.namespace,
+                        (!member.name.is_empty()).then_some(member.name.as_str()),
+                        member.bit_width.unwrap(),
+                        member_type,
+                    )
+                });
+                quote! { { #(#members)* } }
+            });
         Ok((
             ident(backing)?,
             write_type(self.namespace, &ty),
             quote! { #members },
-            member_attributes,
         ))
     }
 }

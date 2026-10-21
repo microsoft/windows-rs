@@ -145,10 +145,8 @@ fn annotation_roundtrip() {
                     .unwrap()
             };
             let read = method("ReadBuffer");
-            assert_eq!(
-                attributes(read),
-                vec![annotation("_Must_inspect_result_", "", "")]
-            );
+            assert!(attributes(read).is_empty());
+            assert!(read.find_attribute("MustUseAttribute").is_some());
             let params: Vec<_> = read.params().collect();
             assert!(attributes(params[0]).is_empty());
             assert_eq!(
@@ -320,12 +318,8 @@ fn annotation_roundtrip() {
                 .ty();
             assert!(matches!(result_callback, windows_metadata::Type::FnPtr(_)));
             let inherited = index.expect("Fixture", "CopiedResult");
-            assert!(inherited.attributes().any(|attribute| {
-                attribute.name() == "NativeSalAttribute"
-                    && attribute.value().iter().any(|(name, value)| {
-                        name == "TypedefName" && *value == Value::Utf8("AResultContract".into())
-                    })
-            }));
+            assert!(inherited.find_attribute("MustUseAttribute").is_some());
+            assert!(inherited.find_attribute("NativeSalAttribute").is_none());
             let holder = index.expect("Fixture", "CallbackHolder");
             let field = |name| {
                 holder
@@ -456,7 +450,7 @@ fn sdk_annotations() {
     assert_eq!(output.interfaces, 2);
     let text: String = output.partitions.values().map(|p| p.rdl.as_str()).collect();
     assert!(!text.contains("_COM_Outptr_"));
-    assert!(text.contains("NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)"));
+    assert!(text.contains("#[out_ptr(null_on_failure)]"));
     assert!(text.contains("_Return_type_success_"));
     assert!(text.contains("#[size_param(2)]"), "{text}");
     assert!(text.contains("#[len_param(2)] lpFilename:"), "{text}");

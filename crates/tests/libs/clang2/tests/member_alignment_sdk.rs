@@ -4,6 +4,16 @@ use windows_metadata::{HasAttributes, Value, reader};
 #[test]
 #[ignore = "requires the pinned SDK and all three MSVC Rust targets"]
 fn sdk_member_alignment_layouts() {
+    member_alignment(true);
+}
+
+#[test]
+#[ignore = "requires the pinned SDK and clang resource headers"]
+fn sdk_member_alignment_metadata() {
+    member_alignment(false);
+}
+
+fn member_alignment(consumers: bool) {
     helpers::ensure_libclang();
     let names = [
         ("CLS_SCAN_CONTEXT", 7),
@@ -42,7 +52,9 @@ fn sdk_member_alignment_layouts() {
             .replace("\r\n", "\n")
     );
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
-    let winmd = root.join("target\\test-clang2-sdk-member-alignment.winmd");
+    let winmd = root.join(format!(
+        "target\\test-clang2-sdk-member-alignment-{consumers}.winmd"
+    ));
     windows_rdl::reader()
         .input(root.join("metadata\\metadata.rdl"))
         .input_text(&rdl)
@@ -50,14 +62,17 @@ fn sdk_member_alignment_layouts() {
         .write()
         .unwrap();
     let bindings = root.join("target\\test-clang2-sdk-member-alignment.rs");
-    windows_bindgen::builder()
-        .input(&winmd)
-        .filter("Fixture")
-        .flat()
-        .sys()
-        .output(&bindings)
-        .write();
-    let mut rust = std::fs::read_to_string(&bindings).unwrap();
+    let mut rust = String::new();
+    if consumers {
+        windows_bindgen::builder()
+            .input(&winmd)
+            .filter("Fixture")
+            .flat()
+            .sys()
+            .output(&bindings)
+            .write();
+        rust = std::fs::read_to_string(&bindings).unwrap();
+    }
     for snapshot in &snapshots {
         let (bit, arch) = match snapshot.target {
             Target::X86 => (1, "x86"),
@@ -117,6 +132,10 @@ fn sdk_member_alignment_layouts() {
             }
         }
         rust.push_str("};\n");
+    }
+    if !consumers {
+        std::fs::remove_file(winmd).unwrap();
+        return;
     }
     std::fs::write(&bindings, rust).unwrap();
     let compiled = root.join("target\\test-clang2-sdk-member-alignment.rmeta");

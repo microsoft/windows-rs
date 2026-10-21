@@ -10,6 +10,9 @@ struct DynamicNone {
 struct BareNoexcept {
     int (*callback)(int value) noexcept;
 };
+struct BareStdcallNoexcept {
+    int (__stdcall *callback)(int value) noexcept;
+};
 struct Safe {
     int value;
 };

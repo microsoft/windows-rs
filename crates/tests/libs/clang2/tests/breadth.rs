@@ -589,14 +589,7 @@ fn buffer_normalization() {
                     })
                 );
                 assert!(parameter.find_attribute("NativeSalAttribute").is_none());
-                let entry = parameter.find_attribute("NativeInputAttribute");
-                assert_eq!(entry.is_some(), case < 4);
-                if let Some(entry) = entry {
-                    assert_eq!(
-                        entry.value().into_iter().collect::<BTreeMap<_, _>>(),
-                        [("ReadOnly".into(), windows_metadata::Value::Bool(true))].into()
-                    );
-                }
+                assert!(parameter.find_attribute("NativeInputAttribute").is_none());
             }
         });
     }
@@ -761,12 +754,14 @@ fn buffer_full() {
             "{full}"
         );
         if full == "_Out_writes_bytes_all_" {
-            assert_eq!(
-                output.partitions["buffer_postconditions"].rdl,
-                std::fs::read_to_string(input_dir().join("buffer_full.rdl"))
-                    .unwrap()
-                    .replace("\r\n", "\n")
-            );
+            roundtrip("buffer_full", &output, |index, _| {
+                for name in ["Apis", "Buffer", "IBuffer"] {
+                    let method = index.expect("Fixture", name).methods().next().unwrap();
+                    let parameter = method.params().next().unwrap();
+                    assert_eq!(parameter.direction(), reader::ParamDirection::Output);
+                    assert!(!parameter.is_optional());
+                }
+            });
         }
         expected.name = "other.h".into();
         let mut inputs = [input, expected];
@@ -781,8 +776,16 @@ fn buffer_full() {
     for count in ["capacity + 1", "*written", "16"] {
         let output = project(&[postcondition_input("_Out_writes_bytes_all_", count, false)]);
         let rdl = &output.partitions["buffer_postconditions"].rdl;
-        assert!(rdl.contains("NativeSal(") && rdl.contains("#[out]"));
+        assert!(rdl.contains("NativeSal(") && !rdl.contains("#[out]"));
         assert!(!rdl.contains("size_param") && !rdl.contains("NativeInitializedLength"));
+        roundtrip_metadata("buffer_full_residual", rdl, |index, _| {
+            for name in ["Apis", "Buffer", "IBuffer"] {
+                let method = index.expect("Fixture", name).methods().next().unwrap();
+                let parameter = method.params().next().unwrap();
+                assert_eq!(parameter.direction(), reader::ParamDirection::Output);
+                assert!(parameter.buffer_relationship().is_none());
+            }
+        });
     }
 }
 
@@ -849,7 +852,7 @@ fn returned_buffer_flags() {
             .replace("BUFFER unsigned short*", "BUFFER unsigned short**");
         let output = project(&[input]);
         let rdl = &output.partitions["buffer_postconditions"].rdl;
-        assert_eq!(rdl.matches("#[out]").count(), 3, "{name}");
+        assert!(!rdl.contains("#[out]"), "{name}");
         assert_eq!(
             rdl.matches("#[opt]").count(),
             if optional { 3 } else { 0 },
@@ -862,14 +865,19 @@ fn returned_buffer_flags() {
                 && !rdl.contains("NativeInitializedLength"),
             "{rdl}"
         );
-        if name == "_Outptr_opt_result_bytebuffer_all_maybenull_" {
-            roundtrip("returned_buffer", &output, |index, _| {
-                let method = index.expect("Fixture", "Apis").methods().next().unwrap();
+        let check = |index: &reader::Index, _| {
+            for owner in ["Apis", "Buffer", "IBuffer"] {
+                let method = index.expect("Fixture", owner).methods().next().unwrap();
                 let parameter = method.params().next().unwrap();
                 assert_eq!(parameter.direction(), reader::ParamDirection::Output);
-                assert!(parameter.is_optional());
+                assert_eq!(parameter.is_optional(), optional);
                 assert!(parameter.buffer_relationship().is_none());
-            });
+            }
+        };
+        if name == "_Outptr_opt_result_bytebuffer_all_maybenull_" {
+            roundtrip("returned_buffer", &output, check);
+        } else {
+            roundtrip_metadata("returned_buffer_flags", rdl, check);
         }
     }
 }
@@ -938,7 +946,7 @@ fn sdk_bcrypt() {
     assert_eq!(rdl.matches("fn BCryptDeleteContext(").count(), 1);
     assert_eq!(rdl.matches("fn BCryptFinishHash(").count(), 1);
     assert!(rdl.contains("extern fn BCryptDeleteContext("));
-    assert!(rdl.contains("#[out] #[opt] ppBuffer: *mut PCRYPT_CONTEXTS"));
+    assert!(rdl.contains("#[opt] ppBuffer: *mut PCRYPT_CONTEXTS"));
     assert!(rdl.contains("#[out] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = false)] pbOutput: PUCHAR"));
     roundtrip("sdk_bcrypt", &output, |index, _| {
         let method = index
@@ -1166,13 +1174,13 @@ fn com_output() {
 #[test]
 fn input_contracts() {
     helpers::ensure_libclang();
-    for (case, (version, name, read_only, optional)) in [
-        ("1.2", "__RPC__in", false, false),
-        ("1.2", "__RPC__in_opt", false, true),
-        ("2", "_In_", true, false),
-        ("2", "_In_opt_", true, true),
-        ("1", "__in", true, false),
-        ("1", "__in_opt", true, true),
+    for (case, (version, name, optional)) in [
+        ("1.2", "__RPC__in", false),
+        ("1.2", "__RPC__in_opt", true),
+        ("2", "_In_", false),
+        ("2", "_In_opt_", true),
+        ("1", "__in", false),
+        ("1", "__in_opt", true),
     ]
     .into_iter()
     .enumerate()
@@ -1218,13 +1226,7 @@ fn input_contracts() {
                 for parameter in method.params() {
                     assert_eq!(parameter.direction(), reader::ParamDirection::Input);
                     assert_eq!(parameter.is_optional(), optional);
-                    assert_eq!(
-                        parameter
-                            .find_attribute("NativeInputAttribute")
-                            .unwrap()
-                            .value(),
-                        [("ReadOnly".into(), windows_metadata::Value::Bool(read_only))]
-                    );
+                    assert!(parameter.find_attribute("NativeInputAttribute").is_none());
                     assert!(
                         parameter
                             .find_attribute("NativeArrayInfoAttribute")
@@ -1253,7 +1255,7 @@ fn input_contracts() {
         .unwrap()
         .rdl;
     assert_eq!(text.matches("NativeSal(").count(), 6);
-    assert_eq!(text.matches("NativeInput(").count(), 6);
+    assert!(!text.contains("NativeInput("));
 }
 
 #[test]
@@ -1340,13 +1342,7 @@ fn sdk_accounts_settings() {
                 assert_eq!(parameter.direction(), reader::ParamDirection::Input);
                 assert!(!parameter.is_optional());
                 assert!(parameter.find_attribute("NativeSalAttribute").is_none());
-                assert_eq!(
-                    parameter
-                        .find_attribute("NativeInputAttribute")
-                        .unwrap()
-                        .value(),
-                    [("ReadOnly".into(), windows_metadata::Value::Bool(false))]
-                );
+                assert!(parameter.find_attribute("NativeInputAttribute").is_none());
             }
             let result = method.params().last().unwrap();
             assert!(result.find_attribute("ComOutPtrAttribute").is_some());
@@ -1512,7 +1508,7 @@ fn returned_pointer_contracts() {
     assert_eq!(text.matches("NativeSal(").count(), 6);
     assert_eq!(text.matches("\"_Inout_\"").count(), 3);
     assert_eq!(text.matches("\"_Outptr_opt_\"").count(), 3);
-    assert!(!text.contains("NativeReturnedPointer("));
+    assert!(!text.contains("#[out_ptr"));
     roundtrip("returned_pointer_mixed", &output, |_, _| {});
     for ty in ["unsigned short", "unsigned short*", "unsigned short&"] {
         let mut invalid = pointer_contract_input("1.2", "__RPC__deref_out_opt", "");
@@ -1615,7 +1611,7 @@ fn rpc_strings() {
     let input = test_clang2::fixture("rpc_strings");
     let output = project(std::slice::from_ref(&input));
     let text = &output.partitions.values().next().unwrap().rdl;
-    assert!(text.contains("NativeNullTerminated("), "{text}");
+    assert!(text.contains("#[null_terminated("), "{text}");
     roundtrip("rpc_strings", &output, |index, _| {
         for (owner, name) in [
             ("Apis", "BufferFunction"),
@@ -1641,14 +1637,7 @@ fn rpc_strings() {
                     parameter.find_attribute("NativeSalAttribute").is_some(),
                     position >= 2
                 );
-                let input = parameter.find_attribute("NativeInputAttribute");
-                assert_eq!(input.is_some(), position < 2);
-                if let Some(input) = input {
-                    assert_eq!(
-                        input.value().into_iter().collect::<BTreeMap<_, _>>(),
-                        [("ReadOnly".into(), windows_metadata::Value::Bool(false))].into()
-                    );
-                }
+                assert!(parameter.find_attribute("NativeInputAttribute").is_none());
                 assert_eq!(parameter.buffer_relationship(), None);
                 assert_eq!(
                     parameter
@@ -1689,7 +1678,7 @@ fn rpc_strings_residuals() {
         let output = project(&[input]);
         let text = &output.partitions.values().next().unwrap().rdl;
         assert!(text.contains("NativeSal("), "{text}");
-        for flag in ["NativeNullTerminated(", "#[in]", "#[out]", "#[opt]"] {
+        for flag in ["#[null_terminated(", "#[in]", "#[out]", "#[opt]"] {
             assert!(!text.contains(flag), "{text}");
         }
     }
@@ -2286,15 +2275,7 @@ fn check_rpc_buffers(sdk: bool) {
                         !input && !output_buffer,
                         "{name}"
                     );
-                    let entry = parameter.find_attribute("NativeInputAttribute");
-                    assert_eq!(entry.is_some(), input, "{name}");
-                    if let Some(entry) = entry {
-                        assert_eq!(
-                            entry.value().into_iter().collect::<BTreeMap<_, _>>(),
-                            [("ReadOnly".into(), Value::Bool(false))].into(),
-                            "{name}"
-                        );
-                    }
+                    assert!(parameter.find_attribute("NativeInputAttribute").is_none());
                     assert_eq!(
                         parameter.buffer_relationship(),
                         capacity.then_some(reader::BufferRelationship::ElementsParam(1)),
@@ -2407,7 +2388,7 @@ fn rpc_output_buffer_agreement() {
         let text = &output.partitions.values().next().unwrap().rdl;
         assert!(text.contains("NativeSal("), "{text}");
         assert!(!text.contains("PostWritable = true"), "{text}");
-        assert!(text.contains("OnSuccess = true"), "{text}");
+        assert!(text.contains("#[null_terminated(success)]"), "{text}");
     }
 }
 
@@ -2984,7 +2965,7 @@ fn rpc_annotation_residuals() {
             "{text}"
         );
         assert_eq!(
-            text.contains("NativeNullTerminated"),
+            text.contains("#[null_terminated("),
             rpc == "__RPC__inout_opt_string",
             "{text}"
         );
@@ -3004,13 +2985,7 @@ fn rpc_annotation_residuals() {
                     assert_eq!(parameter.direction(), reader::ParamDirection::Input);
                     assert_eq!(parameter.is_optional(), rpc == "__RPC__in_opt");
                     assert!(parameter.find_attribute("NativeSalAttribute").is_none());
-                    assert_eq!(
-                        parameter
-                            .find_attribute("NativeInputAttribute")
-                            .unwrap()
-                            .value(),
-                        [("ReadOnly".into(), windows_metadata::Value::Bool(false))]
-                    );
+                    assert!(parameter.find_attribute("NativeInputAttribute").is_none());
                 }
             });
         }
@@ -3117,14 +3092,7 @@ fn buffer_postconditions() {
                         );
                         assert_eq!(parameter.is_optional(), current.contains("_opt_"));
                         assert!(parameter.find_attribute("NativeSalAttribute").is_none());
-                        let entry = parameter.find_attribute("NativeInputAttribute");
-                        assert_eq!(entry.is_some(), case < 2);
-                        if let Some(entry) = entry {
-                            assert_eq!(
-                                entry.value().into_iter().collect::<BTreeMap<_, _>>(),
-                                [("ReadOnly".into(), Value::Bool(true))].into()
-                            );
-                        }
+                        assert!(parameter.find_attribute("NativeInputAttribute").is_none());
                         let terminated = parameter.find_attribute("NativeNullTerminatedAttribute");
                         assert_eq!(terminated.is_some(), case < 6);
                         if let Some(terminated) = terminated {
@@ -3513,7 +3481,7 @@ fn function_typedefs() {
             index
                 .expect("Fixture", "NoThrow")
                 .find_attribute("NativeExceptionSpecificationAttribute")
-                .is_some()
+                .is_none()
         );
     });
     let mut plain = selected_fixture("function_typedefs", &[]);
@@ -4868,13 +4836,7 @@ fn sdk_resource_callbacks() {
                 .filter(|parameter| matches!(parameter.name(), "lpName" | "lpType"))
             {
                 assert_eq!(parameter.direction(), reader::ParamDirection::Input);
-                assert_eq!(
-                    parameter
-                        .find_attribute("NativeInputAttribute")
-                        .unwrap()
-                        .value(),
-                    [("ReadOnly".into(), windows_metadata::Value::Bool(true))]
-                );
+                assert!(parameter.find_attribute("NativeInputAttribute").is_none());
             }
             let attribute = callback
                 .find_attribute("UnmanagedFunctionPointerAttribute")
@@ -5971,42 +5933,28 @@ fn exception_specifications() {
     }
     let output = project(std::slice::from_ref(&input));
     roundtrip("exception_specifications", &output, |index, _| {
-        let contract = |attributes: Vec<(String, windows_metadata::Value)>| {
-            attributes
-                .into_iter()
-                .map(|(_, value)| value)
-                .collect::<Vec<_>>()
-        };
-        for (owner, method, expected) in [
-            ("Apis", "NativeSum", "noexcept"),
-            ("Apis", "ReadPayload", "throw()"),
-            ("INoThrow", "Safe", "noexcept"),
-            ("INoThrow", "Legacy", "nothrow"),
+        for (owner, method) in [
+            ("Apis", "NativeSum"),
+            ("Apis", "ReadPayload"),
+            ("INoThrow", "Safe"),
+            ("INoThrow", "Legacy"),
         ] {
             let method = index
                 .expect("Fixture", owner)
                 .methods()
                 .find(|value| value.name() == method)
                 .unwrap();
-            assert_eq!(
-                contract(
-                    method
-                        .find_attribute("NativeExceptionSpecificationAttribute")
-                        .unwrap()
-                        .value()
-                ),
-                [windows_metadata::Value::Utf8(expected.into())]
+            assert!(
+                method
+                    .find_attribute("NativeExceptionSpecificationAttribute")
+                    .is_none()
             );
         }
         let callback = index.expect("Fixture", "NoThrowCallback");
-        assert_eq!(
-            contract(
-                callback
-                    .find_attribute("NativeExceptionSpecificationAttribute")
-                    .unwrap()
-                    .value()
-            ),
-            [windows_metadata::Value::Utf8("noexcept".into())]
+        assert!(
+            callback
+                .find_attribute("NativeExceptionSpecificationAttribute")
+                .is_none()
         );
         let ordinary = index.expect("Fixture", "OrdinaryCallback");
         assert!(
@@ -6069,30 +6017,47 @@ fn exception_specifications() {
     }
     let input = selected_fixture(
         "exception_specification_rejections",
-        &["BareNoexcept", "DynamicNone", "Safe"],
+        &["BareNoexcept", "BareStdcallNoexcept", "DynamicNone", "Safe"],
     );
-    let error = projection::generate(std::slice::from_ref(&input), "Fixture")
-        .unwrap_err()
-        .to_string();
-    assert!(error.contains("requires a named callback"), "{error}");
+    let output = projection::generate(std::slice::from_ref(&input), "Fixture").unwrap();
+    roundtrip("exception_specification_rejections", &output, |index, _| {
+        for (name, flags) in [
+            ("BareNoexcept", windows_metadata::MethodCallAttributes::C),
+            ("DynamicNone", windows_metadata::MethodCallAttributes::C),
+            (
+                "BareStdcallNoexcept",
+                windows_metadata::MethodCallAttributes::STDCALL,
+            ),
+        ] {
+            let field = index.expect("Fixture", name).fields().next().unwrap();
+            let MetadataType::FnPtr(signature) = field.ty() else {
+                panic!()
+            };
+            assert_eq!(signature.flags, flags);
+            assert_eq!(signature.return_type, MetadataType::I32);
+            assert_eq!(signature.types, [MetadataType::I32]);
+        }
+    });
     let partial = projection::generate_partial(&[input], "Fixture").unwrap();
-    assert!(
-        partial
-            .omissions
-            .iter()
-            .any(|error| error.contains("BareNoexcept"))
-    );
-    assert!(
-        partial
-            .omissions
-            .iter()
-            .any(|error| error.contains("DynamicNone"))
-    );
-    assert!(
-        partial.output.partitions["exception_specification_rejections"]
-            .rdl
-            .contains("struct Safe")
-    );
+    assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
+    assert_eq!(partial.output, output);
+    for root in ["BareNoexcept", "BareStdcallNoexcept", "DynamicNone"] {
+        let first = selected_fixture("exception_specification_rejections", &[root]);
+        let mut second = selected_fixture("exception_specification_rejections", &[root]);
+        second.name = "throwing.h".into();
+        second.source = second
+            .source
+            .replace(" noexcept", "")
+            .replace(" throw()", "");
+        let mut inputs = [first, second];
+        for _ in 0..2 {
+            assert!(
+                projection::generate_partial(&inputs, "Fixture").is_err(),
+                "{root}"
+            );
+            inputs.reverse();
+        }
+    }
 }
 
 #[test]

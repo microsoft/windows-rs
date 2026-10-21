@@ -7,7 +7,7 @@ mod Fixture {
     }
     #[no_guid]
     interface Derived: Base {
-        #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+        #[override_slot(0)]
         fn Read(&self, value: i32) -> i32;
         fn Declared(&self, value: i32) -> i32;
     }

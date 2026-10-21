@@ -14,10 +14,14 @@ typedef int (*OtherCallback)(int value);
 #define CALLBACK_TYPE Callback
 #endif
 
+#ifndef STORAGE_DIRECTION
+#define STORAGE_DIRECTION
+#endif
+
 #if VARIANT == 0
-extern "C" Total Convert(Buffer storage, Counts counts, Row* rows,
+extern "C" Total Convert(STORAGE_DIRECTION Buffer storage, Counts counts, Row* rows,
     RecordAlias* record, ModeAlias mode, CALLBACK_TYPE callback);
 #else
-extern "C" unsigned long Convert(int*, const unsigned long*, int (*)[2],
+extern "C" unsigned long Convert(STORAGE_DIRECTION int*, const unsigned long*, int (*)[2],
     Record*, Mode, CALLBACK_TYPE);
 #endif

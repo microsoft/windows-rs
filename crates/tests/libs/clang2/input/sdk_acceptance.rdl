@@ -3,11 +3,11 @@ mod Windows {
     mod Win32 {
         #[guid(0xf4711347_e608_11d2_a086_00c04f8ef9b5)]
         interface ISpErrorLog: IUnknown {
-            fn AddError(&self, lLineNumber: i32, hr: HRESULT, pszDescription: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszHelpFile: LPCWSTR, dwHelpContext: DWORD) -> HRESULT;
+            fn AddError(&self, lLineNumber: i32, hr: HRESULT, pszDescription: LPCWSTR, #[opt] pszHelpFile: LPCWSTR, dwHelpContext: DWORD) -> HRESULT;
         }
         #[guid(0xb1e29d58_a675_11d2_8302_00c04f8ee6c0)]
         interface ISpGrammarCompiler: IUnknown {
-            fn CompileStream(&self, pSource: IStream, pDest: IStream, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pHeader: IStream, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pReserved: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pErrorLog: ISpErrorLog, dwFlags: DWORD) -> HRESULT;
+            fn CompileStream(&self, pSource: IStream, pDest: IStream, #[opt] pHeader: IStream, #[opt] pReserved: IUnknown, #[opt] pErrorLog: ISpErrorLog, dwFlags: DWORD) -> HRESULT;
         }
     }
 }
@@ -20,12 +20,12 @@ mod Windows {
         }
         #[guid(0xea326091_05fe_40c1_b49c_3d2ef4626a0e)]
         interface IWTSBitmapRenderService: IUnknown {
-            fn GetMappedRenderer(&self, mappingId: UINT64, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pMappedRendererCallback: IWTSBitmapRendererCallback, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppMappedRenderer: *mut IWTSBitmapRenderer) -> HRESULT;
+            fn GetMappedRenderer(&self, mappingId: UINT64, #[opt] pMappedRendererCallback: IWTSBitmapRendererCallback, #[out_ptr] ppMappedRenderer: *mut IWTSBitmapRenderer) -> HRESULT;
         }
         #[guid(0x5b7acc97_f3c9_46f7_8c5b_fa685d3441b1)]
         interface IWTSBitmapRenderer: IUnknown {
-            fn Render(&self, imageFormat: GUID, dwWidth: DWORD, dwHeight: DWORD, cbStride: LONG, cbImageBuffer: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(4)] pImageBuffer: *mut BYTE) -> HRESULT;
-            fn GetRendererStatistics(&self, #[out] pStatistics: *mut BITMAP_RENDERER_STATISTICS) -> HRESULT;
+            fn Render(&self, imageFormat: GUID, dwWidth: DWORD, dwHeight: DWORD, cbStride: LONG, cbImageBuffer: DWORD, #[in] #[len_param(4)] pImageBuffer: *mut BYTE) -> HRESULT;
+            fn GetRendererStatistics(&self, pStatistics: *mut BITMAP_RENDERER_STATISTICS) -> HRESULT;
             fn RemoveMapping(&self) -> HRESULT;
         }
         #[guid(0xd782928e_fe4e_4e77_ae90_9cd0b3e3b353)]
@@ -34,25 +34,25 @@ mod Windows {
         }
         #[guid(0xa1230206_9a39_4d58_8674_cdb4dff4e73b)]
         interface IWTSListener: IUnknown {
-            fn GetConfiguration(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppPropertyBag: *mut IPropertyBag) -> HRESULT;
+            fn GetConfiguration(&self, #[out_ptr] ppPropertyBag: *mut IPropertyBag) -> HRESULT;
         }
         #[guid(0xa1230203_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSListenerCallback: IUnknown {
-            fn OnNewChannelConnection(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pChannel: IWTSVirtualChannel, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] data: BSTR, #[out] pbAccept: *mut BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppCallback: *mut IWTSVirtualChannelCallback) -> HRESULT;
+            fn OnNewChannelConnection(&self, #[opt] pChannel: IWTSVirtualChannel, #[opt] data: BSTR, pbAccept: *mut BOOL, #[out_ptr] ppCallback: *mut IWTSVirtualChannelCallback) -> HRESULT;
         }
         #[guid(0xa1230207_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSVirtualChannel: IUnknown {
-            fn Write(&self, cbSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(0)] pBuffer: *mut BYTE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pReserved: IUnknown) -> HRESULT;
+            fn Write(&self, cbSize: ULONG, #[in] #[len_param(0)] pBuffer: *mut BYTE, #[opt] pReserved: IUnknown) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xa1230204_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSVirtualChannelCallback: IUnknown {
-            fn OnDataReceived(&self, cbSize: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[len_param(0)] pBuffer: *mut BYTE) -> HRESULT;
+            fn OnDataReceived(&self, cbSize: ULONG, #[in] #[len_param(0)] pBuffer: *mut BYTE) -> HRESULT;
             fn OnClose(&self) -> HRESULT;
         }
         #[guid(0xa1230205_d6a7_11d8_b9fd_000bdbd1f198)]
         interface IWTSVirtualChannelManager: IUnknown {
-            fn CreateListener(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszChannelName: *const i8, uFlags: ULONG, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pListenerCallback: IWTSListenerCallback, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppListener: *mut IWTSListener) -> HRESULT;
+            fn CreateListener(&self, #[null_terminated(entry)] pszChannelName: *const i8, uFlags: ULONG, #[opt] pListenerCallback: IWTSListenerCallback, #[out_ptr] ppListener: *mut IWTSListener) -> HRESULT;
         }
     }
 }

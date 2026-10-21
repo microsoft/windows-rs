@@ -1,11 +1,12 @@
 #[win32]
 mod Test {
     struct Mixed {
-        #[Windows::Win32::Metadata::NativeBitfield("alias", 6, 3, MemberType = NativeInt)]
-        #[Windows::Win32::Metadata::NativeBitfield("enabled", 5, 1, MemberType = bool)]
-        #[Windows::Win32::Metadata::NativeBitfield("mode", 3, 2, MemberType = Mode)]
-        #[Windows::Win32::Metadata::NativeBitfield("signed", 0, 3, MemberType = i32)]
-        storage: u32,
+        storage: u32 {
+            signed: i32: 3,
+            mode: Mode: 2,
+            enabled: bool: 1,
+            alias: NativeInt: 3,
+        },
     }
     #[repr(i32)]
     #[scoped]

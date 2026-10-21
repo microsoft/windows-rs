@@ -41,3 +41,10 @@ struct DependentBits {
     MixedBits mixed;
     BoolBits flags;
 };
+
+struct KeywordBits {
+    int self : 1;
+    int crate : 1;
+    int _ : 1;
+    int type : 1;
+};

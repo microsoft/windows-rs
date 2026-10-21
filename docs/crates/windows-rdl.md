@@ -52,6 +52,12 @@ value, or architecture equivalence.
 
 ## RDL syntax
 
+Without direction attributes, mutable pointers and references default to output; other written
+types, including named pointer aliases, default to input. Explicit input/output parameters require
+both flags. The writer and clang2 share `emit::write_param_direction` to omit only redundant
+spellings. Import-redeclaration comparison renders directions against the normalized comparison
+type, not a discarded typedef spelling.
+
 Win32 pointer types preserve qualifiers at each depth: `*mut *const T` and `*const *mut T` have
 different metadata signatures and round-trip without flattening. Homogeneous chains retain their
 existing binary encoding. Mixed chains use per-level modifiers and require an updated metadata
@@ -71,6 +77,11 @@ callbacks; named `extern fn Name(...)` declarations keep their delegate represen
 Inline types reject WinRT use, unsupported ABIs, variadics, lifetimes, and `unsafe` qualifiers.
 The writer rejects unsupported imported signature flags rather than changing their ABI.
 
+`#[must_use]` encodes the parameterless `Windows.Win32.Metadata.MustUseAttribute` on imports,
+interface methods and named callbacks. It says the caller should use the result rather than
+accidentally discard it. It is not a success predicate, purity promise or signature change.
+Language-specific diagnostics and output-parameter inspection are separate concerns.
+
 Custom attributes on `type Name = Type;` declarations attach to the metadata typedef and survive
 RDL/WinMD round trips, including architecture-specific aliases. The provisional `NativeSalAttribute`
 in `metadata/metadata.rdl` uses this support to retain header annotation evidence without new syntax.
@@ -79,7 +90,8 @@ including deprecation payloads.
 GUID constants retain their declared type, architecture tags, and custom attributes in both
 directions. Property-key constants retain those attributes alongside their format GUID and ID.
 
-`Windows.Win32.Metadata.NativeOverrideSlotAttribute(slot: u32)` marks a Win32 method redeclaration
+`#[override_slot(N)]` encodes `Windows.Win32.Metadata.NativeOverrideSlotAttribute(slot: u32)`
+and marks a Win32 method redeclaration
 at an absolute inherited vtable slot. The reader clears `MethodAttributes::NewSlot`; the writer
 preserves the attribute and all method/parameter contracts. It is not supported on WinRT methods.
 Bindgen validates the slot against the base hierarchy and reuses the inherited entry. Older
@@ -144,11 +156,22 @@ The reader writes one `Windows.Win32.Metadata.NativeBitfieldAttribute(name, offs
 attribute per named member. The writer renders it back to block form.
 
 An optional `MemberType: System.Type` named argument retains a member type independently of
-storage. Write it explicitly, for example
-`#[Windows::Win32::Metadata::NativeBitfield("delta", 0, 3, MemberType = i32)]`.
-Typed members remain explicit attributes rather than block shorthand. Primitive, enum, and typedef
-names survive both metadata round trips; namespace remapping also updates named type values.
+storage. The compact spelling is `delta: i32: 3` inside the backing field's block. Primitive, enum,
+and typedef names survive both metadata round trips; namespace remapping also updates named type
+values. Untyped members retain `name: width` without acquiring a member type. Full attributes
+remain accepted and are retained when extra properties or overlapping offsets cannot fit a block.
 Updated metadata readers are required for the named `System.Type` serialization tag.
+
+`#[out_ptr]` and its `nullable` and `null_on_failure` flags encode returned-pointer guarantees.
+They do not replace outer `opt`, parameter direction or `retval`. The reader expands both Boolean
+properties of `NativeReturnedPointerAttribute`; the writer uses the short form only when those
+two properties are the complete payload. Field-owned `AlignmentAttribute` uses `#[align(N)]`.
+
+`#[null_terminated(entry, double_success)]` preserves single/double zero termination separately
+at entry and successful completion. The available flags are `entry`, `double_entry`, `success`
+and `double_success`; each phase may appear once. This contract adds no direction, encoding,
+capacity or failure guarantee. Shortening requires exact known metadata properties; extended or
+inconsistent payloads retain their full attribute spelling.
 
 See [`windows-clang`](windows-clang.md#bit-field-member-scraping) for how the scraper emits bit
 fields. See [`windows-bindgen`](windows-bindgen.md#bit-field-accessors) for the accessors they

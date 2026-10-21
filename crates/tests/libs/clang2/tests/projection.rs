@@ -698,6 +698,13 @@ fn unions() {
         projection::generate_partial(&[selected_fixture("union_rejections", &[])], "Fixture")
             .unwrap();
     assert_eq!(result.output.records, 5);
+    if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+        std::fs::write(
+            input_dir().join("union_rejections.rdl"),
+            &result.output.partitions["union_rejections"].rdl,
+        )
+        .unwrap();
+    }
     assert_eq!(
         result.output.partitions["union_rejections"].rdl,
         std::fs::read_to_string(input_dir().join("union_rejections.rdl"))

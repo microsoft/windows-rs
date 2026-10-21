@@ -3,9 +3,9 @@ mod Fixture {
     #[arch(X64 | Arm64)]
     struct DeviceIoControl {
         OutputBufferLength: u32,
-        #[Windows::Win32::Metadata::Alignment(8)]
+        #[align(8)]
         InputBufferLength: u32,
-        #[Windows::Win32::Metadata::Alignment(8)]
+        #[align(8)]
         IoControlCode: u32,
         Type3InputBuffer: *mut void,
     }

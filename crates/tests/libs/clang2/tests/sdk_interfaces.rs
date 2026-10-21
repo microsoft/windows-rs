@@ -195,21 +195,10 @@ fn sdk_interfaces() {
                             _ => panic!(),
                         }
                     };
-                    let expected = match function.exceptions {
-                        ExceptionSpecification::None => None,
-                        ExceptionSpecification::Noexcept => Some("noexcept"),
-                        ExceptionSpecification::NoThrow => Some("nothrow"),
-                        ExceptionSpecification::DynamicNone => Some("throw()"),
-                    };
-                    assert_eq!(
+                    assert!(
                         method
                             .find_attribute("NativeExceptionSpecificationAttribute")
-                            .map(|attribute| attribute
-                                .value()
-                                .into_iter()
-                                .map(|(_, value)| value)
-                                .collect::<Vec<_>>()),
-                        expected.map(|value| vec![Value::Utf8(value.into())]),
+                            .is_none(),
                         "{name}.{}",
                         method.name(),
                     );

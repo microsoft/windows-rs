@@ -10,9 +10,16 @@ correctness, testability, and maintainability, and produces usable Rust bindings
 ARM64. Preserve the required public surface and semantics except for reviewed corrections or
 exclusions. Parity is a compatibility constraint, not success; do not reproduce legacy bugs.
 
-**Pause breadth expansion. Focus on architecture and acceptance.** Use the existing workload to
-expose and verify design problems. Add coverage only to resolve an agreed contract or acceptance
-gap. Resuming breadth expansion requires maintainer approval.
+**Canonical metadata quality comes first.** Pause breadth expansion and downstream qualification.
+Inventory every emitted annotation/attribute, decide its published meaning, and make the RDL
+readable and useful before resuming package, runtime or delivery work. Native evidence remains
+separate from the canonical publication vocabulary. Zero baseline differences is not the goal.
+The RDL must be practical and concise without losing meaningful captured contracts. Redundant
+spelling can be removed when decoding reconstructs the same metadata; reducing the published
+meaning requires a separate, justified decision. Lack of a current consumer is not enough.
+
+The [attribute inventory](clang2-attributes.md) owns counts, meanings, consumers and proposed
+dispositions. It is an assessment, not approval to delete attributes or weaken contracts.
 
 This is the steering contract, not a progress log. Keep the decision register here and supporting
 findings and measurements in [acceptance evidence](clang2-evidence.md), rather than duplicating it.
@@ -40,184 +47,46 @@ Changes to strategy, scope, deferrals, or acceptance gates require approval.
 
 ## Work sequence
 
-1. **Establish controls and remove the immediate reproducibility hazard.** Make companion
-   freshness the first code change: detect changed native build inputs, not just missing DLLs or
-   ABI mismatches. Validate explicit external runtimes without silently replacing them. Record the
-   baseline, reviewed control, and experimental candidate separately. Agree on required scope,
-   budgets, and the PCH GUID decision below. Classify gaps by root cause and affected contracts,
-   separating dependent losses. Report obligations, not a completion percentage.
-2. **Review the architecture through difficult cases.** Start with import ABI and calling
-   conventions, native identity versus public naming, incomplete types and packing, bitfields,
-   annotations, and macro/definition inputs. Run bounded consumer probes alongside this review:
-   compare baseline and candidate API presence, signatures, layout, linkage, and behavior for
-   imports, callbacks, COM, and bitfields. Compilation alone is insufficient.
-   Deliver one ranked finding per listed case, naming the owner, evidence, preserved facts,
-   rejection rules, proposed resolution, and completion check. Review shared-runtime changes
-   independently from parser acceptance. Stop when every case has an evidenced disposition and
-   each unresolved item has a bounded fix or maintainer decision; approve that list before step 3.
-3. **Resolve provisional mechanisms.** Review SDK include configurations, import corrections, the
-   stdcall experiment, and core alignment changes. Each must become a justified, tested part of the
-   design, be replaced by a simpler correct mechanism, or be removed with an explicit unsupported
-   case. Investigate per-function x86 import decoration as ABI evidence, checking provider, target,
-   symbol identity, and compiler-verified signature compatibility. Do not rewrite captured ABI
-   from names or change callback defaults; ambiguous or conflicting evidence remains an error.
-   Prefer established named exports; ordinal archive records do not require ordinal consumers.
-   Require checked SDK publication policy or pinned export evidence for those names, retaining the
-   original records. Recovering names alone is never justification. Exclusions require approval.
-   The approved first slice uses frozen-baseline named linkage with exact compiler/SDK symbol,
-   provider, and target evidence. Do not copy baseline signatures or infer ABI from decorated names.
-   Close the Winsock losses before expanding to another affected family.
-   The next approved slice resolves implicit x86 import conventions using compiler-derived
-   per-function ABI candidates and exact SDK symbol/provider evidence. Preserve original
-   observations; explicit conventions or changes to nested callback, parameter, layout, or
-   annotation contracts must not be overridden. Do not enable the global stdcall experiment.
-   The maintainer also approved bounded attribute-based handling of inherited interface slots.
-   Preserve compiler-proven override relationships and their written contracts rather than
-   discarding redeclarations or adding vtable entries. Do not expand this into general C++ support
-   or infer that old declarations are buggy merely because their annotations differ.
-   The maintainer approved compiler-evidenced function aliases while retaining native public names.
-   Publication now requires explicit alias selection, preserving required compatibility APIs rather
-   than automatically exporting discovered aliases. Preserve the referenced declaration's ABI and
-   DLL/export ownership; PSAPI aliases must not switch to downlevel providers or depend on a `K32`
-   spelling rule.
-   The maintainer approved target-local unresolved imports in partial publication: retain
-   independently validated target variants and report missing import evidence per target.
-   Strict publication still fails; native and unrelated contract failures retain their existing
-   rejection rules. Missing import evidence does not prove that a target is unavailable.
-   The maintainer approved 88 x86 baseline availability corrections for the pinned SDK workload:
-   the mask-6 entries in `crates/tests/libs/clang2/input/sdk_import_availability.txt`. These are
-   acceptance corrections, not parser rules or claims about every Windows release. Preserve
-   captured declarations and missing-import diagnostics. Both missing `RtlCaptureContext2` target
-   pairs remain required pending stronger platform evidence.
-   `crates/tools/win32-2/src/approved-availability.txt` records that exact approved set for
-   `--compare-functions`; report raw and unapproved differences separately and reject stale entries.
-   The maintainer also approved the three x86 NDR availability corrections in
-   `sdk_ndr_import_availability.txt`, excluding its all-target `NdrClientCall2` control. The
-   approved availability set is 91 pairs. Both `RtlCaptureContext2` pairs remain required.
-   Four provider corrections are approved for the pinned workload: x86 `RtlCompareMemory`,
-   `RtlRaiseException` and `RtlRestoreContext`, plus ARM64 `RtlRaiseException`, use the SDK's
-   `ntdll.dll` imports instead of baseline `kernel32.dll`. `approved-providers.txt` records the
-   exact transitions; export names and compiler ABI remain unchanged. This does not approve other
-   provider differences or replace native ARM64 runtime qualification.
-   The maintainer approved equivalent transparent value typedefs in import-redeclaration
-   comparisons after native agreement. Preserve every observation and emit an observed signature;
-   do not erase nominal identity, qualifiers, callback contracts or typedef-owned annotations.
-   The maintainer approved fixed 64-bit data-pointer storage, including `PVOID64`. Retain native
-   pointer identity, pointee and qualifiers in metadata, and use typed address values in Rust.
-   Keep 32-bit extension variants and unqualified callable/function-pointer uses rejected.
-   Ordinary pointers to supported storage records and adjusted array parameters remain supported.
-   The maintainer approved bounded namespace ownership support: preserve qualified native identity,
-   resolve external WinRT ownership through explicit authoritative metadata references, and retain
-   flat Win32 names only when unambiguous. Reject collisions rather than merge unrelated native
-   declarations or invent public names. Start with memorybuffer/robuffer interop helpers and
-   collision/reference fixtures, without expanding the header workload or inferring WinRT identity
-   from namespace spelling or inheritance alone.
-   The maintainer also approved bounded SDK delegate ownership support after the namespace run
-   exposed `IDispatcherQueueHandler`. Resolve the configured SDK delegate spelling against
-   authoritative metadata, then check UUID, base, slots and signatures. Do not emit a duplicate
-   local COM interface, add per-name exceptions, or infer ownership from an `I` prefix alone.
-4. **Make correctness reproducible and end-to-end.** Establish a clean-checkout reproduction path,
-   reusable semantic comparisons, and selected SDK-backed CI coverage. Promote the review's
-   consumer probes into repeatable acceptance checks. Complete the metadata compatibility gate
-   below; successful round trips alone cannot establish correctness.
-5. **Consolidate and qualify the replacement.** Remove abandoned experiments and redundant paths.
-   Keep repository instructions short and crate documentation about the current design. Run the
-   complete agreed workload and consumer checks, account for every difference, and obtain
-   maintainer acceptance before switching production callers or removing the old implementation.
+1. **Account for canonical annotations.** Count occurrences and payload forms in candidate and
+   tracked RDL. Trace each family's source owner, meaning, existing encoding and consumer use.
+   Include lost existing attributes (`flags`, `special`, constant counts), not just new names.
+2. **Agree on the publication vocabulary.** Separate direction/optionality from access, capacity
+   from initialized length, outer from returned-pointer nullability, and entry from success/failure.
+   Decide which native facts belong only in capture evidence. Do not silently erase unsupported
+   safety contracts or replace them with weaker familiar attributes.
+3. **Implement bounded RDL improvements.** Start with redundant direction spelling and the
+   `NativeInput` boundary. Use shared reader/writer semantics and focused header/RDL fixtures.
+   Add short syntax only for a useful, specified contract, with reversible metadata encoding.
+   Do not edit generated RDL by hand or run a broad package/consumer campaign during this phase.
+4. **Resolve remaining canonical differences.** Classify missing declarations, lost attributes,
+   new public scope and provisional SDK contexts against native evidence and intended public
+   contracts. Baseline mistakes require justified corrections, not count-driven restoration.
+5. **Resume downstream acceptance after RDL review.** Fix candidate provenance in CI, qualify
+   paired consumers and runtime changes, verify native ARM64 and budgets, and obtain final review
+   and maintainer acceptance before cutover.
 
-## Landing priorities from the ca1d04954b review
+## Remaining work and deferred gates
 
-Treat the updated `clang-ground` review as an acceptance checklist, not proof that every reported
-failure is a parser regression. Its measurements describe an earlier source/output checkpoint. The
-91 availability corrections and four provider corrections are approved; fixed-pointer storage and
-combined Win32/WDK metadata compilation have local evidence. Consumer qualification is not a paired
-release, hosted CI result, or native ARM64 execution.
+The independent review at `1a27804432` confirms the function-alias policy, support-header cleanup,
+nested-alignment repair, explicit baseline controls and clang2 refactor. Its outstanding findings
+are tracked in [current review disposition](clang2-evidence.md#current-review-disposition).
 
-Finish the active namespace/reference boundary, then work through these gates in order. Do not start
-another general breadth sweep.
-
-| Priority | Work | Completion check |
-| --- | --- | --- |
-| 1 | Finish namespace and external delegate ownership; account for composition interop losses | Header/RDL/WinMD/consumer evidence for the memorybuffer/robuffer helpers and delegate references; inspect `ICompositorInterop` and `ICompositionDrawingSurfaceInterop` in the existing workload; no unclassified gains or losses |
-| 2 | Add a current-master acceptance control alongside the frozen baseline | Pin the inspected master commit and verify the reported #5083/#5084 PDH correction; compare required surface against both controls without silently resetting approvals or historical differences |
-| 3 | Correct publication ownership | Reproduce #4943; keep resource, CRT and driver-input declarations out of public partitions without removing required dependency contracts or weakening native reconciliation |
-| 4 | Port issue-linked legacy regressions individually | Three-target `.h`/`.rdl` fixtures and explicit dispositions for #5047, #4932, #5062, #4935, nested enums, and the collision/string/direction cases; retain the legacy fixtures |
-| 5 | Make closed-issue SDK coverage executable | A checked-in acceptance command covers PDH constants, sapiddk, IWTS APIs, `IMAGE_DOS_HEADER`, `NtQuerySystemInformation`, and the required interop interfaces |
-| 6 | Resolve publication and scope decisions | Review WinRT `InterfaceName_*`/`RuntimeClass_*` constants, new function pairs, SAL/NativeInput semantics and remaining GUID contexts; do not accept additions or strip contracts merely to improve counts |
-| 7 | Qualify and prepare delivery | Paired reader/generator/core versions, clean-checkout and hosted CI evidence, native ARM64 execution, agreed budgets, and concise maintained documentation |
-
-The maintainer approved metadata-owned external COM definitions with explicit native identity and
-use-site checks. Capture their identity, attributes, layout and bases without traversing member
-definitions. Record that ownership in native evidence, reject inconsistent ownership across inputs,
-and require matching authoritative metadata at publication. This replaces native member-body
-validation for explicitly external definitions; locally owned definitions retain full
-reconciliation. Use-site pointer shape, qualification and calling conventions remain native
-contracts. Do not emit local stand-ins or infer external ownership from spelling alone. By-value use
-and local inheritance from an externally owned definition require separate support and remain
-rejected.
-
-The maintainer approved excluding WinRT name-string support declarations from automatic Win32
-publication while retaining required native dependencies. Use source ownership, not a blacklist of
-`InterfaceName_*` or `RuntimeClass_*` symbols. Explicit selections remain eligible. This does not
-approve unrelated new function or constant additions.
-
-The maintainer approved scoped single- and double-NUL termination through capture, reconciliation,
-and metadata. Preserve raw pre/post qualifiers and bind their property ownership before comparing
-annotation sets. Keep entry and successful-return contracts distinct; conditional, grouped, and
-indirect forms remain scoped evidence unless their semantics are supported. Do not infer encoding,
-capacity, or direction, and do not treat arbitrary user annotation strings as configured SAL.
-
-The maintainer approved bounded member-alignment support for #4967. Preserve public field types,
-carry native member alignment in metadata, and implement layout in the Rust generator. Reject
-by-value uses until the calling ABI is established, including containing records and arrays. Correct
-offsets do not establish aggregate calling conventions.
-
-The maintainer approved native reference ABI and query-selection fixes end-to-end. Preserve
-reference metadata, lower native callable references with their pointer ABI and mutability, and
-leave WinRT byref behavior unchanged. Cover imports, callbacks, and COM methods; counted buffers
-must not become query interface-ID parameters.
-
-For the legacy-fixture port, distinguish setup differences from semantic failures. Configure
-explicit imports, macros, C linkage and x86 COM conventions where the fixture intends those
-contracts; do not rewrite the behavior being tested to make it pass. `data_classes.h` itself has no
-constructors or destructors, and `template_private_records.h` checks that unused private templates
-do not suppress unrelated public declarations. General C++ object-lifetime or template support is a
-separate decision, not an automatic consequence of those fixture names.
-
-Keep #4982 and #4995 as issue-linked repro obligations, and independently confirm #5081 before
-proposing closure. #5111 is a header-workload scope decision; #5107 requires an explicit
-declaration/import policy. #5042, #4977 and #4967 need their own semantic dispositions. Do not close
-issues or claim supported contracts from a superficially similar fixture.
-
-Do not rebase a dirty worktree or replace the frozen baseline as part of a comparison run. A later
-maintainer-approved baseline transition must preserve the old report, carry forward only still valid
-corrections, and explain master-side fixes separately from parser gains.
-
-The inspected master audit control is `afcb0ab1f8cf7a71ec563f659451748b26e7f5b6`.
-#5084 merged as `cc1bf12e71bc6c355de0a5090b6a8b529491e498`, adding `PdhMsg.h` to the legacy
-workload and publishing `pdhmsg.rdl`. Merge `6b48809df2` incorporates master `b95e10774b` and
-resets committed Win32 RDL to master; the candidate is preserved as local changes. Master's Win32
-RDL is byte-identical to the inspected control. The frozen comparison pin remains intentional:
-it owns the reviewed availability/provider corrections. A Git output reset does not approve
-changing those semantic controls. Re-pinning requires validating and carrying forward the
-corrections, not silently discarding them.
-
-## Updated review at 6b48809df2
-
-The review confirms the ownership, interop, PDH, and WinRT-name-string repairs, but identifies
-unresolved publication policy and a nested member-alignment gap. Do not adopt its percentage
-estimate as readiness evidence. Complete the active package check, then use this order:
-
-| Work | Required disposition |
+| Work | Status and completion check |
 | --- | --- |
-| Function macro aliases | Implement the approved explicit-selection policy. Keep native alias evidence and reconciliation. Separate macro aliases, aliases bound to `A` exports, and native additions in accounting. Preserve required compatibility APIs such as `EnumProcesses`; do not automatically export discovered aliases. |
-| Nested member alignment | Qualified storage traversal covers nested records and multidimensional arrays, including external references. Affected records omit Debug/equality; pointer-only owners retain them. Trait policy and packed-input rejection remain final-review items. |
-| Support declarations and `NativeInput` | Decide which SDK-internal macro roots belong in public output and whether `stdint` aliases are roots or dependencies. Retain annotation evidence; omit projected attributes only when their semantics are proven redundant. |
-| Driver configuration | Move approved namespace/support-header settings into manifest data without changing compilation contexts or expanding header scope. |
-| Controls and delivery | Keep the frozen and inspected-master controls explicit, make package acceptance reproducible without session files, and qualify paired tooling, hosted CI, native ARM64 execution, and budgets. |
-| Reviewability | Consolidate the large functions along existing ownership boundaries and condense iteration logs into maintained documentation before landing. |
+| Canonical annotation quality | Active. Inventory, input/exception normalization and compact retained-contract forms implemented. Richer buffers, residual SAL, defaults, const methods and base-marker publication remain open. |
+| Existing metadata differences | Open after the attribute model. Account for required API families and `activationregistration`/`windowsfoundation`; no automatic exclusions or zero-difference target. |
+| UIA scope and unresolved imports | D23 approves candidate scope only. Keep `CustomNavigationPattern_Navigate` unresolved ownership explicit; generated Rust/live-provider qualification waits. |
+| SDK compilation contexts and PCH GUIDs | Open. Re-evaluate Olectl preloads, INITGUID phases, topology context and lean definition inputs together. Preserve the compiler reproducer; no source retries or guessed values. |
+| Candidate-aware CI | Confirmed gap, deferred. `package_acceptance` reads worktree RDL; clean CI has legacy output and does not generate the candidate first. Require a generated, identified candidate before claiming this gate. |
+| Consumer and runtime decisions | Deferred, not waived. Member-alignment traits/packed input, shared unaligned vptr loads, metadata version pairing and unresolved consumer contracts need acceptance. |
+| Driver organization | Deferred. Split `run` and `sdk_library_policy` by existing responsibilities, proving configuration/output neutrality. |
+| Landing boundaries | Deferred to maintainer. Separate production bindgen changes from parser/refactor/policy work; do not rewrite commits automatically. |
+| Delivery qualification | Deferred. Actual candidate hosted/clean-checkout runs, native ARM64 execution, production generation ordering, controlled budgets and final independent review remain required. |
 
-These are acceptance obligations, not approval of new public API scope or issue closure.
+Review findings are obligations to investigate, not new public scope approvals. Keep issue-specific
+fixtures and distinguish their setup from semantics; do not close issues from superficially similar
+coverage. Preserve frozen and inspected-master controls and their approved corrections. Do not
+rebase a dirty tree or silently migrate the baseline.
 
 ## Decision register for final acceptance
 
@@ -246,10 +115,10 @@ acceptance. Unresolved choices remain visible even when unrelated work passes.
 | D15 | Implemented: native x86 variants, legacy generator aliases, and public architecture-empty modules coexist. Full isolated rich/raw packages compile on all three targets; five generators remain output-neutral. | Qualify matched production metadata/routing and hosted CI. Local package compilation does not replace native ARM64 execution or paired-release acceptance. |
 | D16 | Retained controls: frozen comparison/approval pin plus inspected-master audit. The requested Git metadata reset does not migrate semantic approvals. | Decide any re-pin explicitly, preserve historical reports, and carry forward only still-valid corrections. Master metadata currently equals the inspected control. |
 | D17 | Implemented: approved automatic macro exclusion for `specstrings.h`, `rpcsal.h` and `driverspecs.h` removes only six internal constants; all 674 retained partitions are byte-identical. Required `stdint` aliases remain. | Keep support headers in compilation and SAL evidence. Explicit header/macro requests remain eligible. Preserve dependency ownership; no parser exceptions or symbol-name blacklist. Re-evaluate the scope at cutover. |
-| D18 | Implemented: approved omission of `NativeInput(ReadOnly)` only on canonically by-value scalars/enums, including typedefs. Removes 15,296 attributes without other RDL or coverage changes. | Preserve native SAL evidence, reconciliation, input direction and other contracts. Pointer-backed handles, pointers, references, COM objects and records retain current treatment. Re-evaluate the boundary at final acceptance. |
+| D18 | Superseded by D30: scalar/enum-only omission removed 15,296 NativeInput attributes without other RDL or coverage changes. | D30 extends publication normalization to all parameter kinds while retaining native SAL evidence, reconciliation, direction and other contracts. |
 | D19 | Four required storage/smart-card GUIDs recovered through native definition contexts with unchanged values and no other RDL changes. #4977, #5111 and #5107 are separated under D22-D24; D26 accepts the earlier native additions as candidate scope. Remaining GUIDs still need disposition. | Re-evaluate the selection-owned lean GUID includes. Make separate evidence-backed policy dispositions; no guessed GUIDs or implicit scope expansion. |
 | D20 | Implemented: bounded SDK namespace/include contexts are declared in `header_contexts.rs`; translation-unit phase application remains driver-owned. | Seven complete before/after configurations are byte-identical. Re-evaluate the bounded contexts and qualify WinRT-before-Win32 production generation ordering; no parser exceptions or scope expansion. |
-| D21 | Repository-owned full package reproduction is implemented, passes locally on all three targets and is selected in CI. Required: paired tooling compatibility, actual clean-checkout/hosted runs, native ARM64 execution, agreed budgets and final independent review. | Obtain actual qualification and maintainer sign-off; local tests and compile-only ARM64 evidence do not waive these gates. |
+| D21 | Repository-owned full package reproduction passes locally on the generated candidate on all three targets. The CI invocation reads legacy worktree RDL, so candidate CI qualification is not established. | Require generated candidate input/provenance, paired tooling compatibility, actual clean-checkout/hosted runs, native ARM64 execution, agreed budgets, final review and maintainer sign-off. |
 | D22 | Approved: preserve compiler-owned constant types, including signed constants associated with unsigned APIs. Handle #4977's Rust convenience typing separately. | Do not retag constants by name or usage, or claim #4977 is fixed. Re-evaluate any future public typing policy independently of native capture and metadata agreement. |
 | D23 | Implemented: approved `UIAutomationCoreApi.h` expansion adds 98 native imports on all targets and 397 constants; all 674 preceding partitions are byte-identical. Focused provider/API-ID fixtures preserve signatures, imports, values and ownership. | One-header exception only. Keep missing `CustomNavigationPattern_Navigate` import ownership and inline helpers explicit. Qualify generated Rust and live providers before issue closure; re-evaluate the expanded public scope at cutover. |
 | D24 | Approved: keep #5107 `ProcessPrng` separate from clang replacement capture. Any authored declaration/import supplement is separate work. | Do not synthesize compiler evidence from documentation or DLL exports. This disposition does not implement the API or close the issue; re-evaluate any future supplement's ABI and publication contract independently. |
@@ -257,6 +126,10 @@ acceptance. Unresolved choices remain visible even when unrelated work passes.
 | D26 | Approved: all 51 observed native names / 127 additional target pairs preceding the UI Automation expansion are accepted as candidate public scope. The exact set is the non-UIA native-declaration additions in `structure-after` function coverage. | Preserve the observed names, targets and named providers; no blanket approval of future additions or macro aliases. Scope approval does not waive ABI/consumer qualification or grant cutover acceptance. |
 | D27 | Approved: separate native constant and macro identities; preserve native constants in partial publication while reporting failed or colliding macros separately. | Native and macro conflicts within their own observations remain fatal. Do not silently substitute active macro values for native constants, including WIC's version-1 CLSIDs shadowed by version-2 macros. |
 | D28 | Approved: partial publication may emit an independently captured constant macro beside a declaration-only native object, retaining the missing-native-definition diagnostic. | The macro does not define the native object. Actual native definitions take precedence; conflicts and failed native definitions cannot enable macro substitution. Strict publication still requires native definitions. |
+| D29 | Approved: prioritize canonical metadata/RDL quality and inventory all annotations before further downstream work. | Agree meanings, existing-attribute reuse, native-only evidence and short RDL syntax before semantic changes. Downstream gates are deferred, not waived. Baseline parity and smaller text alone do not establish correctness. |
+| D30 | Implemented: approved normalization of SAL1/SAL2/RPC inputs through existing RDL direction and optionality, removing NativeInput publication on all parameter kinds. Inferred input needs no explicit attribute. | Preserve native SAL distinctions and reconciliation. Input is not COM object immutability. Counts, termination, returned pointers, qualifiers and residual contracts remain separate. New attributes require a useful contract beyond existing RDL, not just different source evidence. |
+| D31 | Implemented: supported C++ exception specifications remain native-only evidence, with no NativeExceptionSpecification publication. Anonymous non-throwing pointers can use existing C/stdcall FNPTR without an attribute-owning callback. | Preserve native exception comparisons and compatible callback selection. Keep noreturn public and its anonymous-pointer restriction intact. Do not infer a language-neutral unwind ABI, weaken unsupported native forms or treat unannotated APIs as throwing. |
+| D32 | Implemented: direct, unscoped, argument-free SAL2 `_Check_return_` and `_Must_inspect_result_` on callable results normalize to parameterless `#[must_use]`. Named callback aliases inherit the contract; duplicate forms emit one marker. | Keep native SAL distinctions and reconciliation. Do not promote output-parameter, field, global, value-typedef or conditional inspection to a callable result contract. Success predicates remain separate. This is not a success, purity or Rust-diagnostic guarantee; downstream generation remains deferred. |
 
 Maintain the projection/reconciliation ownership boundaries and remove abandoned paths before
 landing. Keep this register, the evidence page and crate documentation consistent. Acceptance must
@@ -283,7 +156,7 @@ rewrite or a reporting framework.
 ## Controls and finish line
 
 Comparison baseline: `6e68e56081340eaa932f4dbc92ec54c56ed51473`, plus the approved `WM_CTLCOLOR`
-source correction in `crates/tools/win32-2/src/baseline`. The existing 370-header manifest is a
+source correction in `crates/tools/win32-2/src/baseline`. The current 372-header manifest is a
 workload control, not proof of complete required scope. Record compiler/SDK pins, companion
 identity, targets, TU sources, arguments, macro selection, and import policy for reproducible runs.
 Keep partial candidates visible in the working tree under `metadata/win32`, not committed or

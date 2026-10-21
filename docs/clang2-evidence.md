@@ -1,21 +1,25 @@
 # Clang replacement evidence
 
 This page records the current acceptance evidence, not replacement readiness. The
-[acceptance plan and D01-D28 register](clang2-acceptance.md) own scope and approvals.
+[acceptance plan and D01-D32 register](clang2-acceptance.md) own scope and approvals.
 [windows-clang2](crates/windows-clang2.md) describes implemented contracts and repository-owned
 reproduction commands. Implementation approval is not final consumer or cutover acceptance.
+The active work is the [canonical attribute inventory](clang2-attributes.md); downstream
+qualification is deferred until the RDL model is accepted.
 
 ## Controls and current accounting
 
-The current candidate includes D27-D28. Their comparison control is `structure-after`, with the
-same header selection and compiler configuration.
+The current candidate includes D27-D28, D29 canonical spelling improvements, D30 input normalization
+and D31 native-only exception specifications, plus D32 canonical result use. D27-D28 use
+`structure-after` as their comparison control. D29 compares against the completed D27-D28 candidate,
+with the same header selection and compiler configuration.
 
 | Control | Identity |
 | --- | --- |
 | Frozen comparison baseline | `6e68e56081340eaa932f4dbc92ec54c56ed51473` |
 | Inspected-master audit | `afcb0ab1f8cf7a71ec563f659451748b26e7f5b6` |
-| Working source | `6b48809df2` plus uncommitted implementation changes |
-| Candidate | D27-D28 constant identities and declaration-only macro publication |
+| Working source and latest independent review | `1a27804432` |
+| Candidate | D27-D28 plus D29 compact spelling, D30 NativeInput removal, D31 native-only exception specifications and D32 result-use normalization |
 | Native toolchain | LLVM 22.1.8, companion ABI 19, SDK 10.0.28000.2270 |
 | Workload | 372 selected headers, seven translation units, x86/x64/ARM64 |
 
@@ -47,6 +51,30 @@ ownership is not absence; new names do not offset required losses. Unselected ma
 in omission counts, and multiline diagnostic text must not be counted as separate omissions. Refresh
 the comparison reports only after successful generation.
 
+## Current review disposition
+
+The independent review at `1a27804432` reproduces the current inventory and confirms the
+function-alias selection, support-header exclusions, nested-alignment repair, explicit baseline
+controls and clang2 responsibility split. It identifies the following remaining work. D29 puts
+canonical metadata quality before the downstream items; it does not waive them.
+
+| Finding | Verified status | Required action |
+| --- | --- | --- |
+| CI package step tests legacy input | Confirmed. `package_acceptance` reads `metadata/win32`; `test.yml` does not generate the candidate, and `gen.yml` invokes `tool-win32-2` only with `--refresh-named-exports`. | Correct the input/provenance contract after the RDL work. Local candidate package success remains valid; candidate CI coverage is not established. |
+| Required missing APIs | The report retains 198 unapproved target pairs across 70 names. Examples include WaitOnAddress, MiniDumpWriteDump, XAudio2Create, IsEqualGUID, CfRegisterSyncRoot, PDH, WSD, RoGetActivatableClassRegistration and uaw helpers. | Classify native support, public requirements and baseline correctness. Fix or obtain a justified disposition; do not treat zero differences as the goal. |
+| Unrecorded partition losses | `activationregistration` and `windowsfoundation` are absent. The Arm64 `__FIMapView_2_HSTRING_IInspectable_t` alias fails on an unsupported `TemplateRef IMapView`; `IActivatableClassRegistration`, its pointer alias and the RoGet import are pruned as dependents. | Add a focused canonical metadata case and decide the required surface. ActivationType, RegistrationScope and RegisteredTrustLevel are also absent with this partition; this is not an approved exclusion. |
+| UIA expansion | D23's 98 imports and 397 constants remain candidate scope. `CustomNavigationPattern_Navigate` still lacks configured import ownership. | Keep the unresolved import and acceptance boundary explicit. Defer downstream/live-provider qualification. |
+| Driver size | `main.rs` remains about 1,650 lines; the review identifies `run` and `sdk_library_policy` as the next large responsibilities. | Defer an output-neutral split until the metadata model is settled. Moving SDK contexts into data did not eliminate their semantic review obligation. |
+| Process-document noise | Historical review-response sections duplicated implemented work; session recovery references were not acceptance evidence. | The plan now has a current sequence and gate table. Retain the approval register, concise evidence and a focused attribute inventory instead of iteration narratives. |
+| Single snapshot commit | The reviewed snapshot combines production bindgen behavior, parser refactoring, policy, scope and documentation. | Maintainer-owned landing work: separate production bindgen changes and their rationale from parser/policy changes. No automatic commit rewriting. |
+| NativeInput noise | Resolved under D30. All 28,329 occurrences are removed; existing input/optionality flags and native SAL reconciliation remain. | D31 also removes exception-specification publication. Review the remaining eight qualified families by useful public contract, not native spelling alone. |
+
+The tracked `vadefs` partition is also absent, consistently with the approved compiler/CRT root
+ownership boundary. It is not the same category as the unresolved activation-registration loss.
+The review does not approve removing the remaining APIs, extending UIA scope, or changing
+annotation semantics. It accepts the frozen-control explanation; re-pinning is not a prerequisite
+for this work.
+
 ## Scope decisions and measured deltas
 
 | Decisions | Evidence retained by the current candidate | Qualification limit |
@@ -62,13 +90,17 @@ the comparison reports only after successful generation.
 | D17 | Automatic macro discovery excludes three SAL support headers, removing only six internal constants and three partitions. All 674 retained partitions are identical. | Compilation, explicit selections and required `stdint` aliases remain. |
 | D18 | Scalar/enum-only input-attribute omission removes 15,296 attributes in 280 partitions, retaining 28,322. Other RDL, coverage and omissions are unchanged. | Pointer-backed handles, pointers, references, COM objects and records retain their input attributes and native evidence. |
 | D19-D20 | Lean definition inputs recover four storage/smart-card GUIDs with baseline values. Seven before/after driver configurations are identical after context extraction. | Remaining GUIDs/PCH policy and production WinRT-before-Win32 ordering stay open. |
-| D21 | `package_acceptance` uses checked-in routing, filters, dependencies and lints without session files. | Hosted/clean-checkout execution, native ARM64, paired releases and budgets are not established by local compilation. |
+| D21 | `package_acceptance` uses checked-in routing, filters, dependencies and lints; local runs used regenerated candidate RDL. | Its CI invocation uses legacy worktree RDL. Candidate-aware hosted/clean-checkout execution, native ARM64, paired releases and budgets remain open. |
 | D22 | Actual SDK constants for #4977 retain signed native types despite unsigned API parameters. | Rust convenience typing is separate work; no retagging or issue closure. |
 | D23 | `UIAutomationCoreApi.h` adds 98 imports on all targets, 397 constants, 17 records, six enums and six aliases. All preceding partitions and coverage rows stay identical. | Nine provider/lookup APIs have native import/signature coverage. Generated-Rust/live-provider qualification remains open. |
 | D24 | `ProcessPrng` stays outside SDK capture; a declaration/import supplement would be separate authored policy. | Documentation or DLL exports cannot manufacture compiler evidence. #5107 is not implemented or closed. |
 | D25 | Publication phases, record storage and native record/value checks have separate owners. All 675 partitions, configuration, coverage and provenance match the UIA control; normalized omissions are unchanged. | The extraction changes no contract, exclusion or scope. |
 | D26 | The 51 native names / 127 pairs preceding UIA are accepted as candidate scope. | Observed names, targets and providers only; not final ABI/consumer qualification. |
 | D27-D28 | Native/macro identity separation recovers three GUIDs without losing retained declarations. GUID_NULL and IID_IResourceManager move from foundation to their macro-owning headers. | Independently published macros do not define native objects. Declaration-only native objects retain explicit missing-definition diagnostics. |
+| D29 | The inventory covers every attribute family. Direction cleanup removes 357,026 bytes with byte-identical WinMD. Typed bitfields and compact override/alignment/returned-pointer/termination forms remove another 673,265 bytes with identical canonical metadata and architecture-specific signatures, flags and attributes. | NativeInput and every other custom-attribute payload remain unchanged. Semantic removals still require decisions. Metadata-only fixture paths keep downstream qualification out of these iterations. |
+| D30 | Removes 28,329 NativeInput uses in 432 partitions and 1,648,268 bytes. All other RDL text, metadata signatures, flags and attributes remain unchanged, as do omissions and coverage. CoIsHandlerConnected now uses inferred input with no extra attribute. | Native SAL/RPC distinctions still reject incompatible observations. Legacy schema support remains for explicit older metadata inputs; no new NativeInput uses are published. |
+| D31 | Removes 5,807 exception attributes in 43 partitions and 470,310 bytes. All other RDL text, signatures, flags, attributes, omissions and coverage remain unchanged, including four SDK noreturn contracts. Anonymous noexcept/empty-throw pointers have C/stdcall FNPTR metadata coverage. | Native conflicts and callback distinctions remain checked. Computed/dependent/nonempty forms stay unsupported. No unwind ABI, exception translation or downstream qualification is claimed. |
+| D32 | Normalizes 1,421 callable-result SAL annotations to must_use in 55 partitions, removing 84,868 bytes. Canonical RDL is 17,917,433 bytes, with 6,742 qualified attributes and 4,815 residual SAL occurrences. All unrelated text, signatures, flags, attributes, omissions and coverage remain unchanged. | Native conflicts remain checked. Parameter/global inspection, conditional annotations and success predicates stay separate. Duplicate and inherited callback contracts have header/RDL and metadata round-trip coverage. Downstream diagnostics are deferred. |
 
 D26's exact set is the non-UIA `new`, `native-declaration` rows in the `structure-after` function
 report. Family labels do not approve future members:
@@ -282,20 +314,17 @@ but the frozen RDL routing inputs omit it. The supplement preserves its existing
 without a fallback namespace or name-specific routing. Production `tool-package` must not combine
 partial candidate routes with a different committed WinMD.
 
-CI selects SDK policy/metadata cases, cross-target consumers, package acceptance and named-export
-snapshot regeneration. Local runs do not establish hosted execution or a fresh clean checkout.
-Native ARM64 execution, release pins, final independent review and maintainer sign-off remain open.
+CI selects SDK policy/metadata cases, cross-target consumers and named-export snapshot regeneration.
+Its package test reads the checked-out legacy RDL; it does not establish candidate package coverage.
+Local candidate runs do not establish hosted execution or a fresh clean checkout. Correct candidate
+input/provenance before claiming that gate. Native ARM64 execution, release pins, final independent
+review and maintainer sign-off remain open. These downstream tasks wait for canonical RDL quality.
 No issues are closed and no production callers are switched by this evidence.
 
 Final scope and performance limits remain proposals: no slower than a matched legacy run,
 provisionally <=480 seconds and <=8 GB peak process-tree working set. Ask for a quiet machine before
 measuring. Historical concurrent timings and single-process samples are not budget results. Retain
 machine/configuration/toolchain identity and distinguish warm dependency state.
-
-Older per-iteration logs and archives remain recovery evidence in Copilot sessions
-`1810274b-2842-4eda-8537-79e6ac99f61c`, `e8bd0450-292d-42c8-a2b2-45d86a4711e5` and
-`74520e25-3a04-448f-bca8-a0140634a829`. They are not inputs to the repository acceptance commands.
-Current decisions and outstanding obligations live in these maintained pages, not those sessions.
 
 [midl-protocol]: https://learn.microsoft.com/en-us/windows/win32/midl/-protocol
 [ums-support]: https://learn.microsoft.com/en-us/windows/win32/procthread/user-mode-scheduling

@@ -25,6 +25,39 @@ pub(super) fn write(attributes: &[Attribute]) -> Result<TokenStream, Error> {
     write_owned(attributes, None)
 }
 
+pub(super) fn write_callable(attributes: &[Attribute]) -> Result<TokenStream, Error> {
+    let mut must_use = false;
+    let native = write_result_owned(attributes, None, &mut must_use)?;
+    let result = must_use.then(|| quote! { #[must_use] });
+    Ok(quote! { #native #result })
+}
+
+fn write_result_owned(
+    attributes: &[Attribute],
+    typedef: Option<&str>,
+    must_use: &mut bool,
+) -> Result<TokenStream, Error> {
+    let sal = resolve::sal(attributes);
+    *must_use |= sal.iter().any(result_check);
+    write_with_sal(
+        attributes,
+        typedef,
+        sal.into_iter().filter(|value| !result_check(value)),
+    )
+}
+
+fn result_check(value: &sal::Annotation<'_>) -> bool {
+    value.unscoped().is_some_and(|value| {
+        value.version == "2"
+            && matches!(
+                value.name.as_str(),
+                "_Check_return_" | "_Must_inspect_result_"
+            )
+            && value.arguments.is_empty()
+            && value.expanded.is_empty()
+    })
+}
+
 pub(super) fn field(
     snapshot: &Snapshot,
     field: &Field,
@@ -41,7 +74,7 @@ pub(super) fn field(
     )?;
     if let Some(alignment) = field_alignment(&field.attributes)? {
         let alignment = proc_macro2::Literal::u16_unsuffixed(alignment);
-        result.extend(quote! { #[Windows::Win32::Metadata::Alignment(#alignment)] });
+        result.extend(quote! { #[align(#alignment)] });
     }
     for value in normalized {
         let sal::FieldAnnotation::Contract(contract) = value else {
@@ -104,13 +137,7 @@ pub(super) fn function(function: &Function, attributes: &[Attribute]) -> TokenSt
             .iter()
             .any(|attribute| attribute.kind == AttributeKind::Cxx11NoReturn))
     .then(|| quote! { #[noreturn] });
-    let value = match function.exceptions {
-        ExceptionSpecification::None => return quote! { #noreturn },
-        ExceptionSpecification::Noexcept => "noexcept",
-        ExceptionSpecification::NoThrow => "nothrow",
-        ExceptionSpecification::DynamicNone => "throw()",
-    };
-    quote! { #noreturn #[Windows::Win32::Metadata::NativeExceptionSpecification(#value)] }
+    quote! { #noreturn }
 }
 
 pub(super) fn callable(attributes: &[Attribute]) -> bool {
@@ -130,7 +157,14 @@ pub(super) fn write_typedef(
     resolution: &Resolution<'_>,
     alias: &AliasGroup,
 ) -> Result<TokenStream, Error> {
-    let attributes = covering(
+    write_owned(typedef_attributes(resolution, alias)?, Some(&alias.name))
+}
+
+fn typedef_attributes<'a>(
+    resolution: &'a Resolution<'_>,
+    alias: &AliasGroup,
+) -> Result<&'a [Attribute], Error> {
+    covering(
         &alias.name,
         alias.observations.iter().map(|reference| {
             resolution.snapshots[reference.snapshot].aliases[reference.alias.0].observations
@@ -138,16 +172,17 @@ pub(super) fn write_typedef(
                 .attributes
                 .as_slice()
         }),
-    )?;
-    write_owned(attributes, Some(&alias.name))
+    )
 }
 
-pub(super) fn inherited_callback(
+pub(super) fn write_callback(
     resolution: &Resolution<'_>,
     snapshot: &Snapshot,
     mut written: TypeId,
+    attributes: &[Attribute],
 ) -> Result<TokenStream, Error> {
-    let mut attributes = TokenStream::new();
+    let mut must_use = false;
+    let mut attributes = write_result_owned(attributes, None, &mut must_use)?;
     loop {
         match snapshot.types[written.0].kind {
             TypeKind::Alias(id) => {
@@ -157,16 +192,22 @@ pub(super) fn inherited_callback(
                     .iter()
                     .find(|group| group.name == alias.name)
                     .unwrap();
-                attributes.extend(write_typedef(resolution, group)?);
+                attributes.extend(write_result_owned(
+                    typedef_attributes(resolution, group)?,
+                    Some(&group.name),
+                    &mut must_use,
+                )?);
                 written = alias.observations[0].underlying;
             }
             TypeKind::Pointer(inner)
             | TypeKind::Attributed {
                 modified: inner, ..
             } => written = inner,
-            _ => return Ok(attributes),
+            _ => break,
         }
     }
+    let result = must_use.then(|| quote! { #[must_use] });
+    Ok(quote! { #attributes #result })
 }
 
 fn write_owned(attributes: &[Attribute], typedef: Option<&str>) -> Result<TokenStream, Error> {
@@ -222,7 +263,6 @@ pub(super) fn parameter(
     parameter: &Parameter,
     parameters: &[Parameter],
     ty: &MetadataType,
-    native_kind: &TypeKind,
 ) -> Result<TokenStream, Error> {
     let attributes = &parameter.attributes;
     if !only_contracts(attributes) {
@@ -270,8 +310,7 @@ pub(super) fn parameter(
         input |= output;
         output = false;
     }
-    let input = input.then(|| quote! { #[r#in] });
-    let output = output.then(|| quote! { #[out] });
+    let direction = write_param_direction(ty, input, output);
     let optional = optional.then(|| quote! { #[opt] });
     let reserved = normalized
         .contains(&sal::ParameterAnnotation::Reserved)
@@ -285,24 +324,13 @@ pub(super) fn parameter(
             null_on_failure,
             ..
         } = contract.returned_pointer?;
-        Some(quote! {
-            #[Windows::Win32::Metadata::NativeReturnedPointer(
-                MayBeNull = #may_be_null, NullOnFailure = #null_on_failure
-            )]
-        })
-    });
-    let entry = normalized.iter().filter_map(|value| {
-        if matches!(native_kind, TypeKind::Scalar(_) | TypeKind::Enum(_)) {
-            return None;
-        }
-        let sal::ParameterAnnotation::Contract(contract) = value else {
-            return None;
-        };
-        let read_only = contract.input_read_only?;
-        Some(quote! { #[Windows::Win32::Metadata::NativeInput(ReadOnly = #read_only)] })
+        Some(windows_rdl::emit::write_returned_pointer(
+            may_be_null,
+            null_on_failure,
+        ))
     });
     let retval = midl.retval.then(|| quote! { #[retval] });
-    Ok(quote! { #native #input #output #optional #reserved #retval #(#returned)* #(#entry)* })
+    Ok(quote! { #native #direction #optional #reserved #retval #(#returned)* })
 }
 
 pub(super) fn buffer(
@@ -457,12 +485,10 @@ pub(super) fn buffer(
         });
     }
     if on_entry || on_success {
-        let double_entry = double_entry.then(|| quote! { , DoubleNullOnEntry = true });
-        let double_success = double_success.then(|| quote! { , DoubleNullOnSuccess = true });
-        attributes.extend(quote! {
-            #[Windows::Win32::Metadata::NativeNullTerminated(
-                OnEntry = #on_entry, OnSuccess = #on_success #double_entry #double_success)]
-        });
+        attributes.extend(windows_rdl::emit::write_null_terminated(
+            on_entry.then_some(double_entry),
+            on_success.then_some(double_success),
+        ));
     }
     if let Some(length) = initialized {
         let index = count_index(length.count.parameter)?;

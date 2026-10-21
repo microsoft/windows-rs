@@ -3,6 +3,15 @@ use windows_clang2::*;
 
 #[test]
 fn nested_records() {
+    nested_records_case(true);
+}
+
+#[test]
+fn nested_record_metadata() {
+    nested_records_case(false);
+}
+
+fn nested_records_case(consumer: bool) {
     helpers::ensure_libclang();
     let input = selected_fixture("nested_records", &[]);
     let snapshots = capture(
@@ -44,6 +53,13 @@ fn nested_records() {
     }
     let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
     assert_eq!((output.records, output.aliases), (7, 1));
+    if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
+        std::fs::write(
+            input_dir().join("nested_records.rdl"),
+            &output.partitions["nested_records"].rdl,
+        )
+        .unwrap();
+    }
     let expected = std::fs::read_to_string(input_dir().join("nested_records.rdl"))
         .unwrap()
         .replace("\r\n", "\n");
@@ -56,7 +72,9 @@ fn nested_records() {
     );
 
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
-    let winmd = root.join("target\\test-clang2-nested-records.winmd");
+    let winmd = root.join(format!(
+        "target\\test-clang2-nested-records-{consumer}.winmd"
+    ));
     let rdl = winmd.with_extension("rdl");
     windows_rdl::reader()
         .input(root.join("metadata\\metadata.rdl"))
@@ -89,39 +107,44 @@ fn nested_records() {
     );
     let bindings = winmd.with_extension("rs");
     let compiled = winmd.with_extension("rmeta");
-    windows_bindgen::builder()
-        .input(&winmd)
-        .filter("Fixture.Shared")
-        .flat()
-        .sys()
-        .output(&bindings)
-        .write();
-    let mut rust = std::fs::read_to_string(&bindings).unwrap();
-    rust.push_str(
-        "\nfn same<T>(_: &T, _: &T) {}\n\
+    if consumer {
+        windows_bindgen::builder()
+            .input(&winmd)
+            .filter("Fixture.Shared")
+            .flat()
+            .sys()
+            .output(&bindings)
+            .write();
+        let mut rust = std::fs::read_to_string(&bindings).unwrap();
+        rust.push_str(
+            "\nfn same<T>(_: &T, _: &T) {}\n\
          fn check(value: &Shared) { same(&value.first, &value.second); }\n\
          const _: () = { assert!(core::mem::size_of::<Shared>() == 8); };\n",
-    );
-    std::fs::write(&bindings, rust).unwrap();
-    let result = std::process::Command::new("rustc")
-        .args([
-            "--crate-name",
-            "test_clang2_nested",
-            "--crate-type=lib",
-            "--emit=metadata",
-            "--edition=2024",
-        ])
-        .arg(&bindings)
-        .arg("-o")
-        .arg(&compiled)
-        .output()
-        .unwrap();
-    assert!(
-        result.status.success(),
-        "{}",
-        String::from_utf8_lossy(&result.stderr)
-    );
-    for path in [winmd, rdl, bindings, compiled] {
+        );
+        std::fs::write(&bindings, rust).unwrap();
+        let result = std::process::Command::new("rustc")
+            .args([
+                "--crate-name",
+                "test_clang2_nested",
+                "--crate-type=lib",
+                "--emit=metadata",
+                "--edition=2024",
+            ])
+            .arg(&bindings)
+            .arg("-o")
+            .arg(&compiled)
+            .output()
+            .unwrap();
+        assert!(
+            result.status.success(),
+            "{}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+        for path in [bindings, compiled] {
+            std::fs::remove_file(path).unwrap();
+        }
+    }
+    for path in [winmd, rdl] {
         std::fs::remove_file(path).unwrap();
     }
 

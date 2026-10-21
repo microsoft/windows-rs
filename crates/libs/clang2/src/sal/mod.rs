@@ -72,6 +72,7 @@ pub(crate) struct ParameterContract {
     pub initialized: Option<InitializedLength>,
     pub terminated: bool,
     pub returned_pointer: Option<ReturnedPointer>,
+    // Native agreement retains SAL/RPC distinctions even when publication uses the same direction.
     pub input_read_only: Option<bool>,
 }
 

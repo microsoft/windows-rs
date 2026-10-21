@@ -1,6 +1,6 @@
 #[win32]
 mod Fixture {
-    extern "C" fn CALLBACK(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] input: LPSTR, #[out] output: LPWSTR);
+    extern "C" fn CALLBACK(input: LPSTR, #[out] output: LPWSTR);
     type LPSTR = *mut i8;
     type LPWSTR = *mut u16;
     type PCSTR = *const i8;
@@ -8,5 +8,5 @@ mod Fixture {
     type PSTR = *mut i8;
     type PWSTR = *mut u16;
     #[library("fixture.dll")]
-    extern "C" fn Strings(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] legacy_input: LPSTR, #[out] legacy_output: LPSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] explicit_input: PSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] wide_input: LPWSTR, #[out] wide_output: PWSTR);
+    extern "C" fn Strings(legacy_input: LPSTR, #[out] legacy_output: LPSTR, explicit_input: PSTR, wide_input: LPWSTR, #[out] wide_output: PWSTR);
 }

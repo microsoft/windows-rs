@@ -36,3 +36,6 @@ struct __declspec(uuid("22222222-2222-3333-4444-555555555555")) IInputs {
 };
 extern "C" void ScalarConflict(READ int value);
 extern "C" void EnumConflict(READ Choice value);
+extern "C" void InterfaceConflict(READ IObject* value);
+extern "C" void InputContracts(READ const int* valid, const int* unspecified,
+    OPTIONAL const int* optional);

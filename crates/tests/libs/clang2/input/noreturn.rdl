@@ -36,7 +36,6 @@ mod Fixture {
     extern "C" fn NormalizeFunction(code: i32);
     extern "C" fn OrdinaryCallback(code: i32);
     #[noreturn]
-    #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
     #[library("example.dll", import = "ReadPayloadEntry")]
     extern "C" fn ReadPayload(code: i32);
     #[noreturn]

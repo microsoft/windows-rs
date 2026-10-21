@@ -556,8 +556,9 @@ impl Encoder<'_> {
         name: &str,
         offset: u32,
         width: u32,
+        member_type: Option<metadata::TypeName>,
     ) {
-        let attr_ref = AttributeRef {
+        let mut attr_ref = AttributeRef {
             type_name: metadata::TypeName::named(METADATA_NAMESPACE, "NativeBitfieldAttribute"),
             args: vec![
                 (String::new(), metadata::Value::Utf8(name.to_string())),
@@ -565,6 +566,11 @@ impl Encoder<'_> {
                 (String::new(), metadata::Value::I64(width as i64)),
             ],
         };
+        if let Some(member_type) = member_type {
+            attr_ref
+                .args
+                .push(("MemberType".into(), metadata::Value::TypeName(member_type)));
+        }
         self.encode_named_attribute(target, &attr_ref);
     }
 
@@ -580,9 +586,10 @@ impl Encoder<'_> {
     }
 
     pub fn is_native_override_slot_attribute(&self, attr: &syn::Attribute) -> bool {
-        self.find_attribute_type(attr.path()).is_some_and(|info| {
-            &info.type_name == (METADATA_NAMESPACE, "NativeOverrideSlotAttribute")
-        })
+        attr.path().is_ident("override_slot")
+            || self.find_attribute_type(attr.path()).is_some_and(|info| {
+                &info.type_name == (METADATA_NAMESPACE, "NativeOverrideSlotAttribute")
+            })
     }
 
     pub fn encode_guid_pseudo_attrs(
@@ -630,6 +637,15 @@ impl Encoder<'_> {
                 continue;
             }
 
+            if path.is_ident("out_ptr") {
+                self.emit_returned_pointer_attribute(has_attribute, attr)?;
+                continue;
+            }
+            if path.is_ident("null_terminated") {
+                self.emit_null_terminated_attribute(has_attribute, attr)?;
+                continue;
+            }
+
             // A naturalized pseudo-attribute (short SAL/IDL spelling) maps to its metadata
             // attribute via the shared table; the fully-qualified spelling still resolves
             // generically below.
@@ -645,6 +661,78 @@ impl Encoder<'_> {
             self.encode_named_attribute(has_attribute, &attr_ref);
         }
 
+        Ok(())
+    }
+
+    fn emit_returned_pointer_attribute(
+        &mut self,
+        target: metadata::writer::HasAttribute,
+        attr: &syn::Attribute,
+    ) -> Result<(), Error> {
+        let flags = match &attr.meta {
+            syn::Meta::Path(_) => syn::punctuated::Punctuated::new(),
+            syn::Meta::List(_) => attr
+                .parse_args_with(
+                    syn::punctuated::Punctuated::<syn::Ident, syn::Token![,]>::parse_terminated,
+                )
+                .map_err(|error| self.error(attr, &error.to_string()))?,
+            syn::Meta::NameValue(_) => {
+                return self.err(attr, "out_ptr requires optional flag names");
+            }
+        };
+        let (mut nullable, mut null_on_failure) = (false, false);
+        for flag in flags {
+            match flag.to_string().as_str() {
+                "nullable" if !nullable => nullable = true,
+                "null_on_failure" if !null_on_failure => null_on_failure = true,
+                _ => return self.err(flag, "unknown or duplicate out_ptr flag"),
+            }
+        }
+        let expanded = syn::parse_quote! {
+            #[Windows::Win32::Metadata::NativeReturnedPointer(
+                MayBeNull = #nullable, NullOnFailure = #null_on_failure
+            )]
+        };
+        let attr_ref = self.resolve_attribute_ref(&expanded)?;
+        self.encode_named_attribute(target, &attr_ref);
+        Ok(())
+    }
+
+    fn emit_null_terminated_attribute(
+        &mut self,
+        target: metadata::writer::HasAttribute,
+        attr: &syn::Attribute,
+    ) -> Result<(), Error> {
+        let flags = attr
+            .parse_args_with(
+                syn::punctuated::Punctuated::<syn::Ident, syn::Token![,]>::parse_terminated,
+            )
+            .map_err(|error| self.error(attr, &error.to_string()))?;
+        let (mut entry, mut success) = (None, None);
+        for flag in flags {
+            match flag.to_string().as_str() {
+                "entry" if entry.is_none() => entry = Some(false),
+                "double_entry" if entry.is_none() => entry = Some(true),
+                "success" if success.is_none() => success = Some(false),
+                "double_success" if success.is_none() => success = Some(true),
+                _ => return self.err(flag, "unknown or duplicate null_terminated phase"),
+            }
+        }
+        if entry.is_none() && success.is_none() {
+            return self.err(attr, "null_terminated requires an entry or success phase");
+        }
+        let on_entry = entry.is_some();
+        let on_success = success.is_some();
+        let double_entry = (entry == Some(true)).then(|| quote! { , DoubleNullOnEntry = true });
+        let double_success =
+            (success == Some(true)).then(|| quote! { , DoubleNullOnSuccess = true });
+        let expanded = syn::parse_quote! {
+            #[Windows::Win32::Metadata::NativeNullTerminated(
+                OnEntry = #on_entry, OnSuccess = #on_success #double_entry #double_success
+            )]
+        };
+        let attr_ref = self.resolve_attribute_ref(&expanded)?;
+        self.encode_named_attribute(target, &attr_ref);
         Ok(())
     }
 }

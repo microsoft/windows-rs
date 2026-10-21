@@ -7,6 +7,71 @@ use proc_macro2::{Literal, TokenStream};
 use quote::{format_ident, quote};
 use windows_metadata as metadata;
 
+/// Renders only direction flags that differ from RDL's type-based defaults.
+/// With neither flag set, the reader's default is left unchanged.
+pub fn write_param_direction(ty: &metadata::Type, input: bool, output: bool) -> TokenStream {
+    let mutable = matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..));
+    let in_attr = (input && (output || mutable)).then(|| quote! { #[r#in] });
+    let out_attr = (output && (input || !mutable)).then(|| quote! { #[out] });
+    quote! { #in_attr #out_attr }
+}
+
+/// Renders a bitfield member, retaining its optional type independently of the backing storage.
+pub fn write_bitfield_member(
+    namespace: &str,
+    name: Option<&str>,
+    width: u32,
+    ty: Option<&metadata::Type>,
+) -> TokenStream {
+    let name = name.map_or_else(
+        || quote! { _ },
+        |name| {
+            syn::parse_str::<syn::Ident>(name)
+                .or_else(|_| syn::parse_str::<syn::Ident>(&format!("r#{name}")))
+                .ok()
+                .filter(|ident| ident.to_string().trim_start_matches("r#") == name)
+                .map_or_else(|| quote! { #name }, |ident| quote! { #ident })
+        },
+    );
+    let width = Literal::u32_unsuffixed(width);
+    let ty = ty.map(|ty| {
+        let ty = write_type(namespace, ty);
+        quote! { #ty: }
+    });
+    quote! { #name: #ty #width, }
+}
+
+/// Renders result-pointer guarantees independently of the output storage's optionality.
+pub fn write_returned_pointer(may_be_null: bool, null_on_failure: bool) -> TokenStream {
+    match (may_be_null, null_on_failure) {
+        (false, false) => quote! { #[out_ptr] },
+        (true, false) => quote! { #[out_ptr(nullable)] },
+        (false, true) => quote! { #[out_ptr(null_on_failure)] },
+        (true, true) => quote! { #[out_ptr(nullable, null_on_failure)] },
+    }
+}
+
+/// Renders zero termination by phase. Each present phase is single (`false`) or double (`true`).
+pub fn write_null_terminated(entry: Option<bool>, success: Option<bool>) -> TokenStream {
+    assert!(entry.is_some() || success.is_some());
+    let entry = entry.map(|double| {
+        if double {
+            quote! { double_entry }
+        } else {
+            quote! { entry }
+        }
+    });
+    let success = success.map(|double| {
+        if double {
+            quote! { double_success }
+        } else {
+            quote! { success }
+        }
+    });
+    let flags = entry.into_iter().chain(success);
+    quote! { #[null_terminated(#(#flags),*)] }
+}
+
 /// Renders a name as an RDL identifier, escaping Rust keywords (`r#...`) and the
 /// special cases (`Self`/`self` -> `<name>_`, `_` -> `unused`).
 pub fn write_ident(name: &str) -> TokenStream {

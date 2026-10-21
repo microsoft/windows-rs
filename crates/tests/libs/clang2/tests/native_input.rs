@@ -1,19 +1,17 @@
 use windows_clang2::*;
-use windows_metadata::{HasAttributes, Value, reader};
+use windows_metadata::{HasAttributes, reader};
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 #[test]
 fn native_input_parameter_kinds() {
     helpers::ensure_libclang();
-    for read_only in [true, false] {
-        check_input(read_only);
-    }
+    assert_eq!(check_input(false), check_input(true));
 }
 
-fn check_input(read_only: bool) {
+fn check_input(rpc: bool) -> String {
     let mut input = test_clang2::fixture("native_input");
-    if !read_only {
+    if rpc {
         input.arguments.push("-DRPC_INPUT".into());
     }
     let snapshots = capture(&[input], &TARGETS).unwrap();
@@ -49,21 +47,29 @@ fn check_input(read_only: bool) {
             );
         }
     }
-    let imports = ["Inputs", "ScalarConflict", "EnumConflict"]
-        .into_iter()
-        .map(|name| {
-            (
-                name.into(),
-                projection::Import {
-                    library: "fixture.dll".into(),
-                    name: None,
-                },
-            )
-        })
-        .collect();
+    let imports = [
+        "Inputs",
+        "ScalarConflict",
+        "EnumConflict",
+        "InterfaceConflict",
+        "InputContracts",
+    ]
+    .into_iter()
+    .map(|name| {
+        (
+            name.into(),
+            projection::Import {
+                library: "fixture.dll".into(),
+                name: None,
+            },
+        )
+    })
+    .collect();
     let output =
         projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports).unwrap();
     let text = &output.partitions["native_input"].rdl;
+    assert_eq!(text.matches("#[in]").count(), 3);
+    assert!(!text.contains("#[out]"));
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
     let winmd = root.join("target\\test-clang2-native-input.winmd");
     let rdl = winmd.with_extension("rdl");
@@ -107,27 +113,33 @@ fn check_input(read_only: bool) {
                 for (position, parameter) in parameters.iter().enumerate() {
                     assert_eq!(parameter.direction(), reader::ParamDirection::Input);
                     assert_eq!(parameter.is_optional(), position == 13);
-                    let attribute = parameter.find_attribute("NativeInputAttribute");
-                    assert_eq!(
-                        attribute.is_some(),
-                        position >= 12,
-                        "{owner}::{name} parameter {position}"
-                    );
-                    if let Some(attribute) = attribute {
-                        assert_eq!(
-                            attribute.value(),
-                            vec![("ReadOnly".into(), Value::Bool(read_only))]
-                        );
-                    }
+                    assert!(parameter.find_attribute("NativeInputAttribute").is_none());
                     assert!(parameter.find_attribute("NativeSalAttribute").is_none());
                 }
             }
+            let method = index
+                .expect("Fixture", "Apis")
+                .methods()
+                .find(|method| method.name() == "InputContracts")
+                .unwrap();
+            assert_eq!(
+                method.signature(&[]).types,
+                vec![
+                    windows_metadata::Type::PtrConst(Box::new(windows_metadata::Type::I32), 1,);
+                    3
+                ],
+            );
+            for (position, parameter) in method.params().enumerate() {
+                assert_eq!(parameter.direction(), reader::ParamDirection::Input);
+                assert_eq!(parameter.is_optional(), position == 2);
+                assert!(parameter.find_attribute("NativeInputAttribute").is_none());
+            }
         }
     }
-    let golden = test_clang2::input_dir().join(if read_only {
-        "native_input.rdl"
-    } else {
+    let golden = test_clang2::input_dir().join(if rpc {
         "native_input_rpc.rdl"
+    } else {
+        "native_input.rdl"
     });
     if std::env::var_os("UPDATE_CLANG2_RDL").is_some() {
         std::fs::write(&golden, text).unwrap();
@@ -155,12 +167,18 @@ fn check_input(read_only: bool) {
     for path in [winmd, rdl, again] {
         std::fs::remove_file(path).unwrap();
     }
+    text.clone()
 }
 
 #[test]
 fn omitted_input_metadata_does_not_hide_native_conflicts() {
     helpers::ensure_libclang();
-    for name in ["ScalarConflict", "EnumConflict"] {
+    for name in [
+        "ScalarConflict",
+        "EnumConflict",
+        "InterfaceConflict",
+        "InputContracts",
+    ] {
         for annotation in ["WRITE", "RPC_READ"] {
             let first = test_clang2::selected_fixture("native_input", &[name]);
             let mut second = test_clang2::selected_fixture("native_input", &[name]);

@@ -7,18 +7,15 @@ mod Fixture {
     }
     #[no_guid]
     interface Derived: Base {
-        #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        #[override_slot(0)]
         fn Read(&self, #[Windows::Win32::Metadata::NativeDefaultArgument("7")] renamed: u32) -> i32;
-        #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        #[override_slot(1)]
         fn Reset(&self);
         fn Extra(&self) -> i32;
     }
     #[no_guid]
     interface Final: Derived {
-        #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        #[override_slot(0)]
         fn Read(&self, #[Windows::Win32::Metadata::NativeDefaultArgument("9")] final_name: u32) -> i32;
         fn Last(&self) -> i32;
     }
@@ -28,7 +25,7 @@ mod Fixture {
     }
     #[guid(0x22222222_2222_2222_2222_222222222222)]
     interface IdentifiedChild: IdentifiedBase {
-        #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
+        #[override_slot(0)]
         fn Read(&self);
     }
 }

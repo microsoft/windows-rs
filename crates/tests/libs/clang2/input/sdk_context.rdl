@@ -25,9 +25,9 @@ mod Fixture {
 #[win32]
 mod Fixture {
     #[library("kernel32.dll")]
-    extern fn GetThreadContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[out] lpContext: LPCONTEXT) -> BOOL;
+    extern fn GetThreadContext(hThread: HANDLE, #[in] #[out] lpContext: LPCONTEXT) -> BOOL;
     #[library("kernel32.dll")]
-    extern fn SetThreadContext(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hThread: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpContext: *const CONTEXT) -> BOOL;
+    extern fn SetThreadContext(hThread: HANDLE, lpContext: *const CONTEXT) -> BOOL;
 }
 #[win32]
 mod Fixture {

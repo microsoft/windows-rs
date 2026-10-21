@@ -382,6 +382,12 @@ references. Qualification review must not hold up unrelated breadth work.
 Keep annotation interpretation bounded: preserve owner and evidence, and expand semantic lowering
 only when a concrete API or consumer requires it.
 
+Direct, unscoped, argument-free SAL2 result checking on imports, methods and named callbacks emits
+`#[must_use]`. Callback aliases inherit the contract; duplicate annotations emit one marker.
+Parameter/global inspection, scoped annotations and success predicates remain separate evidence.
+Native SAL identities still participate in reconciliation; canonical result use does not promise
+Rust diagnostics or reproduce SAL dataflow analysis.
+
 Use these slices to assess whether the shared architecture remains simpler and preserves more
 native information across equivalent responsibilities. Record/alias counts alone cannot establish
 replacement readiness. Do not let bitfield, opaque-record, or annotation completeness become a
@@ -492,10 +498,11 @@ pointers require a compatible named callback, not an ordinary signature with the
 The noreturn fixtures cover native ownership, duplicate forms, conflicts, partial dependencies,
 metadata round trips, and four SDK exit/exception APIs on all targets.
 Unconditional noexcept, nothrow, and empty throw() retain written and canonical exception
-specifications.
-Methods, imports, and delegates preserve the written form through NativeExceptionSpecification;
-unnamed non-throwing pointers require a compatible named callback because FNPTR has no attribute
-owner. Computed/dependent and nonempty dynamic exception specifications remain unsupported.
+specifications as native-only compatibility evidence. Methods, imports and delegates do not emit
+NativeExceptionSpecification. Native agreement and callback matching still compare exception
+specifications. Supported unnamed non-throwing pointers can use C/stdcall FNPTR; noreturn still
+requires an attribute-owning named callback. No unwind ABI or exception translation is implied.
+Computed/dependent and nonempty dynamic exception specifications remain unsupported.
 Callback dependency pruning follows result and all parameter edges.
 Failed value-alias or callback publication must remove the declaration, not just its root marker:
 reachable named values are published as dependencies, so root-only removal would retry the failure.

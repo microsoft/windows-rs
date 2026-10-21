@@ -5,7 +5,7 @@ use proc_macro2::TokenStream;
 use quote::quote;
 use std::collections::BTreeSet;
 use windows_metadata::Type as MetadataType;
-use windows_rdl::emit::{write_ident, write_value};
+use windows_rdl::emit::{write_ident, write_param_direction, write_value};
 
 mod annotations;
 mod bitfields;
@@ -742,11 +742,11 @@ impl Projector<'_, '_> {
                 callback_parameters(snapshot, observation),
                 attributes,
             )?;
-            body.attributes.extend(annotations::write(attributes)?);
-            body.attributes.extend(annotations::inherited_callback(
+            body.attributes.extend(annotations::write_callback(
                 self.resolution,
                 snapshot,
                 observation.underlying,
+                attributes,
             )?);
             return Ok(body);
         }
@@ -1128,10 +1128,6 @@ impl Projector<'_, '_> {
         } else if function.noreturn {
             Err(Error(
                 "noreturn function pointer requires a named callback to retain its contract".into(),
-            ))
-        } else if function.exceptions != ExceptionSpecification::None {
-            Err(Error(
-                "noexcept function pointer requires a named callback to retain its contract".into(),
             ))
         } else {
             Ok(MetadataType::FnPtr(Box::new(

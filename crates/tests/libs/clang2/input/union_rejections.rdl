@@ -6,8 +6,9 @@ mod Fixture {
     }
     #[arch(X86)]
     union Bad {
-        #[Windows::Win32::Metadata::NativeBitfield("bits", 0, 1, MemberType = bool)]
-        _bitfield: u8,
+        _bitfield: u8 {
+            bits: bool: 1,
+        },
     }
     struct BadConsumer {
         value: *mut Bad,

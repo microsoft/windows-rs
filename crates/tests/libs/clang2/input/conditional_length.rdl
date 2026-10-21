@@ -1,10 +1,10 @@
 #[win32]
 mod Fixture {
-    extern "C" fn Buffer(capacity: u32, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true, NullFallbackParamIndex = 0)] buffer: *mut u16, written: *mut u32, other: u32);
+    extern "C" fn Buffer(capacity: u32, #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true, NullFallbackParamIndex = 0)] buffer: *mut u16, written: *mut u32, other: u32);
     #[library("example.dll")]
-    extern "C" fn BufferFunction(capacity: u32, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true, NullFallbackParamIndex = 0)] buffer: *mut u16, written: *mut u32, other: u32);
+    extern "C" fn BufferFunction(capacity: u32, #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true, NullFallbackParamIndex = 0)] buffer: *mut u16, written: *mut u32, other: u32);
     #[guid(0x11111111_2222_3333_4444_555555555555)]
     interface IBuffer {
-        fn Read(&self, capacity: u32, #[out] #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true, NullFallbackParamIndex = 0)] buffer: *mut u16, written: *mut u32, other: u32);
+        fn Read(&self, capacity: u32, #[Windows::Win32::Metadata::NativeArrayInfo(CountParamIndex = 0, PostWritable = true)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true, NullFallbackParamIndex = 0)] buffer: *mut u16, written: *mut u32, other: u32);
     }
 }

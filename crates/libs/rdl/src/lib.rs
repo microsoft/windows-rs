@@ -74,6 +74,11 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
         prop: None,
     },
     PseudoAttr {
+        short: "must_use",
+        metadata: "MustUseAttribute",
+        prop: None,
+    },
+    PseudoAttr {
         short: "scoped",
         metadata: "ScopedEnumAttribute",
         prop: None,
@@ -81,6 +86,16 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
     PseudoAttr {
         short: "encoding",
         metadata: "NativeEncodingAttribute",
+        prop: None,
+    },
+    PseudoAttr {
+        short: "override_slot",
+        metadata: "NativeOverrideSlotAttribute",
+        prop: None,
+    },
+    PseudoAttr {
+        short: "align",
+        metadata: "AlignmentAttribute",
         prop: None,
     },
 ];

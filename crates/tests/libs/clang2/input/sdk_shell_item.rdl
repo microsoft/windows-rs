@@ -39,89 +39,89 @@ mod Fixture {
     }
     #[guid(0x0000000e_0000_0000_c000_000000000046)]
     interface IBindCtx: IUnknown {
-        fn RegisterObjectBound(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] punk: IUnknown) -> HRESULT;
-        fn RevokeObjectBound(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] punk: IUnknown) -> HRESULT;
+        fn RegisterObjectBound(&self, #[opt] punk: IUnknown) -> HRESULT;
+        fn RevokeObjectBound(&self, #[opt] punk: IUnknown) -> HRESULT;
         fn ReleaseBoundObjects(&self) -> HRESULT;
-        fn SetBindOptions(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pbindopts: *mut BIND_OPTS) -> HRESULT;
+        fn SetBindOptions(&self, #[in] pbindopts: *mut BIND_OPTS) -> HRESULT;
         fn GetBindOptions(&self, #[in] #[out] pbindopts: *mut BIND_OPTS) -> HRESULT;
-        fn GetRunningObjectTable(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pprot: *mut IRunningObjectTable) -> HRESULT;
-        fn RegisterObjectParam(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszKey: LPOLESTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] punk: IUnknown) -> HRESULT;
-        fn GetObjectParam(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszKey: LPOLESTR, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppunk: *mut IUnknown) -> HRESULT;
-        fn EnumObjectParam(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppenum: *mut IEnumString) -> HRESULT;
-        fn RevokeObjectParam(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszKey: LPOLESTR) -> HRESULT;
+        fn GetRunningObjectTable(&self, #[out_ptr] pprot: *mut IRunningObjectTable) -> HRESULT;
+        fn RegisterObjectParam(&self, pszKey: LPOLESTR, #[opt] punk: IUnknown) -> HRESULT;
+        fn GetObjectParam(&self, pszKey: LPOLESTR, #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+        fn EnumObjectParam(&self, #[out_ptr] ppenum: *mut IEnumString) -> HRESULT;
+        fn RevokeObjectParam(&self, pszKey: LPOLESTR) -> HRESULT;
     }
     #[guid(0x00000102_0000_0000_c000_000000000046)]
     interface IEnumMoniker: IUnknown {
-        fn Next(&self, celt: ULONG, #[out] #[len_param(0)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] rgelt: *mut IMoniker, #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+        fn Next(&self, celt: ULONG, #[len_param(0)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] rgelt: *mut IMoniker, #[opt] pceltFetched: *mut ULONG) -> HRESULT;
         fn Skip(&self, celt: ULONG) -> HRESULT;
         fn Reset(&self) -> HRESULT;
-        fn Clone(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppenum: *mut IEnumMoniker) -> HRESULT;
+        fn Clone(&self, #[out_ptr] ppenum: *mut IEnumMoniker) -> HRESULT;
     }
     #[guid(0x0000000f_0000_0000_c000_000000000046)]
     interface IMoniker: IPersistStream {
-        fn BindToObject(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pbc: IBindCtx, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmkToLeft: IMoniker, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riidResult: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppvResult: *mut *mut void) -> HRESULT;
-        fn BindToStorage(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pbc: IBindCtx, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pmkToLeft: IMoniker, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
-        fn Reduce(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pbc: IBindCtx, dwReduceHowFar: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppmkToLeft: *mut IMoniker, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmkReduced: *mut IMoniker) -> HRESULT;
-        fn ComposeWith(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pmkRight: IMoniker, fOnlyIfNotGeneric: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmkComposite: *mut IMoniker) -> HRESULT;
-        fn Enum(&self, fForward: BOOL, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
-        fn IsEqual(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pmkOtherMoniker: IMoniker) -> HRESULT;
-        fn Hash(&self, #[out] pdwHash: *mut DWORD) -> HRESULT;
-        fn IsRunning(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pbc: IBindCtx, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pmkToLeft: IMoniker, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pmkNewlyRunning: IMoniker) -> HRESULT;
-        fn GetTimeOfLastChange(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pbc: IBindCtx, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pmkToLeft: IMoniker, #[out] pFileTime: *mut FILETIME) -> HRESULT;
-        fn Inverse(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmk: *mut IMoniker) -> HRESULT;
-        fn CommonPrefixWith(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pmkOther: IMoniker, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmkPrefix: *mut IMoniker) -> HRESULT;
-        fn RelativePathTo(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pmkOther: IMoniker, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmkRelPath: *mut IMoniker) -> HRESULT;
-        fn GetDisplayName(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pbc: IBindCtx, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pmkToLeft: IMoniker, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppszDisplayName: *mut LPOLESTR) -> HRESULT;
-        fn ParseDisplayName(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pbc: IBindCtx, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pmkToLeft: IMoniker, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pszDisplayName: LPOLESTR, #[out] pchEaten: *mut ULONG, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppmkOut: *mut IMoniker) -> HRESULT;
-        fn IsSystemMoniker(&self, #[out] pdwMksys: *mut DWORD) -> HRESULT;
+        fn BindToObject(&self, pbc: IBindCtx, #[opt] pmkToLeft: IMoniker, riidResult: &IID, #[out_ptr] #[iid_is] ppvResult: *mut *mut void) -> HRESULT;
+        fn BindToStorage(&self, pbc: IBindCtx, #[opt] pmkToLeft: IMoniker, riid: &IID, #[out_ptr] #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        fn Reduce(&self, #[opt] pbc: IBindCtx, dwReduceHowFar: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppmkToLeft: *mut IMoniker, #[out_ptr] ppmkReduced: *mut IMoniker) -> HRESULT;
+        fn ComposeWith(&self, #[opt] pmkRight: IMoniker, fOnlyIfNotGeneric: BOOL, #[out_ptr] ppmkComposite: *mut IMoniker) -> HRESULT;
+        fn Enum(&self, fForward: BOOL, #[out_ptr] ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
+        fn IsEqual(&self, #[opt] pmkOtherMoniker: IMoniker) -> HRESULT;
+        fn Hash(&self, pdwHash: *mut DWORD) -> HRESULT;
+        fn IsRunning(&self, #[opt] pbc: IBindCtx, #[opt] pmkToLeft: IMoniker, #[opt] pmkNewlyRunning: IMoniker) -> HRESULT;
+        fn GetTimeOfLastChange(&self, #[opt] pbc: IBindCtx, #[opt] pmkToLeft: IMoniker, pFileTime: *mut FILETIME) -> HRESULT;
+        fn Inverse(&self, #[out_ptr] ppmk: *mut IMoniker) -> HRESULT;
+        fn CommonPrefixWith(&self, #[opt] pmkOther: IMoniker, #[out_ptr] ppmkPrefix: *mut IMoniker) -> HRESULT;
+        fn RelativePathTo(&self, #[opt] pmkOther: IMoniker, #[out_ptr] ppmkRelPath: *mut IMoniker) -> HRESULT;
+        fn GetDisplayName(&self, #[opt] pbc: IBindCtx, #[opt] pmkToLeft: IMoniker, #[out_ptr] ppszDisplayName: *mut LPOLESTR) -> HRESULT;
+        fn ParseDisplayName(&self, #[opt] pbc: IBindCtx, #[opt] pmkToLeft: IMoniker, pszDisplayName: LPOLESTR, pchEaten: *mut ULONG, #[out_ptr] ppmkOut: *mut IMoniker) -> HRESULT;
+        fn IsSystemMoniker(&self, pdwMksys: *mut DWORD) -> HRESULT;
     }
     #[guid(0x0000010c_0000_0000_c000_000000000046)]
     interface IPersist: IUnknown {
-        fn GetClassID(&self, #[out] pClassID: *mut CLSID) -> HRESULT;
+        fn GetClassID(&self, pClassID: *mut CLSID) -> HRESULT;
     }
     #[guid(0x00000109_0000_0000_c000_000000000046)]
     interface IPersistStream: IPersist {
         fn IsDirty(&self) -> HRESULT;
-        fn Load(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pStm: IStream) -> HRESULT;
-        fn Save(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pStm: IStream, fClearDirty: BOOL) -> HRESULT;
-        fn GetSizeMax(&self, #[out] pcbSize: *mut ULARGE_INTEGER) -> HRESULT;
+        fn Load(&self, #[opt] pStm: IStream) -> HRESULT;
+        fn Save(&self, #[opt] pStm: IStream, fClearDirty: BOOL) -> HRESULT;
+        fn GetSizeMax(&self, pcbSize: *mut ULARGE_INTEGER) -> HRESULT;
     }
     #[guid(0x00000010_0000_0000_c000_000000000046)]
     interface IRunningObjectTable: IUnknown {
-        fn Register(&self, grfFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] punkObject: IUnknown, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pmkObjectName: IMoniker, #[out] pdwRegister: *mut DWORD) -> HRESULT;
+        fn Register(&self, grfFlags: DWORD, #[opt] punkObject: IUnknown, #[opt] pmkObjectName: IMoniker, pdwRegister: *mut DWORD) -> HRESULT;
         fn Revoke(&self, dwRegister: DWORD) -> HRESULT;
-        fn IsRunning(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pmkObjectName: IMoniker) -> HRESULT;
-        fn GetObjectA(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pmkObjectName: IMoniker, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppunkObject: *mut IUnknown) -> HRESULT;
-        fn NoteChangeTime(&self, dwRegister: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pfiletime: *mut FILETIME) -> HRESULT;
-        fn GetTimeOfLastChange(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pmkObjectName: IMoniker, #[out] pfiletime: *mut FILETIME) -> HRESULT;
-        fn EnumRunning(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
+        fn IsRunning(&self, #[opt] pmkObjectName: IMoniker) -> HRESULT;
+        fn GetObjectA(&self, #[opt] pmkObjectName: IMoniker, #[out_ptr] ppunkObject: *mut IUnknown) -> HRESULT;
+        fn NoteChangeTime(&self, dwRegister: DWORD, #[in] pfiletime: *mut FILETIME) -> HRESULT;
+        fn GetTimeOfLastChange(&self, #[opt] pmkObjectName: IMoniker, pfiletime: *mut FILETIME) -> HRESULT;
+        fn EnumRunning(&self, #[out_ptr] ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
     }
 }
 #[win32]
 mod Fixture {
     #[guid(0x00000101_0000_0000_c000_000000000046)]
     interface IEnumString: IUnknown {
-        fn Next(&self, celt: ULONG, #[out] #[len_param(0)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] rgelt: *mut LPOLESTR, #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+        fn Next(&self, celt: ULONG, #[len_param(0)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = false, Dereference = true)] rgelt: *mut LPOLESTR, #[opt] pceltFetched: *mut ULONG) -> HRESULT;
         fn Skip(&self, celt: ULONG) -> HRESULT;
         fn Reset(&self) -> HRESULT;
-        fn Clone(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppenum: *mut IEnumString) -> HRESULT;
+        fn Clone(&self, #[out_ptr] ppenum: *mut IEnumString) -> HRESULT;
     }
     #[guid(0x0c733a30_2a1c_11ce_ade5_00aa0044773d)]
     interface ISequentialStream: IUnknown {
-        fn Read(&self, #[out] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] pv: *mut void, #[in] cb: ULONG, #[out] #[opt] pcbRead: *mut ULONG) -> HRESULT;
-        fn Write(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pv: *const void, #[in] cb: ULONG, #[out] #[opt] pcbWritten: *mut ULONG) -> HRESULT;
+        fn Read(&self, #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] pv: *mut void, cb: ULONG, #[opt] pcbRead: *mut ULONG) -> HRESULT;
+        fn Write(&self, #[size_param(1)] pv: *const void, cb: ULONG, #[opt] pcbWritten: *mut ULONG) -> HRESULT;
     }
     #[guid(0x0000000c_0000_0000_c000_000000000046)]
     interface IStream: ISequentialStream {
-        fn Seek(&self, dlibMove: LARGE_INTEGER, dwOrigin: DWORD, #[out] #[opt] plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
+        fn Seek(&self, dlibMove: LARGE_INTEGER, dwOrigin: DWORD, #[opt] plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
         fn SetSize(&self, libNewSize: ULARGE_INTEGER) -> HRESULT;
-        fn CopyTo(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pstm: IStream, cb: ULARGE_INTEGER, #[out] #[opt] pcbRead: *mut ULARGE_INTEGER, #[out] #[opt] pcbWritten: *mut ULARGE_INTEGER) -> HRESULT;
+        fn CopyTo(&self, pstm: IStream, cb: ULARGE_INTEGER, #[opt] pcbRead: *mut ULARGE_INTEGER, #[opt] pcbWritten: *mut ULARGE_INTEGER) -> HRESULT;
         fn Commit(&self, grfCommitFlags: DWORD) -> HRESULT;
         fn Revert(&self) -> HRESULT;
         fn LockRegion(&self, libOffset: ULARGE_INTEGER, cb: ULARGE_INTEGER, dwLockType: DWORD) -> HRESULT;
         fn UnlockRegion(&self, libOffset: ULARGE_INTEGER, cb: ULARGE_INTEGER, dwLockType: DWORD) -> HRESULT;
-        fn Stat(&self, #[out] pstatstg: *mut STATSTG, grfStatFlag: DWORD) -> HRESULT;
-        fn Clone(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppstm: *mut IStream) -> HRESULT;
+        fn Stat(&self, pstatstg: *mut STATSTG, grfStatFlag: DWORD) -> HRESULT;
+        fn Clone(&self, #[out_ptr] ppstm: *mut IStream) -> HRESULT;
     }
     #[packed(8)]
     struct STATSTG {
@@ -142,11 +142,11 @@ mod Fixture {
 mod Fixture {
     #[guid(0x43826d1e_e718_42ee_bc55_a1e261c37bfe)]
     interface IShellItem: IUnknown {
-        fn BindToHandler(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] pbc: IBindCtx, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] bhid: &GUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-        fn GetParent(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppsi: *mut IShellItem) -> HRESULT;
-        fn GetDisplayName(&self, sigdnName: SIGDN, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] ppszName: *mut LPWSTR) -> HRESULT;
-        fn GetAttributes(&self, sfgaoMask: SFGAOF, #[out] psfgaoAttribs: *mut SFGAOF) -> HRESULT;
-        fn Compare(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] psi: IShellItem, hint: SICHINTF, #[out] piOrder: *mut i32) -> HRESULT;
+        fn BindToHandler(&self, #[opt] pbc: IBindCtx, bhid: &GUID, riid: &IID, #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        fn GetParent(&self, #[out_ptr] ppsi: *mut IShellItem) -> HRESULT;
+        fn GetDisplayName(&self, sigdnName: SIGDN, #[out_ptr(null_on_failure)] ppszName: *mut LPWSTR) -> HRESULT;
+        fn GetAttributes(&self, sfgaoMask: SFGAOF, psfgaoAttribs: *mut SFGAOF) -> HRESULT;
+        fn Compare(&self, #[opt] psi: IShellItem, hint: SICHINTF, piOrder: *mut i32) -> HRESULT;
     }
     type SFGAOF = u32;
     type SICHINTF = u32;
@@ -168,7 +168,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, riid: &IID, #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

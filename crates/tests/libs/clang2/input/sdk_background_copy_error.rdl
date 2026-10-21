@@ -23,17 +23,17 @@ mod Fixture {
     }
     #[guid(0x19c613a0_fcb8_4f28_81ae_897c3d078f81)]
     interface IBackgroundCopyError: IUnknown {
-        fn GetError(&self, #[out] pContext: *mut BG_ERROR_CONTEXT, #[out] pCode: *mut HRESULT) -> HRESULT;
-        fn GetFile(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut IBackgroundCopyFile) -> HRESULT;
-        fn GetErrorDescription(&self, LanguageId: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pErrorDescription: *mut LPWSTR) -> HRESULT;
-        fn GetErrorContextDescription(&self, LanguageId: DWORD, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pContextDescription: *mut LPWSTR) -> HRESULT;
-        fn GetProtocol(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pProtocol: *mut LPWSTR) -> HRESULT;
+        fn GetError(&self, pContext: *mut BG_ERROR_CONTEXT, pCode: *mut HRESULT) -> HRESULT;
+        fn GetFile(&self, #[out_ptr] pVal: *mut IBackgroundCopyFile) -> HRESULT;
+        fn GetErrorDescription(&self, LanguageId: DWORD, #[out_ptr] pErrorDescription: *mut LPWSTR) -> HRESULT;
+        fn GetErrorContextDescription(&self, LanguageId: DWORD, #[out_ptr] pContextDescription: *mut LPWSTR) -> HRESULT;
+        fn GetProtocol(&self, #[out_ptr] pProtocol: *mut LPWSTR) -> HRESULT;
     }
     #[guid(0x01b7bd23_fb88_4a77_8490_5891d3e4653a)]
     interface IBackgroundCopyFile: IUnknown {
-        fn GetRemoteName(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut LPWSTR) -> HRESULT;
-        fn GetLocalName(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] pVal: *mut LPWSTR) -> HRESULT;
-        fn GetProgress(&self, #[out] pVal: *mut BG_FILE_PROGRESS) -> HRESULT;
+        fn GetRemoteName(&self, #[out_ptr] pVal: *mut LPWSTR) -> HRESULT;
+        fn GetLocalName(&self, #[out_ptr] pVal: *mut LPWSTR) -> HRESULT;
+        fn GetProgress(&self, pVal: *mut BG_FILE_PROGRESS) -> HRESULT;
     }
 }
 #[win32]
@@ -59,7 +59,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, riid: &IID, #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

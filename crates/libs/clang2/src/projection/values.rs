@@ -157,7 +157,7 @@ impl Projector<'_, '_> {
                 let function = written_function(self.resolution.snapshots[snapshot], written)?;
                 let abi = callable_abi(function);
                 let name = ident(public_name(name))?;
-                let native = annotations::write(&observation.attributes)?;
+                let native = annotations::write_callable(&observation.attributes)?;
                 let contracts = annotations::function(function.prototype, &observation.attributes);
                 Ok(Body {
                     attributes: quote! { #native #contracts #library },
@@ -513,20 +513,15 @@ impl Projector<'_, '_> {
                 let ty = self
                     .parameter_ty(snapshot_id, parameter.written, canonical)
                     .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
+                let ty = if named { ty } else { self.comparison_type(ty)? };
                 let snapshot = self.resolution.snapshots[snapshot_id];
-                let attributes = annotations::parameter(
-                    parameter,
-                    parameters,
-                    &ty,
-                    &snapshot.types[canonical.0].kind,
-                )?;
+                let attributes = annotations::parameter(parameter, parameters, &ty)?;
                 let size = annotations::buffer(snapshot, function, parameters, index, &ty)
                     .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
                 let default = parameter.default.as_ref().map(|value| {
                     let expression = &value.expression;
                     quote! { #[Windows::Win32::Metadata::NativeDefaultArgument(#expression)] }
                 });
-                let ty = if named { ty } else { self.comparison_type(ty)? };
                 let ty = write_type(self.namespace, &ty);
                 Ok(quote! { #attributes #size #default #name: #ty })
             })
@@ -721,7 +716,8 @@ impl Projector<'_, '_> {
                 let slot = u32::try_from(method.slot).map_err(|_| {
                     Error(format!("virtual method slot exceeds metadata on `{name}`"))
                 })?;
-                quote! { #[Windows::Win32::Metadata::NativeOverrideSlot(#slot)] }
+                let slot = proc_macro2::Literal::u32_unsuffixed(slot);
+                quote! { #[override_slot(#slot)] }
             } else {
                 next_slot += 1;
                 TokenStream::new()
@@ -777,7 +773,7 @@ impl Projector<'_, '_> {
                     ))
                 })?;
             let method_name = ident(&method.name)?;
-            let attributes = annotations::write(&method.observation.attributes)?;
+            let attributes = annotations::write_callable(&method.observation.attributes)?;
             let contracts = annotations::function(
                 written_function(snapshot, method.observation.written)?.prototype,
                 &method.observation.attributes,

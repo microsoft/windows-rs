@@ -1,15 +1,15 @@
 #[win32]
 mod Fixture {
     type BCRYPT_HASH_HANDLE = *mut void;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[must_use]
     #[library("bcrypt.dll")]
-    extern fn BCryptDeleteContext(#[in] dwTable: ULONG, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] pszContext: LPCWSTR) -> NTSTATUS;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    extern fn BCryptDeleteContext(dwTable: ULONG, #[null_terminated(entry)] pszContext: LPCWSTR) -> NTSTATUS;
+    #[must_use]
     #[library("bcrypt.dll")]
-    extern fn BCryptEnumContexts(#[in] dwTable: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_all_maybenull_", "*pcbBuffer", "*pcbBuffer")] #[out] #[opt] ppBuffer: *mut PCRYPT_CONTEXTS) -> NTSTATUS;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    extern fn BCryptEnumContexts(dwTable: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_bytebuffer_all_maybenull_", "*pcbBuffer", "*pcbBuffer")] #[opt] ppBuffer: *mut PCRYPT_CONTEXTS) -> NTSTATUS;
+    #[must_use]
     #[library("bcrypt.dll")]
-    extern fn BCryptFinishHash(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[out] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = false)] pbOutput: PUCHAR, #[in] cbOutput: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
+    extern fn BCryptFinishHash(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[out] #[size_param(2)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = false)] pbOutput: PUCHAR, cbOutput: ULONG, dwFlags: ULONG) -> NTSTATUS;
     #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
     type NTSTATUS = i32;
     type PCRYPT_CONTEXTS = *mut _CRYPT_CONTEXTS;

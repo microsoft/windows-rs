@@ -54,15 +54,16 @@ unsupported.
 Callback capture checks native function properties before accepting a prototype. Explicit
 `regparm`, other calling conventions, and unknown attributes remain
 unsupported rather than being normalized to ordinary C. Unconditional `noexcept`, `nothrow`,
-and empty `throw()` retain their native distinction and publish an explicit
-`NativeExceptionSpecificationAttribute`
-on functions, methods, and named callbacks. Other exception specifications remain unsupported.
+and empty `throw()` remain native compatibility evidence without a public metadata attribute.
+This does not add an unwind ABI, exception translation, or an optimization promise for consumers.
+Other exception specifications remain unsupported.
 Variadic imports preserve the compiler's C ABI and emit `...`; reconciliation distinguishes
 variadic and fixed prototypes. Variadic callbacks and interface methods remain unsupported.
 Native `noreturn` function properties and declaration-owned `[[noreturn]]` remain distinct during
 reconciliation and emit `DoesNotReturnAttribute` on imports, methods, and named callbacks.
-An unnamed non-returning or non-throwing pointer needs a compatible named callback because a
-structural function-pointer signature has no attribute owner.
+An unnamed non-returning pointer needs a compatible named callback because a structural
+function-pointer signature has no attribute owner. Supported non-throwing pointers can use ordinary
+C/stdcall structural signatures when no compatible named callback exists.
 The native qualifier query retains `__unaligned` only for storage whose canonical unqualified
 alignment is already one, including inherited typedef qualifiers. Native comparison preserves the
 request; metadata needs no additional alignment modifier. Wider or incomplete storage and other
@@ -249,14 +250,21 @@ including the SDK's corresponding SAL1/SAL2 forms. Direct named buffer capacitie
 parameter indices with byte/element units. Reserved parameter contracts emit `#[reserved]` for the
 zero/null requirement without inventing direction or optionality. These contracts emit canonical
 flags and count attributes rather than duplicate `NativeSalAttribute` payloads.
-Seven direct RPC SAL aliases share this normalization. RPC input forms emit
-`NativeInput(ReadOnly = false)` for valid input on entry; direct SAL1/SAL2 input forms emit
-`ReadOnly = true` for their additional read-access contract. Pointer arguments are non-null unless
-optional. Neither value changes native qualifiers or implies a count, and false does not require
-writable storage. Composed contracts retain raw evidence.
-By-value scalar and enum parameters omit `NativeInput`, including through typedefs, while retaining
-input direction and native SAL reconciliation. Pointer-backed handles, pointers, references, COM
-objects and records keep their input attributes.
+Seven direct RPC SAL aliases share this normalization.
+
+Direct, unscoped SAL2 result-check annotations emit `#[must_use]` on imports, methods and named
+callbacks. It means callers should use the result rather than accidentally discard it, not that
+any particular value means success. Duplicate and inherited callback annotations produce one
+marker. Native SAL identities remain checked; output-parameter inspection, conditional contracts
+and success predicates keep their separate evidence. Rust diagnostic generation is separate work.
+
+SAL1/SAL2 and RPC input forms normalize to RDL input direction and optionality, including handles,
+pointers, references, COM objects and records. Explicit `in` is omitted only when RDL's written-type
+default supplies it. Native SAL/RPC distinctions remain checked during reconciliation, not published
+as duplicate `NativeInput` attributes. Input direction does not promise COM object immutability.
+Composed contracts retain raw evidence; counts, termination and returned-pointer guarantees remain
+separate.
+
 RPC dereferenced-pointer forms lower outer direction and optionality without confusing inner-pointer
 nullability with optional argument storage. RPC output-pointer aliases, four SAL1 aliases, and ten
 SAL2 out-pointer forms replace fully represented evidence with `NativeReturnedPointerAttribute`:

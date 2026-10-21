@@ -1,0 +1,70 @@
+#[win32]
+mod Fixture {
+    #[must_use]
+    #[library("fixture.dll")]
+    extern "C" fn Checked() -> i32;
+    #[must_use]
+    extern fn CheckedAlias(value: i32) -> i32;
+    #[must_use]
+    extern fn CheckedCallback(value: i32) -> i32;
+    #[must_use]
+    #[library("fixture.dll")]
+    extern "C" fn Combined() -> i32;
+    #[must_use]
+    extern fn CombinedAlias(value: i32) -> i32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_When_", "value > 0, _Check_return_", "value > 0, _Check_return_")]
+    #[library("fixture.dll")]
+    extern "C" fn Conditional(value: i32) -> i32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "unexpected")]
+    #[library("fixture.dll")]
+    extern "C" fn ExpandedArguments() -> i32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    const GlobalValue: i32 = 7;
+    #[guid(0x11111111_2222_3333_4444_555555555555)]
+    interface IResults {
+        #[must_use]
+        fn Checked(&self) -> i32;
+        #[must_use]
+        fn Inspected(&self) -> i32;
+        #[must_use]
+        fn Combined(&self) -> i32;
+        fn Outputs(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")] value: *mut i32);
+    }
+    #[must_use]
+    #[library("fixture.dll")]
+    extern "C" fn Inspected() -> i32;
+    #[must_use]
+    extern fn InspectedCallback(value: i32) -> i32;
+    struct InspectedField {
+        #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+        value: i32,
+    }
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    type InspectedValue = i32;
+    #[Windows::Win32::Metadata::NativeSal("1", "_Check_return_", "", "")]
+    #[library("fixture.dll")]
+    extern "C" fn OldVersion() -> i32;
+    #[library("fixture.dll")]
+    extern "C" fn Outputs(#[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")] value: *mut i32);
+    #[must_use]
+    #[library("fixture.dll")]
+    extern "C" fn ReadStatus() -> Status;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "", Modifiers = "_Post_")]
+    #[library("fixture.dll")]
+    extern "C" fn Scoped() -> i32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
+    type Status = i32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return >= 0", "return >= 0", TypedefName = "SuccessCallback")]
+    #[must_use]
+    extern fn SuccessAlias(value: i32) -> i32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return >= 0", "return >= 0")]
+    #[must_use]
+    extern fn SuccessCallback(value: i32) -> i32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return >= 0", "return >= 0")]
+    #[must_use]
+    #[library("fixture.dll")]
+    extern "C" fn Successful() -> i32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "unexpected", "unexpected")]
+    #[library("fixture.dll")]
+    extern "C" fn UnexpectedArguments() -> i32;
+}

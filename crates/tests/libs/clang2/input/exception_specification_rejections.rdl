@@ -1,0 +1,15 @@
+#[win32]
+mod Fixture {
+    struct BareNoexcept {
+        callback: extern "C" fn(i32) -> i32,
+    }
+    struct BareStdcallNoexcept {
+        callback: extern fn(i32) -> i32,
+    }
+    struct DynamicNone {
+        callback: extern "C" fn(i32) -> i32,
+    }
+    struct Safe {
+        value: i32,
+    }
+}

@@ -2,9 +2,9 @@
 mod Fixture {
     #[guid(0x11111111_2222_3333_4444_555555555555)]
     interface INormalized {
-        fn Apply(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] input: *mut i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] optional_input: *mut i32, #[out] output: *mut i32, #[out] #[opt] optional_output: *mut i32, #[in] #[out] both: *mut i32, #[in] #[out] #[opt] optional_both: *mut i32);
+        fn Apply(&self, #[in] input: *mut i32, #[in] #[opt] optional_input: *mut i32, output: *mut i32, #[opt] optional_output: *mut i32, #[in] #[out] both: *mut i32, #[in] #[out] #[opt] optional_both: *mut i32);
     }
     #[library("example.dll")]
-    extern "C" fn NormalizeFunction(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] input: *mut i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] optional_input: *mut i32, #[out] output: *mut i32, #[out] #[opt] optional_output: *mut i32, #[in] #[out] both: *mut i32, #[in] #[out] #[opt] optional_both: *mut i32);
-    extern "C" fn Normalizer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] input: *mut i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] optional_input: *mut i32, #[out] output: *mut i32, #[out] #[opt] optional_output: *mut i32, #[in] #[out] both: *mut i32, #[in] #[out] #[opt] optional_both: *mut i32);
+    extern "C" fn NormalizeFunction(#[in] input: *mut i32, #[in] #[opt] optional_input: *mut i32, output: *mut i32, #[opt] optional_output: *mut i32, #[in] #[out] both: *mut i32, #[in] #[out] #[opt] optional_both: *mut i32);
+    extern "C" fn Normalizer(#[in] input: *mut i32, #[in] #[opt] optional_input: *mut i32, output: *mut i32, #[opt] optional_output: *mut i32, #[in] #[out] both: *mut i32, #[in] #[out] #[opt] optional_both: *mut i32);
 }

@@ -11,24 +11,26 @@ mod Fixture {
     union PSAPI_WORKING_SET_BLOCK {
         Flags: ULONG_PTR,
         Anonymous: struct {
-            #[Windows::Win32::Metadata::NativeBitfield("Protection", 0, 5, MemberType = ULONG_PTR)]
-            #[Windows::Win32::Metadata::NativeBitfield("Reserved", 9, 3, MemberType = ULONG_PTR)]
-            #[Windows::Win32::Metadata::NativeBitfield("ShareCount", 5, 3, MemberType = ULONG_PTR)]
-            #[Windows::Win32::Metadata::NativeBitfield("Shared", 8, 1, MemberType = ULONG_PTR)]
-            #[Windows::Win32::Metadata::NativeBitfield("VirtualPage", 12, 52, MemberType = ULONG_PTR)]
-            _bitfield: u64,
+            _bitfield: u64 {
+                Protection: ULONG_PTR: 5,
+                ShareCount: ULONG_PTR: 3,
+                Shared: ULONG_PTR: 1,
+                Reserved: ULONG_PTR: 3,
+                VirtualPage: ULONG_PTR: 52,
+            },
         },
     }
     #[arch(X86)]
     union PSAPI_WORKING_SET_BLOCK {
         Flags: ULONG_PTR,
         Anonymous: struct {
-            #[Windows::Win32::Metadata::NativeBitfield("Protection", 0, 5, MemberType = ULONG_PTR)]
-            #[Windows::Win32::Metadata::NativeBitfield("Reserved", 9, 3, MemberType = ULONG_PTR)]
-            #[Windows::Win32::Metadata::NativeBitfield("ShareCount", 5, 3, MemberType = ULONG_PTR)]
-            #[Windows::Win32::Metadata::NativeBitfield("Shared", 8, 1, MemberType = ULONG_PTR)]
-            #[Windows::Win32::Metadata::NativeBitfield("VirtualPage", 12, 20, MemberType = ULONG_PTR)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                Protection: ULONG_PTR: 5,
+                ShareCount: ULONG_PTR: 3,
+                Shared: ULONG_PTR: 1,
+                Reserved: ULONG_PTR: 3,
+                VirtualPage: ULONG_PTR: 20,
+            },
         },
     }
 }

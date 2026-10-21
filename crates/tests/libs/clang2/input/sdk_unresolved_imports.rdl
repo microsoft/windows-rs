@@ -19,7 +19,7 @@ mod Fixture {
 mod Fixture {
     #[library("OLEAUT32.dll")]
     #[arch(X64 | Arm64)]
-    extern fn BSTR_UserSize64(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] param0: *mut u32, param1: u32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = false)] param2: *mut BSTR) -> u32;
+    extern fn BSTR_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut BSTR) -> u32;
     type DWORD = u32;
     type LONG = i32;
 }
@@ -41,7 +41,7 @@ mod Fixture {
     }
     #[library("DNSAPI.dll")]
     #[arch(X64 | Arm64)]
-    extern "C" fn DnsValidateName_W(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszName: PCWSTR, #[in] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
+    extern "C" fn DnsValidateName_W(pszName: PCWSTR, Format: DNS_NAME_FORMAT) -> DNS_STATUS;
 }
 #[win32]
 mod Fixture {

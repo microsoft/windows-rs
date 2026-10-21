@@ -255,7 +255,7 @@ fn inherited_slot_overrides() {
                         assert!(
                             method
                                 .find_attribute("NativeExceptionSpecificationAttribute")
-                                .is_some()
+                                .is_none()
                         );
                     }
                 }
@@ -278,12 +278,12 @@ fn invalid_override_metadata() {
     for (case, source, message) in [
         (
             "override-range",
-            text.replacen("NativeOverrideSlot(0u32)", "NativeOverrideSlot(99u32)", 1),
+            text.replacen("override_slot(0)", "override_slot(99)", 1),
             "invalid inherited slot",
         ),
         (
             "override-name",
-            text.replacen("NativeOverrideSlot(0u32)", "NativeOverrideSlot(1u32)", 1),
+            text.replacen("override_slot(0)", "override_slot(1)", 1),
             "incompatible inherited slot",
         ),
         (

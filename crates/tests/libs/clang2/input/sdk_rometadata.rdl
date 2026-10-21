@@ -20,5 +20,5 @@ mod Fixture {
 #[win32]
 mod Fixture {
     #[library("RoMetadata.dll")]
-    extern fn MetaDataGetDispenser(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] rclsid: &IID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppv: *mut LPVOID) -> HRESULT;
+    extern fn MetaDataGetDispenser(rclsid: &IID, riid: &IID, #[out_ptr] ppv: *mut LPVOID) -> HRESULT;
 }

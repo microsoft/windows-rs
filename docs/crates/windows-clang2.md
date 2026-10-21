@@ -229,8 +229,9 @@ candidates, but the shared checker follows result and every parameter edge, nati
 qualifiers, nominal identities, layouts and public families. Failed candidates cannot leave assumed
 type pairs for another attempt. Choose the alphabetically first compatible contract-free explicit
 prototype across the target, independent of TU order; otherwise emit structural C/stdcall FNPTR. No
-callback name is invented. A structural signature has no attribute owner, so noreturn, non-throwing
-or annotated pointers require a compatible named callback.
+callback name is invented. A structural signature has no attribute owner, so noreturn or annotated
+pointers require a compatible named callback. Supported exception specifications are native-only
+evidence and do not prevent structural publication.
 
 Failed alias/callback publication removes the declaration and dependents, not merely its root
 marker, since dependency publication could otherwise retry it. Implicit compiler global aliases
@@ -243,7 +244,7 @@ empty locations. The implicit original precedes authored redeclarations to avoid
 | `dllimport` / `dllexport` | Remain distinct native attributes; neither supplies the DLL. Supported exported C declarations can use separately configured imports. |
 | `MSAllocator` | Profiling evidence only; no inferred malloc optimization, ownership, nullability or deallocator. |
 | `noreturn` / `Cxx11NoReturn` | Function-type and declaration bits remain distinct; emit one DoesNotReturn attribute without changing result type. |
-| `noexcept`, `nothrow`, empty `throw()` | Retain written/canonical exception specifications; no Rust unwind adapter is promised. Computed/dependent/nonempty forms fail. |
+| `noexcept`, `nothrow`, empty `throw()` | Native-only written/canonical evidence checked during agreement and callback matching. No public exception attribute, unwind ABI, translation or consumer optimization is implied. Computed/dependent/nonempty forms fail. |
 | Parameter defaults | Compiler-owned expression cursor, location and printed expression; NativeDefaultArgument does not evaluate it or change arity. |
 | Method CVR | Const becomes NativeConstMethod; volatile/restrict/ref-qualified methods remain rejected. |
 | Native lvalue reference parameters | Distinct metadata byrefs; bindgen uses pointer ABI and mutability without changing WinRT byrefs or caller-owned mutable storage. Fields/reference returns remain unsupported. |
@@ -419,14 +420,22 @@ ordered NativeSal.Modifiers; swapped phase ownership cannot compare equal.
 
 Native observations remain unchanged. Simple normalized contracts can compare equivalent; residual
 evidence must agree. Typedefs may choose only an observed annotation set containing every other
-observed set, never an invented union. Relocated typedef annotations keep TypedefName. Unpublishable
-annotation owners remove dependents rather than discard contracts.
+observed set, never an invented union. Residual relocated typedef annotations keep TypedefName.
+Unpublishable annotation owners remove dependents rather than discard contracts.
+
+Direct, argument-free SAL2 `_Check_return_` and `_Must_inspect_result_` on imports, methods and
+named callbacks emit one `#[must_use]`. Callback aliases inherit this result contract without
+duplicating it. Output parameters, fields, constants and value typedefs retain their own evidence;
+scoped, conditional and unfamiliar payloads are not promoted to unconditional callable contracts.
+Native observations and agreement retain the source distinctions. The marker does not reproduce
+SAL's dataflow analysis or promise Rust diagnostics. `_Success_` and `_Return_type_success_`
+remain separate, unchanged evidence.
 
 | Contract | Metadata semantics and limits |
 | --- | --- |
 | Direction/optionality | Direct SAL1/SAL2/RPC forms emit in/out/opt; optional argument storage is distinct from returned-pointer nullability. Composed distinct contracts retain evidence. |
 | Reserved | Existing ReservedAttribute means zero/null, without implied direction/optionality. |
-| NativeInput | Valid input on entry; non-null pointer unless optional. ReadOnly true preserves SAL read access, false is RPC validity, not writable storage. Canonical by-value scalars/enums omit the attribute only; native evidence and other flags remain. |
+| Input | SAL1/SAL2/RPC input forms use RDL direction and optionality on every parameter kind. No duplicate NativeInput attribute; input does not imply COM object immutability. |
 | NativeReturnedPointer | Successful inner nullability, one readable element for non-null success, and independent NullOnFailure. No inferred allocator/ownership. Requires native pointer-to-pointer storage. |
 | COM output | Explicit COM intent on unqualified void** emits iid_is. Ordinary/typed pointers and null-on-failure alone do not infer it. |
 | Capacity | Direct named integer parameter becomes byte size_param or element len_param. Validate storage/count types; indices exclude the COM receiver. |
@@ -437,9 +446,8 @@ annotation owners remove dependents rather than discard contracts.
 | MIDL comments | Compiler-bounded leading bracket lists supply retval, output-only iid_is and direction. Other relationships stay native evidence. |
 
 RPC input/read-access distinctions survive reconciliation even if projection is identical.
-Pointer-backed handles, pointers, references, COM objects and records retain NativeInput. By-value
-COM references retain output annotation evidence because supplying an object is not replacing native
-pointer storage. Bindgen does not yet consume every typed annotation.
+By-value COM references retain output annotation evidence because supplying an object is not replacing
+native pointer storage. Bindgen does not yet consume every typed annotation.
 
 SAL1 `__deref_out_opt` permits null results; RPC `__RPC__deref_out_opt` instead aliases required
 output storage with a non-null result. SAL1 `__deref_opt_out` permits a null argument and its `_opt`

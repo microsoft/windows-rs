@@ -161,15 +161,28 @@ impl Encoder<'_> {
             // Anonymous padding advances the bit offset but emits no attribute.
             let mut bit_offset = 0u32;
             for member in &field.bitfields {
+                let next_offset = bit_offset
+                    .checked_add(member.width)
+                    .ok_or_else(|| self.error(&field.name, "bitfield offset exceeds u32"))?;
                 if let Some(name) = &member.name {
+                    let member_type = member
+                        .ty
+                        .as_ref()
+                        .map(|ty| {
+                            self.encode_type(ty)?.type_name().ok_or_else(|| {
+                                self.error(ty, "expected a primitive or nongeneric bitfield type")
+                            })
+                        })
+                        .transpose()?;
                     self.emit_bitfield_attribute(
                         metadata::writer::HasAttribute::Field(field_id),
-                        &name.unraw_to_string(),
+                        name,
                         bit_offset,
                         member.width,
+                        member_type,
                     );
                 }
-                bit_offset += member.width;
+                bit_offset = next_offset;
             }
         }
 

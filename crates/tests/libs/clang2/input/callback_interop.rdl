@@ -6,7 +6,7 @@ mod Fixture {
         nested_system: NestedSystem,
         nested_cdecl: NestedCdecl,
     }
-    extern "C" fn CdeclCallback(#[in] value: i32) -> i32;
+    extern "C" fn CdeclCallback(value: i32) -> i32;
     struct CdeclCallbacks {
         named: CdeclCallback,
         structural: extern "C" fn(i32) -> i32,
@@ -15,7 +15,7 @@ mod Fixture {
     extern fn NamedSystem(value: u32) -> i32;
     extern "C" fn NestedCdecl(callback: NamedCdecl);
     extern "C" fn NestedSystem(callback: NamedSystem);
-    extern fn SystemCallback(#[in] value: i32) -> i32;
+    extern fn SystemCallback(value: i32) -> i32;
     struct SystemCallbacks {
         named: SystemCallback,
         structural: extern fn(i32) -> i32,

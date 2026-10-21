@@ -1,7 +1,7 @@
 #[win32]
 mod Fixture {
-    extern "C" fn Bare(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: *mut i32) -> Count;
-    extern "C" fn BareAgain(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: *mut i32) -> Count;
+    extern "C" fn Bare(#[in] value: *mut i32) -> Count;
+    extern "C" fn BareAgain(#[in] value: *mut i32) -> Count;
     type Count = u32;
     extern "C" fn Dispatcher(callback: Bare, pointer: Bare, again: BareAgain, alias: Pointer, indirect: *mut Bare, constant: *const Bare, other: OtherBare, values: *mut i32, no_throw: *mut NoThrow);
     extern "C" fn Factory() -> Bare;
@@ -22,10 +22,9 @@ mod Fixture {
         no_throw_alias: NoThrowIndirect,
     }
     type Indirect = *mut Bare;
-    #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
-    extern "C" fn NoThrow(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: *mut i32);
+    extern "C" fn NoThrow(#[in] value: *mut i32);
     type NoThrowIndirect = *mut NoThrow;
-    extern "C" fn OtherBare(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: *mut i32) -> Count;
-    extern "C" fn Pointer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] value: *mut i32) -> Count;
+    extern "C" fn OtherBare(#[in] value: *mut i32) -> Count;
+    extern "C" fn Pointer(#[in] value: *mut i32) -> Count;
     extern fn StdcallBare(count: Count);
 }

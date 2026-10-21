@@ -3,17 +3,11 @@ mod Windows {
     mod Win32 {
         #[guid(0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee)]
         interface ICompositionDrawingSurfaceInterop: IUnknown {
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn BeginDraw(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] updateRect: *const RECT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] iid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] updateObject: *mut *mut void, #[out] updateOffset: *mut POINT) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn BeginDraw(&self, #[opt] updateRect: *const RECT, iid: &IID, #[out_ptr(null_on_failure)] #[iid_is] updateObject: *mut *mut void, updateOffset: *mut POINT) -> HRESULT;
             fn EndDraw(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Resize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] sizePixels: SIZE) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-            fn Scroll(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] scrollRect: *const RECT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] clipRect: *const RECT, #[in] offsetX: i32, #[in] offsetY: i32) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+            fn Resize(&self, sizePixels: SIZE) -> HRESULT;
+            fn Scroll(&self, #[opt] scrollRect: *const RECT, #[opt] clipRect: *const RECT, offsetX: i32, offsetY: i32) -> HRESULT;
             fn ResumeDraw(&self) -> HRESULT;
-            #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
             fn SuspendDraw(&self) -> HRESULT;
         }
     }

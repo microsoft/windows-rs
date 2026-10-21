@@ -78,6 +78,16 @@ fn sdk_composition_drawing_surface() {
 #[test]
 #[ignore = "requires the pinned SDK and clang resource headers"]
 fn sdk_compositor_external() {
+    compositor_external(true);
+}
+
+#[test]
+#[ignore = "requires the pinned SDK and clang resource headers"]
+fn sdk_compositor_external_metadata() {
+    compositor_external(false);
+}
+
+fn compositor_external(consumers: bool) {
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
     let reference_path = root.join("crates\\libs\\default\\Windows.winmd");
     let metadata = windows_metadata::reader::Index::read(&reference_path).unwrap();
@@ -227,7 +237,7 @@ fn sdk_compositor_external() {
             .rdl
             .contains("type ICompositionTexture")
     );
-    let scratch = root.join("target\\test-clang2-sdk-compositor");
+    let scratch = root.join(format!("target\\test-clang2-sdk-compositor-{consumers}"));
     std::fs::create_dir_all(&scratch).unwrap();
     let winmd = scratch.join("input.winmd");
     let text: String = output
@@ -259,6 +269,10 @@ fn sdk_compositor_external() {
             .count(),
         0
     );
+    if !consumers {
+        std::fs::remove_file(winmd).unwrap();
+        return;
+    }
     windows_bindgen::builder()
         .input(&winmd)
         .input(&reference_path)

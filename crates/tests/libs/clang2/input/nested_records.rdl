@@ -4,9 +4,10 @@ mod Fixture {
         struct BitfieldParent_2 {
             value: i32,
         }
-        #[Windows::Win32::Metadata::NativeBitfield("first", 0, 1, MemberType = u32)]
-        #[Windows::Win32::Metadata::NativeBitfield("second", 1, 1, MemberType = u32)]
-        _bitfield: u32,
+        _bitfield: u32 {
+            first: u32: 1,
+            second: u32: 1,
+        },
         named: BitfieldParent::BitfieldParent_2,
     }
     struct Indirect {

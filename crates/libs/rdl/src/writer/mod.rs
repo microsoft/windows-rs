@@ -638,16 +638,7 @@ fn write_params(
                 metadata::reader::ParamDirection::Output => (false, true),
                 metadata::reader::ParamDirection::InputOutput => (true, true),
             };
-            let in_attr = if effective_in && (has_out || is_mutable) {
-                quote! { #[r#in] }
-            } else {
-                quote! {}
-            };
-            let out_attr = if has_out && (effective_in || !is_mutable) {
-                quote! { #[out] }
-            } else {
-                quote! {}
-            };
+            let direction = write_param_direction(&ty, effective_in, has_out);
             let opt_attr = if param.is_some_and(|param| param.is_optional()) {
                 quote! { #[opt] }
             } else {
@@ -667,7 +658,7 @@ fn write_params(
                 None => Vec::new(),
             };
             let ty = write_type(namespace, &ty);
-            Ok(quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty })
+            Ok(quote! { #(#param_attrs)* #direction #opt_attr #name: #ty })
         })
         .collect()
 }
@@ -724,6 +715,43 @@ fn write_custom_attributes_except<'a>(
         .map(|attr| {
             let attr_ns = attr.namespace();
             let values = attr.value();
+
+            if attr_ns == METADATA_NAMESPACE && attr.name() == "NativeNullTerminatedAttribute" {
+                let flag = |key| {
+                    values.iter().find_map(|(name, value)| match value {
+                        metadata::Value::Bool(value) if name == key => Some(*value),
+                        _ => None,
+                    })
+                };
+                if let (Some(entry), Some(success)) = (flag("OnEntry"), flag("OnSuccess")) {
+                    let double_entry = flag("DoubleNullOnEntry") == Some(true);
+                    let double_success = flag("DoubleNullOnSuccess") == Some(true);
+                    if values.len() == 2 + usize::from(double_entry) + usize::from(double_success)
+                        && (entry || success)
+                        && (!double_entry || entry)
+                        && (!double_success || success)
+                    {
+                        return Ok(write_null_terminated(
+                            entry.then_some(double_entry),
+                            success.then_some(double_success),
+                        ));
+                    }
+                }
+            }
+
+            if attr_ns == METADATA_NAMESPACE
+                && attr.name() == "NativeReturnedPointerAttribute"
+                && let [
+                    (first, metadata::Value::Bool(a)),
+                    (second, metadata::Value::Bool(b)),
+                ] = values.as_slice()
+            {
+                match (first.as_str(), second.as_str()) {
+                    ("MayBeNull", "NullOnFailure") => return Ok(write_returned_pointer(*a, *b)),
+                    ("NullOnFailure", "MayBeNull") => return Ok(write_returned_pointer(*b, *a)),
+                    _ => {}
+                }
+            }
 
             // Naturalized metadata attributes render as short RDL spellings when possible.
             let pseudo = if attr_ns == METADATA_NAMESPACE {

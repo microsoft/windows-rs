@@ -4,6 +4,69 @@ use windows_metadata::HasAttributes;
 
 const METADATA_NAMESPACE: &str = "Windows.Win32.Metadata";
 
+#[test]
+fn compact_direction_flags_preserve_parameter_metadata() {
+    let types = [
+        metadata::Type::I32,
+        metadata::Type::PtrMut(Box::new(metadata::Type::I32), 1),
+        metadata::Type::PtrConst(Box::new(metadata::Type::I32), 1),
+        metadata::Type::RefMut(Box::new(metadata::Type::I32)),
+        metadata::Type::RefConst(Box::new(metadata::Type::I32)),
+        metadata::Type::ValueName(metadata::TypeName::named("Test", "PointerAlias")),
+    ];
+    let mut explicit = String::from("#[win32] mod Test { type PointerAlias = *mut i32;");
+    let mut compact = explicit.clone();
+    for (index, ty) in types.iter().enumerate() {
+        for (input, output) in [(false, false), (true, false), (false, true), (true, true)] {
+            let direction = windows_rdl::emit::write_param_direction(ty, input, output);
+            let mutable = matches!(ty, metadata::Type::PtrMut(..) | metadata::Type::RefMut(_));
+            assert_eq!(
+                direction.is_empty(),
+                (!input && !output)
+                    || (input && !output && !mutable)
+                    || (output && !input && mutable)
+            );
+            let ty = windows_rdl::emit::write_type("Test", ty);
+            let signature =
+                format!("#[library(\"fixture.dll\")] extern fn Case{index}{input}{output}(");
+            let parameter = format!("#[opt] value: {ty});");
+            explicit.push_str(&format!(
+                "{signature}{}{}{parameter}",
+                if input { "#[in]" } else { "" },
+                if output { "#[out]" } else { "" }
+            ));
+            compact.push_str(&format!("{signature}{direction}{parameter}"));
+        }
+    }
+    explicit.push('}');
+    compact.push('}');
+    let scratch = scratch("compact_direction");
+    let paths = [
+        scratch.join("explicit.winmd"),
+        scratch.join("compact.winmd"),
+    ];
+    for (text, path) in [explicit, compact].iter().zip(&paths) {
+        windows_rdl::reader()
+            .input_text(text)
+            .output(path)
+            .write()
+            .unwrap();
+    }
+    let indexes = paths.map(|path| metadata::reader::Index::read(path).unwrap());
+    let original = indexes[0].expect("Test", "Apis");
+    let compact = indexes[1].expect("Test", "Apis");
+    assert_eq!(original.methods().count(), 24);
+    assert_eq!(compact.methods().count(), 24);
+    for (original, compact) in original.methods().zip(compact.methods()) {
+        assert_eq!(original.name(), compact.name());
+        assert_eq!(original.signature(&[]), compact.signature(&[]));
+        let original = original.params().next().unwrap();
+        let compact = compact.params().next().unwrap();
+        assert_eq!(original.name(), compact.name());
+        assert_eq!(original.flags(), compact.flags());
+    }
+}
+
 struct AttributeSpec {
     name: String,
     values: Vec<(String, metadata::Value)>,

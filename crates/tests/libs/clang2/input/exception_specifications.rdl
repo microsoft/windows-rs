@@ -8,19 +8,14 @@ mod Fixture {
     }
     #[guid(0x98765432_1234_5678_90ab_cdef01234567)]
     interface INoThrow: IBase {
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
         fn Safe(&self, value: i32) -> i32;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
         fn Legacy(&self, value: i32) -> i32;
         fn Ordinary(&self, value: i32) -> i32;
     }
-    #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
     #[library("example.dll")]
     extern fn NativeSum(value: i32) -> i32;
-    #[Windows::Win32::Metadata::NativeExceptionSpecification("noexcept")]
     extern fn NoThrowCallback(value: i32) -> i32;
     extern fn OrdinaryCallback(value: i32) -> i32;
-    #[Windows::Win32::Metadata::NativeExceptionSpecification("throw()")]
     #[library("example.dll", import = "ReadPayloadEntry")]
     extern fn ReadPayload(value: i32) -> i32;
 }

@@ -1,7 +1,7 @@
 #[win32]
 mod Fixture {
-    extern fn AContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, _Out_writes_bytes_to_(capacity,*written)")] buffer: *mut void, #[in] capacity: u32, #[out] written: *mut u32) -> Status;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    extern fn AContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, _Out_writes_bytes_to_(capacity,*written)")] buffer: *mut void, capacity: u32, written: *mut u32) -> Status;
+    #[must_use]
     extern "C" fn AResultContract(context: *mut void) -> Status;
     struct BufferView {
         count: u32,
@@ -22,29 +22,29 @@ mod Fixture {
     #[library("example.dll")]
     extern "C" fn Conditional(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_(capacity)", "capacity > 0, _Out_writes_(capacity)")] buffer: *mut void, capacity: u32);
     type ContractAddress = *mut AContract;
-    extern fn CopiedContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, _Out_writes_bytes_to_(capacity,*written)")] buffer: *mut void, #[in] capacity: u32, #[out] written: *mut u32) -> Status;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "", TypedefName = "AResultContract")]
+    extern fn CopiedContract(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "capacity > 0,_Out_writes_bytes_to_(capacity, *written)", "capacity > 0, _Out_writes_bytes_to_(capacity,*written)")] buffer: *mut void, capacity: u32, written: *mut u32) -> Status;
+    #[must_use]
     extern "C" fn CopiedResult(context: *mut void) -> Status;
     #[Windows::Win32::Metadata::NativeSal("2", "_On_failure_", "_Unchanged_(*value)", "_Unchanged_(*value)")]
     extern "C" fn Failure(value: *mut i32);
     #[guid(0x11111111_1111_1111_1111_111111111111)]
     interface IAnnotated {
-        fn Get(&self, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] object: *mut *mut void) -> Status;
+        fn Get(&self, #[out_ptr(null_on_failure)] #[iid_is] object: *mut *mut void) -> Status;
     }
     #[library("example.dll")]
-    extern "C" fn InspectResult(#[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = true, NullOnFailure = false)] result: *mut *mut void);
+    extern "C" fn InspectResult(#[out_ptr(nullable)] result: *mut *mut void);
     struct OnlyInferred {
         callback: ZPlain,
     }
     #[library("example.dll")]
-    extern "C" fn OptionalResult(#[out] #[opt] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] result: *mut *mut void);
-    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    extern "C" fn OptionalResult(#[opt] #[out_ptr] result: *mut *mut void);
+    #[must_use]
     #[library("example.dll")]
-    extern "C" fn ReadBuffer(#[out] #[opt] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] buffer: *mut void, #[in] capacity: u32, #[out] #[opt] written: *mut u32) -> Status;
+    extern "C" fn ReadBuffer(#[opt] #[size_param(1)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 2, IsByteCount = true, Dereference = true)] buffer: *mut void, capacity: u32, #[opt] written: *mut u32) -> Status;
     #[library("example.dll")]
-    extern "C" fn ReadFixed(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "16", "16")] #[in] values: *const i32);
+    extern "C" fn ReadFixed(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "16", "16")] values: *const i32);
     #[library("example.dll")]
-    extern "C" fn ReadHook(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "REVIEW_LIMIT", "16")] #[in] values: *const i32);
+    extern "C" fn ReadHook(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "REVIEW_LIMIT", "16")] values: *const i32);
     type ResultAddress = *mut AResultContract;
     struct ResultOnly {
         callback: extern "C" fn(*mut void) -> Status,

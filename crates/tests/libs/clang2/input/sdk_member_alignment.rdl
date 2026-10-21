@@ -21,15 +21,15 @@ mod Fixture {
     struct CLS_SCAN_CONTEXT {
         cidNode: CLFS_NODE_ID,
         hLog: HANDLE,
-        #[Windows::Win32::Metadata::Alignment(8)]
+        #[align(8)]
         cIndex: ULONG,
-        #[Windows::Win32::Metadata::Alignment(8)]
+        #[align(8)]
         cContainers: ULONG,
-        #[Windows::Win32::Metadata::Alignment(8)]
+        #[align(8)]
         cContainersReturned: ULONG,
-        #[Windows::Win32::Metadata::Alignment(8)]
+        #[align(8)]
         eScanMode: CLFS_SCAN_MODE,
-        #[Windows::Win32::Metadata::Alignment(8)]
+        #[align(8)]
         pinfoContainer: PCLS_CONTAINER_INFORMATION,
     }
     type PCLS_CONTAINER_INFORMATION = *mut _CLS_CONTAINER_INFORMATION;
@@ -59,18 +59,20 @@ mod Fixture {
         Features: union {
             AsUINT32: UINT32,
             Anonymous: struct {
-                #[Windows::Win32::Metadata::NativeBitfield("DirectHypercall", 0, 1, MemberType = UINT32)]
-                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 2, 30, MemberType = UINT32)]
-                #[Windows::Win32::Metadata::NativeBitfield("VirtualizationException", 1, 1, MemberType = UINT32)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    DirectHypercall: UINT32: 1,
+                    VirtualizationException: UINT32: 1,
+                    Reserved: UINT32: 30,
+                },
             },
         },
         HypercallControls: union {
             AsUINT32: UINT32,
             Anonymous: struct {
-                #[Windows::Win32::Metadata::NativeBitfield("InterPartitionCommunication", 0, 1, MemberType = UINT32)]
-                #[Windows::Win32::Metadata::NativeBitfield("Reserved", 1, 31, MemberType = UINT32)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    InterPartitionCommunication: UINT32: 1,
+                    Reserved: UINT32: 31,
+                },
             },
         },
     }
@@ -116,12 +118,13 @@ mod Fixture {
     struct WHV_X64_SVM_NESTED_STATE {
         Vendor: WHV_NESTED_STATE_TYPE,
         Flags: struct {
-            #[Windows::Win32::Metadata::NativeBitfield("CurrentVmcbValid", 3, 1, MemberType = UINT32)]
-            #[Windows::Win32::Metadata::NativeBitfield("GuestMode", 0, 1, MemberType = UINT32)]
-            #[Windows::Win32::Metadata::NativeBitfield("HostSaveGpaValid", 2, 1, MemberType = UINT32)]
-            #[Windows::Win32::Metadata::NativeBitfield("Reserved", 4, 28, MemberType = UINT32)]
-            #[Windows::Win32::Metadata::NativeBitfield("VmEntryPending", 1, 1, MemberType = UINT32)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                GuestMode: UINT32: 1,
+                VmEntryPending: UINT32: 1,
+                HostSaveGpaValid: UINT32: 1,
+                CurrentVmcbValid: UINT32: 1,
+                Reserved: UINT32: 28,
+            },
         },
         NestedEnlightenmentsControl: WHV_NESTED_ENLIGHTENMENTS_CONTROL,
         HostSaveGpa: UINT64,
@@ -130,21 +133,22 @@ mod Fixture {
         VmcbGpa: UINT64,
         HostState: WHV_SVM_NESTED_HOST_STATE,
         Reserved: [UINT8; 3832],
-        #[Windows::Win32::Metadata::Alignment(4096)]
+        #[align(4096)]
         VmcbBytes: [UINT8; 4096],
     }
     #[arch(X64 | Arm64)]
     struct WHV_X64_VMX_NESTED_STATE {
         Vendor: WHV_NESTED_STATE_TYPE,
         Flags: struct {
-            #[Windows::Win32::Metadata::NativeBitfield("CurrentVmcsValid", 2, 1, MemberType = UINT32)]
-            #[Windows::Win32::Metadata::NativeBitfield("EnlightenedVmEntry", 5, 1, MemberType = UINT32)]
-            #[Windows::Win32::Metadata::NativeBitfield("GuestMode", 0, 1, MemberType = UINT32)]
-            #[Windows::Win32::Metadata::NativeBitfield("Reserved", 6, 26, MemberType = UINT32)]
-            #[Windows::Win32::Metadata::NativeBitfield("VmEntryPending", 3, 1, MemberType = UINT32)]
-            #[Windows::Win32::Metadata::NativeBitfield("VmcsEnlightened", 4, 1, MemberType = UINT32)]
-            #[Windows::Win32::Metadata::NativeBitfield("Vmxon", 1, 1, MemberType = UINT32)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                GuestMode: UINT32: 1,
+                Vmxon: UINT32: 1,
+                CurrentVmcsValid: UINT32: 1,
+                VmEntryPending: UINT32: 1,
+                VmcsEnlightened: UINT32: 1,
+                EnlightenedVmEntry: UINT32: 1,
+                Reserved: UINT32: 26,
+            },
         },
         NestedEnlightenmentsControl: WHV_NESTED_ENLIGHTENMENTS_CONTROL,
         Pdpt: [UINT64; 4],
@@ -160,7 +164,7 @@ mod Fixture {
             IcrHigh: UINT32,
         },
         Reserved: [UINT8; 3944],
-        #[Windows::Win32::Metadata::Alignment(4096)]
+        #[align(4096)]
         VmcsBytes: [UINT8; 4096],
     }
 }

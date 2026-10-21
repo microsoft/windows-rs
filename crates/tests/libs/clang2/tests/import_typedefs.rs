@@ -90,6 +90,38 @@ fn equivalent_import_typedefs() {
 }
 
 #[test]
+fn equivalent_direction_on_pointer_typedefs() {
+    helpers::ensure_libclang();
+    for direction in ["_In_", "_Out_", "_Inout_"] {
+        let mut inputs = inputs();
+        for input in &mut inputs {
+            input.source.insert_str(
+                0,
+                &format!(
+                    "#define STORAGE_DIRECTION __attribute__((annotate(\"windows_clang:sal:2:{direction}\\n()\\n()\")))\n"
+                ),
+            );
+        }
+        let mut expected = None;
+        for _ in 0..2 {
+            let snapshots = capture(&inputs, &TARGETS).unwrap();
+            let output = projection::project_with_imports(
+                &merge(&snapshots).unwrap(),
+                "Fixture",
+                &imports(),
+            )
+            .unwrap();
+            assert_eq!(output.functions, 1);
+            if let Some(expected) = &expected {
+                assert_eq!(&output, expected);
+            }
+            expected = Some(output);
+            inputs.reverse();
+        }
+    }
+}
+
+#[test]
 fn typedef_annotations_still_disagree() {
     helpers::ensure_libclang();
     for (alias, separate_tu) in [
