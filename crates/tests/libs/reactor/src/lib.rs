@@ -309,6 +309,9 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         )?,
         "text" => App::run_component::<TextFixture>(())?,
         "typography" => App::run_component::<typography::TypographyFixture>(())?,
+        "typography-inherited" => {
+            App::run_component::<typography::InheritedTypographyFixture>(())?;
+        }
         "keyed-reorder" => App::run_component::<ReorderFixture>(())?,
         "pointer-capture-mounted" => pointer::run(true, true)?,
         "pointer-capture-added" => pointer::run(true, false)?,
