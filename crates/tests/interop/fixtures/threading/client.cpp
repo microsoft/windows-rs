@@ -68,7 +68,7 @@ void test()
         check(widget.Count() == threads * calls);
     }
 
-    // The component calls handlers concurrently on thread pool threads.
+    // The component calls handlers on background threads.
     {
         std::atomic<int32_t> sum = 0;
         std::mutex lock;

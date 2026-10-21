@@ -27,6 +27,12 @@ void test()
 
     hstring const large = widget.Repeat(L"ab", 100'000);
     check(large.size() == 200'000);
+    std::wstring expected;
+    for (uint32_t i = 0; i < 100'000; ++i)
+    {
+        expected += L"ab";
+    }
+    check(large == expected);
     check(widget.Echo(large) == large);
 
     hstring const greeting = widget.Greeting();

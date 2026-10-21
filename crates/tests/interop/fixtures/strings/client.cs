@@ -1,3 +1,4 @@
+using System.Linq;
 using Strings;
 using static Harness;
 
@@ -27,6 +28,7 @@ public static class Client
 
         var large = widget.Repeat("ab", 100_000);
         Check(large.Length == 200_000);
+        Check(large == string.Concat(Enumerable.Repeat("ab", 100_000)));
         Check(widget.Echo(large) == large);
 
         var greeting = widget.Greeting();

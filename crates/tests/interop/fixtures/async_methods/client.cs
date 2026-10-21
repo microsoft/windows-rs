@@ -30,6 +30,12 @@ public static class Client
         });
         widget.AwaitActionWithProgress(actionWithProgress).AsTask().GetAwaiter().GetResult();
 
+        var failingAction = AsyncInfo.Run(_ => Task.FromException(new ArgumentOutOfRangeException()));
+        CheckBounds(() => widget.AwaitAction(failingAction).AsTask());
+        var failingActionWithProgress = AsyncInfo.Run<uint>((_, _) =>
+            Task.FromException(new ArgumentOutOfRangeException()));
+        CheckBounds(() => widget.AwaitActionWithProgress(failingActionWithProgress).AsTask());
+
         var operation = AsyncInfo.Run(async _ =>
         {
             await Task.Yield();

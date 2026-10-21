@@ -31,6 +31,11 @@ interfaces, and non-blittable structs (`nontrivial_arrays`), and client-implemen
 array parameters and returns (`array_delegates`). The `numerics` fixture checks all seven
 `Windows.Foundation.Numerics` structs, including their C# `System.Numerics` mappings.
 
+`boxed_arrays` checks numeric, Boolean, and string arrays boxed on either side of the ABI,
+including C# array-to-`Object` conversion and rejection of an incompatible boxed type.
+`struct_directions` distinguishes value input, const-reference input, output, and return slots for
+blittable and nested non-blittable structs, both in component methods and client delegates.
+
 ### Component
 
 `component.rs` is a module of this crate's library and starts with `use super::*;`, which brings in

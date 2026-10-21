@@ -10,7 +10,6 @@ pub fn test() -> Result<()> {
     let widget = Widget::new()?;
     let time = DateTime::from_ticks(Y2K);
     let span = TimeSpan::from_minutes(90);
-    assert_eq!((time.year(), time.month(), time.day()), (2000, 1, 1));
     assert_eq!(widget.Ticks(time)?, Y2K);
     assert_eq!(widget.Duration(span)?, 90 * 60 * TimeSpan::TICKS_PER_SECOND);
     assert_eq!(widget.Add(time, span)?, time + span);

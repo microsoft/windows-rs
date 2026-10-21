@@ -22,6 +22,7 @@ pub fn test() -> Result<()> {
 
     let large = widget.Repeat(h!("ab"), 100_000)?;
     assert_eq!(large.len(), 200_000);
+    assert_eq!(large, "ab".repeat(100_000));
     assert_eq!(widget.Echo(&large)?, large);
 
     let greeting = widget.Greeting()?;
