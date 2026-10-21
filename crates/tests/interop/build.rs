@@ -30,8 +30,10 @@ fn main() {
         .output(out.join("bindings.rs"))
         .filter("Windows.Foundation.EventHandler")
         .filter("Windows.Foundation.IClosable")
+        .filter("Windows.Foundation.IReferenceArray")
         .filter("Windows.Foundation.IStringable")
         .filter("Windows.Foundation.Numerics")
+        .filter("Windows.Foundation.PropertyValue")
         .filter("Windows.Foundation.TypedEventHandler")
         .filter("Windows.Foundation.Uri")
         .implement_all();

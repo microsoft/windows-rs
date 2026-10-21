@@ -1,0 +1,36 @@
+use Windows::Foundation::*;
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod StructDirections {
+    struct Pair {
+        X: i32,
+        Y: i64,
+    }
+
+    struct Label {
+        Text: String,
+        Position: Pair,
+        Width: IReference<i32>,
+    }
+
+    delegate fn PairHandler(value: Pair, borrowed: &Pair, output: &mut Pair) -> Pair;
+    delegate fn LabelHandler(value: Label, borrowed: &Label, output: &mut Label) -> Label;
+
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // Output adds coordinates; the return value subtracts borrowed from value.
+        // For labels, output joins value.Text + borrowed.Text and retains value.Width.
+        // The return value joins borrowed.Text + value.Text and retains borrowed.Width.
+        fn ProcessPair(&self, value: Pair, borrowed: &Pair, output: &mut Pair) -> Pair;
+        fn ProcessLabel(&self, value: Label, borrowed: &Label, output: &mut Label) -> Label;
+
+        fn CheckPair(&self, handler: PairHandler);
+        fn CheckLabel(&self, handler: LabelHandler);
+    }
+}
