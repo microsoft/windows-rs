@@ -22,6 +22,7 @@ pub struct RecordingAdapter {
     content_dialog_states: HashMap<ObjectId, RecordedContentDialog>,
     record_batches: bool,
     validate_batches: bool,
+    read_reorders: bool,
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -93,6 +94,7 @@ impl RecordingAdapter {
             content_dialog_states: HashMap::new(),
             record_batches: false,
             validate_batches: true,
+            read_reorders: false,
         }
     }
 
@@ -102,6 +104,20 @@ impl RecordingAdapter {
 
     pub fn validate_batches(&mut self, validate: bool) {
         self.validate_batches = validate;
+    }
+
+    /// Reports reorders in the recorded native order when they are processed, as the WinUI
+    /// adapter does, rather than the queued order.
+    pub fn read_reorders(&mut self, read: bool) {
+        self.read_reorders = read;
+    }
+
+    fn native_event(&self, event: NativeEvent) -> NativeEvent {
+        if self.read_reorders {
+            event.read_reorder(|object, relation| Some(self.children(object, relation)?.to_vec()))
+        } else {
+            event
+        }
     }
 
     pub fn batches(&self) -> &[Vec<Mutation>] {
@@ -1076,11 +1092,17 @@ impl Adapter for RecordingAdapter {
     type Error = AdapterError;
 
     fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
-        NativeEvent::preview_prefix(events, self.native_events.iter().cloned());
+        NativeEvent::preview_prefix(
+            events,
+            self.native_events
+                .iter()
+                .map(|event| self.native_event(event.clone())),
+        );
     }
 
     fn pop_native_event(&mut self) -> Option<NativeEvent> {
-        self.native_events.pop_front()
+        let event = self.native_events.pop_front()?;
+        Some(self.native_event(event))
     }
 
     fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error> {

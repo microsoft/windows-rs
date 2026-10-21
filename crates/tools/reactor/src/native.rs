@@ -364,9 +364,6 @@ fn emit_event(
         code.push_str(&format!(
             "let drop_policy_{field} = Rc::clone(&{owner}drop_policy);\n"
         ));
-    } else if event.value == Value::Keys {
-        let source = item_vector(object, metadata);
-        code.push_str(&format!("let source_{field} = {source};\n"));
     }
     let args = if event.routed
         || event.value == Value::PointerEventInfo
@@ -475,11 +472,11 @@ fn emit_event(
             event.name
         ));
     } else if let Some(relation) = &event.reorders {
+        // The adapter reads the native order when it processes the event.
         code.push_str(&format!(
-            "let Some((observation, value)) = WinUiAdapter::observe_reorder(\
-             &event_queue_{field}, object, RelationId::{relation}, &source_{field}) \
-             else {{ return; }};\n\
-             let dispatch = true;\nlet observation = Some(observation);\n"
+            "let observation = Some(Observation::Reorder {{ object, \
+             relation: RelationId::{relation}, children: Vec::new() }});\n\
+             let dispatch = true;\nlet value = Vec::<ObjectId>::new();\n"
         ));
     } else if managed_source.is_some() {
         code.push_str("let dispatch = !managed_source.get();\nlet observation = None;\n");
@@ -1367,41 +1364,6 @@ fn is_lazy_event(object: &Object, event: &Event) -> bool {
             .properties
             .iter()
             .any(|property| property.adapter == Some(PropertyAdapter::ImageUri))
-}
-
-// Returns an expression for the object's single item collection as `IVector<IInspectable>`.
-fn item_vector(object: &Object, metadata: &tool_reactor_metadata::MetadataResolver) -> String {
-    let mut relations = object.relations.iter().filter(|relation| {
-        matches!(
-            relation.realization,
-            Realization::Owned | Realization::Container
-        ) && relation.cardinality == Cardinality::Many
-    });
-    let relation = relations.next().unwrap();
-    assert!(
-        relations.next().is_none(),
-        "{} must have one item collection",
-        object.name
-    );
-    // Container relations hold data items in the control's ItemCollection.
-    let item_collection = relation.realization == Realization::Container
-        || relation.native_collection == Some(NativeCollection::ItemCollection);
-    assert!(item_collection || relation.native_item.as_deref() == Some("IInspectable"));
-    let native_relation = relation.native.as_deref().unwrap_or(&relation.name);
-    let class = native_name(object);
-    let interface = metadata
-        .resolve(&class, &format!("get_{native_relation}"))
-        .unwrap()
-        .short_name();
-    let items = format!(
-        "{}.{native_relation}()?",
-        native_interface_value("value", &class, interface, metadata)
-    );
-    if item_collection {
-        format!("{items}.cast::<IVector<IInspectable>>()?")
-    } else {
-        items
-    }
 }
 
 fn native_interface_value(

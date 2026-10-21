@@ -746,6 +746,30 @@ impl WinUiAdapter {
         if let Some(request) = queued.realization {
             return Some(NativeEvent::realization(request));
         }
+        // Native handlers queue reorders without an order; reading it here keeps queued
+        // notifications from replaying an order that a later render has already replaced.
+        let mut observation = queued.observation.clone();
+        let mut order = None;
+        if let Some(Observation::Reorder {
+            object,
+            relation,
+            children,
+        }) = &mut observation
+        {
+            if !self.handles.contains_key(object) {
+                return None;
+            }
+            match self.native_children(*object, *relation) {
+                Ok(native) => {
+                    children.clone_from(&native);
+                    order = Some(EventPayload::Items(native));
+                }
+                Err(error) => {
+                    self.event_queue.errors.borrow_mut().push_back(error);
+                    return None;
+                }
+            }
+        }
         let event = queued.event.as_ref().and_then(|queued| {
             if queued.event == EventId::MenuItemInvoked {
                 let menu = self.menus.get(&queued.object)?;
@@ -785,9 +809,42 @@ impl WinUiAdapter {
                 queued.object,
                 queued.event,
                 callback,
-                queued.payload.clone(),
+                order.unwrap_or_else(|| queued.payload.clone()),
             ))
         });
-        Some(NativeEvent::new(queued.observation.clone(), event))
+        Some(NativeEvent::new(observation, event))
+    }
+
+    /// Returns the registered children of a reorderable relation in native order.
+    fn native_children(
+        &self,
+        object: ObjectId,
+        relation: RelationId,
+    ) -> Result<Vec<ObjectId>, WinUiError> {
+        let identities = match relation_contract(self.kind(object)?, relation)?.realization {
+            Realization::Owned => {
+                let values = self.owned_collection(object, relation)?;
+                (0..values.size()?)
+                    .map(|index| com_identity(&values.get_at(index)?))
+                    .collect::<Result<Vec<_>, _>>()?
+            }
+            Realization::Container => {
+                let values = self.items(object)?;
+                (0..values.Size()?)
+                    .map(|index| com_identity(&values.GetAt(index)?))
+                    .collect::<Result<Vec<_>, _>>()?
+            }
+            Realization::Structural => return Err(WinUiError::InvalidRelation(object, relation)),
+        };
+        let items = self.event_queue.items.borrow();
+        let registered = items
+            .iter()
+            .filter(|(_, item)| item.owner == object)
+            .map(|(child, item)| (item.identity, *child))
+            .collect::<HashMap<_, _>>();
+        Ok(identities
+            .iter()
+            .filter_map(|identity| registered.get(identity).copied())
+            .collect())
     }
 }

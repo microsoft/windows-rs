@@ -955,24 +955,17 @@ impl GeneratedHandle {
                 let drag_items_completed = Rc::new(RefCell::new(NativeKeysEvent::default()));
                 let event_for_callback = Rc::clone(&drag_items_completed);
                 let event_queue_drag_items_completed = Rc::clone(event_queue);
-                let source_drag_items_completed = value
-                    .cast::<native::IItemsControl>()?
-                    .Items()?
-                    .cast::<IVector<IInspectable>>()?;
                 let revoker =
                     value
                         .cast::<native::IListViewBase>()?
                         .DragItemsCompleted(move |_, _| {
-                            let Some((observation, value)) = WinUiAdapter::observe_reorder(
-                                &event_queue_drag_items_completed,
+                            let observation = Some(Observation::Reorder {
                                 object,
-                                RelationId::Items,
-                                &source_drag_items_completed,
-                            ) else {
-                                return;
-                            };
+                                relation: RelationId::Items,
+                                children: Vec::new(),
+                            });
                             let dispatch = true;
-                            let observation = Some(observation);
+                            let value = Vec::<ObjectId>::new();
                             if dispatch {
                                 WinUiAdapter::dispatch(
                                     &event_for_callback,
@@ -1955,18 +1948,14 @@ impl GeneratedHandle {
                 let tab_items_changed = Rc::new(RefCell::new(NativeKeysEvent::default()));
                 let event_for_callback = Rc::clone(&tab_items_changed);
                 let event_queue_tab_items_changed = Rc::clone(event_queue);
-                let source_tab_items_changed = value.TabItems()?;
                 let revoker = value.TabItemsChanged(move |_, _| {
-                    let Some((observation, value)) = WinUiAdapter::observe_reorder(
-                        &event_queue_tab_items_changed,
+                    let observation = Some(Observation::Reorder {
                         object,
-                        RelationId::TabItems,
-                        &source_tab_items_changed,
-                    ) else {
-                        return;
-                    };
+                        relation: RelationId::TabItems,
+                        children: Vec::new(),
+                    });
                     let dispatch = true;
-                    let observation = Some(observation);
+                    let value = Vec::<ObjectId>::new();
                     if dispatch {
                         WinUiAdapter::dispatch(
                             &event_for_callback,
@@ -2275,24 +2264,17 @@ impl GeneratedHandle {
                 let drag_items_completed = Rc::new(RefCell::new(NativeKeysEvent::default()));
                 let event_for_callback = Rc::clone(&drag_items_completed);
                 let event_queue_drag_items_completed = Rc::clone(event_queue);
-                let source_drag_items_completed = value
-                    .cast::<native::IItemsControl>()?
-                    .Items()?
-                    .cast::<IVector<IInspectable>>()?;
                 let revoker =
                     value
                         .cast::<native::IListViewBase>()?
                         .DragItemsCompleted(move |_, _| {
-                            let Some((observation, value)) = WinUiAdapter::observe_reorder(
-                                &event_queue_drag_items_completed,
+                            let observation = Some(Observation::Reorder {
                                 object,
-                                RelationId::Items,
-                                &source_drag_items_completed,
-                            ) else {
-                                return;
-                            };
+                                relation: RelationId::Items,
+                                children: Vec::new(),
+                            });
                             let dispatch = true;
-                            let observation = Some(observation);
+                            let value = Vec::<ObjectId>::new();
                             if dispatch {
                                 WinUiAdapter::dispatch(
                                     &event_for_callback,

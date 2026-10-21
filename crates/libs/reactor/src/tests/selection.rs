@@ -689,6 +689,91 @@ fn reorder_rejects_echoed_stale_and_partial_native_orders() {
     );
 }
 
+struct IgnoredReorder {
+    reorders: Rc<Cell<usize>>,
+}
+
+impl Component for IgnoredReorder {
+    type Input = Rc<Cell<usize>>;
+    type Message = ();
+
+    fn create(reorders: &Self::Input, _: &ComponentContext<Self>) -> Self {
+        Self {
+            reorders: Rc::clone(reorders),
+        }
+    }
+
+    fn update(&mut self, (): (), _: &ComponentContext<Self>) {
+        self.reorders.set(self.reorders.get() + 1);
+    }
+
+    fn view(&self, _: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        ListView::new()
+            .items(["a", "b", "c"].map(|key| DataItem::new(key, key)))
+            .on_reordered(context.callback(|_: Vec<Key>| ()))
+            .into()
+    }
+}
+
+#[test]
+fn queued_reorder_after_a_restoring_render_reports_the_current_native_order() {
+    let reorders = Rc::new(Cell::new(0));
+    let mut host = ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<IgnoredReorder>("list", Rc::clone(&reorders))],
+    )
+    .unwrap();
+    host.test_adapter_mut().read_reorders(true);
+    let list = host.reference(&Key::from("list")).unwrap().get().unwrap();
+    let items = host
+        .runtime()
+        .graph()
+        .children(list, RelationId::Items)
+        .unwrap()
+        .to_vec();
+    let callback = host.runtime().graph().events(list).unwrap()[0]
+        .value
+        .clone();
+    let dragged = vec![items[2], items[0], items[1]];
+    host.test_adapter_mut()
+        .move_children(list, RelationId::Items, &dragged);
+
+    // One drag can raise several notifications. The first one's render restores the declared
+    // order, so the later one must not replay the dragged order.
+    for _ in 0..2 {
+        host.test_adapter_mut().queue_native_event(
+            Some(Observation::Reorder {
+                object: list,
+                relation: RelationId::Items,
+                children: dragged.clone(),
+            }),
+            Some(EventDispatch::new(
+                list,
+                EventId::DragItemsCompleted,
+                callback.clone(),
+                EventPayload::Items(dragged.clone()),
+            )),
+        );
+    }
+    host.drain(8).unwrap();
+
+    assert_eq!(reorders.get(), 1);
+    assert_eq!(
+        host.runtime()
+            .graph()
+            .children(list, RelationId::Items)
+            .unwrap(),
+        items
+    );
+    assert_eq!(
+        host.runtime()
+            .adapter()
+            .children(list, RelationId::Items)
+            .unwrap(),
+        items
+    );
+}
+
 #[test]
 fn reorder_observation_for_an_untracked_relation_poisons_the_runtime() {
     let mut runtime = Runtime::new(RecordingAdapter::default());

@@ -74,45 +74,6 @@ impl WinUiAdapter {
         queue
     }
 
-    /// Maps a native item collection to its registered children in native order. Reconciliation
-    /// drops the event when the order matches the retained order.
-    fn observe_reorder(
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        relation: RelationId,
-        items: &IVector<IInspectable>,
-    ) -> Option<(Observation, Vec<ObjectId>)> {
-        let children = (|| {
-            let registered = event_queue
-                .items
-                .borrow()
-                .iter()
-                .filter(|(_, item)| item.owner == object)
-                .map(|(child, item)| (item.identity, *child))
-                .collect::<HashMap<_, _>>();
-            let mut children = Vec::with_capacity(registered.len());
-            for index in 0..items.Size()? {
-                if let Some(child) = registered.get(&com_identity(&items.GetAt(index)?)?) {
-                    children.push(*child);
-                }
-            }
-            Ok::<_, WinUiError>(children)
-        })();
-        let children = match children {
-            Ok(children) => children,
-            Err(error) => {
-                report_error(error.into());
-                return None;
-            }
-        };
-        let observation = Observation::Reorder {
-            object,
-            relation,
-            children: children.clone(),
-        };
-        Some((observation, children))
-    }
-
     fn drag_kind(
         args: Ref<native::DragEventArgs>,
         policy: &Rc<RefCell<Option<Rc<DragDropPolicy>>>>,
