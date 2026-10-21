@@ -620,6 +620,9 @@ impl File {
                 };
                 buffer.write_compressed(enum_name.len());
                 buffer.extend_from_slice(enum_name.as_bytes());
+            } else if let Value::TypeName(_) = value {
+                // SERIALIZATION_TYPE_TYPE (ECMA-335 II.23.3): the value is a SerString.
+                buffer.push(0x50);
             } else {
                 buffer.push(value.ty().code());
             }
