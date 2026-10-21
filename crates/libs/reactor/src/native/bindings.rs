@@ -10397,6 +10397,19 @@ impl IFrameworkElement {
             .ok()
         }
     }
+    pub(crate) fn Name(&self) -> windows_core::Result<String> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Name)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| {
+                let hstring: windows_core::HSTRING = core::mem::transmute(result__);
+                hstring.to_string_lossy()
+            })
+        }
+    }
     pub(crate) fn SetStyle<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<Style>,
@@ -10575,7 +10588,10 @@ pub struct IFrameworkElement_Vtbl {
     ) -> windows_core::HRESULT,
     Margin: usize,
     SetMargin: usize,
-    Name: usize,
+    pub Name: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     SetName: usize,
     BaseUri: usize,
     DataContext: usize,

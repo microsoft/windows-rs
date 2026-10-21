@@ -277,7 +277,7 @@ Microsoft::UI::Xaml::IDragUIOverride::{put_Caption, put_IsCaptionVisible}
 Microsoft::UI::Xaml::IElementFactory::{}
 Microsoft::UI::Xaml::IElementFactoryGetArgs::get_Data
 Microsoft::UI::Xaml::IElementFactoryRecycleArgs::get_Element
-Microsoft::UI::Xaml::IFrameworkElement::{add_ActualThemeChanged, add_Loaded, add_SizeChanged, get_ActualHeight, get_ActualTheme, get_ActualWidth, get_IsLoaded, get_Resources, get_Tag, put_Height, put_HorizontalAlignment, put_RequestedTheme, put_Style, put_VerticalAlignment, put_Width, remove_ActualThemeChanged, remove_Loaded, remove_SizeChanged}
+Microsoft::UI::Xaml::IFrameworkElement::{add_ActualThemeChanged, add_Loaded, add_SizeChanged, get_ActualHeight, get_ActualTheme, get_ActualWidth, get_IsLoaded, get_Name, get_Resources, get_Tag, put_Height, put_HorizontalAlignment, put_RequestedTheme, put_Style, put_VerticalAlignment, put_Width, remove_ActualThemeChanged, remove_Loaded, remove_SizeChanged}
 Microsoft::UI::Xaml::Input::ICharacterReceivedRoutedEventArgs::{get_Character, get_KeyStatus, put_Handled}
 Microsoft::UI::Xaml::Input::IKeyboardAccelerator::{Invoked, put_Key, put_Modifiers}
 Microsoft::UI::Xaml::Input::IKeyboardAcceleratorInvokedEventArgs::put_Handled

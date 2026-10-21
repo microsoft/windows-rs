@@ -7,6 +7,7 @@ pub(super) enum TextControl {
 }
 
 /// Uppercases every edit so the native control receives a different value than the user typed.
+/// The header is editable so the caret tracking must find the input's editor, not the header's.
 pub(super) struct TransformFixture {
     text: Rc<str>,
     calls: u32,
@@ -44,7 +45,7 @@ impl Component for TransformFixture {
     fn view(&self, control: &TextControl, context: &mut ViewContext<Self>) -> View {
         let header = self
             .header
-            .then(|| TextBlock::new().automation_id("header").text("Header"));
+            .then(|| TextBox::new().automation_id("header").text("Header"));
         let input: View = match control {
             TextControl::TextBox => {
                 let mut input = TextBox::new()

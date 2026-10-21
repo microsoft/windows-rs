@@ -2379,11 +2379,22 @@ impl EditText for native::AutoSuggestBox {
     }
 }
 
+/// Finds the template part named `TextBox`. Matching on the part name rather than the first
+/// TextBox descendant avoids picking an editor supplied through the header.
 fn find_text_box(object: &native::DependencyObject) -> Option<native::TextBox> {
     let count = native::VisualTreeHelper::GetChildrenCount(object).ok()?;
     (0..count).find_map(|index| {
         let child = native::VisualTreeHelper::GetChild(object, index).ok()?;
-        child.cast().ok().or_else(|| find_text_box(&child))
+        child
+            .cast::<native::TextBox>()
+            .ok()
+            .filter(|text_box| {
+                text_box
+                    .cast::<native::IFrameworkElement>()
+                    .and_then(|element| element.Name())
+                    .is_ok_and(|name| name == "TextBox")
+            })
+            .or_else(|| find_text_box(&child))
     })
 }
 
