@@ -1,6 +1,37 @@
 use super::*;
 
 #[test]
+fn cleared_font_size_restores_inherited_value() -> Result<()> {
+    process::run("typography-inherited", |ui| {
+        let header = ui.element("header")?;
+        let width = || unsafe {
+            let bounds = header.CurrentBoundingRectangle()?;
+            Ok(bounds.right - bounds.left)
+        };
+        let inherited = ui.wait("header has nonzero width", width, |width| *width > 0)?;
+
+        ui.invoke("apply")?;
+        let local = ui.wait("local font size shrinks the header", width, |width| {
+            *width < inherited * 3 / 4
+        })?;
+        assert!(local > 0);
+
+        ui.invoke("reset")?;
+        ui.wait(
+            "clearing the font size restores the inherited value",
+            width,
+            |width| *width == inherited,
+        )?;
+        assert!(unsafe {
+            ui.client
+                .CompareElements(&header, &ui.element("header")?)?
+                .as_bool()
+        });
+        Ok(())
+    })
+}
+
+#[test]
 fn text_block_typography_changes_layout_and_resets_in_place() -> Result<()> {
     process::run("typography", |ui| {
         let ids = ["family", "spacing", "height"];

@@ -696,6 +696,18 @@ impl MetadataResolver {
         Some((&name.name, variants))
     }
 
+    pub fn static_enum_path(&self, class_name: &str, method_name: &str) -> Option<String> {
+        let method = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        let Type::ValueName(name) = method.param_types.last()? else {
+            return None;
+        };
+        self.enum_variants
+            .contains_key(&(name.namespace.clone(), name.name.clone()))
+            .then(|| format!("{}.{}", name.namespace, name.name))
+    }
+
     pub fn resolve_event_args_property(
         &self,
         class_name: &str,

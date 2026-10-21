@@ -1,5 +1,157 @@
 use super::*;
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ObjectCategory {
+    Visual,
+    Structural,
+    Data,
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum Cardinality {
+    One,
+    Many,
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum Identity {
+    Positional,
+    Keyed,
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum Realization {
+    Owned,
+    Structural,
+    Container,
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct PropertyContract {
+    pub id: PropertyId,
+    pub value: ValueType,
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct EventContract {
+    pub id: EventId,
+    pub value: ValueType,
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ValueType {
+    String,
+    Bool,
+    Brush,
+    ButtonStyle,
+    ContentDialogResult,
+    CharacterEventInfo,
+    Color,
+    CornerRadius,
+    DateTime,
+    Duration,
+    DragDropPolicy,
+    DragKind,
+    DroppedData,
+    F64,
+    FocusEventInfo,
+    FontWeight,
+    GridLengths,
+    I32,
+    Icon,
+    ImageSource,
+    KeyAccelerators,
+    KeyEventInfo,
+    NavigationViewDisplayMode,
+    OptionalBool,
+    OptionalDateTime,
+    OptionalF64,
+    OptionalTimeSpan,
+    PointerEventInfo,
+    ResourceOverrides,
+    RichText,
+    Selection,
+    ThemeTransitions,
+    Thickness,
+    Vector2,
+    SelectionIndex,
+    StringList,
+    Enum {
+        kind: &'static str,
+        variants: &'static [&'static str],
+    },
+    Unit,
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct RelationContract {
+    pub id: RelationId,
+    pub child: ObjectCategory,
+    pub allowed_objects: &'static [ObjectType],
+    pub cardinality: Cardinality,
+    pub identity: Identity,
+    pub realization: Realization,
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum SelectionEventItemSource {
+    Owner,
+    EventArgs,
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct SelectionContract {
+    pub relations: &'static [RelationId],
+    pub item: ObjectType,
+    pub selected_property: PropertyId,
+    pub event: EventId,
+    pub event_item_source: SelectionEventItemSource,
+    pub event_args: Option<&'static str>,
+    pub payload_property: PropertyId,
+}
+
+pub fn selection_for_relation(kind: ObjectType, relation: RelationId) -> Option<SelectionContract> {
+    selection_contract(kind).filter(|selection| selection.relations.contains(&relation))
+}
+pub fn selection_for_item_property(
+    owner: ObjectType,
+    relation: RelationId,
+    item: ObjectType,
+    property: PropertyId,
+) -> Option<SelectionContract> {
+    selection_for_relation(owner, relation)
+        .filter(|selection| selection.item == item && selection.selected_property == property)
+}
+pub fn relation_accepts(contract: &RelationContract, kind: ObjectType) -> bool {
+    object_category(kind) == contract.child
+        && (contract.allowed_objects.is_empty() || contract.allowed_objects.contains(&kind))
+}
+
+#[cfg(any(test, feature = "test"))]
+pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
+    static CONTRACTS: std::sync::OnceLock<Vec<&'static [PropertyContract]>> =
+        std::sync::OnceLock::new();
+    let contracts = CONTRACTS.get_or_init(|| {
+        let mut unique = Vec::<&'static [PropertyContract]>::new();
+        ALL_OBJECT_TYPES
+            .iter()
+            .copied()
+            .map(|kind| {
+                let mut current = ALL_PROPERTY_IDS
+                    .iter()
+                    .copied()
+                    .filter_map(|id| property_contract(kind, id))
+                    .collect::<Vec<_>>();
+                current.sort_by_key(|contract| property_order(kind, contract.id));
+                if let Some(existing) = unique
+                    .iter()
+                    .copied()
+                    .find(|existing| *existing == current.as_slice())
+                {
+                    existing
+                } else {
+                    let current: &'static [PropertyContract] =
+                        Box::leak(current.into_boxed_slice());
+                    unique.push(current);
+                    current
+                }
+            })
+            .collect()
+    });
+    contracts[object_index(kind)]
+}
+
 pub(crate) const MAX_DEPTH: usize = 128;
 pub(crate) const MAX_OBJECTS: usize = 65_536;
 

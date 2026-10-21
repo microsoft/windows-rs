@@ -153,7 +153,10 @@ impl WinUiAdapter {
                         Rc::new(RefCell::new(NativeStringListEvent::default()));
                     let drag_event = Rc::clone(&drag_items_completed);
                     let drag_queue = Rc::clone(&self.event_queue);
-                    let drag_source = value.cast::<native::IItemsControl>()?;
+                    let drag_source = value
+                        .cast::<native::IItemsControl>()?
+                        .Items()?
+                        .cast::<IVector<IInspectable>>()?;
                     let _drag_items_completed = value
                         .cast::<native::IListViewBase>()?
                         .DragItemsCompleted(move |_, _| match Self::item_tags(&drag_source) {
@@ -306,20 +309,7 @@ impl WinUiAdapter {
                     self.set_theme_brush(object, property, None)?;
                 }
                 if let Some(element) = &element
-                    && let Some(result) =
-                        GeneratedHandle::set_attached_property(element, property, None)
-                {
-                    break 'apply result;
-                }
-                if let Some(element) = &element
-                    && let Some(result) =
-                        GeneratedHandle::set_visual_property(element, property, None)
-                {
-                    break 'apply result;
-                }
-                if let Some(element) = &element
-                    && let Some(result) =
-                        GeneratedHandle::set_handwritten_property(kind, element, property, None)
+                    && let Some(result) = set_dependency_property(element, kind, property, None)
                 {
                     break 'apply result;
                 }
@@ -404,18 +394,13 @@ impl WinUiAdapter {
                             properties.iter().any(|(candidate, _)| *candidate == id)
                         }) =>
                     {
-                        if let Some(element) = &element
-                            && let Some(result) =
-                                GeneratedHandle::set_handwritten_property(kind, element, id, None)
-                        {
-                            result?;
-                        } else if let Some(Handle::Generated(handle)) = self.handles.get(&object)
-                            && let Some(result) = handle.set_property(id, None, None)
-                        {
-                            result?;
-                        } else {
+                        let Some(element) = &element else {
                             break 'apply Err(WinUiError::InvalidObject(object));
-                        }
+                        };
+                        let Some(result) = set_dependency_property(element, kind, id, None) else {
+                            break 'apply Err(WinUiError::InvalidObject(object));
+                        };
+                        result?;
                         break 'apply self.set_theme_brush(object, id, Some(*value));
                     }
                     (id, PropertyValue::Brush(Brush::Solid(_)))
@@ -428,30 +413,8 @@ impl WinUiAdapter {
                     _ => {}
                 }
                 if let Some(element) = &element
-                    && let Some(result) = GeneratedHandle::set_attached_property(
-                        element,
-                        property.id,
-                        Some(&property.value),
-                    )
-                {
-                    break 'apply result;
-                }
-                if let Some(element) = &element
-                    && let Some(result) = GeneratedHandle::set_visual_property(
-                        element,
-                        property.id,
-                        Some(&property.value),
-                    )
-                {
-                    break 'apply result;
-                }
-                if let Some(element) = &element
-                    && let Some(result) = GeneratedHandle::set_handwritten_property(
-                        kind,
-                        element,
-                        property.id,
-                        Some(&property.value),
-                    )
+                    && let Some(result) =
+                        set_dependency_property(element, kind, property.id, Some(&property.value))
                 {
                     break 'apply result;
                 }

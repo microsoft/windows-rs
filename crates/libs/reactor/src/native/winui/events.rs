@@ -110,23 +110,7 @@ impl WinUiAdapter {
         queue
     }
 
-    fn item_tags(source: &native::IItemsControl) -> Result<Vec<String>, WinUiError> {
-        let items = source.Items()?;
-        let mut tags = Vec::with_capacity(items.Size()? as usize);
-        for index in 0..items.Size()? {
-            let tag = items
-                .GetAt(index)?
-                .cast::<native::IFrameworkElement>()?
-                .Tag()?
-                .cast::<windows_reference::IReference<HSTRING>>()?
-                .Value()?;
-            tags.push(tag.to_string_lossy());
-        }
-        Ok(tags)
-    }
-
-    fn tab_item_tags(source: &native::ITabView) -> Result<Vec<String>, WinUiError> {
-        let items = source.TabItems()?;
+    fn item_tags(items: &IVector<IInspectable>) -> Result<Vec<String>, WinUiError> {
         let mut tags = Vec::with_capacity(items.Size()? as usize);
         for index in 0..items.Size()? {
             let tag = items

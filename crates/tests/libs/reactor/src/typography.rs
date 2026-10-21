@@ -1,5 +1,51 @@
 use super::*;
 
+// The NavigationView header template gives its content a larger font size than the TextBlock
+// default, so clearing a local size must restore the inherited value rather than 14.
+pub(super) struct InheritedTypographyFixture(bool);
+
+impl Component for InheritedTypographyFixture {
+    type Input = ();
+    type Message = bool;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self(false)
+    }
+
+    fn update(&mut self, message: bool, _: &ComponentContext<Self>) {
+        self.0 = message;
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let mut header = TextBlock::new()
+            .automation_id("header")
+            .text("Header")
+            .horizontal_alignment(HorizontalAlignment::Left);
+        if self.0 {
+            header = header.font_size(14.0);
+        }
+        context.window_visuals(WindowVisuals::new().client_size(500.0, 400.0));
+        context.window_frame(
+            "Reactor UI fixture: typography-inherited",
+            NavigationView::new()
+                .is_settings_visible(false)
+                .header(header)
+                .content(
+                    StackPanel::new().margin(20.0).spacing(8.0).children((
+                        Button::new()
+                            .automation_id("apply")
+                            .content("Apply font size")
+                            .on_click(context.message(true)),
+                        Button::new()
+                            .automation_id("reset")
+                            .content("Reset font size")
+                            .on_click(context.message(false)),
+                    )),
+                ),
+        )
+    }
+}
+
 pub(super) struct TypographyFixture(u8);
 
 impl Component for TypographyFixture {

@@ -2336,9 +2336,144 @@ impl_into_visuals_tuple!(
     A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11, M 12, N 13, O 14, P 15
 );
 
+macro_rules! enabled_methods {
+    () => {
+        pub fn is_enabled(mut self, is_enabled: bool) -> Self {
+            self.0 = self
+                .0
+                .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
+            self
+        }
+    };
+}
+
+macro_rules! reference_methods {
+    ($type:ty) => {
+        pub fn element_ref<R>(mut self, reference: &R) -> Self
+        where
+            R: CompatibleElementRef<$type>,
+        {
+            self.0.reference = Some(reference.erased_ref());
+            self
+        }
+    };
+}
+
+macro_rules! window_title_bar_methods {
+    () => {
+        pub fn preferred_height(mut self, height: WindowTitleBarHeight) -> Self {
+            self.0.window_title_bar = Some(height);
+            self
+        }
+    };
+}
+
+macro_rules! image_uri_methods {
+    ($name:ident, $optional:ident, $file:ident, $data:ident, $svg:ident, $id:ident) => {
+        pub fn $name(mut self, value: impl Into<Rc<str>>) -> windows_core::Result<Self> {
+            self.0 = self.0.property(
+                PropertyId::$id,
+                PropertyValue::ImageSource(ImageSource::uri(value)?),
+            );
+            Ok(self)
+        }
+        pub fn $optional<T>(mut self, value: Option<T>) -> windows_core::Result<Self>
+        where
+            T: Into<Rc<str>>,
+        {
+            if let Some(value) = value {
+                self.0 = self.0.property(
+                    PropertyId::$id,
+                    PropertyValue::ImageSource(ImageSource::uri(value)?),
+                );
+            }
+            Ok(self)
+        }
+        pub fn $file(mut self, path: impl AsRef<Path>) -> windows_core::Result<Self> {
+            self.0 = self.0.property(
+                PropertyId::$id,
+                PropertyValue::ImageSource(ImageSource::file(path)?),
+            );
+            Ok(self)
+        }
+        pub fn $data(mut self, value: EncodedImage) -> Self {
+            self.0 = self.0.property(
+                PropertyId::$id,
+                PropertyValue::ImageSource(ImageSource::encoded(value)),
+            );
+            self
+        }
+        pub fn $svg(mut self, value: EncodedImage) -> Self {
+            self.0 = self.0.property(
+                PropertyId::$id,
+                PropertyValue::ImageSource(ImageSource::svg(value)),
+            );
+            self
+        }
+    };
+}
+
+macro_rules! uri_methods {
+    ($name:ident, $optional:ident, $id:ident) => {
+        pub fn $name(mut self, value: impl Into<Rc<str>>) -> windows_core::Result<Self> {
+            let value = value.into();
+            validate_uri(&value)?;
+            self.0 = self
+                .0
+                .property(PropertyId::$id, PropertyValue::String(value));
+            Ok(self)
+        }
+        pub fn $optional<T>(mut self, value: Option<T>) -> windows_core::Result<Self>
+        where
+            T: Into<Rc<str>>,
+        {
+            if let Some(value) = value {
+                let value = value.into();
+                validate_uri(&value)?;
+                self.0 = self
+                    .0
+                    .property(PropertyId::$id, PropertyValue::String(value));
+            }
+            Ok(self)
+        }
+    };
+}
+
+// `attached_methods` is generated from the schema's attached properties.
+macro_rules! visual_methods {
+    () => {
+        pub fn exit_transition(mut self, transition: Option<ExitTransition>) -> Self {
+            self.0.exit_transition = transition;
+            self
+        }
+        pub fn exit_fade(self, duration: std::time::Duration) -> Self {
+            self.exit_transition(ExitTransition::fade(duration))
+        }
+        attached_methods!();
+    };
+}
+
 pub(crate) mod generated_declarations {
     use super::*;
     include!("generated_declarations.rs");
 }
 
 pub use generated_declarations::*;
+
+impl From<&str> for View {
+    fn from(value: &str) -> Self {
+        TextBlock::new().text(value).into()
+    }
+}
+
+impl From<String> for View {
+    fn from(value: String) -> Self {
+        TextBlock::new().text(value).into()
+    }
+}
+
+impl From<Rc<str>> for View {
+    fn from(value: Rc<str>) -> Self {
+        TextBlock::new().text(value).into()
+    }
+}

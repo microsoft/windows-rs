@@ -72,13 +72,11 @@ flag = true
 name = "AutomationName"
 owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
 native = "Name"
-default = ""
 
 [[attached_properties]]
 name = "AutomationId"
 owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
 native = "AutomationId"
-default = ""
 
 [[attached_properties]]
 name = "AutomationHeadingLevel"
@@ -89,13 +87,11 @@ native = "HeadingLevel"
 name = "AutomationHelpText"
 owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
 native = "HelpText"
-default = ""
 
 [[attached_properties]]
 name = "AutomationFullDescription"
 owner = "Microsoft.UI.Xaml.Automation.AutomationProperties"
 native = "FullDescription"
-default = ""
 
 [[attached_properties]]
 name = "AutomationLiveSetting"
@@ -152,11 +148,9 @@ name = "TextBlock"
 
 [[objects.properties]]
 name = "Text"
-default = ""
 
 [[objects.properties]]
 name = "FontSize"
-default = "14.0"
 validation = "finite_positive"
 
 [[objects.properties]]
@@ -180,7 +174,6 @@ adapter = "theme_brush"
 
 [[objects.properties]]
 name = "Padding"
-default = "default"
 validation = "finite_non_negative"
 
 [[objects.properties]]
@@ -290,7 +283,6 @@ name = "IsChecked"
 value = "OptionalBool"
 controlled = "IsCheckedChanged"
 feedback = "exact"
-default = "false"
 
 [[objects.properties]]
 name = "IsEnabled"
@@ -322,17 +314,14 @@ adapter = "theme_brush"
 
 [[objects.properties]]
 name = "BorderThickness"
-default = "default"
 validation = "finite_non_negative"
 
 [[objects.properties]]
 name = "CornerRadius"
-default = "default"
 validation = "finite_non_negative"
 
 [[objects.properties]]
 name = "Padding"
-default = "default"
 validation = "finite_non_negative"
 
 [[objects.properties]]
@@ -486,11 +475,9 @@ name = "StackPanel"
 
 [[objects.properties]]
 name = "Spacing"
-default = "0.0"
 
 [[objects.properties]]
 name = "Orientation"
-default = "Vertical"
 
 [[objects.relations]]
 name = "Children"
@@ -530,11 +517,9 @@ window_title_bar = true
 
 [[objects.properties]]
 name = "Title"
-default = ""
 
 [[objects.properties]]
 name = "Subtitle"
-default = ""
 
 [[objects.properties]]
 name = "IsBackButtonVisible"
@@ -574,19 +559,16 @@ focus = true
 name = "Minimum"
 coerces = "ValueChanged"
 feedback = "normalized"
-default = "0.0"
 
 [[objects.properties]]
 name = "Maximum"
 coerces = "ValueChanged"
 feedback = "normalized"
-default = "100.0"
 
 [[objects.properties]]
 name = "Value"
 controlled = "ValueChanged"
 feedback = "normalized"
-default = "0.0"
 
 [[objects.properties]]
 name = "IsEnabled"
