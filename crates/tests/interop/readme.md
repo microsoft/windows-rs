@@ -26,6 +26,11 @@ with `type or namespace not found` if it does not.
 Keep each fixture focused on one shape, such as a generic event or a collection parameter, and name
 it after that shape.
 
+The array fixtures cover primitive arrays (`arrays`), pass/fill/receive arrays of strings,
+interfaces, and non-blittable structs (`nontrivial_arrays`), and client-implemented delegates with
+array parameters and returns (`array_delegates`). The `numerics` fixture checks all seven
+`Windows.Foundation.Numerics` structs, including their C# `System.Numerics` mappings.
+
 ### Component
 
 `component.rs` is a module of this crate's library and starts with `use super::*;`, which brings in

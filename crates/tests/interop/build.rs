@@ -31,6 +31,7 @@ fn main() {
         .filter("Windows.Foundation.EventHandler")
         .filter("Windows.Foundation.IClosable")
         .filter("Windows.Foundation.IStringable")
+        .filter("Windows.Foundation.Numerics")
         .filter("Windows.Foundation.TypedEventHandler")
         .filter("Windows.Foundation.Uri")
         .implement_all();
