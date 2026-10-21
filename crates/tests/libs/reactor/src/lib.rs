@@ -17,6 +17,7 @@ mod reference;
 mod repeater;
 mod retirement;
 mod selection;
+mod tab;
 mod text;
 mod timer;
 mod tray;
@@ -297,6 +298,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "repeater" => App::run_component::<repeater::RepeaterFixture>(())?,
         "retirement" => App::run_component::<retirement::RetirementFixture>(())?,
         "selection" => App::run_component::<selection::SelectionFixture>(())?,
+        "tab" => App::run_component::<tab::TabFixture>(())?,
         "timer" => App::run_component::<timer::TimerFixture>(())?,
         "menu" => App::run_component::<MenuFixture>(MenuSurface::Button)?,
         "menu-dropdown" => App::run_component::<MenuFixture>(MenuSurface::DropDown)?,

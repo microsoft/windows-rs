@@ -12,8 +12,9 @@ pub struct TabViewPage {
 #[derive(Clone)]
 pub enum Message {
     BasicSelected(Option<usize>),
-    CloseBasic(String),
-    CloseDynamic(String),
+    CloseBasic(Key),
+    ReorderBasic(Vec<Key>),
+    CloseDynamic(Key),
     DynamicSelected(Option<usize>),
     Add,
     Remove,
@@ -21,12 +22,10 @@ pub enum Message {
 
 fn tabs(tabs: &[u32], closable: bool) -> Vec<KeyedView> {
     tabs.iter()
-        .map(|index| {
-            let tag = format!("tab-{index}");
-            KeyedView::new(
-                tag.clone(),
+        .map(|&index| {
+            keyed(
+                index,
                 TabViewItem::new()
-                    .tag(tag)
                     .header(format!("Tab {index}"))
                     .is_closable(closable)
                     .content(format!("Content of tab {index}")),
@@ -35,8 +34,8 @@ fn tabs(tabs: &[u32], closable: bool) -> Vec<KeyedView> {
         .collect()
 }
 
-fn remove_tab(tabs: &mut Vec<u32>, selected: &mut Option<usize>, tag: &str) {
-    let Some(index) = tabs.iter().position(|tab| tag == format!("tab-{tab}")) else {
+fn remove_tab(tabs: &mut Vec<u32>, selected: &mut Option<usize>, key: &Key) {
+    let Some(index) = tabs.iter().position(|&tab| Key::from(tab) == *key) else {
         return;
     };
     tabs.remove(index);
@@ -65,11 +64,18 @@ impl Component for TabViewPage {
     fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
         match message {
             Message::BasicSelected(value) => self.basic_selected = value,
-            Message::CloseBasic(tag) => {
-                remove_tab(&mut self.basic_tabs, &mut self.basic_selected, &tag);
+            Message::CloseBasic(key) => {
+                remove_tab(&mut self.basic_tabs, &mut self.basic_selected, &key);
             }
-            Message::CloseDynamic(tag) => {
-                remove_tab(&mut self.dynamic_tabs, &mut self.dynamic_selected, &tag);
+            Message::ReorderBasic(order) => {
+                let selected = self.basic_selected.map(|index| self.basic_tabs[index]);
+                self.basic_tabs
+                    .sort_by_key(|&tab| order.iter().position(|key| *key == Key::from(tab)));
+                self.basic_selected =
+                    selected.and_then(|id| self.basic_tabs.iter().position(|&tab| tab == id));
+            }
+            Message::CloseDynamic(key) => {
+                remove_tab(&mut self.dynamic_tabs, &mut self.dynamic_selected, &key);
             }
             Message::DynamicSelected(value) => self.dynamic_selected = value,
             Message::Add => {
@@ -81,8 +87,8 @@ impl Component for TabViewPage {
                 if self.dynamic_tabs.len() > 1
                     && let Some(selected) = self.dynamic_selected
                 {
-                    let tag = format!("tab-{}", self.dynamic_tabs[selected]);
-                    remove_tab(&mut self.dynamic_tabs, &mut self.dynamic_selected, &tag);
+                    let key = Key::from(self.dynamic_tabs[selected]);
+                    remove_tab(&mut self.dynamic_tabs, &mut self.dynamic_selected, &key);
                 }
             }
         }
@@ -102,9 +108,8 @@ impl Component for TabViewPage {
                             .can_reorder_tabs(true)
                             .height(200.0)
                             .on_selection_changed(context.callback(Message::BasicSelected))
-                            .on_close_requested(context.callback(|tag: std::rc::Rc<str>| {
-                                Message::CloseBasic(tag.to_string())
-                            }))
+                            .on_close_requested(context.callback(Message::CloseBasic))
+                            .on_reordered(context.callback(Message::ReorderBasic))
                             .keyed_tab_items(tabs(&self.basic_tabs, true)),
                     ),
                 ),
@@ -117,9 +122,7 @@ impl Component for TabViewPage {
                                 .selected_index(self.dynamic_selected)
                                 .height(180.0)
                                 .on_selection_changed(context.callback(Message::DynamicSelected))
-                                .on_close_requested(context.callback(|tag: std::rc::Rc<str>| {
-                                    Message::CloseDynamic(tag.to_string())
-                                }))
+                                .on_close_requested(context.callback(Message::CloseDynamic))
                                 .keyed_tab_items(tabs(&self.dynamic_tabs, true)),
                             StackPanel::new()
                                 .orientation(Orientation::Horizontal)

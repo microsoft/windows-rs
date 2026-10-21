@@ -242,6 +242,12 @@ pub enum Observation {
         object: ObjectId,
         selected: Option<ObjectId>,
     },
+    /// The native control reordered a relation's children, listed in native order.
+    Reorder {
+        object: ObjectId,
+        relation: RelationId,
+        children: Vec<ObjectId>,
+    },
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -399,10 +405,8 @@ impl EventDispatch {
                 callback.call(value);
             }
             (EventValue::Key(callback), EventPayload::Key(value)) => callback.call(value),
+            (EventValue::Keys(callback), EventPayload::Keys(value)) => callback.call(value),
             (EventValue::SelectionIndex(callback), EventPayload::SelectionIndex(value)) => {
-                callback.call(value);
-            }
-            (EventValue::StringList(callback), EventPayload::StringList(value)) => {
                 callback.call(value);
             }
             (EventValue::Unit(callback), EventPayload::Unit) => callback.call(()),
@@ -748,12 +752,51 @@ impl RetainedGraph {
                         })
                 }))
             }
+            Observation::Reorder {
+                object,
+                relation,
+                children,
+            } => {
+                let Some(owner) = self.get(*object) else {
+                    return Ok(false);
+                };
+                if reorder_event(owner.kind, *relation).is_none() {
+                    return Err(GraphError::InvalidRelation(owner.kind, *relation));
+                }
+                Ok(self
+                    .reordered_children(*object, *relation, children)
+                    .is_some())
+            }
         }
     }
 
-    fn apply_observation(&mut self, observation: Observation) -> Result<(), GraphError> {
+    /// Returns the live children in native order when they are a permutation of the retained
+    /// children. Native collections may still hold children that are retiring.
+    fn reordered_children(
+        &self,
+        object: ObjectId,
+        relation: RelationId,
+        native: &[ObjectId],
+    ) -> Option<Vec<ObjectId>> {
+        let retained = self.children(object, relation).unwrap_or_default();
+        let children = native
+            .iter()
+            .copied()
+            .filter(|child| self.get(*child).is_some())
+            .collect::<Vec<_>>();
+        let unique = children.iter().collect::<HashSet<_>>();
+        (children.len() == retained.len()
+            && unique.len() == children.len()
+            && retained.iter().all(|child| unique.contains(child)))
+        .then_some(children)
+    }
+
+    /// Applies a native observation. Returns `false` when the paired event must not be dispatched:
+    /// a native order that already matches the retained order echoes Reactor's own mutation or
+    /// a drop in place, and is not a reorder.
+    fn apply_observation(&mut self, observation: Observation) -> Result<bool, GraphError> {
         if !self.validate_observation(&observation)? {
-            return Ok(());
+            return Ok(true);
         }
         match observation {
             Observation::SetProperty { object, property } => {
@@ -799,8 +842,29 @@ impl RetainedGraph {
                     }
                 }
             }
+            Observation::Reorder {
+                object,
+                relation,
+                children,
+            } => {
+                let children = self
+                    .reordered_children(object, relation, &children)
+                    .unwrap();
+                if let Some(retained) = self
+                    .get_mut(object)
+                    .relations
+                    .iter_mut()
+                    .find(|retained| retained.id == relation)
+                {
+                    if matches!(&retained.value, RetainedRelationValue::Many(current) if *current == children)
+                    {
+                        return Ok(false);
+                    }
+                    retained.value = RetainedRelationValue::Many(children);
+                }
+            }
         }
-        Ok(())
+        Ok(true)
     }
 
     pub(crate) fn virtual_realization(
@@ -857,7 +921,8 @@ impl RetainedGraph {
         })
     }
 
-    fn validate_event_dispatch(&self, dispatch: &EventDispatch) -> Result<bool, GraphError> {
+    /// Validates a native event dispatch and resolves native item payloads to keys.
+    fn validate_event_dispatch(&self, dispatch: &mut EventDispatch) -> Result<bool, GraphError> {
         let Some(object) = self.get(dispatch.object) else {
             return Ok(false);
         };
@@ -953,7 +1018,8 @@ impl RetainedGraph {
                 EventValue::SelectionIndex(_),
                 EventPayload::SelectionIndex(_),
             )
-            | (ValueType::StringList, EventValue::StringList(_), EventPayload::StringList(_))
+            | (ValueType::Key, EventValue::Key(_), EventPayload::Item(_))
+            | (ValueType::Keys, EventValue::Keys(_), EventPayload::Items(_))
             | (ValueType::Unit, EventValue::Unit(_), EventPayload::Unit) => true,
             _ => false,
         };
@@ -973,13 +1039,54 @@ impl RetainedGraph {
                 return Ok(false);
             }
         }
-        Ok(object
+        let resolved = match &dispatch.payload {
+            EventPayload::Item(item) => {
+                let child = object.relations.iter().any(|relation| {
+                    matches!(&relation.value, RetainedRelationValue::Many(children) if children.contains(item))
+                });
+                let Some(key) = child.then(|| self.get(*item)?.key.clone()).flatten() else {
+                    return Ok(false);
+                };
+                Some(EventPayload::Key(key))
+            }
+            EventPayload::Items(items) => {
+                let Some(contract) = reorder_contracts(object.kind)
+                    .iter()
+                    .find(|contract| contract.event == dispatch.event)
+                else {
+                    return Err(GraphError::InvalidEventValue(dispatch.event));
+                };
+                // A stale payload no longer describes the retained order.
+                let retained = self
+                    .children(dispatch.object, contract.relation)
+                    .unwrap_or_default();
+                let Some(keys) = self
+                    .reordered_children(dispatch.object, contract.relation, items)
+                    .filter(|children| children == retained)
+                    .and_then(|children| {
+                        children
+                            .iter()
+                            .map(|child| self.get(*child)?.key.clone())
+                            .collect::<Option<Vec<_>>>()
+                    })
+                else {
+                    return Ok(false);
+                };
+                Some(EventPayload::Keys(keys))
+            }
+            _ => None,
+        };
+        let current = object
             .events
             .as_deref()
             .into_iter()
             .flatten()
             .find(|event| event.id == dispatch.event)
-            .is_some_and(|event| event.value == dispatch.callback))
+            .is_some_and(|event| event.value == dispatch.callback);
+        if current && let Some(resolved) = resolved {
+            dispatch.payload = resolved;
+        }
+        Ok(current)
     }
 
     fn get(&self, object: ObjectId) -> Option<&RetainedObject> {
@@ -1816,22 +1923,27 @@ impl<A: Adapter> Runtime<A> {
         let Some(event) = self.adapter.pop_native_event() else {
             return Ok(None);
         };
-        if let Some(observation) = event.observation
-            && let Err(error) = self.graph.apply_observation(observation)
+        let dispatch = match event
+            .observation
+            .map(|observation| self.graph.apply_observation(observation))
         {
-            self.poisoned = true;
-            return Err(UpdateError::InvalidNativeEvent(error));
-        }
+            Some(Err(error)) => {
+                self.poisoned = true;
+                return Err(UpdateError::InvalidNativeEvent(error));
+            }
+            Some(Ok(dispatch)) => dispatch,
+            None => true,
+        };
         if let Some(completion) = event.retirement {
             self.apply_retirement_completion(completion)?;
         }
         if event.realization.is_some() {
             return Err(UpdateError::PendingNativeEvent);
         }
-        let Some(dispatch) = event.event else {
+        let Some(mut dispatch) = event.event.filter(|_| dispatch) else {
             return Ok(None);
         };
-        match self.graph.validate_event_dispatch(&dispatch) {
+        match self.graph.validate_event_dispatch(&mut dispatch) {
             Ok(true) => Ok(Some(dispatch)),
             Ok(false) => Ok(None),
             Err(error) => {
@@ -1845,12 +1957,17 @@ impl<A: Adapter> Runtime<A> {
         let Some(event) = self.adapter.pop_native_event() else {
             return Ok(None);
         };
-        if let Some(observation) = event.observation
-            && let Err(error) = self.graph.apply_observation(observation)
+        let dispatch = match event
+            .observation
+            .map(|observation| self.graph.apply_observation(observation))
         {
-            self.poisoned = true;
-            return Err(UpdateError::InvalidNativeEvent(error));
-        }
+            Some(Err(error)) => {
+                self.poisoned = true;
+                return Err(UpdateError::InvalidNativeEvent(error));
+            }
+            Some(Ok(dispatch)) => dispatch,
+            None => true,
+        };
         if let Some(completion) = event.retirement {
             self.apply_retirement_completion(completion)?;
         }
@@ -1886,10 +2003,10 @@ impl<A: Adapter> Runtime<A> {
                     UpdateError::InvalidNativeEvent(error)
                 });
         }
-        let Some(dispatch) = event.event else {
+        let Some(mut dispatch) = event.event.filter(|_| dispatch) else {
             return Ok(Some(NativeWork::Maintenance));
         };
-        match self.graph.validate_event_dispatch(&dispatch) {
+        match self.graph.validate_event_dispatch(&mut dispatch) {
             Ok(true) => {
                 self.native_event_active.set(true);
                 Ok(Some(NativeWork::Event(NativeEventDispatch::new(

@@ -32,6 +32,19 @@ pub struct EventContract {
     pub id: EventId,
     pub value: ValueType,
 }
+/// A relation whose children the native control can reorder, reported through `event`.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ReorderContract {
+    pub relation: RelationId,
+    pub event: EventId,
+}
+
+pub fn reorder_event(kind: ObjectType, relation: RelationId) -> Option<EventId> {
+    reorder_contracts(kind)
+        .iter()
+        .find(|contract| contract.relation == relation)
+        .map(|contract| contract.event)
+}
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ValueType {
     String,
@@ -54,8 +67,10 @@ pub enum ValueType {
     I32,
     Icon,
     ImageSource,
+    Key,
     KeyAccelerators,
     KeyEventInfo,
+    Keys,
     NavigationViewDisplayMode,
     OptionalBool,
     OptionalDateTime,
@@ -393,7 +408,8 @@ fn validate_object(
                 | (ValueType::KeyEventInfo, EventValue::KeyEventInfo(_))
                 | (ValueType::Selection, EventValue::Selection(_))
                 | (ValueType::SelectionIndex, EventValue::SelectionIndex(_))
-                | (ValueType::StringList, EventValue::StringList(_))
+                | (ValueType::Key, EventValue::Key(_))
+                | (ValueType::Keys, EventValue::Keys(_))
                 | (ValueType::Unit, EventValue::Unit(_))
         );
         if !valid {

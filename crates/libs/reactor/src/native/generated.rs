@@ -271,8 +271,8 @@ struct GeneratedListView {
     value: native::ListView,
     selection_changed: Rc<RefCell<NativeSelectionIndexEvent>>,
     _selection_changed: GeneratedRevoker,
-    drag_items_completed: Rc<RefCell<NativeStringListEvent>>,
-    _drag_items_completed: Option<GeneratedRevoker>,
+    drag_items_completed: Rc<RefCell<NativeKeysEvent>>,
+    _drag_items_completed: GeneratedRevoker,
 }
 struct GeneratedHyperlinkButton {
     value: native::HyperlinkButton,
@@ -394,10 +394,10 @@ struct GeneratedTabView {
     _add_tab_button_click: Option<GeneratedRevoker>,
     selection_changed: Rc<RefCell<NativeSelectionIndexEvent>>,
     _selection_changed: GeneratedRevoker,
-    tab_close_requested: Rc<RefCell<NativeStringEvent>>,
+    tab_close_requested: Rc<RefCell<NativeKeyEvent>>,
     _tab_close_requested: Option<GeneratedRevoker>,
-    tab_items_changed: Rc<RefCell<NativeStringListEvent>>,
-    _tab_items_changed: Option<GeneratedRevoker>,
+    tab_items_changed: Rc<RefCell<NativeKeysEvent>>,
+    _tab_items_changed: GeneratedRevoker,
 }
 struct GeneratedTeachingTip {
     value: native::TeachingTip,
@@ -455,8 +455,8 @@ struct GeneratedGridView {
     value: native::GridView,
     selection_changed: Rc<RefCell<NativeSelectionIndexEvent>>,
     _selection_changed: GeneratedRevoker,
-    drag_items_completed: Rc<RefCell<NativeStringListEvent>>,
-    _drag_items_completed: Option<GeneratedRevoker>,
+    drag_items_completed: Rc<RefCell<NativeKeysEvent>>,
+    _drag_items_completed: GeneratedRevoker,
 }
 struct GeneratedRichEditBox {
     value: native::RichEditBox,
@@ -952,8 +952,39 @@ impl GeneratedHandle {
                             }
                         })?;
                 let _selection_changed = GeneratedRevoker::Event(revoker);
-                let drag_items_completed = Rc::new(RefCell::new(NativeStringListEvent::default()));
-                let _drag_items_completed = None;
+                let drag_items_completed = Rc::new(RefCell::new(NativeKeysEvent::default()));
+                let event_for_callback = Rc::clone(&drag_items_completed);
+                let event_queue_drag_items_completed = Rc::clone(event_queue);
+                let source_drag_items_completed = value
+                    .cast::<native::IItemsControl>()?
+                    .Items()?
+                    .cast::<IVector<IInspectable>>()?;
+                let revoker =
+                    value
+                        .cast::<native::IListViewBase>()?
+                        .DragItemsCompleted(move |_, _| {
+                            let Some((observation, value)) = WinUiAdapter::observe_reorder(
+                                &event_queue_drag_items_completed,
+                                object,
+                                RelationId::Items,
+                                &source_drag_items_completed,
+                            ) else {
+                                return;
+                            };
+                            let dispatch = true;
+                            let observation = Some(observation);
+                            if dispatch {
+                                WinUiAdapter::dispatch(
+                                    &event_for_callback,
+                                    &event_queue_drag_items_completed,
+                                    object,
+                                    EventId::DragItemsCompleted,
+                                    observation,
+                                    value,
+                                );
+                            }
+                        })?;
+                let _drag_items_completed = GeneratedRevoker::Event(revoker);
                 Self::ListView(Box::new(GeneratedListView {
                     value,
                     selection_changed,
@@ -1919,10 +1950,35 @@ impl GeneratedHandle {
                     }
                 })?;
                 let _selection_changed = GeneratedRevoker::Event(revoker);
-                let tab_close_requested = Rc::new(RefCell::new(NativeStringEvent::default()));
+                let tab_close_requested = Rc::new(RefCell::new(NativeKeyEvent::default()));
                 let _tab_close_requested = None;
-                let tab_items_changed = Rc::new(RefCell::new(NativeStringListEvent::default()));
-                let _tab_items_changed = None;
+                let tab_items_changed = Rc::new(RefCell::new(NativeKeysEvent::default()));
+                let event_for_callback = Rc::clone(&tab_items_changed);
+                let event_queue_tab_items_changed = Rc::clone(event_queue);
+                let source_tab_items_changed = value.TabItems()?;
+                let revoker = value.TabItemsChanged(move |_, _| {
+                    let Some((observation, value)) = WinUiAdapter::observe_reorder(
+                        &event_queue_tab_items_changed,
+                        object,
+                        RelationId::TabItems,
+                        &source_tab_items_changed,
+                    ) else {
+                        return;
+                    };
+                    let dispatch = true;
+                    let observation = Some(observation);
+                    if dispatch {
+                        WinUiAdapter::dispatch(
+                            &event_for_callback,
+                            &event_queue_tab_items_changed,
+                            object,
+                            EventId::TabItemsChanged,
+                            observation,
+                            value,
+                        );
+                    }
+                })?;
+                let _tab_items_changed = GeneratedRevoker::Event(revoker);
                 Self::TabView(Box::new(GeneratedTabView {
                     value,
                     add_tab_button_click,
@@ -2216,8 +2272,39 @@ impl GeneratedHandle {
                             }
                         })?;
                 let _selection_changed = GeneratedRevoker::Event(revoker);
-                let drag_items_completed = Rc::new(RefCell::new(NativeStringListEvent::default()));
-                let _drag_items_completed = None;
+                let drag_items_completed = Rc::new(RefCell::new(NativeKeysEvent::default()));
+                let event_for_callback = Rc::clone(&drag_items_completed);
+                let event_queue_drag_items_completed = Rc::clone(event_queue);
+                let source_drag_items_completed = value
+                    .cast::<native::IItemsControl>()?
+                    .Items()?
+                    .cast::<IVector<IInspectable>>()?;
+                let revoker =
+                    value
+                        .cast::<native::IListViewBase>()?
+                        .DragItemsCompleted(move |_, _| {
+                            let Some((observation, value)) = WinUiAdapter::observe_reorder(
+                                &event_queue_drag_items_completed,
+                                object,
+                                RelationId::Items,
+                                &source_drag_items_completed,
+                            ) else {
+                                return;
+                            };
+                            let dispatch = true;
+                            let observation = Some(observation);
+                            if dispatch {
+                                WinUiAdapter::dispatch(
+                                    &event_for_callback,
+                                    &event_queue_drag_items_completed,
+                                    object,
+                                    EventId::DragItemsCompleted,
+                                    observation,
+                                    value,
+                                );
+                            }
+                        })?;
+                let _drag_items_completed = GeneratedRevoker::Event(revoker);
                 Self::GridView(Box::new(GeneratedGridView {
                     value,
                     selection_changed,
@@ -4845,13 +4932,10 @@ impl GeneratedHandle {
                             native_event.revision = native_event.revision.wrapping_add(1);
                             native_event.callback = Some(callback.clone());
                         }
-                        (EventId::DragItemsCompleted, EventValue::StringList(callback)) => {
-                            {
-                                let mut native_event = object.drag_items_completed.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
-                            object.subscribe_drag_items_completed(object_id, context)?;
+                        (EventId::DragItemsCompleted, EventValue::Keys(callback)) => {
+                            let mut native_event = object.drag_items_completed.borrow_mut();
+                            native_event.revision = native_event.revision.wrapping_add(1);
+                            native_event.callback = Some(callback.clone());
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5333,7 +5417,7 @@ impl GeneratedHandle {
                             native_event.revision = native_event.revision.wrapping_add(1);
                             native_event.callback = Some(callback.clone());
                         }
-                        (EventId::TabCloseRequested, EventValue::String(callback)) => {
+                        (EventId::TabCloseRequested, EventValue::Key(callback)) => {
                             {
                                 let mut native_event = object.tab_close_requested.borrow_mut();
                                 native_event.revision = native_event.revision.wrapping_add(1);
@@ -5341,13 +5425,10 @@ impl GeneratedHandle {
                             }
                             object.subscribe_tab_close_requested(object_id, context)?;
                         }
-                        (EventId::TabItemsChanged, EventValue::StringList(callback)) => {
-                            {
-                                let mut native_event = object.tab_items_changed.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
-                            object.subscribe_tab_items_changed(object_id, context)?;
+                        (EventId::TabItemsChanged, EventValue::Keys(callback)) => {
+                            let mut native_event = object.tab_items_changed.borrow_mut();
+                            native_event.revision = native_event.revision.wrapping_add(1);
+                            native_event.callback = Some(callback.clone());
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5586,13 +5667,10 @@ impl GeneratedHandle {
                             native_event.revision = native_event.revision.wrapping_add(1);
                             native_event.callback = Some(callback.clone());
                         }
-                        (EventId::DragItemsCompleted, EventValue::StringList(callback)) => {
-                            {
-                                let mut native_event = object.drag_items_completed.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
-                            object.subscribe_drag_items_completed(object_id, context)?;
+                        (EventId::DragItemsCompleted, EventValue::Keys(callback)) => {
+                            let mut native_event = object.drag_items_completed.borrow_mut();
+                            native_event.revision = native_event.revision.wrapping_add(1);
+                            native_event.callback = Some(callback.clone());
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -6206,7 +6284,7 @@ impl GeneratedHandle {
                 (event.revision == revision)
                     .then(|| event.callback.clone())
                     .flatten()
-                    .map(EventValue::StringList)
+                    .map(EventValue::Keys)
             }
             (Self::HyperlinkButton(object), EventId::Click) => {
                 let event = object.click.borrow();
@@ -6402,14 +6480,14 @@ impl GeneratedHandle {
                 (event.revision == revision)
                     .then(|| event.callback.clone())
                     .flatten()
-                    .map(EventValue::String)
+                    .map(EventValue::Key)
             }
             (Self::TabView(object), EventId::TabItemsChanged) => {
                 let event = object.tab_items_changed.borrow();
                 (event.revision == revision)
                     .then(|| event.callback.clone())
                     .flatten()
-                    .map(EventValue::StringList)
+                    .map(EventValue::Keys)
             }
             (Self::TeachingTip(object), EventId::Closed) => {
                 let event = object.closed.borrow();
@@ -6500,7 +6578,7 @@ impl GeneratedHandle {
                 (event.revision == revision)
                     .then(|| event.callback.clone())
                     .flatten()
-                    .map(EventValue::StringList)
+                    .map(EventValue::Keys)
             }
             (Self::RichEditBox(object), EventId::TextChanged) => {
                 let event = object.text_changed.borrow();
@@ -7223,49 +7301,6 @@ impl GeneratedTitleBar {
         Ok(())
     }
 }
-impl GeneratedListView {
-    fn subscribe_drag_items_completed(
-        &mut self,
-        object: ObjectId,
-        context: EventContext,
-    ) -> Result<(), WinUiError> {
-        if self._drag_items_completed.is_some() {
-            return Ok(());
-        }
-        let value = &self.value;
-        let event_for_callback = Rc::clone(&self.drag_items_completed);
-        let event_queue_drag_items_completed = Rc::clone(context.event_queue);
-        let source_drag_items_completed = value
-            .cast::<native::IItemsControl>()?
-            .Items()?
-            .cast::<IVector<IInspectable>>()?;
-        let revoker = value
-            .cast::<native::IListViewBase>()?
-            .DragItemsCompleted(move |_, _| {
-                let dispatch = true;
-                let observation = None;
-                let value = match WinUiAdapter::item_tags(&source_drag_items_completed) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                };
-                if dispatch {
-                    WinUiAdapter::dispatch(
-                        &event_for_callback,
-                        &event_queue_drag_items_completed,
-                        object,
-                        EventId::DragItemsCompleted,
-                        observation,
-                        value,
-                    );
-                }
-            })?;
-        self._drag_items_completed = Some(GeneratedRevoker::Event(revoker));
-        Ok(())
-    }
-}
 impl GeneratedHyperlinkButton {
     fn subscribe_click(
         &mut self,
@@ -7524,26 +7559,15 @@ impl GeneratedTabView {
             let dispatch = true;
             let observation = None;
             let args = args.unwrap();
-            let payload = match args
-                .Tab()
-                .and_then(|value| value.cast::<native::IFrameworkElement>())
-                .and_then(|value| value.Tag())
-            {
-                Ok(value) => match value
-                    .cast::<windows_reference::IReference<HSTRING>>()
-                    .and_then(|value| value.Value())
-                {
-                    Ok(value) => Rc::<str>::from(value.to_string_lossy()),
-                    Err(error) => {
-                        report_error(error);
-                        return;
-                    }
-                },
-                Err(error) if error.code().is_ok() => Rc::<str>::from(""),
+            let payload = match args.Tab().and_then(|value| value.cast::<IInspectable>()) {
+                Ok(value) => event_queue_tab_close_requested.item_object(object, &value),
                 Err(error) => {
                     report_error(error);
                     return;
                 }
+            };
+            let Some(payload) = payload else {
+                return;
             };
             if dispatch {
                 WinUiAdapter::dispatch(
@@ -7557,42 +7581,6 @@ impl GeneratedTabView {
             }
         })?;
         self._tab_close_requested = Some(GeneratedRevoker::Event(revoker));
-        Ok(())
-    }
-    fn subscribe_tab_items_changed(
-        &mut self,
-        object: ObjectId,
-        context: EventContext,
-    ) -> Result<(), WinUiError> {
-        if self._tab_items_changed.is_some() {
-            return Ok(());
-        }
-        let value = &self.value;
-        let event_for_callback = Rc::clone(&self.tab_items_changed);
-        let event_queue_tab_items_changed = Rc::clone(context.event_queue);
-        let source_tab_items_changed = value.TabItems()?;
-        let revoker = value.TabItemsChanged(move |_, _| {
-            let dispatch = true;
-            let observation = None;
-            let value = match WinUiAdapter::item_tags(&source_tab_items_changed) {
-                Ok(value) => value,
-                Err(error) => {
-                    report_error(error.into());
-                    return;
-                }
-            };
-            if dispatch {
-                WinUiAdapter::dispatch(
-                    &event_for_callback,
-                    &event_queue_tab_items_changed,
-                    object,
-                    EventId::TabItemsChanged,
-                    observation,
-                    value,
-                );
-            }
-        })?;
-        self._tab_items_changed = Some(GeneratedRevoker::Event(revoker));
         Ok(())
     }
 }
@@ -7849,49 +7837,6 @@ impl GeneratedCalendarView {
             }
         })?;
         self._selected_dates_changed = Some(GeneratedRevoker::Event(revoker));
-        Ok(())
-    }
-}
-impl GeneratedGridView {
-    fn subscribe_drag_items_completed(
-        &mut self,
-        object: ObjectId,
-        context: EventContext,
-    ) -> Result<(), WinUiError> {
-        if self._drag_items_completed.is_some() {
-            return Ok(());
-        }
-        let value = &self.value;
-        let event_for_callback = Rc::clone(&self.drag_items_completed);
-        let event_queue_drag_items_completed = Rc::clone(context.event_queue);
-        let source_drag_items_completed = value
-            .cast::<native::IItemsControl>()?
-            .Items()?
-            .cast::<IVector<IInspectable>>()?;
-        let revoker = value
-            .cast::<native::IListViewBase>()?
-            .DragItemsCompleted(move |_, _| {
-                let dispatch = true;
-                let observation = None;
-                let value = match WinUiAdapter::item_tags(&source_drag_items_completed) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                };
-                if dispatch {
-                    WinUiAdapter::dispatch(
-                        &event_for_callback,
-                        &event_queue_drag_items_completed,
-                        object,
-                        EventId::DragItemsCompleted,
-                        observation,
-                        value,
-                    );
-                }
-            })?;
-        self._drag_items_completed = Some(GeneratedRevoker::Event(revoker));
         Ok(())
     }
 }

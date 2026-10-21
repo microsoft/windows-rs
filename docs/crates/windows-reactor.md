@@ -132,6 +132,19 @@ replacement.
 
 The [`controlled`](../../crates/samples/reactor/controlled) sample shows the complete pattern.
 
+Item collections follow the same rule. `ListView`, `GridView`, and `TabView` report user
+reorders through `on_reordered` as the item keys in their new order, and a `TabView` close
+request carries the key of the tab. Give items stable keys with `keyed` so the payload identifies
+them. To keep a reorder, sort the state to match the payload. Otherwise the next render restores
+the declared order. Reactor's own inserts and moves, and drops that leave the order unchanged, are
+not reported.
+
+```rust,ignore
+Message::Reordered(order) => self
+    .tabs
+    .sort_by_key(|tab| order.iter().position(|key| *key == Key::from(tab.id))),
+```
+
 ## Split up the view
 
 Use a function returning `View` for a stateless piece. Use a child component when a subtree needs

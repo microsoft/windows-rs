@@ -250,6 +250,19 @@ impl RecordingAdapter {
         self.native_events.push_back(NativeEvent::event(event));
     }
 
+    /// Moves recorded children the way a user drag moves native items, without a mutation.
+    pub fn move_children(&mut self, parent: ObjectId, relation: RelationId, order: &[ObjectId]) {
+        let Ok(RecordedRelation::Many(children)) = self.relation_mut(parent, relation) else {
+            panic!("{relation:?} is not a recorded collection");
+        };
+        let mut current = children.clone();
+        let mut next = order.to_vec();
+        current.sort_unstable_by_key(|object| (object.index(), object.generation()));
+        next.sort_unstable_by_key(|object| (object.index(), object.generation()));
+        assert_eq!(current, next);
+        children.copy_from_slice(order);
+    }
+
     pub fn queue_native_event(
         &mut self,
         observation: Option<Observation>,

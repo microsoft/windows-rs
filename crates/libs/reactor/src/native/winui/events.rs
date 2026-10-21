@@ -34,30 +34,31 @@ into_event_payload! {
     Option<usize> => SelectionIndex,
     PointerEventInfo => PointerEventInfo,
     Rc<str> => String,
-    Vec<String> => StringList,
+    ObjectId => Item,
+    Vec<ObjectId> => Items,
 }
 
 impl WinUiAdapter {
-    fn dispatch<T: IntoEventPayload>(
+    fn dispatch<T, P: IntoEventPayload>(
         event: &Rc<RefCell<NativeValueEvent<T>>>,
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
         observation: Option<Observation>,
-        value: T,
+        value: P,
     ) {
         if Self::queue_event(event, event_queue, object, event_id, observation, value) {
             Self::schedule_event_wake(event_queue);
         }
     }
 
-    fn queue_event<T: IntoEventPayload>(
+    fn queue_event<T, P: IntoEventPayload>(
         event: &Rc<RefCell<NativeValueEvent<T>>>,
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
         observation: Option<Observation>,
-        value: T,
+        value: P,
     ) -> bool {
         let event = event.borrow();
         let queued = event.callback.is_some().then(|| QueuedEvent {
@@ -73,18 +74,43 @@ impl WinUiAdapter {
         queue
     }
 
-    fn item_tags(items: &IVector<IInspectable>) -> Result<Vec<String>, WinUiError> {
-        let mut tags = Vec::with_capacity(items.Size()? as usize);
-        for index in 0..items.Size()? {
-            let tag = items
-                .GetAt(index)?
-                .cast::<native::IFrameworkElement>()?
-                .Tag()?
-                .cast::<windows_reference::IReference<HSTRING>>()?
-                .Value()?;
-            tags.push(tag.to_string_lossy());
-        }
-        Ok(tags)
+    /// Maps a native item collection to its registered children in native order. Reconciliation
+    /// drops the event when the order matches the retained order.
+    fn observe_reorder(
+        event_queue: &Rc<NativeEventQueue>,
+        object: ObjectId,
+        relation: RelationId,
+        items: &IVector<IInspectable>,
+    ) -> Option<(Observation, Vec<ObjectId>)> {
+        let children = (|| {
+            let registered = event_queue
+                .items
+                .borrow()
+                .iter()
+                .filter(|(_, item)| item.owner == object)
+                .map(|(child, item)| (item.identity, *child))
+                .collect::<HashMap<_, _>>();
+            let mut children = Vec::with_capacity(registered.len());
+            for index in 0..items.Size()? {
+                if let Some(child) = registered.get(&com_identity(&items.GetAt(index)?)?) {
+                    children.push(*child);
+                }
+            }
+            Ok::<_, WinUiError>(children)
+        })();
+        let children = match children {
+            Ok(children) => children,
+            Err(error) => {
+                report_error(error.into());
+                return None;
+            }
+        };
+        let observation = Observation::Reorder {
+            object,
+            relation,
+            children: children.clone(),
+        };
+        Some((observation, children))
     }
 
     fn drag_kind(
@@ -254,15 +280,9 @@ impl WinUiAdapter {
                 return;
             }
         };
-        let selected_object = selected.as_ref().and_then(|selected| {
-            event_queue
-                .selection_items
-                .borrow()
-                .iter()
-                .find_map(|item| {
-                    (item.owner == object && item.value == *selected).then_some(item.object)
-                })
-        });
+        let selected_object = selected
+            .as_ref()
+            .and_then(|selected| event_queue.item_object(object, selected));
         let observation = Observation::SetSelection {
             object,
             selected: selected_object,

@@ -276,7 +276,7 @@ impl PropertyAdapter {
 enum PayloadAdapter {
     ContentDialogResult,
     InspectableString,
-    ItemTag,
+    ItemKey,
     NativeColor,
     NavigationDisplayMode,
     NumberBoxValue,
@@ -292,7 +292,8 @@ impl PayloadAdapter {
     fn value(self) -> Value {
         match self {
             Self::ContentDialogResult => Value::ContentDialogResult,
-            Self::InspectableString | Self::ItemTag => Value::String,
+            Self::InspectableString => Value::String,
+            Self::ItemKey => Value::Key,
             Self::NativeColor => Value::Color,
             Self::NavigationDisplayMode => Value::NavigationViewDisplayMode,
             Self::NumberBoxValue | Self::RatingValue => Value::OptionalF64,
@@ -313,7 +314,6 @@ enum EventAdapter {
     ItemTag,
     Key,
     Pointer,
-    StringList,
 }
 
 impl EventAdapter {
@@ -326,7 +326,6 @@ impl EventAdapter {
             Self::ItemTag => Value::String,
             Self::Key => Value::KeyEventInfo,
             Self::Pointer => Value::PointerEventInfo,
-            Self::StringList => Value::StringList,
         }
     }
 }
@@ -386,8 +385,10 @@ values!(
     I32,
     Icon,
     ImageSource,
+    Key,
     KeyAccelerators,
     KeyEventInfo,
+    Keys,
     NavigationViewDisplayMode,
     OptionalBool,
     OptionalDateTime,
@@ -488,7 +489,8 @@ impl Value {
     fn callback_type(&self) -> &'static str {
         match self {
             Self::String => "Rc<str>",
-            Self::StringList => "Vec<String>",
+            Self::Key => "Key",
+            Self::Keys => "Vec<Key>",
             Self::Bool => "bool",
             Self::Color => "Color",
             Self::ContentDialogResult => "ContentDialogResult",
@@ -628,6 +630,8 @@ struct Event {
     #[serde(default)]
     property_changed: bool,
     observes: Option<String>,
+    /// A `Many` relation the native control reorders; the event reports the new key order.
+    reorders: Option<String>,
     payload: Option<String>,
     payload_adapter: Option<PayloadAdapter>,
     #[serde(default)]
@@ -804,6 +808,7 @@ fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::Metad
                         .filter(|selection| selection.event == event.name)
                         .map(|_| Value::Selection)
                 })
+                .or_else(|| event.reorders.as_ref().map(|_| Value::Keys))
                 .or_else(|| event.adapter.map(EventAdapter::value))
                 .or_else(|| event.payload_adapter.map(PayloadAdapter::value))
                 .or_else(|| {
@@ -927,6 +932,26 @@ fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::Metad
                         .iter()
                         .any(|property| property.name == *observed),
                     "{}.{} observes missing property {observed}",
+                    object.name,
+                    event.name
+                );
+            }
+            if let Some(relation) = &event.reorders {
+                assert!(
+                    object
+                        .relations
+                        .iter()
+                        .any(|candidate| candidate.name == *relation
+                            && candidate.cardinality == Cardinality::Many),
+                    "{}.{} reorders missing collection {relation}",
+                    object.name,
+                    event.name
+                );
+            }
+            if event.payload_adapter == Some(PayloadAdapter::ItemKey) {
+                assert!(
+                    object.events.iter().any(|event| event.reorders.is_some()),
+                    "{}.{} item keys require a reordered relation",
                     object.name,
                     event.name
                 );
@@ -1139,6 +1164,26 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
         }
     }
     output.push_str("_ => None,\n} }\n");
+    output.push_str(
+        "pub fn reorder_contracts(kind: ObjectType) -> &'static [ReorderContract] { match kind {\n",
+    );
+    for object in &schema.objects {
+        let contracts = object
+            .events
+            .iter()
+            .filter_map(|event| {
+                Some(format!(
+                    "ReorderContract {{ relation: RelationId::{}, event: EventId::{} }},",
+                    event.reorders.as_ref()?,
+                    event.name
+                ))
+            })
+            .collect::<String>();
+        if !contracts.is_empty() {
+            output.push_str(&format!("ObjectType::{} => &[{contracts}],\n", object.name));
+        }
+    }
+    output.push_str("_ => &[],\n} }\n");
     output.push_str(
         "pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] { match kind {\n",
     );

@@ -97,7 +97,8 @@ impl NativeEvent {
                 .as_ref()
                 .map(|observation| match observation {
                     Observation::SetProperty { object, .. }
-                    | Observation::SetSelection { object, .. } => *object,
+                    | Observation::SetSelection { object, .. }
+                    | Observation::Reorder { object, .. } => *object,
                 })
                 .or_else(|| self.retirement.map(|completion| completion.root))
                 .or_else(|| {

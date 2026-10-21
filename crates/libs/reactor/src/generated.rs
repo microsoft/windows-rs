@@ -456,6 +456,23 @@ pub fn selection_contract(kind: ObjectType) -> Option<SelectionContract> {
         _ => None,
     }
 }
+pub fn reorder_contracts(kind: ObjectType) -> &'static [ReorderContract] {
+    match kind {
+        ObjectType::ListView => &[ReorderContract {
+            relation: RelationId::Items,
+            event: EventId::DragItemsCompleted,
+        }],
+        ObjectType::TabView => &[ReorderContract {
+            relation: RelationId::TabItems,
+            event: EventId::TabItemsChanged,
+        }],
+        ObjectType::GridView => &[ReorderContract {
+            relation: RelationId::Items,
+            event: EventId::DragItemsCompleted,
+        }],
+        _ => &[],
+    }
+}
 pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
     match kind {
         ObjectType::TextBlock => &[],
@@ -574,7 +591,7 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
             },
             EventContract {
                 id: EventId::DragItemsCompleted,
-                value: ValueType::StringList,
+                value: ValueType::Keys,
             },
         ],
         ObjectType::DataItem => &[],
@@ -714,11 +731,11 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
             },
             EventContract {
                 id: EventId::TabCloseRequested,
-                value: ValueType::String,
+                value: ValueType::Key,
             },
             EventContract {
                 id: EventId::TabItemsChanged,
-                value: ValueType::StringList,
+                value: ValueType::Keys,
             },
         ],
         ObjectType::TabViewItem => &[],
@@ -781,7 +798,7 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
             },
             EventContract {
                 id: EventId::DragItemsCompleted,
-                value: ValueType::StringList,
+                value: ValueType::Keys,
             },
         ],
         ObjectType::GridViewItem => &[],

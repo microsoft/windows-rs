@@ -372,10 +372,7 @@ impl WinUiAdapter {
             .feedback
             .borrow_mut()
             .remove_object(object);
-        self.event_queue
-            .selection_items
-            .borrow_mut()
-            .retain(|item| item.object != object && item.owner != object);
+        self.event_queue.items.borrow_mut().remove(&object);
         match handle {
             Handle::TreeNode(node) => {
                 self.tree_node_texts
@@ -476,6 +473,12 @@ impl WinUiAdapter {
             return Err(WinUiError::InvalidReplacement(object));
         }
         let previous = self.ui_element(object)?;
+        let item = self
+            .event_queue
+            .items
+            .borrow()
+            .get(&object)
+            .map(|item| item.owner);
         let index = match contract.cardinality {
             Cardinality::One => {
                 match (self.handle(parent)?, relation) {
@@ -530,6 +533,13 @@ impl WinUiAdapter {
                 }
                 _ => return Err(WinUiError::InvalidRelation(parent, relation)),
             }
+        }
+        if let Some(owner) = item {
+            let identity = com_identity(&self.ui_element(object)?)?;
+            self.event_queue
+                .items
+                .borrow_mut()
+                .insert(object, NativeItem { owner, identity });
         }
         self.event_queue.events.borrow_mut().retain(|event| {
             event

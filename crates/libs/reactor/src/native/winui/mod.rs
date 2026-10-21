@@ -64,11 +64,12 @@ type NativeOptionalF64Event = NativeValueEvent<Option<f64>>;
 type NativeOptionalTimeSpanEvent = NativeValueEvent<Option<TimeSpan>>;
 type NativeNavigationViewDisplayModeEvent = NativeValueEvent<NavigationViewDisplayMode>;
 type NativePointerEventInfoEvent = NativeValueEvent<PointerEventInfo>;
+type NativeKeyEvent = NativeValueEvent<Key>;
 type NativeKeyEventInfoEvent = NativeRoutedValueEvent<KeyEventInfo>;
+type NativeKeysEvent = NativeValueEvent<Vec<Key>>;
 type NativeSelectionEvent = NativeValueEvent<Option<Rc<str>>>;
 type NativeSelectionIndexEvent = NativeValueEvent<Option<usize>>;
 type NativeStringEvent = NativeValueEvent<Rc<str>>;
-type NativeStringListEvent = NativeValueEvent<Vec<String>>;
 type NativeUnitEvent = NativeValueEvent<()>;
 
 /// Adapter state that generated native event handlers capture when they subscribe.
@@ -184,10 +185,11 @@ struct QueuedNativeEvent {
     realization: Option<RealizationRequest>,
 }
 
-struct NativeSelectionItem {
+/// A child of a selection or reorder relation, keyed by native COM identity so event handlers can
+/// map native items back to objects.
+struct NativeItem {
     owner: ObjectId,
-    object: ObjectId,
-    value: IInspectable,
+    identity: usize,
 }
 
 struct NativeContentDialogState {
@@ -270,7 +272,7 @@ struct NativeEventQueue {
     events: RefCell<VecDeque<QueuedNativeEvent>>,
     errors: RefCell<VecDeque<WinUiError>>,
     feedback: RefCell<FeedbackState>,
-    selection_items: RefCell<Vec<NativeSelectionItem>>,
+    items: RefCell<HashMap<ObjectId, NativeItem>>,
     waker: RefCell<Option<Rc<dyn Fn()>>>,
     wake_pending: Cell<bool>,
     content_dialogs: RefCell<NativeContentDialogScheduler>,
@@ -305,6 +307,13 @@ impl NativeEventQueue {
         self.feedback
             .borrow_mut()
             .observe(object, event, observation)
+    }
+
+    fn item_object(&self, owner: ObjectId, value: &IInspectable) -> Option<ObjectId> {
+        let identity = com_identity(value).ok()?;
+        self.items.borrow().iter().find_map(|(object, item)| {
+            (item.owner == owner && item.identity == identity).then_some(*object)
+        })
     }
 
     fn queue(&self, observation: Option<Observation>, event: Option<QueuedEvent>) {

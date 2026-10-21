@@ -254,39 +254,6 @@ fn selection_contracts_cover_navigation_list_box_and_selector_bar() {
 }
 
 #[test]
-fn grid_view_reorder_payload_preserves_item_tag_order() {
-    let values = Rc::new(RefCell::new(Vec::new()));
-    let callback = {
-        let values = Rc::clone(&values);
-        Callback::new(move |value| values.borrow_mut().push(value))
-    };
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            GridView::new()
-                .items([
-                    GridViewItem::new().tag("first").into(),
-                    GridViewItem::new().tag("second").into(),
-                ])
-                .on_reordered(callback.clone()),
-        )
-        .unwrap();
-    let grid = runtime.graph().root().unwrap();
-    runtime.adapter_mut().queue_event(EventDispatch::new(
-        grid,
-        EventId::DragItemsCompleted,
-        EventValue::StringList(callback),
-        EventPayload::StringList(vec!["second".to_string(), "first".to_string()]),
-    ));
-
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 1);
-    assert_eq!(
-        &*values.borrow(),
-        &[vec!["second".to_string(), "first".to_string()]]
-    );
-}
-
-#[test]
 fn list_view_properties_update_and_clear() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     let mutations = runtime
@@ -335,117 +302,6 @@ fn list_view_properties_update_and_clear() {
     ] {
         assert!(clear.contains(&property));
     }
-}
-
-#[test]
-fn list_view_selection_and_reorder_callbacks_replace_remove_and_reject_stale_events() {
-    let first_selections = Rc::new(RefCell::new(Vec::new()));
-    let first_selection = {
-        let values = Rc::clone(&first_selections);
-        Callback::new(move |value| values.borrow_mut().push(value))
-    };
-    let first_reorders = Rc::new(RefCell::new(Vec::new()));
-    let first_reorder = {
-        let values = Rc::clone(&first_reorders);
-        Callback::new(move |value| values.borrow_mut().push(value))
-    };
-    let second_selections = Rc::new(RefCell::new(Vec::new()));
-    let second_selection = {
-        let values = Rc::clone(&second_selections);
-        Callback::new(move |value| values.borrow_mut().push(value))
-    };
-    let second_reorders = Rc::new(RefCell::new(Vec::new()));
-    let second_reorder = {
-        let values = Rc::clone(&second_reorders);
-        Callback::new(move |value| values.borrow_mut().push(value))
-    };
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            ListView::new()
-                .on_selection_changed(first_selection.clone())
-                .on_reordered(first_reorder.clone()),
-        )
-        .unwrap();
-    let list = runtime.graph().root().unwrap();
-    runtime.adapter_mut().queue_native_event(
-        Some(Observation::SetProperty {
-            object: list,
-            property: Property {
-                id: PropertyId::SelectedIndex,
-                value: PropertyValue::SelectionIndex(Some(1)),
-            },
-        }),
-        Some(EventDispatch::new(
-            list,
-            EventId::SelectionChanged,
-            EventValue::SelectionIndex(first_selection.clone()),
-            EventPayload::SelectionIndex(Some(1)),
-        )),
-    );
-    runtime.adapter_mut().queue_event(EventDispatch::new(
-        list,
-        EventId::DragItemsCompleted,
-        EventValue::StringList(first_reorder.clone()),
-        EventPayload::StringList(vec!["second".to_string(), "first".to_string()]),
-    ));
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 2);
-    assert_eq!(&*first_selections.borrow(), &[Some(1)]);
-    assert_eq!(
-        &*first_reorders.borrow(),
-        &[vec!["second".to_string(), "first".to_string()]]
-    );
-
-    runtime
-        .update(
-            ListView::new()
-                .selected_index(Some(1))
-                .on_selection_changed(second_selection.clone())
-                .on_reordered(second_reorder.clone()),
-        )
-        .unwrap();
-    runtime.adapter_mut().queue_event(EventDispatch::new(
-        list,
-        EventId::SelectionChanged,
-        EventValue::SelectionIndex(first_selection),
-        EventPayload::SelectionIndex(None),
-    ));
-    runtime.adapter_mut().queue_event(EventDispatch::new(
-        list,
-        EventId::DragItemsCompleted,
-        EventValue::StringList(first_reorder),
-        EventPayload::StringList(vec!["stale".to_string()]),
-    ));
-    runtime.adapter_mut().queue_event(EventDispatch::new(
-        list,
-        EventId::SelectionChanged,
-        EventValue::SelectionIndex(second_selection.clone()),
-        EventPayload::SelectionIndex(None),
-    ));
-    runtime.adapter_mut().queue_event(EventDispatch::new(
-        list,
-        EventId::DragItemsCompleted,
-        EventValue::StringList(second_reorder.clone()),
-        EventPayload::StringList(vec!["current".to_string()]),
-    ));
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 2);
-    assert_eq!(&*second_selections.borrow(), &[None]);
-    assert_eq!(&*second_reorders.borrow(), &[vec!["current".to_string()]]);
-
-    runtime.update(ListView::new()).unwrap();
-    runtime.adapter_mut().queue_event(EventDispatch::new(
-        list,
-        EventId::SelectionChanged,
-        EventValue::SelectionIndex(second_selection),
-        EventPayload::SelectionIndex(Some(2)),
-    ));
-    runtime.adapter_mut().queue_event(EventDispatch::new(
-        list,
-        EventId::DragItemsCompleted,
-        EventValue::StringList(second_reorder),
-        EventPayload::StringList(vec!["removed".to_string()]),
-    ));
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
 }
 
 #[test]
@@ -574,47 +430,397 @@ fn inspectable_string_item_events_deliver_typed_values() {
     assert_eq!(&*suggestion_values.borrow(), &[Rc::from("Second")]);
 }
 
+fn recorder<T: 'static>() -> (Rc<RefCell<Vec<T>>>, Callback<T>) {
+    let values = Rc::new(RefCell::new(Vec::new()));
+    let callback = {
+        let values = Rc::clone(&values);
+        Callback::new(move |value| values.borrow_mut().push(value))
+    };
+    (values, callback)
+}
+
+fn data_list(keys: &[&str], on_reordered: &Callback<Vec<Key>>) -> ListView {
+    ListView::new()
+        .items(keys.iter().map(|key| DataItem::new(*key, *key)))
+        .on_reordered(on_reordered.clone())
+}
+
+fn reorder_count(mutations: &[Mutation]) -> usize {
+    mutations
+        .iter()
+        .filter(|mutation| matches!(mutation, Mutation::Reorder { .. }))
+        .count()
+}
+
+fn queue_reorder(
+    runtime: &mut Runtime<RecordingAdapter>,
+    object: ObjectId,
+    relation: RelationId,
+    event: EventId,
+    callback: &Callback<Vec<Key>>,
+    children: Vec<ObjectId>,
+) {
+    runtime.adapter_mut().queue_native_event(
+        Some(Observation::Reorder {
+            object,
+            relation,
+            children: children.clone(),
+        }),
+        Some(EventDispatch::new(
+            object,
+            event,
+            EventValue::Keys(callback.clone()),
+            EventPayload::Items(children),
+        )),
+    );
+}
+
+/// Moves the native items as a user drag would, then queues the resulting observation and event.
+fn drag(
+    runtime: &mut Runtime<RecordingAdapter>,
+    object: ObjectId,
+    relation: RelationId,
+    event: EventId,
+    callback: &Callback<Vec<Key>>,
+    children: Vec<ObjectId>,
+) {
+    let live = children
+        .iter()
+        .copied()
+        .filter(|child| runtime.graph().kind(*child).is_some())
+        .collect::<Vec<_>>();
+    runtime.adapter_mut().move_children(object, relation, &live);
+    queue_reorder(runtime, object, relation, event, callback, children);
+}
+
 #[test]
-fn tab_view_events_deliver_item_tags() {
-    let closed_values = Rc::new(RefCell::new(Vec::new()));
-    let closed_callback = {
-        let values = Rc::clone(&closed_values);
-        Callback::new(move |value| values.borrow_mut().push(value))
-    };
-    let reordered_values = Rc::new(RefCell::new(Vec::new()));
-    let reordered_callback = {
-        let values = Rc::clone(&reordered_values);
-        Callback::new(move |value| values.borrow_mut().push(value))
-    };
+fn list_view_reorder_delivers_item_keys_and_adopting_it_needs_no_mutation() {
+    let (values, callback) = recorder();
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
+        .update(data_list(&["a", "b", "c"], &callback))
+        .unwrap();
+    let list = runtime.graph().root().unwrap();
+    let items = runtime
+        .graph()
+        .children(list, RelationId::Items)
+        .unwrap()
+        .to_vec();
+
+    drag(
+        &mut runtime,
+        list,
+        RelationId::Items,
+        EventId::DragItemsCompleted,
+        &callback,
+        vec![items[2], items[0], items[1]],
+    );
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 1);
+    assert_eq!(
+        *values.borrow(),
+        [vec![Key::from("c"), Key::from("a"), Key::from("b")]]
+    );
+    assert_eq!(
+        runtime.graph().children(list, RelationId::Items).unwrap(),
+        [items[2], items[0], items[1]]
+    );
+
+    // The native collection already has the adopted order.
+    let mutations = runtime
+        .update(data_list(&["c", "a", "b"], &callback))
+        .unwrap();
+    assert_eq!(reorder_count(mutations.as_slice()), 0);
+
+    // Removal indexes follow the observed order rather than the original declaration.
+    let mutations = runtime.update(data_list(&["c", "b"], &callback)).unwrap();
+    assert!(mutations.iter().any(|mutation| matches!(
+        mutation,
+        Mutation::Remove { parent, relation: RelationId::Items, child, index: 1 }
+            if *parent == list && *child == items[0]
+    )));
+    assert_eq!(reorder_count(mutations.as_slice()), 0);
+}
+
+#[test]
+fn ignored_reorder_restores_the_declared_order() {
+    let (values, callback) = recorder();
+    let view = || {
+        GridView::new()
+            .items([
+                GridViewItem::new().tag("first").into(),
+                GridViewItem::new().tag("second").into(),
+            ])
+            .on_reordered(callback.clone())
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(view()).unwrap();
+    let grid = runtime.graph().root().unwrap();
+    let items = runtime
+        .graph()
+        .children(grid, RelationId::Items)
+        .unwrap()
+        .to_vec();
+
+    drag(
+        &mut runtime,
+        grid,
+        RelationId::Items,
+        EventId::DragItemsCompleted,
+        &callback,
+        vec![items[1], items[0]],
+    );
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 1);
+    // Non-keyed builders key items by declared position.
+    assert_eq!(
+        *values.borrow(),
+        [vec![Key::from(1usize), Key::from(0usize)]]
+    );
+
+    let mutations = runtime.update(view()).unwrap();
+    assert!(matches!(
+        mutations.as_slice(),
+        [Mutation::Reorder { parent, relation: RelationId::Items, children, .. }]
+            if *parent == grid && *children == items
+    ));
+}
+
+#[test]
+fn reorder_rejects_echoed_stale_and_partial_native_orders() {
+    let (first_values, first) = recorder();
+    let (second_values, second) = recorder();
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(data_list(&["a", "b", "c"], &first)).unwrap();
+    let list = runtime.graph().root().unwrap();
+    let items = runtime
+        .graph()
+        .children(list, RelationId::Items)
+        .unwrap()
+        .to_vec();
+
+    // A native snapshot taken mid-move is not a permutation of the retained items.
+    queue_reorder(
+        &mut runtime,
+        list,
+        RelationId::Items,
+        EventId::DragItemsCompleted,
+        &first,
+        vec![items[1], items[0]],
+    );
+    queue_reorder(
+        &mut runtime,
+        list,
+        RelationId::Items,
+        EventId::DragItemsCompleted,
+        &first,
+        vec![items[1], items[1], items[0]],
+    );
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+    assert_eq!(
+        runtime.graph().children(list, RelationId::Items).unwrap(),
+        items
+    );
+
+    // An unchanged native order echoes Reactor's own mutation or a drop in place.
+    queue_reorder(
+        &mut runtime,
+        list,
+        RelationId::Items,
+        EventId::DragItemsCompleted,
+        &first,
+        items.clone(),
+    );
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+
+    // A payload that no longer matches the retained order is stale.
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        list,
+        EventId::DragItemsCompleted,
+        EventValue::Keys(first.clone()),
+        EventPayload::Items(vec![items[2], items[1], items[0]]),
+    ));
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+
+    // A replaced callback receives the observation but the old callback does not.
+    runtime
+        .update(data_list(&["a", "b", "c"], &second))
+        .unwrap();
+    drag(
+        &mut runtime,
+        list,
+        RelationId::Items,
+        EventId::DragItemsCompleted,
+        &first,
+        vec![items[1], items[0], items[2]],
+    );
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+    assert_eq!(
+        runtime.graph().children(list, RelationId::Items).unwrap(),
+        [items[1], items[0], items[2]]
+    );
+    drag(
+        &mut runtime,
+        list,
+        RelationId::Items,
+        EventId::DragItemsCompleted,
+        &second,
+        vec![items[0], items[1], items[2]],
+    );
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 1);
+    assert!(first_values.borrow().is_empty());
+    assert_eq!(
+        *second_values.borrow(),
+        [vec![Key::from("a"), Key::from("b"), Key::from("c")]]
+    );
+
+    // Native collections may still hold removed items while they retire.
+    runtime.update(data_list(&["a", "c"], &second)).unwrap();
+    drag(
+        &mut runtime,
+        list,
+        RelationId::Items,
+        EventId::DragItemsCompleted,
+        &second,
+        vec![items[2], items[1], items[0]],
+    );
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 1);
+    assert_eq!(
+        second_values.borrow().last().unwrap(),
+        &[Key::from("c"), Key::from("a")]
+    );
+}
+
+#[test]
+fn reorder_observation_for_an_untracked_relation_poisons_the_runtime() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(StackPanel::new().children([TextBlock::new().text("a").into()]))
+        .unwrap();
+    let panel = runtime.graph().root().unwrap();
+    let children = runtime
+        .graph()
+        .children(panel, RelationId::Children)
+        .unwrap()
+        .to_vec();
+    runtime.adapter_mut().observe(Observation::Reorder {
+        object: panel,
+        relation: RelationId::Children,
+        children,
+    });
+    assert!(matches!(
+        runtime.dispatch_native_events(),
+        Err(UpdateError::InvalidNativeEvent(
+            GraphError::InvalidRelation(ObjectType::StackPanel, RelationId::Children)
+        ))
+    ));
+    assert_eq!(runtime.prepare_update(), Err(UpdateError::Poisoned));
+}
+
+#[test]
+fn list_view_selection_callbacks_replace_remove_and_reject_stale_events() {
+    let (first_values, first) = recorder();
+    let (second_values, second) = recorder();
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(ListView::new().on_selection_changed(first.clone()))
+        .unwrap();
+    let list = runtime.graph().root().unwrap();
+    runtime.adapter_mut().queue_native_event(
+        Some(Observation::SetProperty {
+            object: list,
+            property: Property {
+                id: PropertyId::SelectedIndex,
+                value: PropertyValue::SelectionIndex(Some(1)),
+            },
+        }),
+        Some(EventDispatch::new(
+            list,
+            EventId::SelectionChanged,
+            EventValue::SelectionIndex(first.clone()),
+            EventPayload::SelectionIndex(Some(1)),
+        )),
+    );
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 1);
+    assert_eq!(*first_values.borrow(), [Some(1)]);
+
+    runtime
         .update(
-            TabView::new()
-                .tab_items([
-                    TabViewItem::new().tag("first").into(),
-                    TabViewItem::new().tag("second").into(),
-                ])
-                .on_close_requested(closed_callback.clone())
-                .on_reordered(reordered_callback.clone()),
+            ListView::new()
+                .selected_index(Some(1))
+                .on_selection_changed(second.clone()),
         )
         .unwrap();
-    let object = runtime.graph().root().unwrap();
+    for callback in [&first, &second] {
+        runtime.adapter_mut().queue_event(EventDispatch::new(
+            list,
+            EventId::SelectionChanged,
+            EventValue::SelectionIndex(callback.clone()),
+            EventPayload::SelectionIndex(None),
+        ));
+    }
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 1);
+    assert_eq!(*second_values.borrow(), [None]);
+
+    runtime.update(ListView::new()).unwrap();
     runtime.adapter_mut().queue_event(EventDispatch::new(
-        object,
+        list,
+        EventId::SelectionChanged,
+        EventValue::SelectionIndex(second),
+        EventPayload::SelectionIndex(Some(2)),
+    ));
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+}
+
+#[test]
+fn tab_view_events_deliver_item_keys() {
+    let (closed_values, closed) = recorder();
+    let (reordered_values, reordered) = recorder();
+    let view = |keys: &[u64]| {
+        TabView::new()
+            .keyed_tab_items(
+                keys.iter()
+                    .map(|key| keyed(*key, TabViewItem::new().header(key.to_string()))),
+            )
+            .on_close_requested(closed.clone())
+            .on_reordered(reordered.clone())
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(view(&[1, 2])).unwrap();
+    let tabs = runtime.graph().root().unwrap();
+    let items = runtime
+        .graph()
+        .children(tabs, RelationId::TabItems)
+        .unwrap()
+        .to_vec();
+
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        tabs,
         EventId::TabCloseRequested,
-        EventValue::String(closed_callback),
-        EventPayload::String(Rc::from("second")),
+        EventValue::Key(closed.clone()),
+        EventPayload::Item(items[1]),
     ));
-    runtime.adapter_mut().queue_event(EventDispatch::new(
-        object,
+    drag(
+        &mut runtime,
+        tabs,
+        RelationId::TabItems,
         EventId::TabItemsChanged,
-        EventValue::StringList(reordered_callback),
-        EventPayload::StringList(vec!["second".into(), "first".into()]),
-    ));
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 2);
-    assert_eq!(&*closed_values.borrow(), &[Rc::from("second")]);
-    assert_eq!(
-        &*reordered_values.borrow(),
-        &[vec!["second".to_string(), "first".to_string()]]
+        &reordered,
+        vec![items[1], items[0]],
     );
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 2);
+    assert_eq!(*closed_values.borrow(), [Key::from(2u64)]);
+    assert_eq!(
+        *reordered_values.borrow(),
+        [vec![Key::from(2u64), Key::from(1u64)]]
+    );
+
+    // A close request for a tab removed by a later render is dropped.
+    runtime.update(view(&[1])).unwrap();
+    runtime.adapter_mut().queue_event(EventDispatch::new(
+        tabs,
+        EventId::TabCloseRequested,
+        EventValue::Key(closed),
+        EventPayload::Item(items[1]),
+    ));
+    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+    assert_eq!(closed_values.borrow().len(), 1);
 }
