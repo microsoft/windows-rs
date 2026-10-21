@@ -225,6 +225,9 @@ impl<'a> Blob<'a> {
                     Type::ClassName(type_name)
                 }
             }
+            // SERIALIZATION_TYPE_TYPE in custom attribute named argument format
+            // (ECMA-335 II.23.3): the value is a SerString naming the type.
+            0x50 => Type::ClassName(TypeName::named("System", "Type")),
             0x55 => {
                 // SERIALIZATION_TYPE_ENUM in custom attribute named argument format
                 // (ECMA-335 II.23.1.16): followed by a SerString of the enum type name.

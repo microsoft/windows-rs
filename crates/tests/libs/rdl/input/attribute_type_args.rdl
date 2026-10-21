@@ -1,0 +1,15 @@
+#[win32]
+mod Test {
+    interface IPart {
+        fn Method(&self) -> i32;
+    }
+    #[TemplatePart(Name = "Part", Type = IPart)]
+    interface IThing {
+        fn Method(&self) -> i32;
+    }
+    attribute TemplatePartAttribute {
+        fn();
+        Name: String,
+        Type: Type,
+    }
+}
