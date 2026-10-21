@@ -12,7 +12,7 @@ readme = "readme.md"
 [dependencies]
 proc-macro2 = { workspace = true }
 quote = { workspace = true }
-syn = { workspace = true, features = ["parsing", "proc-macro", "printing", "full", "clone-impls"] }
+syn = { workspace = true, features = ["parsing", "proc-macro", "printing", "full", "clone-impls", "derive"] }
 
 [dev-dependencies]
 windows-core = { path = "../core" }
