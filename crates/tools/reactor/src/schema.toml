@@ -672,7 +672,7 @@ observes = "SelectedIndex"
 [[objects.events]]
 name = "DragItemsCompleted"
 field = "on_reordered"
-adapter = "string_list"
+reorders = "Items"
 
 [[objects]]
 name = "DataItem"
@@ -1559,12 +1559,12 @@ observes = "SelectedIndex"
 name = "TabCloseRequested"
 field = "on_close_requested"
 payload = "Tab"
-payload_adapter = "item_tag"
+payload_adapter = "item_key"
 
 [[objects.events]]
 name = "TabItemsChanged"
 field = "on_reordered"
-adapter = "string_list"
+reorders = "TabItems"
 
 [[objects]]
 name = "TabViewItem"
@@ -1900,7 +1900,7 @@ observes = "SelectedIndex"
 [[objects.events]]
 name = "DragItemsCompleted"
 field = "on_reordered"
-adapter = "string_list"
+reorders = "Items"
 
 [[objects]]
 name = "GridViewItem"

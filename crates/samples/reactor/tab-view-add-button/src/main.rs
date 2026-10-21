@@ -1,5 +1,3 @@
-use std::rc::Rc;
-
 use windows_reactor::*;
 
 struct TabViewAddButtonSample {
@@ -18,8 +16,8 @@ struct Tab {
 enum Message {
     Selected(Option<usize>),
     Add,
-    Close(Rc<str>),
-    Reordered(Vec<String>),
+    Close(Key),
+    Reordered(Vec<Key>),
 }
 
 impl Component for TabViewAddButtonSample {
@@ -55,28 +53,18 @@ impl Component for TabViewAddButtonSample {
                 self.selected = Some(self.tabs.len() - 1);
             }
             Message::Close(key) => {
-                self.tabs
-                    .retain(|tab| tab.id.to_string().as_str() != key.as_ref());
+                self.tabs.retain(|tab| Key::from(tab.id) != key);
                 self.selected = self
                     .selected
                     .map(|selected| selected.min(self.tabs.len().saturating_sub(1)))
                     .filter(|_| !self.tabs.is_empty());
             }
             Message::Reordered(order) => {
-                if order.len() == self.tabs.len()
-                    && order.iter().all(|key| {
-                        self.tabs
-                            .iter()
-                            .any(|candidate| candidate.id.to_string() == *key)
-                    })
-                {
-                    self.tabs.sort_by_key(|tab| {
-                        order
-                            .iter()
-                            .position(|candidate| *candidate == tab.id.to_string())
-                            .unwrap()
-                    });
-                }
+                let selected = self.selected.map(|index| self.tabs[index].id);
+                self.tabs
+                    .sort_by_key(|tab| order.iter().position(|key| *key == Key::from(tab.id)));
+                self.selected =
+                    selected.and_then(|id| self.tabs.iter().position(|tab| tab.id == id));
             }
         }
     }
@@ -84,12 +72,10 @@ impl Component for TabViewAddButtonSample {
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_title("TabView Add Button");
         let items = self.tabs.iter().map(|tab| {
-            let key = tab.id.to_string();
-            KeyedView::new(
-                key.clone(),
+            keyed(
+                tab.id,
                 TabViewItem::new()
                     .header(tab.label.as_str())
-                    .tag(key)
                     .is_closable(true)
                     .content(
                         Border::new()

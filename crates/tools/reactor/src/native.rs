@@ -364,9 +364,6 @@ fn emit_event(
         code.push_str(&format!(
             "let drop_policy_{field} = Rc::clone(&{owner}drop_policy);\n"
         ));
-    } else if event.value == Value::StringList {
-        let source = item_vector(object, metadata);
-        code.push_str(&format!("let source_{field} = {source};\n"));
     }
     let args = if event.routed
         || event.value == Value::PointerEventInfo
@@ -474,6 +471,13 @@ fn emit_event(
                          let observation = dispatch.then_some(observation);\n",
             event.name
         ));
+    } else if let Some(relation) = &event.reorders {
+        // The adapter reads the native order when it processes the event.
+        code.push_str(&format!(
+            "let observation = Some(Observation::Reorder {{ object, \
+             relation: RelationId::{relation}, children: Vec::new() }});\n\
+             let dispatch = true;\nlet value = Vec::<ObjectId>::new();\n"
+        ));
     } else if managed_source.is_some() {
         code.push_str("let dispatch = !managed_source.get();\nlet observation = None;\n");
     } else if !event.routed {
@@ -482,19 +486,14 @@ fn emit_event(
     if selection.is_none()
         && let Some(payload) = &event.payload
     {
-        if event.payload_adapter == Some(PayloadAdapter::ItemTag) {
+        if event.payload_adapter == Some(PayloadAdapter::ItemKey) {
             code.push_str(&format!(
                 "let args = args.unwrap();\n\
                              let payload = match args.{payload}()\
-                             .and_then(|value| value.cast::<native::IFrameworkElement>())\
-                             .and_then(|value| value.Tag()) {{\
-                             Ok(value) => match value\
-                             .cast::<windows_reference::IReference<HSTRING>>()\
-                             .and_then(|value| value.Value()) {{\
-                             Ok(value) => Rc::<str>::from(value.to_string_lossy()),\
-                             Err(error) => {{ report_error(error); return; }} }},\
-                             Err(error) if error.code().is_ok() => Rc::<str>::from(\"\"),\
-                             Err(error) => {{ report_error(error); return; }} }};\n"
+                             .and_then(|value| value.cast::<IInspectable>()) {{\
+                             Ok(value) => event_queue_{field}.item_object(object, &value),\
+                             Err(error) => {{ report_error(error); return; }} }};\n\
+                             let Some(payload) = payload else {{ return; }};\n"
             ));
         } else if matches!(
             event.payload_adapter,
@@ -554,7 +553,8 @@ fn emit_event(
         | Value::OptionalTimeSpan
         | Value::NavigationViewDisplayMode
         | Value::SelectionIndex
-        | Value::String => Some(dispatch_value),
+        | Value::String
+        | Value::Key => Some(dispatch_value),
         Value::Unit => Some("()"),
         Value::ContentDialogResult => {
             code.push_str(&format!(
@@ -621,14 +621,7 @@ fn emit_event(
             ));
             None
         }
-        Value::StringList => {
-            code.push_str(&format!(
-                "let value = match WinUiAdapter::item_tags(&source_{field}) {{ \
-                             Ok(value) => value, Err(error) => {{ \
-                             report_error(error.into()); return; }} }};\n"
-            ));
-            Some("value")
-        }
+        Value::Keys => Some("value"),
         Value::KeyEventInfo => {
             code.push_str(
                             "let args = args.unwrap();\n\
@@ -1355,12 +1348,13 @@ fn emit_event_callback(output: &mut String, objects: &[&Object]) {
 }
 
 /// Events that only forward to a Reactor callback subscribe when the first callback is set, or
-/// when one of their `active_properties` is set. Events that observe properties, track
-/// selection, or report managed image state subscribe at creation because they do work without
-/// a callback.
+/// when one of their `active_properties` is set. Events that observe properties or item order,
+/// track selection, or report managed image state subscribe at creation because they do work
+/// without a callback.
 fn is_lazy_event(object: &Object, event: &Event) -> bool {
     !event.property_changed
         && event.observes.is_none()
+        && event.reorders.is_none()
         && event.value != Value::ContentDialogResult
         && !object
             .selection
@@ -1370,41 +1364,6 @@ fn is_lazy_event(object: &Object, event: &Event) -> bool {
             .properties
             .iter()
             .any(|property| property.adapter == Some(PropertyAdapter::ImageUri))
-}
-
-// Returns an expression for the object's single item collection as `IVector<IInspectable>`.
-fn item_vector(object: &Object, metadata: &tool_reactor_metadata::MetadataResolver) -> String {
-    let mut relations = object.relations.iter().filter(|relation| {
-        matches!(
-            relation.realization,
-            Realization::Owned | Realization::Container
-        ) && relation.cardinality == Cardinality::Many
-    });
-    let relation = relations.next().unwrap();
-    assert!(
-        relations.next().is_none(),
-        "{} must have one item collection",
-        object.name
-    );
-    // Container relations hold data items in the control's ItemCollection.
-    let item_collection = relation.realization == Realization::Container
-        || relation.native_collection == Some(NativeCollection::ItemCollection);
-    assert!(item_collection || relation.native_item.as_deref() == Some("IInspectable"));
-    let native_relation = relation.native.as_deref().unwrap_or(&relation.name);
-    let class = native_name(object);
-    let interface = metadata
-        .resolve(&class, &format!("get_{native_relation}"))
-        .unwrap()
-        .short_name();
-    let items = format!(
-        "{}.{native_relation}()?",
-        native_interface_value("value", &class, interface, metadata)
-    );
-    if item_collection {
-        format!("{items}.cast::<IVector<IInspectable>>()?")
-    } else {
-        items
-    }
 }
 
 fn native_interface_value(

@@ -151,6 +151,11 @@ impl WinUiAdapter {
             .map(|selection| self.selection_item_is_selected(child, selection))
             .transpose()?
             .unwrap_or(false);
+        let tracked = selection_item.is_some()
+            || reorder_event(self.kind(parent)?, relation).is_some();
+        let identity = tracked
+            .then(|| self.item_identity(parent, relation, child))
+            .transpose()?;
         let feedback = self.begin_selection_feedback(parent, selection);
         let result = (|| {
             match relation_contract(self.kind(parent)?, relation)?.realization {
@@ -168,15 +173,16 @@ impl WinUiAdapter {
                 }
             }
             self.owners.insert(child, (parent, relation));
-            if let (Some(selection), Some(value)) = (selection_item, child_value.as_ref()) {
-                self.event_queue
-                    .selection_items
-                    .borrow_mut()
-                    .push(NativeSelectionItem {
+            if let Some(identity) = identity {
+                self.event_queue.items.borrow_mut().insert(
+                    child,
+                    NativeItem {
                         owner: parent,
-                        object: child,
-                        value: value.clone(),
-                    });
+                        identity,
+                    },
+                );
+            }
+            if let (Some(selection), Some(value)) = (selection_item, child_value.as_ref()) {
                 if child_selected {
                     self.write_selected_item(parent, selection, Some(value))?;
                 } else if let Some(selected) = selected.as_ref() {
@@ -239,16 +245,12 @@ impl WinUiAdapter {
                 }
             }
             self.owners.remove(&child);
-            if let Some(selection) = selection {
-                self.event_queue
-                    .selection_items
-                    .borrow_mut()
-                    .retain(|item| item.object != child);
-                if let Some(selected) = selected.as_ref()
-                    && child_value.as_ref() != Some(selected)
-                {
-                    self.write_selected_item(parent, selection, Some(selected))?;
-                }
+            self.event_queue.items.borrow_mut().remove(&child);
+            if let Some(selection) = selection
+                && let Some(selected) = selected.as_ref()
+                && child_value.as_ref() != Some(selected)
+            {
+                self.write_selected_item(parent, selection, Some(selected))?;
             }
             Ok(())
         })();
@@ -423,6 +425,19 @@ impl WinUiAdapter {
     fn finish_selection_feedback(&self, owner: ObjectId, event: Option<EventId>) {
         if let Some(event) = event {
             self.event_queue.feedback.borrow_mut().finish(owner, event);
+        }
+    }
+
+    fn item_identity(
+        &self,
+        parent: ObjectId,
+        relation: RelationId,
+        child: ObjectId,
+    ) -> Result<usize, WinUiError> {
+        match relation_contract(self.kind(parent)?, relation)?.realization {
+            Realization::Owned => com_identity(&self.ui_element(child)?),
+            Realization::Structural => com_identity(&self.tree_node(child)?),
+            Realization::Container => com_identity(&self.inspectable(child)?),
         }
     }
 
@@ -731,6 +746,30 @@ impl WinUiAdapter {
         if let Some(request) = queued.realization {
             return Some(NativeEvent::realization(request));
         }
+        // Native handlers queue reorders without an order; reading it here keeps queued
+        // notifications from replaying an order that a later render has already replaced.
+        let mut observation = queued.observation.clone();
+        let mut order = None;
+        if let Some(Observation::Reorder {
+            object,
+            relation,
+            children,
+        }) = &mut observation
+        {
+            if !self.handles.contains_key(object) {
+                return None;
+            }
+            match self.native_children(*object, *relation) {
+                Ok(native) => {
+                    children.clone_from(&native);
+                    order = Some(EventPayload::Items(native));
+                }
+                Err(error) => {
+                    self.event_queue.errors.borrow_mut().push_back(error);
+                    return None;
+                }
+            }
+        }
         let event = queued.event.as_ref().and_then(|queued| {
             if queued.event == EventId::MenuItemInvoked {
                 let menu = self.menus.get(&queued.object)?;
@@ -770,9 +809,42 @@ impl WinUiAdapter {
                 queued.object,
                 queued.event,
                 callback,
-                queued.payload.clone(),
+                order.unwrap_or_else(|| queued.payload.clone()),
             ))
         });
-        Some(NativeEvent::new(queued.observation.clone(), event))
+        Some(NativeEvent::new(observation, event))
+    }
+
+    /// Returns the registered children of a reorderable relation in native order.
+    fn native_children(
+        &self,
+        object: ObjectId,
+        relation: RelationId,
+    ) -> Result<Vec<ObjectId>, WinUiError> {
+        let identities = match relation_contract(self.kind(object)?, relation)?.realization {
+            Realization::Owned => {
+                let values = self.owned_collection(object, relation)?;
+                (0..values.size()?)
+                    .map(|index| com_identity(&values.get_at(index)?))
+                    .collect::<Result<Vec<_>, _>>()?
+            }
+            Realization::Container => {
+                let values = self.items(object)?;
+                (0..values.Size()?)
+                    .map(|index| com_identity(&values.GetAt(index)?))
+                    .collect::<Result<Vec<_>, _>>()?
+            }
+            Realization::Structural => return Err(WinUiError::InvalidRelation(object, relation)),
+        };
+        let items = self.event_queue.items.borrow();
+        let registered = items
+            .iter()
+            .filter(|(_, item)| item.owner == object)
+            .map(|(child, item)| (item.identity, *child))
+            .collect::<HashMap<_, _>>();
+        Ok(identities
+            .iter()
+            .filter_map(|identity| registered.get(identity).copied())
+            .collect())
     }
 }

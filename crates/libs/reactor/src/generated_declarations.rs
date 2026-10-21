@@ -3213,10 +3213,10 @@ impl ListView {
         );
         self
     }
-    pub fn on_reordered(mut self, callback: impl IntoPayloadCallback<Vec<String>>) -> Self {
+    pub fn on_reordered(mut self, callback: impl IntoPayloadCallback<Vec<Key>>) -> Self {
         self.0 = self.0.event(
             EventId::DragItemsCompleted,
-            EventValue::StringList(callback.into_payload_callback()),
+            EventValue::Keys(callback.into_payload_callback()),
         );
         self
     }
@@ -5736,17 +5736,17 @@ impl TabView {
         );
         self
     }
-    pub fn on_close_requested(mut self, callback: impl IntoPayloadCallback<Rc<str>>) -> Self {
+    pub fn on_close_requested(mut self, callback: impl IntoPayloadCallback<Key>) -> Self {
         self.0 = self.0.event(
             EventId::TabCloseRequested,
-            EventValue::String(callback.into_payload_callback()),
+            EventValue::Key(callback.into_payload_callback()),
         );
         self
     }
-    pub fn on_reordered(mut self, callback: impl IntoPayloadCallback<Vec<String>>) -> Self {
+    pub fn on_reordered(mut self, callback: impl IntoPayloadCallback<Vec<Key>>) -> Self {
         self.0 = self.0.event(
             EventId::TabItemsChanged,
-            EventValue::StringList(callback.into_payload_callback()),
+            EventValue::Keys(callback.into_payload_callback()),
         );
         self
     }
@@ -6718,10 +6718,10 @@ impl GridView {
         );
         self
     }
-    pub fn on_reordered(mut self, callback: impl IntoPayloadCallback<Vec<String>>) -> Self {
+    pub fn on_reordered(mut self, callback: impl IntoPayloadCallback<Vec<Key>>) -> Self {
         self.0 = self.0.event(
             EventId::DragItemsCompleted,
-            EventValue::StringList(callback.into_payload_callback()),
+            EventValue::Keys(callback.into_payload_callback()),
         );
         self
     }

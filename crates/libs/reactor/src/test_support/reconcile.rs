@@ -87,6 +87,26 @@ impl EventDispatch {
 }
 
 impl NativeEvent {
+    /// Replaces a reorder observation and its payload with the order `read` reports.
+    pub(crate) fn read_reorder(
+        mut self,
+        read: impl FnOnce(ObjectId, RelationId) -> Option<Vec<ObjectId>>,
+    ) -> Self {
+        if let Some(Observation::Reorder {
+            object,
+            relation,
+            children,
+        }) = &mut self.observation
+            && let Some(native) = read(*object, *relation)
+        {
+            if let Some(event) = &mut self.event {
+                event.payload = EventPayload::Items(native.clone());
+            }
+            *children = native;
+        }
+        self
+    }
+
     pub(crate) fn realization_request(&self) -> Option<RealizationRequest> {
         self.realization
     }
@@ -95,10 +115,7 @@ impl NativeEvent {
         self.event.as_ref().map(EventDispatch::object).or_else(|| {
             self.observation
                 .as_ref()
-                .map(|observation| match observation {
-                    Observation::SetProperty { object, .. }
-                    | Observation::SetSelection { object, .. } => *object,
-                })
+                .map(Observation::object)
                 .or_else(|| self.retirement.map(|completion| completion.root))
                 .or_else(|| {
                     self.realization.map(|request| match request {

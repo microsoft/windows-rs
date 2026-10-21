@@ -1454,9 +1454,9 @@ pub enum EventValue {
     PointerEventInfo(Callback<PointerEventInfo>),
     KeyEventInfo(RoutedCallback<KeyEventInfo>),
     Key(Callback<Key>),
+    Keys(Callback<Vec<Key>>),
     Selection(Callback<Option<Rc<str>>>),
     SelectionIndex(Callback<Option<usize>>),
-    StringList(Callback<Vec<String>>),
     Unit(Callback<()>),
 }
 
@@ -1481,9 +1481,13 @@ pub enum EventPayload {
     #[cfg(any(test, feature = "test"))]
     KeyEventInfo(KeyEventInfo),
     Key(Key),
+    Keys(Vec<Key>),
+    /// A native child, resolved to its key before dispatch.
+    Item(ObjectId),
+    /// Native children in native order, resolved to their keys before dispatch.
+    Items(Vec<ObjectId>),
     Selection(SelectionChange),
     SelectionIndex(Option<usize>),
-    StringList(Vec<String>),
     Unit,
 }
 

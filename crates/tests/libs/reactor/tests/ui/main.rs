@@ -33,6 +33,7 @@ mod reference;
 mod repeater;
 mod retirement;
 mod selection;
+mod tab;
 mod text;
 mod timer;
 mod typography;

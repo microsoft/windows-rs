@@ -1767,7 +1767,7 @@ pub fn windows_reactor::GridView::max_width(self, f64) -> Self
 pub fn windows_reactor::GridView::min_height(self, f64) -> Self
 pub fn windows_reactor::GridView::min_width(self, f64) -> Self
 pub fn windows_reactor::GridView::new() -> Self
-pub fn windows_reactor::GridView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::vec::Vec<alloc::string::String>>) -> Self
+pub fn windows_reactor::GridView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::vec::Vec<windows_reactor::Key>>) -> Self
 pub fn windows_reactor::GridView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
 pub fn windows_reactor::GridView::opacity(self, f64) -> Self
 pub fn windows_reactor::GridView::relative_align_bottom(self) -> Self
@@ -2308,7 +2308,7 @@ pub fn windows_reactor::ListView::max_width(self, f64) -> Self
 pub fn windows_reactor::ListView::min_height(self, f64) -> Self
 pub fn windows_reactor::ListView::min_width(self, f64) -> Self
 pub fn windows_reactor::ListView::new() -> Self
-pub fn windows_reactor::ListView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::vec::Vec<alloc::string::String>>) -> Self
+pub fn windows_reactor::ListView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::vec::Vec<windows_reactor::Key>>) -> Self
 pub fn windows_reactor::ListView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
 pub fn windows_reactor::ListView::opacity(self, f64) -> Self
 pub fn windows_reactor::ListView::relative_align_bottom(self) -> Self
@@ -3793,8 +3793,8 @@ pub fn windows_reactor::TabView::min_height(self, f64) -> Self
 pub fn windows_reactor::TabView::min_width(self, f64) -> Self
 pub fn windows_reactor::TabView::new() -> Self
 pub fn windows_reactor::TabView::on_add_tab_button_click(self, impl windows_reactor::IntoUnitCallback) -> Self
-pub fn windows_reactor::TabView::on_close_requested(self, impl windows_reactor::IntoPayloadCallback<alloc::rcs::rc::Rc<str>>) -> Self
-pub fn windows_reactor::TabView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::vec::Vec<alloc::string::String>>) -> Self
+pub fn windows_reactor::TabView::on_close_requested(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::Key>) -> Self
+pub fn windows_reactor::TabView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::vec::Vec<windows_reactor::Key>>) -> Self
 pub fn windows_reactor::TabView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
 pub fn windows_reactor::TabView::opacity(self, f64) -> Self
 pub fn windows_reactor::TabView::relative_align_bottom(self) -> Self

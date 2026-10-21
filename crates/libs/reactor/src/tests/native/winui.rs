@@ -97,6 +97,26 @@ fn native_queue_preview_uses_current_callback_and_preserves_order() {
 }
 
 #[test]
+fn replacement_discards_queued_reorders_without_callbacks() {
+    let replaced = ObjectId::test(1);
+    let other = ObjectId::test(2);
+    let queue = NativeEventQueue::default();
+    let reorder = |object| Observation::Reorder {
+        object,
+        relation: RelationId::Items,
+        children: Vec::new(),
+    };
+    queue.queue(Some(reorder(replaced)), None);
+    queue.queue(Some(reorder(other)), None);
+
+    queue.discard_object(replaced);
+
+    let events = queue.events.borrow();
+    assert_eq!(events.len(), 1);
+    assert_eq!(events[0].observation, Some(reorder(other)));
+}
+
+#[test]
 fn placement_coordinates_round_trip_negative_monitors_and_taskbar_offsets() {
     let screen = native::RECT {
         left: -1600,

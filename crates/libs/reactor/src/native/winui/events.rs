@@ -34,30 +34,31 @@ into_event_payload! {
     Option<usize> => SelectionIndex,
     PointerEventInfo => PointerEventInfo,
     Rc<str> => String,
-    Vec<String> => StringList,
+    ObjectId => Item,
+    Vec<ObjectId> => Items,
 }
 
 impl WinUiAdapter {
-    fn dispatch<T: IntoEventPayload>(
+    fn dispatch<T, P: IntoEventPayload>(
         event: &Rc<RefCell<NativeValueEvent<T>>>,
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
         observation: Option<Observation>,
-        value: T,
+        value: P,
     ) {
         if Self::queue_event(event, event_queue, object, event_id, observation, value) {
             Self::schedule_event_wake(event_queue);
         }
     }
 
-    fn queue_event<T: IntoEventPayload>(
+    fn queue_event<T, P: IntoEventPayload>(
         event: &Rc<RefCell<NativeValueEvent<T>>>,
         event_queue: &Rc<NativeEventQueue>,
         object: ObjectId,
         event_id: EventId,
         observation: Option<Observation>,
-        value: T,
+        value: P,
     ) -> bool {
         let event = event.borrow();
         let queued = event.callback.is_some().then(|| QueuedEvent {
@@ -71,20 +72,6 @@ impl WinUiAdapter {
             event_queue.queue(observation, queued);
         }
         queue
-    }
-
-    fn item_tags(items: &IVector<IInspectable>) -> Result<Vec<String>, WinUiError> {
-        let mut tags = Vec::with_capacity(items.Size()? as usize);
-        for index in 0..items.Size()? {
-            let tag = items
-                .GetAt(index)?
-                .cast::<native::IFrameworkElement>()?
-                .Tag()?
-                .cast::<windows_reference::IReference<HSTRING>>()?
-                .Value()?;
-            tags.push(tag.to_string_lossy());
-        }
-        Ok(tags)
     }
 
     fn drag_kind(
@@ -254,15 +241,9 @@ impl WinUiAdapter {
                 return;
             }
         };
-        let selected_object = selected.as_ref().and_then(|selected| {
-            event_queue
-                .selection_items
-                .borrow()
-                .iter()
-                .find_map(|item| {
-                    (item.owner == object && item.value == *selected).then_some(item.object)
-                })
-        });
+        let selected_object = selected
+            .as_ref()
+            .and_then(|selected| event_queue.item_object(object, selected));
         let observation = Observation::SetSelection {
             object,
             selected: selected_object,
