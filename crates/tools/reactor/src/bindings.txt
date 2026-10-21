@@ -73,7 +73,7 @@ Microsoft::UI::Xaml::Controls::GridView::CreateInstance
 Microsoft::UI::Xaml::Controls::GridViewItem::CreateInstance
 Microsoft::UI::Xaml::Controls::HyperlinkButton::CreateInstance
 Microsoft::UI::Xaml::Controls::IAppBarButton::{put_Icon, put_Label}
-Microsoft::UI::Xaml::Controls::IAutoSuggestBox::{add_SuggestionChosen, add_TextChanged, get_Text, put_Header, remove_SuggestionChosen, remove_TextChanged}
+Microsoft::UI::Xaml::Controls::IAutoSuggestBox::{add_SuggestionChosen, add_TextChanged, get_Text, put_Header, put_Text, remove_SuggestionChosen, remove_TextChanged}
 Microsoft::UI::Xaml::Controls::IAutoSuggestBox::put_QueryIcon
 Microsoft::UI::Xaml::Controls::IBitmapIconSource::{put_ShowAsMonochrome, put_UriSource}
 Microsoft::UI::Xaml::Controls::IAutoSuggestBoxSuggestionChosenEventArgs::get_SelectedItem
@@ -194,7 +194,7 @@ Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::{add_Click, remove_Click
 Microsoft::UI::Xaml::Controls::Primitives::IFlyoutBase::{add_Closed, Hide, put_Placement, put_ShouldConstrainToRootBounds, put_XamlRoot, remove_Closed, ShowAt}
 Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::{add_ValueChanged, get_Value, remove_ValueChanged}
 Microsoft::UI::Xaml::Controls::Primitives::IRangeBaseValueChangedEventArgs::get_NewValue
-Microsoft::UI::Xaml::Controls::Primitives::ISelector::{add_SelectionChanged, get_SelectedIndex, get_SelectedItem, put_SelectedIndex, put_SelectedItem, remove_SelectionChanged}
+Microsoft::UI::Xaml::Controls::Primitives::ISelector::{add_SelectionChanged, get_SelectedIndex, get_SelectedItem, put_SelectedItem, remove_SelectionChanged}
 Microsoft::UI::Xaml::Controls::Primitives::ISelectorItem::get_IsSelected
 Microsoft::UI::Xaml::Controls::Primitives::IToggleButton::{add_Checked, get_IsChecked, remove_Checked}
 Microsoft::UI::Xaml::Controls::Primitives::PlacementMode::{Bottom, Left, Mouse, Right, Top}
@@ -277,7 +277,7 @@ Microsoft::UI::Xaml::IDragUIOverride::{put_Caption, put_IsCaptionVisible}
 Microsoft::UI::Xaml::IElementFactory::{}
 Microsoft::UI::Xaml::IElementFactoryGetArgs::get_Data
 Microsoft::UI::Xaml::IElementFactoryRecycleArgs::get_Element
-Microsoft::UI::Xaml::IFrameworkElement::{add_ActualThemeChanged, add_Loaded, add_SizeChanged, get_ActualHeight, get_ActualTheme, get_ActualWidth, get_IsLoaded, get_Resources, get_Tag, put_Height, put_HorizontalAlignment, put_RequestedTheme, put_Style, put_VerticalAlignment, put_Width, remove_ActualThemeChanged, remove_Loaded, remove_SizeChanged}
+Microsoft::UI::Xaml::IFrameworkElement::{add_ActualThemeChanged, add_Loaded, add_SizeChanged, get_ActualHeight, get_ActualTheme, get_ActualWidth, get_IsLoaded, get_Name, get_Resources, get_Tag, put_Height, put_HorizontalAlignment, put_RequestedTheme, put_Style, put_VerticalAlignment, put_Width, remove_ActualThemeChanged, remove_Loaded, remove_SizeChanged}
 Microsoft::UI::Xaml::Input::ICharacterReceivedRoutedEventArgs::{get_Character, get_KeyStatus, put_Handled}
 Microsoft::UI::Xaml::Input::IKeyboardAccelerator::{Invoked, put_Key, put_Modifiers}
 Microsoft::UI::Xaml::Input::IKeyboardAcceleratorInvokedEventArgs::put_Handled
@@ -320,6 +320,7 @@ Microsoft::UI::Xaml::Media::MicaBackdrop::CreateInstance
 Microsoft::UI::Xaml::Media::SolidColorBrush::CreateInstance
 Microsoft::UI::Xaml::Media::Stretch
 Microsoft::UI::Xaml::Media::SystemBackdrop::{}
+Microsoft::UI::Xaml::Media::VisualTreeHelper::{GetChild, GetChildrenCount}
 Microsoft::UI::Xaml::ResourceDictionary::{}
 Microsoft::UI::Xaml::ScalarTransition::CreateInstance
 Microsoft::UI::Xaml::Shapes::Ellipse::CreateInstance

@@ -9,7 +9,7 @@ pub const INVOKE_PATTERN: i32 = 10000;
 const VALUE_PATTERN: i32 = 10002;
 const SELECTION_PATTERN: i32 = 10001;
 const PROCESS_ID: i32 = 30002;
-const LIST_ITEM: i32 = 50007;
+pub(super) const LIST_ITEM: i32 = 50007;
 const MENU_ITEM: i32 = 50011;
 
 pub fn retired(ui: &Automation, item: &IUIAutomationInvokePattern, selection: &str) -> Result<()> {

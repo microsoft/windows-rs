@@ -11,11 +11,13 @@ mod drag;
 mod flyout;
 mod image;
 mod keyboard;
+mod list;
 mod pointer;
 mod reference;
 mod repeater;
 mod retirement;
 mod selection;
+mod text;
 mod timer;
 mod tray;
 mod typography;
@@ -290,6 +292,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         }
         "image" => App::run_component::<image::ImageFixture>(())?,
         "keyboard" => App::run_component::<keyboard::KeyboardFixture>(())?,
+        "list" => App::run_component::<list::ListFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,
         "repeater" => App::run_component::<repeater::RepeaterFixture>(())?,
         "retirement" => App::run_component::<retirement::RetirementFixture>(())?,
@@ -308,6 +311,12 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
             WindowPolicy::new().client_size(480.0, 320.0),
         )?,
         "text" => App::run_component::<TextFixture>(())?,
+        "text-transform" => {
+            App::run_component::<text::TransformFixture>(text::TextControl::TextBox)?;
+        }
+        "suggest-transform" => {
+            App::run_component::<text::TransformFixture>(text::TextControl::AutoSuggestBox)?;
+        }
         "typography" => App::run_component::<typography::TypographyFixture>(())?,
         "typography-inherited" => {
             App::run_component::<typography::InheritedTypographyFixture>(())?;
