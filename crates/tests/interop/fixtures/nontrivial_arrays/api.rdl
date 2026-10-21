@@ -1,0 +1,36 @@
+use Windows::Foundation::*;
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod NontrivialArrays {
+    struct Entry {
+        Text: String,
+        Code: Char16,
+        Enabled: bool,
+        Number: IReference<i32>,
+    }
+
+    interface IValue {
+        #[get]
+        Number: i32;
+    }
+
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        fn CreateValue(&self, number: i32) -> IValue;
+
+        // Each method copies input to output, and reverses input into fill and the return value.
+        // The caller allocates fill with the same length as input.
+        fn Strings(&self, input: [String], #[out] fill: [String], output: &mut [String])
+            -> [String];
+        fn Entries(&self, input: [Entry], #[out] fill: [Entry], output: &mut [Entry])
+            -> [Entry];
+        fn Values(&self, input: [IValue], #[out] fill: [IValue], output: &mut [IValue])
+            -> [IValue];
+    }
+}

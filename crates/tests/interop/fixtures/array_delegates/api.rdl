@@ -1,0 +1,27 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod ArrayDelegates {
+    struct Entry {
+        Text: String,
+        Value: i32,
+    }
+
+    // Clients copy input to output, and reverse input into fill and the return value.
+    delegate fn StringsHandler(input: [String], #[out] fill: [String], output: &mut [String])
+        -> [String];
+    delegate fn EntriesHandler(input: [Entry], #[out] fill: [Entry], output: &mut [Entry])
+        -> [Entry];
+
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // Calls each handler with empty and nonempty arrays and checks all three outputs.
+        fn CheckStrings(&self, handler: StringsHandler);
+        fn CheckEntries(&self, handler: EntriesHandler);
+    }
+}

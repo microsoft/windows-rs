@@ -16,6 +16,7 @@ test = false
 windows-core = { workspace = true, default-features = true }
 windows-collections = { workspace = true, features = ["std"] }
 windows-future = { workspace = true, features = ["std"] }
+windows-numerics = { workspace = true }
 windows-reference = { workspace = true, features = ["std"] }
 windows-time = { workspace = true, features = ["std"] }
 

@@ -1,0 +1,22 @@
+use Windows::Foundation::Metadata::*;
+use Windows::Foundation::Numerics::*;
+
+#[winrt]
+mod Numerics {
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        // Negates every field, including the normal and distance of Plane.
+        fn NegateVector2(&self, value: Vector2) -> Vector2;
+        fn NegateVector3(&self, value: Vector3) -> Vector3;
+        fn NegateVector4(&self, value: Vector4) -> Vector4;
+        fn NegateMatrix3x2(&self, value: Matrix3x2) -> Matrix3x2;
+        fn NegateMatrix4x4(&self, value: Matrix4x4) -> Matrix4x4;
+        fn NegateQuaternion(&self, value: Quaternion) -> Quaternion;
+        fn NegatePlane(&self, value: Plane) -> Plane;
+    }
+}
