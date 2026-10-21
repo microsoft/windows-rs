@@ -38,43 +38,6 @@ into_event_payload! {
 }
 
 impl WinUiAdapter {
-    fn dispatch_text_changed(
-        event: &Rc<RefCell<NativeTextEvent>>,
-        observed_text: &Rc<RefCell<Rc<str>>>,
-        event_queue: &Rc<NativeEventQueue>,
-        object: ObjectId,
-        text: Rc<str>,
-    ) {
-        {
-            let mut observed = observed_text.borrow_mut();
-            if *observed == text {
-                return;
-            }
-            *observed = Rc::clone(&text);
-        }
-        let observation = Observation::SetProperty {
-            object,
-            property: Property {
-                id: PropertyId::Text,
-                value: PropertyValue::String(Rc::clone(&text)),
-            },
-        };
-        if !event_queue.observe(object, EventId::TextChanged, observation.clone()) {
-            return;
-        }
-        let event = event.borrow();
-        event_queue.queue(
-            Some(observation),
-            event.callback.is_some().then(|| QueuedEvent {
-                object,
-                event: EventId::TextChanged,
-                revision: event.revision,
-                payload: EventPayload::String(text),
-            }),
-        );
-        Self::schedule_event_wake(event_queue);
-    }
-
     fn dispatch<T: IntoEventPayload>(
         event: &Rc<RefCell<NativeValueEvent<T>>>,
         event_queue: &Rc<NativeEventQueue>,
@@ -592,22 +555,6 @@ impl WinUiAdapter {
                     .set_events(object, set, clear, context)
                     .unwrap_or(Err(WinUiError::InvalidObject(object)));
             }
-            Handle::TextBox(value) => {
-                let mut native_event = value.event.borrow_mut();
-                if clear.contains(&EventId::TextChanged) {
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
-                }
-                for event in set {
-                    match (event.id, &event.value) {
-                        (EventId::TextChanged, EventValue::String(callback)) => {
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
-                        }
-                        _ => return Err(WinUiError::InvalidObject(object)),
-                    }
-                }
-            }
             Handle::TreeView(value) => {
                 let mut native_event = value.item_invoked.borrow_mut();
                 if clear.contains(&EventId::ItemInvoked) {
@@ -624,56 +571,9 @@ impl WinUiAdapter {
                     }
                 }
             }
-            Handle::ListView(value) => {
-                for event in clear {
-                    match event {
-                        EventId::SelectionChanged => {
-                            let mut native_event = value.selection_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = None;
-                        }
-                        EventId::DragItemsCompleted => {
-                            let mut native_event = value.drag_items_completed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = None;
-                        }
-                        _ => return Err(WinUiError::InvalidEvent(object, *event)),
-                    }
-                }
-                for event in set {
-                    match (event.id, &event.value) {
-                        (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            let mut native_event = value.selection_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
-                        }
-                        (EventId::DragItemsCompleted, EventValue::StringList(callback)) => {
-                            let mut native_event = value.drag_items_completed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
-                        }
-                        _ => return Err(WinUiError::InvalidEvent(object, event.id)),
-                    }
-                }
-            }
             _ => return Err(WinUiError::InvalidObject(object)),
         }
         Ok(())
     }
 
-    fn set_text_box_text(value: &NativeTextBox, text: &str) -> Result<(), WinUiError> {
-        if value.value.Text()? == text {
-            return Ok(());
-        }
-        let selection_start = value.value.SelectionStart()?;
-        let selection_length = value.value.SelectionLength()?;
-        value.value.SetText(text)?;
-        *value.observed_text.borrow_mut() = Rc::from(text);
-        let text_length = i32::try_from(text.encode_utf16().count()).unwrap_or(i32::MAX);
-        let selection_start = selection_start.clamp(0, text_length);
-        let selection_length = selection_length.clamp(0, text_length - selection_start);
-        value.value.SetSelectionStart(selection_start)?;
-        value.value.SetSelectionLength(selection_length)?;
-        Ok(())
-    }
 }

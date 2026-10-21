@@ -196,12 +196,12 @@ name = "TextAlignment"
 name = "TextBox"
 enabled = true
 focus = true
-handwritten = true
 
 [[objects.properties]]
 name = "Text"
+adapter = "edit_text"
 controlled = "TextChanged"
-feedback = "exact"
+feedback = "deferred_exact"
 
 [[objects.properties]]
 name = "PlaceholderText"
@@ -638,7 +638,6 @@ item = "TreeNode"
 [[objects]]
 name = "ListView"
 enabled = true
-handwritten = true
 
 [[objects.properties]]
 name = "SelectionMode"
@@ -773,8 +772,9 @@ adapter = "inspectable_string_list"
 
 [[objects.properties]]
 name = "Text"
+adapter = "edit_text"
 controlled = "TextChanged"
-feedback = "exact"
+feedback = "deferred_exact"
 
 [[objects.properties]]
 name = "QueryIcon"

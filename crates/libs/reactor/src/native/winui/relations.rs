@@ -26,9 +26,6 @@ impl WinUiAdapter {
                 parent.value.SetContent(&child_element)?;
                 parent.content = Some(child);
             }
-            (Handle::TextBox(parent), RelationId::Header) => {
-                parent.value.SetHeader(&child_element)?;
-            }
             (Handle::Data(parent), RelationId::Content) => {
                 let properties =
                     parent.cast::<IMap<HSTRING, IInspectable>>()?;
@@ -63,9 +60,6 @@ impl WinUiAdapter {
                     windows_reference::IReference::from(parent.text.clone()).into();
                 parent.value.SetContent(&content)?;
                 parent.content = None;
-            }
-            (Handle::TextBox(parent), RelationId::Header) => {
-                parent.value.SetHeader(None::<&IInspectable>)?;
             }
             (Handle::Data(parent), RelationId::Content) => {
                 let properties =
@@ -486,10 +480,8 @@ impl WinUiAdapter {
                 .ok_or(WinUiError::MissingObject(object))?
             {
                 Handle::Generated(value) => value.kind(),
-                Handle::TextBox(_) => ObjectType::TextBox,
                 Handle::TreeView(_) => ObjectType::TreeView,
                 Handle::TreeNode(_) => ObjectType::TreeNode,
-                Handle::ListView(_) => ObjectType::ListView,
                 Handle::Data(_) => ObjectType::DataItem,
             },
         )
@@ -502,9 +494,7 @@ impl WinUiAdapter {
             .ok_or(WinUiError::MissingObject(object))?
         {
             Handle::Generated(value) => value.ui_element(),
-            Handle::TextBox(value) => Ok(value.value.cast()?),
             Handle::TreeView(value) => Ok(value.value.cast()?),
-            Handle::ListView(value) => Ok(value.value.cast()?),
             Handle::TreeNode(_) | Handle::Data(_) => Err(WinUiError::InvalidObject(object)),
         }
     }
@@ -590,7 +580,9 @@ impl WinUiAdapter {
             .get(&object)
             .ok_or(WinUiError::MissingObject(object))?
         {
-            Handle::ListView(value) => Ok(value.value.cast::<native::IItemsControl>()?.Items()?),
+            Handle::Generated(GeneratedHandle::ListView(value)) => {
+                Ok(value.value.cast::<native::IItemsControl>()?.Items()?)
+            }
             _ => Err(WinUiError::InvalidObject(object)),
         }
     }
@@ -763,28 +755,10 @@ impl WinUiAdapter {
                 });
             }
             let callback = match (self.handles.get(&queued.object), queued.event) {
-                (Some(Handle::TextBox(text_box)), EventId::TextChanged) => {
-                    let event = text_box.event.borrow();
-                    (event.revision == queued.revision)
-                        .then(|| event.callback.clone().map(EventValue::String))
-                        .flatten()
-                }
-                (Some(Handle::ListView(list)), EventId::SelectionChanged) => {
-                    let event = list.selection_changed.borrow();
-                    (event.revision == queued.revision)
-                        .then(|| event.callback.clone().map(EventValue::SelectionIndex))
-                        .flatten()
-                }
                 (Some(Handle::TreeView(tree)), EventId::ItemInvoked) => {
                     let event = tree.item_invoked.borrow();
                     (event.revision == queued.revision)
                         .then(|| event.callback.clone().map(EventValue::String))
-                        .flatten()
-                }
-                (Some(Handle::ListView(list)), EventId::DragItemsCompleted) => {
-                    let event = list.drag_items_completed.borrow();
-                    (event.revision == queued.revision)
-                        .then(|| event.callback.clone().map(EventValue::StringList))
                         .flatten()
                 }
                 (Some(Handle::Generated(handle)), event) => {

@@ -200,6 +200,11 @@ fn native_symbol(value: Symbol) -> native::Symbol {
         Symbol::XboxOneConsole => native::Symbol::XboxOneConsole,
     }
 }
+struct GeneratedTextBox {
+    value: native::TextBox,
+    text_changed: Rc<RefCell<NativeStringEvent>>,
+    _text_changed: GeneratedRevoker,
+}
 struct GeneratedButton {
     value: native::Button,
     click: Rc<RefCell<NativeUnitEvent>>,
@@ -261,6 +266,13 @@ struct GeneratedSlider {
     value: native::Slider,
     value_changed: Rc<RefCell<NativeF64Event>>,
     _value_changed: GeneratedRevoker,
+}
+struct GeneratedListView {
+    value: native::ListView,
+    selection_changed: Rc<RefCell<NativeSelectionIndexEvent>>,
+    _selection_changed: GeneratedRevoker,
+    drag_items_completed: Rc<RefCell<NativeStringListEvent>>,
+    _drag_items_completed: Option<GeneratedRevoker>,
 }
 struct GeneratedHyperlinkButton {
     value: native::HyperlinkButton,
@@ -488,6 +500,7 @@ fn theme_style_info(
 generated_collection!(ICommandBarElement, MenuBarItem, SelectorBarItem);
 enum GeneratedHandle {
     TextBlock(native::TextBlock),
+    TextBox(Box<GeneratedTextBox>),
     Button(Box<GeneratedButton>),
     CheckBox(Box<GeneratedCheckBox>),
     Border(Box<GeneratedBorder>),
@@ -498,6 +511,7 @@ enum GeneratedHandle {
     Viewbox(native::Viewbox),
     TitleBar(Box<GeneratedTitleBar>),
     Slider(Box<GeneratedSlider>),
+    ListView(Box<GeneratedListView>),
     HyperlinkButton(Box<GeneratedHyperlinkButton>),
     RepeatButton(Box<GeneratedRepeatButton>),
     BreadcrumbBar(Box<GeneratedBreadcrumbBar>),
@@ -572,6 +586,52 @@ impl GeneratedHandle {
     ) -> Result<Option<Self>, WinUiError> {
         Ok(Some(match kind {
             ObjectType::TextBlock => Self::TextBlock(native::TextBlock::new()?),
+            ObjectType::TextBox => {
+                let value = native::TextBox::new()?;
+                let text_changed = Rc::new(RefCell::new(NativeStringEvent::default()));
+                let source_text_changed = value.clone();
+                let read_text_changed = move || source_text_changed.Text().map(Rc::<str>::from);
+                let event_for_callback = Rc::clone(&text_changed);
+                let event_queue_text_changed = Rc::clone(event_queue);
+                let revoker = value.TextChanged(move |_, _| {
+                    let observed = match read_text_changed() {
+                        Ok(value) => value,
+                        Err(error) => {
+                            report_error(error);
+                            return;
+                        }
+                    };
+                    let observation = Observation::SetProperty {
+                        object,
+                        property: Property {
+                            id: PropertyId::Text,
+                            value: PropertyValue::String(Rc::clone(&observed)),
+                        },
+                    };
+                    let dispatch = event_queue_text_changed.observe(
+                        object,
+                        EventId::TextChanged,
+                        observation.clone(),
+                    );
+                    let observation = dispatch.then_some(observation);
+                    if dispatch {
+                        WinUiAdapter::dispatch(
+                            &event_for_callback,
+                            &event_queue_text_changed,
+                            object,
+                            EventId::TextChanged,
+                            observation,
+                            observed,
+                        );
+                    }
+                })?;
+                let _text_changed = GeneratedRevoker::Event(revoker);
+                Self::TextBox(Box::new(GeneratedTextBox {
+                    value,
+                    text_changed,
+                    _text_changed,
+                }))
+            }
             ObjectType::Button => {
                 let value = native::Button::new()?;
                 let click = Rc::new(RefCell::new(NativeUnitEvent::default()));
@@ -842,6 +902,64 @@ impl GeneratedHandle {
                     value,
                     value_changed,
                     _value_changed,
+                }))
+            }
+            ObjectType::ListView => {
+                let value = native::ListView::new()?;
+                let selection_changed = Rc::new(RefCell::new(NativeSelectionIndexEvent::default()));
+                let source_selection_changed = value.clone();
+                let read_selection_changed = move || {
+                    source_selection_changed
+                        .cast::<native::ISelector>()?
+                        .SelectedIndex()
+                        .map(|value| usize::try_from(value).ok())
+                };
+                let event_for_callback = Rc::clone(&selection_changed);
+                let event_queue_selection_changed = Rc::clone(event_queue);
+                let revoker =
+                    value
+                        .cast::<native::ISelector>()?
+                        .SelectionChanged(move |_, _| {
+                            let observed = match read_selection_changed() {
+                                Ok(value) => value,
+                                Err(error) => {
+                                    report_error(error);
+                                    return;
+                                }
+                            };
+                            let observation = Observation::SetProperty {
+                                object,
+                                property: Property {
+                                    id: PropertyId::SelectedIndex,
+                                    value: PropertyValue::SelectionIndex(observed),
+                                },
+                            };
+                            let dispatch = event_queue_selection_changed.observe(
+                                object,
+                                EventId::SelectionChanged,
+                                observation.clone(),
+                            );
+                            let observation = dispatch.then_some(observation);
+                            if dispatch {
+                                WinUiAdapter::dispatch(
+                                    &event_for_callback,
+                                    &event_queue_selection_changed,
+                                    object,
+                                    EventId::SelectionChanged,
+                                    observation,
+                                    observed,
+                                );
+                            }
+                        })?;
+                let _selection_changed = GeneratedRevoker::Event(revoker);
+                let drag_items_completed = Rc::new(RefCell::new(NativeStringListEvent::default()));
+                let _drag_items_completed = None;
+                Self::ListView(Box::new(GeneratedListView {
+                    value,
+                    selection_changed,
+                    _selection_changed,
+                    drag_items_completed,
+                    _drag_items_completed,
                 }))
             }
             ObjectType::HyperlinkButton => {
@@ -2165,6 +2283,7 @@ impl GeneratedHandle {
     fn kind(&self) -> ObjectType {
         match self {
             Self::TextBlock(_) => ObjectType::TextBlock,
+            Self::TextBox(_) => ObjectType::TextBox,
             Self::Button(_) => ObjectType::Button,
             Self::CheckBox(_) => ObjectType::CheckBox,
             Self::Border(_) => ObjectType::Border,
@@ -2175,6 +2294,7 @@ impl GeneratedHandle {
             Self::Viewbox(_) => ObjectType::Viewbox,
             Self::TitleBar(_) => ObjectType::TitleBar,
             Self::Slider(_) => ObjectType::Slider,
+            Self::ListView(_) => ObjectType::ListView,
             Self::HyperlinkButton(_) => ObjectType::HyperlinkButton,
             Self::RepeatButton(_) => ObjectType::RepeatButton,
             Self::BreadcrumbBar(_) => ObjectType::BreadcrumbBar,
@@ -2245,6 +2365,7 @@ impl GeneratedHandle {
     fn ui_element(&self) -> Result<native::UIElement, WinUiError> {
         match self {
             Self::TextBlock(value) => Ok(value.cast()?),
+            Self::TextBox(value) => Ok(value.value.cast()?),
             Self::Button(value) => Ok(value.value.cast()?),
             Self::CheckBox(value) => Ok(value.value.cast()?),
             Self::Border(value) => Ok(value.value.cast()?),
@@ -2255,6 +2376,7 @@ impl GeneratedHandle {
             Self::Viewbox(value) => Ok(value.cast()?),
             Self::TitleBar(value) => Ok(value.value.cast()?),
             Self::Slider(value) => Ok(value.value.cast()?),
+            Self::ListView(value) => Ok(value.value.cast()?),
             Self::HyperlinkButton(value) => Ok(value.value.cast()?),
             Self::RepeatButton(value) => Ok(value.value.cast()?),
             Self::BreadcrumbBar(value) => Ok(value.value.cast()?),
@@ -2900,6 +3022,9 @@ impl GeneratedHandle {
             (ObjectType::ListView, PropertyId::AllowDrop) => {
                 (native::UIElement::AllowDropProperty, Conversion::Value)
             }
+            (ObjectType::ListView, PropertyId::SelectedIndex) => {
+                (native::Selector::SelectedIndexProperty, Conversion::Value)
+            }
             (ObjectType::HyperlinkButton, PropertyId::NavigateUri) => (
                 native::HyperlinkButton::NavigateUriProperty,
                 Conversion::Uri,
@@ -2932,9 +3057,6 @@ impl GeneratedHandle {
             ),
             (ObjectType::AutoSuggestBox, PropertyId::ItemsSource) => {
                 (native::ItemsControl::ItemsSourceProperty, Conversion::Value)
-            }
-            (ObjectType::AutoSuggestBox, PropertyId::Text) => {
-                (native::AutoSuggestBox::TextProperty, Conversion::Value)
             }
             (ObjectType::PasswordBox, PropertyId::PlaceholderText) => (
                 native::PasswordBox::PlaceholderTextProperty,
@@ -3822,14 +3944,14 @@ impl GeneratedHandle {
         match (kind, property, value) {
             (ObjectType::TextBox, PropertyId::Text, Some(value)) => Some((
                 EventId::TextChanged,
-                FeedbackExpectation::Exact(Property {
+                FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::Text,
                     value: value.clone(),
                 }),
             )),
             (ObjectType::TextBox, PropertyId::Text, None) => Some((
                 EventId::TextChanged,
-                FeedbackExpectation::Exact(Property {
+                FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::Text,
                     value: PropertyValue::String(Rc::from("")),
                 }),
@@ -3876,14 +3998,14 @@ impl GeneratedHandle {
             )),
             (ObjectType::AutoSuggestBox, PropertyId::Text, Some(value)) => Some((
                 EventId::TextChanged,
-                FeedbackExpectation::Exact(Property {
+                FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::Text,
                     value: value.clone(),
                 }),
             )),
             (ObjectType::AutoSuggestBox, PropertyId::Text, None) => Some((
                 EventId::TextChanged,
-                FeedbackExpectation::Exact(Property {
+                FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::Text,
                     value: PropertyValue::String(Rc::from("")),
                 }),
@@ -4107,6 +4229,12 @@ impl GeneratedHandle {
         image_source: Option<&native::ImageSource>,
     ) -> Option<Result<(), WinUiError>> {
         match (self, property, value) {
+            (Self::TextBox(object), PropertyId::Text, None) => {
+                Some(set_edit_text(&object.value, ""))
+            }
+            (Self::TextBox(object), PropertyId::Text, Some(PropertyValue::String(value))) => {
+                Some(set_edit_text(&object.value, value))
+            }
             (Self::Border(object), PropertyId::OpacityTransition, None) => Some(
                 object
                     .value
@@ -4279,6 +4407,14 @@ impl GeneratedHandle {
                         .and_then(|icon| object.value.SetIconSource(&icon).map_err(Into::into)),
                 )
             }
+            (Self::AutoSuggestBox(object), PropertyId::Text, None) => {
+                Some(set_edit_text(&object.value, ""))
+            }
+            (
+                Self::AutoSuggestBox(object),
+                PropertyId::Text,
+                Some(PropertyValue::String(value)),
+            ) => Some(set_edit_text(&object.value, value)),
             (Self::AutoSuggestBox(object), PropertyId::QueryIcon, None) => Some(
                 object
                     .value
@@ -4356,6 +4492,24 @@ impl GeneratedHandle {
         context: EventContext,
     ) -> Option<Result<(), WinUiError>> {
         match self {
+            Self::TextBox(object) => Some((|| {
+                if clear.contains(&EventId::TextChanged) {
+                    let mut native_event = object.text_changed.borrow_mut();
+                    native_event.revision = native_event.revision.wrapping_add(1);
+                    native_event.callback = None;
+                }
+                for event in set {
+                    match (event.id, &event.value) {
+                        (EventId::TextChanged, EventValue::String(callback)) => {
+                            let mut native_event = object.text_changed.borrow_mut();
+                            native_event.revision = native_event.revision.wrapping_add(1);
+                            native_event.callback = Some(callback.clone());
+                        }
+                        _ => return Err(WinUiError::InvalidObject(object_id)),
+                    }
+                }
+                Ok(())
+            })()),
             Self::Button(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
                     let mut native_event = object.click.borrow_mut();
@@ -4667,6 +4821,37 @@ impl GeneratedHandle {
                             let mut native_event = object.value_changed.borrow_mut();
                             native_event.revision = native_event.revision.wrapping_add(1);
                             native_event.callback = Some(callback.clone());
+                        }
+                        _ => return Err(WinUiError::InvalidObject(object_id)),
+                    }
+                }
+                Ok(())
+            })()),
+            Self::ListView(object) => Some((|| {
+                if clear.contains(&EventId::SelectionChanged) {
+                    let mut native_event = object.selection_changed.borrow_mut();
+                    native_event.revision = native_event.revision.wrapping_add(1);
+                    native_event.callback = None;
+                }
+                if clear.contains(&EventId::DragItemsCompleted) {
+                    let mut native_event = object.drag_items_completed.borrow_mut();
+                    native_event.revision = native_event.revision.wrapping_add(1);
+                    native_event.callback = None;
+                }
+                for event in set {
+                    match (event.id, &event.value) {
+                        (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
+                            let mut native_event = object.selection_changed.borrow_mut();
+                            native_event.revision = native_event.revision.wrapping_add(1);
+                            native_event.callback = Some(callback.clone());
+                        }
+                        (EventId::DragItemsCompleted, EventValue::StringList(callback)) => {
+                            {
+                                let mut native_event = object.drag_items_completed.borrow_mut();
+                                native_event.revision = native_event.revision.wrapping_add(1);
+                                native_event.callback = Some(callback.clone());
+                            }
+                            object.subscribe_drag_items_completed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5464,6 +5649,13 @@ impl GeneratedHandle {
         child: Option<&native::UIElement>,
     ) -> Option<Result<(), WinUiError>> {
         match (self, relation) {
+            (Self::TextBox(object), RelationId::Header) => Some(match child {
+                Some(child) => object.value.SetHeader(child).map_err(Into::into),
+                None => object
+                    .value
+                    .SetHeader(None::<&IInspectable>)
+                    .map_err(Into::into),
+            }),
             (Self::Button(object), RelationId::Content) => Some(
                 object
                     .value
@@ -5841,6 +6033,13 @@ impl GeneratedHandle {
     }
     fn event_callback(&self, event: EventId, revision: u64) -> Option<EventValue> {
         match (self, event) {
+            (Self::TextBox(object), EventId::TextChanged) => {
+                let event = object.text_changed.borrow();
+                (event.revision == revision)
+                    .then(|| event.callback.clone())
+                    .flatten()
+                    .map(EventValue::String)
+            }
             (Self::Button(object), EventId::Click) => {
                 let event = object.click.borrow();
                 (event.revision == revision)
@@ -5994,6 +6193,20 @@ impl GeneratedHandle {
                     .then(|| event.callback.clone())
                     .flatten()
                     .map(EventValue::F64)
+            }
+            (Self::ListView(object), EventId::SelectionChanged) => {
+                let event = object.selection_changed.borrow();
+                (event.revision == revision)
+                    .then(|| event.callback.clone())
+                    .flatten()
+                    .map(EventValue::SelectionIndex)
+            }
+            (Self::ListView(object), EventId::DragItemsCompleted) => {
+                let event = object.drag_items_completed.borrow();
+                (event.revision == revision)
+                    .then(|| event.callback.clone())
+                    .flatten()
+                    .map(EventValue::StringList)
             }
             (Self::HyperlinkButton(object), EventId::Click) => {
                 let event = object.click.borrow();
@@ -7007,6 +7220,49 @@ impl GeneratedTitleBar {
             }
         })?;
         self._pane_toggle_requested = Some(GeneratedRevoker::Event(revoker));
+        Ok(())
+    }
+}
+impl GeneratedListView {
+    fn subscribe_drag_items_completed(
+        &mut self,
+        object: ObjectId,
+        context: EventContext,
+    ) -> Result<(), WinUiError> {
+        if self._drag_items_completed.is_some() {
+            return Ok(());
+        }
+        let value = &self.value;
+        let event_for_callback = Rc::clone(&self.drag_items_completed);
+        let event_queue_drag_items_completed = Rc::clone(context.event_queue);
+        let source_drag_items_completed = value
+            .cast::<native::IItemsControl>()?
+            .Items()?
+            .cast::<IVector<IInspectable>>()?;
+        let revoker = value
+            .cast::<native::IListViewBase>()?
+            .DragItemsCompleted(move |_, _| {
+                let dispatch = true;
+                let observation = None;
+                let value = match WinUiAdapter::item_tags(&source_drag_items_completed) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        report_error(error.into());
+                        return;
+                    }
+                };
+                if dispatch {
+                    WinUiAdapter::dispatch(
+                        &event_for_callback,
+                        &event_queue_drag_items_completed,
+                        object,
+                        EventId::DragItemsCompleted,
+                        observation,
+                        value,
+                    );
+                }
+            })?;
+        self._drag_items_completed = Some(GeneratedRevoker::Event(revoker));
         Ok(())
     }
 }

@@ -5,19 +5,9 @@ mod window_placement;
 
 enum Handle {
     Generated(GeneratedHandle),
-    TextBox(NativeTextBox),
     TreeView(NativeTreeView),
     TreeNode(NativeTreeNode),
-    ListView(NativeListView),
     Data(IObservableMap<HSTRING, IInspectable>),
-}
-
-struct NativeListView {
-    value: native::ListView,
-    selection_changed: Rc<RefCell<NativeSelectionIndexEvent>>,
-    drag_items_completed: Rc<RefCell<NativeStringListEvent>>,
-    _selection_changed: windows_core::EventRevoker,
-    _drag_items_completed: windows_core::EventRevoker,
 }
 
 struct NativeTreeView {
@@ -30,13 +20,6 @@ struct NativeTreeNode {
     value: native::TreeViewNode,
     text: HSTRING,
     content: Option<ObjectId>,
-}
-
-struct NativeTextBox {
-    value: native::TextBox,
-    event: Rc<RefCell<NativeTextEvent>>,
-    observed_text: Rc<RefCell<Rc<str>>>,
-    _text_changed: windows_core::EventRevoker,
 }
 
 struct NativeValueEvent<T> {
@@ -84,8 +67,7 @@ type NativePointerEventInfoEvent = NativeValueEvent<PointerEventInfo>;
 type NativeKeyEventInfoEvent = NativeRoutedValueEvent<KeyEventInfo>;
 type NativeSelectionEvent = NativeValueEvent<Option<Rc<str>>>;
 type NativeSelectionIndexEvent = NativeValueEvent<Option<usize>>;
-type NativeTextEvent = NativeValueEvent<Rc<str>>;
-type NativeStringEvent = NativeTextEvent;
+type NativeStringEvent = NativeValueEvent<Rc<str>>;
 type NativeStringListEvent = NativeValueEvent<Vec<String>>;
 type NativeUnitEvent = NativeValueEvent<()>;
 
@@ -2345,17 +2327,6 @@ fn native_selection_index(value: Option<usize>) -> Result<i32, WinUiError> {
         .map(|value| value.unwrap_or(-1))
 }
 
-fn selection_index(value: i32) -> Result<Option<usize>, windows_core::Error> {
-    match value {
-        -1 => Ok(None),
-        0.. => Ok(Some(value as usize)),
-        _ => Err(windows_core::Error::new(
-            HRESULT(0x80070057_u32 as i32),
-            "invalid negative selection index",
-        )),
-    }
-}
-
 fn native_number_box_value(value: Option<f64>) -> f64 {
     value.unwrap_or(f64::NAN)
 }
@@ -2370,6 +2341,75 @@ fn native_rating_value(value: Option<f64>) -> f64 {
 
 fn rating_value(value: f64) -> Option<f64> {
     (value != -1.0).then_some(value)
+}
+
+/// A text input whose app-controlled text can be rewritten while the user is typing.
+trait EditText {
+    fn edit_text(&self) -> windows_core::Result<String>;
+    fn set_edit_text(&self, text: &str) -> windows_core::Result<()>;
+    /// The TextBox that owns the caret, if the template has been applied.
+    fn edit_box(&self) -> Option<native::TextBox>;
+}
+
+impl EditText for native::TextBox {
+    fn edit_text(&self) -> windows_core::Result<String> {
+        self.Text()
+    }
+
+    fn set_edit_text(&self, text: &str) -> windows_core::Result<()> {
+        self.SetText(text)
+    }
+
+    fn edit_box(&self) -> Option<native::TextBox> {
+        Some(self.clone())
+    }
+}
+
+impl EditText for native::AutoSuggestBox {
+    fn edit_text(&self) -> windows_core::Result<String> {
+        self.Text()
+    }
+
+    fn set_edit_text(&self, text: &str) -> windows_core::Result<()> {
+        self.SetText(text)
+    }
+
+    fn edit_box(&self) -> Option<native::TextBox> {
+        find_text_box(&self.cast().ok()?)
+    }
+}
+
+fn find_text_box(object: &native::DependencyObject) -> Option<native::TextBox> {
+    let count = native::VisualTreeHelper::GetChildrenCount(object).ok()?;
+    (0..count).find_map(|index| {
+        let child = native::VisualTreeHelper::GetChild(object, index).ok()?;
+        child.cast().ok().or_else(|| find_text_box(&child))
+    })
+}
+
+/// Sets the text and keeps the caret and selection where the user left them, clamped to the new
+/// text. Without this, an app that rewrites each edit (for example to uppercase it) moves the
+/// caret to the end of the text after every keystroke.
+fn set_edit_text(value: &impl EditText, text: &str) -> Result<(), WinUiError> {
+    if value.edit_text()? == text {
+        return Ok(());
+    }
+    let selection = value
+        .edit_box()
+        .map(|edit| -> windows_core::Result<_> {
+            let start = edit.SelectionStart()?;
+            let length = edit.SelectionLength()?;
+            Ok((edit, start, length))
+        })
+        .transpose()?;
+    value.set_edit_text(text)?;
+    if let Some((edit, start, length)) = selection {
+        let text_length = i32::try_from(text.encode_utf16().count()).unwrap_or(i32::MAX);
+        let start = start.clamp(0, text_length);
+        edit.SetSelectionStart(start)?;
+        edit.SetSelectionLength(length.clamp(0, text_length - start))?;
+    }
+    Ok(())
 }
 
 fn read_rich_edit_text(value: &native::RichEditBox) -> windows_core::Result<Rc<str>> {

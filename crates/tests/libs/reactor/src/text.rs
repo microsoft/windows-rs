@@ -1,0 +1,88 @@
+use super::*;
+
+#[derive(Clone, Copy, PartialEq)]
+pub(super) enum TextControl {
+    TextBox,
+    AutoSuggestBox,
+}
+
+/// Uppercases every edit so the native control receives a different value than the user typed.
+pub(super) struct TransformFixture {
+    text: Rc<str>,
+    calls: u32,
+    header: bool,
+}
+
+#[derive(Clone)]
+pub(super) enum TransformMessage {
+    Changed(Rc<str>),
+    ToggleHeader,
+}
+
+impl Component for TransformFixture {
+    type Input = TextControl;
+    type Message = TransformMessage;
+
+    fn create(_: &TextControl, _: &ComponentContext<Self>) -> Self {
+        Self {
+            text: Rc::from(""),
+            calls: 0,
+            header: true,
+        }
+    }
+
+    fn update(&mut self, message: TransformMessage, _: &ComponentContext<Self>) {
+        match message {
+            TransformMessage::Changed(text) => {
+                self.text = Rc::from(text.to_uppercase());
+                self.calls += 1;
+            }
+            TransformMessage::ToggleHeader => self.header = !self.header,
+        }
+    }
+
+    fn view(&self, control: &TextControl, context: &mut ViewContext<Self>) -> View {
+        let header = self
+            .header
+            .then(|| TextBlock::new().automation_id("header").text("Header"));
+        let input: View = match control {
+            TextControl::TextBox => {
+                let mut input = TextBox::new()
+                    .automation_id("input")
+                    .text(self.text.clone())
+                    .on_text_changed(context.callback(TransformMessage::Changed));
+                if let Some(header) = header {
+                    input = input.header(header);
+                }
+                input.into()
+            }
+            TextControl::AutoSuggestBox => {
+                let mut input = AutoSuggestBox::new()
+                    .automation_id("input")
+                    .text(self.text.clone())
+                    .on_text_changed(context.callback(TransformMessage::Changed));
+                if let Some(header) = header {
+                    input = input.header(header);
+                }
+                input.into()
+            }
+        };
+        let title = match control {
+            TextControl::TextBox => "Reactor UI fixture: text-transform",
+            TextControl::AutoSuggestBox => "Reactor UI fixture: suggest-transform",
+        };
+        context.window_frame(
+            title,
+            StackPanel::new().margin(20.0).spacing(12.0).children((
+                input,
+                TextBlock::new()
+                    .automation_id("echo")
+                    .text(format!("Text {}; calls {}", self.text, self.calls)),
+                Button::new()
+                    .automation_id("toggle-header")
+                    .content("Toggle header")
+                    .on_click(context.message(TransformMessage::ToggleHeader)),
+            )),
+        )
+    }
+}

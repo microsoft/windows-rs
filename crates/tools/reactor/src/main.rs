@@ -171,6 +171,7 @@ enum PropertyAdapter {
     #[serde(rename = "datetime")]
     DateTime,
     DropPolicy,
+    EditText,
     FontFamily,
     GridColumns,
     GridRows,
@@ -216,7 +217,8 @@ impl PropertyAdapter {
             | Self::ImplicitTranslationTransition => Value::Duration,
             Self::ImplicitScale => Value::F64,
             Self::ImplicitTranslation => Value::Vector2,
-            Self::FontFamily
+            Self::EditText
+            | Self::FontFamily
             | Self::InspectableString
             | Self::PathData
             | Self::RichEditText

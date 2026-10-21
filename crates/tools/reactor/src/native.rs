@@ -1372,18 +1372,24 @@ fn is_lazy_event(object: &Object, event: &Event) -> bool {
             .any(|property| property.adapter == Some(PropertyAdapter::ImageUri))
 }
 
-// Returns an expression for the object's single owned item collection as `IVector<IInspectable>`.
+// Returns an expression for the object's single item collection as `IVector<IInspectable>`.
 fn item_vector(object: &Object, metadata: &tool_reactor_metadata::MetadataResolver) -> String {
     let mut relations = object.relations.iter().filter(|relation| {
-        relation.realization == Realization::Owned && relation.cardinality == Cardinality::Many
+        matches!(
+            relation.realization,
+            Realization::Owned | Realization::Container
+        ) && relation.cardinality == Cardinality::Many
     });
     let relation = relations.next().unwrap();
     assert!(
         relations.next().is_none(),
-        "{} must have one owned item collection",
+        "{} must have one item collection",
         object.name
     );
-    assert_eq!(relation.native_item.as_deref(), Some("IInspectable"));
+    // Container relations hold data items in the control's ItemCollection.
+    let item_collection = relation.realization == Realization::Container
+        || relation.native_collection == Some(NativeCollection::ItemCollection);
+    assert!(item_collection || relation.native_item.as_deref() == Some("IInspectable"));
     let native_relation = relation.native.as_deref().unwrap_or(&relation.name);
     let class = native_name(object);
     let interface = metadata
@@ -1394,7 +1400,7 @@ fn item_vector(object: &Object, metadata: &tool_reactor_metadata::MetadataResolv
         "{}.{native_relation}()?",
         native_interface_value("value", &class, interface, metadata)
     );
-    if relation.native_collection == Some(NativeCollection::ItemCollection) {
+    if item_collection {
         format!("{items}.cast::<IVector<IInspectable>>()?")
     } else {
         items
@@ -1692,6 +1698,11 @@ fn emit_native_property_arms(
                  .and_then(|object| {helper}(&object, Some(*value)))),\n"
             ));
         }
+        PropertyAdapter::EditText => output.push_str(&format!(
+            "{pattern}None) => Some(set_edit_text(&{target}, \"\")),\n\
+             {pattern}Some(PropertyValue::String(value))) => \
+             Some(set_edit_text(&{target}, value)),\n"
+        )),
         PropertyAdapter::RichEditText => output.push_str(&format!(
             "{pattern}None) => Some(set_rich_edit_text(&{target}, \"\")),\n\
              {pattern}Some(PropertyValue::String(value))) => \
