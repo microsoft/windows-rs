@@ -1,0 +1,4 @@
+#[winrt]
+mod Test {
+    this is not valid rdl
+}

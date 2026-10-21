@@ -1,0 +1,2 @@
+error: duplicate property or event accessor
+ --> errors/input/interface_duplicate_property.rdl:5:9

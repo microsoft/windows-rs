@@ -1,0 +1,2 @@
+error: expected one of: `struct`, `enum`, `mod`, `interface`, `attribute`, `union`, `extern`, `const`, `delegate`, `class`, `type`
+ --> errors/input/syntax.rdl:3:5
