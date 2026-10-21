@@ -359,6 +359,12 @@ Edit the schema or generator, not the generated files. `tool-reactor-metadata` r
 metadata; `tool-reactor` generates declarations, native adapters, and bindings.
 The native binding filter is `crates/tools/reactor/src/bindings.txt`.
 
+Most properties are applied through WinUI dependency properties. The generator emits a table that
+maps each property to its `DependencyProperty` and value conversion, and
+`native/winui/dependency.rs` boxes the value and calls `SetValue`. Clearing a property calls
+`ClearValue`, so the style or theme value applies again. Properties that need more than a value,
+such as theme brushes and image sources, use the adapters in `native/winui`.
+
 Use metadata names unless a shared Reactor name matches the public value, role, and behavior.
 Container names distinguish one owned visual (`content`), ordered visuals (`children`), and item
 declarations (`items`).

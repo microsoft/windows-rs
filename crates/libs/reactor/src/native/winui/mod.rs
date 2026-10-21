@@ -124,6 +124,68 @@ impl Drop for PropertyChangedRevoker {
     }
 }
 
+macro_rules! generated_collection {
+    ($($item:ident),*) => {
+        enum GeneratedCollection {
+            Visual(native::UIElementCollection),
+            Inspectable(IVector<IInspectable>),
+            $($item(IVector<native::$item>),)*
+        }
+
+        impl GeneratedCollection {
+            fn size(&self) -> Result<u32, WinUiError> {
+                match self {
+                    Self::Visual(value) => value.Size().map_err(Into::into),
+                    Self::Inspectable(value) => value.Size().map_err(Into::into),
+                    $(Self::$item(value) => value.Size().map_err(Into::into),)*
+                }
+            }
+
+            fn get_at(&self, index: u32) -> Result<native::UIElement, WinUiError> {
+                match self {
+                    Self::Visual(value) => value.GetAt(index).map_err(Into::into),
+                    Self::Inspectable(value) => Ok(value.GetAt(index)?.cast()?),
+                    $(Self::$item(value) => Ok(value.GetAt(index)?.cast()?),)*
+                }
+            }
+
+            fn insert_at(&self, index: u32, child: &native::UIElement) -> Result<(), WinUiError> {
+                match self {
+                    Self::Visual(value) => value.InsertAt(index, child).map_err(Into::into),
+                    Self::Inspectable(value) => value
+                        .InsertAt(index, &child.cast::<IInspectable>()?)
+                        .map_err(Into::into),
+                    $(Self::$item(value) => value
+                        .InsertAt(index, &child.cast::<native::$item>()?)
+                        .map_err(Into::into),)*
+                }
+            }
+
+            fn index_of(&self, child: &native::UIElement) -> Result<Option<u32>, WinUiError> {
+                let mut index = 0;
+                let found = match self {
+                    Self::Visual(value) => value.IndexOf(child, &mut index)?,
+                    Self::Inspectable(value) => {
+                        value.IndexOf(&child.cast::<IInspectable>()?, &mut index)?
+                    }
+                    $(Self::$item(value) => {
+                        value.IndexOf(&child.cast::<native::$item>()?, &mut index)?
+                    })*
+                };
+                Ok(found.then_some(index))
+            }
+
+            fn remove_at(&self, index: u32) -> Result<(), WinUiError> {
+                match self {
+                    Self::Visual(value) => value.RemoveAt(index).map_err(Into::into),
+                    Self::Inspectable(value) => value.RemoveAt(index).map_err(Into::into),
+                    $(Self::$item(value) => value.RemoveAt(index).map_err(Into::into),)*
+                }
+            }
+        }
+    };
+}
+
 include!("../generated.rs");
 
 struct QueuedEvent {
@@ -2215,6 +2277,7 @@ include!("hosting.rs");
 mod test_support;
 
 include!("objects.rs");
+include!("dependency.rs");
 include!("events.rs");
 include!("relations.rs");
 

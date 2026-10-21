@@ -1679,55 +1679,8 @@ impl VerticalAlignment {
         }
     }
 }
-macro_rules! enabled_methods {
+macro_rules! attached_methods {
     () => {
-        pub fn is_enabled(mut self, is_enabled: bool) -> Self {
-            self.0 = self
-                .0
-                .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
-            self
-        }
-    };
-}
-macro_rules! focus_methods {
-    ($type:ty) => {
-        pub fn element_ref<R>(mut self, reference: &R) -> Self
-        where
-            R: CompatibleElementRef<$type>,
-        {
-            self.0.reference = Some(reference.erased_ref());
-            self
-        }
-    };
-}
-macro_rules! reference_methods {
-    ($type:ty) => {
-        pub fn element_ref<R>(mut self, reference: &R) -> Self
-        where
-            R: CompatibleElementRef<$type>,
-        {
-            self.0.reference = Some(reference.erased_ref());
-            self
-        }
-    };
-}
-macro_rules! window_title_bar_methods {
-    () => {
-        pub fn preferred_height(mut self, height: WindowTitleBarHeight) -> Self {
-            self.0.window_title_bar = Some(height);
-            self
-        }
-    };
-}
-macro_rules! visual_methods {
-    () => {
-        pub fn exit_transition(mut self, transition: Option<ExitTransition>) -> Self {
-            self.0.exit_transition = transition;
-            self
-        }
-        pub fn exit_fade(self, duration: std::time::Duration) -> Self {
-            self.exit_transition(ExitTransition::fade(duration))
-        }
         pub fn canvas_left(mut self, canvas_left: f64) -> Self {
             self.0 = self
                 .0
@@ -2133,7 +2086,7 @@ impl TextBox {
         self
     }
     enabled_methods!();
-    focus_methods!(TextBox);
+    reference_methods!(TextBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -2228,7 +2181,7 @@ impl Button {
         );
         self
     }
-    focus_methods!(Button);
+    reference_methods!(Button);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -2283,7 +2236,7 @@ impl CheckBox {
             .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
         self
     }
-    focus_methods!(CheckBox);
+    reference_methods!(CheckBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -2460,7 +2413,7 @@ impl Border {
         );
         self
     }
-    focus_methods!(Border);
+    reference_methods!(Border);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -3056,7 +3009,7 @@ impl Slider {
         );
         self
     }
-    focus_methods!(Slider);
+    reference_methods!(Slider);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -3313,34 +3266,14 @@ impl HyperlinkButton {
         let declaration = Declaration::new(ObjectType::HyperlinkButton);
         Self(declaration)
     }
-    pub fn navigate_uri(mut self, value: impl Into<Rc<str>>) -> windows_core::Result<Self> {
-        let value = value.into();
-        validate_uri(&value)?;
-        self.0 = self
-            .0
-            .property(PropertyId::NavigateUri, PropertyValue::String(value));
-        Ok(self)
-    }
-    pub fn navigate_uri_optional<T>(mut self, value: Option<T>) -> windows_core::Result<Self>
-    where
-        T: Into<Rc<str>>,
-    {
-        if let Some(value) = value {
-            let value = value.into();
-            validate_uri(&value)?;
-            self.0 = self
-                .0
-                .property(PropertyId::NavigateUri, PropertyValue::String(value));
-        }
-        Ok(self)
-    }
+    uri_methods!(navigate_uri, navigate_uri_optional, NavigateUri);
     pub fn is_enabled(mut self, is_enabled: bool) -> Self {
         self.0 = self
             .0
             .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
         self
     }
-    focus_methods!(HyperlinkButton);
+    reference_methods!(HyperlinkButton);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -3586,7 +3519,7 @@ impl AutoSuggestBox {
         );
         self
     }
-    focus_methods!(AutoSuggestBox);
+    reference_methods!(AutoSuggestBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -3662,7 +3595,7 @@ impl PasswordBox {
         );
         self
     }
-    focus_methods!(PasswordBox);
+    reference_methods!(PasswordBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -3748,7 +3681,7 @@ impl NumberBox {
         );
         self
     }
-    focus_methods!(NumberBox);
+    reference_methods!(NumberBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -4289,7 +4222,7 @@ impl ToggleSwitch {
             .property(PropertyId::IsOn, PropertyValue::Bool(is_on));
         self
     }
-    focus_methods!(ToggleSwitch);
+    reference_methods!(ToggleSwitch);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -4370,7 +4303,7 @@ impl ToggleButton {
         );
         self
     }
-    focus_methods!(ToggleButton);
+    reference_methods!(ToggleButton);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -4435,7 +4368,7 @@ impl RadioButton {
         );
         self
     }
-    focus_methods!(RadioButton);
+    reference_methods!(RadioButton);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -4745,46 +4678,14 @@ impl Image {
         let declaration = Declaration::new(ObjectType::Image);
         Self(declaration)
     }
-    pub fn source(mut self, value: impl Into<Rc<str>>) -> windows_core::Result<Self> {
-        self.0 = self.0.property(
-            PropertyId::Source,
-            PropertyValue::ImageSource(ImageSource::uri(value)?),
-        );
-        Ok(self)
-    }
-    pub fn source_optional<T>(mut self, value: Option<T>) -> windows_core::Result<Self>
-    where
-        T: Into<Rc<str>>,
-    {
-        if let Some(value) = value {
-            self.0 = self.0.property(
-                PropertyId::Source,
-                PropertyValue::ImageSource(ImageSource::uri(value)?),
-            );
-        }
-        Ok(self)
-    }
-    pub fn source_file(mut self, path: impl AsRef<Path>) -> windows_core::Result<Self> {
-        self.0 = self.0.property(
-            PropertyId::Source,
-            PropertyValue::ImageSource(ImageSource::file(path)?),
-        );
-        Ok(self)
-    }
-    pub fn source_data(mut self, value: EncodedImage) -> Self {
-        self.0 = self.0.property(
-            PropertyId::Source,
-            PropertyValue::ImageSource(ImageSource::encoded(value)),
-        );
-        self
-    }
-    pub fn source_svg(mut self, value: EncodedImage) -> Self {
-        self.0 = self.0.property(
-            PropertyId::Source,
-            PropertyValue::ImageSource(ImageSource::svg(value)),
-        );
-        self
-    }
+    image_uri_methods!(
+        source,
+        source_optional,
+        source_file,
+        source_data,
+        source_svg,
+        Source
+    );
     pub fn stretch(mut self, stretch: Stretch) -> Self {
         self.0 = self
             .0
@@ -5128,46 +5029,14 @@ impl ImageIcon {
         let declaration = Declaration::new(ObjectType::ImageIcon);
         Self(declaration)
     }
-    pub fn source(mut self, value: impl Into<Rc<str>>) -> windows_core::Result<Self> {
-        self.0 = self.0.property(
-            PropertyId::Source,
-            PropertyValue::ImageSource(ImageSource::uri(value)?),
-        );
-        Ok(self)
-    }
-    pub fn source_optional<T>(mut self, value: Option<T>) -> windows_core::Result<Self>
-    where
-        T: Into<Rc<str>>,
-    {
-        if let Some(value) = value {
-            self.0 = self.0.property(
-                PropertyId::Source,
-                PropertyValue::ImageSource(ImageSource::uri(value)?),
-            );
-        }
-        Ok(self)
-    }
-    pub fn source_file(mut self, path: impl AsRef<Path>) -> windows_core::Result<Self> {
-        self.0 = self.0.property(
-            PropertyId::Source,
-            PropertyValue::ImageSource(ImageSource::file(path)?),
-        );
-        Ok(self)
-    }
-    pub fn source_data(mut self, value: EncodedImage) -> Self {
-        self.0 = self.0.property(
-            PropertyId::Source,
-            PropertyValue::ImageSource(ImageSource::encoded(value)),
-        );
-        self
-    }
-    pub fn source_svg(mut self, value: EncodedImage) -> Self {
-        self.0 = self.0.property(
-            PropertyId::Source,
-            PropertyValue::ImageSource(ImageSource::svg(value)),
-        );
-        self
-    }
+    image_uri_methods!(
+        source,
+        source_optional,
+        source_file,
+        source_data,
+        source_svg,
+        Source
+    );
     visual_methods!();
 }
 impl Default for ImageIcon {
@@ -5237,27 +5106,7 @@ impl BitmapIcon {
         );
         self
     }
-    pub fn uri_source(mut self, value: impl Into<Rc<str>>) -> windows_core::Result<Self> {
-        let value = value.into();
-        validate_uri(&value)?;
-        self.0 = self
-            .0
-            .property(PropertyId::UriSource, PropertyValue::String(value));
-        Ok(self)
-    }
-    pub fn uri_source_optional<T>(mut self, value: Option<T>) -> windows_core::Result<Self>
-    where
-        T: Into<Rc<str>>,
-    {
-        if let Some(value) = value {
-            let value = value.into();
-            validate_uri(&value)?;
-            self.0 = self
-                .0
-                .property(PropertyId::UriSource, PropertyValue::String(value));
-        }
-        Ok(self)
-    }
+    uri_methods!(uri_source, uri_source_optional, UriSource);
     visual_methods!();
 }
 impl Default for BitmapIcon {
@@ -5375,7 +5224,7 @@ impl RatingControl {
             .property(PropertyId::Value, PropertyValue::OptionalF64(value.into()));
         self
     }
-    focus_methods!(RatingControl);
+    reference_methods!(RatingControl);
     visual_methods!();
     pub fn on_value_changed(mut self, callback: impl IntoPayloadCallback<Option<f64>>) -> Self {
         self.0 = self.0.event(
@@ -5515,7 +5364,7 @@ impl ComboBox {
         );
         self
     }
-    focus_methods!(ComboBox);
+    reference_methods!(ComboBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -7000,7 +6849,7 @@ impl RichEditBox {
             .property(PropertyId::IsEnabled, PropertyValue::Bool(is_enabled));
         self
     }
-    focus_methods!(RichEditBox);
+    reference_methods!(RichEditBox);
     visual_methods!();
     /// Rejects values outside this relation's generated type contract.
     ///
@@ -7123,20 +6972,5 @@ impl Default for SwapChainPanel {
 impl From<SwapChainPanel> for View {
     fn from(value: SwapChainPanel) -> Self {
         Self(DeclaredNode::Object(value.0))
-    }
-}
-impl From<&str> for View {
-    fn from(value: &str) -> Self {
-        TextBlock::new().text(value).into()
-    }
-}
-impl From<String> for View {
-    fn from(value: String) -> Self {
-        TextBlock::new().text(value).into()
-    }
-}
-impl From<Rc<str>> for View {
-    fn from(value: Rc<str>) -> Self {
-        TextBlock::new().text(value).into()
     }
 }
