@@ -37,7 +37,8 @@ including C# array-to-`Object` conversion and rejection of an incompatible boxed
 blittable and nested non-blittable structs, both in component methods and client delegates.
 
 `error_relay` preserves HRESULTs and messages from client callbacks through the component and back
-to the client. `async_methods` separates synchronous method failures from failed async results,
+to the client, including concurrent calls that retain their original errors across intervening
+failures. `async_methods` separates synchronous method failures from failed async results,
 including custom error details originating in the component or a client-produced operation.
 
 ### Component
