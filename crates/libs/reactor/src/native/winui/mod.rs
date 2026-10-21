@@ -309,6 +309,21 @@ impl NativeEventQueue {
             .observe(object, event, observation)
     }
 
+    /// Drops queued events, observations, and feedback for an object whose control was replaced.
+    fn discard_object(&self, object: ObjectId) {
+        self.events.borrow_mut().retain(|queued| {
+            queued
+                .event
+                .as_ref()
+                .is_none_or(|event| event.object != object)
+                && queued
+                    .observation
+                    .as_ref()
+                    .is_none_or(|observation| observation.object() != object)
+        });
+        self.feedback.borrow_mut().remove_object(object);
+    }
+
     fn item_object(&self, owner: ObjectId, value: &IInspectable) -> Option<ObjectId> {
         let identity = com_identity(value).ok()?;
         self.items.borrow().iter().find_map(|(object, item)| {

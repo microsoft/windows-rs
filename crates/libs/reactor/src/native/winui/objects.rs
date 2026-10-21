@@ -541,25 +541,7 @@ impl WinUiAdapter {
                 .borrow_mut()
                 .insert(object, NativeItem { owner, identity });
         }
-        self.event_queue.events.borrow_mut().retain(|event| {
-            event
-                .event
-                .as_ref()
-                .is_none_or(|event| event.object != object)
-                && event.observation.as_ref().is_none_or(|observation| {
-                    !matches!(
-                        observation,
-                        Observation::SetProperty {
-                            object: observed,
-                            ..
-                        } | Observation::SetSelection {
-                            object: observed,
-                            ..
-                        } if *observed == object
-                    )
-                })
-        });
-        self.event_queue.feedback.borrow_mut().remove_object(object);
+        self.event_queue.discard_object(object);
         Ok(())
     }
 }

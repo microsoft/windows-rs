@@ -250,6 +250,16 @@ pub enum Observation {
     },
 }
 
+impl Observation {
+    pub(crate) fn object(&self) -> ObjectId {
+        match self {
+            Self::SetProperty { object, .. }
+            | Self::SetSelection { object, .. }
+            | Self::Reorder { object, .. } => *object,
+        }
+    }
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum FeedbackExpectation {
     Exact(Property),

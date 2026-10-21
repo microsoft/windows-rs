@@ -115,11 +115,7 @@ impl NativeEvent {
         self.event.as_ref().map(EventDispatch::object).or_else(|| {
             self.observation
                 .as_ref()
-                .map(|observation| match observation {
-                    Observation::SetProperty { object, .. }
-                    | Observation::SetSelection { object, .. }
-                    | Observation::Reorder { object, .. } => *object,
-                })
+                .map(Observation::object)
                 .or_else(|| self.retirement.map(|completion| completion.root))
                 .or_else(|| {
                     self.realization.map(|request| match request {
