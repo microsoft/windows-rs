@@ -7,6 +7,16 @@ use super::*;
 pub struct HRESULT(pub i32);
 
 impl HRESULT {
+    /// Creates an `HRESULT` from its severity, facility, and code, like `MAKE_HRESULT`.
+    ///
+    /// Severity is 0 for success and 1 for failure. Inputs are combined using 32-bit shifts and
+    /// bitwise OR, without masking or range validation.
+    #[doc(alias = "MAKE_HRESULT")]
+    #[inline]
+    pub const fn from_components(severity: u32, facility: u32, code: u32) -> Self {
+        Self(((severity << 31) | (facility << 16) | code) as i32)
+    }
+
     /// Returns [`true`] if `self` is a success code.
     #[inline]
     pub const fn is_ok(self) -> bool {

@@ -1,4 +1,5 @@
 #![cfg(windows)]
+use windows::Win32::{FACILITY_ITF, FACILITY_WIN32, SEVERITY_ERROR, SEVERITY_SUCCESS};
 use windows_result::*;
 
 windows_link::link!("kernel32.dll" "system" fn SetLastError(code: WIN32_ERROR));
@@ -15,6 +16,34 @@ const STATUS_SUCCESS: NTSTATUS = NTSTATUS(0);
 const STATUS_WAIT_1: NTSTATUS = NTSTATUS(1);
 const STATUS_NOT_FOUND: NTSTATUS = NTSTATUS(-1073741275);
 const E_STATUS_NOT_FOUND: HRESULT = STATUS_NOT_FOUND.to_hresult();
+
+#[test]
+fn from_components() {
+    const SUCCESS: HRESULT = HRESULT::from_components(SEVERITY_SUCCESS as u32, 0, 1);
+    const WSL_E_PLUGIN_REQUIRES_UPDATE: HRESULT =
+        HRESULT::from_components(SEVERITY_ERROR as u32, FACILITY_ITF as u32, 0x032a);
+
+    assert_eq!(SUCCESS, S_FALSE);
+    SUCCESS.ok().unwrap();
+    assert_eq!(
+        WSL_E_PLUGIN_REQUIRES_UPDATE.ok().unwrap_err().code(),
+        HRESULT(0x8004_032a_u32 as i32)
+    );
+    assert_eq!(
+        HRESULT::from_components(SEVERITY_ERROR as u32, FACILITY_WIN32 as u32, 87),
+        E_INVALIDARG
+    );
+}
+
+#[test]
+fn from_components_preserves_macro_bit_operations() {
+    assert_eq!(HRESULT::from_components(2, 0, 0), S_OK);
+    assert_eq!(HRESULT::from_components(0, 0x8000, 0), HRESULT(i32::MIN));
+    assert_eq!(
+        HRESULT::from_components(0, 0, 0x0001_0000),
+        HRESULT(0x0001_0000)
+    );
+}
 
 #[test]
 fn is_ok() {
