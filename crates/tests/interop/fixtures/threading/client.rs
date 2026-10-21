@@ -51,7 +51,7 @@ pub fn test() -> Result<()> {
     );
     assert_eq!(widget.Count()?, total);
 
-    // The component calls handlers concurrently on thread pool threads.
+    // The component calls handlers on background threads.
     let sum = Arc::new(AtomicI32::new(0));
     let threads = Arc::new(Mutex::new(HashSet::new()));
     let handler = Handler::new({

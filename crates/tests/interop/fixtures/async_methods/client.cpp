@@ -6,14 +6,22 @@ using namespace winrt;
 using namespace Windows::Foundation;
 using namespace AsyncMethods;
 
-IAsyncAction action()
+IAsyncAction action(bool fail = false)
 {
     co_await resume_background();
+    if (fail)
+    {
+        throw hresult_out_of_bounds();
+    }
 }
 
-IAsyncActionWithProgress<uint32_t> action_with_progress()
+IAsyncActionWithProgress<uint32_t> action_with_progress(bool fail = false)
 {
     co_await resume_background();
+    if (fail)
+    {
+        throw hresult_out_of_bounds();
+    }
     auto progress = co_await get_progress_token();
     progress(1);
 }
@@ -65,6 +73,8 @@ void test()
 
     widget.AwaitAction(action()).get();
     widget.AwaitActionWithProgress(action_with_progress()).get();
+    check_bounds(widget.AwaitAction(action(true)));
+    check_bounds(widget.AwaitActionWithProgress(action_with_progress(true)));
     check(widget.AwaitOperation(operation()).get() == 42);
     check(widget.AwaitOperationWithProgress(operation_with_progress()).get() == 42);
 }

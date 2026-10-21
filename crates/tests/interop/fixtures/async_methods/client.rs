@@ -33,6 +33,22 @@ pub fn test() -> Result<()> {
         .join()?;
     assert_eq!(
         widget
+            .AwaitAction(&IAsyncAction::spawn(|| Err(E_BOUNDS.into())))?
+            .join()
+            .unwrap_err()
+            .code(),
+        E_BOUNDS
+    );
+    assert_eq!(
+        widget
+            .AwaitActionWithProgress(&IAsyncActionWithProgress::spawn(|| Err(E_BOUNDS.into())))?
+            .join()
+            .unwrap_err()
+            .code(),
+        E_BOUNDS
+    );
+    assert_eq!(
+        widget
             .AwaitOperation(&IAsyncOperation::spawn(|| Ok(41)))?
             .join()?,
         42

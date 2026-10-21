@@ -49,7 +49,7 @@ public static class Client
             Check(widget.Count == Threads * Calls);
         }
 
-        // The component calls handlers concurrently on thread pool threads.
+        // The component calls handlers on background threads.
         var sum = 0;
         var handlerThreads = new HashSet<uint>();
         Handler handler = value =>

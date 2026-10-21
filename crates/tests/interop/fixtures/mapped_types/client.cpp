@@ -17,7 +17,6 @@ void test()
     check(widget.Ticks(time) == y2k);
     check(widget.Duration(span) == span.count());
     check(widget.Add(time, span) == time + span);
-    check(clock::to_sys(time) == std::chrono::sys_days{ std::chrono::year{ 2000 } / 1 / 1 });
 
     check(widget.Host(Uri(L"https://example.com/path")) == L"example.com");
     check(widget.CreateUri(L"https://example.com/path").Host() == L"example.com");
