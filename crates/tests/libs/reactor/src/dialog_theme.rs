@@ -67,6 +67,9 @@ impl Component for DialogThemeFixture {
                 .automation_id("open")
                 .content("Open")
                 .on_click(context.message(Message::Open(true))),
+            TextBlock::new()
+                .automation_id("dialog-state")
+                .text(if self.open { "Open" } else { "Closed" }),
         ));
         let owner: View = if self.replacement {
             Border::new().content(controls).into()
