@@ -383,6 +383,46 @@ fn index_is_written_after_its_items_and_reasserted_when_they_change() {
 }
 
 #[test]
+fn indexed_items_reject_exit_transitions() {
+    let item = |key: &'static str| {
+        TextBlock::new()
+            .text(key)
+            .exit_fade(Duration::from_millis(100))
+    };
+    let flip = |keys: &[&'static str]| {
+        FlipView::new()
+            .selected_index(Some(1))
+            .keyed_items(keys.iter().map(|key| keyed(*key, item(key))))
+    };
+    let grid = |keys: &[&'static str]| {
+        GridView::new().keyed_items(keys.iter().map(|key| {
+            keyed(
+                *key,
+                GridViewItem::new()
+                    .content(TextBlock::new().text(*key))
+                    .exit_fade(Duration::from_millis(100)),
+            )
+        }))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(flip(&["a", "b", "c"])).unwrap();
+    let graph = runtime.graph().clone();
+    assert_eq!(
+        runtime.update(flip(&["b", "c"])),
+        Err(UpdateError::Graph(GraphError::ExitTransitionUnsupported))
+    );
+    assert_eq!(runtime.graph(), &graph);
+    assert_eq!(runtime.graph().retired_count(), 0);
+
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(grid(&["a", "b"])).unwrap();
+    assert_eq!(
+        runtime.update(grid(&["b"])),
+        Err(UpdateError::Graph(GraphError::ExitTransitionUnsupported))
+    );
+}
+
+#[test]
 fn index_that_requires_a_selection_falls_back_to_the_first_item() {
     let view = |count: usize, index: Option<Option<usize>>| {
         let view =

@@ -4400,7 +4400,16 @@ impl Planner<'_, '_> {
             .iter()
             .find(|contract| contract.id == relation)
             .unwrap();
-        if contract.cardinality != Cardinality::Many || contract.realization != Realization::Owned {
+        // A retiring child keeps its native slot, so it cannot fade out of items that an index
+        // selects.
+        if contract.cardinality != Cardinality::Many
+            || contract.realization != Realization::Owned
+            || index_for_items(
+                self.retained.get(parent).unwrap().kind,
+                IndexItems::Relation(relation),
+            )
+            .is_some()
+        {
             return Err(GraphError::ExitTransitionUnsupported);
         }
         let mut nodes = Vec::new();
