@@ -4,7 +4,8 @@ use windows_metadata::{AsRow, MethodImplAttributes, ParamAttributes, TypeAttribu
 
 /// Authoritative metadata and explicitly configured native namespace wrappers.
 ///
-/// Global native names are looked up across all supplied metadata namespaces.
+/// Global native names match non-WinRT definitions across supplied metadata namespaces.
+/// WinRT definitions require their qualified namespace identity.
 /// An empty prefix maps the metadata namespace directly; `"ABI"` maps its SDK ABI wrapper.
 /// Fully captured definitions support scalar method validation. Explicitly external definitions
 /// retain native identity and use-site checks; their member contracts belong to this metadata.
@@ -33,7 +34,9 @@ impl<'a> References<'a> {
             .filter(|definition| com_type(*definition))
         {
             let namespace = definition.namespace().replace('.', "::");
-            names.insert(definition.name().to_string());
+            if !definition.flags().contains(TypeAttributes::WindowsRuntime) {
+                names.insert(definition.name().to_string());
+            }
             let mut leaves = vec![definition.name().to_string()];
             if definition.category() == TypeCategory::Delegate
                 && let Some(prefix) = self.delegate_prefix
@@ -60,7 +63,10 @@ impl<'a> References<'a> {
             candidates.extend(
                 self.metadata
                     .namespaces()
-                    .flat_map(|namespace| self.metadata.get(namespace, native)),
+                    .flat_map(|namespace| self.metadata.get(namespace, native))
+                    .filter(|definition| {
+                        !definition.flags().contains(TypeAttributes::WindowsRuntime)
+                    }),
             );
         } else {
             for prefix in self.native_prefixes {

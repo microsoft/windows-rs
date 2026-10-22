@@ -87,19 +87,20 @@ as ECMA-335 `FNPTR` signatures. No public callback names are synthesized.
 Named namespaces remain distinct in native evidence. Local publication uses flat Win32 names and
 rejects collisions instead of renaming or merging unrelated declarations. `projection::Options`
 can supply authoritative metadata through `References::new(&index)`, separately from import policy.
-Global native names match definitions across the supplied WinMD namespaces. Referenced typedefs,
-enums, records, nested types, callbacks and interfaces retain their metadata identities and are not
-defined again locally. Architecture variants are selected before checking ambiguity; multiple
-matches for a used name fail. Unmatched names follow ordinary local publication. The caller selects
-the reference files; their definitions own the published contracts. Native observations still
-participate in native reconciliation. HRESULT and other familiar types need no special policy here.
-Explicit namespace wrappers resolve qualified SDK names; namespace spelling alone does not establish
-ownership. `References::native_interfaces()` supplies global and qualified COM names for
-`Input.external_interfaces`.
-These explicitly external COM definitions retain native identity, attributes, layout and bases,
-but their member definitions belong to the supplied metadata. `Record.external` records that
-boundary; inconsistent ownership across inputs fails. Publication requires matching UUID and
-native interface storage/base evidence. Pointer shape and qualifiers remain checked at use sites.
+Global native names match non-WinRT definitions across the supplied WinMD namespaces. WinRT types
+require qualified namespace identity; their leaf names cannot claim unrelated global declarations.
+Referenced typedefs, enums, records, nested types, callbacks and interfaces retain their metadata
+identities and are not defined again locally. Architecture variants are selected before checking
+ambiguity; multiple matches for a used name fail. Unmatched names follow ordinary local publication.
+The caller selects the reference files; their definitions own the published contracts. Native
+observations still participate in native reconciliation. HRESULT and other familiar types need no
+special policy here. Explicit namespace wrappers resolve qualified SDK names; namespace spelling
+alone does not establish ownership. `References::native_interfaces()` supplies global native COM names
+and qualified COM/WinRT names for `Input.external_interfaces`. These external COM definitions retain
+native identity, attributes, layout and bases, but their member definitions belong to the supplied
+metadata. `Record.external` records that boundary; inconsistent ownership across inputs fails.
+Publication requires matching UUID and native interface storage/base evidence. Pointer shape and
+qualifiers remain checked at use sites.
 Incomplete external COM definitions and by-value COM use remain unsupported. Local inheritance
 from external native COM definitions uses their metadata vtable prefix; external WinRT inheritance
 remains unsupported.

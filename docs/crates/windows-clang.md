@@ -115,10 +115,11 @@ All observations remain available for native agreement and dependencies. Generat
 declarations cannot become roots; authored expansions outside exact probe offsets retain theirs.
 
 `projection::Options` separates imports from `References`. `References::new(&index)` uses the
-caller-supplied WinMD index as an external authority. Global native names are looked up across its
-metadata namespaces; matched definitions retain their full metadata identities rather than the
-local output namespace. Architecture variants are selected before checking ambiguity. Multiple
-matches fail when the name is used; unused ambiguous names do not prevent other references.
+caller-supplied WinMD index as an external authority. Global native names are looked up among
+non-WinRT definitions across its metadata namespaces; matched definitions retain their full
+metadata identities rather than the local output namespace. Architecture variants are selected before
+checking ambiguity. Multiple matches fail when the name is used; unused ambiguous names do not prevent
+other references.
 
 References cover value typedefs, enums, records and their nested types, callbacks, and interfaces.
 Matched definitions are not emitted locally. Distinct local aliases retain links to referenced
@@ -132,8 +133,10 @@ the metadata namespace directly, `ABI` means the SDK ABI wrapper. A configured d
 maps `IName` only to metadata delegate `Name`. Namespace spelling, an `I` prefix and IInspectable
 inheritance alone do not establish ownership without supplied metadata.
 
-`References::native_interfaces()` derives global and qualified COM names for capture. These definitions
-retain native identity, UUID, attributes, layout and bases without traversing member definitions.
+`References::native_interfaces()` derives global native COM names and qualified COM/WinRT names for
+capture. WinRT namespace identity is required both here and during projection lookup, so unrelated
+global declarations with the same leaf name remain local. These definitions retain native identity,
+UUID, attributes, layout and bases without traversing member definitions.
 Reconciliation rejects inconsistent local/external ownership. Publication requires matching
 authority, UUID and pointer-sized interface storage. WinRT references require their
 IUnknown/IInspectable base; native COM references require the metadata's explicit base identity.

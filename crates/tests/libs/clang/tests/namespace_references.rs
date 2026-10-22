@@ -121,7 +121,7 @@ fn authoritative_namespace_references() {
             projection::project_with_options(&merge(&collisions).unwrap(), "External", &options)
                 .unwrap_err()
                 .to_string();
-        assert!(error.contains("UUID differs"), "{error}");
+        assert!(error.contains("collides with external metadata"), "{error}");
         let unsupported_path = scratch.join("unsupported.winmd");
         windows_rdl::reader()
             .input(input_dir().join("namespace_reference_unsupported.rdl"))
