@@ -1,0 +1,15 @@
+[package]
+name = "windows-clang-sys"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+publish = false
+license = "MIT OR Apache-2.0"
+description = "Version-matched Clang C bindings and native semantic queries"
+readme = "readme.md"
+
+[lints]
+workspace = true
+
+[dependencies]
+libloading = "0.8"
