@@ -5,6 +5,7 @@ mod accessibility;
 mod application;
 mod background;
 mod canvas;
+mod controlled;
 mod dialog;
 mod dialog_theme;
 mod drag;
@@ -280,6 +281,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "window-replacement" => App::run_component::<application::ReplacingWindow>(false)?,
         "startup-error" => application::startup_error()?,
         "canvas" => App::run_component::<canvas::CanvasFixture>(())?,
+        "controlled" => App::run_component::<controlled::ControlledFixture>(())?,
         "flyout" => App::run_component::<flyout::FlyoutFixture>(())?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,
         "dialog-theme-light" => {

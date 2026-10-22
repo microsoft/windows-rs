@@ -510,6 +510,16 @@ pub fn index_contract(kind: ObjectType) -> Option<IndexContract> {
         _ => None,
     }
 }
+pub fn coerced_property(kind: ObjectType, id: PropertyId) -> Option<PropertyId> {
+    match (kind, id) {
+        (ObjectType::Slider, PropertyId::Minimum) => Some(PropertyId::Value),
+        (ObjectType::Slider, PropertyId::Maximum) => Some(PropertyId::Value),
+        (ObjectType::NumberBox, PropertyId::Minimum) => Some(PropertyId::Value),
+        (ObjectType::NumberBox, PropertyId::Maximum) => Some(PropertyId::Value),
+        (ObjectType::RatingControl, PropertyId::MaxRating) => Some(PropertyId::Value),
+        _ => None,
+    }
+}
 pub fn reorder_contracts(kind: ObjectType) -> &'static [ReorderContract] {
     match kind {
         ObjectType::ListView => &[ReorderContract {

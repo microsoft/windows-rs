@@ -3652,15 +3652,9 @@ impl Planner<'_, '_> {
         let index = index.map(|contract| contract.property);
         if self.retained.get(object).unwrap().properties.as_slice() != properties {
             let previous = self.retained.get(object).unwrap().properties.clone();
-            let set = properties
-                .iter()
-                .filter(|property| {
-                    Some(property.id) != index
-                        && previous.iter().find(|current| current.id == property.id)
-                            != Some(*property)
-                })
-                .cloned()
-                .collect::<Rc<[_]>>();
+            let changed = |property: &Property| {
+                previous.iter().find(|current| current.id == property.id) != Some(property)
+            };
             let clear = previous
                 .iter()
                 .filter(|property| {
@@ -3668,6 +3662,23 @@ impl Planner<'_, '_> {
                         && !properties.iter().any(|current| current.id == property.id)
                 })
                 .map(|property| property.id)
+                .collect::<Rc<[_]>>();
+            // A native control coerces a value to its range without always reporting it, so a
+            // declared value is written again after any change to a property that coerces it.
+            let coerced = properties
+                .iter()
+                .filter(|property| changed(property))
+                .map(|property| property.id)
+                .chain(clear.iter().copied())
+                .filter_map(|id| coerced_property(declaration.kind, id))
+                .collect::<Vec<_>>();
+            let set = properties
+                .iter()
+                .filter(|property| {
+                    Some(property.id) != index
+                        && (changed(property) || coerced.contains(&property.id))
+                })
+                .cloned()
                 .collect::<Rc<[_]>>();
             self.retained.get_mut(object).properties = declaration.properties.clone();
             if !set.is_empty() || !clear.is_empty() {

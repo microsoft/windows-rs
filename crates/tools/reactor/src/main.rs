@@ -906,16 +906,37 @@ fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::Metad
                 object.name,
                 property.name
             );
-            for event in [&property.controlled, &property.coerces]
-                .into_iter()
-                .flatten()
-            {
+            if let Some(event) = &property.controlled {
                 assert!(
                     object
                         .events
                         .iter()
                         .any(|candidate| candidate.name == *event),
                     "{}.{} references missing event {event}",
+                    object.name,
+                    property.name
+                );
+            }
+            if let Some(coerced) = &property.coerces {
+                let position = |name: &str| {
+                    object
+                        .properties
+                        .iter()
+                        .position(|candidate| candidate.name == name)
+                };
+                assert!(
+                    object
+                        .properties
+                        .iter()
+                        .any(|candidate| candidate.name == *coerced
+                            && candidate.controlled.is_some()),
+                    "{}.{} must coerce a controlled property",
+                    object.name,
+                    property.name
+                );
+                assert!(
+                    position(&property.name) < position(coerced),
+                    "{}.{} must precede the {coerced} property it coerces",
                     object.name,
                     property.name
                 );
@@ -1236,6 +1257,21 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
                     property.requires_selection,
                     property.realize_items,
                     property.controlled.as_ref().unwrap()
+                ));
+            }
+        }
+    }
+    output.push_str("_ => None,\n} }\n");
+    output.push_str(
+        "pub fn coerced_property(kind: ObjectType, id: PropertyId) -> Option<PropertyId> { \
+         match (kind, id) {\n",
+    );
+    for object in &schema.objects {
+        for property in &object.properties {
+            if let Some(coerced) = &property.coerces {
+                output.push_str(&format!(
+                    "(ObjectType::{}, PropertyId::{}) => Some(PropertyId::{coerced}),\n",
+                    object.name, property.name
                 ));
             }
         }

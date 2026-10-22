@@ -19,6 +19,7 @@ mod application;
 mod automation;
 mod background;
 mod canvas;
+mod controlled;
 mod dialog;
 mod dialog_theme;
 mod drag;

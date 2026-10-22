@@ -130,6 +130,12 @@ a previously declared property clears its native assignment once. An explicit `N
 value, not an omitted property. Store values in component state when they must survive control
 replacement.
 
+A ranged value such as `Slider::value` follows the declared range: a range that excludes it clamps
+the control without a callback, and the declared value returns when the range allows it again.
+For a choice among options, declare `RadioButtons::selected_index`. A standalone `RadioButton`
+reports `on_checked`, but WinUI unchecks the rest of its group, so its `is_checked` does not
+restore a rejected choice.
+
 The [`controlled`](../../crates/samples/reactor/controlled) sample shows the complete pattern.
 
 Item collections follow the same rule. `ListView`, `GridView`, and `TabView` report user
@@ -394,6 +400,10 @@ A controlled index property names what it indexes with `indexes = "<relation or 
 the property is a string list such as `ItemsSource`. Reactor writes the index after those items
 change, and the WinUI adapter drops the owner's selection notifications during item changes that
 the same batch follows with an index write.
+
+A range property names the controlled value it clamps with `coerces = "<property>"`. Reactor
+writes the declared value again after any change to that range, because some controls, such as
+`RatingControl`, clamp their value without raising its change event.
 
 | Key | Use |
 | --- | --- |

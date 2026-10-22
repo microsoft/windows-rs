@@ -557,12 +557,12 @@ focus = true
 
 [[objects.properties]]
 name = "Minimum"
-coerces = "ValueChanged"
+coerces = "Value"
 feedback = "normalized"
 
 [[objects.properties]]
 name = "Maximum"
-coerces = "ValueChanged"
+coerces = "Value"
 feedback = "normalized"
 
 [[objects.properties]]
@@ -829,12 +829,12 @@ name = "IsEnabled"
 
 [[objects.properties]]
 name = "Minimum"
-coerces = "ValueChanged"
+coerces = "Value"
 feedback = "normalized"
 
 [[objects.properties]]
 name = "Maximum"
-coerces = "ValueChanged"
+coerces = "Value"
 feedback = "normalized"
 
 [[objects.properties]]
@@ -1380,7 +1380,7 @@ name = "IsReadOnly"
 
 [[objects.properties]]
 name = "MaxRating"
-coerces = "ValueChanged"
+coerces = "Value"
 feedback = "normalized"
 
 [[objects.properties]]
