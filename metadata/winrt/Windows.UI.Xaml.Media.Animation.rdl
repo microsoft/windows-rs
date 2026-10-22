@@ -468,7 +468,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(BasicConnectedAnimationConfiguration)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IBasicConnectedAnimationConfigurationFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> BasicConnectedAnimationConfiguration;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> BasicConnectedAnimationConfiguration;
                     }
                     #[guid(0x64189fcd_49ec_4e52_a6f6_55324c921053)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -565,7 +565,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ColorKeyFrame)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IColorKeyFrameFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> ColorKeyFrame;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ColorKeyFrame;
                     }
                     #[guid(0xc043ae99_210c_430f_9da5_df1082692055)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -593,8 +593,8 @@ mod Windows {
                         IsStaggeringEnabledProperty: super::super::DependencyProperty;
                         #[get]
                         IsStaggerElementProperty: super::super::DependencyProperty;
-                        fn GetIsStaggerElement(&self, element: super::super::UIElement) -> bool;
-                        fn SetIsStaggerElement(&self, element: super::super::UIElement, value: bool);
+                        fn GetIsStaggerElement(&self, #[in] element: super::super::UIElement) -> bool;
+                        fn SetIsStaggerElement(&self, #[in] element: super::super::UIElement, #[in] value: bool);
                     }
                     #[guid(0x3518628c_f387_4c25_ac98_44e86c3cadf0)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -603,7 +603,7 @@ mod Windows {
                     interface IConnectedAnimation {
                         event Completed: super::super::super::super::Foundation::TypedEventHandler<ConnectedAnimation, Object>;
                         #[Windows::Foundation::Metadata::Overload("TryStart")]
-                        fn TryStart(&self, destination: super::super::UIElement) -> bool;
+                        fn TryStart(&self, #[in] destination: super::super::UIElement) -> bool;
                         fn Cancel(&self);
                     }
                     #[guid(0x5d2f8e5c_584b_4ddd_b668_973891431459)]
@@ -613,8 +613,8 @@ mod Windows {
                     interface IConnectedAnimation2 {
                         IsScaleAnimationEnabled: bool;
                         #[Windows::Foundation::Metadata::Overload("TryStartWithCoordinatedElements")]
-                        fn TryStart(&self, destination: super::super::UIElement, coordinatedElements: super::super::super::super::Foundation::Collections::IIterable<super::super::UIElement>) -> bool;
-                        fn SetAnimationComponent(&self, component: ConnectedAnimationComponent, animation: super::super::super::Composition::ICompositionAnimationBase);
+                        fn TryStart(&self, #[in] destination: super::super::UIElement, #[in] coordinatedElements: super::super::super::super::Foundation::Collections::IIterable<super::super::UIElement>) -> bool;
+                        fn SetAnimationComponent(&self, #[in] component: ConnectedAnimationComponent, #[in] animation: super::super::super::Composition::ICompositionAnimationBase);
                     }
                     #[guid(0x6e3040c6_0430_59c0_a80c_cceed2e778dd)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
@@ -638,8 +638,8 @@ mod Windows {
                     interface IConnectedAnimationService {
                         DefaultDuration: super::super::super::super::Foundation::TimeSpan;
                         DefaultEasingFunction: super::super::super::Composition::CompositionEasingFunction;
-                        fn PrepareToAnimate(&self, key: String, source: super::super::UIElement) -> ConnectedAnimation;
-                        fn GetAnimation(&self, key: String) -> ConnectedAnimation;
+                        fn PrepareToAnimate(&self, #[in] key: String, #[in] source: super::super::UIElement) -> ConnectedAnimation;
+                        fn GetAnimation(&self, #[in] key: String) -> ConnectedAnimation;
                     }
                     #[guid(0xc7078ea5_d688_40e8_8f90_96a6279273d2)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -682,16 +682,16 @@ mod Windows {
                         ExitElementProperty: super::super::DependencyProperty;
                         #[get]
                         IsEntranceElementProperty: super::super::DependencyProperty;
-                        fn GetIsEntranceElement(&self, element: super::super::UIElement) -> bool;
-                        fn SetIsEntranceElement(&self, element: super::super::UIElement, value: bool);
+                        fn GetIsEntranceElement(&self, #[in] element: super::super::UIElement) -> bool;
+                        fn SetIsEntranceElement(&self, #[in] element: super::super::UIElement, #[in] value: bool);
                         #[get]
                         IsExitElementProperty: super::super::DependencyProperty;
-                        fn GetIsExitElement(&self, element: super::super::UIElement) -> bool;
-                        fn SetIsExitElement(&self, element: super::super::UIElement, value: bool);
+                        fn GetIsExitElement(&self, #[in] element: super::super::UIElement) -> bool;
+                        fn SetIsExitElement(&self, #[in] element: super::super::UIElement, #[in] value: bool);
                         #[get]
                         ExitElementContainerProperty: super::super::DependencyProperty;
-                        fn GetExitElementContainer(&self, element: super::super::Controls::ListViewBase) -> bool;
-                        fn SetExitElementContainer(&self, element: super::super::Controls::ListViewBase, value: bool);
+                        fn GetExitElementContainer(&self, #[in] element: super::super::Controls::ListViewBase) -> bool;
+                        fn SetExitElementContainer(&self, #[in] element: super::super::Controls::ListViewBase, #[in] value: bool);
                     }
                     #[guid(0x1b94fc76_dad7_4354_b1a2_7969fbf6a70d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -707,7 +707,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(DirectConnectedAnimationConfiguration)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IDirectConnectedAnimationConfigurationFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> DirectConnectedAnimationConfiguration;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> DirectConnectedAnimationConfiguration;
                     }
                     #[guid(0x230c08f4_e062_4cb1_8e2a_14093d73ed8c)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -786,7 +786,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(DoubleKeyFrame)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IDoubleKeyFrameFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> DoubleKeyFrame;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> DoubleKeyFrame;
                     }
                     #[guid(0x324641b0_7d37_427a_adeb_43f38bb61a4d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -938,7 +938,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IEasingFunctionBase {
                         EasingMode: EasingMode;
-                        fn Ease(&self, normalizedTime: f64) -> f64;
+                        fn Ease(&self, #[in] normalizedTime: f64) -> f64;
                     }
                     #[guid(0x1830fe6a_f01b_43e0_b61f_b452a1c66fd2)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1013,8 +1013,8 @@ mod Windows {
                     interface IEntranceNavigationTransitionInfoStatics {
                         #[get]
                         IsTargetElementProperty: super::super::DependencyProperty;
-                        fn GetIsTargetElement(&self, element: super::super::UIElement) -> bool;
-                        fn SetIsTargetElement(&self, element: super::super::UIElement, value: bool);
+                        fn GetIsTargetElement(&self, #[in] element: super::super::UIElement) -> bool;
+                        fn SetIsTargetElement(&self, #[in] element: super::super::UIElement, #[in] value: bool);
                     }
                     #[guid(0x07698c09_a8e3_419a_a01d_7410a0ae8ec8)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1098,7 +1098,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(GravityConnectedAnimationConfiguration)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IGravityConnectedAnimationConfigurationFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> GravityConnectedAnimationConfiguration;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> GravityConnectedAnimationConfiguration;
                     }
                     #[guid(0x77a163bb_d5ca_4a32_ba0b_7dff988e58a0)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1118,7 +1118,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(KeyTimeHelper)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IKeyTimeHelperStatics {
-                        fn FromTimeSpan(&self, timeSpan: super::super::super::super::Foundation::TimeSpan) -> KeyTime;
+                        fn FromTimeSpan(&self, #[in] timeSpan: super::super::super::super::Foundation::TimeSpan) -> KeyTime;
                     }
                     #[guid(0x66fdb6ef_ac81_4611_b1d2_61f545983f03)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1160,7 +1160,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(NavigationTransitionInfo)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface INavigationTransitionInfoFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> NavigationTransitionInfo;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> NavigationTransitionInfo;
                     }
                     #[guid(0xd9517e6a_a9d0_4bf7_9db0_4633a69daff2)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1168,7 +1168,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface INavigationTransitionInfoOverrides {
                         fn GetNavigationStateCore(&self) -> String;
-                        fn SetNavigationStateCore(&self, navigationState: String);
+                        fn SetNavigationStateCore(&self, #[in] navigationState: String);
                     }
                     #[guid(0x334a2d92_b74a_4c64_b9a6_58bcfa314f22)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1200,7 +1200,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ObjectKeyFrame)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IObjectKeyFrameFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> ObjectKeyFrame;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ObjectKeyFrame;
                     }
                     #[guid(0x2cd6ab00_5319_4286_8eed_4e755ea0cf9c)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1284,7 +1284,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(PointKeyFrame)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IPointKeyFrameFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> PointKeyFrame;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> PointKeyFrame;
                     }
                     #[guid(0x95cf1b27_7965_4bec_b9fb_fbe94b65518e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1427,11 +1427,11 @@ mod Windows {
                     interface IRepeatBehaviorHelperStatics {
                         #[get]
                         Forever: RepeatBehavior;
-                        fn FromCount(&self, count: f64) -> RepeatBehavior;
-                        fn FromDuration(&self, duration: super::super::super::super::Foundation::TimeSpan) -> RepeatBehavior;
-                        fn GetHasCount(&self, target: RepeatBehavior) -> bool;
-                        fn GetHasDuration(&self, target: RepeatBehavior) -> bool;
-                        fn Equals(&self, target: RepeatBehavior, value: RepeatBehavior) -> bool;
+                        fn FromCount(&self, #[in] count: f64) -> RepeatBehavior;
+                        fn FromDuration(&self, #[in] duration: super::super::super::super::Foundation::TimeSpan) -> RepeatBehavior;
+                        fn GetHasCount(&self, #[in] target: RepeatBehavior) -> bool;
+                        fn GetHasDuration(&self, #[in] target: RepeatBehavior) -> bool;
+                        fn Equals(&self, #[in] target: RepeatBehavior, #[in] value: RepeatBehavior) -> bool;
                     }
                     #[guid(0xecda24e8_8945_4949_a1bf_62109965a7e9)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1641,14 +1641,14 @@ mod Windows {
                     interface IStoryboard {
                         #[get]
                         Children: TimelineCollection;
-                        fn Seek(&self, offset: super::super::super::super::Foundation::TimeSpan);
+                        fn Seek(&self, #[in] offset: super::super::super::super::Foundation::TimeSpan);
                         fn Stop(&self);
                         fn Begin(&self);
                         fn Pause(&self);
                         fn Resume(&self);
                         fn GetCurrentState(&self) -> ClockState;
                         fn GetCurrentTime(&self) -> super::super::super::super::Foundation::TimeSpan;
-                        fn SeekAlignedToLastTick(&self, offset: super::super::super::super::Foundation::TimeSpan);
+                        fn SeekAlignedToLastTick(&self, #[in] offset: super::super::super::super::Foundation::TimeSpan);
                         fn SkipToFill(&self);
                     }
                     #[guid(0xd82f07d8_73d5_4379_bd48_7e05184a8bad)]
@@ -1658,13 +1658,13 @@ mod Windows {
                     interface IStoryboardStatics {
                         #[get]
                         TargetPropertyProperty: super::super::DependencyProperty;
-                        fn GetTargetProperty(&self, element: Timeline) -> String;
-                        fn SetTargetProperty(&self, element: Timeline, path: String);
+                        fn GetTargetProperty(&self, #[in] element: Timeline) -> String;
+                        fn SetTargetProperty(&self, #[in] element: Timeline, #[in] path: String);
                         #[get]
                         TargetNameProperty: super::super::DependencyProperty;
-                        fn GetTargetName(&self, element: Timeline) -> String;
-                        fn SetTargetName(&self, element: Timeline, name: String);
-                        fn SetTarget(&self, timeline: Timeline, target: super::super::DependencyObject);
+                        fn GetTargetName(&self, #[in] element: Timeline) -> String;
+                        fn SetTargetName(&self, #[in] element: Timeline, #[in] name: String);
+                        fn SetTarget(&self, #[in] timeline: Timeline, #[in] target: super::super::DependencyObject);
                     }
                     #[guid(0x244d7b0c_b1b7_4871_9d3e_d56203a3a5b4)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1731,7 +1731,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(Timeline)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ITimelineFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Timeline;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> Timeline;
                     }
                     #[guid(0xa902ed4e_ef10_4d6f_9a40_93cb8895f4e5)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]

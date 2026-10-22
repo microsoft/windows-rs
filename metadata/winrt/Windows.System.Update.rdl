@@ -52,7 +52,7 @@ mod Windows {
                 UserActiveHoursEnd: super::super::Foundation::TimeSpan;
                 #[get]
                 UserActiveHoursMax: i32;
-                fn TrySetUserActiveHours(&self, start: super::super::Foundation::TimeSpan, end: super::super::Foundation::TimeSpan) -> bool;
+                fn TrySetUserActiveHours(&self, #[in] start: super::super::Foundation::TimeSpan, #[in] end: super::super::Foundation::TimeSpan) -> bool;
                 #[get]
                 LastUpdateCheckTime: super::super::Foundation::DateTime;
                 #[get]
@@ -61,17 +61,17 @@ mod Windows {
                 LastErrorInfo: SystemUpdateLastErrorInfo;
                 fn GetAutomaticRebootBlockIds(&self) -> super::super::Foundation::Collections::IVectorView<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn BlockAutomaticRebootAsync(&self, lockId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn BlockAutomaticRebootAsync(&self, #[in] lockId: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn UnblockAutomaticRebootAsync(&self, lockId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn UnblockAutomaticRebootAsync(&self, #[in] lockId: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[get]
                 ExtendedError: HRESULT;
                 fn GetUpdateItems(&self) -> super::super::Foundation::Collections::IVectorView<SystemUpdateItem>;
                 #[get]
                 AttentionRequiredReason: SystemUpdateAttentionRequiredReason;
-                fn SetFlightRing(&self, flightRing: String) -> bool;
+                fn SetFlightRing(&self, #[in] flightRing: String) -> bool;
                 fn GetFlightRing(&self) -> String;
-                fn StartInstall(&self, action: SystemUpdateStartInstallAction);
+                fn StartInstall(&self, #[in] action: SystemUpdateStartInstallAction);
                 fn RebootToCompleteInstall(&self);
                 fn StartCancelUpdates(&self);
             }

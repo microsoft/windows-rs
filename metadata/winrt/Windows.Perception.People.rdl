@@ -95,7 +95,7 @@ mod Windows {
                 #[get]
                 VertexCount: u32;
                 fn GetTriangleIndices(&self, #[out] indices: [u16]);
-                fn GetVertexStateForPose(&self, handPose: HandPose) -> HandMeshVertexState;
+                fn GetVertexStateForPose(&self, #[in] handPose: HandPose) -> HandMeshVertexState;
                 #[get]
                 NeutralPose: HandPose;
                 #[get]
@@ -117,10 +117,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HandPose)]
             interface IHandPose {
-                fn TryGetJoint(&self, coordinateSystem: super::Spatial::SpatialCoordinateSystem, joint: HandJointKind, jointPose: &mut JointPose) -> bool;
-                fn TryGetJoints(&self, coordinateSystem: super::Spatial::SpatialCoordinateSystem, joints: [HandJointKind], #[out] jointPoses: [JointPose]) -> bool;
-                fn GetRelativeJoint(&self, joint: HandJointKind, referenceJoint: HandJointKind) -> JointPose;
-                fn GetRelativeJoints(&self, joints: [HandJointKind], referenceJoints: [HandJointKind], #[out] jointPoses: [JointPose]);
+                fn TryGetJoint(&self, #[in] coordinateSystem: super::Spatial::SpatialCoordinateSystem, #[in] joint: HandJointKind, #[out] jointPose: &mut JointPose) -> bool;
+                fn TryGetJoints(&self, #[in] coordinateSystem: super::Spatial::SpatialCoordinateSystem, #[in] joints: [HandJointKind], #[out] jointPoses: [JointPose]) -> bool;
+                fn GetRelativeJoint(&self, #[in] joint: HandJointKind, #[in] referenceJoint: HandJointKind) -> JointPose;
+                fn GetRelativeJoints(&self, #[in] joints: [HandJointKind], #[in] referenceJoints: [HandJointKind], #[out] jointPoses: [JointPose]);
             }
             #[guid(0x7f5ac5a5_49db_379f_9429_32a2faf34fa6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]

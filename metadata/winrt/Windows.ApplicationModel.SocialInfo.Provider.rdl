@@ -53,14 +53,14 @@ mod Windows {
                 interface ISocialInfoProviderManagerStatics {
                     #[Windows::Foundation::Metadata::Deprecated("ISocialInfoProviderManagerStatics is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateSocialFeedUpdaterAsync(&self, kind: super::SocialFeedKind, mode: super::SocialFeedUpdateMode, ownerRemoteId: String) -> super::super::super::Foundation::IAsyncOperation<SocialFeedUpdater>;
+                    fn CreateSocialFeedUpdaterAsync(&self, #[in] kind: super::SocialFeedKind, #[in] mode: super::SocialFeedUpdateMode, #[in] ownerRemoteId: String) -> super::super::super::Foundation::IAsyncOperation<SocialFeedUpdater>;
                     #[Windows::Foundation::Metadata::Deprecated("ISocialInfoProviderManagerStatics is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateDashboardItemUpdaterAsync(&self, ownerRemoteId: String) -> super::super::super::Foundation::IAsyncOperation<SocialDashboardItemUpdater>;
+                    fn CreateDashboardItemUpdaterAsync(&self, #[in] ownerRemoteId: String) -> super::super::super::Foundation::IAsyncOperation<SocialDashboardItemUpdater>;
                     #[Windows::Foundation::Metadata::Deprecated("ISocialInfoProviderManagerStatics is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                    fn UpdateBadgeCountValue(&self, itemRemoteId: String, newCount: i32);
+                    fn UpdateBadgeCountValue(&self, #[in] itemRemoteId: String, #[in] newCount: i32);
                     #[Windows::Foundation::Metadata::Deprecated("ISocialInfoProviderManagerStatics is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-                    fn ReportNewContentAvailable(&self, contactRemoteId: String, kind: super::SocialFeedKind);
+                    fn ReportNewContentAvailable(&self, #[in] contactRemoteId: String, #[in] kind: super::SocialFeedKind);
                     #[Windows::Foundation::Metadata::Deprecated("ISocialInfoProviderManagerStatics is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ProvisionAsync(&self) -> super::super::super::Foundation::IAsyncOperation<bool>;

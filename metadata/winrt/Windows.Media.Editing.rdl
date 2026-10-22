@@ -48,9 +48,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundAudioTrack)]
             interface IBackgroundAudioTrackStatics {
-                fn CreateFromEmbeddedAudioTrack(&self, embeddedAudioTrack: EmbeddedAudioTrack) -> BackgroundAudioTrack;
+                fn CreateFromEmbeddedAudioTrack(&self, #[in] embeddedAudioTrack: EmbeddedAudioTrack) -> BackgroundAudioTrack;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateFromFileAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>;
+                fn CreateFromFileAsync(&self, #[in] file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>;
             }
             #[guid(0x55ee5a7a_2d30_3fba_a190_4f1a6454f88f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -92,17 +92,17 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaClip)]
             interface IMediaClipStatics {
-                fn CreateFromColor(&self, color: super::super::UI::Color, originalDuration: super::super::Foundation::TimeSpan) -> MediaClip;
+                fn CreateFromColor(&self, #[in] color: super::super::UI::Color, #[in] originalDuration: super::super::Foundation::TimeSpan) -> MediaClip;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateFromFileAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<MediaClip>;
+                fn CreateFromFileAsync(&self, #[in] file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<MediaClip>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateFromImageFileAsync(&self, file: super::super::Storage::IStorageFile, originalDuration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<MediaClip>;
+                fn CreateFromImageFileAsync(&self, #[in] file: super::super::Storage::IStorageFile, #[in] originalDuration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<MediaClip>;
             }
             #[guid(0x5b1dd7b3_854e_4d9b_877d_4774a556cd12)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaClip)]
             interface IMediaClipStatics2 {
-                fn CreateFromSurface(&self, surface: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, originalDuration: super::super::Foundation::TimeSpan) -> MediaClip;
+                fn CreateFromSurface(&self, #[in] surface: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, #[in] originalDuration: super::super::Foundation::TimeSpan) -> MediaClip;
             }
             #[guid(0x2e06e605_dc71_41d6_b837_2d2bc14a2947)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -118,24 +118,24 @@ mod Windows {
                 UserData: super::super::Foundation::Collections::IMap<String, String>;
                 fn Clone(&self) -> MediaComposition;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SaveAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncAction;
+                fn SaveAsync(&self, #[in] file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetThumbnailAsync(&self, timeFromStart: super::super::Foundation::TimeSpan, scaledWidth: i32, scaledHeight: i32, framePrecision: VideoFramePrecision) -> super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>;
-                fn GetThumbnailsAsync(&self, timesFromStart: super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>, scaledWidth: i32, scaledHeight: i32, framePrecision: VideoFramePrecision) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>;
+                fn GetThumbnailAsync(&self, #[in] timeFromStart: super::super::Foundation::TimeSpan, #[in] scaledWidth: i32, #[in] scaledHeight: i32, #[in] framePrecision: VideoFramePrecision) -> super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>;
+                fn GetThumbnailsAsync(&self, #[in] timesFromStart: super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>, #[in] scaledWidth: i32, #[in] scaledHeight: i32, #[in] framePrecision: VideoFramePrecision) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>;
                 #[Windows::Foundation::Metadata::Overload("RenderToFileAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RenderToFileAsync(&self, destination: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
+                fn RenderToFileAsync(&self, #[in] destination: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
                 #[Windows::Foundation::Metadata::Overload("RenderToFileWithTrimmingPreferenceAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RenderToFileAsync(&self, destination: super::super::Storage::IStorageFile, trimmingPreference: MediaTrimmingPreference) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
+                fn RenderToFileAsync(&self, #[in] destination: super::super::Storage::IStorageFile, #[in] trimmingPreference: MediaTrimmingPreference) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
                 #[Windows::Foundation::Metadata::Overload("RenderToFileWithProfileAsync")]
-                fn RenderToFileAsync(&self, destination: super::super::Storage::IStorageFile, trimmingPreference: MediaTrimmingPreference, encodingProfile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
+                fn RenderToFileAsync(&self, #[in] destination: super::super::Storage::IStorageFile, #[in] trimmingPreference: MediaTrimmingPreference, #[in] encodingProfile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
                 fn CreateDefaultEncodingProfile(&self) -> super::MediaProperties::MediaEncodingProfile;
                 #[Windows::Foundation::Metadata::Overload("GenerateMediaStreamSource")]
                 fn GenerateMediaStreamSource(&self) -> super::Core::MediaStreamSource;
                 #[Windows::Foundation::Metadata::Overload("GenerateMediaStreamSourceWithProfile")]
-                fn GenerateMediaStreamSource(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile) -> super::Core::MediaStreamSource;
-                fn GeneratePreviewMediaStreamSource(&self, scaledWidth: i32, scaledHeight: i32) -> super::Core::MediaStreamSource;
+                fn GenerateMediaStreamSource(&self, #[in] encodingProfile: super::MediaProperties::MediaEncodingProfile) -> super::Core::MediaStreamSource;
+                fn GeneratePreviewMediaStreamSource(&self, #[in] scaledWidth: i32, #[in] scaledHeight: i32) -> super::Core::MediaStreamSource;
             }
             #[guid(0xa59e5372_2366_492c_bec8_e6dfba6d0281)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -149,7 +149,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaComposition)]
             interface IMediaCompositionStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn LoadAsync(&self, file: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<MediaComposition>;
+                fn LoadAsync(&self, #[in] file: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<MediaComposition>;
             }
             #[guid(0xa902ae5d_7869_4830_8ab1_94dc01c05fa4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -170,8 +170,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaOverlay)]
             interface IMediaOverlayFactory {
-                fn Create(&self, clip: MediaClip) -> MediaOverlay;
-                fn CreateWithPositionAndOpacity(&self, clip: MediaClip, position: super::super::Foundation::Rect, opacity: f64) -> MediaOverlay;
+                fn Create(&self, #[in] clip: MediaClip) -> MediaOverlay;
+                fn CreateWithPositionAndOpacity(&self, #[in] clip: MediaClip, #[in] position: super::super::Foundation::Rect, #[in] opacity: f64) -> MediaOverlay;
             }
             #[guid(0xa6d9ba57_eeda_46c6_bbe5_e398c84168ac)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -187,7 +187,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaOverlayLayer)]
             interface IMediaOverlayLayerFactory {
-                fn CreateWithCompositorDefinition(&self, compositorDefinition: super::Effects::IVideoCompositorDefinition) -> MediaOverlayLayer;
+                fn CreateWithCompositorDefinition(&self, #[in] compositorDefinition: super::Effects::IVideoCompositorDefinition) -> MediaOverlayLayer;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]

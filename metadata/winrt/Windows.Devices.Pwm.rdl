@@ -10,19 +10,19 @@ mod Windows {
                 PinCount: i32;
                 #[get]
                 ActualFrequency: f64;
-                fn SetDesiredFrequency(&self, desiredFrequency: f64) -> f64;
+                fn SetDesiredFrequency(&self, #[in] desiredFrequency: f64) -> f64;
                 #[get]
                 MinFrequency: f64;
                 #[get]
                 MaxFrequency: f64;
-                fn OpenPin(&self, pinNumber: i32) -> PwmPin;
+                fn OpenPin(&self, #[in] pinNumber: i32) -> PwmPin;
             }
             #[guid(0x4263bda1_8946_4404_bd48_81dd124af4d9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PwmController)]
             interface IPwmControllerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetControllersAsync(&self, provider: Provider::IPwmProvider) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>;
+                fn GetControllersAsync(&self, #[in] provider: Provider::IPwmProvider) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>;
             }
             #[guid(0x44fc5b1f_f119_4bdd_97ad_f76ef986736d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 131072)]
@@ -38,9 +38,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorFromFriendlyName")]
-                fn GetDeviceSelector(&self, friendlyName: String) -> String;
+                fn GetDeviceSelector(&self, #[in] friendlyName: String) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<PwmController>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<PwmController>;
             }
             #[guid(0x22972dc8_c6cf_4821_b7f9_c6454fb6af79)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
@@ -49,7 +49,7 @@ mod Windows {
                 #[get]
                 Controller: PwmController;
                 fn GetActiveDutyCyclePercentage(&self) -> f64;
-                fn SetActiveDutyCyclePercentage(&self, dutyCyclePercentage: f64);
+                fn SetActiveDutyCyclePercentage(&self, #[in] dutyCyclePercentage: f64);
                 Polarity: PwmPulsePolarity;
                 fn Start(&self);
                 fn Stop(&self);

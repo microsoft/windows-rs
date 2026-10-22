@@ -37,7 +37,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(JumpListItem)]
             interface IJumpListItemStatics {
-                fn CreateWithArguments(&self, arguments: String, displayName: String) -> JumpListItem;
+                fn CreateWithArguments(&self, #[in] arguments: String, #[in] displayName: String) -> JumpListItem;
                 fn CreateSeparator(&self) -> JumpListItem;
             }
             #[guid(0xa7e0c681_e67e_4b74_8250_3f322c4d92c3)]
@@ -117,19 +117,19 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("RequestCreateAsync")]
                 fn RequestCreateAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("RequestCreateAsyncWithPoint")]
-                fn RequestCreateAsync(&self, invocationPoint: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestCreateAsync(&self, #[in] invocationPoint: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("RequestCreateAsyncWithRect")]
-                fn RequestCreateForSelectionAsync(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestCreateForSelectionAsync(&self, #[in] selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("RequestCreateAsyncWithRectAndPlacement")]
-                fn RequestCreateForSelectionAsync(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestCreateForSelectionAsync(&self, #[in] selection: super::super::Foundation::Rect, #[in] preferredPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("RequestDeleteAsync")]
                 fn RequestDeleteAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("RequestDeleteAsyncWithPoint")]
-                fn RequestDeleteAsync(&self, invocationPoint: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestDeleteAsync(&self, #[in] invocationPoint: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("RequestDeleteAsyncWithRect")]
-                fn RequestDeleteForSelectionAsync(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestDeleteForSelectionAsync(&self, #[in] selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("RequestDeleteAsyncWithRectAndPlacement")]
-                fn RequestDeleteForSelectionAsync(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestDeleteForSelectionAsync(&self, #[in] selection: super::super::Foundation::Rect, #[in] preferredPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn UpdateAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
             }
@@ -154,28 +154,28 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
             interface ISecondaryTileFactory {
                 #[Windows::Foundation::Metadata::Deprecated("SecondaryTile(string, string, string, string, Windows.UI.StartScreen.TileOptions, Windows.Foundation.Uri) may be altered or unavailable for releases after Windows Phone 8.1. Instead, use SecondaryTile(string, string, string, Windows.Foundation.Uri, Windows.UI.StartScreen.TileSize).", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn CreateTile(&self, tileId: String, shortName: String, displayName: String, arguments: String, tileOptions: TileOptions, logoReference: super::super::Foundation::Uri) -> SecondaryTile;
+                fn CreateTile(&self, #[in] tileId: String, #[in] shortName: String, #[in] displayName: String, #[in] arguments: String, #[in] tileOptions: TileOptions, #[in] logoReference: super::super::Foundation::Uri) -> SecondaryTile;
                 #[Windows::Foundation::Metadata::Deprecated("SecondaryTile(string, string, string, string, Windows.UI.StartScreen.TileOptions, Windows.Foundation.Uri, Windows.Foundation.Uri) may be altered or unavailable for releases after Windows Phone 8.1. Instead, use SecondaryTile(string, string, string, Windows.Foundation.Uri, Windows.UI.StartScreen.TileSize).", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                fn CreateWideTile(&self, tileId: String, shortName: String, displayName: String, arguments: String, tileOptions: TileOptions, logoReference: super::super::Foundation::Uri, wideLogoReference: super::super::Foundation::Uri) -> SecondaryTile;
-                fn CreateWithId(&self, tileId: String) -> SecondaryTile;
+                fn CreateWideTile(&self, #[in] tileId: String, #[in] shortName: String, #[in] displayName: String, #[in] arguments: String, #[in] tileOptions: TileOptions, #[in] logoReference: super::super::Foundation::Uri, #[in] wideLogoReference: super::super::Foundation::Uri) -> SecondaryTile;
+                fn CreateWithId(&self, #[in] tileId: String) -> SecondaryTile;
             }
             #[guid(0x274b8a3b_522d_448e_9eb2_d0672ab345c8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
             interface ISecondaryTileFactory2: ISecondaryTileFactory {
-                fn CreateMinimalTile(&self, tileId: String, displayName: String, arguments: String, square150x150Logo: super::super::Foundation::Uri, desiredSize: TileSize) -> SecondaryTile;
+                fn CreateMinimalTile(&self, #[in] tileId: String, #[in] displayName: String, #[in] arguments: String, #[in] square150x150Logo: super::super::Foundation::Uri, #[in] desiredSize: TileSize) -> SecondaryTile;
             }
             #[guid(0x99908dae_d051_4676_87fe_9ec242d83c74)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
             interface ISecondaryTileStatics {
-                fn Exists(&self, tileId: String) -> bool;
+                fn Exists(&self, #[in] tileId: String) -> bool;
                 #[Windows::Foundation::Metadata::Overload("FindAllAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>;
                 #[Windows::Foundation::Metadata::Overload("FindAllForApplicationAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindAllAsync(&self, applicationId: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>;
+                fn FindAllAsync(&self, #[in] applicationId: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllForPackageAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>;
             }
@@ -259,26 +259,26 @@ mod Windows {
             interface IStartScreenManager {
                 #[get]
                 User: super::super::System::User;
-                fn SupportsAppListEntry(&self, appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> bool;
+                fn SupportsAppListEntry(&self, #[in] appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> bool;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ContainsAppListEntryAsync(&self, appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> super::super::Foundation::IAsyncOperation<bool>;
-                fn RequestAddAppListEntryAsync(&self, appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn ContainsAppListEntryAsync(&self, #[in] appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestAddAppListEntryAsync(&self, #[in] appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x08a716b6_316b_4ad9_acb8_fe9cf00bd608)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StartScreenManager)]
             interface IStartScreenManager2: IStartScreenManager {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ContainsSecondaryTileAsync(&self, tileId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn ContainsSecondaryTileAsync(&self, #[in] tileId: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryRemoveSecondaryTileAsync(&self, tileId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryRemoveSecondaryTileAsync(&self, #[in] tileId: String) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x7865ef0f_b585_464e_8993_34e8f8738d48)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StartScreenManager)]
             interface IStartScreenManagerStatics {
                 fn GetDefault(&self) -> StartScreenManager;
-                fn GetForUser(&self, user: super::super::System::User) -> StartScreenManager;
+                fn GetForUser(&self, #[in] user: super::super::System::User) -> StartScreenManager;
             }
             #[guid(0xb0764e5b_887d_4242_9a19_3d0a4ea78031)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]

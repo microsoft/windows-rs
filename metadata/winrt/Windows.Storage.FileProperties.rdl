@@ -46,11 +46,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(GeotagHelper)]
             interface IGeotagHelperStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetGeotagAsync(&self, file: super::IStorageFile) -> super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>;
+                fn GetGeotagAsync(&self, #[in] file: super::IStorageFile) -> super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetGeotagFromGeolocatorAsync(&self, file: super::IStorageFile, geolocator: super::super::Devices::Geolocation::Geolocator) -> super::super::Foundation::IAsyncAction;
+                fn SetGeotagFromGeolocatorAsync(&self, #[in] file: super::IStorageFile, #[in] geolocator: super::super::Devices::Geolocation::Geolocator) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetGeotagAsync(&self, file: super::IStorageFile, geopoint: super::super::Devices::Geolocation::Geopoint) -> super::super::Foundation::IAsyncAction;
+                fn SetGeotagAsync(&self, #[in] file: super::IStorageFile, #[in] geopoint: super::super::Devices::Geolocation::Geopoint) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x523c9424_fcff_4275_afee_ecdb9ab47973)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -121,9 +121,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IStorageItemExtraProperties {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RetrievePropertiesAsync(&self, propertiesToRetrieve: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<String, Object>>;
+                fn RetrievePropertiesAsync(&self, #[in] propertiesToRetrieve: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<String, Object>>;
                 #[Windows::Foundation::Metadata::Overload("SavePropertiesAsync")]
-                fn SavePropertiesAsync(&self, #[Windows::Foundation::Metadata::HasVariant] propertiesToSave: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, Object>>) -> super::super::Foundation::IAsyncAction;
+                fn SavePropertiesAsync(&self, #[in] #[Windows::Foundation::Metadata::HasVariant] propertiesToSave: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, Object>>) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("SavePropertiesAsyncOverloadDefault")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SavePropertiesAsync(&self) -> super::super::Foundation::IAsyncAction;

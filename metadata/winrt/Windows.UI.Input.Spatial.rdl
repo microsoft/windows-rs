@@ -21,9 +21,9 @@ mod Windows {
                     event NavigationUpdated: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationUpdatedEventArgs>;
                     event NavigationCompleted: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCompletedEventArgs>;
                     event NavigationCanceled: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCanceledEventArgs>;
-                    fn CaptureInteraction(&self, interaction: SpatialInteraction);
+                    fn CaptureInteraction(&self, #[in] interaction: SpatialInteraction);
                     fn CancelPendingGestures(&self);
-                    fn TrySetGestureSettings(&self, settings: SpatialGestureSettings) -> bool;
+                    fn TrySetGestureSettings(&self, #[in] settings: SpatialGestureSettings) -> bool;
                     #[get]
                     GestureSettings: SpatialGestureSettings;
                 }
@@ -31,7 +31,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SpatialGestureRecognizer)]
                 interface ISpatialGestureRecognizerFactory {
-                    fn Create(&self, settings: SpatialGestureSettings) -> SpatialGestureRecognizer;
+                    fn Create(&self, #[in] settings: SpatialGestureSettings) -> SpatialGestureRecognizer;
                 }
                 #[guid(0x5dfcb667_4caa_4093_8c35_b601a839f31b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -53,7 +53,7 @@ mod Windows {
                 interface ISpatialHoldStartedEventArgs {
                     #[get]
                     InteractionSourceKind: SpatialInteractionSourceKind;
-                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                    fn TryGetPointerPose(&self, #[in] coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
                 }
                 #[guid(0xfc967639_88e6_4646_9112_4344aaec9dfa)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -117,7 +117,7 @@ mod Windows {
                 interface ISpatialInteractionDetectedEventArgs {
                     #[get]
                     InteractionSourceKind: SpatialInteractionSourceKind;
-                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                    fn TryGetPointerPose(&self, #[in] coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
                     #[get]
                     Interaction: SpatialInteraction;
                 }
@@ -138,7 +138,7 @@ mod Windows {
                     event SourcePressed: super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>;
                     event SourceReleased: super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>;
                     event InteractionDetected: super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionDetectedEventArgs>;
-                    fn GetDetectedSourcesAtTimestamp(&self, timeStamp: super::super::super::Perception::PerceptionTimestamp) -> super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>;
+                    fn GetDetectedSourcesAtTimestamp(&self, #[in] timeStamp: super::super::super::Perception::PerceptionTimestamp) -> super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>;
                 }
                 #[guid(0x00e31fa6_8ca2_30bf_91fe_d9cb4a008990)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -150,7 +150,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionManager)]
                 interface ISpatialInteractionManagerStatics2 {
-                    fn IsSourceKindSupported(&self, kind: SpatialInteractionSourceKind) -> bool;
+                    fn IsSourceKindSupported(&self, #[in] kind: SpatialInteractionSourceKind) -> bool;
                 }
                 #[guid(0xfb5433ba_b0b3_3148_9f3b_e9f5de568f5d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -173,7 +173,7 @@ mod Windows {
                     IsGraspSupported: bool;
                     #[get]
                     Controller: SpatialInteractionController;
-                    fn TryGetStateAtTimestamp(&self, timestamp: super::super::super::Perception::PerceptionTimestamp) -> SpatialInteractionSourceState;
+                    fn TryGetStateAtTimestamp(&self, #[in] timestamp: super::super::super::Perception::PerceptionTimestamp) -> SpatialInteractionSourceState;
                 }
                 #[guid(0x0406d9f9_9afd_44f9_85dc_700023a962e3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -235,10 +235,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSourceProperties)]
                 interface ISpatialInteractionSourceProperties {
-                    fn TryGetSourceLossMitigationDirection(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>;
+                    fn TryGetSourceLossMitigationDirection(&self, #[in] coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>;
                     #[get]
                     SourceLossRisk: f64;
-                    fn TryGetLocation(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialInteractionSourceLocation;
+                    fn TryGetLocation(&self, #[in] coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialInteractionSourceLocation;
                 }
                 #[guid(0xd5c475ef_4b63_37ec_98b9_9fc652b9d2f2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -252,7 +252,7 @@ mod Windows {
                     IsPressed: bool;
                     #[get]
                     Timestamp: super::super::super::Perception::PerceptionTimestamp;
-                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                    fn TryGetPointerPose(&self, #[in] coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
                 }
                 #[guid(0x45f6d0bd_1773_492e_9ba3_8ac1cbe77c08)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -288,7 +288,7 @@ mod Windows {
                 interface ISpatialManipulationCompletedEventArgs {
                     #[get]
                     InteractionSourceKind: SpatialInteractionSourceKind;
-                    fn TryGetCumulativeDelta(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialManipulationDelta;
+                    fn TryGetCumulativeDelta(&self, #[in] coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialManipulationDelta;
                 }
                 #[guid(0xa7ec967a_d123_3a81_a15b_992923dcbe91)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -303,7 +303,7 @@ mod Windows {
                 interface ISpatialManipulationStartedEventArgs {
                     #[get]
                     InteractionSourceKind: SpatialInteractionSourceKind;
-                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                    fn TryGetPointerPose(&self, #[in] coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
                 }
                 #[guid(0x5f230b9b_60c6_4dc6_bdc9_9f4a6f15fe49)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -311,7 +311,7 @@ mod Windows {
                 interface ISpatialManipulationUpdatedEventArgs {
                     #[get]
                     InteractionSourceKind: SpatialInteractionSourceKind;
-                    fn TryGetCumulativeDelta(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialManipulationDelta;
+                    fn TryGetCumulativeDelta(&self, #[in] coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialManipulationDelta;
                 }
                 #[guid(0xce503edc_e8a5_46f0_92d4_3c122b35112a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -335,7 +335,7 @@ mod Windows {
                 interface ISpatialNavigationStartedEventArgs {
                     #[get]
                     InteractionSourceKind: SpatialInteractionSourceKind;
-                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                    fn TryGetPointerPose(&self, #[in] coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
                     #[get]
                     IsNavigatingX: bool;
                     #[get]
@@ -385,7 +385,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SpatialPointerPose)]
                 interface ISpatialPointerPose2: ISpatialPointerPose {
-                    fn TryGetInteractionSourcePose(&self, source: SpatialInteractionSource) -> SpatialPointerInteractionSourcePose;
+                    fn TryGetInteractionSourcePose(&self, #[in] source: SpatialInteractionSource) -> SpatialPointerInteractionSourcePose;
                 }
                 #[guid(0x6342f3f0_ec49_5b4b_b8d1_d16cbb16be84)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
@@ -400,7 +400,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SpatialPointerPose)]
                 interface ISpatialPointerPoseStatics {
-                    fn TryGetAtTimestamp(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem, timestamp: super::super::super::Perception::PerceptionTimestamp) -> SpatialPointerPose;
+                    fn TryGetAtTimestamp(&self, #[in] coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem, #[in] timestamp: super::super::super::Perception::PerceptionTimestamp) -> SpatialPointerPose;
                 }
                 #[guid(0x0e35f5cb_3f75_43f3_ac81_d1dc2df9b1fb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -415,8 +415,8 @@ mod Windows {
                 interface ISpatialRecognitionStartedEventArgs {
                     #[get]
                     InteractionSourceKind: SpatialInteractionSourceKind;
-                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
-                    fn IsGesturePossible(&self, gesture: SpatialGestureSettings) -> bool;
+                    fn TryGetPointerPose(&self, #[in] coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                    fn IsGesturePossible(&self, #[in] gesture: SpatialGestureSettings) -> bool;
                 }
                 #[guid(0x296d83de_f444_4aa1_b2bf_9dc88d567da6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -424,7 +424,7 @@ mod Windows {
                 interface ISpatialTappedEventArgs {
                     #[get]
                     InteractionSourceKind: SpatialInteractionSourceKind;
-                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                    fn TryGetPointerPose(&self, #[in] coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
                     #[get]
                     TapCount: u32;
                 }

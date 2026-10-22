@@ -16,9 +16,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(PreallocatedWorkItem)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IPreallocatedWorkItemFactory {
-                    fn CreateWorkItem(&self, handler: super::WorkItemHandler) -> PreallocatedWorkItem;
-                    fn CreateWorkItemWithPriority(&self, handler: super::WorkItemHandler, priority: super::WorkItemPriority) -> PreallocatedWorkItem;
-                    fn CreateWorkItemWithPriorityAndOptions(&self, handler: super::WorkItemHandler, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> PreallocatedWorkItem;
+                    fn CreateWorkItem(&self, #[in] handler: super::WorkItemHandler) -> PreallocatedWorkItem;
+                    fn CreateWorkItemWithPriority(&self, #[in] handler: super::WorkItemHandler, #[in] priority: super::WorkItemPriority) -> PreallocatedWorkItem;
+                    fn CreateWorkItemWithPriorityAndOptions(&self, #[in] handler: super::WorkItemHandler, #[in] priority: super::WorkItemPriority, #[in] options: super::WorkItemOptions) -> PreallocatedWorkItem;
                 }
                 #[guid(0x14285e06_63a7_4713_b6d9_62f64b56fb8b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -34,13 +34,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ISignalNotifierStatics {
                     #[Windows::Foundation::Metadata::Overload("AttachToEvent")]
-                    fn AttachToEvent(&self, name: String, handler: SignalHandler) -> SignalNotifier;
+                    fn AttachToEvent(&self, #[in] name: String, #[in] handler: SignalHandler) -> SignalNotifier;
                     #[Windows::Foundation::Metadata::Overload("AttachToEventWithTimeout")]
-                    fn AttachToEvent(&self, name: String, handler: SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> SignalNotifier;
+                    fn AttachToEvent(&self, #[in] name: String, #[in] handler: SignalHandler, #[in] timeout: super::super::super::Foundation::TimeSpan) -> SignalNotifier;
                     #[Windows::Foundation::Metadata::Overload("AttachToSemaphore")]
-                    fn AttachToSemaphore(&self, name: String, handler: SignalHandler) -> SignalNotifier;
+                    fn AttachToSemaphore(&self, #[in] name: String, #[in] handler: SignalHandler) -> SignalNotifier;
                     #[Windows::Foundation::Metadata::Overload("AttachToSemaphoreWithTimeout")]
-                    fn AttachToSemaphore(&self, name: String, handler: SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> SignalNotifier;
+                    fn AttachToSemaphore(&self, #[in] name: String, #[in] handler: SignalHandler, #[in] timeout: super::super::super::Foundation::TimeSpan) -> SignalNotifier;
                 }
                 #[Windows::Foundation::Metadata::Activatable(IPreallocatedWorkItemFactory, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -53,7 +53,7 @@ mod Windows {
                 #[guid(0x923c402e_4721_440e_9dda_55b6f2e07710)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                delegate fn SignalHandler(signalNotifier: SignalNotifier, timedOut: bool);
+                delegate fn SignalHandler(#[in] signalNotifier: SignalNotifier, #[in] timedOut: bool);
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(ISignalNotifierStatics, 65536, "Windows.Foundation.UniversalApiContract")]

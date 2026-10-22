@@ -100,14 +100,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileOpenPicker)]
             interface IFileOpenPickerStatics2 {
-                fn CreateForUser(&self, user: super::super::System::User) -> FileOpenPicker;
+                fn CreateForUser(&self, #[in] user: super::super::System::User) -> FileOpenPicker;
             }
             #[guid(0x3f57b569_2522_4ca5_aa73_a15509f1fcbf)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileOpenPicker)]
             interface IFileOpenPickerWithOperationId {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn PickSingleFileAsync(&self, pickerOperationId: String) -> super::super::Foundation::IAsyncOperation<super::StorageFile>;
+                fn PickSingleFileAsync(&self, #[in] pickerOperationId: String) -> super::super::Foundation::IAsyncOperation<super::StorageFile>;
             }
             #[guid(0x3286ffcb_617f_4cc5_af6a_b3fdf29ad145)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -149,7 +149,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileSavePicker)]
             interface IFileSavePickerStatics {
-                fn CreateForUser(&self, user: super::super::System::User) -> FileSavePicker;
+                fn CreateForUser(&self, #[in] user: super::super::System::User) -> FileSavePicker;
             }
             #[guid(0x084f7799_f3fb_400a_99b1_7b4a772fd60d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -183,7 +183,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FolderPicker)]
             interface IFolderPickerStatics {
-                fn CreateForUser(&self, user: super::super::System::User) -> FolderPicker;
+                fn CreateForUser(&self, #[in] user: super::super::System::User) -> FolderPicker;
             }
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

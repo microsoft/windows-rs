@@ -77,7 +77,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PenDevice)]
             interface IPenDeviceStatics {
-                fn GetFromPointerId(&self, pointerId: u32) -> PenDevice;
+                fn GetFromPointerId(&self, #[in] pointerId: u32) -> PenDevice;
             }
             #[guid(0x759f4d90_1dc0_55cb_ad18_b9101456f592)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
@@ -137,7 +137,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PointerDevice)]
             interface IPointerDeviceStatics {
-                fn GetPointerDevice(&self, pointerId: u32) -> PointerDevice;
+                fn GetPointerDevice(&self, #[in] pointerId: u32) -> PointerDevice;
                 fn GetPointerDevices(&self) -> super::super::Foundation::Collections::IVectorView<PointerDevice>;
             }
             #[guid(0x20dd55f9_13f1_46c8_9285_2c05fa3eda6f)]

@@ -119,10 +119,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Direct3D11CaptureFramePool)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IDirect3D11CaptureFramePool {
-                fn Recreate(&self, device: super::DirectX::Direct3D11::IDirect3DDevice, pixelFormat: super::DirectX::DirectXPixelFormat, numberOfBuffers: i32, size: super::SizeInt32);
+                fn Recreate(&self, #[in] device: super::DirectX::Direct3D11::IDirect3DDevice, #[in] pixelFormat: super::DirectX::DirectXPixelFormat, #[in] numberOfBuffers: i32, #[in] size: super::SizeInt32);
                 fn TryGetNextFrame(&self) -> Direct3D11CaptureFrame;
                 event FrameArrived: super::super::Foundation::TypedEventHandler<Direct3D11CaptureFramePool, Object>;
-                fn CreateCaptureSession(&self, item: GraphicsCaptureItem) -> GraphicsCaptureSession;
+                fn CreateCaptureSession(&self, #[in] item: GraphicsCaptureItem) -> GraphicsCaptureSession;
                 #[get]
                 DispatcherQueue: super::super::System::DispatcherQueue;
             }
@@ -131,19 +131,19 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Direct3D11CaptureFramePool)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IDirect3D11CaptureFramePoolStatics {
-                fn Create(&self, device: super::DirectX::Direct3D11::IDirect3DDevice, pixelFormat: super::DirectX::DirectXPixelFormat, numberOfBuffers: i32, size: super::SizeInt32) -> Direct3D11CaptureFramePool;
+                fn Create(&self, #[in] device: super::DirectX::Direct3D11::IDirect3DDevice, #[in] pixelFormat: super::DirectX::DirectXPixelFormat, #[in] numberOfBuffers: i32, #[in] size: super::SizeInt32) -> Direct3D11CaptureFramePool;
             }
             #[guid(0x589b103f_6bbc_5df5_a991_02e28b3b66d5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Direct3D11CaptureFramePool)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IDirect3D11CaptureFramePoolStatics2 {
-                fn CreateFreeThreaded(&self, device: super::DirectX::Direct3D11::IDirect3DDevice, pixelFormat: super::DirectX::DirectXPixelFormat, numberOfBuffers: i32, size: super::SizeInt32) -> Direct3D11CaptureFramePool;
+                fn CreateFreeThreaded(&self, #[in] device: super::DirectX::Direct3D11::IDirect3DDevice, #[in] pixelFormat: super::DirectX::DirectXPixelFormat, #[in] numberOfBuffers: i32, #[in] size: super::SizeInt32) -> Direct3D11CaptureFramePool;
             }
             #[guid(0xbb91f61b_218a_587d_8580_2701a74c0525)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             interface IDisplayGraphicsCaptureSession {
-                fn SetWindowExclusionList(&self, excludedWindows: super::super::Foundation::Collections::IIterable<super::super::UI::WindowId>) -> u64;
+                fn SetWindowExclusionList(&self, #[in] excludedWindows: super::super::Foundation::Collections::IIterable<super::super::UI::WindowId>) -> u64;
                 fn GetWindowExclusionList(&self) -> super::super::Foundation::Collections::IVectorView<super::super::UI::WindowId>;
             }
             #[guid(0x743ed370_06ec_5040_a58a_901f0f757095)]
@@ -152,7 +152,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IGraphicsCaptureAccessStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestAccessAsync(&self, request: GraphicsCaptureAccessKind) -> super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>;
+                fn RequestAccessAsync(&self, #[in] request: GraphicsCaptureAccessKind) -> super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>;
             }
             #[guid(0x79c3f95b_31f7_4ec2_a464_632ef5d30760)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -170,15 +170,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(GraphicsCaptureItem)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IGraphicsCaptureItemStatics {
-                fn CreateFromVisual(&self, visual: super::super::UI::Composition::Visual) -> GraphicsCaptureItem;
+                fn CreateFromVisual(&self, #[in] visual: super::super::UI::Composition::Visual) -> GraphicsCaptureItem;
             }
             #[guid(0x3b92acc9_e584_5862_bf5c_9c316c6d2dbb)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GraphicsCaptureItem)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IGraphicsCaptureItemStatics2 {
-                fn TryCreateFromWindowId(&self, windowId: super::super::UI::WindowId) -> GraphicsCaptureItem;
-                fn TryCreateFromDisplayId(&self, displayId: super::DisplayId) -> GraphicsCaptureItem;
+                fn TryCreateFromWindowId(&self, #[in] windowId: super::super::UI::WindowId) -> GraphicsCaptureItem;
+                fn TryCreateFromDisplayId(&self, #[in] displayId: super::DisplayId) -> GraphicsCaptureItem;
             }
             #[guid(0x5a1711b3_ad79_4b4a_9336_1318fdde3539)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]

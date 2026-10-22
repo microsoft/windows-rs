@@ -96,7 +96,7 @@ mod Windows {
                     #[get]
                     Contact: super::Contact;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportCompletedAsync(&self, createdOrUpdatedContact: super::Contact) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportCompletedAsync(&self, #[in] createdOrUpdatedContact: super::Contact) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
@@ -142,11 +142,11 @@ mod Windows {
                     #[get]
                     SuggestedBatchSize: u32;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SaveContactAsync(&self, contact: super::Contact) -> super::super::super::Foundation::IAsyncAction;
+                    fn SaveContactAsync(&self, #[in] contact: super::Contact) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportFailedAsync(&self, batchStatus: super::ContactBatchStatus) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportFailedAsync(&self, #[in] batchStatus: super::ContactBatchStatus) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x1a27e87b_69d7_4e4e_8042_861cba61471e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]

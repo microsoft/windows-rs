@@ -192,7 +192,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AudioStreamDescriptor)]
             interface IAudioStreamDescriptorFactory {
-                fn Create(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> AudioStreamDescriptor;
+                fn Create(&self, #[in] encodingProperties: super::MediaProperties::AudioEncodingProperties) -> AudioStreamDescriptor;
             }
             #[guid(0xf23b6e77_3ef7_40de_b943_068b1321701d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -256,7 +256,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(CodecQuery)]
             interface ICodecQuery {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindAllAsync(&self, kind: CodecKind, category: CodecCategory, subType: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>;
+                fn FindAllAsync(&self, #[in] kind: CodecKind, #[in] category: CodecCategory, #[in] subType: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>;
             }
             #[guid(0xa66ac4f2_888b_4224_8cf6_2a8d4eb02382)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -484,7 +484,7 @@ mod Windows {
                 #[get]
                 MaxSupportedFrameCount: i32;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FuseAsync(&self, frameSet: super::super::Foundation::Collections::IIterable<super::super::Graphics::Imaging::SoftwareBitmap>) -> super::super::Foundation::IAsyncOperationWithProgress<LowLightFusionResult, f64>;
+                fn FuseAsync(&self, #[in] frameSet: super::super::Foundation::Collections::IIterable<super::super::Graphics::Imaging::SoftwareBitmap>) -> super::super::Foundation::IAsyncOperationWithProgress<LowLightFusionResult, f64>;
             }
             #[guid(0x2b7e40aa_de07_424f_83f1_f1de46c4fa2e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -503,22 +503,22 @@ mod Windows {
                 #[get]
                 MediaBinder: MediaBinder;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
-                fn SetUri(&self, uri: super::super::Foundation::Uri);
-                fn SetStream(&self, stream: super::super::Storage::Streams::IRandomAccessStream, contentType: String);
-                fn SetStreamReference(&self, stream: super::super::Storage::Streams::IRandomAccessStreamReference, contentType: String);
+                fn SetUri(&self, #[in] uri: super::super::Foundation::Uri);
+                fn SetStream(&self, #[in] stream: super::super::Storage::Streams::IRandomAccessStream, #[in] contentType: String);
+                fn SetStreamReference(&self, #[in] stream: super::super::Storage::Streams::IRandomAccessStreamReference, #[in] contentType: String);
             }
             #[guid(0x0464cceb_bb5a_482f_b8ba_f0284c696567)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaBindingEventArgs)]
             interface IMediaBindingEventArgs2 {
-                fn SetAdaptiveMediaSource(&self, mediaSource: super::Streaming::Adaptive::AdaptiveMediaSource);
-                fn SetStorageFile(&self, file: super::super::Storage::IStorageFile);
+                fn SetAdaptiveMediaSource(&self, #[in] mediaSource: super::Streaming::Adaptive::AdaptiveMediaSource);
+                fn SetStorageFile(&self, #[in] file: super::super::Storage::IStorageFile);
             }
             #[guid(0xf8eb475e_19be_44fc_a5ed_7aba315037f9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaBindingEventArgs)]
             interface IMediaBindingEventArgs3 {
-                fn SetDownloadOperation(&self, downloadOperation: super::super::Networking::BackgroundTransfer::DownloadOperation);
+                fn SetDownloadOperation(&self, #[in] downloadOperation: super::super::Networking::BackgroundTransfer::DownloadOperation);
             }
             #[guid(0xc7d15e5d_59dc_431f_a0ee_27744323b36d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -604,7 +604,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaSourceAppServiceConnection)]
             interface IMediaSourceAppServiceConnectionFactory {
-                fn Create(&self, appServiceConnection: super::super::ApplicationModel::AppService::AppServiceConnection) -> MediaSourceAppServiceConnection;
+                fn Create(&self, #[in] appServiceConnection: super::super::ApplicationModel::AppService::AppServiceConnection) -> MediaSourceAppServiceConnection;
             }
             #[guid(0x5c0a8965_37c5_4e9d_8d21_1cdee90cecc6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -633,32 +633,32 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             interface IMediaSourceStatics {
-                fn CreateFromAdaptiveMediaSource(&self, mediaSource: super::Streaming::Adaptive::AdaptiveMediaSource) -> MediaSource;
-                fn CreateFromMediaStreamSource(&self, mediaSource: MediaStreamSource) -> MediaSource;
-                fn CreateFromMseStreamSource(&self, mediaSource: MseStreamSource) -> MediaSource;
-                fn CreateFromIMediaSource(&self, mediaSource: IMediaSource) -> MediaSource;
-                fn CreateFromStorageFile(&self, file: super::super::Storage::IStorageFile) -> MediaSource;
-                fn CreateFromStream(&self, stream: super::super::Storage::Streams::IRandomAccessStream, contentType: String) -> MediaSource;
-                fn CreateFromStreamReference(&self, stream: super::super::Storage::Streams::IRandomAccessStreamReference, contentType: String) -> MediaSource;
-                fn CreateFromUri(&self, uri: super::super::Foundation::Uri) -> MediaSource;
+                fn CreateFromAdaptiveMediaSource(&self, #[in] mediaSource: super::Streaming::Adaptive::AdaptiveMediaSource) -> MediaSource;
+                fn CreateFromMediaStreamSource(&self, #[in] mediaSource: MediaStreamSource) -> MediaSource;
+                fn CreateFromMseStreamSource(&self, #[in] mediaSource: MseStreamSource) -> MediaSource;
+                fn CreateFromIMediaSource(&self, #[in] mediaSource: IMediaSource) -> MediaSource;
+                fn CreateFromStorageFile(&self, #[in] file: super::super::Storage::IStorageFile) -> MediaSource;
+                fn CreateFromStream(&self, #[in] stream: super::super::Storage::Streams::IRandomAccessStream, #[in] contentType: String) -> MediaSource;
+                fn CreateFromStreamReference(&self, #[in] stream: super::super::Storage::Streams::IRandomAccessStreamReference, #[in] contentType: String) -> MediaSource;
+                fn CreateFromUri(&self, #[in] uri: super::super::Foundation::Uri) -> MediaSource;
             }
             #[guid(0xeee161a4_7f13_4896_b8cb_df0de5bcb9f1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             interface IMediaSourceStatics2 {
-                fn CreateFromMediaBinder(&self, binder: MediaBinder) -> MediaSource;
+                fn CreateFromMediaBinder(&self, #[in] binder: MediaBinder) -> MediaSource;
             }
             #[guid(0x453a30d6_2bea_4122_9f73_eace04526e35)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             interface IMediaSourceStatics3 {
-                fn CreateFromMediaFrameSource(&self, frameSource: super::Capture::Frames::MediaFrameSource) -> MediaSource;
+                fn CreateFromMediaFrameSource(&self, #[in] frameSource: super::Capture::Frames::MediaFrameSource) -> MediaSource;
             }
             #[guid(0x281b3bfc_e50a_4428_a500_9c4ed918d3f0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             interface IMediaSourceStatics4 {
-                fn CreateFromDownloadOperation(&self, downloadOperation: super::super::Networking::BackgroundTransfer::DownloadOperation) -> MediaSource;
+                fn CreateFromDownloadOperation(&self, #[in] downloadOperation: super::super::Networking::BackgroundTransfer::DownloadOperation) -> MediaSource;
             }
             #[guid(0x80f16e6e_92f7_451e_97d2_afd80742da70)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -723,26 +723,26 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSampleProtectionProperties)]
             interface IMediaStreamSampleProtectionProperties {
-                fn SetKeyIdentifier(&self, value: [u8]);
-                fn GetKeyIdentifier(&self, value: &mut [u8]);
-                fn SetInitializationVector(&self, value: [u8]);
-                fn GetInitializationVector(&self, value: &mut [u8]);
-                fn SetSubSampleMapping(&self, value: [u8]);
-                fn GetSubSampleMapping(&self, value: &mut [u8]);
+                fn SetKeyIdentifier(&self, #[in] value: [u8]);
+                fn GetKeyIdentifier(&self, #[out] value: &mut [u8]);
+                fn SetInitializationVector(&self, #[in] value: [u8]);
+                fn GetInitializationVector(&self, #[out] value: &mut [u8]);
+                fn SetSubSampleMapping(&self, #[in] value: [u8]);
+                fn GetSubSampleMapping(&self, #[out] value: &mut [u8]);
             }
             #[guid(0xdfdf218f_a6cf_4579_be41_73dd941ad972)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSample)]
             interface IMediaStreamSampleStatics {
-                fn CreateFromBuffer(&self, buffer: super::super::Storage::Streams::IBuffer, timestamp: super::super::Foundation::TimeSpan) -> MediaStreamSample;
+                fn CreateFromBuffer(&self, #[in] buffer: super::super::Storage::Streams::IBuffer, #[in] timestamp: super::super::Foundation::TimeSpan) -> MediaStreamSample;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateFromStreamAsync(&self, stream: super::super::Storage::Streams::IInputStream, count: u32, timestamp: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<MediaStreamSample>;
+                fn CreateFromStreamAsync(&self, #[in] stream: super::super::Storage::Streams::IInputStream, #[in] count: u32, #[in] timestamp: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<MediaStreamSample>;
             }
             #[guid(0x9efe9521_6d46_494c_a2f8_d662922e2dd7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSample)]
             interface IMediaStreamSampleStatics2 {
-                fn CreateFromDirect3D11Surface(&self, surface: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, timestamp: super::super::Foundation::TimeSpan) -> MediaStreamSample;
+                fn CreateFromDirect3D11Surface(&self, #[in] surface: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, #[in] timestamp: super::super::Foundation::TimeSpan) -> MediaStreamSample;
             }
             #[guid(0x3712d543_45eb_4138_aa62_c01e26f3843f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -753,8 +753,8 @@ mod Windows {
                 event Paused: super::super::Foundation::TypedEventHandler<MediaStreamSource, Object>;
                 event SampleRequested: super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSampleRequestedEventArgs>;
                 event SwitchStreamsRequested: super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSwitchStreamsRequestedEventArgs>;
-                fn NotifyError(&self, errorStatus: MediaStreamSourceErrorStatus);
-                fn AddStreamDescriptor(&self, descriptor: IMediaStreamDescriptor);
+                fn NotifyError(&self, #[in] errorStatus: MediaStreamSourceErrorStatus);
+                fn AddStreamDescriptor(&self, #[in] descriptor: IMediaStreamDescriptor);
                 #[set]
                 MediaProtectionManager: super::Protection::MediaProtectionManager;
                 #[get]
@@ -771,7 +771,7 @@ mod Windows {
                 BufferTime: super::super::Foundation::TimeSpan;
                 #[get]
                 BufferTime: super::super::Foundation::TimeSpan;
-                fn SetBufferedRange(&self, startOffset: super::super::Foundation::TimeSpan, endOffset: super::super::Foundation::TimeSpan);
+                fn SetBufferedRange(&self, #[in] startOffset: super::super::Foundation::TimeSpan, #[in] endOffset: super::super::Foundation::TimeSpan);
                 #[get]
                 MusicProperties: super::super::Storage::FileProperties::MusicProperties;
                 #[get]
@@ -780,7 +780,7 @@ mod Windows {
                 Thumbnail: super::super::Storage::Streams::IRandomAccessStreamReference;
                 #[get]
                 Thumbnail: super::super::Storage::Streams::IRandomAccessStreamReference;
-                fn AddProtectionKey(&self, streamDescriptor: IMediaStreamDescriptor, keyIdentifier: [u8], licenseData: [u8]);
+                fn AddProtectionKey(&self, #[in] streamDescriptor: IMediaStreamDescriptor, #[in] keyIdentifier: [u8], #[in] licenseData: [u8]);
             }
             #[guid(0xec55d0ad_2e6a_4f74_adbb_b562d1533849)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -824,8 +824,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSource)]
             interface IMediaStreamSourceFactory {
-                fn CreateFromDescriptor(&self, descriptor: IMediaStreamDescriptor) -> MediaStreamSource;
-                fn CreateFromDescriptors(&self, descriptor: IMediaStreamDescriptor, descriptor2: IMediaStreamDescriptor) -> MediaStreamSource;
+                fn CreateFromDescriptor(&self, #[in] descriptor: IMediaStreamDescriptor) -> MediaStreamSource;
+                fn CreateFromDescriptors(&self, #[in] descriptor: IMediaStreamDescriptor, #[in] descriptor2: IMediaStreamDescriptor) -> MediaStreamSource;
             }
             #[guid(0x9d697b05_d4f2_4c7a_9dfe_8d6cd0b3ee84)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -845,7 +845,7 @@ mod Windows {
                 Sample: MediaStreamSample;
                 #[get]
                 Sample: MediaStreamSample;
-                fn ReportSampleProgress(&self, progress: u32);
+                fn ReportSampleProgress(&self, #[in] progress: u32);
             }
             #[guid(0x7895cc02_f982_43c8_9d16_c62d999319be)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -874,7 +874,7 @@ mod Windows {
                 #[get]
                 StartPosition: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
                 fn GetDeferral(&self) -> MediaStreamSourceStartingRequestDeferral;
-                fn SetActualStartPosition(&self, position: super::super::Foundation::TimeSpan);
+                fn SetActualStartPosition(&self, #[in] position: super::super::Foundation::TimeSpan);
             }
             #[guid(0x3f1356a5_6340_4dc4_9910_068ed9f598f8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -937,13 +937,13 @@ mod Windows {
                 TimestampOffset: super::super::Foundation::TimeSpan;
                 AppendWindowStart: super::super::Foundation::TimeSpan;
                 AppendWindowEnd: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
-                fn AppendBuffer(&self, buffer: super::super::Storage::Streams::IBuffer);
+                fn AppendBuffer(&self, #[in] buffer: super::super::Storage::Streams::IBuffer);
                 #[Windows::Foundation::Metadata::Overload("AppendStream")]
-                fn AppendStream(&self, stream: super::super::Storage::Streams::IInputStream);
+                fn AppendStream(&self, #[in] stream: super::super::Storage::Streams::IInputStream);
                 #[Windows::Foundation::Metadata::Overload("AppendStreamMaxSize")]
-                fn AppendStream(&self, stream: super::super::Storage::Streams::IInputStream, maxSize: u64);
+                fn AppendStream(&self, #[in] stream: super::super::Storage::Streams::IInputStream, #[in] maxSize: u64);
                 fn Abort(&self);
-                fn Remove(&self, start: super::super::Foundation::TimeSpan, end: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>);
+                fn Remove(&self, #[in] start: super::super::Foundation::TimeSpan, #[in] end: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>);
             }
             #[guid(0x95fae8e7_a8e7_4ebf_8927_145e940ba511)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -970,9 +970,9 @@ mod Windows {
                 #[get]
                 ReadyState: MseReadyState;
                 Duration: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
-                fn AddSourceBuffer(&self, mimeType: String) -> MseSourceBuffer;
-                fn RemoveSourceBuffer(&self, buffer: MseSourceBuffer);
-                fn EndOfStream(&self, status: MseEndOfStreamStatus);
+                fn AddSourceBuffer(&self, #[in] mimeType: String) -> MseSourceBuffer;
+                fn RemoveSourceBuffer(&self, #[in] buffer: MseSourceBuffer);
+                fn EndOfStream(&self, #[in] status: MseEndOfStreamStatus);
             }
             #[guid(0x66f57d37_f9e7_418a_9cde_a020e956552b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -986,7 +986,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(MseStreamSource)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IMseStreamSourceStatics {
-                fn IsContentTypeSupported(&self, contentType: String) -> bool;
+                fn IsContentTypeSupported(&self, #[in] contentType: String) -> bool;
             }
             #[guid(0xc04ba319_ca41_4813_bffd_7b08b0ed2557)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1052,7 +1052,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataStreamDescriptor)]
             interface ITimedMetadataStreamDescriptorFactory {
-                fn Create(&self, encodingProperties: super::MediaProperties::TimedMetadataEncodingProperties) -> TimedMetadataStreamDescriptor;
+                fn Create(&self, #[in] encodingProperties: super::MediaProperties::TimedMetadataEncodingProperties) -> TimedMetadataStreamDescriptor;
             }
             #[guid(0x9e6aed9e_f67a_49a9_b330_cf03b0e9cf07)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1069,8 +1069,8 @@ mod Windows {
                 TimedMetadataKind: TimedMetadataKind;
                 #[get]
                 DispatchType: String;
-                fn AddCue(&self, cue: IMediaCue);
-                fn RemoveCue(&self, cue: IMediaCue);
+                fn AddCue(&self, #[in] cue: IMediaCue);
+                fn RemoveCue(&self, #[in] cue: IMediaCue);
             }
             #[guid(0x21b4b648_9f9d_40ba_a8f3_1a92753aef0b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -1094,7 +1094,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataTrack)]
             interface ITimedMetadataTrackFactory {
-                fn Create(&self, id: String, language: String, kind: TimedMetadataKind) -> TimedMetadataTrack;
+                fn Create(&self, #[in] id: String, #[in] language: String, #[in] kind: TimedMetadataKind) -> TimedMetadataTrack;
             }
             #[guid(0xa57fc9d1_6789_4d4d_b07f_84b4f31acb70)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1180,26 +1180,26 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextSource)]
             interface ITimedTextSourceStatics {
                 #[Windows::Foundation::Metadata::Overload("CreateFromStream")]
-                fn CreateFromStream(&self, stream: super::super::Storage::Streams::IRandomAccessStream) -> TimedTextSource;
+                fn CreateFromStream(&self, #[in] stream: super::super::Storage::Streams::IRandomAccessStream) -> TimedTextSource;
                 #[Windows::Foundation::Metadata::Overload("CreateFromUri")]
-                fn CreateFromUri(&self, uri: super::super::Foundation::Uri) -> TimedTextSource;
+                fn CreateFromUri(&self, #[in] uri: super::super::Foundation::Uri) -> TimedTextSource;
                 #[Windows::Foundation::Metadata::Overload("CreateFromStreamWithLanguage")]
-                fn CreateFromStream(&self, stream: super::super::Storage::Streams::IRandomAccessStream, defaultLanguage: String) -> TimedTextSource;
+                fn CreateFromStream(&self, #[in] stream: super::super::Storage::Streams::IRandomAccessStream, #[in] defaultLanguage: String) -> TimedTextSource;
                 #[Windows::Foundation::Metadata::Overload("CreateFromUriWithLanguage")]
-                fn CreateFromUri(&self, uri: super::super::Foundation::Uri, defaultLanguage: String) -> TimedTextSource;
+                fn CreateFromUri(&self, #[in] uri: super::super::Foundation::Uri, #[in] defaultLanguage: String) -> TimedTextSource;
             }
             #[guid(0xb66b7602_923e_43fa_9633_587075812db5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextSource)]
             interface ITimedTextSourceStatics2 {
                 #[Windows::Foundation::Metadata::Overload("CreateFromStreamWithIndex")]
-                fn CreateFromStreamWithIndex(&self, stream: super::super::Storage::Streams::IRandomAccessStream, indexStream: super::super::Storage::Streams::IRandomAccessStream) -> TimedTextSource;
+                fn CreateFromStreamWithIndex(&self, #[in] stream: super::super::Storage::Streams::IRandomAccessStream, #[in] indexStream: super::super::Storage::Streams::IRandomAccessStream) -> TimedTextSource;
                 #[Windows::Foundation::Metadata::Overload("CreateFromUriWithIndex")]
-                fn CreateFromUriWithIndex(&self, uri: super::super::Foundation::Uri, indexUri: super::super::Foundation::Uri) -> TimedTextSource;
+                fn CreateFromUriWithIndex(&self, #[in] uri: super::super::Foundation::Uri, #[in] indexUri: super::super::Foundation::Uri) -> TimedTextSource;
                 #[Windows::Foundation::Metadata::Overload("CreateFromStreamWithIndexAndLanguage")]
-                fn CreateFromStreamWithIndex(&self, stream: super::super::Storage::Streams::IRandomAccessStream, indexStream: super::super::Storage::Streams::IRandomAccessStream, defaultLanguage: String) -> TimedTextSource;
+                fn CreateFromStreamWithIndex(&self, #[in] stream: super::super::Storage::Streams::IRandomAccessStream, #[in] indexStream: super::super::Storage::Streams::IRandomAccessStream, #[in] defaultLanguage: String) -> TimedTextSource;
                 #[Windows::Foundation::Metadata::Overload("CreateFromUriWithIndexAndLanguage")]
-                fn CreateFromUriWithIndex(&self, uri: super::super::Foundation::Uri, indexUri: super::super::Foundation::Uri, defaultLanguage: String) -> TimedTextSource;
+                fn CreateFromUriWithIndex(&self, #[in] uri: super::super::Foundation::Uri, #[in] indexUri: super::super::Foundation::Uri, #[in] defaultLanguage: String) -> TimedTextSource;
             }
             #[guid(0x1bb2384d_a825_40c2_a7f5_281eaedf3b55)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1255,7 +1255,7 @@ mod Windows {
                 #[get]
                 Enabled: bool;
                 event EnabledChanged: super::super::Foundation::TypedEventHandler<VideoStabilizationEffect, VideoStabilizationEffectEnabledChangedEventArgs>;
-                fn GetRecommendedStreamConfiguration(&self, controller: super::Devices::VideoDeviceController, desiredProperties: super::MediaProperties::VideoEncodingProperties) -> super::Capture::VideoStreamConfiguration;
+                fn GetRecommendedStreamConfiguration(&self, #[in] controller: super::Devices::VideoDeviceController, #[in] desiredProperties: super::MediaProperties::VideoEncodingProperties) -> super::Capture::VideoStreamConfiguration;
             }
             #[guid(0x187eff28_67bb_4713_b900_4168da164529)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1281,7 +1281,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VideoStreamDescriptor)]
             interface IVideoStreamDescriptorFactory {
-                fn Create(&self, encodingProperties: super::MediaProperties::VideoEncodingProperties) -> VideoStreamDescriptor;
+                fn Create(&self, #[in] encodingProperties: super::MediaProperties::VideoEncodingProperties) -> VideoStreamDescriptor;
             }
             #[guid(0x99f3b7f3_e298_4396_bb6a_a51be6a2a20a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]

@@ -100,11 +100,11 @@ mod Windows {
                     interface ICoreDragOperation {
                         #[get]
                         Data: super::super::DataPackage;
-                        fn SetPointerId(&self, pointerId: u32);
+                        fn SetPointerId(&self, #[in] pointerId: u32);
                         #[Windows::Foundation::Metadata::Overload("SetDragUIContentFromSoftwareBitmap")]
-                        fn SetDragUIContentFromSoftwareBitmap(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap);
+                        fn SetDragUIContentFromSoftwareBitmap(&self, #[in] softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap);
                         #[Windows::Foundation::Metadata::Overload("SetDragUIContentFromSoftwareBitmapWithAnchorPoint")]
-                        fn SetDragUIContentFromSoftwareBitmap(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap, anchorPoint: super::super::super::super::Foundation::Point);
+                        fn SetDragUIContentFromSoftwareBitmap(&self, #[in] softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap, #[in] anchorPoint: super::super::super::super::Foundation::Point);
                         DragUIContentMode: CoreDragUIContentMode;
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn StartAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>;
@@ -121,9 +121,9 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ICoreDragUIOverride {
                         #[Windows::Foundation::Metadata::Overload("SetContentFromSoftwareBitmap")]
-                        fn SetContentFromSoftwareBitmap(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap);
+                        fn SetContentFromSoftwareBitmap(&self, #[in] softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap);
                         #[Windows::Foundation::Metadata::Overload("SetContentFromSoftwareBitmapWithAnchorPoint")]
-                        fn SetContentFromSoftwareBitmap(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap, anchorPoint: super::super::super::super::Foundation::Point);
+                        fn SetContentFromSoftwareBitmap(&self, #[in] softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap, #[in] anchorPoint: super::super::super::super::Foundation::Point);
                         IsContentVisible: bool;
                         Caption: String;
                         IsCaptionVisible: bool;
@@ -135,20 +135,20 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ICoreDropOperationTarget {
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn EnterAsync(&self, dragInfo: CoreDragInfo, dragUIOverride: CoreDragUIOverride) -> super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>;
+                        fn EnterAsync(&self, #[in] dragInfo: CoreDragInfo, #[in] dragUIOverride: CoreDragUIOverride) -> super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn OverAsync(&self, dragInfo: CoreDragInfo, dragUIOverride: CoreDragUIOverride) -> super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>;
+                        fn OverAsync(&self, #[in] dragInfo: CoreDragInfo, #[in] dragUIOverride: CoreDragUIOverride) -> super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn LeaveAsync(&self, dragInfo: CoreDragInfo) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn LeaveAsync(&self, #[in] dragInfo: CoreDragInfo) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn DropAsync(&self, dragInfo: CoreDragInfo) -> super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>;
+                        fn DropAsync(&self, #[in] dragInfo: CoreDragInfo) -> super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>;
                     }
                     #[guid(0x2aca929a_5e28_4ea6_829e_29134e665d6d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(CoreDropOperationTargetRequestedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ICoreDropOperationTargetRequestedEventArgs {
-                        fn SetTarget(&self, target: ICoreDropOperationTarget);
+                        fn SetTarget(&self, #[in] target: ICoreDropOperationTarget);
                     }
                 }
             }

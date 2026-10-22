@@ -6,9 +6,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(IppAttributeConverter)]
             interface IIppAttributeConverterStatics {
-                fn ConvertPrintTicketToIppAttributesForPrinter(&self, printerName: String, printTicket: super::super::Graphics::Printing::PrintTicket::WorkflowPrintTicket, targetPdlFormat: String) -> super::super::Foundation::Collections::IMap<IppAttributeGroupKind, super::super::Foundation::Collections::IMap<String, IppAttributeValue>>;
-                fn ConvertBufferToIppAttributes(&self, attributesBuffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::Collections::IMap<String, IppAttributeValue>;
-                fn ConvertIppAttributesToBuffer(&self, attributes: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, IppAttributeValue>>, attributeGroupKind: IppAttributeGroupKind) -> super::super::Storage::Streams::IBuffer;
+                fn ConvertPrintTicketToIppAttributesForPrinter(&self, #[in] printerName: String, #[in] printTicket: super::super::Graphics::Printing::PrintTicket::WorkflowPrintTicket, #[in] targetPdlFormat: String) -> super::super::Foundation::Collections::IMap<IppAttributeGroupKind, super::super::Foundation::Collections::IMap<String, IppAttributeValue>>;
+                fn ConvertBufferToIppAttributes(&self, #[in] attributesBuffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::Collections::IMap<String, IppAttributeValue>;
+                fn ConvertIppAttributesToBuffer(&self, #[in] attributes: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, IppAttributeValue>>, #[in] attributeGroupKind: IppAttributeGroupKind) -> super::super::Storage::Streams::IBuffer;
             }
             #[guid(0x750feda1_9eef_5c39_93e4_46149bbcef27)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
@@ -52,42 +52,42 @@ mod Windows {
                 fn CreateUnsupported(&self) -> IppAttributeValue;
                 fn CreateUnknown(&self) -> IppAttributeValue;
                 fn CreateNoValue(&self) -> IppAttributeValue;
-                fn CreateInteger(&self, value: i32) -> IppAttributeValue;
-                fn CreateIntegerArray(&self, values: super::super::Foundation::Collections::IIterable<i32>) -> IppAttributeValue;
-                fn CreateBoolean(&self, value: bool) -> IppAttributeValue;
-                fn CreateBooleanArray(&self, values: super::super::Foundation::Collections::IIterable<bool>) -> IppAttributeValue;
-                fn CreateEnum(&self, value: i32) -> IppAttributeValue;
-                fn CreateEnumArray(&self, values: super::super::Foundation::Collections::IIterable<i32>) -> IppAttributeValue;
-                fn CreateOctetString(&self, value: super::super::Storage::Streams::IBuffer) -> IppAttributeValue;
-                fn CreateOctetStringArray(&self, values: super::super::Foundation::Collections::IIterable<super::super::Storage::Streams::IBuffer>) -> IppAttributeValue;
-                fn CreateDateTime(&self, value: super::super::Foundation::DateTime) -> IppAttributeValue;
-                fn CreateDateTimeArray(&self, values: super::super::Foundation::Collections::IIterable<super::super::Foundation::DateTime>) -> IppAttributeValue;
-                fn CreateResolution(&self, value: IppResolution) -> IppAttributeValue;
-                fn CreateResolutionArray(&self, values: super::super::Foundation::Collections::IIterable<IppResolution>) -> IppAttributeValue;
-                fn CreateRangeOfInteger(&self, value: IppIntegerRange) -> IppAttributeValue;
-                fn CreateRangeOfIntegerArray(&self, values: super::super::Foundation::Collections::IIterable<IppIntegerRange>) -> IppAttributeValue;
-                fn CreateCollection(&self, memberAttributes: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, IppAttributeValue>>) -> IppAttributeValue;
-                fn CreateCollectionArray(&self, memberAttributesArray: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, IppAttributeValue>>>) -> IppAttributeValue;
-                fn CreateTextWithLanguage(&self, value: IppTextWithLanguage) -> IppAttributeValue;
-                fn CreateTextWithLanguageArray(&self, values: super::super::Foundation::Collections::IIterable<IppTextWithLanguage>) -> IppAttributeValue;
-                fn CreateNameWithLanguage(&self, value: IppTextWithLanguage) -> IppAttributeValue;
-                fn CreateNameWithLanguageArray(&self, values: super::super::Foundation::Collections::IIterable<IppTextWithLanguage>) -> IppAttributeValue;
-                fn CreateTextWithoutLanguage(&self, value: String) -> IppAttributeValue;
-                fn CreateTextWithoutLanguageArray(&self, values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
-                fn CreateNameWithoutLanguage(&self, value: String) -> IppAttributeValue;
-                fn CreateNameWithoutLanguageArray(&self, values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
-                fn CreateKeyword(&self, value: String) -> IppAttributeValue;
-                fn CreateKeywordArray(&self, values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
-                fn CreateUri(&self, value: super::super::Foundation::Uri) -> IppAttributeValue;
-                fn CreateUriArray(&self, values: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>) -> IppAttributeValue;
-                fn CreateUriSchema(&self, value: String) -> IppAttributeValue;
-                fn CreateUriSchemaArray(&self, values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
-                fn CreateCharset(&self, value: String) -> IppAttributeValue;
-                fn CreateCharsetArray(&self, values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
-                fn CreateNaturalLanguage(&self, value: String) -> IppAttributeValue;
-                fn CreateNaturalLanguageArray(&self, values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
-                fn CreateMimeMedia(&self, value: String) -> IppAttributeValue;
-                fn CreateMimeMediaArray(&self, values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
+                fn CreateInteger(&self, #[in] value: i32) -> IppAttributeValue;
+                fn CreateIntegerArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<i32>) -> IppAttributeValue;
+                fn CreateBoolean(&self, #[in] value: bool) -> IppAttributeValue;
+                fn CreateBooleanArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<bool>) -> IppAttributeValue;
+                fn CreateEnum(&self, #[in] value: i32) -> IppAttributeValue;
+                fn CreateEnumArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<i32>) -> IppAttributeValue;
+                fn CreateOctetString(&self, #[in] value: super::super::Storage::Streams::IBuffer) -> IppAttributeValue;
+                fn CreateOctetStringArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<super::super::Storage::Streams::IBuffer>) -> IppAttributeValue;
+                fn CreateDateTime(&self, #[in] value: super::super::Foundation::DateTime) -> IppAttributeValue;
+                fn CreateDateTimeArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<super::super::Foundation::DateTime>) -> IppAttributeValue;
+                fn CreateResolution(&self, #[in] value: IppResolution) -> IppAttributeValue;
+                fn CreateResolutionArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<IppResolution>) -> IppAttributeValue;
+                fn CreateRangeOfInteger(&self, #[in] value: IppIntegerRange) -> IppAttributeValue;
+                fn CreateRangeOfIntegerArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<IppIntegerRange>) -> IppAttributeValue;
+                fn CreateCollection(&self, #[in] memberAttributes: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, IppAttributeValue>>) -> IppAttributeValue;
+                fn CreateCollectionArray(&self, #[in] memberAttributesArray: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, IppAttributeValue>>>) -> IppAttributeValue;
+                fn CreateTextWithLanguage(&self, #[in] value: IppTextWithLanguage) -> IppAttributeValue;
+                fn CreateTextWithLanguageArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<IppTextWithLanguage>) -> IppAttributeValue;
+                fn CreateNameWithLanguage(&self, #[in] value: IppTextWithLanguage) -> IppAttributeValue;
+                fn CreateNameWithLanguageArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<IppTextWithLanguage>) -> IppAttributeValue;
+                fn CreateTextWithoutLanguage(&self, #[in] value: String) -> IppAttributeValue;
+                fn CreateTextWithoutLanguageArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
+                fn CreateNameWithoutLanguage(&self, #[in] value: String) -> IppAttributeValue;
+                fn CreateNameWithoutLanguageArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
+                fn CreateKeyword(&self, #[in] value: String) -> IppAttributeValue;
+                fn CreateKeywordArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
+                fn CreateUri(&self, #[in] value: super::super::Foundation::Uri) -> IppAttributeValue;
+                fn CreateUriArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>) -> IppAttributeValue;
+                fn CreateUriSchema(&self, #[in] value: String) -> IppAttributeValue;
+                fn CreateUriSchemaArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
+                fn CreateCharset(&self, #[in] value: String) -> IppAttributeValue;
+                fn CreateCharsetArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
+                fn CreateNaturalLanguage(&self, #[in] value: String) -> IppAttributeValue;
+                fn CreateNaturalLanguageArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
+                fn CreateMimeMedia(&self, #[in] value: String) -> IppAttributeValue;
+                fn CreateMimeMediaArray(&self, #[in] values: super::super::Foundation::Collections::IIterable<String>) -> IppAttributeValue;
             }
             #[guid(0x92907346_c3ea_5ed6_bdb1_3752c62c6f7f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
@@ -102,7 +102,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(IppIntegerRange)]
             interface IIppIntegerRangeFactory {
-                fn CreateInstance(&self, start: i32, end: i32) -> IppIntegerRange;
+                fn CreateInstance(&self, #[in] start: i32, #[in] end: i32) -> IppIntegerRange;
             }
             #[guid(0xd748ac56_76f3_5dc6_afd4_c2a8686b9359)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
@@ -112,10 +112,10 @@ mod Windows {
                 PrinterName: String;
                 #[get]
                 PrinterUri: super::super::Foundation::Uri;
-                fn GetPrinterAttributesAsBuffer(&self, attributeNames: super::super::Foundation::Collections::IIterable<String>) -> super::super::Storage::Streams::IBuffer;
-                fn GetPrinterAttributes(&self, attributeNames: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::Collections::IMap<String, IppAttributeValue>;
-                fn SetPrinterAttributesFromBuffer(&self, printerAttributesBuffer: super::super::Storage::Streams::IBuffer) -> IppSetAttributesResult;
-                fn SetPrinterAttributes(&self, printerAttributes: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, IppAttributeValue>>) -> IppSetAttributesResult;
+                fn GetPrinterAttributesAsBuffer(&self, #[in] attributeNames: super::super::Foundation::Collections::IIterable<String>) -> super::super::Storage::Streams::IBuffer;
+                fn GetPrinterAttributes(&self, #[in] attributeNames: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::Collections::IMap<String, IppAttributeValue>;
+                fn SetPrinterAttributesFromBuffer(&self, #[in] printerAttributesBuffer: super::super::Storage::Streams::IBuffer) -> IppSetAttributesResult;
+                fn SetPrinterAttributes(&self, #[in] printerAttributes: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, IppAttributeValue>>) -> IppSetAttributesResult;
             }
             #[guid(0xf7c844c9_9d21_5c63_ac20_3676915be2d7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -123,7 +123,7 @@ mod Windows {
             interface IIppPrintDevice2 {
                 fn GetMaxSupportedPdfSize(&self) -> u64;
                 fn GetMaxSupportedPdfVersion(&self) -> String;
-                fn IsPdlPassthroughSupported(&self, pdlContentType: String) -> bool;
+                fn IsPdlPassthroughSupported(&self, #[in] pdlContentType: String) -> bool;
                 fn GetPdlPassthroughProvider(&self) -> PdlPassthroughProvider;
             }
             #[guid(0xb6258f6d_a46d_5e37_80ce_5f69d5544712)]
@@ -143,14 +143,14 @@ mod Windows {
                 CanModifyUserDefaultPrintTicket: bool;
                 UserDefaultPrintTicket: super::super::Graphics::Printing::PrintTicket::WorkflowPrintTicket;
                 fn RefreshPrintDeviceCapabilities(&self);
-                fn GetMaxSupportedPdlVersion(&self, pdlContentType: String) -> String;
+                fn GetMaxSupportedPdlVersion(&self, #[in] pdlContentType: String) -> String;
             }
             #[guid(0xea927fca_e073_5db4_9aee_13df714e853a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(IppPrintDevice)]
             interface IIppPrintDevice5 {
                 fn GetDeviceProperties(&self) -> super::super::Foundation::Collections::ValueSet;
-                fn ReplaceDeviceProperties(&self, deviceProperties: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, Object>>) -> ReplaceDevicePropertiesResult;
+                fn ReplaceDeviceProperties(&self, #[in] deviceProperties: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, Object>>) -> ReplaceDevicePropertiesResult;
             }
             #[guid(0xfb102fcc_87be_57ff_a086_92272148a256)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
@@ -171,16 +171,16 @@ mod Windows {
             interface IIppPrintDeviceManagerStatics {
                 fn CanInstallIppPrintDevice(&self) -> bool;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn InstallIppPrintDeviceAsync(&self, printerUri: super::super::Foundation::Uri, printerName: String) -> super::super::Foundation::IAsyncOperation<IppPrintDeviceInstallationResult>;
+                fn InstallIppPrintDeviceAsync(&self, #[in] printerUri: super::super::Foundation::Uri, #[in] printerName: String) -> super::super::Foundation::IAsyncOperation<IppPrintDeviceInstallationResult>;
             }
             #[guid(0x7dc19f08_7f20_52ab_94a7_894b83b2a17e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(IppPrintDevice)]
             interface IIppPrintDeviceStatics {
                 fn GetDeviceSelector(&self) -> String;
-                fn FromId(&self, deviceId: String) -> IppPrintDevice;
-                fn FromPrinterName(&self, printerName: String) -> IppPrintDevice;
-                fn IsIppPrinter(&self, printerName: String) -> bool;
+                fn FromId(&self, #[in] deviceId: String) -> IppPrintDevice;
+                fn FromPrinterName(&self, #[in] printerName: String) -> IppPrintDevice;
+                fn IsIppPrinter(&self, #[in] printerName: String) -> bool;
             }
             #[guid(0xcb493f86_6bf3_56f5_86ce_263d08aead63)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
@@ -197,7 +197,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(IppResolution)]
             interface IIppResolutionFactory {
-                fn CreateInstance(&self, width: i32, height: i32, unit: IppResolutionUnit) -> IppResolution;
+                fn CreateInstance(&self, #[in] width: i32, #[in] height: i32, #[in] unit: IppResolutionUnit) -> IppResolution;
             }
             #[guid(0x7d1c7f55_aa9d_58a3_90e9_17bdc5281f07)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
@@ -221,7 +221,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(IppTextWithLanguage)]
             interface IIppTextWithLanguageFactory {
-                fn CreateInstance(&self, language: String, text: String) -> IppTextWithLanguage;
+                fn CreateInstance(&self, #[in] language: String, #[in] text: String) -> IppTextWithLanguage;
             }
             #[guid(0xb6fc1e02_5331_54ff_95a0_1fcb76bb97a9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -236,8 +236,8 @@ mod Windows {
             interface IPdlPassthroughProvider {
                 #[get]
                 SupportedPdlContentTypes: super::super::Foundation::Collections::IVectorView<String>;
-                fn StartPrintJobWithTaskOptions(&self, jobName: String, pdlContentType: String, taskOptions: super::super::Graphics::Printing::PrintTaskOptions, pageConfigurationSettings: PageConfigurationSettings) -> PdlPassthroughTarget;
-                fn StartPrintJobWithPrintTicket(&self, jobName: String, pdlContentType: String, printTicket: super::super::Storage::Streams::IInputStream, pageConfigurationSettings: PageConfigurationSettings) -> PdlPassthroughTarget;
+                fn StartPrintJobWithTaskOptions(&self, #[in] jobName: String, #[in] pdlContentType: String, #[in] taskOptions: super::super::Graphics::Printing::PrintTaskOptions, #[in] pageConfigurationSettings: PageConfigurationSettings) -> PdlPassthroughTarget;
+                fn StartPrintJobWithPrintTicket(&self, #[in] jobName: String, #[in] pdlContentType: String, #[in] printTicket: super::super::Storage::Streams::IInputStream, #[in] pageConfigurationSettings: PageConfigurationSettings) -> PdlPassthroughTarget;
             }
             #[guid(0x7330305c_a17d_52ec_a129_9a4ff9c8f655)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
@@ -245,7 +245,7 @@ mod Windows {
             interface IPdlPassthroughProvider2 {
                 #[get]
                 IsPassthroughWithJobAttributesSupported: bool;
-                fn StartPrintJobWithIppJobAttributes(&self, jobName: String, pdlContentType: String, jobAttributes: super::super::Storage::Streams::IBuffer, operationAttributes: super::super::Storage::Streams::IBuffer) -> PdlPassthroughTarget;
+                fn StartPrintJobWithIppJobAttributes(&self, #[in] jobName: String, #[in] pdlContentType: String, #[in] jobAttributes: super::super::Storage::Streams::IBuffer, #[in] operationAttributes: super::super::Storage::Streams::IBuffer) -> PdlPassthroughTarget;
             }
             #[guid(0x9840be79_67f8_5385_a5b9_e8c96e0fca76)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -268,7 +268,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Print3DDevice)]
             interface IPrint3DDeviceStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Print3DDevice>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<Print3DDevice>;
                 fn GetDeviceSelector(&self) -> String;
             }
             #[guid(0xc2b98316_26b8_4bfb_8138_9f962c22a35b)]
@@ -278,9 +278,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultPrintTicketAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetCapabilitiesAsync(&self, constrainTicket: super::super::Storage::Streams::IRandomAccessStreamWithContentType) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
+                fn GetCapabilitiesAsync(&self, #[in] constrainTicket: super::super::Storage::Streams::IRandomAccessStreamWithContentType) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn MergeAndValidateWithDefaultPrintTicketAsync(&self, deltaTicket: super::super::Storage::Streams::IRandomAccessStreamWithContentType) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
+                fn MergeAndValidateWithDefaultPrintTicketAsync(&self, #[in] deltaTicket: super::super::Storage::Streams::IRandomAccessStreamWithContentType) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
             }
             #[guid(0x12feca4b_d973_57e1_826b_f75b9518a9f1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
@@ -321,24 +321,24 @@ mod Windows {
             interface IVirtualPrinterManagerStatics {
                 #[Windows::Foundation::Metadata::Overload("InstallVirtualPrinterAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn InstallVirtualPrinterAsync(&self, parameters: VirtualPrinterInstallationParameters) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
+                fn InstallVirtualPrinterAsync(&self, #[in] parameters: VirtualPrinterInstallationParameters) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
                 #[Windows::Foundation::Metadata::Overload("InstallVirtualPrinterAsync2")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn InstallVirtualPrinterAsync(&self, parameters: VirtualPrinterInstallationParameters, appPackageFamilyName: String) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
+                fn InstallVirtualPrinterAsync(&self, #[in] parameters: VirtualPrinterInstallationParameters, #[in] appPackageFamilyName: String) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
                 #[Windows::Foundation::Metadata::Overload("InstallVirtualPrinterForAllUsersAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn InstallVirtualPrinterForAllUsersAsync(&self, parameters: VirtualPrinterInstallationParameters) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
+                fn InstallVirtualPrinterForAllUsersAsync(&self, #[in] parameters: VirtualPrinterInstallationParameters) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
                 #[Windows::Foundation::Metadata::Overload("InstallVirtualPrinterForAllUsersAsync2")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn InstallVirtualPrinterForAllUsersAsync(&self, parameters: VirtualPrinterInstallationParameters, appPackageFamilyName: String) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
+                fn InstallVirtualPrinterForAllUsersAsync(&self, #[in] parameters: VirtualPrinterInstallationParameters, #[in] appPackageFamilyName: String) -> super::super::Foundation::IAsyncOperation<VirtualPrinterInstallationResult>;
                 #[Windows::Foundation::Metadata::Overload("FindAllVirtualPrinters")]
                 fn FindAllVirtualPrinters(&self) -> super::super::Foundation::Collections::IVectorView<String>;
                 #[Windows::Foundation::Metadata::Overload("FindAllVirtualPrinters2")]
-                fn FindAllVirtualPrinters(&self, appPackageFamilyName: String) -> super::super::Foundation::Collections::IVectorView<String>;
+                fn FindAllVirtualPrinters(&self, #[in] appPackageFamilyName: String) -> super::super::Foundation::Collections::IVectorView<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RemoveVirtualPrinterAsync(&self, printerName: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RemoveVirtualPrinterAsync(&self, #[in] printerName: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RemoveVirtualPrinterForAllUsersAsync(&self, printerName: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RemoveVirtualPrinterForAllUsersAsync(&self, #[in] printerName: String) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x3801fa17_22b5_5dab_ad38_39e47d6071af)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
@@ -351,7 +351,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VirtualPrinterSupportedFormat)]
             interface IVirtualPrinterSupportedFormatFactory {
-                fn CreateInstance(&self, contentType: String, maxSupportedVersion: String) -> VirtualPrinterSupportedFormat;
+                fn CreateInstance(&self, #[in] contentType: String, #[in] maxSupportedVersion: String) -> VirtualPrinterSupportedFormat;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

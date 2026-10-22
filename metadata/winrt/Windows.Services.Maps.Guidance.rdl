@@ -271,8 +271,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceNavigator)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IGuidanceNavigator {
-                    fn StartNavigating(&self, route: GuidanceRoute);
-                    fn StartSimulating(&self, route: GuidanceRoute, speedInMetersPerSecond: i32);
+                    fn StartNavigating(&self, #[in] route: GuidanceRoute);
+                    fn StartSimulating(&self, #[in] route: GuidanceRoute, #[in] speedInMetersPerSecond: i32);
                     fn StartTracking(&self);
                     fn Pause(&self);
                     fn Resume(&self);
@@ -287,11 +287,11 @@ mod Windows {
                     event RerouteFailed: super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, Object>;
                     event UserLocationLost: super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, Object>;
                     event UserLocationRestored: super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, Object>;
-                    fn SetGuidanceVoice(&self, voiceId: i32, voiceFolder: String);
+                    fn SetGuidanceVoice(&self, #[in] voiceId: i32, #[in] voiceFolder: String);
                     #[Windows::Foundation::Metadata::Overload("UpdateUserLocation")]
-                    fn UpdateUserLocation(&self, userLocation: super::super::super::Devices::Geolocation::Geocoordinate);
+                    fn UpdateUserLocation(&self, #[in] userLocation: super::super::super::Devices::Geolocation::Geocoordinate);
                     #[Windows::Foundation::Metadata::Overload("UpdateUserLocationWithPositionOverride")]
-                    fn UpdateUserLocation(&self, userLocation: super::super::super::Devices::Geolocation::Geocoordinate, positionOverride: super::super::super::Devices::Geolocation::BasicGeoposition);
+                    fn UpdateUserLocation(&self, #[in] userLocation: super::super::super::Devices::Geolocation::Geocoordinate, #[in] positionOverride: super::super::super::Devices::Geolocation::BasicGeoposition);
                 }
                 #[guid(0x6cdc50d1_041c_4bf3_b633_a101fc2f6b57)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 131072)]
@@ -396,8 +396,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceRoute)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IGuidanceRouteStatics {
-                    fn CanCreateFromMapRoute(&self, mapRoute: super::MapRoute) -> bool;
-                    fn TryCreateFromMapRoute(&self, mapRoute: super::MapRoute) -> GuidanceRoute;
+                    fn CanCreateFromMapRoute(&self, #[in] mapRoute: super::MapRoute) -> bool;
+                    fn TryCreateFromMapRoute(&self, #[in] mapRoute: super::MapRoute) -> GuidanceRoute;
                 }
                 #[guid(0xdb1f8da5_b878_4d92_98dd_347d23d38262)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]

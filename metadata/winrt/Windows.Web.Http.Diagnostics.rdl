@@ -146,7 +146,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HttpDiagnosticProvider)]
                 interface IHttpDiagnosticProviderStatics {
-                    fn CreateFromProcessDiagnosticInfo(&self, processDiagnosticInfo: super::super::super::System::Diagnostics::ProcessDiagnosticInfo) -> HttpDiagnosticProvider;
+                    fn CreateFromProcessDiagnosticInfo(&self, #[in] processDiagnosticInfo: super::super::super::System::Diagnostics::ProcessDiagnosticInfo) -> HttpDiagnosticProvider;
                 }
                 #[guid(0x54a9d260_8860_423f_b6fa_d77716f647a7)]
                 #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]

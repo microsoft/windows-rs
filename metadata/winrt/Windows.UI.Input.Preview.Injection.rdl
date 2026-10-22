@@ -21,7 +21,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(InjectedInputGamepadInfo)]
                     interface IInjectedInputGamepadInfoFactory {
                         #[Windows::Foundation::Metadata::Overload("CreateInstanceFromGamepadReading")]
-                        fn CreateInstance(&self, reading: super::super::super::super::Gaming::Input::GamepadReading) -> InjectedInputGamepadInfo;
+                        fn CreateInstance(&self, #[in] reading: super::super::super::super::Gaming::Input::GamepadReading) -> InjectedInputGamepadInfo;
                     }
                     #[guid(0x4b46d140_2b6a_5ffa_7eae_bd077b052acd)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -67,22 +67,22 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InputInjector)]
                     interface IInputInjector {
-                        fn InjectKeyboardInput(&self, input: super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>);
-                        fn InjectMouseInput(&self, input: super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>);
-                        fn InitializeTouchInjection(&self, visualMode: InjectedInputVisualizationMode);
-                        fn InjectTouchInput(&self, input: super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo>);
+                        fn InjectKeyboardInput(&self, #[in] input: super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>);
+                        fn InjectMouseInput(&self, #[in] input: super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>);
+                        fn InitializeTouchInjection(&self, #[in] visualMode: InjectedInputVisualizationMode);
+                        fn InjectTouchInput(&self, #[in] input: super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo>);
                         fn UninitializeTouchInjection(&self);
-                        fn InitializePenInjection(&self, visualMode: InjectedInputVisualizationMode);
-                        fn InjectPenInput(&self, input: InjectedInputPenInfo);
+                        fn InitializePenInjection(&self, #[in] visualMode: InjectedInputVisualizationMode);
+                        fn InjectPenInput(&self, #[in] input: InjectedInputPenInfo);
                         fn UninitializePenInjection(&self);
-                        fn InjectShortcut(&self, shortcut: InjectedInputShortcut);
+                        fn InjectShortcut(&self, #[in] shortcut: InjectedInputShortcut);
                     }
                     #[guid(0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(InputInjector)]
                     interface IInputInjector2: IInputInjector {
                         fn InitializeGamepadInjection(&self);
-                        fn InjectGamepadInput(&self, input: InjectedInputGamepadInfo);
+                        fn InjectGamepadInput(&self, #[in] input: InjectedInputGamepadInfo);
                         fn UninitializeGamepadInjection(&self);
                     }
                     #[guid(0xdeae6943_7402_4141_a5c6_0c01aa57b16a)]

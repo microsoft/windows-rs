@@ -31,13 +31,13 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
         interface IColorHelperStatics {
-            fn FromArgb(&self, a: u8, r: u8, g: u8, b: u8) -> Color;
+            fn FromArgb(&self, #[in] a: u8, #[in] r: u8, #[in] g: u8, #[in] b: u8) -> Color;
         }
         #[guid(0x24d9af02_6eb0_4b94_855c_fcf0818d9a16)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
         #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
         interface IColorHelperStatics2 {
-            fn ToDisplayName(&self, color: Color) -> String;
+            fn ToDisplayName(&self, #[in] color: Color) -> String;
         }
         #[guid(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]

@@ -85,7 +85,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastingUI)]
             interface IAppBroadcastingUIStatics {
                 fn GetDefault(&self) -> AppBroadcastingUI;
-                fn GetForUser(&self, user: super::super::System::User) -> AppBroadcastingUI;
+                fn GetForUser(&self, #[in] user: super::super::System::User) -> AppBroadcastingUI;
             }
         }
     }

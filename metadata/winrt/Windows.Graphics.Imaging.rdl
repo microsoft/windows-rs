@@ -161,7 +161,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapBuffer)]
             interface IBitmapBuffer: super::super::Foundation::IMemoryBuffer + super::super::Foundation::IClosable {
                 fn GetPlaneCount(&self) -> i32;
-                fn GetPlaneDescription(&self, index: i32) -> BitmapPlaneDescription;
+                fn GetPlaneDescription(&self, #[in] index: i32) -> BitmapPlaneDescription;
             }
             #[guid(0x400caaf2_c4b0_4392_a3b0_6f6f9ba95cb4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -189,7 +189,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetPreviewAsync(&self) -> super::super::Foundation::IAsyncOperation<ImageStream>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetFrameAsync(&self, frameIndex: u32) -> super::super::Foundation::IAsyncOperation<BitmapFrame>;
+                fn GetFrameAsync(&self, #[in] frameIndex: u32) -> super::super::Foundation::IAsyncOperation<BitmapFrame>;
             }
             #[guid(0x438ccb26_bcef_4e95_bad6_23a822e58d01)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -212,10 +212,10 @@ mod Windows {
                 fn GetDecoderInformationEnumerator(&self) -> super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>;
                 #[Windows::Foundation::Metadata::Overload("CreateAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAsync(&self, stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<BitmapDecoder>;
+                fn CreateAsync(&self, #[in] stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<BitmapDecoder>;
                 #[Windows::Foundation::Metadata::Overload("CreateWithIdAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAsync(&self, decoderId: GUID, stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<BitmapDecoder>;
+                fn CreateAsync(&self, #[in] decoderId: GUID, #[in] stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<BitmapDecoder>;
             }
             #[guid(0x50ba68ea_99a1_40c4_80d9_aef0dafa6c3f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
@@ -241,13 +241,13 @@ mod Windows {
                 GeneratedThumbnailHeight: u32;
                 #[get]
                 BitmapTransform: BitmapTransform;
-                fn SetPixelData(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode, width: u32, height: u32, dpiX: f64, dpiY: f64, #[Windows::Foundation::Metadata::Range(0, 2147483647)] pixels: [u8]);
+                fn SetPixelData(&self, #[in] pixelFormat: BitmapPixelFormat, #[in] alphaMode: BitmapAlphaMode, #[in] width: u32, #[in] height: u32, #[in] dpiX: f64, #[in] dpiY: f64, #[in] #[Windows::Foundation::Metadata::Range(0, 2147483647)] pixels: [u8]);
                 #[Windows::Foundation::Metadata::Overload("GoToNextFrameAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GoToNextFrameAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("GoToNextFrameWithEncodingOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GoToNextFrameAsync(&self, encodingOptions: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, BitmapTypedValue>>) -> super::super::Foundation::IAsyncAction;
+                fn GoToNextFrameAsync(&self, #[in] encodingOptions: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, BitmapTypedValue>>) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FlushAsync(&self) -> super::super::Foundation::IAsyncAction;
             }
@@ -270,14 +270,14 @@ mod Windows {
                 fn GetEncoderInformationEnumerator(&self) -> super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>;
                 #[Windows::Foundation::Metadata::Overload("CreateAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAsync(&self, encoderId: GUID, stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<BitmapEncoder>;
+                fn CreateAsync(&self, #[in] encoderId: GUID, #[in] stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<BitmapEncoder>;
                 #[Windows::Foundation::Metadata::Overload("CreateWithEncodingOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAsync(&self, encoderId: GUID, stream: super::super::Storage::Streams::IRandomAccessStream, encodingOptions: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, BitmapTypedValue>>) -> super::super::Foundation::IAsyncOperation<BitmapEncoder>;
+                fn CreateAsync(&self, #[in] encoderId: GUID, #[in] stream: super::super::Storage::Streams::IRandomAccessStream, #[in] encodingOptions: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, BitmapTypedValue>>) -> super::super::Foundation::IAsyncOperation<BitmapEncoder>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateForTranscodingAsync(&self, stream: super::super::Storage::Streams::IRandomAccessStream, bitmapDecoder: BitmapDecoder) -> super::super::Foundation::IAsyncOperation<BitmapEncoder>;
+                fn CreateForTranscodingAsync(&self, #[in] stream: super::super::Storage::Streams::IRandomAccessStream, #[in] bitmapDecoder: BitmapDecoder) -> super::super::Foundation::IAsyncOperation<BitmapEncoder>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateForInPlacePropertyEncodingAsync(&self, bitmapDecoder: BitmapDecoder) -> super::super::Foundation::IAsyncOperation<BitmapEncoder>;
+                fn CreateForInPlacePropertyEncodingAsync(&self, #[in] bitmapDecoder: BitmapDecoder) -> super::super::Foundation::IAsyncOperation<BitmapEncoder>;
             }
             #[guid(0x33cbc259_fe31_41b1_b812_086d21e87e16)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
@@ -290,7 +290,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapEncoder)]
             interface IBitmapEncoderWithSoftwareBitmap {
-                fn SetSoftwareBitmap(&self, bitmap: SoftwareBitmap);
+                fn SetSoftwareBitmap(&self, #[in] bitmap: SoftwareBitmap);
             }
             #[guid(0x72a49a1c_8081_438d_91bc_94ecfc8185c6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -320,7 +320,7 @@ mod Windows {
                 fn GetPixelDataAsync(&self) -> super::super::Foundation::IAsyncOperation<PixelDataProvider>;
                 #[Windows::Foundation::Metadata::Overload("GetPixelDataTransformedAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetPixelDataAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode, transform: BitmapTransform, exifOrientationMode: ExifOrientationMode, colorManagementMode: ColorManagementMode) -> super::super::Foundation::IAsyncOperation<PixelDataProvider>;
+                fn GetPixelDataAsync(&self, #[in] pixelFormat: BitmapPixelFormat, #[in] alphaMode: BitmapAlphaMode, #[in] transform: BitmapTransform, #[in] exifOrientationMode: ExifOrientationMode, #[in] colorManagementMode: ColorManagementMode) -> super::super::Foundation::IAsyncOperation<PixelDataProvider>;
             }
             #[guid(0xfe287c9a_420c_4963_87ad_691436e08383)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -330,23 +330,23 @@ mod Windows {
                 fn GetSoftwareBitmapAsync(&self) -> super::super::Foundation::IAsyncOperation<SoftwareBitmap>;
                 #[Windows::Foundation::Metadata::Overload("GetSoftwareBitmapConvertedAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetSoftwareBitmapAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode) -> super::super::Foundation::IAsyncOperation<SoftwareBitmap>;
+                fn GetSoftwareBitmapAsync(&self, #[in] pixelFormat: BitmapPixelFormat, #[in] alphaMode: BitmapAlphaMode) -> super::super::Foundation::IAsyncOperation<SoftwareBitmap>;
                 #[Windows::Foundation::Metadata::Overload("GetSoftwareBitmapTransformedAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetSoftwareBitmapAsync(&self, pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode, transform: BitmapTransform, exifOrientationMode: ExifOrientationMode, colorManagementMode: ColorManagementMode) -> super::super::Foundation::IAsyncOperation<SoftwareBitmap>;
+                fn GetSoftwareBitmapAsync(&self, #[in] pixelFormat: BitmapPixelFormat, #[in] alphaMode: BitmapAlphaMode, #[in] transform: BitmapTransform, #[in] exifOrientationMode: ExifOrientationMode, #[in] colorManagementMode: ColorManagementMode) -> super::super::Foundation::IAsyncOperation<SoftwareBitmap>;
             }
             #[guid(0xea9f4f1b_b505_4450_a4d1_e8ca94529d8d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapProperties)]
             interface IBitmapProperties: IBitmapPropertiesView {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetPropertiesAsync(&self, propertiesToSet: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, BitmapTypedValue>>) -> super::super::Foundation::IAsyncAction;
+                fn SetPropertiesAsync(&self, #[in] propertiesToSet: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, BitmapTypedValue>>) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x7e0fe87a_3a70_48f8_9c55_196cf5a545f5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IBitmapPropertiesView {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetPropertiesAsync(&self, propertiesToRetrieve: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<BitmapPropertySet>;
+                fn GetPropertiesAsync(&self, #[in] propertiesToRetrieve: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<BitmapPropertySet>;
             }
             #[guid(0xae755344_e268_4d35_adcf_e995d31a8d34)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -372,7 +372,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapTypedValue)]
             interface IBitmapTypedValueFactory {
-                fn Create(&self, value: Object, r#type: super::super::Foundation::PropertyType) -> BitmapTypedValue;
+                fn Create(&self, #[in] value: Object, #[in] r#type: super::super::Foundation::PropertyType) -> BitmapTypedValue;
             }
             #[guid(0xdd831f25_185c_4595_9fb9_ccbe6ec18a6f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -402,38 +402,38 @@ mod Windows {
                 DpiY: f64;
                 #[get]
                 DpiY: f64;
-                fn LockBuffer(&self, mode: BitmapBufferAccessMode) -> BitmapBuffer;
-                fn CopyTo(&self, bitmap: SoftwareBitmap);
-                fn CopyFromBuffer(&self, buffer: super::super::Storage::Streams::IBuffer);
-                fn CopyToBuffer(&self, buffer: super::super::Storage::Streams::IBuffer);
+                fn LockBuffer(&self, #[in] mode: BitmapBufferAccessMode) -> BitmapBuffer;
+                fn CopyTo(&self, #[in] bitmap: SoftwareBitmap);
+                fn CopyFromBuffer(&self, #[in] buffer: super::super::Storage::Streams::IBuffer);
+                fn CopyToBuffer(&self, #[in] buffer: super::super::Storage::Streams::IBuffer);
                 fn GetReadOnlyView(&self) -> SoftwareBitmap;
             }
             #[guid(0xc99feb69_2d62_4d47_a6b3_4fdb6a07fdf8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SoftwareBitmap)]
             interface ISoftwareBitmapFactory {
-                fn Create(&self, format: BitmapPixelFormat, width: i32, height: i32) -> SoftwareBitmap;
-                fn CreateWithAlpha(&self, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> SoftwareBitmap;
+                fn Create(&self, #[in] format: BitmapPixelFormat, #[in] width: i32, #[in] height: i32) -> SoftwareBitmap;
+                fn CreateWithAlpha(&self, #[in] format: BitmapPixelFormat, #[in] width: i32, #[in] height: i32, #[in] alpha: BitmapAlphaMode) -> SoftwareBitmap;
             }
             #[guid(0xdf0385db_672f_4a9d_806e_c2442f343e86)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SoftwareBitmap)]
             interface ISoftwareBitmapStatics {
-                fn Copy(&self, source: SoftwareBitmap) -> SoftwareBitmap;
+                fn Copy(&self, #[in] source: SoftwareBitmap) -> SoftwareBitmap;
                 #[Windows::Foundation::Metadata::Overload("Convert")]
-                fn Convert(&self, source: SoftwareBitmap, format: BitmapPixelFormat) -> SoftwareBitmap;
+                fn Convert(&self, #[in] source: SoftwareBitmap, #[in] format: BitmapPixelFormat) -> SoftwareBitmap;
                 #[Windows::Foundation::Metadata::Overload("ConvertWithAlpha")]
-                fn Convert(&self, source: SoftwareBitmap, format: BitmapPixelFormat, alpha: BitmapAlphaMode) -> SoftwareBitmap;
+                fn Convert(&self, #[in] source: SoftwareBitmap, #[in] format: BitmapPixelFormat, #[in] alpha: BitmapAlphaMode) -> SoftwareBitmap;
                 #[Windows::Foundation::Metadata::Overload("CreateCopyFromBuffer")]
-                fn CreateCopyFromBuffer(&self, source: super::super::Storage::Streams::IBuffer, format: BitmapPixelFormat, width: i32, height: i32) -> SoftwareBitmap;
+                fn CreateCopyFromBuffer(&self, #[in] source: super::super::Storage::Streams::IBuffer, #[in] format: BitmapPixelFormat, #[in] width: i32, #[in] height: i32) -> SoftwareBitmap;
                 #[Windows::Foundation::Metadata::Overload("CreateCopyWithAlphaFromBuffer")]
-                fn CreateCopyFromBuffer(&self, source: super::super::Storage::Streams::IBuffer, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> SoftwareBitmap;
+                fn CreateCopyFromBuffer(&self, #[in] source: super::super::Storage::Streams::IBuffer, #[in] format: BitmapPixelFormat, #[in] width: i32, #[in] height: i32, #[in] alpha: BitmapAlphaMode) -> SoftwareBitmap;
                 #[Windows::Foundation::Metadata::Overload("CreateCopyFromSurfaceAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateCopyFromSurfaceAsync(&self, surface: super::DirectX::Direct3D11::IDirect3DSurface) -> super::super::Foundation::IAsyncOperation<SoftwareBitmap>;
+                fn CreateCopyFromSurfaceAsync(&self, #[in] surface: super::DirectX::Direct3D11::IDirect3DSurface) -> super::super::Foundation::IAsyncOperation<SoftwareBitmap>;
                 #[Windows::Foundation::Metadata::Overload("CreateCopyWithAlphaFromSurfaceAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateCopyFromSurfaceAsync(&self, surface: super::DirectX::Direct3D11::IDirect3DSurface, alpha: BitmapAlphaMode) -> super::super::Foundation::IAsyncOperation<SoftwareBitmap>;
+                fn CreateCopyFromSurfaceAsync(&self, #[in] surface: super::DirectX::Direct3D11::IDirect3DSurface, #[in] alpha: BitmapAlphaMode) -> super::super::Foundation::IAsyncOperation<SoftwareBitmap>;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

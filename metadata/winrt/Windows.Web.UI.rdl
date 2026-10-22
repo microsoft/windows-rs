@@ -26,18 +26,18 @@ mod Windows {
                 fn GoBack(&self);
                 fn Refresh(&self);
                 fn Stop(&self);
-                fn Navigate(&self, source: super::super::Foundation::Uri);
-                fn NavigateToString(&self, text: String);
-                fn NavigateToLocalStreamUri(&self, source: super::super::Foundation::Uri, streamResolver: super::IUriToStreamResolver);
-                fn NavigateWithHttpRequestMessage(&self, requestMessage: super::Http::HttpRequestMessage);
+                fn Navigate(&self, #[in] source: super::super::Foundation::Uri);
+                fn NavigateToString(&self, #[in] text: String);
+                fn NavigateToLocalStreamUri(&self, #[in] source: super::super::Foundation::Uri, #[in] streamResolver: super::IUriToStreamResolver);
+                fn NavigateWithHttpRequestMessage(&self, #[in] requestMessage: super::Http::HttpRequestMessage);
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn InvokeScriptAsync(&self, scriptName: String, arguments: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<String>;
+                fn InvokeScriptAsync(&self, #[in] scriptName: String, #[in] arguments: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CapturePreviewToStreamAsync(&self, stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncAction;
+                fn CapturePreviewToStreamAsync(&self, #[in] stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CaptureSelectedContentToDataPackageAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>;
-                fn BuildLocalStreamUri(&self, contentIdentifier: String, relativePath: String) -> super::super::Foundation::Uri;
-                fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut WebViewControlDeferredPermissionRequest);
+                fn BuildLocalStreamUri(&self, #[in] contentIdentifier: String, #[in] relativePath: String) -> super::super::Foundation::Uri;
+                fn GetDeferredPermissionRequestById(&self, #[in] id: u32, #[out] result: &mut WebViewControlDeferredPermissionRequest);
                 event NavigationStarting: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlNavigationStartingEventArgs>;
                 event ContentLoading: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlContentLoadingEventArgs>;
                 event DOMContentLoaded: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlDOMContentLoadedEventArgs>;
@@ -59,7 +59,7 @@ mod Windows {
             #[guid(0x4d3c06f9_c8df_41cc_8bd5_2a947b204503)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             interface IWebViewControl2 {
-                fn AddInitializeScript(&self, script: String);
+                fn AddInitializeScript(&self, #[in] script: String);
             }
             #[guid(0x9a3fccb2_b9bb_404b_a22b_66dccd1250c6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]

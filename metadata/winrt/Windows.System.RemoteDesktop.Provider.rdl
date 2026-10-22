@@ -14,20 +14,20 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteDesktopConnectionInfo)]
                 interface IRemoteDesktopConnectionInfo {
-                    fn SetConnectionStatus(&self, value: RemoteDesktopConnectionStatus);
+                    fn SetConnectionStatus(&self, #[in] value: RemoteDesktopConnectionStatus);
                     fn SwitchToLocalSession(&self);
                 }
                 #[guid(0x871c0b26_23bf_5d3c_bc35_a85c405e25e6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteDesktopConnectionInfo)]
                 interface IRemoteDesktopConnectionInfo2 {
-                    fn PerformLocalActionFromRemote(&self, action: RemoteDesktopLocalAction);
+                    fn PerformLocalActionFromRemote(&self, #[in] action: RemoteDesktopLocalAction);
                 }
                 #[guid(0x4a7dc5a1_3368_5a75_bb78_807df7ebc439)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteDesktopConnectionInfo)]
                 interface IRemoteDesktopConnectionInfoStatics {
-                    fn GetForLaunchUri(&self, launchUri: super::super::super::Foundation::Uri, windowId: super::super::super::UI::WindowId) -> RemoteDesktopConnectionInfo;
+                    fn GetForLaunchUri(&self, #[in] launchUri: super::super::super::Foundation::Uri, #[in] windowId: super::super::super::UI::WindowId) -> RemoteDesktopConnectionInfo;
                 }
                 #[guid(0x2a3dfa7e_a7ab_547e_9a6a_4c565bbb8d71)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
@@ -42,7 +42,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteDesktopConnectionRemoteInfo)]
                 interface IRemoteDesktopConnectionRemoteInfoStatics {
                     fn IsSwitchSupported(&self) -> bool;
-                    fn GetForLaunchUri(&self, launchUri: super::super::super::Foundation::Uri) -> RemoteDesktopConnectionRemoteInfo;
+                    fn GetForLaunchUri(&self, #[in] launchUri: super::super::super::Foundation::Uri) -> RemoteDesktopConnectionRemoteInfo;
                 }
                 #[guid(0xd185bb25_2f1e_5098_b9e0_f46d6358c5c4)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
@@ -57,7 +57,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteDesktopInfo)]
                 interface IRemoteDesktopInfoFactory {
-                    fn CreateInstance(&self, id: String, displayName: String) -> RemoteDesktopInfo;
+                    fn CreateInstance(&self, #[in] id: String, #[in] displayName: String) -> RemoteDesktopInfo;
                 }
                 #[guid(0x687c2750_46d9_5de3_8dc3_84a9202cecfb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]

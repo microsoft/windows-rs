@@ -10,18 +10,18 @@ mod Windows {
                 fn GetCurrentSettings(&self) -> MiracastReceiverSettings;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCurrentSettingsAsync(&self) -> super::super::Foundation::IAsyncOperation<MiracastReceiverSettings>;
-                fn DisconnectAllAndApplySettings(&self, settings: MiracastReceiverSettings) -> MiracastReceiverApplySettingsResult;
+                fn DisconnectAllAndApplySettings(&self, #[in] settings: MiracastReceiverSettings) -> MiracastReceiverApplySettingsResult;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DisconnectAllAndApplySettingsAsync(&self, settings: MiracastReceiverSettings) -> super::super::Foundation::IAsyncOperation<MiracastReceiverApplySettingsResult>;
+                fn DisconnectAllAndApplySettingsAsync(&self, #[in] settings: MiracastReceiverSettings) -> super::super::Foundation::IAsyncOperation<MiracastReceiverApplySettingsResult>;
                 fn GetStatus(&self) -> MiracastReceiverStatus;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetStatusAsync(&self) -> super::super::Foundation::IAsyncOperation<MiracastReceiverStatus>;
                 event StatusChanged: super::super::Foundation::TypedEventHandler<MiracastReceiver, Object>;
-                fn CreateSession(&self, view: super::super::ApplicationModel::Core::CoreApplicationView) -> MiracastReceiverSession;
+                fn CreateSession(&self, #[in] view: super::super::ApplicationModel::Core::CoreApplicationView) -> MiracastReceiverSession;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateSessionAsync(&self, view: super::super::ApplicationModel::Core::CoreApplicationView) -> super::super::Foundation::IAsyncOperation<MiracastReceiverSession>;
+                fn CreateSessionAsync(&self, #[in] view: super::super::ApplicationModel::Core::CoreApplicationView) -> super::super::Foundation::IAsyncOperation<MiracastReceiverSession>;
                 fn ClearKnownTransmitters(&self);
-                fn RemoveKnownTransmitter(&self, transmitter: MiracastTransmitter);
+                fn RemoveKnownTransmitter(&self, #[in] transmitter: MiracastTransmitter);
             }
             #[guid(0xd0aa6272_09cd_58e1_a4f2_5d5143d312f9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
@@ -37,9 +37,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverConnection)]
             interface IMiracastReceiverConnection {
                 #[Windows::Foundation::Metadata::Overload("Disconnect")]
-                fn Disconnect(&self, reason: MiracastReceiverDisconnectReason);
+                fn Disconnect(&self, #[in] reason: MiracastReceiverDisconnectReason);
                 #[Windows::Foundation::Metadata::Overload("DisconnectWithMessage")]
-                fn Disconnect(&self, reason: MiracastReceiverDisconnectReason, message: String);
+                fn Disconnect(&self, #[in] reason: MiracastReceiverDisconnectReason, #[in] message: String);
                 fn Pause(&self);
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn PauseAsync(&self) -> super::super::Foundation::IAsyncAction;
@@ -192,9 +192,9 @@ mod Windows {
                 fn GetVideoStreamSettings(&self) -> MiracastReceiverVideoStreamSettings;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetVideoStreamSettingsAsync(&self) -> super::super::Foundation::IAsyncOperation<MiracastReceiverVideoStreamSettings>;
-                fn SuggestVideoStreamSettings(&self, settings: MiracastReceiverVideoStreamSettings);
+                fn SuggestVideoStreamSettings(&self, #[in] settings: MiracastReceiverVideoStreamSettings);
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SuggestVideoStreamSettingsAsync(&self, settings: MiracastReceiverVideoStreamSettings) -> super::super::Foundation::IAsyncAction;
+                fn SuggestVideoStreamSettingsAsync(&self, #[in] settings: MiracastReceiverVideoStreamSettings) -> super::super::Foundation::IAsyncAction;
                 MuteAudio: bool;
             }
             #[guid(0x169b5e1b_149d_52d0_b126_6f89744e4f50)]

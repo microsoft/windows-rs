@@ -9,7 +9,7 @@ mod Windows {
             }
             #[guid(0x95da643c_6db9_424b_86ca_091af432081c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn ComponentLoadFailedEventHandler(sender: MediaProtectionManager, e: ComponentLoadFailedEventArgs);
+            delegate fn ComponentLoadFailedEventHandler(#[in] sender: MediaProtectionManager, #[in] e: ComponentLoadFailedEventArgs);
             #[Windows::Foundation::Metadata::ContractVersion(ProtectionRenewalContract, 65536)]
             #[Windows::Foundation::Metadata::Static(IComponentRenewalStatics, 65536, "Windows.Media.Protection.ProtectionRenewalContract")]
             class ComponentRenewal {}
@@ -62,16 +62,16 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ComponentRenewal)]
             interface IComponentRenewalStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RenewSystemComponentsAsync(&self, information: RevocationAndRenewalInformation) -> super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>;
+                fn RenewSystemComponentsAsync(&self, #[in] information: RevocationAndRenewalInformation) -> super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>;
             }
             #[guid(0x718845e9_64d7_426d_809b_1be461941a2a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HdcpSession)]
             interface IHdcpSession: super::super::Foundation::IClosable {
-                fn IsEffectiveProtectionAtLeast(&self, protection: HdcpProtection) -> bool;
+                fn IsEffectiveProtectionAtLeast(&self, #[in] protection: HdcpProtection) -> bool;
                 fn GetEffectiveProtection(&self) -> super::super::Foundation::IReference<HdcpProtection>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetDesiredMinProtectionAsync(&self, protection: HdcpProtection) -> super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>;
+                fn SetDesiredMinProtectionAsync(&self, #[in] protection: HdcpProtection) -> super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>;
                 event ProtectionChanged: super::super::Foundation::TypedEventHandler<HdcpSession, Object>;
             }
             #[guid(0x45694947_c741_434b_a79e_474c12d93d2f)]
@@ -95,13 +95,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaProtectionPMPServer)]
             interface IMediaProtectionPMPServerFactory {
-                fn CreatePMPServer(&self, pProperties: super::super::Foundation::Collections::IPropertySet) -> MediaProtectionPMPServer;
+                fn CreatePMPServer(&self, #[in] pProperties: super::super::Foundation::Collections::IPropertySet) -> MediaProtectionPMPServer;
             }
             #[guid(0x8b5cca18_cfd5_44ee_a2ed_df76010c14b5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaProtectionServiceCompletion)]
             interface IMediaProtectionServiceCompletion {
-                fn Complete(&self, success: bool);
+                fn Complete(&self, #[in] success: bool);
             }
             #[guid(0xb1de0ea6_2094_478d_87a4_8b95200f85c6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -115,7 +115,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ProtectionCapabilities)]
             interface IProtectionCapabilities {
-                fn IsTypeSupported(&self, r#type: String, keySystem: String) -> ProtectionCapabilityResult;
+                fn IsTypeSupported(&self, #[in] r#type: String, #[in] keySystem: String) -> ProtectionCapabilityResult;
             }
             #[guid(0xf3a1937b_2501_439e_a6e7_6fc95e175fcf)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -195,7 +195,7 @@ mod Windows {
             struct ProtectionRenewalContract {}
             #[guid(0x64e12a45_973b_4a3a_b260_91898a49a82c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn RebootNeededEventHandler(sender: MediaProtectionManager);
+            delegate fn RebootNeededEventHandler(#[in] sender: MediaProtectionManager);
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(ProtectionRenewalContract, 65536)]
             enum RenewalStatus {
@@ -244,7 +244,7 @@ mod Windows {
             }
             #[guid(0xd2d690ba_cac9_48e1_95c0_d38495a84055)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn ServiceRequestedEventHandler(sender: MediaProtectionManager, e: ServiceRequestedEventArgs);
+            delegate fn ServiceRequestedEventHandler(#[in] sender: MediaProtectionManager, #[in] e: ServiceRequestedEventArgs);
         }
     }
 }

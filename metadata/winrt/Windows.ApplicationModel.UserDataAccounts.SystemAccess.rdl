@@ -117,20 +117,20 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountSystemAccessManager)]
                 interface IUserDataAccountSystemAccessManagerStatics {
-                    fn AddAndShowDeviceAccountsAsync(&self, accounts: super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<String>>;
+                    fn AddAndShowDeviceAccountsAsync(&self, #[in] accounts: super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<String>>;
                 }
                 #[guid(0x943f854d_4b4e_439f_83d3_979b27c05ac7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountSystemAccessManager)]
                 interface IUserDataAccountSystemAccessManagerStatics2 {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SuppressLocalAccountWithAccountAsync(&self, userDataAccountId: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn SuppressLocalAccountWithAccountAsync(&self, #[in] userDataAccountId: String) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn CreateDeviceAccountAsync(&self, account: DeviceAccountConfiguration) -> super::super::super::Foundation::IAsyncOperation<String>;
+                    fn CreateDeviceAccountAsync(&self, #[in] account: DeviceAccountConfiguration) -> super::super::super::Foundation::IAsyncOperation<String>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn DeleteDeviceAccountAsync(&self, accountId: String) -> super::super::super::Foundation::IAsyncAction;
+                    fn DeleteDeviceAccountAsync(&self, #[in] accountId: String) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetDeviceAccountConfigurationAsync(&self, accountId: String) -> super::super::super::Foundation::IAsyncOperation<DeviceAccountConfiguration>;
+                    fn GetDeviceAccountConfigurationAsync(&self, #[in] accountId: String) -> super::super::super::Foundation::IAsyncOperation<DeviceAccountConfiguration>;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

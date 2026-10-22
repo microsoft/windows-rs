@@ -12,10 +12,10 @@ mod Windows {
                     fn GetAccessStatus(&self) -> UserNotificationListenerAccessStatus;
                     event NotificationChanged: super::super::super::Foundation::TypedEventHandler<UserNotificationListener, super::UserNotificationChangedEventArgs>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>;
-                    fn GetNotification(&self, notificationId: u32) -> super::UserNotification;
+                    fn GetNotificationsAsync(&self, #[in] kinds: super::NotificationKinds) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>;
+                    fn GetNotification(&self, #[in] notificationId: u32) -> super::UserNotification;
                     fn ClearNotifications(&self);
-                    fn RemoveNotification(&self, notificationId: u32);
+                    fn RemoveNotification(&self, #[in] notificationId: u32);
                 }
                 #[guid(0xff6123cf_4386_4aa3_b73d_b804e5b63b23)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]

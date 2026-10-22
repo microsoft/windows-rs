@@ -23,22 +23,22 @@ mod Windows {
                 #[get]
                 HardwareAccelerationEnabled: bool;
                 #[Windows::Foundation::Metadata::Overload("AddAudioEffect")]
-                fn AddAudioEffect(&self, activatableClassId: String);
+                fn AddAudioEffect(&self, #[in] activatableClassId: String);
                 #[Windows::Foundation::Metadata::Overload("AddAudioEffectWithSettings")]
-                fn AddAudioEffect(&self, activatableClassId: String, effectRequired: bool, configuration: super::super::Foundation::Collections::IPropertySet);
+                fn AddAudioEffect(&self, #[in] activatableClassId: String, #[in] effectRequired: bool, #[in] configuration: super::super::Foundation::Collections::IPropertySet);
                 #[Windows::Foundation::Metadata::Overload("AddVideoEffect")]
-                fn AddVideoEffect(&self, activatableClassId: String);
+                fn AddVideoEffect(&self, #[in] activatableClassId: String);
                 #[Windows::Foundation::Metadata::Overload("AddVideoEffectWithSettings")]
-                fn AddVideoEffect(&self, activatableClassId: String, effectRequired: bool, configuration: super::super::Foundation::Collections::IPropertySet);
+                fn AddVideoEffect(&self, #[in] activatableClassId: String, #[in] effectRequired: bool, #[in] configuration: super::super::Foundation::Collections::IPropertySet);
                 fn ClearEffects(&self);
-                fn PrepareFileTranscodeAsync(&self, source: super::super::Storage::IStorageFile, destination: super::super::Storage::IStorageFile, profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
-                fn PrepareStreamTranscodeAsync(&self, source: super::super::Storage::Streams::IRandomAccessStream, destination: super::super::Storage::Streams::IRandomAccessStream, profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
+                fn PrepareFileTranscodeAsync(&self, #[in] source: super::super::Storage::IStorageFile, #[in] destination: super::super::Storage::IStorageFile, #[in] profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
+                fn PrepareStreamTranscodeAsync(&self, #[in] source: super::super::Storage::Streams::IRandomAccessStream, #[in] destination: super::super::Storage::Streams::IRandomAccessStream, #[in] profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
             }
             #[guid(0x40531d74_35e0_4f04_8574_ca8bc4e5a082)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaTranscoder)]
             interface IMediaTranscoder2 {
-                fn PrepareMediaStreamSourceTranscodeAsync(&self, source: super::Core::IMediaSource, destination: super::super::Storage::Streams::IRandomAccessStream, profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
+                fn PrepareMediaStreamSourceTranscodeAsync(&self, #[in] source: super::Core::IMediaSource, #[in] destination: super::super::Storage::Streams::IRandomAccessStream, #[in] profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
                 #[set]
                 VideoProcessingAlgorithm: MediaVideoProcessingAlgorithm;
                 #[get]

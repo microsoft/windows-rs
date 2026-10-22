@@ -85,11 +85,11 @@ mod Windows {
                     interface IMatrix3DHelperStatics {
                         #[get]
                         Identity: Matrix3D;
-                        fn Multiply(&self, matrix1: Matrix3D, matrix2: Matrix3D) -> Matrix3D;
-                        fn FromElements(&self, m11: f64, m12: f64, m13: f64, m14: f64, m21: f64, m22: f64, m23: f64, m24: f64, m31: f64, m32: f64, m33: f64, m34: f64, offsetX: f64, offsetY: f64, offsetZ: f64, m44: f64) -> Matrix3D;
-                        fn GetHasInverse(&self, target: Matrix3D) -> bool;
-                        fn GetIsIdentity(&self, target: Matrix3D) -> bool;
-                        fn Invert(&self, target: Matrix3D) -> Matrix3D;
+                        fn Multiply(&self, #[in] matrix1: Matrix3D, #[in] matrix2: Matrix3D) -> Matrix3D;
+                        fn FromElements(&self, #[in] m11: f64, #[in] m12: f64, #[in] m13: f64, #[in] m14: f64, #[in] m21: f64, #[in] m22: f64, #[in] m23: f64, #[in] m24: f64, #[in] m31: f64, #[in] m32: f64, #[in] m33: f64, #[in] m34: f64, #[in] offsetX: f64, #[in] offsetY: f64, #[in] offsetZ: f64, #[in] m44: f64) -> Matrix3D;
+                        fn GetHasInverse(&self, #[in] target: Matrix3D) -> bool;
+                        fn GetIsIdentity(&self, #[in] target: Matrix3D) -> bool;
+                        fn Invert(&self, #[in] target: Matrix3D) -> Matrix3D;
                     }
                     #[guid(0x9a7b532a_30f9_40a1_96c9_c59d87f95ac3)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -122,7 +122,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(Transform3D)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ITransform3DFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Transform3D;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> Transform3D;
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]

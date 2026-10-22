@@ -7,14 +7,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlatformDiagnosticActions)]
                 interface IPlatformDiagnosticActionsStatics {
-                    fn IsScenarioEnabled(&self, scenarioId: GUID) -> bool;
-                    fn TryEscalateScenario(&self, scenarioId: GUID, escalationType: PlatformDiagnosticEscalationType, outputDirectory: String, timestampOutputDirectory: bool, forceEscalationUpload: bool, triggers: super::super::super::Foundation::Collections::IMapView<String, String>) -> bool;
-                    fn DownloadLatestSettingsForNamespace(&self, partner: String, feature: String, isScenarioNamespace: bool, downloadOverCostedNetwork: bool, downloadOverBattery: bool) -> PlatformDiagnosticActionState;
+                    fn IsScenarioEnabled(&self, #[in] scenarioId: GUID) -> bool;
+                    fn TryEscalateScenario(&self, #[in] scenarioId: GUID, #[in] escalationType: PlatformDiagnosticEscalationType, #[in] outputDirectory: String, #[in] timestampOutputDirectory: bool, #[in] forceEscalationUpload: bool, #[in] triggers: super::super::super::Foundation::Collections::IMapView<String, String>) -> bool;
+                    fn DownloadLatestSettingsForNamespace(&self, #[in] partner: String, #[in] feature: String, #[in] isScenarioNamespace: bool, #[in] downloadOverCostedNetwork: bool, #[in] downloadOverBattery: bool) -> PlatformDiagnosticActionState;
                     fn GetActiveScenarioList(&self) -> super::super::super::Foundation::Collections::IVectorView<GUID>;
-                    fn ForceUpload(&self, latency: PlatformDiagnosticEventBufferLatencies, uploadOverCostedNetwork: bool, uploadOverBattery: bool) -> PlatformDiagnosticActionState;
-                    fn IsTraceRunning(&self, slotType: PlatformDiagnosticTraceSlotType, scenarioId: GUID, traceProfileHash: u64) -> PlatformDiagnosticTraceSlotState;
-                    fn GetActiveTraceRuntime(&self, slotType: PlatformDiagnosticTraceSlotType) -> PlatformDiagnosticTraceRuntimeInfo;
-                    fn GetKnownTraceList(&self, slotType: PlatformDiagnosticTraceSlotType) -> super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>;
+                    fn ForceUpload(&self, #[in] latency: PlatformDiagnosticEventBufferLatencies, #[in] uploadOverCostedNetwork: bool, #[in] uploadOverBattery: bool) -> PlatformDiagnosticActionState;
+                    fn IsTraceRunning(&self, #[in] slotType: PlatformDiagnosticTraceSlotType, #[in] scenarioId: GUID, #[in] traceProfileHash: u64) -> PlatformDiagnosticTraceSlotState;
+                    fn GetActiveTraceRuntime(&self, #[in] slotType: PlatformDiagnosticTraceSlotType) -> PlatformDiagnosticTraceRuntimeInfo;
+                    fn GetKnownTraceList(&self, #[in] slotType: PlatformDiagnosticTraceSlotType) -> super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>;
                 }
                 #[guid(0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]

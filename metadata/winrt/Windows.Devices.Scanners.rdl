@@ -10,18 +10,18 @@ mod Windows {
                 DeviceId: String;
                 #[get]
                 DefaultScanSource: ImageScannerScanSource;
-                fn IsScanSourceSupported(&self, value: ImageScannerScanSource) -> bool;
+                fn IsScanSourceSupported(&self, #[in] value: ImageScannerScanSource) -> bool;
                 #[get]
                 FlatbedConfiguration: ImageScannerFlatbedConfiguration;
                 #[get]
                 FeederConfiguration: ImageScannerFeederConfiguration;
                 #[get]
                 AutoConfiguration: ImageScannerAutoConfiguration;
-                fn IsPreviewSupported(&self, scanSource: ImageScannerScanSource) -> bool;
+                fn IsPreviewSupported(&self, #[in] scanSource: ImageScannerScanSource) -> bool;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ScanPreviewToStreamAsync(&self, scanSource: ImageScannerScanSource, targetStream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>;
+                fn ScanPreviewToStreamAsync(&self, #[in] scanSource: ImageScannerScanSource, #[in] targetStream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ScanFilesToFolderAsync(&self, scanSource: ImageScannerScanSource, storageFolder: super::super::Storage::StorageFolder) -> super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>;
+                fn ScanFilesToFolderAsync(&self, #[in] scanSource: ImageScannerScanSource, #[in] storageFolder: super::super::Storage::StorageFolder) -> super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>;
             }
             #[guid(0x74bdacee_fa97_4c17_8280_40e39c6dcc67)]
             #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
@@ -34,7 +34,7 @@ mod Windows {
                 PageOrientation: super::super::Graphics::Printing::PrintOrientation;
                 #[get]
                 PageSizeDimensions: super::super::Foundation::Size;
-                fn IsPageSizeSupported(&self, pageSize: super::super::Graphics::Printing::PrintMediaSize, pageOrientation: super::super::Graphics::Printing::PrintOrientation) -> bool;
+                fn IsPageSizeSupported(&self, #[in] pageSize: super::super::Graphics::Printing::PrintMediaSize, #[in] pageOrientation: super::super::Graphics::Printing::PrintOrientation) -> bool;
                 MaxNumberOfPages: u32;
                 #[get]
                 CanScanDuplex: bool;
@@ -49,7 +49,7 @@ mod Windows {
                 #[get]
                 DefaultFormat: ImageScannerFormat;
                 Format: ImageScannerFormat;
-                fn IsFormatSupported(&self, value: ImageScannerFormat) -> bool;
+                fn IsFormatSupported(&self, #[in] value: ImageScannerFormat) -> bool;
             }
             #[guid(0x08b7fe8e_8891_441d_be9c_176fa109c8bb)]
             #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
@@ -76,7 +76,7 @@ mod Windows {
                 MaxScanArea: super::super::Foundation::Size;
                 SelectedScanRegion: super::super::Foundation::Rect;
                 AutoCroppingMode: ImageScannerAutoCroppingMode;
-                fn IsAutoCroppingModeSupported(&self, value: ImageScannerAutoCroppingMode) -> bool;
+                fn IsAutoCroppingModeSupported(&self, #[in] value: ImageScannerAutoCroppingMode) -> bool;
                 #[get]
                 MinResolution: ImageScannerResolution;
                 #[get]
@@ -89,7 +89,7 @@ mod Windows {
                 #[get]
                 DefaultColorMode: ImageScannerColorMode;
                 ColorMode: ImageScannerColorMode;
-                fn IsColorModeSupported(&self, value: ImageScannerColorMode) -> bool;
+                fn IsColorModeSupported(&self, #[in] value: ImageScannerColorMode) -> bool;
                 #[get]
                 MinBrightness: i32;
                 #[get]
@@ -114,7 +114,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ImageScanner)]
             interface IImageScannerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<ImageScanner>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<ImageScanner>;
                 fn GetDeviceSelector(&self) -> String;
             }
             #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]

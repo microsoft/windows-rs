@@ -19,53 +19,53 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountClientView)]
                     interface IWebAccountClientViewFactory {
-                        fn Create(&self, viewType: WebAccountClientViewType, applicationCallbackUri: super::super::super::super::Foundation::Uri) -> WebAccountClientView;
-                        fn CreateWithPairwiseId(&self, viewType: WebAccountClientViewType, applicationCallbackUri: super::super::super::super::Foundation::Uri, accountPairwiseId: String) -> WebAccountClientView;
+                        fn Create(&self, #[in] viewType: WebAccountClientViewType, #[in] applicationCallbackUri: super::super::super::super::Foundation::Uri) -> WebAccountClientView;
+                        fn CreateWithPairwiseId(&self, #[in] viewType: WebAccountClientViewType, #[in] applicationCallbackUri: super::super::super::super::Foundation::Uri, #[in] accountPairwiseId: String) -> WebAccountClientView;
                     }
                     #[guid(0xb2e8e1a6_d49a_4032_84bf_1a2847747bf1)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountManager)]
                     interface IWebAccountManagerStatics {
-                        fn UpdateWebAccountPropertiesAsync(&self, webAccount: super::super::super::Credentials::WebAccount, webAccountUserName: String, additionalProperties: super::super::super::super::Foundation::Collections::IMapView<String, String>) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn UpdateWebAccountPropertiesAsync(&self, #[in] webAccount: super::super::super::Credentials::WebAccount, #[in] webAccountUserName: String, #[in] additionalProperties: super::super::super::super::Foundation::Collections::IMapView<String, String>) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::Overload("AddWebAccountAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn AddWebAccountAsync(&self, webAccountId: String, webAccountUserName: String, props: super::super::super::super::Foundation::Collections::IMapView<String, String>) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
-                        fn DeleteWebAccountAsync(&self, webAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn AddWebAccountAsync(&self, #[in] webAccountId: String, #[in] webAccountUserName: String, #[in] props: super::super::super::super::Foundation::Collections::IMapView<String, String>) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
+                        fn DeleteWebAccountAsync(&self, #[in] webAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn FindAllProviderWebAccountsAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn PushCookiesAsync(&self, uri: super::super::super::super::Foundation::Uri, cookies: super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Web::Http::HttpCookie>) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn PushCookiesAsync(&self, #[in] uri: super::super::super::super::Foundation::Uri, #[in] cookies: super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Web::Http::HttpCookie>) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn SetViewAsync(&self, webAccount: super::super::super::Credentials::WebAccount, view: WebAccountClientView) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn SetViewAsync(&self, #[in] webAccount: super::super::super::Credentials::WebAccount, #[in] view: WebAccountClientView) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn ClearViewAsync(&self, webAccount: super::super::super::Credentials::WebAccount, applicationCallbackUri: super::super::super::super::Foundation::Uri) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn ClearViewAsync(&self, #[in] webAccount: super::super::super::Credentials::WebAccount, #[in] applicationCallbackUri: super::super::super::super::Foundation::Uri) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn GetViewsAsync(&self, webAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<WebAccountClientView>>;
-                        fn SetWebAccountPictureAsync(&self, webAccount: super::super::super::Credentials::WebAccount, webAccountPicture: super::super::super::super::Storage::Streams::IRandomAccessStream) -> super::super::super::super::Foundation::IAsyncAction;
-                        fn ClearWebAccountPictureAsync(&self, webAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn GetViewsAsync(&self, #[in] webAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<WebAccountClientView>>;
+                        fn SetWebAccountPictureAsync(&self, #[in] webAccount: super::super::super::Credentials::WebAccount, #[in] webAccountPicture: super::super::super::super::Storage::Streams::IRandomAccessStream) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn ClearWebAccountPictureAsync(&self, #[in] webAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncAction;
                     }
                     #[guid(0x68a7a829_2d5f_4653_8bb0_bd2fa6bd2d87)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountManager)]
                     interface IWebAccountManagerStatics2 {
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn PullCookiesAsync(&self, uriString: String, callerPFN: String) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn PullCookiesAsync(&self, #[in] uriString: String, #[in] callerPFN: String) -> super::super::super::super::Foundation::IAsyncAction;
                     }
                     #[guid(0xdd4523a6_8a4f_4aa2_b15e_03f550af1359)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountManager)]
                     interface IWebAccountManagerStatics3 {
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn FindAllProviderWebAccountsForUserAsync(&self, user: super::super::super::super::System::User) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>;
+                        fn FindAllProviderWebAccountsForUserAsync(&self, #[in] user: super::super::super::super::System::User) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>;
                         #[Windows::Foundation::Metadata::Overload("AddWebAccountForUserAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn AddWebAccountForUserAsync(&self, user: super::super::super::super::System::User, webAccountId: String, webAccountUserName: String, props: super::super::super::super::Foundation::Collections::IMapView<String, String>) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
+                        fn AddWebAccountForUserAsync(&self, #[in] user: super::super::super::super::System::User, #[in] webAccountId: String, #[in] webAccountUserName: String, #[in] props: super::super::super::super::Foundation::Collections::IMapView<String, String>) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
                         #[Windows::Foundation::Metadata::Overload("AddWebAccountWithScopeForUserAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn AddWebAccountForUserAsync(&self, user: super::super::super::super::System::User, webAccountId: String, webAccountUserName: String, props: super::super::super::super::Foundation::Collections::IMapView<String, String>, scope: WebAccountScope) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
+                        fn AddWebAccountForUserAsync(&self, #[in] user: super::super::super::super::System::User, #[in] webAccountId: String, #[in] webAccountUserName: String, #[in] props: super::super::super::super::Foundation::Collections::IMapView<String, String>, #[in] scope: WebAccountScope) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
                         #[Windows::Foundation::Metadata::Overload("AddWebAccountWithScopeAndMapForUserAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn AddWebAccountForUserAsync(&self, user: super::super::super::super::System::User, webAccountId: String, webAccountUserName: String, props: super::super::super::super::Foundation::Collections::IMapView<String, String>, scope: WebAccountScope, perUserWebAccountId: String) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
+                        fn AddWebAccountForUserAsync(&self, #[in] user: super::super::super::super::System::User, #[in] webAccountId: String, #[in] webAccountUserName: String, #[in] props: super::super::super::super::Foundation::Collections::IMapView<String, String>, #[in] scope: WebAccountScope, #[in] perUserWebAccountId: String) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
                     }
                     #[guid(0x59ebc2d2_f7db_412f_bc3f_f2fea04430b4)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -74,7 +74,7 @@ mod Windows {
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn InvalidateAppCacheForAllAccountsAsync(&self) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn InvalidateAppCacheForAccountAsync(&self, webAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn InvalidateAppCacheForAccountAsync(&self, #[in] webAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncAction;
                     }
                     #[guid(0xe8fa446f_3a1b_48a4_8e90_1e59ca6f54db)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -82,13 +82,13 @@ mod Windows {
                     interface IWebAccountMapManagerStatics {
                         #[Windows::Foundation::Metadata::Overload("AddWebAccountWithScopeAndMapAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn AddWebAccountAsync(&self, webAccountId: String, webAccountUserName: String, props: super::super::super::super::Foundation::Collections::IMapView<String, String>, scope: WebAccountScope, perUserWebAccountId: String) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
+                        fn AddWebAccountAsync(&self, #[in] webAccountId: String, #[in] webAccountUserName: String, #[in] props: super::super::super::super::Foundation::Collections::IMapView<String, String>, #[in] scope: WebAccountScope, #[in] perUserWebAccountId: String) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn SetPerAppToPerUserAccountAsync(&self, perAppAccount: super::super::super::Credentials::WebAccount, perUserWebAccountId: String) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn SetPerAppToPerUserAccountAsync(&self, #[in] perAppAccount: super::super::super::Credentials::WebAccount, #[in] perUserWebAccountId: String) -> super::super::super::super::Foundation::IAsyncAction;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn GetPerUserFromPerAppAccountAsync(&self, perAppAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
+                        fn GetPerUserFromPerAppAccountAsync(&self, #[in] perAppAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn ClearPerUserFromPerAppAccountAsync(&self, perAppAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn ClearPerUserFromPerAppAccountAsync(&self, #[in] perAppAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncAction;
                     }
                     #[guid(0x73ebdccf_4378_4c79_9335_a5d7ab81594e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -100,7 +100,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     interface IWebAccountProviderBaseReportOperation {
                         fn ReportCompleted(&self);
-                        fn ReportError(&self, value: super::Core::WebProviderError);
+                        fn ReportError(&self, #[in] value: super::Core::WebProviderError);
                     }
                     #[guid(0x0abb48b8_9e01_49c9_a355_7d48caf7d6ca)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -155,7 +155,7 @@ mod Windows {
                         #[Windows::Foundation::Metadata::Overload("ReportUserInteractionRequired")]
                         fn ReportUserInteractionRequired(&self);
                         #[Windows::Foundation::Metadata::Overload("ReportUserInteractionRequiredWithError")]
-                        fn ReportUserInteractionRequired(&self, value: super::Core::WebProviderError);
+                        fn ReportUserInteractionRequired(&self, #[in] value: super::Core::WebProviderError);
                     }
                     #[guid(0x408f284b_1328_42db_89a4_0bce7a717d8e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -192,9 +192,9 @@ mod Windows {
                     interface IWebAccountScopeManagerStatics {
                         #[Windows::Foundation::Metadata::Overload("AddWebAccountWithScopeAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn AddWebAccountAsync(&self, webAccountId: String, webAccountUserName: String, props: super::super::super::super::Foundation::Collections::IMapView<String, String>, scope: WebAccountScope) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
-                        fn SetScopeAsync(&self, webAccount: super::super::super::Credentials::WebAccount, scope: WebAccountScope) -> super::super::super::super::Foundation::IAsyncAction;
-                        fn GetScope(&self, webAccount: super::super::super::Credentials::WebAccount) -> WebAccountScope;
+                        fn AddWebAccountAsync(&self, #[in] webAccountId: String, #[in] webAccountUserName: String, #[in] props: super::super::super::super::Foundation::Collections::IMapView<String, String>, #[in] scope: WebAccountScope) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
+                        fn SetScopeAsync(&self, #[in] webAccount: super::super::super::Credentials::WebAccount, #[in] scope: WebAccountScope) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn GetScope(&self, #[in] webAccount: super::super::super::Credentials::WebAccount) -> WebAccountScope;
                     }
                     #[guid(0x1e18778b_8805_454b_9f11_468d2af1095a)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -209,14 +209,14 @@ mod Windows {
                         #[get]
                         ApplicationCallbackUri: super::super::super::super::Foundation::Uri;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn GetApplicationTokenBindingKeyAsync(&self, keyType: super::TokenBindingKeyType, target: super::super::super::super::Foundation::Uri) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Cryptography::Core::CryptographicKey>;
+                        fn GetApplicationTokenBindingKeyAsync(&self, #[in] keyType: super::TokenBindingKeyType, #[in] target: super::super::super::super::Foundation::Uri) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Cryptography::Core::CryptographicKey>;
                     }
                     #[guid(0xb5d72e4c_10b1_4aa6_88b1_0b6c9e0c1e46)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(WebProviderTokenRequest)]
                     interface IWebProviderTokenRequest2 {
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn GetApplicationTokenBindingKeyIdAsync(&self, keyType: super::TokenBindingKeyType, target: super::super::super::super::Foundation::Uri) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>;
+                        fn GetApplicationTokenBindingKeyIdAsync(&self, #[in] keyType: super::TokenBindingKeyType, #[in] target: super::super::super::super::Foundation::Uri) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>;
                     }
                     #[guid(0x1b2716aa_4289_446e_9256_dafb6f66a51e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -227,7 +227,7 @@ mod Windows {
                         #[get]
                         ApplicationProcessName: String;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn CheckApplicationForCapabilityAsync(&self, capabilityName: String) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        fn CheckApplicationForCapabilityAsync(&self, #[in] capabilityName: String) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
                     }
                     #[guid(0xef213793_ef55_4186_b7ce_8cb2e7f9849e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -240,7 +240,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(WebProviderTokenResponse)]
                     interface IWebProviderTokenResponseFactory {
-                        fn Create(&self, webTokenResponse: super::Core::WebTokenResponse) -> WebProviderTokenResponse;
+                        fn Create(&self, #[in] webTokenResponse: super::Core::WebTokenResponse) -> WebProviderTokenResponse;
                     }
                     #[Windows::Foundation::Metadata::Activatable(IWebAccountClientViewFactory, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]

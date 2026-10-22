@@ -21,9 +21,9 @@ mod Windows {
                     AppointmentInformation: super::Appointment;
                     #[get]
                     SourcePackageFamilyName: String;
-                    fn ReportCompleted(&self, itemId: String);
+                    fn ReportCompleted(&self, #[in] itemId: String);
                     fn ReportCanceled(&self);
-                    fn ReportError(&self, value: String);
+                    fn ReportError(&self, #[in] value: String);
                     fn DismissUI(&self);
                 }
                 #[guid(0x36dbba28_9e2e_49c6_8ef7_3ab7a5dcc8b8)]
@@ -58,7 +58,7 @@ mod Windows {
                     SourcePackageFamilyName: String;
                     fn ReportCompleted(&self);
                     fn ReportCanceled(&self);
-                    fn ReportError(&self, value: String);
+                    fn ReportError(&self, #[in] value: String);
                     fn DismissUI(&self);
                 }
                 #[guid(0xf4903d9b_9e61_4de2_a732_2687c07d1de8)]
@@ -73,9 +73,9 @@ mod Windows {
                     InstanceStartDate: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
                     #[get]
                     SourcePackageFamilyName: String;
-                    fn ReportCompleted(&self, itemId: String);
+                    fn ReportCompleted(&self, #[in] itemId: String);
                     fn ReportCanceled(&self);
-                    fn ReportError(&self, value: String);
+                    fn ReportError(&self, #[in] value: String);
                     fn DismissUI(&self);
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

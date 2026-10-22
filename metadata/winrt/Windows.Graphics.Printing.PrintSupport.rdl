@@ -18,8 +18,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportAppInfo)]
                 #[Windows::Foundation::Metadata::Experimental]
                 interface IPrintSupportAppInfoStatics {
-                    fn GetPrintJobShowsUI(&self, printerName: String, printTicket: super::PrintTicket::WorkflowPrintTicket) -> super::super::super::Foundation::IReference<bool>;
-                    fn FromPrinterName(&self, printerName: String) -> PrintSupportAppInfo;
+                    fn GetPrintJobShowsUI(&self, #[in] printerName: String, #[in] printTicket: super::PrintTicket::WorkflowPrintTicket) -> super::super::super::Foundation::IReference<bool>;
+                    fn FromPrinterName(&self, #[in] printerName: String) -> PrintSupportAppInfo;
                 }
                 #[guid(0x9c90151e_ad1b_5081_a491_4a2d94244f2d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
@@ -107,19 +107,19 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
                 interface IPrintSupportPrintDeviceCapabilitiesChangedEventArgs {
                     fn GetCurrentPrintDeviceCapabilities(&self) -> super::super::super::Data::Xml::Dom::XmlDocument;
-                    fn UpdatePrintDeviceCapabilities(&self, updatedPdc: super::super::super::Data::Xml::Dom::XmlDocument);
+                    fn UpdatePrintDeviceCapabilities(&self, #[in] updatedPdc: super::super::super::Data::Xml::Dom::XmlDocument);
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x469df9e7_fd07_5eeb_a07d_9fcc67f089ba)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
                 interface IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2 {
-                    fn SetSupportedPdlPassthroughContentTypes(&self, supportedPdlContentTypes: super::super::super::Foundation::Collections::IIterable<String>);
+                    fn SetSupportedPdlPassthroughContentTypes(&self, #[in] supportedPdlContentTypes: super::super::super::Foundation::Collections::IIterable<String>);
                     #[get]
                     ResourceLanguage: String;
                     fn GetCurrentPrintDeviceResources(&self) -> super::super::super::Data::Xml::Dom::XmlDocument;
-                    fn UpdatePrintDeviceResources(&self, updatedPdr: super::super::super::Data::Xml::Dom::XmlDocument);
-                    fn SetPrintDeviceCapabilitiesUpdatePolicy(&self, updatePolicy: PrintSupportPrintDeviceCapabilitiesUpdatePolicy);
+                    fn UpdatePrintDeviceResources(&self, #[in] updatedPdr: super::super::super::Data::Xml::Dom::XmlDocument);
+                    fn SetPrintDeviceCapabilitiesUpdatePolicy(&self, #[in] updatePolicy: PrintSupportPrintDeviceCapabilitiesUpdatePolicy);
                 }
                 #[guid(0xd4e9b3fc_8094_5cb6_a343_ce7a97187b45)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
@@ -139,7 +139,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
                 interface IPrintSupportPrintDeviceCapabilitiesChangedEventArgs5 {
-                    fn SetPdlPassthroughWithJobAttributesSupported(&self, supported: bool);
+                    fn SetPdlPassthroughWithJobAttributesSupported(&self, #[in] supported: bool);
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesUpdatePolicy)]
@@ -148,8 +148,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesUpdatePolicy)]
                 interface IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics {
-                    fn CreatePeriodicRefresh(&self, updatePeriod: super::super::super::Foundation::TimeSpan) -> PrintSupportPrintDeviceCapabilitiesUpdatePolicy;
-                    fn CreatePrintJobRefresh(&self, numberOfJobs: u32) -> PrintSupportPrintDeviceCapabilitiesUpdatePolicy;
+                    fn CreatePeriodicRefresh(&self, #[in] updatePeriod: super::super::super::Foundation::TimeSpan) -> PrintSupportPrintDeviceCapabilitiesUpdatePolicy;
+                    fn CreatePrintJobRefresh(&self, #[in] numberOfJobs: u32) -> PrintSupportPrintDeviceCapabilitiesUpdatePolicy;
                 }
                 #[guid(0x4b2a4489_730d_5be7_80e6_8332941abf13)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
@@ -164,7 +164,7 @@ mod Windows {
                 interface IPrintSupportPrintTicketValidationRequestedEventArgs {
                     #[get]
                     PrintTicket: super::PrintTicket::WorkflowPrintTicket;
-                    fn SetPrintTicketValidationStatus(&self, status: WorkflowPrintTicketValidationStatus);
+                    fn SetPrintTicketValidationStatus(&self, #[in] status: WorkflowPrintTicketValidationStatus);
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x39749075_d02d_5fd1_9c4b_46bb8db7316b)]
@@ -172,7 +172,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintTicketValidationRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::Experimental]
                 interface IPrintSupportPrintTicketValidationRequestedEventArgs2 {
-                    fn SetPrintJobShowsUI(&self, showsUI: bool);
+                    fn SetPrintJobShowsUI(&self, #[in] showsUI: bool);
                 }
                 #[guid(0x7b1cb7d9_a8a4_5c09_adb2_66165f817977)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
@@ -181,11 +181,11 @@ mod Windows {
                     #[get]
                     SourceAppInfo: super::super::super::ApplicationModel::AppInfo;
                     PrintTicket: super::PrintTicket::WorkflowPrintTicket;
-                    fn SetAdditionalFeatures(&self, features: super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>);
-                    fn SetAdditionalParameters(&self, parameters: super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>);
+                    fn SetAdditionalFeatures(&self, #[in] features: super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>);
+                    fn SetAdditionalParameters(&self, #[in] parameters: super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>);
                     #[get]
                     AllowedAdditionalFeaturesAndParametersCount: u32;
-                    fn SetAdaptiveCard(&self, adaptiveCard: super::super::super::UI::Shell::IAdaptiveCard);
+                    fn SetAdaptiveCard(&self, #[in] adaptiveCard: super::super::super::UI::Shell::IAdaptiveCard);
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x852149af_777d_53e9_9ee9_45d3f4b5be9c)]
@@ -222,7 +222,7 @@ mod Windows {
                     DocumentTitle: String;
                     #[get]
                     LaunchKind: SettingsLaunchKind;
-                    fn UpdatePrintTicket(&self, printTicket: super::PrintTicket::WorkflowPrintTicket);
+                    fn UpdatePrintTicket(&self, #[in] printTicket: super::PrintTicket::WorkflowPrintTicket);
                     #[get]
                     SessionInfo: PrintSupportSessionInfo;
                 }

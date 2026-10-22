@@ -7,7 +7,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(OcrEngine)]
             interface IOcrEngine {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RecognizeAsync(&self, bitmap: super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::Foundation::IAsyncOperation<OcrResult>;
+                fn RecognizeAsync(&self, #[in] bitmap: super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::Foundation::IAsyncOperation<OcrResult>;
                 #[get]
                 RecognizerLanguage: super::super::Globalization::Language;
             }
@@ -19,8 +19,8 @@ mod Windows {
                 MaxImageDimension: u32;
                 #[get]
                 AvailableRecognizerLanguages: super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>;
-                fn IsLanguageSupported(&self, language: super::super::Globalization::Language) -> bool;
-                fn TryCreateFromLanguage(&self, language: super::super::Globalization::Language) -> OcrEngine;
+                fn IsLanguageSupported(&self, #[in] language: super::super::Globalization::Language) -> bool;
+                fn TryCreateFromLanguage(&self, #[in] language: super::super::Globalization::Language) -> OcrEngine;
                 fn TryCreateFromUserProfileLanguages(&self) -> OcrEngine;
             }
             #[guid(0x0043a16f_e31f_3a24_899c_d444bd088124)]

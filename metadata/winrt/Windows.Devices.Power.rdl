@@ -48,7 +48,7 @@ mod Windows {
                 #[get]
                 AggregateBattery: Battery;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Battery>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<Battery>;
                 fn GetDeviceSelector(&self) -> String;
             }
             #[guid(0xc360fb17_fc92_5f6e_999d_16a4cf9d6c40)]

@@ -16,7 +16,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizer)]
             interface IInstalledVoicesStatic2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TrySetDefaultVoiceAsync(&self, voice: VoiceInformation) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TrySetDefaultVoiceAsync(&self, #[in] voice: VoiceInformation) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x83e46e93_244c_4622_ba0b_6229c4d0d65d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -30,9 +30,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizer)]
             interface ISpeechSynthesizer {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SynthesizeTextToStreamAsync(&self, text: String) -> super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>;
+                fn SynthesizeTextToStreamAsync(&self, #[in] text: String) -> super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SynthesizeSsmlToStreamAsync(&self, Ssml: String) -> super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>;
+                fn SynthesizeSsmlToStreamAsync(&self, #[in] Ssml: String) -> super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>;
                 #[set]
                 Voice: VoiceInformation;
                 #[get]

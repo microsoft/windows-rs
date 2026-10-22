@@ -89,14 +89,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(GameChatOverlay)]
             interface IGameChatOverlay {
                 DesiredPosition: GameChatOverlayPosition;
-                fn AddMessage(&self, sender: String, message: String, origin: GameChatMessageOrigin);
+                fn AddMessage(&self, #[in] sender: String, #[in] message: String, #[in] origin: GameChatMessageOrigin);
             }
             #[guid(0x1e177397_59fb_4f4f_8e9a_80acf817743c)]
             #[Windows::Foundation::Metadata::ContractVersion(GameChatOverlayContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GameChatOverlayMessageSource)]
             interface IGameChatOverlayMessageSource {
                 event MessageReceived: super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs>;
-                fn SetDelayBeforeClosingAfterMessageReceived(&self, value: super::super::Foundation::TimeSpan);
+                fn SetDelayBeforeClosingAfterMessageReceived(&self, #[in] value: super::super::Foundation::TimeSpan);
             }
             #[guid(0x89acf614_7867_49f7_9687_25d9dbf444d1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -110,7 +110,7 @@ mod Windows {
             interface IGameUIProviderActivatedEventArgs: super::super::ApplicationModel::Activation::IActivatedEventArgs {
                 #[get]
                 GameUIArgs: super::super::Foundation::Collections::ValueSet;
-                fn ReportCompleted(&self, results: super::super::Foundation::Collections::ValueSet);
+                fn ReportCompleted(&self, #[in] results: super::super::Foundation::Collections::ValueSet);
             }
         }
     }

@@ -155,25 +155,25 @@ mod Windows {
                 fn GetInputReportAsync(&self) -> super::super::Foundation::IAsyncOperation<HidInputReport>;
                 #[Windows::Foundation::Metadata::Overload("GetInputReportByIdAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetInputReportAsync(&self, reportId: u16) -> super::super::Foundation::IAsyncOperation<HidInputReport>;
+                fn GetInputReportAsync(&self, #[in] reportId: u16) -> super::super::Foundation::IAsyncOperation<HidInputReport>;
                 #[Windows::Foundation::Metadata::Overload("GetFeatureReportAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFeatureReportAsync(&self) -> super::super::Foundation::IAsyncOperation<HidFeatureReport>;
                 #[Windows::Foundation::Metadata::Overload("GetFeatureReportByIdAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetFeatureReportAsync(&self, reportId: u16) -> super::super::Foundation::IAsyncOperation<HidFeatureReport>;
+                fn GetFeatureReportAsync(&self, #[in] reportId: u16) -> super::super::Foundation::IAsyncOperation<HidFeatureReport>;
                 #[Windows::Foundation::Metadata::Overload("CreateOutputReport")]
                 fn CreateOutputReport(&self) -> HidOutputReport;
                 #[Windows::Foundation::Metadata::Overload("CreateOutputReportById")]
-                fn CreateOutputReport(&self, reportId: u16) -> HidOutputReport;
+                fn CreateOutputReport(&self, #[in] reportId: u16) -> HidOutputReport;
                 #[Windows::Foundation::Metadata::Overload("CreateFeatureReport")]
                 fn CreateFeatureReport(&self) -> HidFeatureReport;
                 #[Windows::Foundation::Metadata::Overload("CreateFeatureReportById")]
-                fn CreateFeatureReport(&self, reportId: u16) -> HidFeatureReport;
-                fn SendOutputReportAsync(&self, outputReport: HidOutputReport) -> super::super::Foundation::IAsyncOperation<u32>;
-                fn SendFeatureReportAsync(&self, featureReport: HidFeatureReport) -> super::super::Foundation::IAsyncOperation<u32>;
-                fn GetBooleanControlDescriptions(&self, reportType: HidReportType, usagePage: u16, usageId: u16) -> super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>;
-                fn GetNumericControlDescriptions(&self, reportType: HidReportType, usagePage: u16, usageId: u16) -> super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>;
+                fn CreateFeatureReport(&self, #[in] reportId: u16) -> HidFeatureReport;
+                fn SendOutputReportAsync(&self, #[in] outputReport: HidOutputReport) -> super::super::Foundation::IAsyncOperation<u32>;
+                fn SendFeatureReportAsync(&self, #[in] featureReport: HidFeatureReport) -> super::super::Foundation::IAsyncOperation<u32>;
+                fn GetBooleanControlDescriptions(&self, #[in] reportType: HidReportType, #[in] usagePage: u16, #[in] usageId: u16) -> super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>;
+                fn GetNumericControlDescriptions(&self, #[in] reportType: HidReportType, #[in] usagePage: u16, #[in] usageId: u16) -> super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>;
                 event InputReportReceived: super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>;
             }
             #[guid(0x9e5981e4_9856_418c_9f73_77de0cd85754)]
@@ -181,11 +181,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(HidDevice)]
             interface IHidDeviceStatics {
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
-                fn GetDeviceSelector(&self, usagePage: u16, usageId: u16) -> String;
+                fn GetDeviceSelector(&self, #[in] usagePage: u16, #[in] usageId: u16) -> String;
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorVidPid")]
-                fn GetDeviceSelector(&self, usagePage: u16, usageId: u16, vendorId: u16, productId: u16) -> String;
+                fn GetDeviceSelector(&self, #[in] usagePage: u16, #[in] usageId: u16, #[in] vendorId: u16, #[in] productId: u16) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String, accessMode: super::super::Storage::FileAccessMode) -> super::super::Foundation::IAsyncOperation<HidDevice>;
+                fn FromIdAsync(&self, #[in] deviceId: String, #[in] accessMode: super::super::Storage::FileAccessMode) -> super::super::Foundation::IAsyncOperation<HidDevice>;
             }
             #[guid(0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -194,10 +194,10 @@ mod Windows {
                 #[get]
                 Id: u16;
                 Data: super::super::Storage::Streams::IBuffer;
-                fn GetBooleanControl(&self, usagePage: u16, usageId: u16) -> HidBooleanControl;
-                fn GetBooleanControlByDescription(&self, controlDescription: HidBooleanControlDescription) -> HidBooleanControl;
-                fn GetNumericControl(&self, usagePage: u16, usageId: u16) -> HidNumericControl;
-                fn GetNumericControlByDescription(&self, controlDescription: HidNumericControlDescription) -> HidNumericControl;
+                fn GetBooleanControl(&self, #[in] usagePage: u16, #[in] usageId: u16) -> HidBooleanControl;
+                fn GetBooleanControlByDescription(&self, #[in] controlDescription: HidBooleanControlDescription) -> HidBooleanControl;
+                fn GetNumericControl(&self, #[in] usagePage: u16, #[in] usageId: u16) -> HidNumericControl;
+                fn GetNumericControlByDescription(&self, #[in] controlDescription: HidNumericControlDescription) -> HidNumericControl;
             }
             #[guid(0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -211,10 +211,10 @@ mod Windows {
                 ActivatedBooleanControls: super::super::Foundation::Collections::IVectorView<HidBooleanControl>;
                 #[get]
                 TransitionedBooleanControls: super::super::Foundation::Collections::IVectorView<HidBooleanControl>;
-                fn GetBooleanControl(&self, usagePage: u16, usageId: u16) -> HidBooleanControl;
-                fn GetBooleanControlByDescription(&self, controlDescription: HidBooleanControlDescription) -> HidBooleanControl;
-                fn GetNumericControl(&self, usagePage: u16, usageId: u16) -> HidNumericControl;
-                fn GetNumericControlByDescription(&self, controlDescription: HidNumericControlDescription) -> HidNumericControl;
+                fn GetBooleanControl(&self, #[in] usagePage: u16, #[in] usageId: u16) -> HidBooleanControl;
+                fn GetBooleanControlByDescription(&self, #[in] controlDescription: HidBooleanControlDescription) -> HidBooleanControl;
+                fn GetNumericControl(&self, #[in] usagePage: u16, #[in] usageId: u16) -> HidNumericControl;
+                fn GetNumericControlByDescription(&self, #[in] controlDescription: HidNumericControlDescription) -> HidNumericControl;
             }
             #[guid(0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -284,10 +284,10 @@ mod Windows {
                 #[get]
                 Id: u16;
                 Data: super::super::Storage::Streams::IBuffer;
-                fn GetBooleanControl(&self, usagePage: u16, usageId: u16) -> HidBooleanControl;
-                fn GetBooleanControlByDescription(&self, controlDescription: HidBooleanControlDescription) -> HidBooleanControl;
-                fn GetNumericControl(&self, usagePage: u16, usageId: u16) -> HidNumericControl;
-                fn GetNumericControlByDescription(&self, controlDescription: HidNumericControlDescription) -> HidNumericControl;
+                fn GetBooleanControl(&self, #[in] usagePage: u16, #[in] usageId: u16) -> HidBooleanControl;
+                fn GetBooleanControlByDescription(&self, #[in] controlDescription: HidBooleanControlDescription) -> HidBooleanControl;
+                fn GetNumericControl(&self, #[in] usagePage: u16, #[in] usageId: u16) -> HidNumericControl;
+                fn GetNumericControlByDescription(&self, #[in] controlDescription: HidNumericControlDescription) -> HidNumericControl;
             }
         }
     }

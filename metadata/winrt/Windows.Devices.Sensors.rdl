@@ -465,15 +465,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Accelerometer)]
             interface IAccelerometerStatics2 {
                 #[Windows::Foundation::Metadata::Overload("GetDefaultWithAccelerometerReadingType")]
-                fn GetDefault(&self, readingType: AccelerometerReadingType) -> Accelerometer;
+                fn GetDefault(&self, #[in] readingType: AccelerometerReadingType) -> Accelerometer;
             }
             #[guid(0x9de218cf_455d_4cf3_8200_70e1410340f8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Accelerometer)]
             interface IAccelerometerStatics3 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Accelerometer>;
-                fn GetDeviceSelector(&self, readingType: AccelerometerReadingType) -> String;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<Accelerometer>;
+                fn GetDeviceSelector(&self, #[in] readingType: AccelerometerReadingType) -> String;
             }
             #[guid(0xcd7a630c_fb5f_48eb_b09b_a2708d1c61ef)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -526,13 +526,13 @@ mod Windows {
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<ActivitySensor>;
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<ActivitySensor>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<ActivitySensor>;
                 #[Windows::Foundation::Metadata::Overload("GetSystemHistoryAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetSystemHistoryAsync(&self, fromTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>;
+                fn GetSystemHistoryAsync(&self, #[in] fromTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>;
                 #[Windows::Foundation::Metadata::Overload("GetSystemHistoryWithDurationAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetSystemHistoryAsync(&self, fromTime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>;
+                fn GetSystemHistoryAsync(&self, #[in] fromTime: super::super::Foundation::DateTime, #[in] duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>;
             }
             #[guid(0x2c9e6612_b9ca_4677_b263_243297f79d3a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -678,7 +678,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Barometer)]
             interface IBarometerStatics2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Barometer>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<Barometer>;
                 fn GetDeviceSelector(&self) -> String;
             }
             #[guid(0x292ffa94_1b45_403c_ba06_b106dba69a64)]
@@ -780,7 +780,7 @@ mod Windows {
             interface ICompassStatics2 {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Compass>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<Compass>;
             }
             #[guid(0x168cc0d9_3f05_5029_a0bf_cdcab4be3f9e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
@@ -893,7 +893,7 @@ mod Windows {
             interface IGyrometerStatics2 {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Gyrometer>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<Gyrometer>;
             }
             #[guid(0x519f54a9_513e_55e8_9c35_3e8da21dee69)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
@@ -954,9 +954,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<HingeAngleSensor>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetRelatedToAdjacentPanelsAsync(&self, firstPanelId: String, secondPanelId: String) -> super::super::Foundation::IAsyncOperation<HingeAngleSensor>;
+                fn GetRelatedToAdjacentPanelsAsync(&self, #[in] firstPanelId: String, #[in] secondPanelId: String) -> super::super::Foundation::IAsyncOperation<HingeAngleSensor>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<HingeAngleSensor>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<HingeAngleSensor>;
             }
             #[guid(0xbdb09fda_3244_557a_bd29_8b004f59f2cc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -1028,10 +1028,10 @@ mod Windows {
             #[guid(0x3e526a71_2d1d_5d43_8a8e_a434a8242ef0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             interface IHumanPresenceSensorExtension {
-                fn Initialize(&self, deviceInterface: String);
+                fn Initialize(&self, #[in] deviceInterface: String);
                 fn Start(&self);
-                fn ProcessReading(&self, reading: HumanPresenceSensorReading) -> HumanPresenceSensorReadingUpdate;
-                fn ProcessReadingTimeoutExpired(&self, reading: HumanPresenceSensorReading);
+                fn ProcessReading(&self, #[in] reading: HumanPresenceSensorReading) -> HumanPresenceSensorReadingUpdate;
+                fn ProcessReadingTimeoutExpired(&self, #[in] reading: HumanPresenceSensorReading);
                 fn Stop(&self);
                 fn Uninitialize(&self);
                 fn Reset(&self);
@@ -1093,7 +1093,7 @@ mod Windows {
             interface IHumanPresenceSensorStatics {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, sensorId: String) -> super::super::Foundation::IAsyncOperation<HumanPresenceSensor>;
+                fn FromIdAsync(&self, #[in] sensorId: String) -> super::super::Foundation::IAsyncOperation<HumanPresenceSensor>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<HumanPresenceSensor>;
             }
@@ -1101,7 +1101,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceSensor)]
             interface IHumanPresenceSensorStatics2 {
-                fn FromId(&self, sensorId: String) -> HumanPresenceSensor;
+                fn FromId(&self, #[in] sensorId: String) -> HumanPresenceSensor;
                 fn GetDefault(&self) -> HumanPresenceSensor;
             }
             #[guid(0xef4daf5b_07b7_5eb6_86bb_b7ff49ce44fb)]
@@ -1145,11 +1145,11 @@ mod Windows {
                 fn GetCurrentSettingsAsync(&self) -> super::super::Foundation::IAsyncOperation<HumanPresenceSettings>;
                 fn GetCurrentSettings(&self) -> HumanPresenceSettings;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn UpdateSettingsAsync(&self, settings: HumanPresenceSettings) -> super::super::Foundation::IAsyncAction;
-                fn UpdateSettings(&self, settings: HumanPresenceSettings);
+                fn UpdateSettingsAsync(&self, #[in] settings: HumanPresenceSettings) -> super::super::Foundation::IAsyncAction;
+                fn UpdateSettings(&self, #[in] settings: HumanPresenceSettings);
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetSupportedFeaturesForSensorIdAsync(&self, sensorId: String) -> super::super::Foundation::IAsyncOperation<HumanPresenceFeatures>;
-                fn GetSupportedFeaturesForSensorId(&self, sensorId: String) -> HumanPresenceFeatures;
+                fn GetSupportedFeaturesForSensorIdAsync(&self, #[in] sensorId: String) -> super::super::Foundation::IAsyncOperation<HumanPresenceFeatures>;
+                fn GetSupportedFeaturesForSensorId(&self, #[in] sensorId: String) -> HumanPresenceFeatures;
                 fn GetSupportedLockOnLeaveTimeouts(&self) -> super::super::Foundation::Collections::IVectorView<super::super::Foundation::TimeSpan>;
                 event SettingsChanged: super::super::Foundation::EventHandler<Object>;
             }
@@ -1263,15 +1263,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             interface IInclinometerStatics3 {
                 #[Windows::Foundation::Metadata::Overload("GetDefaultWithSensorReadingType")]
-                fn GetDefault(&self, sensorReadingtype: SensorReadingType) -> Inclinometer;
+                fn GetDefault(&self, #[in] sensorReadingtype: SensorReadingType) -> Inclinometer;
             }
             #[guid(0xe8ba96f9_6e85_4a83_aed0_d7cdcc9856c8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             interface IInclinometerStatics4 {
-                fn GetDeviceSelector(&self, readingType: SensorReadingType) -> String;
+                fn GetDeviceSelector(&self, #[in] readingType: SensorReadingType) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Inclinometer>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<Inclinometer>;
             }
             #[guid(0xf84c0718_0c54_47ae_922e_789f57fb03a0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1374,7 +1374,7 @@ mod Windows {
             interface ILightSensorStatics2 {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<LightSensor>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<LightSensor>;
             }
             #[guid(0x3c6bf8bd_04c1_5829_8d4e_70521755b8be)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -1480,7 +1480,7 @@ mod Windows {
             interface IMagnetometerStatics2 {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Magnetometer>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<Magnetometer>;
             }
             #[guid(0x0412b36f_36e6_51e2_876e_65197cc53c12)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
@@ -1583,20 +1583,20 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensor)]
             interface IOrientationSensorStatics3 {
                 #[Windows::Foundation::Metadata::Overload("GetDefaultWithSensorReadingType")]
-                fn GetDefault(&self, sensorReadingtype: SensorReadingType) -> OrientationSensor;
+                fn GetDefault(&self, #[in] sensorReadingtype: SensorReadingType) -> OrientationSensor;
                 #[Windows::Foundation::Metadata::Overload("GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal")]
-                fn GetDefault(&self, sensorReadingType: SensorReadingType, optimizationGoal: SensorOptimizationGoal) -> OrientationSensor;
+                fn GetDefault(&self, #[in] sensorReadingType: SensorReadingType, #[in] optimizationGoal: SensorOptimizationGoal) -> OrientationSensor;
             }
             #[guid(0xa67feb55_2c85_4b28_a0fe_58c4b20495f5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensor)]
             interface IOrientationSensorStatics4 {
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
-                fn GetDeviceSelector(&self, readingType: SensorReadingType) -> String;
+                fn GetDeviceSelector(&self, #[in] readingType: SensorReadingType) -> String;
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal")]
-                fn GetDeviceSelector(&self, readingType: SensorReadingType, optimizationGoal: SensorOptimizationGoal) -> String;
+                fn GetDeviceSelector(&self, #[in] readingType: SensorReadingType, #[in] optimizationGoal: SensorOptimizationGoal) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<OrientationSensor>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<OrientationSensor>;
             }
             #[guid(0x9a1e013d_3d98_45f8_8920_8e4ecaca5f97)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1624,7 +1624,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PedometerDataThreshold)]
             interface IPedometerDataThresholdFactory {
-                fn Create(&self, sensor: Pedometer, stepGoal: i32) -> PedometerDataThreshold;
+                fn Create(&self, #[in] sensor: Pedometer, #[in] stepGoal: i32) -> PedometerDataThreshold;
             }
             #[guid(0x2245dcf4_a8e1_432f_896a_be0dd9b02d24)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1651,22 +1651,22 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(Pedometer)]
             interface IPedometerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Pedometer>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<Pedometer>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<Pedometer>;
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::Overload("GetSystemHistoryAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetSystemHistoryAsync(&self, fromTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>;
+                fn GetSystemHistoryAsync(&self, #[in] fromTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>;
                 #[Windows::Foundation::Metadata::Overload("GetSystemHistoryWithDurationAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetSystemHistoryAsync(&self, fromTime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>;
+                fn GetSystemHistoryAsync(&self, #[in] fromTime: super::super::Foundation::DateTime, #[in] duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>;
             }
             #[guid(0x79f5c6bb_ce0e_4133_b47e_8627ea72f677)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Pedometer)]
             interface IPedometerStatics2 {
-                fn GetReadingsFromTriggerDetails(&self, triggerDetails: SensorDataThresholdTriggerDetails) -> super::super::Foundation::Collections::IVectorView<PedometerReading>;
+                fn GetReadingsFromTriggerDetails(&self, #[in] triggerDetails: SensorDataThresholdTriggerDetails) -> super::super::Foundation::Collections::IVectorView<PedometerReading>;
             }
             #[guid(0x54c076b8_ecfb_4944_b928_74fc504d47ee)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1686,7 +1686,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ProximitySensorDataThreshold)]
             interface IProximitySensorDataThresholdFactory {
-                fn Create(&self, sensor: ProximitySensor) -> ProximitySensorDataThreshold;
+                fn Create(&self, #[in] sensor: ProximitySensor) -> ProximitySensorDataThreshold;
             }
             #[guid(0x71228d59_132d_4d5f_8ff9_2f0db8751ced)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1711,13 +1711,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ProximitySensor)]
             interface IProximitySensorStatics {
                 fn GetDeviceSelector(&self) -> String;
-                fn FromId(&self, sensorId: String) -> ProximitySensor;
+                fn FromId(&self, #[in] sensorId: String) -> ProximitySensor;
             }
             #[guid(0xcbf473ae_e9ca_422f_ad67_4c3d25df350c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ProximitySensor)]
             interface IProximitySensorStatics2 {
-                fn GetReadingsFromTriggerDetails(&self, triggerDetails: SensorDataThresholdTriggerDetails) -> super::super::Foundation::Collections::IVectorView<ProximitySensorReading>;
+                fn GetReadingsFromTriggerDetails(&self, #[in] triggerDetails: SensorDataThresholdTriggerDetails) -> super::super::Foundation::Collections::IVectorView<ProximitySensorReading>;
             }
             #[guid(0x54daec61_fe4b_4e07_b260_3a4cdfbe396e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -1811,7 +1811,7 @@ mod Windows {
             interface ISimpleOrientationSensorStatics2 {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<SimpleOrientationSensor>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<SimpleOrientationSensor>;
             }
             #[guid(0xf0b87ae7_7e1f_5ea5_814d_6b7e07defc2b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]

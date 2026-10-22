@@ -16,7 +16,7 @@ mod Windows {
                 interface IGpioControllerProvider {
                     #[get]
                     PinCount: i32;
-                    fn OpenPinProvider(&self, pin: i32, sharingMode: ProviderGpioSharingMode) -> IGpioPinProvider;
+                    fn OpenPinProvider(&self, #[in] pin: i32, #[in] sharingMode: ProviderGpioSharingMode) -> IGpioPinProvider;
                 }
                 #[guid(0x42344cb7_6abc_40ff_9ce7_73b85301b900)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
@@ -27,10 +27,10 @@ mod Windows {
                     PinNumber: i32;
                     #[get]
                     SharingMode: ProviderGpioSharingMode;
-                    fn IsDriveModeSupported(&self, driveMode: ProviderGpioPinDriveMode) -> bool;
+                    fn IsDriveModeSupported(&self, #[in] driveMode: ProviderGpioPinDriveMode) -> bool;
                     fn GetDriveMode(&self) -> ProviderGpioPinDriveMode;
-                    fn SetDriveMode(&self, value: ProviderGpioPinDriveMode);
-                    fn Write(&self, value: ProviderGpioPinValue);
+                    fn SetDriveMode(&self, #[in] value: ProviderGpioPinDriveMode);
+                    fn Write(&self, #[in] value: ProviderGpioPinValue);
                     fn Read(&self) -> ProviderGpioPinValue;
                 }
                 #[guid(0x32a6d6f2_3d5b_44cd_8fbe_13a69f2edb24)]
@@ -44,7 +44,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GpioPinProviderValueChangedEventArgs)]
                 interface IGpioPinProviderValueChangedEventArgsFactory {
-                    fn Create(&self, edge: ProviderGpioPinEdge) -> GpioPinProviderValueChangedEventArgs;
+                    fn Create(&self, #[in] edge: ProviderGpioPinEdge) -> GpioPinProviderValueChangedEventArgs;
                 }
                 #[guid(0x44e82707_08ca_434a_afe0_d61580446f7e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]

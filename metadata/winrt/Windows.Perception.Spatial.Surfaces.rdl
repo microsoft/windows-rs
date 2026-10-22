@@ -11,13 +11,13 @@ mod Windows {
                     Id: GUID;
                     #[get]
                     UpdateTime: super::super::super::Foundation::DateTime;
-                    fn TryGetBounds(&self, coordinateSystem: super::SpatialCoordinateSystem) -> super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>;
+                    fn TryGetBounds(&self, #[in] coordinateSystem: super::SpatialCoordinateSystem) -> super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>;
                     #[Windows::Foundation::Metadata::Overload("TryComputeLatestMeshAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn TryComputeLatestMeshAsync(&self, maxTrianglesPerCubicMeter: f64) -> super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>;
+                    fn TryComputeLatestMeshAsync(&self, #[in] maxTrianglesPerCubicMeter: f64) -> super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>;
                     #[Windows::Foundation::Metadata::Overload("TryComputeLatestMeshWithOptionsAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn TryComputeLatestMeshAsync(&self, maxTrianglesPerCubicMeter: f64, options: SpatialSurfaceMeshOptions) -> super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>;
+                    fn TryComputeLatestMeshAsync(&self, #[in] maxTrianglesPerCubicMeter: f64, #[in] options: SpatialSurfaceMeshOptions) -> super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>;
                 }
                 #[guid(0x108f57d9_df0d_3950_a0fd_f972c77c27b4)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -74,8 +74,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(SpatialSurfaceObserver)]
                 interface ISpatialSurfaceObserver {
                     fn GetObservedSurfaces(&self) -> super::super::super::Foundation::Collections::IMapView<GUID, SpatialSurfaceInfo>;
-                    fn SetBoundingVolume(&self, bounds: super::SpatialBoundingVolume);
-                    fn SetBoundingVolumes(&self, bounds: super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>);
+                    fn SetBoundingVolume(&self, #[in] bounds: super::SpatialBoundingVolume);
+                    fn SetBoundingVolumes(&self, #[in] bounds: super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>);
                     event ObservedSurfacesChanged: super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, Object>;
                 }
                 #[guid(0x165951ed_2108_4168_9175_87e027bc9285)]

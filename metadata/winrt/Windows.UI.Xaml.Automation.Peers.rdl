@@ -541,7 +541,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(AppBarAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IAppBarAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::AppBar, baseInterface: Object, innerInterface: &mut Object) -> AppBarAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::AppBar, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> AppBarAutomationPeer;
                     }
                     #[guid(0x443262b2_4f6d_4b76_9d2e_3eff777e8864)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -553,7 +553,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(AppBarButtonAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IAppBarButtonAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::AppBarButton, baseInterface: Object, innerInterface: &mut Object) -> AppBarButtonAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::AppBarButton, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> AppBarButtonAutomationPeer;
                     }
                     #[guid(0x8464efad_9655_4aff_9550_63ae9ec8fe9c)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -565,7 +565,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(AppBarToggleButtonAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IAppBarToggleButtonAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::AppBarToggleButton, baseInterface: Object, innerInterface: &mut Object) -> AppBarToggleButtonAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::AppBarToggleButton, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> AppBarToggleButtonAutomationPeer;
                     }
                     #[guid(0x2f32c302_f99b_491d_9726_a5e181643efa)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -577,7 +577,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(AutoSuggestBoxAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IAutoSuggestBoxAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::AutoSuggestBox) -> AutoSuggestBoxAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::AutoSuggestBox) -> AutoSuggestBoxAutomationPeer;
                     }
                     #[guid(0x35aac87a_62ee_4d3e_a24c_2bc8432d68b7)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -585,9 +585,9 @@ mod Windows {
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IAutomationPeer {
                         EventsSource: AutomationPeer;
-                        fn GetPattern(&self, patternInterface: PatternInterface) -> Object;
-                        fn RaiseAutomationEvent(&self, eventId: AutomationEvents);
-                        fn RaisePropertyChangedEvent(&self, automationProperty: super::AutomationProperty, oldValue: Object, newValue: Object);
+                        fn GetPattern(&self, #[in] patternInterface: PatternInterface) -> Object;
+                        fn RaiseAutomationEvent(&self, #[in] eventId: AutomationEvents);
+                        fn RaisePropertyChangedEvent(&self, #[in] automationProperty: super::AutomationProperty, #[in] oldValue: Object, #[in] newValue: Object);
                         fn GetAcceleratorKey(&self) -> String;
                         fn GetAccessKey(&self) -> String;
                         fn GetAutomationControlType(&self) -> AutomationControlType;
@@ -616,7 +616,7 @@ mod Windows {
                         fn GetParent(&self) -> AutomationPeer;
                         fn InvalidatePeer(&self);
                         #[Windows::Foundation::Metadata::Deprecated("Consider using GetElementFromPoint, which is an improved version of GetPeerFromPoint. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                        fn GetPeerFromPoint(&self, point: super::super::super::super::Foundation::Point) -> AutomationPeer;
+                        fn GetPeerFromPoint(&self, #[in] point: super::super::super::super::Foundation::Point) -> AutomationPeer;
                         fn GetLiveSetting(&self) -> AutomationLiveSetting;
                     }
                     #[guid(0xea1f89c7_ebf5_4ab8_88f7_680d821dac61)]
@@ -629,18 +629,18 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(AutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IAutomationPeer3 {
-                        fn Navigate(&self, direction: AutomationNavigationDirection) -> Object;
-                        fn GetElementFromPoint(&self, pointInWindowCoordinates: super::super::super::super::Foundation::Point) -> Object;
+                        fn Navigate(&self, #[in] direction: AutomationNavigationDirection) -> Object;
+                        fn GetElementFromPoint(&self, #[in] pointInWindowCoordinates: super::super::super::super::Foundation::Point) -> Object;
                         fn GetFocusedElement(&self) -> Object;
                         fn ShowContextMenu(&self);
                         fn GetControlledPeers(&self) -> super::super::super::super::Foundation::Collections::IVectorView<AutomationPeer>;
                         fn GetAnnotations(&self) -> super::super::super::super::Foundation::Collections::IVector<AutomationPeerAnnotation>;
-                        fn SetParent(&self, peer: AutomationPeer);
-                        fn RaiseTextEditTextChangedEvent(&self, automationTextEditChangeType: super::AutomationTextEditChangeType, changedData: super::super::super::super::Foundation::Collections::IVectorView<String>);
+                        fn SetParent(&self, #[in] peer: AutomationPeer);
+                        fn RaiseTextEditTextChangedEvent(&self, #[in] automationTextEditChangeType: super::AutomationTextEditChangeType, #[in] changedData: super::super::super::super::Foundation::Collections::IVectorView<String>);
                         fn GetPositionInSet(&self) -> i32;
                         fn GetSizeOfSet(&self) -> i32;
                         fn GetLevel(&self) -> i32;
-                        fn RaiseStructureChangedEvent(&self, structureChangeType: AutomationStructureChangeType, child: AutomationPeer);
+                        fn RaiseStructureChangedEvent(&self, #[in] structureChangeType: AutomationStructureChangeType, #[in] child: AutomationPeer);
                     }
                     #[guid(0x761ce752_73c1_4f44_be75_43c49ec0d4d5)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
@@ -671,7 +671,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(AutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IAutomationPeer7 {
-                        fn RaiseNotificationEvent(&self, notificationKind: AutomationNotificationKind, notificationProcessing: AutomationNotificationProcessing, displayString: String, activityId: String);
+                        fn RaiseNotificationEvent(&self, #[in] notificationKind: AutomationNotificationKind, #[in] notificationProcessing: AutomationNotificationProcessing, #[in] displayString: String, #[in] activityId: String);
                     }
                     #[guid(0x5c6a1fe6_9a55_4d7f_9498_cfe429e92da8)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -700,8 +700,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(AutomationPeerAnnotation)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IAutomationPeerAnnotationFactory {
-                        fn CreateInstance(&self, r#type: super::AnnotationType) -> AutomationPeerAnnotation;
-                        fn CreateWithPeerParameter(&self, r#type: super::AnnotationType, peer: AutomationPeer) -> AutomationPeerAnnotation;
+                        fn CreateInstance(&self, #[in] r#type: super::AnnotationType) -> AutomationPeerAnnotation;
+                        fn CreateWithPeerParameter(&self, #[in] r#type: super::AnnotationType, #[in] peer: AutomationPeer) -> AutomationPeerAnnotation;
                     }
                     #[guid(0x8809a87d_09b2_4d45_b78b_1d3b3b09f661)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -718,14 +718,14 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(AutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IAutomationPeerFactory {
-                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> AutomationPeer;
+                        fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> AutomationPeer;
                     }
                     #[guid(0xbea93e67_dbee_4f7b_af0d_a79aae5333bf)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(AutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IAutomationPeerOverrides {
-                        fn GetPatternCore(&self, patternInterface: PatternInterface) -> Object;
+                        fn GetPatternCore(&self, #[in] patternInterface: PatternInterface) -> Object;
                         fn GetAcceleratorKeyCore(&self) -> String;
                         fn GetAccessKeyCore(&self) -> String;
                         fn GetAutomationControlTypeCore(&self) -> AutomationControlType;
@@ -750,7 +750,7 @@ mod Windows {
                         fn IsPasswordCore(&self) -> bool;
                         fn IsRequiredForFormCore(&self) -> bool;
                         fn SetFocusCore(&self);
-                        fn GetPeerFromPointCore(&self, point: super::super::super::super::Foundation::Point) -> AutomationPeer;
+                        fn GetPeerFromPointCore(&self, #[in] point: super::super::super::super::Foundation::Point) -> AutomationPeer;
                         fn GetLiveSettingCore(&self) -> AutomationLiveSetting;
                     }
                     #[guid(0x2603682a_9da6_4023_b496_496e5ef228d2)]
@@ -766,8 +766,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(AutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IAutomationPeerOverrides3 {
-                        fn NavigateCore(&self, direction: AutomationNavigationDirection) -> Object;
-                        fn GetElementFromPointCore(&self, pointInWindowCoordinates: super::super::super::super::Foundation::Point) -> Object;
+                        fn NavigateCore(&self, #[in] direction: AutomationNavigationDirection) -> Object;
+                        fn GetElementFromPointCore(&self, #[in] pointInWindowCoordinates: super::super::super::super::Foundation::Point) -> Object;
                         fn GetFocusedElementCore(&self) -> Object;
                         fn GetAnnotationsCore(&self) -> super::super::super::super::Foundation::Collections::IVector<AutomationPeerAnnotation>;
                         fn GetPositionInSetCore(&self) -> i32;
@@ -820,15 +820,15 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(AutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IAutomationPeerProtected {
-                        fn PeerFromProvider(&self, provider: super::Provider::IRawElementProviderSimple) -> AutomationPeer;
-                        fn ProviderFromPeer(&self, peer: AutomationPeer) -> super::Provider::IRawElementProviderSimple;
+                        fn PeerFromProvider(&self, #[in] provider: super::Provider::IRawElementProviderSimple) -> AutomationPeer;
+                        fn ProviderFromPeer(&self, #[in] peer: AutomationPeer) -> super::Provider::IRawElementProviderSimple;
                     }
                     #[guid(0x562f7fb0_a331_4a9c_9dec_bfb7586fffff)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(AutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IAutomationPeerStatics {
-                        fn ListenerExists(&self, eventId: AutomationEvents) -> bool;
+                        fn ListenerExists(&self, #[in] eventId: AutomationEvents) -> bool;
                     }
                     #[guid(0x572c5714_7f87_4271_819f_6cf4c4d022d0)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -847,7 +847,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ButtonAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IButtonAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Button, baseInterface: Object, innerInterface: &mut Object) -> ButtonAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Button, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ButtonAutomationPeer;
                     }
                     #[guid(0xa4f3b5b6_7585_4e0b_96d2_08cf6f28befa)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -859,7 +859,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ButtonBaseAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IButtonBaseAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Primitives::ButtonBase, baseInterface: Object, innerInterface: &mut Object) -> ButtonBaseAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Primitives::ButtonBase, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ButtonBaseAutomationPeer;
                     }
                     #[guid(0x40d8938e_db5e_4b03_beba_d10f62419787)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -871,7 +871,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(CalendarDatePickerAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ICalendarDatePickerAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::CalendarDatePicker, baseInterface: Object, innerInterface: &mut Object) -> CalendarDatePickerAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::CalendarDatePicker, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> CalendarDatePickerAutomationPeer;
                     }
                     #[guid(0xdcc44ee0_fa45_45c6_8bb7_320d808f5958)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -883,7 +883,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(CaptureElementAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ICaptureElementAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::CaptureElement, baseInterface: Object, innerInterface: &mut Object) -> CaptureElementAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::CaptureElement, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> CaptureElementAutomationPeer;
                     }
                     #[guid(0xeb15bc42_c0a9_46c6_ac24_b83de429c733)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -895,7 +895,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(CheckBoxAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ICheckBoxAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::CheckBox, baseInterface: Object, innerInterface: &mut Object) -> CheckBoxAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::CheckBox, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> CheckBoxAutomationPeer;
                     }
                     #[guid(0xa514215a_7293_4577_924c_47d4e0bf9b90)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -907,7 +907,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ColorPickerSliderAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IColorPickerSliderAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Primitives::ColorPickerSlider, baseInterface: Object, innerInterface: &mut Object) -> ColorPickerSliderAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Primitives::ColorPickerSlider, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ColorPickerSliderAutomationPeer;
                     }
                     #[guid(0x15d5ba03_010d_4ff7_9087_f4dd09f831b7)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -919,7 +919,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ColorSpectrumAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IColorSpectrumAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Primitives::ColorSpectrum, baseInterface: Object, innerInterface: &mut Object) -> ColorSpectrumAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Primitives::ColorSpectrum, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ColorSpectrumAutomationPeer;
                     }
                     #[guid(0x7eb40d0b_75c5_4263_ba6a_d4a54fb0f239)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -931,7 +931,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ComboBoxAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IComboBoxAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ComboBox, baseInterface: Object, innerInterface: &mut Object) -> ComboBoxAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ComboBox, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ComboBoxAutomationPeer;
                     }
                     #[guid(0x12ddc76e_9552_446a_82ee_938cc371800f)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -943,7 +943,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ComboBoxItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IComboBoxItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ComboBoxItem, baseInterface: Object, innerInterface: &mut Object) -> ComboBoxItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ComboBoxItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ComboBoxItemAutomationPeer;
                     }
                     #[guid(0x4fef6df2_289c_4c04_831b_5a668c6d7104)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -955,7 +955,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ComboBoxItemDataAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IComboBoxItemDataAutomationPeerFactory {
-                        fn CreateInstanceWithParentAndItem(&self, item: Object, parent: ComboBoxAutomationPeer, baseInterface: Object, innerInterface: &mut Object) -> ComboBoxItemDataAutomationPeer;
+                        fn CreateInstanceWithParentAndItem(&self, #[in] item: Object, #[in] parent: ComboBoxAutomationPeer, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ComboBoxItemDataAutomationPeer;
                     }
                     #[guid(0xd07d357f_a0b9_45dc_991a_76c505e7d0f5)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -967,7 +967,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(DatePickerAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IDatePickerAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::DatePicker, baseInterface: Object, innerInterface: &mut Object) -> DatePickerAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::DatePicker, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> DatePickerAutomationPeer;
                     }
                     #[guid(0x752aed38_c2bf_4880_82b2_a6c05e90c135)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -984,7 +984,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(FlipViewAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IFlipViewAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::FlipView, baseInterface: Object, innerInterface: &mut Object) -> FlipViewAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::FlipView, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> FlipViewAutomationPeer;
                     }
                     #[guid(0xc83034de_fa08_4bd3_aeb2_d2e5bfa04df9)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -996,7 +996,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(FlipViewItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IFlipViewItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::FlipViewItem, baseInterface: Object, innerInterface: &mut Object) -> FlipViewItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::FlipViewItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> FlipViewItemAutomationPeer;
                     }
                     #[guid(0xb0986175_00bc_4118_8a6f_16ee9c15d968)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1008,7 +1008,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(FlipViewItemDataAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IFlipViewItemDataAutomationPeerFactory {
-                        fn CreateInstanceWithParentAndItem(&self, item: Object, parent: FlipViewAutomationPeer, baseInterface: Object, innerInterface: &mut Object) -> FlipViewItemDataAutomationPeer;
+                        fn CreateInstanceWithParentAndItem(&self, #[in] item: Object, #[in] parent: FlipViewAutomationPeer, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> FlipViewItemDataAutomationPeer;
                     }
                     #[guid(0xa01840b4_5fca_456f_98ea_300eb40b585e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1020,7 +1020,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutPresenterAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IFlyoutPresenterAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::FlyoutPresenter, baseInterface: Object, innerInterface: &mut Object) -> FlyoutPresenterAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::FlyoutPresenter, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> FlyoutPresenterAutomationPeer;
                     }
                     #[guid(0xb90ad781_bfeb_4451_bd47_9f3a63ebd24a)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1035,15 +1035,15 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(FrameworkElementAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IFrameworkElementAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::FrameworkElement, baseInterface: Object, innerInterface: &mut Object) -> FrameworkElementAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::FrameworkElement, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> FrameworkElementAutomationPeer;
                     }
                     #[guid(0xb9c0b997_2820_44a1_a5a8_9b801edc269e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(FrameworkElementAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IFrameworkElementAutomationPeerStatics {
-                        fn FromElement(&self, element: super::super::UIElement) -> AutomationPeer;
-                        fn CreatePeerForElement(&self, element: super::super::UIElement) -> AutomationPeer;
+                        fn FromElement(&self, #[in] element: super::super::UIElement) -> AutomationPeer;
+                        fn CreatePeerForElement(&self, #[in] element: super::super::UIElement) -> AutomationPeer;
                     }
                     #[guid(0x1c4401a4_d951_49ca_8f82_c7f3c60681b0)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1055,7 +1055,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(GridViewAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IGridViewAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::GridView, baseInterface: Object, innerInterface: &mut Object) -> GridViewAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::GridView, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> GridViewAutomationPeer;
                     }
                     #[guid(0xe3dcef3a_e08a_48e7_b23a_2be5b66e474e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1067,7 +1067,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(GridViewHeaderItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IGridViewHeaderItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::GridViewHeaderItem, baseInterface: Object, innerInterface: &mut Object) -> GridViewHeaderItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::GridViewHeaderItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> GridViewHeaderItemAutomationPeer;
                     }
                     #[guid(0x93ef2d07_346c_4166_a4ba_bc6a181e7f33)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1079,7 +1079,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(GridViewItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IGridViewItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::GridViewItem, baseInterface: Object, innerInterface: &mut Object) -> GridViewItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::GridViewItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> GridViewItemAutomationPeer;
                     }
                     #[guid(0xf3f4868f_29d4_4094_8c54_ea61a88294a4)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1091,7 +1091,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(GridViewItemDataAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IGridViewItemDataAutomationPeerFactory {
-                        fn CreateInstanceWithParentAndItem(&self, item: Object, parent: GridViewAutomationPeer, baseInterface: Object, innerInterface: &mut Object) -> GridViewItemDataAutomationPeer;
+                        fn CreateInstanceWithParentAndItem(&self, #[in] item: Object, #[in] parent: GridViewAutomationPeer, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> GridViewItemDataAutomationPeer;
                     }
                     #[guid(0x1914fe6d_0740_4236_9ee1_38cf19c1c388)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1103,7 +1103,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(GroupItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IGroupItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::GroupItem, baseInterface: Object, innerInterface: &mut Object) -> GroupItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::GroupItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> GroupItemAutomationPeer;
                     }
                     #[guid(0x4ddee056_4ebc_4620_a05d_903e3c9a4ead)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1115,7 +1115,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(HubAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IHubAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Hub, baseInterface: Object, innerInterface: &mut Object) -> HubAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Hub, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> HubAutomationPeer;
                     }
                     #[guid(0x16d91ff7_7431_4d82_83ce_cfa3192b0f18)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1127,7 +1127,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(HubSectionAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IHubSectionAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::HubSection, baseInterface: Object, innerInterface: &mut Object) -> HubSectionAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::HubSection, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> HubSectionAutomationPeer;
                     }
                     #[guid(0xaa7afcb1_0edf_46d9_aa9e_0eb21d140097)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1139,7 +1139,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(HyperlinkButtonAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IHyperlinkButtonAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::HyperlinkButton, baseInterface: Object, innerInterface: &mut Object) -> HyperlinkButtonAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::HyperlinkButton, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> HyperlinkButtonAutomationPeer;
                     }
                     #[guid(0x9b0bbf8c_60a2_48bf_ab2c_1a52a451d2d4)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1151,7 +1151,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ImageAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IImageAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Image, baseInterface: Object, innerInterface: &mut Object) -> ImageAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Image, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ImageAutomationPeer;
                     }
                     #[guid(0x123baaa4_f2e8_4bcb_9382_5dfdd11fe45f)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -1173,7 +1173,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IItemAutomationPeerFactory {
-                        fn CreateInstanceWithParentAndItem(&self, item: Object, parent: ItemsControlAutomationPeer, baseInterface: Object, innerInterface: &mut Object) -> ItemAutomationPeer;
+                        fn CreateInstanceWithParentAndItem(&self, #[in] item: Object, #[in] parent: ItemsControlAutomationPeer, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ItemAutomationPeer;
                     }
                     #[guid(0x96e76bf1_37f7_4088_925d_65268e83e34d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1185,21 +1185,21 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ItemsControlAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IItemsControlAutomationPeer2 {
-                        fn CreateItemAutomationPeer(&self, item: Object) -> ItemAutomationPeer;
+                        fn CreateItemAutomationPeer(&self, #[in] item: Object) -> ItemAutomationPeer;
                     }
                     #[guid(0x4038a259_2e1a_49ca_a533_c64f181577e6)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(ItemsControlAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IItemsControlAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ItemsControl, baseInterface: Object, innerInterface: &mut Object) -> ItemsControlAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ItemsControl, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ItemsControlAutomationPeer;
                     }
                     #[guid(0x361dc0e8_b56f_45e9_80fe_10a0fb0fe177)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(ItemsControlAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IItemsControlAutomationPeerOverrides2 {
-                        fn OnCreateItemAutomationPeer(&self, item: Object) -> ItemAutomationPeer;
+                        fn OnCreateItemAutomationPeer(&self, #[in] item: Object) -> ItemAutomationPeer;
                     }
                     #[guid(0x8cd0d608_b402_4a6e_bd9a_343f8845eb32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1211,7 +1211,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ListBoxAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IListBoxAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ListBox, baseInterface: Object, innerInterface: &mut Object) -> ListBoxAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ListBox, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ListBoxAutomationPeer;
                     }
                     #[guid(0x1bc6e1c6_2997_42df_99eb_92bc1dd149fb)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1223,7 +1223,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ListBoxItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IListBoxItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ListBoxItem, baseInterface: Object, innerInterface: &mut Object) -> ListBoxItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ListBoxItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ListBoxItemAutomationPeer;
                     }
                     #[guid(0xfd7d5fee_fde0_482a_8084_dcebba5b9806)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1235,7 +1235,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ListBoxItemDataAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IListBoxItemDataAutomationPeerFactory {
-                        fn CreateInstanceWithParentAndItem(&self, item: Object, parent: ListBoxAutomationPeer, baseInterface: Object, innerInterface: &mut Object) -> ListBoxItemDataAutomationPeer;
+                        fn CreateInstanceWithParentAndItem(&self, #[in] item: Object, #[in] parent: ListBoxAutomationPeer, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ListBoxItemDataAutomationPeer;
                     }
                     #[guid(0x56dfdc58_2395_4060_8047_8ea463698a24)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1252,7 +1252,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ListViewAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IListViewAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ListView, baseInterface: Object, innerInterface: &mut Object) -> ListViewAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ListView, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ListViewAutomationPeer;
                     }
                     #[guid(0x87ec7649_b83d_4e55_9afd_bd835e748f5c)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1264,7 +1264,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ListViewBaseAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IListViewBaseAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ListViewBase, baseInterface: Object, innerInterface: &mut Object) -> ListViewBaseAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ListViewBase, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ListViewBaseAutomationPeer;
                     }
                     #[guid(0x7cb8b732_c1f0_4a3c_bc14_85dd48dedb85)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1276,7 +1276,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ListViewBaseHeaderItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IListViewBaseHeaderItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ListViewBaseHeaderItem, baseInterface: Object, innerInterface: &mut Object) -> ListViewBaseHeaderItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ListViewBaseHeaderItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ListViewBaseHeaderItemAutomationPeer;
                     }
                     #[guid(0x67ab1e4b_ad61_4c88_ba45_0f3a8d061f8f)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1288,7 +1288,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ListViewHeaderItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IListViewHeaderItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ListViewHeaderItem, baseInterface: Object, innerInterface: &mut Object) -> ListViewHeaderItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ListViewHeaderItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ListViewHeaderItemAutomationPeer;
                     }
                     #[guid(0xca114e70_a16d_4d09_a1cf_1856ef98a9ec)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1300,7 +1300,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ListViewItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IListViewItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ListViewItem, baseInterface: Object, innerInterface: &mut Object) -> ListViewItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ListViewItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ListViewItemAutomationPeer;
                     }
                     #[guid(0x15a8d7fd_d7a5_4a6c_963c_6f7ce464671a)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1312,7 +1312,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ListViewItemDataAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IListViewItemDataAutomationPeerFactory {
-                        fn CreateInstanceWithParentAndItem(&self, item: Object, parent: ListViewBaseAutomationPeer, baseInterface: Object, innerInterface: &mut Object) -> ListViewItemDataAutomationPeer;
+                        fn CreateInstanceWithParentAndItem(&self, #[in] item: Object, #[in] parent: ListViewBaseAutomationPeer, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ListViewItemDataAutomationPeer;
                     }
                     #[guid(0x50b406ca_bae9_4816_8a3a_0cb4f96478a2)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1344,7 +1344,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(MediaElementAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMediaElementAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::MediaElement, baseInterface: Object, innerInterface: &mut Object) -> MediaElementAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::MediaElement, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MediaElementAutomationPeer;
                     }
                     #[guid(0x02bed209_3f65_4fdd_b5ca_c4750d4e6ea4)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -1356,7 +1356,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayerElementAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMediaPlayerElementAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::MediaPlayerElement, baseInterface: Object, innerInterface: &mut Object) -> MediaPlayerElementAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::MediaPlayerElement, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MediaPlayerElementAutomationPeer;
                     }
                     #[guid(0xa3ad8d93_79f8_4958_a3c8_980defb83d15)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1368,7 +1368,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(MediaTransportControlsAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMediaTransportControlsAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::MediaTransportControls, baseInterface: Object, innerInterface: &mut Object) -> MediaTransportControlsAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::MediaTransportControls, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MediaTransportControlsAutomationPeer;
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MenuBarAutomationPeer)]
@@ -1379,7 +1379,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(MenuBarAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMenuBarAutomationPeerFactory {
-                        fn CreateInstance(&self, owner: super::super::Controls::MenuBar, baseInterface: Object, innerInterface: &mut Object) -> MenuBarAutomationPeer;
+                        fn CreateInstance(&self, #[in] owner: super::super::Controls::MenuBar, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MenuBarAutomationPeer;
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MenuBarItemAutomationPeer)]
@@ -1390,7 +1390,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(MenuBarItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMenuBarItemAutomationPeerFactory {
-                        fn CreateInstance(&self, owner: super::super::Controls::MenuBarItem, baseInterface: Object, innerInterface: &mut Object) -> MenuBarItemAutomationPeer;
+                        fn CreateInstance(&self, #[in] owner: super::super::Controls::MenuBarItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MenuBarItemAutomationPeer;
                     }
                     #[guid(0x1fc19462_21df_456e_aa11_8fac6b4b2af6)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1402,7 +1402,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(MenuFlyoutItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMenuFlyoutItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::MenuFlyoutItem, baseInterface: Object, innerInterface: &mut Object) -> MenuFlyoutItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::MenuFlyoutItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MenuFlyoutItemAutomationPeer;
                     }
                     #[guid(0xe244a871_fcbb_48fc_8a93_41ea134b53ce)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1414,7 +1414,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(MenuFlyoutPresenterAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMenuFlyoutPresenterAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::MenuFlyoutPresenter, baseInterface: Object, innerInterface: &mut Object) -> MenuFlyoutPresenterAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::MenuFlyoutPresenter, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MenuFlyoutPresenterAutomationPeer;
                     }
                     #[guid(0x309847a5_9971_4d8d_a81c_085c7086a1b9)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -1426,7 +1426,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(NavigationViewItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface INavigationViewItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::NavigationViewItem, baseInterface: Object, innerInterface: &mut Object) -> NavigationViewItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::NavigationViewItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> NavigationViewItemAutomationPeer;
                     }
                     #[guid(0x684f065e_3df3_4b9f_82ad_8819db3b218a)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1438,7 +1438,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(PasswordBoxAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IPasswordBoxAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::PasswordBox, baseInterface: Object, innerInterface: &mut Object) -> PasswordBoxAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::PasswordBox, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> PasswordBoxAutomationPeer;
                     }
                     #[guid(0x27156d4c_a66f_4aaf_8286_4f796d30628c)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -1450,7 +1450,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(PersonPictureAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IPersonPictureAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::PersonPicture, baseInterface: Object, innerInterface: &mut Object) -> PersonPictureAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::PersonPicture, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> PersonPictureAutomationPeer;
                     }
                     #[guid(0x28414bf7_8382_4eae_93c1_d6f035aa8155)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1467,7 +1467,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(PivotAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IPivotAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Pivot) -> PivotAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Pivot) -> PivotAutomationPeer;
                     }
                     #[guid(0x1a4241ad_5d55_4d27_b40f_2d37506fbe78)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1479,7 +1479,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(PivotItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IPivotItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::PivotItem) -> PivotItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::PivotItem) -> PivotItemAutomationPeer;
                     }
                     #[guid(0xa2a3b788_ea1d_48b7_88ee_f08b6aa07fee)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1491,7 +1491,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(PivotItemDataAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IPivotItemDataAutomationPeerFactory {
-                        fn CreateInstanceWithParentAndItem(&self, item: Object, parent: PivotAutomationPeer) -> PivotItemDataAutomationPeer;
+                        fn CreateInstanceWithParentAndItem(&self, #[in] item: Object, #[in] parent: PivotAutomationPeer) -> PivotItemDataAutomationPeer;
                     }
                     #[guid(0x93f48f86_d840_4fb6_ac2f_5f779b854b0d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1503,7 +1503,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ProgressBarAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IProgressBarAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ProgressBar, baseInterface: Object, innerInterface: &mut Object) -> ProgressBarAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ProgressBar, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ProgressBarAutomationPeer;
                     }
                     #[guid(0xbc305eee_39d3_4eeb_ac33_2394de123e2e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1515,7 +1515,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ProgressRingAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IProgressRingAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ProgressRing, baseInterface: Object, innerInterface: &mut Object) -> ProgressRingAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ProgressRing, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ProgressRingAutomationPeer;
                     }
                     #[guid(0x7e6a5ed8_0b30_4743_b102_dcdf548e3131)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1527,7 +1527,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(RadioButtonAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IRadioButtonAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::RadioButton, baseInterface: Object, innerInterface: &mut Object) -> RadioButtonAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::RadioButton, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> RadioButtonAutomationPeer;
                     }
                     #[guid(0xe454b549_4b2c_42ad_b04b_d35947d1ee50)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1539,7 +1539,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(RangeBaseAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IRangeBaseAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Primitives::RangeBase, baseInterface: Object, innerInterface: &mut Object) -> RangeBaseAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Primitives::RangeBase, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> RangeBaseAutomationPeer;
                     }
                     #[guid(0x3d14349a_9963_4a47_823c_f457cb3209d5)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -1551,7 +1551,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(RatingControlAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IRatingControlAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::RatingControl, baseInterface: Object, innerInterface: &mut Object) -> RatingControlAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::RatingControl, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> RatingControlAutomationPeer;
                     }
                     #[guid(0x29e41ad5_a8ac_4e8a_83d8_09e37e054257)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1563,7 +1563,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(RepeatButtonAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IRepeatButtonAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Primitives::RepeatButton, baseInterface: Object, innerInterface: &mut Object) -> RepeatButtonAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Primitives::RepeatButton, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> RepeatButtonAutomationPeer;
                     }
                     #[guid(0xc69f5c04_16ee_467a_a833_c3da8458ad64)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1575,7 +1575,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(RichEditBoxAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IRichEditBoxAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::RichEditBox, baseInterface: Object, innerInterface: &mut Object) -> RichEditBoxAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::RichEditBox, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> RichEditBoxAutomationPeer;
                     }
                     #[guid(0x93a01a9c_9609_41fa_82f3_909c09f49a72)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1587,7 +1587,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(RichTextBlockAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IRichTextBlockAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::RichTextBlock, baseInterface: Object, innerInterface: &mut Object) -> RichTextBlockAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::RichTextBlock, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> RichTextBlockAutomationPeer;
                     }
                     #[guid(0x8c9a409a_2736_437b_ab36_a16a202f105d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1599,7 +1599,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(RichTextBlockOverflowAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IRichTextBlockOverflowAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::RichTextBlockOverflow, baseInterface: Object, innerInterface: &mut Object) -> RichTextBlockOverflowAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::RichTextBlockOverflow, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> RichTextBlockOverflowAutomationPeer;
                     }
                     #[guid(0x69e0c369_bbe7_41f2_87ca_aad813fe550e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1611,7 +1611,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ScrollBarAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IScrollBarAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Primitives::ScrollBar, baseInterface: Object, innerInterface: &mut Object) -> ScrollBarAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Primitives::ScrollBar, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ScrollBarAutomationPeer;
                     }
                     #[guid(0xd985f259_1b09_4e88_88fd_421750dc6b45)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1623,7 +1623,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ScrollViewerAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IScrollViewerAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ScrollViewer, baseInterface: Object, innerInterface: &mut Object) -> ScrollViewerAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ScrollViewer, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ScrollViewerAutomationPeer;
                     }
                     #[guid(0x854011a4_18a6_4f30_939b_8871afa3f5e9)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1635,7 +1635,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(SearchBoxAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ISearchBoxAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::SearchBox, baseInterface: Object, innerInterface: &mut Object) -> SearchBoxAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::SearchBox, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> SearchBoxAutomationPeer;
                     }
                     #[guid(0x162ac829_7115_43ec_b383_a7b71644069d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1647,7 +1647,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(SelectorAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ISelectorAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Primitives::Selector, baseInterface: Object, innerInterface: &mut Object) -> SelectorAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Primitives::Selector, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> SelectorAutomationPeer;
                     }
                     #[guid(0xae8b3477_860a_45bb_bf7c_e1b27419d1dd)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1659,7 +1659,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(SelectorItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ISelectorItemAutomationPeerFactory {
-                        fn CreateInstanceWithParentAndItem(&self, item: Object, parent: SelectorAutomationPeer, baseInterface: Object, innerInterface: &mut Object) -> SelectorItemAutomationPeer;
+                        fn CreateInstanceWithParentAndItem(&self, #[in] item: Object, #[in] parent: SelectorAutomationPeer, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> SelectorItemAutomationPeer;
                     }
                     #[guid(0x3c2fac6c_a977_47fc_b44e_2754c0b2bea9)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1671,7 +1671,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(SemanticZoomAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ISemanticZoomAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::SemanticZoom, baseInterface: Object, innerInterface: &mut Object) -> SemanticZoomAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::SemanticZoom, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> SemanticZoomAutomationPeer;
                     }
                     #[guid(0xd0de0cdb_30cf_47a6_a5eb_9c77f0b0d6dd)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1683,7 +1683,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(SettingsFlyoutAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ISettingsFlyoutAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::SettingsFlyout, baseInterface: Object, innerInterface: &mut Object) -> SettingsFlyoutAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::SettingsFlyout, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> SettingsFlyoutAutomationPeer;
                     }
                     #[guid(0xec30015a_d611_46d0_ae4f_6ecf27dfbaa5)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1695,7 +1695,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(SliderAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ISliderAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Slider, baseInterface: Object, innerInterface: &mut Object) -> SliderAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Slider, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> SliderAutomationPeer;
                     }
                     #[guid(0xbe2057f5_6715_4e69_a050_92bd0ce232a9)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1707,7 +1707,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(TextBlockAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ITextBlockAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::TextBlock, baseInterface: Object, innerInterface: &mut Object) -> TextBlockAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::TextBlock, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> TextBlockAutomationPeer;
                     }
                     #[guid(0x3a4f1ca0_5e5d_4d26_9067_e740bf657a9f)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1719,7 +1719,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(TextBoxAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ITextBoxAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::TextBox, baseInterface: Object, innerInterface: &mut Object) -> TextBoxAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::TextBox, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> TextBoxAutomationPeer;
                     }
                     #[guid(0xdc2949b5_b45e_4d6d_892f_d9422c950efb)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1731,7 +1731,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ThumbAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IThumbAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Primitives::Thumb, baseInterface: Object, innerInterface: &mut Object) -> ThumbAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Primitives::Thumb, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ThumbAutomationPeer;
                     }
                     #[guid(0xa43d44ef_3285_4df7_b4a4_e4cdf36a3a17)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1743,7 +1743,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(TimePickerAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ITimePickerAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::TimePicker, baseInterface: Object, innerInterface: &mut Object) -> TimePickerAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::TimePicker, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> TimePickerAutomationPeer;
                     }
                     #[guid(0xda93ee27_82f1_4701_8706_be297bf06043)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1760,7 +1760,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ToggleButtonAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IToggleButtonAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::Primitives::ToggleButton, baseInterface: Object, innerInterface: &mut Object) -> ToggleButtonAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::Primitives::ToggleButton, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ToggleButtonAutomationPeer;
                     }
                     #[guid(0x6b57eafe_6af1_4903_8373_3437bf352345)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1772,7 +1772,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ToggleMenuFlyoutItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IToggleMenuFlyoutItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ToggleMenuFlyoutItem, baseInterface: Object, innerInterface: &mut Object) -> ToggleMenuFlyoutItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ToggleMenuFlyoutItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ToggleMenuFlyoutItemAutomationPeer;
                     }
                     #[guid(0xc011f174_e89e_4790_bf9a_78ebb5f59e9f)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -1784,7 +1784,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(ToggleSwitchAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IToggleSwitchAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::ToggleSwitch, baseInterface: Object, innerInterface: &mut Object) -> ToggleSwitchAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::ToggleSwitch, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> ToggleSwitchAutomationPeer;
                     }
                     #[guid(0x2331d648_b617_437f_920c_71d450503e65)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -1796,7 +1796,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(TreeViewItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ITreeViewItemAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::TreeViewItem, baseInterface: Object, innerInterface: &mut Object) -> TreeViewItemAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::TreeViewItem, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> TreeViewItemAutomationPeer;
                     }
                     #[guid(0x71c1b5bc_bb29_4479_a8a8_606be6b823ae)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -1808,7 +1808,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(TreeViewListAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ITreeViewListAutomationPeerFactory {
-                        fn CreateInstanceWithOwner(&self, owner: super::super::Controls::TreeViewList, baseInterface: Object, innerInterface: &mut Object) -> TreeViewListAutomationPeer;
+                        fn CreateInstanceWithOwner(&self, #[in] owner: super::super::Controls::TreeViewList, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> TreeViewListAutomationPeer;
                     }
                     #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IImageAutomationPeerFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]

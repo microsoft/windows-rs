@@ -39,7 +39,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowConfiguration)]
                 interface IPrintWorkflowConfiguration2 {
-                    fn AbortPrintFlow(&self, reason: PrintWorkflowJobAbortReason);
+                    fn AbortPrintFlow(&self, #[in] reason: PrintWorkflowJobAbortReason);
                 }
                 #[guid(0xc79b63d0_f8ec_4ceb_953a_c8876157dd33)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -173,7 +173,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowObjectModelSourceFileContent)]
                 interface IPrintWorkflowObjectModelSourceFileContentFactory {
-                    fn CreateInstance(&self, xpsStream: super::super::super::Storage::Streams::IInputStream) -> PrintWorkflowObjectModelSourceFileContent;
+                    fn CreateInstance(&self, #[in] xpsStream: super::super::super::Storage::Streams::IInputStream) -> PrintWorkflowObjectModelSourceFileContent;
                 }
                 #[guid(0x7d96bc74_9b54_4ca1_ad3a_979c3d44ddac)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
@@ -184,14 +184,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlConverter)]
                 interface IPrintWorkflowPdlConverter {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ConvertPdlAsync(&self, printTicket: super::PrintTicket::WorkflowPrintTicket, inputStream: super::super::super::Storage::Streams::IInputStream, outputStream: super::super::super::Storage::Streams::IOutputStream) -> super::super::super::Foundation::IAsyncAction;
+                    fn ConvertPdlAsync(&self, #[in] printTicket: super::PrintTicket::WorkflowPrintTicket, #[in] inputStream: super::super::super::Storage::Streams::IInputStream, #[in] outputStream: super::super::super::Storage::Streams::IOutputStream) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x854ceec1_7837_5b93_b7af_57a6998c2f71)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlConverter)]
                 interface IPrintWorkflowPdlConverter2 {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ConvertPdlAsync(&self, printTicket: super::PrintTicket::WorkflowPrintTicket, inputStream: super::super::super::Storage::Streams::IInputStream, outputStream: super::super::super::Storage::Streams::IOutputStream, hostBasedProcessingOperations: PdlConversionHostBasedProcessingOperations) -> super::super::super::Foundation::IAsyncAction;
+                    fn ConvertPdlAsync(&self, #[in] printTicket: super::PrintTicket::WorkflowPrintTicket, #[in] inputStream: super::super::super::Storage::Streams::IInputStream, #[in] outputStream: super::super::super::Storage::Streams::IOutputStream, #[in] hostBasedProcessingOperations: PdlConversionHostBasedProcessingOperations) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x6b556b4f_3756_5da6_b1f7_8f9e89f629fb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
@@ -199,7 +199,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Experimental]
                 interface IPrintWorkflowPdlConverter3 {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ConvertPdlFromObjectModelAsync(&self, printTicket: super::PrintTicket::WorkflowPrintTicket, objectModelProvider: IPrintWorkflowObjectModelProvider, outputStream: super::super::super::Storage::Streams::IOutputStream, hostBasedProcessingOperations: PdlConversionHostBasedProcessingOperations) -> super::super::super::Foundation::IAsyncAction;
+                    fn ConvertPdlFromObjectModelAsync(&self, #[in] printTicket: super::PrintTicket::WorkflowPrintTicket, #[in] objectModelProvider: IPrintWorkflowObjectModelProvider, #[in] outputStream: super::super::super::Storage::Streams::IOutputStream, #[in] hostBasedProcessingOperations: PdlConversionHostBasedProcessingOperations) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xd4ad6b50_1547_5991_a0ef_e2ee20211518)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
@@ -225,18 +225,18 @@ mod Windows {
                     SourceContent: PrintWorkflowPdlSourceContent;
                     #[get]
                     UILauncher: PrintWorkflowUILauncher;
-                    fn CreateJobOnPrinter(&self, targetContentType: String) -> PrintWorkflowPdlTargetStream;
-                    fn CreateJobOnPrinterWithAttributes(&self, jobAttributes: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, super::super::super::Devices::Printers::IppAttributeValue>>, targetContentType: String) -> PrintWorkflowPdlTargetStream;
-                    fn CreateJobOnPrinterWithAttributesBuffer(&self, jobAttributesBuffer: super::super::super::Storage::Streams::IBuffer, targetContentType: String) -> PrintWorkflowPdlTargetStream;
-                    fn GetPdlConverter(&self, conversionType: PrintWorkflowPdlConversionType) -> PrintWorkflowPdlConverter;
+                    fn CreateJobOnPrinter(&self, #[in] targetContentType: String) -> PrintWorkflowPdlTargetStream;
+                    fn CreateJobOnPrinterWithAttributes(&self, #[in] jobAttributes: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, super::super::super::Devices::Printers::IppAttributeValue>>, #[in] targetContentType: String) -> PrintWorkflowPdlTargetStream;
+                    fn CreateJobOnPrinterWithAttributesBuffer(&self, #[in] jobAttributesBuffer: super::super::super::Storage::Streams::IBuffer, #[in] targetContentType: String) -> PrintWorkflowPdlTargetStream;
+                    fn GetPdlConverter(&self, #[in] conversionType: PrintWorkflowPdlConversionType) -> PrintWorkflowPdlConverter;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x8d692147_6c62_5e31_a0e7_d49f92c111c0)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlModificationRequestedEventArgs)]
                 interface IPrintWorkflowPdlModificationRequestedEventArgs2 {
-                    fn CreateJobOnPrinterWithAttributes(&self, jobAttributes: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, super::super::super::Devices::Printers::IppAttributeValue>>, targetContentType: String, operationAttributes: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, super::super::super::Devices::Printers::IppAttributeValue>>, jobAttributesMergePolicy: PrintWorkflowAttributesMergePolicy, operationAttributesMergePolicy: PrintWorkflowAttributesMergePolicy) -> PrintWorkflowPdlTargetStream;
-                    fn CreateJobOnPrinterWithAttributesBuffer(&self, jobAttributesBuffer: super::super::super::Storage::Streams::IBuffer, targetContentType: String, operationAttributesBuffer: super::super::super::Storage::Streams::IBuffer, jobAttributesMergePolicy: PrintWorkflowAttributesMergePolicy, operationAttributesMergePolicy: PrintWorkflowAttributesMergePolicy) -> PrintWorkflowPdlTargetStream;
+                    fn CreateJobOnPrinterWithAttributes(&self, #[in] jobAttributes: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, super::super::super::Devices::Printers::IppAttributeValue>>, #[in] targetContentType: String, #[in] operationAttributes: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, super::super::super::Devices::Printers::IppAttributeValue>>, #[in] jobAttributesMergePolicy: PrintWorkflowAttributesMergePolicy, #[in] operationAttributesMergePolicy: PrintWorkflowAttributesMergePolicy) -> PrintWorkflowPdlTargetStream;
+                    fn CreateJobOnPrinterWithAttributesBuffer(&self, #[in] jobAttributesBuffer: super::super::super::Storage::Streams::IBuffer, #[in] targetContentType: String, #[in] operationAttributesBuffer: super::super::super::Storage::Streams::IBuffer, #[in] jobAttributesMergePolicy: PrintWorkflowAttributesMergePolicy, #[in] operationAttributesMergePolicy: PrintWorkflowAttributesMergePolicy) -> PrintWorkflowPdlTargetStream;
                 }
                 #[guid(0x1f50a7d4_db49_5d3e_ba27_b366cb25cd7e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
@@ -260,7 +260,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlTargetStream)]
                 interface IPrintWorkflowPdlTargetStream {
                     fn GetOutputStream(&self) -> super::super::super::Storage::Streams::IOutputStream;
-                    fn CompleteStreamSubmission(&self, status: PrintWorkflowSubmittedStatus);
+                    fn CompleteStreamSubmission(&self, #[in] status: PrintWorkflowSubmittedStatus);
                 }
                 #[guid(0x12009f94_0d14_5443_bc09_250311ce570b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
@@ -272,16 +272,16 @@ mod Windows {
                     Printer: super::super::super::Devices::Printers::IppPrintDevice;
                     fn GetJobStatus(&self) -> PrintWorkflowPrinterJobStatus;
                     fn GetJobPrintTicket(&self) -> super::PrintTicket::WorkflowPrintTicket;
-                    fn GetJobAttributesAsBuffer(&self, attributeNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Storage::Streams::IBuffer;
-                    fn GetJobAttributes(&self, attributeNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::Collections::IMap<String, super::super::super::Devices::Printers::IppAttributeValue>;
-                    fn SetJobAttributesFromBuffer(&self, jobAttributesBuffer: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Devices::Printers::IppSetAttributesResult;
-                    fn SetJobAttributes(&self, jobAttributes: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, super::super::super::Devices::Printers::IppAttributeValue>>) -> super::super::super::Devices::Printers::IppSetAttributesResult;
+                    fn GetJobAttributesAsBuffer(&self, #[in] attributeNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Storage::Streams::IBuffer;
+                    fn GetJobAttributes(&self, #[in] attributeNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::Collections::IMap<String, super::super::super::Devices::Printers::IppAttributeValue>;
+                    fn SetJobAttributesFromBuffer(&self, #[in] jobAttributesBuffer: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Devices::Printers::IppSetAttributesResult;
+                    fn SetJobAttributes(&self, #[in] jobAttributes: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, super::super::super::Devices::Printers::IppAttributeValue>>) -> super::super::super::Devices::Printers::IppSetAttributesResult;
                 }
                 #[guid(0x747e21d7_69a9_5229_b8f0_874ca1a8871b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPrinterJob)]
                 interface IPrintWorkflowPrinterJob2 {
-                    fn ConvertPrintTicketToJobAttributes(&self, printTicket: super::PrintTicket::WorkflowPrintTicket, targetPdlFormat: String) -> super::super::super::Foundation::Collections::IMap<String, super::super::super::Devices::Printers::IppAttributeValue>;
+                    fn ConvertPrintTicketToJobAttributes(&self, #[in] printTicket: super::PrintTicket::WorkflowPrintTicket, #[in] targetPdlFormat: String) -> super::super::super::Foundation::Collections::IMap<String, super::super::super::Devices::Printers::IppAttributeValue>;
                 }
                 #[guid(0xf0c8eeec_66ac_5e14_8906_0de610769368)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
@@ -330,14 +330,14 @@ mod Windows {
                 interface IPrintWorkflowSubmittedEventArgs {
                     #[get]
                     Operation: PrintWorkflowSubmittedOperation;
-                    fn GetTarget(&self, jobPrintTicket: super::PrintTicket::WorkflowPrintTicket) -> PrintWorkflowTarget;
+                    fn GetTarget(&self, #[in] jobPrintTicket: super::PrintTicket::WorkflowPrintTicket) -> PrintWorkflowTarget;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x2e4e6216_3be1_5f0f_5c81_a5a2bd4eab0e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowSubmittedOperation)]
                 interface IPrintWorkflowSubmittedOperation {
-                    fn Complete(&self, status: PrintWorkflowSubmittedStatus);
+                    fn Complete(&self, #[in] status: PrintWorkflowSubmittedStatus);
                     #[get]
                     Configuration: PrintWorkflowConfiguration;
                     #[get]
@@ -385,10 +385,10 @@ mod Windows {
                     #[get]
                     UILauncher: PrintWorkflowUILauncher;
                     fn GetJobPrintTicket(&self) -> super::PrintTicket::WorkflowPrintTicket;
-                    fn GetPdlConverter(&self, conversionType: PrintWorkflowPdlConversionType) -> PrintWorkflowPdlConverter;
+                    fn GetPdlConverter(&self, #[in] conversionType: PrintWorkflowPdlConversionType) -> PrintWorkflowPdlConverter;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetTargetFileAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>;
-                    fn CompleteJob(&self, status: PrintWorkflowSubmittedStatus);
+                    fn CompleteJob(&self, #[in] status: PrintWorkflowSubmittedStatus);
                 }
                 #[guid(0xaa3926f2_8485_5c27_a016_9d39e3ba2614)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]

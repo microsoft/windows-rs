@@ -58,7 +58,7 @@ mod Windows {
                 fn RequestPurchaseAsync(&self) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
                 #[Windows::Foundation::Metadata::Overload("RequestPurchaseWithPurchasePropertiesAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestPurchaseAsync(&self, storePurchaseProperties: StorePurchaseProperties) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
+                fn RequestPurchaseAsync(&self, #[in] storePurchaseProperties: StorePurchaseProperties) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
             }
             #[guid(0x3a693db3_0088_482f_86d5_bd46522663ad)]
             #[Windows::Foundation::Metadata::ContractVersion(StoreContract, 196608)]
@@ -113,50 +113,50 @@ mod Windows {
                 User: super::super::System::User;
                 event OfflineLicensesChanged: super::super::Foundation::TypedEventHandler<StoreContext, Object>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetCustomerPurchaseIdAsync(&self, serviceTicket: String, publisherUserId: String) -> super::super::Foundation::IAsyncOperation<String>;
+                fn GetCustomerPurchaseIdAsync(&self, #[in] serviceTicket: String, #[in] publisherUserId: String) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetCustomerCollectionsIdAsync(&self, serviceTicket: String, publisherUserId: String) -> super::super::Foundation::IAsyncOperation<String>;
+                fn GetCustomerCollectionsIdAsync(&self, #[in] serviceTicket: String, #[in] publisherUserId: String) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetAppLicenseAsync(&self) -> super::super::Foundation::IAsyncOperation<StoreAppLicense>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetStoreProductForCurrentAppAsync(&self) -> super::super::Foundation::IAsyncOperation<StoreProductResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetStoreProductsAsync(&self, productKinds: super::super::Foundation::Collections::IIterable<String>, storeIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<StoreProductQueryResult>;
+                fn GetStoreProductsAsync(&self, #[in] productKinds: super::super::Foundation::Collections::IIterable<String>, #[in] storeIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<StoreProductQueryResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetAssociatedStoreProductsAsync(&self, productKinds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<StoreProductQueryResult>;
+                fn GetAssociatedStoreProductsAsync(&self, #[in] productKinds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<StoreProductQueryResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetAssociatedStoreProductsWithPagingAsync(&self, productKinds: super::super::Foundation::Collections::IIterable<String>, maxItemsToRetrievePerPage: u32) -> super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>;
+                fn GetAssociatedStoreProductsWithPagingAsync(&self, #[in] productKinds: super::super::Foundation::Collections::IIterable<String>, #[in] maxItemsToRetrievePerPage: u32) -> super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetUserCollectionAsync(&self, productKinds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<StoreProductQueryResult>;
+                fn GetUserCollectionAsync(&self, #[in] productKinds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<StoreProductQueryResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetUserCollectionWithPagingAsync(&self, productKinds: super::super::Foundation::Collections::IIterable<String>, maxItemsToRetrievePerPage: u32) -> super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>;
+                fn GetUserCollectionWithPagingAsync(&self, #[in] productKinds: super::super::Foundation::Collections::IIterable<String>, #[in] maxItemsToRetrievePerPage: u32) -> super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ReportConsumableFulfillmentAsync(&self, productStoreId: String, quantity: u32, trackingId: GUID) -> super::super::Foundation::IAsyncOperation<StoreConsumableResult>;
+                fn ReportConsumableFulfillmentAsync(&self, #[in] productStoreId: String, #[in] quantity: u32, #[in] trackingId: GUID) -> super::super::Foundation::IAsyncOperation<StoreConsumableResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetConsumableBalanceRemainingAsync(&self, productStoreId: String) -> super::super::Foundation::IAsyncOperation<StoreConsumableResult>;
+                fn GetConsumableBalanceRemainingAsync(&self, #[in] productStoreId: String) -> super::super::Foundation::IAsyncOperation<StoreConsumableResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn AcquireStoreLicenseForOptionalPackageAsync(&self, optionalPackage: super::super::ApplicationModel::Package) -> super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>;
+                fn AcquireStoreLicenseForOptionalPackageAsync(&self, #[in] optionalPackage: super::super::ApplicationModel::Package) -> super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>;
                 #[Windows::Foundation::Metadata::Overload("RequestPurchaseAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestPurchaseAsync(&self, storeId: String) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
+                fn RequestPurchaseAsync(&self, #[in] storeId: String) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
                 #[Windows::Foundation::Metadata::Overload("RequestPurchaseWithPurchasePropertiesAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestPurchaseAsync(&self, storeId: String, storePurchaseProperties: StorePurchaseProperties) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
+                fn RequestPurchaseAsync(&self, #[in] storeId: String, #[in] storePurchaseProperties: StorePurchaseProperties) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetAppAndOptionalStorePackageUpdatesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StorePackageUpdate>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestDownloadStorePackageUpdatesAsync(&self, storePackageUpdates: super::super::Foundation::Collections::IIterable<StorePackageUpdate>) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
+                fn RequestDownloadStorePackageUpdatesAsync(&self, #[in] storePackageUpdates: super::super::Foundation::Collections::IIterable<StorePackageUpdate>) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestDownloadAndInstallStorePackageUpdatesAsync(&self, storePackageUpdates: super::super::Foundation::Collections::IIterable<StorePackageUpdate>) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
+                fn RequestDownloadAndInstallStorePackageUpdatesAsync(&self, #[in] storePackageUpdates: super::super::Foundation::Collections::IIterable<StorePackageUpdate>) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestDownloadAndInstallStorePackagesAsync(&self, storeIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
+                fn RequestDownloadAndInstallStorePackagesAsync(&self, #[in] storeIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
             }
             #[guid(0x18bc54da_7bd9_452c_9116_3bbd06ffc63a)]
             #[Windows::Foundation::Metadata::ContractVersion(StoreContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StoreContext)]
             interface IStoreContext2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindStoreProductForPackageAsync(&self, productKinds: super::super::Foundation::Collections::IIterable<String>, package: super::super::ApplicationModel::Package) -> super::super::Foundation::IAsyncOperation<StoreProductResult>;
+                fn FindStoreProductForPackageAsync(&self, #[in] productKinds: super::super::Foundation::Collections::IIterable<String>, #[in] package: super::super::ApplicationModel::Package) -> super::super::Foundation::IAsyncOperation<StoreProductResult>;
             }
             #[guid(0xe26226ca_1a01_4730_85a6_ecc896e4ae38)]
             #[Windows::Foundation::Metadata::ContractVersion(StoreContract, 196608)]
@@ -165,33 +165,33 @@ mod Windows {
                 #[get]
                 CanSilentlyDownloadStorePackageUpdates: bool;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TrySilentDownloadStorePackageUpdatesAsync(&self, storePackageUpdates: super::super::Foundation::Collections::IIterable<StorePackageUpdate>) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
+                fn TrySilentDownloadStorePackageUpdatesAsync(&self, #[in] storePackageUpdates: super::super::Foundation::Collections::IIterable<StorePackageUpdate>) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TrySilentDownloadAndInstallStorePackageUpdatesAsync(&self, storePackageUpdates: super::super::Foundation::Collections::IIterable<StorePackageUpdate>) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
+                fn TrySilentDownloadAndInstallStorePackageUpdatesAsync(&self, #[in] storePackageUpdates: super::super::Foundation::Collections::IIterable<StorePackageUpdate>) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CanAcquireStoreLicenseForOptionalPackageAsync(&self, optionalPackage: super::super::ApplicationModel::Package) -> super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>;
+                fn CanAcquireStoreLicenseForOptionalPackageAsync(&self, #[in] optionalPackage: super::super::ApplicationModel::Package) -> super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CanAcquireStoreLicenseAsync(&self, productStoreId: String) -> super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>;
+                fn CanAcquireStoreLicenseAsync(&self, #[in] productStoreId: String) -> super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>;
                 #[Windows::Foundation::Metadata::Overload("GetStoreProductsWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetStoreProductsAsync(&self, productKinds: super::super::Foundation::Collections::IIterable<String>, storeIds: super::super::Foundation::Collections::IIterable<String>, storeProductOptions: StoreProductOptions) -> super::super::Foundation::IAsyncOperation<StoreProductQueryResult>;
+                fn GetStoreProductsAsync(&self, #[in] productKinds: super::super::Foundation::Collections::IIterable<String>, #[in] storeIds: super::super::Foundation::Collections::IIterable<String>, #[in] storeProductOptions: StoreProductOptions) -> super::super::Foundation::IAsyncOperation<StoreProductQueryResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetAssociatedStoreQueueItemsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetStoreQueueItemsAsync(&self, storeIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>;
+                fn GetStoreQueueItemsAsync(&self, #[in] storeIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>;
                 #[Windows::Foundation::Metadata::Overload("RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestDownloadAndInstallStorePackagesAsync(&self, storeIds: super::super::Foundation::Collections::IIterable<String>, storePackageInstallOptions: StorePackageInstallOptions) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
+                fn RequestDownloadAndInstallStorePackagesAsync(&self, #[in] storeIds: super::super::Foundation::Collections::IIterable<String>, #[in] storePackageInstallOptions: StorePackageInstallOptions) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DownloadAndInstallStorePackagesAsync(&self, storeIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
+                fn DownloadAndInstallStorePackagesAsync(&self, #[in] storeIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestUninstallStorePackageAsync(&self, package: super::super::ApplicationModel::Package) -> super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>;
+                fn RequestUninstallStorePackageAsync(&self, #[in] package: super::super::ApplicationModel::Package) -> super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestUninstallStorePackageByStoreIdAsync(&self, storeId: String) -> super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>;
+                fn RequestUninstallStorePackageByStoreIdAsync(&self, #[in] storeId: String) -> super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn UninstallStorePackageAsync(&self, package: super::super::ApplicationModel::Package) -> super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>;
+                fn UninstallStorePackageAsync(&self, #[in] package: super::super::ApplicationModel::Package) -> super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn UninstallStorePackageByStoreIdAsync(&self, storeId: String) -> super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>;
+                fn UninstallStorePackageByStoreIdAsync(&self, #[in] storeId: String) -> super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>;
             }
             #[guid(0xaf9c6f69_bea1_4bf4_8e74_ae03e206c6b0)]
             #[Windows::Foundation::Metadata::ContractVersion(StoreContract, 262144)]
@@ -200,25 +200,25 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestRateAndReviewAppAsync(&self) -> super::super::Foundation::IAsyncOperation<StoreRateAndReviewResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetInstallOrderForAssociatedStoreQueueItemsAsync(&self, items: super::super::Foundation::Collections::IIterable<StoreQueueItem>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>;
+                fn SetInstallOrderForAssociatedStoreQueueItemsAsync(&self, #[in] items: super::super::Foundation::Collections::IIterable<StoreQueueItem>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>;
             }
             #[guid(0x6de6c52b_c43a_5953_b39a_71643c57d96e)]
             #[Windows::Foundation::Metadata::ContractVersion(StoreContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StoreContext)]
             interface IStoreContext5 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetUserPurchaseHistoryAsync(&self, productKinds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<StoreProductQueryResult>;
+                fn GetUserPurchaseHistoryAsync(&self, #[in] productKinds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<StoreProductQueryResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetAssociatedStoreProductsByInAppOfferTokenAsync(&self, inAppOfferTokens: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<StoreProductQueryResult>;
+                fn GetAssociatedStoreProductsByInAppOfferTokenAsync(&self, #[in] inAppOfferTokens: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<StoreProductQueryResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestPurchaseByInAppOfferTokenAsync(&self, inAppOfferToken: String) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
+                fn RequestPurchaseByInAppOfferTokenAsync(&self, #[in] inAppOfferToken: String) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
             }
             #[guid(0x9c06ee5f_15c0_4e72_9330_d6191cebd19c)]
             #[Windows::Foundation::Metadata::ContractVersion(StoreContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StoreContext)]
             interface IStoreContextStatics {
                 fn GetDefault(&self) -> StoreContext;
-                fn GetForUser(&self, user: super::super::System::User) -> StoreContext;
+                fn GetForUser(&self, #[in] user: super::super::System::User) -> StoreContext;
             }
             #[guid(0x081fd248_adb4_4b64_a993_784789926ed5)]
             #[Windows::Foundation::Metadata::ContractVersion(StoreContract, 65536)]
@@ -359,7 +359,7 @@ mod Windows {
                 fn RequestPurchaseAsync(&self) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
                 #[Windows::Foundation::Metadata::Overload("RequestPurchaseWithPurchasePropertiesAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestPurchaseAsync(&self, storePurchaseProperties: StorePurchaseProperties) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
+                fn RequestPurchaseAsync(&self, #[in] storePurchaseProperties: StorePurchaseProperties) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
                 #[get]
                 InAppOfferToken: String;
             }
@@ -412,7 +412,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(StoreContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorePurchaseProperties)]
             interface IStorePurchasePropertiesFactory {
-                fn Create(&self, name: String) -> StorePurchaseProperties;
+                fn Create(&self, #[in] name: String) -> StorePurchaseProperties;
             }
             #[guid(0xadd28552_f96a_463d_a7bb_c20b4fca6952)]
             #[Windows::Foundation::Metadata::ContractVersion(StoreContract, 65536)]
@@ -486,7 +486,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(StoreRequestHelper)]
             interface IStoreRequestHelperStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SendRequestAsync(&self, context: StoreContext, requestKind: u32, parametersAsJson: String) -> super::super::Foundation::IAsyncOperation<StoreSendRequestResult>;
+                fn SendRequestAsync(&self, #[in] context: StoreContext, #[in] requestKind: u32, #[in] parametersAsJson: String) -> super::super::Foundation::IAsyncOperation<StoreSendRequestResult>;
             }
             #[guid(0xc73abe60_8272_4502_8a69_6e75153a4299)]
             #[Windows::Foundation::Metadata::ContractVersion(StoreContract, 65536)]
@@ -543,7 +543,7 @@ mod Windows {
                 fn RequestPurchaseAsync(&self) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
                 #[Windows::Foundation::Metadata::Overload("RequestPurchaseWithPurchasePropertiesAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestPurchaseAsync(&self, storePurchaseProperties: StorePurchaseProperties) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
+                fn RequestPurchaseAsync(&self, #[in] storePurchaseProperties: StorePurchaseProperties) -> super::super::Foundation::IAsyncOperation<StorePurchaseResult>;
                 #[get]
                 IsSubscription: bool;
                 #[get]

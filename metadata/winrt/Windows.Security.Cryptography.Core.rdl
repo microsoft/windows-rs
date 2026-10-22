@@ -152,53 +152,53 @@ mod Windows {
                 interface IAsymmetricKeyAlgorithmProvider {
                     #[get]
                     AlgorithmName: String;
-                    fn CreateKeyPair(&self, keySize: u32) -> CryptographicKey;
+                    fn CreateKeyPair(&self, #[in] keySize: u32) -> CryptographicKey;
                     #[Windows::Foundation::Metadata::Overload("ImportDefaultPrivateKeyBlob")]
-                    fn ImportKeyPair(&self, keyBlob: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
+                    fn ImportKeyPair(&self, #[in] keyBlob: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
                     #[Windows::Foundation::Metadata::Overload("ImportKeyPairWithBlobType")]
-                    fn ImportKeyPair(&self, keyBlob: super::super::super::Storage::Streams::IBuffer, BlobType: CryptographicPrivateKeyBlobType) -> CryptographicKey;
+                    fn ImportKeyPair(&self, #[in] keyBlob: super::super::super::Storage::Streams::IBuffer, #[in] BlobType: CryptographicPrivateKeyBlobType) -> CryptographicKey;
                     #[Windows::Foundation::Metadata::Overload("ImportDefaultPublicKeyBlob")]
-                    fn ImportPublicKey(&self, keyBlob: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
+                    fn ImportPublicKey(&self, #[in] keyBlob: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
                     #[Windows::Foundation::Metadata::Overload("ImportPublicKeyWithBlobType")]
-                    fn ImportPublicKey(&self, keyBlob: super::super::super::Storage::Streams::IBuffer, BlobType: CryptographicPublicKeyBlobType) -> CryptographicKey;
+                    fn ImportPublicKey(&self, #[in] keyBlob: super::super::super::Storage::Streams::IBuffer, #[in] BlobType: CryptographicPublicKeyBlobType) -> CryptographicKey;
                 }
                 #[guid(0x4e322a7e_7c4d_4997_ac4f_1b848b36306e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AsymmetricKeyAlgorithmProvider)]
                 interface IAsymmetricKeyAlgorithmProvider2 {
-                    fn CreateKeyPairWithCurveName(&self, curveName: String) -> CryptographicKey;
-                    fn CreateKeyPairWithCurveParameters(&self, #[Windows::Foundation::Metadata::Range(0, 65536)] parameters: [u8]) -> CryptographicKey;
+                    fn CreateKeyPairWithCurveName(&self, #[in] curveName: String) -> CryptographicKey;
+                    fn CreateKeyPairWithCurveParameters(&self, #[in] #[Windows::Foundation::Metadata::Range(0, 65536)] parameters: [u8]) -> CryptographicKey;
                 }
                 #[guid(0x425bde18_a7f3_47a6_a8d2_c48d6033a65c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AsymmetricKeyAlgorithmProvider)]
                 interface IAsymmetricKeyAlgorithmProviderStatics {
-                    fn OpenAlgorithm(&self, algorithm: String) -> AsymmetricKeyAlgorithmProvider;
+                    fn OpenAlgorithm(&self, #[in] algorithm: String) -> AsymmetricKeyAlgorithmProvider;
                 }
                 #[guid(0x9fea0639_6ff7_4c85_a095_95eb31715eb9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CryptographicEngine)]
                 interface ICryptographicEngineStatics {
-                    fn Encrypt(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, iv: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
-                    fn Decrypt(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, iv: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
-                    fn EncryptAndAuthenticate(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, nonce: super::super::super::Storage::Streams::IBuffer, authenticatedData: super::super::super::Storage::Streams::IBuffer) -> EncryptedAndAuthenticatedData;
-                    fn DecryptAndAuthenticate(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, nonce: super::super::super::Storage::Streams::IBuffer, authenticationTag: super::super::super::Storage::Streams::IBuffer, authenticatedData: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
-                    fn Sign(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
-                    fn VerifySignature(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, signature: super::super::super::Storage::Streams::IBuffer) -> bool;
-                    fn DeriveKeyMaterial(&self, key: CryptographicKey, parameters: KeyDerivationParameters, desiredKeySize: u32) -> super::super::super::Storage::Streams::IBuffer;
+                    fn Encrypt(&self, #[in] key: CryptographicKey, #[in] data: super::super::super::Storage::Streams::IBuffer, #[in] iv: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
+                    fn Decrypt(&self, #[in] key: CryptographicKey, #[in] data: super::super::super::Storage::Streams::IBuffer, #[in] iv: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
+                    fn EncryptAndAuthenticate(&self, #[in] key: CryptographicKey, #[in] data: super::super::super::Storage::Streams::IBuffer, #[in] nonce: super::super::super::Storage::Streams::IBuffer, #[in] authenticatedData: super::super::super::Storage::Streams::IBuffer) -> EncryptedAndAuthenticatedData;
+                    fn DecryptAndAuthenticate(&self, #[in] key: CryptographicKey, #[in] data: super::super::super::Storage::Streams::IBuffer, #[in] nonce: super::super::super::Storage::Streams::IBuffer, #[in] authenticationTag: super::super::super::Storage::Streams::IBuffer, #[in] authenticatedData: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
+                    fn Sign(&self, #[in] key: CryptographicKey, #[in] data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
+                    fn VerifySignature(&self, #[in] key: CryptographicKey, #[in] data: super::super::super::Storage::Streams::IBuffer, #[in] signature: super::super::super::Storage::Streams::IBuffer) -> bool;
+                    fn DeriveKeyMaterial(&self, #[in] key: CryptographicKey, #[in] parameters: KeyDerivationParameters, #[in] desiredKeySize: u32) -> super::super::super::Storage::Streams::IBuffer;
                 }
                 #[guid(0x675948fe_df9f_4191_92c7_6ce6f58420e0)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CryptographicEngine)]
                 interface ICryptographicEngineStatics2 {
-                    fn SignHashedData(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
-                    fn VerifySignatureWithHashInput(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, signature: super::super::super::Storage::Streams::IBuffer) -> bool;
+                    fn SignHashedData(&self, #[in] key: CryptographicKey, #[in] data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
+                    fn VerifySignatureWithHashInput(&self, #[in] key: CryptographicKey, #[in] data: super::super::super::Storage::Streams::IBuffer, #[in] signature: super::super::super::Storage::Streams::IBuffer) -> bool;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn DecryptAsync(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, iv: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
+                    fn DecryptAsync(&self, #[in] key: CryptographicKey, #[in] data: super::super::super::Storage::Streams::IBuffer, #[in] iv: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SignAsync(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
+                    fn SignAsync(&self, #[in] key: CryptographicKey, #[in] data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SignHashedDataAsync(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
+                    fn SignHashedDataAsync(&self, #[in] key: CryptographicKey, #[in] data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
                 }
                 #[guid(0xed2a3b70_8e7b_4009_8401_ffd1a62eeb27)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -209,11 +209,11 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Overload("ExportDefaultPrivateKeyBlobType")]
                     fn Export(&self) -> super::super::super::Storage::Streams::IBuffer;
                     #[Windows::Foundation::Metadata::Overload("ExportPrivateKeyWithBlobType")]
-                    fn Export(&self, BlobType: CryptographicPrivateKeyBlobType) -> super::super::super::Storage::Streams::IBuffer;
+                    fn Export(&self, #[in] BlobType: CryptographicPrivateKeyBlobType) -> super::super::super::Storage::Streams::IBuffer;
                     #[Windows::Foundation::Metadata::Overload("ExportDefaultPublicKeyBlobType")]
                     fn ExportPublicKey(&self) -> super::super::super::Storage::Streams::IBuffer;
                     #[Windows::Foundation::Metadata::Overload("ExportPublicKeyWithBlobType")]
-                    fn ExportPublicKey(&self, BlobType: CryptographicPublicKeyBlobType) -> super::super::super::Storage::Streams::IBuffer;
+                    fn ExportPublicKey(&self, #[in] BlobType: CryptographicPublicKeyBlobType) -> super::super::super::Storage::Streams::IBuffer;
                 }
                 #[guid(0xb3ff930c_aeeb_409e_b7d4_9b95295aaecf)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -344,20 +344,20 @@ mod Windows {
                     AlgorithmName: String;
                     #[get]
                     HashLength: u32;
-                    fn HashData(&self, data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
+                    fn HashData(&self, #[in] data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
                     fn CreateHash(&self) -> CryptographicHash;
                 }
                 #[guid(0x9fac9741_5cc4_4336_ae38_6212b75a915a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HashAlgorithmProvider)]
                 interface IHashAlgorithmProviderStatics {
-                    fn OpenAlgorithm(&self, algorithm: String) -> HashAlgorithmProvider;
+                    fn OpenAlgorithm(&self, #[in] algorithm: String) -> HashAlgorithmProvider;
                 }
                 #[guid(0x5904d1b6_ad31_4603_a3a4_b1bda98e2562)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CryptographicHash)]
                 interface IHashComputation {
-                    fn Append(&self, data: super::super::super::Storage::Streams::IBuffer);
+                    fn Append(&self, #[in] data: super::super::super::Storage::Streams::IBuffer);
                     fn GetValueAndReset(&self) -> super::super::super::Storage::Streams::IBuffer;
                 }
                 #[guid(0x7b6e363e_94d2_4739_a57b_022e0c3a402a)]
@@ -416,13 +416,13 @@ mod Windows {
                 interface IKeyDerivationAlgorithmProvider {
                     #[get]
                     AlgorithmName: String;
-                    fn CreateKey(&self, keyMaterial: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
+                    fn CreateKey(&self, #[in] keyMaterial: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
                 }
                 #[guid(0x0a22097a_0a1c_443b_9418_b9498aeb1603)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(KeyDerivationAlgorithmProvider)]
                 interface IKeyDerivationAlgorithmProviderStatics {
-                    fn OpenAlgorithm(&self, algorithm: String) -> KeyDerivationAlgorithmProvider;
+                    fn OpenAlgorithm(&self, #[in] algorithm: String) -> KeyDerivationAlgorithmProvider;
                 }
                 #[guid(0x7bf05967_047b_4a8c_964a_469ffd5522e2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -442,15 +442,15 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(KeyDerivationParameters)]
                 interface IKeyDerivationParametersStatics {
-                    fn BuildForPbkdf2(&self, pbkdf2Salt: super::super::super::Storage::Streams::IBuffer, iterationCount: u32) -> KeyDerivationParameters;
-                    fn BuildForSP800108(&self, label: super::super::super::Storage::Streams::IBuffer, context: super::super::super::Storage::Streams::IBuffer) -> KeyDerivationParameters;
-                    fn BuildForSP80056a(&self, algorithmId: super::super::super::Storage::Streams::IBuffer, partyUInfo: super::super::super::Storage::Streams::IBuffer, partyVInfo: super::super::super::Storage::Streams::IBuffer, suppPubInfo: super::super::super::Storage::Streams::IBuffer, suppPrivInfo: super::super::super::Storage::Streams::IBuffer) -> KeyDerivationParameters;
+                    fn BuildForPbkdf2(&self, #[in] pbkdf2Salt: super::super::super::Storage::Streams::IBuffer, #[in] iterationCount: u32) -> KeyDerivationParameters;
+                    fn BuildForSP800108(&self, #[in] label: super::super::super::Storage::Streams::IBuffer, #[in] context: super::super::super::Storage::Streams::IBuffer) -> KeyDerivationParameters;
+                    fn BuildForSP80056a(&self, #[in] algorithmId: super::super::super::Storage::Streams::IBuffer, #[in] partyUInfo: super::super::super::Storage::Streams::IBuffer, #[in] partyVInfo: super::super::super::Storage::Streams::IBuffer, #[in] suppPubInfo: super::super::super::Storage::Streams::IBuffer, #[in] suppPrivInfo: super::super::super::Storage::Streams::IBuffer) -> KeyDerivationParameters;
                 }
                 #[guid(0xa5783dd5_58e3_4efb_b283_a1653126e1be)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(KeyDerivationParameters)]
                 interface IKeyDerivationParametersStatics2 {
-                    fn BuildForCapi1Kdf(&self, capi1KdfTargetAlgorithm: Capi1KdfTargetAlgorithm) -> KeyDerivationParameters;
+                    fn BuildForCapi1Kdf(&self, #[in] capi1KdfTargetAlgorithm: Capi1KdfTargetAlgorithm) -> KeyDerivationParameters;
                 }
                 #[guid(0x41412678_fb1e_43a4_895e_a9026e4390a3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -477,27 +477,27 @@ mod Windows {
                     AlgorithmName: String;
                     #[get]
                     MacLength: u32;
-                    fn CreateKey(&self, keyMaterial: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
+                    fn CreateKey(&self, #[in] keyMaterial: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
                 }
                 #[guid(0x6da32a15_d931_42ed_8e7e_c301caee119c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(MacAlgorithmProvider)]
                 interface IMacAlgorithmProvider2 {
-                    fn CreateHash(&self, keyMaterial: super::super::super::Storage::Streams::IBuffer) -> CryptographicHash;
+                    fn CreateHash(&self, #[in] keyMaterial: super::super::super::Storage::Streams::IBuffer) -> CryptographicHash;
                 }
                 #[guid(0xc9bdc147_cc77_4df0_9e4e_b921e080644c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(MacAlgorithmProvider)]
                 interface IMacAlgorithmProviderStatics {
-                    fn OpenAlgorithm(&self, algorithm: String) -> MacAlgorithmProvider;
+                    fn OpenAlgorithm(&self, #[in] algorithm: String) -> MacAlgorithmProvider;
                 }
                 #[guid(0x77274814_d9d4_4cf5_b668_e0457df30894)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PersistedKeyProvider)]
                 interface IPersistedKeyProviderStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn OpenKeyPairFromCertificateAsync(&self, certificate: super::Certificates::Certificate, hashAlgorithmName: String, padding: CryptographicPadding) -> super::super::super::Foundation::IAsyncOperation<CryptographicKey>;
-                    fn OpenPublicKeyFromCertificate(&self, certificate: super::Certificates::Certificate, hashAlgorithmName: String, padding: CryptographicPadding) -> CryptographicKey;
+                    fn OpenKeyPairFromCertificateAsync(&self, #[in] certificate: super::Certificates::Certificate, #[in] hashAlgorithmName: String, #[in] padding: CryptographicPadding) -> super::super::super::Foundation::IAsyncOperation<CryptographicKey>;
+                    fn OpenPublicKeyFromCertificate(&self, #[in] certificate: super::Certificates::Certificate, #[in] hashAlgorithmName: String, #[in] padding: CryptographicPadding) -> CryptographicKey;
                 }
                 #[guid(0x6870727b_c996_4eae_84d7_79b2aeb73b9c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -550,13 +550,13 @@ mod Windows {
                     AlgorithmName: String;
                     #[get]
                     BlockLength: u32;
-                    fn CreateSymmetricKey(&self, keyMaterial: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
+                    fn CreateSymmetricKey(&self, #[in] keyMaterial: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
                 }
                 #[guid(0x8d3b2326_1f37_491f_b60e_f5431b26b483)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SymmetricKeyAlgorithmProvider)]
                 interface ISymmetricKeyAlgorithmProviderStatics {
-                    fn OpenAlgorithm(&self, algorithm: String) -> SymmetricKeyAlgorithmProvider;
+                    fn OpenAlgorithm(&self, #[in] algorithm: String) -> SymmetricKeyAlgorithmProvider;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]

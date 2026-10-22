@@ -96,7 +96,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppExtension>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestRemovePackageAsync(&self, packageFullName: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestRemovePackageAsync(&self, #[in] packageFullName: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 event PackageInstalled: super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageInstalledEventArgs>;
                 event PackageUpdating: super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUpdatingEventArgs>;
                 event PackageUpdated: super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUpdatedEventArgs>;
@@ -113,7 +113,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionCatalog)]
             interface IAppExtensionCatalogStatics {
-                fn Open(&self, appExtensionName: String) -> AppExtensionCatalog;
+                fn Open(&self, #[in] appExtensionName: String) -> AppExtensionCatalog;
             }
             #[guid(0x39e59234_3351_4a8d_9745_e7d3dd45bc48)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]

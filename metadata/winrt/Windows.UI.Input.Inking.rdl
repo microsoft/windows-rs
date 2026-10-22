@@ -86,13 +86,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkManager)]
                 interface IInkManager: IInkStrokeContainer + IInkRecognizerContainer {
                     Mode: InkManipulationMode;
-                    fn ProcessPointerDown(&self, pointerPoint: super::PointerPoint);
-                    fn ProcessPointerUpdate(&self, pointerPoint: super::PointerPoint) -> #[Windows::Foundation::Metadata::Variant] Object;
-                    fn ProcessPointerUp(&self, pointerPoint: super::PointerPoint) -> super::super::super::Foundation::Rect;
-                    fn SetDefaultDrawingAttributes(&self, drawingAttributes: InkDrawingAttributes);
+                    fn ProcessPointerDown(&self, #[in] pointerPoint: super::PointerPoint);
+                    fn ProcessPointerUpdate(&self, #[in] pointerPoint: super::PointerPoint) -> #[Windows::Foundation::Metadata::Variant] Object;
+                    fn ProcessPointerUp(&self, #[in] pointerPoint: super::PointerPoint) -> super::super::super::Foundation::Rect;
+                    fn SetDefaultDrawingAttributes(&self, #[in] drawingAttributes: InkDrawingAttributes);
                     #[Windows::Foundation::Metadata::Overload("RecognizeAsync2")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RecognizeAsync(&self, recognitionTarget: InkRecognitionTarget) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>;
+                    fn RecognizeAsync(&self, #[in] recognitionTarget: InkRecognitionTarget) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>;
                 }
                 #[guid(0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -130,13 +130,13 @@ mod Windows {
                 #[guid(0x29e5d51c_c98f_405d_9f3b_e53e31068d4d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface IInkPointFactory {
-                    fn CreateInkPoint(&self, position: super::super::super::Foundation::Point, pressure: f32) -> InkPoint;
+                    fn CreateInkPoint(&self, #[in] position: super::super::super::Foundation::Point, #[in] pressure: f32) -> InkPoint;
                 }
                 #[guid(0xe0145e85_daff_45f2_ad69_050d8256a209)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkPoint)]
                 interface IInkPointFactory2 {
-                    fn CreateInkPointWithTiltAndTimestamp(&self, position: super::super::super::Foundation::Point, pressure: f32, tiltX: f32, tiltY: f32, timestamp: u64) -> InkPoint;
+                    fn CreateInkPointWithTiltAndTimestamp(&self, #[in] position: super::super::super::Foundation::Point, #[in] pressure: f32, #[in] tiltX: f32, #[in] tiltY: f32, #[in] timestamp: u64) -> InkPoint;
                 }
                 #[guid(0xa69b70e2_887b_458f_b173_4fe4438930a3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -152,9 +152,9 @@ mod Windows {
                     InputProcessingConfiguration: InkInputProcessingConfiguration;
                     StrokeContainer: InkStrokeContainer;
                     fn CopyDefaultDrawingAttributes(&self) -> InkDrawingAttributes;
-                    fn UpdateDefaultDrawingAttributes(&self, value: InkDrawingAttributes);
+                    fn UpdateDefaultDrawingAttributes(&self, #[in] value: InkDrawingAttributes);
                     fn ActivateCustomDrying(&self) -> InkSynchronizer;
-                    fn SetPredefinedConfiguration(&self, value: InkPresenterPredefinedConfiguration);
+                    fn SetPredefinedConfiguration(&self, #[in] value: InkPresenterPredefinedConfiguration);
                     event StrokesCollected: super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesCollectedEventArgs>;
                     event StrokesErased: super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesErasedEventArgs>;
                 }
@@ -189,7 +189,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkPresenterProtractor)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IInkPresenterProtractorFactory {
-                    fn Create(&self, inkPresenter: InkPresenter) -> InkPresenterProtractor;
+                    fn Create(&self, #[in] inkPresenter: InkPresenter) -> InkPresenterProtractor;
                 }
                 #[guid(0x6cda7d5a_dec7_4dd7_877a_2133f183d48a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -211,7 +211,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IInkPresenterRulerFactory {
-                    fn Create(&self, inkPresenter: InkPresenter) -> InkPresenterRuler;
+                    fn Create(&self, #[in] inkPresenter: InkPresenter) -> InkPresenterRuler;
                 }
                 #[guid(0x30d12d6d_3e06_4d02_b116_277fb5d8addc)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -243,9 +243,9 @@ mod Windows {
                 #[guid(0xa74d9a31_8047_4698_a912_f82a5085012f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface IInkRecognizerContainer {
-                    fn SetDefaultRecognizer(&self, recognizer: InkRecognizer);
+                    fn SetDefaultRecognizer(&self, #[in] recognizer: InkRecognizer);
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RecognizeAsync(&self, strokeCollection: InkStrokeContainer, recognitionTarget: InkRecognitionTarget) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>;
+                    fn RecognizeAsync(&self, #[in] strokeCollection: InkStrokeContainer, #[in] recognitionTarget: InkRecognitionTarget) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>;
                     fn GetRecognizers(&self) -> super::super::super::Foundation::Collections::IVectorView<InkRecognizer>;
                 }
                 #[guid(0x15144d60_cce3_4fcf_9d52_11518ab6afd4)]
@@ -288,43 +288,43 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokeBuilder)]
                 interface IInkStrokeBuilder {
-                    fn BeginStroke(&self, pointerPoint: super::PointerPoint);
-                    fn AppendToStroke(&self, pointerPoint: super::PointerPoint) -> super::PointerPoint;
-                    fn EndStroke(&self, pointerPoint: super::PointerPoint) -> InkStroke;
-                    fn CreateStroke(&self, points: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>) -> InkStroke;
-                    fn SetDefaultDrawingAttributes(&self, drawingAttributes: InkDrawingAttributes);
+                    fn BeginStroke(&self, #[in] pointerPoint: super::PointerPoint);
+                    fn AppendToStroke(&self, #[in] pointerPoint: super::PointerPoint) -> super::PointerPoint;
+                    fn EndStroke(&self, #[in] pointerPoint: super::PointerPoint) -> InkStroke;
+                    fn CreateStroke(&self, #[in] points: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>) -> InkStroke;
+                    fn SetDefaultDrawingAttributes(&self, #[in] drawingAttributes: InkDrawingAttributes);
                 }
                 #[guid(0xbd82bc27_731f_4cbc_bbbf_6d468044f1e5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokeBuilder)]
                 interface IInkStrokeBuilder2 {
-                    fn CreateStrokeFromInkPoints(&self, inkPoints: super::super::super::Foundation::Collections::IIterable<InkPoint>, transform: super::super::super::Foundation::Numerics::Matrix3x2) -> InkStroke;
+                    fn CreateStrokeFromInkPoints(&self, #[in] inkPoints: super::super::super::Foundation::Collections::IIterable<InkPoint>, #[in] transform: super::super::super::Foundation::Numerics::Matrix3x2) -> InkStroke;
                 }
                 #[guid(0xb2c71fcd_5472_46b1_a81d_c37a3d169441)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokeBuilder)]
                 interface IInkStrokeBuilder3 {
-                    fn CreateStrokeFromInkPoints(&self, inkPoints: super::super::super::Foundation::Collections::IIterable<InkPoint>, transform: super::super::super::Foundation::Numerics::Matrix3x2, strokeStartedTime: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, strokeDuration: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>) -> InkStroke;
+                    fn CreateStrokeFromInkPoints(&self, #[in] inkPoints: super::super::super::Foundation::Collections::IIterable<InkPoint>, #[in] transform: super::super::super::Foundation::Numerics::Matrix3x2, #[in] strokeStartedTime: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, #[in] strokeDuration: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>) -> InkStroke;
                 }
                 #[guid(0x22accbc6_faa9_4f14_b68c_f6cee670ae16)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface IInkStrokeContainer {
                     #[get]
                     BoundingRect: super::super::super::Foundation::Rect;
-                    fn AddStroke(&self, stroke: InkStroke);
+                    fn AddStroke(&self, #[in] stroke: InkStroke);
                     fn DeleteSelected(&self) -> super::super::super::Foundation::Rect;
-                    fn MoveSelected(&self, translation: super::super::super::Foundation::Point) -> super::super::super::Foundation::Rect;
-                    fn SelectWithPolyLine(&self, polyline: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>) -> super::super::super::Foundation::Rect;
-                    fn SelectWithLine(&self, from: super::super::super::Foundation::Point, to: super::super::super::Foundation::Point) -> super::super::super::Foundation::Rect;
+                    fn MoveSelected(&self, #[in] translation: super::super::super::Foundation::Point) -> super::super::super::Foundation::Rect;
+                    fn SelectWithPolyLine(&self, #[in] polyline: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>) -> super::super::super::Foundation::Rect;
+                    fn SelectWithLine(&self, #[in] from: super::super::super::Foundation::Point, #[in] to: super::super::super::Foundation::Point) -> super::super::super::Foundation::Rect;
                     fn CopySelectedToClipboard(&self);
-                    fn PasteFromClipboard(&self, position: super::super::super::Foundation::Point) -> super::super::super::Foundation::Rect;
+                    fn PasteFromClipboard(&self, #[in] position: super::super::super::Foundation::Point) -> super::super::super::Foundation::Rect;
                     fn CanPasteFromClipboard(&self) -> bool;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn LoadAsync(&self, inputStream: super::super::super::Storage::Streams::IInputStream) -> super::super::super::Foundation::IAsyncActionWithProgress<u64>;
+                    fn LoadAsync(&self, #[in] inputStream: super::super::super::Storage::Streams::IInputStream) -> super::super::super::Foundation::IAsyncActionWithProgress<u64>;
                     #[Windows::Foundation::Metadata::Overload("SaveAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SaveAsync(&self, outputStream: super::super::super::Storage::Streams::IOutputStream) -> super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>;
-                    fn UpdateRecognitionResults(&self, recognitionResults: super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>);
+                    fn SaveAsync(&self, #[in] outputStream: super::super::super::Storage::Streams::IOutputStream) -> super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>;
+                    fn UpdateRecognitionResults(&self, #[in] recognitionResults: super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>);
                     fn GetStrokes(&self) -> super::super::super::Foundation::Collections::IVectorView<InkStroke>;
                     fn GetRecognitionResults(&self) -> super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>;
                 }
@@ -332,7 +332,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokeContainer)]
                 interface IInkStrokeContainer2 {
-                    fn AddStrokes(&self, strokes: super::super::super::Foundation::Collections::IIterable<InkStroke>);
+                    fn AddStrokes(&self, #[in] strokes: super::super::super::Foundation::Collections::IIterable<InkStroke>);
                     fn Clear(&self);
                 }
                 #[guid(0x3d07bea5_baea_4c82_a719_7b83da1067d2)]
@@ -341,8 +341,8 @@ mod Windows {
                 interface IInkStrokeContainer3 {
                     #[Windows::Foundation::Metadata::Overload("SaveWithFormatAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SaveAsync(&self, outputStream: super::super::super::Storage::Streams::IOutputStream, inkPersistenceFormat: InkPersistenceFormat) -> super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>;
-                    fn GetStrokeById(&self, id: u32) -> InkStroke;
+                    fn SaveAsync(&self, #[in] outputStream: super::super::super::Storage::Streams::IOutputStream, #[in] inkPersistenceFormat: InkPersistenceFormat) -> super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>;
+                    fn GetStrokeById(&self, #[in] id: u32) -> InkStroke;
                 }
                 #[guid(0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -430,7 +430,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 786432)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PenAndInkSettings)]
                 interface IPenAndInkSettings2 {
-                    fn SetPenHandedness(&self, value: PenHandedness);
+                    fn SetPenHandedness(&self, #[in] value: PenHandedness);
                 }
                 #[guid(0xed6dd036_5708_5c3c_96db_f2f552eab641)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]

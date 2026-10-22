@@ -8,7 +8,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(InputActivationListenerPreview)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IInputActivationListenerPreviewStatics {
-                    fn CreateForApplicationWindow(&self, window: super::super::WindowManagement::AppWindow) -> super::InputActivationListener;
+                    fn CreateForApplicationWindow(&self, #[in] window: super::super::WindowManagement::AppWindow) -> super::InputActivationListener;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

@@ -102,7 +102,7 @@ mod Windows {
                 #[get]
                 AppName: String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestLaunchAsync(&self, appArgument: String) -> super::super::Foundation::IAsyncOperation<DialAppLaunchResult>;
+                fn RequestLaunchAsync(&self, #[in] appArgument: String) -> super::super::Foundation::IAsyncOperation<DialAppLaunchResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StopAsync(&self) -> super::super::Foundation::IAsyncOperation<DialAppStopResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -123,7 +123,7 @@ mod Windows {
             interface IDialDevice {
                 #[get]
                 Id: String;
-                fn GetDialApp(&self, appName: String) -> DialApp;
+                fn GetDialApp(&self, #[in] appName: String) -> DialApp;
             }
             #[guid(0xbab7f3d5_5bfb_4eba_8b32_b57c5c5ee5c9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -146,15 +146,15 @@ mod Windows {
                 event DisconnectButtonClicked: super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDisconnectButtonClickedEventArgs>;
                 event DialDevicePickerDismissed: super::super::Foundation::TypedEventHandler<DialDevicePicker, Object>;
                 #[Windows::Foundation::Metadata::Overload("Show")]
-                fn Show(&self, selection: super::super::Foundation::Rect);
+                fn Show(&self, #[in] selection: super::super::Foundation::Rect);
                 #[Windows::Foundation::Metadata::Overload("ShowWithPlacement")]
-                fn Show(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement);
+                fn Show(&self, #[in] selection: super::super::Foundation::Rect, #[in] preferredPlacement: super::super::UI::Popups::Placement);
                 #[Windows::Foundation::Metadata::Overload("PickSingleDialDeviceAsync")]
-                fn PickSingleDialDeviceAsync(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<DialDevice>;
+                fn PickSingleDialDeviceAsync(&self, #[in] selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<DialDevice>;
                 #[Windows::Foundation::Metadata::Overload("PickSingleDialDeviceAsyncWithPlacement")]
-                fn PickSingleDialDeviceAsync(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<DialDevice>;
+                fn PickSingleDialDeviceAsync(&self, #[in] selection: super::super::Foundation::Rect, #[in] preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<DialDevice>;
                 fn Hide(&self);
-                fn SetDisplayStatus(&self, device: DialDevice, status: DialDeviceDisplayStatus);
+                fn SetDisplayStatus(&self, #[in] device: DialDevice, #[in] status: DialDeviceDisplayStatus);
             }
             #[guid(0xc17c93ba_86c0_485d_b8d6_0f9a8f641590)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -174,11 +174,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DialDevice)]
             interface IDialDeviceStatics {
-                fn GetDeviceSelector(&self, appName: String) -> String;
+                fn GetDeviceSelector(&self, #[in] appName: String) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, value: String) -> super::super::Foundation::IAsyncOperation<DialDevice>;
+                fn FromIdAsync(&self, #[in] value: String) -> super::super::Foundation::IAsyncOperation<DialDevice>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DeviceInfoSupportsDialAsync(&self, device: super::super::Devices::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn DeviceInfoSupportsDialAsync(&self, #[in] device: super::super::Devices::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x52765152_9c81_4e55_adc2_0ebe99cde3b6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -194,7 +194,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetAdditionalDataAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<String, String>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn SetAdditionalDataAsync(&self, additionalData: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, String>>) -> super::super::Foundation::IAsyncAction;
+                fn SetAdditionalDataAsync(&self, #[in] additionalData: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, String>>) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x530c5805_9130_42ac_a504_1977dcb2ea8a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]

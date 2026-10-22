@@ -530,13 +530,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailAttachment)]
             interface IEmailAttachmentFactory {
-                fn Create(&self, fileName: String, data: super::super::Storage::Streams::IRandomAccessStreamReference) -> EmailAttachment;
+                fn Create(&self, #[in] fileName: String, #[in] data: super::super::Storage::Streams::IRandomAccessStreamReference) -> EmailAttachment;
             }
             #[guid(0x23259435_51f9_427d_adcd_241023c8cfb7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailAttachment)]
             interface IEmailAttachmentFactory2 {
-                fn Create(&self, fileName: String, data: super::super::Storage::Streams::IRandomAccessStreamReference, mimeType: String) -> EmailAttachment;
+                fn Create(&self, #[in] fileName: String, #[in] data: super::super::Storage::Streams::IRandomAccessStreamReference, #[in] mimeType: String) -> EmailAttachment;
             }
             #[guid(0xda18c248_a0bc_4349_902d_90f66389f51b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -573,7 +573,7 @@ mod Windows {
                 fn FindMessagesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>;
                 #[Windows::Foundation::Metadata::Overload("FindMessagesWithCountAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FindMessagesAsync(&self, count: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>;
+                fn FindMessagesAsync(&self, #[in] count: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>;
             }
             #[guid(0xb8c1ab81_01c5_432a_9df1_fe85d98a279a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -608,7 +608,7 @@ mod Windows {
                 #[get]
                 Kind: EmailSpecialFolderKind;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateFolderAsync(&self, name: String) -> super::super::Foundation::IAsyncOperation<EmailFolder>;
+                fn CreateFolderAsync(&self, #[in] name: String) -> super::super::Foundation::IAsyncOperation<EmailFolder>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn DeleteAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -616,22 +616,22 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("GetConversationReader")]
                 fn GetConversationReader(&self) -> EmailConversationReader;
                 #[Windows::Foundation::Metadata::Overload("GetConversationReaderWithOptions")]
-                fn GetConversationReader(&self, options: EmailQueryOptions) -> EmailConversationReader;
+                fn GetConversationReader(&self, #[in] options: EmailQueryOptions) -> EmailConversationReader;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetMessageAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailMessage>;
+                fn GetMessageAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<EmailMessage>;
                 #[Windows::Foundation::Metadata::Overload("GetMessageReader")]
                 fn GetMessageReader(&self) -> EmailMessageReader;
                 #[Windows::Foundation::Metadata::Overload("GetMessageReaderWithOptions")]
-                fn GetMessageReader(&self, options: EmailQueryOptions) -> EmailMessageReader;
+                fn GetMessageReader(&self, #[in] options: EmailQueryOptions) -> EmailMessageReader;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetMessageCountsAsync(&self) -> super::super::Foundation::IAsyncOperation<EmailItemCounts>;
                 #[Windows::Foundation::Metadata::Overload("TryMoveAsync")]
-                fn TryMoveAsync(&self, newParentFolder: EmailFolder) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryMoveAsync(&self, #[in] newParentFolder: EmailFolder) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("TryMoveWithNewNameAsync")]
-                fn TryMoveAsync(&self, newParentFolder: EmailFolder, newFolderName: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryMoveAsync(&self, #[in] newParentFolder: EmailFolder, #[in] newFolderName: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TrySaveAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
-                fn SaveMessageAsync(&self, message: EmailMessage) -> super::super::Foundation::IAsyncAction;
+                fn SaveMessageAsync(&self, #[in] message: EmailMessage) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x90f52193_b1a0_4ebd_a6b6_ddca55606e0e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -654,7 +654,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailIrmInfo)]
             interface IEmailIrmInfoFactory {
-                fn Create(&self, expiration: super::super::Foundation::DateTime, irmTemplate: EmailIrmTemplate) -> EmailIrmInfo;
+                fn Create(&self, #[in] expiration: super::super::Foundation::DateTime, #[in] irmTemplate: EmailIrmTemplate) -> EmailIrmInfo;
             }
             #[guid(0xf327758d_546d_4bea_a963_54a38b2cc016)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -668,7 +668,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailIrmTemplate)]
             interface IEmailIrmTemplateFactory {
-                fn Create(&self, id: String, name: String, description: String) -> EmailIrmTemplate;
+                fn Create(&self, #[in] id: String, #[in] name: String, #[in] description: String) -> EmailIrmTemplate;
             }
             #[guid(0x5bd13321_fec8_4bab_83ba_0baf3c1f6cbd)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -714,61 +714,61 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("GetConversationReader")]
                 fn GetConversationReader(&self) -> EmailConversationReader;
                 #[Windows::Foundation::Metadata::Overload("GetConversationReaderWithOptions")]
-                fn GetConversationReader(&self, options: EmailQueryOptions) -> EmailConversationReader;
+                fn GetConversationReader(&self, #[in] options: EmailQueryOptions) -> EmailConversationReader;
                 #[Windows::Foundation::Metadata::Overload("GetMessageReader")]
                 fn GetMessageReader(&self) -> EmailMessageReader;
                 #[Windows::Foundation::Metadata::Overload("GetMessageReaderWithOptions")]
-                fn GetMessageReader(&self, options: EmailQueryOptions) -> EmailMessageReader;
+                fn GetMessageReader(&self, #[in] options: EmailQueryOptions) -> EmailMessageReader;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn DeleteAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetConversationAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailConversation>;
+                fn GetConversationAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<EmailConversation>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetFolderAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailFolder>;
+                fn GetFolderAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<EmailFolder>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetMessageAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailMessage>;
+                fn GetMessageAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<EmailMessage>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetSpecialFolderAsync(&self, folderType: EmailSpecialFolderKind) -> super::super::Foundation::IAsyncOperation<EmailFolder>;
+                fn GetSpecialFolderAsync(&self, #[in] folderType: EmailSpecialFolderKind) -> super::super::Foundation::IAsyncOperation<EmailFolder>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SaveAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn MarkMessageAsSeenAsync(&self, messageId: String) -> super::super::Foundation::IAsyncAction;
+                fn MarkMessageAsSeenAsync(&self, #[in] messageId: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn MarkFolderAsSeenAsync(&self, folderId: String) -> super::super::Foundation::IAsyncAction;
+                fn MarkFolderAsSeenAsync(&self, #[in] folderId: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn MarkMessageReadAsync(&self, messageId: String, isRead: bool) -> super::super::Foundation::IAsyncAction;
+                fn MarkMessageReadAsync(&self, #[in] messageId: String, #[in] isRead: bool) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ChangeMessageFlagStateAsync(&self, messageId: String, flagState: EmailFlagState) -> super::super::Foundation::IAsyncAction;
+                fn ChangeMessageFlagStateAsync(&self, #[in] messageId: String, #[in] flagState: EmailFlagState) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryMoveMessageAsync(&self, messageId: String, newParentFolderId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryMoveMessageAsync(&self, #[in] messageId: String, #[in] newParentFolderId: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("TryMoveFolderAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryMoveFolderAsync(&self, folderId: String, newParentFolderId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryMoveFolderAsync(&self, #[in] folderId: String, #[in] newParentFolderId: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("TryMoveFolderWithNewNameAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryMoveFolderAsync(&self, folderId: String, newParentFolderId: String, newFolderName: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryMoveFolderAsync(&self, #[in] folderId: String, #[in] newParentFolderId: String, #[in] newFolderName: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DeleteMessageAsync(&self, messageId: String) -> super::super::Foundation::IAsyncAction;
+                fn DeleteMessageAsync(&self, #[in] messageId: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn MarkFolderSyncEnabledAsync(&self, folderId: String, isSyncEnabled: bool) -> super::super::Foundation::IAsyncAction;
+                fn MarkFolderSyncEnabledAsync(&self, #[in] folderId: String, #[in] isSyncEnabled: bool) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("SendMessageAsync")]
-                fn SendMessageAsync(&self, message: EmailMessage) -> super::super::Foundation::IAsyncAction;
-                fn SaveDraftAsync(&self, message: EmailMessage) -> super::super::Foundation::IAsyncAction;
+                fn SendMessageAsync(&self, #[in] message: EmailMessage) -> super::super::Foundation::IAsyncAction;
+                fn SaveDraftAsync(&self, #[in] message: EmailMessage) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DownloadMessageAsync(&self, messageId: String) -> super::super::Foundation::IAsyncAction;
+                fn DownloadMessageAsync(&self, #[in] messageId: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DownloadAttachmentAsync(&self, attachmentId: String) -> super::super::Foundation::IAsyncAction;
+                fn DownloadAttachmentAsync(&self, #[in] attachmentId: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateResponseMessageAsync(&self, messageId: String, responseType: EmailMessageResponseKind, subject: String, responseHeaderType: EmailMessageBodyKind, responseHeader: String) -> super::super::Foundation::IAsyncOperation<EmailMessage>;
-                fn TryUpdateMeetingResponseAsync(&self, meeting: EmailMessage, response: EmailMeetingResponseType, subject: String, comment: String, sendUpdate: bool) -> super::super::Foundation::IAsyncOperation<bool>;
-                fn TryForwardMeetingAsync(&self, meeting: EmailMessage, recipients: super::super::Foundation::Collections::IIterable<EmailRecipient>, subject: String, forwardHeaderType: EmailMessageBodyKind, forwardHeader: String, comment: String) -> super::super::Foundation::IAsyncOperation<bool>;
-                fn TryProposeNewTimeForMeetingAsync(&self, meeting: EmailMessage, newStartTime: super::super::Foundation::DateTime, newDuration: super::super::Foundation::TimeSpan, subject: String, comment: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn CreateResponseMessageAsync(&self, #[in] messageId: String, #[in] responseType: EmailMessageResponseKind, #[in] subject: String, #[in] responseHeaderType: EmailMessageBodyKind, #[in] responseHeader: String) -> super::super::Foundation::IAsyncOperation<EmailMessage>;
+                fn TryUpdateMeetingResponseAsync(&self, #[in] meeting: EmailMessage, #[in] response: EmailMeetingResponseType, #[in] subject: String, #[in] comment: String, #[in] sendUpdate: bool) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryForwardMeetingAsync(&self, #[in] meeting: EmailMessage, #[in] recipients: super::super::Foundation::Collections::IIterable<EmailRecipient>, #[in] subject: String, #[in] forwardHeaderType: EmailMessageBodyKind, #[in] forwardHeader: String, #[in] comment: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryProposeNewTimeForMeetingAsync(&self, #[in] meeting: EmailMessage, #[in] newStartTime: super::super::Foundation::DateTime, #[in] newDuration: super::super::Foundation::TimeSpan, #[in] subject: String, #[in] comment: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 event MailboxChanged: super::super::Foundation::TypedEventHandler<EmailMailbox, EmailMailboxChangedEventArgs>;
                 #[Windows::Foundation::Metadata::Overload("SmartSendMessageAsync")]
-                fn SendMessageAsync(&self, message: EmailMessage, smartSend: bool) -> super::super::Foundation::IAsyncAction;
-                fn TrySetAutoReplySettingsAsync(&self, autoReplySettings: EmailMailboxAutoReplySettings) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn SendMessageAsync(&self, #[in] message: EmailMessage, #[in] smartSend: bool) -> super::super::Foundation::IAsyncAction;
+                fn TrySetAutoReplySettingsAsync(&self, #[in] autoReplySettings: EmailMailboxAutoReplySettings) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryGetAutoReplySettingsAsync(&self, requestedFormat: EmailMailboxAutoReplyMessageResponseKind) -> super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>;
+                fn TryGetAutoReplySettingsAsync(&self, #[in] requestedFormat: EmailMailboxAutoReplyMessageResponseKind) -> super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>;
             }
             #[guid(0x14f8e404_6ca2_4ab2_9241_79cd7bf46346)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -786,15 +786,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailbox)]
             interface IEmailMailbox3: IEmailMailbox2 + IEmailMailbox {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ResolveRecipientsAsync(&self, recipients: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailRecipientResolutionResult>>;
+                fn ResolveRecipientsAsync(&self, #[in] recipients: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailRecipientResolutionResult>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ValidateCertificatesAsync(&self, certificates: super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailCertificateValidationStatus>>;
+                fn ValidateCertificatesAsync(&self, #[in] certificates: super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailCertificateValidationStatus>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryEmptyFolderAsync(&self, folderId: String) -> super::super::Foundation::IAsyncOperation<EmailMailboxEmptyFolderStatus>;
+                fn TryEmptyFolderAsync(&self, #[in] folderId: String) -> super::super::Foundation::IAsyncOperation<EmailMailboxEmptyFolderStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryCreateFolderAsync(&self, parentFolderId: String, name: String) -> super::super::Foundation::IAsyncOperation<EmailMailboxCreateFolderResult>;
+                fn TryCreateFolderAsync(&self, #[in] parentFolderId: String, #[in] name: String) -> super::super::Foundation::IAsyncOperation<EmailMailboxCreateFolderResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryDeleteFolderAsync(&self, folderId: String) -> super::super::Foundation::IAsyncOperation<EmailMailboxDeleteFolderStatus>;
+                fn TryDeleteFolderAsync(&self, #[in] folderId: String) -> super::super::Foundation::IAsyncOperation<EmailMailboxDeleteFolderStatus>;
             }
             #[guid(0x5d1f301b_f222_48a7_b7b6_716356cd26a1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -807,7 +807,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailbox)]
             interface IEmailMailbox5 {
-                fn GetChangeTracker(&self, identity: String) -> EmailMailboxChangeTracker;
+                fn GetChangeTracker(&self, #[in] identity: String) -> EmailMailboxChangeTracker;
             }
             #[guid(0xac9889fa_21fa_4927_9210_d410582fdf3e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -929,7 +929,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxChangeReader)]
             interface IEmailMailboxChangeReader {
                 fn AcceptChanges(&self);
-                fn AcceptChangesThrough(&self, lastChangeToAcknowledge: EmailMailboxChange);
+                fn AcceptChangesThrough(&self, #[in] lastChangeToAcknowledge: EmailMailboxChange);
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailboxChange>>;
             }
@@ -1033,9 +1033,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailManagerForUser)]
             interface IEmailManagerForUser {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowComposeNewEmailAsync(&self, message: EmailMessage) -> super::super::Foundation::IAsyncAction;
+                fn ShowComposeNewEmailAsync(&self, #[in] message: EmailMessage) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestStoreAsync(&self, accessType: EmailStoreAccessType) -> super::super::Foundation::IAsyncOperation<EmailStore>;
+                fn RequestStoreAsync(&self, #[in] accessType: EmailStoreAccessType) -> super::super::Foundation::IAsyncOperation<EmailStore>;
                 #[get]
                 User: super::super::System::User;
             }
@@ -1044,20 +1044,20 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailManager)]
             interface IEmailManagerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowComposeNewEmailAsync(&self, message: EmailMessage) -> super::super::Foundation::IAsyncAction;
+                fn ShowComposeNewEmailAsync(&self, #[in] message: EmailMessage) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0xac052da3_b194_425d_b6d9_d0f04135eda2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailManager)]
             interface IEmailManagerStatics2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestStoreAsync(&self, accessType: EmailStoreAccessType) -> super::super::Foundation::IAsyncOperation<EmailStore>;
+                fn RequestStoreAsync(&self, #[in] accessType: EmailStoreAccessType) -> super::super::Foundation::IAsyncOperation<EmailStore>;
             }
             #[guid(0x4a722395_843e_4945_b3aa_349e07a362c5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailManager)]
             interface IEmailManagerStatics3 {
-                fn GetForUser(&self, user: super::super::System::User) -> EmailManagerForUser;
+                fn GetForUser(&self, #[in] user: super::super::System::User) -> EmailManagerForUser;
             }
             #[guid(0x31c03fa9_7933_415f_a275_d165ba07026b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1141,8 +1141,8 @@ mod Windows {
                 Sender: EmailRecipient;
                 SentTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
                 MeetingInfo: EmailMeetingInfo;
-                fn GetBodyStream(&self, r#type: EmailMessageBodyKind) -> super::super::Storage::Streams::IRandomAccessStreamReference;
-                fn SetBodyStream(&self, r#type: EmailMessageBodyKind, stream: super::super::Storage::Streams::IRandomAccessStreamReference);
+                fn GetBodyStream(&self, #[in] r#type: EmailMessageBodyKind) -> super::super::Storage::Streams::IRandomAccessStreamReference;
+                fn SetBodyStream(&self, #[in] r#type: EmailMessageBodyKind, #[in] stream: super::super::Storage::Streams::IRandomAccessStreamReference);
             }
             #[guid(0xa1ea675c_e598_4d29_a018_fc7b7eece0a1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -1191,8 +1191,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailQueryOptions)]
             interface IEmailQueryOptionsFactory {
-                fn CreateWithText(&self, text: String) -> EmailQueryOptions;
-                fn CreateWithTextAndFields(&self, text: String, fields: EmailQuerySearchFields) -> EmailQueryOptions;
+                fn CreateWithText(&self, #[in] text: String) -> EmailQueryOptions;
+                fn CreateWithTextAndFields(&self, #[in] text: String, #[in] fields: EmailQuerySearchFields) -> EmailQueryOptions;
             }
             #[guid(0x9fa0a288_3c5d_46a5_a6e2_31d6fd17e540)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1213,8 +1213,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailRecipient)]
             interface IEmailRecipientFactory {
-                fn Create(&self, address: String) -> EmailRecipient;
-                fn CreateWithName(&self, address: String, name: String) -> EmailRecipient;
+                fn Create(&self, #[in] address: String) -> EmailRecipient;
+                fn CreateWithName(&self, #[in] address: String, #[in] name: String) -> EmailRecipient;
             }
             #[guid(0x918338fa_8d8d_4573_80d1_07172a34b98d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -1231,7 +1231,7 @@ mod Windows {
             interface IEmailRecipientResolutionResult2 {
                 #[set]
                 Status: EmailRecipientResolutionStatus;
-                fn SetPublicKeys(&self, value: super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>);
+                fn SetPublicKeys(&self, #[in] value: super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>);
             }
             #[guid(0xf803226e_9137_4f8b_a470_279ac3058eb6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1242,25 +1242,25 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("GetConversationReader")]
                 fn GetConversationReader(&self) -> EmailConversationReader;
                 #[Windows::Foundation::Metadata::Overload("GetConversationReaderWithOptions")]
-                fn GetConversationReader(&self, options: EmailQueryOptions) -> EmailConversationReader;
+                fn GetConversationReader(&self, #[in] options: EmailQueryOptions) -> EmailConversationReader;
                 #[Windows::Foundation::Metadata::Overload("GetMessageReader")]
                 fn GetMessageReader(&self) -> EmailMessageReader;
                 #[Windows::Foundation::Metadata::Overload("GetMessageReaderWithOptions")]
-                fn GetMessageReader(&self, options: EmailQueryOptions) -> EmailMessageReader;
+                fn GetMessageReader(&self, #[in] options: EmailQueryOptions) -> EmailMessageReader;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetMailboxAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailMailbox>;
+                fn GetMailboxAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<EmailMailbox>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetConversationAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailConversation>;
+                fn GetConversationAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<EmailConversation>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetFolderAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailFolder>;
+                fn GetFolderAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<EmailFolder>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetMessageAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailMessage>;
+                fn GetMessageAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<EmailMessage>;
                 #[Windows::Foundation::Metadata::Overload("CreateMailboxAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateMailboxAsync(&self, accountName: String, accountAddress: String) -> super::super::Foundation::IAsyncOperation<EmailMailbox>;
+                fn CreateMailboxAsync(&self, #[in] accountName: String, #[in] accountAddress: String) -> super::super::Foundation::IAsyncOperation<EmailMailbox>;
                 #[Windows::Foundation::Metadata::Overload("CreateMailboxInAccountAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateMailboxAsync(&self, accountName: String, accountAddress: String, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<EmailMailbox>;
+                fn CreateMailboxAsync(&self, #[in] accountName: String, #[in] accountAddress: String, #[in] userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<EmailMailbox>;
             }
             #[guid(0xce17563c_46e6_43c9_96f7_facf7dd710cb)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

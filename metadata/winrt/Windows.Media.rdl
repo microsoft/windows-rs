@@ -52,13 +52,13 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(AudioFrame)]
         interface IAudioFrame: IMediaFrame + super::Foundation::IClosable {
-            fn LockBuffer(&self, mode: AudioBufferAccessMode) -> AudioBuffer;
+            fn LockBuffer(&self, #[in] mode: AudioBufferAccessMode) -> AudioBuffer;
         }
         #[guid(0x91a90ade_2422_40a6_b9ad_30d02404317d)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(AudioFrame)]
         interface IAudioFrameFactory {
-            fn Create(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] capacity: u32) -> AudioFrame;
+            fn Create(&self, #[in] #[Windows::Foundation::Metadata::Range(0, 2147483647)] capacity: u32) -> AudioFrame;
         }
         #[guid(0xea137efa_d852_438e_882b_c990109a78f4)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -134,42 +134,42 @@ mod Windows {
         #[guid(0x07915118_45df_442b_8a3f_f7826a6370ab)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         interface IMediaExtension {
-            fn SetProperties(&self, configuration: super::Foundation::Collections::IPropertySet);
+            fn SetProperties(&self, #[in] configuration: super::Foundation::Collections::IPropertySet);
         }
         #[guid(0x4a25eaf5_242d_4dfb_97f4_69b7c42576ff)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(MediaExtensionManager)]
         interface IMediaExtensionManager {
             #[Windows::Foundation::Metadata::Overload("RegisterSchemeHandler")]
-            fn RegisterSchemeHandler(&self, activatableClassId: String, scheme: String);
+            fn RegisterSchemeHandler(&self, #[in] activatableClassId: String, #[in] scheme: String);
             #[Windows::Foundation::Metadata::Overload("RegisterSchemeHandlerWithSettings")]
-            fn RegisterSchemeHandler(&self, activatableClassId: String, scheme: String, configuration: super::Foundation::Collections::IPropertySet);
+            fn RegisterSchemeHandler(&self, #[in] activatableClassId: String, #[in] scheme: String, #[in] configuration: super::Foundation::Collections::IPropertySet);
             #[Windows::Foundation::Metadata::Overload("RegisterByteStreamHandler")]
-            fn RegisterByteStreamHandler(&self, activatableClassId: String, fileExtension: String, mimeType: String);
+            fn RegisterByteStreamHandler(&self, #[in] activatableClassId: String, #[in] fileExtension: String, #[in] mimeType: String);
             #[Windows::Foundation::Metadata::Overload("RegisterByteStreamHandlerWithSettings")]
-            fn RegisterByteStreamHandler(&self, activatableClassId: String, fileExtension: String, mimeType: String, configuration: super::Foundation::Collections::IPropertySet);
+            fn RegisterByteStreamHandler(&self, #[in] activatableClassId: String, #[in] fileExtension: String, #[in] mimeType: String, #[in] configuration: super::Foundation::Collections::IPropertySet);
             #[Windows::Foundation::Metadata::Overload("RegisterAudioDecoder")]
-            fn RegisterAudioDecoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID);
+            fn RegisterAudioDecoder(&self, #[in] activatableClassId: String, #[in] inputSubtype: GUID, #[in] outputSubtype: GUID);
             #[Windows::Foundation::Metadata::Overload("RegisterAudioDecoderWithSettings")]
-            fn RegisterAudioDecoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID, configuration: super::Foundation::Collections::IPropertySet);
+            fn RegisterAudioDecoder(&self, #[in] activatableClassId: String, #[in] inputSubtype: GUID, #[in] outputSubtype: GUID, #[in] configuration: super::Foundation::Collections::IPropertySet);
             #[Windows::Foundation::Metadata::Overload("RegisterAudioEncoder")]
-            fn RegisterAudioEncoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID);
+            fn RegisterAudioEncoder(&self, #[in] activatableClassId: String, #[in] inputSubtype: GUID, #[in] outputSubtype: GUID);
             #[Windows::Foundation::Metadata::Overload("RegisterAudioEncoderWithSettings")]
-            fn RegisterAudioEncoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID, configuration: super::Foundation::Collections::IPropertySet);
+            fn RegisterAudioEncoder(&self, #[in] activatableClassId: String, #[in] inputSubtype: GUID, #[in] outputSubtype: GUID, #[in] configuration: super::Foundation::Collections::IPropertySet);
             #[Windows::Foundation::Metadata::Overload("RegisterVideoDecoder")]
-            fn RegisterVideoDecoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID);
+            fn RegisterVideoDecoder(&self, #[in] activatableClassId: String, #[in] inputSubtype: GUID, #[in] outputSubtype: GUID);
             #[Windows::Foundation::Metadata::Overload("RegisterVideoDecoderWithSettings")]
-            fn RegisterVideoDecoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID, configuration: super::Foundation::Collections::IPropertySet);
+            fn RegisterVideoDecoder(&self, #[in] activatableClassId: String, #[in] inputSubtype: GUID, #[in] outputSubtype: GUID, #[in] configuration: super::Foundation::Collections::IPropertySet);
             #[Windows::Foundation::Metadata::Overload("RegisterVideoEncoder")]
-            fn RegisterVideoEncoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID);
+            fn RegisterVideoEncoder(&self, #[in] activatableClassId: String, #[in] inputSubtype: GUID, #[in] outputSubtype: GUID);
             #[Windows::Foundation::Metadata::Overload("RegisterVideoEncoderWithSettings")]
-            fn RegisterVideoEncoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID, configuration: super::Foundation::Collections::IPropertySet);
+            fn RegisterVideoEncoder(&self, #[in] activatableClassId: String, #[in] inputSubtype: GUID, #[in] outputSubtype: GUID, #[in] configuration: super::Foundation::Collections::IPropertySet);
         }
         #[guid(0x5bcebf47_4043_4fed_acaf_54ec29dfb1f7)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
         #[Windows::Foundation::Metadata::ExclusiveTo(MediaExtensionManager)]
         interface IMediaExtensionManager2: IMediaExtensionManager {
-            fn RegisterMediaExtensionForAppService(&self, extension: IMediaExtension, connection: super::ApplicationModel::AppService::AppServiceConnection);
+            fn RegisterMediaExtensionForAppService(&self, #[in] extension: IMediaExtension, #[in] connection: super::ApplicationModel::AppService::AppServiceConnection);
         }
         #[guid(0xbfb52f8c_5943_47d8_8e10_05308aa5fbd0)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -331,7 +331,7 @@ mod Windows {
             AutoRepeatMode: MediaPlaybackAutoRepeatMode;
             ShuffleEnabled: bool;
             PlaybackRate: f64;
-            fn UpdateTimelineProperties(&self, timelineProperties: SystemMediaTransportControlsTimelineProperties);
+            fn UpdateTimelineProperties(&self, #[in] timelineProperties: SystemMediaTransportControlsTimelineProperties);
             event PlaybackPositionChangeRequested: super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackPositionChangeRequestedEventArgs>;
             event PlaybackRateChangeRequested: super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackRateChangeRequestedEventArgs>;
             event ShuffleEnabledChangeRequested: super::Foundation::TypedEventHandler<SystemMediaTransportControls, ShuffleEnabledChangeRequestedEventArgs>;
@@ -358,7 +358,7 @@ mod Windows {
             #[get]
             ImageProperties: ImageDisplayProperties;
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn CopyFromFileAsync(&self, r#type: MediaPlaybackType, source: super::Storage::StorageFile) -> super::Foundation::IAsyncOperation<bool>;
+            fn CopyFromFileAsync(&self, #[in] r#type: MediaPlaybackType, #[in] source: super::Storage::StorageFile) -> super::Foundation::IAsyncOperation<bool>;
             fn ClearAll(&self);
             fn Update(&self);
         }
@@ -413,7 +413,7 @@ mod Windows {
             #[get]
             SoftwareBitmap: super::Graphics::Imaging::SoftwareBitmap;
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn CopyToAsync(&self, frame: VideoFrame) -> super::Foundation::IAsyncAction;
+            fn CopyToAsync(&self, #[in] frame: VideoFrame) -> super::Foundation::IAsyncAction;
             #[get]
             Direct3DSurface: super::Graphics::DirectX::Direct3D11::IDirect3DSurface;
         }
@@ -423,25 +423,25 @@ mod Windows {
         interface IVideoFrame2 {
             #[Windows::Foundation::Metadata::Overload("CopyToWithBoundsAsync")]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            fn CopyToAsync(&self, frame: VideoFrame, sourceBounds: super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>, destinationBounds: super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>) -> super::Foundation::IAsyncAction;
+            fn CopyToAsync(&self, #[in] frame: VideoFrame, #[in] sourceBounds: super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>, #[in] destinationBounds: super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>) -> super::Foundation::IAsyncAction;
         }
         #[guid(0x014b6d69_2228_4c92_92ff_50c380d3e776)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(VideoFrame)]
         interface IVideoFrameFactory {
-            fn Create(&self, format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32) -> VideoFrame;
-            fn CreateWithAlpha(&self, format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, alpha: super::Graphics::Imaging::BitmapAlphaMode) -> VideoFrame;
+            fn Create(&self, #[in] format: super::Graphics::Imaging::BitmapPixelFormat, #[in] width: i32, #[in] height: i32) -> VideoFrame;
+            fn CreateWithAlpha(&self, #[in] format: super::Graphics::Imaging::BitmapPixelFormat, #[in] width: i32, #[in] height: i32, #[in] alpha: super::Graphics::Imaging::BitmapAlphaMode) -> VideoFrame;
         }
         #[guid(0xab2a556f_6111_4b33_8ec3_2b209a02e17a)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
         #[Windows::Foundation::Metadata::ExclusiveTo(VideoFrame)]
         interface IVideoFrameStatics {
             #[Windows::Foundation::Metadata::Overload("CreateAsDirect3D11SurfaceBacked")]
-            fn CreateAsDirect3D11SurfaceBacked(&self, format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32) -> VideoFrame;
+            fn CreateAsDirect3D11SurfaceBacked(&self, #[in] format: super::Graphics::DirectX::DirectXPixelFormat, #[in] width: i32, #[in] height: i32) -> VideoFrame;
             #[Windows::Foundation::Metadata::Overload("CreateAsDirect3D11SurfaceBackedWithDevice")]
-            fn CreateAsDirect3D11SurfaceBacked(&self, format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, device: super::Graphics::DirectX::Direct3D11::IDirect3DDevice) -> VideoFrame;
-            fn CreateWithSoftwareBitmap(&self, bitmap: super::Graphics::Imaging::SoftwareBitmap) -> VideoFrame;
-            fn CreateWithDirect3D11Surface(&self, surface: super::Graphics::DirectX::Direct3D11::IDirect3DSurface) -> VideoFrame;
+            fn CreateAsDirect3D11SurfaceBacked(&self, #[in] format: super::Graphics::DirectX::DirectXPixelFormat, #[in] width: i32, #[in] height: i32, #[in] device: super::Graphics::DirectX::Direct3D11::IDirect3DDevice) -> VideoFrame;
+            fn CreateWithSoftwareBitmap(&self, #[in] bitmap: super::Graphics::Imaging::SoftwareBitmap) -> VideoFrame;
+            fn CreateWithDirect3D11Surface(&self, #[in] surface: super::Graphics::DirectX::Direct3D11::IDirect3DSurface) -> VideoFrame;
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

@@ -26,14 +26,14 @@ mod Windows {
                 #[get]
                 CurrentHapticsController: SimpleHapticsController;
                 #[Windows::Foundation::Metadata::Overload("TrySendHapticWaveform")]
-                fn TrySendHapticWaveform(&self, waveform: u16, waveformFallback: u16) -> bool;
+                fn TrySendHapticWaveform(&self, #[in] waveform: u16, #[in] waveformFallback: u16) -> bool;
                 #[Windows::Foundation::Metadata::Overload("TrySendHapticWaveformWithIntensity")]
-                fn TrySendHapticWaveform(&self, waveform: u16, waveformFallback: u16, intensity: f64) -> bool;
-                fn TrySendHapticWaveformForDuration(&self, waveform: u16, waveformFallback: u16, intensity: f64, playDuration: super::super::Foundation::TimeSpan) -> bool;
-                fn TrySendHapticWaveformForPlayCount(&self, waveform: u16, waveformFallback: u16, intensity: f64, playCount: i32, replayPauseInterval: super::super::Foundation::TimeSpan) -> bool;
+                fn TrySendHapticWaveform(&self, #[in] waveform: u16, #[in] waveformFallback: u16, #[in] intensity: f64) -> bool;
+                fn TrySendHapticWaveformForDuration(&self, #[in] waveform: u16, #[in] waveformFallback: u16, #[in] intensity: f64, #[in] playDuration: super::super::Foundation::TimeSpan) -> bool;
+                fn TrySendHapticWaveformForPlayCount(&self, #[in] waveform: u16, #[in] waveformFallback: u16, #[in] intensity: f64, #[in] playCount: i32, #[in] replayPauseInterval: super::super::Foundation::TimeSpan) -> bool;
                 fn TryStopFeedback(&self) -> bool;
-                fn SetOverrideHapticsController(&self, deviceType: HapticDeviceType, controller: SimpleHapticsController) -> HapticsControllerOverrideToken;
-                fn ClearOverrideHapticsController(&self, token: HapticsControllerOverrideToken);
+                fn SetOverrideHapticsController(&self, #[in] deviceType: HapticDeviceType, #[in] controller: SimpleHapticsController) -> HapticsControllerOverrideToken;
+                fn ClearOverrideHapticsController(&self, #[in] token: HapticsControllerOverrideToken);
             }
             #[guid(0x7bb40f77_e187_5322_844e_aa58223c281a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
@@ -42,7 +42,7 @@ mod Windows {
                 fn IsSupported(&self) -> bool;
                 fn IsHapticDevicePresent(&self) -> bool;
                 fn GetForCurrentThread(&self) -> InputHapticsManager;
-                fn TryGetForThread(&self, ThreadId: u32) -> InputHapticsManager;
+                fn TryGetForThread(&self, #[in] ThreadId: u32) -> InputHapticsManager;
             }
             #[guid(0x3d577ef7_4cee_11e6_b535_001bdc06ab3b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -115,11 +115,11 @@ mod Windows {
                 IsReplayPauseIntervalSupported: bool;
                 fn StopFeedback(&self);
                 #[Windows::Foundation::Metadata::Overload("SendHapticFeedback")]
-                fn SendHapticFeedback(&self, feedback: SimpleHapticsControllerFeedback);
+                fn SendHapticFeedback(&self, #[in] feedback: SimpleHapticsControllerFeedback);
                 #[Windows::Foundation::Metadata::Overload("SendHapticFeedbackWithIntensity")]
-                fn SendHapticFeedback(&self, feedback: SimpleHapticsControllerFeedback, intensity: f64);
-                fn SendHapticFeedbackForDuration(&self, feedback: SimpleHapticsControllerFeedback, intensity: f64, playDuration: super::super::Foundation::TimeSpan);
-                fn SendHapticFeedbackForPlayCount(&self, feedback: SimpleHapticsControllerFeedback, intensity: f64, playCount: i32, replayPauseInterval: super::super::Foundation::TimeSpan);
+                fn SendHapticFeedback(&self, #[in] feedback: SimpleHapticsControllerFeedback, #[in] intensity: f64);
+                fn SendHapticFeedbackForDuration(&self, #[in] feedback: SimpleHapticsControllerFeedback, #[in] intensity: f64, #[in] playDuration: super::super::Foundation::TimeSpan);
+                fn SendHapticFeedbackForPlayCount(&self, #[in] feedback: SimpleHapticsControllerFeedback, #[in] intensity: f64, #[in] playCount: i32, #[in] replayPauseInterval: super::super::Foundation::TimeSpan);
             }
             #[guid(0x3d577ef8_4cee_11e6_b535_001bdc06ab3b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -147,7 +147,7 @@ mod Windows {
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<VibrationAccessStatus>;
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<VibrationDevice>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<VibrationDevice>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<VibrationDevice>;
                 #[Windows::Foundation::Metadata::RemoteAsync]

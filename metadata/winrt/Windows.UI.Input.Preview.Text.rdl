@@ -47,8 +47,8 @@ mod Windows {
                         Unicode: String;
                         #[get]
                         Source: KeyEventDeviceType;
-                        fn IsKeyPressed(&self, vkey: super::super::super::super::System::VirtualKey) -> bool;
-                        fn IsToggleKeyOn(&self, vkey: super::super::super::super::System::VirtualKey) -> bool;
+                        fn IsKeyPressed(&self, #[in] vkey: super::super::super::super::System::VirtualKey) -> bool;
+                        fn IsToggleKeyOn(&self, #[in] vkey: super::super::super::super::System::VirtualKey) -> bool;
                         #[get]
                         EditSession: TextEditSession;
                         Handled: bool;
@@ -101,7 +101,7 @@ mod Windows {
                         Source: TextChangeSource;
                         #[get]
                         SelectionBounds: super::super::super::super::Foundation::Rect;
-                        fn IsContentAttributeChanged(&self, value: TextBoxContentAttribute) -> bool;
+                        fn IsContentAttributeChanged(&self, #[in] value: TextBoxContentAttribute) -> bool;
                     }
                     #[guid(0xb122443d_e8f7_5f8b_813d_aaa0941d5fa0)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
@@ -138,7 +138,7 @@ mod Windows {
                         #[get]
                         SelectedSegment: TextCompositionSegment;
                         CaretPosition: u32;
-                        fn InsertText(&self, text: String) -> TextCompositionSegment;
+                        fn InsertText(&self, #[in] text: String) -> TextCompositionSegment;
                         fn Complete(&self);
                         fn CompleteUnconverted(&self);
                         fn CompleteFirstSegment(&self);
@@ -158,7 +158,7 @@ mod Windows {
                         #[get]
                         Previous: TextCompositionSegment;
                         fn GetTextStyle(&self) -> TextStyle;
-                        fn SetTextStyle(&self, value: TextStyle);
+                        fn SetTextStyle(&self, #[in] value: TextStyle);
                     }
                     #[guid(0x0bcad18a_d31b_5787_aff9_995ee743aea8)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
@@ -171,15 +171,15 @@ mod Windows {
                         #[get]
                         PopulatedRange: super::super::super::Text::Core::CoreTextRange;
                         #[Windows::Foundation::Metadata::RemoteAsync]
-                        fn PopulateAsync(&self, range: super::super::super::Text::Core::CoreTextRange) -> super::super::super::super::Foundation::IAsyncAction;
-                        fn GetText(&self, range: super::super::super::Text::Core::CoreTextRange) -> String;
+                        fn PopulateAsync(&self, #[in] range: super::super::super::Text::Core::CoreTextRange) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn GetText(&self, #[in] range: super::super::super::Text::Core::CoreTextRange) -> String;
                         fn GetSelectedRange(&self) -> super::super::super::Text::Core::CoreTextRange;
-                        fn SetSelectedRange(&self, value: super::super::super::Text::Core::CoreTextRange);
-                        fn ReplaceText(&self, replaceRange: super::super::super::Text::Core::CoreTextRange, text: String) -> super::super::super::Text::Core::CoreTextRange;
+                        fn SetSelectedRange(&self, #[in] value: super::super::super::Text::Core::CoreTextRange);
+                        fn ReplaceText(&self, #[in] replaceRange: super::super::super::Text::Core::CoreTextRange, #[in] text: String) -> super::super::super::Text::Core::CoreTextRange;
                         #[get]
                         Composition: TextComposition;
                         fn StartComposition(&self) -> TextComposition;
-                        fn StartReconversion(&self, range: super::super::super::Text::Core::CoreTextRange) -> TextComposition;
+                        fn StartReconversion(&self, #[in] range: super::super::super::Text::Core::CoreTextRange) -> TextComposition;
                         fn SubmitPayload(&self) -> bool;
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn SubmitPayloadAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<PayloadResult>;
@@ -189,7 +189,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ExclusiveTo(TextInputProvider)]
                     interface ITextInputProvider {
                         fn GetSubscription(&self) -> TextInputServiceSubscription;
-                        fn SetSubscription(&self, subscription: TextInputServiceSubscription);
+                        fn SetSubscription(&self, #[in] subscription: TextInputServiceSubscription);
                         #[get]
                         HasFocusedTextBox: bool;
                         #[get]
@@ -215,8 +215,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(TextInputService)]
                     interface ITextInputService {
-                        fn CreateKeyboardInputProcessor(&self, inputProfile: String) -> KeyboardInputProcessor;
-                        fn CreateTextInputProvider(&self, inputProfile: String) -> TextInputProvider;
+                        fn CreateKeyboardInputProcessor(&self, #[in] inputProfile: String) -> KeyboardInputProcessor;
+                        fn CreateTextInputProvider(&self, #[in] inputProfile: String) -> TextInputProvider;
                     }
                     #[guid(0x91b68f5e_02ed_4e09_ae89_dfd735cf10bc)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]

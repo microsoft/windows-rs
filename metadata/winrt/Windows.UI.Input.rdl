@@ -215,11 +215,11 @@ mod Windows {
                 AutoProcessInertia: bool;
                 #[get]
                 MouseWheelParameters: MouseWheelParameters;
-                fn CanBeDoubleTap(&self, value: PointerPoint) -> bool;
-                fn ProcessDownEvent(&self, value: PointerPoint);
-                fn ProcessMoveEvents(&self, value: super::super::Foundation::Collections::IVector<PointerPoint>);
-                fn ProcessUpEvent(&self, value: PointerPoint);
-                fn ProcessMouseWheelEvent(&self, value: PointerPoint, isShiftKeyDown: bool, isControlKeyDown: bool);
+                fn CanBeDoubleTap(&self, #[in] value: PointerPoint) -> bool;
+                fn ProcessDownEvent(&self, #[in] value: PointerPoint);
+                fn ProcessMoveEvents(&self, #[in] value: super::super::Foundation::Collections::IVector<PointerPoint>);
+                fn ProcessUpEvent(&self, #[in] value: PointerPoint);
+                fn ProcessMouseWheelEvent(&self, #[in] value: PointerPoint, #[in] isShiftKeyDown: bool, #[in] isControlKeyDown: bool);
                 fn ProcessInertia(&self);
                 fn CompleteGesture(&self);
                 event Tapped: super::super::Foundation::TypedEventHandler<GestureRecognizer, TappedEventArgs>;
@@ -408,9 +408,9 @@ mod Windows {
                 HoldStartDelay: super::super::Foundation::TimeSpan;
                 TranslationMinContactCount: u32;
                 TranslationMaxContactCount: u32;
-                fn ProcessDownEvent(&self, value: PointerPoint);
-                fn ProcessMoveEvents(&self, value: super::super::Foundation::Collections::IVector<PointerPoint>);
-                fn ProcessUpEvent(&self, value: PointerPoint);
+                fn ProcessDownEvent(&self, #[in] value: PointerPoint);
+                fn ProcessMoveEvents(&self, #[in] value: super::super::Foundation::Collections::IVector<PointerPoint>);
+                fn ProcessUpEvent(&self, #[in] value: PointerPoint);
                 fn CompleteGesture(&self);
                 event ManipulationStarted: super::super::Foundation::TypedEventHandler<PhysicalGestureRecognizer, ManipulationStartedEventArgs>;
                 event ManipulationUpdated: super::super::Foundation::TypedEventHandler<PhysicalGestureRecognizer, ManipulationUpdatedEventArgs>;
@@ -496,8 +496,8 @@ mod Windows {
                 IsXButton2Pressed: bool;
                 #[get]
                 PointerUpdateKind: PointerUpdateKind;
-                fn HasUsage(&self, usagePage: u32, usageId: u32) -> bool;
-                fn GetUsageValue(&self, usagePage: u32, usageId: u32) -> i32;
+                fn HasUsage(&self, #[in] usagePage: u32, #[in] usageId: u32) -> bool;
+                fn GetUsageValue(&self, #[in] usagePage: u32, #[in] usageId: u32) -> i32;
             }
             #[guid(0x22c3433a_c83b_41c0_a296_5e232d64d6af)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -511,21 +511,21 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(PointerPoint)]
             interface IPointerPointStatics {
                 #[Windows::Foundation::Metadata::Overload("GetCurrentPoint")]
-                fn GetCurrentPoint(&self, pointerId: u32) -> PointerPoint;
+                fn GetCurrentPoint(&self, #[in] pointerId: u32) -> PointerPoint;
                 #[Windows::Foundation::Metadata::Overload("GetIntermediatePoints")]
-                fn GetIntermediatePoints(&self, pointerId: u32) -> super::super::Foundation::Collections::IVector<PointerPoint>;
+                fn GetIntermediatePoints(&self, #[in] pointerId: u32) -> super::super::Foundation::Collections::IVector<PointerPoint>;
                 #[Windows::Foundation::Metadata::Overload("GetCurrentPointTransformed")]
-                fn GetCurrentPoint(&self, pointerId: u32, transform: IPointerPointTransform) -> PointerPoint;
+                fn GetCurrentPoint(&self, #[in] pointerId: u32, #[in] transform: IPointerPointTransform) -> PointerPoint;
                 #[Windows::Foundation::Metadata::Overload("GetIntermediatePointsTransformed")]
-                fn GetIntermediatePoints(&self, pointerId: u32, transform: IPointerPointTransform) -> super::super::Foundation::Collections::IVector<PointerPoint>;
+                fn GetIntermediatePoints(&self, #[in] pointerId: u32, #[in] transform: IPointerPointTransform) -> super::super::Foundation::Collections::IVector<PointerPoint>;
             }
             #[guid(0x4d5fe14f_b87c_4028_bc9c_59e9947fb056)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IPointerPointTransform {
                 #[get]
                 Inverse: IPointerPointTransform;
-                fn TryTransform(&self, inPoint: super::super::Foundation::Point, outPoint: &mut super::super::Foundation::Point) -> bool;
-                fn TransformBounds(&self, rect: super::super::Foundation::Rect) -> super::super::Foundation::Rect;
+                fn TryTransform(&self, #[in] inPoint: super::super::Foundation::Point, #[out] outPoint: &mut super::super::Foundation::Point) -> bool;
+                fn TransformBounds(&self, #[in] rect: super::super::Foundation::Rect) -> super::super::Foundation::Rect;
             }
             #[guid(0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -615,9 +615,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerConfiguration)]
             interface IRadialControllerConfiguration {
-                fn SetDefaultMenuItems(&self, buttons: super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>);
+                fn SetDefaultMenuItems(&self, #[in] buttons: super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>);
                 fn ResetToDefaultMenuItems(&self);
-                fn TrySelectDefaultMenuItem(&self, r#type: RadialControllerSystemMenuItemKind) -> bool;
+                fn TrySelectDefaultMenuItem(&self, #[in] r#type: RadialControllerSystemMenuItemKind) -> bool;
             }
             #[guid(0x3d577ef7_3cee_11e6_b535_001bdc06ab3b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -675,7 +675,7 @@ mod Windows {
                 Items: super::super::Foundation::Collections::IVector<RadialControllerMenuItem>;
                 IsEnabled: bool;
                 fn GetSelectedMenuItem(&self) -> RadialControllerMenuItem;
-                fn SelectMenuItem(&self, menuItem: RadialControllerMenuItem);
+                fn SelectMenuItem(&self, #[in] menuItem: RadialControllerMenuItem);
                 fn TrySelectPreviouslySelectedMenuItem(&self) -> bool;
             }
             #[guid(0xc80fc98d_ad0b_4c9c_8f2f_136a2373a6ba)]
@@ -687,24 +687,24 @@ mod Windows {
                 #[special]
                 fn get_Tag(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
                 #[special]
-                fn put_Tag(&self, #[Windows::Foundation::Metadata::Variant] value: Object);
+                fn put_Tag(&self, #[in] #[Windows::Foundation::Metadata::Variant] value: Object);
                 event Invoked: super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, Object>;
             }
             #[guid(0x249e0887_d842_4524_9df8_e0d647edc887)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerMenuItem)]
             interface IRadialControllerMenuItemStatics {
-                fn CreateFromIcon(&self, displayText: String, icon: super::super::Storage::Streams::RandomAccessStreamReference) -> RadialControllerMenuItem;
-                fn CreateFromKnownIcon(&self, displayText: String, value: RadialControllerMenuKnownIcon) -> RadialControllerMenuItem;
+                fn CreateFromIcon(&self, #[in] displayText: String, #[in] icon: super::super::Storage::Streams::RandomAccessStreamReference) -> RadialControllerMenuItem;
+                fn CreateFromKnownIcon(&self, #[in] displayText: String, #[in] value: RadialControllerMenuKnownIcon) -> RadialControllerMenuItem;
             }
             #[guid(0x0cbb70be_7e3e_48bd_be04_2c7fcaa9c1ff)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerMenuItem)]
             interface IRadialControllerMenuItemStatics2 {
                 #[Windows::Foundation::Metadata::Overload("CreateFromFontGlyph")]
-                fn CreateFromFontGlyph(&self, displayText: String, glyph: String, fontFamily: String) -> RadialControllerMenuItem;
+                fn CreateFromFontGlyph(&self, #[in] displayText: String, #[in] glyph: String, #[in] fontFamily: String) -> RadialControllerMenuItem;
                 #[Windows::Foundation::Metadata::Overload("CreateFromFontGlyphWithUri")]
-                fn CreateFromFontGlyph(&self, displayText: String, glyph: String, fontFamily: String, fontUri: super::super::Foundation::Uri) -> RadialControllerMenuItem;
+                fn CreateFromFontGlyph(&self, #[in] displayText: String, #[in] glyph: String, #[in] fontFamily: String, #[in] fontUri: super::super::Foundation::Uri) -> RadialControllerMenuItem;
             }
             #[guid(0x206aa435_e651_11e5_bf62_2c27d7404e85)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -812,7 +812,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(SystemButtonEventController)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ISystemButtonEventControllerStatics {
-                fn CreateForDispatcherQueue(&self, queue: super::super::System::DispatcherQueue) -> SystemButtonEventController;
+                fn CreateForDispatcherQueue(&self, #[in] queue: super::super::System::DispatcherQueue) -> SystemButtonEventController;
             }
             #[guid(0x4833896f_80d1_5dd6_92a7_62a508ffef5a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]

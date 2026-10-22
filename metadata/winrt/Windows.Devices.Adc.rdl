@@ -45,15 +45,15 @@ mod Windows {
                 #[get]
                 MaxValue: i32;
                 ChannelMode: AdcChannelMode;
-                fn IsChannelModeSupported(&self, channelMode: AdcChannelMode) -> bool;
-                fn OpenChannel(&self, channelNumber: i32) -> AdcChannel;
+                fn IsChannelModeSupported(&self, #[in] channelMode: AdcChannelMode) -> bool;
+                fn OpenChannel(&self, #[in] channelNumber: i32) -> AdcChannel;
             }
             #[guid(0xcce98e0c_01f8_4891_bc3b_be53ef279ca4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AdcController)]
             interface IAdcControllerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetControllersAsync(&self, provider: Provider::IAdcProvider) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>;
+                fn GetControllersAsync(&self, #[in] provider: Provider::IAdcProvider) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>;
             }
             #[guid(0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 131072)]

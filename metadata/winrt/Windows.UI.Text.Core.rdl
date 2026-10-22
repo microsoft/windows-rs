@@ -242,8 +242,8 @@ mod Windows {
                     event FocusRemoved: super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, Object>;
                     fn NotifyFocusEnter(&self);
                     fn NotifyFocusLeave(&self);
-                    fn NotifyTextChanged(&self, modifiedRange: CoreTextRange, newLength: i32, newSelection: CoreTextRange);
-                    fn NotifySelectionChanged(&self, selection: CoreTextRange);
+                    fn NotifyTextChanged(&self, #[in] modifiedRange: CoreTextRange, #[in] newLength: i32, #[in] newSelection: CoreTextRange);
+                    fn NotifySelectionChanged(&self, #[in] selection: CoreTextRange);
                     fn NotifyLayoutChanged(&self);
                 }
                 #[guid(0xb1867dbb_083b_49e1_b281_2b35d62bf466)]

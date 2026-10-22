@@ -73,7 +73,7 @@ mod Windows {
                     LineId: GUID;
                     #[get]
                     ChangeType: PhoneLineChangeKind;
-                    fn HasLinePropertyChanged(&self, lineProperty: PhoneLineProperties) -> bool;
+                    fn HasLinePropertyChanged(&self, #[in] lineProperty: PhoneLineProperties) -> bool;
                 }
                 #[guid(0x13a8c01b_b831_48d3_8ba9_8d22a6580dcf)]
                 #[Windows::Foundation::Metadata::ContractVersion(CallsBackgroundContract, 65536)]

@@ -69,7 +69,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountManagerForUser)]
             interface IUserDataAccountManagerForUser {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestStoreAsync(&self, storeAccessType: UserDataAccountStoreAccessType) -> super::super::Foundation::IAsyncOperation<UserDataAccountStore>;
+                fn RequestStoreAsync(&self, #[in] storeAccessType: UserDataAccountStoreAccessType) -> super::super::Foundation::IAsyncOperation<UserDataAccountStore>;
                 #[get]
                 User: super::super::System::User;
             }
@@ -78,19 +78,19 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountManager)]
             interface IUserDataAccountManagerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestStoreAsync(&self, storeAccessType: UserDataAccountStoreAccessType) -> super::super::Foundation::IAsyncOperation<UserDataAccountStore>;
+                fn RequestStoreAsync(&self, #[in] storeAccessType: UserDataAccountStoreAccessType) -> super::super::Foundation::IAsyncOperation<UserDataAccountStore>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAddAccountAsync(&self, contentKinds: UserDataAccountContentKinds) -> super::super::Foundation::IAsyncOperation<String>;
+                fn ShowAddAccountAsync(&self, #[in] contentKinds: UserDataAccountContentKinds) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAccountSettingsAsync(&self, id: String) -> super::super::Foundation::IAsyncAction;
+                fn ShowAccountSettingsAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ShowAccountErrorResolverAsync(&self, id: String) -> super::super::Foundation::IAsyncAction;
+                fn ShowAccountErrorResolverAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x6a3ded88_316b_435e_b534_f7d4b4b7dba6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountManager)]
             interface IUserDataAccountManagerStatics2 {
-                fn GetForUser(&self, user: super::super::System::User) -> UserDataAccountManagerForUser;
+                fn GetForUser(&self, #[in] user: super::super::System::User) -> UserDataAccountManagerForUser;
             }
             #[guid(0x2073b0ad_7d0a_4e76_bf45_2368f978a59a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -99,9 +99,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAccountsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataAccount>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetAccountAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
+                fn GetAccountAsync(&self, #[in] id: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAccountAsync(&self, userDisplayName: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
+                fn CreateAccountAsync(&self, #[in] userDisplayName: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
             }
             #[guid(0xb1e0aef7_9560_4631_8af0_061d30161469)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -109,7 +109,7 @@ mod Windows {
             interface IUserDataAccountStore2: IUserDataAccountStore {
                 #[Windows::Foundation::Metadata::Overload("CreateAccountWithPackageRelativeAppIdAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAccountAsync(&self, userDisplayName: String, packageRelativeAppId: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
+                fn CreateAccountAsync(&self, #[in] userDisplayName: String, #[in] packageRelativeAppId: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
                 event StoreChanged: super::super::Foundation::TypedEventHandler<UserDataAccountStore, UserDataAccountStoreChangedEventArgs>;
             }
             #[guid(0x8142c094_f3c9_478b_b117_6585bebb6789)]
@@ -118,7 +118,7 @@ mod Windows {
             interface IUserDataAccountStore3: IUserDataAccountStore {
                 #[Windows::Foundation::Metadata::Overload("CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAccountAsync(&self, userDisplayName: String, packageRelativeAppId: String, enterpriseId: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
+                fn CreateAccountAsync(&self, #[in] userDisplayName: String, #[in] packageRelativeAppId: String, #[in] enterpriseId: String) -> super::super::Foundation::IAsyncOperation<UserDataAccount>;
             }
             #[guid(0x84e3e2e5_8820_4512_b1f6_2e035be1072c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]

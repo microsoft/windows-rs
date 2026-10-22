@@ -35,10 +35,10 @@ mod Windows {
             interface IFaceDetector {
                 #[Windows::Foundation::Metadata::Overload("DetectFacesAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DetectFacesAsync(&self, image: super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>;
+                fn DetectFacesAsync(&self, #[in] image: super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>;
                 #[Windows::Foundation::Metadata::Overload("DetectFacesWithSearchAreaAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn DetectFacesAsync(&self, image: super::super::Graphics::Imaging::SoftwareBitmap, searchArea: super::super::Graphics::Imaging::BitmapBounds) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>;
+                fn DetectFacesAsync(&self, #[in] image: super::super::Graphics::Imaging::SoftwareBitmap, #[in] searchArea: super::super::Graphics::Imaging::BitmapBounds) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>;
                 MinDetectableFaceSize: super::super::Graphics::Imaging::BitmapSize;
                 MaxDetectableFaceSize: super::super::Graphics::Imaging::BitmapSize;
             }
@@ -49,7 +49,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateAsync(&self) -> super::super::Foundation::IAsyncOperation<FaceDetector>;
                 fn GetSupportedBitmapPixelFormats(&self) -> super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>;
-                fn IsBitmapPixelFormatSupported(&self, bitmapPixelFormat: super::super::Graphics::Imaging::BitmapPixelFormat) -> bool;
+                fn IsBitmapPixelFormatSupported(&self, #[in] bitmapPixelFormat: super::super::Graphics::Imaging::BitmapPixelFormat) -> bool;
                 #[get]
                 IsSupported: bool;
             }
@@ -58,7 +58,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(FaceTracker)]
             interface IFaceTracker {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ProcessNextFrameAsync(&self, videoFrame: super::VideoFrame) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>;
+                fn ProcessNextFrameAsync(&self, #[in] videoFrame: super::VideoFrame) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>;
                 MinDetectableFaceSize: super::super::Graphics::Imaging::BitmapSize;
                 MaxDetectableFaceSize: super::super::Graphics::Imaging::BitmapSize;
             }
@@ -69,7 +69,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateAsync(&self) -> super::super::Foundation::IAsyncOperation<FaceTracker>;
                 fn GetSupportedBitmapPixelFormats(&self) -> super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>;
-                fn IsBitmapPixelFormatSupported(&self, bitmapPixelFormat: super::super::Graphics::Imaging::BitmapPixelFormat) -> bool;
+                fn IsBitmapPixelFormatSupported(&self, #[in] bitmapPixelFormat: super::super::Graphics::Imaging::BitmapPixelFormat) -> bool;
                 #[get]
                 IsSupported: bool;
             }

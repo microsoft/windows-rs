@@ -66,20 +66,20 @@ mod Windows {
                 interface IConditionForceEffect: IForceFeedbackEffect {
                     #[get]
                     Kind: ConditionForceEffectKind;
-                    fn SetParameters(&self, direction: super::super::super::Foundation::Numerics::Vector3, positiveCoefficient: f32, negativeCoefficient: f32, maxPositiveMagnitude: f32, maxNegativeMagnitude: f32, deadZone: f32, bias: f32);
+                    fn SetParameters(&self, #[in] direction: super::super::super::Foundation::Numerics::Vector3, #[in] positiveCoefficient: f32, #[in] negativeCoefficient: f32, #[in] maxPositiveMagnitude: f32, #[in] maxNegativeMagnitude: f32, #[in] deadZone: f32, #[in] bias: f32);
                 }
                 #[guid(0x91a99264_1810_4eb6_a773_bfd3b8cddbab)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ConditionForceEffect)]
                 interface IConditionForceEffectFactory {
-                    fn CreateInstance(&self, effectKind: ConditionForceEffectKind) -> ConditionForceEffect;
+                    fn CreateInstance(&self, #[in] effectKind: ConditionForceEffectKind) -> ConditionForceEffect;
                 }
                 #[guid(0x9bfa0140_f3c7_415c_b068_0f068734bce0)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ConstantForceEffect)]
                 interface IConstantForceEffect: IForceFeedbackEffect {
-                    fn SetParameters(&self, vector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan);
-                    fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, attackGain: f32, sustainGain: f32, releaseGain: f32, startDelay: super::super::super::Foundation::TimeSpan, attackDuration: super::super::super::Foundation::TimeSpan, sustainDuration: super::super::super::Foundation::TimeSpan, releaseDuration: super::super::super::Foundation::TimeSpan, repeatCount: u32);
+                    fn SetParameters(&self, #[in] vector: super::super::super::Foundation::Numerics::Vector3, #[in] duration: super::super::super::Foundation::TimeSpan);
+                    fn SetParametersWithEnvelope(&self, #[in] vector: super::super::super::Foundation::Numerics::Vector3, #[in] attackGain: f32, #[in] sustainGain: f32, #[in] releaseGain: f32, #[in] startDelay: super::super::super::Foundation::TimeSpan, #[in] attackDuration: super::super::super::Foundation::TimeSpan, #[in] sustainDuration: super::super::super::Foundation::TimeSpan, #[in] releaseDuration: super::super::super::Foundation::TimeSpan, #[in] repeatCount: u32);
                 }
                 #[guid(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -102,7 +102,7 @@ mod Windows {
                     #[get]
                     SupportedAxes: ForceFeedbackEffectAxes;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn LoadEffectAsync(&self, effect: IForceFeedbackEffect) -> super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>;
+                    fn LoadEffectAsync(&self, #[in] effect: IForceFeedbackEffect) -> super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>;
                     fn PauseAllEffects(&self);
                     fn ResumeAllEffects(&self);
                     fn StopAllEffects(&self);
@@ -113,7 +113,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn TryResetAsync(&self) -> super::super::super::Foundation::IAsyncOperation<bool>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn TryUnloadEffectAsync(&self, effect: IForceFeedbackEffect) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    fn TryUnloadEffectAsync(&self, #[in] effect: IForceFeedbackEffect) -> super::super::super::Foundation::IAsyncOperation<bool>;
                 }
                 #[guid(0x5c5138d7_fc75_4d52_9a0a_efe4cab5fe64)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -121,21 +121,21 @@ mod Windows {
                 interface IPeriodicForceEffect: IForceFeedbackEffect {
                     #[get]
                     Kind: PeriodicForceEffectKind;
-                    fn SetParameters(&self, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: super::super::super::Foundation::TimeSpan);
-                    fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackGain: f32, sustainGain: f32, releaseGain: f32, startDelay: super::super::super::Foundation::TimeSpan, attackDuration: super::super::super::Foundation::TimeSpan, sustainDuration: super::super::super::Foundation::TimeSpan, releaseDuration: super::super::super::Foundation::TimeSpan, repeatCount: u32);
+                    fn SetParameters(&self, #[in] vector: super::super::super::Foundation::Numerics::Vector3, #[in] frequency: f32, #[in] phase: f32, #[in] bias: f32, #[in] duration: super::super::super::Foundation::TimeSpan);
+                    fn SetParametersWithEnvelope(&self, #[in] vector: super::super::super::Foundation::Numerics::Vector3, #[in] frequency: f32, #[in] phase: f32, #[in] bias: f32, #[in] attackGain: f32, #[in] sustainGain: f32, #[in] releaseGain: f32, #[in] startDelay: super::super::super::Foundation::TimeSpan, #[in] attackDuration: super::super::super::Foundation::TimeSpan, #[in] sustainDuration: super::super::super::Foundation::TimeSpan, #[in] releaseDuration: super::super::super::Foundation::TimeSpan, #[in] repeatCount: u32);
                 }
                 #[guid(0x6f62eb1a_9851_477b_b318_35ecaa15070f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PeriodicForceEffect)]
                 interface IPeriodicForceEffectFactory {
-                    fn CreateInstance(&self, effectKind: PeriodicForceEffectKind) -> PeriodicForceEffect;
+                    fn CreateInstance(&self, #[in] effectKind: PeriodicForceEffectKind) -> PeriodicForceEffect;
                 }
                 #[guid(0xf1f81259_1ca6_4080_b56d_b43f3354d052)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RampForceEffect)]
                 interface IRampForceEffect: IForceFeedbackEffect {
-                    fn SetParameters(&self, startVector: super::super::super::Foundation::Numerics::Vector3, endVector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan);
-                    fn SetParametersWithEnvelope(&self, startVector: super::super::super::Foundation::Numerics::Vector3, endVector: super::super::super::Foundation::Numerics::Vector3, attackGain: f32, sustainGain: f32, releaseGain: f32, startDelay: super::super::super::Foundation::TimeSpan, attackDuration: super::super::super::Foundation::TimeSpan, sustainDuration: super::super::super::Foundation::TimeSpan, releaseDuration: super::super::super::Foundation::TimeSpan, repeatCount: u32);
+                    fn SetParameters(&self, #[in] startVector: super::super::super::Foundation::Numerics::Vector3, #[in] endVector: super::super::super::Foundation::Numerics::Vector3, #[in] duration: super::super::super::Foundation::TimeSpan);
+                    fn SetParametersWithEnvelope(&self, #[in] startVector: super::super::super::Foundation::Numerics::Vector3, #[in] endVector: super::super::super::Foundation::Numerics::Vector3, #[in] attackGain: f32, #[in] sustainGain: f32, #[in] releaseGain: f32, #[in] startDelay: super::super::super::Foundation::TimeSpan, #[in] attackDuration: super::super::super::Foundation::TimeSpan, #[in] sustainDuration: super::super::super::Foundation::TimeSpan, #[in] releaseDuration: super::super::super::Foundation::TimeSpan, #[in] repeatCount: u32);
                 }
                 #[Windows::Foundation::Metadata::Activatable(IPeriodicForceEffectFactory, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]

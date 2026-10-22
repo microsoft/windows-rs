@@ -61,7 +61,7 @@ mod Windows {
                     VideoMediaFrame: VideoMediaFrame;
                     #[get]
                     DepthFormat: DepthMediaFrameFormat;
-                    fn TryCreateCoordinateMapper(&self, cameraIntrinsics: super::super::Devices::Core::CameraIntrinsics, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> super::super::Devices::Core::DepthCorrelatedCoordinateMapper;
+                    fn TryCreateCoordinateMapper(&self, #[in] cameraIntrinsics: super::super::Devices::Core::CameraIntrinsics, #[in] coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> super::super::Devices::Core::DepthCorrelatedCoordinateMapper;
                 }
                 #[guid(0x6cca473d_c4a4_4176_b0cd_33eae3b35aa3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -179,18 +179,18 @@ mod Windows {
                     #[get]
                     CurrentFormat: MediaFrameFormat;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SetFormatAsync(&self, format: MediaFrameFormat) -> super::super::super::Foundation::IAsyncAction;
+                    fn SetFormatAsync(&self, #[in] format: MediaFrameFormat) -> super::super::super::Foundation::IAsyncAction;
                     event FormatChanged: super::super::super::Foundation::TypedEventHandler<MediaFrameSource, Object>;
-                    fn TryGetCameraIntrinsics(&self, format: MediaFrameFormat) -> super::super::Devices::Core::CameraIntrinsics;
+                    fn TryGetCameraIntrinsics(&self, #[in] format: MediaFrameFormat) -> super::super::Devices::Core::CameraIntrinsics;
                 }
                 #[guid(0x6d076635_316d_4b8f_b7b6_eeb04a8c6525)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameSourceController)]
                 interface IMediaFrameSourceController {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetPropertyAsync(&self, propertyId: String) -> super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>;
+                    fn GetPropertyAsync(&self, #[in] propertyId: String) -> super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SetPropertyAsync(&self, propertyId: String, #[Windows::Foundation::Metadata::Variant] propertyValue: Object) -> super::super::super::Foundation::IAsyncOperation<MediaFrameSourceSetPropertyStatus>;
+                    fn SetPropertyAsync(&self, #[in] propertyId: String, #[in] #[Windows::Foundation::Metadata::Variant] propertyValue: Object) -> super::super::super::Foundation::IAsyncOperation<MediaFrameSourceSetPropertyStatus>;
                     #[get]
                     VideoDeviceController: super::super::Devices::VideoDeviceController;
                 }
@@ -199,9 +199,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameSourceController)]
                 interface IMediaFrameSourceController2 {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn GetPropertyByExtendedIdAsync(&self, extendedPropertyId: [u8], maxPropertyValueSize: super::super::super::Foundation::IReference<u32>) -> super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>;
+                    fn GetPropertyByExtendedIdAsync(&self, #[in] extendedPropertyId: [u8], #[in] maxPropertyValueSize: super::super::super::Foundation::IReference<u32>) -> super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SetPropertyByExtendedIdAsync(&self, extendedPropertyId: [u8], propertyValue: [u8]) -> super::super::super::Foundation::IAsyncOperation<MediaFrameSourceSetPropertyStatus>;
+                    fn SetPropertyByExtendedIdAsync(&self, #[in] extendedPropertyId: [u8], #[in] propertyValue: [u8]) -> super::super::super::Foundation::IAsyncOperation<MediaFrameSourceSetPropertyStatus>;
                 }
                 #[guid(0x1f0cf815_2464_4651_b1e8_4a82dbdb54de)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -237,7 +237,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn FindAllAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<MediaFrameSourceGroup>>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn FromIdAsync(&self, id: String) -> super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGroup>;
+                    fn FromIdAsync(&self, #[in] id: String) -> super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGroup>;
                     fn GetDeviceSelector(&self) -> String;
                 }
                 #[guid(0x87bdc9cd_4601_408f_91cf_038318cd0af3)]
@@ -272,7 +272,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameSourceInfo)]
                 interface IMediaFrameSourceInfo3 {
-                    fn GetRelativePanel(&self, displayRegion: super::super::super::UI::WindowManagement::DisplayRegion) -> super::super::super::Devices::Enumeration::Panel;
+                    fn GetRelativePanel(&self, #[in] displayRegion: super::super::super::UI::WindowManagement::DisplayRegion) -> super::super::super::Devices::Enumeration::Panel;
                 }
                 #[guid(0x4817d721_85eb_470c_8f37_43ca5498e41d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
@@ -309,7 +309,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(MultiSourceMediaFrameReference)]
                 interface IMultiSourceMediaFrameReference: super::super::super::Foundation::IClosable {
-                    fn TryGetFrameReferenceBySourceId(&self, sourceId: String) -> MediaFrameReference;
+                    fn TryGetFrameReferenceBySourceId(&self, #[in] sourceId: String) -> MediaFrameReference;
                 }
                 #[guid(0x00dd4ccb_32bd_4fe1_a013_7cc13cf5dbcf)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]

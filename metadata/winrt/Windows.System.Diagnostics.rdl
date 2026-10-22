@@ -42,21 +42,21 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(DiagnosticInvoker)]
             interface IDiagnosticInvoker {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RunDiagnosticActionAsync(&self, context: super::super::Data::Json::JsonObject) -> super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>;
+                fn RunDiagnosticActionAsync(&self, #[in] context: super::super::Data::Json::JsonObject) -> super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>;
             }
             #[guid(0xe3bf945c_155a_4b52_a8ec_070c44f95000)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DiagnosticInvoker)]
             interface IDiagnosticInvoker2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RunDiagnosticActionFromStringAsync(&self, context: String) -> super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>;
+                fn RunDiagnosticActionFromStringAsync(&self, #[in] context: String) -> super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>;
             }
             #[guid(0x5cfad8de_f15c_4554_a813_c113c3881b09)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DiagnosticInvoker)]
             interface IDiagnosticInvokerStatics {
                 fn GetDefault(&self) -> DiagnosticInvoker;
-                fn GetForUser(&self, user: super::User) -> DiagnosticInvoker;
+                fn GetForUser(&self, #[in] user: super::User) -> DiagnosticInvoker;
                 #[get]
                 IsSupported: bool;
             }
@@ -113,7 +113,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ProcessDiagnosticInfo)]
             interface IProcessDiagnosticInfoStatics2 {
-                fn TryGetForProcessId(&self, processId: u32) -> ProcessDiagnosticInfo;
+                fn TryGetForProcessId(&self, #[in] processId: u32) -> ProcessDiagnosticInfo;
             }
             #[guid(0x5ad78bfd_7e51_4e53_bfaa_5a6ee1aabbf8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -209,7 +209,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 720896)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SystemDiagnosticInfo)]
             interface ISystemDiagnosticInfoStatics2 {
-                fn IsArchitectureSupported(&self, r#type: super::ProcessorArchitecture) -> bool;
+                fn IsArchitectureSupported(&self, #[in] r#type: super::ProcessorArchitecture) -> bool;
                 #[get]
                 PreferredArchitecture: super::ProcessorArchitecture;
             }

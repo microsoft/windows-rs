@@ -8,7 +8,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkWorkspaceHostedAppManager)]
                 interface IInkWorkspaceHostedAppManager {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn SetThumbnailAsync(&self, bitmap: super::super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::super::Foundation::IAsyncAction;
+                    fn SetThumbnailAsync(&self, #[in] bitmap: super::super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5)]
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewInkWorkspaceContract, 65536)]

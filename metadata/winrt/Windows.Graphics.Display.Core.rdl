@@ -69,13 +69,13 @@ mod Windows {
                     fn SetDefaultDisplayModeAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("RequestSetCurrentDisplayModeAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RequestSetCurrentDisplayModeAsync(&self, mode: HdmiDisplayMode) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    fn RequestSetCurrentDisplayModeAsync(&self, #[in] mode: HdmiDisplayMode) -> super::super::super::Foundation::IAsyncOperation<bool>;
                     #[Windows::Foundation::Metadata::Overload("RequestSetCurrentDisplayModeWithHdrAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RequestSetCurrentDisplayModeAsync(&self, mode: HdmiDisplayMode, hdrOption: HdmiDisplayHdrOption) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    fn RequestSetCurrentDisplayModeAsync(&self, #[in] mode: HdmiDisplayMode, #[in] hdrOption: HdmiDisplayHdrOption) -> super::super::super::Foundation::IAsyncOperation<bool>;
                     #[Windows::Foundation::Metadata::Overload("RequestSetCurrentDisplayModeWithHdrAndMetadataAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RequestSetCurrentDisplayModeAsync(&self, mode: HdmiDisplayMode, hdrOption: HdmiDisplayHdrOption, hdrMetadata: HdmiDisplayHdr2086Metadata) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    fn RequestSetCurrentDisplayModeAsync(&self, #[in] mode: HdmiDisplayMode, #[in] hdrOption: HdmiDisplayHdrOption, #[in] hdrMetadata: HdmiDisplayHdr2086Metadata) -> super::super::super::Foundation::IAsyncOperation<bool>;
                     event DisplayModesChanged: super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, Object>;
                 }
                 #[guid(0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df)]
@@ -98,7 +98,7 @@ mod Windows {
                     StereoEnabled: bool;
                     #[get]
                     BitsPerPixel: u16;
-                    fn IsEqual(&self, mode: HdmiDisplayMode) -> bool;
+                    fn IsEqual(&self, #[in] mode: HdmiDisplayMode) -> bool;
                     #[get]
                     ColorSpace: HdmiDisplayColorSpace;
                     #[get]

@@ -22,14 +22,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataProtectionManager)]
             interface IUserDataProtectionManager {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ProtectStorageItemAsync(&self, storageItem: super::super::Storage::IStorageItem, availability: UserDataAvailability) -> super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>;
+                fn ProtectStorageItemAsync(&self, #[in] storageItem: super::super::Storage::IStorageItem, #[in] availability: UserDataAvailability) -> super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetStorageItemProtectionInfoAsync(&self, storageItem: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>;
+                fn GetStorageItemProtectionInfoAsync(&self, #[in] storageItem: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn ProtectBufferAsync(&self, unprotectedBuffer: super::super::Storage::Streams::IBuffer, availability: UserDataAvailability) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>;
+                fn ProtectBufferAsync(&self, #[in] unprotectedBuffer: super::super::Storage::Streams::IBuffer, #[in] availability: UserDataAvailability) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn UnprotectBufferAsync(&self, protectedBuffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>;
-                fn IsContinuedDataAvailabilityExpected(&self, availability: UserDataAvailability) -> bool;
+                fn UnprotectBufferAsync(&self, #[in] protectedBuffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>;
+                fn IsContinuedDataAvailabilityExpected(&self, #[in] availability: UserDataAvailability) -> bool;
                 event DataAvailabilityStateChanged: super::super::Foundation::TypedEventHandler<UserDataProtectionManager, UserDataAvailabilityStateChangedEventArgs>;
             }
             #[guid(0x977780e8_6dce_4fae_af85_782ac2cf4572)]
@@ -37,7 +37,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataProtectionManager)]
             interface IUserDataProtectionManagerStatics {
                 fn TryGetDefault(&self) -> UserDataProtectionManager;
-                fn TryGetForUser(&self, user: super::super::System::User) -> UserDataProtectionManager;
+                fn TryGetForUser(&self, #[in] user: super::super::System::User) -> UserDataProtectionManager;
             }
             #[guid(0x5b6680f6_e87f_40a1_b19d_a6187a0c662f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]

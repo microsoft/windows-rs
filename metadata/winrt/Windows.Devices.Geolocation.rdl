@@ -179,20 +179,20 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GeoboundingBox)]
             interface IGeoboundingBoxFactory {
-                fn Create(&self, northwestCorner: BasicGeoposition, southeastCorner: BasicGeoposition) -> GeoboundingBox;
-                fn CreateWithAltitudeReference(&self, northwestCorner: BasicGeoposition, southeastCorner: BasicGeoposition, altitudeReferenceSystem: AltitudeReferenceSystem) -> GeoboundingBox;
-                fn CreateWithAltitudeReferenceAndSpatialReference(&self, northwestCorner: BasicGeoposition, southeastCorner: BasicGeoposition, altitudeReferenceSystem: AltitudeReferenceSystem, spatialReferenceId: u32) -> GeoboundingBox;
+                fn Create(&self, #[in] northwestCorner: BasicGeoposition, #[in] southeastCorner: BasicGeoposition) -> GeoboundingBox;
+                fn CreateWithAltitudeReference(&self, #[in] northwestCorner: BasicGeoposition, #[in] southeastCorner: BasicGeoposition, #[in] altitudeReferenceSystem: AltitudeReferenceSystem) -> GeoboundingBox;
+                fn CreateWithAltitudeReferenceAndSpatialReference(&self, #[in] northwestCorner: BasicGeoposition, #[in] southeastCorner: BasicGeoposition, #[in] altitudeReferenceSystem: AltitudeReferenceSystem, #[in] spatialReferenceId: u32) -> GeoboundingBox;
             }
             #[guid(0x67b80708_e61a_4cd0_841b_93233792b5ca)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GeoboundingBox)]
             interface IGeoboundingBoxStatics {
                 #[Windows::Foundation::Metadata::Overload("TryCompute")]
-                fn TryCompute(&self, positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>) -> GeoboundingBox;
+                fn TryCompute(&self, #[in] positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>) -> GeoboundingBox;
                 #[Windows::Foundation::Metadata::Overload("TryComputeWithAltitudeReference")]
-                fn TryCompute(&self, positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, altitudeRefSystem: AltitudeReferenceSystem) -> GeoboundingBox;
+                fn TryCompute(&self, #[in] positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, #[in] altitudeRefSystem: AltitudeReferenceSystem) -> GeoboundingBox;
                 #[Windows::Foundation::Metadata::Overload("TryComputeWithAltitudeReferenceAndSpatialReference")]
-                fn TryCompute(&self, positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, altitudeRefSystem: AltitudeReferenceSystem, spatialReferenceId: u32) -> GeoboundingBox;
+                fn TryCompute(&self, #[in] positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, #[in] altitudeRefSystem: AltitudeReferenceSystem, #[in] spatialReferenceId: u32) -> GeoboundingBox;
             }
             #[guid(0x39e45843_a7f9_4e63_92a7_ba0c28d124b1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -207,9 +207,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geocircle)]
             interface IGeocircleFactory {
-                fn Create(&self, position: BasicGeoposition, radius: f64) -> Geocircle;
-                fn CreateWithAltitudeReferenceSystem(&self, position: BasicGeoposition, radius: f64, altitudeReferenceSystem: AltitudeReferenceSystem) -> Geocircle;
-                fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&self, position: BasicGeoposition, radius: f64, altitudeReferenceSystem: AltitudeReferenceSystem, spatialReferenceId: u32) -> Geocircle;
+                fn Create(&self, #[in] position: BasicGeoposition, #[in] radius: f64) -> Geocircle;
+                fn CreateWithAltitudeReferenceSystem(&self, #[in] position: BasicGeoposition, #[in] radius: f64, #[in] altitudeReferenceSystem: AltitudeReferenceSystem) -> Geocircle;
+                fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&self, #[in] position: BasicGeoposition, #[in] radius: f64, #[in] altitudeReferenceSystem: AltitudeReferenceSystem, #[in] spatialReferenceId: u32) -> Geocircle;
             }
             #[guid(0xee21a3aa_976a_4c70_803d_083ea55bcbc4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -299,7 +299,7 @@ mod Windows {
                 fn GetGeopositionAsync(&self) -> super::super::Foundation::IAsyncOperation<Geoposition>;
                 #[Windows::Foundation::Metadata::Overload("GetGeopositionAsyncWithAgeAndTimeout")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetGeopositionAsync(&self, maximumAge: super::super::Foundation::TimeSpan, timeout: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<Geoposition>;
+                fn GetGeopositionAsync(&self, #[in] maximumAge: super::super::Foundation::TimeSpan, #[in] timeout: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<Geoposition>;
                 event PositionChanged: super::super::Foundation::TypedEventHandler<Geolocator, PositionChangedEventArgs>;
                 event StatusChanged: super::super::Foundation::TypedEventHandler<Geolocator, StatusChangedEventArgs>;
             }
@@ -318,11 +318,11 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("GetGeopositionHistoryAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("GetGeopositionHistoryAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetGeopositionHistoryAsync(&self, startTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>;
+                fn GetGeopositionHistoryAsync(&self, #[in] startTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>;
                 #[Windows::Foundation::Metadata::Deprecated("GetGeopositionHistoryWithDurationAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("GetGeopositionHistoryWithDurationAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetGeopositionHistoryAsync(&self, startTime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>;
+                fn GetGeopositionHistoryAsync(&self, #[in] startTime: super::super::Foundation::DateTime, #[in] duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>;
             }
             #[guid(0x993011a2_fa1c_4631_a71d_0dbeb1250d9c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -352,9 +352,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geopath)]
             interface IGeopathFactory {
-                fn Create(&self, positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>) -> Geopath;
-                fn CreateWithAltitudeReference(&self, positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, altitudeReferenceSystem: AltitudeReferenceSystem) -> Geopath;
-                fn CreateWithAltitudeReferenceAndSpatialReference(&self, positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, altitudeReferenceSystem: AltitudeReferenceSystem, spatialReferenceId: u32) -> Geopath;
+                fn Create(&self, #[in] positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>) -> Geopath;
+                fn CreateWithAltitudeReference(&self, #[in] positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, #[in] altitudeReferenceSystem: AltitudeReferenceSystem) -> Geopath;
+                fn CreateWithAltitudeReferenceAndSpatialReference(&self, #[in] positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, #[in] altitudeReferenceSystem: AltitudeReferenceSystem, #[in] spatialReferenceId: u32) -> Geopath;
             }
             #[guid(0x6bfa00eb_e56e_49bb_9caf_cbaa78a8bcef)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -367,9 +367,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geopoint)]
             interface IGeopointFactory {
-                fn Create(&self, position: BasicGeoposition) -> Geopoint;
-                fn CreateWithAltitudeReferenceSystem(&self, position: BasicGeoposition, altitudeReferenceSystem: AltitudeReferenceSystem) -> Geopoint;
-                fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&self, position: BasicGeoposition, altitudeReferenceSystem: AltitudeReferenceSystem, spatialReferenceId: u32) -> Geopoint;
+                fn Create(&self, #[in] position: BasicGeoposition) -> Geopoint;
+                fn CreateWithAltitudeReferenceSystem(&self, #[in] position: BasicGeoposition, #[in] altitudeReferenceSystem: AltitudeReferenceSystem) -> Geopoint;
+                fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&self, #[in] position: BasicGeoposition, #[in] altitudeReferenceSystem: AltitudeReferenceSystem, #[in] spatialReferenceId: u32) -> Geopoint;
             }
             #[guid(0xc18d0454_7d41_4ff7_a957_9dffb4ef7f5b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -414,7 +414,7 @@ mod Windows {
             interface IGeovisitMonitor {
                 #[get]
                 MonitoringScope: VisitMonitoringScope;
-                fn Start(&self, value: VisitMonitoringScope);
+                fn Start(&self, #[in] value: VisitMonitoringScope);
                 fn Stop(&self);
                 event VisitStateChanged: super::super::Foundation::TypedEventHandler<GeovisitMonitor, GeovisitStateChangedEventArgs>;
             }

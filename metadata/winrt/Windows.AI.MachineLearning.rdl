@@ -33,7 +33,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ImageFeatureValue)]
             interface IImageFeatureValueStatics {
-                fn CreateFromVideoFrame(&self, image: super::super::Media::VideoFrame) -> ImageFeatureValue;
+                fn CreateFromVideoFrame(&self, #[in] image: super::super::Media::VideoFrame) -> ImageFeatureValue;
             }
             #[guid(0x5b8e4920_489f_4e86_9128_265a327b78fa)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -61,16 +61,16 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelBinding)]
             interface ILearningModelBinding {
                 #[Windows::Foundation::Metadata::Overload("Bind")]
-                fn Bind(&self, name: String, value: Object);
+                fn Bind(&self, #[in] name: String, #[in] value: Object);
                 #[Windows::Foundation::Metadata::Overload("BindWithProperties")]
-                fn Bind(&self, name: String, value: Object, props: super::super::Foundation::Collections::IPropertySet);
+                fn Bind(&self, #[in] name: String, #[in] value: Object, #[in] props: super::super::Foundation::Collections::IPropertySet);
                 fn Clear(&self);
             }
             #[guid(0xc95f7a7a_e788_475e_8917_23aa381faf0b)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelBinding)]
             interface ILearningModelBindingFactory {
-                fn CreateFromSession(&self, session: LearningModelSession) -> LearningModelBinding;
+                fn CreateFromSession(&self, #[in] session: LearningModelSession) -> LearningModelBinding;
             }
             #[guid(0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -85,13 +85,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelDevice)]
             interface ILearningModelDeviceFactory {
-                fn Create(&self, deviceKind: LearningModelDeviceKind) -> LearningModelDevice;
+                fn Create(&self, #[in] deviceKind: LearningModelDeviceKind) -> LearningModelDevice;
             }
             #[guid(0x49f32107_a8bf_42bb_92c7_10b12dc5d21f)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelDevice)]
             interface ILearningModelDeviceStatics {
-                fn CreateFromDirect3D11Device(&self, device: super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice) -> LearningModelDevice;
+                fn CreateFromDirect3D11Device(&self, #[in] device: super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice) -> LearningModelDevice;
             }
             #[guid(0xb2f9bfcd_960e_49c0_8593_eb190ae3eee2)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -138,24 +138,24 @@ mod Windows {
                 #[get]
                 EvaluationProperties: super::super::Foundation::Collections::IPropertySet;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn EvaluateAsync(&self, bindings: LearningModelBinding, correlationId: String) -> super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>;
+                fn EvaluateAsync(&self, #[in] bindings: LearningModelBinding, #[in] correlationId: String) -> super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn EvaluateFeaturesAsync(&self, features: super::super::Foundation::Collections::IMap<String, Object>, correlationId: String) -> super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>;
-                fn Evaluate(&self, bindings: LearningModelBinding, correlationId: String) -> LearningModelEvaluationResult;
-                fn EvaluateFeatures(&self, features: super::super::Foundation::Collections::IMap<String, Object>, correlationId: String) -> LearningModelEvaluationResult;
+                fn EvaluateFeaturesAsync(&self, #[in] features: super::super::Foundation::Collections::IMap<String, Object>, #[in] correlationId: String) -> super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>;
+                fn Evaluate(&self, #[in] bindings: LearningModelBinding, #[in] correlationId: String) -> LearningModelEvaluationResult;
+                fn EvaluateFeatures(&self, #[in] features: super::super::Foundation::Collections::IMap<String, Object>, #[in] correlationId: String) -> LearningModelEvaluationResult;
             }
             #[guid(0x0f6b881d_1c9b_47b6_bfe0_f1cf62a67579)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelSession)]
             interface ILearningModelSessionFactory {
-                fn CreateFromModel(&self, model: LearningModel) -> LearningModelSession;
-                fn CreateFromModelOnDevice(&self, model: LearningModel, deviceToRunOn: LearningModelDevice) -> LearningModelSession;
+                fn CreateFromModel(&self, #[in] model: LearningModel) -> LearningModelSession;
+                fn CreateFromModelOnDevice(&self, #[in] model: LearningModel, #[in] deviceToRunOn: LearningModelDevice) -> LearningModelSession;
             }
             #[guid(0x4e5c88bf_0a1f_5fec_ade0_2fd91e4ef29b)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelSession)]
             interface ILearningModelSessionFactory2 {
-                fn CreateFromModelOnDeviceWithSessionOptions(&self, model: LearningModel, deviceToRunOn: LearningModelDevice, learningModelSessionOptions: LearningModelSessionOptions) -> LearningModelSession;
+                fn CreateFromModelOnDeviceWithSessionOptions(&self, #[in] model: LearningModel, #[in] deviceToRunOn: LearningModelDevice, #[in] learningModelSessionOptions: LearningModelSessionOptions) -> LearningModelSession;
             }
             #[guid(0xb8f63fa1_134d_5133_8cff_3a5c3c263beb)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
@@ -173,7 +173,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelSessionOptions)]
             interface ILearningModelSessionOptions3 {
-                fn OverrideNamedDimension(&self, name: String, dimension: u32);
+                fn OverrideNamedDimension(&self, #[in] name: String, #[in] dimension: u32);
             }
             #[guid(0xe3b977e8_6952_4e47_8ef4_1f7f07897c6d)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -181,24 +181,24 @@ mod Windows {
             interface ILearningModelStatics {
                 #[Windows::Foundation::Metadata::Overload("LoadFromStorageFileAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn LoadFromStorageFileAsync(&self, modelFile: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<LearningModel>;
+                fn LoadFromStorageFileAsync(&self, #[in] modelFile: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<LearningModel>;
                 #[Windows::Foundation::Metadata::Overload("LoadFromStreamAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn LoadFromStreamAsync(&self, modelStream: super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::Foundation::IAsyncOperation<LearningModel>;
+                fn LoadFromStreamAsync(&self, #[in] modelStream: super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::Foundation::IAsyncOperation<LearningModel>;
                 #[Windows::Foundation::Metadata::Overload("LoadFromFilePath")]
-                fn LoadFromFilePath(&self, filePath: String) -> LearningModel;
+                fn LoadFromFilePath(&self, #[in] filePath: String) -> LearningModel;
                 #[Windows::Foundation::Metadata::Overload("LoadFromStream")]
-                fn LoadFromStream(&self, modelStream: super::super::Storage::Streams::IRandomAccessStreamReference) -> LearningModel;
+                fn LoadFromStream(&self, #[in] modelStream: super::super::Storage::Streams::IRandomAccessStreamReference) -> LearningModel;
                 #[Windows::Foundation::Metadata::Overload("LoadFromStorageFileWithOperatorProviderAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn LoadFromStorageFileAsync(&self, modelFile: super::super::Storage::IStorageFile, operatorProvider: ILearningModelOperatorProvider) -> super::super::Foundation::IAsyncOperation<LearningModel>;
+                fn LoadFromStorageFileAsync(&self, #[in] modelFile: super::super::Storage::IStorageFile, #[in] operatorProvider: ILearningModelOperatorProvider) -> super::super::Foundation::IAsyncOperation<LearningModel>;
                 #[Windows::Foundation::Metadata::Overload("LoadFromStreamWithOperatorProviderAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn LoadFromStreamAsync(&self, modelStream: super::super::Storage::Streams::IRandomAccessStreamReference, operatorProvider: ILearningModelOperatorProvider) -> super::super::Foundation::IAsyncOperation<LearningModel>;
+                fn LoadFromStreamAsync(&self, #[in] modelStream: super::super::Storage::Streams::IRandomAccessStreamReference, #[in] operatorProvider: ILearningModelOperatorProvider) -> super::super::Foundation::IAsyncOperation<LearningModel>;
                 #[Windows::Foundation::Metadata::Overload("LoadFromFilePathWithOperatorProvider")]
-                fn LoadFromFilePath(&self, filePath: String, operatorProvider: ILearningModelOperatorProvider) -> LearningModel;
+                fn LoadFromFilePath(&self, #[in] filePath: String, #[in] operatorProvider: ILearningModelOperatorProvider) -> LearningModel;
                 #[Windows::Foundation::Metadata::Overload("LoadFromStreamWithOperatorProvider")]
-                fn LoadFromStream(&self, modelStream: super::super::Storage::Streams::IRandomAccessStreamReference, operatorProvider: ILearningModelOperatorProvider) -> LearningModel;
+                fn LoadFromStream(&self, #[in] modelStream: super::super::Storage::Streams::IRandomAccessStreamReference, #[in] operatorProvider: ILearningModelOperatorProvider) -> LearningModel;
             }
             #[guid(0x530424bd_a257_436d_9e60_c2981f7cc5c4)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -237,16 +237,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self) -> TensorBoolean;
                 #[Windows::Foundation::Metadata::Overload("Create2")]
-                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorBoolean;
-                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [bool]) -> TensorBoolean;
-                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<bool>) -> TensorBoolean;
+                fn Create(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorBoolean;
+                fn CreateFromArray(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: [bool]) -> TensorBoolean;
+                fn CreateFromIterable(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: super::super::Foundation::Collections::IIterable<bool>) -> TensorBoolean;
             }
             #[guid(0xa3a4a501_6a2d_52d7_b04b_c435baee0115)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TensorBoolean)]
             interface ITensorBooleanStatics2 {
-                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [bool]) -> TensorBoolean;
-                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorBoolean;
+                fn CreateFromShapeArrayAndDataArray(&self, #[in] shape: [i64], #[in] data: [bool]) -> TensorBoolean;
+                fn CreateFromBuffer(&self, #[in] shape: [i64], #[in] buffer: super::super::Storage::Streams::IBuffer) -> TensorBoolean;
             }
             #[guid(0x91e41252_7a8f_4f0e_a28f_9637ffc8a3d0)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -261,16 +261,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self) -> TensorDouble;
                 #[Windows::Foundation::Metadata::Overload("Create2")]
-                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorDouble;
-                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [f64]) -> TensorDouble;
-                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<f64>) -> TensorDouble;
+                fn Create(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorDouble;
+                fn CreateFromArray(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: [f64]) -> TensorDouble;
+                fn CreateFromIterable(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: super::super::Foundation::Collections::IIterable<f64>) -> TensorDouble;
             }
             #[guid(0x93a570de_5e9a_5094_85c8_592c655e68ac)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TensorDouble)]
             interface ITensorDoubleStatics2 {
-                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [f64]) -> TensorDouble;
-                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorDouble;
+                fn CreateFromShapeArrayAndDataArray(&self, #[in] shape: [i64], #[in] data: [f64]) -> TensorDouble;
+                fn CreateFromBuffer(&self, #[in] shape: [i64], #[in] buffer: super::super::Storage::Streams::IBuffer) -> TensorDouble;
             }
             #[guid(0x74455c80_946a_4310_a19c_ee0af028fce4)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -300,16 +300,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self) -> TensorFloat16Bit;
                 #[Windows::Foundation::Metadata::Overload("Create2")]
-                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorFloat16Bit;
-                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [f32]) -> TensorFloat16Bit;
-                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<f32>) -> TensorFloat16Bit;
+                fn Create(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorFloat16Bit;
+                fn CreateFromArray(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: [f32]) -> TensorFloat16Bit;
+                fn CreateFromIterable(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: super::super::Foundation::Collections::IIterable<f32>) -> TensorFloat16Bit;
             }
             #[guid(0x68545726_2dc7_51bf_b470_0b344cc2a1bc)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TensorFloat16Bit)]
             interface ITensorFloat16BitStatics2 {
-                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [f32]) -> TensorFloat16Bit;
-                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorFloat16Bit;
+                fn CreateFromShapeArrayAndDataArray(&self, #[in] shape: [i64], #[in] data: [f32]) -> TensorFloat16Bit;
+                fn CreateFromBuffer(&self, #[in] shape: [i64], #[in] buffer: super::super::Storage::Streams::IBuffer) -> TensorFloat16Bit;
             }
             #[guid(0xdbcd395b_3ba3_452f_b10d_3c135e573fa9)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -318,16 +318,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self) -> TensorFloat;
                 #[Windows::Foundation::Metadata::Overload("Create2")]
-                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorFloat;
-                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [f32]) -> TensorFloat;
-                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<f32>) -> TensorFloat;
+                fn Create(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorFloat;
+                fn CreateFromArray(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: [f32]) -> TensorFloat;
+                fn CreateFromIterable(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: super::super::Foundation::Collections::IIterable<f32>) -> TensorFloat;
             }
             #[guid(0x24610bc1_5e44_5713_b281_8f4ad4d555e8)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TensorFloat)]
             interface ITensorFloatStatics2 {
-                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [f32]) -> TensorFloat;
-                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorFloat;
+                fn CreateFromShapeArrayAndDataArray(&self, #[in] shape: [i64], #[in] data: [f32]) -> TensorFloat;
+                fn CreateFromBuffer(&self, #[in] shape: [i64], #[in] buffer: super::super::Storage::Streams::IBuffer) -> TensorFloat;
             }
             #[guid(0x98a32d39_e6d6_44af_8afa_baebc44dc020)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -342,16 +342,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self) -> TensorInt16Bit;
                 #[Windows::Foundation::Metadata::Overload("Create2")]
-                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt16Bit;
-                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [i16]) -> TensorInt16Bit;
-                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<i16>) -> TensorInt16Bit;
+                fn Create(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt16Bit;
+                fn CreateFromArray(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: [i16]) -> TensorInt16Bit;
+                fn CreateFromIterable(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: super::super::Foundation::Collections::IIterable<i16>) -> TensorInt16Bit;
             }
             #[guid(0x0cd70cf4_696c_5e5f_95d8_5ebf9670148b)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt16Bit)]
             interface ITensorInt16BitStatics2 {
-                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [i16]) -> TensorInt16Bit;
-                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorInt16Bit;
+                fn CreateFromShapeArrayAndDataArray(&self, #[in] shape: [i64], #[in] data: [i16]) -> TensorInt16Bit;
+                fn CreateFromBuffer(&self, #[in] shape: [i64], #[in] buffer: super::super::Storage::Streams::IBuffer) -> TensorInt16Bit;
             }
             #[guid(0x2c0c28d3_207c_4486_a7d2_884522c5e589)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -366,16 +366,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self) -> TensorInt32Bit;
                 #[Windows::Foundation::Metadata::Overload("Create2")]
-                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt32Bit;
-                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [i32]) -> TensorInt32Bit;
-                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<i32>) -> TensorInt32Bit;
+                fn Create(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt32Bit;
+                fn CreateFromArray(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: [i32]) -> TensorInt32Bit;
+                fn CreateFromIterable(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: super::super::Foundation::Collections::IIterable<i32>) -> TensorInt32Bit;
             }
             #[guid(0x7c4b079a_e956_5ce0_a3bd_157d9d79b5ec)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt32Bit)]
             interface ITensorInt32BitStatics2 {
-                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [i32]) -> TensorInt32Bit;
-                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorInt32Bit;
+                fn CreateFromShapeArrayAndDataArray(&self, #[in] shape: [i64], #[in] data: [i32]) -> TensorInt32Bit;
+                fn CreateFromBuffer(&self, #[in] shape: [i64], #[in] buffer: super::super::Storage::Streams::IBuffer) -> TensorInt32Bit;
             }
             #[guid(0x499665ba_1fa2_45ad_af25_a0bd9bda4c87)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -390,16 +390,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self) -> TensorInt64Bit;
                 #[Windows::Foundation::Metadata::Overload("Create2")]
-                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt64Bit;
-                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [i64]) -> TensorInt64Bit;
-                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt64Bit;
+                fn Create(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt64Bit;
+                fn CreateFromArray(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: [i64]) -> TensorInt64Bit;
+                fn CreateFromIterable(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt64Bit;
             }
             #[guid(0x6d3d9dcb_ff40_5ec2_89fe_084e2b6bc6db)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt64Bit)]
             interface ITensorInt64BitStatics2 {
-                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [i64]) -> TensorInt64Bit;
-                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorInt64Bit;
+                fn CreateFromShapeArrayAndDataArray(&self, #[in] shape: [i64], #[in] data: [i64]) -> TensorInt64Bit;
+                fn CreateFromBuffer(&self, #[in] shape: [i64], #[in] buffer: super::super::Storage::Streams::IBuffer) -> TensorInt64Bit;
             }
             #[guid(0xcddd97c5_ffd8_4fef_aefb_30e1a485b2ee)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -414,16 +414,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self) -> TensorInt8Bit;
                 #[Windows::Foundation::Metadata::Overload("Create2")]
-                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt8Bit;
-                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [u8]) -> TensorInt8Bit;
-                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<u8>) -> TensorInt8Bit;
+                fn Create(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt8Bit;
+                fn CreateFromArray(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: [u8]) -> TensorInt8Bit;
+                fn CreateFromIterable(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: super::super::Foundation::Collections::IIterable<u8>) -> TensorInt8Bit;
             }
             #[guid(0xc0d59637_c468_56fb_9535_c052bdb93dc0)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt8Bit)]
             interface ITensorInt8BitStatics2 {
-                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [u8]) -> TensorInt8Bit;
-                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorInt8Bit;
+                fn CreateFromShapeArrayAndDataArray(&self, #[in] shape: [i64], #[in] data: [u8]) -> TensorInt8Bit;
+                fn CreateFromBuffer(&self, #[in] shape: [i64], #[in] buffer: super::super::Storage::Streams::IBuffer) -> TensorInt8Bit;
             }
             #[guid(0x582335c8_bdb1_4610_bc75_35e9cbf009b7)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -438,15 +438,15 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self) -> TensorString;
                 #[Windows::Foundation::Metadata::Overload("Create2")]
-                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorString;
-                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [String]) -> TensorString;
-                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<String>) -> TensorString;
+                fn Create(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorString;
+                fn CreateFromArray(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: [String]) -> TensorString;
+                fn CreateFromIterable(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: super::super::Foundation::Collections::IIterable<String>) -> TensorString;
             }
             #[guid(0x9e355ed0_c8e2_5254_9137_0193a3668fd8)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TensorString)]
             interface ITensorStringStatics2 {
-                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [String]) -> TensorString;
+                fn CreateFromShapeArrayAndDataArray(&self, #[in] shape: [i64], #[in] data: [String]) -> TensorString;
             }
             #[guid(0x68140f4b_23c0_42f3_81f6_a891c011bc3f)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -461,16 +461,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self) -> TensorUInt16Bit;
                 #[Windows::Foundation::Metadata::Overload("Create2")]
-                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorUInt16Bit;
-                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [u16]) -> TensorUInt16Bit;
-                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<u16>) -> TensorUInt16Bit;
+                fn Create(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorUInt16Bit;
+                fn CreateFromArray(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: [u16]) -> TensorUInt16Bit;
+                fn CreateFromIterable(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: super::super::Foundation::Collections::IIterable<u16>) -> TensorUInt16Bit;
             }
             #[guid(0x8af40c64_d69f_5315_9348_490877bbd642)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt16Bit)]
             interface ITensorUInt16BitStatics2 {
-                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [u16]) -> TensorUInt16Bit;
-                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorUInt16Bit;
+                fn CreateFromShapeArrayAndDataArray(&self, #[in] shape: [i64], #[in] data: [u16]) -> TensorUInt16Bit;
+                fn CreateFromBuffer(&self, #[in] shape: [i64], #[in] buffer: super::super::Storage::Streams::IBuffer) -> TensorUInt16Bit;
             }
             #[guid(0xd8c9c2ff_7511_45a3_bfac_c38f370d2237)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -485,16 +485,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self) -> TensorUInt32Bit;
                 #[Windows::Foundation::Metadata::Overload("Create2")]
-                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorUInt32Bit;
-                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [u32]) -> TensorUInt32Bit;
-                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<u32>) -> TensorUInt32Bit;
+                fn Create(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorUInt32Bit;
+                fn CreateFromArray(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: [u32]) -> TensorUInt32Bit;
+                fn CreateFromIterable(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: super::super::Foundation::Collections::IIterable<u32>) -> TensorUInt32Bit;
             }
             #[guid(0xef1a1f1c_314e_569d_b496_5c8447d20cd2)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt32Bit)]
             interface ITensorUInt32BitStatics2 {
-                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [u32]) -> TensorUInt32Bit;
-                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorUInt32Bit;
+                fn CreateFromShapeArrayAndDataArray(&self, #[in] shape: [i64], #[in] data: [u32]) -> TensorUInt32Bit;
+                fn CreateFromBuffer(&self, #[in] shape: [i64], #[in] buffer: super::super::Storage::Streams::IBuffer) -> TensorUInt32Bit;
             }
             #[guid(0x2e70ffad_04bf_4825_839a_82baef8c7886)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -509,16 +509,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self) -> TensorUInt64Bit;
                 #[Windows::Foundation::Metadata::Overload("Create2")]
-                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorUInt64Bit;
-                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [u64]) -> TensorUInt64Bit;
-                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<u64>) -> TensorUInt64Bit;
+                fn Create(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorUInt64Bit;
+                fn CreateFromArray(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: [u64]) -> TensorUInt64Bit;
+                fn CreateFromIterable(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: super::super::Foundation::Collections::IIterable<u64>) -> TensorUInt64Bit;
             }
             #[guid(0x085a687d_67e1_5b1e_b232_4fabe9ca20b3)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt64Bit)]
             interface ITensorUInt64BitStatics2 {
-                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [u64]) -> TensorUInt64Bit;
-                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorUInt64Bit;
+                fn CreateFromShapeArrayAndDataArray(&self, #[in] shape: [i64], #[in] data: [u64]) -> TensorUInt64Bit;
+                fn CreateFromBuffer(&self, #[in] shape: [i64], #[in] buffer: super::super::Storage::Streams::IBuffer) -> TensorUInt64Bit;
             }
             #[guid(0x58e1ae27_622b_48e3_be22_d867aed1daac)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
@@ -533,16 +533,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self) -> TensorUInt8Bit;
                 #[Windows::Foundation::Metadata::Overload("Create2")]
-                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorUInt8Bit;
-                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [u8]) -> TensorUInt8Bit;
-                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<u8>) -> TensorUInt8Bit;
+                fn Create(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorUInt8Bit;
+                fn CreateFromArray(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: [u8]) -> TensorUInt8Bit;
+                fn CreateFromIterable(&self, #[in] shape: super::super::Foundation::Collections::IIterable<i64>, #[in] data: super::super::Foundation::Collections::IIterable<u8>) -> TensorUInt8Bit;
             }
             #[guid(0x2ba042d6_373e_5a3a_a2fc_a6c41bd52789)]
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt8Bit)]
             interface ITensorUInt8BitStatics2 {
-                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [u8]) -> TensorUInt8Bit;
-                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorUInt8Bit;
+                fn CreateFromShapeArrayAndDataArray(&self, #[in] shape: [i64], #[in] data: [u8]) -> TensorUInt8Bit;
+                fn CreateFromBuffer(&self, #[in] shape: [i64], #[in] buffer: super::super::Storage::Streams::IBuffer) -> TensorUInt8Bit;
             }
             #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]

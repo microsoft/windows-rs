@@ -28,10 +28,10 @@ mod Windows {
                     fn ReportDataRetrieved(&self);
                     fn ReportSubmittedBackgroundTask(&self);
                     #[Windows::Foundation::Metadata::Overload("ReportCompletedWithQuickLink")]
-                    fn ReportCompleted(&self, quicklink: QuickLink);
+                    fn ReportCompleted(&self, #[in] quicklink: QuickLink);
                     #[Windows::Foundation::Metadata::Overload("ReportCompleted")]
                     fn ReportCompleted(&self);
-                    fn ReportError(&self, value: String);
+                    fn ReportError(&self, #[in] value: String);
                 }
                 #[guid(0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

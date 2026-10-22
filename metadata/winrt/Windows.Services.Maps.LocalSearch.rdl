@@ -73,7 +73,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ILocalLocationFinderStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn FindLocalLocationsAsync(&self, searchTerm: String, searchArea: super::super::super::Devices::Geolocation::Geocircle, localCategory: String, maxResults: u32) -> super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>;
+                    fn FindLocalLocationsAsync(&self, #[in] searchTerm: String, #[in] searchArea: super::super::super::Devices::Geolocation::Geocircle, #[in] localCategory: String, #[in] maxResults: u32) -> super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>;
                 }
                 #[guid(0x23548c72_a1c7_43f1_a4f0_1091c39ec640)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 196608)]
@@ -103,7 +103,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlaceInfoHelper)]
                 interface IPlaceInfoHelperStatics {
-                    fn CreateFromLocalLocation(&self, location: LocalLocation) -> super::PlaceInfo;
+                    fn CreateFromLocalLocation(&self, #[in] location: LocalLocation) -> super::PlaceInfo;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

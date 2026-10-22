@@ -27,7 +27,7 @@ mod Windows {
             #[guid(0x766d8f08_d3fe_4347_a0bc_b9ea9a6dc28e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             interface IAdaptiveCardBuilderStatics {
-                fn CreateAdaptiveCardFromJson(&self, value: String) -> IAdaptiveCard;
+                fn CreateAdaptiveCardFromJson(&self, #[in] value: String) -> IAdaptiveCard;
             }
             #[guid(0x069fbab8_0e84_5f2f_8614_9b6544326277)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -43,11 +43,11 @@ mod Windows {
             interface IFocusSessionManager {
                 #[get]
                 IsFocusActive: bool;
-                fn GetSession(&self, id: String) -> FocusSession;
+                fn GetSession(&self, #[in] id: String) -> FocusSession;
                 #[Windows::Foundation::Metadata::Overload("TryStartFocusSession")]
                 fn TryStartFocusSession(&self) -> FocusSession;
                 #[Windows::Foundation::Metadata::Overload("TryStartFocusSession2")]
-                fn TryStartFocusSession(&self, endTime: super::super::Foundation::DateTime) -> FocusSession;
+                fn TryStartFocusSession(&self, #[in] endTime: super::super::Foundation::DateTime) -> FocusSession;
                 fn DeactivateFocus(&self);
                 event IsFocusActiveChanged: super::super::Foundation::TypedEventHandler<FocusSessionManager, Object>;
             }
@@ -63,9 +63,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(SecurityAppManagerContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SecurityAppManager)]
             interface ISecurityAppManager {
-                fn Register(&self, kind: SecurityAppKind, displayName: String, detailsUri: super::super::Foundation::Uri, registerPerUser: bool) -> GUID;
-                fn Unregister(&self, kind: SecurityAppKind, guidRegistration: GUID);
-                fn UpdateState(&self, kind: SecurityAppKind, guidRegistration: GUID, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsUri: super::super::Foundation::Uri);
+                fn Register(&self, #[in] kind: SecurityAppKind, #[in] displayName: String, #[in] detailsUri: super::super::Foundation::Uri, #[in] registerPerUser: bool) -> GUID;
+                fn Unregister(&self, #[in] kind: SecurityAppKind, #[in] guidRegistration: GUID);
+                fn UpdateState(&self, #[in] kind: SecurityAppKind, #[in] guidRegistration: GUID, #[in] state: SecurityAppState, #[in] substatus: SecurityAppSubstatus, #[in] detailsUri: super::super::Foundation::Uri);
             }
             #[guid(0x4578dc09_a523_5756_a995_e4feb991fff0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
@@ -102,22 +102,22 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn IsCurrentAppPinnedAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn IsAppListEntryPinnedAsync(&self, appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn IsAppListEntryPinnedAsync(&self, #[in] appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestPinCurrentAppAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestPinAppListEntryAsync(&self, appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestPinAppListEntryAsync(&self, #[in] appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x79f0a06e_7b02_4911_918c_dee0bbd20ba4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TaskbarManager)]
             interface ITaskbarManager2: ITaskbarManager {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn IsSecondaryTilePinnedAsync(&self, tileId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn IsSecondaryTilePinnedAsync(&self, #[in] tileId: String) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn RequestPinSecondaryTileAsync(&self, secondaryTile: super::StartScreen::SecondaryTile) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestPinSecondaryTileAsync(&self, #[in] secondaryTile: super::StartScreen::SecondaryTile) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn TryUnpinSecondaryTileAsync(&self, tileId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryUnpinSecondaryTileAsync(&self, #[in] tileId: String) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0xcdfefd63_e879_4134_b9a7_8283f05f9480)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
@@ -151,7 +151,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowTabManagerContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowTabCollection)]
             interface IWindowTabCollection {
-                fn MoveTab(&self, tab: WindowTab, index: u32);
+                fn MoveTab(&self, #[in] tab: WindowTab, #[in] index: u32);
             }
             #[guid(0xa9c2c4fe_6cfe_449c_8b57_5756771abe56)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowTabManagerContract, 65536)]
@@ -169,10 +169,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowTabIcon)]
             interface IWindowTabIconStatics {
                 #[Windows::Foundation::Metadata::Overload("CreateFromFontGlyph")]
-                fn CreateFromFontGlyph(&self, glyph: String, fontFamily: String) -> WindowTabIcon;
+                fn CreateFromFontGlyph(&self, #[in] glyph: String, #[in] fontFamily: String) -> WindowTabIcon;
                 #[Windows::Foundation::Metadata::Overload("CreateFromFontGlyphWithUri")]
-                fn CreateFromFontGlyph(&self, glyph: String, fontFamily: String, fontUri: super::super::Foundation::Uri) -> WindowTabIcon;
-                fn CreateFromImage(&self, image: super::super::Storage::Streams::IRandomAccessStreamReference) -> WindowTabIcon;
+                fn CreateFromFontGlyph(&self, #[in] glyph: String, #[in] fontFamily: String, #[in] fontUri: super::super::Foundation::Uri) -> WindowTabIcon;
+                fn CreateFromImage(&self, #[in] image: super::super::Storage::Streams::IRandomAccessStreamReference) -> WindowTabIcon;
             }
             #[guid(0x97b3c697_f43a_43e7_b3a2_e889a9835599)]
             #[Windows::Foundation::Metadata::ContractVersion(WindowTabManagerContract, 65536)]
@@ -180,7 +180,7 @@ mod Windows {
             interface IWindowTabManager {
                 #[get]
                 Tabs: WindowTabCollection;
-                fn SetActiveTab(&self, tab: WindowTab);
+                fn SetActiveTab(&self, #[in] tab: WindowTab);
                 event TabSwitchRequested: super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabSwitchRequestedEventArgs>;
                 event TabCloseRequested: super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabCloseRequestedEventArgs>;
                 event TabTearOutRequested: super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabTearOutRequestedEventArgs>;
@@ -190,7 +190,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(WindowTabManagerContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowTabManager)]
             interface IWindowTabManagerStatics {
-                fn GetForWindow(&self, id: super::WindowId) -> WindowTabManager;
+                fn GetForWindow(&self, #[in] id: super::WindowId) -> WindowTabManager;
                 fn IsSupported(&self) -> bool;
                 fn IsTabTearOutSupported(&self) -> bool;
             }

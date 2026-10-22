@@ -15,7 +15,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiChannelPressureMessage)]
             interface IMidiChannelPressureMessageFactory {
-                fn CreateMidiChannelPressureMessage(&self, channel: u8, pressure: u8) -> MidiChannelPressureMessage;
+                fn CreateMidiChannelPressureMessage(&self, #[in] channel: u8, #[in] pressure: u8) -> MidiChannelPressureMessage;
             }
             #[guid(0xb7e15f83_780d_405f_b781_3e1598c97f40)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -32,7 +32,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiControlChangeMessage)]
             interface IMidiControlChangeMessageFactory {
-                fn CreateMidiControlChangeMessage(&self, channel: u8, controller: u8, controlValue: u8) -> MidiControlChangeMessage;
+                fn CreateMidiControlChangeMessage(&self, #[in] channel: u8, #[in] controller: u8, #[in] controlValue: u8) -> MidiControlChangeMessage;
             }
             #[guid(0xd5c1d9db_971a_4eaf_a23d_ea19fe607ff9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -47,7 +47,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiInPort)]
             interface IMidiInPortStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<MidiInPort>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<MidiInPort>;
                 fn GetDeviceSelector(&self) -> String;
             }
             #[guid(0x79767945_1094_4283_9be0_289fc0ee8334)]
@@ -82,7 +82,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiNoteOffMessage)]
             interface IMidiNoteOffMessageFactory {
-                fn CreateMidiNoteOffMessage(&self, channel: u8, note: u8, velocity: u8) -> MidiNoteOffMessage;
+                fn CreateMidiNoteOffMessage(&self, #[in] channel: u8, #[in] note: u8, #[in] velocity: u8) -> MidiNoteOffMessage;
             }
             #[guid(0xe0224af5_6181_46dd_afa2_410004c057aa)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -99,13 +99,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiNoteOnMessage)]
             interface IMidiNoteOnMessageFactory {
-                fn CreateMidiNoteOnMessage(&self, channel: u8, note: u8, velocity: u8) -> MidiNoteOnMessage;
+                fn CreateMidiNoteOnMessage(&self, #[in] channel: u8, #[in] note: u8, #[in] velocity: u8) -> MidiNoteOnMessage;
             }
             #[guid(0x931d6d9f_57a2_4a3a_adb8_4640886f6693)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IMidiOutPort: super::super::Foundation::IClosable {
-                fn SendMessage(&self, midiMessage: IMidiMessage);
-                fn SendBuffer(&self, midiData: super::super::Storage::Streams::IBuffer);
+                fn SendMessage(&self, #[in] midiMessage: IMidiMessage);
+                fn SendBuffer(&self, #[in] midiData: super::super::Storage::Streams::IBuffer);
                 #[get]
                 DeviceId: String;
             }
@@ -114,7 +114,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiOutPort)]
             interface IMidiOutPortStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<IMidiOutPort>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<IMidiOutPort>;
                 fn GetDeviceSelector(&self) -> String;
             }
             #[guid(0x29df4cb1_2e9f_4faf_8c2b_9cb82a9079ca)]
@@ -130,7 +130,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiPitchBendChangeMessage)]
             interface IMidiPitchBendChangeMessageFactory {
-                fn CreateMidiPitchBendChangeMessage(&self, channel: u8, bend: u16) -> MidiPitchBendChangeMessage;
+                fn CreateMidiPitchBendChangeMessage(&self, #[in] channel: u8, #[in] bend: u16) -> MidiPitchBendChangeMessage;
             }
             #[guid(0x1f7337fe_ace8_48a0_868e_7cdbf20f04d6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -147,7 +147,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiPolyphonicKeyPressureMessage)]
             interface IMidiPolyphonicKeyPressureMessageFactory {
-                fn CreateMidiPolyphonicKeyPressureMessage(&self, channel: u8, note: u8, pressure: u8) -> MidiPolyphonicKeyPressureMessage;
+                fn CreateMidiPolyphonicKeyPressureMessage(&self, #[in] channel: u8, #[in] note: u8, #[in] pressure: u8) -> MidiPolyphonicKeyPressureMessage;
             }
             #[guid(0x9cbb3c78_7a3e_4327_aa98_20b8e4485af8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -162,7 +162,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiProgramChangeMessage)]
             interface IMidiProgramChangeMessageFactory {
-                fn CreateMidiProgramChangeMessage(&self, channel: u8, program: u8) -> MidiProgramChangeMessage;
+                fn CreateMidiProgramChangeMessage(&self, #[in] channel: u8, #[in] program: u8) -> MidiProgramChangeMessage;
             }
             #[guid(0x4ca50c56_ec5e_4ae4_a115_88dc57cc2b79)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -175,7 +175,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiSongPositionPointerMessage)]
             interface IMidiSongPositionPointerMessageFactory {
-                fn CreateMidiSongPositionPointerMessage(&self, beats: u16) -> MidiSongPositionPointerMessage;
+                fn CreateMidiSongPositionPointerMessage(&self, #[in] beats: u16) -> MidiSongPositionPointerMessage;
             }
             #[guid(0x49f0f27f_6d83_4741_a5bf_4629f6be974f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -188,7 +188,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiSongSelectMessage)]
             interface IMidiSongSelectMessageFactory {
-                fn CreateMidiSongSelectMessage(&self, song: u8) -> MidiSongSelectMessage;
+                fn CreateMidiSongSelectMessage(&self, #[in] song: u8) -> MidiSongSelectMessage;
             }
             #[guid(0xf0da155e_db90_405f_b8ae_21d2e17f2e45)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -207,14 +207,14 @@ mod Windows {
                 fn CreateAsync(&self) -> super::super::Foundation::IAsyncOperation<MidiSynthesizer>;
                 #[Windows::Foundation::Metadata::Overload("CreateFromAudioDeviceAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn CreateAsync(&self, audioDevice: super::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncOperation<MidiSynthesizer>;
-                fn IsSynthesizer(&self, midiDevice: super::Enumeration::DeviceInformation) -> bool;
+                fn CreateAsync(&self, #[in] audioDevice: super::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncOperation<MidiSynthesizer>;
+                fn IsSynthesizer(&self, #[in] midiDevice: super::Enumeration::DeviceInformation) -> bool;
             }
             #[guid(0x083de222_3b74_4320_9b42_0ca8545f8a24)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiSystemExclusiveMessage)]
             interface IMidiSystemExclusiveMessageFactory {
-                fn CreateMidiSystemExclusiveMessage(&self, rawData: super::super::Storage::Streams::IBuffer) -> MidiSystemExclusiveMessage;
+                fn CreateMidiSystemExclusiveMessage(&self, #[in] rawData: super::super::Storage::Streams::IBuffer) -> MidiSystemExclusiveMessage;
             }
             #[guid(0x0bf7087d_fa63_4a1c_8deb_c0e87796a6d7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -229,7 +229,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MidiTimeCodeMessage)]
             interface IMidiTimeCodeMessageFactory {
-                fn CreateMidiTimeCodeMessage(&self, frameType: u8, values: u8) -> MidiTimeCodeMessage;
+                fn CreateMidiTimeCodeMessage(&self, #[in] frameType: u8, #[in] values: u8) -> MidiTimeCodeMessage;
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

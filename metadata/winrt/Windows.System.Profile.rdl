@@ -48,7 +48,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(AnalyticsInfo)]
             interface IAnalyticsInfoStatics2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn GetSystemPropertiesAsync(&self, attributeNames: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<String, String>>;
+                fn GetSystemPropertiesAsync(&self, #[in] attributeNames: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<String, String>>;
             }
             #[guid(0x926130b8_9955_4c74_bdc1_7cd0decf9b03)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -70,7 +70,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppApplicability)]
             interface IAppApplicabilityStatics {
-                fn GetUnsupportedAppRequirements(&self, capabilities: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>;
+                fn GetUnsupportedAppRequirements(&self, #[in] capabilities: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>;
             }
             #[guid(0xfc53f0ef_4d3e_4e13_9b23_505f4d091e92)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -83,7 +83,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(ProfileHardwareTokenContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HardwareIdentification)]
             interface IHardwareIdentificationStatics {
-                fn GetPackageSpecificToken(&self, nonce: super::super::Storage::Streams::IBuffer) -> HardwareToken;
+                fn GetPackageSpecificToken(&self, #[in] nonce: super::super::Storage::Streams::IBuffer) -> HardwareToken;
             }
             #[guid(0x28f6d4c0_fb12_40a4_8167_7f4e03d2724c)]
             #[Windows::Foundation::Metadata::ContractVersion(ProfileHardwareTokenContract, 65536)]
@@ -159,7 +159,7 @@ mod Windows {
                 #[get]
                 CollectionLevel: PlatformDataCollectionLevel;
                 event CollectionLevelChanged: super::super::Foundation::EventHandler<Object>;
-                fn CanCollectDiagnostics(&self, level: PlatformDataCollectionLevel) -> bool;
+                fn CanCollectDiagnostics(&self, #[in] level: PlatformDataCollectionLevel) -> bool;
             }
             #[guid(0x0712c6b8_8b92_4f2a_8499_031f1798d6ef)]
             #[Windows::Foundation::Metadata::ContractVersion(ProfileRetailInfoContract, 65536)]
@@ -206,7 +206,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(SystemIdentification)]
             interface ISystemIdentificationStatics {
                 fn GetSystemIdForPublisher(&self) -> SystemIdentificationInfo;
-                fn GetSystemIdForUser(&self, user: super::User) -> SystemIdentificationInfo;
+                fn GetSystemIdForUser(&self, #[in] user: super::User) -> SystemIdentificationInfo;
             }
             #[guid(0xb8366a4b_fb6a_4571_be0a_9a0f67954123)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]

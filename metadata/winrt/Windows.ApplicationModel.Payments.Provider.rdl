@@ -9,14 +9,14 @@ mod Windows {
                 interface IPaymentAppCanMakePaymentTriggerDetails {
                     #[get]
                     Request: super::PaymentRequest;
-                    fn ReportCanMakePaymentResult(&self, value: super::PaymentCanMakePaymentResult);
+                    fn ReportCanMakePaymentResult(&self, #[in] value: super::PaymentCanMakePaymentResult);
                 }
                 #[guid(0x0e47aa53_8521_4969_a957_df2538a3a98f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PaymentAppManager)]
                 interface IPaymentAppManager {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn RegisterAsync(&self, supportedPaymentMethodIds: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncAction;
+                    fn RegisterAsync(&self, #[in] supportedPaymentMethodIds: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn UnregisterAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
@@ -37,11 +37,11 @@ mod Windows {
                     PayerName: String;
                     PayerPhoneNumber: String;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn UpdateShippingAddressAsync(&self, shippingAddress: super::PaymentAddress) -> super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>;
+                    fn UpdateShippingAddressAsync(&self, #[in] shippingAddress: super::PaymentAddress) -> super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn UpdateSelectedShippingOptionAsync(&self, selectedShippingOption: super::PaymentShippingOption) -> super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>;
+                    fn UpdateSelectedShippingOptionAsync(&self, #[in] selectedShippingOption: super::PaymentShippingOption) -> super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn AcceptAsync(&self, paymentToken: super::PaymentToken) -> super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>;
+                    fn AcceptAsync(&self, #[in] paymentToken: super::PaymentToken) -> super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>;
                     fn Reject(&self);
                 }
                 #[guid(0x060e3276_d30c_4817_95a2_df7ae9273b56)]
@@ -56,7 +56,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(PaymentTransaction)]
                 interface IPaymentTransactionStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn FromIdAsync(&self, id: String) -> super::super::super::Foundation::IAsyncOperation<PaymentTransaction>;
+                    fn FromIdAsync(&self, #[in] id: String) -> super::super::super::Foundation::IAsyncOperation<PaymentTransaction>;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

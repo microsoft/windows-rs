@@ -129,7 +129,7 @@ mod Windows {
                     #[get]
                     ChangedProperties: super::super::super::Foundation::Collections::IVectorView<String>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
-                    fn ReportCompletedAsync(&self, createdOrUpdatedAppointment: super::Appointment) -> super::super::super::Foundation::IAsyncAction;
+                    fn ReportCompletedAsync(&self, #[in] createdOrUpdatedAppointment: super::Appointment) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }

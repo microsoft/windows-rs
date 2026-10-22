@@ -89,8 +89,8 @@ mod Windows {
                     ConfigurationState: GazeDeviceConfigurationStatePreview;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn RequestCalibrationAsync(&self) -> super::super::super::Foundation::IAsyncOperation<bool>;
-                    fn GetNumericControlDescriptions(&self, usagePage: u16, usageId: u16) -> super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidNumericControlDescription>;
-                    fn GetBooleanControlDescriptions(&self, usagePage: u16, usageId: u16) -> super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidBooleanControlDescription>;
+                    fn GetNumericControlDescriptions(&self, #[in] usagePage: u16, #[in] usageId: u16) -> super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidNumericControlDescription>;
+                    fn GetBooleanControlDescriptions(&self, #[in] usagePage: u16, #[in] usageId: u16) -> super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidBooleanControlDescription>;
                 }
                 #[guid(0xe79e7eed_b389_11e7_b201_c8d3ffb75721)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]

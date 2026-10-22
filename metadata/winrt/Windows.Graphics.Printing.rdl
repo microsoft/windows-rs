@@ -64,8 +64,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PrintPageRange)]
             interface IPrintPageRangeFactory {
-                fn Create(&self, firstPage: i32, lastPage: i32) -> PrintPageRange;
-                fn CreateWithSinglePage(&self, page: i32) -> PrintPageRange;
+                fn Create(&self, #[in] firstPage: i32, #[in] lastPage: i32) -> PrintPageRange;
+                fn CreateWithSinglePage(&self, #[in] page: i32) -> PrintPageRange;
             }
             #[guid(0xce6db728_1357_46b2_a923_79f995f448fc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -123,7 +123,7 @@ mod Windows {
                 Bordering: PrintBordering;
                 #[get]
                 Bordering: PrintBordering;
-                fn GetPagePrintTicket(&self, printPageInfo: PrintPageInfo) -> super::super::Storage::Streams::IRandomAccessStream;
+                fn GetPagePrintTicket(&self, #[in] printPageInfo: PrintPageInfo) -> super::super::Storage::Streams::IRandomAccessStream;
             }
             #[guid(0xeb9b1606_9a36_4b59_8617_b217849262e1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -137,7 +137,7 @@ mod Windows {
             #[guid(0x1bdbb474_4ed1_41eb_be3c_72d18ed67337)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IPrintTaskOptionsCore {
-                fn GetPageDescription(&self, jobPageNumber: u32) -> PrintPageDescription;
+                fn GetPageDescription(&self, #[in] jobPageNumber: u32) -> PrintPageDescription;
             }
             #[guid(0xc1b71832_9e93_4e55_814b_3326a59efce1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -210,7 +210,7 @@ mod Windows {
             interface IPrintTaskRequest {
                 #[get]
                 Deadline: super::super::Foundation::DateTime;
-                fn CreatePrintTask(&self, title: String, handler: PrintTaskSourceRequestedHandler) -> PrintTask;
+                fn CreatePrintTask(&self, #[in] title: String, #[in] handler: PrintTaskSourceRequestedHandler) -> PrintTask;
                 fn GetDeferral(&self) -> PrintTaskRequestedDeferral;
             }
             #[guid(0xcfefb3f0_ce3e_42c7_9496_64800c622c44)]
@@ -232,7 +232,7 @@ mod Windows {
             interface IPrintTaskSourceRequestedArgs {
                 #[get]
                 Deadline: super::super::Foundation::DateTime;
-                fn SetSource(&self, source: IPrintDocumentSource);
+                fn SetSource(&self, #[in] source: IPrintDocumentSource);
                 fn GetDeferral(&self) -> PrintTaskSourceRequestedDeferral;
             }
             #[guid(0x4a1560d1_6992_4d9d_8555_4ca4563fb166)]
@@ -733,7 +733,7 @@ mod Windows {
             }
             #[guid(0x6c109fa8_5cb6_4b3a_8663_f39cb02dc9b4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            delegate fn PrintTaskSourceRequestedHandler(args: PrintTaskSourceRequestedArgs);
+            delegate fn PrintTaskSourceRequestedHandler(#[in] args: PrintTaskSourceRequestedArgs);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

@@ -83,13 +83,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomItemListOptionDetails)]
                 interface IPrintCustomItemListOptionDetails: IPrintItemListOptionDetails + IPrintOptionDetails + IPrintCustomOptionDetails {
-                    fn AddItem(&self, itemId: String, displayName: String);
+                    fn AddItem(&self, #[in] itemId: String, #[in] displayName: String);
                 }
                 #[guid(0xc9d6353d_651c_4a39_906e_1091a1801bf1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomItemListOptionDetails)]
                 interface IPrintCustomItemListOptionDetails2 {
-                    fn AddItem(&self, itemId: String, displayName: String, description: String, icon: super::super::super::Storage::Streams::IRandomAccessStreamWithContentType);
+                    fn AddItem(&self, #[in] itemId: String, #[in] displayName: String, #[in] description: String, #[in] icon: super::super::super::Storage::Streams::IRandomAccessStreamWithContentType);
                 }
                 #[guid(0x4fa1b53f_3c34_4868_a407_fc5eab259b21)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -230,7 +230,7 @@ mod Windows {
                     State: PrintOptionStates;
                     #[special]
                     fn get_Value(&self) -> #[Windows::Foundation::Metadata::Variant] Object;
-                    fn TrySetValue(&self, #[Windows::Foundation::Metadata::Variant] value: Object) -> bool;
+                    fn TrySetValue(&self, #[in] #[Windows::Foundation::Metadata::Variant] value: Object) -> bool;
                 }
                 #[guid(0x46c38879_66e0_4da0_87b4_d25457824eb7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
@@ -297,8 +297,8 @@ mod Windows {
                 interface IPrintTaskOptionDetails {
                     #[get]
                     Options: super::super::super::Foundation::Collections::IMapView<String, IPrintOptionDetails>;
-                    fn CreateItemListOption(&self, optionId: String, displayName: String) -> PrintCustomItemListOptionDetails;
-                    fn CreateTextOption(&self, optionId: String, displayName: String) -> PrintCustomTextOptionDetails;
+                    fn CreateItemListOption(&self, #[in] optionId: String, #[in] displayName: String) -> PrintCustomItemListOptionDetails;
+                    fn CreateTextOption(&self, #[in] optionId: String, #[in] displayName: String) -> PrintCustomTextOptionDetails;
                     event OptionChanged: super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>;
                     event BeginValidation: super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, Object>;
                 }
@@ -306,13 +306,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskOptionDetails)]
                 interface IPrintTaskOptionDetails2 {
-                    fn CreateToggleOption(&self, optionId: String, displayName: String) -> PrintCustomToggleOptionDetails;
+                    fn CreateToggleOption(&self, #[in] optionId: String, #[in] displayName: String) -> PrintCustomToggleOptionDetails;
                 }
                 #[guid(0x135da193_0961_4b6e_8766_f13b7fbccd58)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskOptionDetails)]
                 interface IPrintTaskOptionDetailsStatic {
-                    fn GetFromPrintTaskOptions(&self, printTaskOptions: super::PrintTaskOptions) -> PrintTaskOptionDetails;
+                    fn GetFromPrintTaskOptions(&self, #[in] printTaskOptions: super::PrintTaskOptions) -> PrintTaskOptionDetails;
                 }
                 #[guid(0xad75e563_5ce4_46bc_9918_ab9fad144c5b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

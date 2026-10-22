@@ -64,7 +64,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectConnectionParameters)]
             interface IWiFiDirectConnectionParametersStatics {
-                fn GetDevicePairingKinds(&self, configurationMethod: WiFiDirectConfigurationMethod) -> super::Enumeration::DevicePairingKinds;
+                fn GetDevicePairingKinds(&self, #[in] configurationMethod: WiFiDirectConfigurationMethod) -> super::Enumeration::DevicePairingKinds;
             }
             #[guid(0x8eb99605_914f_49c3_a614_d18dc5b19b43)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -98,16 +98,16 @@ mod Windows {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::Overload("FromIdAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<WiFiDirectDevice>;
+                fn FromIdAsync(&self, #[in] deviceId: String) -> super::super::Foundation::IAsyncOperation<WiFiDirectDevice>;
             }
             #[guid(0x1a953e49_b103_437e_9226_ab67971342f9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectDevice)]
             interface IWiFiDirectDeviceStatics2 {
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
-                fn GetDeviceSelector(&self, r#type: WiFiDirectDeviceSelectorType) -> String;
+                fn GetDeviceSelector(&self, #[in] r#type: WiFiDirectDeviceSelectorType) -> String;
                 #[Windows::Foundation::Metadata::Overload("FromIdAsync")]
-                fn FromIdAsync(&self, deviceId: String, connectionParameters: WiFiDirectConnectionParameters) -> super::super::Foundation::IAsyncOperation<WiFiDirectDevice>;
+                fn FromIdAsync(&self, #[in] deviceId: String, #[in] connectionParameters: WiFiDirectConnectionParameters) -> super::super::Foundation::IAsyncOperation<WiFiDirectDevice>;
             }
             #[guid(0xaffb72d6_76bb_497e_ac8b_dc72838bc309)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -121,8 +121,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectInformationElement)]
             interface IWiFiDirectInformationElementStatics {
-                fn CreateFromBuffer(&self, buffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>;
-                fn CreateFromDeviceInformation(&self, deviceInformation: super::Enumeration::DeviceInformation) -> super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>;
+                fn CreateFromBuffer(&self, #[in] buffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>;
+                fn CreateFromDeviceInformation(&self, #[in] deviceInformation: super::Enumeration::DeviceInformation) -> super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>;
             }
             #[guid(0xa64fdbba_f2fd_4567_a91b_f5c2f5321057)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
