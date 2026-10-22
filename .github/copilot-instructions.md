@@ -227,6 +227,15 @@ Enduring record of known issues so they are not lost between sessions. Add findi
 mark done as they are addressed. Cite code by file + symbol name, not line number - line numbers go
 stale fast.
 
+### SDK macro collisions in member names
+
+Investigate `crates/tools/win32/src/main.rs` `PRELUDE` and `sdk_arguments` for stable member names.
+The Windows `DrawText` macro rewrites `ID2D1RenderTarget::DrawText` to `DrawTextA` in the current
+capture context, or `DrawTextW` with UNICODE. Both retain the same UTF-16 signature and COM slot.
+Evaluate handling this in `tool-win32`, preserving compiler evidence rather than adding generic
+parser suffix stripping. `crates/tools/bindings/src/canvas.txt` and `DrawingSession::draw_text`
+currently use `DrawTextA`; revisit those consumers when the upstream naming policy is resolved.
+
 ### Native menu theme propagation
 
 Investigate `crates/libs/reactor/src/native/transient_menu.rs` `MenuThemeState::refresh` and

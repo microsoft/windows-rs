@@ -81,7 +81,9 @@ impl HStringHeader {
 unsafe fn heap_alloc(bytes: usize) -> *mut u8 {
     #[cfg(windows)]
     {
-        unsafe { bindings::HeapAlloc(bindings::GetProcessHeap(), 0, bytes) as *mut u8 }
+        unsafe {
+            bindings::HeapAlloc(bindings::GetProcessHeap(), 0, bytes.try_into().unwrap()) as *mut u8
+        }
     }
     #[cfg(not(windows))]
     {

@@ -10,7 +10,7 @@ pub fn create_instance<T: Interface>(class: &GUID) -> Result<T> {
         imp::CoCreateInstance(
             class,
             core::ptr::null_mut(),
-            imp::CLSCTX_INPROC_SERVER,
+            imp::CLSCTX_INPROC_SERVER as u32,
             &T::IID,
             &mut value,
         )

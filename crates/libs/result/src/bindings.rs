@@ -1,15 +1,16 @@
-windows_link::link!("kernel32.dll" "system" fn FormatMessageW(dwflags : u32, lpsource : LPCVOID, dwmessageid : u32, dwlanguageid : u32, lpbuffer : PCWSTR, nsize : u32, arguments : *const va_list) -> u32);
-windows_link::link!("oleaut32.dll" "system" fn GetErrorInfo(dwreserved : u32, pperrinfo : *mut *mut core::ffi::c_void) -> HRESULT);
-windows_link::link!("kernel32.dll" "system" fn GetLastError() -> u32);
+windows_link::link!("kernel32.dll" "system" fn FormatMessageW(dwflags : DWORD, lpsource : LPCVOID, dwmessageid : DWORD, dwlanguageid : DWORD, lpbuffer : PWSTR, nsize : DWORD, arguments : *const va_list) -> DWORD);
+windows_link::link!("oleaut32.dll" "system" fn GetErrorInfo(dwreserved : ULONG, pperrinfo : *mut *mut core::ffi::c_void) -> HRESULT);
+windows_link::link!("kernel32.dll" "system" fn GetLastError() -> DWORD);
 windows_link::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
-windows_link::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : u32, lpmem : *mut core::ffi::c_void) -> BOOL);
-windows_link::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : PCSTR, hfile : HANDLE, dwflags : u32) -> HMODULE);
-windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateErrorW(error : HRESULT, cchmax : u32, message : PCWSTR) -> BOOL);
-windows_link::link!("oleaut32.dll" "system" fn SetErrorInfo(dwreserved : u32, perrinfo : *mut core::ffi::c_void) -> HRESULT);
+windows_link::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : DWORD, lpmem : LPVOID) -> BOOL);
+windows_link::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : PCSTR, hfile : HANDLE, dwflags : DWORD) -> HMODULE);
+windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateErrorW(error : HRESULT, cchmax : UINT, message : PCWSTR) -> BOOL);
+windows_link::link!("oleaut32.dll" "system" fn SetErrorInfo(dwreserved : ULONG, perrinfo : *mut core::ffi::c_void) -> HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : BSTR));
-windows_link::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : BSTR) -> u32);
+windows_link::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : BSTR) -> UINT);
 pub type BOOL = i32;
 pub type BSTR = *const u16;
+pub type DWORD = u32;
 pub const ERROR_INVALID_DATA: i32 = 13;
 pub const ERROR_NO_UNICODE_TRANSLATION: i32 = 1113;
 pub const E_UNEXPECTED: HRESULT = 0x8000FFFF_u32 as _;
@@ -26,13 +27,12 @@ pub struct GUID {
     pub data4: [u8; 8],
 }
 pub type HANDLE = *mut core::ffi::c_void;
-pub type HINSTANCE = *mut HINSTANCE__;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct HINSTANCE__ {
     pub unused: i32,
 }
-pub type HMODULE = HINSTANCE;
+pub type HMODULE = *mut HINSTANCE__;
 pub type HRESULT = i32;
 pub const IID_IErrorInfo: GUID = GUID {
     data1: 0x1cf2b120,
@@ -47,7 +47,7 @@ pub struct IErrorInfo_Vtbl {
     pub GetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BSTR) -> HRESULT,
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BSTR) -> HRESULT,
     pub GetHelpFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BSTR) -> HRESULT,
-    pub GetHelpContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> HRESULT,
+    pub GetHelpContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWORD) -> HRESULT,
 }
 pub const IID_IRestrictedErrorInfo: GUID = GUID {
     data1: 0x82ba7092,
@@ -85,6 +85,10 @@ pub struct IUnknown_Vtbl {
 }
 pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: i32 = 4096;
 pub type LPCVOID = *const core::ffi::c_void;
+pub type LPVOID = *mut core::ffi::c_void;
 pub type PCSTR = *const u8;
 pub type PCWSTR = *const u16;
+pub type PWSTR = *mut u16;
+pub type UINT = u32;
+pub type ULONG = u32;
 pub type va_list = *mut i8;

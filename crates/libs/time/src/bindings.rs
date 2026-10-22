@@ -1,4 +1,5 @@
 windows_core::link!("kernel32.dll" "system" fn FileTimeToLocalFileTime(lpfiletime : *const FILETIME, lplocalfiletime : LPFILETIME) -> windows_core::BOOL);
+pub type DWORD = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DateTime {
@@ -14,8 +15,8 @@ impl windows_core::RuntimeType for DateTime {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILETIME {
-    pub dwLowDateTime: u32,
-    pub dwHighDateTime: u32,
+    pub dwLowDateTime: DWORD,
+    pub dwHighDateTime: DWORD,
 }
 pub type LPFILETIME = *mut FILETIME;
 #[repr(C)]

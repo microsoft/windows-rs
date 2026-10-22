@@ -30,7 +30,9 @@ impl<T: Type<T>> Array<T> {
 
         // WinRT arrays must be allocated with `CoTaskMemAlloc`.
         // SAFETY: overflow was checked above; `CoTaskMemAlloc` accepts a zero size.
-        let data = unsafe { imp::CoTaskMemAlloc(bytes_amount) as *mut T::Default };
+        let data = unsafe {
+            imp::CoTaskMemAlloc(bytes_amount.try_into().unwrap()) as *mut T::Default
+        };
 
         assert!(!data.is_null(), "Could not successfully allocate for Array");
 

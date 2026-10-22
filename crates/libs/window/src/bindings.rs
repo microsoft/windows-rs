@@ -1,35 +1,33 @@
-windows_core::link!("user32.dll" "system" fn AdjustWindowRectExForDpi(lprect : LPRECT, dwstyle : u32, bmenu : windows_core::BOOL, dwexstyle : u32, dpi : u32) -> windows_core::BOOL);
-windows_core::link!("user32.dll" "system" fn CreateWindowExW(dwexstyle : u32, lpclassname : windows_core::PCWSTR, lpwindowname : windows_core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : HWND, hmenu : HMENU, hinstance : HINSTANCE, lpparam : *const core::ffi::c_void) -> HWND);
-windows_core::link!("user32.dll" "system" fn DefWindowProcW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
+windows_core::link!("user32.dll" "system" fn AdjustWindowRectExForDpi(lprect : LPRECT, dwstyle : DWORD, bmenu : windows_core::BOOL, dwexstyle : DWORD, dpi : UINT) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn CreateWindowExW(dwexstyle : DWORD, lpclassname : windows_core::PCWSTR, lpwindowname : windows_core::PCWSTR, dwstyle : DWORD, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : HWND, hmenu : HMENU, hinstance : HINSTANCE, lpparam : LPVOID) -> HWND);
+windows_core::link!("user32.dll" "system" fn DefWindowProcW(hwnd : HWND, msg : UINT, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
 windows_core::link!("user32.dll" "system" fn DestroyWindow(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn DispatchMessageW(lpmsg : *const MSG) -> LRESULT);
 windows_core::link!("user32.dll" "system" fn GetClientRect(hwnd : HWND, lprect : LPRECT) -> windows_core::BOOL);
-windows_core::link!("user32.dll" "system" fn GetDpiForSystem() -> u32);
-windows_core::link!("user32.dll" "system" fn GetMessageW(lpmsg : LPMSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn GetDpiForSystem() -> UINT);
+windows_core::link!("user32.dll" "system" fn GetMessageW(lpmsg : LPMSG, hwnd : HWND, wmsgfiltermin : UINT, wmsgfiltermax : UINT) -> windows_core::BOOL);
+#[cfg(target_arch = "x86")]
+windows_core::link!("user32.dll" "system" "GetWindowLongW" fn GetWindowLongPtrW(hwnd : HWND, nindex : i32) -> LONG);
 #[cfg(any(
     target_arch = "aarch64",
     target_arch = "arm64ec",
     target_arch = "x86_64"
 ))]
-windows_core::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : HWND, nindex : i32) -> isize);
-#[cfg(target_pointer_width = "32")]
-pub use GetWindowLongW as GetWindowLongPtrW;
-windows_core::link!("user32.dll" "system" fn GetWindowLongW(hwnd : HWND, nindex : i32) -> i32);
+windows_core::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : HWND, nindex : i32) -> LONG_PTR);
 windows_core::link!("user32.dll" "system" fn LoadCursorW(hinstance : HINSTANCE, lpcursorname : windows_core::PCWSTR) -> HCURSOR);
-windows_core::link!("user32.dll" "system" fn PeekMessageW(lpmsg : LPMSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32, wremovemsg : u32) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn PeekMessageW(lpmsg : LPMSG, hwnd : HWND, wmsgfiltermin : UINT, wmsgfiltermax : UINT, wremovemsg : UINT) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
 windows_core::link!("user32.dll" "system" fn RegisterClassW(lpwndclass : *const WNDCLASSW) -> ATOM);
-windows_core::link!("user32.dll" "system" fn SendMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
+windows_core::link!("user32.dll" "system" fn SendMessageW(hwnd : HWND, msg : UINT, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
 windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
+#[cfg(target_arch = "x86")]
+windows_core::link!("user32.dll" "system" "SetWindowLongW" fn SetWindowLongPtrW(hwnd : HWND, nindex : i32, dwnewlong : LONG) -> LONG);
 #[cfg(any(
     target_arch = "aarch64",
     target_arch = "arm64ec",
     target_arch = "x86_64"
 ))]
-windows_core::link!("user32.dll" "system" fn SetWindowLongPtrW(hwnd : HWND, nindex : i32, dwnewlong : isize) -> isize);
-#[cfg(target_pointer_width = "32")]
-pub use SetWindowLongW as SetWindowLongPtrW;
-windows_core::link!("user32.dll" "system" fn SetWindowLongW(hwnd : HWND, nindex : i32, dwnewlong : i32) -> i32);
+windows_core::link!("user32.dll" "system" fn SetWindowLongPtrW(hwnd : HWND, nindex : i32, dwnewlong : LONG_PTR) -> LONG_PTR);
 windows_core::link!("user32.dll" "system" fn ShowWindow(hwnd : HWND, ncmdshow : i32) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG) -> windows_core::BOOL);
 pub type ATOM = u16;
@@ -43,6 +41,7 @@ pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4
 pub struct DPI_AWARENESS_CONTEXT__ {
     pub unused: i32,
 }
+pub type DWORD = u32;
 pub const GWLP_USERDATA: i32 = -21;
 pub type HBRUSH = *mut HBRUSH__;
 #[repr(C)]
@@ -50,7 +49,7 @@ pub type HBRUSH = *mut HBRUSH__;
 pub struct HBRUSH__ {
     pub unused: i32,
 }
-pub type HCURSOR = HICON;
+pub type HCURSOR = *mut HICON__;
 pub type HICON = *mut HICON__;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -76,36 +75,61 @@ pub struct HWND__ {
     pub unused: i32,
 }
 pub const IDC_ARROW: windows_core::PCSTR = windows_core::PCSTR(32512 as _);
-pub type LPARAM = isize;
+pub type LONG = i32;
+#[cfg(target_arch = "x86")]
+pub type LONG_PTR = i32;
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+pub type LONG_PTR = i64;
+#[cfg(target_arch = "x86")]
+pub type LPARAM = i32;
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+pub type LPARAM = i64;
 pub type LPMSG = *mut MSG;
 pub type LPRECT = *mut RECT;
-pub type LRESULT = isize;
+pub type LPVOID = *mut core::ffi::c_void;
+#[cfg(target_arch = "x86")]
+pub type LRESULT = i32;
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+pub type LRESULT = i64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSG {
     pub hwnd: HWND,
-    pub message: u32,
+    pub message: UINT,
     pub wParam: WPARAM,
     pub lParam: LPARAM,
-    pub time: u32,
+    pub time: DWORD,
     pub pt: POINT,
 }
 pub const PM_REMOVE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINT {
-    pub x: i32,
-    pub y: i32,
+    pub x: LONG,
+    pub y: LONG,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECT {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
+    pub left: LONG,
+    pub top: LONG,
+    pub right: LONG,
+    pub bottom: LONG,
 }
 pub const SW_SHOWNORMAL: i32 = 1;
+pub type UINT = u32;
 pub const WM_CLOSE: i32 = 16;
 pub const WM_DESTROY: i32 = 2;
 pub const WM_MOVE: i32 = 3;
@@ -115,7 +139,7 @@ pub const WM_SIZE: i32 = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct WNDCLASSW {
-    pub style: u32,
+    pub style: UINT,
     pub lpfnWndProc: WNDPROC,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
@@ -127,9 +151,21 @@ pub struct WNDCLASSW {
     pub lpszClassName: windows_core::PCWSTR,
 }
 pub type WNDPROC = Option<
-    unsafe extern "system" fn(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> LRESULT,
+    unsafe extern "system" fn(
+        param0: HWND,
+        param1: UINT,
+        param2: WPARAM,
+        param3: LPARAM,
+    ) -> LRESULT,
 >;
-pub type WPARAM = usize;
+#[cfg(target_arch = "x86")]
+pub type WPARAM = u32;
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+pub type WPARAM = u64;
 pub const WS_EX_NOREDIRECTIONBITMAP: i32 = 2097152;
 pub const WS_OVERLAPPEDWINDOW: i32 = 13565952;
 pub const WS_VISIBLE: i32 = 268435456;

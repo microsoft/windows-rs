@@ -47,7 +47,7 @@ impl Data {
             }
         } else {
             // This pointer will have at least 8 byte alignment.
-            let ptr = unsafe { HeapAlloc(GetProcessHeap(), 0, len) as *mut u8 };
+            let ptr = unsafe { HeapAlloc(GetProcessHeap(), 0, len.try_into().unwrap()) as *mut u8 };
 
             assert!(!ptr.is_null(), "allocation failed");
 

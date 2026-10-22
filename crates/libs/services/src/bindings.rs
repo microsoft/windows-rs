@@ -1,18 +1,20 @@
-windows_link::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExW(lpservicename : PCWSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : *const core::ffi::c_void) -> SERVICE_STATUS_HANDLE);
+windows_link::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExW(lpservicename : PCWSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : LPVOID) -> SERVICE_STATUS_HANDLE);
 windows_link::link!("advapi32.dll" "system" fn SetServiceStatus(hservicestatus : SERVICE_STATUS_HANDLE, lpservicestatus : LPSERVICE_STATUS) -> BOOL);
 windows_link::link!("advapi32.dll" "system" fn StartServiceCtrlDispatcherW(lpservicestarttable : *const SERVICE_TABLE_ENTRYW) -> BOOL);
 pub type BOOL = i32;
+pub type DWORD = u32;
 pub type LPHANDLER_FUNCTION_EX = Option<
     unsafe extern "system" fn(
-        dwcontrol: u32,
-        dweventtype: u32,
-        lpeventdata: *mut core::ffi::c_void,
-        lpcontext: *mut core::ffi::c_void,
-    ) -> u32,
+        dwcontrol: DWORD,
+        dweventtype: DWORD,
+        lpeventdata: LPVOID,
+        lpcontext: LPVOID,
+    ) -> DWORD,
 >;
 pub type LPSERVICE_MAIN_FUNCTIONW =
-    Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut PWSTR)>;
+    Option<unsafe extern "system" fn(dwnumservicesargs: DWORD, lpserviceargvectors: *mut PWSTR)>;
 pub type LPSERVICE_STATUS = *mut SERVICE_STATUS;
+pub type LPVOID = *mut core::ffi::c_void;
 pub const NO_ERROR: i32 = 0;
 pub type PCWSTR = *const u16;
 pub type PWSTR = *mut u16;
@@ -31,13 +33,13 @@ pub const SERVICE_START_PENDING: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SERVICE_STATUS {
-    pub dwServiceType: u32,
-    pub dwCurrentState: u32,
-    pub dwControlsAccepted: u32,
-    pub dwWin32ExitCode: u32,
-    pub dwServiceSpecificExitCode: u32,
-    pub dwCheckPoint: u32,
-    pub dwWaitHint: u32,
+    pub dwServiceType: DWORD,
+    pub dwCurrentState: DWORD,
+    pub dwControlsAccepted: DWORD,
+    pub dwWin32ExitCode: DWORD,
+    pub dwServiceSpecificExitCode: DWORD,
+    pub dwCheckPoint: DWORD,
+    pub dwWaitHint: DWORD,
 }
 pub type SERVICE_STATUS_HANDLE = *mut SERVICE_STATUS_HANDLE__;
 #[repr(C)]

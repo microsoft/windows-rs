@@ -1,12 +1,13 @@
-windows_core::link!("ole32.dll" "system" fn CoTaskMemFree(pv : *mut core::ffi::c_void));
-windows_core::link!("shell32.dll" "system" fn SHCreateItemFromParsingName(pszpath : windows_core::PCWSTR, pbc : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-windows_core::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const KNOWNFOLDERID, dwkfflags : u32, pszitem : windows_core::PCWSTR, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("ole32.dll" "system" fn CoTaskMemFree(pv : LPVOID));
+windows_core::link!("shell32.dll" "system" fn SHCreateItemFromParsingName(pszpath : windows_core::PCWSTR, pbc : *mut core::ffi::c_void, riid : *const IID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const KNOWNFOLDERID, dwkfflags : DWORD, pszitem : windows_core::PCWSTR, riid : *const IID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMDLG_FILTERSPEC {
     pub pszName: windows_core::PCWSTR,
     pub pszSpec: windows_core::PCWSTR,
 }
+pub type DWORD = u32;
 pub type FILEOPENDIALOGOPTIONS = u32;
 pub const FOLDERID_ComputerFolder: windows_core::GUID =
     windows_core::GUID::from_u128(0x0ac0837c_bbf8_452a_850d_79d08e667ca7);
@@ -24,11 +25,11 @@ pub const FOLDERID_PicturesLibrary: windows_core::GUID =
     windows_core::GUID::from_u128(0xa990ae9f_a03b_4e80_94bc_9912d7504104);
 pub const FOLDERID_VideosLibrary: windows_core::GUID =
     windows_core::GUID::from_u128(0x491e922f_5643_4af4_a7eb_4e7a138d8174);
-pub const FOS_ALLOWMULTISELECT: FILEOPENDIALOGOPTIONS = 512;
-pub const FOS_FORCEFILESYSTEM: FILEOPENDIALOGOPTIONS = 64;
-pub const FOS_OVERWRITEPROMPT: FILEOPENDIALOGOPTIONS = 2;
-pub const FOS_PICKFOLDERS: FILEOPENDIALOGOPTIONS = 32;
-pub const FOS_STRICTFILETYPES: FILEOPENDIALOGOPTIONS = 4;
+pub const FOS_ALLOWMULTISELECT: _FILEOPENDIALOGOPTIONS = 512;
+pub const FOS_FORCEFILESYSTEM: _FILEOPENDIALOGOPTIONS = 64;
+pub const FOS_OVERWRITEPROMPT: _FILEOPENDIALOGOPTIONS = 2;
+pub const FOS_PICKFOLDERS: _FILEOPENDIALOGOPTIONS = 32;
+pub const FOS_STRICTFILETYPES: _FILEOPENDIALOGOPTIONS = 4;
 pub const FileOpenDialog: windows_core::GUID =
     windows_core::GUID::from_u128(0xdc1c5a9c_e88a_4dde_a5a1_60f82a20aef7);
 pub const FileSaveDialog: windows_core::GUID =
@@ -75,18 +76,17 @@ windows_core::imp::interface_hierarchy!(IFileDialog, windows_core::IUnknown, IMo
 impl IFileDialog {
     pub(crate) unsafe fn SetFileTypes(
         &self,
-        cfiletypes: u32,
-        rgfilterspec: *const COMDLG_FILTERSPEC,
+        rgfilterspec: &[COMDLG_FILTERSPEC],
     ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetFileTypes)(
                 windows_core::Interface::as_raw(self),
-                cfiletypes,
-                rgfilterspec,
+                rgfilterspec.len().try_into().unwrap(),
+                rgfilterspec.as_ptr(),
             )
         }
     }
-    pub(crate) unsafe fn SetFileTypeIndex(&self, ifiletype: u32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn SetFileTypeIndex(&self, ifiletype: UINT) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetFileTypeIndex)(
                 windows_core::Interface::as_raw(self),
@@ -208,11 +208,11 @@ pub struct IFileDialog_Vtbl {
     pub base__: IModalWindow_Vtbl,
     pub SetFileTypes: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        u32,
+        UINT,
         *const COMDLG_FILTERSPEC,
     ) -> windows_core::HRESULT,
     pub SetFileTypeIndex:
-        unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, UINT) -> windows_core::HRESULT,
     GetFileTypeIndex: usize,
     Advise: usize,
     Unadvise: usize,
@@ -332,6 +332,7 @@ pub struct IFileSaveDialog_Vtbl {
     ApplyProperties: usize,
 }
 impl windows_core::RuntimeName for IFileSaveDialog {}
+pub type IID = windows_core::GUID;
 windows_core::imp::define_interface!(
     IModalWindow,
     IModalWindow_Vtbl,
@@ -421,7 +422,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IShellItemArray, windows_core::IUnknown);
 impl IShellItemArray {
-    pub(crate) unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+    pub(crate) unsafe fn GetCount(&self) -> windows_core::Result<DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCount)(
@@ -431,7 +432,7 @@ impl IShellItemArray {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn GetItemAt(&self, dwindex: u32) -> windows_core::Result<IShellItem> {
+    pub(crate) unsafe fn GetItemAt(&self, dwindex: DWORD) -> windows_core::Result<IShellItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetItemAt)(
@@ -451,15 +452,18 @@ pub struct IShellItemArray_Vtbl {
     GetPropertyDescriptionList: usize,
     GetAttributes: usize,
     pub GetCount:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWORD) -> windows_core::HRESULT,
     pub GetItemAt: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        u32,
+        DWORD,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     EnumItems: usize,
 }
 impl windows_core::RuntimeName for IShellItemArray {}
 pub type KNOWNFOLDERID = windows_core::GUID;
+pub type LPVOID = *mut core::ffi::c_void;
 pub type SIGDN = i32;
 pub const SIGDN_FILESYSPATH: SIGDN = -2147123200;
+pub type UINT = u32;
+pub type _FILEOPENDIALOGOPTIONS = i32;

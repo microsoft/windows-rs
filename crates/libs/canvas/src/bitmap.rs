@@ -20,7 +20,7 @@ impl Bitmap {
 
             let decoder = wic_factory.CreateDecoderFromFilename(
                 PCWSTR(wide_path.as_ptr()),
-                std::ptr::null(),
+                None,
                 GENERIC_READ,
                 WICDecodeMetadataCacheOnDemand,
             )?;
@@ -78,10 +78,19 @@ impl Bitmap {
         };
         let size = D2D_SIZE_U { width, height };
 
-        let bitmap = unsafe {
-            context.CreateBitmap(size, Some(pixels.as_ptr().cast()), stride, &properties)?
-        };
-        Ok(Self(bitmap))
+        let mut bitmap = None;
+        unsafe {
+            context
+                .CreateBitmap(
+                    &size,
+                    Some(pixels.as_ptr().cast()),
+                    stride,
+                    &properties,
+                    &mut bitmap,
+                )
+                .ok()?;
+        }
+        Ok(Self(bitmap.ok_or_else(Error::empty)?))
     }
 
     /// Returns the width of the bitmap, in device-independent pixels.

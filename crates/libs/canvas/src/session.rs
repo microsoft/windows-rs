@@ -56,7 +56,7 @@ impl<'a> DrawingSession<'a> {
 
     /// Clears the current target to `color`.
     pub fn clear(&self, color: ColorF) {
-        let c: D2D_COLOR_F = color.into();
+        let c: D2D1_COLOR_F = color.into();
         unsafe { self.context.Clear(Some(&c)) };
     }
 
@@ -64,7 +64,7 @@ impl<'a> DrawingSession<'a> {
     pub fn draw_line(&self, p0: Vector2, p1: Vector2, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
-                .DrawLine(p0, p1, brush.as_raw_brush(), width, None);
+                .DrawLine(&p0, &p1, brush.as_raw_brush(), width, None);
         }
     }
 
@@ -79,7 +79,7 @@ impl<'a> DrawingSession<'a> {
     ) {
         unsafe {
             self.context
-                .DrawLine(p0, p1, brush.as_raw_brush(), width, &style.0);
+                .DrawLine(&p0, &p1, brush.as_raw_brush(), width, &style.0);
         }
     }
 
@@ -179,7 +179,7 @@ impl<'a> DrawingSession<'a> {
 
     /// Creates a solid-color brush for this device context.
     pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
-        let c: D2D_COLOR_F = color.into();
+        let c: D2D1_COLOR_F = color.into();
         unsafe { self.context.CreateSolidColorBrush(&c, None).map(Brush) }
     }
 
@@ -192,11 +192,17 @@ impl<'a> DrawingSession<'a> {
     ) -> Result<LinearGradient> {
         let abi_stops: Vec<D2D1_GRADIENT_STOP> = stops.iter().map(|s| s.to_abi()).collect();
         unsafe {
-            let collection = self.context.CreateGradientStopCollection(
-                &abi_stops,
-                D2D1_GAMMA_2_2,
-                D2D1_EXTEND_MODE_CLAMP,
-            )?;
+            let mut collection = None;
+            self.context
+                .CreateGradientStopCollection(
+                    abi_stops.as_ptr(),
+                    abi_stops.len() as u32,
+                    D2D1_GAMMA_2_2,
+                    D2D1_EXTEND_MODE_CLAMP,
+                    &mut collection,
+                )
+                .ok()?;
+            let collection = collection.ok_or_else(Error::empty)?;
             let props = D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
                 startPoint: start,
                 endPoint: end,
@@ -217,11 +223,17 @@ impl<'a> DrawingSession<'a> {
     ) -> Result<RadialGradient> {
         let abi_stops: Vec<D2D1_GRADIENT_STOP> = stops.iter().map(|s| s.to_abi()).collect();
         unsafe {
-            let collection = self.context.CreateGradientStopCollection(
-                &abi_stops,
-                D2D1_GAMMA_2_2,
-                D2D1_EXTEND_MODE_CLAMP,
-            )?;
+            let mut collection = None;
+            self.context
+                .CreateGradientStopCollection(
+                    abi_stops.as_ptr(),
+                    abi_stops.len() as u32,
+                    D2D1_GAMMA_2_2,
+                    D2D1_EXTEND_MODE_CLAMP,
+                    &mut collection,
+                )
+                .ok()?;
+            let collection = collection.ok_or_else(Error::empty)?;
             let props = D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
                 center,
                 gradientOriginOffset: Vector2::new(0.0, 0.0),
@@ -238,8 +250,9 @@ impl<'a> DrawingSession<'a> {
     pub fn draw_text(&self, text: &str, format: &TextFormat, rect: &Rect, brush: &impl Paint) {
         let wide: Vec<u16> = text.encode_utf16().collect();
         unsafe {
-            self.context.DrawText(
-                &wide,
+            self.context.DrawTextA(
+                wide.as_ptr(),
+                wide.len() as u32,
                 format.raw(),
                 &rect.to_abi(),
                 brush.as_raw_brush(),
@@ -256,7 +269,7 @@ impl<'a> DrawingSession<'a> {
     pub fn draw_text_layout(&self, origin: Vector2, layout: &TextLayout, brush: &impl Paint) {
         unsafe {
             self.context.DrawTextLayout(
-                origin,
+                &origin,
                 layout.raw(),
                 brush.as_raw_brush(),
                 D2D1_DRAW_TEXT_OPTIONS_NONE,
@@ -388,9 +401,11 @@ impl<'a> DrawingSession<'a> {
                 ..Default::default()
             };
 
+            let mut bitmap = None;
             self.context
-                .CreateBitmap(pixel_size, None, 0, &properties)
-                .map(Bitmap)
+                .CreateBitmap(&pixel_size, None, 0, &properties, &mut bitmap)
+                .ok()?;
+            Ok(Bitmap(bitmap.ok_or_else(Error::empty)?))
         }
     }
 
@@ -398,7 +413,7 @@ impl<'a> DrawingSession<'a> {
     pub fn create_shadow(&self, source: &Bitmap) -> Result<Effect> {
         unsafe {
             let effect = self.context.CreateEffect(&CLSID_D2D1Shadow)?;
-            effect.SetInput(0, &source.0, true);
+            effect.SetInput(0, &source.0, true.into());
             Ok(Effect(effect))
         }
     }

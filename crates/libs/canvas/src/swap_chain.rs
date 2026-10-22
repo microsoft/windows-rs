@@ -76,11 +76,14 @@ impl SwapChain {
         width: u32,
         height: u32,
     ) -> Result<Self> {
-        let d2d_context = unsafe {
+        let mut d2d_context = None;
+        unsafe {
             device
                 .d2d_device()
-                .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?
-        };
+                .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE, &mut d2d_context)
+                .ok()?;
+        }
+        let d2d_context = d2d_context.ok_or_else(Error::empty)?;
 
         let mut result = Self {
             swap_chain,
@@ -130,7 +133,7 @@ impl SwapChain {
     }
 
     pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
-        let c: D2D_COLOR_F = color.into();
+        let c: D2D1_COLOR_F = color.into();
         unsafe { self.d2d_context.CreateSolidColorBrush(&c, None).map(Brush) }
     }
 

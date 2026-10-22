@@ -18,6 +18,7 @@ pub mod writer;
 
 pub use attributes::*;
 pub use value::*;
+#[expect(clippy::upper_case_acronyms)]
 mod bindings;
 use bindings::*;
 

@@ -17,28 +17,33 @@ impl Path {
 
     /// Tests whether `point` lies inside the path's fill.
     pub fn fill_contains_point(&self, point: Vector2) -> bool {
+        let mut contains = BOOL::default();
         unsafe {
             self.raw
-                .FillContainsPoint(point, None, DEFAULT_FLATTENING_TOLERANCE)
-                .unwrap()
-                .as_bool()
+                .FillContainsPoint(&point, None, DEFAULT_FLATTENING_TOLERANCE, &mut contains)
+                .ok()
+                .unwrap();
         }
+        contains.as_bool()
     }
 
     /// Tests whether `point` lies within a stroke of the given DIP width.
     pub fn stroke_contains_point(&self, point: Vector2, stroke_width: f32) -> bool {
+        let mut contains = BOOL::default();
         unsafe {
             self.raw
                 .StrokeContainsPoint(
-                    point,
+                    &point,
                     stroke_width,
                     None,
                     None,
                     DEFAULT_FLATTENING_TOLERANCE,
+                    &mut contains,
                 )
-                .unwrap()
-                .as_bool()
+                .ok()
+                .unwrap();
         }
+        contains.as_bool()
     }
 
     /// Returns the path bounds in DIPs.
@@ -72,7 +77,7 @@ impl PathBuilder {
 
     /// Starts a filled figure at `start`.
     pub fn begin(self, start: Vector2) -> PathFigure {
-        unsafe { self.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_FILLED) };
+        unsafe { self.sink.BeginFigure(&start, D2D1_FIGURE_BEGIN_FILLED) };
         PathFigure {
             sink: self.sink,
             geometry: self.geometry,
@@ -81,7 +86,7 @@ impl PathBuilder {
 
     /// Starts a hollow figure at `start`.
     pub fn begin_hollow(self, start: Vector2) -> PathFigure {
-        unsafe { self.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_HOLLOW) };
+        unsafe { self.sink.BeginFigure(&start, D2D1_FIGURE_BEGIN_HOLLOW) };
         PathFigure {
             sink: self.sink,
             geometry: self.geometry,
@@ -119,7 +124,7 @@ pub struct PathFigure {
 impl PathFigure {
     /// Adds a straight segment to `point`.
     pub fn line_to(self, point: Vector2) -> Self {
-        unsafe { self.sink.AddLine(point) };
+        unsafe { self.sink.AddLine(&point) };
         self
     }
 

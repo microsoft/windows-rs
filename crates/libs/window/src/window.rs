@@ -260,7 +260,7 @@ impl WindowBuilder {
                 core::ptr::null_mut(),
                 core::ptr::null_mut(),
                 core::ptr::null_mut(),
-                core::ptr::null(),
+                core::ptr::null_mut(),
             );
 
             if hwnd.is_null() {
@@ -279,7 +279,7 @@ impl WindowBuilder {
                 dispatching: false,
                 deferred_close: false,
             });
-            SetWindowLongPtrW(hwnd, GWLP_USERDATA, Box::into_raw(state) as _);
+            SetWindowLongPtrW(hwnd, GWLP_USERDATA, Box::into_raw(state) as LONG_PTR);
 
             if self.visible {
                 _ = ShowWindow(hwnd, SW_SHOWNORMAL);
@@ -435,7 +435,8 @@ unsafe extern "system" fn wndproc(
             // process rather than crossing into the OS frames that called wndproc.
             // This is intentional.
             if let Some(handler) = message_handler.as_mut() {
-                handled = handler(hwnd.cast(), message, wparam, lparam);
+                handled = handler(hwnd.cast(), message, wparam as usize, lparam as isize)
+                    .map(|result| result as LRESULT);
             }
 
             state = GetWindowLongPtrW(hwnd, GWLP_USERDATA) as *mut State;
@@ -451,8 +452,8 @@ unsafe extern "system" fn wndproc(
                 && message == WM_SIZE as u32
                 && let Some(handler) = resize_handler.as_mut()
             {
-                let width = (lparam & 0xffff) as i32;
-                let height = ((lparam >> 16) & 0xffff) as i32;
+                let width = i32::from(lparam as u16);
+                let height = i32::from((lparam >> 16) as u16);
                 handler(width, height);
                 handled = Some(0);
             }

@@ -136,11 +136,13 @@ impl GpuDevice {
     /// Creates a Direct2D stroke style from `builder`.
     pub fn create_stroke_style(&self, builder: &StrokeStyleBuilder) -> Result<StrokeStyle> {
         let props = builder.to_abi();
+        let mut style = None;
         unsafe {
             self.d2d_factory
-                .CreateStrokeStyle(&props, None)
-                .map(StrokeStyle)
+                .CreateStrokeStyle(&props, None, 0, &mut style)
+                .ok()?;
         }
+        Ok(StrokeStyle(style.ok_or_else(Error::empty)?))
     }
 
     /// Returns the underlying DXGI factory for interop.

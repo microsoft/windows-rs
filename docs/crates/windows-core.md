@@ -204,6 +204,11 @@ whose object addresses are unaligned, including base-interface views. The vtable
 aligned. Weak-reference forwarding uses this shared access path rather than dereferencing the
 object pointer as an aligned pointer slot.
 
+`Weak<T>::upgrade` calls the `IWeakReference::Resolve` vtable entry with `T::IID` and takes ownership
+of the returned `T`. The generated method returns `IInspectable`, which does not express the
+IID-selected output type. The direct call avoids an extra query and preserves null-on-expiration
+behavior.
+
 ### Testing
 
 Run `cargo test -p windows-core`; see also the workspace test crates.
