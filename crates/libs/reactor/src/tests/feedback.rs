@@ -207,3 +207,53 @@ fn deferred_exact_clear_suppresses_repeated_empty_observations() {
         }
     ));
 }
+
+#[test]
+fn range_changes_rewrite_the_value_they_coerce() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime
+        .update(RatingControl::new().max_rating(5).value(4.0))
+        .unwrap();
+    let object = runtime.graph().root().unwrap();
+    let max_rating = |value| Property {
+        id: PropertyId::MaxRating,
+        value: PropertyValue::I32(value),
+    };
+    let value = Property {
+        id: PropertyId::Value,
+        value: PropertyValue::OptionalF64(Some(4.0)),
+    };
+    let properties = |mutations: UpdateStats| match mutations.as_slice() {
+        [
+            Mutation::SetProperties {
+                object: changed,
+                set,
+                clear,
+            },
+        ] if *changed == object => (set.to_vec(), clear.to_vec()),
+        mutations => panic!("unexpected mutations {mutations:?}"),
+    };
+
+    // The native control clamps the value without reporting it, so the unchanged declared value
+    // is written after each range change.
+    for range in [2, 5] {
+        let mutations = runtime
+            .update(RatingControl::new().max_rating(range).value(4.0))
+            .unwrap();
+        assert_eq!(
+            properties(mutations),
+            (vec![max_rating(range), value.clone()], vec![])
+        );
+    }
+    let mutations = runtime.update(RatingControl::new().value(4.0)).unwrap();
+    assert_eq!(
+        properties(mutations),
+        (vec![value], vec![PropertyId::MaxRating])
+    );
+    assert!(
+        runtime
+            .update(RatingControl::new().value(4.0))
+            .unwrap()
+            .is_empty()
+    );
+}

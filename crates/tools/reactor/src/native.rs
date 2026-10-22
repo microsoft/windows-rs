@@ -1031,7 +1031,15 @@ fn emit_feedback_expectation(output: &mut String, schema: &Schema) {
             let event = property
                 .controlled
                 .as_ref()
-                .or(property.coerces.as_ref())
+                .or_else(|| {
+                    let coerced = property.coerces.as_ref()?;
+                    object
+                        .properties
+                        .iter()
+                        .find(|candidate| candidate.name == *coerced)?
+                        .controlled
+                        .as_ref()
+                })
                 .unwrap();
             match feedback {
                 Feedback::Exact => {
