@@ -1,6 +1,6 @@
 #[winrt]
 mod EventDelegate {
-    delegate fn ChangedHandler(sender: Widget, value: i32);
+    delegate fn ChangedHandler(#[in] sender: Widget, #[in] value: i32);
 
     #[Windows::Foundation::Metadata::Activatable(1)]
     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -11,6 +11,6 @@ mod EventDelegate {
     #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
     interface IWidget {
         event Changed: ChangedHandler;
-        fn Raise(&self, value: i32);
+        fn Raise(&self, #[in] value: i32);
     }
 }

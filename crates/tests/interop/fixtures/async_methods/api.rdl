@@ -14,10 +14,10 @@ mod AsyncMethods {
     interface IWidget {
         // A negative value returns an already-failed async object with E_BOUNDS.
         // Otherwise they complete on another thread, and operations complete with value.
-        fn Action(&self, value: i32) -> IAsyncAction;
-        fn ActionWithProgress(&self, value: i32) -> IAsyncActionWithProgress<u32>;
-        fn Operation(&self, value: i32) -> IAsyncOperation<i32>;
-        fn OperationWithProgress(&self, value: i32) -> IAsyncOperationWithProgress<i32, u32>;
+        fn Action(&self, #[in] value: i32) -> IAsyncAction;
+        fn ActionWithProgress(&self, #[in] value: i32) -> IAsyncActionWithProgress<u32>;
+        fn Operation(&self, #[in] value: i32) -> IAsyncOperation<i32>;
+        fn OperationWithProgress(&self, #[in] value: i32) -> IAsyncOperationWithProgress<i32, u32>;
 
         // Fails at the method call with HRESULT 0x8004A123 and "component-sync".
         fn RejectOperation(&self) -> IAsyncOperation<i32>;
@@ -28,11 +28,11 @@ mod AsyncMethods {
 
         // Wait on another thread for the client's object, which may report progress. Operations
         // complete with its result plus one.
-        fn AwaitAction(&self, action: IAsyncAction) -> IAsyncAction;
-        fn AwaitActionWithProgress(&self, action: IAsyncActionWithProgress<u32>)
+        fn AwaitAction(&self, #[in] action: IAsyncAction) -> IAsyncAction;
+        fn AwaitActionWithProgress(&self, #[in] action: IAsyncActionWithProgress<u32>)
             -> IAsyncActionWithProgress<u32>;
-        fn AwaitOperation(&self, operation: IAsyncOperation<i32>) -> IAsyncOperation<i32>;
-        fn AwaitOperationWithProgress(&self, operation: IAsyncOperationWithProgress<i32, u32>)
+        fn AwaitOperation(&self, #[in] operation: IAsyncOperation<i32>) -> IAsyncOperation<i32>;
+        fn AwaitOperationWithProgress(&self, #[in] operation: IAsyncOperationWithProgress<i32, u32>)
             -> IAsyncOperationWithProgress<i32, u32>;
     }
 }

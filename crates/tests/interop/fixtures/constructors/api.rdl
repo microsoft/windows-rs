@@ -16,7 +16,7 @@ mod Constructors {
 
     #[ExclusiveTo(Widget)]
     interface IWidgetFactory {
-        fn WithValue(&self, value: i32) -> Widget;
+        fn WithValue(&self, #[in] value: i32) -> Widget;
     }
 
     // A composable class's constructors take the outer object of a derived class, if any.
@@ -42,7 +42,7 @@ mod Constructors {
 
     #[ExclusiveTo(Base)]
     interface IBaseFactory {
-        fn CreateInstance(&self, outer: Object, inner: &mut Object) -> Base;
-        fn WithValue(&self, value: i32, outer: Object, inner: &mut Object) -> Base;
+        fn CreateInstance(&self, #[in] outer: Object, #[out] inner: &mut Object) -> Base;
+        fn WithValue(&self, #[in] value: i32, #[in] outer: Object, #[out] inner: &mut Object) -> Base;
     }
 }

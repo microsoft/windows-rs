@@ -30,6 +30,6 @@ mod Noexcept {
     #[ExclusiveTo(Widget)]
     interface IWidget {
         // Calls each member of the client's `value`, which must start empty.
-        fn Check(&self, value: IValue);
+        fn Check(&self, #[in] value: IValue);
     }
 }

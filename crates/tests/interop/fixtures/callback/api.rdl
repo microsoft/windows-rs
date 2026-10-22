@@ -7,10 +7,10 @@ mod Callback {
         Current: i32;
 
         // Returns `Current + other.Current`, failing with `E_POINTER` if `other` is null.
-        fn Add(&self, other: IValue) -> i32;
+        fn Add(&self, #[in] other: IValue) -> i32;
 
         // Returns a new object of the same implementation.
-        fn Create(&self, current: i32, result: &mut IValue);
+        fn Create(&self, #[in] current: i32, #[out] result: &mut IValue);
     }
 
     #[Activatable(1)]
@@ -21,6 +21,6 @@ mod Callback {
     #[ExclusiveTo(Widget)]
     interface IWidget {
         // Calls each method of the client's `value`, which must start at zero.
-        fn Check(&self, value: IValue);
+        fn Check(&self, #[in] value: IValue);
     }
 }

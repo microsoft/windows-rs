@@ -31,24 +31,24 @@ mod Structs {
 
     #[ExclusiveTo(Widget)]
     interface IWidget {
-        fn Offset(&self, point: Point, delta: i32) -> Point;
+        fn Offset(&self, #[in] point: Point, #[in] delta: i32) -> Point;
 
         // Negates `Flag` and adds one to `Value`, `Code`, and `Ratio`.
-        fn Step(&self, value: Mixed) -> Mixed;
+        fn Step(&self, #[in] value: Mixed) -> Mixed;
 
         // Initially "label" at (1, 2) with no width.
         Label: Label;
 
         // "<text> (<x>, <y>) <width or none>"
-        fn Describe(&self, label: Label) -> String;
+        fn Describe(&self, #[in] label: Label) -> String;
 
         // Structs as generic arguments and array elements.
         fn Points(&self) -> IVectorView<Point>;
-        fn Sum(&self, points: IIterable<Point>) -> Point;
-        fn Labels(&self, count: i32) -> [Label];
+        fn Sum(&self, #[in] points: IIterable<Point>) -> Point;
+        fn Labels(&self, #[in] count: i32) -> [Label];
 
         // Boxes `point`, and unboxes a value boxed by the client.
-        fn BoxPoint(&self, point: Point) -> Object;
-        fn UnboxPoint(&self, value: Object) -> Point;
+        fn BoxPoint(&self, #[in] point: Point) -> Object;
+        fn UnboxPoint(&self, #[in] value: Object) -> Point;
     }
 }

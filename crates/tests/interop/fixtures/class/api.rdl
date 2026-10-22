@@ -7,7 +7,7 @@ mod Class {
 
     #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
     interface IWidget {
-        fn Add(&self, left: i32, right: i32) -> i32;
+        fn Add(&self, #[in] left: i32, #[in] right: i32) -> i32;
         Name: String;
         #[get]
         Count: i32;
