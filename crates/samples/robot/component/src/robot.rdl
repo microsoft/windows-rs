@@ -11,14 +11,14 @@ mod Robotics {
 
     #[ExclusiveTo(Robot)]
     interface IRobot {
-        fn Speak(&self, message: String);
+        fn Speak(&self, #[in] message: String);
     }
 }
 
 #[win32]
 mod Robotics {
     #[library("robotics.dll")]
-    extern fn CreateRobotFromHandle(#[in] handle: *mut void, robot: *mut Robot) -> HRESULT;
+    extern fn CreateRobotFromHandle(#[in] handle: *mut void, #[out] robot: *mut Robot) -> HRESULT;
 
     interface IRobotInterop: IUnknown {
         fn Handle(&self) -> *mut void;
