@@ -169,16 +169,18 @@ fn annotation_roundtrip() {
             );
             assert!(params[0].is_optional());
             assert_eq!(params[0].direction(), reader::ParamDirection::Output);
-            let fixed = method("ReadFixed").params().next().unwrap();
-            assert_eq!(
-                attributes(fixed),
-                vec![annotation("_In_reads_", "16", "16")]
-            );
-            assert_eq!(fixed.direction(), reader::ParamDirection::Input);
-            assert_eq!(
-                attributes(method("ReadHook").params().next().unwrap()),
-                vec![annotation("_In_reads_", "REVIEW_LIMIT", "16")]
-            );
+            for name in ["ReadFixed", "ReadHook"] {
+                let fixed = method(name).params().next().unwrap();
+                assert!(attributes(fixed).is_empty());
+                assert_eq!(fixed.direction(), reader::ParamDirection::Input);
+                let extent = test_clang2::buffer_extent(
+                    fixed,
+                    windows_metadata::BufferAccess::Read,
+                    windows_metadata::BufferPhase::Entry,
+                )
+                .unwrap();
+                assert_eq!(extent.count, windows_metadata::BufferCount::Constant(16));
+            }
             assert!(
                 !method("InspectResult")
                     .params()

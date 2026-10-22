@@ -113,7 +113,30 @@ pub fn write_returned_pointer(may_be_null: bool, null_on_failure: bool) -> Token
 }
 
 /// Renders zero termination by phase. Each present phase is single (`false`) or double (`true`).
-pub fn write_null_terminated(entry: Option<bool>, success: Option<bool>) -> TokenStream {
+pub fn write_null_terminated(
+    entry: Option<bool>,
+    success: Option<bool>,
+    indirect: bool,
+) -> TokenStream {
+    write_phase_contract(quote! { null_terminated }, entry, success, indirect)
+}
+
+/// Renders permission for null without implying initialized or accessible storage.
+pub fn write_nullable(entry: bool, success: bool, indirect: bool) -> TokenStream {
+    write_phase_contract(
+        quote! { nullable },
+        entry.then_some(false),
+        success.then_some(false),
+        indirect,
+    )
+}
+
+fn write_phase_contract(
+    name: TokenStream,
+    entry: Option<bool>,
+    success: Option<bool>,
+    indirect: bool,
+) -> TokenStream {
     assert!(entry.is_some() || success.is_some());
     let entry = entry.map(|double| {
         if double {
@@ -129,8 +152,9 @@ pub fn write_null_terminated(entry: Option<bool>, success: Option<bool>) -> Toke
             quote! { success }
         }
     });
-    let flags = entry.into_iter().chain(success);
-    quote! { #[null_terminated(#(#flags),*)] }
+    let indirect = indirect.then(|| quote! { indirect });
+    let flags = entry.into_iter().chain(success).chain(indirect);
+    quote! { #[#name(#(#flags),*)] }
 }
 
 /// Renders a name as an RDL identifier, escaping Rust keywords (`r#...`) and the

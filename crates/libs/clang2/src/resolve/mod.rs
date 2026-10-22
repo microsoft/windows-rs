@@ -512,7 +512,7 @@ pub(crate) fn midl_parameter(parameter: &Parameter) -> MidlParameter {
         }
     }
     if !result.retval && !result.iid_is {
-        return MidlParameter::default();
+        return result;
     }
     for value in sal(&parameter.attributes) {
         if let Some((direction, _)) = value.unscoped().and_then(sal::direction) {

@@ -223,7 +223,10 @@ impl Projector<'_, '_> {
             }
             size = size.max(offset + layout.size);
             alignment = alignment.max(field_alignment);
-            let attributes = annotations::field(snapshot, field, &definition.fields)?;
+            let interface = matches!(snapshot.types[field.canonical.0].kind, TypeKind::Pointer(inner)
+                if matches!(snapshot.types[inner.0].kind, TypeKind::Record(record)
+                    if self.interface_record(snapshot_id, record)));
+            let attributes = annotations::field(snapshot, field, &definition.fields, interface)?;
             fields.push(quote! { #attributes #field_name: #ty #members, });
         }
         alignment = alignment.max(u64::from(forced.unwrap_or(1)));

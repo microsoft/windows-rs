@@ -17,8 +17,8 @@ mod Fixture {
     }
     #[guid(0xca51e165_c365_424c_8d41_24aaa4ff3c40)]
     interface IEnumBackgroundCopyFiles: IUnknown {
-        fn Next(&self, celt: ULONG, #[out] #[writable(entry, celt)] #[writable(success, celt)] #[readable(success, or(*pceltFetched, celt))] rgelt: *mut IBackgroundCopyFile, #[in] #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
-        fn Skip(&self, celt: ULONG) -> HRESULT;
+        fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[writable(success, celt)] #[readable(success, or(*pceltFetched, celt))] rgelt: *mut IBackgroundCopyFile, #[in] #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+        fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
         fn Reset(&self) -> HRESULT;
         fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumBackgroundCopyFiles) -> HRESULT;
         fn GetCount(&self, #[out] puCount: *mut ULONG) -> HRESULT;
@@ -47,7 +47,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

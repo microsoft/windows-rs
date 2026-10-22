@@ -8,6 +8,7 @@ mod Fixture {
         structural: extern "C" fn(*mut *mut void),
     }
     extern "C" fn CommentOnlyCallback(#[out] #[iid_is] value: *mut *mut void);
+    extern "C" fn Directions(#[in] input: i32, #[out] output: *mut i32, #[in] #[out] both: *mut i32, unknown: *mut i32, prose: *mut i32);
     #[guid(0x22222222_2222_2222_2222_222222222222)]
     interface IBuffer {
         fn Read(&self, #[out] #[retval] result: *mut i32);

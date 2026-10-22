@@ -152,16 +152,11 @@ impl Projector<'_, '_> {
                         (export != public_name(name)).then(|| quote! { , import = #export });
                     quote! { #[library(#library #import_name)] }
                 });
-                let (parameters, result) = self.callable(snapshot, observation, true)?;
+                let (parameters, result, native) = self.callable(snapshot, observation, true)?;
                 let written = import.map_or(observation.written, |resolved| resolved.written);
                 let function = written_function(self.resolution.snapshots[snapshot], written)?;
                 let abi = callable_abi(function);
                 let name = ident(public_name(name))?;
-                let native = annotations::write_callable(
-                    self.resolution.snapshots[snapshot],
-                    function.prototype.result,
-                    &observation.attributes,
-                )?;
                 let contracts = annotations::function(function.prototype, &observation.attributes);
                 Ok(Body {
                     attributes: quote! { #native #contracts #library },
@@ -439,7 +434,7 @@ impl Projector<'_, '_> {
         snapshot_id: usize,
         observation: &ValueObservation,
         named: bool,
-    ) -> Result<(Vec<TokenStream>, TokenStream), Error> {
+    ) -> Result<(Vec<TokenStream>, TokenStream, TokenStream), Error> {
         let snapshot = self.resolution.snapshots[snapshot_id];
         let function = written_function(snapshot, observation.canonical)?.prototype;
         let written = written_function(snapshot, observation.written)?;
@@ -455,6 +450,15 @@ impl Projector<'_, '_> {
         let ValueKind::Function { parameters, .. } = &observation.kind else {
             return Err(Error("expected a callable observation".into()));
         };
+        let names = parameter_names(parameters, named);
+        let names: Vec<_> = names.iter().map(String::as_str).collect();
+        let attributes = annotations::write_callable(
+            snapshot,
+            function.result,
+            &observation.attributes,
+            parameters,
+            &names,
+        )?;
         let mut parameters = self.parameter_list(snapshot_id, function, parameters, named)?;
         if function.variadic {
             parameters.push(quote! { ... });
@@ -465,13 +469,14 @@ impl Projector<'_, '_> {
         } else {
             self.comparison_type(result)?
         };
+        let result_attributes = attributes.result;
         let result = if result == MetadataType::Void {
             TokenStream::new()
         } else {
             let result = write_type(self.namespace, &result);
-            quote! { -> #result }
+            quote! { -> #result_attributes #result }
         };
-        Ok((parameters, result))
+        Ok((parameters, result, attributes.declaration))
     }
 
     pub(super) fn parameters(
@@ -496,17 +501,7 @@ impl Projector<'_, '_> {
             ));
         }
         let mut names = HashSet::new();
-        let extent_names: Vec<_> = parameters
-            .iter()
-            .enumerate()
-            .map(|(index, parameter)| {
-                if named && !parameter.name.is_empty() {
-                    parameter.name.clone()
-                } else {
-                    format!("param{index}")
-                }
-            })
-            .collect();
+        let extent_names = parameter_names(parameters, named);
         let extent_names: Vec<_> = extent_names.iter().map(String::as_str).collect();
         parameters
             .iter()
@@ -584,7 +579,7 @@ impl Projector<'_, '_> {
                 preferred = Some((index, preference));
             }
             // SAL still binds against the original names; only comparison labels are positional.
-            let (parameters, result) = self.callable(reference.snapshot, observation, false)?;
+            let (parameters, result, _) = self.callable(reference.snapshot, observation, false)?;
             let abi = callable_abi(written_function(snapshot, observation.written)?);
             contracts.push(Body {
                 attributes: body.attributes.clone(),
@@ -790,7 +785,7 @@ impl Projector<'_, '_> {
                     method.name
                 )));
             }
-            let (parameters, result) = self
+            let (parameters, result, attributes) = self
                 .callable(snapshot_id, &method.observation, true)
                 .map_err(|error| {
                     Error(format!(
@@ -799,11 +794,6 @@ impl Projector<'_, '_> {
                     ))
                 })?;
             let method_name = ident(&method.name)?;
-            let attributes = annotations::write_callable(
-                snapshot,
-                function.result,
-                &method.observation.attributes,
-            )?;
             let contracts = annotations::function(
                 written_function(snapshot, method.observation.written)?.prototype,
                 &method.observation.attributes,

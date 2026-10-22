@@ -778,7 +778,7 @@ fn buffer_full() {
             inputs.reverse();
         }
     }
-    for count in ["capacity + 1", "16"] {
+    for count in ["capacity / 2", "0x10u"] {
         let output = project(&[postcondition_input("_Out_writes_bytes_all_", count, false)]);
         let rdl = &output.partitions["buffer_postconditions"].rdl;
         assert!(rdl.contains("NativeSal(") && rdl.contains("#[out]"));
@@ -1320,6 +1320,25 @@ fn midl_comments() {
     helpers::ensure_libclang();
     let output = project(&[test_clang2::fixture("midl_comments")]);
     roundtrip("midl_comments", &output, |index, _| {
+        let directions = index
+            .expect("Fixture", "Directions")
+            .methods()
+            .find(|method| method.name() == "Invoke")
+            .unwrap();
+        assert_eq!(
+            directions
+                .params()
+                .map(|p| p.direction())
+                .collect::<Vec<_>>(),
+            [
+                reader::ParamDirection::Input,
+                reader::ParamDirection::Output,
+                reader::ParamDirection::InputOutput,
+                reader::ParamDirection::Unspecified,
+                reader::ParamDirection::Unspecified,
+            ]
+        );
+        assert!(directions.params().all(|p| !p.is_optional()));
         let structural = index
             .expect("Fixture", "CommentCallbackStorage")
             .fields()
@@ -1447,6 +1466,18 @@ fn sdk_midl_inputs() {
     .into();
     let output = project(&[input]);
     roundtrip("sdk_midl_inputs", &output, |index, _| {
+        let method = index
+            .expect("Fixture", "IBindStatusCallback")
+            .methods()
+            .find(|method| method.name() == "GetBindInfo")
+            .unwrap();
+        assert_eq!(
+            method.params().map(|p| p.direction()).collect::<Vec<_>>(),
+            [
+                reader::ParamDirection::Output,
+                reader::ParamDirection::InputOutput,
+            ]
+        );
         for (owner, method, name) in [
             ("IBindStatusCallback", "OnObjectAvailable", "punk"),
             ("ITfSource", "AdviseSink", "punk"),
@@ -1858,7 +1889,7 @@ fn conditional_length() {
     for expression in [
         "other ? *written : capacity",
         "written ? *written : 1",
-        "written ? *written + 1 : capacity",
+        "written ? *written * 2 : capacity",
         "!written ? capacity : *written",
         "written ? *written : other ? other : capacity",
     ] {
@@ -2041,7 +2072,7 @@ fn rpc_input_buffer_agreement() {
         inputs.reverse();
     }
     for name in ["__RPC__in_ecount_full", "__RPC__in_ecount_full_string"] {
-        for arguments in ["capacity + 1", "42"] {
+        for arguments in ["capacity / 2", "0x2au"] {
             let output = project(&[rpc_buffer_input(name, arguments, true)]);
             let text = &output.partitions.values().next().unwrap().rdl;
             assert!(text.contains("NativeSal("), "{text}");
@@ -2401,7 +2432,7 @@ fn rpc_output_buffer_agreement() {
             inputs.reverse();
         }
     }
-    for arguments in ["42", "capacity + 1"] {
+    for arguments in ["0x2au", "capacity / 2"] {
         let output = project(&[rpc_buffer_input(
             "__RPC__out_ecount_full_string",
             arguments,
@@ -2478,9 +2509,9 @@ fn rpc_buffer_residuals() {
     });
     for (arguments, indirect, capacity, length) in [
         ("capacity, *written", true, true, true),
-        ("capacity + other, *written", true, false, true),
-        ("capacity, written + other", false, true, false),
-        ("capacity + other, written + other", false, false, false),
+        ("capacity / other, *written", true, false, true),
+        ("capacity, written / other", false, true, false),
+        ("capacity / other, written / other", false, false, false),
     ] {
         let output = project(&[rpc_buffer_input(
             "__RPC__out_ecount_part",
@@ -2536,7 +2567,7 @@ fn rpc_buffer_residuals() {
             ),
             (
                 ("LENGTH_TYPE unsigned int", "LENGTH_TYPE float"),
-                "requires an integer count",
+                "requires an integer",
             ),
         ] {
             let mut input = rpc_buffer_input("__RPC__out_ecount_part", "capacity, written", false);
@@ -3249,18 +3280,13 @@ fn buffer_postconditions_conflicts() {
             "",
             "requires a pointer to an integer",
         ),
-        ("capacity, written", true, "", "requires an integer count"),
-        (
-            "capacity, *written",
-            true,
-            "float*",
-            "requires an integer count",
-        ),
+        ("capacity, written", true, "", "requires an integer"),
+        ("capacity, *written", true, "float*", "requires an integer"),
         (
             "capacity, *written",
             true,
             "unsigned int**",
-            "requires an integer count",
+            "requires an integer",
         ),
     ] {
         let mut input = postcondition_input("_Out_writes_to_", arguments, indirect);
@@ -3302,10 +3328,10 @@ fn buffer_postcondition_residuals() {
     let output = project(&[input]);
     roundtrip("buffer_postcondition_residuals", &output, |index, _| {
         for (name, raw, capacity, entry, success, length) in [
-            ("Expression", 1, true, false, false, false),
+            ("Expression", 0, true, false, false, true),
             ("ReturnLength", 1, true, false, false, false),
             ("IndirectCapacity", 0, false, false, false, true),
-            ("ConstantCapacity", 1, false, false, false, false),
+            ("ConstantCapacity", 0, false, false, true, false),
             ("Conditional", 1, false, false, false, false),
             ("PointerDifference", 1, false, false, false, false),
             ("ExtraArguments", 1, true, false, false, false),
@@ -3331,7 +3357,11 @@ fn buffer_postcondition_residuals() {
             );
             assert_eq!(
                 parameter.buffer_relationship(),
-                capacity.then_some(reader::BufferRelationship::ElementsParam(1)),
+                if name == "ConstantCapacity" {
+                    Some(reader::BufferRelationship::ElementsConst(16))
+                } else {
+                    capacity.then_some(reader::BufferRelationship::ElementsParam(1))
+                },
                 "{name}"
             );
             assert_eq!(
@@ -3350,7 +3380,14 @@ fn buffer_postcondition_residuals() {
                     ]
                     .into()
                 );
-                assert_eq!(parameter.direction(), reader::ParamDirection::InputOutput);
+                assert_eq!(
+                    parameter.direction(),
+                    if name == "ConstantCapacity" {
+                        reader::ParamDirection::Output
+                    } else {
+                        reader::ParamDirection::InputOutput
+                    }
+                );
             }
             if name == "OptionalCount" {
                 assert!(method.params().nth(2).unwrap().is_optional());
@@ -7073,12 +7110,12 @@ fn field_buffer_agreement() {
 fn field_buffer_residuals() {
     helpers::ensure_libclang();
     for (name, arguments) in [
-        ("_Field_size_", "42"),
-        ("_Field_size_", "capacity + 1"),
+        ("_Field_size_", "42u"),
+        ("_Field_size_", "capacity / 2"),
         ("_Field_size_", "inner.capacity"),
         ("_Field_size_", "*capacity"),
         ("_Field_size_", ""),
-        ("_Field_size_part_", "capacity, 1"),
+        ("_Field_size_part_", "capacity, 1u"),
         ("_Field_size_part_", "capacity, missing"),
     ] {
         let output = project(&[field_buffer_input(name, arguments)]);

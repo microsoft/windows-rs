@@ -83,6 +83,34 @@ fn result_contract_agreement() {
 }
 
 #[test]
+fn direction_contract_agreement() {
+    helpers::ensure_libclang();
+    for (replacement, agrees) in [
+        ("[ in ][out][unique]", true),
+        ("[unique][out]", false),
+        ("[unique]", false),
+    ] {
+        let mut original = test_clang2::fixture("midl_comments");
+        original.roots = vec!["Directions".into()];
+        let mut other = test_clang2::fixture("midl_comments");
+        other.roots = original.roots.clone();
+        other.name = "other.h".into();
+        other.source = other.source.replace("[unique][out][in]", replacement);
+        let mut inputs = [original, other];
+        for _ in 0..2 {
+            let result = projection::generate_partial(&inputs, "Fixture");
+            if agrees {
+                result.unwrap();
+            } else {
+                let error = result.unwrap_err();
+                assert!(error.to_string().contains("differ"), "{error}");
+            }
+            inputs.reverse();
+        }
+    }
+}
+
+#[test]
 fn invalid_result_storage() {
     helpers::ensure_libclang();
     for (marker, ty, expected) in [

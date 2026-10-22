@@ -1,6 +1,8 @@
 use super::*;
 
+mod expression;
 pub(crate) mod transport;
+pub(crate) use expression::Expression;
 
 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub(crate) struct Annotation<'a> {
@@ -63,7 +65,7 @@ pub(crate) enum Direction {
     InputOutput,
 }
 
-#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub(crate) struct ParameterContract {
     pub direction: Direction,
     pub optional: bool,
@@ -73,6 +75,8 @@ pub(crate) struct ParameterContract {
     pub terminated: bool,
     pub returned_pointer: Option<ReturnedPointer>,
     pub returned_buffer: Option<ReturnedBuffer>,
+    pub returned_string_on_entry: bool,
+    pub returned_nullable_on_entry: bool,
     // Native agreement retains SAL/RPC distinctions even when publication uses the same direction.
     pub input_read_only: Option<bool>,
 }
@@ -84,7 +88,7 @@ pub(crate) struct ReturnedPointer {
     pub com: bool,
 }
 
-#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub(crate) struct ReturnedBuffer {
     pub writable: Option<Count>,
     pub readable: Option<Count>,
@@ -96,6 +100,7 @@ enum ReturnedBufferKind {
     Capacity,
     Partial,
     Full,
+    FullWritable(bool),
 }
 
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
@@ -104,17 +109,45 @@ pub(crate) enum Units {
     Bytes,
 }
 
-#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub(crate) struct Count {
-    pub parameter: usize,
+    pub source: CountSource,
     pub units: Units,
-    pub dereference: bool,
+    pub offset: u64,
 }
 
-#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub(crate) enum CountSource {
+    Constant(u64),
+    Parameter(usize),
+    Dereference(usize),
+    Expression(Expression),
+}
+
+impl Count {
+    pub fn references(&self) -> Vec<(usize, bool)> {
+        match &self.source {
+            CountSource::Constant(_) => Vec::new(),
+            CountSource::Parameter(index) => vec![(*index, false)],
+            CountSource::Dereference(index) => vec![(*index, true)],
+            CountSource::Expression(value) => value.references(),
+        }
+    }
+
+    #[cfg(feature = "projection")]
+    pub fn parameter(&self) -> Option<(usize, bool)> {
+        match &self.source {
+            CountSource::Constant(_) => None,
+            CountSource::Parameter(index) => Some((*index, false)),
+            CountSource::Dereference(index) => Some((*index, true)),
+            CountSource::Expression(_) => None,
+        }
+    }
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub(crate) struct InitializedLength {
     pub count: Count,
-    pub dereference: bool,
     pub null_fallback: Option<usize>,
     pub on_entry: bool,
 }
@@ -131,7 +164,16 @@ enum ContractKind {
     TerminatedBuffer,
     InitializedBuffer(Units),
     OutPointer(ReturnedPointer),
-    OutBuffer(Units, ReturnedBufferKind, bool),
+    OutString {
+        nullable: bool,
+        on_entry: bool,
+    },
+    OutBuffer {
+        units: Units,
+        kind: ReturnedBufferKind,
+        nullable: bool,
+        nullable_on_entry: bool,
+    },
 }
 
 #[derive(Eq, Ord, PartialEq, PartialOrd)]
@@ -142,10 +184,10 @@ pub(crate) enum ParameterAnnotation<'a> {
     Evidence(Annotation<'a>),
 }
 
-#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub(crate) struct FieldContract {
-    pub capacity: usize,
-    pub readable: Option<usize>,
+    pub capacity: Expression,
+    pub readable: Option<Expression>,
     pub units: Units,
     pub optional: bool,
 }
@@ -176,17 +218,22 @@ fn field(value: &SalAnnotation, fields: &[Field]) -> Option<FieldContract> {
         "_Field_size_bytes_part_opt_" => (Units::Bytes, true, false, true),
         _ => return None,
     };
-    let count = |name: &str| {
-        fields.iter().position(|field| {
-            !field.name.is_empty() && field.name == name.trim() && field.bit_width.is_none()
-        })
+    let names: Vec<_> = fields.iter().map(|field| field.name.as_str()).collect();
+    let count = |text: &str| {
+        let expression = Expression::parse(text, &names)?;
+        expression
+            .references()
+            .iter()
+            .all(|&(index, dereference)| !dereference && fields[index].bit_width.is_none())
+            .then_some(expression)
     };
     let (capacity, readable) = if partial {
         let (capacity, readable) = value.expanded.split_once(',')?;
         (count(capacity)?, Some(count(readable)?))
     } else {
         let capacity = count(&value.expanded)?;
-        (capacity, full.then_some(capacity))
+        let readable = full.then(|| capacity.clone());
+        (capacity, readable)
     };
     Some(FieldContract {
         capacity,
@@ -205,7 +252,7 @@ pub(crate) fn fields<'a>(
         .iter()
         .filter_map(|value| value.unscoped().and_then(|value| field(value, fields)));
     let first = contracts.next();
-    let distinct = contracts.any(|value| Some(value) != first);
+    let distinct = contracts.any(|value| Some(&value) != first.as_ref());
     let mut result: Vec<_> = values
         .into_iter()
         .map(|value| {
@@ -232,7 +279,7 @@ pub(crate) fn parameter(
         && direction != Direction::Input
     {
         let contract = rpc_buffer(value, parameters)?;
-        contract.capacity?;
+        contract.capacity.as_ref()?;
         return Some(contract);
     }
     let (direction, optional, kind) = shape(value)?;
@@ -245,19 +292,41 @@ pub(crate) fn parameter(
         terminated: false,
         returned_pointer: None,
         returned_buffer: None,
+        returned_string_on_entry: false,
+        returned_nullable_on_entry: false,
         input_read_only: None,
     };
     match kind {
         ContractKind::Value => {}
         ContractKind::Input(read_only) => contract.input_read_only = Some(read_only),
         ContractKind::OutPointer(pointer) => contract.returned_pointer = Some(pointer),
-        ContractKind::OutBuffer(units, kind, nullable) => {
+        ContractKind::OutString { nullable, on_entry } => {
+            contract.returned_pointer = Some(ReturnedPointer {
+                may_be_null: nullable,
+                null_on_failure: false,
+                com: false,
+            });
+            contract.terminated = true;
+            contract.returned_string_on_entry = on_entry;
+        }
+        ContractKind::OutBuffer {
+            units,
+            kind,
+            nullable,
+            nullable_on_entry,
+        } => {
+            contract.terminated = matches!(kind, ReturnedBufferKind::FullWritable(true));
+            contract.returned_nullable_on_entry = nullable_on_entry;
             let (writable, readable) = match kind {
                 ReturnedBufferKind::Capacity => {
                     (Some(count(&value.expanded, parameters, units)?), None)
                 }
                 ReturnedBufferKind::Full => {
                     (None, Some(count(&value.expanded, parameters, units)?))
+                }
+                ReturnedBufferKind::FullWritable(_) => {
+                    let count = count(&value.expanded, parameters, units)?;
+                    (Some(count.clone()), Some(count))
                 }
                 ReturnedBufferKind::Partial => {
                     let (capacity, length) = value.expanded.split_once(',')?;
@@ -288,16 +357,15 @@ pub(crate) fn parameter(
         }
         ContractKind::Buffer(units) | ContractKind::FullBuffer(units) => {
             let count = count(&value.expanded, parameters, units)?;
-            contract.capacity = Some(count);
+            contract.capacity = Some(count.clone());
             if matches!(kind, ContractKind::FullBuffer(_)) {
                 contract.initialized = Some(InitializedLength {
-                    count: Count {
-                        dereference: false,
-                        ..count
-                    },
-                    dereference: count.dereference,
+                    on_entry: count
+                        .references()
+                        .iter()
+                        .any(|(_, dereference)| *dereference),
+                    count,
                     null_fallback: None,
-                    on_entry: count.dereference,
                 });
             }
         }
@@ -317,39 +385,124 @@ pub(crate) fn parameter(
 }
 
 fn count(name: &str, parameters: &[Parameter], units: Units) -> Option<Count> {
-    let name = name.trim();
-    let dereference = name.starts_with('*');
-    let name = name.strip_prefix('*').unwrap_or(name).trim();
-    let parameter = parameters
-        .iter()
-        .position(|parameter| !parameter.name.is_empty() && parameter.name == name)?;
-    Some(Count {
-        parameter,
-        units,
-        dereference,
+    count_simple(name, parameters, units).or_else(|| {
+        let names: Vec<_> = parameters.iter().map(|value| value.name.as_str()).collect();
+        let expression = Expression::parse(name, &names)?;
+        let source = match expression {
+            Expression::Constant(value) => CountSource::Constant(value.try_into().ok()?),
+            Expression::Parameter(index) => CountSource::Parameter(index),
+            Expression::Dereference(index) => CountSource::Dereference(index),
+            value => CountSource::Expression(value),
+        };
+        Some(Count {
+            source,
+            units,
+            offset: 0,
+        })
     })
 }
 
+fn count_simple(name: &str, parameters: &[Parameter], units: Units) -> Option<Count> {
+    let name = count_group(name);
+    let (name, offset) = if let Some((name, offset)) = name.split_once('+') {
+        (count_group(name), count_literal(offset)?)
+    } else {
+        (name, 0)
+    };
+    let (source, offset) = if let Some(value) = count_literal(name) {
+        let value = value
+            .checked_add(offset)
+            .filter(|value| *value <= i32::MAX as u64)?;
+        (CountSource::Constant(value), 0)
+    } else {
+        let dereference = name.starts_with('*');
+        let name = count_group(name.strip_prefix('*').unwrap_or(name));
+        let parameter = parameters
+            .iter()
+            .position(|parameter| !parameter.name.is_empty() && parameter.name == name)?;
+        (
+            if dereference {
+                CountSource::Dereference(parameter)
+            } else {
+                CountSource::Parameter(parameter)
+            },
+            offset,
+        )
+    };
+    Some(Count {
+        source,
+        units,
+        offset,
+    })
+}
+
+// Recognize a bounded count vocabulary, not general C constant expressions.
+fn count_literal(text: &str) -> Option<u64> {
+    let text = count_group(text);
+    if let Some(hex) = text.strip_prefix("0x").or_else(|| text.strip_prefix("0X")) {
+        if hex.is_empty() || !hex.bytes().all(|byte| byte.is_ascii_hexdigit()) {
+            return None;
+        }
+        return u64::from_str_radix(hex, 16)
+            .ok()
+            .filter(|value| *value <= i32::MAX as u64);
+    }
+    if text.is_empty()
+        || text.len() > 1 && text.starts_with('0')
+        || !text.bytes().all(|byte| byte.is_ascii_digit())
+    {
+        return None;
+    }
+    text.parse().ok().filter(|value| *value <= i32::MAX as u64)
+}
+
+fn count_group(mut text: &str) -> &str {
+    text = text.trim();
+    while text.starts_with('(') && text.ends_with(')') {
+        let mut depth = 0;
+        let wraps = text.bytes().enumerate().all(|(index, byte)| {
+            match byte {
+                b'(' => depth += 1,
+                b')' => depth -= 1,
+                _ => {}
+            }
+            depth > 0 || depth == 0 && index == text.len() - 1
+        });
+        if !wraps || depth != 0 {
+            break;
+        }
+        text = text[1..text.len() - 1].trim();
+    }
+    text
+}
+
 fn initialized(name: &str, parameters: &[Parameter], units: Units) -> Option<InitializedLength> {
-    let direct = |name| count(name, parameters, units).filter(|count| !count.dereference);
-    let name = name.trim();
+    let direct = |name| {
+        let count = count(name, parameters, units)?;
+        if count.offset != 0 {
+            return None;
+        }
+        let CountSource::Parameter(index) = count.source else {
+            return None;
+        };
+        Some(index)
+    };
+    let name = count_group(name);
     if let Some((condition, branches)) = name.split_once('?') {
         let (present, absent) = branches.split_once(':')?;
         let guard = direct(condition)?;
-        let present = direct(present.trim().strip_prefix('*')?)?;
-        if guard != present {
+        let present = count(present, parameters, units)?;
+        if present.source != CountSource::Dereference(guard) {
             return None;
         }
         return Some(InitializedLength {
             count: present,
-            dereference: true,
-            null_fallback: Some(direct(absent)?.parameter),
+            null_fallback: Some(direct(absent)?),
             on_entry: false,
         });
     }
     Some(InitializedLength {
-        count: direct(name.strip_prefix('*').unwrap_or(name))?,
-        dereference: name.starts_with('*'),
+        count: count(name, parameters, units)?,
         null_fallback: None,
         on_entry: false,
     })
@@ -431,6 +584,8 @@ pub(crate) fn rpc_buffer(
         terminated,
         returned_pointer: None,
         returned_buffer: None,
+        returned_string_on_entry: false,
+        returned_nullable_on_entry: false,
         input_read_only: None,
     };
     match kind {
@@ -473,7 +628,7 @@ pub(crate) fn capacity(value: &SalAnnotation, parameters: &[Parameter]) -> Optio
 #[cfg(feature = "projection")]
 pub(crate) fn termination(
     value: &Annotation<'_>,
-    contract: Option<ParameterContract>,
+    contract: Option<&ParameterContract>,
 ) -> Option<Termination> {
     if let Some(termination) = scoped_termination(value) {
         return Some(termination);
@@ -499,6 +654,9 @@ pub(crate) fn termination(
         }
     }
     let contract = contract?;
+    if contract.returned_pointer.is_some() || contract.returned_buffer.is_some() {
+        return None;
+    }
     contract.terminated.then_some(Termination {
         on_entry: contract.direction != Direction::Output,
         on_success: contract.direction != Direction::Input,
@@ -612,6 +770,33 @@ pub(crate) fn direction(value: &SalAnnotation) -> Option<(Direction, bool)> {
 }
 
 fn returned_buffer_shape(value: &SalAnnotation) -> Option<(bool, ContractKind)> {
+    use ReturnedBufferKind::*;
+    use Units::*;
+    if value.version == "1.2"
+        && !value.arguments.trim().is_empty()
+        && !value.expanded.trim().is_empty()
+    {
+        let (kind, nullable) = match value.name.as_str() {
+            "__RPC__deref_out_ecount" => (Capacity, false),
+            "__RPC__deref_out_ecount_part" => (Partial, false),
+            "__RPC__deref_out_ecount_full" => (FullWritable(false), false),
+            "__RPC__deref_out_ecount_full_string" => (FullWritable(true), false),
+            "__RPC__deref_out_ecount_opt" => (Capacity, true),
+            "__RPC__deref_out_ecount_part_opt" => (Partial, true),
+            "__RPC__deref_out_ecount_full_opt" => (FullWritable(false), true),
+            "__RPC__deref_out_ecount_full_opt_string" => (FullWritable(true), true),
+            _ => return None,
+        };
+        return Some((
+            false,
+            ContractKind::OutBuffer {
+                units: Elements,
+                kind,
+                nullable,
+                nullable_on_entry: nullable,
+            },
+        ));
+    }
     if value.version != "2" || value.arguments.trim().is_empty() || value.expanded.trim().is_empty()
     {
         return None;
@@ -621,8 +806,6 @@ fn returned_buffer_shape(value: &SalAnnotation) -> Option<(bool, ContractKind)> 
     } else {
         (value.name.strip_prefix("_Outptr_opt_result_")?, true)
     };
-    use ReturnedBufferKind::*;
-    use Units::*;
     let (units, kind, nullable) = match name {
         "buffer_" => (Elements, Capacity, false),
         "buffer_to_" => (Elements, Partial, false),
@@ -638,7 +821,15 @@ fn returned_buffer_shape(value: &SalAnnotation) -> Option<(bool, ContractKind)> 
         "bytebuffer_all_maybenull_" => (Bytes, Full, true),
         _ => return None,
     };
-    Some((optional, ContractKind::OutBuffer(units, kind, nullable)))
+    Some((
+        optional,
+        ContractKind::OutBuffer {
+            units,
+            kind,
+            nullable,
+            nullable_on_entry: false,
+        },
+    ))
 }
 
 fn shape(value: &SalAnnotation) -> Option<(Direction, bool, ContractKind)> {
@@ -660,6 +851,38 @@ fn shape(value: &SalAnnotation) -> Option<(Direction, bool, ContractKind)> {
         ));
     }
     let (direction, optional, kind) = match (value.version.as_str(), value.name.as_str()) {
+        ("1.2", "__RPC__deref_out_string") | ("2", "_Outptr_result_z_") => (
+            Direction::Output,
+            false,
+            OutString {
+                nullable: false,
+                on_entry: false,
+            },
+        ),
+        ("1.2", "__RPC__deref_out_opt_string") => (
+            Direction::Output,
+            false,
+            OutString {
+                nullable: true,
+                on_entry: true,
+            },
+        ),
+        ("2", "_Outptr_opt_result_z_") => (
+            Direction::Output,
+            true,
+            OutString {
+                nullable: false,
+                on_entry: false,
+            },
+        ),
+        ("2", "_Outptr_result_maybenull_z_" | "_Outptr_opt_result_maybenull_z_") => (
+            Direction::Output,
+            value.name == "_Outptr_opt_result_maybenull_z_",
+            OutString {
+                nullable: true,
+                on_entry: false,
+            },
+        ),
         ("1.2", "__RPC__deref_out" | "__RPC__deref_out_opt")
         | ("1", "__deref_out")
         | ("2", "_Outptr_") => (
@@ -835,8 +1058,10 @@ fn shape(value: &SalAnnotation) -> Option<(Direction, bool, ContractKind)> {
         ),
         _ => return None,
     };
-    if matches!(kind, Value | Input(_) | Terminated(_) | OutPointer(_))
-        && (!value.arguments.is_empty() || !value.expanded.is_empty())
+    if matches!(
+        kind,
+        Value | Input(_) | Terminated(_) | OutPointer(_) | OutString { .. }
+    ) && (!value.arguments.is_empty() || !value.expanded.is_empty())
     {
         return None;
     }
@@ -854,8 +1079,9 @@ pub(crate) fn parameters<'a>(
             .and_then(|value| parameter(value, parameters))
     });
     let first = contracts.next();
+    let has_contract = first.is_some();
     let combined = first.and_then(|first| contracts.try_fold(first, combine_returned_contracts));
-    let distinct = first.is_some() && combined.is_none();
+    let distinct = has_contract && combined.is_none();
     let mut result: Vec<_> = values
         .into_iter()
         .map(|value| {
@@ -866,7 +1092,7 @@ pub(crate) fn parameters<'a>(
                     .and_then(|value| parameter(value, parameters))
                     .is_some()
             {
-                ParameterAnnotation::Contract(combined.unwrap())
+                ParameterAnnotation::Contract(combined.clone().unwrap())
             } else if let Some(termination) = scoped_termination(&value) {
                 ParameterAnnotation::Termination(termination)
             } else if value.unscoped().is_some_and(|value| {
@@ -894,31 +1120,51 @@ fn combine_returned_contracts(
     if left == right {
         return Some(left);
     }
-    if [left, right]
+    if [&left, &right]
         .iter()
         .any(|value| value.returned_pointer.is_none() && value.returned_buffer.is_none())
     {
         return None;
     }
     let pointer = left.returned_pointer.or(right.returned_pointer)?;
-    let buffer = left.returned_buffer.or(right.returned_buffer)?;
+    let buffer = left
+        .returned_buffer
+        .as_ref()
+        .or(right.returned_buffer.as_ref())?;
     if pointer.com
         || pointer.may_be_null != buffer.nullable
-        || [left, right].iter().any(|value| {
+        || [&left, &right].iter().any(|value| {
             value.returned_pointer.is_some_and(|value| value != pointer)
-                || value.returned_buffer.is_some_and(|value| value != buffer)
+                || value
+                    .returned_buffer
+                    .as_ref()
+                    .is_some_and(|value| value != buffer)
         })
     {
         return None;
     }
+    let buffer = buffer.clone();
     left.returned_pointer = None;
     left.returned_buffer = None;
     right.returned_pointer = None;
     right.returned_buffer = None;
+    let terminated = left.terminated || right.terminated;
+    left.terminated = false;
+    right.terminated = false;
+    let returned_string_on_entry = left.returned_string_on_entry || right.returned_string_on_entry;
+    left.returned_string_on_entry = false;
+    right.returned_string_on_entry = false;
+    let returned_nullable_on_entry =
+        left.returned_nullable_on_entry || right.returned_nullable_on_entry;
+    left.returned_nullable_on_entry = false;
+    right.returned_nullable_on_entry = false;
     if left != right {
         return None;
     }
     left.returned_pointer = Some(pointer);
     left.returned_buffer = Some(buffer);
+    left.terminated = terminated;
+    left.returned_string_on_entry = returned_string_on_entry;
+    left.returned_nullable_on_entry = returned_nullable_on_entry;
     Some(left)
 }

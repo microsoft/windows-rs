@@ -14,6 +14,10 @@ typedef void (__stdcall *Invalid)(
 typedef void (__stdcall *Invalid)(
     _Out_writes_bytes_(capacity) _Out_writes_(capacity) unsigned short* buffer,
     unsigned int capacity);
+#elif CASE == 5
+typedef void (*Invalid)(_Out_writes_(capacity + 1) unsigned char* buffer, float capacity);
+#elif CASE == 6
+typedef void (*Invalid)(_Out_writes_(32) unsigned int buffer);
 #endif
 
 typedef void (__stdcall *Supported)(

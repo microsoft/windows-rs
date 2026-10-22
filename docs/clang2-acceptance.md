@@ -73,7 +73,7 @@ are tracked in [current review disposition](clang2-evidence.md#current-review-di
 
 | Work | Status and completion check |
 | --- | --- |
-| Canonical annotation quality | Active. Inventory, input/exception normalization and compact retained-contract forms implemented. Richer buffers, residual SAL, defaults, const methods and base-marker publication remain open. |
+| Canonical annotation quality | Active. Common buffers/ranges and MIDL-only direction are implemented. Resolve the count-offset versus typed-expression spelling before grammar acceptance. Defer further annotation families without a concrete API need; residual SAL, defaults, const methods and base-marker publication remain open. |
 | Existing metadata differences | Open after the attribute model. Account for required API families and `activationregistration`/`windowsfoundation`; no automatic exclusions or zero-difference target. |
 | UIA scope and unresolved imports | D23 approves candidate scope only. Keep `CustomNavigationPattern_Navigate` unresolved ownership explicit; generated Rust/live-provider qualification waits. |
 | SDK compilation contexts and PCH GUIDs | Open. Re-evaluate Olectl preloads, INITGUID phases, topology context and lean definition inputs together. Preserve the compiler reproducer; no source retries or guessed values. |

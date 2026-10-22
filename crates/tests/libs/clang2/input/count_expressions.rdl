@@ -1,0 +1,28 @@
+#[win32]
+mod Fixture {
+    type Byte = u8;
+    extern "C" fn Cast(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "(Count)count + 1", "(Count)count + 1")] #[out] buffer: *mut Byte, count: Count);
+    type Count = u32;
+    extern "C" fn FallbackOffset(#[out] #[writable(entry, capacity)] #[readable(success, or(*length + 1, capacity))] buffer: *mut Byte, capacity: Count, #[out] #[opt] length: *mut Count);
+    extern "C" fn FullFixed(#[out] #[writable(entry, 32)] #[readable(success, 32)] buffer: *mut Byte);
+    extern "C" fn FullOffset(#[out] #[writable(entry, bytes(if_present(*count + 1)))] #[readable(success, bytes(on_entry(if_present(*count + 1))))] buffer: *mut Byte, #[in] #[out] #[opt] count: *mut Count);
+    extern "C" fn Hexadecimal(#[out] #[writable(entry, 32)] buffer: *mut Byte);
+    extern "C" fn Huge(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "18446744073709551616", "18446744073709551616")] #[out] buffer: *mut Byte);
+    extern "C" fn InputOffset(#[in] #[readable(entry, count + 1)] buffer: *const Byte, count: Count);
+    extern "C" fn Negative(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "-1", "-1")] #[out] buffer: *mut Byte);
+    extern "C" fn Nested(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "**count + 1", "**count + 1")] #[out] buffer: *mut Byte, count: *mut *mut Count);
+    extern "C" fn Octal(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "010", "010")] #[out] buffer: *mut Byte);
+    extern "C" fn Overflow(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "2147483647 + 1", "2147483647 + 1")] #[out] buffer: *mut Byte);
+    extern "C" fn PartialOffset(#[out] #[writable(entry, capacity)] #[readable(success, if_present(*length + 1))] buffer: *mut Byte, capacity: Count, #[out] #[opt] length: *mut Count);
+    extern "C" fn PointerArithmetic(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "*(count + 1)", "*(count + 1)")] #[out] buffer: *mut Byte, count: *mut Count);
+    extern "C" fn Product(#[out] #[writable(entry, count * 2)] buffer: *mut Byte, count: Count);
+    #[library("fixture.dll")]
+    extern "C" fn ReadCount(#[in] #[readable(entry, count + 1)] buffer: *const Byte, count: Count);
+    extern "C" fn ReadFixed(#[in] #[readable(entry, 32)] buffer: *const Byte);
+    extern "C" fn ReturnLength(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "capacity,return + 1", "capacity,return + 1")] #[out] #[writable(entry, capacity)] buffer: *mut Byte, capacity: Count) -> Count;
+    extern "C" fn ReturnedOffset(#[out] #[writable(success, bytes(if_present(*capacity + 1)), indirect)] #[readable(success, bytes(if_present(*length + 1)), indirect)] buffer: *mut *mut Byte, #[out] #[opt] capacity: *mut Count, #[out] #[opt] length: *mut Count);
+    extern "C" fn RpcFixed(#[in] #[readable(entry, 32)] buffer: *const Byte);
+    extern "C" fn RpcFull(#[out] #[writable(entry, *count + 1)] #[writable(success, *count + 1)] #[readable(success, *count + 1)] buffer: *mut Byte, count: *mut Count);
+    extern "C" fn Suffix(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "32u", "32u")] #[out] buffer: *mut Byte);
+    extern "C" fn ZeroReturned(#[out] #[readable(success, 0, indirect)] buffer: *mut *mut Byte);
+}

@@ -42,9 +42,9 @@ mod Fixture {
     #[library("example.dll")]
     extern "C" fn ReadBuffer(#[out] #[opt] #[writable(entry, bytes(capacity))] #[readable(success, bytes(if_present(*written)))] buffer: *mut void, #[in] capacity: u32, #[out] #[opt] written: *mut u32) -> Status;
     #[library("example.dll")]
-    extern "C" fn ReadFixed(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "16", "16")] #[in] values: *const i32);
+    extern "C" fn ReadFixed(#[in] #[readable(entry, 16)] values: *const i32);
     #[library("example.dll")]
-    extern "C" fn ReadHook(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "REVIEW_LIMIT", "16")] #[in] values: *const i32);
+    extern "C" fn ReadHook(#[in] #[readable(entry, 16)] values: *const i32);
     type ResultAddress = *mut AResultContract;
     struct ResultOnly {
         callback: extern "C" fn(*mut void) -> Status,

@@ -468,6 +468,7 @@ Nonexhaustive, scoped, compound and other predicates retain evidence without inf
 | COM output | Explicit COM intent on unqualified void** emits iid_is. Ordinary/typed pointers and null-on-failure alone do not infer it. |
 | BufferExtent entry | Named `readable(entry, count)` and `writable(entry, count)` distinguish readable input from writable capacity. `bytes(count)` selects byte units. Direct integer counts and one dereference are supported. |
 | BufferExtent success | `readable(success, count)` is distinct from capacity. Full SAL buffers preserve entry counts with `on_entry(*count)`. The bounded `p ? *p : n` form becomes `or(*p, n)`. |
+| Count expressions | Parameter counts accept unsuffixed decimal literals and one `+ literal` offset with grouping parentheses. Constant operands/sums must fit `i32::MAX`. Offsets retain phase, optionality and fallback ownership. Other C expressions and return-dependent lengths remain evidence. |
 | Returned buffers | Indirect success extents separate capacity and initialized length. `_all_` promises only readable contents, using the successful count rather than `on_entry`. No one-element or ownership guarantee is added. |
 | Optional counts | `if_present(*count)` leaves an extent unknown when count storage is null. It does not weaken returned-pointer initialization/nullability or supply zero/a fallback. |
 | RPC output capacity | `writable(success, count)` preserves the successful writable-capacity guarantee; inout forms do not acquire it. |
@@ -505,7 +506,10 @@ their own phases independently.
 
 Parameter comments use exact compiler spans and innermost signature ownership; overlapping
 macro-expanded spans do not establish ownership. Prose, preceding parameters and nested callbacks
-cannot donate comments. Input/inout iid_is describes supplied interfaces, not returned COM queries.
+cannot donate comments. Plain `in`/`out` lists supply direction without `retval` or `iid_is`;
+direction disagreements still fail native reconciliation. Bare `size_is` markers supply no count,
+and `unique` does not imply parameter optionality. Input/inout iid_is describes supplied interfaces,
+not returned COM queries.
 Explicit output comment markers may retain typed storage; no GUID parameter association is guessed.
 Native query selection excludes counted GUID/object buffers rather than mistaking them for IID
 parameters or query outputs.

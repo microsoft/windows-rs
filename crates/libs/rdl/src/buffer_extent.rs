@@ -1,6 +1,7 @@
 use super::*;
 use metadata::{BufferAccess, BufferCount, BufferExtent, BufferPhase, BufferUnits};
 use syn::ext::IdentExt;
+use syn::parse::discouraged::Speculative;
 
 pub(crate) fn parse_buffer_extent(
     attr: &syn::Attribute,
@@ -80,6 +81,13 @@ fn wrapper(input: syn::parse::ParseStream, name: &str) -> bool {
     fork.parse::<syn::Ident>().is_ok_and(|ident| ident == name) && fork.peek(syn::token::Paren)
 }
 
+fn whole_wrapper(input: syn::parse::ParseStream) -> syn::Result<bool> {
+    let fork = input.fork();
+    fork.parse::<syn::Ident>()?;
+    fork.parse::<proc_macro2::Group>()?;
+    Ok(fork.is_empty() || fork.peek(syn::Token![,]))
+}
+
 fn parse_count(
     input: syn::parse::ParseStream,
     names: &[&str],
@@ -88,7 +96,9 @@ fn parse_count(
 ) -> syn::Result<()> {
     if input.peek(syn::Ident) {
         let ident = input.fork().parse::<syn::Ident>()?;
-        if wrapper(input, "on_entry") || wrapper(input, "or") || wrapper(input, "if_present") {
+        if (wrapper(input, "on_entry") || wrapper(input, "or") || wrapper(input, "if_present"))
+            && whole_wrapper(input)?
+        {
             input.parse::<syn::Ident>()?;
             let inner;
             syn::parenthesized!(inner in input);
@@ -116,8 +126,50 @@ fn parse_count(
             return Ok(());
         }
     }
+    let fork = input.fork();
+    let mut simple = extent.clone();
+    if parse_simple_count(&fork, names, field, &mut simple).is_ok()
+        && (fork.is_empty() || fork.peek(syn::Token![,]))
+    {
+        input.advance_to(&fork);
+        *extent = simple;
+        return Ok(());
+    }
+    let expression =
+        integer_expression::parse_integer_expression(&input.parse::<syn::Expr>()?, names, field)?;
+    extent.count = match expression {
+        metadata::IntegerExpression::Reference(metadata::IntegerReference::Parameter(index)) => {
+            BufferCount::Parameter(index)
+        }
+        metadata::IntegerExpression::Reference(metadata::IntegerReference::Dereference(index)) => {
+            BufferCount::Dereference(index)
+        }
+        metadata::IntegerExpression::Reference(metadata::IntegerReference::Field(name)) => {
+            BufferCount::Field(name)
+        }
+        metadata::IntegerExpression::Reference(metadata::IntegerReference::Return) => {
+            BufferCount::Return
+        }
+        value => BufferCount::Expression(value),
+    };
+    Ok(())
+}
+
+fn parse_simple_count(
+    input: syn::parse::ParseStream,
+    names: &[&str],
+    field: bool,
+    extent: &mut BufferExtent,
+) -> syn::Result<()> {
+    let literal = |input: syn::parse::ParseStream| {
+        let value: syn::LitInt = input.parse()?;
+        if !value.suffix().is_empty() {
+            return Err(input.error("typed count requires integer expression"));
+        }
+        value.base10_parse()
+    };
     extent.count = if input.peek(syn::LitInt) {
-        BufferCount::Constant(input.parse::<syn::LitInt>()?.base10_parse()?)
+        BufferCount::Constant(literal(input)?)
     } else if input.peek(syn::Token![return]) {
         input.parse::<syn::Token![return]>()?;
         BufferCount::Return
@@ -134,7 +186,7 @@ fn parse_count(
     };
     if input.peek(syn::Token![+]) {
         input.parse::<syn::Token![+]>()?;
-        extent.offset = input.parse::<syn::LitInt>()?.base10_parse()?;
+        extent.offset = literal(input)?;
         if extent.offset == 0 {
             return Err(input.error("zero count offset is redundant"));
         }
@@ -171,6 +223,31 @@ pub fn write_buffer_extent(extent: &BufferExtent, names: &[&str]) -> Option<Toke
         }
         BufferCount::Field(name) => extent_ident(name)?,
         BufferCount::Return => quote! { return },
+        BufferCount::Expression(value) => {
+            use metadata::{IntegerExpression as E, IntegerLiteral as L, IntegerReference as R};
+            match value {
+                E::Reference(_) => return None,
+                E::Literal(L::I32(value)) if *value >= 0 => {
+                    let value = Literal::i32_suffixed(*value);
+                    quote! { #value }
+                }
+                E::Add(left, right)
+                    if (matches!(
+                        left.as_ref(),
+                        E::Reference(R::Parameter(_) | R::Dereference(_) | R::Field(_) | R::Return)
+                    ) || matches!(left.as_ref(), E::Literal(L::I32(value)) if *value >= 0))
+                        && matches!(right.as_ref(), E::Literal(L::I32(value)) if *value > 0) =>
+                {
+                    let left = integer_expression::write_integer_expression(left, names)?;
+                    let E::Literal(L::I32(value)) = right.as_ref() else {
+                        unreachable!()
+                    };
+                    let right = Literal::i32_suffixed(*value);
+                    quote! { #left + #right }
+                }
+                _ => integer_expression::write_integer_expression(value, names)?,
+            }
+        }
     };
     if extent.offset != 0 {
         let offset = Literal::u64_unsuffixed(extent.offset);
@@ -194,13 +271,13 @@ pub fn write_buffer_extent(extent: &BufferExtent, names: &[&str]) -> Option<Toke
     Some(quote! { #[#name(#phase #count #indirect #nullable)] })
 }
 
-fn extent_ident(name: &str) -> Option<TokenStream> {
+pub(crate) fn extent_ident(name: &str) -> Option<TokenStream> {
     use syn::parse::Parser;
     syn::Ident::parse_any.parse_str(name).ok()?;
     Some(write_ident(name))
 }
 
-fn parameter_ident(index: u16, names: &[&str]) -> Option<TokenStream> {
+pub(crate) fn parameter_ident(index: u16, names: &[&str]) -> Option<TokenStream> {
     let name = names.get(index as usize)?;
     if names.iter().filter(|candidate| *candidate == name).count() != 1 {
         return None;

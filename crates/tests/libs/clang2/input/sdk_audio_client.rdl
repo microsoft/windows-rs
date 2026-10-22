@@ -12,7 +12,7 @@ mod Fixture {
         fn Start(&self) -> HRESULT;
         fn Stop(&self) -> HRESULT;
         fn Reset(&self) -> HRESULT;
-        fn SetEventHandle(&self, eventHandle: HANDLE) -> HRESULT;
+        fn SetEventHandle(&self, #[in] eventHandle: HANDLE) -> HRESULT;
         fn GetService(&self, #[in] riid: &IID, #[out] #[iid_is] ppv: *mut *mut void) -> HRESULT;
     }
 }
@@ -66,7 +66,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

@@ -4,15 +4,18 @@ use windows_metadata::{BufferAccess, BufferCount, BufferPhase, HasAttributes, re
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 fn imports() -> projection::Imports {
-    [(
-        "Fetch".into(),
-        projection::Import {
-            library: "fixture.dll".into(),
-            name: None,
-        },
-    )]
-    .into_iter()
-    .collect()
+    ["Fetch", "Lookup"]
+        .into_iter()
+        .map(|name| {
+            (
+                name.into(),
+                projection::Import {
+                    library: "fixture.dll".into(),
+                    name: None,
+                },
+            )
+        })
+        .collect()
 }
 
 fn input(name: &str) -> Input {
@@ -81,6 +84,32 @@ fn returned_buffers() {
         projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports())
             .unwrap();
     roundtrip(&output, "returned_buffers", |index| {
+        for name in ["NullableResult", "NullableResultAlias"] {
+            let method = index.expect("Fixture", name).methods().next().unwrap();
+            let result = method.params().find(|param| param.sequence() == 0).unwrap();
+            assert!(
+                result
+                    .find_attribute("NullableAttribute")
+                    .unwrap()
+                    .value()
+                    .is_empty()
+            );
+            assert!(!method.has_attribute("NullableAttribute"));
+        }
+        for name in ["data", "object"] {
+            let field = index
+                .expect("Fixture", "NullableFields")
+                .fields()
+                .find(|field| field.name() == name)
+                .unwrap();
+            assert!(
+                field
+                    .find_attribute("NullableAttribute")
+                    .unwrap()
+                    .value()
+                    .is_empty()
+            );
+        }
         let parameter = |name| {
             index
                 .expect("Fixture", name)
@@ -148,17 +177,28 @@ fn returned_buffers() {
             );
             assert!(parameter.find_attribute("NativeSalAttribute").is_none());
         }
-        for name in [
-            "Distinct",
-            "Constant",
-            "Expression",
-            "MismatchedNullable",
-            "MismatchedOptional",
-        ] {
+        for name in ["Distinct", "MismatchedNullable", "MismatchedOptional"] {
             let parameter = parameter(name);
             assert!(parameter.find_attribute("NativeSalAttribute").is_some());
             assert!(parameter.find_attribute("BufferExtentAttribute").is_none());
         }
+        let zero = parameter("Constant");
+        let extent =
+            test_clang2::buffer_extent(zero, BufferAccess::Read, BufferPhase::Success).unwrap();
+        assert_eq!(extent.count, BufferCount::Constant(0));
+        assert!(extent.indirect);
+        assert!(
+            zero.find_attribute("NativeReturnedPointerAttribute")
+                .is_none()
+        );
+        let extent = test_clang2::buffer_extent(
+            parameter("Expression"),
+            BufferAccess::Write,
+            BufferPhase::Success,
+        )
+        .unwrap();
+        assert_eq!(extent.count, BufferCount::Parameter(1));
+        assert_eq!(extent.offset, 1);
         let incoming = parameter("OptionalIncoming");
         for (access, phase) in [
             (BufferAccess::Write, BufferPhase::Entry),

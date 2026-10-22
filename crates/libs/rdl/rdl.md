@@ -580,20 +580,59 @@ literal, an integer parameter, one dereference of an integer-pointer parameter, 
 integer sibling field for a struct-field contract. A nonzero literal `+ offset` is supported.
 `on_entry(...)` selects entry evaluation for successful parameter-count contracts.
 `or(*count, fallback)` adds a by-value integer fallback for a null count pointer; an offset inside
-`or` applies to the non-null branch. Arbitrary expressions and field paths are not accepted.
+`or` applies to the non-null branch. Field paths are not accepted.
 `if_present(*count)` permits unavailable count storage without inventing a fallback. It requires
 one dereferenced integer parameter and cannot combine with `or`. `on_entry(if_present(*count))`
 uses the incoming count when supplied.
 
+Counts also support typed integer addition, subtraction, and multiplication, such as
+`(capacity - start) * 2`. References retain their owning types; arithmetic uses C integer promotions
+and usual conversions. Unsigned arithmetic wraps at its resulting width; signed overflow does not
+produce a valid count. `if_present(*written) - start` leaves the count unavailable when `written`
+is null. `on_entry(...)` applies to the whole expression.
+
+The simple `count + 1` spelling retains the existing `Offset` encoding. `count + 1i32` explicitly
+selects typed arithmetic instead. Writers preserve this distinction rather than changing an
+existing count contract during a metadata round trip. Typed expression counts use the versioned
+`CountExpression` payload; unknown versions retain full attribute spelling.
+
+`#[range(entry, 0..=14 - start)]` constrains an integer parameter at entry.
+`#[range(success, >0)]` constrains its successful-exit value. Bounds can be inclusive or exclusive;
+one-sided forms include `>`, `>=`, `<`, and `<=`. Record fields omit the phase, as in
+`#[range(0..capacity)]`. `#[range(success, 0..=capacity, indirect)]` constrains the pointed-to
+integer rather than the pointer value. These forms encode `IntegerRangeAttribute`, independently of
+direction, readability, and nullability. Each bound compares against the subject using C promotions
+and usual conversions. Unsuffixed literals are `i32`; `i32`, `u32`, `i64`, and `u64` suffixes
+preserve explicit types. Floating-point, pointer, and enum subjects are not supported.
+
+Return values carry their range after the arrow:
+`extern fn Read(capacity: u32) -> #[range(success, 0..=capacity)] u32;`.
+Return ranges require the success phase and no indirection; bounds can refer to the callable's
+parameters.
+
 `success` follows the callable's success condition. Field contracts have no call phase.
-`indirect` applies only on success and requires pointer-to-pointer storage. When argument storage
-is supplied, success initializes its pointer even when an `if_present` count is unavailable.
+For buffer extents, `indirect` requires pointer-to-pointer storage and selects the initialized pointer
+at the specified phase. `entry` describes the incoming pointer; `success` describes the returned
+pointer. When argument storage is supplied, the pointer must be initialized at that phase even
+when an `if_present` count is unavailable.
 `nullable` describes the selected buffer, not its count pointer, and is allowed on indirect
 parameter buffers or record fields. Optional argument storage still uses `opt`.
-Without `nullable`, an indirect buffer is non-null on success. An extent of zero does not promise
+Without `nullable`, an indirect buffer is non-null at that phase. An extent of zero does not promise
 one accessible element. No `out_ptr` attribute is needed to describe a returned buffer.
 
-These forms encode `BufferExtentAttribute`. Unknown properties, unsupported owners and
+`#[nullable(entry, indirect)]` separately permits a null incoming pointer without requiring
+initialized/readable storage. `nullable` accepts `entry`, `success`, or both, and optional
+`indirect`; without `indirect` it describes the parameter itself. It does not infer `in`, `out`,
+optional argument storage, ownership, or validity. An absent nullability contract remains
+unspecified. These phase-specific forms apply to pointer parameters, not return values or fields.
+
+On a callable return value, `-> #[nullable] T` permits a null result without a phase qualifier.
+It applies to the returned value independently of the callable's success condition. On a field,
+`#[nullable]` permits null when the containing value is valid. Neither form promises initialized
+or readable storage. These spellings encode `NullableAttribute` on their parameter, return or
+field rows.
+
+The extent forms encode `BufferExtentAttribute`. Unknown properties, unsupported owners and
 unrenderable counts retain full attribute spelling. Short forms currently apply to parameters and
 record fields, not return rows or containing records. Existing metadata consumers must interpret
 the new attribute before relying on these contracts.
@@ -657,11 +696,14 @@ initialized length and optionality. Choose one or both phases:
 | `double_entry` | Double-zero termination on entry. |
 | `success` | Single-zero termination on successful completion. |
 | `double_success` | Double-zero termination on successful completion. |
+| `indirect` | Select the pointer stored in the parameter at each specified phase. |
 
 For example, `#[null_terminated(entry, double_success)]` preserves different termination at the
 two phases. Success follows the callable's contract; this does not imply termination after failure.
+`#[null_terminated(success, indirect)]` describes a returned string when non-null. Nullability,
+optional output storage and readable/writable extents remain separate contracts.
 An empty list, repeated phase or unknown flag is an error. Direction is not inferred from these
-flags. The short form preserves the two phase properties and any true double-termination properties
+flags. The short form preserves the phase properties and true double-termination/indirection properties
 of `NativeNullTerminatedAttribute`. The writer retains full spelling for other payload shapes,
 including explicitly false double-termination properties.
 

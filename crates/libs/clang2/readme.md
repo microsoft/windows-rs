@@ -331,7 +331,10 @@ with `bytes(...)` and `nullable` preserving units and storage permissions. These
 containing value, so fields need no call phase. Expressions, bitfield counts and paths remain evidence.
 Parameter extents use `readable(entry, count)`, `writable(entry, count)` and
 `readable(success, count)`. Direct integer counts and one dereference are supported; byte counts
-use `bytes(...)`. RDL binds names to checked positions in `BufferExtentAttribute`, independently
+use `bytes(...)`. Parameter counts also accept unsuffixed decimal literals and one `+ literal`
+offset, including grouping parentheses. Constant operands and sums must fit `i32::MAX`.
+Other literal spellings, casts, general arithmetic and return-based lengths remain evidence.
+RDL binds names to checked positions in `BufferExtentAttribute`, independently
 of direction, termination and ownership. Legacy count attributes remain readable, but consumers
 must interpret the new extent model before relying on it.
 Other expressions retain SAL evidence without an inferred count relationship.

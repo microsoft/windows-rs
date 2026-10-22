@@ -75,6 +75,8 @@ fn invalid_buffer_capacity() {
         (2, "requires an integer"),
         (3, "requires a buffer pointer"),
         (4, "conflicting SAL buffer capacity"),
+        (5, "requires an integer"),
+        (6, "requires a buffer pointer"),
     ] {
         let mut input = input("buffer_sizes_invalid");
         input

@@ -25,8 +25,8 @@ mod Fixture {
     interface IBackgroundCopyError: IUnknown {
         fn GetError(&self, #[out] pContext: *mut BG_ERROR_CONTEXT, #[out] pCode: *mut HRESULT) -> HRESULT;
         fn GetFile(&self, #[out] #[out_ptr] pVal: *mut IBackgroundCopyFile) -> HRESULT;
-        fn GetErrorDescription(&self, LanguageId: DWORD, #[out] #[out_ptr] pErrorDescription: *mut LPWSTR) -> HRESULT;
-        fn GetErrorContextDescription(&self, LanguageId: DWORD, #[out] #[out_ptr] pContextDescription: *mut LPWSTR) -> HRESULT;
+        fn GetErrorDescription(&self, #[in] LanguageId: DWORD, #[out] #[out_ptr] pErrorDescription: *mut LPWSTR) -> HRESULT;
+        fn GetErrorContextDescription(&self, #[in] LanguageId: DWORD, #[out] #[out_ptr] pContextDescription: *mut LPWSTR) -> HRESULT;
         fn GetProtocol(&self, #[out] #[out_ptr] pProtocol: *mut LPWSTR) -> HRESULT;
     }
     #[guid(0x01b7bd23_fb88_4a77_8490_5891d3e4653a)]
@@ -59,7 +59,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

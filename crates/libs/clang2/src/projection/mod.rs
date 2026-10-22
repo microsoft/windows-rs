@@ -9,6 +9,7 @@ use windows_rdl::emit::{write_ident, write_param_direction, write_value};
 
 mod annotations;
 mod bitfields;
+mod integer_expression;
 mod plan;
 mod publication;
 mod records;
@@ -691,6 +692,20 @@ fn callback_parameters<'a>(
     }
 }
 
+fn parameter_names(parameters: &[Parameter], named: bool) -> Vec<String> {
+    parameters
+        .iter()
+        .enumerate()
+        .map(|(index, parameter)| {
+            if named && !parameter.name.is_empty() {
+                parameter.name.clone()
+            } else {
+                format!("param{index}")
+            }
+        })
+        .collect()
+}
+
 fn callback_contracts(snapshot: &Snapshot, observation: &AliasObservation) -> bool {
     if !observation.attributes.is_empty()
         || callback_parameters(snapshot, observation)
@@ -734,22 +749,29 @@ impl Projector<'_, '_> {
         };
         if let Some(function) = function {
             let written = written_function(snapshot, observation.underlying)?;
-            let mut body = self.callback(
-                snapshot_id,
-                function,
-                written,
-                name,
-                callback_parameters(snapshot, observation),
-                attributes,
-            )?;
-            body.attributes.extend(annotations::write_callback(
+            let contracts = annotations::function(written.prototype, attributes);
+            let annotations::CallableAttributes {
+                declaration,
+                result,
+            } = annotations::write_callback(
                 self.resolution,
                 snapshot,
                 observation.underlying,
                 function.result,
                 attributes,
-            )?);
-            return Ok(body);
+                callback_parameters(snapshot, observation).unwrap_or_default(),
+            )?;
+            return self.callback(
+                snapshot_id,
+                function,
+                written,
+                name,
+                callback_parameters(snapshot, observation),
+                annotations::CallableAttributes {
+                    declaration: quote! { #contracts #declaration },
+                    result,
+                },
+            );
         }
         let name = ident(public_name(name))?;
         if observation
@@ -794,7 +816,7 @@ impl Projector<'_, '_> {
         written: WrittenFunction<'_>,
         name: &str,
         declarations: Option<&[Parameter]>,
-        attributes: &[Attribute],
+        attributes: annotations::CallableAttributes,
     ) -> Result<Body, Error> {
         let signature = self.signature(snapshot, function, Some(written))?;
         let abi = callable_abi(written);
@@ -814,14 +836,15 @@ impl Projector<'_, '_> {
                 .collect::<Result<Vec<_>, Error>>()?
         };
         let result = signature.return_type;
+        let result_attributes = attributes.result;
         let result = if result == MetadataType::Void {
             TokenStream::new()
         } else {
             let result = write_type(self.namespace, &result);
-            quote! { -> #result }
+            quote! { -> #result_attributes #result }
         };
         Ok(Body {
-            attributes: annotations::function(written.prototype, attributes),
+            attributes: attributes.declaration,
             declaration: quote! { extern #abi fn #name(#(#parameters),*) #result; },
         })
     }

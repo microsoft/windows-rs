@@ -448,13 +448,25 @@ Struct fields use `readable(length)` and `writable(capacity)` without a phase ar
 establishes valid-record state. Parameter contracts keep explicit `entry` or `success`.
 Returned-buffer SAL2 forms use indirect success extents. Capacity-only forms emit writable extents,
 `_to_` adds readable length, and `_all_` emits only readable length using the successful count.
-Do not add `out_ptr`'s one-readable-element guarantee. `if_present(*count)` leaves the extent unknown
+RPC `ecount_full` promises both writable and readable extents. Returned strings use
+`null_terminated(success, indirect)`. RPC optional returned strings also require an incoming valid
+nullable string: retain its indirect entry-readable extent and entry termination. Optional RPC
+counted buffers instead have only `nullable(entry, indirect)` on entry; this permission must not
+invent initialized/readable storage. Indirect extents select initialized storage at their phase.
+`NullableAttribute` also uses return-row `-> #[nullable] T` and field-owned `#[nullable]`, without
+phase properties. Return nullability is independent of success. Keep unsupported scalar/callback
+pointer contracts and mixed field contracts as evidence.
+Buffer-only annotations must not acquire `out_ptr`'s one-readable-element guarantee.
+`if_present(*count)` leaves the extent unknown
 when optional count storage is null, without weakening returned-pointer initialization/nullability.
 Explicit matching returned-pointer and buffer contracts retain both guarantees, including
 null-on-failure. Other distinct combinations remain evidence; do not form permissive unions.
 Derive count optionality from the same unconditional facts as parameter flags; retain explicit
-fallbacks instead of adding `if_present`. RDL also represents constants and return counts, but those
-native lowering families remain separate work. Do not infer them from SAL tokens. Public comparison
+fallbacks instead of adding `if_present`. Native parameter counts also recognize unsuffixed decimal
+literals and one `+ literal` offset, with grouping parentheses. Constant operands and sums must fit
+`i32::MAX`; other integer spellings and general C expressions remain evidence, not guessed evaluation.
+Offsets preserve entry/success, optional-count and null-fallback semantics. Return-based counts still
+need their complete success condition before lowering. Public comparison
 binds count references positionally while publication retains observed names. Legacy attributes stay
 readable.
 Typedef reconciliation selects an observed annotation set containing every other observed set;

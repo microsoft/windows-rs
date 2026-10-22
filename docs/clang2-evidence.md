@@ -18,6 +18,17 @@ The current candidate includes D27-D28, D29 canonical spelling improvements, D30
 and D31 native-only exception specifications, plus D32 result use, D33 success predicates and
 D34 direction evidence, D35 explicit RDL directions, D36 named buffer extents and D37 returned
 buffers with optional counts.
+Subsequent header/RDL slices include returned strings/nullability, arithmetic counts and integer
+ranges. Their completed candidate contains 1,905 residual SAL occurrences, 8,366 buffer extents
+and 265 ranges. SDK capture, publication and WinMD compilation complete with the declaration totals
+below; omission diagnostics and frozen constant/function coverage are unchanged.
+
+MIDL-only directions add 10,586 `in` and 1,234 `out` attributes across 143 partitions. All other RDL
+text is identical to the preceding candidate. The `midl_comments` and `sdk_midl_inputs` fixtures
+cover direction flags, native agreement and `IBindStatusCallback::GetBindInfo` on all three targets.
+The count-offset versus typed-expression spelling remains unresolved; this closes the interrupted
+generation, not canonical-RDL or replacement acceptance.
+
 D27-D28 use
 `structure-after` as their comparison control. D29 compares against the completed D27-D28 candidate,
 with the same header selection and compiler configuration.

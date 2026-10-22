@@ -77,9 +77,21 @@ mod Windows {
                 Elements = 0,
                 Bytes = 1,
             }
+            // Typed postfix integer expressions, versioned independently of native SAL text.
+            // Bounds compare the subject using C integer promotions and usual conversions.
+            // RDL: `#[range(entry, 0..=14 - start)]`, `#[range(entry, >0)]`.
+            attribute IntegerRangeAttribute {
+                fn(#[in] phase: BufferPhase);
+                Lower: String,
+                Upper: String,
+                LowerExclusive: bool,
+                UpperExclusive: bool,
+                Indirect: bool,
+            }
             // An accessible extent of the annotated buffer, independent of direction and ownership.
             // Exactly one count source is required. Counts use the contract phase unless CountOnEntry.
-            // Indirect describes the returned buffer, initializing supplied storage on success.
+            // Indirect selects initialized pointer storage at the contract phase: the incoming
+            // pointer on entry, or the returned pointer on success.
             // The pointer stays non-null unless Nullable, even with an unavailable optional count.
             attribute BufferExtentAttribute {
                 fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
@@ -87,6 +99,9 @@ mod Windows {
                 CountParamIndex: u16,
                 CountFieldName: String,
                 CountReturn: bool,
+                // Typed integer expression; cannot combine with Offset or scalar-count modifiers.
+                // Optional dereferences are expression leaves and make the whole count unavailable.
+                CountExpression: String,
                 Dereference: bool,
                 CountOnEntry: bool,
                 // Null count storage means unknown extent, not zero or a nullable buffer.
@@ -129,12 +144,27 @@ mod Windows {
             // OnSuccess is a postcondition subject to the callable's success contract.
             // DoubleNullOnEntry/DoubleNullOnSuccess require two trailing zero elements at that
             // phase; absence means single zero termination. The corresponding phase must be true.
+            // Indirect selects the pointer stored in the parameter at each specified phase.
+            // Termination applies when that pointer is non-null; nullability is a separate contract.
             attribute NativeNullTerminatedAttribute {
                 fn();
                 OnEntry: bool,
                 OnSuccess: bool,
                 DoubleNullOnEntry: bool,
                 DoubleNullOnSuccess: bool,
+                Indirect: bool,
+            }
+            // Null is permitted at the selected phases. Absence leaves nullability unspecified.
+            // Indirect selects the pointer stored in the parameter, not the argument storage.
+            // This permission alone does not require or promise initialized/readable storage.
+            // On a return row, no phase properties means a nullable returned value, independently
+            // of success. RDL spells this as `-> #[nullable] T`.
+            // On a field, no phase properties permits null in a valid containing value.
+            attribute NullableAttribute {
+                fn();
+                OnEntry: bool,
+                OnSuccess: bool,
+                Indirect: bool,
             }
             // Initialized length on successful completion, not allocated capacity.
             // CountParamIndex is zero-based. False IsByteCount means elements.

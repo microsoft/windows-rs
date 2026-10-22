@@ -3,6 +3,9 @@
 mod accessor;
 mod buffer_extent;
 pub use buffer_extent::write_buffer_extent;
+mod integer_expression;
+mod integer_range;
+pub use integer_range::write_integer_range;
 /// RDL source-emission primitives shared with the `windows-clang` scraper.
 pub mod emit;
 mod error;

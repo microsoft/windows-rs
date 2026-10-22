@@ -21,3 +21,10 @@ struct CommentCallbackStorage {
     CommentOnlyCallback named;
     void (*structural)(void** value);
 };
+
+typedef void (*Directions)(
+    /* [in] */ int input,
+    /* [out] */ int* output,
+    /* [unique][out][in] */ int* both,
+    /* [size_is] */ int* unknown,
+    /* [in] trailing prose */ int* prose);

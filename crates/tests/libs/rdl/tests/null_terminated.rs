@@ -8,7 +8,14 @@ const SCHEMA: &str = r#"
         OnSuccess: bool,
         DoubleNullOnEntry: bool,
         DoubleNullOnSuccess: bool,
+        Indirect: bool,
         Future: bool,
+    }
+    attribute NullableAttribute {
+        fn();
+        OnEntry: bool,
+        OnSuccess: bool,
+        Indirect: bool,
     }
 }}}
 "#;
@@ -24,7 +31,7 @@ fn termination_preserves_phases_and_properties() {
                 continue;
             }
             let index = expected.len();
-            let short = windows_rdl::emit::write_null_terminated(entry, success);
+            let short = windows_rdl::emit::write_null_terminated(entry, success, false);
             let mut properties = format!(
                 "OnEntry = {}, OnSuccess = {}",
                 entry.is_some(),
@@ -157,6 +164,15 @@ fn termination_requires_unambiguous_phases() {
         "null_terminated(double_entry, entry)",
         "null_terminated(success, double_success)",
         "null_terminated(entry = true)",
+        "null_terminated(indirect)",
+        "null_terminated(success, indirect, indirect)",
+        "null_terminated(success, indirect)",
+        "nullable",
+        "nullable()",
+        "nullable(double_entry)",
+        "nullable(entry, entry)",
+        "nullable(success, indirect, indirect)",
+        "nullable(entry, indirect)",
     ] {
         assert!(
             windows_rdl::reader()
@@ -167,6 +183,27 @@ fn termination_requires_unambiguous_phases() {
                 .write()
                 .is_err(),
             "{attribute}"
+        );
+    }
+}
+
+#[test]
+fn pointer_contract_owners_are_checked() {
+    for declaration in [
+        "extern fn F(#[nullable(entry)] value: u32);",
+        "extern fn F() -> #[nullable] u32;",
+        "extern fn F() -> #[nullable(entry)] *mut u8;",
+        "extern fn F() -> #[null_terminated(success, indirect)] *mut *mut u8;",
+        "#[nullable(entry)] extern fn F();",
+        "struct Value { #[nullable(entry)] value: *mut u8, }",
+    ] {
+        assert!(
+            windows_rdl::reader()
+                .input_text(&format!("{SCHEMA} #[win32] mod Test {{ {declaration} }}"))
+                .output(std::path::Path::new(env!("OUT_DIR")).join("bad-pointer-contract.winmd"))
+                .write()
+                .is_err(),
+            "{declaration}"
         );
     }
 }

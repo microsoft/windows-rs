@@ -230,12 +230,44 @@ SAL is added. Legacy schema attributes remain readable for existing authored inp
 and reconciliation retain their evidence, including SAL/RPC distinctions. Public comparison binds
 count references positionally even when observed parameter labels differ.
 
-RDL also represents literal and return counts and nonzero literal offsets. Native lowering of those
-counts, return-owned allocation extents, containing-record extents, field expressions and compound
-success conditions still require focused header/RDL cases. No consumer or ownership conversion is
-implied.
+RDL also represents return counts. Native lowering of return-based counts, return-owned allocation
+extents, containing-record extents, field expressions and compound success conditions still requires
+focused header/RDL cases. No consumer or ownership conversion is implied.
 
 ### Returned buffers and optional counts
+
+Returned strings use `#[null_terminated(success, indirect)]`, independently of `out_ptr` nullability
+and outer storage optionality. RPC `__RPC__deref_out_ecount_full` supplies both successful writable
+and readable extents, unlike SAL2's readable-only `_Outptr_result_buffer_all_`.
+
+The pinned `__RPC__deref_out_opt_string` also requires a valid incoming string when non-null:
+
+```rust
+#[out]
+#[out_ptr(nullable)]
+#[readable(entry, 1, indirect, nullable)]
+#[null_terminated(entry, success, indirect)]
+text: *mut *mut u16
+```
+
+Its incoming and returned pointers are evaluated separately. RPC optional counted-buffer forms use
+`#[nullable(entry, indirect)]` for their `_Pre_maybenull_` permission, plus successful nullable
+buffer extents. This standalone permission does not establish incoming initialized/readable storage,
+unlike `_Pre_opt_z_`. No ownership is inferred from either form.
+
+`_Ret_maybenull_` on data-pointer results uses `-> #[nullable] T` on imports, interface methods and
+named callbacks, including callback alias contracts. The return row owns this permission; it is not
+an output-parameter contract or a successful-call postcondition. Scalar and function-pointer results,
+and combinations with `_Ret_notnull_`, retain their native evidence.
+
+Standalone `_Maybenull_` on data-pointer fields becomes field-owned `#[nullable]`, including COM
+references. Scalar/function-pointer fields and combinations with counted-buffer or non-null
+contracts retain evidence. Unscoped parameter annotations remain separate from field permissions.
+
+The selected SDK replaces 435 raw annotations with these returned-string, RPC buffer and nullability
+contracts, leaving 2,227 raw SAL occurrences. Declarations, existing canonical attributes and omission
+diagnostics remain unchanged. The remaining RPC `GetReplyData` count contains an explicit
+`unsigned long` cast of a `UINT64` count; it stays as evidence rather than dropping the narrowing.
 
 D37 uses indirect successful extents for the 24 SAL2 returned-buffer forms. The pinned SAL definitions
 make their access guarantees different:
@@ -269,7 +301,7 @@ Buffer-only forms do not acquire `out_ptr`'s one-readable-element promise, inclu
 is zero. If a separate matching returned-pointer contract is written, both contracts survive:
 the ten SDK combinations with explicit null-on-failure retain that guarantee. Mismatched optionality,
 nullability and other distinct contracts remain evidence rather than a permissive union.
-Constant and compound count expressions remain SAL evidence; no allocator or ownership is inferred.
+Further count-expression support is described below; no allocator or ownership is inferred.
 
 | Measure | D36 control | D37 candidate |
 | --- | ---: | ---: |
@@ -288,11 +320,73 @@ totals, omission diagnostics and frozen constant/function coverage are unchanged
 
 ## Remaining publication review
 
+The completed SDK regeneration contains 1,905 residual SAL occurrences, 8,366 buffer extents and
+265 integer ranges. The RPC-range and field-count slice is included and compiles through WinMD.
+Further annotation families remain deferred unless a concrete API needs them; residual frequency
+does not measure missing functionality.
+
+Integer ranges use `#[range(entry, 0..=14 - start)]` and one-sided bounds such as
+`#[range(entry, >0)]`. The SDK slice replaces 203 `_In_range_` occurrences without changing
+declarations, existing canonical attributes, or omission diagnostics. Eight occurrences remain:
+seven need `sizeof` and one is attached to a record field.
+
+Ranges and arithmetic buffer counts share typed integer expressions with positional references.
+The native parser accepts bounded decimal literals, grouping, addition, subtraction, and
+multiplication; it preserves casts, `sizeof`, unsupported operators, and signed constant overflow
+as native evidence.
+Counts such as `capacity - start` and `first + second` retain C integer semantics. Optional
+dereferenced counts use `if_present(*count)` leaves; missing count storage makes the expression
+unavailable rather than zero. Native count reconciliation uses parameter positions, while range
+reconciliation still compares the captured SAL evidence.
+
+Simple literal-offset counts retain their existing encoding. Typed RDL uses `count + 1i32` when
+needed to distinguish an integer expression from `Offset`; writers preserve both encodings.
+This spelling distinction remains open for review before accepting the RDL grammar.
+
+`_Deref_in_range_` and `_Deref_out_range_` select explicit indirection and entry/success phases.
+`_Field_range_` constrains an integer field using value-phase bounds and sibling-field references.
+These do not infer direction or readability. Floating-point, enum, and bitfield owners retain
+native evidence. The SDK slice replaces 17 explicit pointee ranges and 10 field ranges without
+changing declarations, prior canonical attributes, or omission diagnostics.
+
+`_Ret_range_` on an integer result becomes `-> #[range(success, 1..=capacity)] Count`.
+Imports, methods, and named callbacks place the contract on the result row and bind referenced
+parameters by position. Pointer and floating-point return ranges remain native evidence.
+
+Do not reinterpret `_Out_range_` on a pointer as a pointee range. Microsoft's
+[SAL best practices](https://learn.microsoft.com/en-us/cpp/code-quality/best-practices-and-examples-sal#_out_range_)
+identifies this as an annotation error and requires `_Deref_out_range_` for the pointed-to value.
+The SDK contains both forms; pointer `_Out_range_` remains native evidence rather than acquiring a
+guessed correction.
+
+Simple count forms recognize unsuffixed decimal constants and one literal addition, including
+grouping parentheses. `31 + 1` becomes `32`; `*length + 1` retains its named source and offset.
+Constants and constant sums are bounded by `i32::MAX`, rather than pretending to evaluate arbitrary
+C expressions. Casts, other integer spellings and return-based lengths remain
+evidence. `GetFullPathNameW` still needs its complete successful-buffer-fill condition.
+
+The `count_expressions.h` / `.rdl` and `integer_ranges.h` / `.rdl` fixtures cover phases, expression
+precedence, optional counts, fallbacks, and RDL/WinMD round trips.
+
 Direction evidence is corrected under D34 and represented without type inference under D35.
 Known directions use explicit `in`/`out`; missing direction has no attribute. The two registry-query
 count parameters publish only the output/optional facts shared by their complementary branches,
 retaining both conditions. Unresolved direction needs neither an invented contract nor an escape
 attribute.
+
+### MIDL-only direction
+
+Compiler-bounded MIDL parameter comments supply `in` and `out` independently of `retval` and
+`iid_is`. Reordered bracket lists agree; conflicting directions fail reconciliation in either input
+order. Prose and comments owned by adjacent or nested parameters do not supply direction.
+
+The SDK regeneration adds 10,586 `in` and 1,234 `out` attributes across 143 partitions. Removing
+only those direction spellings reproduces the preceding candidate exactly. Declaration totals,
+byte-for-byte omission diagnostics and frozen function/constant coverage are unchanged.
+`IBindStatusCallback::GetBindInfo` now preserves `out` on `grfBINDF` and `in`/`out` on `pbindinfo`.
+
+Bare `[size_is]` markers do not contain a count to recover. `[unique]` does not become parameter
+optionality in this slice, and input/inout `[iid_is]` remains distinct from a COM output query.
 
 The D35 review control has 6,186 qualified attribute occurrences across eight families. Residual SAL
 accounts for 4,259 of them. D36's buffer changes are recorded above; the table retains the review

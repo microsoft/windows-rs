@@ -29,6 +29,7 @@ pub enum BufferCount {
     Dereference(u16),
     Field(String),
     Return,
+    Expression(IntegerExpression),
 }
 
 /// An accessible extent, not an allocation size or an ownership transfer.
@@ -43,7 +44,7 @@ pub struct BufferExtent {
     pub count_optional: bool,
     pub offset: u64,
     pub null_fallback: Option<u16>,
-    /// Success initializes supplied pointer storage; the extent describes the returned pointer.
+    /// Selects initialized pointer storage at the contract phase, including returned storage.
     pub indirect: bool,
     pub nullable: bool,
 }
@@ -74,13 +75,15 @@ impl BufferExtent {
             || self.phase == BufferPhase::Success
                 && matches!(
                     self.count,
-                    BufferCount::Parameter(_) | BufferCount::Dereference(_)
+                    BufferCount::Parameter(_)
+                        | BufferCount::Dereference(_)
+                        | BufferCount::Expression(_)
                 ))
             && (self.null_fallback.is_none() || matches!(self.count, BufferCount::Dereference(_)))
             && (!self.count_optional
                 || matches!(self.count, BufferCount::Dereference(_))
                     && self.null_fallback.is_none())
-            && (!self.indirect || self.phase == BufferPhase::Success)
+            && (!self.indirect || self.phase != BufferPhase::Value)
             && (!self.nullable || self.indirect || self.phase == BufferPhase::Value)
             && match &self.count {
                 BufferCount::Field(name) => {
@@ -91,6 +94,24 @@ impl BufferExtent {
                     self.phase != BufferPhase::Value
                 }
                 BufferCount::Constant(value) => value.checked_add(self.offset).is_some(),
+                BufferCount::Expression(value) => {
+                    self.offset == 0
+                        && value.constant_value().is_ok_and(|value| {
+                            !matches!(value,
+                        Some(IntegerLiteral::I32(value)) if value < 0)
+                                && !matches!(value, Some(IntegerLiteral::I64(value)) if value < 0)
+                        })
+                        && value.references().is_some_and(|references| {
+                            (!self.count_on_entry || !references.is_empty())
+                                && references.into_iter().all(|reference| match reference {
+                                    IntegerReference::Field(_) => self.phase == BufferPhase::Value,
+                                    IntegerReference::Return => {
+                                        self.phase == BufferPhase::Success && !self.count_on_entry
+                                    }
+                                    _ => self.phase != BufferPhase::Value,
+                                })
+                        })
+                }
             }
     }
 
@@ -110,6 +131,9 @@ impl BufferExtent {
             }
             BufferCount::Field(name) => ("CountFieldName", Value::Utf8(name.clone())),
             BufferCount::Return => ("CountReturn", Value::Bool(true)),
+            BufferCount::Expression(value) => {
+                ("CountExpression", Value::Utf8(value.encode().unwrap()))
+            }
         };
         result.push((name.into(), value));
         if matches!(self.count, BufferCount::Dereference(_)) {
@@ -173,6 +197,9 @@ impl BufferExtent {
                 ("CountParamIndex", Value::U16(value)) => Some(BufferCount::Parameter(*value)),
                 ("CountFieldName", Value::Utf8(value)) => Some(BufferCount::Field(value.clone())),
                 ("CountReturn", Value::Bool(true)) => Some(BufferCount::Return),
+                ("CountExpression", Value::Utf8(value)) => {
+                    Some(BufferCount::Expression(IntegerExpression::decode(value)?))
+                }
                 ("Dereference", Value::Bool(true)) => {
                     dereference = true;
                     None

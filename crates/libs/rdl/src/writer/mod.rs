@@ -678,9 +678,26 @@ fn write_return_type(
                 method.name()
             )
         })?;
+    let names: Vec<_> = params
+        .params()
+        .iter()
+        .enumerate()
+        .map(|(index, param)| {
+            param.map_or_else(|| format!("p{index}"), |param| param.name().to_string())
+        })
+        .collect();
+    let names: Vec<_> = names.iter().map(String::as_str).collect();
     let return_attrs: Vec<TokenStream> = params
         .return_param()
-        .map(|p| write_custom_attributes(p.attributes(), namespace, method.index()))
+        .map(|p| {
+            write_custom_attributes_with_names(
+                p.attributes(),
+                namespace,
+                method.index(),
+                &[],
+                Some(ExtentOwner::Return(&names)),
+            )
+        })
         .transpose()?
         .unwrap_or_default();
 
@@ -714,6 +731,7 @@ fn write_custom_attributes_except<'a>(
 enum ExtentOwner<'a> {
     Parameter(&'a [&'a str]),
     Field,
+    Return(&'a [&'a str]),
 }
 
 fn write_custom_attributes_with_names<'a>(
@@ -735,6 +753,30 @@ fn write_custom_attributes_with_names<'a>(
             let values = attr.value();
 
             if attr_ns == METADATA_NAMESPACE
+                && attr.name() == "IntegerRangeAttribute"
+                && let Some(range) = metadata::IntegerRange::from_values(&values)
+                && let Some(names) = match extent_owner {
+                    Some(ExtentOwner::Parameter(names))
+                        if range.phase != metadata::BufferPhase::Value =>
+                    {
+                        Some(names)
+                    }
+                    Some(ExtentOwner::Field) if range.phase == metadata::BufferPhase::Value => {
+                        Some(&[][..])
+                    }
+                    Some(ExtentOwner::Return(names))
+                        if range.phase == metadata::BufferPhase::Success && !range.indirect =>
+                    {
+                        Some(names)
+                    }
+                    _ => None,
+                }
+                && let Some(tokens) = write_integer_range(&range, names)
+            {
+                return Ok(tokens);
+            }
+
+            if attr_ns == METADATA_NAMESPACE
                 && attr.name() == "BufferExtentAttribute"
                 && let Some(extent) = metadata::BufferExtent::from_values(&values)
                 && let Some(names) = match extent_owner {
@@ -753,7 +795,22 @@ fn write_custom_attributes_with_names<'a>(
                 return Ok(tokens);
             }
 
-            if attr_ns == METADATA_NAMESPACE && attr.name() == "NativeNullTerminatedAttribute" {
+            if attr_ns == METADATA_NAMESPACE
+                && matches!(
+                    attr.name(),
+                    "NativeNullTerminatedAttribute" | "NullableAttribute"
+                )
+            {
+                let termination = attr.name() == "NativeNullTerminatedAttribute";
+                if !termination
+                    && values.is_empty()
+                    && matches!(
+                        extent_owner,
+                        Some(ExtentOwner::Return(_) | ExtentOwner::Field)
+                    )
+                {
+                    return Ok(quote! { #[nullable] });
+                }
                 let flag = |key| {
                     values.iter().find_map(|(name, value)| match value {
                         metadata::Value::Bool(value) if name == key => Some(*value),
@@ -763,14 +820,25 @@ fn write_custom_attributes_with_names<'a>(
                 if let (Some(entry), Some(success)) = (flag("OnEntry"), flag("OnSuccess")) {
                     let double_entry = flag("DoubleNullOnEntry") == Some(true);
                     let double_success = flag("DoubleNullOnSuccess") == Some(true);
-                    if values.len() == 2 + usize::from(double_entry) + usize::from(double_success)
+                    let indirect = flag("Indirect") == Some(true);
+                    if values.len()
+                        == 2 + usize::from(double_entry)
+                            + usize::from(double_success)
+                            + usize::from(indirect)
                         && (entry || success)
                         && (!double_entry || entry)
                         && (!double_success || success)
+                        && (termination || !double_entry && !double_success)
+                        && (termination && !indirect
+                            || matches!(extent_owner, Some(ExtentOwner::Parameter(_))))
                     {
+                        if !termination {
+                            return Ok(write_nullable(entry, success, indirect));
+                        }
                         return Ok(write_null_terminated(
                             entry.then_some(double_entry),
                             success.then_some(double_success),
+                            indirect,
                         ));
                     }
                 }

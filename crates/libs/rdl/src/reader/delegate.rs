@@ -152,7 +152,7 @@ impl Encoder<'_> {
             metadata::MethodImplAttributes::Runtime,
         );
 
-        self.encode_return_attrs(&item.return_attrs)?;
+        self.encode_return_attrs(&item.return_attrs, &signature.return_type, &params)?;
         self.encode_params(&params, &signature.return_type)?;
 
         Ok(())

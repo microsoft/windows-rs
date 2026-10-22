@@ -315,7 +315,11 @@ impl Encoder<'_> {
                         &["special"],
                     )?;
 
-                    self.encode_return_attrs(&method.return_attrs)?;
+                    self.encode_return_attrs(
+                        &method.return_attrs,
+                        &signature.return_type,
+                        &params,
+                    )?;
                     self.encode_params(&params, &signature.return_type)?;
                 }
 

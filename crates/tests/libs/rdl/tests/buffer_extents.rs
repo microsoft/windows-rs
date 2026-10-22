@@ -31,6 +31,18 @@ fn named_extents_roundtrip() {
             extern fn OptionalIncoming(
                 #[readable(success, on_entry(if_present(*count)))] data: *mut u8, #[opt] count: *mut u32,
             );
+            extern fn Arithmetic(
+                #[readable(entry, count - start)]
+                #[readable(entry, count + start)]
+                #[readable(entry, (count + start) * 2)]
+                #[readable(entry, count * (start * 2))]
+                #[readable(entry, count + 1i32)]
+                #[readable(entry, (14 + 1))]
+                #[readable(entry, 14i32)]
+                #[readable(success, if_present(*written) - start)]
+                #[readable(success, on_entry(*written - start))]
+                data: *mut u8, count: u32, start: u16, written: *mut u32,
+            );
             struct Packet {
                 used: u32,
                 #[writable(126)] #[readable(used)] data: [u8; 126],
@@ -114,7 +126,7 @@ fn named_extents_roundtrip() {
             }
         }
         extents.sort_by_key(|value| format!("{value:?}"));
-        assert_eq!(extents.len(), 13);
+        assert_eq!(extents.len(), 22);
         assert_eq!(
             extents
                 .iter()
@@ -356,7 +368,6 @@ fn extent_encoding_is_checked() {
     assert!(windows_rdl::write_buffer_extent(&extent, &["count", "count"]).is_none());
     for property in [
         ("Unknown", Value::Bool(true)),
-        ("Indirect", Value::Bool(true)),
         ("Nullable", Value::Bool(true)),
         ("CountConst", Value::U64(4)),
         ("CountParamIndex", Value::U16(1)),
@@ -368,4 +379,14 @@ fn extent_encoding_is_checked() {
         values.push((property.0.into(), property.1));
         assert!(BufferExtent::from_values(&values).is_none(), "{values:?}");
     }
+    let mut indirect = extent;
+    indirect.indirect = true;
+    indirect.nullable = true;
+    assert_eq!(
+        BufferExtent::from_values(&indirect.to_values()),
+        Some(indirect.clone())
+    );
+    indirect.phase = BufferPhase::Value;
+    indirect.count = BufferCount::Constant(1);
+    assert!(!indirect.is_valid());
 }
