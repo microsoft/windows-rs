@@ -183,7 +183,6 @@ struct QueuedNativeEvent {
     event: Option<QueuedEvent>,
     retirement: Option<RetirementCompletion>,
     realization: Option<RealizationRequest>,
-    applying: bool,
 }
 
 /// A child of a selection or reorder relation, keyed by native COM identity so event handlers can
@@ -272,8 +271,6 @@ struct NativeContentDialogScheduler {
 struct NativeEventQueue {
     events: RefCell<VecDeque<QueuedNativeEvent>>,
     feedback: RefCell<FeedbackState>,
-    /// Set while Reactor applies a batch, so events the batch raises can be told from user input.
-    applying: Cell<bool>,
     items: RefCell<HashMap<ObjectId, NativeItem>>,
     waker: RefCell<Option<Rc<dyn Fn()>>>,
     wake_pending: Cell<bool>,
@@ -339,7 +336,6 @@ impl NativeEventQueue {
             event,
             retirement: None,
             realization: None,
-            applying: self.applying.get(),
         });
     }
 
@@ -351,7 +347,6 @@ impl NativeEventQueue {
             event: None,
             retirement: None,
             realization: Some(request),
-            applying: false,
         });
         drop(events);
         WinUiAdapter::schedule_event_wake(self);

@@ -132,11 +132,10 @@ replacement.
 
 A ranged value such as `Slider::value` follows the declared range: a range that excludes it clamps
 the control without a callback, and the declared value returns when the range allows it again.
-For a choice among options, declare `RadioButtons::selected_index`. Grouped `RadioButton`s also
-work: each reports its own `on_is_checked_changed`, including the buttons WinUI unchecks, and a
-rejected choice restores the declared button. When Reactor's own writes change a declared value on
-another control, such as the rest of a group, the change is not reported; undeclared values still
-report it.
+For a choice among options, declare `RadioButtons::selected_index`, or derive each grouped
+`RadioButton::is_checked` from one selected value. `on_checked` reports only the button the user
+checks; Reactor records the buttons WinUI unchecks without reporting them, so a rejected choice
+restores the declared button.
 
 The [`controlled`](../../crates/samples/reactor/controlled) sample shows the complete pattern.
 
@@ -411,6 +410,10 @@ writes the declared value again after any change to that range, because some con
 | --- | --- |
 | `requires_selection = true` | The control always selects an item, so an index past the end selects the first item. |
 | `realize_items = true` | The control selects only realized item containers, so the adapter runs layout before writing the index. |
+
+An event with `observe_only = true` records its `observes` property in the retained graph but has
+no callback. `RadioButton` uses it for `Unchecked`: WinUI unchecks the rest of a group as a side
+effect, never as direct user input, but Reactor must still see it to restore a rejected choice.
 
 Reactor fails fast. It does not roll back the retained graph or poison the runtime after a
 failure; it panics instead. A panic on the UI thread crosses a WinUI callback and aborts the

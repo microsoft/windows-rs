@@ -219,11 +219,10 @@ impl Component for ControlledFixture {
     }
 }
 
-/// A controlled `RadioButton` group. WinUI unchecks the rest of the group when one is checked, so
-/// each button reports its own changes and a rejected choice restores the whole group.
+/// A `RadioButton` group controlled by one selected index, the usual app pattern. WinUI unchecks
+/// the rest of the group when one is checked, and a rejected choice restores the whole group.
 pub(super) struct RadioFixture {
-    first: Option<bool>,
-    second: Option<bool>,
+    selected: usize,
     accept: bool,
     calls: Vec<String>,
 }
@@ -241,25 +240,24 @@ impl Component for RadioFixture {
 
     fn create(_: &(), _: &ComponentContext<Self>) -> Self {
         Self {
-            first: Some(true),
-            second: Some(false),
+            selected: 0,
             accept: true,
             calls: Vec::new(),
         }
     }
 
     fn update(&mut self, message: RadioMessage, _: &ComponentContext<Self>) {
-        let (call, value, state) = match message {
-            RadioMessage::First(value) => ("first", value, &mut self.first),
-            RadioMessage::Second(value) => ("second", value, &mut self.second),
+        let (call, value, index) = match message {
+            RadioMessage::First(value) => ("first", value, 0),
+            RadioMessage::Second(value) => ("second", value, 1),
             RadioMessage::Reject => {
                 self.accept = false;
                 return;
             }
         };
         self.calls.push(format!("{call} {value:?}"));
-        if self.accept {
-            *state = value;
+        if self.accept && value == Some(true) {
+            self.selected = index;
         }
     }
 
@@ -274,14 +272,14 @@ impl Component for RadioFixture {
                     .automation_id("first")
                     .content("First")
                     .group_name("group")
-                    .is_checked(self.first)
-                    .on_is_checked_changed(context.callback(RadioMessage::First)),
+                    .is_checked(self.selected == 0)
+                    .on_checked(context.callback(RadioMessage::First)),
                 RadioButton::new()
                     .automation_id("second")
                     .content("Second")
                     .group_name("group")
-                    .is_checked(self.second)
-                    .on_is_checked_changed(context.callback(RadioMessage::Second)),
+                    .is_checked(self.selected == 1)
+                    .on_checked(context.callback(RadioMessage::Second)),
                 Button::new()
                     .automation_id("reject")
                     .content("Reject")

@@ -62,8 +62,8 @@ fn controlled_ranges_keep_declared_values() -> Result<()> {
     })
 }
 
-/// Checking a grouped `RadioButton` reports both buttons, and a rejected choice restores the
-/// declared button even though WinUI unchecked it as a side effect.
+/// Checking a grouped `RadioButton` reports only the checked button, and a rejected choice
+/// restores the declared button even though WinUI unchecked it as a side effect.
 #[test]
 fn radio_group_restores_declared_choice() -> Result<()> {
     process::run("radio", |ui| {
@@ -97,15 +97,17 @@ fn radio_group_restores_declared_choice() -> Result<()> {
         ui.name_stays("calls", "", Duration::from_millis(500))?;
 
         select(1)?;
+        ui.name("calls", "second Some(true)")?;
+        ui.name_stays("calls", "second Some(true)", Duration::from_millis(500))?;
         wait([false, true])?;
-        ui.name("calls", "first Some(false); second Some(true)")?;
 
         ui.invoke("reject")?;
         select(0)?;
         wait([false, true])?;
-        let calls = "first Some(false); second Some(true); second Some(false); first Some(true)";
+        let calls = "second Some(true); first Some(true)";
         ui.name("calls", calls)?;
-        ui.name_stays("calls", calls, Duration::from_millis(500))
+        ui.name_stays("calls", calls, Duration::from_millis(500))?;
+        wait([false, true]).map(drop)
     })
 }
 

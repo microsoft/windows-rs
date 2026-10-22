@@ -448,7 +448,6 @@ pub struct NativeEvent {
     event: Option<EventDispatch>,
     retirement: Option<RetirementCompletion>,
     realization: Option<RealizationRequest>,
-    applying: bool,
 }
 
 impl NativeEvent {
@@ -458,15 +457,7 @@ impl NativeEvent {
             event,
             retirement: None,
             realization: None,
-            applying: false,
         }
-    }
-
-    /// Marks an event the native tree raised while Reactor applied a batch, such as the rest of a
-    /// `RadioButton` group unchecked by a write. Its observation updates the retained graph but is
-    /// dispatched only for a value the declaration leaves to the control.
-    pub fn applying(self, applying: bool) -> Self {
-        Self { applying, ..self }
     }
 
     pub fn retirement(completion: RetirementCompletion) -> Self {
@@ -475,7 +466,6 @@ impl NativeEvent {
             event: None,
             retirement: Some(completion),
             realization: None,
-            applying: false,
         }
     }
 
@@ -485,7 +475,6 @@ impl NativeEvent {
             event: None,
             retirement: None,
             realization: Some(request),
-            applying: false,
         }
     }
 }
@@ -804,9 +793,8 @@ impl RetainedGraph {
 
     /// Applies a native observation. Returns `false` when the paired event must not be dispatched:
     /// a native order that already matches the retained order echoes Reactor's own mutation or
-    /// a drop in place, and is not a reorder. A declared value that changed while Reactor applied
-    /// a batch is a side effect of Reactor's own writes, not user input.
-    fn apply_observation(&mut self, observation: Observation, applying: bool) -> bool {
+    /// a drop in place, and is not a reorder.
+    fn apply_observation(&mut self, observation: Observation) -> bool {
         if !self.validate_observation(&observation) {
             return true;
         }
@@ -823,7 +811,6 @@ impl RetainedGraph {
                     retained
                         .properties
                         .upsert(|current| current.id == property_id, property);
-                    return !applying;
                 }
             }
             Observation::SetSelection { object, selected } => {
@@ -838,7 +825,6 @@ impl RetainedGraph {
                             .copied()
                     })
                     .collect::<Vec<_>>();
-                let mut declared = false;
                 for child in children {
                     let child_object = self.get_mut(child);
                     if child_object
@@ -846,7 +832,6 @@ impl RetainedGraph {
                         .iter()
                         .any(|property| property.id == contract.selected_property)
                     {
-                        declared = true;
                         child_object.properties.upsert(
                             |property| property.id == contract.selected_property,
                             Property {
@@ -856,7 +841,6 @@ impl RetainedGraph {
                         );
                     }
                 }
-                return !(applying && declared);
             }
             Observation::Reorder {
                 object,
@@ -1665,10 +1649,9 @@ impl<A: Adapter> Runtime<A> {
 
     fn pop_native_work(&mut self) -> Option<NativeWork> {
         let event = self.adapter.pop_native_event()?;
-        let applying = event.applying;
         let dispatch = event
             .observation
-            .is_none_or(|observation| self.graph.apply_observation(observation, applying));
+            .is_none_or(|observation| self.graph.apply_observation(observation));
         if let Some(completion) = event.retirement {
             self.apply_retirement_completion(completion);
         }
@@ -1753,7 +1736,7 @@ impl<A: Adapter> Runtime<A> {
             }
             let event = self.adapter.pop_native_event().unwrap();
             if let Some(observation) = event.observation {
-                self.graph.apply_observation(observation, event.applying);
+                self.graph.apply_observation(observation);
             }
             if let Some(completion) = event.retirement {
                 self.apply_retirement_completion(completion);

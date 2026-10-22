@@ -294,6 +294,7 @@ pub enum EventId {
     AddTabButtonClick,
     BackRequested,
     CharacterReceived,
+    Checked,
     Click,
     Closed,
     ColorChanged,
@@ -336,6 +337,7 @@ pub enum EventId {
     TabItemsChanged,
     TextChanged,
     Toggled,
+    Unchecked,
     ValueChanged,
 }
 pub fn object_category(kind: ObjectType) -> ObjectCategory {
@@ -717,10 +719,16 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
             id: EventId::IsCheckedChanged,
             value: ValueType::OptionalBool,
         }],
-        ObjectType::RadioButton => &[EventContract {
-            id: EventId::IsCheckedChanged,
-            value: ValueType::OptionalBool,
-        }],
+        ObjectType::RadioButton => &[
+            EventContract {
+                id: EventId::Checked,
+                value: ValueType::OptionalBool,
+            },
+            EventContract {
+                id: EventId::Unchecked,
+                value: ValueType::OptionalBool,
+            },
+        ],
         ObjectType::RadioButtons => &[EventContract {
             id: EventId::SelectionChanged,
             value: ValueType::SelectionIndex,

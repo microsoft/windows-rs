@@ -643,6 +643,10 @@ struct Event {
     active_properties: Vec<String>,
     #[serde(default)]
     routed: bool,
+    /// Records the observed property without exposing a callback, for native changes that are
+    /// never direct user input, such as a `RadioButton` unchecked by its group.
+    #[serde(default)]
+    observe_only: bool,
 }
 
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
@@ -986,10 +990,10 @@ fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::Metad
             }
         }
         for event in &object.events {
-            if event.property_changed {
+            if event.property_changed || event.observe_only {
                 assert!(
                     event.observes.is_some(),
-                    "{}.{} property change event must observe a property",
+                    "{}.{} must observe a property",
                     object.name,
                     event.name
                 );
@@ -1929,7 +1933,7 @@ fn generate_declarations(
             }
         }
 
-        for event in &object.events {
+        for event in object.events.iter().filter(|event| !event.observe_only) {
             let method = event
                 .field
                 .as_deref()

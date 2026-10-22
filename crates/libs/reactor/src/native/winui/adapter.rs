@@ -251,9 +251,7 @@ impl Adapter for WinUiAdapter {
     }
 
     fn apply(&mut self, mutations: &[Mutation]) {
-        assert!(!self.event_queue.applying.replace(true));
         self.apply_mutations(mutations).unwrap();
-        self.event_queue.applying.set(false);
         if !self.released_images.is_empty() {
             self.released_images.clear();
             self.images.retain(|_, image| image.strong_count() != 0);

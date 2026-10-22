@@ -666,59 +666,6 @@ fn normalized_feedback_defers_latest_observation_until_write_finishes() {
 }
 
 #[test]
-fn applying_side_effects_dispatch_only_undeclared_values() {
-    let values = Rc::new(RefCell::new(Vec::new()));
-    let received = Rc::clone(&values);
-    let callback = Callback::new(move |value| received.borrow_mut().push(value));
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(
-        StackPanel::new().children([
-            RadioButton::new()
-                .is_checked(true)
-                .on_is_checked_changed(callback.clone())
-                .into(),
-            RadioButton::new()
-                .on_is_checked_changed(callback.clone())
-                .into(),
-        ]),
-    );
-    let root = runtime.graph().root().unwrap();
-    let children = runtime
-        .graph()
-        .children(root, RelationId::Children)
-        .unwrap()
-        .to_vec();
-    for (object, value) in [(children[0], Some(false)), (children[1], Some(true))] {
-        runtime.adapter_mut().queue_applying_event(
-            Observation::SetProperty {
-                object,
-                property: Property {
-                    id: PropertyId::IsChecked,
-                    value: PropertyValue::OptionalBool(value),
-                },
-            },
-            EventDispatch::new(
-                object,
-                EventId::IsCheckedChanged,
-                EventValue::OptionalBool(callback.clone()),
-                EventPayload::OptionalBool(value),
-            ),
-        );
-    }
-
-    assert_eq!(runtime.dispatch_native_events(), 1);
-    assert_eq!(*values.borrow(), [Some(true)]);
-    assert_eq!(
-        runtime.graph().properties(children[0]).unwrap(),
-        [Property {
-            id: PropertyId::IsChecked,
-            value: PropertyValue::OptionalBool(Some(false)),
-        }]
-    );
-    assert!(runtime.graph().properties(children[1]).unwrap().is_empty());
-}
-
-#[test]
 fn suppressed_feedback_drops_selection_observations_and_keeps_expectations() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime.update(ListBox::new().keyed_items([

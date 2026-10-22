@@ -1088,16 +1088,20 @@ name = "IsEnabled"
 [[objects.properties]]
 name = "IsChecked"
 value = "OptionalBool"
-controlled = "IsCheckedChanged"
+controlled = "Checked"
 feedback = "exact"
 
 [[objects.relations]]
 name = "Content"
 
 [[objects.events]]
-name = "IsCheckedChanged"
-property_changed = true
+name = "Checked"
 observes = "IsChecked"
+
+[[objects.events]]
+name = "Unchecked"
+observes = "IsChecked"
+observe_only = true
 
 [[objects]]
 name = "RadioButtons"

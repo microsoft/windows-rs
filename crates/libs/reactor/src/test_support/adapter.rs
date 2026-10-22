@@ -288,12 +288,6 @@ impl RecordingAdapter {
             .push_back(NativeEvent::new(observation, event));
     }
 
-    /// Queues an event the native tree raised while Reactor applied a batch.
-    pub fn queue_applying_event(&mut self, observation: Observation, event: EventDispatch) {
-        self.native_events
-            .push_back(NativeEvent::new(Some(observation), Some(event)).applying(true));
-    }
-
     pub fn queue_realization(&mut self, request: RealizationRequest) {
         let request = Self::coalesce_realization(&mut self.native_events, request);
         self.native_events
