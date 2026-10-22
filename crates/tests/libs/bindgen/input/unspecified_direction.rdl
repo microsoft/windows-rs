@@ -1,0 +1,29 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    type Pointer = *mut u32;
+    interface Unknown {
+        fn Scalar(&self, value: u32) -> HRESULT;
+        fn Raw(&self, value: *mut u32) -> HRESULT;
+        fn Alias(&self, value: Pointer) -> HRESULT;
+        fn Buffer(&self, #[in] count: u32, #[len_param(0)] value: *mut u32) -> HRESULT;
+        fn Query(&self, #[in] riid: *const GUID, #[iid_is] value: *mut *mut void) -> HRESULT;
+        fn Interface(&self, value: *mut Unknown) -> HRESULT;
+        fn Input(&self, #[in] value: *mut u32) -> HRESULT;
+        fn Output(&self, #[out] value: *mut u32) -> HRESULT;
+    }
+}
+
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute NativeArrayInfoAttribute {
+                fn();
+                CountParamIndex: i16,
+                CountConst: i32,
+                CountFieldName: String,
+            }
+        }
+    }
+}

@@ -4,13 +4,13 @@ mod Windows {
     mod Foundation {
         mod Metadata {
             attribute ActivatableAttribute {
-                fn(version: u32);
+                fn(#[in] version: u32);
             }
             attribute ExclusiveToAttribute {
-                fn(r#type: Type);
+                fn(#[in] r#type: Type);
             }
             attribute StaticAttribute {
-                fn(r#type: Type, version: u32);
+                fn(#[in] r#type: Type, #[in] version: u32);
             }
         }
     }
@@ -28,6 +28,6 @@ mod Test {
     }
     #[Windows::Foundation::Metadata::ExclusiveTo(Class)]
     interface IClassStatics {
-        fn Create(&self, value: i32) -> Class;
+        fn Create(&self, #[in] value: i32) -> Class;
     }
 }

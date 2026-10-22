@@ -3,7 +3,7 @@
 mod Test {
     interface Interface {
         fn get_Value(&self) -> i32;
-        fn put_Value(&self, value: i32);
+        fn put_Value(&self, #[in] value: i32);
         fn Other(&self) -> i32;
     }
 }

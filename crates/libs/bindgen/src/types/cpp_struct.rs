@@ -50,7 +50,10 @@ impl CppStruct {
             return false;
         };
 
-        if field.name() != "Value" || !field.field_type(Some(self), reader).is_primitive(reader) {
+        if field.name() != "Value"
+            || member_alignment(field).is_some()
+            || !field.field_type(Some(self), reader).is_primitive(reader)
+        {
             return false;
         }
 
@@ -163,10 +166,10 @@ impl CppStruct {
 
         let arches = write_arches(self.def);
         let cfg = self.write_cfg(config);
-        self.write_with_cfg(config, &quote! { #arches #cfg })
+        self.write_with_cfg(config, &quote! { #arches #cfg }, self.def.arches())
     }
 
-    fn write_with_cfg(&self, config: &Config, cfg: &TokenStream) -> TokenStream {
+    fn write_with_cfg(&self, config: &Config, cfg: &TokenStream, arches: i32) -> TokenStream {
         let name = to_ident(self.name);
         let flags = self.def.flags();
         let is_union = flags.contains(TypeAttributes::ExplicitLayout);
@@ -177,16 +180,34 @@ impl CppStruct {
             .def
             .fields()
             .filter(|field| !field.flags().contains(FieldAttributes::Literal))
-            .map(|field| (field.name(), field.field_type(Some(self), config.reader)))
+            .map(|field| {
+                (
+                    field.name(),
+                    field.field_type(Some(self), config.reader),
+                    member_alignment(field),
+                )
+            })
             .collect();
 
         let is_copyable = self.is_copyable(config.reader);
-        let is_eq = fields.iter().all(|(_, ty)| ty.is_eq(config.reader));
+        let is_eq = fields.iter().all(|(_, ty, _)| ty.is_eq(config.reader));
+        let aligned_members = fields.iter().any(|(_, _, alignment)| alignment.is_some());
+        assert!(
+            !aligned_members || self.def.class_layout().is_none(),
+            "member alignment combined with packing is unsupported: {}",
+            self.name
+        );
 
         let field_config = &config.with_self_ty(self.type_name(), &[]);
 
         let fields = {
-            let fields = fields.iter().map(|(name, ty)| {
+            let mut names: BTreeSet<String> = if aligned_members {
+                fields.iter().map(|(name, _, _)| (*name).into()).collect()
+            } else {
+                BTreeSet::new()
+            };
+            let mut layout = TokenStream::new();
+            let fields = fields.iter().enumerate().map(|(position, (name, ty, alignment))| {
                 let name = to_ident(name);
 
                 let ty =
@@ -207,7 +228,41 @@ impl CppStruct {
                         ty.write_default(field_config)
                     };
 
-                quote! { pub #name: #ty, }
+                let padding = if let Some(alignment) = alignment.filter(|_| !is_union) {
+                    let mut padding = format!("__padding_{position}");
+                    while !names.insert(padding.clone()) {
+                        padding.push('_');
+                    }
+                    let padding = to_ident(&padding);
+                    let alignment = Literal::usize_unsuffixed(alignment);
+                    // Native padding may be uninitialized even when every real field is valid.
+                    quote! {
+                        #[doc(hidden)]
+                        pub #padding: [core::mem::MaybeUninit<u8>; {
+                            let offset = 0usize;
+                            #layout
+                            let natural = ::core::mem::align_of::<#ty>();
+                            let required = if natural < #alignment { #alignment } else { natural };
+                            ((offset + required - 1) & !(required - 1))
+                                - ((offset + natural - 1) & !(natural - 1))
+                        }],
+                    }
+                } else {
+                    TokenStream::new()
+                };
+                if aligned_members && !is_union {
+                    let requested = alignment.map(|alignment| {
+                        let alignment = Literal::usize_unsuffixed(alignment);
+                        quote! { let alignment = if alignment < #alignment { #alignment } else { alignment }; }
+                    });
+                    layout.extend(quote! {
+                        let alignment = ::core::mem::align_of::<#ty>();
+                        #requested
+                        let offset = ((offset + alignment - 1) & !(alignment - 1))
+                            + ::core::mem::size_of::<#ty>();
+                    });
+                }
+                quote! { #padding pub #name: #ty, }
             });
 
             let fields = quote! { #(#fields)* };
@@ -247,7 +302,11 @@ impl CppStruct {
             derive.extend(["Clone"]);
         }
 
-        if !config.bindgen.style.is_sys() && !has_explicit_layout && !has_packing {
+        if !config.bindgen.style.is_sys()
+            && !has_explicit_layout
+            && !has_packing
+            && !self.has_member_alignment(config.reader)
+        {
             derive.extend(["Debug"]);
 
             if !self.has_cpp_delegate(config.reader) {
@@ -323,7 +382,7 @@ impl CppStruct {
             constants
         };
 
-        let bitfields = self.write_bitfield_accessors(config, cfg);
+        let bitfields = self.write_bitfield_accessors(config, cfg, arches);
 
         let mut tokens = quote! {
             #repr
@@ -341,7 +400,7 @@ impl CppStruct {
         nested_sorted.sort_by_key(|s| s.name);
 
         for nested in nested_sorted {
-            tokens.combine(nested.write_with_cfg(config, cfg));
+            tokens.combine(nested.write_with_cfg(config, cfg, arches));
         }
 
         tokens
@@ -349,6 +408,7 @@ impl CppStruct {
 
     fn can_derive_default(&self, config: &Config) -> bool {
         !self.has_explicit_layout(config.reader)
+            && !self.has_member_alignment(config.reader)
             && !self.def.fields().any(|field| {
                 let ty = field.field_type(Some(self), config.reader);
 
@@ -391,6 +451,7 @@ impl CppStruct {
         self.def.flags().contains(TypeAttributes::ExplicitLayout)
             || self
                 .multi_struct_fields(reader)
+                .chain(self.nested.values().cloned())
                 .any(|ty| ty.has_explicit_layout(reader))
     }
 
@@ -398,7 +459,17 @@ impl CppStruct {
         self.def.class_layout().is_some()
             || self
                 .multi_struct_fields(reader)
+                .chain(self.nested.values().cloned())
                 .any(|ty| ty.has_packing(reader))
+    }
+
+    fn has_member_alignment(&self, reader: &Reader) -> bool {
+        self.def
+            .fields()
+            .any(|field| member_alignment(field).is_some())
+            || self
+                .multi_struct_fields(reader)
+                .any(|ty| ty.has_member_alignment(reader))
     }
 
     // Include arch-specific overloads when checking layout and packing.
@@ -406,18 +477,19 @@ impl CppStruct {
         self.def
             .fields()
             .map(move |field| field.field_type(Some(self), reader))
-            .filter_map(|ty| match ty {
-                Type::CppStruct(ty) => Some(ty),
-                Type::ArrayFixed(ty, _) => {
-                    if let Type::CppStruct(ty) = *ty {
-                        Some(ty)
-                    } else {
-                        None
+            .filter_map(|mut ty| {
+                loop {
+                    match ty {
+                        Type::CppStruct(ty) => return Some(ty),
+                        Type::ArrayFixed(inner, _) => ty = *inner,
+                        _ => return None,
                     }
                 }
-                _ => None,
             })
-            .flat_map(|ty| reader.with_full_name(ty.def.namespace(), ty.def.name()))
+            .flat_map(|ty| {
+                let name = ty.def.full_name();
+                reader.with_full_name(&name.namespace, &name.name)
+            })
             .filter_map(|ty| {
                 if let Type::CppStruct(ty) = ty {
                     Some(ty)
@@ -425,11 +497,10 @@ impl CppStruct {
                     None
                 }
             })
-            .chain(self.nested.values().cloned())
     }
 
     pub fn size(&self, reader: &Reader) -> usize {
-        if self.def.flags().contains(TypeAttributes::ExplicitLayout) {
+        let size = if self.def.flags().contains(TypeAttributes::ExplicitLayout) {
             self.def
                 .fields()
                 .map(|field| field.field_type(Some(self), reader).size(reader))
@@ -440,11 +511,21 @@ impl CppStruct {
             for field in self.def.fields() {
                 let ty = field.field_type(Some(self), reader);
                 let size = ty.size(reader);
-                let align = ty.align(reader);
+                let align = ty.align(reader).max(member_alignment(field).unwrap_or(1));
                 sum = (sum + (align - 1)) & !(align - 1);
                 sum += size;
             }
             sum
+        };
+        if self
+            .def
+            .fields()
+            .any(|field| member_alignment(field).is_some())
+        {
+            let align = self.align(reader);
+            (size + align - 1) & !(align - 1)
+        } else {
+            size
         }
     }
 
@@ -461,25 +542,76 @@ impl CppStruct {
             .map_or(derived, |forced| forced.max(derived))
     }
 
-    /// Forced over-alignment in bytes from `[AlignmentAttribute(N)]`, if present.
+    /// Required over-alignment from record and member attributes.
     pub fn forced_align(&self) -> Option<usize> {
-        match self
+        let record = match self
             .def
-            .find_attribute("AlignmentAttribute")?
-            .value()
-            .first()
+            .find_attribute("AlignmentAttribute")
+            .and_then(|attribute| attribute.value().into_iter().next())
         {
-            Some((_, Value::I32(n))) if *n > 0 => Some(*n as usize),
+            Some((_, Value::I32(n))) if n > 0 => Some(n as usize),
             _ => None,
-        }
+        };
+        record
+            .into_iter()
+            .chain(self.def.fields().filter_map(member_alignment))
+            .max()
+    }
+
+    pub fn bitfield_types(&self, reader: &Reader) -> impl Iterator<Item = Type> {
+        self.def.fields().flat_map(move |field| {
+            field
+                .attributes()
+                .filter(|attribute| attribute.name() == "NativeBitfieldAttribute")
+                .filter_map(move |attribute| bitfield_member_type(&attribute.value(), self, reader))
+        })
     }
 
     /// Generates typed accessors for coalesced C bit-fields in non-sys projections.
-    fn write_bitfield_accessors(&self, config: &Config, cfg: &TokenStream) -> TokenStream {
-        if config.bindgen.style.is_sys() {
+    fn write_bitfield_accessors(
+        &self,
+        config: &Config,
+        cfg: &TokenStream,
+        arches: i32,
+    ) -> TokenStream {
+        if config.bindgen.style.is_sys()
+            || !self
+                .def
+                .fields()
+                .any(|field| field.has_attribute("NativeBitfieldAttribute"))
+        {
             return quote! {};
         }
 
+        let arches = if arches == 0 { 7 } else { arches };
+        let mut variants: Vec<(String, TokenStream, i32)> = Vec::new();
+        for arch in [1, 2, 4].into_iter().filter(|arch| arches & arch != 0) {
+            let tokens = self.write_bitfield_accessors_for_arch(config, arch);
+            if tokens.is_empty() {
+                continue;
+            }
+            let text = tokens.to_string();
+            if let Some((_, _, bits)) = variants.iter_mut().find(|(key, _, _)| *key == text) {
+                *bits |= arch;
+            } else {
+                variants.push((text, tokens, arch));
+            }
+        }
+        let name = to_ident(self.name);
+        let variants = variants.into_iter().map(|(_, tokens, bits)| {
+            let gate = (bits != arches).then(|| write_arch_bits(bits));
+            quote! {
+                #cfg
+                #gate
+                impl #name {
+                    #tokens
+                }
+            }
+        });
+        quote! { #(#variants)* }
+    }
+
+    fn write_bitfield_accessors_for_arch(&self, config: &Config, arch: i32) -> TokenStream {
         let mut accessors = Vec::new();
 
         for field in self.def.fields() {
@@ -493,11 +625,25 @@ impl CppStruct {
             }
 
             let field_ident = to_ident(field.name());
-            let Some(backing) =
-                BitfieldBacking::from_type(&field.field_type(Some(self), config.reader))
-            else {
-                continue;
+            let storage = field.field_type(Some(self), config.reader);
+            let (scalar, wrappers) = bitfield_scalar(&storage, config, arch);
+            let backing = BitfieldBacking::from_type(&scalar).unwrap_or_else(|| {
+                panic!(
+                    "bitfield storage `{}.{}.{}` is not an integer: {storage:?}",
+                    self.def.namespace(),
+                    self.def.full_name().name,
+                    field.name()
+                )
+            });
+            let is_union = self.def.flags().contains(TypeAttributes::ExplicitLayout);
+            let mut read = if is_union {
+                quote! { (unsafe { self.#field_ident }) }
+            } else {
+                quote! { self.#field_ident }
             };
+            for _ in &wrappers {
+                read = quote! { #read.0 };
+            }
 
             for attr in bitfields {
                 let values = attr.value();
@@ -507,29 +653,125 @@ impl CppStruct {
                     Some((_, Value::I64(length))),
                 ) = (values.first(), values.get(1), values.get(2))
                 else {
-                    continue;
+                    panic!("invalid NativeBitfieldAttribute on `{}`", field.name());
                 };
 
-                accessors.push(backing.write_accessor(
-                    &field_ident,
-                    member,
-                    *offset as u32,
-                    *length as u32,
-                ));
+                let offset = u32::try_from(*offset).unwrap();
+                let width = u32::try_from(*length).unwrap();
+                assert!(
+                    width > 0
+                        && offset
+                            .checked_add(width)
+                            .is_some_and(|end| end <= backing.bits),
+                    "bitfield `{member}` exceeds its backing type"
+                );
+                let member_type = bitfield_member_type(&values, self, config.reader);
+                if member_type.is_some() || !wrappers.is_empty() || is_union || backing.pointer {
+                    let ty = member_type.unwrap_or_else(|| {
+                        if width == 1 {
+                            Type::Bool
+                        } else {
+                            scalar.clone()
+                        }
+                    });
+                    accessors.push(backing.write_typed_accessor(
+                        config,
+                        &field_ident,
+                        (&read, &wrappers),
+                        (member, &ty),
+                        (offset, width),
+                        arch,
+                    ));
+                } else {
+                    accessors.push(backing.write_accessor(&field_ident, member, offset, width));
+                }
             }
         }
 
-        if accessors.is_empty() {
-            return quote! {};
-        }
+        quote! { #(#accessors)* }
+    }
+}
 
-        let name = to_ident(self.name);
-        quote! {
-            #cfg
-            impl #name {
-                #(#accessors)*
+fn member_alignment(field: Field) -> Option<usize> {
+    let attribute = field.find_attribute("AlignmentAttribute")?;
+    let values = attribute.value();
+    let [(_, Value::I32(alignment))] = values.as_slice() else {
+        panic!("invalid member alignment on `{}`", field.name());
+    };
+    let alignment = usize::try_from(*alignment).unwrap();
+    assert!(
+        alignment.is_power_of_two() && alignment <= u16::MAX as usize,
+        "unsupported member alignment on `{}`",
+        field.name()
+    );
+    Some(alignment)
+}
+
+fn bitfield_member_type(
+    values: &[(String, Value)],
+    enclosing: &CppStruct,
+    reader: &Reader,
+) -> Option<Type> {
+    let (_, value) = values.iter().find(|(name, _)| name == "MemberType")?;
+    let Value::TypeName(name) = value else {
+        panic!("NativeBitfieldAttribute.MemberType must be System.Type");
+    };
+    let ty = name
+        .primitive()
+        .unwrap_or_else(|| windows_metadata::Type::ValueName(name.clone()));
+    Some(Type::from_metadata_type(&ty, Some(enclosing), &[], reader))
+}
+
+fn bitfield_scalar(ty: &Type, config: &Config, arch: i32) -> (Type, Vec<TokenStream>) {
+    let mut scalar = ty.clone();
+    let mut wrappers = Vec::new();
+    let mut seen = HashSet::new();
+    loop {
+        let def = match &scalar {
+            Type::CppEnum(ty) => Some(ty.def),
+            Type::CppStruct(ty) => Some(ty.def),
+            _ => None,
+        };
+        if let Some(def) = def {
+            let mut variants = config
+                .reader
+                .with_full_name(def.namespace(), def.name())
+                .filter(|candidate| {
+                    let bits = match candidate {
+                        Type::CppEnum(ty) => ty.def.arches(),
+                        Type::CppStruct(ty) => ty.def.arches(),
+                        _ => return false,
+                    };
+                    bits == 0 || bits & arch != 0
+                });
+            if let Some(variant) = variants.next() {
+                assert!(
+                    variants.next().is_none(),
+                    "ambiguous bitfield type for architecture {arch}: {scalar:?}"
+                );
+                scalar = variant;
+            } else {
+                assert!(
+                    def.arches() == 0 || def.arches() & arch != 0,
+                    "bitfield type unavailable for architecture {arch}: {scalar:?}"
+                );
             }
         }
+        assert!(seen.insert(scalar.clone()), "cyclic bitfield type");
+        let wrap = match &scalar {
+            Type::CppEnum(ty) => ty.def.has_attribute("ScopedEnumAttribute"),
+            Type::CppStruct(ty) if ty.is_handle(config.reader) || ty.is_native_typedef() => {
+                !config.typedef_emits_bare(ty.def)
+            }
+            Type::BOOL | Type::HRESULT | Type::NTSTATUS | Type::RPC_STATUS => {
+                !config.bindgen.uses_inline_core_types()
+            }
+            _ => return (scalar, wrappers),
+        };
+        if wrap {
+            wrappers.push(scalar.write_name(config));
+        }
+        scalar = scalar.underlying_type(config.reader);
     }
 }
 
@@ -537,8 +779,10 @@ impl CppStruct {
 struct BitfieldBacking {
     prim: TokenStream,
     uprim: TokenStream,
+    // Pointer widths are checked by generated code on the consumer target.
     bits: u32,
     signed: bool,
+    pointer: bool,
 }
 
 impl BitfieldBacking {
@@ -552,6 +796,8 @@ impl BitfieldBacking {
             Type::I32 => (quote! { i32 }, quote! { u32 }, 32, true),
             Type::U64 => (quote! { u64 }, quote! { u64 }, 64, false),
             Type::I64 => (quote! { i64 }, quote! { u64 }, 64, true),
+            Type::USize => (quote! { usize }, quote! { usize }, 64, false),
+            Type::ISize => (quote! { isize }, quote! { usize }, 64, true),
             _ => return None,
         };
         Some(Self {
@@ -559,7 +805,12 @@ impl BitfieldBacking {
             uprim,
             bits,
             signed,
+            pointer: matches!(ty, Type::USize | Type::ISize),
         })
+    }
+
+    fn same_width(&self, other: &Self) -> bool {
+        self.bits == other.bits && self.pointer == other.pointer
     }
 
     /// Emits the get/set pair for one logical bit-field member.
@@ -660,6 +911,138 @@ impl BitfieldBacking {
             }
         }
     }
+
+    fn write_typed_accessor(
+        &self,
+        config: &Config,
+        field: &TokenStream,
+        storage: (&TokenStream, &[TokenStream]),
+        member: (&str, &Type),
+        range: (u32, u32),
+        arch: i32,
+    ) -> TokenStream {
+        let (member, ty) = member;
+        let (offset, width) = range;
+        let (read, storage_wrappers) = storage;
+        let (scalar, wrappers) = bitfield_scalar(ty, config, arch);
+        let prim = &self.prim;
+        let uprim = &self.uprim;
+        let shift_offset = Literal::u32_unsuffixed(offset);
+        let mask = Literal::u64_unsuffixed(u64::MAX >> (64 - width));
+        let raw = if self.signed {
+            quote! { (#read as #uprim) }
+        } else {
+            read.clone()
+        };
+        let mut bits = if offset == 0 {
+            raw.clone()
+        } else {
+            quote! { #raw >> #shift_offset }
+        };
+        if offset + width < self.bits {
+            bits = quote! { (#bits) & #mask };
+        }
+        let member_backing = (scalar != Type::Bool).then(|| {
+            let member_backing = Self::from_type(&scalar)
+                .unwrap_or_else(|| panic!("unsupported bitfield member type: {ty:?}"));
+            assert!(
+                width <= member_backing.bits,
+                "bitfield `{member}` exceeds its member type"
+            );
+            member_backing
+        });
+        let bounds = self.pointer.then(|| {
+            let end = Literal::u32_unsuffixed(offset + width);
+            quote! { const _: () = assert!(#prim::BITS >= #end, "bitfield exceeds target storage width"); }
+        });
+        let member_bounds = member_backing.as_ref().filter(|member| member.pointer && !self.pointer).map(|member| {
+            let prim = &member.prim;
+            let width = Literal::u32_unsuffixed(width);
+            quote! { const _: () = assert!(#prim::BITS >= #width, "bitfield exceeds target member width"); }
+        });
+        let mut get = if let Some(member_backing) = &member_backing {
+            let member_prim = &member_backing.prim;
+            if member_backing.signed && width < member_backing.bits {
+                let shift = if member_backing.pointer {
+                    let width = Literal::u32_unsuffixed(width);
+                    quote! { (#member_prim::BITS - #width) }
+                } else {
+                    let shift = Literal::u32_unsuffixed(member_backing.bits - width);
+                    quote! { #shift }
+                };
+                quote! { (((#bits) as #member_prim) << #shift) >> #shift }
+            } else if width == self.bits
+                && member_backing.same_width(self)
+                && member_backing.signed == self.signed
+            {
+                read.clone()
+            } else if !member_backing.signed && member_backing.same_width(self) {
+                bits
+            } else {
+                quote! { (#bits) as #member_prim }
+            }
+        } else {
+            quote! { (#bits) != 0 }
+        };
+        let mut value = quote! { value };
+        for _ in &wrappers {
+            value = quote! { #value.0 };
+        }
+        for wrapper in wrappers.iter().rev() {
+            get = quote! { #wrapper(#get) };
+        }
+        let mut set = if width == self.bits {
+            if member_backing
+                .as_ref()
+                .is_some_and(|member| member.same_width(self) && member.signed == self.signed)
+            {
+                value
+            } else {
+                quote! { #value as #prim }
+            }
+        } else {
+            let value = if member_backing
+                .as_ref()
+                .is_some_and(|member| member.same_width(self) && !member.signed)
+            {
+                value
+            } else {
+                quote! { (#value as #uprim) }
+            };
+            let (clear, place) = if offset == 0 {
+                (quote! { !#mask }, quote! { (#value & #mask) })
+            } else {
+                (
+                    quote! { !(#mask << #shift_offset) },
+                    quote! { ((#value & #mask) << #shift_offset) },
+                )
+            };
+            let merged = quote! { (#raw & #clear) | #place };
+            if self.signed {
+                quote! { (#merged) as #prim }
+            } else {
+                merged
+            }
+        };
+        for wrapper in storage_wrappers.iter().rev() {
+            set = quote! { #wrapper(#set) };
+        }
+        let getter = to_ident(member);
+        let setter = to_ident(&format!("set_{member}"));
+        let name = ty.write_name(config);
+        quote! {
+            pub fn #getter(&self) -> #name {
+                #bounds
+                #member_bounds
+                #get
+            }
+            pub fn #setter(&mut self, value: #name) {
+                #bounds
+                #member_bounds
+                self.#field = #set;
+            }
+        }
+    }
 }
 
 impl Dependencies for CppStruct {
@@ -668,6 +1051,9 @@ impl Dependencies for CppStruct {
             field
                 .field_type(Some(self), reader)
                 .combine(dependencies, reader);
+        }
+        for ty in self.bitfield_types(reader) {
+            ty.combine(dependencies, reader);
         }
     }
 }

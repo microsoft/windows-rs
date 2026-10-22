@@ -135,8 +135,19 @@ trait CombineClosure {
 
 impl CombineClosure for Type {
     fn combine_closure(&self, types: &mut TypeMap, reader: &Reader, references: &References) {
-        let ty = self.decay();
+        let ty = self.dependency_type();
 
+        if let Self::Ptr64(inner, _) = ty {
+            types.insert(Self::Pointer64Helper);
+            inner.combine_closure(types, reader, references);
+            return;
+        }
+        if let Self::FnPtr(signature) = ty {
+            for ty in signature.types() {
+                ty.combine_closure(types, reader, references);
+            }
+            return;
+        }
         if ty.is_intrinsic() {
             return;
         }
@@ -203,6 +214,9 @@ impl CombineClosure for Type {
                     let field_ty = field.field_type(Some(s), reader);
                     field_ty.combine_closure(types, reader, references);
                 }
+                for ty in s.bitfield_types(reader) {
+                    ty.combine_closure(types, reader, references);
+                }
             }
             Self::Enum(_) | Self::CppEnum(_) => {}
             Self::Delegate(d) => {
@@ -240,7 +254,7 @@ impl CombineClosure for Type {
                 for dep_ty in sig.types() {
                     dep_ty.combine_closure(types, reader, references);
                 }
-                if let Some(dependency) = f.window_long_dependency() {
+                if let Some(dependency) = f.window_long_dependency(reader) {
                     reader
                         .unwrap_full_name(f.namespace, dependency)
                         .combine_closure(types, reader, references);

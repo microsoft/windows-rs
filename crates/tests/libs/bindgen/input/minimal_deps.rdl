@@ -11,6 +11,6 @@ mod Test {
         Second = 1,
     }
     interface Interface {
-        fn Method(&self, value: Struct) -> Enum;
+        fn Method(&self, #[in] value: Struct) -> Enum;
     }
 }

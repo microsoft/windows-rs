@@ -59,6 +59,40 @@ in the metadata name; filters do not expand C preprocessor aliases.
 Signature dependencies are included automatically. You do not need to list every parameter and
 return type. Select an interface or its members explicitly when you also need to call its methods.
 
+Structural C/stdcall `FNPTR` signatures become `Option<unsafe extern "C"/"system" fn(...)>`.
+Their result and parameter dependencies are included without creating public callback names.
+
+Native callable byrefs use pointer ABI: const references become `*const T`, mutable references
+become `*mut T`, and written pointee aliases remain intact. This applies to imports, named and
+structural callbacks, and COM methods. WinRT byref projection has a separate path. Native
+references are not heuristic return values: the caller's existing mutable storage must remain
+available unless metadata explicitly marks a return value. Query-return projection excludes
+counted GUID buffers and counted object outputs from its scalar parameter candidates.
+
+Win32 `NativeOverrideSlotAttribute` methods redeclare inherited entries. Bindgen validates their
+slot, name, and resolved signature, preserving pointer depth and qualifiers. Rust exposes these
+calls through inherited methods and vtable fields, without additional `_Impl` requirements.
+For member-only filters, select the callable on its declaring base.
+The redeclaration's annotations remain in metadata. Out-of-range, duplicate, or incompatible
+overrides fail generation rather than shifting the vtable. Older generators that ignore the
+attribute must not consume metadata using this encoding.
+
+Field-owned `AlignmentAttribute` raises a member's alignment without wrapping its public type.
+Bindgen emits target-evaluated `MaybeUninit<u8>` padding and raises the record alignment as needed;
+native padding need not be initialized. Padding names avoid authored field names. Records with
+this storage, and their by-value containers, omit Debug, PartialEq, and Eq implementations.
+Storage traversal uses qualified nested type identities, including nested types referenced by
+other records or arrays. Merely declaring or pointing to an aligned nested type does not suppress
+these traits on its owner.
+Packed combinations are unsupported. The clang producer rejects by-value callable uses until
+their calling ABI is qualified; correct field offsets alone do not establish that ABI.
+Older generators that ignore member alignment must not consume this metadata.
+
+Legacy x86 `GetWindowLongPtr*`/`SetWindowLongPtr*` aliases are emitted only when no native x86
+declaration exists, once across separate wide-target declarations. Dependency selection follows
+the same rule. Flat package namespace reexports follow their declarations' architecture masks;
+architecture-empty public modules remain available without unused glob reexports.
+
 The bundled Win32 metadata places APIs in `Windows.Win32`. Bare names such as `GetTickCount` and
 qualified names such as `Windows.Win32.GetTickCount` both work. The subsystem paths used by
 `windows` and `windows-sys` package features, such as `Win32_System_Com`, are not metadata
@@ -127,6 +161,54 @@ add the dependencies referenced by the generated source.
 
 For native bit fields, default and minimal bindings provide getters and setters over the backing
 integer fields. Sys bindings keep the backing fields without accessors.
+
+`NativeBitfieldAttribute.MemberType` supplies an optional member type independently of storage.
+Typed accessors retain signedness, bools, scoped enum wrappers, and transparent typedef names.
+Signed fields are sign-extended from their declared width, including single-bit signed integers.
+Setters truncate to that width without changing neighboring bits. Both dependency walks include
+member types. Typed union accessors contain the required unsafe storage reads.
+Untyped attributes keep the existing single-bit `bool` and backing-type behavior.
+
+Accessors preserve storage wrappers and aliases, including enum and `BOOL` backings.
+Pointer-sized operations use the consumer target's width; out-of-range fields fail compilation
+on that target. Architecture-varying storage and member typedefs resolve per target, including
+signedness. Nested records inherit their owner's architecture, and identical accessor
+implementations share their architecture gates.
+
+### Fixed-width addresses
+
+`ptr64<*mut T>` and `ptr64<*const T>` metadata project to a generated typed 64-bit address.
+The helper has size/alignment 8/8 on x86, x64 and ARM64, retains the pointee type and constness,
+and provides `from_address(u64)` and `address()`. It has no dereference or pointer-conversion
+operations. A native typedef such as `PVOID64` remains an alias to this address type.
+
+The helper is emitted with the bindings, without another runtime dependency. Flat output places
+it beside the declarations; module and package output place it in `Windows.Win32`. It does not
+require a Cargo feature. Both broad and exact-name dependency selection retain its pointee types.
+Ordinary native pointers retain their existing Rust representation.
+
+### Metadata compatibility
+
+Clang2 metadata requires updated, paired readers and generators. Build `windows-clang`,
+`windows-rdl`, `windows-metadata`, and `windows-bindgen` from the same validated source revision
+during development. Upgrade regeneration tools together and regenerate the bindings.
+
+| Contract | Required reader behavior | Required generator behavior |
+| --- | --- | --- |
+| Inherited virtual overrides | Preserve `NativeOverrideSlotAttribute` and its slot. | Validate and reuse the inherited vtable entry rather than append one. |
+| Typed bitfields | Decode the `MemberType: System.Type` property. | Preserve each member's type, signedness and target-specific alias while retaining storage layout. |
+| Mixed pointer qualifiers | Decode each pointer's `IsConst` modifier without flattening the chain. | Preserve qualifier levels in the generated signature. |
+| Fixed 64-bit pointers | Decode `NativePointer64Attribute` at its pointer level. | Emit typed 8-byte, 8-aligned address storage, not a target-sized pointer. |
+
+Older consumers are unsupported for this output. Some reject a required encoding; others accept
+the file and emit an incorrect ABI. Sys storage-only generation does not prove support for typed
+bitfield accessors. Do not strip attributes or qualifiers to make an older generator accept new
+metadata.
+
+Record the paired release versions before production cutover. The development version `0.100.0`
+spans incompatible source revisions and is not a sufficient compatibility pin. Qualify the chosen
+pair with the override, typed/architecture-dependent bitfield and pointer fixtures, including
+generated signatures, vtable slots, storage layout and accessor behavior, not only metadata parsing.
 
 ## Common options
 

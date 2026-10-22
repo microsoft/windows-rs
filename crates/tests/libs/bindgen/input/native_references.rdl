@@ -1,0 +1,29 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    struct Value {
+        low: u32,
+        high: i32,
+    }
+    type Alias = Value;
+
+    #[library("test.dll")]
+    extern fn Read(#[in] value: &Alias, #[out] result: &mut u32);
+
+    #[library("test.dll")]
+    extern fn ReadOut(#[in] value: &Alias, #[out] result: &mut u32);
+
+    #[library("test.dll")]
+    extern fn Mutate(#[in] value: &mut Alias);
+
+    extern fn Callback(#[in] value: &Alias, #[out] result: &mut u32);
+
+    struct Callbacks {
+        callback: extern fn(&Alias, &mut u32),
+    }
+
+    interface References {
+        fn Read(&self, #[in] value: &Alias, #[out] result: &mut u32);
+        fn ReadOut(&self, #[in] value: &Alias, #[out] result: &mut u32);
+    }
+}

@@ -15,7 +15,7 @@ impl Cfg {
         let features: BTreeSet<&'static str> = dependencies
             .keys()
             .filter_map(|tn| {
-                if config.types.contains_key(tn) {
+                if *tn != Type::Pointer64Helper.type_name() && config.types.contains_key(tn) {
                     Some(tn.namespace())
                 } else {
                     None
@@ -143,6 +143,7 @@ impl Config<'_> {
 
                 if flatten_children {
                     let feature = tree.feature();
+                    let arches = reexport_arches(tree);
 
                     for ty in &tree.types {
                         if matches!(ty, Type::CppConst(_))
@@ -159,6 +160,7 @@ impl Config<'_> {
                         #[cfg(feature = #feature)]
                         pub mod #name;
                         #[cfg(feature = #feature)]
+                        #arches
                         pub use #name::*;
                     });
                 } else if is_flat_container(tree.namespace) {
@@ -310,6 +312,21 @@ impl Config<'_> {
         }
         prune
     }
+}
+
+fn reexport_arches(tree: &TypeTree) -> TokenStream {
+    if !tree.nested.is_empty() {
+        return quote! {};
+    }
+    let mut arches = 0;
+    for ty in &tree.types {
+        let bits = ty.arches();
+        if bits == 0 {
+            return quote! {};
+        }
+        arches |= bits;
+    }
+    write_arch_bits(arches)
 }
 
 /// Always-present umbrella module for flat Win32 header stems.

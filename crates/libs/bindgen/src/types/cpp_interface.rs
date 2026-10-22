@@ -24,9 +24,22 @@ impl CppInterface {
 
     pub fn get_methods(&self, config: &Config) -> Vec<MethodOrName<CppMethod>> {
         let type_name = self.def.type_name();
+        if self.def.methods().any(|method| {
+            method
+                .find_attribute("NativeOverrideSlotAttribute")
+                .is_some()
+        }) {
+            Self::vtable_methods(self.def, config.reader);
+        }
 
         self.def
             .methods()
+            // Redeclarations retain metadata contracts but use the inherited callable and slot.
+            .filter(|method| {
+                method
+                    .find_attribute("NativeOverrideSlotAttribute")
+                    .is_none()
+            })
             .map(|def| {
                 let method = CppMethod::new(def, config.reader);
                 if method_is_skipped(def, type_name, &method.signature, config) {
@@ -36,6 +49,75 @@ impl CppInterface {
                 }
             })
             .collect()
+    }
+
+    fn vtable_methods(def: TypeDef, reader: &Reader) -> Vec<MethodDef> {
+        assert!(
+            def.interface_impls().count() <= 1,
+            "native slot overrides require a single base on `{}`",
+            def.name()
+        );
+        let mut methods = if let Some(base) = def.interface_impls().next() {
+            let windows_metadata::Type::ClassName(base) = base.interface(&[]) else {
+                panic!("invalid native interface base on `{}`", def.name());
+            };
+            Self::vtable_methods(def.index().expect(&base.namespace, &base.name), reader)
+        } else {
+            Vec::new()
+        };
+        let inherited = methods.len();
+        let mut overrides = BTreeSet::new();
+        for method in def.methods() {
+            if let Some(attribute) = method.find_attribute("NativeOverrideSlotAttribute") {
+                assert_eq!(
+                    method
+                        .attributes()
+                        .filter(|attr| attr.name() == "NativeOverrideSlotAttribute")
+                        .count(),
+                    1,
+                    "duplicate native override slot on `{}`",
+                    method.name()
+                );
+                let values = attribute.value();
+                let [(_, Value::U32(slot))] = values.as_slice() else {
+                    panic!("invalid native override slot on `{}`", method.name());
+                };
+                let slot = *slot as usize;
+                assert!(
+                    slot < inherited
+                        && overrides.insert(slot)
+                        && !method.flags().contains(MethodAttributes::NewSlot),
+                    "invalid inherited slot on `{}.{}`",
+                    def.name(),
+                    method.name()
+                );
+                let base = methods[slot];
+                let signature = method.method_signature(&[], reader);
+                let base_signature = base.method_signature(&[], reader);
+                assert!(
+                    method.name() == base.name()
+                        && signature.call_flags == base_signature.call_flags
+                        && signature.params.len() == base_signature.params.len()
+                        && same_override_type(
+                            &signature.return_type,
+                            &base_signature.return_type,
+                            reader,
+                        )
+                        && signature
+                            .params
+                            .iter()
+                            .zip(&base_signature.params)
+                            .all(|(a, b)| { same_override_type(&a.ty, &b.ty, reader) }),
+                    "incompatible inherited slot on `{}.{}`",
+                    def.name(),
+                    method.name()
+                );
+                methods[slot] = method;
+            } else {
+                methods.push(method);
+            }
+        }
+        methods
     }
 
     // `_Impl` emission is omitted when this interface or a base has skipped methods.
@@ -428,6 +510,17 @@ impl CppInterface {
         }
 
         bases
+    }
+}
+
+fn same_override_type(a: &Type, b: &Type, reader: &Reader) -> bool {
+    let a = a.projection_type(reader);
+    let b = b.projection_type(reader);
+    match (&a, &b) {
+        (Type::PtrMut(..), Type::PtrMut(..)) | (Type::PtrConst(..), Type::PtrConst(..)) => {
+            same_override_type(&a.deref(), &b.deref(), reader)
+        }
+        _ => a == b,
     }
 }
 

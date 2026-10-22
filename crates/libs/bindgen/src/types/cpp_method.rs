@@ -41,6 +41,9 @@ fn param_hint(
     parameter_count: usize,
     reader: &Reader,
 ) -> ParamHint {
+    if !param.has_direction() {
+        return ParamHint::None;
+    }
     match param.buffer_relationship() {
         Some(BufferRelationship::ElementsParam(relative)) => usize::try_from(relative)
             .ok()
@@ -172,8 +175,13 @@ impl CppMethod {
         for (position, hint) in param_hints.iter_mut().enumerate() {
             if *hint == ParamHint::None {
                 let param = &signature.params[position];
-
                 let ty = param.projection_type(reader);
+                if !param.has_direction() {
+                    if ty.is_pointer() || ty.is_primitive(reader) {
+                        *hint = ParamHint::ValueType;
+                    }
+                    continue;
+                }
 
                 if param.is_convertible_with_reader(reader) && !hint.is_array() {
                     *hint = ParamHint::IntoParam;
@@ -798,7 +806,10 @@ impl CppMethod {
                             quote! { #name.into(), }
                         }
                         ParamHint::ValueType => {
-                            if param.is_input_only() {
+                            if param.is_input_only()
+                                || (!param.has_direction()
+                                    && !param.projection_type(config.reader).is_pointer())
+                            {
                                 quote! { #name, }
                             } else {
                                 quote! { #name as _, }
@@ -849,7 +860,8 @@ fn write_produce_type(config: &Config, param: &Param, hint: ParamHint) -> TokenS
     if param.is_input_only() && ty.is_interface_with_reader(config.reader) {
         let type_name = param.write_name(config);
         quote! { #name: windows_core::Ref<#type_name>, }
-    } else if !param.is_input_only()
+    } else if param.has_direction()
+        && !param.is_input_only()
         && ty.deref().is_interface_with_reader(config.reader)
         && !hint.is_array()
     {
@@ -886,9 +898,12 @@ fn signature_param_is_query(params: &[Param], reader: &Reader) -> Option<(usize,
     if let Some(guid) = params.iter().rposition(|param| {
         param.projection_type(reader) == Type::PtrConst(Box::new(Type::GUID), 1)
             && param.is_input_only()
+            && !param.has_buffer_attributes()
     }) && let Some(object) = params.iter().rposition(|param| {
         param.projection_type(reader) == Type::PtrMut(Box::new(Type::Void), 2)
+            && param.has_direction()
             && param.has_attribute("ComOutPtrAttribute")
+            && !param.has_buffer_attributes()
     }) {
         return Some((guid, object));
     }

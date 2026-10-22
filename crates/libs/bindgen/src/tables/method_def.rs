@@ -28,7 +28,17 @@ impl MethodDefExt for MethodDef {
     fn method_signature(&self, generics: &[Type], reader: &Reader) -> Signature {
         let meta_sig = self.signature(&Type::generic_placeholders(generics.len()));
         let call_flags = meta_sig.flags;
-        let return_type = Type::from_metadata_type(&meta_sig.return_type, None, generics, reader);
+        let native = matches!(
+            self.parent(),
+            MemberRefParent::TypeDef(def) if !def.flags().contains(TypeAttributes::WindowsRuntime)
+        );
+        let convert = if native {
+            Type::from_native_signature_type
+        } else {
+            Type::from_metadata_type
+        };
+        let return_type = convert(&meta_sig.return_type, None, generics, reader);
+        return_type.assert_callable_value(reader);
         let param_map = match self.params_by_sequence(meta_sig.types.len()) {
             Ok(params) => Some(params),
             Err(error) => {
@@ -45,23 +55,29 @@ impl MethodDefExt for MethodDef {
             let def = param_map
                 .as_ref()
                 .and_then(|params| params.params()[position]);
-            let param_is_input_only = matches!(
-                def.map_or(
-                    windows_metadata::reader::ParamDirection::Unspecified,
-                    |param| param.direction()
-                ),
-                windows_metadata::reader::ParamDirection::Unspecified
-                    | windows_metadata::reader::ParamDirection::Input
-            );
-            let mut ty = Type::from_metadata_type(meta_ty, None, generics, reader);
+            let param_is_input_only = def.is_some_and(|param| {
+                param.direction() == windows_metadata::reader::ParamDirection::Input
+            });
+            let mut ty = convert(meta_ty, None, generics, reader);
+            ty.assert_callable_value(reader);
 
-            if param_is_input_only {
+            let native_reference = native
+                && matches!(
+                    meta_ty,
+                    windows_metadata::Type::RefConst(_) | windows_metadata::Type::RefMut(_)
+                );
+            if param_is_input_only && !native_reference {
                 ty = ty.to_const_type();
                 ty = ty.to_const_ptr();
             }
 
             let name = def.map_or_else(|| format!("p{position}"), |param| param.name().to_string());
-            params.push(Param { def, name, ty });
+            params.push(Param {
+                def,
+                name,
+                ty,
+                native_reference,
+            });
         }
 
         Signature {
@@ -135,7 +151,7 @@ mod tests {
                 .params
                 .iter()
                 .map(Param::is_input_only)
-                .eq([false, true, true])
+                .eq([false, false, true])
         );
         assert!(
             signature
@@ -155,7 +171,7 @@ mod tests {
     }
 
     #[test]
-    fn unspecified_is_input_only_and_input_output_is_output_capable() {
+    fn unspecified_does_not_imply_input() {
         let reader = reader(&[
             ("unspecified", 1, ParamAttributes::default()),
             (
@@ -172,7 +188,14 @@ mod tests {
                 .params
                 .iter()
                 .map(Param::is_input_only)
-                .eq([true, false, false])
+                .eq([false, false, false])
+        );
+        assert!(
+            signature
+                .params
+                .iter()
+                .map(Param::has_direction)
+                .eq([false, true, true])
         );
     }
 
@@ -189,6 +212,6 @@ mod tests {
             ["p0", "p1", "p2"]
         );
         assert_eq!(signature.params.len(), 3);
-        assert!(signature.params.iter().all(Param::is_input_only));
+        assert!(signature.params.iter().all(|param| !param.has_direction()));
     }
 }

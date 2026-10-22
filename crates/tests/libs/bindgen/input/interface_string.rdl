@@ -3,6 +3,6 @@
 mod Test {
     interface Interface {
         fn GetName(&self) -> String;
-        fn SetName(&self, value: String);
+        fn SetName(&self, #[in] value: String);
     }
 }

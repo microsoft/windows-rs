@@ -1,0 +1,32 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    type IID = GUID;
+
+    interface Factory {
+        fn Reference(&self, #[in] count: u32, #[in] #[len_param(0)] filters: *const GUID, #[in] riid: &IID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn BufferAfterId(&self, #[in] riid: *const GUID, #[in] count: u32, #[in] #[len_param(1)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn BufferOnly(&self, #[in] count: u32, #[in] #[len_param(0)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn ByteBuffer(&self, #[in] count: u32, #[in] #[size_param(0)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn FixedBuffer(&self, #[in] #[len_const(1)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn OutputBuffer(&self, #[in] riid: *const GUID, #[in] count: u32, #[out] #[len_param(1)] #[iid_is] results: *mut *mut void) -> HRESULT;
+    }
+}
+
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute NativeArrayInfoAttribute {
+                fn();
+                CountParamIndex: i16,
+                CountConst: i32,
+                CountFieldName: String,
+            }
+            attribute MemorySizeAttribute {
+                fn();
+                BytesParamIndex: i16,
+            }
+        }
+    }
+}

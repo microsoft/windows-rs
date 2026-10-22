@@ -15,32 +15,32 @@ mod Test {
     }
 
     interface Interface {
-        fn ResultVoid(&self, value: u32) -> HRESULT;
-        fn ResultValue(&self, value: u32, result: *mut Struct) -> HRESULT;
-        fn ReturnStruct(&self, value: u32, result: *mut Struct);
-        fn ReturnValue(&self, value: u32, #[retval] result: *mut Struct);
+        fn ResultVoid(&self, #[in] value: u32) -> HRESULT;
+        fn ResultValue(&self, #[in] value: u32, #[out] result: *mut Struct) -> HRESULT;
+        fn ReturnStruct(&self, #[in] value: u32, #[out] result: *mut Struct);
+        fn ReturnValue(&self, #[in] value: u32, #[out] #[retval] result: *mut Struct);
         fn ExplicitAfterInputOutput(
             &self,
             #[in] #[out] state: *mut u32,
-            #[retval] result: *mut Struct,
+            #[out] #[retval] result: *mut Struct,
         ) -> HRESULT;
         fn HeuristicAfterInputOutput(
             &self,
             #[in] #[out] state: *mut u32,
-            result: *mut Struct,
+            #[out] result: *mut Struct,
         ) -> HRESULT;
         fn RetvalInputOutput(
             &self,
             #[in] #[out] #[retval] result: *mut Struct,
         ) -> HRESULT;
-        fn RetvalOptional(&self, #[opt] #[retval] result: *mut Struct) -> HRESULT;
-        fn RetvalReserved(&self, #[reserved] #[retval] result: *mut Struct) -> HRESULT;
-        fn RetvalArray(&self, #[len_const(1)] #[retval] result: *mut Struct) -> HRESULT;
-        fn ExplicitLarge(&self, #[retval] result: *mut Large) -> HRESULT;
-        fn HeuristicLarge(&self, result: *mut Large) -> HRESULT;
+        fn RetvalOptional(&self, #[out] #[opt] #[retval] result: *mut Struct) -> HRESULT;
+        fn RetvalReserved(&self, #[out] #[reserved] #[retval] result: *mut Struct) -> HRESULT;
+        fn RetvalArray(&self, #[out] #[len_const(1)] #[retval] result: *mut Struct) -> HRESULT;
+        fn ExplicitLarge(&self, #[out] #[retval] result: *mut Large) -> HRESULT;
+        fn HeuristicLarge(&self, #[out] result: *mut Large) -> HRESULT;
         fn ExplicitVoidPointer(
             &self,
-            #[retval] result: *mut *mut void,
+            #[out] #[retval] result: *mut *mut void,
         ) -> HRESULT;
         fn ConstResultValue(
             &self,

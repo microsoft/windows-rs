@@ -2,8 +2,8 @@
 #[winrt]
 mod Test {
     interface IInterface {
-        fn First(&self, x: i32) -> i32;
-        fn Second(&self, y: i32) -> i32;
+        fn First(&self, #[in] x: i32) -> i32;
+        fn Second(&self, #[in] y: i32) -> i32;
         fn Third(&self) -> i32;
     }
 }
