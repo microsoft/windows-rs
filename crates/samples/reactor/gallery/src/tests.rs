@@ -4,7 +4,7 @@ use crate::shell::{Gallery, Message as GalleryMessage};
 use windows_reactor::*;
 
 fn mount<C: Component<Input = ()>>() -> ComponentHost<RecordingAdapter> {
-    ComponentHost::mount(RecordingAdapter::default(), [component::<C>("root", ())]).unwrap()
+    ComponentHost::mount(RecordingAdapter::default(), [component::<C>("root", ())])
 }
 
 fn property_node(
@@ -57,7 +57,7 @@ where
     C::Message: Send,
 {
     assert!(host.sender::<C>(&Key::from("root")).unwrap().send(message));
-    host.drain(64).unwrap()
+    host.drain(64)
 }
 
 #[test]
@@ -152,7 +152,7 @@ fn controlled_slider_updates_and_page_retirement_recreates_state() {
         callback.clone(),
         EventPayload::F64(72.0),
     ));
-    assert_eq!(host.drain(64).unwrap().dispatched, 1);
+    assert_eq!(host.drain(64).dispatched, 1);
     text_node(&host, "Volume: 72%");
 
     send::<Gallery>(&mut host, GalleryMessage::Navigate("button".to_string()));
@@ -162,7 +162,7 @@ fn controlled_slider_updates_and_page_retirement_recreates_state() {
         callback,
         EventPayload::F64(99.0),
     ));
-    assert_eq!(host.drain(64).unwrap().dispatched, 0);
+    assert_eq!(host.drain(64).dispatched, 0);
 
     send::<Gallery>(&mut host, GalleryMessage::Navigate("slider".to_string()));
     active_property_node(&host, PropertyId::Value, &PropertyValue::F64(35.0));

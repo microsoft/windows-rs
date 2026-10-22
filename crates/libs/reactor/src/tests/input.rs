@@ -8,9 +8,7 @@ fn pointer_event_payload_round_trips_through_recording_protocol() {
         *received_for_callback.borrow_mut() = Some(value);
     });
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Border::new().on_pointer_released(callback.clone()))
-        .unwrap();
+    runtime.update(Border::new().on_pointer_released(callback.clone()));
     let border = runtime.graph().root().unwrap();
     let payload = PointerEventInfo {
         x: 12.5,
@@ -32,7 +30,7 @@ fn pointer_event_payload_round_trips_through_recording_protocol() {
         EventPayload::PointerEventInfo(payload),
     ));
 
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 1);
+    assert_eq!(runtime.dispatch_native_events(), 1);
 
     assert_eq!(*received.borrow(), Some(payload));
     assert!(
@@ -46,13 +44,11 @@ fn pointer_event_payload_round_trips_through_recording_protocol() {
 #[test]
 fn pointer_policy_records_set_and_clear() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            Border::new()
-                .capture_pointer_on_press(true)
-                .focus_on_pointer_release(true),
-        )
-        .unwrap();
+    runtime.update(
+        Border::new()
+            .capture_pointer_on_press(true)
+            .focus_on_pointer_release(true),
+    );
     let border = runtime.graph().root().unwrap();
     assert!(
         runtime
@@ -75,7 +71,7 @@ fn pointer_policy_records_set_and_clear() {
             })
     );
 
-    let mutations = runtime.update(Border::new()).unwrap();
+    let mutations = runtime.update(Border::new());
     assert!(mutations.iter().any(|mutation| matches!(
         mutation,
         Mutation::SetProperties { object, set, clear }
@@ -108,13 +104,11 @@ fn routed_keyboard_payloads_preserve_the_handled_result() {
     assert!(character_callback.call(character));
 
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            Border::new()
-                .on_preview_key_down(key_callback.clone())
-                .on_character_received(character_callback.clone()),
-        )
-        .unwrap();
+    runtime.update(
+        Border::new()
+            .on_preview_key_down(key_callback.clone())
+            .on_character_received(character_callback.clone()),
+    );
     let border = runtime.graph().root().unwrap();
     runtime.adapter_mut().queue_event(EventDispatch::new(
         border,
@@ -128,7 +122,7 @@ fn routed_keyboard_payloads_preserve_the_handled_result() {
         EventValue::CharacterEventInfo(character_callback),
         EventPayload::CharacterEventInfo(character),
     ));
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 2);
+    assert_eq!(runtime.dispatch_native_events(), 2);
 }
 
 #[test]
@@ -147,13 +141,11 @@ fn focus_payloads_round_trip_through_recording_protocol() {
         is_direct: false,
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            Border::new()
-                .on_got_focus(callback.clone())
-                .on_lost_focus(callback.clone()),
-        )
-        .unwrap();
+    runtime.update(
+        Border::new()
+            .on_got_focus(callback.clone())
+            .on_lost_focus(callback.clone()),
+    );
     let border = runtime.graph().root().unwrap();
     for (event, value) in [(EventId::GotFocus, got), (EventId::LostFocus, lost)] {
         runtime.adapter_mut().queue_event(EventDispatch::new(
@@ -163,7 +155,7 @@ fn focus_payloads_round_trip_through_recording_protocol() {
             EventPayload::FocusEventInfo(value),
         ));
     }
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 2);
+    assert_eq!(runtime.dispatch_native_events(), 2);
     assert_eq!(&*values.borrow(), &[got, lost]);
 }
 
@@ -183,15 +175,13 @@ fn drag_drop_policy_and_payloads_round_trip_through_recording_protocol() {
         Callback::new(move |value| values.borrow_mut().push(value))
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            Border::new()
-                .drop_policy(policy.clone())
-                .on_drag_enter(drag_callback.clone())
-                .on_drag_over(drag_callback.clone())
-                .on_drop(drop_callback.clone()),
-        )
-        .unwrap();
+    runtime.update(
+        Border::new()
+            .drop_policy(policy.clone())
+            .on_drag_enter(drag_callback.clone())
+            .on_drag_over(drag_callback.clone())
+            .on_drop(drop_callback.clone()),
+    );
     let border = runtime.graph().root().unwrap();
     assert!(
         runtime
@@ -222,14 +212,14 @@ fn drag_drop_policy_and_payloads_round_trip_through_recording_protocol() {
         EventPayload::DroppedData(dropped.clone()),
     ));
 
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 3);
+    assert_eq!(runtime.dispatch_native_events(), 3);
     assert_eq!(
         &*drag_values.borrow(),
         &[DragKind::Text, DragKind::StorageItems]
     );
     assert_eq!(&*dropped_values.borrow(), &[dropped]);
 
-    let mutations = runtime.update(Border::new()).unwrap();
+    let mutations = runtime.update(Border::new());
     assert!(mutations.iter().any(|mutation| matches!(
         mutation,
         Mutation::SetProperties { object, set, clear }
@@ -250,14 +240,12 @@ fn pointer_motion_events_use_the_shared_typed_payload() {
     let entered = callback(EventId::PointerEntered);
     let exited = callback(EventId::PointerExited);
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            Border::new()
-                .on_pointer_moved(moved.clone())
-                .on_pointer_entered(entered.clone())
-                .on_pointer_exited(exited.clone()),
-        )
-        .unwrap();
+    runtime.update(
+        Border::new()
+            .on_pointer_moved(moved.clone())
+            .on_pointer_entered(entered.clone())
+            .on_pointer_exited(exited.clone()),
+    );
     let border = runtime.graph().root().unwrap();
     for (event, callback) in [
         (EventId::PointerMoved, moved),
@@ -272,7 +260,7 @@ fn pointer_motion_events_use_the_shared_typed_payload() {
         ));
     }
 
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 3);
+    assert_eq!(runtime.dispatch_native_events(), 3);
     assert_eq!(
         &*received.borrow(),
         &[
@@ -296,9 +284,7 @@ fn stale_pointer_event_does_not_reach_replacement_callback() {
         second_count_for_callback.set(second_count_for_callback.get() + 1);
     });
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Border::new().on_pointer_released(first.clone()))
-        .unwrap();
+    runtime.update(Border::new().on_pointer_released(first.clone()));
     let border = runtime.graph().root().unwrap();
     for _ in 0..2 {
         runtime.adapter_mut().queue_event(EventDispatch::new(
@@ -308,14 +294,12 @@ fn stale_pointer_event_does_not_reach_replacement_callback() {
             EventPayload::PointerEventInfo(PointerEventInfo::default()),
         ));
     }
-    let mut active = runtime.next_native_event().unwrap().unwrap();
+    let mut active = runtime.next_native_event().unwrap();
     active.invoke();
-    runtime
-        .update(Border::new().on_pointer_released(second))
-        .unwrap();
+    runtime.update(Border::new().on_pointer_released(second));
     drop(active);
 
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+    assert_eq!(runtime.dispatch_native_events(), 0);
     assert_eq!(first_count.get(), 1);
     assert_eq!(second_count.get(), 0);
 }

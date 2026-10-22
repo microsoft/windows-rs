@@ -499,8 +499,7 @@ pub mod performance {
             let mut host = ComponentHost::mount(
                 RecordingAdapter::default(),
                 [component::<TaskEditor>("root", input.clone())],
-            )
-            .unwrap();
+            );
             let collection = host
                 .runtime()
                 .graph()
@@ -527,7 +526,7 @@ pub mod performance {
                         source_revision,
                     });
             }
-            host.drain(usize::MAX).unwrap();
+            host.drain(usize::MAX);
 
             assert!(
                 input
@@ -538,7 +537,7 @@ pub mod performance {
                     .unwrap()
                     .send(RowMessage::Edit)
             );
-            host.drain(usize::MAX).unwrap();
+            host.drain(usize::MAX);
 
             Self {
                 collection,
@@ -568,7 +567,7 @@ pub mod performance {
                     .unwrap()
                     .send(RowMessage::Draft(format!("Edited task {}", self.edit)))
             );
-            self.host.drain(usize::MAX).unwrap();
+            self.host.drain(usize::MAX);
         }
 
         pub fn broad_selection_change(&mut self) {
@@ -581,7 +580,7 @@ pub mod performance {
                 self.editor_sender()
                     .send(Message::Row(RowAction::Select(self.selected)))
             );
-            self.host.drain(usize::MAX).unwrap();
+            self.host.drain(usize::MAX);
         }
 
         pub fn redundant_parent_message(&mut self) {
@@ -589,21 +588,19 @@ pub mod performance {
                 self.editor_sender()
                     .send(Message::Row(RowAction::Select(self.selected)))
             );
-            self.host.drain(usize::MAX).unwrap();
+            self.host.drain(usize::MAX);
         }
 
         pub fn unchanged_root_component_memo_hit(&mut self) {
             self.host
-                .update_input::<TaskEditor>(&Key::from("root"), self.input.clone())
-                .unwrap();
+                .update_input::<TaskEditor>(&Key::from("root"), self.input.clone());
         }
 
         pub fn value_equal_root_recomposition(&mut self) {
             let mut input = self.input.clone();
             input.render_revision = input.render_revision.checked_add(1).unwrap();
             self.host
-                .update_input::<TaskEditor>(&Key::from("root"), input.clone())
-                .unwrap();
+                .update_input::<TaskEditor>(&Key::from("root"), input.clone());
             self.input = input;
         }
 
@@ -640,7 +637,7 @@ pub mod performance {
                     container
                 })
                 .collect();
-            self.host.drain(usize::MAX).unwrap();
+            self.host.drain(usize::MAX);
         }
 
         pub fn background_completion(&mut self) {
@@ -648,7 +645,7 @@ pub mod performance {
                 generation: 0,
                 tasks: Vec::new(),
             }));
-            self.host.drain(usize::MAX).unwrap();
+            self.host.drain(usize::MAX);
         }
 
         pub fn mixed_virtual_cycle(&mut self) {
@@ -883,7 +880,6 @@ mod tests {
             RecordingAdapter::default(),
             [component::<TaskEditor>("root", input)],
         )
-        .unwrap()
     }
 
     fn virtual_collection(host: &ComponentHost<RecordingAdapter>) -> ObjectId {
@@ -942,7 +938,7 @@ mod tests {
                 index,
                 source_revision,
             });
-        host.drain(64).unwrap();
+        host.drain(64);
     }
 
     fn recycle(
@@ -961,7 +957,7 @@ mod tests {
                 container,
                 source_revision,
             });
-        host.drain(64).unwrap();
+        host.drain(64);
     }
 
     #[test]
@@ -998,7 +994,7 @@ mod tests {
                 .unwrap()
                 .send(RowMessage::Edit)
         );
-        host.drain(64).unwrap();
+        host.drain(64);
         assert_eq!(editor_input.metrics.setups.get(), 2);
         assert_eq!(editor_input.metrics.cleanups.get(), 1);
         assert!(
@@ -1034,7 +1030,7 @@ mod tests {
             callback,
             EventPayload::String("Edited task".into()),
         ));
-        let drain = host.drain(64).unwrap();
+        let drain = host.drain(64);
         assert!(drain.dispatched >= 1);
         assert!(live_text(&host, "Edited task"));
 
@@ -1055,7 +1051,7 @@ mod tests {
                 .unwrap()
                 .send(Message::Reverse)
         );
-        host.drain(64).unwrap();
+        host.drain(64);
         assert_eq!(editor_input.metrics.cleanups.get(), 3);
         assert_eq!(
             host.runtime().graph().virtual_source_revision(collection),
@@ -1082,9 +1078,9 @@ mod tests {
         let sender = input.sender.borrow().as_ref().unwrap().clone();
 
         assert!(sender.send(Message::Load));
-        host.drain(1).unwrap();
+        host.drain(1);
         assert!(sender.send(Message::Stress));
-        host.drain(1).unwrap();
+        host.drain(1);
         assert_eq!(
             host.runtime().graph().virtual_source_revision(collection),
             Some(1)
@@ -1094,7 +1090,7 @@ mod tests {
             generation: 0,
             tasks: TaskEditor::tasks(INITIAL_TASKS as u64, LOAD_TASKS),
         }));
-        host.drain(1).unwrap();
+        host.drain(1);
         assert_eq!(
             host.runtime().graph().virtual_source_revision(collection),
             Some(1)

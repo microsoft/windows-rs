@@ -196,36 +196,6 @@ pub fn property_contracts(kind: ObjectType) -> &'static [PropertyContract] {
 pub(crate) const MAX_DEPTH: usize = 128;
 pub(crate) const MAX_OBJECTS: usize = 65_536;
 
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub enum GraphError {
-    DuplicateKey(Key),
-    StaleObject(ObjectId),
-    RootTypeChanged {
-        previous: ObjectType,
-        next: ObjectType,
-    },
-    InvalidProperty(ObjectType, PropertyId),
-    InvalidPropertyValue(PropertyId),
-    InvalidEvent(ObjectType, EventId),
-    InvalidEventValue(EventId),
-    InvalidSelection(ObjectType),
-    InvalidRealization(ObjectId, usize),
-    InvalidFocus(ObjectType),
-    ReferenceUnavailable,
-    DuplicateReference,
-    DuplicateWindowTitleBar,
-    InvalidAttachment(ObjectType),
-    ExitTransitionUnsupported,
-    InvalidRelation(ObjectType, RelationId),
-    MissingChild(RelationId, ObjectId),
-    InvalidChildCategory(RelationId),
-    InvalidCardinality(RelationId),
-    MissingKey(RelationId),
-    UnresolvedComponent,
-    DepthExceeded,
-    SizeExceeded,
-}
-
 #[derive(Default)]
 pub(crate) struct DeclarationValidator {
     references: HashSet<usize>,
@@ -233,7 +203,10 @@ pub(crate) struct DeclarationValidator {
 }
 
 impl DeclarationValidator {
-    pub(crate) fn validate(&mut self, root: &Declaration) -> Result<usize, GraphError> {
+    /// Checks a declaration against the object contracts and returns its object count.
+    ///
+    /// Panics when the declaration violates a contract.
+    pub(crate) fn validate(&mut self, root: &Declaration) -> usize {
         self.references.clear();
         self.keys.clear();
         let mut objects = 0;
@@ -245,40 +218,50 @@ impl DeclarationValidator {
             &mut self.keys,
             true,
             None,
-        )?;
-        Ok(objects)
+        );
+        objects
     }
 }
 
-fn validate_menu_items(items: &[MenuItem], keys: &mut HashSet<Key>) -> Result<(), GraphError> {
+fn validate_key(keys: &mut HashSet<Key>, key: &Key) {
+    assert!(keys.insert(key.clone()), "duplicate key {key:?}");
+}
+
+pub(crate) fn validate_menu_items(items: &[MenuItem], keys: &mut HashSet<Key>) {
     for item in items {
         let (key, children) = match item {
             MenuItem::Item { key, .. } | MenuItem::Separator { key } => (key, None),
             MenuItem::Submenu { key, items, .. } => (key, Some(items.as_slice())),
         };
-        if !keys.insert(key.clone()) {
-            return Err(GraphError::DuplicateKey(key.clone()));
-        }
+        validate_key(keys, key);
         if let Some(children) = children {
-            validate_menu_items(children, keys)?;
+            validate_menu_items(children, keys);
         }
     }
-    Ok(())
 }
 
-fn validate_commands(
-    commands: &[CommandBarCommand],
-    keys: &mut HashSet<Key>,
-) -> Result<(), GraphError> {
+fn validate_commands(commands: &[CommandBarCommand], keys: &mut HashSet<Key>) {
     for command in commands {
         let key = match command {
             CommandBarCommand::Button { key, .. } | CommandBarCommand::Separator { key } => key,
         };
-        if !keys.insert(key.clone()) {
-            return Err(GraphError::DuplicateKey(key.clone()));
-        }
+        validate_key(keys, key);
     }
-    Ok(())
+}
+
+pub(crate) fn validate_limits(depth: usize, objects: usize) {
+    assert!(
+        depth <= MAX_DEPTH,
+        "declaration exceeds the maximum depth of {MAX_DEPTH}"
+    );
+    assert!(
+        objects < MAX_OBJECTS,
+        "declaration exceeds the maximum of {MAX_OBJECTS} objects"
+    );
+}
+
+fn invalid_attachment(kind: ObjectType) -> ! {
+    panic!("invalid attachment on {kind:?}")
 }
 
 fn validate_object(
@@ -289,100 +272,83 @@ fn validate_object(
     keys: &mut HashSet<Key>,
     content_dialog_allowed: bool,
     internal_kind: Option<ObjectType>,
-) -> Result<(), GraphError> {
-    if depth > MAX_DEPTH {
-        return Err(GraphError::DepthExceeded);
-    }
-    if *objects >= MAX_OBJECTS {
-        return Err(GraphError::SizeExceeded);
-    }
+) {
+    validate_limits(depth, *objects);
     *objects += 1;
     if matches!(
         declaration.kind,
         ObjectType::ToolTip | ObjectType::ContentDialog
     ) && internal_kind != Some(declaration.kind)
     {
-        return Err(GraphError::InvalidAttachment(declaration.kind));
+        invalid_attachment(declaration.kind);
     }
-    if declaration
-        .reference
-        .as_ref()
-        .is_some_and(|reference| !references.insert(reference.identity()))
-    {
-        return Err(GraphError::DuplicateReference);
-    }
+    assert!(
+        declaration
+            .reference
+            .as_ref()
+            .is_none_or(|reference| references.insert(reference.identity())),
+        "element reference declared more than once"
+    );
 
     if let Some(attachments) = &declaration.attachments {
         if let Some(tooltip) = &attachments.tooltip {
-            if depth >= MAX_DEPTH || *objects >= MAX_OBJECTS {
-                return Err(if depth >= MAX_DEPTH {
-                    GraphError::DepthExceeded
-                } else {
-                    GraphError::SizeExceeded
-                });
-            }
+            validate_limits(depth + 1, *objects);
             *objects += 1;
             validate_object(
-                child_object(&tooltip.content)?,
+                child_object(&tooltip.content),
                 depth + 2,
                 objects,
                 references,
                 keys,
                 false,
                 None,
-            )?;
+            );
         }
         if let Some(flyout) = &attachments.flyout {
             if !matches!(
                 declaration.kind,
                 ObjectType::Button | ObjectType::SplitButton
             ) {
-                return Err(GraphError::InvalidAttachment(declaration.kind));
+                invalid_attachment(declaration.kind);
             }
-            if depth >= MAX_DEPTH || *objects >= MAX_OBJECTS {
-                return Err(if depth >= MAX_DEPTH {
-                    GraphError::DepthExceeded
-                } else {
-                    GraphError::SizeExceeded
-                });
-            }
+            validate_limits(depth + 1, *objects);
             *objects += 1;
             validate_object(
-                child_object(&flyout.content)?,
+                child_object(&flyout.content),
                 depth + 2,
                 objects,
                 references,
                 keys,
                 false,
                 None,
-            )?;
+            );
         }
         if let Some(menu) = &attachments.menu {
             if !matches!(
                 declaration.kind,
                 ObjectType::Button | ObjectType::DropDownButton | ObjectType::MenuBarItem
             ) {
-                return Err(GraphError::InvalidAttachment(declaration.kind));
+                invalid_attachment(declaration.kind);
             }
-            validate_menu_items(&menu.menu.items, &mut HashSet::new())?;
+            validate_menu_items(&menu.menu.items, &mut HashSet::new());
         }
         if let Some(flyout) = &attachments.command_bar_flyout {
             if declaration.kind != ObjectType::Button {
-                return Err(GraphError::InvalidAttachment(declaration.kind));
+                invalid_attachment(declaration.kind);
             }
             let mut keys = HashSet::new();
-            validate_commands(&flyout.flyout.primary, &mut keys)?;
-            validate_commands(&flyout.flyout.secondary, &mut keys)?;
+            validate_commands(&flyout.flyout.primary, &mut keys);
+            validate_commands(&flyout.flyout.secondary, &mut keys);
         }
         if attachments.flyout.is_some()
             && (attachments.menu.is_some() || attachments.command_bar_flyout.is_some())
             || attachments.menu.is_some() && attachments.command_bar_flyout.is_some()
         {
-            return Err(GraphError::InvalidAttachment(declaration.kind));
+            invalid_attachment(declaration.kind);
         }
         if let Some(dialog) = &attachments.content_dialog {
             if !content_dialog_allowed {
-                return Err(GraphError::InvalidAttachment(ObjectType::ContentDialog));
+                invalid_attachment(ObjectType::ContentDialog);
             }
             validate_object(
                 &dialog.declaration,
@@ -392,19 +358,21 @@ fn validate_object(
                 keys,
                 false,
                 Some(ObjectType::ContentDialog),
-            )?;
+            );
         }
     }
 
     for property in declaration.properties.iter() {
-        validate_property(declaration.kind, property)?;
+        validate_property(declaration.kind, property);
     }
 
     for event in declaration.events.iter() {
-        let contract = event_contracts(declaration.kind)
+        let Some(contract) = event_contracts(declaration.kind)
             .iter()
             .find(|contract| contract.id == event.id)
-            .ok_or(GraphError::InvalidEvent(declaration.kind, event.id))?;
+        else {
+            panic!("invalid event {:?} for {:?}", event.id, declaration.kind);
+        };
         let valid = matches!(
             (contract.value, &event.value),
             (ValueType::Bool, EventValue::Bool(_))
@@ -438,46 +406,48 @@ fn validate_object(
                 | (ValueType::Keys, EventValue::Keys(_))
                 | (ValueType::Unit, EventValue::Unit(_))
         );
-        if !valid {
-            return Err(GraphError::InvalidEventValue(event.id));
-        }
+        assert!(valid, "invalid callback for event {:?}", event.id);
     }
 
     if let Some(virtual_items) = &declaration.virtual_items {
-        let Some(contract) = relation_contracts(declaration.kind)
-            .iter()
-            .find(|contract| contract.id == virtual_items.relation)
-        else {
-            return Err(GraphError::InvalidRelation(
-                declaration.kind,
-                virtual_items.relation,
-            ));
-        };
-        if contract.cardinality != Cardinality::Many
-            || contract.identity != Identity::Keyed
-            || contract.realization != Realization::Container
-            || contract.child != ObjectCategory::Visual
-        {
-            return Err(GraphError::InvalidRelation(
-                declaration.kind,
-                virtual_items.relation,
-            ));
-        }
+        assert!(
+            relation_contracts(declaration.kind).iter().any(|contract| {
+                contract.id == virtual_items.relation
+                    && contract.cardinality == Cardinality::Many
+                    && contract.identity == Identity::Keyed
+                    && contract.realization == Realization::Container
+                    && contract.child == ObjectCategory::Visual
+            }),
+            "invalid relation {:?} for {:?}",
+            virtual_items.relation,
+            declaration.kind
+        );
     }
 
     for relation in declaration.relations.iter() {
-        let contract = relation_contracts(declaration.kind)
+        let Some(contract) = relation_contracts(declaration.kind)
             .iter()
             .find(|contract| contract.id == relation.id)
-            .ok_or(GraphError::InvalidRelation(declaration.kind, relation.id))?;
+        else {
+            panic!(
+                "invalid relation {:?} for {:?}",
+                relation.id, declaration.kind
+            );
+        };
+        let cardinality = match &relation.value {
+            RelationValue::One(_) => Cardinality::One,
+            RelationValue::Many(_) => Cardinality::Many,
+        };
+        assert!(
+            contract.cardinality == cardinality,
+            "invalid cardinality for relation {:?}",
+            relation.id
+        );
         match &relation.value {
             RelationValue::One(child) => {
-                if contract.cardinality != Cardinality::One {
-                    return Err(GraphError::InvalidCardinality(relation.id));
-                }
                 if let Some(child) = child {
-                    let child = child_object(child)?;
-                    validate_child(contract, child)?;
+                    let child = child_object(child);
+                    validate_child(contract, child);
                     validate_object(
                         child,
                         depth + 1,
@@ -486,29 +456,23 @@ fn validate_object(
                         keys,
                         content_dialog_allowed,
                         None,
-                    )?;
+                    );
                 }
             }
             RelationValue::Many(children) => {
-                if contract.cardinality != Cardinality::Many {
-                    return Err(GraphError::InvalidCardinality(relation.id));
-                }
                 if contract.identity == Identity::Keyed {
                     keys.clear();
                     keys.reserve(children.len());
                     for child in children.iter() {
-                        let key = child_object(child)?
-                            .key
-                            .as_ref()
-                            .ok_or(GraphError::MissingKey(relation.id))?;
-                        if !keys.insert(key.clone()) {
-                            return Err(GraphError::DuplicateKey(key.clone()));
-                        }
+                        let Some(key) = &child_object(child).key else {
+                            panic!("children of relation {:?} require keys", relation.id);
+                        };
+                        validate_key(keys, key);
                     }
                 }
                 for child in children.iter() {
-                    let child = child_object(child)?;
-                    validate_child(contract, child)?;
+                    let child = child_object(child);
+                    validate_child(contract, child);
                     validate_object(
                         child,
                         depth + 1,
@@ -517,26 +481,21 @@ fn validate_object(
                         keys,
                         content_dialog_allowed,
                         None,
-                    )?;
+                    );
                 }
             }
         }
     }
-    Ok(())
 }
 
-fn child_object(child: &DeclaredNode) -> Result<&Declaration, GraphError> {
-    match child {
-        DeclaredNode::Object(child) => Ok(child),
-        DeclaredNode::Component { .. } | DeclaredNode::Provider(_) => {
-            Err(GraphError::UnresolvedComponent)
-        }
-    }
+fn child_object(child: &DeclaredNode) -> &Declaration {
+    child.as_object()
 }
 
-pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result<(), GraphError> {
-    let contract = property_contract(kind, property.id)
-        .ok_or(GraphError::InvalidProperty(kind, property.id))?;
+pub(crate) fn validate_property(kind: ObjectType, property: &Property) {
+    let Some(contract) = property_contract(kind, property.id) else {
+        panic!("invalid property {:?} for {kind:?}", property.id);
+    };
     let valid = match (contract.value, &property.value) {
         (ValueType::String, PropertyValue::String(_))
         | (ValueType::Bool, PropertyValue::Bool(_))
@@ -575,17 +534,14 @@ pub(crate) fn validate_property(kind: ObjectType, property: &Property) -> Result
         ) => expected == *kind && variants.contains(variant),
         _ => false,
     };
-    if valid {
-        Ok(())
-    } else {
-        Err(GraphError::InvalidPropertyValue(property.id))
-    }
+    assert!(valid, "invalid value for property {:?}", property.id);
 }
 
-fn validate_child(contract: &RelationContract, child: &Declaration) -> Result<(), GraphError> {
-    if relation_accepts(contract, child.kind) {
-        Ok(())
-    } else {
-        Err(GraphError::InvalidChildCategory(contract.id))
-    }
+fn validate_child(contract: &RelationContract, child: &Declaration) {
+    assert!(
+        relation_accepts(contract, child.kind),
+        "{:?} is not a valid child of relation {:?}",
+        child.kind,
+        contract.id
+    );
 }

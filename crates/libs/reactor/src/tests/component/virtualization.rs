@@ -126,8 +126,6 @@ impl Component for VirtualRemovingOwner {
 #[derive(Clone)]
 struct VirtualCleanupInput {
     events: Rc<RefCell<Vec<(Option<ObjectId>, bool, ComponentTaskStatus)>>>,
-    fail_apply: Rc<Cell<bool>>,
-    fail_validate: Rc<Cell<bool>>,
     published: Rc<Cell<bool>>,
     reference: ElementRef,
     task: Arc<Mutex<Option<ComponentTask>>>,
@@ -193,72 +191,44 @@ impl Component for VirtualCleanupParent {
 
 struct VirtualLifecycleAdapter {
     inner: RecordingAdapter,
-    fail_apply: Rc<Cell<bool>>,
-    fail_validate: Rc<Cell<bool>>,
     published: Rc<Cell<bool>>,
 }
 
 impl Adapter for VirtualLifecycleAdapter {
-    type Error = ();
-
-    fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
-        self.inner.preview_native_events(events);
+    fn peek_native_event(&self) -> Option<NativeEvent> {
+        self.inner.peek_native_event()
     }
 
     fn pop_native_event(&mut self) -> Option<NativeEvent> {
         self.inner.pop_native_event()
     }
 
-    fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error> {
-        if self.fail_validate.get() {
-            Err(())
-        } else {
-            self.inner.validate(mutations).map_err(|_| ())
-        }
-    }
-
-    fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
+    fn apply(&mut self, mutations: &[Mutation]) {
         self.published.set(true);
-        if self.fail_apply.get() {
-            Err(())
-        } else {
-            self.inner.apply(mutations).map_err(|_| ())
-        }
-    }
-
-    fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
-        self.inner.focus(object).map_err(|_| ())
+        self.inner.apply(mutations);
     }
 }
 
-fn virtual_cleanup_host(
-    fail_validate: bool,
-    fail_apply: bool,
-) -> (
+fn virtual_cleanup_host() -> (
     ComponentHost<VirtualLifecycleAdapter>,
     VirtualCleanupInput,
     ObjectId,
 ) {
     let input = VirtualCleanupInput {
         events: Rc::new(RefCell::new(Vec::new())),
-        fail_apply: Rc::new(Cell::new(false)),
-        fail_validate: Rc::new(Cell::new(false)),
         published: Rc::new(Cell::new(false)),
         reference: ElementRef::default(),
         task: Arc::new(Mutex::new(None)),
     };
     let adapter = VirtualLifecycleAdapter {
         inner: RecordingAdapter::default(),
-        fail_apply: Rc::clone(&input.fail_apply),
-        fail_validate: Rc::clone(&input.fail_validate),
         published: Rc::clone(&input.published),
     };
     let mut host = ComponentHost::mount_with_services(
         adapter,
         Arc::new(TestServices::default()),
         [component::<VirtualCleanupParent>("virtual", input.clone())],
-    )
-    .unwrap();
+    );
     let root = host.runtime().graph().root().unwrap();
     let collection = host
         .runtime()
@@ -274,10 +244,8 @@ fn virtual_cleanup_host(
             index: 0,
             source_revision: 0,
         });
-    host.drain(10).unwrap();
+    host.drain(10);
     input.published.set(false);
-    input.fail_validate.set(fail_validate);
-    input.fail_apply.set(fail_apply);
     (host, input, collection)
 }
 
@@ -291,8 +259,7 @@ fn root_inputs_wait_for_virtual_realization() {
             "virtual",
             VirtualEffectLog(Rc::clone(&first)),
         )],
-    )
-    .unwrap();
+    );
     let root = host.runtime().graph().root().unwrap();
     let collection = host
         .runtime()
@@ -308,9 +275,8 @@ fn root_inputs_wait_for_virtual_realization() {
     host.update_root(component::<VirtualParent>(
         "virtual",
         VirtualEffectLog(Rc::clone(&second)),
-    ))
-    .unwrap();
-    host.drain(64).unwrap();
+    ));
+    host.drain(64);
     assert_eq!(*first.borrow(), ["setup"]);
     assert_eq!(host.test_state().virtual_rows, 1);
     assert!(!host.has_pending_input());
@@ -327,8 +293,7 @@ fn virtual_rows_own_components_only_while_realized() {
             "virtual",
             VirtualEffectLog(Rc::clone(&events)),
         )],
-    )
-    .unwrap();
+    );
     let root = host.runtime().graph().root().unwrap();
     let collection = host
         .runtime()
@@ -345,7 +310,7 @@ fn virtual_rows_own_components_only_while_realized() {
             index: 9_999,
             source_revision: 0,
         });
-    host.drain(10).unwrap();
+    host.drain(10);
     assert_eq!(events.borrow().as_slice(), ["setup"]);
     assert_eq!(host.runtime().adapter().object_count(), 3);
 
@@ -356,7 +321,7 @@ fn virtual_rows_own_components_only_while_realized() {
             container: RealizedContainer(1),
             source_revision: 0,
         });
-    host.drain(10).unwrap();
+    host.drain(10);
     assert_eq!(events.borrow().as_slice(), ["setup", "cleanup"]);
     assert_eq!(host.runtime().adapter().object_count(), 2);
 }
@@ -373,8 +338,7 @@ fn virtual_row_reuses_unchanged_view_and_tracks_context() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<VirtualContextParent>("virtual", input)],
-    )
-    .unwrap();
+    );
     let root = host.runtime().graph().root().unwrap();
     let collection = host
         .runtime()
@@ -389,18 +353,18 @@ fn virtual_row_reuses_unchanged_view_and_tracks_context() {
     };
 
     host.runtime.adapter_mut().queue_realization(realize);
-    host.drain(10).unwrap();
+    host.drain(10);
     assert_eq!(renders.load(Ordering::Relaxed), 1);
 
     host.runtime.adapter_mut().queue_realization(realize);
-    host.drain(10).unwrap();
+    host.drain(10);
     assert_eq!(renders.load(Ordering::Relaxed), 1);
 
-    assert_eq!(host.set_context(&context, 1).unwrap().dispatched, 1);
+    assert_eq!(host.set_context(&context, 1).dispatched, 1);
     assert_eq!(renders.load(Ordering::Relaxed), 2);
 
     host.runtime.adapter_mut().queue_realization(realize);
-    host.drain(10).unwrap();
+    host.drain(10);
     assert_eq!(renders.load(Ordering::Relaxed), 2);
 }
 
@@ -416,8 +380,7 @@ fn virtual_row_context_consumer_is_not_hidden_by_owner() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<VirtualContextOwner>("virtual", input)],
-    )
-    .unwrap();
+    );
     let root = host.runtime().graph().root().unwrap();
     let collection = host
         .runtime()
@@ -433,10 +396,10 @@ fn virtual_row_context_consumer_is_not_hidden_by_owner() {
             index: 0,
             source_revision: 0,
         });
-    host.drain(10).unwrap();
+    host.drain(10);
     assert_eq!(renders.load(Ordering::Relaxed), 1);
 
-    assert_eq!(host.set_context(&context, 1).unwrap().dispatched, 2);
+    assert_eq!(host.set_context(&context, 1).dispatched, 2);
     assert_eq!(renders.load(Ordering::Relaxed), 2);
 }
 
@@ -452,8 +415,7 @@ fn virtual_row_consumer_is_skipped_when_owner_retires_it() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<VirtualRemovingOwner>("virtual", input)],
-    )
-    .unwrap();
+    );
     let root = host.runtime().graph().root().unwrap();
     let collection = host
         .runtime()
@@ -468,11 +430,11 @@ fn virtual_row_consumer_is_skipped_when_owner_retires_it() {
             index: 0,
             source_revision: 0,
         });
-    host.drain(10).unwrap();
+    host.drain(10);
     assert_eq!(renders.load(Ordering::Relaxed), 1);
     assert_eq!(host.test_state().virtual_rows, 1);
 
-    assert_eq!(host.set_context(&context, 1).unwrap().dispatched, 1);
+    assert_eq!(host.set_context(&context, 1).dispatched, 1);
     assert_eq!(renders.load(Ordering::Relaxed), 1);
     assert_eq!(host.test_state().virtual_rows, 0);
 }
@@ -486,8 +448,7 @@ fn pending_virtual_work_precedes_queued_component_messages() {
             "virtual",
             VirtualEffectLog(Rc::clone(&events)),
         )],
-    )
-    .unwrap();
+    );
     let root = host.runtime().graph().root().unwrap();
     let collection = host
         .runtime()
@@ -509,7 +470,7 @@ fn pending_virtual_work_precedes_queued_component_messages() {
             .send(())
     );
 
-    assert_eq!(host.drain(10).unwrap().dispatched, 1);
+    assert_eq!(host.drain(10).dispatched, 1);
     assert_eq!(events.borrow().as_slice(), ["setup"]);
 }
 
@@ -520,8 +481,7 @@ fn component_update_drains_pending_virtual_work_exactly_once() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<VirtualParent>("virtual", input.clone())],
-    )
-    .unwrap();
+    );
     let root = host.runtime().graph().root().unwrap();
     let collection = host
         .runtime()
@@ -537,11 +497,10 @@ fn component_update_drains_pending_virtual_work_exactly_once() {
             index: 9_999,
             source_revision: 0,
         });
-    host.update_input::<VirtualParent>(&Key::from("virtual"), input.clone())
-        .unwrap();
+    host.update_input::<VirtualParent>(&Key::from("virtual"), input.clone());
     assert_eq!(events.borrow().as_slice(), ["setup"]);
     assert_eq!(host.runtime().adapter().object_count(), 3);
-    host.drain(10).unwrap();
+    host.drain(10);
     assert_eq!(events.borrow().as_slice(), ["setup"]);
 
     host.runtime
@@ -551,17 +510,16 @@ fn component_update_drains_pending_virtual_work_exactly_once() {
             container: RealizedContainer(1),
             source_revision: 0,
         });
-    host.update_input::<VirtualParent>(&Key::from("virtual"), input)
-        .unwrap();
+    host.update_input::<VirtualParent>(&Key::from("virtual"), input);
     assert_eq!(events.borrow().as_slice(), ["setup", "cleanup"]);
     assert_eq!(host.runtime().adapter().object_count(), 2);
-    host.drain(10).unwrap();
+    host.drain(10);
     assert_eq!(events.borrow().as_slice(), ["setup", "cleanup"]);
 }
 
 #[test]
 fn virtual_cleanup_precedes_native_recycle_publication() {
-    let (mut host, input, collection) = virtual_cleanup_host(false, false);
+    let (mut host, input, collection) = virtual_cleanup_host();
     let object = input.reference.get();
     assert!(object.is_some());
     assert_eq!(
@@ -577,7 +535,7 @@ fn virtual_cleanup_precedes_native_recycle_publication() {
             container: RealizedContainer(1),
             source_revision: 0,
         });
-    host.drain(10).unwrap();
+    host.drain(10);
 
     assert_eq!(
         input.events.borrow().as_slice(),
@@ -585,59 +543,4 @@ fn virtual_cleanup_precedes_native_recycle_publication() {
     );
     assert!(input.published.get());
     assert_eq!(input.reference.get(), None);
-}
-
-#[test]
-fn virtual_cleanup_is_committed_once_when_native_recycle_apply_fails() {
-    let (mut host, input, collection) = virtual_cleanup_host(false, true);
-    let object = input.reference.get();
-
-    host.runtime
-        .adapter_mut()
-        .inner
-        .queue_realization(RealizationRequest::Recycle {
-            collection,
-            container: RealizedContainer(1),
-            source_revision: 0,
-        });
-    assert!(matches!(
-        host.drain(10),
-        Err(ComponentError::Runtime(UpdateError::Adapter(())))
-    ));
-    assert_eq!(
-        input.events.borrow().as_slice(),
-        [(object, false, ComponentTaskStatus::Cancelled)]
-    );
-    assert!(input.published.get());
-    assert_eq!(input.reference.get(), None);
-
-    drop(host);
-    assert_eq!(input.events.borrow().len(), 1);
-}
-
-#[test]
-fn virtual_cleanup_waits_for_successful_recycle_validation() {
-    let (mut host, input, collection) = virtual_cleanup_host(true, false);
-
-    host.runtime
-        .adapter_mut()
-        .inner
-        .queue_realization(RealizationRequest::Recycle {
-            collection,
-            container: RealizedContainer(1),
-            source_revision: 0,
-        });
-    assert!(matches!(
-        host.drain(10),
-        Err(ComponentError::Runtime(UpdateError::Adapter(())))
-    ));
-    assert_eq!(input.events.borrow().len(), 1);
-    assert!(!input.published.get());
-    assert_eq!(
-        input.task.lock().unwrap().as_ref().unwrap().status(),
-        ComponentTaskStatus::Cancelled
-    );
-
-    drop(host);
-    assert_eq!(input.events.borrow().len(), 1);
 }

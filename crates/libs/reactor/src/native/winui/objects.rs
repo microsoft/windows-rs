@@ -35,31 +35,20 @@ impl WinUiAdapter {
                     let item_texts = Rc::clone(&self.tree_node_texts);
                     let _item_invoked = value.ItemInvoked(move |_, args| {
                         let args = args.unwrap();
-                        let value = args
+                        let node = args
                             .InvokedItem()
-                            .map_err(Into::into)
-                            .and_then(|value| {
-                                value.cast::<native::ITreeViewNode>().map_err(Into::into)
-                            })
-                            .and_then(|value| com_identity(&value))
-                            .and_then(|identity| {
-                                item_texts
-                                    .borrow()
-                                    .get(&identity)
-                                    .cloned()
-                                    .ok_or(WinUiError::UnknownTreeNode(identity))
-                            });
-                        match value {
-                            Ok(value) => Self::dispatch(
-                                &item_event,
-                                &item_queue,
-                                object,
-                                EventId::ItemInvoked,
-                                None,
-                                value,
-                            ),
-                            Err(error) => report_error(error.into()),
-                        }
+                            .and_then(|value| value.cast::<native::ITreeViewNode>())
+                            .unwrap();
+                        let identity = com_identity(&node).unwrap();
+                        let value = item_texts.borrow().get(&identity).cloned().unwrap();
+                        Self::dispatch(
+                            &item_event,
+                            &item_queue,
+                            object,
+                            EventId::ItemInvoked,
+                            None,
+                            value,
+                        );
                     })?;
                     Handle::TreeView(NativeTreeView {
                         value,
@@ -451,15 +440,9 @@ impl WinUiAdapter {
                     callback(result);
                 }
             });
-            let accepted = native::DispatcherQueue::GetForCurrentThread()?
+            // The replay is dropped if the dispatcher is shutting down.
+            native::DispatcherQueue::GetForCurrentThread()?
                 .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)?;
-            if !accepted {
-                return Err(windows_core::Error::new(
-                    native::E_FAIL,
-                    "dispatcher rejected image event replay",
-                )
-                .into());
-            }
         }
         Ok(())
     }

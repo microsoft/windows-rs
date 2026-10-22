@@ -1666,7 +1666,7 @@ pub(crate) struct DeclaredCommandBarFlyout {
 
 impl DeclaredFlyout {
     pub(crate) fn declaration(&self) -> Declaration {
-        self.content.as_object().unwrap().clone()
+        self.content.as_object().clone()
     }
 }
 
@@ -1922,17 +1922,17 @@ impl DeclaredNode {
         }
     }
 
-    pub(crate) fn object(self) -> Result<Declaration, GraphError> {
+    pub(crate) fn object(self) -> Declaration {
         match self {
-            Self::Object(value) => Ok(value),
-            Self::Component { .. } | Self::Provider(_) => Err(GraphError::UnresolvedComponent),
+            Self::Object(value) => value,
+            Self::Component { .. } | Self::Provider(_) => panic!("unresolved component"),
         }
     }
 
-    pub(crate) fn as_object(&self) -> Result<&Declaration, GraphError> {
+    pub(crate) fn as_object(&self) -> &Declaration {
         match self {
-            Self::Object(value) => Ok(value),
-            Self::Component { .. } | Self::Provider(_) => Err(GraphError::UnresolvedComponent),
+            Self::Object(value) => value,
+            Self::Component { .. } | Self::Provider(_) => panic!("unresolved component"),
         }
     }
 

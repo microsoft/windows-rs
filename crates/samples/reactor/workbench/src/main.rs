@@ -576,7 +576,6 @@ mod tests {
             reactor::RecordingAdapter::default(),
             [reactor::component::<Workbench>("workbench", ())],
         )
-        .unwrap()
     }
 
     fn path(keys: &[&str]) -> Vec<reactor::Key> {
@@ -634,7 +633,7 @@ mod tests {
                 .unwrap()
                 .send(WorkbenchMessage::Reverse)
         );
-        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 1);
+        assert_eq!(host.drain(usize::MAX).dispatched, 1);
         assert_eq!(host.reference_at(&first_path).unwrap().get(), first);
         assert_eq!(host.reference_at(&second_path).unwrap().get(), second);
 
@@ -643,7 +642,7 @@ mod tests {
                 .unwrap()
                 .send(ProjectRowMessage::Sync)
         );
-        let report = host.drain(1).unwrap();
+        let report = host.drain(1);
         assert_eq!(report.dispatched, 1);
         assert!(report.mutations > 0);
         assert_eq!(host.reference_at(&first_path).unwrap().get(), first);
@@ -658,9 +657,9 @@ mod tests {
         let page = host.sender_at::<ProjectsPage>(&page_path).unwrap();
 
         assert!(page.send(ProjectsMessage::Draft("windows-rdl".into())));
-        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 2);
+        assert_eq!(host.drain(usize::MAX).dispatched, 2);
         assert!(page.send(ProjectsMessage::Add));
-        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 2);
+        assert_eq!(host.drain(usize::MAX).dispatched, 2);
 
         let project_path = path(&["workbench", "projects-page", "project:3"]);
         assert!(host.reference_at(&project_path).unwrap().get().is_some());
@@ -669,7 +668,7 @@ mod tests {
                 .unwrap()
                 .send(ProjectRowMessage::Select)
         );
-        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 2);
+        assert_eq!(host.drain(usize::MAX).dispatched, 2);
         assert_eq!(
             text(&host, &details_path).as_ref(),
             "Selected project: windows-rdl at revision 0"
@@ -688,11 +687,11 @@ mod tests {
                 .unwrap()
                 .send(WorkbenchMessage::Navigate(Page::Settings))
         );
-        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 1);
+        assert_eq!(host.drain(usize::MAX).dispatched, 1);
         assert_eq!(reference.get(), None);
 
         assert!(stale.send(ProjectRowMessage::Synced));
-        assert_eq!(host.drain(usize::MAX).unwrap().dropped, 1);
+        assert_eq!(host.drain(usize::MAX).dropped, 1);
     }
 
     #[test]
@@ -716,18 +715,17 @@ mod tests {
                     selected: false,
                 },
             )],
-        )
-        .unwrap();
+        );
         assert!(
             host.sender::<ProjectRow>(&reactor::Key::from("project"))
                 .unwrap()
                 .send(ProjectRowMessage::Sync)
         );
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert_eq!(host.drain(1).dispatched, 1);
 
-        host.remove(&reactor::Key::from("project")).unwrap();
+        host.remove(&reactor::Key::from("project"));
         std::thread::sleep(Duration::from_millis(150));
-        assert_eq!(host.drain(usize::MAX).unwrap(), Default::default());
+        assert_eq!(host.drain(usize::MAX), Default::default());
         assert_eq!(completed.load(Ordering::Relaxed), 0);
     }
 
@@ -739,7 +737,7 @@ mod tests {
                 .unwrap()
                 .send(WorkbenchMessage::Navigate(Page::Settings))
         );
-        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 1);
+        assert_eq!(host.drain(usize::MAX).dispatched, 1);
 
         let settings = path(&["workbench", "settings-page"]);
         let reference = host.reference_at(&settings).unwrap();
@@ -749,7 +747,7 @@ mod tests {
                 .unwrap()
                 .send(Theme::Dark)
         );
-        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 2);
+        assert_eq!(host.drain(usize::MAX).dispatched, 2);
         assert_eq!(reference.get(), object);
         assert_eq!(
             text(&host, &path(&["workbench", "settings-page"])).as_ref(),
@@ -763,21 +761,21 @@ mod tests {
             .sender::<Workbench>(&reactor::Key::from("workbench"))
             .unwrap();
         assert!(sender.send(WorkbenchMessage::Navigate(Page::Projects)));
-        host.drain(usize::MAX).unwrap();
+        host.drain(usize::MAX);
         assert_eq!(reference.get(), None);
         assert_eq!(
             text(&host, &path(&["workbench", "status"])).as_ref(),
             "Dark theme - 2 projects"
         );
         assert!(sender.send(WorkbenchMessage::Navigate(Page::Settings)));
-        host.drain(usize::MAX).unwrap();
+        host.drain(usize::MAX);
         assert_eq!(text(&host, &settings).as_ref(), "Shared theme: Dark");
         assert!(
             host.sender_at::<SettingsPage>(&settings)
                 .unwrap()
                 .send(Theme::Light)
         );
-        host.drain(usize::MAX).unwrap();
+        host.drain(usize::MAX);
         assert_eq!(text(&host, &settings).as_ref(), "Shared theme: Light");
         assert_eq!(
             text(&host, &path(&["workbench", "status"])).as_ref(),

@@ -157,7 +157,7 @@ moves those items, it applies the index again, and the native selection moves in
 reported. An index past the end selects nothing, except on `Pivot`, which always shows an item and
 falls back to the first. Without a declared index, `on_selection_changed` reports the selection that
 results from item changes. Selector items cannot use an exit transition, since a fading item would
-keep its native slot and stay selectable; such a removal fails with `ExitTransitionUnsupported`.
+keep its native slot and stay selectable; removing such an item panics.
 
 ## Split up the view
 
@@ -409,6 +409,17 @@ writes the declared value again after any change to that range, because some con
 | --- | --- |
 | `requires_selection = true` | The control always selects an item, so an index past the end selects the first item. |
 | `realize_items = true` | The control selects only realized item containers, so the adapter runs layout before writing the index. |
+
+Reactor fails fast. It does not roll back the retained graph or poison the runtime after a
+failure; it panics instead. A panic on the UI thread crosses a WinUI callback and aborts the
+process. `Result` is kept only where the caller can act:
+
+| Failure | Outcome |
+| --- | --- |
+| Invalid declaration (including duplicate or undeclared window, icon, or menu keys), internal bug, or failed native call after startup | Panic |
+| Startup failure, or error returned from an app closure (`run_with`, `AppContext::callback`, `AppProxy::dispatch`) | `App::run` returns the error |
+| Native failure in an imperative request such as `request_focus_result` | `Err(IntegrationError)` passed to the completion |
+| Dispatcher rejects work during shutdown, or the notification icon event queue is full | The work is dropped |
 
 After a generator or schema change, regenerate and inspect the output:
 

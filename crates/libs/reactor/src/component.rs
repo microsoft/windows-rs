@@ -629,15 +629,6 @@ struct ComponentRender {
     window: Option<Box<WindowPublication>>,
 }
 
-enum ComponentDeclarationError {
-    Effect(EffectKey),
-    WindowColorScheme,
-    WindowSize,
-    WindowPlacement,
-    WindowTitle,
-    WindowVisuals,
-}
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ComponentTaskStatus {
     Running,
@@ -809,7 +800,6 @@ struct EffectSlot {
 
 #[derive(Default)]
 struct EffectDraft {
-    duplicate: Option<EffectKey>,
     registrations: Vec<EffectRegistration>,
 }
 
@@ -829,14 +819,12 @@ impl EffectDraft {
     ) where
         D: PartialEq + 'static,
     {
-        if self
-            .registrations
-            .iter()
-            .any(|registration| registration.key == key)
-        {
-            self.duplicate.get_or_insert(key);
-            return;
-        }
+        assert!(
+            self.registrations
+                .iter()
+                .all(|registration| registration.key != key),
+            "effect {key:?} declared more than once"
+        );
         self.registrations.push(EffectRegistration {
             dependency: Box::new(dependency),
             equals: |left, right| {
@@ -903,16 +891,6 @@ impl PreparedEffects {
             }
         }
     }
-
-    fn cancel(self) {
-        for effect in self.0 {
-            if let PreparedEffect::Retained(mut slot) = effect
-                && let Some(cleanup) = slot.cleanup.take()
-            {
-                cleanup();
-            }
-        }
-    }
 }
 
 pub struct ViewContext<'a, C: Component> {
@@ -921,11 +899,6 @@ pub struct ViewContext<'a, C: Component> {
     dependencies: HashSet<ContextId>,
     effects: EffectDraft,
     window: WindowPublication,
-    window_color_scheme_duplicate: bool,
-    window_size_duplicate: bool,
-    window_placement_duplicate: bool,
-    window_title_duplicate: bool,
-    window_visuals_duplicate: bool,
 }
 
 impl<C: Component> ViewContext<'_, C> {
@@ -988,15 +961,15 @@ impl<C: Component> ViewContext<'_, C> {
 
     /// Observes native size changes without replaying them when the callback is replaced.
     pub fn on_window_size(&mut self, callback: impl IntoPayloadCallback<WindowSize>) {
-        self.window_size_duplicate |= self
-            .window
-            .on_size
-            .replace(WindowObserverDeclaration {
-                owner: self.context.local_sender.component,
-                generation: 0,
-                callback: callback.into_payload_callback(),
-            })
-            .is_some();
+        let previous = self.window.on_size.replace(WindowObserverDeclaration {
+            owner: self.context.local_sender.component,
+            generation: 0,
+            callback: callback.into_payload_callback(),
+        });
+        assert!(
+            previous.is_none(),
+            "window size observer declared more than once"
+        );
     }
 
     /// Observes restored outer bounds and maximized state, including the initial placement.
@@ -1007,15 +980,15 @@ impl<C: Component> ViewContext<'_, C> {
     /// placement; removing and re-adding the observer or changing its subscribing component starts
     /// a new subscription.
     pub fn on_window_placement(&mut self, callback: impl IntoPayloadCallback<WindowPlacement>) {
-        self.window_placement_duplicate |= self
-            .window
-            .on_placement
-            .replace(WindowObserverDeclaration {
-                owner: self.context.local_sender.component,
-                generation: 0,
-                callback: callback.into_payload_callback(),
-            })
-            .is_some();
+        let previous = self.window.on_placement.replace(WindowObserverDeclaration {
+            owner: self.context.local_sender.component,
+            generation: 0,
+            callback: callback.into_payload_callback(),
+        });
+        assert!(
+            previous.is_none(),
+            "window placement observer declared more than once"
+        );
     }
 
     /// Reports the current scheme when subscribed, then only changes to that scheme.
@@ -1024,19 +997,23 @@ impl<C: Component> ViewContext<'_, C> {
     /// observer or changing its subscribing component starts a new subscription and reports the
     /// current scheme again.
     pub fn on_color_scheme(&mut self, callback: impl IntoPayloadCallback<ColorScheme>) {
-        self.window_color_scheme_duplicate |= self
+        let previous = self
             .window
             .on_color_scheme
             .replace(WindowObserverDeclaration {
                 owner: self.context.local_sender.component,
                 generation: 0,
                 callback: callback.into_payload_callback(),
-            })
-            .is_some();
+            });
+        assert!(
+            previous.is_none(),
+            "color scheme observer declared more than once"
+        );
     }
 
     pub fn window_title(&mut self, title: impl Into<String>) {
-        self.window_title_duplicate |= self.window.title.replace(title.into()).is_some();
+        let previous = self.window.title.replace(title.into());
+        assert!(previous.is_none(), "window title declared more than once");
     }
 
     #[must_use]
@@ -1053,7 +1030,8 @@ impl<C: Component> ViewContext<'_, C> {
     }
 
     pub fn window_visuals(&mut self, visuals: WindowVisuals) {
-        self.window_visuals_duplicate |= self.window.visuals.replace(visuals).is_some();
+        let previous = self.window.visuals.replace(visuals);
+        assert!(previous.is_none(), "window visuals declared more than once");
     }
 }
 
@@ -1144,7 +1122,7 @@ trait ErasedFactory {
         services: Arc<dyn ComponentServices>,
         ui_services: Rc<dyn ComponentUiServices>,
         contexts: &HashMap<ContextId, ContextValue>,
-    ) -> Result<(Box<dyn ErasedComponent>, ComponentRender), ComponentDeclarationError>;
+    ) -> (Box<dyn ErasedComponent>, ComponentRender);
     fn input(&self) -> &dyn Any;
 }
 
@@ -1165,7 +1143,7 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
         services: Arc<dyn ComponentServices>,
         ui_services: Rc<dyn ComponentUiServices>,
         contexts: &HashMap<ContextId, ContextValue>,
-    ) -> Result<(Box<dyn ErasedComponent>, ComponentRender), ComponentDeclarationError> {
+    ) -> (Box<dyn ErasedComponent>, ComponentRender) {
         let sender = ComponentSender {
             component: id,
             queue: queues.shared,
@@ -1197,8 +1175,8 @@ impl<C: Component> ErasedFactory for TypedFactory<C> {
             tasks,
             ui_services,
         };
-        let render = scope.render_view(reference, contexts)?;
-        Ok((Box::new(scope), render))
+        let render = scope.render_view(reference, contexts);
+        (Box::new(scope), render)
     }
 
     fn input(&self) -> &dyn Any {
@@ -1253,7 +1231,7 @@ trait ErasedComponent {
         input: &dyn Any,
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
-    ) -> Result<Option<ComponentRender>, ComponentDeclarationError>;
+    ) -> Option<ComponentRender>;
     fn component_type(&self) -> TypeId;
     fn cancel_tasks(&self);
     fn dispatch(
@@ -1261,12 +1239,12 @@ trait ErasedComponent {
         message: Box<dyn Any>,
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
-    ) -> Result<ComponentRender, ComponentDeclarationError>;
+    ) -> ComponentRender;
     fn render_view(
         &mut self,
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
-    ) -> Result<ComponentRender, ComponentDeclarationError>;
+    ) -> ComponentRender;
     fn cached_view(&self) -> View;
     #[cfg(any(test, feature = "test"))]
     fn sender(&self) -> &dyn Any;
@@ -1301,46 +1279,23 @@ impl<C: Component> TypedScope<C> {
         &mut self,
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
-    ) -> Result<ComponentRender, ComponentDeclarationError> {
+    ) -> ComponentRender {
         let mut context: ViewContext<'_, C> = ViewContext {
             context: self.context(reference),
             contexts,
             dependencies: HashSet::new(),
             effects: EffectDraft::default(),
             window: WindowPublication::default(),
-            window_color_scheme_duplicate: false,
-            window_size_duplicate: false,
-            window_placement_duplicate: false,
-            window_title_duplicate: false,
-            window_visuals_duplicate: false,
         };
         let view = self.component.view(&self.input, &mut context);
-        if let Some(key) = context.effects.duplicate {
-            return Err(ComponentDeclarationError::Effect(key));
-        }
-        if context.window_color_scheme_duplicate {
-            return Err(ComponentDeclarationError::WindowColorScheme);
-        }
-        if context.window_size_duplicate {
-            return Err(ComponentDeclarationError::WindowSize);
-        }
-        if context.window_placement_duplicate {
-            return Err(ComponentDeclarationError::WindowPlacement);
-        }
-        if context.window_title_duplicate {
-            return Err(ComponentDeclarationError::WindowTitle);
-        }
-        if context.window_visuals_duplicate {
-            return Err(ComponentDeclarationError::WindowVisuals);
-        }
         self.view = Some(view.clone());
-        Ok(ComponentRender {
+        ComponentRender {
             dependencies: context.dependencies,
             effects: context.effects,
             view,
             window: (context.window != WindowPublication::default())
                 .then(|| Box::new(context.window)),
-        })
+        }
     }
 }
 
@@ -1350,15 +1305,15 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
         input: &dyn Any,
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
-    ) -> Result<Option<ComponentRender>, ComponentDeclarationError> {
+    ) -> Option<ComponentRender> {
         let input = input.downcast_ref::<C::Input>().unwrap();
         if self.input == *input {
-            return Ok(None);
+            return None;
         }
         self.input = input.clone();
         let context = self.context(reference.clone());
         self.component.input_changed(&self.input, &context);
-        self.render_view(reference, contexts).map(Some)
+        Some(self.render_view(reference, contexts))
     }
 
     fn component_type(&self) -> TypeId {
@@ -1382,7 +1337,7 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
         message: Box<dyn Any>,
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
-    ) -> Result<ComponentRender, ComponentDeclarationError> {
+    ) -> ComponentRender {
         let context = self.context(reference.clone());
         self.component
             .update(*message.downcast::<C::Message>().unwrap(), &context);
@@ -1393,7 +1348,7 @@ impl<C: Component> ErasedComponent for TypedScope<C> {
         &mut self,
         reference: ElementRef,
         contexts: &HashMap<ContextId, ContextValue>,
-    ) -> Result<ComponentRender, ComponentDeclarationError> {
+    ) -> ComponentRender {
         self.render_view(reference, contexts)
     }
 
@@ -1489,7 +1444,6 @@ struct ExpansionLocation<'a> {
 
 #[derive(Default)]
 struct ExpansionState {
-    created: Vec<ComponentId>,
     objects: usize,
     pending: Vec<PendingScopeRender>,
     seen: HashMap<ComponentId, HashSet<Key>>,
@@ -1526,50 +1480,6 @@ pub struct ComponentDrain {
     pub mutations: usize,
 }
 
-#[derive(Debug)]
-pub enum ComponentError<E> {
-    ComponentKey { component: Key, relation: Key },
-    ComponentRoot,
-    ComponentType(Key),
-    DuplicateEffect(EffectKey),
-    DuplicateKey(Key),
-    DuplicateWindowColorScheme,
-    DuplicateWindowSize,
-    DuplicateWindowPlacement,
-    DuplicateWindowTitle,
-    DuplicateWindowVisuals,
-    MissingComponent(Key),
-    Runtime(UpdateError<E>),
-}
-
-impl<E> From<UpdateError<E>> for ComponentError<E> {
-    fn from(value: UpdateError<E>) -> Self {
-        Self::Runtime(value)
-    }
-}
-
-impl<E> From<ComponentDeclarationError> for ComponentError<E> {
-    fn from(value: ComponentDeclarationError) -> Self {
-        match value {
-            ComponentDeclarationError::Effect(key) => Self::DuplicateEffect(key),
-            ComponentDeclarationError::WindowColorScheme => Self::DuplicateWindowColorScheme,
-            ComponentDeclarationError::WindowSize => Self::DuplicateWindowSize,
-            ComponentDeclarationError::WindowPlacement => Self::DuplicateWindowPlacement,
-            ComponentDeclarationError::WindowTitle => Self::DuplicateWindowTitle,
-            ComponentDeclarationError::WindowVisuals => Self::DuplicateWindowVisuals,
-        }
-    }
-}
-
-impl<E: fmt::Debug> From<ComponentError<E>> for windows_core::Error {
-    fn from(value: ComponentError<E>) -> Self {
-        Self::new(
-            windows_core::HRESULT(0x80004005_u32 as i32),
-            format!("{value:?}"),
-        )
-    }
-}
-
 /// Coordinates component scopes with retained runtime updates.
 ///
 /// The adapter is exposed read-only. Native protocol methods cannot be called through the host.
@@ -1594,7 +1504,6 @@ pub struct ComponentHost<A: Adapter> {
     contexts: HashMap<ContextId, ContextValue>,
     keys: HashMap<Key, ComponentId>,
     order: Vec<ComponentId>,
-    poisoned: bool,
     queue: SharedQueue,
     local_queue: LocalQueue,
     continuation_waker: Option<Rc<dyn Fn()>>,
@@ -1611,7 +1520,7 @@ pub struct ComponentHost<A: Adapter> {
 
 impl<A: Adapter> Drop for ComponentHost<A> {
     fn drop(&mut self) {
-        self.invalidate_host();
+        self.shutdown();
     }
 }
 
@@ -1634,16 +1543,14 @@ impl<A: Adapter> ComponentHost<A> {
         self.window_placement.callback(generation)
     }
 
-    pub(crate) fn update_root(
-        &mut self,
-        node: ComponentNode,
-    ) -> Result<(), ComponentError<A::Error>> {
-        self.ensure_active()?;
-        let id = *self.keys.get(node.key.as_ref().unwrap()).unwrap();
+    pub(crate) fn update_root(&mut self, node: ComponentNode) {
+        let key = node.key.as_ref().unwrap();
+        let id = *self.keys.get(key).unwrap();
         let scope = self.scope(id).unwrap();
-        if scope.component.component_type() != node.factory.component_type() {
-            return Err(ComponentError::ComponentType(node.key.unwrap()));
-        }
+        assert!(
+            scope.component.component_type() == node.factory.component_type(),
+            "component {key:?} changed type"
+        );
         let retired = {
             let mut queue = self.queue.lock().unwrap();
             let mut local = self.local_queue.borrow_mut();
@@ -1664,7 +1571,6 @@ impl<A: Adapter> ComponentHost<A> {
         };
         drop(retired);
         self.rearm_wake();
-        Ok(())
     }
 
     pub(crate) fn has_pending_input(&self) -> bool {
@@ -1678,7 +1584,7 @@ impl<A: Adapter> ComponentHost<A> {
         &self,
         pending: &[PendingScopeRender],
         retired: &[ComponentId],
-    ) -> Result<WindowPublication, ComponentError<A::Error>> {
+    ) -> WindowPublication {
         let mut publication = WindowPublication::default();
         for (index, slot) in self.scopes.iter().enumerate() {
             let Some(scope) = &slot.scope else {
@@ -1704,12 +1610,12 @@ impl<A: Adapter> ComponentHost<A> {
                     .replace(on_color_scheme.clone())
                     .is_some()
             {
-                return Err(ComponentError::DuplicateWindowColorScheme);
+                panic!("color scheme observer declared by more than one component");
             }
             if let Some(on_size) = &window.on_size
                 && publication.on_size.replace(on_size.clone()).is_some()
             {
-                return Err(ComponentError::DuplicateWindowSize);
+                panic!("window size observer declared by more than one component");
             }
             if let Some(on_placement) = &window.on_placement
                 && publication
@@ -1717,20 +1623,20 @@ impl<A: Adapter> ComponentHost<A> {
                     .replace(on_placement.clone())
                     .is_some()
             {
-                return Err(ComponentError::DuplicateWindowPlacement);
+                panic!("window placement observer declared by more than one component");
             }
             if let Some(title) = &window.title
                 && publication.title.replace(title.clone()).is_some()
             {
-                return Err(ComponentError::DuplicateWindowTitle);
+                panic!("window title declared by more than one component");
             }
             if let Some(visuals) = &window.visuals
                 && publication.visuals.replace(visuals.clone()).is_some()
             {
-                return Err(ComponentError::DuplicateWindowVisuals);
+                panic!("window visuals declared by more than one component");
             }
         }
-        Ok(publication)
+        publication
     }
 
     fn publish_committed_window(&mut self, mut publication: WindowPublication) {
@@ -1743,9 +1649,7 @@ impl<A: Adapter> ComponentHost<A> {
     }
 
     fn publish_window(&mut self) {
-        let Ok(publication) = self.resolve_window_publication(&[], &[]) else {
-            unreachable!()
-        };
+        let publication = self.resolve_window_publication(&[], &[]);
         self.publish_committed_window(publication);
     }
 
@@ -1766,7 +1670,7 @@ impl<A: Adapter> ComponentHost<A> {
         services: Arc<dyn ComponentServices>,
         ui_services: Rc<dyn ComponentUiServices>,
         components: impl IntoIterator<Item = ComponentNode>,
-    ) -> Result<Self, ComponentError<A::Error>> {
+    ) -> Self {
         let queue = Arc::new(Mutex::new(MessageQueue::default()));
         let local_queue = Rc::new(RefCell::new(VecDeque::new()));
         let mut host = Self {
@@ -1774,7 +1678,6 @@ impl<A: Adapter> ComponentHost<A> {
             contexts: HashMap::new(),
             keys: HashMap::new(),
             order: Vec::new(),
-            poisoned: false,
             queue,
             local_queue,
             continuation_waker: None,
@@ -1796,11 +1699,9 @@ impl<A: Adapter> ComponentHost<A> {
                 .key
                 .clone()
                 .expect("component roots require explicit keys");
-            if !keys.insert(key.clone()) {
-                return Err(ComponentError::DuplicateKey(key));
-            }
+            assert!(keys.insert(key.clone()), "duplicate key {key:?}");
             let contexts = host.contexts.clone();
-            let (id, render) = host.create_scope(None, node, contexts.clone(), HashSet::new())?;
+            let (id, render) = host.create_scope(None, node, contexts.clone(), HashSet::new());
             host.order.push(id);
             host.keys.insert(key, id);
             let view = expansion.push_render(
@@ -1821,12 +1722,12 @@ impl<A: Adapter> ComponentHost<A> {
                 },
                 0,
                 &mut expansion,
-            )?;
+            );
             declarations.push(keyed(host.scope(id).unwrap().key.clone(), view));
         }
         let root: View = Grid::new().keyed_children(declarations).into();
-        let publication = host.resolve_window_publication(&expansion.pending, &[])?;
-        host.runtime.update(root.clone())?;
+        let publication = host.resolve_window_publication(&expansion.pending, &[]);
+        host.runtime.update(root.clone());
         host.refresh_roots(&root);
         for pending in expansion.pending {
             let environment = *pending.environment;
@@ -1839,7 +1740,7 @@ impl<A: Adapter> ComponentHost<A> {
             host.replace_dependencies(pending.id, pending.dependencies);
         }
         host.publish_committed_window(publication);
-        Ok(host)
+        host
     }
 
     pub fn runtime(&self) -> &Runtime<A> {
@@ -1870,8 +1771,7 @@ impl<A: Adapter> ComponentHost<A> {
         self.continuation_waker = Some(Rc::new(waker));
     }
 
-    pub fn drain(&mut self, limit: usize) -> Result<ComponentDrain, ComponentError<A::Error>> {
-        self.ensure_active()?;
+    pub fn drain(&mut self, limit: usize) -> ComponentDrain {
         let mut report = ComponentDrain::default();
         self.queue.lock().unwrap().wake_pending = false;
         let mut processed = 0;
@@ -1883,18 +1783,7 @@ impl<A: Adapter> ComponentHost<A> {
                 }
                 break;
             }
-            let native_pending = if active_event.is_none() {
-                match self.runtime.prepare_update() {
-                    Ok(()) => false,
-                    Err(UpdateError::PendingNativeEvent) => true,
-                    Err(error) => {
-                        self.rearm_wake();
-                        return Err(self.runtime_error(error));
-                    }
-                }
-            } else {
-                false
-            };
+            let native_pending = active_event.is_none() && !self.runtime.prepare_update();
             let message = (!native_pending)
                 .then(|| {
                     let mut queue = self.queue.lock().unwrap();
@@ -1940,33 +1829,22 @@ impl<A: Adapter> ComponentHost<A> {
                     report.dropped += 1;
                     continue;
                 }
-                let mutations = match self.run_component_operation(|host| {
-                    let contexts = host.scope(component).unwrap().contexts.clone();
-                    let scope = host.scope_mut(component).unwrap();
-                    let reference = scope.reference.clone();
-                    let render = match value {
-                        LocalMessageValue::Message(value) => Some(
-                            scope
-                                .component
-                                .dispatch(value, reference, &contexts)
-                                .map_err(ComponentError::from)?,
-                        ),
-                        LocalMessageValue::Input(node) => scope
+                let contexts = self.scope(component).unwrap().contexts.clone();
+                let scope = self.scope_mut(component).unwrap();
+                let reference = scope.reference.clone();
+                let render = match value {
+                    LocalMessageValue::Message(value) => {
+                        Some(scope.component.dispatch(value, reference, &contexts))
+                    }
+                    LocalMessageValue::Input(node) => {
+                        scope
                             .component
                             .apply_input(node.factory.input(), reference, &contexts)
-                            .map_err(ComponentError::from)?,
-                    };
-                    match render {
-                        Some(render) => host.apply_render(component, render),
-                        None => Ok(UpdateStats::default()),
-                    }
-                }) {
-                    Ok(mutations) => mutations,
-                    Err(error) => {
-                        self.rearm_wake();
-                        return Err(error);
                     }
                 };
+                let mutations = render
+                    .map(|render| self.apply_render(component, render))
+                    .unwrap_or_default();
                 report.dispatched += 1;
                 report.mutations += mutations.len();
                 continue;
@@ -1975,44 +1853,26 @@ impl<A: Adapter> ComponentHost<A> {
                 continue;
             }
             match self.runtime.next_native_work() {
-                Ok(Some(NativeWork::Event(mut event))) => {
+                Some(NativeWork::Event(mut event)) => {
                     processed += 1;
-                    self.run_component_operation(|_| {
-                        event.invoke();
-                        Ok(())
-                    })?;
+                    event.invoke();
                     active_event = Some(event);
                 }
-                Ok(Some(NativeWork::Virtual(work))) => {
+                Some(NativeWork::Virtual(work)) => {
                     processed += 1;
-                    let mutations =
-                        match self.run_component_operation(|host| host.apply_virtual_work(work)) {
-                            Ok(mutations) => mutations,
-                            Err(error) => {
-                                self.rearm_wake();
-                                return Err(error);
-                            }
-                        };
-                    report.mutations += mutations.len();
+                    report.mutations += self.apply_virtual_work(work).len();
                 }
-                Ok(Some(NativeWork::Maintenance)) => {
+                Some(NativeWork::Maintenance) => {
                     processed += 1;
                 }
-                Ok(None) => break,
-                Err(error) => {
-                    self.rearm_wake();
-                    return Err(self.runtime_error(error));
-                }
+                None => break,
             }
         }
         self.rearm_wake();
-        Ok(report)
+        report
     }
 
-    fn apply_virtual_work(
-        &mut self,
-        work: VirtualWork,
-    ) -> Result<UpdateStats, ComponentError<A::Error>> {
+    fn apply_virtual_work(&mut self, work: VirtualWork) -> UpdateStats {
         match work {
             VirtualWork::Realize {
                 lease,
@@ -2024,7 +1884,7 @@ impl<A: Adapter> ComponentHost<A> {
                 if let Some(owner) = owner
                     && self.scope(owner).is_none()
                 {
-                    return Ok(UpdateStats::default());
+                    return UpdateStats::default();
                 }
                 let row_key = (lease.collection, lease.key.clone());
                 let existing = self.virtual_rows.get(&row_key).copied();
@@ -2036,22 +1896,19 @@ impl<A: Adapter> ComponentHost<A> {
                     self.scope(owner).unwrap().provided_contexts.clone()
                 });
                 let mut expansion = ExpansionState::default();
-                let (id, view, created_row) = if let Some(id) = existing {
+                let (id, view) = if let Some(id) = existing {
                     let reference = self.scope(id).unwrap().reference.clone();
                     let view = {
                         let scope = self.scope_mut(id).unwrap();
-                        let render = scope
-                            .component
-                            .apply_input(&view, reference.clone(), &contexts)
-                            .map_err(ComponentError::from)?;
+                        let render =
+                            scope
+                                .component
+                                .apply_input(&view, reference.clone(), &contexts);
                         let render = match render {
                             Some(render) => Some(render),
-                            None if scope.dependencies_changed(&contexts) => Some(
-                                scope
-                                    .component
-                                    .render_view(reference, &contexts)
-                                    .map_err(ComponentError::from)?,
-                            ),
+                            None if scope.dependencies_changed(&contexts) => {
+                                Some(scope.component.render_view(reference, &contexts))
+                            }
                             None => None,
                         };
                         if let Some(render) = render {
@@ -2067,15 +1924,11 @@ impl<A: Adapter> ComponentHost<A> {
                             scope.component.cached_view()
                         }
                     };
-                    (id, view, false)
+                    (id, view)
                 } else {
                     let node = component::<VirtualRow>(lease.key.clone(), view);
-                    let (id, render) = self.create_scope(
-                        owner,
-                        node,
-                        contexts.clone(),
-                        provided_contexts.clone(),
-                    )?;
+                    let (id, render) =
+                        self.create_scope(owner, node, contexts.clone(), provided_contexts.clone());
                     let view = expansion.push_render(
                         id,
                         render,
@@ -2084,43 +1937,23 @@ impl<A: Adapter> ComponentHost<A> {
                             provided: provided_contexts.clone(),
                         },
                     );
-                    (id, view, true)
+                    (id, view)
                 };
                 self.scope_mut(id).unwrap().contexts = contexts;
                 self.scope_mut(id).unwrap().provided_contexts = provided_contexts;
-                let declaration = match self.expand_virtual_view(id, view, &mut expansion) {
-                    Ok(declaration) => declaration,
-                    Err(error) => {
-                        self.discard_created(&expansion.created);
-                        if created_row {
-                            self.retire_scope(id);
-                        }
-                        return Err(error);
-                    }
-                };
+                let declaration = self.expand_virtual_view(id, view, &mut expansion);
                 let retired = self.unseen_scopes(&expansion.seen);
-                let publication = self.resolve_window_publication(&expansion.pending, &retired)?;
-                let mutations =
-                    match self
-                        .runtime
-                        .realize_virtual(&lease, index, declaration.clone())
-                    {
-                        Ok(mutations) => mutations,
-                        Err(error) => {
-                            self.discard_created(&expansion.created);
-                            if created_row {
-                                self.retire_scope(id);
-                            }
-                            return Err(self.runtime_error(error));
-                        }
-                    };
+                let publication = self.resolve_window_publication(&expansion.pending, &retired);
+                let mutations = self
+                    .runtime
+                    .realize_virtual(&lease, index, declaration.clone());
                 let root = self
                     .runtime
                     .graph()
                     .virtual_realization(lease.collection, lease.container)
                     .unwrap();
                 self.virtual_rows.insert(row_key, id);
-                self.refresh_roots_from(declaration.0.as_object().unwrap(), root);
+                self.refresh_roots_from(declaration.0.as_object(), root);
                 for pending in expansion.pending {
                     let environment = *pending.environment;
                     self.scope_mut(pending.id).unwrap().window = pending.window;
@@ -2134,7 +1967,7 @@ impl<A: Adapter> ComponentHost<A> {
                 self.retire_unseen(&expansion.seen);
                 self.sweep_virtual_rows();
                 self.publish_committed_window(publication);
-                Ok(mutations)
+                mutations
             }
             VirtualWork::Recycle { lease } => {
                 let row = self
@@ -2142,25 +1975,20 @@ impl<A: Adapter> ComponentHost<A> {
                     .get(&(lease.collection, lease.key.clone()))
                     .copied();
                 let (runtime, scopes) = (&mut self.runtime, &mut self.scopes);
-                let mutations = runtime
-                    .recycle_virtual_before_apply(&lease, || {
-                        if let Some(row) = row {
-                            prepare_scope_retirement(scopes, &[row]);
-                        }
-                    })
-                    .map_err(|error| self.runtime_error(error))?;
+                let mutations = runtime.recycle_virtual_before_apply(&lease, || {
+                    if let Some(row) = row {
+                        prepare_scope_retirement(scopes, &[row]);
+                    }
+                });
                 self.sweep_virtual_rows();
                 self.publish_window();
-                Ok(mutations)
+                mutations
             }
             VirtualWork::Cancel {
                 collection,
                 relation,
                 container,
-            } => self
-                .runtime
-                .cancel_virtual(collection, relation, container)
-                .map_err(|error| self.runtime_error(error)),
+            } => self.runtime.cancel_virtual(collection, relation, container),
         }
     }
 
@@ -2184,7 +2012,7 @@ impl<A: Adapter> ComponentHost<A> {
         owner: ComponentId,
         view: View,
         expansion: &mut ExpansionState,
-    ) -> Result<View, ComponentError<A::Error>> {
+    ) -> View {
         expansion.seen.entry(owner).or_default();
         let contexts = self.scope(owner).unwrap().contexts.clone();
         let provided_contexts = self.scope(owner).unwrap().provided_contexts.clone();
@@ -2204,13 +2032,13 @@ impl<A: Adapter> ComponentHost<A> {
                     path: &mut path,
                 },
                 expansion,
-            )?,
+            ),
             node => {
                 path.push(ComponentPathSegment::VirtualRoot);
-                self.expand_node(owner, node, &environment, 0, expansion, &mut path)?
+                self.expand_node(owner, node, &environment, 0, expansion, &mut path)
             }
         };
-        Ok(View(DeclaredNode::Object(declaration)))
+        View(DeclaredNode::Object(declaration))
     }
 
     fn create_scope(
@@ -2219,7 +2047,7 @@ impl<A: Adapter> ComponentHost<A> {
         node: ComponentNode,
         contexts: HashMap<ContextId, ContextValue>,
         provided_contexts: HashSet<ContextId>,
-    ) -> Result<(ComponentId, ComponentRender), ComponentError<A::Error>> {
+    ) -> (ComponentId, ComponentRender) {
         let reused = self.free_scopes.pop();
         let id = if let Some(index) = reused {
             ComponentId {
@@ -2237,7 +2065,7 @@ impl<A: Adapter> ComponentHost<A> {
             .key
             .clone()
             .expect("component scope identity must be resolved before creation");
-        let (component, render) = match node.factory.create(
+        let (component, render) = node.factory.create(
             id,
             ComponentQueues {
                 shared: Arc::clone(&self.queue),
@@ -2247,15 +2075,7 @@ impl<A: Adapter> ComponentHost<A> {
             Arc::clone(&self.services),
             Rc::clone(&self.ui_services),
             &contexts,
-        ) {
-            Ok(created) => created,
-            Err(error) => {
-                if let Some(index) = reused {
-                    self.free_scopes.push(index);
-                }
-                return Err(error.into());
-            }
-        };
+        );
         let scope = Scope {
             children: HashMap::new(),
             component,
@@ -2277,7 +2097,7 @@ impl<A: Adapter> ComponentHost<A> {
         } else {
             self.scopes[id.index as usize].scope = Some(scope);
         }
-        Ok((id, render))
+        (id, render)
     }
 
     fn expand_view(
@@ -2287,12 +2107,14 @@ impl<A: Adapter> ComponentHost<A> {
         environment: &ContextEnvironment<'_>,
         depth: usize,
         expansion: &mut ExpansionState,
-    ) -> Result<View, ComponentError<A::Error>> {
+    ) -> View {
         expansion.seen.entry(owner).or_default();
         let mut path = Vec::new();
         let declaration = match view.0 {
             DeclaredNode::Object(declaration) => declaration,
-            DeclaredNode::Component { .. } => return Err(ComponentError::ComponentRoot),
+            DeclaredNode::Component { .. } => {
+                panic!("a component view cannot be another component")
+            }
             DeclaredNode::Provider(provider) => {
                 return self.expand_provider_view(
                     owner,
@@ -2307,7 +2129,7 @@ impl<A: Adapter> ComponentHost<A> {
                 );
             }
         };
-        Ok(View(DeclaredNode::Object(self.expand_declaration(
+        View(DeclaredNode::Object(self.expand_declaration(
             owner,
             declaration,
             environment,
@@ -2317,7 +2139,7 @@ impl<A: Adapter> ComponentHost<A> {
                 path: &mut path,
             },
             expansion,
-        )?)))
+        )))
     }
 
     fn expand_provider_view(
@@ -2328,14 +2150,14 @@ impl<A: Adapter> ComponentHost<A> {
         environment: &ContextEnvironment<'_>,
         location: ExpansionLocation<'_>,
         expansion: &mut ExpansionState,
-    ) -> Result<View, ComponentError<A::Error>> {
+    ) -> View {
         let mut contexts = environment.contexts.clone();
         contexts.insert(provision.id, provision.value);
         let mut provided = environment.provided.clone();
         provided.insert(provision.id);
         match child {
             DeclaredNode::Object(declaration) => {
-                Ok(View(DeclaredNode::Object(self.expand_declaration(
+                View(DeclaredNode::Object(self.expand_declaration(
                     owner,
                     declaration,
                     &ContextEnvironment {
@@ -2345,9 +2167,9 @@ impl<A: Adapter> ComponentHost<A> {
                     true,
                     location,
                     expansion,
-                )?)))
+                )))
             }
-            _ => Err(ComponentError::ComponentRoot),
+            _ => panic!("a context provider in a component view must wrap an element"),
         }
     }
 
@@ -2359,7 +2181,7 @@ impl<A: Adapter> ComponentHost<A> {
         scope_root: bool,
         location: ExpansionLocation<'_>,
         expansion: &mut ExpansionState,
-    ) -> Result<Declaration, ComponentError<A::Error>> {
+    ) -> Declaration {
         self.expand_declaration_in_place(
             owner,
             &mut declaration,
@@ -2367,8 +2189,8 @@ impl<A: Adapter> ComponentHost<A> {
             scope_root,
             location,
             expansion,
-        )?;
-        Ok(declaration)
+        );
+        declaration
     }
 
     fn expand_declaration_in_place(
@@ -2379,17 +2201,8 @@ impl<A: Adapter> ComponentHost<A> {
         scope_root: bool,
         location: ExpansionLocation<'_>,
         expansion: &mut ExpansionState,
-    ) -> Result<(), ComponentError<A::Error>> {
-        if location.depth > MAX_DEPTH {
-            return Err(ComponentError::Runtime(UpdateError::Graph(
-                GraphError::DepthExceeded,
-            )));
-        }
-        if expansion.objects >= MAX_OBJECTS {
-            return Err(ComponentError::Runtime(UpdateError::Graph(
-                GraphError::SizeExceeded,
-            )));
-        }
+    ) {
+        validate_limits(location.depth, expansion.objects);
         expansion.objects += 1;
         if scope_root {
             declaration.component = Some(owner);
@@ -2404,7 +2217,7 @@ impl<A: Adapter> ComponentHost<A> {
             location.depth,
             expansion,
             location.path,
-        )?;
+        );
         let mut relations = std::mem::take(&mut declaration.relations);
         let relation_slice = match &mut relations {
             SharedList::Empty => &mut [],
@@ -2433,23 +2246,22 @@ impl<A: Adapter> ComponentHost<A> {
                                 path: location.path,
                             },
                             expansion,
-                        )
-                        .map(|()| None)
+                        );
+                        None
                     } else {
                         let child = Rc::try_unwrap(retained.take().unwrap())
                             .unwrap_or_else(|child| child.as_ref().clone());
-                        self.expand_node(
+                        Some(self.expand_node(
                             owner,
                             child,
                             environment,
                             location.depth + 1,
                             expansion,
                             location.path,
-                        )
-                        .map(Some)
+                        ))
                     };
                     location.path.pop();
-                    match result? {
+                    match result {
                         Some(expanded) => {
                             RelationValue::One(Some(Rc::new(DeclaredNode::Object(expanded))))
                         }
@@ -2463,8 +2275,8 @@ impl<A: Adapter> ComponentHost<A> {
                             .path
                             .push(ComponentPathSegment::Relation(relation.id, identity));
                         let result = match child {
-                            DeclaredNode::Object(declaration) => self
-                                .expand_declaration_in_place(
+                            DeclaredNode::Object(declaration) => {
+                                self.expand_declaration_in_place(
                                     owner,
                                     declaration,
                                     environment,
@@ -2474,21 +2286,20 @@ impl<A: Adapter> ComponentHost<A> {
                                         path: location.path,
                                     },
                                     expansion,
-                                )
-                                .map(|()| None),
-                            _ => self
-                                .expand_node(
-                                    owner,
-                                    child.clone(),
-                                    environment,
-                                    location.depth + 1,
-                                    expansion,
-                                    location.path,
-                                )
-                                .map(Some),
+                                );
+                                None
+                            }
+                            _ => Some(self.expand_node(
+                                owner,
+                                child.clone(),
+                                environment,
+                                location.depth + 1,
+                                expansion,
+                                location.path,
+                            )),
                         };
                         location.path.pop();
-                        if let Some(expanded) = result? {
+                        if let Some(expanded) = result {
                             *child = DeclaredNode::Object(expanded);
                         }
                     }
@@ -2498,7 +2309,6 @@ impl<A: Adapter> ComponentHost<A> {
             };
         }
         declaration.relations = relations;
-        Ok(())
     }
 
     fn expand_node(
@@ -2509,7 +2319,7 @@ impl<A: Adapter> ComponentHost<A> {
         depth: usize,
         expansion: &mut ExpansionState,
         path: &mut Vec<ComponentPathSegment>,
-    ) -> Result<Declaration, ComponentError<A::Error>> {
+    ) -> Declaration {
         match node {
             DeclaredNode::Object(declaration) => self.expand_declaration(
                 owner,
@@ -2554,17 +2364,16 @@ impl<A: Adapter> ComponentHost<A> {
         depth: usize,
         expansion: &mut ExpansionState,
         path: &mut Vec<ComponentPathSegment>,
-    ) -> Result<Declaration, ComponentError<A::Error>> {
-        let mut prepared =
-            self.prepare_component(owner, component, environment, expansion, path)?;
+    ) -> Declaration {
+        let mut prepared = self.prepare_component(owner, component, environment, expansion, path);
         let expanded = self.expand_view(
             prepared.id,
             prepared.view.take().unwrap(),
             environment,
             depth,
             expansion,
-        )?;
-        let mut declaration = expanded.0.object().unwrap();
+        );
+        let mut declaration = expanded.0.object();
         declaration.key = Some(prepared.declaration_key);
         let attachments = self.expand_attachments(
             owner,
@@ -2573,9 +2382,9 @@ impl<A: Adapter> ComponentHost<A> {
             depth,
             expansion,
             path,
-        )?;
+        );
         merge_attachments(&mut declaration.attachments, attachments);
-        Ok(declaration)
+        declaration
     }
 
     fn prepare_component(
@@ -2585,7 +2394,7 @@ impl<A: Adapter> ComponentHost<A> {
         environment: &ContextEnvironment<'_>,
         expansion: &mut ExpansionState,
         path: &[ComponentPathSegment],
-    ) -> Result<Box<PreparedComponentExpansion>, ComponentError<A::Error>> {
+    ) -> Box<PreparedComponentExpansion> {
         let ComponentExpansion {
             attachments,
             mut node,
@@ -2595,10 +2404,7 @@ impl<A: Adapter> ComponentHost<A> {
             && let Some(RelationKey::Explicit(relation_key)) = &relation_key
             && relation_key != component_key
         {
-            return Err(ComponentError::ComponentKey {
-                component: component_key.clone(),
-                relation: relation_key.clone(),
-            });
+            panic!("component key {component_key:?} does not match relation key {relation_key:?}");
         }
         let component_key = node.key.clone().unwrap_or_else(|| {
             let mut path = path.to_vec();
@@ -2613,34 +2419,30 @@ impl<A: Adapter> ComponentHost<A> {
             .clone();
         node.key = Some(component_key.clone());
         let seen = expansion.seen.entry(owner).or_default();
-        if !seen.insert(component_key.clone()) {
-            return Err(ComponentError::DuplicateKey(component_key));
-        }
+        assert!(
+            seen.insert(component_key.clone()),
+            "duplicate key {component_key:?}"
+        );
         let existing = self
             .scope(owner)
             .and_then(|scope| scope.children.get(&component_key).copied());
         let (id, view) = if let Some(id) = existing {
-            if self.scope(id).unwrap().component.component_type() != node.factory.component_type() {
-                return Err(ComponentError::ComponentType(component_key));
-            }
+            assert!(
+                self.scope(id).unwrap().component.component_type() == node.factory.component_type(),
+                "component {component_key:?} changed type"
+            );
             let scope = self.scope_mut(id).unwrap();
             let reference = scope.reference.clone();
-            let render = scope
-                .component
-                .apply_input(
-                    node.factory.input(),
-                    reference.clone(),
-                    environment.contexts,
-                )
-                .map_err(ComponentError::from)?;
+            let render = scope.component.apply_input(
+                node.factory.input(),
+                reference.clone(),
+                environment.contexts,
+            );
             let render = match render {
                 Some(render) => Some(render),
-                None if scope.dependencies_changed(environment.contexts) => Some(
-                    scope
-                        .component
-                        .render_view(reference, environment.contexts)
-                        .map_err(ComponentError::from)?,
-                ),
+                None if scope.dependencies_changed(environment.contexts) => {
+                    Some(scope.component.render_view(reference, environment.contexts))
+                }
                 None => None,
             };
             let view = if let Some(render) = render {
@@ -2664,8 +2466,7 @@ impl<A: Adapter> ComponentHost<A> {
                 node,
                 environment.contexts.clone(),
                 environment.provided.clone(),
-            )?;
-            expansion.created.push(created.0);
+            );
             self.scope_mut(owner)
                 .unwrap()
                 .children
@@ -2680,12 +2481,12 @@ impl<A: Adapter> ComponentHost<A> {
             );
             (created.0, view)
         };
-        Ok(Box::new(PreparedComponentExpansion {
+        Box::new(PreparedComponentExpansion {
             attachments,
             declaration_key,
             id,
             view: Some(view),
-        }))
+        })
     }
 
     fn expand_provider_node(
@@ -2696,7 +2497,7 @@ impl<A: Adapter> ComponentHost<A> {
         environment: &ContextEnvironment<'_>,
         location: ExpansionLocation<'_>,
         expansion: &mut ExpansionState,
-    ) -> Result<Declaration, ComponentError<A::Error>> {
+    ) -> Declaration {
         let mut contexts = environment.contexts.clone();
         contexts.insert(provision.id, provision.value);
         let mut provided = environment.provided.clone();
@@ -2722,16 +2523,10 @@ impl<A: Adapter> ComponentHost<A> {
         depth: usize,
         expansion: &mut ExpansionState,
         path: &mut Vec<ComponentPathSegment>,
-    ) -> Result<Option<Box<DeclaredAttachments>>, ComponentError<A::Error>> {
-        let Some(mut attachments) = attachments else {
-            return Ok(None);
-        };
+    ) -> Option<Box<DeclaredAttachments>> {
+        let mut attachments = attachments?;
         if let Some(mut tooltip) = attachments.tooltip.take() {
-            if expansion.objects >= MAX_OBJECTS {
-                return Err(ComponentError::Runtime(UpdateError::Graph(
-                    GraphError::SizeExceeded,
-                )));
-            }
+            validate_limits(depth, expansion.objects);
             expansion.objects += 1;
             path.push(ComponentPathSegment::Tooltip);
             let result = self.expand_node(
@@ -2743,16 +2538,12 @@ impl<A: Adapter> ComponentHost<A> {
                 path,
             );
             path.pop();
-            let expanded = result?;
+            let expanded = result;
             tooltip.content = Box::new(DeclaredNode::Object(expanded));
             attachments.tooltip = Some(tooltip);
         }
         if let Some(mut flyout) = attachments.flyout.take() {
-            if expansion.objects >= MAX_OBJECTS {
-                return Err(ComponentError::Runtime(UpdateError::Graph(
-                    GraphError::SizeExceeded,
-                )));
-            }
+            validate_limits(depth, expansion.objects);
             expansion.objects += 1;
             path.push(ComponentPathSegment::Flyout);
             let result = self.expand_node(
@@ -2764,7 +2555,7 @@ impl<A: Adapter> ComponentHost<A> {
                 path,
             );
             path.pop();
-            let expanded = result?;
+            let expanded = result;
             flyout.content = Box::new(DeclaredNode::Object(expanded));
             attachments.flyout = Some(flyout);
         }
@@ -2782,15 +2573,15 @@ impl<A: Adapter> ComponentHost<A> {
                 expansion,
             );
             path.pop();
-            dialog.declaration = result?;
+            dialog.declaration = result;
             attachments.content_dialog = Some(dialog);
         }
-        Ok(Some(attachments))
+        Some(attachments)
     }
 
     fn refresh_roots(&mut self, root: &View) {
         let object = self.runtime.graph().root().unwrap();
-        let declaration = root.0.as_object().unwrap();
+        let declaration = root.0.as_object();
         self.refresh_roots_from(declaration, object);
     }
 
@@ -2808,11 +2599,11 @@ impl<A: Adapter> ComponentHost<A> {
                     .graph()
                     .child(tooltip_object, RelationId::Content)
                     .unwrap();
-                self.refresh_roots_from(tooltip.content.as_object().unwrap(), content_object);
+                self.refresh_roots_from(tooltip.content.as_object(), content_object);
             }
             if let Some(flyout) = &attachments.flyout {
                 let content_object = self.runtime.graph().flyout(object).unwrap().0;
-                self.refresh_roots_from(flyout.content.as_object().unwrap(), content_object);
+                self.refresh_roots_from(flyout.content.as_object(), content_object);
             }
             if let Some(dialog) = &attachments.content_dialog {
                 let dialog_object = self.runtime.graph().content_dialog(object).unwrap().0;
@@ -2823,13 +2614,13 @@ impl<A: Adapter> ComponentHost<A> {
             match &relation.value {
                 RelationValue::One(Some(child)) => {
                     let object = self.runtime.graph().child(object, relation.id).unwrap();
-                    self.refresh_roots_from(child.as_object().unwrap(), object);
+                    self.refresh_roots_from(child.as_object(), object);
                 }
                 RelationValue::Many(children) => {
                     for (index, child) in children.iter().enumerate() {
                         let object =
                             self.runtime.graph().children(object, relation.id).unwrap()[index];
-                        self.refresh_roots_from(child.as_object().unwrap(), object);
+                        self.refresh_roots_from(child.as_object(), object);
                     }
                 }
                 RelationValue::One(None) => {}
@@ -2837,11 +2628,7 @@ impl<A: Adapter> ComponentHost<A> {
         }
     }
 
-    fn apply_render(
-        &mut self,
-        id: ComponentId,
-        render: ComponentRender,
-    ) -> Result<UpdateStats, ComponentError<A::Error>> {
+    fn apply_render(&mut self, id: ComponentId, render: ComponentRender) -> UpdateStats {
         let contexts = self.scope(id).unwrap().contexts.clone();
         let provided_contexts = self.scope(id).unwrap().provided_contexts.clone();
         self.apply_render_with_contexts(id, render, contexts, provided_contexts)
@@ -2853,7 +2640,7 @@ impl<A: Adapter> ComponentHost<A> {
         render: ComponentRender,
         contexts: HashMap<ContextId, ContextValue>,
         provided_contexts: HashSet<ContextId>,
-    ) -> Result<UpdateStats, ComponentError<A::Error>> {
+    ) -> UpdateStats {
         let root = self.scope(id).unwrap().root.unwrap();
         let mut expansion = ExpansionState::default();
         let view = expansion.push_render(
@@ -2864,7 +2651,7 @@ impl<A: Adapter> ComponentHost<A> {
                 provided: provided_contexts.clone(),
             },
         );
-        let view = match self.expand_view(
+        let view = self.expand_view(
             id,
             view,
             &ContextEnvironment {
@@ -2873,19 +2660,13 @@ impl<A: Adapter> ComponentHost<A> {
             },
             0,
             &mut expansion,
-        ) {
-            Ok(view) => view,
-            Err(error) => {
-                self.discard_created(&expansion.created);
-                return Err(error);
-            }
-        };
+        );
         let retired = self.unseen_scopes(&expansion.seen);
-        let publication = self.resolve_window_publication(&expansion.pending, &retired)?;
+        let publication = self.resolve_window_publication(&expansion.pending, &retired);
         let mut pending = Some(expansion.pending);
         let mut prepared = Vec::new();
         let (runtime, scopes) = (&mut self.runtime, &mut self.scopes);
-        let mutations = match runtime.update_subtree_before_apply(root, view.clone(), || {
+        let mutations = runtime.update_subtree_before_apply(root, view.clone(), || {
             for pending in pending.take().unwrap() {
                 let slots = &mut scopes[pending.id.index as usize]
                     .scope
@@ -2901,17 +2682,8 @@ impl<A: Adapter> ComponentHost<A> {
                 ));
             }
             prepare_scope_retirement(scopes, &retired);
-        }) {
-            Ok(mutations) => mutations,
-            Err(error) => {
-                for (_, prepared, _, _, _) in prepared {
-                    prepared.cancel();
-                }
-                self.discard_created(&expansion.created);
-                return Err(self.runtime_error(error));
-            }
-        };
-        self.refresh_roots_from(view.0.as_object().unwrap(), root);
+        });
+        self.refresh_roots_from(view.0.as_object(), root);
         self.retire_unseen(&expansion.seen);
         for (id, prepared, environment, dependencies, window) in prepared {
             let environment = *environment;
@@ -2923,7 +2695,7 @@ impl<A: Adapter> ComponentHost<A> {
         }
         self.sweep_virtual_rows();
         self.publish_committed_window(publication);
-        Ok(mutations)
+        mutations
     }
 
     fn retire_unseen(&mut self, seen: &HashMap<ComponentId, HashSet<Key>>) {
@@ -2968,19 +2740,6 @@ impl<A: Adapter> ComponentHost<A> {
         self.free_scopes.push(id.index);
     }
 
-    fn discard_created(&mut self, created: &[ComponentId]) {
-        for id in created.iter().rev().copied() {
-            let parent = self.scope(id).and_then(|scope| scope.parent);
-            if let Some(parent) = parent
-                && let Some(scope) = self.scope_mut(parent)
-            {
-                scope.children.retain(|_, child| *child != id);
-            }
-
-            self.retire_scope(id);
-        }
-    }
-
     fn unseen_scopes(&self, seen: &HashMap<ComponentId, HashSet<Key>>) -> Vec<ComponentId> {
         seen.iter()
             .flat_map(|(parent, keys)| {
@@ -3007,25 +2766,10 @@ impl<A: Adapter> ComponentHost<A> {
             .flatten()
     }
 
-    fn run_component_operation<T>(
-        &mut self,
-        operation: impl FnOnce(&mut Self) -> Result<T, ComponentError<A::Error>>,
-    ) -> Result<T, ComponentError<A::Error>> {
-        match operation(self) {
-            Ok(value) => Ok(value),
-            Err(error) => {
-                self.invalidate_host();
-                Err(error)
-            }
-        }
-    }
-
-    fn invalidate_host(&mut self) {
-        self.poisoned = true;
+    fn shutdown(&mut self) {
         self.window_color_scheme = WindowObserverLifetime::default();
         self.window_size = WindowObserverLifetime::default();
         self.window_placement = WindowObserverLifetime::default();
-        self.runtime.poison_and_discard_all();
         self.context_consumers.clear();
         self.contexts.clear();
         self.keys.clear();
@@ -3071,24 +2815,6 @@ impl<A: Adapter> ComponentHost<A> {
             }
             drop(scope);
         }
-    }
-
-    fn ensure_active(&self) -> Result<(), ComponentError<A::Error>> {
-        if self.poisoned {
-            Err(ComponentError::Runtime(UpdateError::Poisoned))
-        } else {
-            Ok(())
-        }
-    }
-
-    fn runtime_error(&mut self, error: UpdateError<A::Error>) -> ComponentError<A::Error> {
-        if matches!(
-            &error,
-            UpdateError::Adapter(_) | UpdateError::InvalidNativeEvent(_) | UpdateError::Poisoned
-        ) {
-            self.invalidate_host();
-        }
-        ComponentError::Runtime(error)
     }
 
     fn rearm_wake(&self) {

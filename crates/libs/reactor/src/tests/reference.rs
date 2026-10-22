@@ -4,18 +4,17 @@ use super::*;
 fn reference_only_changes_reconcile_without_native_mutations() {
     let reference: ElementRef = ElementRef::default();
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(Button::new()).unwrap();
+    runtime.update(Button::new());
     let button = runtime.graph().root().unwrap();
 
     assert!(
         runtime
             .update(Button::new().element_ref(&reference))
-            .unwrap()
             .is_empty()
     );
     assert_eq!(reference.get(), Some(button));
 
-    assert!(runtime.update(Button::new()).unwrap().is_empty());
+    assert!(runtime.update(Button::new()).is_empty());
     assert_eq!(reference.get(), None);
 }
 
@@ -25,31 +24,20 @@ struct HoldingImperativeAdapter {
 }
 
 impl Adapter for HoldingImperativeAdapter {
-    type Error = AdapterError;
-
-    fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
-        self.inner.preview_native_events(events);
+    fn peek_native_event(&self) -> Option<NativeEvent> {
+        self.inner.peek_native_event()
     }
 
     fn pop_native_event(&mut self) -> Option<NativeEvent> {
         self.inner.pop_native_event()
     }
 
-    fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error> {
-        self.inner.validate(mutations)
+    fn apply(&mut self, mutations: &[Mutation]) {
+        self.inner.apply(mutations);
     }
 
-    fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
-        self.inner.apply(mutations)
-    }
-
-    fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
-        self.inner.focus(object)
-    }
-
-    fn imperative(&mut self, request: ImperativeRequest) -> Result<(), Self::Error> {
+    fn imperative(&mut self, request: ImperativeRequest) {
         self.commands.borrow_mut().push(request);
-        Ok(())
     }
 }
 
@@ -73,14 +61,12 @@ fn typed_element_reference_queues_focus() {
     let reference = ElementRef::<TextBox>::new();
     let result = Rc::new(Cell::new(None));
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(TextBox::new().text("").element_ref(&reference))
-        .unwrap();
+    runtime.update(TextBox::new().text("").element_ref(&reference));
     let completed = Rc::clone(&result);
     assert!(reference.request_focus_result(move |value| {
         completed.set(Some(value));
     }));
-    runtime.dispatch_native_events().unwrap();
+    runtime.dispatch_native_events();
     assert_eq!(result.get(), Some(Ok(true)));
 }
 
@@ -97,9 +83,7 @@ fn element_reference_queues_automation_notification() {
         inner: RecordingAdapter::default(),
         commands: Rc::clone(&commands),
     });
-    runtime
-        .update(Button::new().element_ref(&reference))
-        .unwrap();
+    runtime.update(Button::new().element_ref(&reference));
     let completed = Rc::clone(&result);
     assert!(
         reference.request_notification_result(
@@ -110,7 +94,7 @@ fn element_reference_queues_automation_notification() {
             move |value| completed.set(Some(value)),
         )
     );
-    runtime.dispatch_native_events().unwrap();
+    runtime.dispatch_native_events();
 
     let ImperativeRequest::Notify {
         notification,
@@ -152,17 +136,13 @@ fn stale_imperative_completion_reports_unavailable_after_rebinding() {
         inner: RecordingAdapter::default(),
         commands: Rc::clone(&commands),
     });
-    runtime
-        .update(Image::new().element_ref(&reference))
-        .unwrap();
+    runtime.update(Image::new().element_ref(&reference));
     let callback_results = Rc::clone(&results);
     assert!(reference.request_set_native_source(None, move |result| {
         callback_results.borrow_mut().push(result);
     }));
-    runtime.dispatch_native_events().unwrap();
-    runtime
-        .update(Image::new().element_ref(&replacement))
-        .unwrap();
+    runtime.dispatch_native_events();
+    runtime.update(Image::new().element_ref(&replacement));
 
     let ImperativeRequest::SetNativeImageSource { completion, .. } =
         commands.borrow_mut().remove(0)
@@ -202,32 +182,26 @@ fn surface_binding_tokens_follow_reference_bindings_not_panel_identity() {
             .unwrap()
     };
 
-    runtime
-        .update(SwapChainPanel::new().element_ref(&reference))
-        .unwrap();
-    runtime.dispatch_native_events().unwrap();
+    runtime.update(SwapChainPanel::new().element_ref(&reference));
+    runtime.dispatch_native_events();
     let panel = reference.get().unwrap();
     let initial = last_binding();
 
-    runtime
-        .update(SwapChainPanel::new().element_ref(&reference).width(100.0))
-        .unwrap();
+    runtime.update(SwapChainPanel::new().element_ref(&reference).width(100.0));
     commands.borrow_mut().clear();
     let _second_observation = reference.observe_surface(|_| {});
-    runtime.dispatch_native_events().unwrap();
+    runtime.dispatch_native_events();
     assert_eq!(last_binding(), initial);
     assert_eq!(reference.get(), Some(panel));
 
-    runtime.update(SwapChainPanel::new()).unwrap();
-    runtime.dispatch_native_events().unwrap();
+    runtime.update(SwapChainPanel::new());
+    runtime.dispatch_native_events();
     assert_eq!(reference.get(), None);
     assert_eq!(runtime.graph().root(), Some(panel));
 
     commands.borrow_mut().clear();
-    runtime
-        .update(SwapChainPanel::new().element_ref(&reference))
-        .unwrap();
-    runtime.dispatch_native_events().unwrap();
+    runtime.update(SwapChainPanel::new().element_ref(&reference));
+    runtime.dispatch_native_events();
     let rebound = last_binding();
     assert_ne!(rebound, initial);
     assert_eq!(reference.get(), Some(panel));
@@ -254,29 +228,29 @@ fn observations_follow_reference_rebinding_and_drop() {
         commands: Rc::clone(&commands),
     });
 
-    runtime.update(Grid::new().element_ref(&reference)).unwrap();
-    runtime.dispatch_native_events().unwrap();
+    runtime.update(Grid::new().element_ref(&reference));
+    runtime.dispatch_native_events();
     assert!(matches!(
         commands.borrow().last(),
         Some(ImperativeRequest::ObserveCompositionHost { .. })
     ));
 
-    runtime.update(Grid::new()).unwrap();
-    runtime.dispatch_native_events().unwrap();
+    runtime.update(Grid::new());
+    runtime.dispatch_native_events();
     assert!(matches!(
         commands.borrow().last(),
         Some(ImperativeRequest::RevokeObservation { .. })
     ));
 
-    runtime.update(Grid::new().element_ref(&reference)).unwrap();
-    runtime.dispatch_native_events().unwrap();
+    runtime.update(Grid::new().element_ref(&reference));
+    runtime.dispatch_native_events();
     assert!(matches!(
         commands.borrow().last(),
         Some(ImperativeRequest::ObserveCompositionHost { .. })
     ));
 
     drop(observation);
-    runtime.dispatch_native_events().unwrap();
+    runtime.dispatch_native_events();
     assert!(matches!(
         commands.borrow().last(),
         Some(ImperativeRequest::RevokeObservation { .. })
@@ -291,7 +265,7 @@ fn observation_lifecycle_survives_imperative_queue_saturation() {
         inner: RecordingAdapter::default(),
         commands: Rc::clone(&commands),
     });
-    runtime.update(Grid::new().element_ref(&reference)).unwrap();
+    runtime.update(Grid::new().element_ref(&reference));
 
     for _ in 0..IMPERATIVE_QUEUE_CAPACITY {
         assert!(reference.request_focus());
@@ -299,7 +273,7 @@ fn observation_lifecycle_survives_imperative_queue_saturation() {
     assert!(!reference.request_focus());
     let observation = reference.observe_composition_host(|_| {});
     for _ in 0..=IMPERATIVE_QUEUE_CAPACITY / 64 {
-        runtime.dispatch_native_events().unwrap();
+        runtime.dispatch_native_events();
     }
     assert!(matches!(
         commands.borrow().last(),
@@ -310,9 +284,9 @@ fn observation_lifecycle_survives_imperative_queue_saturation() {
     for _ in 0..IMPERATIVE_QUEUE_CAPACITY {
         assert!(reference.request_focus());
     }
-    runtime.update(Grid::new()).unwrap();
+    runtime.update(Grid::new());
     for _ in 0..=IMPERATIVE_QUEUE_CAPACITY / 64 {
-        runtime.dispatch_native_events().unwrap();
+        runtime.dispatch_native_events();
     }
     assert!(matches!(
         commands.borrow().last(),
@@ -320,15 +294,15 @@ fn observation_lifecycle_survives_imperative_queue_saturation() {
     ));
     commands.borrow_mut().clear();
 
-    runtime.update(Grid::new().element_ref(&reference)).unwrap();
-    runtime.dispatch_native_events().unwrap();
+    runtime.update(Grid::new().element_ref(&reference));
+    runtime.dispatch_native_events();
     commands.borrow_mut().clear();
     for _ in 0..IMPERATIVE_QUEUE_CAPACITY {
         assert!(reference.request_focus());
     }
     drop(observation);
     for _ in 0..=IMPERATIVE_QUEUE_CAPACITY / 64 {
-        runtime.dispatch_native_events().unwrap();
+        runtime.dispatch_native_events();
     }
     assert!(matches!(
         commands.borrow().last(),
@@ -341,17 +315,15 @@ fn destroying_observed_object_discards_queued_revocation() {
     let reference = ElementRef::<Grid>::new();
     let _observation = reference.observe_composition_host(|_| {});
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            Grid::new().keyed_children([keyed("observed", Grid::new().element_ref(&reference))]),
-        )
-        .unwrap();
-    runtime.dispatch_native_events().unwrap();
+    runtime.update(
+        Grid::new().keyed_children([keyed("observed", Grid::new().element_ref(&reference))]),
+    );
+    runtime.dispatch_native_events();
 
-    runtime.update(Grid::new()).unwrap();
+    runtime.update(Grid::new());
 
     assert_eq!(reference.get(), None);
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+    assert_eq!(runtime.dispatch_native_events(), 0);
 }
 
 #[test]
@@ -359,20 +331,18 @@ fn retiring_observed_object_forwards_queued_revocation() {
     let reference = ElementRef::<Grid>::new();
     let _observation = reference.observe_composition_host(|_| {});
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            Grid::new().keyed_children([keyed(
-                "observed",
-                Grid::new()
-                    .element_ref(&reference)
-                    .exit_fade(Duration::from_millis(50)),
-            )]),
-        )
-        .unwrap();
-    runtime.dispatch_native_events().unwrap();
+    runtime.update(
+        Grid::new().keyed_children([keyed(
+            "observed",
+            Grid::new()
+                .element_ref(&reference)
+                .exit_fade(Duration::from_millis(50)),
+        )]),
+    );
+    runtime.dispatch_native_events();
 
-    runtime.update(Grid::new()).unwrap();
-    runtime.dispatch_native_events().unwrap();
+    runtime.update(Grid::new());
+    runtime.dispatch_native_events();
 
     assert_eq!(reference.get(), None);
     assert!(matches!(
@@ -387,9 +357,7 @@ fn dropping_runtime_clears_typed_reference_and_pending_completion() {
     let results = Rc::new(RefCell::new(Vec::new()));
     {
         let mut runtime = Runtime::new(RecordingAdapter::default());
-        runtime
-            .update(SwapChainPanel::new().element_ref(&reference))
-            .unwrap();
+        runtime.update(SwapChainPanel::new().element_ref(&reference));
         let callback_results = Rc::clone(&results);
         assert!(reference.request_clear_swap_chain(move |result| {
             callback_results.borrow_mut().push(result);
@@ -409,18 +377,16 @@ fn imperative_budget_rearms_pending_work() {
     let wake_count = Rc::clone(&wakes);
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime.set_imperative_waker(move || wake_count.set(wake_count.get() + 1));
-    runtime
-        .update(Image::new().element_ref(&reference))
-        .unwrap();
+    runtime.update(Image::new().element_ref(&reference));
     for _ in 0..65 {
         assert!(reference.request_set_native_source(None, |_| {}));
     }
     wakes.set(0);
 
-    runtime.dispatch_native_events().unwrap();
+    runtime.dispatch_native_events();
 
     assert_eq!(wakes.get(), 1);
-    runtime.dispatch_native_events().unwrap();
+    runtime.dispatch_native_events();
     assert_eq!(runtime.adapter().imperatives().len(), 65);
 }
 
@@ -428,12 +394,10 @@ fn imperative_budget_rearms_pending_work() {
 fn reference_transfers_are_order_independent() {
     let reference: ElementRef = ElementRef::default();
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(StackPanel::new().children([
-            Button::new().into(),
-            Button::new().element_ref(&reference).into(),
-        ]))
-        .unwrap();
+    runtime.update(StackPanel::new().children([
+        Button::new().into(),
+        Button::new().element_ref(&reference).into(),
+    ]));
     let root = runtime.graph().root().unwrap();
     let children = runtime
         .graph()
@@ -448,7 +412,6 @@ fn reference_transfers_are_order_independent() {
                 Button::new().element_ref(&reference).into(),
                 Button::new().into(),
             ]),)
-            .unwrap()
             .is_empty()
     );
     assert_eq!(reference.get(), Some(children[0]));
@@ -459,7 +422,6 @@ fn reference_transfers_are_order_independent() {
                 Button::new().into(),
                 Button::new().element_ref(&reference).into(),
             ]),)
-            .unwrap()
             .is_empty()
     );
     assert_eq!(reference.get(), Some(children[1]));
@@ -469,11 +431,9 @@ fn reference_transfers_are_order_independent() {
 fn references_survive_keyed_replacement_and_clear_on_destruction() {
     let reference: ElementRef = ElementRef::default();
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            Grid::new().keyed_children([keyed("focused", Button::new().element_ref(&reference))]),
-        )
-        .unwrap();
+    runtime.update(
+        Grid::new().keyed_children([keyed("focused", Button::new().element_ref(&reference))]),
+    );
     let root = runtime.graph().root().unwrap();
     let child = runtime
         .graph()
@@ -481,12 +441,10 @@ fn references_survive_keyed_replacement_and_clear_on_destruction() {
         .unwrap()[0];
     assert_eq!(reference.get(), Some(child));
 
-    runtime
-        .update(Grid::new().keyed_children([keyed(
-            "focused",
-            TextBox::new().text("replacement").element_ref(&reference),
-        )]))
-        .unwrap();
+    runtime.update(Grid::new().keyed_children([keyed(
+        "focused",
+        TextBox::new().text("replacement").element_ref(&reference),
+    )]));
     let replacement = runtime
         .graph()
         .children(root, RelationId::Children)
@@ -495,34 +453,16 @@ fn references_survive_keyed_replacement_and_clear_on_destruction() {
     assert_eq!(reference.get(), Some(replacement));
     assert_eq!(runtime.graph().kind(replacement), Some(ObjectType::TextBox));
 
-    runtime.update(Grid::new()).unwrap();
+    runtime.update(Grid::new());
     assert_eq!(reference.get(), None);
 }
 
 #[test]
-fn duplicate_references_are_rejected_before_reconciliation() {
+#[should_panic(expected = "element reference declared more than once")]
+fn duplicate_references_panic() {
     let reference: ElementRef = ElementRef::default();
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(StackPanel::new().children([Button::new().into()]))
-        .unwrap();
-    let root = runtime.graph().root().unwrap();
-
-    assert_eq!(
-        runtime.update(StackPanel::new().children([
-            Button::new().element_ref(&reference).into(),
-            Button::new().element_ref(&reference).into(),
-        ]),),
-        Err(UpdateError::Graph(GraphError::DuplicateReference))
-    );
-    assert_eq!(reference.get(), None);
-    assert_eq!(runtime.graph().root(), Some(root));
-    assert_eq!(
-        runtime
-            .graph()
-            .children(root, RelationId::Children)
-            .unwrap()
-            .len(),
-        1
-    );
+    Runtime::new(RecordingAdapter::default()).update(StackPanel::new().children([
+        Button::new().element_ref(&reference).into(),
+        Button::new().element_ref(&reference).into(),
+    ]));
 }

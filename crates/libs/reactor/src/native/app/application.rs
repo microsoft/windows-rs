@@ -46,7 +46,6 @@ impl App {
     ///
     /// Window declarations are reopenable slots, not open windows. The application exits when
     /// no user windows or notification icons remain, after pending lifecycle work has settled.
-    /// Native creation, update, and Shell recovery failures are returned as application errors.
     pub fn run_application<A: Application>(input: A::Input) -> windows_core::Result<()> {
         Self::run_with(move |context| ApplicationHost::<A>::new(context, input))
     }
@@ -58,24 +57,16 @@ impl<A: Application> ApplicationHost<A> {
         let weak = Rc::downgrade(&state);
         let application = LiveApplication::new(app, false)?;
         let drain = application.services.dispatch.callback(app, move || {
-            if let Some(state) = weak.upgrade() {
-                let mut state = state.borrow_mut();
-                if let Some(state) = state.as_mut()
-                    && let Err(error) = state.drain()
-                {
-                    state.exiting = true;
-                    return Err(error);
-                }
+            if let Some(state) = weak.upgrade()
+                && let Some(state) = state.borrow_mut().as_mut()
+            {
+                state.drain();
             }
             Ok(())
         });
         let host = Self { state, drain };
         let wake = host.drain.clone();
-        let messages = ApplicationMessages::new(move || {
-            if let Err(error) = wake.invoke() {
-                report_error(error);
-            }
-        });
+        let messages = ApplicationMessages::new(move || wake.wake());
         let context = ApplicationContext {
             sender: messages.sender(),
             commands: RefCell::new(Vec::new()),
@@ -97,7 +88,7 @@ impl<A: Application> ApplicationHost<A> {
             menu_owner: None,
             exiting: false,
         };
-        state.render()?;
+        state.render();
         *host.state.borrow_mut() = Some(state);
         host.drain.invoke()?;
         Ok(host)
@@ -120,7 +111,7 @@ impl<A: Application> Drop for ApplicationState<A> {
 }
 
 impl<A: Application> ApplicationState<A> {
-    fn render(&mut self) -> windows_core::Result<()> {
+    fn render(&mut self) {
         if self
             .context
             .commands
@@ -128,7 +119,7 @@ impl<A: Application> ApplicationState<A> {
             .iter()
             .any(|command| matches!(command, ApplicationCommand::Exit))
         {
-            return Ok(());
+            return;
         }
         let view = self.model.view(
             &self.input,
@@ -136,10 +127,10 @@ impl<A: Application> ApplicationState<A> {
                 sender: self.messages.sender(),
             },
         );
-        view.validate()?;
+        view.validate();
         for (_, icon) in &view.icons {
             if let Some(menu) = &icon.menu {
-                transient_menu::validate_menu_items(&menu.items, &mut HashSet::new())?;
+                validate_menu_items(&menu.items, &mut HashSet::new());
             }
         }
 
@@ -184,7 +175,7 @@ impl<A: Application> ApplicationState<A> {
             .cloned()
             .collect();
         for key in removed {
-            self.dismiss_menu(&key)?;
+            self.dismiss_menu(&key);
             self.icons.remove(&key);
         }
         for (key, declaration) in view.icons {
@@ -199,15 +190,17 @@ impl<A: Application> ApplicationState<A> {
                             host.handle().update_callback(&current.on_click);
                         }
                     }
-                    _ => self.dismiss_menu(&key)?,
+                    _ => self.dismiss_menu(&key),
                 }
             }
             if let Some(icon) = self.icons.get_mut(&key) {
                 if icon.declaration.path != declaration.path {
-                    icon.native.set_icon(&declaration.path)?;
+                    icon.native.set_icon(&declaration.path).unwrap();
                 }
                 if icon.declaration.tooltip != declaration.tooltip {
-                    icon.native.set_tooltip(declaration.tooltip.as_deref())?;
+                    icon.native
+                        .set_tooltip(declaration.tooltip.as_deref())
+                        .unwrap();
                 }
                 icon.declaration = declaration;
             } else {
@@ -218,9 +211,8 @@ impl<A: Application> ApplicationState<A> {
                 let wake = self.application.state.borrow().changed.clone().unwrap();
                 let mut builder = NativeIcon::new(&declaration.path).on_event(move |event| {
                     let mut events = events.borrow_mut();
+                    // Like window work, events beyond the capacity are dropped.
                     if events.len() >= WINDOW_WORK_CAPACITY {
-                        drop(events);
-                        report_error(application_error("notification event queue is full"));
                         return;
                     }
                     events.push_back(IconEvent {
@@ -229,14 +221,12 @@ impl<A: Application> ApplicationState<A> {
                         event,
                     });
                     drop(events);
-                    if let Err(error) = wake.invoke() {
-                        report_error(error);
-                    }
+                    wake.wake();
                 });
                 if let Some(tooltip) = &declaration.tooltip {
                     builder = builder.tooltip(tooltip);
                 }
-                let native = builder.build()?;
+                let native = builder.build().unwrap();
                 self.icons.insert(
                     key,
                     IconSlot {
@@ -247,26 +237,24 @@ impl<A: Application> ApplicationState<A> {
                 );
             }
         }
-        Ok(())
     }
 
-    fn dismiss_menu(&mut self, owner: &Key) -> windows_core::Result<()> {
+    fn dismiss_menu(&mut self, owner: &Key) {
         if self.menu_owner.as_ref() == Some(owner) {
             if let Some(host) = &self.menu_host {
-                host.handle().hide()?;
+                host.handle().hide().unwrap();
             }
             self.menu_owner = None;
         }
-        Ok(())
     }
 
-    fn dispatch_icon_event(&mut self, event: IconEvent) -> windows_core::Result<()> {
+    fn dispatch_icon_event(&mut self, event: IconEvent) {
         let Some(icon) = self
             .icons
             .get(&event.key)
             .filter(|icon| icon.generation == event.generation)
         else {
-            return Ok(());
+            return;
         };
         match event.event {
             NotifyIconEvent::Activate { position } => {
@@ -276,7 +264,7 @@ impl<A: Application> ApplicationState<A> {
             }
             NotifyIconEvent::ContextMenu { position } => {
                 let Some(menu) = &icon.declaration.menu else {
-                    return Ok(());
+                    return;
                 };
                 let menu = menu.clone();
                 if self
@@ -285,38 +273,41 @@ impl<A: Application> ApplicationState<A> {
                     .is_some_and(|host| host.handle().is_open())
                 {
                     if self.menu_owner.as_ref() == Some(&event.key) {
-                        return Ok(());
+                        return;
                     }
                     if let Some(owner) = self.menu_owner.clone() {
-                        self.dismiss_menu(&owner)?;
+                        self.dismiss_menu(&owner);
                     }
                 }
                 if self.menu_host.is_none() {
-                    self.menu_host = Some(TransientMenuHost::new(
-                        self.application.state.borrow().context.dispatcher.clone(),
-                        MenuTheme::System,
-                    )?);
+                    self.menu_host = Some(
+                        TransientMenuHost::new(
+                            self.application.state.borrow().context.dispatcher.clone(),
+                            MenuTheme::System,
+                        )
+                        .unwrap(),
+                    );
                 }
                 self.menu_host
                     .as_ref()
                     .unwrap()
                     .handle()
-                    .show(ScreenPoint::new(position.x, position.y), menu)?;
+                    .show(ScreenPoint::new(position.x, position.y), menu)
+                    .unwrap();
                 self.menu_owner = Some(event.key);
             }
-            NotifyIconEvent::Recover => icon.native.recover()?,
+            NotifyIconEvent::Recover => icon.native.recover().unwrap(),
         }
-        Ok(())
     }
 
-    fn drain(&mut self) -> windows_core::Result<()> {
+    fn drain(&mut self) {
         if self.exiting {
-            return Ok(());
+            return;
         }
         for _ in 0..COMPONENT_DRAIN_BUDGET {
             let event = self.events.borrow_mut().pop_front();
             let Some(event) = event else { break };
-            self.dispatch_icon_event(event)?;
+            self.dispatch_icon_event(event);
         }
         let mut changed = false;
         for _ in 0..COMPONENT_DRAIN_BUDGET {
@@ -336,7 +327,7 @@ impl<A: Application> ApplicationState<A> {
             }
         }
         if changed {
-            self.render()?;
+            self.render();
         }
         let commands = std::mem::take(&mut *self.context.commands.borrow_mut());
         if commands
@@ -344,13 +335,15 @@ impl<A: Application> ApplicationState<A> {
             .any(|command| matches!(command, ApplicationCommand::Exit))
         {
             self.exiting = true;
-            return self.application.state.borrow().application.exit();
+            self.application.state.borrow().application.queue_exit();
+            return;
         }
         for command in commands {
             if let ApplicationCommand::Show(key) = command {
-                if !self.windows.contains_key(&key) {
-                    return Err(application_error("application window key is not declared"));
-                }
+                assert!(
+                    self.windows.contains_key(&key),
+                    "application window key {key:?} is not declared"
+                );
                 if !self.pending_show.contains(&key) {
                     self.pending_show.push(key);
                 }
@@ -391,17 +384,20 @@ impl<A: Application> ApplicationState<A> {
             });
             match instance {
                 Some((ComponentWindowLifecycle::Open, window, false)) => {
-                    window.restore_and_activate()?;
+                    window.restore_and_activate().unwrap();
                     self.pending_show.retain(|pending| pending != &key);
                 }
                 Some(_) => {}
                 None => {
-                    slot.instance = Some(open_component_window(
-                        &self.application.state,
-                        &self.application.services,
-                        slot.root.clone(),
-                        WindowPolicy::new(),
-                    )?);
+                    slot.instance = Some(
+                        open_component_window(
+                            &self.application.state,
+                            &self.application.services,
+                            slot.root.clone(),
+                            WindowPolicy::new(),
+                        )
+                        .unwrap(),
+                    );
                     self.pending_show.retain(|pending| pending != &key);
                 }
             }
@@ -414,15 +410,14 @@ impl<A: Application> ApplicationState<A> {
                 .changed
                 .as_ref()
                 .unwrap()
-                .invoke()?;
+                .wake();
         } else if self.icons.is_empty()
             && self.pending_show.is_empty()
             && !self.application.services.has_pending()
             && self.application.state.borrow().windows.is_empty()
         {
             self.exiting = true;
-            self.application.state.borrow().application.exit()?;
+            self.application.state.borrow().application.queue_exit();
         }
-        Ok(())
     }
 }

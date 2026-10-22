@@ -270,7 +270,6 @@ struct NativeContentDialogScheduler {
 #[derive(Default)]
 struct NativeEventQueue {
     events: RefCell<VecDeque<QueuedNativeEvent>>,
-    errors: RefCell<VecDeque<WinUiError>>,
     feedback: RefCell<FeedbackState>,
     items: RefCell<HashMap<ObjectId, NativeItem>>,
     waker: RefCell<Option<Rc<dyn Fn()>>>,
@@ -1160,7 +1159,6 @@ pub enum WinUiError {
     InvalidReplacement(ObjectId),
     InvalidDuration,
     DuplicateWindowRoot(ObjectId),
-    UnknownTreeNode(usize),
     Native(windows_core::Error),
 }
 
@@ -1430,19 +1428,12 @@ fn load_encoded_image(
     let writer = native::DataWriter::CreateDataWriter(&output)?;
     writer.WriteBytes(value.as_bytes())?;
     let store = writer.StoreAsync()?;
-    if let Err(error) = store.when(move |result| {
-        let result = (|| {
-            result?;
-            writer.DetachStream()?;
-            stream.Seek(0)?;
-            load(&stream)
-        })();
-        if let Err(error) = result {
-            report_error(error);
-        }
-    }) {
-        return Err(error.into());
-    }
+    store.when(move |result| {
+        result.unwrap();
+        writer.DetachStream().unwrap();
+        stream.Seek(0).unwrap();
+        load(&stream).unwrap();
+    })?;
     Ok(())
 }
 
@@ -1671,7 +1662,6 @@ fn xaml_scale(element: &native::UIElement) -> windows_core::Result<f64> {
 fn observe_xaml_scale(
     element: &native::UIElement,
     changed: &Rc<RefCell<Option<windows_core::EventRevoker>>>,
-    errors: &Rc<NativeEventQueue>,
     callback: Callback<f64>,
 ) -> windows_core::Result<()> {
     let root = match element.XamlRoot() {
@@ -1680,17 +1670,8 @@ fn observe_xaml_scale(
         Err(error) => return Err(error),
     };
     callback.call(root.RasterizationScale()?);
-    let callback_root = callback;
-    let callback_errors = Rc::clone(errors);
     changed.replace(Some(root.Changed(move |sender, _| {
-        let result = sender
-            .as_ref()
-            .ok_or_else(windows_core::Error::empty)
-            .and_then(|sender| sender.RasterizationScale());
-        match result {
-            Ok(scale) => callback_root.call(scale),
-            Err(error) => callback_errors.errors.borrow_mut().push_back(error.into()),
-        }
+        callback.call(sender.as_ref().unwrap().RasterizationScale().unwrap());
     })?));
     Ok(())
 }
@@ -1971,17 +1952,13 @@ impl NativeWindow {
                         return;
                     }
                     // Root layout can exclude a border pixel from the native client area.
-                    match window.ClientSize() {
-                        Ok(size) => {
-                            let dpi = unsafe { native::GetDpiForWindow(hwnd.cast()) }.max(96);
-                            let dips = 96.0 / f64::from(dpi);
-                            observer(WindowSize {
-                                width: f64::from(size.width) * dips,
-                                height: f64::from(size.height) * dips,
-                            });
-                        }
-                        Err(error) => report_error(error),
-                    }
+                    let size = window.ClientSize().unwrap();
+                    let dpi = unsafe { native::GetDpiForWindow(hwnd.cast()) }.max(96);
+                    let dips = 96.0 / f64::from(dpi);
+                    observer(WindowSize {
+                        width: f64::from(size.width) * dips,
+                        height: f64::from(size.height) * dips,
+                    });
                 })
             })
             .transpose()?;
@@ -2007,17 +1984,12 @@ impl NativeWindow {
                         let Some(sender) = sender.as_ref() else {
                             return;
                         };
-                        match sender.ActualTheme() {
-                            Ok(theme) => {
-                                let scheme = match theme {
-                                    native::ElementTheme::Dark => ColorScheme::Dark,
-                                    _ => ColorScheme::Light,
-                                };
-                                if last.replace(scheme) != scheme {
-                                    observer(scheme);
-                                }
-                            }
-                            Err(error) => report_error(error),
+                        let scheme = match sender.ActualTheme().unwrap() {
+                            native::ElementTheme::Dark => ColorScheme::Dark,
+                            _ => ColorScheme::Light,
+                        };
+                        if last.replace(scheme) != scheme {
+                            observer(scheme);
                         }
                     })
             })
@@ -2190,10 +2162,8 @@ impl NativeWindow {
                     .cast::<native::IWindow2>()?
                     .AppWindow()?
                     .Changed(move |_, _| {
-                        if let Some(state) = state.upgrade()
-                            && let Err(error) = state.observe_placement()
-                        {
-                            report_error(error);
+                        if let Some(state) = state.upgrade() {
+                            state.observe_placement().unwrap();
                         }
                     })?,
             );
@@ -2206,18 +2176,13 @@ impl NativeWindow {
         self.state.window.Close().map_err(Into::into)
     }
 
-    pub fn set_closed(
-        &mut self,
-        callback: impl Fn() -> windows_core::Result<()> + 'static,
-    ) -> Result<(), WinUiError> {
+    pub fn set_closed(&mut self, callback: impl Fn() + 'static) -> Result<(), WinUiError> {
         let state = Rc::downgrade(&self.state);
         self.closed = Some(self.state.window.Closed(move |_, _| {
             if let Some(state) = state.upgrade() {
                 state.closed.set(true);
             }
-            if let Err(error) = callback() {
-                report_error(error);
-            }
+            callback();
         })?);
         Ok(())
     }

@@ -61,69 +61,6 @@ impl Component for EffectRootSwitch {
     }
 }
 
-struct InvalidEffectUpdate(bool);
-
-impl Component for InvalidEffectUpdate {
-    type Input = RootSwitchEffects;
-    type Message = ();
-
-    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self(false)
-    }
-
-    fn update(&mut self, (): (), _context: &ComponentContext<Self>) {
-        self.0 = true;
-    }
-
-    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        let events = Rc::clone(&input.0);
-        context.use_effect("root", self.0, move || {
-            events.borrow_mut().push(("setup", None));
-            Some(Box::new(move || {
-                events.borrow_mut().push(("cleanup", None));
-            }))
-        });
-        if self.0 {
-            Grid::new()
-                .keyed_children([
-                    keyed("duplicate", TextBlock::new().text("First")),
-                    keyed("duplicate", TextBlock::new().text("Second")),
-                ])
-                .into()
-        } else {
-            TextBlock::new().text("Valid").into()
-        }
-    }
-}
-
-struct CallbackRenderFailure(bool);
-
-impl Component for CallbackRenderFailure {
-    type Input = ();
-    type Message = ();
-
-    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self(false)
-    }
-
-    fn update(&mut self, (): (), _context: &ComponentContext<Self>) {
-        self.0 = true;
-    }
-
-    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        if self.0 {
-            Grid::new()
-                .keyed_children([
-                    keyed("duplicate", TextBlock::new().text("first")),
-                    keyed("duplicate", TextBlock::new().text("second")),
-                ])
-                .into()
-        } else {
-            Button::new().on_click(context.message(())).into()
-        }
-    }
-}
-
 #[test]
 fn retired_component_drops_effects_and_async_completion() {
     let cleanup = Arc::new(AtomicUsize::new(0));
@@ -136,21 +73,20 @@ fn retired_component_drops_effects_and_async_completion() {
                 value: 0,
             },
         )],
-    )
-    .unwrap();
+    );
     let reference = host.reference(&Key::from("counter")).unwrap();
     let completion = host
         .sender::<Counter>(&Key::from("counter"))
         .unwrap()
         .completion();
 
-    host.remove(&Key::from("counter")).unwrap();
+    host.remove(&Key::from("counter"));
     assert!(
         std::thread::spawn(move || completion.complete(1))
             .join()
             .unwrap()
     );
-    let report = host.drain(1).unwrap();
+    let report = host.drain(1);
 
     assert_eq!(reference.get(), None);
     assert_eq!(cleanup.load(Ordering::Relaxed), 1);
@@ -194,12 +130,11 @@ fn exit_retirement_does_not_retain_component_or_effect_ownership() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<Exiting>("exiting", Input(Arc::clone(&cleanup)))],
-    )
-    .unwrap();
+    );
     let reference = host.reference(&Key::from("exiting")).unwrap();
     let root = reference.get().unwrap();
 
-    host.remove(&Key::from("exiting")).unwrap();
+    host.remove(&Key::from("exiting"));
     assert_eq!(reference.get(), None);
     assert_eq!(cleanup.load(Ordering::Relaxed), 1);
     assert!(host.sender::<Exiting>(&Key::from("exiting")).is_none());
@@ -207,7 +142,7 @@ fn exit_retirement_does_not_retain_component_or_effect_ownership() {
     assert_eq!(host.runtime().adapter().retirement_count(), 1);
 
     assert!(host.runtime.adapter_mut().complete_retirement(root));
-    host.drain(1).unwrap();
+    host.drain(1);
     assert_eq!(host.runtime().graph().retired_count(), 0);
     assert_eq!(host.runtime().adapter().retirement_count(), 0);
 }
@@ -221,8 +156,7 @@ fn root_effect_cleanup_precedes_replacement_and_setup_follows_it() {
             "switch",
             RootSwitchEffects(Rc::clone(&events)),
         )],
-    )
-    .unwrap();
+    );
     let sender = host
         .sender::<EffectRootSwitch>(&Key::from("switch"))
         .unwrap();
@@ -230,7 +164,7 @@ fn root_effect_cleanup_precedes_replacement_and_setup_follows_it() {
     let previous = reference.get();
 
     assert!(sender.send(()));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     let next = reference.get();
 
     assert_eq!(previous, next);
@@ -247,137 +181,16 @@ fn nested_effect_cleanup_sees_root_before_removal() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<NestedEffects>("parent", (input.clone(), true))],
-    )
-    .unwrap();
+    );
     let path = [Key::from("parent"), Key::from("effect")];
     let reference = host.reference_at(&path).unwrap();
     let root = reference.get();
     assert_eq!(events.borrow().as_slice(), [("setup", root)]);
 
-    host.update_input::<NestedEffects>(&Key::from("parent"), (input, false))
-        .unwrap();
+    host.update_input::<NestedEffects>(&Key::from("parent"), (input, false));
     assert_eq!(
         events.borrow().as_slice(),
         [("setup", root), ("cleanup", root)]
     );
     assert_eq!(reference.get(), None);
-}
-
-#[test]
-fn invalid_update_poisons_host_and_cleans_active_effects() {
-    let events = Rc::new(RefCell::new(Vec::new()));
-    let mut host = ComponentHost::mount(
-        RecordingAdapter::default(),
-        [component::<InvalidEffectUpdate>(
-            "invalid",
-            RootSwitchEffects(Rc::clone(&events)),
-        )],
-    )
-    .unwrap();
-    let sender = host
-        .sender::<InvalidEffectUpdate>(&Key::from("invalid"))
-        .unwrap();
-    let wakes = Arc::new(AtomicUsize::new(0));
-    let callback_wakes = Arc::clone(&wakes);
-    host.set_waker(move || {
-        callback_wakes.fetch_add(1, Ordering::Relaxed);
-    });
-
-    assert!(sender.send(()));
-    assert!(sender.send(()));
-    assert_eq!(wakes.load(Ordering::Relaxed), 1);
-    assert!(matches!(
-        host.drain(1),
-        Err(ComponentError::Runtime(UpdateError::Graph(
-            GraphError::DuplicateKey(_)
-        )))
-    ));
-    assert_eq!(wakes.load(Ordering::Relaxed), 1);
-    assert_eq!(
-        events.borrow().as_slice(),
-        [("setup", None), ("cleanup", None)]
-    );
-    assert!(
-        host.sender::<InvalidEffectUpdate>(&Key::from("invalid"))
-            .is_none()
-    );
-    assert!(matches!(
-        host.drain(1),
-        Err(ComponentError::Runtime(UpdateError::Poisoned))
-    ));
-
-    drop(host);
-    assert_eq!(
-        events.borrow().as_slice(),
-        [("setup", None), ("cleanup", None)]
-    );
-}
-
-#[test]
-fn input_state_change_followed_by_adapter_error_poisons_same_input_retry() {
-    let fail_after = Rc::new(Cell::new(None));
-    let successful = Rc::new(Cell::new(0));
-    let changes = Rc::new(Cell::new(0));
-    let mut host = ComponentHost::mount(
-        ControlledApplyAdapter {
-            fail_after: Rc::clone(&fail_after),
-            inner: RecordingAdapter::default(),
-            successful,
-        },
-        [component::<StatefulInputComponent>(
-            "input",
-            StatefulInput {
-                changes: Rc::clone(&changes),
-                value: 0,
-            },
-        )],
-    )
-    .unwrap();
-    let reference = host.reference(&Key::from("input")).unwrap();
-    fail_after.set(Some(0));
-    let next = StatefulInput {
-        changes: Rc::clone(&changes),
-        value: 1,
-    };
-
-    assert!(matches!(
-        host.update_input::<StatefulInputComponent>(&Key::from("input"), next.clone()),
-        Err(ComponentError::Runtime(UpdateError::Adapter(())))
-    ));
-    assert_eq!(changes.get(), 1);
-    assert_eq!(reference.get(), None);
-    assert!(matches!(
-        host.update_input::<StatefulInputComponent>(&Key::from("input"), next),
-        Err(ComponentError::Runtime(UpdateError::Poisoned))
-    ));
-}
-
-#[test]
-fn callback_triggered_render_failure_poisons_host() {
-    let mut host = ComponentHost::mount(
-        RecordingAdapter::default(),
-        [component::<CallbackRenderFailure>("callback", ())],
-    )
-    .unwrap();
-    let reference = host.reference(&Key::from("callback")).unwrap();
-    let object = reference.get().unwrap();
-    let event = host.runtime().graph().events(object).unwrap()[0].clone();
-    host.queue_event(EventDispatch::new(
-        object,
-        event.id,
-        event.value,
-        EventPayload::Unit,
-    ));
-
-    assert!(matches!(
-        host.drain(usize::MAX),
-        Err(ComponentError::Runtime(UpdateError::Graph(
-            GraphError::DuplicateKey(_)
-        )))
-    ));
-    assert_eq!(reference.get(), None);
-    assert!(matches!(
-        host.drain(1),
-        Err(ComponentError::Runtime(UpdateError::Poisoned))
-    ));
 }

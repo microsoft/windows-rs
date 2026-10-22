@@ -121,6 +121,12 @@ impl ComponentTimerRegistration for ThreadPoolTimer {
     }
 }
 
+impl ComponentHost<RecordingAdapter> {
+    pub fn focus(&mut self, reference: &ElementRef) -> bool {
+        self.runtime.focus(reference)
+    }
+}
+
 impl<A: Adapter> ComponentHost<A> {
     fn scope_depth(&self, mut id: ComponentId) -> usize {
         let mut depth = 0;
@@ -131,10 +137,7 @@ impl<A: Adapter> ComponentHost<A> {
         depth
     }
 
-    pub fn mount(
-        adapter: A,
-        components: impl IntoIterator<Item = ComponentNode>,
-    ) -> Result<Self, ComponentError<A::Error>> {
+    pub fn mount(adapter: A, components: impl IntoIterator<Item = ComponentNode>) -> Self {
         Self::mount_with_all_services(
             adapter,
             Arc::new(DefaultComponentServices),
@@ -147,7 +150,7 @@ impl<A: Adapter> ComponentHost<A> {
         adapter: A,
         services: Arc<dyn ComponentServices>,
         components: impl IntoIterator<Item = ComponentNode>,
-    ) -> Result<Self, ComponentError<A::Error>> {
+    ) -> Self {
         Self::mount_with_all_services(
             adapter,
             services,
@@ -158,13 +161,6 @@ impl<A: Adapter> ComponentHost<A> {
 
     pub fn adapter(&self) -> &A {
         self.runtime.adapter()
-    }
-
-    pub fn focus(&mut self, reference: &ElementRef) -> Result<bool, ComponentError<A::Error>> {
-        self.ensure_active()?;
-        self.runtime
-            .focus(reference)
-            .map_err(|error| self.runtime_error(error))
     }
 
     pub fn sender<C: Component>(&self, key: &Key) -> Option<ComponentSender<C::Message>>
@@ -178,9 +174,6 @@ impl<A: Adapter> ComponentHost<A> {
     where
         C::Message: Send,
     {
-        if self.poisoned {
-            return None;
-        }
         let scope = self.scope(self.find_path(path)?)?;
         (scope.component.component_type() == TypeId::of::<C>()).then(|| {
             scope
@@ -197,65 +190,45 @@ impl<A: Adapter> ComponentHost<A> {
     }
 
     pub fn reference_at(&self, path: &[Key]) -> Option<ElementRef> {
-        if self.poisoned {
-            return None;
-        }
         self.scope(self.find_path(path)?)
             .map(|scope| scope.reference.clone())
     }
 
-    pub fn update_input<C: Component>(
-        &mut self,
-        key: &Key,
-        input: C::Input,
-    ) -> Result<UpdateStats, ComponentError<A::Error>> {
+    pub fn update_input<C: Component>(&mut self, key: &Key, input: C::Input) -> UpdateStats {
         self.update_input_at::<C>(std::slice::from_ref(key), input)
     }
 
-    pub fn update_input_at<C: Component>(
-        &mut self,
-        path: &[Key],
-        input: C::Input,
-    ) -> Result<UpdateStats, ComponentError<A::Error>> {
-        self.ensure_active()?;
-        self.prepare_operation()?;
-        let key = path.last().cloned().unwrap_or_else(|| Key::from(""));
-        let id = self
-            .find_path(path)
-            .ok_or_else(|| ComponentError::MissingComponent(key.clone()))?;
-        if self.scope(id).unwrap().component.component_type() != TypeId::of::<C>() {
-            return Err(ComponentError::ComponentType(key));
-        }
-        self.run_component_operation(move |host| {
-            let contexts = host.scope(id).unwrap().contexts.clone();
-            let scope = host.scope_mut(id).unwrap();
-            let reference = scope.reference.clone();
-            let Some(render) = scope
-                .component
-                .apply_input(&input, reference, &contexts)
-                .map_err(ComponentError::from)?
-            else {
-                return Ok(UpdateStats::default());
-            };
-            host.apply_render(id, render)
-        })
+    pub fn update_input_at<C: Component>(&mut self, path: &[Key], input: C::Input) -> UpdateStats {
+        self.prepare_operation();
+        let id = self.find_path(path).unwrap();
+        assert_eq!(
+            self.scope(id).unwrap().component.component_type(),
+            TypeId::of::<C>()
+        );
+        let contexts = self.scope(id).unwrap().contexts.clone();
+        let scope = self.scope_mut(id).unwrap();
+        let reference = scope.reference.clone();
+        let Some(render) = scope.component.apply_input(&input, reference, &contexts) else {
+            return UpdateStats::default();
+        };
+        self.apply_render(id, render)
     }
 
     pub fn set_context<T: Clone + PartialEq + 'static>(
         &mut self,
         context: &Context<T>,
         value: T,
-    ) -> Result<ComponentDrain, ComponentError<A::Error>> {
-        self.ensure_active()?;
-        self.prepare_operation()?;
+    ) -> ComponentDrain {
+        self.prepare_operation();
         if self
             .contexts
             .get(&context.id)
             .is_some_and(|current| (current.equals)(current.value.as_ref(), &value))
         {
-            return Ok(ComponentDrain::default());
+            return ComponentDrain::default();
         }
-        self.run_component_operation(move |host| {
+        {
+            let host = self;
             let mut contexts = host.contexts.clone();
             let value = ContextValue {
                 equals: |left, right| {
@@ -298,12 +271,9 @@ impl<A: Adapter> ComponentHost<A> {
                 }
                 let provided_contexts = scope.provided_contexts.clone();
                 let scope = host.scope_mut(id).unwrap();
-                let render = scope
-                    .component
-                    .render_view(reference, &contexts)
-                    .map_err(ComponentError::from)?;
+                let render = scope.component.render_view(reference, &contexts);
                 let mutations =
-                    host.apply_render_with_contexts(id, render, contexts, provided_contexts)?;
+                    host.apply_render_with_contexts(id, render, contexts, provided_contexts);
                 report.dispatched += 1;
                 report.mutations += mutations.len();
             }
@@ -314,33 +284,23 @@ impl<A: Adapter> ComponentHost<A> {
                     scope.contexts.insert(context.id, value.clone());
                 }
             }
-            Ok(report)
-        })
+            report
+        }
     }
 
-    pub fn remove(&mut self, key: &Key) -> Result<(), ComponentError<A::Error>> {
-        self.ensure_active()?;
-        self.prepare_operation()?;
-        let id = self
-            .find(key)
-            .ok_or_else(|| ComponentError::MissingComponent(key.clone()))?;
+    pub fn remove(&mut self, key: &Key) {
+        self.prepare_operation();
+        let id = self.find(key).unwrap();
         let parent = self.runtime.graph().root().unwrap();
         let child = self.scope(id).unwrap().root.unwrap();
-        if let Err(error) = self
-            .runtime
-            .remove_child(parent, RelationId::Children, child)
-        {
-            return Err(self.runtime_error(error));
-        }
-        self.run_component_operation(|host| {
-            host.order.retain(|current| *current != id);
-            host.keys.remove(key);
-            host.retire_scope(id);
-            host.context_consumers
-                .retain(|_, consumers| !consumers.is_empty());
-            host.publish_window();
-            Ok(())
-        })
+        self.runtime
+            .remove_child(parent, RelationId::Children, child);
+        self.order.retain(|current| *current != id);
+        self.keys.remove(key);
+        self.retire_scope(id);
+        self.context_consumers
+            .retain(|_, consumers| !consumers.is_empty());
+        self.publish_window();
     }
 
     fn find(&self, key: &Key) -> Option<ComponentId> {
@@ -358,16 +318,10 @@ impl<A: Adapter> ComponentHost<A> {
         Some(id)
     }
 
-    fn prepare_operation(&mut self) -> Result<(), ComponentError<A::Error>> {
-        match self.runtime.prepare_update() {
-            Ok(()) => Ok(()),
-            Err(UpdateError::PendingNativeEvent) => {
-                self.drain(usize::MAX)?;
-                self.runtime
-                    .prepare_update()
-                    .map_err(|error| self.runtime_error(error))
-            }
-            Err(error) => Err(self.runtime_error(error)),
+    fn prepare_operation(&mut self) {
+        if !self.runtime.prepare_update() {
+            self.drain(usize::MAX);
+            self.runtime.assert_ready();
         }
     }
 }

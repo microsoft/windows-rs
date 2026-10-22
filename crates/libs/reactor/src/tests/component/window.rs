@@ -168,14 +168,13 @@ fn ui_local_services_accept_typed_window_requests() {
         Arc::new(DefaultComponentServices),
         ui_services.clone(),
         [component::<WindowRequester>("requester", input.clone())],
-    )
-    .unwrap();
+    );
     let sender = host
         .sender::<WindowRequester>(&Key::from("requester"))
         .unwrap();
 
     assert!(sender.send(WindowRequestMessage::Open));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(accepted.get(), Some(true));
     let (root, policy) = ui_services.requests.borrow_mut().pop().unwrap();
     assert_eq!(
@@ -184,7 +183,7 @@ fn ui_local_services_accept_typed_window_requests() {
             .title("Secondary")
             .client_size(320.0, 200.0)
     );
-    let secondary = ComponentHost::mount(RecordingAdapter::default(), [root]).unwrap();
+    let secondary = ComponentHost::mount(RecordingAdapter::default(), [root]);
     let root = secondary
         .reference_at(&[Key::from("root")])
         .unwrap()
@@ -196,24 +195,23 @@ fn ui_local_services_accept_typed_window_requests() {
     );
     assert!(sender.send(WindowRequestMessage::Activate));
     assert!(sender.send(WindowRequestMessage::Close));
-    assert_eq!(host.drain(2).unwrap().dispatched, 2);
+    assert_eq!(host.drain(2).dispatched, 2);
     assert_eq!(ui_services.activated.get(), 1);
     assert_eq!(ui_services.closed.get(), 1);
     assert!(sender.send(WindowRequestMessage::Run));
-    assert_eq!(host.drain(2).unwrap().dispatched, 2);
+    assert_eq!(host.drain(2).dispatched, 2);
     assert_eq!(accepted.get(), Some(true));
     assert_eq!(ui_services.operations.get(), 1);
 
     let mut headless = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<WindowRequester>("requester", input)],
-    )
-    .unwrap();
+    );
     let sender = headless
         .sender::<WindowRequester>(&Key::from("requester"))
         .unwrap();
     assert!(sender.send(WindowRequestMessage::Open));
-    assert_eq!(headless.drain(1).unwrap().dispatched, 1);
+    assert_eq!(headless.drain(1).dispatched, 1);
     assert_eq!(accepted.get(), Some(false));
 }
 
@@ -225,8 +223,7 @@ fn component_window_declarations_follow_scope_updates() {
         Arc::new(DefaultComponentServices),
         ui_services.clone(),
         [component::<WindowPublisher>("publisher", true)],
-    )
-    .unwrap();
+    );
 
     let published = ui_services.publications.borrow().last().unwrap().clone();
     assert_eq!(published.title.as_deref(), Some("Published"));
@@ -249,46 +246,10 @@ fn component_window_declarations_follow_scope_updates() {
     assert!(published.on_size.is_some());
     assert!(published.on_placement.is_some());
 
-    host.update_input::<WindowPublisher>(&Key::from("publisher"), false)
-        .unwrap();
+    host.update_input::<WindowPublisher>(&Key::from("publisher"), false);
     assert_eq!(
         ui_services.publications.borrow().last().unwrap(),
         &WindowPublication::default()
-    );
-}
-
-#[test]
-fn invalidating_host_clears_committed_window_callbacks() {
-    let ui_services = Rc::new(TestUiServices::default());
-    let mut host = ComponentHost::mount_with_all_services(
-        RecordingAdapter::default(),
-        Arc::new(DefaultComponentServices),
-        ui_services.clone(),
-        [component::<WindowPublisher>("publisher", true)],
-    )
-    .unwrap();
-    let publication = ui_services.publications.borrow_mut().pop().unwrap();
-    let scheme_generation = publication.on_color_scheme.unwrap().generation;
-    let size_generation = publication.on_size.unwrap().generation;
-    let placement_generation = publication.on_placement.unwrap().generation;
-    assert!(
-        host.window_color_scheme_callback(scheme_generation)
-            .is_some()
-    );
-    assert!(host.window_size_callback(size_generation).is_some());
-    assert!(
-        host.window_placement_callback(placement_generation)
-            .is_some()
-    );
-    host.invalidate_host();
-    assert!(
-        host.window_color_scheme_callback(scheme_generation)
-            .is_none()
-    );
-    assert!(host.window_size_callback(size_generation).is_none());
-    assert!(
-        host.window_placement_callback(placement_generation)
-            .is_none()
     );
 }
 
@@ -312,41 +273,46 @@ impl Component for PlacementPublisher {
 }
 
 #[test]
-fn duplicate_window_placement_observers_are_rejected_within_and_across_components() {
-    for roots in [
-        vec![component::<PlacementPublisher>("first", true)],
-        vec![
-            component::<PlacementPublisher>("first", false),
-            component::<PlacementPublisher>("second", false),
-        ],
-    ] {
-        assert!(matches!(
-            ComponentHost::mount(RecordingAdapter::default(), roots),
-            Err(ComponentError::DuplicateWindowPlacement)
-        ));
-    }
+#[should_panic(expected = "window placement observer declared more than once")]
+fn duplicate_window_placement_observers_within_a_component_panic() {
+    ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<PlacementPublisher>("first", true)],
+    );
 }
 
 #[test]
-fn duplicate_component_window_declarations_are_rejected() {
-    let result = ComponentHost::mount(
+#[should_panic(expected = "window placement observer declared by more than one component")]
+fn duplicate_window_placement_observers_across_components_panic() {
+    ComponentHost::mount(
+        RecordingAdapter::default(),
+        [
+            component::<PlacementPublisher>("first", false),
+            component::<PlacementPublisher>("second", false),
+        ],
+    );
+}
+
+#[test]
+#[should_panic(expected = "window title declared by more than one component")]
+fn duplicate_component_window_titles_panic() {
+    ComponentHost::mount(
         RecordingAdapter::default(),
         [
             component::<WindowTitlePublisher>("first", "First"),
             component::<WindowTitlePublisher>("second", "Second"),
         ],
     );
-    assert!(matches!(result, Err(ComponentError::DuplicateWindowTitle)));
+}
 
-    let result = ComponentHost::mount(
+#[test]
+#[should_panic(expected = "color scheme observer declared by more than one component")]
+fn duplicate_component_color_scheme_observers_panic() {
+    ComponentHost::mount(
         RecordingAdapter::default(),
         [
             component::<WindowPublisher>("first", true),
             component::<WindowPublisher>("second", true),
         ],
     );
-    assert!(matches!(
-        result,
-        Err(ComponentError::DuplicateWindowColorScheme)
-    ));
 }

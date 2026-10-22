@@ -778,17 +778,13 @@ impl WinUiAdapter {
                 .clone();
             let dialog_element = value.cast::<native::IFrameworkElement>()?;
             let themed_dialog = dialog_element.clone();
-            let event_queue = Rc::clone(&self.event_queue);
             let theme_changed = framework.ActualThemeChanged(move |sender, _| {
                 let Some(sender) = sender.as_ref() else {
                     return;
                 };
-                if let Err(error) = sender
-                    .ActualTheme()
-                    .and_then(|theme| themed_dialog.SetRequestedTheme(theme))
-                {
-                    event_queue.errors.borrow_mut().push_back(error.into());
-                }
+                themed_dialog
+                    .SetRequestedTheme(sender.ActualTheme().unwrap())
+                    .unwrap();
             })?;
             dialog_element.SetRequestedTheme(framework.ActualTheme()?)?;
             {
@@ -810,22 +806,10 @@ impl WinUiAdapter {
                     let event_queue = Rc::clone(&self.event_queue);
                     let loaded_element = owner_element;
                     let loaded = framework.Loaded(move |_, _| {
-                        let result = loaded_element.XamlRoot().and_then(|root| {
-                            let mut scheduler = event_queue.content_dialogs.borrow_mut();
-                            scheduler
-                                .set_root(dialog, root)
-                                .and_then(|_| scheduler.start_next_for_dialog(dialog))
-                                .map_err(|error| match error {
-                                    WinUiError::Native(error) => error,
-                                    error => windows_core::Error::new(
-                                        native::E_FAIL,
-                                        format!("{error:?}"),
-                                    ),
-                                })
-                        });
-                        if let Err(error) = result {
-                            event_queue.errors.borrow_mut().push_back(error.into());
-                        }
+                        let root = loaded_element.XamlRoot().unwrap();
+                        let mut scheduler = event_queue.content_dialogs.borrow_mut();
+                        scheduler.set_root(dialog, root).unwrap();
+                        scheduler.start_next_for_dialog(dialog).unwrap();
                     })?;
                     self.event_queue
                         .content_dialogs
@@ -904,27 +888,14 @@ impl WinUiAdapter {
         let queue = native::DispatcherQueue::GetForCurrentThread()?;
         let deferred_queue = Rc::clone(event_queue);
         let handler = native::DispatcherQueueHandler::new(move || {
-            let result = {
-                let mut scheduler = deferred_queue.content_dialogs.borrow_mut();
-                scheduler.cleanup_retired();
-                root.as_ref()
-                    .map_or(Ok(()), |root| scheduler.start_next(root))
-            };
-            if let Err(error) = result {
-                deferred_queue.errors.borrow_mut().push_back(error);
+            let mut scheduler = deferred_queue.content_dialogs.borrow_mut();
+            scheduler.cleanup_retired();
+            if let Some(root) = &root {
+                scheduler.start_next(root).unwrap();
             }
         });
-        match queue.TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler) {
-            Ok(true) => {}
-            Ok(false) => {
-                return Err(windows_core::Error::new(
-                    native::E_FAIL,
-                    "DispatcherQueue rejected the ContentDialog continuation",
-                )
-                .into());
-            }
-            Err(error) => return Err(error.into()),
-        }
+        // A dispatcher that is shutting down rejects the continuation; no dialog will show again.
+        queue.TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)?;
         Ok(dispatch)
     }
 

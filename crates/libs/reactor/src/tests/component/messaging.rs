@@ -310,19 +310,18 @@ fn retirement_cancels_background_delivery() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<Worker>("worker", input.clone())],
-    )
-    .unwrap();
+    );
     assert!(
         host.sender::<Worker>(&Key::from("worker"))
             .unwrap()
             .send(WorkerMessage::Start)
     );
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     while input.started.load(Ordering::Acquire) == 0 {
         std::thread::yield_now();
     }
 
-    host.remove(&Key::from("worker")).unwrap();
+    host.remove(&Key::from("worker"));
     while input.cancelled.load(Ordering::Acquire) == 0 {
         std::thread::yield_now();
     }
@@ -331,7 +330,7 @@ fn retirement_cancels_background_delivery() {
         input.task.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Cancelled
     );
-    assert_eq!(host.drain(1).unwrap(), ComponentDrain::default());
+    assert_eq!(host.drain(1), ComponentDrain::default());
 }
 
 #[test]
@@ -345,16 +344,15 @@ fn local_messages_and_timers_support_ui_thread_values() {
         RecordingAdapter::default(),
         services.clone(),
         [component::<LocalMessageProbe>("probe", input.clone())],
-    )
-    .unwrap();
+    );
 
     let message = Rc::new(Cell::new(1));
     assert!(input.sender.borrow().as_ref().unwrap().send(message));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(input.seen.get(), 1);
 
     services.fire_timer();
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(input.seen.get(), 2);
 }
 
@@ -367,8 +365,7 @@ fn local_and_cross_thread_messages_preserve_enqueue_order() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<MessageOrderProbe>("probe", input.clone())],
-    )
-    .unwrap();
+    );
     let remote = host
         .sender::<MessageOrderProbe>(&Key::from("probe"))
         .unwrap();
@@ -378,7 +375,7 @@ fn local_and_cross_thread_messages_preserve_enqueue_order() {
     assert!(local.send(2));
     assert!(local.send(3));
     assert!(remote.send(4));
-    assert_eq!(host.drain(4).unwrap().dispatched, 4);
+    assert_eq!(host.drain(4).dispatched, 4);
     assert_eq!(&*input.seen.borrow(), &[1, 2, 3, 4]);
 }
 
@@ -390,12 +387,11 @@ fn injected_services_preserve_task_and_timer_statuses() {
         RecordingAdapter::default(),
         services.clone(),
         [component::<ServiceProbe>("probe", input.clone())],
-    )
-    .unwrap();
+    );
     let sender = host.sender::<ServiceProbe>(&Key::from("probe")).unwrap();
 
     assert!(sender.send(ServiceProbeMessage::Background));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(
         input.task.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Running
@@ -407,7 +403,7 @@ fn injected_services_preserve_task_and_timer_statuses() {
         ComponentTaskStatus::Queued
     );
     assert!(!input.task.lock().unwrap().as_ref().unwrap().is_rejected());
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(
         input.task.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Delivered
@@ -415,7 +411,7 @@ fn injected_services_preserve_task_and_timer_statuses() {
     assert!(!input.task.lock().unwrap().as_ref().unwrap().is_rejected());
 
     assert!(sender.send(ServiceProbeMessage::Timer));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(
         input.timer.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Running
@@ -427,7 +423,7 @@ fn injected_services_preserve_task_and_timer_statuses() {
         ComponentTaskStatus::Queued
     );
     assert!(!input.timer.lock().unwrap().as_ref().unwrap().is_rejected());
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(
         input.timer.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Delivered
@@ -463,16 +459,15 @@ fn dropping_host_cancels_work_and_releases_component_ownership() {
                 },
             ),
         ],
-    )
-    .unwrap();
+    );
     let sender = host.sender::<ServiceProbe>(&Key::from("probe")).unwrap();
     let completion = sender.completion();
     let reference = host.reference(&Key::from("probe")).unwrap();
     assert!(reference.get().is_some());
     assert!(sender.send(ServiceProbeMessage::Background));
     assert!(sender.send(ServiceProbeMessage::Timer));
-    assert_eq!(host.drain(2).unwrap().dispatched, 2);
-    host.set_context(&context, 1).unwrap();
+    assert_eq!(host.drain(2).dispatched, 2);
+    host.set_context(&context, 1);
     drop(context);
     let state = host.test_state();
     assert_eq!(state.tasks, 2);
@@ -520,11 +515,10 @@ fn task_and_timer_rejection_distinguishes_capacity_from_cancellation() {
                 RecordingAdapter::default(),
                 services.clone(),
                 [component::<ServiceProbe>("probe", input.clone())],
-            )
-            .unwrap();
+            );
             let sender = host.sender::<ServiceProbe>(&Key::from("probe")).unwrap();
             assert!(sender.send(message));
-            assert_eq!(host.drain(1).unwrap().dispatched, 1);
+            assert_eq!(host.drain(1).dispatched, 1);
             for _ in 0..MESSAGE_CAPACITY {
                 assert!(sender.send(ServiceProbeMessage::BackgroundComplete));
             }
@@ -580,22 +574,21 @@ fn retirement_cancels_injected_timer() {
         RecordingAdapter::default(),
         services.clone(),
         [component::<ServiceProbe>("probe", input.clone())],
-    )
-    .unwrap();
+    );
     assert!(
         host.sender::<ServiceProbe>(&Key::from("probe"))
             .unwrap()
             .send(ServiceProbeMessage::Timer)
     );
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
 
-    host.remove(&Key::from("probe")).unwrap();
+    host.remove(&Key::from("probe"));
     assert_eq!(
         input.timer.lock().unwrap().as_ref().unwrap().status(),
         ComponentTaskStatus::Cancelled
     );
     services.fire_timer();
-    assert_eq!(host.drain(1).unwrap(), ComponentDrain::default());
+    assert_eq!(host.drain(1), ComponentDrain::default());
 }
 
 #[test]
@@ -604,8 +597,7 @@ fn installing_waker_rearms_queued_messages() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<Label>("label", Rc::from("Label"))],
-    )
-    .unwrap();
+    );
     let sender = host.sender::<Label>(&Key::from("label")).unwrap();
     assert!(sender.send(()));
     assert_eq!(wakes.load(Ordering::Relaxed), 0);
@@ -616,7 +608,7 @@ fn installing_waker_rearms_queued_messages() {
     });
 
     assert_eq!(wakes.load(Ordering::Relaxed), 1);
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
 }
 
 #[test]
@@ -625,8 +617,7 @@ fn queued_messages_coalesce_host_wake() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<Label>("label", Rc::from("Label"))],
-    )
-    .unwrap();
+    );
     let callback_wakes = Arc::clone(&wakes);
     host.set_waker(move || {
         callback_wakes.fetch_add(1, Ordering::Relaxed);
@@ -637,9 +628,9 @@ fn queued_messages_coalesce_host_wake() {
     assert!(sender.send(()));
     assert!(sender.send(()));
     assert_eq!(wakes.load(Ordering::Relaxed), 1);
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(wakes.load(Ordering::Relaxed), 2);
-    assert_eq!(host.drain(2).unwrap().dispatched, 2);
+    assert_eq!(host.drain(2).dispatched, 2);
 
     assert!(sender.send(()));
     assert_eq!(wakes.load(Ordering::Relaxed), 3);
@@ -658,8 +649,7 @@ fn native_callbacks_reconcile_before_the_next_native_occurrence() {
                 seen: Rc::clone(&seen),
             },
         )],
-    )
-    .unwrap();
+    );
     let object = host
         .reference_at(&[Key::from("ordered")])
         .unwrap()
@@ -687,7 +677,7 @@ fn native_callbacks_reconcile_before_the_next_native_occurrence() {
         );
     }
 
-    let report = host.drain(usize::MAX).unwrap();
+    let report = host.drain(usize::MAX);
 
     assert_eq!(report.dispatched, 2);
     assert_eq!(
@@ -713,8 +703,7 @@ fn drain_budget_counts_native_work_and_rearms() {
                 seen: Rc::clone(&seen),
             },
         )],
-    )
-    .unwrap();
+    );
     let object = host
         .reference_at(&[Key::from("ordered")])
         .unwrap()
@@ -739,41 +728,25 @@ fn drain_budget_counts_native_work_and_rearms() {
     let woken = Rc::clone(&continuations);
     host.set_continuation_waker(move || woken.set(woken.get() + 1));
 
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(seen.borrow().len(), 1);
     assert_eq!(continuations.get(), 1);
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(seen.borrow().len(), 2);
 }
 
 #[test]
 fn closed_queue_rejects_stale_sender_completion_and_callback() {
-    let fail_after = Rc::new(Cell::new(None));
     let rendered = Rc::new(RefCell::new(String::new()));
     let seen = Rc::new(RefCell::new(Vec::new()));
     let input = OrderedInput {
         rendered: Rc::clone(&rendered),
         seen: Rc::clone(&seen),
     };
-    let changes = Rc::new(Cell::new(0));
-    let mut host = ComponentHost::mount(
-        ControlledApplyAdapter {
-            fail_after: Rc::clone(&fail_after),
-            inner: RecordingAdapter::default(),
-            successful: Rc::new(Cell::new(0)),
-        },
-        [
-            component::<OrderedText>("ordered", input),
-            component::<StatefulInputComponent>(
-                "poison",
-                StatefulInput {
-                    changes: Rc::clone(&changes),
-                    value: 0,
-                },
-            ),
-        ],
-    )
-    .unwrap();
+    let host = ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<OrderedText>("ordered", input)],
+    );
     let sender = host.sender::<OrderedText>(&Key::from("ordered")).unwrap();
     let completion = sender.completion();
     let object = host
@@ -787,20 +760,14 @@ fn closed_queue_rejects_stale_sender_completion_and_callback() {
     else {
         panic!("expected string callback");
     };
-    fail_after.set(Some(0));
+    let queue = Arc::clone(&host.queue);
 
-    assert!(matches!(
-        host.update_input::<StatefulInputComponent>(
-            &Key::from("poison"),
-            StatefulInput { changes, value: 1 }
-        ),
-        Err(ComponentError::Runtime(UpdateError::Adapter(())))
-    ));
-    assert!(host.queue.lock().unwrap().closed);
+    drop(host);
+    assert!(queue.lock().unwrap().closed);
     assert!(!sender.send(String::from("sender")));
     assert!(!completion.complete(String::from("completion")));
     callback.call(Rc::from("callback"));
-    assert!(host.queue.lock().unwrap().messages.is_empty());
+    assert!(queue.lock().unwrap().messages.is_empty());
     assert_eq!(
         seen.borrow().as_slice(),
         [(String::from("callback"), String::from("Before"))]
@@ -809,17 +776,11 @@ fn closed_queue_rejects_stale_sender_completion_and_callback() {
 
 #[test]
 fn queue_capacity_and_closure_release_all_payloads() {
-    let fail_after = Rc::new(Cell::new(None));
     let drops = Arc::new(AtomicUsize::new(0));
-    let mut host = ComponentHost::mount(
-        ControlledApplyAdapter {
-            fail_after: Rc::clone(&fail_after),
-            inner: RecordingAdapter::default(),
-            successful: Rc::new(Cell::new(0)),
-        },
+    let host = ComponentHost::mount(
+        RecordingAdapter::default(),
         [component::<PayloadComponent>("payload", 0)],
-    )
-    .unwrap();
+    );
     let sender = host
         .sender::<PayloadComponent>(&Key::from("payload"))
         .unwrap();
@@ -828,58 +789,32 @@ fn queue_capacity_and_closure_release_all_payloads() {
     }
     assert!(!sender.send(DropPayload(Arc::clone(&drops))));
     assert_eq!(drops.load(Ordering::Relaxed), 1);
-    fail_after.set(Some(0));
+    let queue = Arc::clone(&host.queue);
 
-    assert!(matches!(
-        host.update_input::<PayloadComponent>(&Key::from("payload"), 1),
-        Err(ComponentError::Runtime(UpdateError::Adapter(())))
-    ));
+    drop(host);
     assert_eq!(drops.load(Ordering::Relaxed), MESSAGE_CAPACITY + 1);
     assert!(!sender.send(DropPayload(Arc::clone(&drops))));
     assert_eq!(drops.load(Ordering::Relaxed), MESSAGE_CAPACITY + 2);
-    assert!(host.queue.lock().unwrap().messages.is_empty());
+    assert!(queue.lock().unwrap().messages.is_empty());
 }
 
 #[test]
 fn controlled_task_send_after_closure_is_cancelled_or_rejected() {
     let services = Arc::new(TestServices::default());
     let task_input = ServiceProbeInput::default();
-    let fail_after = Rc::new(Cell::new(None));
-    let changes = Rc::new(Cell::new(0));
     let mut host = ComponentHost::mount_with_services(
-        ControlledApplyAdapter {
-            fail_after: Rc::clone(&fail_after),
-            inner: RecordingAdapter::default(),
-            successful: Rc::new(Cell::new(0)),
-        },
+        RecordingAdapter::default(),
         services,
-        [
-            component::<ServiceProbe>("task", task_input.clone()),
-            component::<StatefulInputComponent>(
-                "poison",
-                StatefulInput {
-                    changes: Rc::clone(&changes),
-                    value: 0,
-                },
-            ),
-        ],
-    )
-    .unwrap();
+        [component::<ServiceProbe>("task", task_input.clone())],
+    );
     let sender = host.sender::<ServiceProbe>(&Key::from("task")).unwrap();
     assert!(sender.send(ServiceProbeMessage::Background));
-    host.drain(1).unwrap();
+    host.drain(1);
     let task = task_input.task.lock().unwrap().as_ref().unwrap().clone();
     let control = Arc::clone(&task.control);
     assert!(control.queue());
-    fail_after.set(Some(0));
 
-    assert!(matches!(
-        host.update_input::<StatefulInputComponent>(
-            &Key::from("poison"),
-            StatefulInput { changes, value: 1 }
-        ),
-        Err(ComponentError::Runtime(UpdateError::Adapter(())))
-    ));
+    drop(host);
     assert_eq!(task.status(), ComponentTaskStatus::Cancelled);
     assert!(!sender.send_controlled(
         ServiceProbeMessage::BackgroundComplete,
@@ -902,8 +837,7 @@ fn captureless_component_callbacks_keep_event_identity() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<StableForward>("callback", ())],
-    )
-    .unwrap();
+    );
     let object = host
         .reference(&Key::from("callback"))
         .unwrap()
@@ -917,7 +851,7 @@ fn captureless_component_callbacks_keep_event_identity() {
         EventPayload::Unit,
     ));
 
-    assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 1);
+    assert_eq!(host.drain(usize::MAX).dispatched, 1);
     let after = host.runtime().graph().events(object).unwrap()[0].clone();
     assert_eq!(before.value, after.value);
 }
@@ -953,8 +887,7 @@ fn coalesced_root_inputs_drop_outside_message_queue_borrows() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<Window>("main", TextBlock::new().into())],
-    )
-    .unwrap();
+    );
     let dropped = Rc::new(Cell::new(false));
     let probe = Probe {
         shared: Arc::clone(&host.queue),
@@ -966,10 +899,9 @@ fn coalesced_root_inputs_drop_outside_message_queue_borrows() {
             let _ = &probe;
         })
         .into();
-    host.update_root(component::<Window>("main", view)).unwrap();
+    host.update_root(component::<Window>("main", view));
     assert!(!dropped.get());
-    host.update_root(component::<Window>("main", TextBlock::new().into()))
-        .unwrap();
+    host.update_root(component::<Window>("main", TextBlock::new().into()));
     assert!(dropped.get());
-    host.drain(64).unwrap();
+    host.drain(64);
 }

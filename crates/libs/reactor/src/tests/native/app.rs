@@ -75,8 +75,7 @@ fn observer_host<C: Component>(
         Arc::new(DefaultComponentServices),
         Rc::new(ObserverUiServices(Rc::clone(&services))),
         [component::<C>("root", input)],
-    )
-    .unwrap();
+    );
     (host, services)
 }
 
@@ -178,7 +177,7 @@ fn committed_removal_rejects_observations_in_both_queue_orders() {
             .sender::<ObserverComponent>(&Key::from("root"))
             .unwrap();
         assert!(sender.send([false; 3]));
-        assert_eq!(host.drain(1).unwrap().dispatched, 1);
+        assert_eq!(host.drain(1).dispatched, 1);
         if !queued_before_commit {
             queue_observer_notifications(&services, &first);
         }
@@ -210,7 +209,7 @@ fn observer_lifetimes_survive_coalesced_removal_and_resubscription() {
             .unwrap();
         assert!(sender.send([false; 3]));
         assert!(sender.send([true; 3]));
-        assert_eq!(host.drain(2).unwrap().dispatched, 2);
+        assert_eq!(host.drain(2).dispatched, 2);
         if !queued_before_commit {
             queue_observer_notifications(&services, &first);
         }
@@ -229,7 +228,7 @@ fn observer_lifetimes_change_when_the_subscribing_component_is_replaced() {
     queue_observer_notifications(&services, &first);
     let sender = host.sender::<ObserverParent>(&Key::from("root")).unwrap();
     assert!(sender.send(true));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     let current = assert_queued_observer_delivery(&host, &services, [false; 3]);
     assert_ne!(
         first.on_color_scheme.as_ref().unwrap().owner,
@@ -249,7 +248,7 @@ fn committed_callback_replacements_preserve_observer_lifetimes() {
         .sender::<ObserverComponent>(&Key::from("root"))
         .unwrap();
     assert!(sender.send([true; 3]));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     let current = assert_queued_observer_delivery(&host, &services, [true; 3]);
     let scheme = current.on_color_scheme.as_ref().unwrap();
     let size = current.on_size.as_ref().unwrap();
@@ -281,7 +280,7 @@ fn changing_one_committed_observer_preserves_other_queued_observations() {
         .unwrap();
     assert!(sender.send([false, true, true]));
     assert!(sender.send([true; 3]));
-    assert_eq!(host.drain(2).unwrap().dispatched, 2);
+    assert_eq!(host.drain(2).dispatched, 2);
     let current = assert_queued_observer_delivery(&host, &services, [false, true, true]);
     assert_ne!(
         first.on_color_scheme.as_ref().unwrap().generation,
