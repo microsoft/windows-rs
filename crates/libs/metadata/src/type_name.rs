@@ -17,6 +17,33 @@ impl TypeName {
             generics: vec![],
         }
     }
+
+    /// Resolves an intrinsic `System.Type` attribute value without a type definition.
+    pub fn primitive(&self) -> Option<Type> {
+        if self.namespace != "System" || !self.generics.is_empty() {
+            return None;
+        }
+        Some(match self.name.as_str() {
+            "Void" => Type::Void,
+            "Boolean" => Type::Bool,
+            "Char" => Type::Char,
+            "SByte" => Type::I8,
+            "Byte" => Type::U8,
+            "Int16" => Type::I16,
+            "UInt16" => Type::U16,
+            "Int32" => Type::I32,
+            "UInt32" => Type::U32,
+            "Int64" => Type::I64,
+            "UInt64" => Type::U64,
+            "Single" => Type::F32,
+            "Double" => Type::F64,
+            "IntPtr" => Type::ISize,
+            "UIntPtr" => Type::USize,
+            "String" => Type::String,
+            "Object" => Type::Object,
+            _ => return None,
+        })
+    }
 }
 
 impl PartialEq<(&str, &str)> for &TypeName {

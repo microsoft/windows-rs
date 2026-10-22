@@ -68,6 +68,34 @@ impl MethodParam<'_> {
         let mut result = None;
 
         for attribute in self.attributes() {
+            if attribute.namespace() == "Windows.Win32.Metadata"
+                && attribute.name() == "BufferExtentAttribute"
+            {
+                let extent = BufferExtent::from_values(&attribute.value())?;
+                if extent.phase != BufferPhase::Entry || extent.indirect {
+                    continue;
+                }
+                let relationship = match (extent.units, extent.count) {
+                    (BufferUnits::Elements, BufferCount::Parameter(index)) => {
+                        BufferRelationship::ElementsParam(index.try_into().ok()?)
+                    }
+                    (BufferUnits::Bytes, BufferCount::Parameter(index)) => {
+                        BufferRelationship::BytesParam(index.try_into().ok()?)
+                    }
+                    (BufferUnits::Elements, BufferCount::Constant(value)) => {
+                        BufferRelationship::ElementsConst(value.try_into().ok()?)
+                    }
+                    _ => return None,
+                };
+                if extent.offset != 0 || extent.null_fallback.is_some() || extent.count_on_entry {
+                    return None;
+                }
+                if result.is_some_and(|previous| previous != relationship) {
+                    return None;
+                }
+                result = Some(relationship);
+                continue;
+            }
             for (name, value) in attribute.value() {
                 let relationship = match (attribute.name(), name.as_str(), value) {
                     ("NativeArrayInfoAttribute", "CountParamIndex", Value::I16(value)) => {
