@@ -205,6 +205,25 @@ pub fn set_thread_ui_language() {
 mod tests {
     use super::str_const;
 
+    #[cfg(windows)]
+    #[test]
+    fn native_freshness() {
+        let output = std::process::Command::new("powershell.exe")
+            .args(["-NoProfile", "-File"])
+            .arg(concat!(
+                env!("CARGO_MANIFEST_DIR"),
+                "\\tests\\native_freshness.ps1"
+            ))
+            .output()
+            .unwrap();
+        assert!(
+            output.status.success(),
+            "{}\n{}",
+            String::from_utf8_lossy(&output.stdout),
+            String::from_utf8_lossy(&output.stderr)
+        );
+    }
+
     #[test]
     fn reads_plain_and_pub_and_ignores_prefix_collisions() {
         let src = "\
