@@ -408,12 +408,14 @@ without adding parentheses, which would turn brace fragments into comma expressi
 grouped expressions remain valid compiler input. Match the synthetic declaration and initializer
 expansion by exact source offsets, not an earlier same-name expansion.
 
-A clean TU supplies a temporary PCH. Failed batch diagnostics identify suspects, not proof of
-invalid macros: each rejection requires an independent failed parse. Unconfirmed batches split;
-survivors require a clean batch. Failed ASTs supply no capture evidence. Confirmations run on
-precreated separate indices with CPU budget capped at 24 and divided across targets. Results retain
-candidate order; all workers finish before removing the PCH. Original-source errors remain fatal,
-and forced includes are not replayed in probes.
+Discovery runs one incremental native parse per target through `windows_clang_probeMacros`: the
+original TU is parsed once, then each candidate's type and initializer probes are parsed as
+separate inputs against that state. A probe with errors rejects only its own macro, and its
+diagnostics are reset before the next candidate, so each rejection is independent. Unbalanced
+`()`, `[]` or `{}` in a replacement list rejects the macro without a probe, since it can never be
+an expression and would leave the incremental parser inside an open scope. Failed probes
+supply no capture evidence. Original-source errors remain fatal, and forced includes are not
+replayed in probes. Accepted macros are checked again by the final capture parse.
 
 Direct external C function references, optionally parenthesized, become macro aliases with target
 name/USR, signature/contracts and macro-owner location. Calls, casts, pointer values and comma
@@ -438,17 +440,16 @@ Fixtures include `scalar_constants`, `constant_declarations`, `aggregate_constan
 | --- | --- |
 | winerror/urlmon, winuser/imm, ntstatus/mferror/wincred | Active definition ownership wins; never recover superseded definitions |
 | certbcli, wincrypt, commctrl/richedit | Preserve written aliases, encoding selection, embedded NULs and native structure-size evaluation |
-| mmreg/ksmedia/wmsdkidl | Companion owners retain speaker/WAVE_FORMAT_DRM constants; PCH GUID failures remain explicit |
+| mmreg/ksmedia/wmsdkidl | Companion owners retain speaker/WAVE_FORMAT_DRM constants; `__uuidof` GUID macros publish their native values |
 | All SDK inputs | intsafe precedes Windows headers, supplying DWORD_MAX without displacing S_OK and keeping SAL expansion consistent |
 | Standalone ntstatus | winternl supplies NTSTATUS; WIN32_NO_STATUS surrounds Windows headers |
 | GUID definitions | Same native arguments, separate definition TUs, no repeated macro discovery or global INITGUID |
 
 The `_ARM64_MULT_INTRINS_SUPPORTED` compiler-internal exclusion is approved, not a parser special
 case. Four CERT_STRONG brace-initializer macros still need a destination type; none is guessed.
-`uuid_macros::explicit_and_discovered_uuid` retains the ignored PCH regression. Explicit capture
-succeeds where PCH reload reports incomplete GUID storage; no source retries or guessed values are
-retained. See the [acceptance evidence][guid-evidence] for the bounded companion investigation and
-remaining GUID obligations.
+`uuid_macros::explicit_and_discovered_uuid` checks that explicit and discovered `__uuidof` macros
+produce the same GUIDs. See the [acceptance evidence][guid-evidence] for remaining GUID
+obligations.
 
 [guid-evidence]: ../clang-evidence.md#required-omissions-and-policy-boundaries
 
@@ -766,11 +767,9 @@ different measurements. Owned-byte estimates cover snapshot capacities, not nati
 allocator/resolution overhead.
 
 `WINDOWS_CLANG_PROFILE=1` emits tab-separated phase/operation/count/time records. Native parse,
-diagnostic formatting and disposal are timed separately; target/confirmation workers overlap, so
-phase times cannot be summed as elapsed time. Historical probes found no useful PCH replay gains
-from disabled validation, reparsing, preambles or altered helper threads; those experiments are not
-enabled. Bounded parallel confirmation preserves independent rejection and output ordering. Ask for
-a quiet machine before controlled legacy/candidate process-tree measurements.
+diagnostic formatting and disposal are timed separately; target workers overlap, so phase times
+cannot be summed as elapsed time. Ask for a quiet machine before controlled legacy/candidate
+process-tree measurements.
 
 `import_exports` queries the process loader without calling APIs and reports requested provider,
 loaded module and export evidence. Record OS/DLL versions. Missing exports describe that build, not

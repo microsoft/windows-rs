@@ -11,8 +11,31 @@
 #include <clang/AST/TypeLoc.h>
 #include <clang/AST/VTableBuilder.h>
 #include <clang/Basic/TargetInfo.h>
+#include <clang/AST/ASTConsumer.h>
+#include <clang/AST/DeclContextInternals.h>
+#include <clang/Driver/CreateInvocationFromArgs.h>
 #include <clang/Frontend/ASTUnit.h>
+#include <clang/Frontend/CompilerInstance.h>
+#include <clang/Frontend/FrontendAction.h>
+#include <clang/Lex/Preprocessor.h>
+#include <clang/Lex/PreprocessorOptions.h>
+#include <clang/Parse/Parser.h>
+#include <clang/Sema/Sema.h>
 #include <llvm/Config/llvm-config.h>
+#include <llvm/Support/MemoryBuffer.h>
+#include <llvm/Support/VirtualFileSystem.h>
+#include <mutex>
+#include <string>
+#include <vector>
+
+extern "C" {
+void LLVMInitializeX86TargetInfo();
+void LLVMInitializeX86TargetMC();
+void LLVMInitializeX86AsmParser();
+void LLVMInitializeAArch64TargetInfo();
+void LLVMInitializeAArch64TargetMC();
+void LLVMInitializeAArch64AsmParser();
+}
 
 static const char* attributeName(clang::attr::Kind kind) {
     switch (kind) {
@@ -23,7 +46,7 @@ static const char* attributeName(clang::attr::Kind kind) {
 }
 
 unsigned windows_clang_getABIVersion(void) {
-    return 19;
+    return 20;
 }
 
 WindowsClangStatus windows_clang_getImportConvention(
@@ -706,5 +729,342 @@ WindowsClangStatus windows_clang_getFunctionInfo(CXType type, WindowsClangFuncti
         extension.getCmseNSCall(),
         properties
     };
+    return WindowsClangSuccess;
+}
+
+namespace {
+
+struct MacroDiagnostics : clang::DiagnosticConsumer {
+    std::string text;
+
+    void HandleDiagnostic(clang::DiagnosticsEngine::Level level,
+        const clang::Diagnostic& info) override {
+        DiagnosticConsumer::HandleDiagnostic(level, info);
+        if (level < clang::DiagnosticsEngine::Note) {
+            return;
+        }
+        if (!text.empty()) {
+            text += '\n';
+        }
+        if (info.hasSourceManager() && info.getLocation().isValid()) {
+            auto presumed = info.getSourceManager().getPresumedLoc(info.getLocation());
+            if (presumed.isValid()) {
+                text += presumed.getFilename();
+                text += ':' + std::to_string(presumed.getLine()) + ':'
+                    + std::to_string(presumed.getColumn()) + ": ";
+            }
+        }
+        switch (level) {
+        case clang::DiagnosticsEngine::Note: text += "note: "; break;
+        case clang::DiagnosticsEngine::Warning: text += "warning: "; break;
+        default: text += "error: "; break;
+        }
+        llvm::SmallString<256> message;
+        info.FormatDiagnostic(message);
+        text += message.str();
+    }
+
+    void reset() {
+        text.clear();
+        clear();
+    }
+};
+
+class MacroProbeAction : public clang::ASTFrontendAction {
+public:
+    MacroProbeAction(MacroDiagnostics& diagnostics, const char* const* names, unsigned count,
+        WindowsClangMacroProbe* probes)
+        : diagnostics(diagnostics), names(names), count(count), probes(probes) {}
+
+    bool failed = false;
+
+protected:
+    std::unique_ptr<clang::ASTConsumer> CreateASTConsumer(
+        clang::CompilerInstance&, llvm::StringRef) override {
+        return std::make_unique<clang::ASTConsumer>();
+    }
+
+    clang::TranslationUnitKind getTranslationUnitKind() override {
+        return clang::TU_Incremental;
+    }
+
+    void ExecuteAction() override {
+        auto& compiler = getCompilerInstance();
+        if (!compiler.hasSema()) {
+            compiler.createSema(getTranslationUnitKind(), nullptr);
+        }
+        auto& sema = compiler.getSema();
+        auto& preprocessor = compiler.getPreprocessor();
+        auto& sources = compiler.getSourceManager();
+        clang::Parser parser(preprocessor, sema, false);
+        preprocessor.EnterMainSourceFile();
+        parser.Initialize();
+        sema.getASTConsumer().Initialize(sema.getASTContext());
+        clang::Parser::DeclGroupPtrTy group;
+        clang::Sema::ModuleImportState state;
+        for (bool end = parser.ParseFirstTopLevelDecl(group, state); !end;
+             end = parser.ParseTopLevelDecl(group, state)) {
+        }
+        if (diagnostics.getNumErrors()) {
+            failed = true;
+            return;
+        }
+        diagnostics.reset();
+        unsigned serial = 0;
+        auto& context = compiler.getASTContext();
+        // Each probe is a separate incremental input, so error recovery cannot reach the next.
+        // This follows clang-repl's IncrementalParser: each input gets its own partial TU, and a
+        // failed input's declarations are removed from lookup before the next input.
+        auto parse = [&](const std::string& text, std::vector<clang::Decl*>& declarations) {
+            auto location = sources.getLocForStartOfFile(sources.getMainFileID());
+            auto file = sources.createFileID(
+                llvm::MemoryBuffer::getMemBufferCopy(text, "__windows_clang_probe"),
+                clang::SrcMgr::C_User, 0, 0, location);
+            if (preprocessor.EnterSourceFile(file, nullptr, location)) {
+                return false;
+            }
+            context.addTranslationUnitDecl();
+            if (parser.getCurToken().is(clang::tok::annot_repl_input_end)) {
+                parser.ConsumeAnyToken();
+                parser.ExitScope();
+                sema.CurContext = nullptr;
+                parser.EnterScope(clang::Scope::DeclScope);
+                sema.ActOnTranslationUnitScope(parser.getCurScope());
+            }
+            clang::Parser::DeclGroupPtrTy group;
+            auto state = clang::Sema::ModuleImportState::NotACXX20Module;
+            bool end;
+            do {
+                end = parser.ParseTopLevelDecl(group, state);
+                if (group) {
+                    for (auto declaration : group.get()) {
+                        declarations.push_back(declaration);
+                    }
+                }
+            } while (!end);
+            bool valid = !diagnostics.getNumErrors();
+            for (auto declaration : declarations) {
+                valid &= !declaration->isInvalidDecl();
+            }
+            if (!valid) {
+                discard(context.getTranslationUnitDecl());
+            }
+            // Delayed template parsing can leave tokens that would confuse the next input.
+            if (preprocessor.getLangOpts().DelayedTemplateParsing) {
+                for (clang::Token token; !token.is(clang::tok::annot_repl_input_end);) {
+                    preprocessor.Lex(token);
+                }
+            }
+            return valid;
+        };
+        for (unsigned index = 0; index != count; ++index) {
+            auto& probe = probes[index];
+            auto identifier = preprocessor.getIdentifierInfo(names[index]);
+            auto macro = preprocessor.getMacroInfo(identifier);
+            if (!macro) {
+                continue;
+            }
+            auto location = sources.getExpansionLoc(macro->getDefinitionLoc());
+            clang_disposeString(probe.file);
+            probe.file = clang::cxstring::createDup(sources.getFilename(location));
+            probe.line = sources.getExpansionLineNumber(location);
+            probe.column = sources.getExpansionColumnNumber(location);
+            if (macro->isFunctionLike()) {
+                probe.kind = WindowsClangMacroFunctionLike;
+                continue;
+            }
+            if (!macro->getNumTokens()) {
+                probe.kind = WindowsClangMacroEmpty;
+                continue;
+            }
+            // Incremental inputs must be self-contained: an unclosed bracket would carry parser
+            // state into later probes. Unbalanced replacement lists are never expressions.
+            if (!balanced(*macro)) {
+                probe.kind = WindowsClangMacroRejected;
+                clang_disposeString(probe.diagnostics);
+                probe.diagnostics = clang::cxstring::createDup(std::string(probe_location(location))
+                    + "error: macro replacement list has unbalanced brackets");
+                continue;
+            }
+            // These forms match the declarations windows-clang generates for accepted macros.
+            std::string name = names[index];
+            std::vector<clang::Decl*> declarations;
+            bool function = false;
+            bool valid = parse("\nusing __windows_clang_probe_type_" + std::to_string(serial++)
+                    + " = __typeof__((" + name + "));\n",
+                declarations);
+            if (valid) {
+                for (auto declaration : declarations) {
+                    auto alias = llvm::dyn_cast<clang::TypeAliasDecl>(declaration);
+                    auto type = alias ? llvm::dyn_cast<clang::TypeOfExprType>(
+                        alias->getUnderlyingType().getTypePtr()) : nullptr;
+                    if (type) {
+                        function = type->getUnderlyingExpr()->getType()->isFunctionType();
+                    }
+                }
+                declarations.clear();
+                auto id = std::to_string(serial++);
+                // Parentheses would turn initializer fragments into comma expressions.
+                valid = parse(function
+                        ? "\nstatic __typeof__((" + name + ")) &__windows_clang_probe_" + id
+                            + " = " + name + ";\n"
+                        : "\nstatic const __typeof__((" + name + ")) __windows_clang_probe_" + id
+                            + " = " + name + ";\n",
+                    declarations);
+            }
+            if (valid) {
+                probe.kind = function ? WindowsClangMacroFunction : WindowsClangMacroValue;
+            } else {
+                probe.kind = WindowsClangMacroRejected;
+                clang_disposeString(probe.diagnostics);
+                probe.diagnostics = clang::cxstring::createDup(diagnostics.text);
+                compiler.getDiagnostics().Reset(true);
+            }
+            diagnostics.reset();
+        }
+    }
+
+private:
+    static bool balanced(const clang::MacroInfo& macro) {
+        std::vector<clang::tok::TokenKind> open;
+        for (auto& token : macro.tokens()) {
+            switch (token.getKind()) {
+            case clang::tok::l_paren: open.push_back(clang::tok::r_paren); break;
+            case clang::tok::l_square: open.push_back(clang::tok::r_square); break;
+            case clang::tok::l_brace: open.push_back(clang::tok::r_brace); break;
+            case clang::tok::r_paren:
+            case clang::tok::r_square:
+            case clang::tok::r_brace:
+                if (open.empty() || open.back() != token.getKind()) {
+                    return false;
+                }
+                open.pop_back();
+                break;
+            default: break;
+            }
+        }
+        return open.empty();
+    }
+
+    std::string probe_location(clang::SourceLocation location) {
+        auto presumed = getCompilerInstance().getSourceManager().getPresumedLoc(location);
+        if (presumed.isInvalid()) {
+            return {};
+        }
+        return std::string(presumed.getFilename()) + ':' + std::to_string(presumed.getLine())
+            + ':' + std::to_string(presumed.getColumn()) + ": ";
+    }
+
+    // Removes a failed partial TU's declarations from lookup, as clang-repl's CleanUpPTU does.
+    void discard(clang::TranslationUnitDecl* unit) {
+        if (auto map = unit->getPrimaryContext()->getLookupPtr()) {
+            for (auto&& [key, list] : *map) {
+                std::vector<clang::NamedDecl*> removed;
+                bool all = true;
+                for (auto declaration : list.getLookupResult()) {
+                    if (declaration->getTranslationUnitDecl() == unit) {
+                        removed.push_back(declaration);
+                    } else {
+                        all = false;
+                    }
+                }
+                if (all) {
+                    map->erase(key);
+                } else {
+                    for (auto declaration : removed) {
+                        list.remove(declaration);
+                    }
+                }
+            }
+        }
+        auto& sema = getCompilerInstance().getSema();
+        for (auto declaration : unit->decls()) {
+            auto named = llvm::dyn_cast<clang::NamedDecl>(declaration);
+            if (named && !named->getDeclName().isEmpty()
+                && named->getDeclName().getFETokenInfo() && !declaration->getLangOpts().ObjC
+                && !declaration->getLangOpts().CPlusPlus) {
+                sema.IdResolver.RemoveDecl(named);
+            }
+        }
+    }
+
+    MacroDiagnostics& diagnostics;
+    const char* const* names;
+    unsigned count;
+    WindowsClangMacroProbe* probes;
+};
+
+}
+
+WindowsClangStatus windows_clang_probeMacros(const char* source_filename,
+    const char* const* command_line_args, int num_command_line_args,
+    CXUnsavedFile* unsaved_files, unsigned num_unsaved_files, const char* const* names,
+    unsigned num_names, WindowsClangMacroProbe* probes, CXString* error) {
+    if (!source_filename || !error || num_command_line_args < 0
+        || (num_command_line_args && !command_line_args) || (num_unsaved_files && !unsaved_files)
+        || (num_names && (!names || !probes))) {
+        return WindowsClangInvalidArgument;
+    }
+    *error = clang::cxstring::createEmpty();
+    for (unsigned index = 0; index != num_names; ++index) {
+        if (!names[index]) {
+            return WindowsClangInvalidArgument;
+        }
+        probes[index] = { WindowsClangMacroUndefined, clang::cxstring::createEmpty(), 0, 0,
+            clang::cxstring::createEmpty() };
+    }
+    static std::once_flag targets;
+    std::call_once(targets, [] {
+        LLVMInitializeX86TargetInfo();
+        LLVMInitializeX86TargetMC();
+        LLVMInitializeX86AsmParser();
+        LLVMInitializeAArch64TargetInfo();
+        LLVMInitializeAArch64TargetMC();
+        LLVMInitializeAArch64AsmParser();
+    });
+    // Match the arguments libclang adds when it parses a translation unit.
+    std::vector<const char*> arguments{ "clang" };
+    bool spelling = false;
+    for (int index = 0; index != num_command_line_args; ++index) {
+        llvm::StringRef argument = command_line_args[index];
+        spelling |= argument == "-fno-spell-checking" || argument == "-fspell-checking";
+        arguments.push_back(command_line_args[index]);
+    }
+    if (!spelling) {
+        arguments.insert(arguments.begin() + 1, "-fno-spell-checking");
+    }
+    arguments.insert(arguments.end(),
+        { "-fsyntax-only", "-ferror-limit=0", "-fallow-editor-placeholders", source_filename });
+    MacroDiagnostics diagnostics;
+    clang::DiagnosticOptions options;
+    auto system = llvm::vfs::getRealFileSystem();
+    clang::CreateInvocationOptions creation;
+    creation.Diags = clang::CompilerInstance::createDiagnostics(
+        *system, options, &diagnostics, false);
+    creation.VFS = system;
+    auto invocation = clang::createInvocation(arguments, creation);
+    if (!invocation) {
+        clang_disposeString(*error);
+        *error = clang::cxstring::createDup(diagnostics.text);
+        return WindowsClangParseFailed;
+    }
+    invocation->getLangOpts().IncrementalExtensions = 1;
+    auto& preprocessor = invocation->getPreprocessorOpts();
+    for (unsigned index = 0; index != num_unsaved_files; ++index) {
+        auto& file = unsaved_files[index];
+        preprocessor.addRemappedFile(file.Filename,
+            llvm::MemoryBuffer::getMemBufferCopy(
+                llvm::StringRef(file.Contents, file.Length), file.Filename).release());
+    }
+    preprocessor.RetainRemappedFileBuffers = false;
+    clang::CompilerInstance compiler(std::move(invocation));
+    compiler.createVirtualFileSystem(system);
+    compiler.createDiagnostics(&diagnostics, false);
+    MacroProbeAction action(diagnostics, names, num_names, probes);
+    if (!compiler.ExecuteAction(action) || action.failed) {
+        clang_disposeString(*error);
+        *error = clang::cxstring::createDup(diagnostics.text);
+        return WindowsClangParseFailed;
+    }
     return WindowsClangSuccess;
 }

@@ -93,55 +93,41 @@ fn capture_impl(
     let library = Arc::new(load_manually().map_err(Error)?);
     let _binding = Binding::new(Arc::clone(&library));
     let compiler = text(unsafe { clang_getClangVersion() });
-    let workers = if inputs.iter().any(|input| !input.macro_headers.is_empty()) {
-        let available = std::thread::available_parallelism()
-            .map_err(|error| Error(format!("cannot determine capture parallelism: {error}")))?
-            .get()
-            .min(24);
-        (available / targets.len()).max(1)
-    } else {
-        1
-    };
     let indices = targets
         .iter()
         .map(|_| {
-            (0..workers)
-                .map(|_| {
-                    let handle = unsafe { clang_createIndex(0, 0) };
-                    if handle.is_null() {
-                        Err(Error("clang_createIndex failed".into()))
-                    } else {
-                        Ok(Index(handle))
-                    }
-                })
-                .collect::<Result<Vec<_>, _>>()
+            let handle = unsafe { clang_createIndex(0, 0) };
+            if handle.is_null() {
+                Err(Error("clang_createIndex failed".into()))
+            } else {
+                Ok(Index(handle))
+            }
         })
         .collect::<Result<Vec<_>, _>>()?;
     let (indices, results): (Vec<_>, Vec<_>) = std::thread::scope(|scope| {
         let tasks: Vec<_> = indices
             .into_iter()
             .zip(targets)
-            .map(|(indices, &target)| {
+            .map(|(index, &target)| {
                 let library = Arc::clone(&library);
                 let compiler = &compiler;
                 let sources = &sources;
                 scope.spawn(move || {
-                    let _binding = Binding::new(Arc::clone(&library));
+                    let _binding = Binding::new(library);
                     // Dispose before restoring bindings if this worker unwinds.
-                    let mut owned_indices = indices;
+                    let owned_index = index;
                     let mut results = Batch::default();
                     for (source, input) in sources.iter().zip(inputs) {
                         results.push(parse(
-                            &mut owned_indices,
+                            &owned_index,
                             source,
                             input,
                             target,
                             compiler,
                             partial,
-                            &library,
                         ));
                     }
-                    (owned_indices, results)
+                    (owned_index, results)
                 })
             })
             .collect();
@@ -361,13 +347,12 @@ fn parse_unit(
 }
 
 fn parse(
-    indices: &mut [Index],
+    index: &Index,
     source: &Source,
     input: &Input,
     target: Target,
     compiler: &str,
     partial: bool,
-    library: &Arc<SharedLibrary>,
 ) -> Result<(Snapshot, partial::Issues), Error> {
     let _profile = profile::begin(format!("{target:?} {}", input.name));
     let mut arguments = vec!["-x".into(), "c++".into(), "-std=c++20".into()];
@@ -379,7 +364,7 @@ fn parse(
         target.triple(),
         arguments.join(" ")
     );
-    let mut parse = || {
+    let parse = || {
         let flags = CXTranslationUnit_IncludeAttributedTypes
             | CXTranslationUnit_VisitImplicitAttributes
             | if input.macros.is_empty() && input.macro_headers.is_empty() {
@@ -388,17 +373,7 @@ fn parse(
                 CXTranslationUnit_DetailedPreprocessingRecord
             };
         let initial = profile::phase("initial");
-        let mut parsed = parse_unit(
-            &indices[0],
-            &[source],
-            &arguments,
-            flags
-                | if input.macro_headers.is_empty() {
-                    0
-                } else {
-                    CXTranslationUnit_ForSerialization
-                },
-        )?;
+        let mut parsed = parse_unit(index, &[source], &arguments, flags)?;
         parsed.check()?;
         drop(initial);
         let mut issues = partial::Issues::default();
@@ -406,15 +381,8 @@ fn parse(
         let mut names = input.macros.clone();
         if !input.macro_headers.is_empty() {
             let _phase = profile::phase("discovery");
-            let (discovered, aliases, rejected) = macros::discover(
-                indices,
-                &parsed.unit,
-                source,
-                input,
-                &arguments,
-                target,
-                library,
-            )?;
+            let (discovered, aliases, rejected) =
+                macros::discover(&parsed.unit, source, input, &arguments, target)?;
             if !partial && !rejected.excluded.is_empty() {
                 return Err(Error(rejected.finish().join("\n")));
             }
@@ -434,7 +402,7 @@ fn parse(
         };
         if let Some(source) = &generated {
             let _phase = profile::phase("final");
-            parsed = parse_unit(&indices[0], &[source], &arguments, flags)?;
+            parsed = parse_unit(index, &[source], &arguments, flags)?;
             parsed.check()?;
         }
         let source = generated.as_ref().unwrap_or(source);

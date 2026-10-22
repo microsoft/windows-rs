@@ -15,7 +15,26 @@ enum WindowsClangStatus {
     WindowsClangSuccess = 0,
     WindowsClangInvalidArgument = 1,
     WindowsClangWrongKind = 2,
-    WindowsClangDependent = 3
+    WindowsClangDependent = 3,
+    WindowsClangParseFailed = 4
+};
+
+enum WindowsClangMacroKind {
+    WindowsClangMacroUndefined = 0,
+    WindowsClangMacroFunctionLike = 1,
+    WindowsClangMacroEmpty = 2,
+    WindowsClangMacroRejected = 3,
+    WindowsClangMacroValue = 4,
+    WindowsClangMacroFunction = 5
+};
+
+// Active definition at the end of the source and the outcome of its expression probes.
+struct WindowsClangMacroProbe {
+    enum WindowsClangMacroKind kind;
+    CXString file;
+    unsigned line;
+    unsigned column;
+    CXString diagnostics;
 };
 
 enum WindowsClangFunctionProperties {
@@ -166,6 +185,14 @@ WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getPredefinedType(
 // struct fields or array elements; no source tokens or object-memory layout are interpreted.
 WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_getConstantIntegerElement(
     CXCursor cursor, const unsigned* indices, unsigned count, unsigned long long* value);
+// Parses the source once, then checks each named object-like macro in its own incremental input:
+// a `__typeof__` probe followed by an initializer probe, as `windows-clang` generates them.
+// Errors in one probe cannot affect another. Every returned string is caller-owned. If the source
+// itself fails to parse, returns WindowsClangParseFailed with its diagnostics in `error`.
+WINDOWS_CLANG_API enum WindowsClangStatus windows_clang_probeMacros(
+    const char* source_filename, const char* const* command_line_args, int num_command_line_args,
+    struct CXUnsavedFile* unsaved_files, unsigned num_unsaved_files, const char* const* names,
+    unsigned num_names, struct WindowsClangMacroProbe* probes, CXString* error);
 
 #ifdef __cplusplus
 }

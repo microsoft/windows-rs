@@ -111,7 +111,6 @@ It does not replace full-package or generator qualification.
 | 2 certbcli cases | Actual output adds `CSEDB_RSTMAPW` and `HCSBC`. This is not direction respelling; classify the extra declarations before changing the golden. |
 | 2 metadata assertions | `annotations::sdk_annotations` expects a buffer relationship from positional parameter iteration; `sdk_functions` counts five rows for four-argument `CreateEventW`, whose nullable return now has its own row. Check arguments by sequence, separately from return contracts. |
 | 2 named-import consumers | `guidless_import_consumer` and `named_import_consumers_cross_targets` fail compiling the SDK guidless `Open` callback: generated output pointers are const while the implementation requires mutable pointers. This exercises the confirmed unspecified-direction bindgen boundary. |
-| 1 PCH GUID reproducer | `uuid_macros::explicit_and_discovered_uuid` retains its documented incomplete builtin `_GUID` failure. Enabling ignored tests includes this known negative reproducer; do not hide it with generated values or source retries. |
 
 The tracked `vadefs` partition is also absent, consistently with the approved compiler/CRT root
 ownership boundary. It is not the same category as the unresolved activation-registration loss.
@@ -235,15 +234,9 @@ coverage CSV are byte-identical to the control. All 63 GUIDs affected by the ini
 rule remain present. The missing constant count falls from 18 to 15 in both comparison controls;
 additional omission diagnostics include the retained declaration-only native objects.
 
-The PCH reproducer remains a separate compiler defect. Explicit GUID capture succeeds where PCH
-discovery reports incomplete `_GUID`, even with a complete source definition. A native diagnostic
-probe using `ExternalASTSource::CompleteRedeclChain` restores the compiler-owned GUID fields on all
-targets and still rejects a genuinely incomplete type. No suitable pre-parse hook is established.
-Only a small companion adjustment is in scope: no libclang rebuild, parser duplication, guessed
-GUIDs or per-failure source retries. The retry prototype exceeded 515.9 seconds without completing
-capture versus 338.8 seconds without confirmation and was removed. These are historical
-observations, not budget qualification. The historical 460 ksmedia GUID figure is not the current
-loss inventory.
+Macro discovery probes every candidate in one incremental native parse per target, without a PCH,
+so Clang's builtin `_GUID` definition stays available. Discovered GUID macros publish their native
+values, and `uuid_macros` checks parity with explicit capture.
 
 Definition inputs retain native provenance and reconciliation. Olectl's dependency preloading and
 split `DEFINE_GUID`/`INITGUID` state, topology's `_KS_` context and selected lean GUID includes must
