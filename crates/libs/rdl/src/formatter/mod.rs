@@ -174,9 +174,63 @@ fn format_attribute(g: &Group, output: &mut String) {
         output.push_str("in]");
         return;
     }
+    // Predicate arguments are expressions, not type arguments or named attribute properties.
+    if let [TokenTree::Ident(name), TokenTree::Group(args)] = inner.as_slice()
+        && name == "success"
+        && args.delimiter() == Delimiter::Parenthesis
+    {
+        output.push_str("success(");
+        output.push_str(&args.stream().to_string());
+        output.push_str(")]");
+        return;
+    }
+    if let [TokenTree::Ident(name), TokenTree::Group(args)] = inner.as_slice()
+        && matches!(name.to_string().as_str(), "range" | "readable" | "writable")
+        && args.delimiter() == Delimiter::Parenthesis
+    {
+        output.push_str(&name.to_string());
+        output.push('(');
+        format_expression(args.stream(), output);
+        output.push_str(")]");
+        return;
+    }
     format_seq(&inner, output, 0, true);
     trim_space(output);
     output.push(']');
+}
+
+fn format_expression(stream: TokenStream, output: &mut String) {
+    let mut operand = false;
+    for token in stream {
+        match &token {
+            TokenTree::Ident(_) | TokenTree::Literal(_) => {
+                if operand {
+                    output.push(' ');
+                }
+                output.push_str(&token.to_string());
+                operand = true;
+            }
+            TokenTree::Group(group) if group.delimiter() == Delimiter::Parenthesis => {
+                output.push('(');
+                format_expression(group.stream(), output);
+                output.push(')');
+                operand = true;
+            }
+            TokenTree::Punct(punct) => {
+                match punct.as_char() {
+                    ',' => output.push_str(", "),
+                    '+' | '-' | '*' if operand => {
+                        output.push(' ');
+                        output.push(punct.as_char());
+                        output.push(' ');
+                    }
+                    _ => output.push(punct.as_char()),
+                }
+                operand = false;
+            }
+            _ => output.push_str(&token.to_string()),
+        }
+    }
 }
 
 fn at_line_start(output: &str) -> bool {

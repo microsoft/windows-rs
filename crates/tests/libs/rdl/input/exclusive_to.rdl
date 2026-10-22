@@ -16,7 +16,7 @@ mod Windows {
     mod Foundation {
         mod Metadata {
             attribute ExclusiveToAttribute {
-                fn(r#type: Type);
+                fn(#[in] r#type: Type);
             }
         }
     }

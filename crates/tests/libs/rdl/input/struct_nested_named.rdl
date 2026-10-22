@@ -1,0 +1,26 @@
+#[win32]
+mod Test {
+    struct Outer {
+        struct Inner {
+            struct Leaf {
+                value: i32,
+            }
+            leaf: Outer::Inner::Leaf,
+            next: *mut Outer::Inner,
+        }
+        union Value {
+            integer: i32,
+            floating: f32,
+        }
+        first: Outer::Inner,
+        second: Outer::Inner,
+        values: [Outer::Value; 2],
+        callback: extern "C" fn(*const Outer::Inner) -> *mut Outer::Value,
+    }
+    struct Sibling {
+        struct Inner {
+            value: u16,
+        }
+        value: Sibling::Inner,
+    }
+}

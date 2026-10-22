@@ -7,6 +7,156 @@ use proc_macro2::{Literal, TokenStream};
 use quote::{format_ident, quote};
 use windows_metadata as metadata;
 
+/// Bounded predicates for ordinary postconditions on callable results.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(i32)]
+pub enum SuccessCondition {
+    EqualZero = 0,
+    NotEqualZero = 1,
+    EqualOne = 2,
+    Nonnegative = 3,
+    Positive = 4,
+}
+
+impl SuccessCondition {
+    /// Recognizes the canonical expression grammar without evaluating arbitrary expressions.
+    pub fn from_expression(expression: &TokenStream) -> Option<Self> {
+        match expression.to_string().as_str() {
+            "return == 0" => Some(Self::EqualZero),
+            "return != 0" => Some(Self::NotEqualZero),
+            "return == 1" => Some(Self::EqualOne),
+            "return >= 0" => Some(Self::Nonnegative),
+            "return > 0" => Some(Self::Positive),
+            _ => None,
+        }
+    }
+
+    /// Encodes the enum-valued metadata constructor argument.
+    pub fn to_value(self) -> metadata::Value {
+        metadata::Value::EnumValue(
+            metadata::TypeName::named("Windows.Win32.Metadata", "SuccessCondition"),
+            Box::new(metadata::Value::I32(self as i32)),
+        )
+    }
+
+    /// Recognizes only the declared enum and supported discriminants.
+    pub fn from_value(value: &metadata::Value) -> Option<Self> {
+        let metadata::Value::EnumValue(name, value) = value else {
+            return None;
+        };
+        if name != ("Windows.Win32.Metadata", "SuccessCondition") {
+            return None;
+        }
+        match value.as_ref() {
+            metadata::Value::I32(0) => Some(Self::EqualZero),
+            metadata::Value::I32(1) => Some(Self::NotEqualZero),
+            metadata::Value::I32(2) => Some(Self::EqualOne),
+            metadata::Value::I32(3) => Some(Self::Nonnegative),
+            metadata::Value::I32(4) => Some(Self::Positive),
+            _ => None,
+        }
+    }
+}
+
+/// Renders a success predicate without changing its owner or return type.
+pub fn write_success(condition: SuccessCondition) -> TokenStream {
+    let expression = match condition {
+        SuccessCondition::EqualZero => quote! { return == 0 },
+        SuccessCondition::NotEqualZero => quote! { return != 0 },
+        SuccessCondition::EqualOne => quote! { return == 1 },
+        SuccessCondition::Nonnegative => quote! { return >= 0 },
+        SuccessCondition::Positive => quote! { return > 0 },
+    };
+    quote! { #[success(#expression)] }
+}
+
+/// Renders the established direction flags without inferring direction from the type.
+pub fn write_param_direction(input: bool, output: bool) -> TokenStream {
+    let in_attr = input.then(|| quote! { #[r#in] });
+    let out_attr = output.then(|| quote! { #[out] });
+    quote! { #in_attr #out_attr }
+}
+
+/// Renders a bitfield member, retaining its optional type independently of the backing storage.
+pub fn write_bitfield_member(
+    namespace: &str,
+    name: Option<&str>,
+    width: u32,
+    ty: Option<&metadata::Type>,
+) -> TokenStream {
+    let name = name.map_or_else(
+        || quote! { _ },
+        |name| {
+            syn::parse_str::<syn::Ident>(name)
+                .or_else(|_| syn::parse_str::<syn::Ident>(&format!("r#{name}")))
+                .ok()
+                .filter(|ident| ident.to_string().trim_start_matches("r#") == name)
+                .map_or_else(|| quote! { #name }, |ident| quote! { #ident })
+        },
+    );
+    let width = Literal::u32_unsuffixed(width);
+    let ty = ty.map(|ty| {
+        let ty = write_type(namespace, ty);
+        quote! { #ty: }
+    });
+    quote! { #name: #ty #width, }
+}
+
+/// Renders result-pointer guarantees independently of the output storage's optionality.
+pub fn write_returned_pointer(may_be_null: bool, null_on_failure: bool) -> TokenStream {
+    match (may_be_null, null_on_failure) {
+        (false, false) => quote! { #[out_ptr] },
+        (true, false) => quote! { #[out_ptr(nullable)] },
+        (false, true) => quote! { #[out_ptr(null_on_failure)] },
+        (true, true) => quote! { #[out_ptr(nullable, null_on_failure)] },
+    }
+}
+
+/// Renders zero termination by phase. Each present phase is single (`false`) or double (`true`).
+pub fn write_null_terminated(
+    entry: Option<bool>,
+    success: Option<bool>,
+    indirect: bool,
+) -> TokenStream {
+    write_phase_contract(quote! { null_terminated }, entry, success, indirect)
+}
+
+/// Renders permission for null without implying initialized or accessible storage.
+pub fn write_nullable(entry: bool, success: bool, indirect: bool) -> TokenStream {
+    write_phase_contract(
+        quote! { nullable },
+        entry.then_some(false),
+        success.then_some(false),
+        indirect,
+    )
+}
+
+fn write_phase_contract(
+    name: TokenStream,
+    entry: Option<bool>,
+    success: Option<bool>,
+    indirect: bool,
+) -> TokenStream {
+    assert!(entry.is_some() || success.is_some());
+    let entry = entry.map(|double| {
+        if double {
+            quote! { double_entry }
+        } else {
+            quote! { entry }
+        }
+    });
+    let success = success.map(|double| {
+        if double {
+            quote! { double_success }
+        } else {
+            quote! { success }
+        }
+    });
+    let indirect = indirect.then(|| quote! { indirect });
+    let flags = entry.into_iter().chain(success).chain(indirect);
+    quote! { #[#name(#(#flags),*)] }
+}
+
 /// Renders a name as an RDL identifier, escaping Rust keywords (`r#...`) and the
 /// special cases (`Self`/`self` -> `<name>_`, `_` -> `unused`).
 pub fn write_ident(name: &str) -> TokenStream {
@@ -79,6 +229,14 @@ pub fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
 
             ty
         }
+        Ptr64(ty, constant) => {
+            let ty = write_type(namespace, ty);
+            if *constant {
+                quote! { ptr64<*const #ty> }
+            } else {
+                quote! { ptr64<*mut #ty> }
+            }
+        }
         PtrConst(ty, pointers) => {
             let mut ty = write_type(namespace, ty);
 
@@ -88,8 +246,24 @@ pub fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
 
             ty
         }
+        FnPtr(signature) => {
+            let abi = match signature.flags {
+                metadata::MethodCallAttributes::C => quote! { "C" },
+                metadata::MethodCallAttributes::STDCALL => TokenStream::new(),
+                _ => unreachable!("function pointer signature must be validated before emission"),
+            };
+            let parameters = signature.types.iter().map(|ty| write_type(namespace, ty));
+            let result = if signature.return_type == Void {
+                TokenStream::new()
+            } else {
+                let ty = write_type(namespace, &signature.return_type);
+                quote! { -> #ty }
+            };
+            quote! { extern #abi fn(#(#parameters),*) #result }
+        }
         ClassName(type_name) | ValueName(type_name) => {
-            let name = write_ident(&type_name.name);
+            let parts = type_name.name.split('/').map(write_ident);
+            let name = quote! { #(#parts)::* };
 
             let name = if type_name.generics.is_empty() {
                 name
@@ -194,9 +368,11 @@ pub fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
         }
         metadata::Value::Utf8(value) => quote! { #value },
         metadata::Value::Utf16(value) => quote! { #value },
-        metadata::Value::TypeName(tn) => {
-            write_type(namespace, &metadata::Type::ClassName(tn.clone()))
-        }
+        metadata::Value::TypeName(tn) => write_type(
+            namespace,
+            &tn.primitive()
+                .unwrap_or_else(|| metadata::Type::ClassName(tn.clone())),
+        ),
         metadata::Value::EnumValue(_, inner) => write_value(namespace, inner),
     }
 }

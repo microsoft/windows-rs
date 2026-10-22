@@ -13,57 +13,59 @@ pub fn write_struct_items(
     }
 
     let namespace = item.namespace();
-    let mut hoisted: Vec<(String, TokenStream)> = vec![];
-    let tokens = write_record(
-        namespace,
-        item,
-        false,
-        item.arches(),
-        packing_of(item),
-        &mut hoisted,
-    )?;
-    hoisted.push((item.name().to_string(), tokens));
-    Ok(hoisted)
+    let tokens = write_record(namespace, item, false, None)?;
+    Ok(vec![(item.name().to_string(), tokens)])
 }
 
 fn write_record(
     namespace: &str,
     item: &metadata::reader::TypeDef,
     inline: bool,
-    parent_arches: i32,
-    parent_packing: Option<u16>,
-    hoisted: &mut Vec<(String, TokenStream)>,
+    parent_arches: Option<i32>,
 ) -> Result<TokenStream, Error> {
+    if item.category() != metadata::reader::TypeCategory::Struct {
+        return Err(writer_err!(
+            "only nested records are supported: {}",
+            item.name()
+        ));
+    }
     let nested: Vec<metadata::reader::TypeDef> = item.index().nested(*item).collect();
     let record_name = item.full_name();
 
-    let inline_names: HashSet<String> = item
-        .fields()
-        .filter_map(|field| match field.ty() {
-            metadata::Type::ValueName(tn) => nested_leaf(&tn, &record_name).map(str::to_string),
-            _ => None,
+    let mut uses: HashMap<String, Vec<usize>> = HashMap::new();
+    for (position, field) in item.fields().enumerate() {
+        if let metadata::Type::ValueName(tn) = field.ty()
+            && let Some(leaf) = nested_leaf(&tn, &record_name)
+        {
+            uses.entry(leaf.to_string()).or_default().push(position);
+        }
+    }
+    let inline_names: HashSet<_> = uses
+        .iter()
+        .filter_map(|(name, positions)| {
+            if let [position] = positions.as_slice()
+                && *name == format!("{}_{position}", item.name())
+            {
+                Some(name.as_str())
+            } else {
+                None
+            }
         })
         .collect();
-
-    // Nested types without a direct value field need flat helper names.
-    let mut flat_names: HashMap<String, String> = HashMap::new();
-    for (index, child) in nested.iter().enumerate() {
-        if inline_names.contains(child.name()) {
-            continue;
-        }
-        let flat_name = format!("{}_{index}", item.name());
-        flat_names.insert(child.name().to_string(), flat_name.clone());
-        let effective_arches = parent_arches | child.arches();
-        let effective_packing = packing_of(child).or(parent_packing);
-        hoist_subtree(
-            namespace,
-            child,
-            &flat_name,
-            effective_arches,
-            effective_packing,
-            hoisted,
-        )?;
-    }
+    let scoped_names: HashMap<String, String> = nested
+        .iter()
+        .map(|child| {
+            (
+                child.name().to_string(),
+                format!("{}/{}", record_name.name, child.name()),
+            )
+        })
+        .collect();
+    let declarations = nested
+        .iter()
+        .filter(|child| !inline_names.contains(child.name()))
+        .map(|child| write_record(namespace, child, false, Some(item.arches())))
+        .collect::<Result<Vec<_>, _>>()?;
 
     let inline_map: HashMap<String, metadata::reader::TypeDef> = nested
         .iter()
@@ -78,22 +80,13 @@ fn write_record(
                 && let Some(leaf) = nested_leaf(&tn, &record_name)
                 && let Some(child) = inline_map.get(leaf)
             {
-                let effective_arches = parent_arches | child.arches();
-                let effective_packing = packing_of(child).or(parent_packing);
-                let inner = write_record(
-                    namespace,
-                    child,
-                    true,
-                    effective_arches,
-                    effective_packing,
-                    hoisted,
-                )?;
+                let inner = write_record(namespace, child, true, Some(item.arches()))?;
                 let name = write_ident(field.name());
                 let field_attrs =
                     write_custom_attributes(field.attributes(), namespace, field.index())?;
                 return Ok(quote! { #(#field_attrs)* #name: #inner, });
             }
-            write_field_flat(namespace, &field, &record_name, &flat_names)
+            write_field_scoped(namespace, &field, &record_name, &scoped_names)
         })
         .collect::<Result<Vec<_>, _>>()?;
 
@@ -101,7 +94,7 @@ fn write_record(
     let packed_attr = write_packed_attr(item);
     let align_attr = write_align_attr(item);
     // Inline nested records inherit the parent's architecture.
-    let arch_attr = if inline {
+    let arch_attr = if inline || parent_arches == Some(item.arches()) {
         quote! {}
     } else {
         write_arch_attr(item.arches())
@@ -117,6 +110,7 @@ fn write_record(
         Ok(quote! {
             #packed_attr #align_attr #(#custom_attrs)*
             #keyword {
+                #(#declarations)*
                 #(#fields)*
             }
         })
@@ -128,59 +122,11 @@ fn write_record(
             #arch_attr
             #(#custom_attrs)*
             #keyword #name_ident {
+                #(#declarations)*
                 #(#fields)*
             }
         })
     }
-}
-
-fn hoist_subtree(
-    namespace: &str,
-    node: &metadata::reader::TypeDef,
-    flat_name: &str,
-    arches: i32,
-    packing: Option<u16>,
-    hoisted: &mut Vec<(String, TokenStream)>,
-) -> Result<(), Error> {
-    // Hoist descendants first so this node can rewrite references to them.
-    let mut child_flat_names: HashMap<String, String> = HashMap::new();
-    for (index, child) in node.index().nested(*node).enumerate() {
-        let child_flat = format!("{flat_name}_{index}");
-        child_flat_names.insert(child.name().to_string(), child_flat.clone());
-        let effective_arches = arches | child.arches();
-        let effective_packing = packing_of(&child).or(packing);
-        hoist_subtree(
-            namespace,
-            &child,
-            &child_flat,
-            effective_arches,
-            effective_packing,
-            hoisted,
-        )?;
-    }
-
-    let name_ident = write_ident(flat_name);
-    let record_name = node.full_name();
-    let fields: Vec<TokenStream> = node
-        .fields()
-        .map(|field| write_field_flat(namespace, &field, &record_name, &child_flat_names))
-        .collect::<Result<Vec<_>, _>>()?;
-    let keyword = struct_keyword(node);
-    let arch_attr = write_arch_attr(arches);
-    let packed_attr = write_packed_attr_value(packing);
-    let align_attr = write_align_attr(node);
-    let custom_attrs = write_custom_attributes_except(
-        node.attributes(),
-        namespace,
-        node.index(),
-        &["SupportedArchitectureAttribute", "AlignmentAttribute"],
-    )?;
-
-    hoisted.push((
-        flat_name.to_string(),
-        quote! { #packed_attr #align_attr #arch_attr #(#custom_attrs)* #keyword #name_ident { #(#fields)* } },
-    ));
-    Ok(())
 }
 
 fn packing_of(item: &metadata::reader::TypeDef) -> Option<u16> {
@@ -189,20 +135,20 @@ fn packing_of(item: &metadata::reader::TypeDef) -> Option<u16> {
         .filter(|&s| s > 0)
 }
 
-fn write_field_flat(
+fn write_field_scoped(
     namespace: &str,
     item: &metadata::reader::Field,
     record_name: &metadata::TypeName,
-    flat_names: &HashMap<String, String>,
+    scoped_names: &HashMap<String, String>,
 ) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
-    let resolved_ty = resolve_nested(&item.ty(), namespace, record_name, flat_names);
+    let resolved_ty = resolve_nested(&item.ty(), namespace, record_name, scoped_names);
     let ty = write_type(namespace, &resolved_ty);
 
     // Bit-field backing units render as C-like blocks instead of raw attributes.
     let members = collect_bitfield_members(item);
     if !members.is_empty() {
-        let block = write_bitfield_block(&members);
+        let block = write_bitfield_block(namespace, &members);
         let field_attrs = write_custom_attributes_except(
             item.attributes(),
             namespace,
@@ -212,45 +158,95 @@ fn write_field_flat(
         return Ok(quote! { #(#field_attrs)* #name: #ty { #(#block)* }, });
     }
 
-    let field_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    let field_attrs = write_custom_attributes_with_names(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &[],
+        Some(ExtentOwner::Field),
+    )?;
     Ok(quote! { #(#field_attrs)* #name: #ty, })
 }
 
-fn collect_bitfield_members(item: &metadata::reader::Field) -> Vec<(String, u32, u32)> {
-    let mut members: Vec<(String, u32, u32)> = item
+struct BitfieldMember {
+    name: String,
+    offset: u32,
+    width: u32,
+    ty: Option<metadata::Type>,
+}
+
+fn collect_bitfield_members(item: &metadata::reader::Field) -> Vec<BitfieldMember> {
+    let members: Option<Vec<_>> = item
         .attributes()
         .filter(|attr| {
             attr.namespace() == METADATA_NAMESPACE && attr.name() == "NativeBitfieldAttribute"
         })
-        .filter_map(|attr| {
+        .map(|attr| {
             let values = attr.value();
-            let name = match values.first().map(|(_, v)| v) {
-                Some(metadata::Value::Utf8(s)) => s.clone(),
+            let [
+                (name_key, metadata::Value::Utf8(name)),
+                (offset_key, metadata::Value::I64(offset)),
+                (width_key, metadata::Value::I64(width)),
+                rest @ ..,
+            ] = values.as_slice()
+            else {
+                return None;
+            };
+            if !name_key.is_empty() || !offset_key.is_empty() || !width_key.is_empty() {
+                return None;
+            }
+            let ty = match rest {
+                [] => None,
+                [(key, metadata::Value::TypeName(ty))] if key == "MemberType" => Some(
+                    ty.primitive()
+                        .unwrap_or_else(|| metadata::Type::ValueName(ty.clone())),
+                ),
                 _ => return None,
             };
-            let as_u32 = |v: Option<&(String, metadata::Value)>| match v.map(|(_, v)| v) {
-                Some(metadata::Value::I64(n)) => Some(*n as u32),
-                _ => None,
-            };
-            Some((name, as_u32(values.get(1))?, as_u32(values.get(2))?))
+            Some(BitfieldMember {
+                name: name.clone(),
+                offset: (*offset).try_into().ok()?,
+                width: (*width).try_into().ok()?,
+                ty,
+            })
         })
         .collect();
-    members.sort_by_key(|(_, offset, _)| *offset);
+    let Some(mut members) = members else {
+        return Vec::new();
+    };
+    members.sort_by_key(|member| member.offset);
+    let mut cursor = 0;
+    for member in &members {
+        if member.offset < cursor {
+            return Vec::new();
+        }
+        let Some(end) = member.offset.checked_add(member.width) else {
+            return Vec::new();
+        };
+        cursor = end;
+    }
     members
 }
 
-fn write_bitfield_block(members: &[(String, u32, u32)]) -> Vec<TokenStream> {
+fn write_bitfield_block(namespace: &str, members: &[BitfieldMember]) -> Vec<TokenStream> {
     let mut out = vec![];
     let mut cursor = 0u32;
-    for (name, offset, width) in members {
-        if *offset > cursor {
-            let pad = Literal::u32_unsuffixed(offset - cursor);
-            out.push(quote! { _: #pad, });
+    for member in members {
+        if member.offset > cursor {
+            out.push(write_bitfield_member(
+                namespace,
+                None,
+                member.offset - cursor,
+                None,
+            ));
         }
-        let member = write_ident(name);
-        let width_lit = Literal::u32_unsuffixed(*width);
-        out.push(quote! { #member: #width_lit, });
-        cursor = offset + width;
+        out.push(write_bitfield_member(
+            namespace,
+            Some(&member.name),
+            member.width,
+            member.ty.as_ref(),
+        ));
+        cursor = member.offset + member.width;
     }
     out
 }
@@ -268,30 +264,76 @@ fn resolve_nested(
     ty: &metadata::Type,
     namespace: &str,
     record_name: &metadata::TypeName,
-    flat_names: &HashMap<String, String>,
+    scoped_names: &HashMap<String, String>,
 ) -> metadata::Type {
     match ty {
-        metadata::Type::ValueName(tn) => {
+        metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
+            let mut resolved = tn.clone();
             if let Some(leaf) = nested_leaf(tn, record_name)
-                && let Some(flat) = flat_names.get(leaf)
+                && let Some(scoped) = scoped_names.get(leaf)
             {
-                metadata::Type::value_named(namespace, flat)
+                resolved.namespace = namespace.to_string();
+                resolved.name.clone_from(scoped);
+            }
+            resolved.generics = tn
+                .generics
+                .iter()
+                .map(|ty| resolve_nested(ty, namespace, record_name, scoped_names))
+                .collect();
+            if matches!(ty, metadata::Type::ValueName(_)) {
+                metadata::Type::ValueName(resolved)
             } else {
-                ty.clone()
+                metadata::Type::ClassName(resolved)
             }
         }
+        metadata::Type::Array(inner) => metadata::Type::Array(Box::new(resolve_nested(
+            inner,
+            namespace,
+            record_name,
+            scoped_names,
+        ))),
+        metadata::Type::RefMut(inner) => metadata::Type::RefMut(Box::new(resolve_nested(
+            inner,
+            namespace,
+            record_name,
+            scoped_names,
+        ))),
+        metadata::Type::RefConst(inner) => metadata::Type::RefConst(Box::new(resolve_nested(
+            inner,
+            namespace,
+            record_name,
+            scoped_names,
+        ))),
         metadata::Type::ArrayFixed(inner, len) => metadata::Type::ArrayFixed(
-            Box::new(resolve_nested(inner, namespace, record_name, flat_names)),
+            Box::new(resolve_nested(inner, namespace, record_name, scoped_names)),
             *len,
         ),
         metadata::Type::PtrMut(inner, ptrs) => metadata::Type::PtrMut(
-            Box::new(resolve_nested(inner, namespace, record_name, flat_names)),
+            Box::new(resolve_nested(inner, namespace, record_name, scoped_names)),
             *ptrs,
         ),
         metadata::Type::PtrConst(inner, ptrs) => metadata::Type::PtrConst(
-            Box::new(resolve_nested(inner, namespace, record_name, flat_names)),
+            Box::new(resolve_nested(inner, namespace, record_name, scoped_names)),
             *ptrs,
         ),
+        metadata::Type::Ptr64(inner, constant) => metadata::Type::Ptr64(
+            Box::new(resolve_nested(inner, namespace, record_name, scoped_names)),
+            *constant,
+        ),
+        metadata::Type::FnPtr(signature) => metadata::Type::FnPtr(Box::new(metadata::Signature {
+            flags: signature.flags,
+            return_type: resolve_nested(
+                &signature.return_type,
+                namespace,
+                record_name,
+                scoped_names,
+            ),
+            types: signature
+                .types
+                .iter()
+                .map(|ty| resolve_nested(ty, namespace, record_name, scoped_names))
+                .collect(),
+        })),
         _ => ty.clone(),
     }
 }

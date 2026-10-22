@@ -1,4 +1,4 @@
 #[winrt]
 mod Test {
-    delegate fn TypedHandler<T>(sender: Object, args: T);
+    delegate fn TypedHandler<T>(#[in] sender: Object, #[in] args: T);
 }

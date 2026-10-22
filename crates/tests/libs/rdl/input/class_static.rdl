@@ -16,7 +16,7 @@ mod Windows {
     mod Foundation {
         mod Metadata {
             attribute StaticAttribute {
-                fn(r#type: Type, version: u32);
+                fn(#[in] r#type: Type, #[in] version: u32);
             }
         }
     }

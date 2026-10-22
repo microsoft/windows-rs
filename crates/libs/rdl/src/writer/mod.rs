@@ -360,6 +360,7 @@ fn write_items(
     namespace: &str,
     item: metadata::reader::Item,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
+    validate_item_types(item)?;
     match item {
         metadata::reader::Item::Type(ty) => write_type_def_items(namespace, &ty),
         metadata::reader::Item::Fn(ty) => {
@@ -369,6 +370,85 @@ fn write_items(
             Ok(vec![(ty.name().to_string(), write_const(namespace, &ty)?)])
         }
     }
+}
+
+fn validate_item_types(item: metadata::reader::Item) -> Result<(), Error> {
+    match item {
+        metadata::reader::Item::Type(def) => {
+            let winrt = def
+                .flags()
+                .contains(metadata::TypeAttributes::WindowsRuntime);
+            let generics: Vec<_> = def
+                .generic_params()
+                .map(|param| metadata::Type::Generic(param.name().to_string(), param.sequence()))
+                .collect();
+            for field in def.fields() {
+                validate_type(&field.ty(), winrt)?;
+            }
+            for method in def.methods() {
+                validate_signature_types(&method.signature(&generics), winrt)?;
+            }
+            for nested in def.index().nested(def) {
+                validate_item_types(metadata::reader::Item::Type(nested))?;
+            }
+        }
+        metadata::reader::Item::Fn(method) => {
+            validate_signature_types(&method.signature(&[]), false)?;
+        }
+        metadata::reader::Item::Const(field) => validate_type(&field.ty(), false)?,
+    }
+    Ok(())
+}
+
+fn validate_signature_types(signature: &metadata::Signature, winrt: bool) -> Result<(), Error> {
+    validate_type(&signature.return_type, winrt)?;
+    for ty in &signature.types {
+        validate_type(ty, winrt)?;
+    }
+    Ok(())
+}
+
+fn validate_type(ty: &metadata::Type, winrt: bool) -> Result<(), Error> {
+    use metadata::Type::*;
+    match ty {
+        FnPtr(signature) => {
+            if winrt {
+                return Err(writer_err!("function pointers require Win32 metadata"));
+            }
+            if !matches!(
+                signature.flags,
+                metadata::MethodCallAttributes::C | metadata::MethodCallAttributes::STDCALL
+            ) {
+                return Err(writer_err!(
+                    "unsupported function pointer signature flags: {:?}",
+                    signature.flags
+                ));
+            }
+            if signature.types.contains(&Void) {
+                return Err(writer_err!("function pointer parameter cannot be void"));
+            }
+            validate_signature_types(signature, winrt)?;
+        }
+        Ptr64(inner, _) => {
+            if winrt {
+                return Err(writer_err!("fixed-width pointers require Win32 metadata"));
+            }
+            validate_type(inner, winrt)?;
+        }
+        PtrMut(inner, _)
+        | PtrConst(inner, _)
+        | ArrayFixed(inner, _)
+        | RefMut(inner)
+        | RefConst(inner)
+        | Array(inner) => validate_type(inner, winrt)?,
+        ClassName(name) | ValueName(name) => {
+            for ty in &name.generics {
+                validate_type(ty, winrt)?;
+            }
+        }
+        _ => {}
+    }
+    Ok(())
 }
 
 fn write_type_def_items(
@@ -387,7 +467,13 @@ fn write_type_def_items(
                 .ok_or_else(|| writer_err!("typedef `{}` has no field", item.name()))?;
             let ty = write_type(namespace, &field.ty());
             let arch_attr = write_arch_attr(item.arches());
-            let tokens = quote! { #arch_attr type #name = #ty; };
+            let attrs = write_custom_attributes_except(
+                item.attributes(),
+                namespace,
+                item.index(),
+                &["SupportedArchitectureAttribute"],
+            )?;
+            let tokens = quote! { #arch_attr #(#attrs)* type #name = #ty; };
             return Ok(vec![(item.name().to_string(), tokens)]);
         }
         write_struct_items(item)
@@ -448,14 +534,18 @@ fn write_const_value(
     })
 }
 
-fn write_const_guid(
-    _namespace: &str,
-    item: &metadata::reader::Field,
-) -> Result<TokenStream, Error> {
+fn write_const_guid(namespace: &str, item: &metadata::reader::Field) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
+    let ty = write_type(namespace, &item.ty());
     let arch_attr = write_arch_attr(item.arches());
     let literal = guid_attribute_literal(item)?;
-    Ok(quote! { #arch_attr const #name: GUID = #literal; })
+    let custom_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["GuidAttribute", "SupportedArchitectureAttribute"],
+    )?;
+    Ok(quote! { #arch_attr #(#custom_attrs)* const #name: #ty = #literal; })
 }
 
 /// Recombines a property-key constant's `fmtid` and `pid` into RDL form.
@@ -471,7 +561,13 @@ fn write_const_property_key(
         .constant()
         .ok_or_else(|| writer_err!("property key constant `{}` has no `pid` value", item.name()))?;
     let pid = write_value(namespace, &constant.value());
-    Ok(quote! { #arch_attr #[guid(#guid)] const #name: #ty = #pid; })
+    let custom_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["GuidAttribute", "SupportedArchitectureAttribute"],
+    )?;
+    Ok(quote! { #arch_attr #(#custom_attrs)* #[guid(#guid)] const #name: #ty = #pid; })
 }
 
 /// Folds the 11-argument `GuidAttribute` into RDL's u128 GUID literal.
@@ -520,38 +616,30 @@ fn write_params(
             )
         })?;
 
+    let names: Vec<_> = params
+        .params()
+        .iter()
+        .enumerate()
+        .map(|(index, param)| {
+            param.map_or_else(|| format!("p{index}"), |param| param.name().to_string())
+        })
+        .collect();
+    let names: Vec<_> = names.iter().map(String::as_str).collect();
     signature_types
         .into_iter()
         .enumerate()
         .map(|(position, ty)| {
             let param = params.params()[position];
-            let is_mutable = matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..));
-            let direction = param.map_or_else(
-                || {
-                    if is_mutable {
-                        metadata::reader::ParamDirection::Output
-                    } else {
-                        metadata::reader::ParamDirection::Input
-                    }
-                },
-                |param| param.direction(),
-            );
+            let direction = param.map_or(metadata::reader::ParamDirection::Unspecified, |param| {
+                param.direction()
+            });
             let (effective_in, has_out) = match direction {
-                metadata::reader::ParamDirection::Unspecified
-                | metadata::reader::ParamDirection::Input => (true, false),
+                metadata::reader::ParamDirection::Unspecified => (false, false),
+                metadata::reader::ParamDirection::Input => (true, false),
                 metadata::reader::ParamDirection::Output => (false, true),
                 metadata::reader::ParamDirection::InputOutput => (true, true),
             };
-            let in_attr = if effective_in && (has_out || is_mutable) {
-                quote! { #[r#in] }
-            } else {
-                quote! {}
-            };
-            let out_attr = if has_out && (effective_in || !is_mutable) {
-                quote! { #[out] }
-            } else {
-                quote! {}
-            };
+            let direction = write_param_direction(effective_in, has_out);
             let opt_attr = if param.is_some_and(|param| param.is_optional()) {
                 quote! { #[opt] }
             } else {
@@ -562,16 +650,17 @@ fn write_params(
                 |param| write_ident(param.name()),
             );
             let param_attrs = match param {
-                Some(param) => write_custom_attributes_except(
+                Some(param) => write_custom_attributes_with_names(
                     param.attributes(),
                     namespace,
                     method.index(),
                     &[],
+                    Some(ExtentOwner::Parameter(&names, &ty)),
                 )?,
                 None => Vec::new(),
             };
             let ty = write_type(namespace, &ty);
-            Ok(quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty })
+            Ok(quote! { #(#param_attrs)* #direction #opt_attr #name: #ty })
         })
         .collect()
 }
@@ -589,9 +678,26 @@ fn write_return_type(
                 method.name()
             )
         })?;
+    let names: Vec<_> = params
+        .params()
+        .iter()
+        .enumerate()
+        .map(|(index, param)| {
+            param.map_or_else(|| format!("p{index}"), |param| param.name().to_string())
+        })
+        .collect();
+    let names: Vec<_> = names.iter().map(String::as_str).collect();
     let return_attrs: Vec<TokenStream> = params
         .return_param()
-        .map(|p| write_custom_attributes(p.attributes(), namespace, method.index()))
+        .map(|p| {
+            write_custom_attributes_with_names(
+                p.attributes(),
+                namespace,
+                method.index(),
+                &[],
+                Some(ExtentOwner::Return(&names)),
+            )
+        })
         .transpose()?
         .unwrap_or_default();
 
@@ -618,6 +724,43 @@ fn write_custom_attributes_except<'a>(
     index: &windows_metadata::reader::Index,
     exclude: &[&str],
 ) -> Result<Vec<TokenStream>, Error> {
+    write_custom_attributes_with_names(attributes, item_namespace, index, exclude, None)
+}
+
+#[derive(Clone, Copy)]
+enum ExtentOwner<'a> {
+    Parameter(&'a [&'a str], &'a metadata::Type),
+    Field,
+    Return(&'a [&'a str]),
+}
+
+fn metadata_underlying(
+    mut ty: metadata::Type,
+    index: &metadata::reader::Index,
+) -> Option<metadata::Type> {
+    let mut seen = HashSet::new();
+    while let metadata::Type::ValueName(name) = &ty {
+        if !seen.insert((name.namespace.clone(), name.name.clone())) {
+            return None;
+        }
+        let Some(def) = index
+            .get(&name.namespace, &name.name)
+            .find(|def| def.has_attribute("NativeTypedefAttribute"))
+        else {
+            return Some(ty);
+        };
+        ty = def.underlying_type()?;
+    }
+    Some(ty)
+}
+
+fn write_custom_attributes_with_names<'a>(
+    attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
+    item_namespace: &str,
+    index: &windows_metadata::reader::Index,
+    exclude: &[&str],
+    extent_owner: Option<ExtentOwner<'_>>,
+) -> Result<Vec<TokenStream>, Error> {
     let mut rendered = attributes
         .filter(|attr| {
             !(namespace_starts_with(attr.namespace(), "System")
@@ -628,6 +771,123 @@ fn write_custom_attributes_except<'a>(
         .map(|attr| {
             let attr_ns = attr.namespace();
             let values = attr.value();
+
+            if attr_ns == METADATA_NAMESPACE
+                && attr.name() == "IntegerRangeAttribute"
+                && let Some(range) = metadata::IntegerRange::from_values(&values)
+                && let Some(names) = match extent_owner {
+                    Some(ExtentOwner::Parameter(names, _))
+                        if range.phase != metadata::BufferPhase::Value =>
+                    {
+                        Some(names)
+                    }
+                    Some(ExtentOwner::Field) if range.phase == metadata::BufferPhase::Value => {
+                        Some(&[][..])
+                    }
+                    Some(ExtentOwner::Return(names))
+                        if range.phase == metadata::BufferPhase::Success && !range.indirect =>
+                    {
+                        Some(names)
+                    }
+                    _ => None,
+                }
+                && let Some(tokens) = write_integer_range(&range, names)
+            {
+                return Ok(tokens);
+            }
+
+            if attr_ns == METADATA_NAMESPACE
+                && attr.name() == "BufferExtentAttribute"
+                && let Some(extent) = metadata::BufferExtent::from_values(&values)
+                && let Some(names) = match extent_owner {
+                    Some(ExtentOwner::Parameter(names, _))
+                        if extent.phase != metadata::BufferPhase::Value =>
+                    {
+                        Some(names)
+                    }
+                    Some(ExtentOwner::Field) if extent.phase == metadata::BufferPhase::Value => {
+                        Some(&[][..])
+                    }
+                    _ => None,
+                }
+                && let Some(tokens) = write_buffer_extent(&extent, names)
+            {
+                return Ok(tokens);
+            }
+
+            if attr_ns == METADATA_NAMESPACE
+                && matches!(
+                    attr.name(),
+                    "NativeNullTerminatedAttribute" | "NullableAttribute"
+                )
+            {
+                let termination = attr.name() == "NativeNullTerminatedAttribute";
+                if !termination
+                    && values.is_empty()
+                    && matches!(
+                        extent_owner,
+                        Some(ExtentOwner::Return(_) | ExtentOwner::Field)
+                    )
+                {
+                    return Ok(quote! { #[nullable] });
+                }
+                let flag = |key| {
+                    values.iter().find_map(|(name, value)| match value {
+                        metadata::Value::Bool(value) if name == key => Some(*value),
+                        _ => None,
+                    })
+                };
+                if let (Some(entry), Some(success)) = (flag("OnEntry"), flag("OnSuccess")) {
+                    let double_entry = flag("DoubleNullOnEntry") == Some(true);
+                    let double_success = flag("DoubleNullOnSuccess") == Some(true);
+                    let indirect = flag("Indirect") == Some(true);
+                    if values.len()
+                        == 2 + usize::from(double_entry)
+                            + usize::from(double_success)
+                            + usize::from(indirect)
+                        && (entry || success)
+                        && (!double_entry || entry)
+                        && (!double_success || success)
+                        && (termination || !double_entry && !double_success)
+                        && matches!(extent_owner, Some(ExtentOwner::Parameter(_, ty))
+                            if !termination || buffer_extent::is_buffer_storage(
+                                ty.clone(), indirect, |ty| metadata_underlying(ty, index)))
+                    {
+                        if !termination {
+                            return Ok(write_nullable(entry, success, indirect));
+                        }
+
+                        return Ok(write_null_terminated(
+                            entry.then_some(double_entry),
+                            success.then_some(double_success),
+                            indirect,
+                        ));
+                    }
+                }
+            }
+
+            if attr_ns == METADATA_NAMESPACE
+                && attr.name() == "NativeReturnedPointerAttribute"
+                && let [
+                    (first, metadata::Value::Bool(a)),
+                    (second, metadata::Value::Bool(b)),
+                ] = values.as_slice()
+            {
+                match (first.as_str(), second.as_str()) {
+                    ("MayBeNull", "NullOnFailure") => return Ok(write_returned_pointer(*a, *b)),
+                    ("NullOnFailure", "MayBeNull") => return Ok(write_returned_pointer(*b, *a)),
+                    _ => {}
+                }
+            }
+
+            if attr_ns == METADATA_NAMESPACE
+                && attr.name() == "SuccessConditionAttribute"
+                && let [(name, value)] = values.as_slice()
+                && name.is_empty()
+                && let Some(condition) = SuccessCondition::from_value(value)
+            {
+                return Ok(write_success(condition));
+            }
 
             // Naturalized metadata attributes render as short RDL spellings when possible.
             let pseudo = if attr_ns == METADATA_NAMESPACE {

@@ -12,7 +12,7 @@ mod Test {
         Green = 2,
     }
     attribute CustomAttribute {
-        fn(text: String, color: Color, access: Access);
+        fn(#[in] text: String, #[in] color: Color, #[in] access: Access);
         Version: u32,
     }
     #[Custom("hello", Red, Write | Read, Version = 7)]

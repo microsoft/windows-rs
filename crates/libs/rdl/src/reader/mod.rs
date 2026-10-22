@@ -219,6 +219,7 @@ impl Reader {
                         namespace,
                         name: &name,
                         generics: vec![],
+                        record_scope: String::new(),
                     };
                     match item {
                         Item::Attribute(ty) => encoder.encode_attribute(ty),
@@ -262,6 +263,7 @@ impl Reader {
                             namespace,
                             name,
                             generics: vec![],
+                            record_scope: String::new(),
                         }
                         .encode_fn(ty)?;
                     }
@@ -279,6 +281,7 @@ impl Reader {
                             namespace,
                             name,
                             generics: vec![],
+                            record_scope: String::new(),
                         }
                         .encode_const(ty)?;
                     }
@@ -293,6 +296,44 @@ impl Reader {
 
 /// Parses one `.rdl` file and returns the items it defines under `namespace`.
 pub(crate) fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<String>, Error> {
+    read_names(path, namespace, |ns| {
+        ns.types
+            .keys()
+            .chain(ns.functions.keys())
+            .chain(ns.constants.keys())
+            .cloned()
+            .collect()
+    })
+}
+
+pub(crate) fn enum_member_names(
+    path: impl AsRef<Path>,
+    namespace: &str,
+) -> Result<Vec<String>, Error> {
+    read_names(path, namespace, |ns| {
+        let mut names = Vec::new();
+        for variants in ns.types.values() {
+            for (_, item) in variants {
+                if let Item::Enum(item) = item {
+                    names.extend(
+                        item.variants
+                            .iter()
+                            .map(|member| member.ident.unraw_to_string()),
+                    );
+                }
+            }
+        }
+        names.sort();
+        names.dedup();
+        names
+    })
+}
+
+fn read_names(
+    path: impl AsRef<Path>,
+    namespace: &str,
+    names: impl FnOnce(&Namespace<'_>) -> Vec<String>,
+) -> Result<Vec<String>, Error> {
     let path = path.as_ref().to_path_buf();
     let input = expand_rdl_files(std::slice::from_ref(&path), &[])?;
     let mut index = Index::new();
@@ -301,13 +342,11 @@ pub(crate) fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<
             index.insert(file, "", item);
         }
     }
-    let mut names = vec![];
-    if let Some(ns) = index.namespaces.get(namespace) {
-        names.extend(ns.types.keys().cloned());
-        names.extend(ns.functions.keys().cloned());
-        names.extend(ns.constants.keys().cloned());
-    }
-    Ok(names)
+    Ok(index
+        .namespaces
+        .get(namespace)
+        .map(names)
+        .unwrap_or_default())
 }
 
 /// Rewrites RDL tokens that would otherwise confuse `syn`.
@@ -506,6 +545,7 @@ struct Encoder<'a> {
     namespace: &'a str,
     name: &'a str,
     generics: Vec<String>,
+    record_scope: String,
 }
 
 impl Encoder<'_> {
@@ -593,6 +633,7 @@ impl Encoder<'_> {
             syn::Type::Reference(ty) => self.encode_type_reference(ty),
             syn::Type::Slice(ty) => self.encode_type_slice(ty),
             syn::Type::Array(ty) => self.encode_type_array(ty),
+            syn::Type::BareFn(ty) => self.encode_type_fn_ptr(ty),
             rest => self.err(rest, "type not supported"),
         }
     }
@@ -992,6 +1033,42 @@ impl Encoder<'_> {
         value.ok_or_else(|| self.error(expr, "value not valid"))
     }
 
+    fn encode_type_fn_ptr(&self, ty: &syn::TypeBareFn) -> Result<metadata::Type, Error> {
+        if ty.lifetimes.is_some() || ty.unsafety.is_some() || ty.variadic.is_some() {
+            return self.err(ty, "qualified or variadic function pointer is unsupported");
+        }
+        let Some(abi) = &ty.abi else {
+            return self.err(ty, "function pointer requires an extern ABI");
+        };
+        let flags = match abi.name.as_ref().map(syn::LitStr::value).as_deref() {
+            None | Some("system") => metadata::MethodCallAttributes::STDCALL,
+            Some("C") => metadata::MethodCallAttributes::C,
+            _ => return self.err(abi, "function pointer ABI is unsupported"),
+        };
+        let types = ty
+            .inputs
+            .iter()
+            .map(|param| {
+                if !param.attrs.is_empty() || param.name.is_some() {
+                    return self.err(
+                        param,
+                        "function pointer parameters must be unnamed and unattributed",
+                    );
+                }
+                let encoded = self.encode_type(&param.ty)?;
+                if encoded == metadata::Type::Void {
+                    return self.err(param, "function pointer parameter cannot be void");
+                }
+                Ok(encoded)
+            })
+            .collect::<Result<_, _>>()?;
+        Ok(metadata::Type::FnPtr(Box::new(metadata::Signature {
+            flags,
+            return_type: self.encode_return_type(&ty.output)?,
+            types,
+        })))
+    }
+
     fn encode_type_reference(&self, ty: &syn::TypeReference) -> Result<metadata::Type, Error> {
         let is_mut = ty.mutability.is_some();
         let ty = self.encode_type(&ty.elem)?;
@@ -1016,12 +1093,6 @@ impl Encoder<'_> {
             metadata::Type::PtrConst(inner, pointers) if !is_mut => {
                 metadata::Type::PtrConst(inner, pointers + 1)
             }
-            metadata::Type::PtrMut(..) | metadata::Type::PtrConst(..) => {
-                return self.err(
-                    ty.elem.as_ref(),
-                    "mixed `*mut` and `*const` pointer chains are not representable",
-                );
-            }
             _ => {
                 if is_mut {
                     metadata::Type::PtrMut(Box::new(encoded), 1)
@@ -1035,10 +1106,26 @@ impl Encoder<'_> {
     }
 
     fn encode_type_path(&self, ty: &syn::TypePath) -> Result<metadata::Type, Error> {
+        if ty.qself.is_some() {
+            return self.err(ty, "qualified associated types are not supported");
+        }
         self.encode_path(&ty.path)
     }
 
     fn encode_path(&self, ty: &syn::Path) -> Result<metadata::Type, Error> {
+        if ty.segments.len() == 1 && ty.segments[0].ident == "ptr64" {
+            if let syn::PathArguments::AngleBracketed(arguments) = &ty.segments[0].arguments
+                && arguments.args.len() == 1
+                && let Some(syn::GenericArgument::Type(syn::Type::Ptr(pointer))) =
+                    arguments.args.first()
+            {
+                return Ok(metadata::Type::Ptr64(
+                    Box::new(self.encode_type(&pointer.elem)?),
+                    pointer.const_token.is_some(),
+                ));
+            }
+            return self.err(ty, "ptr64 requires one explicit pointer type argument");
+        }
         let mut path = vec![];
 
         for segment in &ty.segments {
@@ -1098,6 +1185,65 @@ impl Encoder<'_> {
                 "Char16" => return Ok(metadata::Type::Char),
 
                 _ => {}
+            }
+        }
+
+        let nested = |namespace: &str, name: &str| -> Result<Option<metadata::Type>, Error> {
+            if !name.contains('/') {
+                return Ok(None);
+            }
+            let local = self.index.contains(namespace, name);
+            let reference = if local {
+                None
+            } else {
+                self.nested_reference(namespace, name)
+            };
+            if local || reference.is_some() {
+                if ty
+                    .segments
+                    .iter()
+                    .any(|segment| !segment.arguments.is_empty())
+                {
+                    return self.err(ty, "nested records cannot have generic arguments");
+                }
+                if reference
+                    .is_some_and(|def| def.category() != metadata::reader::TypeCategory::Struct)
+                {
+                    return self.err(ty, "only nested record references are supported");
+                }
+                return Ok(Some(metadata::Type::value_named(namespace, name)));
+            }
+            Ok(None)
+        };
+        let suffix = path.join("/");
+        let mut scope = self.record_scope.as_str();
+        while !scope.is_empty() {
+            if let Some(ty) = nested(self.namespace, &format!("{scope}/{suffix}"))? {
+                return Ok(ty);
+            }
+            scope = scope.rsplit_once('/').map_or("", |(parent, _)| parent);
+        }
+        for split in 0..path.len().saturating_sub(1) {
+            let name = path[split..].join("/");
+            let namespace = if split == 0 {
+                self.namespace.to_string()
+            } else {
+                path[..split].join(".")
+            };
+            if let Some(ty) = nested(&namespace, &name)? {
+                return Ok(ty);
+            }
+            if split > 0
+                && let Some(ty) = nested(&format!("{}.{}", self.namespace, namespace), &name)?
+            {
+                return Ok(ty);
+            }
+        }
+        for use_item in &self.file.uses {
+            if let Some(namespace) = glob_use_namespace(use_item)
+                && let Some(ty) = nested(&namespace, &suffix)?
+            {
+                return Ok(ty);
             }
         }
 
@@ -1164,6 +1310,24 @@ impl Encoder<'_> {
         Err(self.error(ty, "type not found"))
     }
 
+    fn nested_reference(
+        &self,
+        namespace: &str,
+        name: &str,
+    ) -> Option<metadata::reader::TypeDef<'_>> {
+        let reference = self.output.reference()?;
+        let mut names = name.split('/');
+        let mut candidates: Vec<_> = reference.get(namespace, names.next()?).collect();
+        for name in names {
+            candidates = candidates
+                .into_iter()
+                .flat_map(|parent| reference.nested(parent))
+                .filter(|child| child.name() == name)
+                .collect();
+        }
+        candidates.into_iter().next()
+    }
+
     fn encode_return_type(&self, ty: &syn::ReturnType) -> Result<metadata::Type, Error> {
         match ty {
             syn::ReturnType::Type(_, ty) => self.encode_type(ty),
@@ -1178,6 +1342,12 @@ impl Encoder<'_> {
         ty: &metadata::Type,
     ) -> Result<(), Error> {
         match ty {
+            metadata::Type::Ptr64(..) => {
+                return self.err(span, "fixed-width pointers require Win32 metadata");
+            }
+            metadata::Type::FnPtr(_) => {
+                return self.err(span, "function pointers require Win32 metadata");
+            }
             metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
                 for generic_ty in &tn.generics {
                     self.validate_type_is_winrt(span, generic_ty)?;
@@ -1187,8 +1357,7 @@ impl Encoder<'_> {
                     if !is_winrt {
                         return self.err(span, "WinRT types cannot refer to non-WinRT types");
                     }
-                } else if let Some(reference) = self.output.reference()
-                    && let Some(def) = reference.get(&tn.namespace, &tn.name).next()
+                } else if let Some(def) = self.nested_reference(&tn.namespace, &tn.name)
                     && !def
                         .flags()
                         .contains(metadata::TypeAttributes::WindowsRuntime)

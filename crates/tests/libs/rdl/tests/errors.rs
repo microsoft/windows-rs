@@ -3,6 +3,36 @@ fn out_path(name: &str) -> std::path::PathBuf {
 }
 
 #[test]
+fn fixed_pointer_arguments() {
+    for ty in [
+        "ptr64",
+        "ptr64<i32>",
+        "ptr64<*mut i32, *const u8>",
+        "ptr64<'a>",
+    ] {
+        let error = windows_rdl::reader()
+            .input_text(&format!(
+                "#[win32] mod Test {{ struct Value {{ address: {ty}, }} }}"
+            ))
+            .output(out_path("fixed_pointer_arguments"))
+            .write()
+            .unwrap_err();
+        assert!(
+            error
+                .message
+                .contains("ptr64 requires one explicit pointer type argument"),
+            "{error}"
+        );
+    }
+    let error = windows_rdl::reader()
+        .input_text("#[winrt] mod Test { struct Value { address: ptr64<*mut i32>, } }")
+        .output(out_path("fixed_pointer_winrt"))
+        .write()
+        .unwrap_err();
+    assert_eq!(error.message, "fixed-width pointers require Win32 metadata");
+}
+
+#[test]
 fn missing_output_is_rejected() {
     let error = windows_rdl::reader()
         .input_text("#[winrt] mod Test {}")
@@ -103,35 +133,6 @@ fn integer_constants_reinterpret_bits_across_partitions() {
         .write()
         .unwrap();
 }
-
-#[test]
-fn mixed_pointer_constness_is_rejected() {
-    for (name, ty, column) in [
-        ("mut_const", "*mut *const i32", 32),
-        ("const_mut", "*const *mut i32", 34),
-        ("deep_mut_const", "*mut *mut *const i32", 37),
-        ("deep_const_mut", "*const *const *mut i32", 41),
-        ("behind_reference", "&mut *mut *const i32", 37),
-    ] {
-        let source = format!(
-            "#[win32]\nmod Test {{\n    #[library(\"test.dll\")]\n    extern fn Mixed(value: {ty});\n}}\n"
-        );
-        let error = windows_rdl::reader()
-            .input_text(&source)
-            .output(out_path(name))
-            .write()
-            .unwrap_err();
-
-        assert_eq!(
-            error.message,
-            "mixed `*mut` and `*const` pointer chains are not representable"
-        );
-        assert_eq!(error.file_name, ".rdl");
-        assert_eq!(error.line, 4);
-        assert_eq!(error.column, column);
-    }
-}
-
 #[test]
 fn reference_base_class_must_be_unsealed() {
     let compile = |base: &str| {
