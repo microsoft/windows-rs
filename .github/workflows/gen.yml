@@ -32,10 +32,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        tool: [bindings, package, reactor-metadata, reactor, webview, win32, winrt, composition, roundtrip, yml, license, workspace, features, clang]
+        tool: [bindings, package, reactor-metadata, reactor, webview, win32, winrt, composition, roundtrip, yml, license, workspace, features, clang, clang-sys]
+        include:
+          - tool: win32
+            args: --partial --sdk-imports --sdk-macros
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: ${{ matrix.tool == 'win32' && '0' || '1' }}
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
       - name: Install rustfmt
@@ -49,9 +54,12 @@ jobs:
         with:
           key: ${{ matrix.tool }}
       - name: Run
-        run: cargo run -p tool-${{ matrix.tool }} --release
+        run: cargo run -p tool-${{ matrix.tool }} --release -- ${{ matrix.args }}
+      - name: Refresh named exports
+        if: matrix.tool == 'win32'
+        run: cargo run -p tool-win32 --release -- --refresh-named-exports
       - name: Check
         shell: bash
         run: |
           git add -N .
-          git diff --exit-code || (echo '::error::Generated `tool-${{ matrix.tool }}` is out-of-date. Please run `cargo run -p tool-${{ matrix.tool }}`'; exit 1)
+          git diff --exit-code || (echo '::error::Generated `tool-${{ matrix.tool }}` is out-of-date. Please run `cargo run -p tool-${{ matrix.tool }} -- ${{ matrix.args }}`'; exit 1)
