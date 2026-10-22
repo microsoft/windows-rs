@@ -1,0 +1,5 @@
+#[win32]
+mod Fixture {
+    extern "C" fn Invalid(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "capacity + 1", "capacity + 1")] #[out] buffer: *mut u8, capacity: f32);
+    extern fn Supported(#[out] #[writable(entry, bytes(capacity))] buffer: *mut void, capacity: u32);
+}

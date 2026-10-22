@@ -1,0 +1,14 @@
+#[win32]
+mod Fixture {
+    type Count = u32;
+    type PlatformCount = u32;
+    extern "C" fn SharedCallback(#[in] value: Count) -> Count;
+    struct SharedRecord {
+        value: Count,
+    }
+    #[repr(i32)]
+    enum SharedState {
+        Off = 0,
+        On = 1,
+    }
+}

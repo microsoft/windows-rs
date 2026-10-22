@@ -1,7 +1,0 @@
-#[win32]
-mod MidlEnumTypedef {
-    #[repr(i32)]
-    enum PUBLIC_FLAGS {
-        FLAG_NONE = 0,
-    }
-}

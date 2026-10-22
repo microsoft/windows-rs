@@ -1,0 +1,19 @@
+#[win32]
+mod Fixture {
+    type AState = State;
+    type Aardvark = Zed;
+    type Alias = Standalone;
+    type Another = Zed;
+    type Before = Zed;
+    type PZed = *mut Zed;
+    struct Standalone {
+        value: i32,
+    }
+    #[repr(i32)]
+    enum State {
+        Ready = 1,
+    }
+    struct Zed {
+        value: i32,
+    }
+}

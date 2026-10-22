@@ -1,0 +1,5 @@
+#[win32]
+mod Fixture {
+    const WAVE_FORMAT_DRM: i32 = 9;
+    const WM_MAX_STREAMS: i32 = 63;
+}

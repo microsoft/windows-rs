@@ -1,0 +1,12 @@
+#[win32]
+mod Fixture {
+    #[library("arm64.dll", import = "#41")]
+    #[arch(Arm64)]
+    extern fn Entry(value: i32) -> i32;
+    #[library("x64.dll", import = "#29")]
+    #[arch(X64)]
+    extern fn Entry(value: i32) -> i32;
+    #[library("x86.dll", import = "#17")]
+    #[arch(X86)]
+    extern fn Entry(value: i32) -> i32;
+}

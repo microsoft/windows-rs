@@ -1,0 +1,36 @@
+#[win32]
+mod Fixture {
+    const CCM_FIRST: i32 = 8192;
+    const CLR_DEFAULT: u32 = 4278190080;
+    const CLR_NONE: u32 = 4294967295;
+    #[arch(X64 | Arm64)]
+    const HDITEMA_V1_SIZE: u64 = 40;
+    #[arch(X86)]
+    const HDITEMA_V1_SIZE: u32 = 28;
+    const HINST_COMMCTRL: HINSTANCE = -1;
+    const I_IMAGECALLBACK: i32 = -1;
+    const LPSTR_TEXTCALLBACK: LPSTR = -1;
+    const LPSTR_TEXTCALLBACKA: LPSTR = -1;
+    const LPSTR_TEXTCALLBACKW: LPWSTR = -1;
+    #[arch(X64 | Arm64)]
+    const LVGROUP_V5_SIZE: u64 = 52;
+    #[arch(X86)]
+    const LVGROUP_V5_SIZE: u32 = 40;
+    const LVM_FIRST: i32 = 4096;
+    const LVM_GETITEMA: i32 = 4101;
+    const LVM_GETITEMW: i32 = 4171;
+    const LVN_FIRST: u32 = 4294967196;
+    const LVN_ITEMCHANGED: u32 = 4294967195;
+    const NM_CLICK: u32 = 4294967294;
+    const NM_FIRST: u32 = 0;
+    const TVI_FIRST: HTREEITEM = -65535;
+    const TVI_LAST: HTREEITEM = -65534;
+    const TVI_ROOT: HTREEITEM = -65536;
+    const TVI_SORT: HTREEITEM = -65533;
+    #[encoding("ansi")]
+    const WC_LISTVIEW: String = "SysListView32";
+    #[encoding("ansi")]
+    const WC_LISTVIEWA: String = "SysListView32";
+    #[encoding("utf-16")]
+    const WC_LISTVIEWW: String = "SysListView32";
+}

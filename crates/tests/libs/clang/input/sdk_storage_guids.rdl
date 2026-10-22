@@ -1,0 +1,19 @@
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+}
+#[win32]
+mod Fixture {
+    const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: GUID = 0x9d453eb7_d2a6_4dbd_a2e3_fbd0ed9109a9;
+    const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: GUID = 0xb7624d64_b9a3_4cf8_8011_5b86c940e7b7;
+    const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: GUID = 0x0d0a64a1_38fc_4db8_9fe7_3f4352cd7c5c;
+}
+#[win32]
+mod Fixture {
+    const GUID_DEVINTERFACE_SMARTCARD_READER: GUID = 0x50dd5230_ba8a_11d1_bf5d_0000f805f530;
+}

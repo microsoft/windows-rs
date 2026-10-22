@@ -1,0 +1,6 @@
+#[win32]
+mod Fixture {
+    struct Unrelated {
+        value: i32,
+    }
+}

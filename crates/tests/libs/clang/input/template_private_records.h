@@ -1,5 +1,4 @@
-//! namespace Test
-//! library test.dll
+// Regression for windows-rs#5062. Private template members are not global declarations.
 template <class T, unsigned Magic>
 class ItemFactory {
 private:
@@ -8,11 +7,10 @@ private:
         T innerData;
     } PRIVATE_ITEM;
     typedef PRIVATE_ITEM* PRIVATE_PTR;
+    typedef const PRIVATE_ITEM* PRIVATE_CPTR;
 };
-
 template <class T>
 class PartialFactory;
-
 template <class T>
 class PartialFactory<T*> {
 private:
@@ -21,7 +19,6 @@ private:
         T innerData;
     } PRIVATE_PARTIAL;
 };
-
 typedef struct {
     int payload;
 } GLOBAL_ITEM;

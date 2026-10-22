@@ -1,0 +1,66 @@
+#[win32]
+mod Fixture {
+    struct BitfieldParent {
+        struct BitfieldParent_2 {
+            value: i32,
+        }
+        _bitfield: u32 {
+            first: u32: 1,
+            second: u32: 1,
+        },
+        named: BitfieldParent::BitfieldParent_2,
+    }
+    struct Indirect {
+        struct Indirect_1 {
+            value: i32,
+        }
+        struct Node {
+            value: i32,
+            next: *mut Indirect::Node,
+        }
+        head: *mut Indirect::Node,
+        values: [Indirect::Indirect_1; 2],
+        visitor: extern "C" fn(*mut Indirect::Node) -> i32,
+    }
+    struct Nested {
+        lead: i8,
+        Anonymous: union {
+            integer: i32,
+            Anonymous: struct {
+                low: i16,
+                high: i16,
+            },
+        },
+        named: struct {
+            value: i32,
+        },
+    }
+    struct Other {
+        struct Item {
+            value: u16,
+        }
+        value: Other::Item,
+    }
+    #[packed(1)]
+    struct Packed {
+        lead: i8,
+        Anonymous: #[packed(1)] union {
+            integer: i32,
+            halves: [i16; 2],
+        },
+    }
+    struct Scoped {
+        struct Item {
+            value: i32,
+        }
+        value: *mut Scoped::Item,
+    }
+    type ScopedAlias = Scoped::Item;
+    struct Shared {
+        struct Shared_0 {
+            value: i32,
+        }
+        first: Shared::Shared_0,
+        second: Shared::Shared_0,
+    }
+}

@@ -1,0 +1,19 @@
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn AddressAlias(value: i32) -> i32;
+    #[library("fixture.dll")]
+    extern "C" fn Base(value: i32) -> i32;
+    #[library("fixture.dll")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn DependencyAlias(value: i32) -> i32;
+    #[library("fixture.dll")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn FunctionAlias(value: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    const PARSE_BAD: i32 = 7;
+    #[library("fixture.dll")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn ProjectionAlias(value: i32) -> i32;
+}

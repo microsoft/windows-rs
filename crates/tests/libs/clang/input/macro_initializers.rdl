@@ -1,0 +1,5 @@
+#[win32]
+mod Fixture {
+    const ARITHMETIC: i32 = 7;
+    const GROUPED_COMMA: i32 = 2;
+}

@@ -1,0 +1,30 @@
+#[win32]
+mod Fixture {
+    const CALG_SHA_256: i32 = 32780;
+    #[encoding("utf-16")]
+    const CERT_AUTH_ROOT_AUTO_UPDATE_LOCAL_MACHINE_REGPATH: String = "Software\\Microsoft\\SystemCertificates\\AuthRoot\\AutoUpdate";
+    const CERT_FIND_SUBJECT_STR_A: i32 = 458759;
+    const CERT_FIND_SUBJECT_STR_W: i32 = 524295;
+    const CERT_KEY_PROV_INFO_PROP_ID: i32 = 2;
+    #[encoding("ansi")]
+    const CERT_PROT_ROOT_PEER_USAGES_DEFAULT_A: String = "1.3.6.1.5.5.7.3.2\x001.3.6.1.5.5.7.3.4\x001.3.6.1.4.1.311.10.3.4\0";
+    const CERT_STORE_PROV_MEMORY: LPCSTR = 2;
+    const CERT_STORE_PROV_SYSTEM_A: LPCSTR = 9;
+    const CERT_STORE_PROV_SYSTEM_W: LPCSTR = 10;
+    const CRYPT_VERIFYCONTEXT: u32 = 4026531840;
+    #[encoding("utf-16")]
+    const CRYPT32_MLDSA_44_ALGORITHM: String = "ML-DSA:44";
+    #[encoding("ansi")]
+    const MS_ENHANCED_PROV: String = "Microsoft Enhanced Cryptographic Provider v1.0";
+    #[encoding("ansi")]
+    const MS_ENHANCED_PROV_A: String = "Microsoft Enhanced Cryptographic Provider v1.0";
+    #[encoding("utf-16")]
+    const MS_ENHANCED_PROV_W: String = "Microsoft Enhanced Cryptographic Provider v1.0";
+    const PKCS_7_ASN_ENCODING: i32 = 65536;
+    const X509_ASN_ENCODING: i32 = 1;
+    const X509_CERT: LPCSTR = 1;
+    #[encoding("ansi")]
+    const szOID_RSA_RSA: String = "1.2.840.113549.1.1.1";
+    #[encoding("ansi")]
+    const szOID_RSA_SHA256RSA: String = "1.2.840.113549.1.1.11";
+}

@@ -1,0 +1,11 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+        #[encoding("utf-16")]
+        const InterfaceName_Windows_UI_Composition_Desktop_IDesktopWindowTarget: String = "Windows.UI.Composition.Desktop.IDesktopWindowTarget";
+        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+        #[encoding("utf-16")]
+        const RuntimeClass_Windows_UI_Composition_Desktop_DesktopWindowTarget: String = "Windows.UI.Composition.Desktop.DesktopWindowTarget";
+    }
+}

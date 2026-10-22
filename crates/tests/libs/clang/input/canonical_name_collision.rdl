@@ -1,0 +1,8 @@
+#[win32]
+mod Fixture {
+    struct BYTE {
+        value: i32,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn UseByte(value: BYTE);
+}

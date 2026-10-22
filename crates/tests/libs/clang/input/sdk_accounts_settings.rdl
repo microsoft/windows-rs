@@ -1,0 +1,65 @@
+#[win32]
+mod Fixture {
+    #[guid(0xd3ee12ad_3865_4362_9746_b75a682df0e6)]
+    interface IAccountsSettingsPaneInterop: IInspectable {
+        fn GetForWindow(&self, #[in] appWindow: HWND, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] accountsSettingsPane: *mut *mut void) -> HRESULT;
+        fn ShowManageAccountsForWindowAsync(&self, #[in] appWindow: HWND, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] asyncAction: *mut *mut void) -> HRESULT;
+        fn ShowAddAccountForWindowAsync(&self, #[in] appWindow: HWND, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] asyncAction: *mut *mut void) -> HRESULT;
+    }
+}
+#[win32]
+mod Fixture {
+    type DWORD = u32;
+    #[success(return >= 0)]
+    type HRESULT = i32;
+    type ULONG = u32;
+}
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type IID = GUID;
+}
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+    type HSTRING = *mut HSTRING__;
+    struct HSTRING__ {
+        unused: i32,
+    }
+}
+#[win32]
+mod Fixture {
+    #[guid(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90)]
+    interface IInspectable: IUnknown {
+        fn GetIids(&self, #[out] iidCount: *mut ULONG, #[out] #[nullable(entry, indirect)] #[writable(success, *iidCount, indirect, nullable)] #[readable(success, *iidCount, indirect, nullable)] iids: *mut *mut IID) -> HRESULT;
+        fn GetRuntimeClassName(&self, #[out] #[out_ptr] className: *mut HSTRING) -> HRESULT;
+        fn GetTrustLevel(&self, #[out] trustLevel: *mut TrustLevel) -> HRESULT;
+    }
+    #[repr(i32)]
+    enum TrustLevel {
+        BaseTrust = 0,
+        PartialTrust = 1,
+        FullTrust = 2,
+    }
+}
+#[win32]
+mod Fixture {
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+}
+#[win32]
+mod Fixture {
+    type HWND = *mut HWND__;
+    struct HWND__ {
+        unused: i32,
+    }
+}

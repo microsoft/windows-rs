@@ -1,0 +1,13 @@
+#[win32]
+mod Fixture {
+    extern "C" fn ArgumentCallback(args: Arguments) -> i32;
+    struct ArgumentUser {
+        args: Arguments,
+        other: OtherArguments,
+        callback: ArgumentCallback,
+    }
+    type Arguments = *mut i8;
+    #[library("example.dll")]
+    extern "C" fn NativeSum(args: Arguments) -> i32;
+    type OtherArguments = *mut i8;
+}

@@ -1,0 +1,143 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xf4711347_e608_11d2_a086_00c04f8ef9b5)]
+        interface ISpErrorLog: IUnknown {
+            fn AddError(&self, lLineNumber: i32, hr: HRESULT, pszDescription: LPCWSTR, #[in] #[opt] pszHelpFile: LPCWSTR, dwHelpContext: DWORD) -> HRESULT;
+        }
+        #[guid(0xb1e29d58_a675_11d2_8302_00c04f8ee6c0)]
+        interface ISpGrammarCompiler: IUnknown {
+            fn CompileStream(&self, pSource: IStream, pDest: IStream, #[in] #[opt] pHeader: IStream, #[in] #[opt] pReserved: IUnknown, #[in] #[opt] pErrorLog: ISpErrorLog, dwFlags: DWORD) -> HRESULT;
+        }
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct BITMAP_RENDERER_STATISTICS {
+            dwFramesDelivered: DWORD,
+            dwFramesDropped: DWORD,
+        }
+        #[guid(0xea326091_05fe_40c1_b49c_3d2ef4626a0e)]
+        interface IWTSBitmapRenderService: IUnknown {
+            fn GetMappedRenderer(&self, mappingId: UINT64, #[in] #[opt] pMappedRendererCallback: IWTSBitmapRendererCallback, #[out] #[out_ptr] ppMappedRenderer: *mut IWTSBitmapRenderer) -> HRESULT;
+        }
+        #[guid(0x5b7acc97_f3c9_46f7_8c5b_fa685d3441b1)]
+        interface IWTSBitmapRenderer: IUnknown {
+            fn Render(&self, imageFormat: GUID, dwWidth: DWORD, dwHeight: DWORD, cbStride: LONG, cbImageBuffer: DWORD, #[in] #[readable(entry, cbImageBuffer)] pImageBuffer: *mut BYTE) -> HRESULT;
+            fn GetRendererStatistics(&self, #[out] pStatistics: *mut BITMAP_RENDERER_STATISTICS) -> HRESULT;
+            fn RemoveMapping(&self) -> HRESULT;
+        }
+        #[guid(0xd782928e_fe4e_4e77_ae90_9cd0b3e3b353)]
+        interface IWTSBitmapRendererCallback: IUnknown {
+            fn OnTargetSizeChanged(&self, rcNewSize: RECT) -> HRESULT;
+        }
+        #[guid(0xa1230206_9a39_4d58_8674_cdb4dff4e73b)]
+        interface IWTSListener: IUnknown {
+            fn GetConfiguration(&self, #[out] #[out_ptr] ppPropertyBag: *mut IPropertyBag) -> HRESULT;
+        }
+        #[guid(0xa1230203_d6a7_11d8_b9fd_000bdbd1f198)]
+        interface IWTSListenerCallback: IUnknown {
+            fn OnNewChannelConnection(&self, #[in] #[opt] pChannel: IWTSVirtualChannel, #[in] #[opt] data: BSTR, #[out] pbAccept: *mut BOOL, #[out] #[out_ptr] ppCallback: *mut IWTSVirtualChannelCallback) -> HRESULT;
+        }
+        #[guid(0xa1230207_d6a7_11d8_b9fd_000bdbd1f198)]
+        interface IWTSVirtualChannel: IUnknown {
+            fn Write(&self, cbSize: ULONG, #[in] #[readable(entry, cbSize)] pBuffer: *mut BYTE, #[in] #[opt] pReserved: IUnknown) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0xa1230204_d6a7_11d8_b9fd_000bdbd1f198)]
+        interface IWTSVirtualChannelCallback: IUnknown {
+            fn OnDataReceived(&self, cbSize: ULONG, #[in] #[readable(entry, cbSize)] pBuffer: *mut BYTE) -> HRESULT;
+            fn OnClose(&self) -> HRESULT;
+        }
+        #[guid(0xa1230205_d6a7_11d8_b9fd_000bdbd1f198)]
+        interface IWTSVirtualChannelManager: IUnknown {
+            fn CreateListener(&self, #[in] #[null_terminated(entry)] pszChannelName: *const i8, uFlags: ULONG, #[in] #[opt] pListenerCallback: IWTSListenerCallback, #[out] #[out_ptr] ppListener: *mut IWTSListener) -> HRESULT;
+        }
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[packed(2)]
+        struct IMAGE_DOS_HEADER {
+            e_magic: WORD,
+            e_cblp: WORD,
+            e_cp: WORD,
+            e_crlc: WORD,
+            e_cparhdr: WORD,
+            e_minalloc: WORD,
+            e_maxalloc: WORD,
+            e_ss: WORD,
+            e_sp: WORD,
+            e_csum: WORD,
+            e_ip: WORD,
+            e_cs: WORD,
+            e_lfarlc: WORD,
+            e_ovno: WORD,
+            e_res: [WORD; 4],
+            e_oemid: WORD,
+            e_oeminfo: WORD,
+            e_res2: [WORD; 10],
+            e_lfanew: LONG,
+        }
+        union LARGE_INTEGER {
+            Anonymous: struct {
+                LowPart: DWORD,
+                HighPart: LONG,
+            },
+            u: struct {
+                LowPart: DWORD,
+                HighPart: LONG,
+            },
+            QuadPart: LONGLONG,
+        }
+        #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+        type LPCWSTR = *const u16;
+        type PVOID = *mut void;
+        union ULARGE_INTEGER {
+            Anonymous: struct {
+                LowPart: DWORD,
+                HighPart: DWORD,
+            },
+            u: struct {
+                LowPart: DWORD,
+                HighPart: DWORD,
+            },
+            QuadPart: ULONGLONG,
+        }
+        type WCHAR = u16;
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        const SOMAXCONN: i32 = 2147483647;
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[success(return >= 0)]
+        type NTSTATUS = i32;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
+        #[library("ntdll.dll")]
+        extern fn NtQuerySystemInformation(SystemInformationClass: SYSTEM_INFORMATION_CLASS, SystemInformation: PVOID, SystemInformationLength: ULONG, ReturnLength: PULONG) -> NTSTATUS;
+        #[repr(i32)]
+        enum SYSTEM_INFORMATION_CLASS {
+            SystemBasicInformation = 0,
+            SystemPerformanceInformation = 2,
+            SystemTimeOfDayInformation = 3,
+            SystemProcessInformation = 5,
+            SystemProcessorPerformanceInformation = 8,
+            SystemInterruptInformation = 23,
+            SystemExceptionInformation = 33,
+            SystemRegistryQuotaInformation = 37,
+            SystemLookasideInformation = 45,
+            SystemCodeIntegrityInformation = 103,
+            SystemPolicyInformation = 134,
+            SystemBasicProcessInformation = 252,
+            SystemHandleCountInformation = 253,
+        }
+    }
+}

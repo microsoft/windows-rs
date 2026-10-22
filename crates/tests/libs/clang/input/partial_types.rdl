@@ -1,0 +1,38 @@
+#[win32]
+mod Fixture {
+    struct Ambiguous {
+        value: i32,
+    }
+    struct AmbiguousConsumer {
+        value: *mut ChoiceA,
+    }
+    type ChoiceA = Ambiguous;
+    type ChoiceB = Ambiguous;
+    struct Good {
+        value: i32,
+    }
+    struct Incomplete {}
+    type MixedPointer = *mut *const i32;
+    struct OpaqueDependent {
+        value: *mut Incomplete,
+    }
+    struct PackingConsumer {
+        value: *mut UnknownPacking,
+    }
+    union PlainUnion {
+        a: i32,
+        b: f32,
+    }
+    struct PointerUser {
+        value: MixedPointer,
+    }
+    type ScalarGood = i32;
+    #[packed(2)]
+    struct UnknownPacking {
+        tag: i8,
+        value: i32,
+    }
+    struct VoidUser {
+        value: *mut void,
+    }
+}

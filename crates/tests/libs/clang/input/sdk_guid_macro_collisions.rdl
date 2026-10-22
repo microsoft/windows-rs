@@ -1,0 +1,18 @@
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+}
+#[win32]
+mod Fixture {
+    const GUID_CLASS_INPUT: GUID = 0x4d1e55b2_f16f_11cf_88cb_001111000030;
+}
+#[win32]
+mod Fixture {
+    const CLSID_WICImagingFactory: GUID = 0xcacaf262_9370_4615_a13b_9f5539da4c0a;
+    const CLSID_WICPngDecoder: GUID = 0x389ea17b_5078_4cde_b6ef_25c15175c751;
+}

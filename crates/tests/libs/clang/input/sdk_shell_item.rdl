@@ -1,0 +1,209 @@
+#[win32]
+mod Fixture {
+    type DWORD = u32;
+    #[success(return >= 0)]
+    type HRESULT = i32;
+    type LONG = i32;
+    type LONGLONG = i64;
+    type ULONG = u32;
+    type ULONGLONG = u64;
+}
+#[win32]
+mod Fixture {
+    type CLSID = GUID;
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type IID = GUID;
+}
+#[win32]
+mod Fixture {
+    type BOOL = i32;
+    struct FILETIME {
+        dwLowDateTime: DWORD,
+        dwHighDateTime: DWORD,
+    }
+}
+#[win32]
+mod Fixture {
+    #[packed(8)]
+    #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "cbStruct", "cbStruct", TypedefName = "BIND_OPTS")]
+    struct BIND_OPTS {
+        cbStruct: DWORD,
+        grfFlags: DWORD,
+        grfMode: DWORD,
+        dwTickCountDeadline: DWORD,
+    }
+    #[guid(0x0000000e_0000_0000_c000_000000000046)]
+    interface IBindCtx: IUnknown {
+        fn RegisterObjectBound(&self, #[in] #[opt] punk: IUnknown) -> HRESULT;
+        fn RevokeObjectBound(&self, #[in] #[opt] punk: IUnknown) -> HRESULT;
+        fn ReleaseBoundObjects(&self) -> HRESULT;
+        fn SetBindOptions(&self, #[in] pbindopts: *mut BIND_OPTS) -> HRESULT;
+        fn GetBindOptions(&self, #[in] #[out] pbindopts: *mut BIND_OPTS) -> HRESULT;
+        fn GetRunningObjectTable(&self, #[out] #[out_ptr] pprot: *mut IRunningObjectTable) -> HRESULT;
+        fn RegisterObjectParam(&self, #[in] pszKey: LPOLESTR, #[in] #[opt] punk: IUnknown) -> HRESULT;
+        fn GetObjectParam(&self, #[in] pszKey: LPOLESTR, #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+        fn EnumObjectParam(&self, #[out] #[out_ptr] ppenum: *mut IEnumString) -> HRESULT;
+        fn RevokeObjectParam(&self, #[in] pszKey: LPOLESTR) -> HRESULT;
+    }
+    #[guid(0x00000102_0000_0000_c000_000000000046)]
+    interface IEnumMoniker: IUnknown {
+        fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[readable(success, if_present(*pceltFetched))] rgelt: *mut IMoniker, #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+        fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
+        fn Reset(&self) -> HRESULT;
+        fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumMoniker) -> HRESULT;
+    }
+    #[guid(0x0000000f_0000_0000_c000_000000000046)]
+    interface IMoniker: IPersistStream {
+        fn BindToObject(&self, #[in] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] riidResult: &IID, #[out] #[out_ptr] #[iid_is] ppvResult: *mut *mut void) -> HRESULT;
+        fn BindToStorage(&self, #[in] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        fn Reduce(&self, #[in] #[opt] pbc: IBindCtx, #[in] dwReduceHowFar: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppmkToLeft: *mut IMoniker, #[out] #[out_ptr] ppmkReduced: *mut IMoniker) -> HRESULT;
+        fn ComposeWith(&self, #[in] #[opt] pmkRight: IMoniker, #[in] fOnlyIfNotGeneric: BOOL, #[out] #[out_ptr] ppmkComposite: *mut IMoniker) -> HRESULT;
+        fn Enum(&self, #[in] fForward: BOOL, #[out] #[out_ptr] ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
+        fn IsEqual(&self, #[in] #[opt] pmkOtherMoniker: IMoniker) -> HRESULT;
+        fn Hash(&self, #[out] pdwHash: *mut DWORD) -> HRESULT;
+        fn IsRunning(&self, #[in] #[opt] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] #[opt] pmkNewlyRunning: IMoniker) -> HRESULT;
+        fn GetTimeOfLastChange(&self, #[in] #[opt] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[out] pFileTime: *mut FILETIME) -> HRESULT;
+        fn Inverse(&self, #[out] #[out_ptr] ppmk: *mut IMoniker) -> HRESULT;
+        fn CommonPrefixWith(&self, #[in] #[opt] pmkOther: IMoniker, #[out] #[out_ptr] ppmkPrefix: *mut IMoniker) -> HRESULT;
+        fn RelativePathTo(&self, #[in] #[opt] pmkOther: IMoniker, #[out] #[out_ptr] ppmkRelPath: *mut IMoniker) -> HRESULT;
+        fn GetDisplayName(&self, #[in] #[opt] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[out] #[out_ptr] ppszDisplayName: *mut LPOLESTR) -> HRESULT;
+        fn ParseDisplayName(&self, #[in] #[opt] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] pszDisplayName: LPOLESTR, #[out] pchEaten: *mut ULONG, #[out] #[out_ptr] ppmkOut: *mut IMoniker) -> HRESULT;
+        fn IsSystemMoniker(&self, #[out] pdwMksys: *mut DWORD) -> HRESULT;
+    }
+    #[guid(0x0000010c_0000_0000_c000_000000000046)]
+    interface IPersist: IUnknown {
+        fn GetClassID(&self, #[out] pClassID: *mut CLSID) -> HRESULT;
+    }
+    #[guid(0x00000109_0000_0000_c000_000000000046)]
+    interface IPersistStream: IPersist {
+        fn IsDirty(&self) -> HRESULT;
+        fn Load(&self, #[in] #[opt] pStm: IStream) -> HRESULT;
+        fn Save(&self, #[in] #[opt] pStm: IStream, #[in] fClearDirty: BOOL) -> HRESULT;
+        fn GetSizeMax(&self, #[out] pcbSize: *mut ULARGE_INTEGER) -> HRESULT;
+    }
+    #[guid(0x00000010_0000_0000_c000_000000000046)]
+    interface IRunningObjectTable: IUnknown {
+        fn Register(&self, #[in] grfFlags: DWORD, #[in] #[opt] punkObject: IUnknown, #[in] #[opt] pmkObjectName: IMoniker, #[out] pdwRegister: *mut DWORD) -> HRESULT;
+        fn Revoke(&self, #[in] dwRegister: DWORD) -> HRESULT;
+        fn IsRunning(&self, #[in] #[opt] pmkObjectName: IMoniker) -> HRESULT;
+        fn GetObjectA(&self, #[in] #[opt] pmkObjectName: IMoniker, #[out] #[out_ptr] ppunkObject: *mut IUnknown) -> HRESULT;
+        fn NoteChangeTime(&self, #[in] dwRegister: DWORD, #[in] pfiletime: *mut FILETIME) -> HRESULT;
+        fn GetTimeOfLastChange(&self, #[in] #[opt] pmkObjectName: IMoniker, #[out] pfiletime: *mut FILETIME) -> HRESULT;
+        fn EnumRunning(&self, #[out] #[out_ptr] ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
+    }
+}
+#[win32]
+mod Fixture {
+    #[guid(0x00000101_0000_0000_c000_000000000046)]
+    interface IEnumString: IUnknown {
+        fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[readable(success, if_present(*pceltFetched))] rgelt: *mut LPOLESTR, #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+        fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
+        fn Reset(&self) -> HRESULT;
+        fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumString) -> HRESULT;
+    }
+    #[guid(0x0c733a30_2a1c_11ce_ade5_00aa0044773d)]
+    interface ISequentialStream: IUnknown {
+        fn Read(&self, #[out] #[writable(entry, bytes(cb))] #[readable(success, bytes(if_present(*pcbRead)))] pv: *mut void, #[in] cb: ULONG, #[out] #[opt] pcbRead: *mut ULONG) -> HRESULT;
+        fn Write(&self, #[in] #[readable(entry, bytes(cb))] pv: *const void, #[in] cb: ULONG, #[out] #[opt] pcbWritten: *mut ULONG) -> HRESULT;
+    }
+    #[guid(0x0000000c_0000_0000_c000_000000000046)]
+    interface IStream: ISequentialStream {
+        fn Seek(&self, #[in] dlibMove: LARGE_INTEGER, #[in] dwOrigin: DWORD, #[out] #[opt] plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
+        fn SetSize(&self, #[in] libNewSize: ULARGE_INTEGER) -> HRESULT;
+        fn CopyTo(&self, #[in] pstm: IStream, #[in] cb: ULARGE_INTEGER, #[out] #[opt] pcbRead: *mut ULARGE_INTEGER, #[out] #[opt] pcbWritten: *mut ULARGE_INTEGER) -> HRESULT;
+        fn Commit(&self, #[in] grfCommitFlags: DWORD) -> HRESULT;
+        fn Revert(&self) -> HRESULT;
+        fn LockRegion(&self, #[in] libOffset: ULARGE_INTEGER, #[in] cb: ULARGE_INTEGER, #[in] dwLockType: DWORD) -> HRESULT;
+        fn UnlockRegion(&self, #[in] libOffset: ULARGE_INTEGER, #[in] cb: ULARGE_INTEGER, #[in] dwLockType: DWORD) -> HRESULT;
+        fn Stat(&self, #[out] pstatstg: *mut STATSTG, #[in] grfStatFlag: DWORD) -> HRESULT;
+        fn Clone(&self, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
+    }
+    #[packed(8)]
+    struct STATSTG {
+        pwcsName: LPOLESTR,
+        r#type: DWORD,
+        cbSize: ULARGE_INTEGER,
+        mtime: FILETIME,
+        ctime: FILETIME,
+        atime: FILETIME,
+        grfMode: DWORD,
+        grfLocksSupported: DWORD,
+        clsid: CLSID,
+        grfStateBits: DWORD,
+        reserved: DWORD,
+    }
+}
+#[win32]
+mod Fixture {
+    #[guid(0x43826d1e_e718_42ee_bc55_a1e261c37bfe)]
+    interface IShellItem: IUnknown {
+        fn BindToHandler(&self, #[in] #[opt] pbc: IBindCtx, #[in] bhid: &GUID, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        fn GetParent(&self, #[out] #[out_ptr] ppsi: *mut IShellItem) -> HRESULT;
+        fn GetDisplayName(&self, #[in] sigdnName: SIGDN, #[out] #[out_ptr(null_on_failure)] ppszName: *mut LPWSTR) -> HRESULT;
+        fn GetAttributes(&self, #[in] sfgaoMask: SFGAOF, #[out] psfgaoAttribs: *mut SFGAOF) -> HRESULT;
+        fn Compare(&self, #[in] #[opt] psi: IShellItem, #[in] hint: SICHINTF, #[out] piOrder: *mut i32) -> HRESULT;
+    }
+    type SFGAOF = u32;
+    type SICHINTF = u32;
+    #[repr(i32)]
+    enum SIGDN {
+        SIGDN_NORMALDISPLAY = 0,
+        SIGDN_PARENTRELATIVEPARSING = -2147385343,
+        SIGDN_DESKTOPABSOLUTEPARSING = -2147319808,
+        SIGDN_PARENTRELATIVEEDITING = -2147282943,
+        SIGDN_DESKTOPABSOLUTEEDITING = -2147172352,
+        SIGDN_FILESYSPATH = -2147123200,
+        SIGDN_URL = -2147057664,
+        SIGDN_PARENTRELATIVEFORADDRESSBAR = -2146975743,
+        SIGDN_PARENTRELATIVE = -2146959359,
+        SIGDN_PARENTRELATIVEFORUI = -2146877439,
+    }
+}
+#[win32]
+mod Fixture {
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+}
+#[win32]
+mod Fixture {
+    union LARGE_INTEGER {
+        Anonymous: struct {
+            LowPart: DWORD,
+            HighPart: LONG,
+        },
+        u: struct {
+            LowPart: DWORD,
+            HighPart: LONG,
+        },
+        QuadPart: LONGLONG,
+    }
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type LPWSTR = *mut u16;
+    union ULARGE_INTEGER {
+        Anonymous: struct {
+            LowPart: DWORD,
+            HighPart: DWORD,
+        },
+        u: struct {
+            LowPart: DWORD,
+            HighPart: DWORD,
+        },
+        QuadPart: ULONGLONG,
+    }
+    type WCHAR = u16;
+}
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_string", "", "")]
+    type LPOLESTR = *mut u16;
+    type OLECHAR = u16;
+}

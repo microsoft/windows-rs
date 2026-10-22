@@ -1,0 +1,14 @@
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    #[arch(X64 | Arm64)]
+    extern "C" fn FetchImport(request: *mut ImportRequest, callback: ImportCallback) -> i32;
+    #[library("fixture.dll")]
+    #[arch(X86)]
+    extern fn FetchImport(request: *mut ImportRequest, callback: ImportCallback) -> i32;
+    extern "C" fn ImportCallback(param0: i32) -> i32;
+    struct ImportRequest {
+        count: u32,
+        data: *mut void,
+    }
+}

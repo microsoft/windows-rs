@@ -1,0 +1,31 @@
+#[win32]
+mod Fixture {
+    #[no_guid]
+    interface Base {
+        fn Read(&self, value: u32) -> i32;
+        fn Reset(&self);
+    }
+    #[no_guid]
+    interface Derived: Base {
+        #[override_slot(0)]
+        fn Read(&self, #[Windows::Win32::Metadata::NativeDefaultArgument("7")] renamed: u32) -> i32;
+        #[override_slot(1)]
+        fn Reset(&self);
+        fn Extra(&self) -> i32;
+    }
+    #[no_guid]
+    interface Final: Derived {
+        #[override_slot(0)]
+        fn Read(&self, #[Windows::Win32::Metadata::NativeDefaultArgument("9")] final_name: u32) -> i32;
+        fn Last(&self) -> i32;
+    }
+    #[guid(0x11111111_1111_1111_1111_111111111111)]
+    interface IdentifiedBase {
+        fn Read(&self);
+    }
+    #[guid(0x22222222_2222_2222_2222_222222222222)]
+    interface IdentifiedChild: IdentifiedBase {
+        #[override_slot(0)]
+        fn Read(&self);
+    }
+}

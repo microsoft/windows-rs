@@ -1,0 +1,40 @@
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern "C" fn Bare(#[Windows::Win32::Metadata::NativeSal("2", "_NullNull_terminated_", "", "")] value: *mut i8);
+    #[library("fixture.dll")]
+    extern "C" fn Both(#[null_terminated(double_entry, double_success)] value: *mut i8);
+    #[library("fixture.dll")]
+    extern "C" fn Conditional(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "enabled,_Post_ _NullNull_terminated_", "enabled, _Post_ _NullNull_terminated_")] value: *mut i8, enabled: i32);
+    #[library("fixture.dll")]
+    extern "C" fn Grouped(#[Windows::Win32::Metadata::NativeSal("2", "_Group_", "_NullNull_terminated_ _Valid_", "_NullNull_terminated_ _Valid_", Modifiers = "_Post_")] value: *mut i8);
+    #[guid(0x11111111_2222_3333_4444_555555555555)]
+    interface IMultiString {
+        fn Get(&self, #[null_terminated(double_success)] value: *mut u16);
+    }
+    #[library("fixture.dll")]
+    extern "C" fn Indirect(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*value,_Post_ _NullNull_terminated_", "*value, _Post_ _NullNull_terminated_")] value: *mut *mut i8);
+    #[library("fixture.dll")]
+    extern "C" fn InputMulti(#[null_terminated(double_entry)] value: *const u16);
+    #[library("fixture.dll")]
+    extern "C" fn InputSingle(#[null_terminated(entry)] value: *const i8);
+    #[library("fixture.dll")]
+    extern "C" fn Mixed(#[null_terminated(entry, double_success)] value: *mut i8);
+    #[library("fixture.dll")]
+    extern "C" fn Modified(#[Windows::Win32::Metadata::NativeSal("2", "_NullNull_terminated_", "", "", Modifiers = "_Post_ _Notref_")] value: *mut i8);
+    extern "C" fn MultiCallback(#[null_terminated(double_success)] value: *mut u16);
+    #[library("fixture.dll")]
+    extern "C" fn MultiString(#[null_terminated(double_success)] value: *mut WCHAR);
+    #[library("fixture.dll")]
+    extern "C" fn OtherProperty(#[Windows::Win32::Metadata::NativeSal("2", "_NullNull_terminated_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Valid_", "", "", Modifiers = "_Post_")] value: *mut i8);
+    #[library("fixture.dll")]
+    extern "C" fn OutputMulti(#[null_terminated(double_success)] value: *mut u16);
+    #[library("fixture.dll")]
+    extern "C" fn OutputSingle(#[null_terminated(success)] value: *mut i8);
+    #[library("fixture.dll")]
+    extern "C" fn QualifiedContract(#[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "", Modifiers = "_Post_")] value: *mut i8);
+    #[Windows::Win32::Metadata::NativeSal("2", "_NullNull_terminated_", "", "", Modifiers = "_Post_")]
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "", Modifiers = "_Pre_")]
+    type ScopedAlias = *mut i8;
+    type WCHAR = u16;
+}

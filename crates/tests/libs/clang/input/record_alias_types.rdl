@@ -1,0 +1,4 @@
+#[win32]
+mod Fixture {
+    type LsaText = Text;
+}

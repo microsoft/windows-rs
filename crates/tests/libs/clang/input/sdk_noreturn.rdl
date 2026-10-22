@@ -1,0 +1,39 @@
+#[win32]
+mod Fixture {
+    type DWORD = u32;
+    type UINT = u32;
+}
+#[win32]
+mod Fixture {
+    #[noreturn]
+    #[library("kernel32.dll")]
+    extern fn FreeLibraryAndExitThread(#[in] hLibModule: HMODULE, #[in] dwExitCode: DWORD);
+}
+#[win32]
+mod Fixture {
+    type HINSTANCE = *mut HINSTANCE__;
+    struct HINSTANCE__ {
+        unused: i32,
+    }
+    type HMODULE = *mut HINSTANCE__;
+}
+#[win32]
+mod Fixture {
+    #[noreturn]
+    #[library("kernel32.dll")]
+    extern fn ExitProcess(#[in] uExitCode: UINT);
+    #[noreturn]
+    #[library("kernel32.dll")]
+    extern fn ExitThread(#[in] dwExitCode: DWORD);
+}
+#[win32]
+mod Fixture {
+    #[success(return == 0)]
+    type RPC_STATUS = i32;
+}
+#[win32]
+mod Fixture {
+    #[noreturn]
+    #[library("rpcrt4.dll")]
+    extern fn RpcRaiseException(#[in] exception: RPC_STATUS);
+}

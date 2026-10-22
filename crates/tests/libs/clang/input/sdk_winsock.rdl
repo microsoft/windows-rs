@@ -1,0 +1,855 @@
+#[win32]
+mod Fixture {
+    type BYTE = u8;
+    type CHAR = i8;
+    type DWORD = u32;
+    #[arch(X64 | Arm64)]
+    type DWORD_PTR = u64;
+    #[arch(X86)]
+    type DWORD_PTR = u32;
+    type INT = i32;
+    #[arch(X64 | Arm64)]
+    type INT_PTR = i64;
+    type SHORT = i16;
+    type UCHAR = u8;
+    type UINT = u32;
+    type UINT16 = u16;
+    type UINT32 = u32;
+    type UINT8 = u8;
+    #[arch(X64 | Arm64)]
+    type UINT_PTR = u64;
+    #[arch(X86)]
+    type UINT_PTR = u32;
+    type ULONG = u32;
+    #[arch(X64 | Arm64)]
+    type ULONG_PTR = u64;
+    #[arch(X86)]
+    type ULONG_PTR = u32;
+    type USHORT = u16;
+    type WORD = u16;
+    #[arch(X64 | Arm64)]
+    type size_t = u64;
+    #[arch(X86)]
+    type size_t = u32;
+}
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type LPGUID = *mut GUID;
+}
+#[win32]
+mod Fixture {
+    struct in_addr {
+        S_un: union {
+            S_un_b: struct {
+                s_b1: UCHAR,
+                s_b2: UCHAR,
+                s_b3: UCHAR,
+                s_b4: UCHAR,
+            },
+            S_un_w: struct {
+                s_w1: USHORT,
+                s_w2: USHORT,
+            },
+            S_addr: ULONG,
+        },
+    }
+}
+#[win32]
+mod Fixture {
+    type LPOVERLAPPED = *mut _OVERLAPPED;
+    struct OVERLAPPED_ENTRY {
+        lpCompletionKey: ULONG_PTR,
+        lpOverlapped: LPOVERLAPPED,
+        Internal: ULONG_PTR,
+        dwNumberOfBytesTransferred: DWORD,
+    }
+    struct _OVERLAPPED {
+        Internal: ULONG_PTR,
+        InternalHigh: ULONG_PTR,
+        Anonymous: union {
+            Anonymous: struct {
+                Offset: DWORD,
+                OffsetHigh: DWORD,
+            },
+            Pointer: PVOID,
+        },
+        hEvent: HANDLE,
+    }
+}
+#[win32]
+mod Fixture {
+    type BOOL = i32;
+    #[arch(X64 | Arm64)]
+    extern fn FARPROC() -> INT_PTR;
+    #[arch(X86)]
+    extern fn FARPROC() -> i32;
+    type LPDWORD = *mut u32;
+    type LPHANDLE = *mut *mut void;
+    type LPINT = *mut i32;
+    type LPVOID = *mut void;
+    #[arch(X64 | Arm64)]
+    type WPARAM = u64;
+    #[arch(X86)]
+    type WPARAM = u32;
+}
+#[win32]
+mod Fixture {
+    struct FLOWSPEC {
+        TokenRate: ULONG,
+        TokenBucketSize: ULONG,
+        PeakBandwidth: ULONG,
+        Latency: ULONG,
+        DelayVariation: ULONG,
+        ServiceType: SERVICETYPE,
+        MaxSduSize: ULONG,
+        MinimumPolicedSize: ULONG,
+    }
+    type SERVICETYPE = u32;
+}
+#[win32]
+mod Fixture {
+    type HWND = *mut HWND__;
+    struct HWND__ {
+        unused: i32,
+    }
+}
+#[win32]
+mod Fixture {
+    type HANDLE = *mut void;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type LPCSTR = *const i8;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type LPSTR = *mut i8;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type LPWSTR = *mut u16;
+    type PCHAR = *mut i8;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type PCSTR = *const i8;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type PCWSTR = *const u16;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type PSTR = *mut i8;
+    type PVOID = *mut void;
+    type PWCHAR = *mut u16;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type PWSTR = *mut u16;
+    type WCHAR = u16;
+}
+#[win32]
+mod Fixture {
+    type GROUP = u32;
+    #[library("WS2_32.dll")]
+    extern fn GetHostNameW(#[out] #[len_param(1)] name: PWSTR, #[in] namelen: i32) -> i32;
+    type LPAFPROTOCOLS = *mut _AFPROTOCOLS;
+    extern fn LPCONDITIONPROC(#[in] lpCallerId: LPWSABUF, #[in] lpCallerData: LPWSABUF, #[in] lpSQOS: LPQOS, #[in] lpGQOS: LPQOS, #[in] lpCalleeId: LPWSABUF, #[in] lpCalleeData: LPWSABUF, #[out] g: *mut GROUP, #[in] dwCallbackData: DWORD_PTR) -> i32;
+    type LPQOS = *mut _QualityOfService;
+    type LPWSACOMPLETION = *mut _WSACOMPLETION;
+    type LPWSADATA = *mut WSAData;
+    type LPWSANAMESPACE_INFOA = *mut _WSANAMESPACE_INFOA;
+    type LPWSANAMESPACE_INFOEXA = *mut _WSANAMESPACE_INFOEXA;
+    type LPWSANAMESPACE_INFOEXW = *mut _WSANAMESPACE_INFOEXW;
+    type LPWSANAMESPACE_INFOW = *mut _WSANAMESPACE_INFOW;
+    type LPWSANETWORKEVENTS = *mut _WSANETWORKEVENTS;
+    type LPWSANSCLASSINFOA = *mut _WSANSClassInfoA;
+    type LPWSANSCLASSINFOW = *mut _WSANSClassInfoW;
+    type LPWSAOVERLAPPED = *mut _OVERLAPPED;
+    extern fn LPWSAOVERLAPPED_COMPLETION_ROUTINE(#[in] dwError: DWORD, #[in] cbTransferred: DWORD, #[in] lpOverlapped: LPWSAOVERLAPPED, #[in] dwFlags: DWORD);
+    type LPWSAPOLLFD = *mut pollfd;
+    type LPWSAPROTOCOL_INFOA = *mut _WSAPROTOCOL_INFOA;
+    type LPWSAPROTOCOL_INFOW = *mut _WSAPROTOCOL_INFOW;
+    type LPWSAQUERYSETA = *mut _WSAQuerySetA;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "dwSize", "dwSize")]
+    type LPWSAQUERYSETW = *mut _WSAQuerySetW;
+    type LPWSASERVICECLASSINFOA = *mut _WSAServiceClassInfoA;
+    type LPWSASERVICECLASSINFOW = *mut _WSAServiceClassInfoW;
+    type LPWSAVERSION = *mut _WSAVersion;
+    #[library("WS2_32.dll")]
+    extern fn ProcessSocketNotifications(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] completionPort: HANDLE, #[in] registrationCount: UINT32, #[in] #[out] #[opt] #[len_param(1)] registrationInfos: *mut SOCK_NOTIFY_REGISTRATION, #[in] timeoutMs: UINT32, #[in] completionCount: ULONG, #[out] #[opt] #[len_param(4)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 6, IsByteCount = false, Dereference = true)] completionPortEntries: *mut OVERLAPPED_ENTRY, #[out] #[opt] receivedEntryCount: *mut UINT32) -> DWORD;
+    #[arch(X64 | Arm64)]
+    type SOCKET = u64;
+    #[arch(X86)]
+    type SOCKET = u32;
+    struct SOCK_NOTIFY_REGISTRATION {
+        socket: SOCKET,
+        completionKey: PVOID,
+        eventFilter: UINT16,
+        operation: UINT8,
+        triggerFlags: UINT8,
+        registrationResult: DWORD,
+    }
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAAccept(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*addrlen,*addrlen", "*addrlen,*addrlen")] #[out] #[opt] addr: *mut SOCKADDR, #[in] #[out] #[opt] addrlen: LPINT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpfnCondition: LPCONDITIONPROC, #[in] #[opt] dwCallbackData: DWORD_PTR) -> SOCKET;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSAAddressToStringW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAAddressToStringA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] lpsaAddress: LPSOCKADDR, #[in] dwAddressLength: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProtocolInfo: LPWSAPROTOCOL_INFOA, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*lpdwAddressStringLength,*lpdwAddressStringLength", "*lpdwAddressStringLength,*lpdwAddressStringLength")] #[out] lpszAddressString: LPSTR, #[in] #[out] lpdwAddressStringLength: LPDWORD) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSAAddressToStringW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] lpsaAddress: LPSOCKADDR, #[in] dwAddressLength: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProtocolInfo: LPWSAPROTOCOL_INFOW, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "*lpdwAddressStringLength,*lpdwAddressStringLength", "*lpdwAddressStringLength,*lpdwAddressStringLength")] #[out] lpszAddressString: LPWSTR, #[in] #[out] lpdwAddressStringLength: LPDWORD) -> INT;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use getnameinfo() or GetNameInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAAsyncGetHostByAddr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] wMsg: u_int, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] addr: *const i8, #[in] len: i32, #[in] r#type: i32, #[out] #[size_param(6)] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use GetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAAsyncGetHostByName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] wMsg: u_int, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] name: *const i8, #[out] #[size_param(4)] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use getprotobyname() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAAsyncGetProtoByName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] wMsg: u_int, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] name: *const i8, #[out] #[size_param(4)] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use getprotobynumber() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAAsyncGetProtoByNumber(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] wMsg: u_int, #[in] number: i32, #[out] #[size_param(4)] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use getservbyname() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAAsyncGetServByName(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] wMsg: u_int, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] name: *const i8, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] proto: *const i8, #[out] #[size_param(5)] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use getservbyport() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAAsyncGetServByPort(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] wMsg: u_int, #[in] port: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] proto: *const i8, #[out] #[size_param(5)] buf: *mut i8, #[in] buflen: i32) -> HANDLE;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAAsyncSelect(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hWnd: HWND, #[in] wMsg: u_int, #[in] lEvent: i32) -> i32;
+    #[repr(i32)]
+    enum WSACOMPLETIONTYPE {
+        NSP_NOTIFY_IMMEDIATELY = 0,
+        NSP_NOTIFY_HWND = 1,
+        NSP_NOTIFY_EVENT = 2,
+        NSP_NOTIFY_PORT = 3,
+        NSP_NOTIFY_APC = 4,
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("Define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSACancelAsyncRequest(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hAsyncTaskHandle: HANDLE) -> i32;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use Winsock 2 instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSACancelBlockingCall() -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSACleanup() -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSACloseEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEvent: HANDLE) -> BOOL;
+    #[library("WS2_32.dll")]
+    extern fn WSAConnect(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] name: *const SOCKADDR, #[in] namelen: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCallerData: LPWSABUF, #[out] #[opt] lpCalleeData: LPWSABUF, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSQOS: LPQOS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpGQOS: LPQOS) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSAConnectByList(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] SocketAddress: PSOCKET_ADDRESS_LIST, #[in] #[out] #[opt] LocalAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*LocalAddressLength,*LocalAddressLength", "*LocalAddressLength,*LocalAddressLength")] #[out] #[opt] LocalAddress: LPSOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*RemoteAddressLength,*RemoteAddressLength", "*RemoteAddressLength,*RemoteAddressLength")] #[out] #[opt] RemoteAddress: LPSOCKADDR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *const timeval, #[in] #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSAConnectByNameW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAConnectByNameA(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nodename: LPCSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servicename: LPCSTR, #[in] #[out] #[opt] LocalAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*LocalAddressLength,*LocalAddressLength", "*LocalAddressLength,*LocalAddressLength")] #[out] #[opt] LocalAddress: LPSOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*RemoteAddressLength,*RemoteAddressLength", "*RemoteAddressLength,*RemoteAddressLength")] #[out] #[opt] RemoteAddress: LPSOCKADDR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *const timeval, #[in] #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
+    #[library("WS2_32.dll")]
+    extern fn WSAConnectByNameW(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] nodename: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] servicename: LPWSTR, #[in] #[out] #[opt] LocalAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*LocalAddressLength,*LocalAddressLength", "*LocalAddressLength,*LocalAddressLength")] #[out] #[opt] LocalAddress: LPSOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*RemoteAddressLength,*RemoteAddressLength", "*RemoteAddressLength,*RemoteAddressLength")] #[out] #[opt] RemoteAddress: LPSOCKADDR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *const timeval, #[in] #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
+    #[library("WS2_32.dll")]
+    extern fn WSACreateEvent() -> HANDLE;
+    #[arch(X64 | Arm64)]
+    struct WSAData {
+        wVersion: WORD,
+        wHighVersion: WORD,
+        iMaxSockets: u16,
+        iMaxUdpDg: u16,
+        lpVendorInfo: *mut i8,
+        szDescription: [i8; 257],
+        szSystemStatus: [i8; 129],
+    }
+    #[arch(X86)]
+    struct WSAData {
+        wVersion: WORD,
+        wHighVersion: WORD,
+        szDescription: [i8; 257],
+        szSystemStatus: [i8; 129],
+        iMaxSockets: u16,
+        iMaxUdpDg: u16,
+        lpVendorInfo: *mut i8,
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSADuplicateSocketW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSADuplicateSocketA(#[in] s: SOCKET, #[in] dwProcessId: DWORD, #[out] lpProtocolInfo: LPWSAPROTOCOL_INFOA) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSADuplicateSocketW(#[in] s: SOCKET, #[in] dwProcessId: DWORD, #[out] lpProtocolInfo: LPWSAPROTOCOL_INFOW) -> i32;
+    #[repr(i32)]
+    enum WSAECOMPARATOR {
+        COMP_EQUAL = 0,
+        COMP_NOTLESS = 1,
+    }
+    #[repr(i32)]
+    enum WSAESETSERVICEOP {
+        RNRSERVICE_REGISTER = 0,
+        RNRSERVICE_DEREGISTER = 1,
+        RNRSERVICE_DELETE = 2,
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSAEnumNameSpaceProvidersW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAEnumNameSpaceProvidersA(#[in] #[out] lpdwBufferLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpdwBufferLength,*lpdwBufferLength", "*lpdwBufferLength,*lpdwBufferLength")] #[out] lpnspBuffer: LPWSANAMESPACE_INFOA) -> INT;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSAEnumNameSpaceProvidersW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAEnumNameSpaceProvidersExA(#[in] #[out] lpdwBufferLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpdwBufferLength,*lpdwBufferLength", "*lpdwBufferLength,*lpdwBufferLength")] #[out] lpnspBuffer: LPWSANAMESPACE_INFOEXA) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSAEnumNameSpaceProvidersExW(#[in] #[out] lpdwBufferLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpdwBufferLength,*lpdwBufferLength", "*lpdwBufferLength,*lpdwBufferLength")] #[out] lpnspBuffer: LPWSANAMESPACE_INFOEXW) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSAEnumNameSpaceProvidersW(#[in] #[out] lpdwBufferLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpdwBufferLength,*lpdwBufferLength", "*lpdwBufferLength,*lpdwBufferLength")] #[out] lpnspBuffer: LPWSANAMESPACE_INFOW) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSAEnumNetworkEvents(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEventObject: HANDLE, #[out] lpNetworkEvents: LPWSANETWORKEVENTS) -> i32;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSAEnumProtocolsW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAEnumProtocolsA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpiProtocols: LPINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*lpdwBufferLength,*lpdwBufferLength", "*lpdwBufferLength,*lpdwBufferLength")] #[out] #[opt] lpProtocolBuffer: LPWSAPROTOCOL_INFOA, #[in] #[out] lpdwBufferLength: LPDWORD) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSAEnumProtocolsW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpiProtocols: LPINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*lpdwBufferLength,*lpdwBufferLength", "*lpdwBufferLength,*lpdwBufferLength")] #[out] #[opt] lpProtocolBuffer: LPWSAPROTOCOL_INFOW, #[in] #[out] lpdwBufferLength: LPDWORD) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSAEventSelect(#[in] s: SOCKET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEventObject: HANDLE, #[in] lNetworkEvents: i32) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSAGetLastError() -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSAGetOverlappedResult(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPWSAOVERLAPPED, #[out] lpcbTransfer: LPDWORD, #[in] fWait: BOOL, #[out] lpdwFlags: LPDWORD) -> BOOL;
+    #[Windows::Win32::Metadata::NativeDeprecated("Define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAGetQOSByName(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpQOSName: LPWSABUF, #[out] lpQOS: LPQOS) -> BOOL;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSAGetServiceClassInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAGetServiceClassInfoA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProviderId: LPGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpServiceClassId: LPGUID, #[in] #[out] lpdwBufSize: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpdwBufSize,*lpdwBufSize", "*lpdwBufSize,*lpdwBufSize")] #[out] lpServiceClassInfo: LPWSASERVICECLASSINFOA) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSAGetServiceClassInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProviderId: LPGUID, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpServiceClassId: LPGUID, #[in] #[out] lpdwBufSize: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpdwBufSize,*lpdwBufSize", "*lpdwBufSize,*lpdwBufSize")] #[out] lpServiceClassInfo: LPWSASERVICECLASSINFOW) -> INT;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSAGetServiceClassNameByClassIdW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAGetServiceClassNameByClassIdA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpServiceClassId: LPGUID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpdwBufferLength,*lpdwBufferLength", "*lpdwBufferLength,*lpdwBufferLength")] #[out] lpszServiceClassName: LPSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> INT;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0")]
+    #[library("WS2_32.dll")]
+    extern fn WSAGetServiceClassNameByClassIdW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpServiceClassId: LPGUID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpdwBufferLength,*lpdwBufferLength", "*lpdwBufferLength,*lpdwBufferLength")] #[out] lpszServiceClassName: LPWSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSAHtonl(#[in] s: SOCKET, #[in] hostlong: u_long, #[out] lpnetlong: *mut u_long) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSAHtons(#[in] s: SOCKET, #[in] hostshort: u_short, #[out] lpnetshort: *mut u_short) -> i32;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSAInstallServiceClassW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAInstallServiceClassA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpServiceClassInfo: LPWSASERVICECLASSINFOA) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSAInstallServiceClassW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpServiceClassInfo: LPWSASERVICECLASSINFOW) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSAIoctl(#[in] s: SOCKET, #[in] dwIoControlCode: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] lpvInBuffer: LPVOID, #[in] cbInBuffer: DWORD, #[out] #[opt] #[size_param(5)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 6, IsByteCount = true, Dereference = true)] lpvOutBuffer: LPVOID, #[in] cbOutBuffer: DWORD, #[out] lpcbBytesReturned: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use Winsock 2 instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAIsBlocking() -> BOOL;
+    #[library("WS2_32.dll")]
+    extern fn WSAJoinLeaf(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] name: *const SOCKADDR, #[in] namelen: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCallerData: LPWSABUF, #[out] #[opt] lpCalleeData: LPWSABUF, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpSQOS: LPQOS, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpGQOS: LPQOS, #[in] dwFlags: DWORD) -> SOCKET;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSALookupServiceBeginW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSALookupServiceBeginA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpqsRestrictions: LPWSAQUERYSETA, #[in] dwControlFlags: DWORD, #[out] lphLookup: LPHANDLE) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSALookupServiceBeginW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpqsRestrictions: LPWSAQUERYSETW, #[in] dwControlFlags: DWORD, #[out] lphLookup: LPHANDLE) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSALookupServiceEnd(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hLookup: HANDLE) -> INT;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSALookupServiceNextW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSALookupServiceNextA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hLookup: HANDLE, #[in] dwControlFlags: DWORD, #[in] #[out] lpdwBufferLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpdwBufferLength,*lpdwBufferLength", "*lpdwBufferLength,*lpdwBufferLength")] #[out] lpqsResults: LPWSAQUERYSETA) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSALookupServiceNextW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hLookup: HANDLE, #[in] dwControlFlags: DWORD, #[in] #[out] lpdwBufferLength: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*lpdwBufferLength,*lpdwBufferLength", "*lpdwBufferLength,*lpdwBufferLength")] #[out] #[opt] lpqsResults: LPWSAQUERYSETW) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSANSPIoctl(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hLookup: HANDLE, #[in] dwControlCode: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(3)] lpvInBuffer: LPVOID, #[in] cbInBuffer: DWORD, #[out] #[opt] #[size_param(5)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 6, IsByteCount = true, Dereference = true)] lpvOutBuffer: LPVOID, #[in] cbOutBuffer: DWORD, #[out] lpcbBytesReturned: LPDWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletion: LPWSACOMPLETION) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSANtohl(#[in] s: SOCKET, #[in] netlong: u_long, #[out] lphostlong: *mut u_long) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSANtohs(#[in] s: SOCKET, #[in] netshort: u_short, #[out] lphostshort: *mut u_short) -> i32;
+    struct WSAPROTOCOLCHAIN {
+        ChainLen: i32,
+        ChainEntries: [DWORD; 7],
+    }
+    #[library("WS2_32.dll")]
+    extern fn WSAPoll(#[in] #[out] fdArray: LPWSAPOLLFD, #[in] fds: ULONG, #[in] timeout: INT) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSAProviderConfigChange(#[in] #[out] lpNotificationHandle: LPHANDLE, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSARecv(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] lpBuffers: LPWSABUF, #[in] dwBufferCount: DWORD, #[out] #[opt] lpNumberOfBytesRecvd: LPDWORD, #[in] #[out] lpFlags: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSARecv() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSARecvDisconnect(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpInboundDisconnectData: LPWSABUF) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSARecvFrom(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] lpBuffers: LPWSABUF, #[in] dwBufferCount: DWORD, #[out] #[opt] lpNumberOfBytesRecvd: LPDWORD, #[in] #[out] lpFlags: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*lpFromlen,*lpFromlen", "*lpFromlen,*lpFromlen")] #[out] #[opt] lpFrom: *mut SOCKADDR, #[in] #[out] #[opt] lpFromlen: LPINT, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSARemoveServiceClass(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpServiceClassId: LPGUID) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSAResetEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEvent: HANDLE) -> BOOL;
+    #[library("WS2_32.dll")]
+    extern fn WSASend(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] lpBuffers: LPWSABUF, #[in] dwBufferCount: DWORD, #[out] #[opt] lpNumberOfBytesSent: LPDWORD, #[in] dwFlags: DWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSASend() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSASendDisconnect(#[in] s: SOCKET, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOutboundDisconnectData: LPWSABUF) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSASendMsg(#[in] Handle: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpMsg: LPWSAMSG, #[in] dwFlags: DWORD, #[out] #[opt] lpNumberOfBytesSent: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSASendTo(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(2)] lpBuffers: LPWSABUF, #[in] dwBufferCount: DWORD, #[out] #[opt] lpNumberOfBytesSent: LPDWORD, #[in] dwFlags: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(6)] lpTo: *const SOCKADDR, #[in] iTolen: i32, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use Winsock 2 instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSASetBlockingHook(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBlockFunc: FARPROC) -> FARPROC;
+    #[library("WS2_32.dll")]
+    extern fn WSASetEvent(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hEvent: HANDLE) -> BOOL;
+    #[library("WS2_32.dll")]
+    extern fn WSASetLastError(#[in] iError: i32);
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSASetServiceW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSASetServiceA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpqsRegInfo: LPWSAQUERYSETA, #[in] essoperation: WSAESETSERVICEOP, #[in] dwControlFlags: DWORD) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSASetServiceW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpqsRegInfo: LPWSAQUERYSETW, #[in] essoperation: WSAESETSERVICEOP, #[in] dwControlFlags: DWORD) -> INT;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSASocketW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSASocketA(#[in] af: i32, #[in] r#type: i32, #[in] protocol: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProtocolInfo: LPWSAPROTOCOL_INFOA, #[in] g: GROUP, #[in] dwFlags: DWORD) -> SOCKET;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSASocketW(#[in] af: i32, #[in] r#type: i32, #[in] protocol: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProtocolInfo: LPWSAPROTOCOL_INFOW, #[in] g: GROUP, #[in] dwFlags: DWORD) -> SOCKET;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAStartup(#[in] wVersionRequested: WORD, #[out] lpWSAData: LPWSADATA) -> i32;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSAStringToAddressW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAStringToAddressA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddressString: LPSTR, #[in] AddressFamily: INT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProtocolInfo: LPWSAPROTOCOL_INFOA, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpAddressLength,*lpAddressLength", "*lpAddressLength,*lpAddressLength")] #[out] lpAddress: LPSOCKADDR, #[in] #[out] lpAddressLength: LPINT) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn WSAStringToAddressW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] AddressString: LPWSTR, #[in] AddressFamily: INT, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpProtocolInfo: LPWSAPROTOCOL_INFOW, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*lpAddressLength,*lpAddressLength", "*lpAddressLength,*lpAddressLength")] #[out] lpAddress: LPSOCKADDR, #[in] #[out] lpAddressLength: LPINT) -> INT;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use Winsock 2 instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn WSAUnhookBlockingHook() -> i32;
+    #[library("WS2_32.dll")]
+    extern fn WSAWaitForMultipleEvents(#[in] cEvents: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[len_param(0)] lphEvents: *const HANDLE, #[in] fWaitAll: BOOL, #[in] dwTimeout: DWORD, #[in] fAlertable: BOOL) -> DWORD;
+    struct _AFPROTOCOLS {
+        iAddressFamily: INT,
+        iProtocol: INT,
+    }
+    struct _QualityOfService {
+        SendingFlowspec: FLOWSPEC,
+        ReceivingFlowspec: FLOWSPEC,
+        ProviderSpecific: WSABUF,
+    }
+    struct _WSACOMPLETION {
+        Type: WSACOMPLETIONTYPE,
+        Parameters: union {
+            WindowMessage: struct {
+                hWnd: HWND,
+                uMsg: UINT,
+                context: WPARAM,
+            },
+            Event: struct {
+                lpOverlapped: LPWSAOVERLAPPED,
+            },
+            Apc: struct {
+                lpOverlapped: LPWSAOVERLAPPED,
+                lpfnCompletionProc: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
+            },
+            Port: struct {
+                lpOverlapped: LPWSAOVERLAPPED,
+                hPort: HANDLE,
+                Key: ULONG_PTR,
+            },
+        },
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSANAMESPACE_INFOW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    struct _WSANAMESPACE_INFOA {
+        NSProviderId: GUID,
+        dwNameSpace: DWORD,
+        fActive: BOOL,
+        dwVersion: DWORD,
+        lpszIdentifier: LPSTR,
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSANAMESPACE_INFOEXW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    struct _WSANAMESPACE_INFOEXA {
+        NSProviderId: GUID,
+        dwNameSpace: DWORD,
+        fActive: BOOL,
+        dwVersion: DWORD,
+        lpszIdentifier: LPSTR,
+        ProviderSpecific: BLOB,
+    }
+    struct _WSANAMESPACE_INFOEXW {
+        NSProviderId: GUID,
+        dwNameSpace: DWORD,
+        fActive: BOOL,
+        dwVersion: DWORD,
+        lpszIdentifier: LPWSTR,
+        ProviderSpecific: BLOB,
+    }
+    struct _WSANAMESPACE_INFOW {
+        NSProviderId: GUID,
+        dwNameSpace: DWORD,
+        fActive: BOOL,
+        dwVersion: DWORD,
+        lpszIdentifier: LPWSTR,
+    }
+    struct _WSANETWORKEVENTS {
+        lNetworkEvents: i32,
+        iErrorCode: [i32; 10],
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSANSCLASSINFOW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    struct _WSANSClassInfoA {
+        lpszName: LPSTR,
+        dwNameSpace: DWORD,
+        dwValueType: DWORD,
+        dwValueSize: DWORD,
+        lpValue: LPVOID,
+    }
+    struct _WSANSClassInfoW {
+        lpszName: LPWSTR,
+        dwNameSpace: DWORD,
+        dwValueType: DWORD,
+        dwValueSize: DWORD,
+        lpValue: LPVOID,
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSAPROTOCOL_INFOW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    struct _WSAPROTOCOL_INFOA {
+        dwServiceFlags1: DWORD,
+        dwServiceFlags2: DWORD,
+        dwServiceFlags3: DWORD,
+        dwServiceFlags4: DWORD,
+        dwProviderFlags: DWORD,
+        ProviderId: GUID,
+        dwCatalogEntryId: DWORD,
+        ProtocolChain: WSAPROTOCOLCHAIN,
+        iVersion: i32,
+        iAddressFamily: i32,
+        iMaxSockAddr: i32,
+        iMinSockAddr: i32,
+        iSocketType: i32,
+        iProtocol: i32,
+        iProtocolMaxOffset: i32,
+        iNetworkByteOrder: i32,
+        iSecurityScheme: i32,
+        dwMessageSize: DWORD,
+        dwProviderReserved: DWORD,
+        szProtocol: [CHAR; 256],
+    }
+    struct _WSAPROTOCOL_INFOW {
+        dwServiceFlags1: DWORD,
+        dwServiceFlags2: DWORD,
+        dwServiceFlags3: DWORD,
+        dwServiceFlags4: DWORD,
+        dwProviderFlags: DWORD,
+        ProviderId: GUID,
+        dwCatalogEntryId: DWORD,
+        ProtocolChain: WSAPROTOCOLCHAIN,
+        iVersion: i32,
+        iAddressFamily: i32,
+        iMaxSockAddr: i32,
+        iMinSockAddr: i32,
+        iSocketType: i32,
+        iProtocol: i32,
+        iProtocolMaxOffset: i32,
+        iNetworkByteOrder: i32,
+        iSecurityScheme: i32,
+        dwMessageSize: DWORD,
+        dwProviderReserved: DWORD,
+        szProtocol: [WCHAR; 256],
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSAQUERYSETW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    struct _WSAQuerySetA {
+        dwSize: DWORD,
+        lpszServiceInstanceName: LPSTR,
+        lpServiceClassId: LPGUID,
+        lpVersion: LPWSAVERSION,
+        lpszComment: LPSTR,
+        dwNameSpace: DWORD,
+        lpNSProviderId: LPGUID,
+        lpszContext: LPSTR,
+        dwNumberOfProtocols: DWORD,
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "dwNumberOfProtocols", IsByteCount = false, MayBeNull = false)]
+        lpafpProtocols: LPAFPROTOCOLS,
+        lpszQueryString: LPSTR,
+        dwNumberOfCsAddrs: DWORD,
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "dwNumberOfCsAddrs", IsByteCount = false, MayBeNull = false)]
+        lpcsaBuffer: LPCSADDR_INFO,
+        dwOutputFlags: DWORD,
+        lpBlob: LPBLOB,
+    }
+    struct _WSAQuerySetW {
+        #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", ">=,sizeof(struct _WSAQuerySetW)", ">=,sizeof(struct _WSAQuerySetW)")]
+        dwSize: DWORD,
+        lpszServiceInstanceName: LPWSTR,
+        lpServiceClassId: LPGUID,
+        lpVersion: LPWSAVERSION,
+        lpszComment: LPWSTR,
+        dwNameSpace: DWORD,
+        lpNSProviderId: LPGUID,
+        lpszContext: LPWSTR,
+        dwNumberOfProtocols: DWORD,
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "dwNumberOfProtocols", IsByteCount = false, MayBeNull = false)]
+        lpafpProtocols: LPAFPROTOCOLS,
+        lpszQueryString: LPWSTR,
+        dwNumberOfCsAddrs: DWORD,
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "dwNumberOfCsAddrs", IsByteCount = false, MayBeNull = false)]
+        lpcsaBuffer: LPCSADDR_INFO,
+        dwOutputFlags: DWORD,
+        lpBlob: LPBLOB,
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("Use WSASERVICECLASSINFOW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    struct _WSAServiceClassInfoA {
+        lpServiceClassId: LPGUID,
+        lpszServiceClassName: LPSTR,
+        dwCount: DWORD,
+        lpClassInfos: LPWSANSCLASSINFOA,
+    }
+    struct _WSAServiceClassInfoW {
+        lpServiceClassId: LPGUID,
+        lpszServiceClassName: LPWSTR,
+        dwCount: DWORD,
+        lpClassInfos: LPWSANSCLASSINFOW,
+    }
+    struct _WSAVersion {
+        dwVersion: DWORD,
+        ecHow: WSAECOMPARATOR,
+    }
+    #[library("WS2_32.dll")]
+    extern fn __WSAFDIsSet(#[in] fd: SOCKET, #[out] param1: *mut fd_set) -> i32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("WS2_32.dll")]
+    extern fn accept(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_opt_", "*addrlen", "*addrlen")] #[out] #[opt] addr: *mut SOCKADDR, #[in] #[out] #[opt] addrlen: *mut i32) -> SOCKET;
+    #[library("WS2_32.dll")]
+    extern fn bind(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] name: *const SOCKADDR, #[in] namelen: i32) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn closesocket(#[in] s: SOCKET) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn connect(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] name: *const SOCKADDR, #[in] namelen: i32) -> i32;
+    struct fd_set {
+        fd_count: u_int,
+        fd_array: [SOCKET; 64],
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("Use getnameinfo() or GetNameInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn gethostbyaddr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] addr: *const i8, #[in] len: i32, #[in] r#type: i32) -> *mut hostent;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn gethostbyname(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] name: *const i8) -> *mut hostent;
+    #[library("WS2_32.dll")]
+    extern fn gethostname(#[out] #[size_param(1)] name: *mut i8, #[in] namelen: i32) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn getpeername(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*namelen,*namelen", "*namelen,*namelen")] #[out] name: *mut SOCKADDR, #[in] #[out] namelen: *mut i32) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn getprotobyname(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] name: *const i8) -> *mut protoent;
+    #[library("WS2_32.dll")]
+    extern fn getprotobynumber(#[in] number: i32) -> *mut protoent;
+    #[library("WS2_32.dll")]
+    extern fn getservbyname(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] name: *const i8, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] proto: *const i8) -> *mut servent;
+    #[library("WS2_32.dll")]
+    extern fn getservbyport(#[in] port: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] proto: *const i8) -> *mut servent;
+    #[library("WS2_32.dll")]
+    extern fn getsockname(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "*namelen,*namelen", "*namelen,*namelen")] #[out] name: *mut SOCKADDR, #[in] #[out] namelen: *mut i32) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn getsockopt(#[in] s: SOCKET, #[in] level: i32, #[in] optname: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*optlen", "*optlen")] #[out] optval: *mut i8, #[in] #[out] optlen: *mut i32) -> i32;
+    struct hostent {
+        h_name: *mut i8,
+        h_aliases: *mut *mut i8,
+        h_addrtype: i16,
+        h_length: i16,
+        h_addr_list: *mut *mut i8,
+    }
+    #[library("WS2_32.dll")]
+    extern fn htonl(#[in] hostlong: u_long) -> u_long;
+    #[library("WS2_32.dll")]
+    extern fn htons(#[in] hostshort: u_short) -> u_short;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn inet_addr(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] cp: *const i8) -> u32;
+    #[Windows::Win32::Metadata::NativeDeprecated("Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn inet_ntoa(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] r#in: in_addr) -> *mut i8;
+    #[library("WS2_32.dll")]
+    extern fn ioctlsocket(#[in] s: SOCKET, #[in] cmd: i32, #[out] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cmd != FIONREAD,_Inout_", "cmd != (0x40000000|(((long)sizeof(u_long)&0x7f)<<16)|(('f')<<8)|(127)), _Inout_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cmd == FIONREAD,_Out_", "cmd == (0x40000000|(((long)sizeof(u_long)&0x7f)<<16)|(('f')<<8)|(127)), _Out_")] argp: *mut u_long) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn listen(#[in] s: SOCKET, #[in] backlog: i32) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn ntohl(#[in] netlong: u_long) -> u_long;
+    #[library("WS2_32.dll")]
+    extern fn ntohs(#[in] netshort: u_short) -> u_short;
+    struct pollfd {
+        fd: SOCKET,
+        events: SHORT,
+        revents: SHORT,
+    }
+    struct protoent {
+        p_name: *mut i8,
+        p_aliases: *mut *mut i8,
+        p_proto: i16,
+    }
+    #[library("WS2_32.dll")]
+    extern fn recv(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "len,return", "len,return")] #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[out] #[size_param(2)] buf: *mut i8, #[in] len: i32, #[in] flags: i32) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn recvfrom(#[in] s: SOCKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "len,return", "len,return")] #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[out] #[size_param(2)] buf: *mut i8, #[in] len: i32, #[in] flags: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*fromlen,*fromlen", "*fromlen,*fromlen")] #[out] #[opt] from: *mut SOCKADDR, #[in] #[out] #[opt] fromlen: *mut i32) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn select(#[in] nfds: i32, #[in] #[out] #[opt] readfds: *mut fd_set, #[in] #[out] #[opt] writefds: *mut fd_set, #[in] #[out] #[opt] exceptfds: *mut fd_set, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *const timeval) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn send(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] buf: *const i8, #[in] len: i32, #[in] flags: i32) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn sendto(#[in] s: SOCKET, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] buf: *const i8, #[in] len: i32, #[in] flags: i32, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(5)] to: *const SOCKADDR, #[in] tolen: i32) -> i32;
+    #[arch(X64 | Arm64)]
+    struct servent {
+        s_name: *mut i8,
+        s_aliases: *mut *mut i8,
+        s_proto: *mut i8,
+        s_port: i16,
+    }
+    #[arch(X86)]
+    struct servent {
+        s_name: *mut i8,
+        s_aliases: *mut *mut i8,
+        s_port: i16,
+        s_proto: *mut i8,
+    }
+    #[library("WS2_32.dll")]
+    extern fn setsockopt(#[in] s: SOCKET, #[in] level: i32, #[in] optname: i32, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] optval: *const i8, #[in] optlen: i32) -> i32;
+    #[library("WS2_32.dll")]
+    extern fn shutdown(#[in] s: SOCKET, #[in] how: i32) -> i32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[library("WS2_32.dll")]
+    extern fn socket(#[in] af: i32, #[in] r#type: i32, #[in] protocol: i32) -> SOCKET;
+    struct timeval {
+        tv_sec: i32,
+        tv_usec: i32,
+    }
+    type u_int = u32;
+    type u_long = u32;
+    type u_short = u16;
+}
+#[win32]
+mod Fixture {
+    type ADDRESS_FAMILY = u16;
+    struct ADDRINFOA {
+        ai_flags: i32,
+        ai_family: i32,
+        ai_socktype: i32,
+        ai_protocol: i32,
+        ai_addrlen: size_t,
+        ai_canonname: *mut i8,
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_addrlen", IsByteCount = true, MayBeNull = false)]
+        ai_addr: *mut SOCKADDR,
+        ai_next: *mut ADDRINFOA,
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("Use ADDRINFOEXW instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    struct ADDRINFOEXA {
+        ai_flags: i32,
+        ai_family: i32,
+        ai_socktype: i32,
+        ai_protocol: i32,
+        ai_addrlen: size_t,
+        ai_canonname: *mut i8,
+        ai_addr: *mut SOCKADDR,
+        ai_blob: *mut void,
+        ai_bloblen: size_t,
+        ai_provider: LPGUID,
+        ai_next: *mut ADDRINFOEXA,
+    }
+    struct ADDRINFOEXW {
+        ai_flags: i32,
+        ai_family: i32,
+        ai_socktype: i32,
+        ai_protocol: i32,
+        ai_addrlen: size_t,
+        ai_canonname: PWSTR,
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_addrlen", IsByteCount = true, MayBeNull = false)]
+        ai_addr: *mut SOCKADDR,
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_bloblen", IsByteCount = false, MayBeNull = false)]
+        ai_blob: *mut void,
+        ai_bloblen: size_t,
+        ai_provider: LPGUID,
+        ai_next: *mut ADDRINFOEXW,
+    }
+    struct ADDRINFOW {
+        ai_flags: i32,
+        ai_family: i32,
+        ai_socktype: i32,
+        ai_protocol: i32,
+        ai_addrlen: size_t,
+        ai_canonname: PWSTR,
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "ai_addrlen", IsByteCount = true, MayBeNull = false)]
+        ai_addr: *mut SOCKADDR,
+        ai_next: *mut ADDRINFOW,
+    }
+    type LPCSADDR_INFO = *mut _CSADDR_INFO;
+    type LPSOCKADDR = *mut SOCKADDR;
+    type LPWSABUF = *mut WSABUF;
+    type LPWSAMSG = *mut _WSAMSG;
+    type PADDRINFOA = *mut ADDRINFOA;
+    type PADDRINFOEXA = *mut ADDRINFOEXA;
+    type PADDRINFOEXW = *mut ADDRINFOEXW;
+    type PADDRINFOW = *mut ADDRINFOW;
+    type PSOCKET_ADDRESS_LIST = *mut _SOCKET_ADDRESS_LIST;
+    struct SOCKADDR {
+        sa_family: ADDRESS_FAMILY,
+        sa_data: [CHAR; 14],
+    }
+    struct SOCKET_ADDRESS {
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "iSockaddrLength", IsByteCount = true, MayBeNull = false)]
+        lpSockaddr: LPSOCKADDR,
+        iSockaddrLength: INT,
+    }
+    struct WSABUF {
+        len: ULONG,
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "len", IsByteCount = true, MayBeNull = false)]
+        buf: *mut CHAR,
+    }
+    struct _CSADDR_INFO {
+        LocalAddr: SOCKET_ADDRESS,
+        RemoteAddr: SOCKET_ADDRESS,
+        iSocketType: INT,
+        iProtocol: INT,
+    }
+    struct _SOCKET_ADDRESS_LIST {
+        iAddressCount: INT,
+        Address: [SOCKET_ADDRESS; 1],
+    }
+    struct _WSAMSG {
+        #[Windows::Win32::Metadata::NativeFieldBuffer(CapacityFieldName = "namelen", IsByteCount = true, MayBeNull = false)]
+        name: LPSOCKADDR,
+        namelen: INT,
+        lpBuffers: LPWSABUF,
+        dwBufferCount: ULONG,
+        Control: WSABUF,
+        dwFlags: ULONG,
+    }
+}
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeDeprecated("Use FreeAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn FreeAddrInfoEx(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddrInfoEx: PADDRINFOEXA);
+    #[library("WS2_32.dll")]
+    extern fn FreeAddrInfoExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddrInfoEx: PADDRINFOEXW);
+    #[library("WS2_32.dll")]
+    extern fn FreeAddrInfoW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddrInfo: PADDRINFOW);
+    #[Windows::Win32::Metadata::NativeDeprecated("Use GetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn GetAddrInfoExA(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServiceName: PCSTR, #[in] dwNameSpace: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNspId: LPGUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hints: *const ADDRINFOEXA, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResult: *mut PADDRINFOEXA, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *mut timeval, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[out] #[opt] lpNameHandle: LPHANDLE) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn GetAddrInfoExCancel(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpHandle: LPHANDLE) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn GetAddrInfoExOverlappedResult(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn GetAddrInfoExW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServiceName: PCWSTR, #[in] dwNameSpace: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNspId: LPGUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hints: *const ADDRINFOEXW, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResult: *mut PADDRINFOEXW, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *mut timeval, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[out] #[opt] lpHandle: LPHANDLE) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn GetAddrInfoW(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pNodeName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServiceName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pHints: *const ADDRINFOW, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResult: *mut PADDRINFOW) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn GetNameInfoW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pSockaddr: *const SOCKADDR, #[in] SockaddrLength: socklen_t, #[out] #[opt] #[len_param(3)] pNodeBuffer: PWCHAR, #[in] NodeBufferSize: DWORD, #[out] #[opt] #[len_param(5)] pServiceBuffer: PWCHAR, #[in] ServiceBufferSize: DWORD, #[in] Flags: INT) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn InetNtopW(#[in] Family: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddr: *const void, #[out] #[len_param(3)] pStringBuf: PWSTR, #[in] StringBufSize: size_t) -> PCWSTR;
+    #[library("WS2_32.dll")]
+    extern fn InetPtonW(#[in] Family: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAddrString: PCWSTR, #[in] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET,_Out_writes_bytes_(sizeof(IN_ADDR))", "Family == 2, _Out_writes_bytes_(sizeof(IN_ADDR))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET6,_Out_writes_bytes_(sizeof(IN6_ADDR))", "Family == 23, _Out_writes_bytes_(sizeof(IN6_ADDR))")] pAddrBuf: PVOID) -> INT;
+    extern fn LPLOOKUPSERVICE_COMPLETION_ROUTINE(#[in] dwError: DWORD, #[in] dwBytes: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPWSAOVERLAPPED);
+    #[Windows::Win32::Metadata::NativeDeprecated("Use SetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
+    #[library("WS2_32.dll")]
+    extern fn SetAddrInfoExA(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServiceName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddresses: *mut SOCKET_ADDRESS, #[in] dwAddressCount: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBlob: LPBLOB, #[in] dwFlags: DWORD, #[in] dwNameSpace: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNspId: LPGUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *mut timeval, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[out] #[opt] lpNameHandle: LPHANDLE) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn SetAddrInfoExW(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServiceName: PCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddresses: *mut SOCKET_ADDRESS, #[in] dwAddressCount: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpBlob: LPBLOB, #[in] dwFlags: DWORD, #[in] dwNameSpace: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpNspId: LPGUID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] timeout: *mut timeval, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[out] #[opt] lpNameHandle: LPHANDLE) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn freeaddrinfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddrInfo: PADDRINFOA);
+    #[library("WS2_32.dll")]
+    extern fn getaddrinfo(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pNodeName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pServiceName: PCSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pHints: *const ADDRINFOA, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppResult: *mut PADDRINFOA) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn getnameinfo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] pSockaddr: *const SOCKADDR, #[in] SockaddrLength: socklen_t, #[out] #[opt] #[len_param(3)] pNodeBuffer: PCHAR, #[in] NodeBufferSize: DWORD, #[out] #[opt] #[len_param(5)] pServiceBuffer: PCHAR, #[in] ServiceBufferSize: DWORD, #[in] Flags: INT) -> INT;
+    #[library("WS2_32.dll")]
+    extern fn inet_ntop(#[in] Family: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pAddr: *const void, #[out] #[len_param(3)] pStringBuf: PSTR, #[in] StringBufSize: size_t) -> PCSTR;
+    #[library("WS2_32.dll")]
+    extern fn inet_pton(#[in] Family: INT, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszAddrString: PCSTR, #[in] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET,_Out_writes_bytes_(sizeof(IN_ADDR))", "Family == 2, _Out_writes_bytes_(sizeof(IN_ADDR))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET6,_Out_writes_bytes_(sizeof(IN6_ADDR))", "Family == 23, _Out_writes_bytes_(sizeof(IN6_ADDR))")] pAddrBuf: PVOID) -> INT;
+    type socklen_t = i32;
+}
+#[win32]
+mod Fixture {
+    struct BLOB {
+        cbSize: ULONG,
+        pBlobData: *mut BYTE,
+    }
+    type LPBLOB = *mut BLOB;
+}

@@ -1,5 +1,0 @@
-#[win32]
-mod PointerSized {
-    #[library("api.dll", import = "?Allocate@@YAX_K@Z")]
-    extern "C" fn Allocate(size: usize);
-}

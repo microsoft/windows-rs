@@ -1,5 +1,0 @@
-#[win32]
-mod MidlLooseEnum {
-    const VALUE_NONE: i32 = 0;
-    const VALUE_ONE: i32 = 1;
-}

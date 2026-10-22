@@ -1,0 +1,14 @@
+#[win32]
+mod Fixture {
+    #[no_guid]
+    interface Base {
+        fn Read(&self, value: i32) -> i32;
+        fn Reset(&self);
+    }
+    #[no_guid]
+    interface Derived: Base {
+        #[override_slot(0)]
+        fn Read(&self, value: i32) -> i32;
+        fn Declared(&self, value: i32) -> i32;
+    }
+}

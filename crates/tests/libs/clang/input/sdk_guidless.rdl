@@ -1,0 +1,110 @@
+#[win32]
+mod Fixture {
+    #[repr(i32)]
+    enum D3D_INCLUDE_TYPE {
+        D3D_INCLUDE_LOCAL = 0,
+        D3D_INCLUDE_SYSTEM = 1,
+        D3D10_INCLUDE_LOCAL = 0,
+        D3D10_INCLUDE_SYSTEM = 1,
+        D3D_INCLUDE_FORCE_DWORD = 2147483647,
+    }
+    struct D3D_SHADER_MACRO {
+        Name: LPCSTR,
+        Definition: LPCSTR,
+    }
+    #[guid(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102)]
+    interface ID3D10Blob: IUnknown {
+        fn GetBufferPointer(&self) -> LPVOID;
+        fn GetBufferSize(&self) -> SIZE_T;
+    }
+    type ID3DBlob = ID3D10Blob;
+    #[no_guid]
+    interface ID3DInclude {
+        fn Open(&self, IncludeType: D3D_INCLUDE_TYPE, pFileName: LPCSTR, pParentData: LPCVOID, ppData: *mut LPCVOID, pBytes: *mut UINT) -> HRESULT;
+        fn Close(&self, pData: LPCVOID) -> HRESULT;
+    }
+}
+#[win32]
+mod Fixture {
+    #[library("d3dcompiler_47.dll")]
+    extern fn D3DCompile(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] #[opt] pSourceName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(pDefines->Name != 0)", "_Inexpressible_(pDefines->Name != 0)")] #[in] #[opt] pDefines: *const D3D_SHADER_MACRO, #[in] #[opt] pInclude: ID3DInclude, #[in] #[opt] pEntrypoint: LPCSTR, #[in] pTarget: LPCSTR, #[in] Flags1: UINT, #[in] Flags2: UINT, #[out] ppCode: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
+}
+#[win32]
+mod Fixture {
+    type CHAR = i8;
+    type DWORD = u32;
+    #[success(return >= 0)]
+    type HRESULT = i32;
+    #[arch(X64 | Arm64)]
+    type SIZE_T = u64;
+    #[arch(X86)]
+    type SIZE_T = u32;
+    type UINT = u32;
+    type ULONG = u32;
+    #[arch(X64 | Arm64)]
+    type ULONG_PTR = u64;
+    #[arch(X86)]
+    type ULONG_PTR = u32;
+}
+#[win32]
+mod Fixture {
+    type CLSID = GUID;
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type IID = GUID;
+}
+#[win32]
+mod Fixture {
+    type BOOL = i32;
+    type LPCVOID = *const void;
+    type LPVOID = *mut void;
+}
+#[win32]
+mod Fixture {
+    #[guid(0x0000010c_0000_0000_c000_000000000046)]
+    interface IPersist: IUnknown {
+        fn GetClassID(&self, #[out] pClassID: *mut CLSID) -> HRESULT;
+    }
+    #[guid(0x0000010b_0000_0000_c000_000000000046)]
+    interface IPersistFile: IPersist {
+        fn IsDirty(&self) -> HRESULT;
+        fn Load(&self, #[in] pszFileName: LPCOLESTR, dwMode: DWORD) -> HRESULT;
+        fn Save(&self, #[in] #[opt] pszFileName: LPCOLESTR, fRemember: BOOL) -> HRESULT;
+        fn SaveCompleted(&self, #[in] #[opt] pszFileName: LPCOLESTR) -> HRESULT;
+        fn GetCurFile(&self, #[out] #[out_ptr] ppszFileName: *mut LPOLESTR) -> HRESULT;
+    }
+}
+#[win32]
+mod Fixture {
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+}
+#[win32]
+mod Fixture {
+    #[no_guid]
+    interface IAVIPersistFile: IPersistFile {
+        fn Reserved1(&self) -> HRESULT;
+    }
+}
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type LPCSTR = *const i8;
+    type WCHAR = u16;
+}
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_string", "", "")]
+    type LPCOLESTR = *const u16;
+    #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_string", "", "")]
+    type LPOLESTR = *mut u16;
+    type OLECHAR = u16;
+}

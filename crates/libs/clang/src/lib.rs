@@ -1,3470 +1,848 @@
-#![allow(non_upper_case_globals)]
 #![doc = include_str!("../readme.md")]
 
+mod capture;
+mod merge;
+mod native;
+mod partial;
+#[cfg(feature = "projection")]
+pub mod projection;
+mod resolve;
+mod runtime;
+mod sal;
+pub use merge::{Merged, Variants, merge};
+pub use resolve::{
+    AliasGroup, AliasObservationRef, EnumGroup, EnumObservationRef, EnumRef, Group, ObservationRef,
+    RecordRef, Resolution, ValueGroup, ValueObservationRef, Work, resolve,
+};
+pub use runtime::{PartialCapture, capture, capture_partial};
+
 use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
-use std::fmt::{Display, Formatter};
 
-mod extract;
-pub use extract::extract;
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum Target {
+    X86,
+    X64,
+    Arm64,
+}
 
-mod builder;
-pub use builder::{Clang, clang};
+impl Target {
+    pub fn triple(self) -> &'static str {
+        match self {
+            Self::X86 => "i686-pc-windows-msvc",
+            Self::X64 => "x86_64-pc-windows-msvc",
+            Self::Arm64 => "aarch64-pc-windows-msvc",
+        }
+    }
+}
 
-mod references;
-pub use references::MetadataReferences;
-
-#[derive(Clone, Debug)]
+#[derive(Default)]
 pub struct Input {
     pub name: String,
     pub source: String,
-    pub roots: BTreeSet<String>,
-    pub root_dirs: BTreeSet<String>,
-    pub root_suffixes: BTreeSet<String>,
-    pub excluded_roots: BTreeSet<String>,
+    /// Additional compiler arguments, such as include paths and macro definitions.
+    pub arguments: Vec<String>,
+    /// Namespace-qualified declaration roots and their dependencies. Empty selects all declarations.
+    pub roots: Vec<String>,
+    /// With no explicit roots, limit namespace-level roots to these header filenames.
+    /// None selects every named namespace. Dependencies and global roots are unaffected.
+    pub namespace_headers: Option<Vec<String>>,
+    /// Limit automatic roots from included headers to these files or directories.
+    /// None selects all headers.
+    /// The input source, explicit roots, macros and dependencies remain eligible.
+    pub root_paths: Option<Vec<std::path::PathBuf>>,
+    /// Explicitly externally owned COM types, using qualified native names.
+    /// Capture retains identity, attributes, layout and bases, but not member definitions.
+    pub external_interfaces: BTreeSet<String>,
+    /// Object-like macros to evaluate as constant expressions after this input's declarations.
+    pub macros: Vec<String>,
+    /// Header filenames in which to discover object-like macros at the end of this input.
+    /// Non-expression candidates are errors in strict capture and omissions in partial capture.
+    pub macro_headers: Vec<String>,
 }
 
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct TypeReference {
-    pub namespace: String,
-    pub name: String,
-    pub kind: TypeReferenceKind,
-    pub enum_members: BTreeSet<String>,
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct TypeId(pub usize);
+
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct RecordId(pub usize);
+
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct AliasId(pub usize);
+
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct EnumId(pub usize);
+
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct ValueId(pub usize);
+
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum DeclarationId {
+    Record(RecordId),
+    Alias(AliasId),
+    Enum(EnumId),
+    Value(ValueId),
 }
 
-impl TypeReference {
-    pub fn new(
-        namespace: impl Into<String>,
-        name: impl Into<String>,
-        kind: TypeReferenceKind,
-    ) -> Self {
-        Self {
-            namespace: namespace.into(),
-            name: name.into(),
-            kind,
-            enum_members: BTreeSet::new(),
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct ObservationId(pub usize);
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub struct FileId(pub usize);
+
+/// A source occurrence, using the outer expansion site for macro-generated declarations.
+#[derive(Debug, Eq, PartialEq)]
+pub struct Location {
+    pub file: FileId,
+    pub line: u32,
+    pub column: u32,
+    pub offset: u32,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub struct Layout {
+    pub size: u64,
+    pub alignment: u64,
+}
+
+#[derive(Clone, Debug, Default, Eq, Hash, PartialEq)]
+pub struct Qualifiers {
+    pub constant: bool,
+    pub volatile: bool,
+    pub restrict: bool,
+    pub unaligned: bool,
+}
+
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+pub enum Scalar {
+    Bool,
+    Char { signed: bool },
+    SignedChar,
+    UnsignedChar,
+    WChar,
+    Char16,
+    Char32,
+    Short,
+    UnsignedShort,
+    Int,
+    UnsignedInt,
+    Long,
+    UnsignedLong,
+    LongLong,
+    UnsignedLongLong,
+    Float,
+    Double,
+    LongDouble,
+}
+
+impl Scalar {
+    pub(crate) fn signed_integer(&self) -> Option<bool> {
+        match self {
+            Self::Char { signed } => Some(*signed),
+            Self::SignedChar | Self::Short | Self::Int | Self::Long | Self::LongLong => Some(true),
+            Self::UnsignedChar
+            | Self::Char16
+            | Self::Char32
+            | Self::WChar
+            | Self::UnsignedShort
+            | Self::UnsignedInt
+            | Self::UnsignedLong
+            | Self::UnsignedLongLong => Some(false),
+            _ => None,
         }
     }
+}
 
-    pub fn with_enum_members(
-        mut self,
-        members: impl IntoIterator<Item = impl Into<String>>,
-    ) -> Self {
-        self.enum_members
-            .extend(members.into_iter().map(Into::into));
-        self
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+pub enum TypeKind {
+    Void,
+    Scalar(Scalar),
+    Pointer(TypeId),
+    Pointer64(TypeId),
+    LValueReference(TypeId),
+    Array {
+        element: TypeId,
+        length: Option<u64>,
+    },
+    Record(RecordId),
+    Alias(AliasId),
+    Enum(EnumId),
+    Function(Box<Function>),
+    Attributed {
+        convention: CallingConvention,
+        modified: TypeId,
+        equivalent: TypeId,
+    },
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub enum CallingConvention {
+    C,
+    Stdcall,
+}
+
+/// Decoded native function prototypes; unknown function properties remain unsupported.
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+pub struct Function {
+    pub convention: CallingConvention,
+    pub exceptions: ExceptionSpecification,
+    pub noreturn: bool,
+    pub variadic: bool,
+    pub method_qualifiers: Qualifiers,
+    pub result: TypeId,
+    pub parameters: Vec<TypeId>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub enum ExceptionSpecification {
+    None,
+    Noexcept,
+    NoThrow,
+    DynamicNone,
+}
+
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+pub struct Type {
+    pub kind: TypeKind,
+    pub qualifiers: Qualifiers,
+    /// Object layout; void, functions, references, and incomplete types have no layout.
+    pub layout: Option<Layout>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct Field {
+    pub name: String,
+    pub location: Location,
+    pub written: TypeId,
+    pub canonical: TypeId,
+    pub offset_bits: u64,
+    /// Evaluated bit width, including zero-width allocation barriers.
+    pub bit_width: Option<u32>,
+    pub attributes: Vec<Attribute>,
+}
+
+/// Native attribute evidence; unresolved kinds remain unsuitable for reconciliation.
+#[derive(Debug, Eq, PartialEq)]
+pub enum AttributeKind {
+    Packed,
+    FlagEnum,
+    DefaultTypeVisibility,
+    /// Compiler auto-initialization opt-out, not a layout or caller initialization contract.
+    NoTrivialAutoVarInit,
+    /// CodeView heap-allocation profiling, not an ownership or optimizer guarantee.
+    MSAllocator,
+    Uuid(u128),
+    NoVTable,
+    DllImport,
+    DllExport,
+    NoThrow,
+    Cxx11NoReturn,
+    SelectAny,
+    Sal(Box<SalAnnotation>),
+    Deprecated(Box<Deprecation>),
+    MaxFieldAlignment {
+        bits: u32,
+    },
+    Aligned {
+        bits: u32,
+        kind: AlignmentKind,
+    },
+    Unresolved(String),
+}
+
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum AlignmentKind {
+    Gnu,
+    Standard,
+    Declspec,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct Attribute {
+    pub kind: AttributeKind,
+    pub location: Option<Location>,
+}
+
+/// SAL source-hook evidence, including macro substitutions at the declaration site.
+/// Expressions are retained, not evaluated or interpreted as native type syntax.
+#[derive(Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct SalAnnotation {
+    pub version: String,
+    pub name: String,
+    /// Arguments supplied to the hook, possibly already substituted by outer SAL macros.
+    pub arguments: String,
+    /// Arguments after further expansion, including nested annotation transport.
+    pub expanded: String,
+}
+
+#[derive(Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct Deprecation {
+    pub message: String,
+    pub replacement: String,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct Alias {
+    /// Namespace-qualified native name.
+    pub name: String,
+    pub usr: String,
+    pub observations: Vec<AliasObservation>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct AliasObservation {
+    pub location: Location,
+    pub underlying: TypeId,
+    pub canonical: TypeId,
+    /// Compiler-provided declaration rather than an authored public typedef.
+    pub implicit: bool,
+    /// The direct typedef type specifier defines the record or enum, rather than referencing it.
+    pub defines_tag: bool,
+    pub attributes: Vec<Attribute>,
+    /// Parameters of a prototype written in this declaration, not part of ABI type identity.
+    pub parameters: Option<Vec<Parameter>>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct Record {
+    /// Namespace-qualified native name, or the local name when owned by another record.
+    pub name: String,
+    pub usr: String,
+    pub owner: Option<RecordOwner>,
+    pub kind: RecordKind,
+    /// Member definitions belong to an explicit external authority, not this snapshot.
+    pub external: bool,
+    pub observations: Vec<ObservationId>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct RecordOwner {
+    pub record: RecordId,
+    /// First field whose type contains this unnamed record; None for named declarations.
+    pub field: Option<usize>,
+}
+
+#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub(crate) enum RecordMember {
+    Named(String),
+    Anonymous(usize),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum RecordKind {
+    Struct,
+    Class,
+    Union,
+}
+
+impl RecordKind {
+    pub(crate) fn compatible(self, other: Self) -> bool {
+        // C++ permits class and struct tags to redeclare the same non-union record.
+        (self == Self::Union) == (other == Self::Union)
+    }
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct RecordObservation {
+    pub record: RecordId,
+    pub location: Location,
+    pub definition: Option<RecordDefinition>,
+    pub attributes: Vec<Attribute>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct RecordDefinition {
+    pub layout: Layout,
+    pub fields: Vec<Field>,
+    /// Direct public, non-virtual bases, in declaration order.
+    pub bases: Vec<Base>,
+    /// Direct public virtual methods, in vtable order.
+    pub methods: Vec<Method>,
+    /// Members without vtable slots. Retained as provenance, not ABI comparisons.
+    pub non_vtable_members: Vec<NonVTableMember>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct NonVTableMember {
+    pub name: String,
+    pub usr: String,
+    pub location: Location,
+    pub kind: NonVTableMemberKind,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct Base {
+    pub record: RecordId,
+    pub offset_bits: u64,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum NonVTableMemberKind {
+    Template,
+    Method,
+    Using,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct Method {
+    pub name: String,
+    pub slot: u64,
+    pub overrides: bool,
+    pub pure: bool,
+    pub observation: ValueObservation,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct Parameter {
+    pub name: String,
+    pub written: TypeId,
+    pub location: Location,
+    pub attributes: Vec<Attribute>,
+    pub default: Option<DefaultArgument>,
+    pub comments: Vec<ParameterComment>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct ParameterComment {
+    pub text: String,
+    pub location: Location,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct DefaultArgument {
+    /// Compiler-printed expression, not evaluated or treated as an ABI parameter.
+    pub expression: String,
+    pub location: Location,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct ValueDeclaration {
+    /// Namespace-qualified native name. Macro names remain unqualified.
+    pub name: String,
+    pub usr: String,
+    pub observations: Vec<ValueObservation>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct ValueObservation {
+    pub location: Location,
+    pub written: TypeId,
+    pub canonical: TypeId,
+    pub attributes: Vec<Attribute>,
+    pub kind: ValueKind,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct FunctionAlias {
+    pub name: String,
+    pub usr: String,
+    pub location: Location,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub enum ValueKind {
+    Function {
+        alias: Option<Box<FunctionAlias>>,
+        parameters: Vec<Parameter>,
+        mangling: String,
+        language: LanguageLinkage,
+        convention_origin: CallingConventionOrigin,
+        stdcall_candidate: Option<Box<FunctionCandidate>>,
+    },
+    Constant {
+        /// None only for a native declaration, never for a failed initializer.
+        value: Option<ConstantValue>,
+        origin: ConstantOrigin,
+        linkage: ConstantLinkage,
+    },
+}
+
+impl ValueKind {
+    pub(crate) fn is_macro(&self) -> bool {
+        matches!(
+            self,
+            Self::Function { alias: Some(_), .. }
+                | Self::Constant {
+                    origin: ConstantOrigin::Macro,
+                    ..
+                }
+        )
     }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum TypeReferenceKind {
-    Enum,
-    Interface,
-    Type,
+pub enum CallingConventionOrigin {
+    Unknown,
+    Default,
+    Explicit,
 }
 
-pub struct EmitOptions<'a> {
-    pub namespace: &'a str,
-    pub library: Option<&'a str>,
-    pub libraries: Option<&'a BTreeMap<String, String>>,
-    pub references: &'a BTreeMap<String, TypeReference>,
-    pub excluded: Option<&'a BTreeSet<String>>,
-    pub excluded_types: Option<&'a BTreeSet<String>>,
-    pub excluded_functions: Option<&'a BTreeSet<String>>,
-    pub excluded_constants: Option<&'a BTreeSet<String>>,
-    pub functions: Option<&'a BTreeSet<String>>,
+/// Compiler-derived alternative to an implicit convention, not a native declaration.
+#[derive(Debug, Eq, PartialEq)]
+pub struct FunctionCandidate {
+    pub written: TypeId,
+    pub canonical: TypeId,
+    pub mangling: String,
 }
 
-impl<'a> EmitOptions<'a> {
-    pub fn new(namespace: &'a str, references: &'a BTreeMap<String, TypeReference>) -> Self {
-        Self {
-            namespace,
-            library: None,
-            libraries: None,
-            references,
-            excluded: None,
-            excluded_types: None,
-            excluded_functions: None,
-            excluded_constants: None,
-            functions: None,
-        }
-    }
-}
-
-impl Input {
-    pub fn new(name: impl Into<String>, source: impl Into<String>) -> Self {
-        let name = normalize_name(&name.into());
-        Self {
-            roots: BTreeSet::from([name.clone()]),
-            root_dirs: BTreeSet::new(),
-            root_suffixes: BTreeSet::new(),
-            excluded_roots: BTreeSet::new(),
-            name,
-            source: source.into(),
-        }
-    }
-
-    pub fn with_roots(mut self, roots: impl IntoIterator<Item = impl Into<String>>) -> Self {
-        self.roots
-            .extend(roots.into_iter().map(|root| normalize_name(&root.into())));
-        self
-    }
-
-    pub fn with_root_suffixes(
-        mut self,
-        roots: impl IntoIterator<Item = impl Into<String>>,
-    ) -> Self {
-        self.root_suffixes
-            .extend(roots.into_iter().map(|root| normalize_name(&root.into())));
-        self
-    }
-
-    pub fn with_root_dirs(mut self, roots: impl IntoIterator<Item = impl Into<String>>) -> Self {
-        self.root_dirs.extend(roots.into_iter().map(|root| {
-            let mut root = normalize_name(&root.into());
-            if !root.ends_with('/') {
-                root.push('/');
-            }
-            root
-        }));
-        self
-    }
-
-    pub fn with_excluded_roots(
-        mut self,
-        roots: impl IntoIterator<Item = impl Into<String>>,
-    ) -> Self {
-        self.excluded_roots
-            .extend(roots.into_iter().map(|root| normalize_name(&root.into())));
-        self
-    }
-}
-
-#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub struct Origin {
-    pub tu: String,
-    pub local: u32,
-}
-
-#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub struct Location {
-    pub file: String,
-    pub offset: u32,
-}
-
-#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub enum Scalar {
-    Bool,
-    F32,
-    F64,
-    I8,
-    U8,
-    I16,
-    U16,
-    I32,
-    U32,
-    I64,
-    U64,
-}
-
-#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub enum TypeRef {
-    Void,
-    String,
-    Object,
-    Scalar(Scalar),
-    Named {
-        name: String,
-        declaration: Location,
+#[derive(Debug, Eq, PartialEq)]
+pub enum ConstantLinkage {
+    Internal,
+    External {
+        language: LanguageLinkage,
+        mangling: String,
     },
-    Pointer {
-        mutable: bool,
-        target: Box<Self>,
-    },
-    Reference {
-        mutable: bool,
-        target: Box<Self>,
-    },
-    FunctionPointer {
-        convention: CallingConvention,
-        params: Vec<Self>,
-        result: Box<Self>,
-    },
-    OpaquePointer {
-        mutable: bool,
-        tag: String,
-    },
-    Array {
-        target: Box<Self>,
-        len: usize,
-    },
-    Generic {
-        name: String,
-        declaration: Location,
-        args: Vec<Self>,
-    },
-    InlineRecord(Box<InlineRecord>),
 }
 
-#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub struct InlineRecord {
-    pub name: Option<String>,
-    pub base: Option<TypeRef>,
-    pub fields: Vec<Field>,
-    pub size: i64,
-    pub align: i64,
-    pub packing: Option<i64>,
-    pub alignment: Option<i64>,
-    pub union: bool,
-}
-
-#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub struct Field {
-    pub name: String,
-    pub ty: TypeRef,
-    pub offset: i64,
-    pub align: i64,
-    pub size: i64,
-    pub bit_width: Option<u32>,
-}
-
-#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub struct Variant {
-    pub name: String,
-    pub value: i64,
-}
-
-#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub struct Parameter {
-    pub name: String,
-    pub ty: TypeRef,
-    pub annotation: ParamAnnotation,
-}
-
-#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub struct Method {
-    pub name: String,
-    pub params: Vec<Parameter>,
-    pub result: TypeRef,
-    pub special: bool,
-}
-
-#[derive(Clone, Debug, Default, Eq, Ord, PartialEq, PartialOrd)]
-pub struct ParamAnnotation {
-    pub input: bool,
-    pub output: bool,
-    pub optional: bool,
-    pub reserved: bool,
-    pub com_out_ptr: bool,
-    pub retval: bool,
-    pub null_terminated: bool,
-    pub size: Option<SalSize>,
-    pub unsupported: Option<String>,
-}
-
-#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub struct SalSize {
-    pub bytes: bool,
-    pub value: SalSizeValue,
-}
-
-#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub enum SalSizeValue {
-    Constant(i32),
-    Parameter(String),
-    IndirectParameter(String),
-    Expression(String),
-}
-
-#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub enum CallingConvention {
-    Platform,
-    C,
-}
-
-#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub enum FactData {
-    Callback {
-        convention: CallingConvention,
-        params: Vec<Parameter>,
-        result: TypeRef,
-    },
-    Class {
-        guid: String,
-    },
-    Enum {
-        repr: Scalar,
-        variants: Vec<Variant>,
-        fixed: bool,
-        scoped: bool,
-        flags: bool,
-    },
-    EnumFlag {
-        target: String,
-    },
-    Guid {
-        value: String,
-    },
+/// Scalar constant values; floating-point payloads retain their IEEE bits, including signed zero.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum ConstantValue {
+    Integer(EnumValue),
+    /// Numeric address bits sign-extended from the target pointer width; no relocation.
+    Pointer(i64),
+    Boolean(bool),
+    Float32(u32),
+    Float64(u64),
+    Guid(u128),
     PropertyKey {
-        ty: &'static str,
-        guid: String,
-        pid: u32,
+        format: u128,
+        id: u32,
     },
-    Macro {
-        function_like: bool,
-        tokens: Vec<String>,
+    String {
+        value: String,
+        wide: bool,
     },
-    Function {
-        link_name: String,
-        convention: CallingConvention,
-        params: Vec<Parameter>,
-        result: TypeRef,
-        variadic: bool,
-        noreturn: bool,
-    },
-    Interface {
-        base: Option<TypeRef>,
-        guid: Option<String>,
-        methods: Vec<Method>,
-    },
-    Record {
-        base: Option<TypeRef>,
-        fields: Vec<Field>,
-        size: i64,
-        align: i64,
-        packing: Option<i64>,
-        alignment: Option<i64>,
-        union: bool,
-    },
-    Typedef {
-        target: TypeRef,
-    },
-    Unsupported {
-        reason: String,
-    },
-    None,
 }
 
-#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub enum FactKind {
-    Class,
-    Enum,
-    EnumFlag,
-    Function,
-    Guid,
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum LanguageLinkage {
+    C,
+    Cxx,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub enum ConstantOrigin {
+    Declaration,
+    /// The observation location is the actual macro definition referenced by the probe expansion.
     Macro,
-    Namespace,
-    Struct,
-    Typedef,
-    Union,
 }
 
-#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub struct Fact {
-    pub origin: Origin,
-    pub parent: Option<Origin>,
-    pub kind: FactKind,
+#[derive(Debug, Eq, PartialEq)]
+pub struct Enum {
+    /// Namespace-qualified native name.
     pub name: String,
-    pub spelling: Location,
-    pub expansion: Location,
-    pub definition: bool,
-    pub main_file: bool,
-    pub root: bool,
-    pub system: bool,
-    pub data: FactData,
+    pub usr: String,
+    pub observations: Vec<EnumObservation>,
 }
 
-#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub enum Value {
-    F32(u32),
-    F64(u64),
+#[derive(Debug, Eq, PartialEq)]
+pub struct EnumObservation {
+    pub location: Location,
+    pub underlying: TypeId,
+    pub canonical: TypeId,
+    pub layout: Layout,
+    pub scoped: bool,
+    pub anonymous: bool,
+    pub attributes: Vec<Attribute>,
+    /// None denotes a forward declaration, not an empty enum definition.
+    pub members: Option<Vec<EnumMember>>,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub struct EnumMember {
+    pub name: String,
+    pub location: Location,
+    pub value: EnumValue,
+    pub attributes: Vec<Attribute>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum EnumValue {
     Signed(i64),
     Unsigned(u64),
-    Utf8(String),
-    Utf16(String),
 }
 
-#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub struct Constant {
-    pub root: Origin,
-    pub definition: Origin,
-    pub spelling: Location,
+#[derive(Debug, Eq, PartialEq)]
+pub struct InlineFunction {
     pub name: String,
-    pub ty: TypeRef,
-    pub value: Value,
+    pub usr: String,
+    pub location: Location,
 }
 
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct Snapshot {
-    facts: Vec<Fact>,
-    constants: Vec<Constant>,
-    function_declarations: BTreeMap<Origin, extract::FunctionDeclaration>,
+    pub input: String,
+    pub target: Target,
+    pub compiler: String,
+    pub arguments: Vec<String>,
+    pub diagnostics: Vec<String>,
+    /// Selected declarations; other entities were reached through dependencies.
+    pub roots: Vec<DeclarationId>,
+    pub files: Vec<String>,
+    pub records: Vec<Record>,
+    pub aliases: Vec<Alias>,
+    pub enums: Vec<Enum>,
+    pub values: Vec<ValueDeclaration>,
+    /// C++ inline overload observations beside selected C declarations, outside the exported ABI.
+    pub inline_functions: Vec<InlineFunction>,
+    pub observations: Vec<RecordObservation>,
+    pub types: Vec<Type>,
+}
+
+#[derive(Debug)]
+pub struct Statistics {
+    pub records: usize,
+    pub aliases: usize,
+    pub enums: usize,
+    pub values: usize,
+    pub observations: usize,
+    pub types: usize,
+    pub fields: usize,
+    /// Retained Rust capacities, excluding allocator overhead and native compiler memory.
+    pub owned_bytes: usize,
 }
 
 impl Snapshot {
-    pub fn facts(&self) -> &[Fact] {
-        &self.facts
+    pub(crate) fn record_identity(&self, id: RecordId) -> (&str, &str, Vec<RecordMember>) {
+        let (root, path) = self.record_path(id);
+        let root = &self.records[root.0];
+        (&root.name, &root.usr, path)
     }
 
-    pub fn constants(&self) -> &[Constant] {
-        &self.constants
+    pub(crate) fn record_label(&self, id: RecordId) -> String {
+        let (root, _, path) = self.record_identity(id);
+        let mut name = root.to_string();
+        for member in path {
+            name.push_str("::");
+            match member {
+                RecordMember::Named(member) => name.push_str(&member),
+                RecordMember::Anonymous(field) => name.push_str(&format!("<field {field}>")),
+            }
+        }
+        name
     }
 
-    pub fn unsupported(&self) -> impl Iterator<Item = (&Fact, &str)> {
-        self.facts.iter().filter_map(|fact| {
-            if let FactData::Unsupported { reason } = &fact.data {
-                Some((fact, reason.as_str()))
-            } else {
-                None
-            }
-        })
+    pub(crate) fn record_path(&self, mut id: RecordId) -> (RecordId, Vec<RecordMember>) {
+        let mut path = Vec::new();
+        while let Some(owner) = self.records[id.0].owner {
+            path.push(match owner.field {
+                Some(field) => RecordMember::Anonymous(field),
+                None => RecordMember::Named(self.records[id.0].name.clone()),
+            });
+            id = owner.record;
+        }
+        path.reverse();
+        (id, path)
     }
 
-    pub fn dump(&self) -> String {
-        let mut result = String::new();
-        for fact in &self.facts {
-            let parent = fact
-                .parent
-                .as_ref()
-                .map_or(String::new(), |parent| format!(" <- {}", origin(parent)));
-            result.push_str(&format!(
-                "{} {:?}/{} {} [{}:{} -> {}:{}]{}{}{}{}\n",
-                origin(&fact.origin),
-                fact.kind,
-                fact_data_kind(&fact.data),
-                fact.name,
-                fact.spelling.file,
-                fact.spelling.offset,
-                fact.expansion.file,
-                fact.expansion.offset,
-                if fact.definition { " definition" } else { "" },
-                if fact.main_file { " main" } else { "" },
-                if fact.system { " system" } else { "" },
-                parent,
-            ));
-        }
-        for constant in &self.constants {
-            let route = format!(
-                "{} -> {}",
-                origin(&constant.root),
-                origin(&constant.definition)
-            );
-            result.push_str(&format!(
-                "{} Constant {} {:?} = {:?}\n",
-                route, constant.name, constant.ty, constant.value
-            ));
-        }
-        result
-    }
-
-    pub fn emit(&self, namespace: &str) -> Result<String, Error> {
-        let references = BTreeMap::new();
-        self.emit_with_options(&EmitOptions::new(namespace, &references))
-    }
-
-    pub fn emit_with_library(&self, namespace: &str, library: &str) -> Result<String, Error> {
-        let references = BTreeMap::new();
-        let mut options = EmitOptions::new(namespace, &references);
-        options.library = Some(library);
-        self.emit_with_options(&options)
-    }
-
-    pub fn emit_with_options(&self, options: &EmitOptions<'_>) -> Result<String, Error> {
-        let items = self.emit_items(options)?;
-        write_rdl(
-            options.namespace,
-            items.values().map(|(_, item)| item.as_str()),
-        )
-    }
-
-    pub fn emit_by_header_with_options(
-        &self,
-        options: &EmitOptions<'_>,
-    ) -> Result<BTreeMap<String, String>, Error> {
-        let items = self.emit_items(options)?;
-        let mut partitions: BTreeMap<String, Vec<String>> = BTreeMap::new();
-        for (_, (header, item)) in items {
-            partitions.entry(header).or_default().push(item);
-        }
-        partitions
-            .into_iter()
-            .map(|(header, items)| {
-                Ok((
-                    header,
-                    write_rdl(options.namespace, items.iter().map(String::as_str))?,
-                ))
-            })
-            .collect()
-    }
-
-    fn emit_items(
-        &self,
-        options: &EmitOptions<'_>,
-    ) -> Result<BTreeMap<(String, OutputKind), (String, String)>, Error> {
-        let timing = std::env::var_os("WINDOWS_CLANG_TIMING").is_some();
-        let plan_time = std::time::Instant::now();
-        let plan = self.plan(
-            options.references,
-            options.excluded_types.or(options.excluded),
-            options.excluded_functions.or(options.excluded),
-            options.excluded_constants.or(options.excluded),
-            options.functions,
-        )?;
-        if timing {
-            eprintln!("clang planning: {:.2}s", plan_time.elapsed().as_secs_f32());
-        }
-        let emission_time = std::time::Instant::now();
-        let mut items = BTreeMap::new();
-        let planned = plan
-            .values
-            .into_iter()
-            .map(|planned| (planned, OutputKind::Value))
-            .chain(
-                plan.types
-                    .into_iter()
-                    .map(|planned| (planned, OutputKind::Type)),
-            );
-        for (planned, kind) in planned {
-            let fact = planned.fact;
-            let item = match &fact.data {
-                FactData::Callback {
-                    convention,
-                    params,
-                    result,
-                } => {
-                    let projection = TypeProjection::new(
-                        &plan.type_names,
-                        &plan.interface_names,
-                        &plan.pointer_interface_aliases,
-                        &plan.type_choices,
-                        &fact.origin.tu,
-                    );
-                    write_callback(&planned.name, *convention, params, result, &projection)?
-                }
-                FactData::Class { guid } => {
-                    format!(
-                        "    const {}: GUID = {};\n",
-                        rdl_ident(&planned.name),
-                        rdl_uuid(guid)
-                    )
-                }
-                FactData::Guid { value } => {
-                    format!(
-                        "    const {}: GUID = {};\n",
-                        rdl_ident(&planned.name),
-                        rdl_uuid(value)
-                    )
-                }
-                FactData::PropertyKey { ty, guid, pid } => {
-                    format!(
-                        "    #[guid({})]\n    const {}: {} = {pid};\n",
-                        rdl_uuid(guid),
-                        rdl_ident(&planned.name),
-                        rdl_ident(ty)
-                    )
-                }
-                FactData::Typedef {
-                    target: TypeRef::InlineRecord(record),
-                } => {
-                    let projection = TypeProjection::new(
-                        &plan.type_names,
-                        &plan.interface_names,
-                        &plan.pointer_interface_aliases,
-                        &plan.type_choices,
-                        &fact.origin.tu,
-                    );
-                    write_named_record(
-                        &rdl_ident(&planned.name),
-                        &record.fields,
-                        record.packing,
-                        record.alignment,
-                        record.union,
-                        &projection,
-                    )?
-                }
-                FactData::Typedef { target } => {
-                    let projection = TypeProjection::new(
-                        &plan.type_names,
-                        &plan.interface_names,
-                        &plan.pointer_interface_aliases,
-                        &plan.type_choices,
-                        &fact.origin.tu,
-                    );
-                    format!(
-                        "    type {} = {};\n",
-                        rdl_ident(&planned.name),
-                        projection.name(target)
-                    )
-                }
-                FactData::Enum {
-                    repr,
-                    variants,
-                    scoped,
-                    flags,
-                    ..
-                } => {
-                    let flags = *flags
-                        || plan
-                            .flag_enums
-                            .contains(&(fact.origin.tu.clone(), planned.name.clone()));
-                    let repr = if flags { unsigned_scalar(*repr) } else { *repr };
-                    let mut item = format!(
-                        "    #[repr({})]\n{}{}    enum {} {{\n",
-                        scalar_name(repr),
-                        if flags { "    #[flags]\n" } else { "" },
-                        if *scoped { "    #[scoped]\n" } else { "" },
-                        rdl_ident(&planned.name)
-                    );
-                    for variant in variants {
-                        item.push_str(&format!(
-                            "        {} = {},\n",
-                            rdl_ident(&variant.name),
-                            enum_value(variant.value, repr)
-                        ));
-                    }
-                    item.push_str("    }\n");
-                    item
-                }
-                FactData::Record {
-                    fields,
-                    packing,
-                    alignment,
-                    union,
-                    ..
-                } => {
-                    let projection = TypeProjection::new(
-                        &plan.type_names,
-                        &plan.interface_names,
-                        &plan.pointer_interface_aliases,
-                        &plan.type_choices,
-                        &fact.origin.tu,
-                    );
-                    write_named_record(
-                        &rdl_ident(&planned.name),
-                        fields,
-                        *packing,
-                        *alignment,
-                        *union,
-                        &projection,
-                    )?
-                }
-                FactData::Interface {
-                    base,
-                    guid,
-                    methods,
-                } => {
-                    let projection = TypeProjection::new(
-                        &plan.type_names,
-                        &plan.interface_names,
-                        &plan.pointer_interface_aliases,
-                        &plan.type_choices,
-                        &fact.origin.tu,
-                    );
-                    write_interface(
-                        &rdl_ident(&planned.name),
-                        base.as_ref(),
-                        guid.as_deref().or_else(|| {
-                            plan.interface_guids.get(&planned.name).map(String::as_str)
-                        }),
-                        methods,
-                        &projection,
-                    )?
-                }
-                _ => {
-                    return Err(Error(format!(
-                        "planned type `{}` is not emittable",
-                        fact.name
-                    )));
-                }
-            };
-            if items
-                .insert(
-                    (planned.name.clone(), kind),
-                    (fact.spelling.file.clone(), item),
-                )
-                .is_some()
-            {
-                return Err(Error(format!("duplicate planned name `{}`", planned.name)));
-            }
-        }
-        for function in plan.functions {
-            let FactData::Function {
-                link_name,
-                convention,
-                params,
-                result,
-                variadic,
-                noreturn,
-            } = &function.data
-            else {
-                return Err(Error(format!(
-                    "planned function `{}` has no signature",
-                    function.name
-                )));
-            };
-            let projection = TypeProjection::new(
-                &plan.type_names,
-                &plan.interface_names,
-                &plan.pointer_interface_aliases,
-                &plan.type_choices,
-                &function.origin.tu,
-            );
-            let mut params = write_params(params, &projection)?;
-            if *variadic {
-                params.push("...".to_string());
-            }
-            let params = params.join(", ");
-            let result = if *result == TypeRef::Void {
-                String::new()
-            } else {
-                format!(" -> {}", projection.name(result))
-            };
-            let library = options
-                .libraries
-                .and_then(|libraries| libraries.get(link_name).map(String::as_str))
-                .or(options.library)
-                .ok_or_else(|| {
-                    Error(format!(
-                        "function `{}` requires an import library",
-                        function.name
-                    ))
-                })?;
-            let abi = calling_convention(*convention);
-            let library = if function.name == *link_name {
-                format!("#[library({library:?})]")
-            } else {
-                format!("#[library({library:?}, import = {link_name:?})]")
-            };
-            let item = format!(
-                "{}    {library}\n    extern{abi} fn {}({params}){result};\n",
-                if *noreturn { "    #[noreturn]\n" } else { "" },
-                rdl_ident(&function.name),
-            );
-            if items
-                .insert(
-                    (function.name.clone(), OutputKind::Value),
-                    (function.spelling.file.clone(), item),
-                )
-                .is_some()
-            {
-                return Err(Error(format!("duplicate planned name `{}`", function.name)));
-            }
-        }
-        for planned in plan.constants {
-            let constant = planned.constant;
-            let encoding = match &constant.value {
-                Value::Utf8(_) => "    #[encoding(\"ansi\")]\n",
-                Value::Utf16(_) => "    #[encoding(\"utf-16\")]\n",
-                _ => "",
-            };
-            let item = format!(
-                "{encoding}    const {}: {} = {};\n",
-                rdl_ident(&constant.name),
-                planned.ty,
-                value_name(&constant.value)
-            );
-            if items
-                .insert(
-                    (constant.name.clone(), OutputKind::Value),
-                    (constant.spelling.file.clone(), item),
-                )
-                .is_some()
-            {
-                return Err(Error(format!("duplicate planned name `{}`", constant.name)));
-            }
-        }
-        if timing {
-            eprintln!(
-                "clang emission: {:.2}s",
-                emission_time.elapsed().as_secs_f32()
-            );
-        }
-        Ok(items)
-    }
-
-    fn plan(
-        &self,
-        references: &BTreeMap<String, TypeReference>,
-        excluded_types: Option<&BTreeSet<String>>,
-        excluded_functions: Option<&BTreeSet<String>>,
-        excluded_constants: Option<&BTreeSet<String>>,
-        selected_functions: Option<&BTreeSet<String>>,
-    ) -> Result<Plan<'_>, Error> {
-        let timing = std::env::var_os("WINDOWS_CLANG_TIMING").is_some();
-        let mut phase_time = std::time::Instant::now();
-        #[derive(Default)]
-        struct Roots<'a> {
-            types: Vec<&'a Fact>,
-            values: Vec<&'a Fact>,
-            functions: Vec<&'a Fact>,
-            constants: Vec<&'a Constant>,
-        }
-
-        let facts_by_origin: HashMap<_, _> =
-            self.facts.iter().map(|fact| (&fact.origin, fact)).collect();
-        let is_flat_root = |fact| is_flat_declaration(fact, &facts_by_origin, references, true);
-        let is_flat_dependency =
-            |fact| is_flat_declaration(fact, &facts_by_origin, references, false);
-        let interfaces: BTreeSet<_> = self
-            .facts
-            .iter()
-            .filter(|fact| {
-                is_flat_dependency(fact) && matches!(fact.data, FactData::Interface { .. })
-            })
-            .map(|fact| fact.name.as_str())
-            .collect();
-        let mut declared_interface_guids = BTreeMap::new();
-        for fact in self.facts.iter().filter(|fact| {
-            fact.root && matches!(fact.data, FactData::Interface { .. }) && is_flat_root(fact)
-        }) {
-            let FactData::Interface {
-                guid: Some(guid), ..
-            } = &fact.data
-            else {
-                continue;
-            };
-            if let Some(previous) =
-                declared_interface_guids.insert(fact.name.as_str(), guid.as_str())
-                && previous != guid
-            {
-                return Err(Error(format!(
-                    "interface `{}` has conflicting UUID attributes",
-                    fact.name
-                )));
-            }
-        }
-        let mut interface_guids = BTreeMap::new();
-        for fact in self.facts.iter().filter(|fact| {
-            fact.root && matches!(fact.data, FactData::Guid { .. }) && is_flat_root(fact)
-        }) {
-            let Some(interface) = fact.name.strip_prefix("IID_") else {
-                continue;
-            };
-            if !interfaces.contains(interface) || declared_interface_guids.contains_key(interface) {
-                continue;
-            }
-            let FactData::Guid { value } = &fact.data else {
-                unreachable!()
-            };
-            if let Some(previous) = interface_guids.insert(interface.to_string(), value.clone())
-                && previous != *value
-            {
-                return Err(Error(format!(
-                    "interface `{interface}` has conflicting IID declarations"
-                )));
-            }
-        }
-
-        let mut roots: BTreeMap<&str, Roots<'_>> = BTreeMap::new();
-        for fact in self
-            .facts
-            .iter()
-            .filter(|fact| fact.root && is_root_fact(fact) && is_flat_root(fact))
-            .filter(|fact| {
-                let Some(interface) = fact.name.strip_prefix("IID_") else {
-                    return true;
-                };
-                let FactData::Guid { value } = &fact.data else {
-                    return true;
-                };
-                if references
-                    .get(interface)
-                    .is_some_and(|reference| reference.kind == TypeReferenceKind::Interface)
-                {
-                    return false;
-                }
-                if !interfaces.contains(interface) {
-                    return true;
-                }
-                declared_interface_guids
-                    .get(interface)
-                    .is_some_and(|declared| *declared != value)
-            })
-        {
-            let roots = roots.entry(&fact.name).or_default();
-            if is_value_fact(fact) {
-                roots.values.push(fact);
-            } else {
-                roots.types.push(fact);
-            }
-        }
-        for fact in self
-            .facts
-            .iter()
-            .filter(|fact| {
-                fact.root && matches!(fact.data, FactData::Function { .. }) && is_flat_root(fact)
-            })
-            .filter(|fact| excluded_functions.is_none_or(|excluded| !excluded.contains(&fact.name)))
-            .filter(|fact| {
-                selected_functions.is_none_or(|functions| {
-                    matches!(
-                        &fact.data,
-                        FactData::Function { link_name, .. } if functions.contains(link_name)
-                    )
-                })
-            })
-        {
-            roots.entry(&fact.name).or_default().functions.push(fact);
-        }
-        for constant in &self.constants {
-            if excluded_constants.is_some_and(|excluded| excluded.contains(&constant.name)) {
-                continue;
-            }
-            roots
-                .entry(&constant.name)
-                .or_default()
-                .constants
-                .push(constant);
-        }
-
-        let mut facts_index: HashMap<&str, Vec<&Fact>> = HashMap::new();
-        for fact in self.facts.iter().filter(|fact| is_flat_dependency(fact)) {
-            facts_index.entry(&fact.name).or_default().push(fact);
-        }
-        let facts_by_declaration: BTreeMap<_, _> = self
-            .facts
-            .iter()
-            .map(|fact| ((fact.origin.tu.clone(), fact.spelling.clone()), fact))
-            .collect();
-        let extended_reference_enums: BTreeSet<_> = excluded_types
-            .into_iter()
-            .flatten()
-            .filter_map(|name| {
-                let reference = references.get(name)?;
-                if reference.kind != TypeReferenceKind::Enum {
-                    return None;
-                }
-                if reference.enum_members.is_empty()
-                    || self
-                        .facts
-                        .iter()
-                        .filter(|fact| fact.name == *name)
-                        .filter_map(|fact| {
-                            underlying_enum_fact(fact, &facts_by_declaration, &mut BTreeSet::new())
-                        })
-                        .filter_map(|fact| match &fact.data {
-                            FactData::Enum { variants, .. } => Some(variants.as_slice()),
-                            _ => None,
-                        })
-                        .flatten()
-                        .any(|variant| !reference.enum_members.contains(&variant.name))
-                {
-                    Some(name.clone())
-                } else {
-                    None
-                }
-            })
-            .collect();
-        let excluded_declarations: BTreeSet<_> = excluded_types
-            .into_iter()
-            .flat_map(|excluded| {
-                let extended_reference_enums = &extended_reference_enums;
-                self.facts.iter().filter_map(move |fact| {
-                    if !excluded.contains(&fact.name)
-                        || extended_reference_enums.contains(&fact.name)
-                    {
-                        return None;
-                    }
-                    if let FactData::Typedef {
-                        target: TypeRef::Named { declaration, .. },
-                    } = &fact.data
-                    {
-                        Some((fact.origin.tu.clone(), declaration.clone()))
-                    } else {
-                        None
-                    }
-                })
-            })
-            .collect();
-        let excluded_local_names: BTreeSet<_> = excluded_types
-            .into_iter()
-            .flat_map(|excluded| {
-                let extended_reference_enums = &extended_reference_enums;
-                self.facts.iter().filter_map(move |fact| {
-                    if !excluded.contains(&fact.name)
-                        || extended_reference_enums.contains(&fact.name)
-                    {
-                        return None;
-                    }
-                    if let FactData::Typedef {
-                        target: TypeRef::Named { name, .. },
-                    } = &fact.data
-                    {
-                        Some((fact.origin.tu.clone(), name.clone()))
-                    } else {
-                        None
-                    }
-                })
-            })
-            .collect();
-        let mut type_roots = vec![];
-        let mut value_roots = vec![];
-        let mut functions = vec![];
-        let mut constants = vec![];
-        let mut root_names = BTreeSet::new();
-        let mut shape_cache = ShapeCache::default();
-
-        for (name, roots) in roots {
-            if !roots.types.is_empty() && !roots.functions.is_empty() {
-                return Err(Error(format!(
-                    "type and function roots collide on `{name}`"
-                )));
-            }
-            let value = if roots.values.is_empty()
-                || excluded_constants.is_some_and(|excluded| excluded.contains(name))
-            {
-                None
-            } else {
-                Some(choose_value_root(name, &roots.values)?)
-            };
-            let constant = if roots.constants.is_empty() {
-                None
-            } else {
-                Some(choose_constant_root(name, &roots.constants)?)
-            };
-            let types_alias_value_class =
-                types_alias_value_class(name, &roots.types, &roots.values);
-            if !roots.types.is_empty() && !types_alias_value_class {
-                let excluded = roots.types.iter().any(|fact| {
-                    excluded_declarations.contains(&(fact.origin.tu.clone(), fact.spelling.clone()))
-                        || excluded_local_names
-                            .contains(&(fact.origin.tu.clone(), fact.name.clone()))
-                }) || (excluded_types
-                    .is_some_and(|excluded| excluded.contains(name))
-                    && !extended_reference_enums.contains(name))
-                    || (references.contains_key(name)
-                        && !roots
-                            .types
-                            .iter()
-                            .any(|fact| defines_local_type(name, fact)));
-                if !excluded {
-                    let root = choose_type_root_cached(
-                        name,
-                        &roots.types,
-                        &facts_index,
-                        &mut shape_cache,
-                    )?;
-                    root_names.insert(name.to_string());
-                    type_roots.push(root);
-                }
-            } else if !roots.functions.is_empty() {
-                functions.push(choose_function_root(
-                    name,
-                    &roots.functions,
-                    &self.function_declarations,
-                )?);
-            }
-            if let Some(value) = value {
-                value_roots.push(value);
-            }
-            if let Some(constant) = constant {
-                constants.push(constant);
-            }
-        }
-        if let Some(selected) = selected_functions {
-            let found: BTreeSet<_> = functions
-                .iter()
-                .filter_map(|function| match &function.data {
-                    FactData::Function { link_name, .. } => Some(link_name.as_str()),
-                    _ => None,
-                })
-                .collect();
-            if let Some(missing) = selected.iter().find(|name| !found.contains(name.as_str())) {
-                return Err(Error(format!(
-                    "selected function `{missing}` was not found"
-                )));
-            }
-        }
-        if timing {
-            eprintln!(
-                "clang plan roots: {:.2}s",
-                phase_time.elapsed().as_secs_f32()
-            );
-            phase_time = std::time::Instant::now();
-        }
-
-        let mut external_alias_candidates: BTreeMap<&str, BTreeSet<String>> = BTreeMap::new();
-        if let Some(excluded) = excluded_types {
-            for fact in &self.facts {
-                if !excluded.contains(&fact.name) {
-                    continue;
-                }
-                let Some(reference) = references.get(&fact.name) else {
-                    continue;
-                };
-                if extended_reference_enums.contains(&fact.name) {
-                    continue;
-                }
-                if let FactData::Typedef {
-                    target: TypeRef::Named { name, .. },
-                } = &fact.data
-                {
-                    if references.contains_key(name) || named_type_shape(name).is_some() {
-                        continue;
-                    }
-                    external_alias_candidates
-                        .entry(name)
-                        .or_default()
-                        .insert(format!(
-                            "{}::{}",
-                            reference.namespace.replace('.', "::"),
-                            reference.name
-                        ));
-                }
-            }
-        }
-        let external_aliases: BTreeMap<_, _> = external_alias_candidates
-            .into_iter()
-            .filter_map(|(name, aliases)| {
-                let mut aliases = aliases.into_iter();
-                let alias = aliases.next()?;
-                aliases.next().is_none().then_some((name, alias))
-            })
-            .collect();
-        let canonical_available = |tu: &str, name: &str| {
-            references.contains_key(name)
-                || facts_index.get(name).is_some_and(|facts| {
-                    facts
-                        .iter()
-                        .any(|fact| fact.origin.tu == tu && is_type_fact(fact))
-                })
-        };
-        let mut type_choices = BTreeMap::new();
-        let facts_by_name = loop {
-            type_choices.clear();
-            let mut facts = BTreeSet::new();
-            let mut queue = vec![];
-            for root in &type_roots {
-                if facts.insert(root.origin.clone()) {
-                    queue_type_edges(root, &mut queue);
-                }
-            }
-            for root in &value_roots {
-                queue_type_edges(root, &mut queue);
-            }
-            for constant in &constants {
-                queue.push((constant.root.tu.as_str(), TypeEdge::Type(&constant.ty)));
-            }
-            for function in &functions {
-                queue_function_edges(function, &mut queue);
-            }
-
-            while let Some((tu, edge)) = queue.pop() {
-                let (ty, preserve_alias) = match edge {
-                    TypeEdge::Type(ty) => (ty, false),
-                    TypeEdge::Pointee(ty, mutable) => (ty, !mutable),
-                    TypeEdge::Parameter(param) => {
-                        let choice = parameter_string_name(param)
-                            .filter(|name| canonical_available(tu, name))
-                            .map_or(TypeChoice::Declared(&param.ty), TypeChoice::Canonical);
-                        type_choices.insert((tu, edge), choice);
-                        queue.push((tu, choice.edge()));
-                        continue;
-                    }
-                    TypeEdge::Projected(name) => {
-                        if references.contains_key(name) && !root_names.contains(name) {
-                            continue;
-                        }
-                        let matches: Vec<_> = facts_index
-                            .get(name)
-                            .into_iter()
-                            .flatten()
-                            .copied()
-                            .filter(|fact| fact.origin.tu == tu && is_type_fact(fact))
-                            .collect();
-                        let fact = choose_type_root_cached(
-                            name,
-                            &matches,
-                            &facts_index,
-                            &mut shape_cache,
-                        )?;
-                        if facts.insert(fact.origin.clone()) {
-                            queue_type_edges(fact, &mut queue);
-                        }
-                        continue;
-                    }
-                };
-                let (name, declaration) = match ty {
-                    TypeRef::Pointer { .. } => {
-                        let (mutable, _, target) = pointer_run(ty);
-                        queue.push((tu, TypeEdge::Pointee(target, mutable)));
-                        continue;
-                    }
-                    TypeRef::Reference { mutable, target } => {
-                        queue.push((tu, TypeEdge::Pointee(target, *mutable)));
-                        continue;
-                    }
-                    TypeRef::FunctionPointer { .. } | TypeRef::OpaquePointer { .. } => continue,
-                    TypeRef::Array { target, .. } => {
-                        queue.push((tu, TypeEdge::Type(target)));
-                        continue;
-                    }
-                    TypeRef::Generic { args, .. } => {
-                        for arg in args {
-                            queue.push((tu, TypeEdge::Type(arg)));
-                        }
-                        continue;
-                    }
-                    TypeRef::InlineRecord(record) => {
-                        for field in &record.fields {
-                            queue.push((tu, TypeEdge::Type(&field.ty)));
-                        }
-                        continue;
-                    }
-                    TypeRef::Named { name, declaration } => (name, declaration),
-                    _ => continue,
-                };
-                type_choices.insert((tu, edge), TypeChoice::Declared(ty));
-                if (references.contains_key(name) && !root_names.contains(name))
-                    || external_aliases.contains_key(name.as_str())
-                {
-                    continue;
-                }
-                let matches: Vec<_> = facts_index
-                    .get(name.as_str())
-                    .into_iter()
-                    .flatten()
-                    .copied()
-                    .filter(|fact| fact.origin.tu == tu && fact.spelling == *declaration)
-                    .collect();
-                let [fact] = matches.as_slice() else {
-                    return Err(Error(format!(
-                        "unresolved local type `{name}` in translation unit `{tu}`"
-                    )));
-                };
-                if let FactData::Unsupported { reason } = &fact.data {
-                    return Err(Error(format!(
-                        "unsupported type `{name}` in translation unit `{tu}`: {reason}"
-                    )));
-                }
-                if !is_type_fact(fact) {
-                    return Err(Error(format!(
-                        "unresolved local type `{name}` in translation unit `{tu}`"
-                    )));
-                };
-                if matches!(fact.data, FactData::Typedef { .. })
-                    && let Some(canonical) = canonical_named_type(name)
-                {
-                    if canonical_string_name(name).is_some() {
-                        if name != canonical
-                            && canonical_available(tu, canonical)
-                            && ((references.contains_key(canonical)
-                                && !root_names.contains(canonical))
-                                || !canonical_alias_depends_on(
-                                    canonical,
-                                    tu,
-                                    declaration,
-                                    &facts_index,
-                                ))
-                        {
-                            type_choices.insert((tu, edge), TypeChoice::Canonical(canonical));
-                            queue.push((tu, TypeEdge::Projected(canonical)));
-                            continue;
-                        }
-                    } else if !(preserve_alias && matches!(name.as_str(), "PVOID" | "LPVOID")) {
-                        type_choices.insert((tu, edge), TypeChoice::Canonical(canonical));
-                        continue;
-                    }
-                }
-                if facts.insert(fact.origin.clone()) {
-                    queue_type_edges(fact, &mut queue);
-                }
-            }
-
-            let mut grouped: BTreeMap<&str, Vec<&Fact>> = BTreeMap::new();
-            for fact in facts.into_iter().map(|origin| facts_by_origin[&origin]) {
-                grouped.entry(&fact.name).or_default().push(fact);
-            }
-
-            let collisions: Vec<_> = constants
-                .iter()
-                .filter_map(|constant| {
-                    grouped
-                        .get(constant.name.as_str())
-                        .map(|choices| (constant, choices))
-                })
-                .collect();
-            if !collisions.is_empty() {
-                let mut added = false;
-                for (constant, choices) in collisions {
-                    let root = choose_type_root_cached(
-                        &constant.name,
-                        choices,
-                        &facts_index,
-                        &mut shape_cache,
-                    )?;
-                    if root_names.insert(constant.name.clone()) {
-                        type_roots.push(root);
-                        added = true;
-                    }
-                }
-                if added {
-                    continue;
-                }
-            }
-
-            let mut facts_by_name = BTreeMap::new();
-            for (name, choices) in grouped {
-                let selected =
-                    choose_type_root_cached(name, &choices, &facts_index, &mut shape_cache)?;
-                facts_by_name.insert(name, selected);
-            }
-            break facts_by_name;
-        };
-        let mut validated_layouts: HashSet<_> = facts_by_name
-            .values()
-            .filter(|fact| {
-                !matches!(fact.data, FactData::Typedef { .. })
-                    && !matches!(fact.data, FactData::Record { .. } if !fact.definition)
-            })
-            .map(|fact| fact.origin.clone())
-            .collect();
-        let mut safe_layouts: HashMap<String, HashSet<Location>> = HashMap::new();
-        for fact in facts_index.values().flatten().copied().filter(|fact| {
-            !matches!(fact.data, FactData::Typedef { .. })
-                && !matches!(fact.data, FactData::Record { .. } if !fact.definition)
-        }) {
-            safe_layouts
-                .entry(fact.origin.tu.clone())
-                .or_default()
-                .insert(fact.spelling.clone());
-        }
-        loop {
-            let additions: Vec<_> = facts_index
-                .values()
-                .flatten()
-                .copied()
-                .filter(|fact| {
-                    !safe_layouts
-                        .get(&fact.origin.tu)
-                        .is_some_and(|safe| safe.contains(&fact.spelling))
-                })
-                .filter_map(|fact| match &fact.data {
-                    FactData::Typedef { target }
-                        if known_complete_layout(
-                            target,
-                            &fact.origin.tu,
-                            &safe_layouts,
-                            references,
-                        ) =>
-                    {
-                        Some((fact.origin.tu.clone(), fact.spelling.clone()))
-                    }
-                    _ => None,
-                })
-                .collect();
-            if additions.is_empty() {
-                break;
-            }
-            for (tu, declaration) in additions {
-                safe_layouts.entry(tu).or_default().insert(declaration);
-            }
-        }
-        let layout = LayoutContext {
-            facts_index: &facts_index,
-            planned_types: &facts_by_name,
-        };
-        let validation_time = std::time::Instant::now();
-        for fact in facts_by_name.values() {
-            validate_fact_layouts(fact, &layout, &mut safe_layouts, &mut validated_layouts)?;
-        }
-        for fact in &value_roots {
-            validate_fact_layouts(fact, &layout, &mut safe_layouts, &mut validated_layouts)?;
-        }
-        if timing {
-            eprintln!(
-                "clang validate types and values: {:.2}s",
-                validation_time.elapsed().as_secs_f32()
-            );
-        }
-        let validation_time = std::time::Instant::now();
-        for function in &functions {
-            validate_fact_layouts(function, &layout, &mut safe_layouts, &mut validated_layouts)?;
-        }
-        if timing {
-            eprintln!(
-                "clang validate functions: {:.2}s",
-                validation_time.elapsed().as_secs_f32()
-            );
-        }
-        let validation_time = std::time::Instant::now();
-        for constant in &constants {
-            validate_complete_layout(
-                &constant.ty,
-                &constant.root.tu,
-                &layout,
-                &mut safe_layouts,
-                &mut BTreeSet::new(),
-                &mut validated_layouts,
-            )?;
-        }
-        if timing {
-            eprintln!(
-                "clang validate constants: {:.2}s",
-                validation_time.elapsed().as_secs_f32()
-            );
-        }
-        if timing {
-            eprintln!(
-                "clang plan closure: {:.2}s",
-                phase_time.elapsed().as_secs_f32()
-            );
-            phase_time = std::time::Instant::now();
-        }
-
-        let local_roots = root_names.clone();
-        let required: BTreeSet<String> = facts_by_name
-            .keys()
-            .map(|name| (*name).to_string())
-            .collect();
-        if timing {
-            eprintln!(
-                "clang plan required: {:.2}s",
-                phase_time.elapsed().as_secs_f32()
-            );
-            phase_time = std::time::Instant::now();
-        }
-
-        let mut enum_alias_candidates: BTreeMap<&str, Vec<&str>> = BTreeMap::new();
-        for fact in &self.facts {
-            if let FactData::Typedef {
-                target: TypeRef::Named { name, declaration },
-            } = &fact.data
-                && name != &fact.name
-                && !references.contains_key(name)
-                && let Some(selected) = facts_by_name.get(name.as_str())
-                && facts_index
-                    .get(name.as_str())
-                    .into_iter()
-                    .flatten()
-                    .any(|target| {
-                        target.origin.tu == fact.origin.tu
-                            && target.spelling == *declaration
-                            && target.spelling.file == fact.spelling.file
-                            && target.definition
-                            && (matches!(
-                                target.data,
-                                FactData::Enum { .. } | FactData::Record { .. }
-                            ) || (matches!(target.data, FactData::Interface { .. })
-                                && selected.name.starts_with('_')))
-                            && same_source_declaration(selected, target)
-                    })
-            {
-                enum_alias_candidates
-                    .entry(selected.name.as_str())
-                    .or_default()
-                    .push(fact.name.as_str());
-            }
-        }
-        let mut type_names: BTreeMap<_, _> = enum_alias_candidates
-            .into_iter()
-            .filter_map(|(target, aliases)| {
-                let aliases: BTreeSet<_> = aliases.into_iter().collect();
-                if aliases.len() != 1 {
-                    return None;
-                }
-                Some((target.to_string(), (*aliases.first().unwrap()).to_string()))
-            })
-            .collect();
-        for name in &extended_reference_enums {
-            let enum_names: BTreeSet<_> = self
-                .facts
-                .iter()
-                .filter(|fact| fact.name == *name)
-                .filter_map(|fact| {
-                    underlying_enum_fact(fact, &facts_by_declaration, &mut BTreeSet::new())
-                })
-                .map(|fact| fact.name.as_str())
-                .collect();
-            if let [enum_name] = enum_names.into_iter().collect::<Vec<_>>().as_slice() {
-                type_names.insert((*enum_name).to_string(), name.clone());
-            }
-        }
-        for fact in &self.facts {
-            if let FactData::Typedef {
-                target: TypeRef::Pointer { target, .. },
-            } = &fact.data
-                && let TypeRef::Named { name, .. } = target.as_ref()
-                && let Some(public_name) = name.strip_prefix('_')
-                && fact.name == format!("P{public_name}")
-                && !references.contains_key(name)
-                && facts_index
-                    .get(name.as_str())
-                    .into_iter()
-                    .flatten()
-                    .any(|target| target.origin.tu == fact.origin.tu)
-            {
-                let public_aliases_private = facts_index
-                    .get(public_name)
-                    .into_iter()
-                    .flatten()
-                    .any(|candidate| {
-                        matches!(
-                            &candidate.data,
-                            FactData::Typedef {
-                                target: TypeRef::Named {
-                                    name: target_name,
-                                    ..
-                                },
-                            } if target_name == name
-                        )
-                    });
-                if !public_aliases_private
-                    && facts_index
-                        .get(public_name)
-                        .into_iter()
-                        .flatten()
-                        .any(|candidate| {
-                            matches!(
-                                candidate.data,
-                                FactData::Class { .. }
-                                    | FactData::Callback { .. }
-                                    | FactData::Enum { .. }
-                                    | FactData::Interface { .. }
-                                    | FactData::Record { .. }
-                            ) || defines_local_type(public_name, candidate)
-                        })
-                {
-                    continue;
-                }
-                type_names
-                    .entry(name.clone())
-                    .or_insert_with(|| public_name.to_string());
-            }
-        }
-        for (name, alias) in external_aliases {
-            type_names.entry(name.to_string()).or_insert(alias);
-        }
-        if timing {
-            eprintln!(
-                "clang plan aliases: {:.2}s",
-                phase_time.elapsed().as_secs_f32()
-            );
-            phase_time = std::time::Instant::now();
-        }
-        for (name, reference) in references {
-            let excluded = excluded_types.is_some_and(|excluded| excluded.contains(name))
-                && !extended_reference_enums.contains(name);
-            if excluded {
-                type_names.insert(
-                    name.clone(),
-                    format!(
-                        "{}::{}",
-                        reference.namespace.replace('.', "::"),
-                        reference.name
-                    ),
-                );
-            } else if !local_roots.contains(name) {
-                type_names.entry(name.clone()).or_insert_with(|| {
-                    format!(
-                        "{}::{}",
-                        reference.namespace.replace('.', "::"),
-                        reference.name
-                    )
-                });
-            }
-        }
-        for (name, fact) in &facts_by_name {
-            if required.contains(*name)
-                && canonical_named_type(name).is_some()
-                && !matches!(fact.data, FactData::Typedef { .. })
-            {
-                type_names
-                    .entry((*name).to_string())
-                    .or_insert_with(|| (*name).to_string());
-            }
-        }
-        let alias_names: BTreeSet<_> = type_names
-            .iter()
-            .filter_map(|(source, target)| (source != target).then_some(target.as_str()))
-            .collect();
-        let mut types: Vec<_> = facts_by_name
-            .into_iter()
-            .filter(|(name, _)| required.contains(*name))
-            .filter(|(name, _)| !alias_names.contains(*name))
-            .map(|(_, fact)| PlannedFact {
-                name: type_names
-                    .get(fact.name.as_str())
-                    .cloned()
-                    .unwrap_or_else(|| fact.name.clone()),
-                fact,
-            })
-            .collect();
-        let values: Vec<_> = value_roots
-            .into_iter()
-            .map(|fact| PlannedFact {
-                name: fact.name.clone(),
-                fact,
-            })
-            .collect();
-        let mut interface_names = BTreeSet::new();
-        for planned in &types {
-            if matches!(planned.fact.data, FactData::Interface { .. }) {
-                for fact in facts_index
-                    .get(planned.fact.name.as_str())
-                    .into_iter()
-                    .flatten()
-                {
-                    // An input may resolve the interface's typedefs from different headers, so match
-                    // the declaration rather than its data.
-                    if matches!(fact.data, FactData::Interface { .. })
-                        && fact.kind == planned.fact.kind
-                        && fact.spelling == planned.fact.spelling
-                        && fact.definition == planned.fact.definition
-                    {
-                        interface_names.insert((fact.origin.tu.clone(), fact.name.clone()));
-                    }
-                }
-            }
-        }
-        let translation_units: BTreeSet<_> = self
-            .facts
-            .iter()
-            .map(|fact| fact.origin.tu.as_str())
-            .collect();
-        for (name, reference) in references {
-            if reference.kind == TypeReferenceKind::Interface
-                && (excluded_types.is_some_and(|excluded| excluded.contains(name))
-                    || !local_roots.contains(name))
-            {
-                interface_names.extend(
-                    translation_units
-                        .iter()
-                        .map(|tu| ((*tu).to_string(), name.clone())),
-                );
-            }
-        }
-        let mut interface_aliases: BTreeMap<(String, String), Vec<String>> = BTreeMap::new();
-        for fact in &self.facts {
-            let FactData::Typedef {
-                target: TypeRef::Named { name: target, .. } | TypeRef::Generic { name: target, .. },
-            } = &fact.data
-            else {
-                continue;
-            };
-            if interface_names.contains(&(fact.origin.tu.clone(), target.clone())) {
-                interface_aliases
-                    .entry((fact.origin.tu.clone(), target.clone()))
-                    .or_default()
-                    .push(fact.name.clone());
-            }
-        }
-        let mut interface_queue: Vec<_> = interface_names.iter().cloned().collect();
-        while let Some(key) = interface_queue.pop() {
-            for alias in interface_aliases.get(&key).into_iter().flatten() {
-                let alias = (key.0.clone(), alias.clone());
-                if interface_names.insert(alias.clone()) {
-                    interface_queue.push(alias);
-                }
-            }
-        }
-        let mut pointer_interface_aliases = BTreeMap::new();
-        for fact in &self.facts {
-            let FactData::Typedef {
-                target: TypeRef::Pointer { target, .. } | TypeRef::Reference { target, .. },
-            } = &fact.data
-            else {
-                continue;
-            };
-            let (TypeRef::Named { name: target, .. } | TypeRef::Generic { name: target, .. }) =
-                target.as_ref()
-            else {
-                continue;
-            };
-            if !interface_names.contains(&(fact.origin.tu.clone(), target.clone())) {
-                continue;
-            }
-            let projected = type_names
-                .get(target)
-                .cloned()
-                .unwrap_or_else(|| target.clone());
-            if let Some(previous) =
-                pointer_interface_aliases.insert(fact.name.clone(), projected.clone())
-                && previous != projected
-            {
-                return Err(Error(format!(
-                    "interface pointer alias `{}` has conflicting targets",
-                    fact.name
-                )));
-            }
-        }
-        let mut pointer_aliases: BTreeMap<&str, Vec<&str>> = BTreeMap::new();
-        for fact in &self.facts {
-            let FactData::Typedef {
-                target: TypeRef::Named { name: target, .. } | TypeRef::Generic { name: target, .. },
-            } = &fact.data
-            else {
-                continue;
-            };
-            pointer_aliases.entry(target).or_default().push(&fact.name);
-        }
-        let mut pointer_alias_queue: Vec<_> = pointer_interface_aliases.keys().cloned().collect();
-        while let Some(target) = pointer_alias_queue.pop() {
-            let projected = pointer_interface_aliases[&target].clone();
-            for alias in pointer_aliases.get(target.as_str()).into_iter().flatten() {
-                if let Some(previous) = pointer_interface_aliases.get(*alias) {
-                    if previous != &projected {
-                        return Err(Error(format!(
-                            "interface pointer alias `{alias}` has conflicting targets"
-                        )));
-                    }
-                } else {
-                    pointer_interface_aliases.insert((*alias).to_string(), projected.clone());
-                    pointer_alias_queue.push((*alias).to_string());
-                }
-            }
-        }
-        for (alias, target) in &pointer_interface_aliases {
-            type_names.insert(alias.clone(), target.clone());
-        }
-        types.retain(|planned| !pointer_interface_aliases.contains_key(&planned.fact.name));
-        let mut constants: Vec<_> = constants
-            .into_iter()
-            .filter_map(|constant| {
-                let ty = match &constant.value {
-                    Value::Utf8(_) | Value::Utf16(_) => Some("String".to_string()),
-                    _ => constant_type_name(
-                        &constant.ty,
-                        &TypeProjection::new(
-                            &type_names,
-                            &interface_names,
-                            &pointer_interface_aliases,
-                            &type_choices,
-                            &constant.root.tu,
-                        ),
-                    ),
-                }?;
-                Some(PlannedConstant { constant, ty })
-            })
-            .collect();
-        if timing {
-            eprintln!(
-                "clang plan interfaces: {:.2}s",
-                phase_time.elapsed().as_secs_f32()
-            );
-            phase_time = std::time::Instant::now();
-        }
-        let flag_enums = self
-            .facts
-            .iter()
-            .filter_map(|fact| {
-                if let FactData::EnumFlag { target } = &fact.data {
-                    Some((fact.origin.tu.clone(), target.clone()))
-                } else {
-                    None
-                }
-            })
-            .collect();
-        let mut type_output_names = BTreeSet::new();
-        for planned in &types {
-            if !type_output_names.insert(planned.name.as_str()) {
-                return Err(Error(format!("duplicate planned name `{}`", planned.name)));
-            }
-        }
-        let mut value_output_names = BTreeSet::new();
-        for planned in &values {
-            if !value_output_names.insert(planned.name.as_str()) {
-                return Err(Error(format!("duplicate planned name `{}`", planned.name)));
-            }
-        }
-        for planned in &constants {
-            if !value_output_names.insert(planned.constant.name.as_str()) {
-                return Err(Error(format!(
-                    "duplicate planned name `{}`",
-                    planned.constant.name
-                )));
-            }
-        }
-        for function in &functions {
-            if type_output_names.contains(function.name.as_str())
-                || !value_output_names.insert(function.name.as_str())
-            {
-                return Err(Error(format!("duplicate planned name `{}`", function.name)));
-            }
-        }
-        constants.sort_by(|left, right| left.constant.name.cmp(&right.constant.name));
-        functions.sort_by(|left, right| left.name.cmp(&right.name));
-        if timing {
-            eprintln!(
-                "clang plan finalize: {:.2}s",
-                phase_time.elapsed().as_secs_f32()
-            );
-        }
-        Ok(Plan {
-            types,
-            values,
-            functions,
-            constants,
-            type_names,
-            interface_names,
-            pointer_interface_aliases,
-            type_choices,
-            interface_guids,
-            flag_enums,
-        })
-    }
-}
-
-fn write_rdl<'a>(
-    namespace: &str,
-    items: impl IntoIterator<Item = &'a str>,
-) -> Result<String, Error> {
-    let namespaces: Vec<_> = namespace
-        .split('.')
-        .filter(|name| !name.is_empty())
-        .collect();
-    if namespaces.is_empty() {
-        return Err(Error("namespace is empty".to_string()));
-    }
-    let mut result = String::from("#[win32]\n");
-    for (depth, namespace) in namespaces.iter().enumerate() {
-        result.push_str(&format!(
-            "{}mod {} {{\n",
-            "    ".repeat(depth),
-            rdl_ident(namespace)
-        ));
-    }
-    let indent = "    ".repeat(namespaces.len() - 1);
-    for item in items {
-        for line in item.lines() {
-            result.push_str(&indent);
-            result.push_str(line);
-            result.push('\n');
-        }
-    }
-    for depth in (0..namespaces.len()).rev() {
-        result.push_str(&format!("{}}}\n", "    ".repeat(depth)));
-    }
-    Ok(result)
-}
-
-struct PlannedFact<'a> {
-    fact: &'a Fact,
-    name: String,
-}
-
-struct PlannedConstant<'a> {
-    constant: &'a Constant,
-    ty: String,
-}
-
-#[derive(Clone, Copy, Eq, Ord, PartialEq, PartialOrd)]
-enum OutputKind {
-    Value,
-    Type,
-}
-
-struct Plan<'a> {
-    types: Vec<PlannedFact<'a>>,
-    values: Vec<PlannedFact<'a>>,
-    functions: Vec<&'a Fact>,
-    constants: Vec<PlannedConstant<'a>>,
-    type_names: BTreeMap<String, String>,
-    interface_names: BTreeSet<(String, String)>,
-    pointer_interface_aliases: BTreeMap<String, String>,
-    type_choices: BTreeMap<(&'a str, TypeEdge<'a>), TypeChoice<'a>>,
-    interface_guids: BTreeMap<String, String>,
-    flag_enums: BTreeSet<(String, String)>,
-}
-
-struct TypeProjection<'a> {
-    type_names: &'a BTreeMap<String, String>,
-    interface_names: &'a BTreeSet<(String, String)>,
-    pointer_interface_aliases: &'a BTreeMap<String, String>,
-    type_choices: &'a BTreeMap<(&'a str, TypeEdge<'a>), TypeChoice<'a>>,
-    tu: &'a str,
-}
-
-impl<'a> TypeProjection<'a> {
-    fn new(
-        type_names: &'a BTreeMap<String, String>,
-        interface_names: &'a BTreeSet<(String, String)>,
-        pointer_interface_aliases: &'a BTreeMap<String, String>,
-        type_choices: &'a BTreeMap<(&'a str, TypeEdge<'a>), TypeChoice<'a>>,
-        tu: &'a str,
-    ) -> Self {
-        Self {
-            type_names,
-            interface_names,
-            pointer_interface_aliases,
-            type_choices,
-            tu,
-        }
-    }
-
-    fn is_interface(&self, name: &str) -> bool {
-        self.interface_names
-            .contains(&(self.tu.to_string(), name.to_string()))
-    }
-
-    fn name(&self, ty: &TypeRef) -> String {
-        self.project(TypeEdge::Type(ty)).name
-    }
-
-    fn parameter(&self, param: &Parameter) -> ProjectedType {
-        if param.annotation.com_out_ptr {
-            return ProjectedType {
-                name: "*mut *mut void".to_string(),
-                mutable: true,
-                interface: false,
-            };
-        }
-        self.project(TypeEdge::Parameter(param))
-    }
-
-    fn project(&self, edge: TypeEdge<'_>) -> ProjectedType {
-        let ty = match self.type_choices.get(&(self.tu, edge)) {
-            Some(TypeChoice::Canonical(name)) => {
-                return ProjectedType {
-                    name: self
-                        .type_names
-                        .get(*name)
-                        .cloned()
-                        .unwrap_or_else(|| (*name).to_string()),
-                    mutable: *name == "*mut void",
-                    interface: self.is_interface(name),
-                };
-            }
-            Some(TypeChoice::Declared(ty)) if matches!(edge, TypeEdge::Parameter(_)) => {
-                return self.project(TypeEdge::Type(ty));
-            }
-            Some(TypeChoice::Declared(ty)) => *ty,
-            None => match edge {
-                TypeEdge::Type(ty) | TypeEdge::Pointee(ty, _) => {
-                    assert!(!matches!(ty, TypeRef::Named { .. }));
-                    ty
-                }
-                _ => unreachable!(),
-            },
-        };
-        if matches!(ty, TypeRef::FunctionPointer { .. }) {
-            return ProjectedType {
-                name: "*mut u8".to_string(),
-                mutable: true,
-                interface: false,
-            };
-        }
-        if let TypeRef::OpaquePointer { mutable, .. } = ty {
-            return ProjectedType {
-                name: format!("*{} void", if *mutable { "mut" } else { "const" }),
-                mutable: *mutable,
-                interface: false,
-            };
-        }
-        if let TypeRef::Reference { mutable, target } = ty {
-            if let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target.as_ref()
-                && self.is_interface(name)
-            {
-                return ProjectedType {
-                    name: self.project(TypeEdge::Pointee(target, *mutable)).name,
-                    mutable: false,
-                    interface: true,
-                };
-            }
-            return self.pointer(target, *mutable, 1);
-        }
-        if let TypeRef::Array { target, len } = ty {
-            return ProjectedType {
-                name: format!("[{}; {len}]", self.name(target)),
-                mutable: false,
-                interface: false,
-            };
-        }
-        if let TypeRef::Generic { name, args, .. } = ty {
-            return ProjectedType {
-                name: format!(
-                    "{}<{}>",
-                    rdl_ident(self.type_names.get(name).unwrap_or(name)),
-                    args.iter()
-                        .map(|arg| self.name(arg))
-                        .collect::<Vec<_>>()
-                        .join(", ")
-                ),
-                mutable: false,
-                interface: false,
-            };
-        }
-        let (mutable, depth, target) = pointer_run(ty);
-        if depth != 0
-            && let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target
-            && self.is_interface(name)
-        {
-            let mut projected = self.pointer(target, mutable, depth - 1);
-            projected.interface = depth == 1;
-            return projected;
-        }
-        if depth != 0 {
-            return self.pointer(target, mutable, depth);
-        }
-        ProjectedType {
-            name: match ty {
-                TypeRef::Void => "void".to_string(),
-                TypeRef::String => "String".to_string(),
-                TypeRef::Object => "Object".to_string(),
-                TypeRef::Scalar(scalar) => scalar_name(*scalar).to_string(),
-                TypeRef::Named { name, .. } => rdl_ident(self.type_names.get(name).unwrap_or(name)),
-                TypeRef::InlineRecord(record) => record
-                    .name
-                    .clone()
-                    .unwrap_or_else(|| "<inline record>".to_string()),
-                _ => unreachable!(),
-            },
-            mutable: false,
-            interface: matches!(
-                ty,
-                TypeRef::Named { name, .. } if self.pointer_interface_aliases.contains_key(name)
-            ),
-        }
-    }
-
-    fn pointer(&self, target: &TypeRef, mutable: bool, depth: usize) -> ProjectedType {
-        ProjectedType {
-            name: format!(
-                "{}{}",
-                format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth),
-                self.project(TypeEdge::Pointee(target, mutable)).name
-            ),
-            mutable: depth != 0 && mutable,
-            interface: false,
-        }
-    }
-}
-
-struct ProjectedType {
-    name: String,
-    mutable: bool,
-    /// The type is an interface passed by value, which RDL spells as a bare interface name.
-    interface: bool,
-}
-
-fn is_type_fact(fact: &Fact) -> bool {
-    matches!(
-        fact.data,
-        FactData::Callback { .. }
-            | FactData::Enum { .. }
-            | FactData::Interface { .. }
-            | FactData::Record { .. }
-            | FactData::Typedef { .. }
-    )
-}
-
-fn fact_data_kind(data: &FactData) -> &'static str {
-    match data {
-        FactData::Callback { .. } => "Callback",
-        FactData::Class { .. } => "Class",
-        FactData::Enum { .. } => "Enum",
-        FactData::EnumFlag { .. } => "EnumFlag",
-        FactData::Function { .. } => "Function",
-        FactData::Guid { .. } => "Guid",
-        FactData::Interface { .. } => "Interface",
-        FactData::Macro { .. } => "Macro",
-        FactData::None => "None",
-        FactData::PropertyKey { .. } => "PropertyKey",
-        FactData::Record { .. } => "Record",
-        FactData::Typedef { .. } => "Typedef",
-        FactData::Unsupported { .. } => "Unsupported",
-    }
-}
-
-fn is_value_fact(fact: &Fact) -> bool {
-    matches!(
-        fact.data,
-        FactData::Class { .. } | FactData::Guid { .. } | FactData::PropertyKey { .. }
-    )
-}
-
-fn is_flat_declaration(
-    fact: &Fact,
-    facts_by_origin: &HashMap<&Origin, &Fact>,
-    references: &BTreeMap<String, TypeReference>,
-    root: bool,
-) -> bool {
-    if references.is_empty() {
-        return true;
-    }
-    let mut namespaces = vec![];
-    let mut nested = false;
-    let mut parent = fact.parent.as_ref();
-    while let Some(origin) = parent {
-        let Some(fact) = facts_by_origin.get(origin) else {
-            break;
-        };
-        if fact.kind == FactKind::Namespace {
-            namespaces.push(fact.name.as_str());
-        } else {
-            nested = true;
-        }
-        parent = fact.parent.as_ref();
-    }
-    if root && nested {
-        return false;
-    }
-    namespaces.reverse();
-
-    match namespaces.first().copied() {
-        None | Some("Windows") => true,
-        Some("ABI") => {
-            let namespace = namespaces[1..].join(".");
-            references
-                .get(&fact.name)
-                .is_none_or(|reference| reference.namespace != namespace)
-        }
-        Some(_) => false,
-    }
-}
-
-fn defines_local_type(name: &str, fact: &Fact) -> bool {
-    match &fact.data {
-        FactData::Callback { .. } => true,
-        FactData::Enum { .. } | FactData::Interface { .. } | FactData::Record { .. } => {
-            fact.definition
-        }
-        FactData::Typedef {
-            target: TypeRef::Named { name: target, .. },
-        } => target != name,
-        FactData::Typedef { .. } => true,
-        _ => false,
-    }
-}
-
-fn is_root_fact(fact: &Fact) -> bool {
-    (is_type_fact(fact) || is_value_fact(fact))
-        && !(canonical_named_type(&fact.name).is_some()
-            && matches!(fact.data, FactData::Typedef { .. }))
-        && (!matches!(
-            fact.data,
-            FactData::Record { .. } | FactData::Interface { .. }
-        ) || fact.definition)
-}
-
-fn declaration_kind(
-    ty: &TypeRef,
-    tu: &str,
-    facts_index: &HashMap<&str, Vec<&Fact>>,
-    seen: &mut BTreeSet<Location>,
-) -> Option<FactKind> {
-    let TypeRef::Named { name, declaration } = ty else {
-        return None;
-    };
-    if !seen.insert(declaration.clone()) {
-        return None;
-    }
-    let fact = facts_index
-        .get(name.as_str())?
-        .iter()
-        .find(|fact| fact.origin.tu == tu && fact.spelling == *declaration)?;
-    if let FactData::Typedef { target } = &fact.data {
-        declaration_kind(target, tu, facts_index, seen)
-    } else {
-        Some(fact.kind)
-    }
-}
-
-fn is_tag_declaration(fact: &Fact) -> bool {
-    matches!(
-        fact.data,
-        FactData::Enum { .. } | FactData::Record { .. } | FactData::Interface { .. }
-    )
-}
-
-fn incomplete_declaration_matches_definition(declaration: &Fact, definition: &Fact) -> bool {
-    !declaration.definition
-        && declaration.kind == definition.kind
-        && is_tag_declaration(declaration)
-        && is_tag_declaration(definition)
-}
-
-#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-struct TypeShape(u64, u64);
-
-#[derive(Default)]
-struct ShapeCache {
-    declarations: HashMap<String, HashMap<Location, TypeShape>>,
-    recursive: HashMap<String, HashMap<Location, HashMap<TypeShape, TypeShape>>>,
-}
-
-impl ShapeCache {
-    fn declaration(&self, tu: &str, declaration: &Location) -> Option<TypeShape> {
-        self.declarations.get(tu)?.get(declaration).copied()
-    }
-
-    fn insert_declaration(&mut self, tu: &str, declaration: &Location, shape: TypeShape) {
-        self.declarations
-            .entry(tu.to_string())
-            .or_default()
-            .insert(declaration.clone(), shape);
-    }
-
-    fn is_recursive(&self, tu: &str, declaration: &Location) -> bool {
-        self.recursive
-            .get(tu)
-            .is_some_and(|declarations| declarations.contains_key(declaration))
-    }
-
-    fn recursive(&self, tu: &str, declaration: &Location, context: TypeShape) -> Option<TypeShape> {
-        self.recursive
-            .get(tu)?
-            .get(declaration)?
-            .get(&context)
-            .copied()
-    }
-
-    fn insert_recursive(
-        &mut self,
-        tu: &str,
-        declaration: &Location,
-        context: TypeShape,
-        shape: TypeShape,
-    ) {
-        self.recursive
-            .entry(tu.to_string())
-            .or_default()
-            .entry(declaration.clone())
-            .or_default()
-            .insert(context, shape);
-    }
-}
-
-fn type_shape(value: &str) -> TypeShape {
-    use std::hash::{Hash, Hasher};
-
-    // Recursive declarations share compact fingerprints instead of expanded shape strings.
-    let mut first = std::collections::hash_map::DefaultHasher::new();
-    value.hash(&mut first);
-
-    let mut second = 0x9e3779b97f4a7c15u64;
-    for byte in value.bytes() {
-        second ^= u64::from(byte);
-        second = second.wrapping_mul(0x100000001b3);
-        second ^= second >> 32;
-    }
-    TypeShape(first.finish(), second)
-}
-
-fn recursion_shape(seen: &BTreeSet<Location>) -> TypeShape {
-    use std::hash::{Hash, Hasher};
-
-    let mut first = std::collections::hash_map::DefaultHasher::new();
-    seen.hash(&mut first);
-
-    let mut second = std::collections::hash_map::DefaultHasher::new();
-    1u8.hash(&mut second);
-    seen.hash(&mut second);
-
-    TypeShape(first.finish(), second.finish())
-}
-
-fn preferred_fact<'a>(facts: &[&'a Fact]) -> &'a Fact {
-    facts
-        .iter()
-        .copied()
-        .min_by_key(|fact| (!fact.root, &fact.origin))
-        .unwrap()
-}
-
-fn choose_value_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Error> {
-    let distinct = distinct_source_declarations(roots);
-    let Some(first) = distinct.first() else {
-        return Err(Error(format!("missing value root `{name}`")));
-    };
-    if distinct.iter().all(|fact| fact.data == first.data) {
-        Ok(preferred_fact(&distinct))
-    } else {
-        Err(Error(format!("ambiguous value root `{name}`")))
-    }
-}
-
-fn types_alias_value_class(name: &str, types: &[&Fact], values: &[&Fact]) -> bool {
-    types.iter().all(|fact| {
-        values
-            .iter()
-            .copied()
-            .filter(|value| matches!(value.data, FactData::Class { .. }))
-            .any(|value| {
-                fact.origin == value.origin
-                    || (fact.origin.tu == value.origin.tu
-                        && fact.parent == value.parent
-                        && matches!(
-                            &fact.data,
-                            FactData::Typedef {
-                                target: TypeRef::Named { name: target, .. }
-                            } if target == name
-                        ))
-            })
-    })
-}
-
-fn choose_type_root<'a>(
-    name: &str,
-    roots: &[&'a Fact],
-    facts_index: &HashMap<&str, Vec<&'a Fact>>,
-) -> Result<&'a Fact, Error> {
-    choose_type_root_cached(name, roots, facts_index, &mut ShapeCache::default())
-}
-
-fn choose_type_root_cached<'a>(
-    name: &str,
-    roots: &[&'a Fact],
-    facts_index: &HashMap<&str, Vec<&'a Fact>>,
-    shape_cache: &mut ShapeCache,
-) -> Result<&'a Fact, Error> {
-    let distinct = distinct_source_declarations(roots);
-    if let [root] = distinct.as_slice() {
-        return emittable_type(name, root);
-    }
-    if let Some(first) = distinct.first()
-        && distinct.iter().all(|fact| {
-            fact.origin.tu == first.origin.tu
-                && fact.kind == first.kind
-                && fact.definition == first.definition
-                && fact.data == first.data
-        })
-    {
-        return emittable_type(name, preferred_fact(&distinct));
-    }
-    if let Some(target_name) = distinct.first().and_then(|first| match &first.data {
-        FactData::Typedef {
-            target: TypeRef::Named { name, .. },
-        } => Some(name),
-        _ => None,
-    }) && distinct.iter().all(|fact| {
-        matches!(
-            &fact.data,
-            FactData::Typedef {
-                target: TypeRef::Named { name, .. }
-            } if name == target_name
-        )
-    }) {
-        let complete: Vec<_> = distinct
-            .iter()
-            .copied()
-            .filter(|fact| {
-                let FactData::Typedef {
-                    target: TypeRef::Named { name, declaration },
-                } = &fact.data
-                else {
-                    return false;
-                };
-                facts_index
-                    .get(name.as_str())
-                    .into_iter()
-                    .flatten()
-                    .any(|target| {
-                        target.origin.tu == fact.origin.tu
-                            && target.spelling == *declaration
-                            && target.definition
-                            && matches!(
-                                target.data,
-                                FactData::Enum { .. }
-                                    | FactData::Record { .. }
-                                    | FactData::Interface { .. }
-                            )
-                    })
-            })
-            .collect();
-        if let [complete] = complete.as_slice() {
-            let FactData::Typedef {
-                target: complete_target,
-            } = &complete.data
-            else {
-                unreachable!()
-            };
-            let complete_kind = declaration_kind(
-                complete_target,
-                &complete.origin.tu,
-                facts_index,
-                &mut BTreeSet::new(),
-            );
-            if complete_kind.is_some()
-                && distinct.iter().all(|fact| {
-                    let FactData::Typedef { target } = &fact.data else {
-                        return false;
-                    };
-                    declaration_kind(target, &fact.origin.tu, facts_index, &mut BTreeSet::new())
-                        == complete_kind
-                })
-            {
-                return emittable_type(name, complete);
-            }
-        }
-    }
-    if let Some(first) = distinct.first()
-        && let FactData::Typedef {
-            target: first_target,
-        } = &first.data
-        && distinct.iter().all(|fact| {
-            ((fact.origin.tu == first.origin.tu && fact.parent == first.parent)
-                || (fact.parent.is_none() && first.parent.is_none()))
-                && matches!(
-                    &fact.data,
-                    FactData::Typedef { target }
-                        if equivalent_type(
-                            first_target,
-                            &first.origin.tu,
-                            target,
-                            &fact.origin.tu,
-                            facts_index,
-                            shape_cache,
-                        )
-                )
-        })
-    {
-        return emittable_type(name, preferred_fact(&distinct));
-    }
-
-    fn resolved_type_shape(
-        ty: &TypeRef,
-        tu: &str,
-        facts_index: &HashMap<&str, Vec<&Fact>>,
-        shape_cache: &mut ShapeCache,
-    ) -> TypeShape {
-        fn write(
-            ty: &TypeRef,
-            tu: &str,
-            facts_index: &HashMap<&str, Vec<&Fact>>,
-            seen: &mut BTreeSet<Location>,
-            cache: &mut ShapeCache,
-            cycle: &mut bool,
-        ) -> TypeShape {
-            match ty {
-                TypeRef::Named { name, declaration } => {
-                    if let Some(shape) = cache.declaration(tu, declaration) {
-                        return shape;
-                    }
-                    if cache.is_recursive(tu, declaration) {
-                        let context = recursion_shape(seen);
-                        if let Some(shape) = cache.recursive(tu, declaration, context) {
-                            *cycle = true;
-                            return shape;
-                        }
-                    }
-                    if !seen.insert(declaration.clone()) {
-                        *cycle = true;
-                        return type_shape(&format!(
-                            "named:{}",
-                            named_type_shape(name).unwrap_or(name)
-                        ));
-                    }
-                    let mut nested_cycle = false;
-                    if let Some(target) = facts_index
-                        .get(name.as_str())
-                        .into_iter()
-                        .flatten()
-                        .find(|fact| fact.origin.tu == tu && fact.spelling == *declaration)
-                    {
-                        let result = match &target.data {
-                            FactData::Typedef { target } => Some(write(
-                                target,
-                                tu,
-                                facts_index,
-                                seen,
-                                cache,
-                                &mut nested_cycle,
-                            )),
-                            FactData::Record {
-                                base,
-                                fields,
-                                size,
-                                align,
-                                packing,
-                                alignment,
-                                union,
-                            } => {
-                                let base = base.as_ref().map(|base| {
-                                    write(base, tu, facts_index, seen, cache, &mut nested_cycle)
-                                });
-                                let fields = fields
-                                    .iter()
-                                    .map(|field| {
-                                        format!(
-                                            "{}:{}:{}:{}:{:?}:{:?}",
-                                            field.name,
-                                            field.offset,
-                                            field.align,
-                                            field.size,
-                                            field.bit_width,
-                                            write(
-                                                &field.ty,
-                                                tu,
-                                                facts_index,
-                                                seen,
-                                                cache,
-                                                &mut nested_cycle,
-                                            )
-                                        )
-                                    })
-                                    .collect::<Vec<_>>()
-                                    .join(",");
-                                Some(type_shape(&format!(
-                                    "record:{base:?}:{size}:{align}:{packing:?}:{alignment:?}:{union}:{fields}"
-                                )))
-                            }
-                            FactData::Enum {
-                                repr,
-                                variants,
-                                fixed,
-                                scoped,
-                                flags,
-                            } => Some(type_shape(&format!(
-                                "enum:{repr:?}:{variants:?}:{fixed}:{scoped}:{flags}"
-                            ))),
-                            FactData::Callback {
-                                convention,
-                                params,
-                                result,
-                            } => {
-                                let params = params
-                                    .iter()
-                                    .map(|param| {
-                                        format!(
-                                            "{}:{:?}:{:?}",
-                                            param.name,
-                                            write(
-                                                &param.ty,
-                                                tu,
-                                                facts_index,
-                                                seen,
-                                                cache,
-                                                &mut nested_cycle,
-                                            ),
-                                            param.annotation
-                                        )
-                                    })
-                                    .collect::<Vec<_>>()
-                                    .join(",");
-                                Some(type_shape(&format!(
-                                    "callback:{convention:?}:({params}):{:?}",
-                                    write(result, tu, facts_index, seen, cache, &mut nested_cycle,)
-                                )))
-                            }
-                            FactData::Interface {
-                                base,
-                                guid,
-                                methods,
-                            } => {
-                                let base = base.as_ref().map(|base| {
-                                    write(base, tu, facts_index, seen, cache, &mut nested_cycle)
-                                });
-                                let methods = methods
-                                    .iter()
-                                    .map(|method| {
-                                        let params = method
-                                            .params
-                                            .iter()
-                                            .map(|param| {
-                                                format!(
-                                                    "{}:{:?}:{:?}",
-                                                    param.name,
-                                                    write(
-                                                        &param.ty,
-                                                        tu,
-                                                        facts_index,
-                                                        seen,
-                                                        cache,
-                                                        &mut nested_cycle,
-                                                    ),
-                                                    param.annotation
-                                                )
-                                            })
-                                            .collect::<Vec<_>>()
-                                            .join(",");
-                                        format!(
-                                            "{}:({params}):{:?}:{}",
-                                            method.name,
-                                            write(
-                                                &method.result,
-                                                tu,
-                                                facts_index,
-                                                seen,
-                                                cache,
-                                                &mut nested_cycle,
-                                            ),
-                                            method.special
-                                        )
-                                    })
-                                    .collect::<Vec<_>>()
-                                    .join(",");
-                                Some(type_shape(&format!(
-                                    "interface:{base:?}:{guid:?}:{methods}"
-                                )))
-                            }
-                            _ => None,
-                        };
-                        seen.remove(declaration);
-                        *cycle |= nested_cycle;
-                        if let Some(result) = result {
-                            if !nested_cycle {
-                                cache.insert_declaration(tu, declaration, result);
-                            } else {
-                                cache.insert_recursive(
-                                    tu,
-                                    declaration,
-                                    recursion_shape(seen),
-                                    result,
-                                );
-                            }
-                            return result;
-                        }
-                    }
-                    seen.remove(declaration);
-                    type_shape(&format!("named:{}", named_type_shape(name).unwrap_or(name)))
-                }
-                TypeRef::Pointer { mutable, target } => type_shape(&format!(
-                    "pointer:{mutable}:{:?}",
-                    write(target, tu, facts_index, seen, cache, cycle)
-                )),
-                TypeRef::Reference { mutable, target } => type_shape(&format!(
-                    "reference:{mutable}:{:?}",
-                    write(target, tu, facts_index, seen, cache, cycle)
-                )),
-                TypeRef::FunctionPointer {
-                    convention,
-                    params,
-                    result,
-                } => type_shape(&format!(
-                    "function:{convention:?}:({:?}):{:?}",
-                    params
-                        .iter()
-                        .map(|param| { write(param, tu, facts_index, seen, cache, cycle) })
-                        .collect::<Vec<_>>(),
-                    write(result, tu, facts_index, seen, cache, cycle)
-                )),
-                TypeRef::OpaquePointer { mutable, tag } => {
-                    type_shape(&format!("opaque:{mutable}:{tag}"))
-                }
-                TypeRef::Array { target, len } => type_shape(&format!(
-                    "array:{len}:{:?}",
-                    write(target, tu, facts_index, seen, cache, cycle)
-                )),
-                TypeRef::Generic { name, args, .. } => type_shape(&format!(
-                    "generic:{name}:{:?}",
-                    args.iter()
-                        .map(|arg| { write(arg, tu, facts_index, seen, cache, cycle) })
-                        .collect::<Vec<_>>()
-                )),
-                TypeRef::InlineRecord(record) => type_shape(&format!("record:{record:?}")),
-                other => type_shape(&format!("{other:?}")),
-            }
-        }
-
-        write(
-            ty,
-            tu,
-            facts_index,
-            &mut BTreeSet::new(),
-            shape_cache,
-            &mut false,
-        )
-    }
-
-    fn equivalent_type(
-        left: &TypeRef,
-        left_tu: &str,
-        right: &TypeRef,
-        right_tu: &str,
-        facts_index: &HashMap<&str, Vec<&Fact>>,
-        shape_cache: &mut ShapeCache,
-    ) -> bool {
-        fn incomplete(
-            ty: &TypeRef,
-            tu: &str,
-            facts_index: &HashMap<&str, Vec<&Fact>>,
-            seen: &mut BTreeSet<Location>,
-        ) -> bool {
-            let TypeRef::Named { name, declaration } = ty else {
-                return false;
-            };
-            if !seen.insert(declaration.clone()) {
-                return true;
-            }
-            let Some(fact) = facts_index
-                .get(name.as_str())
-                .into_iter()
-                .flatten()
-                .find(|fact| fact.origin.tu == tu && fact.spelling == *declaration)
-            else {
-                return true;
-            };
-            match &fact.data {
-                FactData::Typedef { target } => incomplete(target, tu, facts_index, seen),
-                FactData::Record { .. } | FactData::Interface { .. } => !fact.definition,
-                FactData::Enum { fixed, .. } => !fact.definition && !fixed,
-                _ => false,
-            }
-        }
-
-        fn matching_incomplete_declaration_kind(
-            left: &TypeRef,
-            left_tu: &str,
-            right: &TypeRef,
-            right_tu: &str,
-            facts_index: &HashMap<&str, Vec<&Fact>>,
-        ) -> bool {
-            if !incomplete(left, left_tu, facts_index, &mut BTreeSet::new())
-                && !incomplete(right, right_tu, facts_index, &mut BTreeSet::new())
-            {
-                return false;
-            }
-            let left_kind = declaration_kind(left, left_tu, facts_index, &mut BTreeSet::new());
-            left_kind.is_some()
-                && left_kind == declaration_kind(right, right_tu, facts_index, &mut BTreeSet::new())
-        }
-
-        match (left, right) {
-            (
-                TypeRef::Named {
-                    name: left_name, ..
-                },
-                TypeRef::Named {
-                    name: right_name, ..
-                },
-            ) if left_name == right_name
-                && matching_incomplete_declaration_kind(
-                    left,
-                    left_tu,
-                    right,
-                    right_tu,
-                    facts_index,
-                ) =>
-            {
-                true
-            }
-            (
-                TypeRef::Pointer {
-                    mutable: left_mutable,
-                    target: left_target,
-                },
-                TypeRef::Pointer {
-                    mutable: right_mutable,
-                    target: right_target,
-                },
-            )
-            | (
-                TypeRef::Reference {
-                    mutable: left_mutable,
-                    target: left_target,
-                },
-                TypeRef::Reference {
-                    mutable: right_mutable,
-                    target: right_target,
-                },
-            ) => {
-                left_mutable == right_mutable
-                    && equivalent_type(
-                        left_target,
-                        left_tu,
-                        right_target,
-                        right_tu,
-                        facts_index,
-                        shape_cache,
-                    )
-            }
-            (
-                TypeRef::Array {
-                    target: left_target,
-                    len: left_len,
-                },
-                TypeRef::Array {
-                    target: right_target,
-                    len: right_len,
-                },
-            ) => {
-                left_len == right_len
-                    && equivalent_type(
-                        left_target,
-                        left_tu,
-                        right_target,
-                        right_tu,
-                        facts_index,
-                        shape_cache,
-                    )
-            }
-            _ => {
-                resolved_type_shape(left, left_tu, facts_index, shape_cache)
-                    == resolved_type_shape(right, right_tu, facts_index, shape_cache)
-            }
-        }
-    }
-
-    fn equivalent_record(
-        left: &Fact,
-        right: &Fact,
-        facts_index: &HashMap<&str, Vec<&Fact>>,
-        shape_cache: &mut ShapeCache,
-    ) -> bool {
-        let (
-            FactData::Record {
-                base: left_base,
-                fields: left_fields,
-                size: left_size,
-                align: left_align,
-                packing: left_packing,
-                alignment: left_alignment,
-                union: left_union,
-            },
-            FactData::Record {
-                base: right_base,
-                fields: right_fields,
-                size: right_size,
-                align: right_align,
-                packing: right_packing,
-                alignment: right_alignment,
-                union: right_union,
-            },
-        ) = (&left.data, &right.data)
-        else {
-            return false;
-        };
-        left_size == right_size
-            && left_align == right_align
-            && left_packing == right_packing
-            && left_alignment == right_alignment
-            && left_union == right_union
-            && match (left_base, right_base) {
-                (None, None) => true,
-                (Some(left_base), Some(right_base)) => equivalent_type(
-                    left_base,
-                    &left.origin.tu,
-                    right_base,
-                    &right.origin.tu,
-                    facts_index,
-                    shape_cache,
-                ),
-                _ => false,
-            }
-            && left_fields.len() == right_fields.len()
-            && left_fields
-                .iter()
-                .zip(right_fields)
-                .all(|(left_field, right_field)| {
-                    left_field.name == right_field.name
-                        && left_field.offset == right_field.offset
-                        && left_field.align == right_field.align
-                        && left_field.size == right_field.size
-                        && left_field.bit_width == right_field.bit_width
-                        && equivalent_type(
-                            &left_field.ty,
-                            &left.origin.tu,
-                            &right_field.ty,
-                            &right.origin.tu,
-                            facts_index,
-                            shape_cache,
-                        )
-                })
-    }
-
-    fn equivalent_interface(
-        left: &Fact,
-        right: &Fact,
-        facts_index: &HashMap<&str, Vec<&Fact>>,
-        shape_cache: &mut ShapeCache,
-    ) -> bool {
-        let (
-            FactData::Interface {
-                base: left_base,
-                guid: left_guid,
-                methods: left_methods,
-            },
-            FactData::Interface {
-                base: right_base,
-                guid: right_guid,
-                methods: right_methods,
-            },
-        ) = (&left.data, &right.data)
-        else {
-            return false;
-        };
-        let mut equivalent = |left_ty: &TypeRef, right_ty: &TypeRef| {
-            equivalent_type(
-                left_ty,
-                &left.origin.tu,
-                right_ty,
-                &right.origin.tu,
-                facts_index,
-                shape_cache,
-            )
-        };
-        // Only copies of one declaration merge, matching the interface names used for projection.
-        left.spelling == right.spelling
-            && left_guid == right_guid
-            && match (left_base, right_base) {
-                (None, None) => true,
-                (Some(left_base), Some(right_base)) => equivalent(left_base, right_base),
-                _ => false,
-            }
-            && left_methods.len() == right_methods.len()
-            && left_methods
-                .iter()
-                .zip(right_methods)
-                .all(|(left_method, right_method)| {
-                    left_method.name == right_method.name
-                        && left_method.special == right_method.special
-                        && left_method.params.len() == right_method.params.len()
-                        && equivalent(&left_method.result, &right_method.result)
-                        && left_method.params.iter().zip(&right_method.params).all(
-                            |(left_param, right_param)| {
-                                left_param.name == right_param.name
-                                    && left_param.annotation == right_param.annotation
-                                    && equivalent(&left_param.ty, &right_param.ty)
-                            },
-                        )
-                })
-    }
-
-    let declarations: Vec<_> = distinct
-        .iter()
-        .copied()
-        .filter(|fact| {
-            matches!(
-                fact.data,
-                FactData::Enum { .. } | FactData::Record { .. } | FactData::Interface { .. }
-            )
-        })
-        .collect();
-    if let Some(first) = declarations.first()
-        && !first.definition
-        && declarations.iter().all(|fact| {
-            !fact.definition
-                && fact.kind == first.kind
-                && fact.data == first.data
-                && (fact.origin.tu == first.origin.tu || fact.spelling == first.spelling)
-        })
-        && distinct.iter().all(|fact| {
-            declarations.contains(fact)
-                || matches!(
-                    &fact.data,
-                    FactData::Typedef {
-                        target: TypeRef::Named { declaration, .. }
-                    } if declarations.iter().any(|target| {
-                        target.origin.tu == fact.origin.tu && target.spelling == *declaration
-                    })
-                )
-        })
-    {
-        return emittable_type(name, preferred_fact(&declarations));
-    }
-
-    let definitions: Vec<_> = distinct
-        .iter()
-        .copied()
-        .filter(|fact| {
-            matches!(
-                fact.data,
-                FactData::Enum { .. } | FactData::Record { .. } | FactData::Interface { .. }
-            ) && fact.definition
-        })
-        .collect();
-    if definitions.len() > 1 {
-        let root = preferred_fact(&definitions);
-        let equivalent_definitions = definitions.iter().all(|fact| {
-            fact.kind == root.kind
-                && ((fact.origin.tu == root.origin.tu && fact.data == root.data)
-                    || equivalent_record(root, fact, facts_index, shape_cache)
-                    || equivalent_interface(root, fact, facts_index, shape_cache))
-        });
-        let definitions_and_aliases = distinct.iter().all(|fact| {
-            definitions.contains(fact)
-                || matches!(
-                    &fact.data,
-                    FactData::Typedef {
-                        target: TypeRef::Named { declaration, .. }
-                    } if definitions.iter().any(|definition| definition.spelling == *declaration)
-                )
-        });
-        if equivalent_definitions && definitions_and_aliases {
-            return Ok(root);
-        }
-    }
-    if let [root] = definitions.as_slice() {
-        let aliases_target_root = distinct.iter().all(|fact| {
-            fact.origin == root.origin
-                || matches!(
-                    &fact.data,
-                    FactData::Typedef {
-                        target: TypeRef::Named { declaration, .. }
-                    } if declaration == &root.spelling
-                )
-        });
-        if aliases_target_root {
-            return Ok(root);
-        }
-        let compatible_declarations_and_aliases = distinct.iter().all(|fact| {
-            let linked_nested_declaration = root.parent.is_some()
-                && fact.parent.is_none()
-                && facts_index.values().flatten().any(|alias| {
-                    alias.root
-                        && alias.origin.tu == fact.origin.tu
-                        && matches!(
-                            &alias.data,
-                            FactData::Typedef {
-                                target: TypeRef::Named { declaration, .. }
-                            } if declaration == &fact.spelling
-                        )
-                });
-            fact.origin == root.origin
-                || (incomplete_declaration_matches_definition(fact, root)
-                    && ((fact.parent.is_none() && root.parent.is_none())
-                        || (fact.origin.tu == root.origin.tu
-                            && (fact.parent == root.parent || linked_nested_declaration))))
-                || matches!(
-                    &fact.data,
-                    FactData::Typedef {
-                        target: TypeRef::Named { declaration, .. }
-                    } if facts_index
-                        .get(name)
-                        .into_iter()
-                        .flatten()
-                        .any(|target| {
-                            target.origin.tu == fact.origin.tu
-                                && target.spelling == *declaration
-                                && target.kind == root.kind
-                                && (target.origin == root.origin || !target.definition)
-                                && target.parent.is_none()
-                                && root.parent.is_none()
-                        })
-                )
-        });
-        if compatible_declarations_and_aliases {
-            return Ok(root);
-        }
-    }
-    let choices = distinct
-        .iter()
-        .map(|fact| {
-            format!(
-                "{}:{} {:?}/{} {}",
-                fact.spelling.file,
-                fact.spelling.offset,
-                fact.kind,
-                fact_data_kind(&fact.data),
-                if fact.definition {
-                    "definition"
-                } else {
-                    "declaration"
-                }
-            )
-        })
-        .collect::<Vec<_>>()
-        .join("; ");
-    Err(Error(format!("ambiguous type root `{name}`: {choices}")))
-}
-
-fn choose_constant_root<'a>(name: &str, roots: &[&'a Constant]) -> Result<&'a Constant, Error> {
-    let Some(first) = roots.first() else {
-        return Err(Error(format!("missing constant root `{name}`")));
-    };
-    if roots.iter().all(|constant| {
-        constant_types_match(&constant.ty, &first.ty) && constant.value == first.value
-    }) {
-        Ok(roots
-            .iter()
-            .min_by_key(|constant| &constant.spelling)
-            .copied()
-            .unwrap())
-    } else {
-        Err(Error(format!("ambiguous constant root `{name}`")))
-    }
-}
-
-fn constant_types_match(left: &TypeRef, right: &TypeRef) -> bool {
-    left == right
-        || matches!(
-            (left, right),
-            (
-                TypeRef::Named {
-                    name: left_name, ..
-                },
-                TypeRef::Named {
-                    name: right_name, ..
-                },
-            ) if named_type_shape(left_name) == named_type_shape(right_name)
-                && named_type_shape(left_name).is_some()
-        )
-}
-
-fn choose_function_root<'a>(
-    name: &str,
-    roots: &[&'a Fact],
-    declarations: &BTreeMap<Origin, extract::FunctionDeclaration>,
-) -> Result<&'a Fact, Error> {
-    let distinct = if let Some(first) = roots.first()
-        && roots.iter().all(|fact| fact.origin.tu == first.origin.tu)
-    {
-        roots.to_vec()
-    } else {
-        distinct_source_declarations(roots)
-    };
-    if let [root] = distinct.as_slice() {
-        return Ok(root);
-    }
-    if let Some(first) = distinct.first()
-        && let FactData::Function {
-            link_name: first_link_name,
-            ..
-        } = &first.data
-        && distinct.iter().all(|fact| {
-            fact.origin.tu == first.origin.tu
-                && declarations[&first.origin].same_entity(&declarations[&fact.origin])
-                && matches!(
-                    &fact.data,
-                    FactData::Function { link_name, .. } if link_name == first_link_name
-                )
-        })
-    {
-        return Ok(distinct
-            .iter()
-            .min_by_key(|fact| &fact.spelling)
-            .copied()
-            .unwrap());
-    }
-    let choices = distinct
-        .iter()
-        .map(|fact| {
-            format!(
-                "{}:{} {:?}",
-                fact.expansion.file, fact.expansion.offset, fact.data
-            )
-        })
-        .collect::<Vec<_>>()
-        .join("; ");
-    Err(Error(format!(
-        "ambiguous function root `{name}`: {choices}"
-    )))
-}
-
-fn distinct_source_declarations<'a>(roots: &[&'a Fact]) -> Vec<&'a Fact> {
-    let mut distinct: Vec<&Fact> = vec![];
-    for &root in roots {
-        if !distinct
-            .iter()
-            .any(|existing| same_source_declaration(existing, root))
-        {
-            distinct.push(root);
-        }
-    }
-    distinct
-}
-
-fn same_source_declaration(left: &Fact, right: &Fact) -> bool {
-    left.kind == right.kind
-        && left.name == right.name
-        && left.spelling == right.spelling
-        && left.definition == right.definition
-        && left.data == right.data
-}
-
-fn emittable_type<'a>(name: &str, fact: &'a Fact) -> Result<&'a Fact, Error> {
-    match fact.data {
-        FactData::Callback { .. } | FactData::Typedef { .. } if fact.definition => Ok(fact),
-        FactData::Enum { fixed, .. } if fact.definition || fixed => Ok(fact),
-        FactData::Class { .. }
-        | FactData::Guid { .. }
-        | FactData::PropertyKey { .. }
-        | FactData::Record { .. }
-        | FactData::Interface { .. } => Ok(fact),
-        _ => Err(Error(format!("type root `{name}` is not emittable"))),
-    }
-}
-
-fn underlying_enum_fact<'a>(
-    fact: &'a Fact,
-    facts_by_declaration: &BTreeMap<(String, Location), &'a Fact>,
-    seen: &mut BTreeSet<(String, Location)>,
-) -> Option<&'a Fact> {
-    match &fact.data {
-        FactData::Enum { .. } => Some(fact),
-        FactData::Typedef {
-            target: TypeRef::Named { declaration, .. },
-        } => {
-            let key = (fact.origin.tu.clone(), declaration.clone());
-            if !seen.insert(key.clone()) {
-                return None;
-            }
-            underlying_enum_fact(*facts_by_declaration.get(&key)?, facts_by_declaration, seen)
-        }
-        _ => None,
-    }
-}
-
-struct LayoutContext<'a, 'facts> {
-    facts_index: &'a HashMap<&'facts str, Vec<&'facts Fact>>,
-    planned_types: &'a BTreeMap<&'facts str, &'facts Fact>,
-}
-
-fn validate_fact_layouts(
-    fact: &Fact,
-    layout: &LayoutContext<'_, '_>,
-    safe_layouts: &mut HashMap<String, HashSet<Location>>,
-    validated: &mut HashSet<Origin>,
-) -> Result<(), Error> {
-    let mut validate = |ty| {
-        validate_complete_layout(
-            ty,
-            &fact.origin.tu,
-            layout,
-            safe_layouts,
-            &mut BTreeSet::new(),
-            validated,
-        )
-    };
-    match &fact.data {
-        FactData::Callback { params, result, .. } | FactData::Function { params, result, .. } => {
-            validate(result)?;
-            for param in params {
-                validate(&param.ty)?;
-            }
-        }
-        FactData::Record { base, fields, .. } => {
-            if let Some(base) = base {
-                validate(base)?;
-            }
-            for field in fields {
-                validate(&field.ty)?;
-            }
-        }
-        FactData::Interface { base, methods, .. } => {
-            if let Some(base) = base {
-                validate(base)?;
-            }
-            for method in methods {
-                validate(&method.result)?;
-                for param in &method.params {
-                    validate(&param.ty)?;
-                }
-            }
-        }
-        _ => {}
-    }
-    Ok(())
-}
-
-fn known_complete_layout(
-    ty: &TypeRef,
-    tu: &str,
-    safe_layouts: &HashMap<String, HashSet<Location>>,
-    references: &BTreeMap<String, TypeReference>,
-) -> bool {
-    match ty {
-        TypeRef::Pointer { .. }
-        | TypeRef::Reference { .. }
-        | TypeRef::FunctionPointer { .. }
-        | TypeRef::OpaquePointer { .. }
-        | TypeRef::Void
-        | TypeRef::String
-        | TypeRef::Object
-        | TypeRef::Scalar(_)
-        | TypeRef::Generic { .. } => true,
-        TypeRef::Array { target, .. } => {
-            known_complete_layout(target, tu, safe_layouts, references)
-        }
-        TypeRef::InlineRecord(record) => {
-            record
-                .base
-                .as_ref()
-                .is_none_or(|base| known_complete_layout(base, tu, safe_layouts, references))
-                && record
-                    .fields
+    pub fn statistics(&self) -> Statistics {
+        fn vector_bytes<T>(values: &Vec<T>) -> usize {
+            values.capacity() * size_of::<T>()
+        }
+        fn strings_bytes(values: &Vec<String>) -> usize {
+            vector_bytes(values) + values.iter().map(String::capacity).sum::<usize>()
+        }
+        fn attributes_bytes(values: &Vec<Attribute>) -> usize {
+            vector_bytes(values)
+                + values
                     .iter()
-                    .all(|field| known_complete_layout(&field.ty, tu, safe_layouts, references))
+                    .map(|value| match &value.kind {
+                        AttributeKind::Packed
+                        | AttributeKind::FlagEnum
+                        | AttributeKind::DefaultTypeVisibility
+                        | AttributeKind::NoTrivialAutoVarInit
+                        | AttributeKind::MSAllocator
+                        | AttributeKind::Uuid(_)
+                        | AttributeKind::NoVTable
+                        | AttributeKind::DllImport
+                        | AttributeKind::DllExport
+                        | AttributeKind::NoThrow
+                        | AttributeKind::Cxx11NoReturn
+                        | AttributeKind::SelectAny
+                        | AttributeKind::MaxFieldAlignment { .. }
+                        | AttributeKind::Aligned { .. } => 0,
+                        AttributeKind::Unresolved(kind) => kind.capacity(),
+                        AttributeKind::Sal(value) => {
+                            size_of::<SalAnnotation>()
+                                + value.version.capacity()
+                                + value.name.capacity()
+                                + value.arguments.capacity()
+                                + value.expanded.capacity()
+                        }
+                        AttributeKind::Deprecated(value) => {
+                            size_of::<Deprecation>()
+                                + value.message.capacity()
+                                + value.replacement.capacity()
+                        }
+                    })
+                    .sum::<usize>()
         }
-        TypeRef::Named { name, declaration } => {
-            references.contains_key(name)
-                || safe_layouts
-                    .get(tu)
-                    .is_some_and(|safe| safe.contains(declaration))
+        fn parameters_bytes(parameters: &Vec<Parameter>) -> usize {
+            vector_bytes(parameters)
+                + parameters
+                    .iter()
+                    .map(|parameter| {
+                        parameter.name.capacity()
+                            + attributes_bytes(&parameter.attributes)
+                            + vector_bytes(&parameter.comments)
+                            + parameter
+                                .comments
+                                .iter()
+                                .map(|value| value.text.capacity())
+                                .sum::<usize>()
+                            + parameter
+                                .default
+                                .as_ref()
+                                .map_or(0, |value| value.expression.capacity())
+                    })
+                    .sum::<usize>()
         }
-    }
-}
-
-fn validate_complete_layout(
-    ty: &TypeRef,
-    tu: &str,
-    layout: &LayoutContext<'_, '_>,
-    safe_layouts: &mut HashMap<String, HashSet<Location>>,
-    seen: &mut BTreeSet<(String, Location)>,
-    validated: &mut HashSet<Origin>,
-) -> Result<(), Error> {
-    match ty {
-        TypeRef::Pointer { .. }
-        | TypeRef::Reference { .. }
-        | TypeRef::FunctionPointer { .. }
-        | TypeRef::OpaquePointer { .. }
-        | TypeRef::Void
-        | TypeRef::String
-        | TypeRef::Object
-        | TypeRef::Scalar(_)
-        | TypeRef::Generic { .. } => Ok(()),
-        TypeRef::Array { target, .. } => {
-            validate_complete_layout(target, tu, layout, safe_layouts, seen, validated)
+        fn value_bytes(value: &ValueObservation) -> usize {
+            attributes_bytes(&value.attributes)
+                + match &value.kind {
+                    ValueKind::Function {
+                        alias,
+                        parameters,
+                        mangling,
+                        stdcall_candidate,
+                        ..
+                    } => {
+                        mangling.capacity()
+                            + alias.as_ref().map_or(0, |alias| {
+                                size_of::<FunctionAlias>()
+                                    + alias.name.capacity()
+                                    + alias.usr.capacity()
+                            })
+                            + parameters_bytes(parameters)
+                            + stdcall_candidate.as_ref().map_or(0, |candidate| {
+                                size_of::<FunctionCandidate>() + candidate.mangling.capacity()
+                            })
+                    }
+                    ValueKind::Constant { value, linkage, .. } => {
+                        let text = match value {
+                            Some(ConstantValue::String { value, .. }) => value.capacity(),
+                            _ => 0,
+                        };
+                        text + match linkage {
+                            ConstantLinkage::Internal => 0,
+                            ConstantLinkage::External { mangling, .. } => mangling.capacity(),
+                        }
+                    }
+                }
         }
-        TypeRef::InlineRecord(record) => {
-            if let Some(base) = &record.base {
-                validate_complete_layout(base, tu, layout, safe_layouts, seen, validated)?;
-            }
-            for field in &record.fields {
-                validate_complete_layout(&field.ty, tu, layout, safe_layouts, seen, validated)?;
-            }
-            Ok(())
-        }
-        TypeRef::Named { name, declaration } => {
-            if safe_layouts
-                .get(tu)
-                .is_some_and(|safe| safe.contains(declaration))
-            {
-                return Ok(());
-            }
-            let matches: Vec<_> = layout
-                .facts_index
-                .get(name.as_str())
-                .into_iter()
-                .flatten()
-                .copied()
-                .filter(|fact| fact.origin.tu == tu && fact.spelling == *declaration)
-                .collect();
-            let fact = if matches
+        let mut fields = 0;
+        let mut owned_bytes = size_of::<Self>()
+            + self.input.capacity()
+            + self.compiler.capacity()
+            + strings_bytes(&self.arguments)
+            + strings_bytes(&self.diagnostics)
+            + vector_bytes(&self.roots)
+            + strings_bytes(&self.files)
+            + vector_bytes(&self.records)
+            + vector_bytes(&self.aliases)
+            + vector_bytes(&self.enums)
+            + vector_bytes(&self.values)
+            + vector_bytes(&self.inline_functions)
+            + self
+                .inline_functions
                 .iter()
-                .any(|fact| matches!(fact.data, FactData::Typedef { .. }))
-            {
-                choose_type_root(name, &matches, layout.facts_index)?
-            } else if let Some(fact) = layout.planned_types.get(name.as_str()).copied() {
-                fact
-            } else if !matches.is_empty() {
-                choose_type_root(name, &matches, layout.facts_index)?
-            } else {
-                return Ok(());
-            };
-            if validated.contains(&fact.origin) {
-                return Ok(());
-            }
-            if !seen.insert((fact.origin.tu.clone(), fact.spelling.clone())) {
-                return Ok(());
-            }
-            let result = match &fact.data {
-                FactData::Record { .. } if !fact.definition => Err(Error(format!(
-                    "incomplete record `{name}` is used by value in translation unit `{tu}`"
-                ))),
-                FactData::Typedef { target } => validate_complete_layout(
-                    target,
-                    &fact.origin.tu,
-                    layout,
-                    safe_layouts,
-                    seen,
-                    validated,
-                ),
-                _ => Ok(()),
-            };
-            if result.is_ok() {
-                validated.insert(fact.origin.clone());
-                safe_layouts
-                    .entry(tu.to_string())
-                    .or_default()
-                    .insert(declaration.clone());
-            }
-            result
-        }
-    }
-}
-
-#[derive(Clone, Copy, Eq, Ord, PartialEq, PartialOrd)]
-enum TypeEdge<'a> {
-    Type(&'a TypeRef),
-    Pointee(&'a TypeRef, bool),
-    Parameter(&'a Parameter),
-    Projected(&'static str),
-}
-
-#[derive(Clone, Copy)]
-enum TypeChoice<'a> {
-    Declared(&'a TypeRef),
-    Canonical(&'static str),
-}
-
-fn canonical_alias_depends_on(
-    canonical: &str,
-    tu: &str,
-    declaration: &Location,
-    facts_index: &HashMap<&str, Vec<&Fact>>,
-) -> bool {
-    let mut queue: Vec<_> = facts_index
-        .get(canonical)
-        .into_iter()
-        .flatten()
-        .filter(|fact| fact.origin.tu == tu)
-        .collect();
-    let mut seen = BTreeSet::new();
-    while let Some(fact) = queue.pop() {
-        if fact.spelling == *declaration {
-            return true;
-        }
-        if !seen.insert(&fact.spelling) {
-            continue;
-        }
-        let FactData::Typedef { target } = &fact.data else {
-            continue;
-        };
-        let mut target = target;
-        while let TypeRef::Pointer { target: inner, .. }
-        | TypeRef::Reference { target: inner, .. }
-        | TypeRef::Array { target: inner, .. } = target
-        {
-            target = inner;
-        }
-        if let TypeRef::Named { name, declaration } = target {
-            queue.extend(
-                facts_index
-                    .get(name.as_str())
-                    .into_iter()
-                    .flatten()
-                    .filter(|target| target.origin.tu == tu && target.spelling == *declaration),
-            );
-        }
-    }
-    false
-}
-
-impl<'a> TypeChoice<'a> {
-    fn edge(self) -> TypeEdge<'a> {
-        match self {
-            Self::Declared(ty) => TypeEdge::Type(ty),
-            Self::Canonical(name) => TypeEdge::Projected(name),
-        }
-    }
-}
-
-fn queue_type_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, TypeEdge<'a>)>) {
-    if let FactData::Typedef { target } = &fact.data {
-        queue.push((fact.origin.tu.as_str(), TypeEdge::Type(target)));
-    } else if let FactData::Callback { params, result, .. } = &fact.data {
-        queue.push((fact.origin.tu.as_str(), TypeEdge::Type(result)));
-        for param in params {
-            queue.push((fact.origin.tu.as_str(), TypeEdge::Parameter(param)));
-        }
-    } else if let FactData::PropertyKey { ty, .. } = &fact.data {
-        queue.push((fact.origin.tu.as_str(), TypeEdge::Projected(ty)));
-    } else if let FactData::Record { base, fields, .. } = &fact.data {
-        if let Some(base) = base {
-            queue.push((fact.origin.tu.as_str(), TypeEdge::Type(base)));
-        }
-        for field in fields {
-            queue.push((fact.origin.tu.as_str(), TypeEdge::Type(&field.ty)));
-        }
-    } else if let FactData::Interface { base, methods, .. } = &fact.data {
-        if let Some(base) = base {
-            queue.push((fact.origin.tu.as_str(), TypeEdge::Type(base)));
-        }
-        for method in methods {
-            queue.push((fact.origin.tu.as_str(), TypeEdge::Type(&method.result)));
-            for param in &method.params {
-                queue.push((fact.origin.tu.as_str(), TypeEdge::Parameter(param)));
+                .map(|function| function.name.capacity() + function.usr.capacity())
+                .sum::<usize>()
+            + vector_bytes(&self.observations)
+            + vector_bytes(&self.types);
+        for ty in &self.types {
+            if let TypeKind::Function(function) = &ty.kind {
+                owned_bytes += size_of::<Function>() + vector_bytes(&function.parameters);
             }
         }
-    }
-}
-
-fn queue_function_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, TypeEdge<'a>)>) {
-    if let FactData::Function { params, result, .. } = &fact.data {
-        queue.push((fact.origin.tu.as_str(), TypeEdge::Type(result)));
-        for param in params {
-            queue.push((fact.origin.tu.as_str(), TypeEdge::Parameter(param)));
+        for record in &self.records {
+            owned_bytes +=
+                record.name.capacity() + record.usr.capacity() + vector_bytes(&record.observations);
+        }
+        for alias in &self.aliases {
+            owned_bytes += alias.name.capacity()
+                + alias.usr.capacity()
+                + vector_bytes(&alias.observations)
+                + alias
+                    .observations
+                    .iter()
+                    .map(|value| {
+                        attributes_bytes(&value.attributes)
+                            + value.parameters.as_ref().map_or(0, parameters_bytes)
+                    })
+                    .sum::<usize>();
+        }
+        for enumeration in &self.enums {
+            owned_bytes += enumeration.name.capacity()
+                + enumeration.usr.capacity()
+                + vector_bytes(&enumeration.observations);
+            for observation in &enumeration.observations {
+                owned_bytes += attributes_bytes(&observation.attributes);
+                if let Some(members) = &observation.members {
+                    owned_bytes += vector_bytes(members)
+                        + members
+                            .iter()
+                            .map(|member| {
+                                member.name.capacity() + attributes_bytes(&member.attributes)
+                            })
+                            .sum::<usize>();
+                }
+            }
+        }
+        for value in &self.values {
+            owned_bytes += value.name.capacity()
+                + value.usr.capacity()
+                + vector_bytes(&value.observations)
+                + value.observations.iter().map(value_bytes).sum::<usize>();
+        }
+        for observation in &self.observations {
+            owned_bytes += attributes_bytes(&observation.attributes);
+            if let Some(definition) = &observation.definition {
+                fields += definition.fields.len();
+                owned_bytes += vector_bytes(&definition.fields)
+                    + vector_bytes(&definition.bases)
+                    + vector_bytes(&definition.methods)
+                    + vector_bytes(&definition.non_vtable_members)
+                    + definition
+                        .non_vtable_members
+                        .iter()
+                        .map(|member| member.name.capacity() + member.usr.capacity())
+                        .sum::<usize>()
+                    + definition
+                        .methods
+                        .iter()
+                        .map(|method| method.name.capacity() + value_bytes(&method.observation))
+                        .sum::<usize>()
+                    + definition
+                        .fields
+                        .iter()
+                        .map(|field| field.name.capacity() + attributes_bytes(&field.attributes))
+                        .sum::<usize>();
+            }
+        }
+        Statistics {
+            records: self.records.len(),
+            aliases: self.aliases.len(),
+            enums: self.enums.len(),
+            values: self.values.len(),
+            observations: self.observations.len()
+                + self
+                    .values
+                    .iter()
+                    .map(|value| value.observations.len())
+                    .sum::<usize>()
+                + self
+                    .aliases
+                    .iter()
+                    .map(|alias| alias.observations.len())
+                    .sum::<usize>()
+                + self
+                    .enums
+                    .iter()
+                    .map(|value| value.observations.len())
+                    .sum::<usize>(),
+            types: self.types.len(),
+            fields,
+            owned_bytes,
         }
     }
 }
@@ -3472,696 +850,10 @@ fn queue_function_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, TypeEdge<'
 #[derive(Debug)]
 pub struct Error(String);
 
-impl Display for Error {
-    fn fmt(&self, formatter: &mut Formatter<'_>) -> std::fmt::Result {
-        self.0.fmt(formatter)
+impl std::fmt::Display for Error {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter.write_str(&self.0)
     }
 }
 
 impl std::error::Error for Error {}
-
-struct BitfieldGroup {
-    start: usize,
-    end: usize,
-    offset: i64,
-}
-
-fn bitfield_groups(fields: &[Field]) -> Result<Vec<BitfieldGroup>, Error> {
-    let mut groups = vec![];
-    let mut index = 0;
-    while index < fields.len() {
-        let field = &fields[index];
-        let Some(width) = field.bit_width else {
-            index += 1;
-            continue;
-        };
-        if width == 0 {
-            index += 1;
-            continue;
-        }
-        let start = index;
-        let offset = field.offset;
-        let limit = offset + field.size * 8;
-        index += 1;
-        while index < fields.len() {
-            let next = &fields[index];
-            let Some(width) = next.bit_width else {
-                break;
-            };
-            if width == 0 || next.size != field.size || next.offset + i64::from(width) > limit {
-                break;
-            }
-            index += 1;
-        }
-        groups.push(BitfieldGroup {
-            start,
-            end: index,
-            offset,
-        });
-    }
-    Ok(groups)
-}
-
-fn write_callback(
-    name: &str,
-    convention: CallingConvention,
-    params: &[Parameter],
-    result: &TypeRef,
-    projection: &TypeProjection,
-) -> Result<String, Error> {
-    let params = write_params(params, projection)?.join(", ");
-    let result = if *result == TypeRef::Void {
-        String::new()
-    } else {
-        format!(" -> {}", projection.name(result))
-    };
-    Ok(format!(
-        "    extern{} fn {}({params}){result};\n",
-        calling_convention(convention),
-        rdl_ident(name)
-    ))
-}
-
-fn write_params(
-    params: &[Parameter],
-    projection: &TypeProjection<'_>,
-) -> Result<Vec<String>, Error> {
-    params
-        .iter()
-        .map(|param| {
-            let ty = projection.parameter(param);
-            Ok(format!(
-                "{}{}: {}",
-                param_attributes(param, params, &ty)?,
-                rdl_ident(&param.name),
-                ty.name
-            ))
-        })
-        .collect()
-}
-
-fn param_attributes(
-    param: &Parameter,
-    params: &[Parameter],
-    ty: &ProjectedType,
-) -> Result<String, Error> {
-    let annotation = &param.annotation;
-    let emitted_mutable = ty.mutable;
-    // A callee cannot replace an interface passed by value, so an output annotation on one describes
-    // the object rather than the parameter, and the parameter stays an input.
-    let output = annotation.output && !ty.interface;
-    if let Some(reason) = &annotation.unsupported {
-        return Err(Error(reason.clone()));
-    }
-    let mut result = String::new();
-    if let Some(size) = &annotation.size {
-        match &size.value {
-            SalSizeValue::Constant(value) if !size.bytes => {
-                result.push_str(&format!("#[len_const({value})] "));
-            }
-            SalSizeValue::Parameter(name) | SalSizeValue::IndirectParameter(name) => {
-                let index = params
-                    .iter()
-                    .position(|param| param.name == *name)
-                    .ok_or_else(|| Error(format!("unresolved SAL size parameter `{name}`")))?;
-                let attr = if size.bytes {
-                    "size_param"
-                } else {
-                    "len_param"
-                };
-                result.push_str(&format!("#[{attr}({index})] "));
-            }
-            SalSizeValue::Constant(_) => {
-                return Err(Error(
-                    "constant byte-size SAL annotations are unsupported".to_string(),
-                ));
-            }
-            SalSizeValue::Expression(_) => {}
-        }
-    }
-    if annotation.reserved {
-        result.push_str("#[reserved] ");
-    }
-    if annotation.com_out_ptr {
-        result.push_str("#[iid_is] ");
-    }
-    if annotation.input && (output || emitted_mutable) {
-        result.push_str("#[in] ");
-    }
-    if output && (annotation.input || !emitted_mutable) {
-        result.push_str("#[out] ");
-    }
-    if annotation.optional {
-        result.push_str("#[opt] ");
-    }
-    if annotation.retval {
-        result.push_str("#[retval] ");
-    }
-    Ok(result)
-}
-
-fn write_interface(
-    name: &str,
-    base: Option<&TypeRef>,
-    guid: Option<&str>,
-    methods: &[Method],
-    projection: &TypeProjection,
-) -> Result<String, Error> {
-    let base = base.map_or_else(String::new, |base| format!(": {}", projection.name(base)));
-    let attribute = guid.map_or_else(
-        || "#[no_guid]".to_string(),
-        |guid| format!("#[guid({})]", rdl_uuid(guid)),
-    );
-    let mut result = format!("    {attribute}\n    interface {name}{base} {{\n");
-    let mut start = 0;
-    while start < methods.len() {
-        let mut end = start + 1;
-        while end < methods.len() && methods[end].name == methods[start].name {
-            end += 1;
-        }
-        for method in methods[start..end].iter().rev() {
-            let params = write_params(&method.params, projection)?.join(", ");
-            let return_type = if method.result == TypeRef::Void {
-                String::new()
-            } else {
-                format!(" -> {}", projection.name(&method.result))
-            };
-            result.push_str(&format!(
-                "        {}fn {}(&self{}{}){return_type};\n",
-                if method.special { "#[special] " } else { "" },
-                rdl_ident(&method.name),
-                if params.is_empty() { "" } else { ", " },
-                params
-            ));
-        }
-        start = end;
-    }
-    result.push_str("    }\n");
-    Ok(result)
-}
-
-fn rdl_uuid(guid: &str) -> String {
-    let hex = guid.replace('-', "");
-    format!(
-        "0x{}_{}_{}_{}_{}",
-        &hex[..8],
-        &hex[8..12],
-        &hex[12..16],
-        &hex[16..20],
-        &hex[20..]
-    )
-}
-
-fn parameter_string_name(param: &Parameter) -> Option<&'static str> {
-    match &param.ty {
-        TypeRef::Pointer { mutable, target } if param.annotation.null_terminated => {
-            match (mutable, target.as_ref()) {
-                (false, TypeRef::Scalar(Scalar::I8 | Scalar::U8)) => Some("PCSTR"),
-                (true, TypeRef::Scalar(Scalar::I8 | Scalar::U8)) => Some("PSTR"),
-                (false, TypeRef::Scalar(Scalar::U16)) => Some("PCWSTR"),
-                (true, TypeRef::Scalar(Scalar::U16)) => Some("PWSTR"),
-                _ => None,
-            }
-        }
-        TypeRef::Named { name, .. } => {
-            if param.annotation.input && !param.annotation.output {
-                match name.as_str() {
-                    "LPSTR" => return Some("PCSTR"),
-                    "LPWSTR" => return Some("PCWSTR"),
-                    _ => {}
-                }
-            }
-            canonical_string_name(name)
-        }
-        _ => None,
-    }
-}
-
-fn canonical_named_type(name: &str) -> Option<&'static str> {
-    if let Some(name) = canonical_string_name(name) {
-        return Some(name);
-    }
-    Some(match name {
-        "boolean" | "BYTE" | "UCHAR" | "UINT8" | "uint8_t" => "u8",
-        "WORD" | "USHORT" | "WCHAR" | "UINT16" | "uint16_t" => "u16",
-        "DWORD" | "UINT" | "ULONG" | "DWORD32" | "UINT32" | "ULONG32" | "uint32_t" => "u32",
-        "QWORD" | "ULONGLONG" | "DWORD64" | "UINT64" | "ULONG64" | "uint64_t" => "u64",
-        "CHAR" | "INT8" | "int8_t" => "i8",
-        "SHORT" | "INT16" | "int16_t" => "i16",
-        "INT" | "LONG" | "INT32" | "LONG32" | "int32_t" => "i32",
-        "LONGLONG" | "INT64" | "LONG64" | "int64_t" => "i64",
-        "FLOAT" => "f32",
-        "DOUBLE" => "f64",
-        "UINT_PTR" | "ULONG_PTR" | "DWORD_PTR" | "SIZE_T" | "size_t" | "rsize_t" | "uintptr_t" => {
-            "usize"
-        }
-        "INT_PTR" | "LONG_PTR" | "SSIZE_T" | "intptr_t" | "ptrdiff_t" => "isize",
-        "LPUNKNOWN" => "IUnknown",
-        "PVOID" | "LPVOID" => "*mut void",
-        "IID" | "CLSID" | "FMTID" | "UUID" => "GUID",
-        "HRESULT" => "HRESULT",
-        _ => return None,
-    })
-}
-
-fn canonical_string_name(name: &str) -> Option<&'static str> {
-    match name {
-        "PCSTR" | "LPCSTR" => Some("PCSTR"),
-        "PSTR" | "LPSTR" => Some("PSTR"),
-        "PCWSTR" | "LPCWSTR" => Some("PCWSTR"),
-        "PWSTR" | "LPWSTR" => Some("PWSTR"),
-        _ => None,
-    }
-}
-
-fn named_type_shape(name: &str) -> Option<&'static str> {
-    match name {
-        "NTSTATUS" => Some("i32"),
-        _ => canonical_named_type(name),
-    }
-}
-
-fn calling_convention(convention: CallingConvention) -> &'static str {
-    match convention {
-        CallingConvention::Platform => "",
-        CallingConvention::C => " \"C\"",
-    }
-}
-
-fn write_named_record(
-    name: &str,
-    fields: &[Field],
-    packing: Option<i64>,
-    alignment: Option<i64>,
-    union: bool,
-    projection: &TypeProjection<'_>,
-) -> Result<String, Error> {
-    let keyword = if union { "union" } else { "struct" };
-    let mut result = String::new();
-    if let Some(packing) = packing {
-        result.push_str(&format!("    #[packed({packing})]\n"));
-    }
-    if let Some(alignment) = alignment {
-        result.push_str(&format!("    #[align({alignment})]\n"));
-    }
-    result.push_str(&format!("    {keyword} {name} {{\n"));
-    result.push_str(&write_record_fields(fields, projection, 8)?);
-    result.push_str("    }\n");
-    result.push_str(&write_nested_records(fields, projection)?);
-    Ok(result)
-}
-
-fn write_nested_records(
-    fields: &[Field],
-    projection: &TypeProjection<'_>,
-) -> Result<String, Error> {
-    let mut result = String::new();
-    for field in fields {
-        result.push_str(&write_nested_type(&field.ty, projection)?);
-    }
-    Ok(result)
-}
-
-fn write_nested_type(ty: &TypeRef, projection: &TypeProjection<'_>) -> Result<String, Error> {
-    match ty {
-        TypeRef::Array { target, .. }
-        | TypeRef::Pointer { target, .. }
-        | TypeRef::Reference { target, .. } => write_nested_type(target, projection),
-        TypeRef::InlineRecord(record) => {
-            if let Some(name) = &record.name {
-                write_named_record(
-                    &rdl_ident(name),
-                    &record.fields,
-                    record.packing,
-                    record.alignment,
-                    record.union,
-                    projection,
-                )
-            } else {
-                write_nested_records(&record.fields, projection)
-            }
-        }
-        _ => Ok(String::new()),
-    }
-}
-
-fn write_record_fields(
-    fields: &[Field],
-    projection: &TypeProjection<'_>,
-    indent: usize,
-) -> Result<String, Error> {
-    let mut result = String::new();
-    let spaces = " ".repeat(indent);
-    let bitfield_groups = bitfield_groups(fields)?;
-    let mut group_index = 0;
-    let mut index = 0;
-    while index < fields.len() {
-        let field = &fields[index];
-        if field.bit_width == Some(0) {
-            index += 1;
-            continue;
-        }
-        if let TypeRef::InlineRecord(record) = &field.ty {
-            let keyword = if record.union { "union" } else { "struct" };
-            result.push_str(&format!("{spaces}{}: ", rdl_ident(&field.name)));
-            if let Some(packing) = record.packing {
-                result.push_str(&format!("#[packed({packing})] "));
-            }
-            if let Some(alignment) = record.alignment {
-                result.push_str(&format!("#[align({alignment})] "));
-            }
-            result.push_str(&format!("{keyword} {{\n"));
-            result.push_str(&write_record_fields(
-                &record.fields,
-                projection,
-                indent + 4,
-            )?);
-            result.push_str(&format!("{spaces}}},\n"));
-            index += 1;
-            continue;
-        }
-        if field.bit_width.is_none() {
-            result.push_str(&format!(
-                "{spaces}{}: {},\n",
-                rdl_ident(&field.name),
-                projection.name(&field.ty)
-            ));
-            index += 1;
-            continue;
-        }
-        let group = &bitfield_groups[group_index];
-        group_index += 1;
-        let backing = if bitfield_groups.len() == 1 {
-            "_bitfield".to_string()
-        } else {
-            format!("_bitfield{group_index}")
-        };
-        result.push_str(&format!(
-            "{spaces}{backing}: {} {{\n",
-            projection.name(&field.ty)
-        ));
-        let mut cursor = group.offset;
-        for member in &fields[group.start..group.end] {
-            if member.offset > cursor {
-                result.push_str(&format!(
-                    "{}_: {},\n",
-                    " ".repeat(indent + 4),
-                    member.offset - cursor
-                ));
-            }
-            let width = member.bit_width.unwrap();
-            let name = if member.name.is_empty() {
-                "_".to_string()
-            } else {
-                rdl_ident(&member.name)
-            };
-            result.push_str(&format!("{}{name}: {width},\n", " ".repeat(indent + 4)));
-            cursor = member.offset + i64::from(width);
-        }
-        result.push_str(&format!("{spaces}}},\n"));
-        index = group.end;
-    }
-    Ok(result)
-}
-
-fn record_layout(
-    fields: &[Field],
-    size: i64,
-    align: i64,
-    union: bool,
-) -> Result<(Option<i64>, Option<i64>), String> {
-    if size < 0 || align <= 0 {
-        return Err(format!(
-            "invalid record layout: size {size}, alignment {align}"
-        ));
-    }
-    if let Some(field) = fields
-        .iter()
-        .find(|field| field.offset < 0 || field.align <= 0 || field.size < 0)
-    {
-        return Err(format!(
-            "invalid layout for field `{}`: offset {}, size {}, alignment {}",
-            field.name, field.offset, field.size, field.align
-        ));
-    }
-
-    let groups = bitfield_groups(fields).map_err(|error| error.0)?;
-    let mut best = None;
-    for packing in [None, Some(1), Some(2), Some(4), Some(8), Some(16)] {
-        let mut cursor = 0;
-        let mut natural_align = 1;
-        let mut matches = true;
-        let mut group_index = 0;
-        let mut index = 0;
-        while index < fields.len() {
-            let field = &fields[index];
-            let field_align = packing.map_or(field.align, |packing| packing.min(field.align));
-            natural_align = natural_align.max(field_align);
-            let mut offset = if union {
-                0
-            } else {
-                align_up(cursor, field_align)
-            };
-            if offset * 8 != field.offset {
-                let explicit_align = [2, 4, 8, 16]
-                    .into_iter()
-                    .filter(|candidate| *candidate > field_align && *candidate <= align)
-                    .find(|candidate| align_up(cursor, *candidate) * 8 == field.offset);
-                let Some(explicit_align) = explicit_align else {
-                    matches = false;
-                    break;
-                };
-                offset = align_up(cursor, explicit_align);
-            }
-            let expected = offset * 8;
-            if field.bit_width == Some(0) {
-                index += 1;
-                continue;
-            }
-            if field.bit_width.is_some() {
-                let group = &groups[group_index];
-                group_index += 1;
-                if fields[group.start..group.end].iter().any(|member| {
-                    member.offset < expected
-                        || member.offset + i64::from(member.bit_width.unwrap())
-                            > expected + field.size * 8
-                }) {
-                    matches = false;
-                    break;
-                }
-                index = group.end;
-            } else {
-                index += 1;
-            }
-            if union {
-                cursor = cursor.max(field.size);
-            } else {
-                cursor = offset + field.size;
-            }
-        }
-        if !matches || align < natural_align {
-            continue;
-        }
-        let alignment = (align > natural_align).then_some(align);
-        let content_size = if fields.is_empty() {
-            size
-        } else if cursor == 0 {
-            1
-        } else {
-            cursor
-        };
-        if (cursor == 0 && size == 1) || align_up(content_size, align) == size {
-            let score = (alignment.is_none(), natural_align);
-            if best.is_none_or(|(_, _, best_score)| score > best_score) {
-                best = Some((packing, alignment, score));
-            }
-        }
-    }
-    best.map(|(packing, alignment, _)| (packing, alignment))
-        .ok_or_else(|| "record fields cannot reproduce Clang's layout".to_string())
-}
-
-fn align_up(value: i64, align: i64) -> i64 {
-    (value + align - 1) / align * align
-}
-
-fn scalar_name(scalar: Scalar) -> &'static str {
-    match scalar {
-        Scalar::Bool => "bool",
-        Scalar::F32 => "f32",
-        Scalar::F64 => "f64",
-        Scalar::I8 => "i8",
-        Scalar::U8 => "u8",
-        Scalar::I16 => "i16",
-        Scalar::U16 => "u16",
-        Scalar::I32 => "i32",
-        Scalar::U32 => "u32",
-        Scalar::I64 => "i64",
-        Scalar::U64 => "u64",
-    }
-}
-
-fn unsigned_scalar(scalar: Scalar) -> Scalar {
-    match scalar {
-        Scalar::I8 => Scalar::U8,
-        Scalar::I16 => Scalar::U16,
-        Scalar::I32 => Scalar::U32,
-        Scalar::I64 => Scalar::U64,
-        _ => scalar,
-    }
-}
-
-fn enum_value(value: i64, repr: Scalar) -> String {
-    match repr {
-        Scalar::U8 => (value as u8).to_string(),
-        Scalar::U16 => (value as u16).to_string(),
-        Scalar::U32 => (value as u32).to_string(),
-        Scalar::U64 => (value as u64).to_string(),
-        _ => value.to_string(),
-    }
-}
-
-fn pointer_run(mut ty: &TypeRef) -> (bool, usize, &TypeRef) {
-    let mut mutable = true;
-    let mut depth = 0;
-    while let TypeRef::Pointer {
-        mutable: level_mutable,
-        target,
-    } = ty
-    {
-        mutable &= *level_mutable;
-        depth += 1;
-        ty = target;
-    }
-    (mutable, depth, ty)
-}
-
-fn constant_type_name(ty: &TypeRef, projection: &TypeProjection<'_>) -> Option<String> {
-    let name = match ty {
-        TypeRef::Scalar(Scalar::Bool) => "u32".to_string(),
-        TypeRef::Named { name, .. } if projection.pointer_interface_aliases.contains_key(name) => {
-            return None;
-        }
-        TypeRef::Named { name, .. } | TypeRef::Generic { name, .. }
-            if projection.is_interface(name) =>
-        {
-            return None;
-        }
-        TypeRef::Void
-        | TypeRef::Object
-        | TypeRef::Generic { .. }
-        | TypeRef::Array { .. }
-        | TypeRef::InlineRecord(_) => return None,
-        TypeRef::Pointer { .. } => {
-            let (mutable, depth, target) = pointer_run(ty);
-            projection.pointer(target, mutable, depth).name
-        }
-        TypeRef::Reference { mutable, target } => projection.pointer(target, *mutable, 1).name,
-        _ => projection.name(ty),
-    };
-    Some(name)
-}
-
-fn value_name(value: &Value) -> String {
-    match value {
-        Value::F32(value) => float_name(f32::from_bits(*value) as f64),
-        Value::F64(value) => float_name(f64::from_bits(*value)),
-        Value::Signed(value) => value.to_string(),
-        Value::Unsigned(value) => value.to_string(),
-        Value::Utf8(value) | Value::Utf16(value) => format!("{value:?}"),
-    }
-}
-
-fn float_name(value: f64) -> String {
-    let value = value.to_string();
-    if value.contains(['.', 'e', 'E']) {
-        value
-    } else {
-        format!("{value}.0")
-    }
-}
-
-fn rdl_ident(name: &str) -> String {
-    const KEYWORDS: &[&str] = &[
-        "abstract", "as", "async", "await", "become", "box", "break", "const", "continue", "do",
-        "dyn", "else", "enum", "extern", "false", "final", "fn", "for", "gen", "if", "impl", "in",
-        "let", "loop", "macro", "match", "mod", "move", "mut", "override", "priv", "pub", "ref",
-        "return", "static", "struct", "trait", "true", "try", "type", "typeof", "union", "unsafe",
-        "unsized", "use", "virtual", "where", "while", "yield",
-    ];
-    if name == "_" {
-        "__".to_string()
-    } else if ["crate", "self", "Self", "super"].contains(&name) {
-        format!("{name}_")
-    } else if KEYWORDS.contains(&name) {
-        format!("r#{name}")
-    } else {
-        name.to_string()
-    }
-}
-
-fn normalize_name(name: &str) -> String {
-    name.replace('\\', "/")
-}
-
-fn origin(origin: &Origin) -> String {
-    format!("{}#{}", origin.tu, origin.local)
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn recursive_shape_cache_is_context_specific() {
-        let declaration = Location {
-            file: "recursive.hpp".to_string(),
-            offset: 7,
-        };
-        let first_context = TypeShape(1, 2);
-        let second_context = TypeShape(3, 4);
-        let first_shape = TypeShape(5, 6);
-        let second_shape = TypeShape(7, 8);
-        let mut cache = ShapeCache::default();
-
-        cache.insert_recursive("tu", &declaration, first_context, first_shape);
-        cache.insert_recursive("tu", &declaration, second_context, second_shape);
-
-        assert!(cache.is_recursive("tu", &declaration));
-        assert_eq!(
-            cache.recursive("tu", &declaration, first_context),
-            Some(first_shape)
-        );
-        assert_eq!(
-            cache.recursive("tu", &declaration, second_context),
-            Some(second_shape)
-        );
-        assert_eq!(
-            cache.recursive("other-tu", &declaration, first_context),
-            None
-        );
-    }
-
-    #[test]
-    fn canonical_string_aliases_share_one_mapping() {
-        for (alias, canonical) in [
-            ("PCSTR", "PCSTR"),
-            ("LPCSTR", "PCSTR"),
-            ("PSTR", "PSTR"),
-            ("LPSTR", "PSTR"),
-            ("PCWSTR", "PCWSTR"),
-            ("LPCWSTR", "PCWSTR"),
-            ("PWSTR", "PWSTR"),
-            ("LPWSTR", "PWSTR"),
-        ] {
-            assert_eq!(canonical_string_name(alias), Some(canonical));
-            assert_eq!(canonical_named_type(alias), Some(canonical));
-        }
-    }
-
-    #[test]
-    fn canonical_floating_aliases_use_rdl_primitives() {
-        assert_eq!(canonical_named_type("FLOAT"), Some("f32"));
-        assert_eq!(canonical_named_type("DOUBLE"), Some("f64"));
-    }
-}

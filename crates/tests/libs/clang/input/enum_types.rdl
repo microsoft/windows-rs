@@ -1,0 +1,76 @@
+#[win32]
+mod Fixture {
+    #[repr(u32)]
+    #[arch(X86)]
+    #[scoped]
+    enum ArchValue {
+        Arch_Maximum = 4294967295,
+    }
+    #[repr(u64)]
+    #[arch(X64 | Arm64)]
+    #[scoped]
+    enum ArchValue {
+        Arch_Maximum = 18446744073709551615,
+    }
+    #[repr(u32)]
+    enum Empty {}
+    struct EnumUser {
+        state: State,
+        wide: Signed64,
+        small: Unsigned8,
+        completed: Forward,
+        values: [State; 2],
+    }
+    #[repr(u32)]
+    #[scoped]
+    enum Forward {
+        Ready = 7,
+    }
+    #[repr(i16)]
+    #[scoped]
+    enum Signed16 {
+        Minimum = -32768,
+        Maximum = 32767,
+    }
+    #[repr(i64)]
+    #[scoped]
+    enum Signed64 {
+        Minimum = -9223372036854775808,
+        Maximum = 9223372036854775807,
+    }
+    #[repr(i8)]
+    #[scoped]
+    enum Signed8 {
+        Minimum = -128,
+        Maximum = 127,
+    }
+    #[repr(i32)]
+    enum State {
+        State_Negative = -1,
+        State_Shift = 16,
+        State_Alias = 16,
+        State_Next = 17,
+    }
+    type StateAlias = State;
+    type StatePointer = *mut State;
+    #[repr(u16)]
+    #[scoped]
+    enum Unsigned16 {
+        Maximum = 65535,
+    }
+    #[repr(u32)]
+    #[scoped]
+    enum Unsigned32 {
+        Maximum = 4294967295,
+    }
+    #[repr(u64)]
+    #[scoped]
+    enum Unsigned64 {
+        Maximum = 18446744073709551615,
+    }
+    #[repr(u8)]
+    #[scoped]
+    enum Unsigned8 {
+        Maximum = 255,
+    }
+}

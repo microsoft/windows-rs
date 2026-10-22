@@ -1,0 +1,36 @@
+#[win32]
+mod Fixture {
+    #[arch(X64 | Arm64)]
+    type ULONG_PTR = u64;
+    #[arch(X86)]
+    type ULONG_PTR = u32;
+}
+#[win32]
+mod Fixture {
+    #[arch(X64 | Arm64)]
+    union PSAPI_WORKING_SET_BLOCK {
+        Flags: ULONG_PTR,
+        Anonymous: struct {
+            _bitfield: u64 {
+                Protection: ULONG_PTR: 5,
+                ShareCount: ULONG_PTR: 3,
+                Shared: ULONG_PTR: 1,
+                Reserved: ULONG_PTR: 3,
+                VirtualPage: ULONG_PTR: 52,
+            },
+        },
+    }
+    #[arch(X86)]
+    union PSAPI_WORKING_SET_BLOCK {
+        Flags: ULONG_PTR,
+        Anonymous: struct {
+            _bitfield: u32 {
+                Protection: ULONG_PTR: 5,
+                ShareCount: ULONG_PTR: 3,
+                Shared: ULONG_PTR: 1,
+                Reserved: ULONG_PTR: 3,
+                VirtualPage: ULONG_PTR: 20,
+            },
+        },
+    }
+}

@@ -1,0 +1,29 @@
+#[win32]
+mod Fixture {
+    struct AliasTarget {}
+    struct Argument {}
+    struct Context {}
+    struct Defined {
+        value: i32,
+    }
+    struct DefinitionHolder {
+        pointer: *mut Defined,
+    }
+    #[library("fixture.dll")]
+    extern "C" fn EchoArgument(value: *mut Argument) -> *mut Argument;
+    struct Holder {
+        context: *mut Context,
+        first: *mut Shared,
+    }
+    struct Nested {
+        struct Child {
+            value: i32,
+        }
+        child: Nested::Child,
+    }
+    struct Other {
+        second: *mut Shared,
+    }
+    struct Shared {}
+    type Target = *mut AliasTarget;
+}

@@ -1,0 +1,44 @@
+#[win32]
+mod Fixture {
+    type ULONG = u32;
+}
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type IID = GUID;
+}
+#[win32]
+mod Fixture {
+    #[guid(0x045fa593_8799_42b8_bc8d_8968c6453507)]
+    interface IMFMediaBuffer: IUnknown {
+        fn Lock(&self, #[out] #[writable(success, bytes(if_present(*pcbMaxLength)), indirect)] #[readable(success, bytes(if_present(*pcbCurrentLength)), indirect)] ppbBuffer: *mut *mut BYTE, #[out] #[opt] pcbMaxLength: *mut DWORD, #[out] #[opt] pcbCurrentLength: *mut DWORD) -> HRESULT;
+        fn Unlock(&self) -> HRESULT;
+        fn GetCurrentLength(&self, #[out] pcbCurrentLength: *mut DWORD) -> HRESULT;
+        fn SetCurrentLength(&self, #[in] cbCurrentLength: DWORD) -> HRESULT;
+        fn GetMaxLength(&self, #[out] pcbMaxLength: *mut DWORD) -> HRESULT;
+    }
+}
+#[win32]
+mod Fixture {
+    type BYTE = u8;
+    type DWORD = u32;
+}
+#[win32]
+mod Fixture {
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+}
+#[win32]
+mod Fixture {
+    #[success(return >= 0)]
+    type HRESULT = i32;
+}

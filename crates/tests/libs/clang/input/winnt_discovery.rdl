@@ -1,0 +1,15 @@
+#[win32]
+mod Fixture {
+    const ANYSIZE_ARRAY: i32 = 1;
+    const DELETE: i32 = 65536;
+    const FILE_ALL_ACCESS: i32 = 2032127;
+    const FILE_GENERIC_READ: i32 = 1179785;
+    const GENERIC_READ: u32 = 2147483648;
+    const GENERIC_WRITE: i32 = 1073741824;
+    const HEAP_ZERO_MEMORY: i32 = 8;
+    const IMAGE_DOS_SIGNATURE: i32 = 23117;
+    const IMAGE_NT_SIGNATURE: i32 = 17744;
+    const POWER_LIMIT_VALUE_NO_CONTROL: u32 = 4294967295;
+    const PROCESS_ALL_ACCESS: i32 = 2097151;
+    const THREAD_ALL_ACCESS: i32 = 2097151;
+}

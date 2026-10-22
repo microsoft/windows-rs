@@ -1,0 +1,11 @@
+#[win32]
+mod Fixture {
+    struct Initialized {
+        count: u32,
+        data: *mut void,
+    }
+    struct Uninitialized {
+        count: u32,
+        data: *mut void,
+    }
+}

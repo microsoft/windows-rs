@@ -1,0 +1,8 @@
+#[win32]
+mod Fixture {
+    struct Node {
+        next: *mut Node,
+        value: i32,
+    }
+    type NodePointer = *mut Node;
+}

@@ -1,0 +1,66 @@
+#[win32]
+mod Fixture {
+    extern "C" fn AtLeastOne(#[range(entry, >=1)] count: Count);
+    type Byte = u8;
+    extern "C" fn Combined(#[out] #[writable(entry, first + second)] values: *mut Byte, first: Count, second: Count);
+    type Count = u32;
+    struct FieldBuffers {
+        width: Count,
+        height: Count,
+        count: Count,
+        #[writable(width * height)]
+        pixels: *mut Byte,
+        #[writable(count + 1)]
+        terminated: *mut Byte,
+        #[writable(16)]
+        #[readable(count)]
+        values: [Byte; 16],
+        #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_opt_", "1", "1")]
+        object: IRange,
+        #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "1", "1")]
+        scalar: Count,
+        #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "-1", "-1")]
+        negative: *mut Byte,
+        floating: f32,
+        #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "floating + 1", "floating + 1")]
+        unsupported: *mut Byte,
+    }
+    extern "C" fn Grouped(#[range(entry, 0..=128 - (start + count))] end: Count, start: Count, count: Count);
+    #[guid(0x11111111_2222_3333_4444_555555555555)]
+    interface IRange {
+        fn Get(&self, capacity: Count) -> #[range(success, 0..=capacity)] Count;
+    }
+    extern "C" fn InoutArithmetic(#[in] #[out] #[readable(entry, *count - start)] #[writable(entry, *count - start)] #[readable(success, on_entry(*count - start))] values: *mut Byte, #[in] #[out] count: *mut Count, start: Count);
+    extern "C" fn InputBound(#[range(entry, 0..=64, indirect)] value: *const Count);
+    extern "C" fn Negative(#[range(entry, -8..=-1)] count: i32);
+    extern "C" fn OutputBound(#[out] #[opt] #[range(success, 0..=capacity, indirect)] written: *mut Count, capacity: Count);
+    extern "C" fn PointerRange(#[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,capacity", "0,capacity")] #[out] written: *mut Count, capacity: Count);
+    extern "C" fn Positive(#[range(entry, >0)] count: i32);
+    extern "C" fn Products(#[out] #[writable(entry, (count + extra) * 2)] first: *mut Byte, #[out] #[writable(entry, count + extra * 2)] second: *mut Byte, count: Count, extra: Count);
+    extern "C" fn Promoted(#[range(entry, 0..=14 - start)] count: Count, start: u16);
+    struct RangedFields {
+        capacity: Count,
+        #[range(0..=capacity)]
+        length: Count,
+        #[range(1..=4)]
+        mode: Count,
+        #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "0,1", "0,1")]
+        floating: f32,
+        #[Windows::Win32::Metadata::NativeSal("2", "_Field_range_", "0,floating", "0,floating")]
+        unsupported: Count,
+    }
+    extern "C" fn Remaining(#[in] #[readable(entry, capacity - start)] values: *const Byte, capacity: Count, start: Count);
+    #[library("fixture.dll")]
+    extern "C" fn ReturnCount(capacity: Count) -> #[range(success, 1..=capacity)] Count;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "0,1", "0,1")]
+    extern "C" fn ReturnFloat() -> f32;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "0,1", "0,1")]
+    extern "C" fn ReturnPointer() -> *mut Count;
+    extern "C" fn ReturnRemaining(capacity: Count, start: Count) -> #[range(success, 0..=capacity - start)] Count;
+    extern "C" fn ReturnedArithmetic(#[out] #[writable(success, if_present(*capacity) - start, indirect)] #[readable(success, if_present(*written) - start, indirect)] values: *mut *mut Byte, #[out] #[opt] capacity: *mut Count, #[out] #[opt] written: *mut Count, start: Count);
+    extern "C" fn RpcRange(#[range(entry, 0..=255)] format: Count, #[range(entry, 1..=2147483647)] count: Count, #[range(entry, 0..=capacity - 1)] length: Count, capacity: Count);
+    extern "C" fn Slots(#[range(entry, 0..=13)] start: Count, #[range(entry, 0..=14 - start)] count: Count);
+    extern "C" fn Unsupported(#[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,sizeof(Count)", "0,sizeof(Count)")] size: Count, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,(Count)size", "0,(Count)size")] cast: Count, #[range(entry, 0..=512)] product: Count, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,2147483647 + 1", "0,2147483647 + 1")] overflow: Count, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,1", "0,1")] floating: f32);
+    extern "C" fn UnsupportedArithmetic(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "count - start", "count - start")] #[in] values: *const Byte, count: f32, start: f32);
+    extern "C" fn UnsupportedHex(#[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,0x80000000", "0,0x80000000")] unsigned_bound: Count, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,0xffu", "0,0xffu")] suffixed_bound: Count);
+}

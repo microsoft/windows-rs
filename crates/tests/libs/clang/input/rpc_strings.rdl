@@ -1,0 +1,10 @@
+#[win32]
+mod Fixture {
+    extern "C" fn Buffer(#[in] #[null_terminated(entry)] input: *mut u16, #[in] #[opt] #[null_terminated(entry)] optional_input: *mut u16, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_string", "", "")] #[in] #[out] #[null_terminated(entry, success)] update: *mut u16, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_opt_string", "", "")] #[in] #[out] #[opt] #[null_terminated(entry)] optional_update: *mut u16);
+    #[library("example.dll")]
+    extern "C" fn BufferFunction(#[in] #[null_terminated(entry)] input: *mut u16, #[in] #[opt] #[null_terminated(entry)] optional_input: *mut u16, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_string", "", "")] #[in] #[out] #[null_terminated(entry, success)] update: *mut u16, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_opt_string", "", "")] #[in] #[out] #[opt] #[null_terminated(entry)] optional_update: *mut u16);
+    #[guid(0x11111111_2222_3333_4444_555555555555)]
+    interface IBuffer {
+        fn Read(&self, #[in] #[null_terminated(entry)] input: *mut u16, #[in] #[opt] #[null_terminated(entry)] optional_input: *mut u16, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_string", "", "")] #[in] #[out] #[null_terminated(entry, success)] update: *mut u16, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_opt_string", "", "")] #[in] #[out] #[opt] #[null_terminated(entry)] optional_update: *mut u16);
+    }
+}

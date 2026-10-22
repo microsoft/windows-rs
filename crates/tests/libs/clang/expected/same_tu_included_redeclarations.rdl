@@ -1,5 +1,0 @@
-#[win32]
-mod Redeclared {
-    #[library("api.dll")]
-    extern "C" fn Shared(first: i32) -> i32;
-}

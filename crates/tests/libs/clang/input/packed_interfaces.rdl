@@ -1,0 +1,34 @@
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type HRESULT = i32;
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IBase {
+        fn QueryInterface(&self, riid: &GUID, object: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+    type ULONG = u32;
+}
+#[win32]
+mod Fixture {
+    #[guid(0x27c47b3a_51c2_4708_881a_7544dd69b1d5)]
+    interface IPacked: IBase {
+        fn Read(&self) -> ULONG;
+    }
+    #[guid(0xac6fab2e_cd0c_4053_a74d_b49517507982)]
+    interface IPackedChild: IPacked {
+        fn Count(&self) -> ULONG;
+    }
+    #[guid(0xe43a137d_594f_4f29_9566_acf00ca33a14)]
+    interface IPackedRoot {
+        fn QueryInterface(&self, riid: &GUID, object: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+}

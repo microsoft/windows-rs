@@ -3,12 +3,21 @@ name = "test_clang"
 version = "0.0.0"
 edition = "2024"
 publish = false
-build = "build.rs"
+default-run = "test_clang"
 
-[dev-dependencies]
-windows-clang = { workspace = true }
+[[bin]]
+name = "import_exports"
+path = "src/import_exports.rs"
+
+[dependencies]
+helpers = { workspace = true }
+windows-clang = { workspace = true, features = ["projection"] }
 windows-rdl = { workspace = true }
 windows-metadata = { workspace = true }
+
+[dev-dependencies]
+tool-package = { path = "../../../tools/package" }
+windows-bindgen = { workspace = true }
 
 [lints]
 workspace = true

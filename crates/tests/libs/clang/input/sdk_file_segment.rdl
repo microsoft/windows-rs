@@ -1,0 +1,22 @@
+#[win32]
+mod Fixture {
+    type HANDLE64 = ptr64<*mut void>;
+    type PHANDLE64 = *mut HANDLE64;
+}
+#[win32]
+mod Fixture {
+    type ULONGLONG = u64;
+}
+#[win32]
+mod Fixture {
+    extern "C" fn SegmentConsumer(#[out] segments: *mut FILE_SEGMENT_ELEMENT);
+}
+#[win32]
+mod Fixture {
+    union FILE_SEGMENT_ELEMENT {
+        Buffer: PVOID64,
+        Alignment: ULONGLONG,
+    }
+    type PFILE_SEGMENT_ELEMENT = *mut FILE_SEGMENT_ELEMENT;
+    type PVOID64 = ptr64<*mut void>;
+}
