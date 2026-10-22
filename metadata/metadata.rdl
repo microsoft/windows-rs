@@ -12,14 +12,38 @@ mod Windows {
             attribute DoesNotReturnAttribute {
                 fn();
             }
+            // The caller should use the callable's result rather than accidentally discard it.
+            // This is not a success predicate, purity promise or change to the signature.
+            // RDL: `#[must_use]`.
+            attribute MustUseAttribute {
+                fn();
+            }
+            #[repr(i32)]
+            enum SuccessCondition {
+                EqualZero = 0,
+                NotEqualZero = 1,
+                EqualOne = 2,
+                Nonnegative = 3,
+                Positive = 4,
+            }
+            // Conditions ordinary postconditions, not complete-operation success or infallibility.
+            // On a callable this overrides its return type's default; on a value typedef it
+            // supplies that default. Zero means null for pointer results.
+            attribute SuccessConditionAttribute {
+                fn(#[in] condition: SuccessCondition);
+            }
             // Records the native character encoding of a string constant or field.
             // RDL: `#[encoding("…")]`.
             attribute NativeEncodingAttribute {
-                fn(encoding: String);
+                fn(#[in] encoding: String);
             }
             // Marks a typedef of a primitive that should retain its distinct identity.
             // RDL: written as the `type NAME = TYPE;` form.
             attribute NativeTypedefAttribute {
+                fn();
+            }
+            // Required modifier after PTR for fixed 64-bit data-pointer storage.
+            attribute NativePointer64Attribute {
                 fn();
             }
             // Marks the return-value parameter of a COM method. RDL: `#[retval]`.
@@ -29,23 +53,75 @@ mod Windows {
             // Restricts a declaration to specific processor architectures.
             // RDL: `#[arch(X86|X64|Arm64)]`.
             attribute SupportedArchitectureAttribute {
-                fn(architecture: i32);
+                fn(#[in] architecture: i32);
             }
-            // Carries a raised structure alignment that packing alone cannot express.
-            // RDL: `#[align(N)]`.
+            // Raises record or member alignment without changing a member's type.
+            // Record RDL: `#[align(N)]`.
+            // Member RDL: `#[Windows::Win32::Metadata::Alignment(N)]`.
             attribute AlignmentAttribute {
-                fn(alignment: i32);
+                fn(#[in] alignment: i32);
             }
-            // Records that a pointer parameter/field is a counted array. The element
-            // count is either given by another parameter (`CountParamIndex`) or is a
-            // compile-time constant (`CountConst`); derived from SAL `_*_reads_`/
-            // `_*_writes_`/`_*_updates_` element-count macros.
+            #[repr(i32)]
+            enum BufferAccess {
+                Read = 0,
+                Write = 1,
+            }
+            #[repr(i32)]
+            enum BufferPhase {
+                Entry = 0,
+                Success = 1,
+                Value = 2,
+            }
+            #[repr(i32)]
+            enum BufferUnits {
+                Elements = 0,
+                Bytes = 1,
+            }
+            // Typed postfix integer expressions, versioned independently of native SAL text.
+            // Bounds compare the subject using C integer promotions and usual conversions.
+            // RDL: `#[range(entry, 0..=14 - start)]`, `#[range(entry, >0)]`.
+            attribute IntegerRangeAttribute {
+                fn(#[in] phase: BufferPhase);
+                Lower: String,
+                Upper: String,
+                LowerExclusive: bool,
+                UpperExclusive: bool,
+                Indirect: bool,
+            }
+            // An accessible extent of the annotated buffer, independent of direction and ownership.
+            // Exactly one count source is required. Counts use the contract phase unless CountOnEntry.
+            // Indirect selects initialized pointer storage at the contract phase: the incoming
+            // pointer on entry, or the returned pointer on success.
+            // The pointer stays non-null unless Nullable, even with an unavailable optional count.
+            attribute BufferExtentAttribute {
+                fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
+                CountConst: u64,
+                CountParamIndex: u16,
+                CountFieldName: String,
+                CountReturn: bool,
+                // Typed integer expression; cannot combine with Offset or CountOptional.
+                // Optional dereferences are expression leaves and make the whole count unavailable.
+                CountExpression: String,
+                Dereference: bool,
+                CountOnEntry: bool,
+                // Null count storage means unknown extent, not zero or a nullable buffer.
+                CountOptional: bool,
+                // Legacy adjustment; new arithmetic uses CountExpression.
+                Offset: u64,
+                // Guards the single dereferenced count, including inside an expression.
+                NullFallbackParamIndex: u16,
+                Indirect: bool,
+                Nullable: bool,
+            }
+            // Legacy counted-array relationship without separate access or phase contracts.
             // RDL: `#[len_param(N)]` (CountParamIndex) or `#[len_const(N)]` (CountConst).
             attribute NativeArrayInfoAttribute {
                 fn();
                 CountParamIndex: i16,
                 CountConst: i32,
                 CountFieldName: String,
+                // Also guarantees this capacity is writable on successful completion.
+                PostWritable: bool,
             }
             // Records that a pointer parameter is a byte buffer whose size in bytes is
             // given by another parameter (`BytesParamIndex`); derived from SAL
@@ -54,6 +130,74 @@ mod Windows {
             attribute MemorySizeAttribute {
                 fn();
                 BytesParamIndex: i16,
+            }
+            // Buffer properties when the containing value is valid, not call pre/postconditions.
+            // Names refer to direct integer fields of the same record. Capacity is writable;
+            // ReadableFieldName, when present, gives the separately readable extent.
+            // Null storage is permitted only with MayBeNull. No ownership or encoding is implied.
+            attribute NativeFieldBufferAttribute {
+                fn();
+                CapacityFieldName: String,
+                ReadableFieldName: String,
+                IsByteCount: bool,
+                MayBeNull: bool,
+            }
+            // Zero termination is independent of capacity and does not specify an encoding.
+            // OnSuccess is a postcondition subject to the callable's success contract.
+            // DoubleNullOnEntry/DoubleNullOnSuccess require two trailing zero elements at that
+            // phase; absence means single zero termination. The corresponding phase must be true.
+            // Indirect selects the pointer stored in the parameter at each specified phase.
+            // Termination applies when that pointer is non-null; nullability is a separate contract.
+            attribute NativeNullTerminatedAttribute {
+                fn();
+                OnEntry: bool,
+                OnSuccess: bool,
+                DoubleNullOnEntry: bool,
+                DoubleNullOnSuccess: bool,
+                Indirect: bool,
+            }
+            // Null is permitted at the selected phases. Absence leaves nullability unspecified.
+            // Indirect selects the pointer stored in the parameter, not the argument storage.
+            // This permission alone does not require or promise initialized/readable storage.
+            // On a return row, no phase properties means a nullable returned value, independently
+            // of success. RDL spells this as `-> #[nullable] T`.
+            // On a field, no phase properties permits null in a valid containing value.
+            attribute NullableAttribute {
+                fn();
+                OnEntry: bool,
+                OnSuccess: bool,
+                Indirect: bool,
+            }
+            // Initialized length on successful completion, not allocated capacity.
+            // CountParamIndex is zero-based. False IsByteCount means elements.
+            // Dereference selects the pointed-to count and does not imply a non-null pointer.
+            attribute NativeInitializedLengthAttribute {
+                fn();
+                CountParamIndex: i16,
+                IsByteCount: bool,
+                Dereference: bool,
+                // With Dereference, use this by-value count when the count pointer is null.
+                // Absence means there is no fallback; it is distinct from parameter index zero.
+                NullFallbackParamIndex: i16,
+            }
+            // Legacy input annotation for existing explicit metadata inputs. Clang2 publishes
+            // input direction and optionality instead.
+            // Valid input on entry. Pointer arguments are non-null unless optional.
+            // ReadOnly records the additional SAL pointee-read-access contract. False does not
+            // require writable storage. This does not change native qualifiers or imply a count.
+            attribute NativeInputAttribute {
+                fn();
+                ReadOnly: bool,
+            }
+            // A parameter supplies storage for a returned pointer. If storage is supplied,
+            // successful completion initializes it; a non-null result points to one readable
+            // element. MayBeNull permits a null result on success, not a null storage argument.
+            // NullOnFailure additionally requires a null result on failure. Success/failure
+            // follows the callable's contract. This specifies no allocator or ownership transfer.
+            attribute NativeReturnedPointerAttribute {
+                fn();
+                MayBeNull: bool,
+                NullOnFailure: bool,
             }
             // Marks a parameter that is reserved and must be zero/null (SAL `_Reserved_`).
             // RDL: `#[reserved]`.
@@ -78,11 +222,39 @@ mod Windows {
             // attribute instance per member — carrying the member's name, its bit
             // offset within the backing field, and its width in bits. bindgen reads
             // these to generate typed get/set accessors. Signedness of a multi-bit
-            // member is taken from the backing field's own type.
+            // member is taken from the backing field unless MemberType is supplied.
             // RDL: written as a C-like block on the backing field, e.g.
             // `_bitfield: u8 { Name: 1, _: 3, Other: 4 }` (anonymous padding is `_`).
             attribute NativeBitfieldAttribute {
-                fn(name: String, offset: i64, length: i64);
+                fn(#[in] name: String, #[in] offset: i64, #[in] length: i64);
+                MemberType: Type,
+            }
+            // Provisional native evidence emitted by windows-clang.
+            attribute NativeSalAttribute {
+                fn(#[in] version: String, #[in] name: String, #[in] arguments: String, #[in] expanded: String);
+                TypedefName: String,
+                // Space-separated raw SAL qualifiers in source order, scoped to this annotation.
+                Modifiers: String,
+            }
+            attribute NativeDeprecatedAttribute {
+                fn(#[in] message: String, #[in] replacement: String);
+                TypedefName: String,
+            }
+            // Legacy explicit inputs only; clang keeps exception specifications in native evidence.
+            attribute NativeExceptionSpecificationAttribute {
+                fn(#[in] specification: String);
+            }
+            attribute NativeDefaultArgumentAttribute {
+                fn(#[in] expression: String);
+            }
+            attribute NativeConstMethodAttribute {
+                fn();
+            }
+            attribute NativeOverrideSlotAttribute {
+                fn(#[in] slot: u32);
+            }
+            attribute NativeBaseAttribute {
+                fn();
             }
         }
     }
