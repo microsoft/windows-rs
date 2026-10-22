@@ -4175,9 +4175,19 @@ impl GeneratedHandle {
                     value: PropertyValue::OptionalBool(Some(false)),
                 }),
             )),
-            (ObjectType::RadioButtons, PropertyId::SelectedIndex, _) => Some((
+            (ObjectType::RadioButtons, PropertyId::SelectedIndex, Some(value)) => Some((
                 EventId::SelectionChanged,
-                FeedbackExpectation::Normalized { observation: None },
+                FeedbackExpectation::DeferredExact(Property {
+                    id: PropertyId::SelectedIndex,
+                    value: value.clone(),
+                }),
+            )),
+            (ObjectType::RadioButtons, PropertyId::SelectedIndex, None) => Some((
+                EventId::SelectionChanged,
+                FeedbackExpectation::DeferredExact(Property {
+                    id: PropertyId::SelectedIndex,
+                    value: PropertyValue::SelectionIndex(None),
+                }),
             )),
             (ObjectType::RatingControl, PropertyId::MaxRating, _) => Some((
                 EventId::ValueChanged,
@@ -4203,47 +4213,59 @@ impl GeneratedHandle {
             )),
             (ObjectType::ComboBox, PropertyId::SelectedIndex, Some(value)) => Some((
                 EventId::SelectionChanged,
-                FeedbackExpectation::Exact(Property {
+                FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::SelectedIndex,
                     value: value.clone(),
                 }),
             )),
             (ObjectType::ComboBox, PropertyId::SelectedIndex, None) => Some((
                 EventId::SelectionChanged,
-                FeedbackExpectation::Normalized { observation: None },
+                FeedbackExpectation::DeferredExact(Property {
+                    id: PropertyId::SelectedIndex,
+                    value: PropertyValue::SelectionIndex(None),
+                }),
             )),
             (ObjectType::Pivot, PropertyId::SelectedIndex, Some(value)) => Some((
                 EventId::SelectionChanged,
-                FeedbackExpectation::Exact(Property {
+                FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::SelectedIndex,
                     value: value.clone(),
                 }),
             )),
             (ObjectType::Pivot, PropertyId::SelectedIndex, None) => Some((
                 EventId::SelectionChanged,
-                FeedbackExpectation::Normalized { observation: None },
+                FeedbackExpectation::DeferredExact(Property {
+                    id: PropertyId::SelectedIndex,
+                    value: PropertyValue::SelectionIndex(None),
+                }),
             )),
             (ObjectType::FlipView, PropertyId::SelectedIndex, Some(value)) => Some((
                 EventId::SelectionChanged,
-                FeedbackExpectation::Exact(Property {
+                FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::SelectedIndex,
                     value: value.clone(),
                 }),
             )),
             (ObjectType::FlipView, PropertyId::SelectedIndex, None) => Some((
                 EventId::SelectionChanged,
-                FeedbackExpectation::Normalized { observation: None },
+                FeedbackExpectation::DeferredExact(Property {
+                    id: PropertyId::SelectedIndex,
+                    value: PropertyValue::SelectionIndex(None),
+                }),
             )),
             (ObjectType::TabView, PropertyId::SelectedIndex, Some(value)) => Some((
                 EventId::SelectionChanged,
-                FeedbackExpectation::Exact(Property {
+                FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::SelectedIndex,
                     value: value.clone(),
                 }),
             )),
             (ObjectType::TabView, PropertyId::SelectedIndex, None) => Some((
                 EventId::SelectionChanged,
-                FeedbackExpectation::Normalized { observation: None },
+                FeedbackExpectation::DeferredExact(Property {
+                    id: PropertyId::SelectedIndex,
+                    value: PropertyValue::SelectionIndex(None),
+                }),
             )),
             (ObjectType::ColorPicker, PropertyId::Color, Some(value)) => Some((
                 EventId::ColorChanged,
@@ -4265,14 +4287,17 @@ impl GeneratedHandle {
             )),
             (ObjectType::GridView, PropertyId::SelectedIndex, Some(value)) => Some((
                 EventId::SelectionChanged,
-                FeedbackExpectation::Exact(Property {
+                FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::SelectedIndex,
                     value: value.clone(),
                 }),
             )),
             (ObjectType::GridView, PropertyId::SelectedIndex, None) => Some((
                 EventId::SelectionChanged,
-                FeedbackExpectation::Normalized { observation: None },
+                FeedbackExpectation::DeferredExact(Property {
+                    id: PropertyId::SelectedIndex,
+                    value: PropertyValue::SelectionIndex(None),
+                }),
             )),
             (ObjectType::RichEditBox, PropertyId::Document, Some(value)) => Some((
                 EventId::TextChanged,

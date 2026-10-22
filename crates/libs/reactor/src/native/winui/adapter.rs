@@ -24,6 +24,18 @@ impl WinUiAdapter {
     fn apply_mutations(&mut self, mutations: &[Mutation]) -> Result<(), WinUiError> {
         let mut initializing = HashSet::new();
         let mut live_regions = LiveRegionBatch::default();
+        self.index_writes = mutations
+            .iter()
+            .filter_map(|mutation| match mutation {
+                Mutation::SetProperties { object, set, .. } => Some((object, set)),
+                _ => None,
+            })
+            .flat_map(|(object, set)| {
+                set.iter()
+                    .filter(|property| matches!(property.value, PropertyValue::SelectionIndex(_)))
+                    .map(|property| (*object, property.id))
+            })
+            .collect();
         for mutation in mutations {
             match mutation {
                 Mutation::Create { object, kind } => {

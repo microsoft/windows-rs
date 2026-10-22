@@ -1,5 +1,39 @@
 use super::*;
 
+/// A declared index is applied after its items and kept across Reactor's own item changes without
+/// reporting those native moves; an undeclared index still reports them.
+#[test]
+fn declared_index_does_not_echo() -> Result<()> {
+    const DECLARED: [&str; 7] = [
+        "list-view",
+        "grid-view",
+        "combo-box",
+        "radio-buttons",
+        "pivot",
+        "flip-view",
+        "tab-view",
+    ];
+    process::run("selection-index", |ui| {
+        let selected = |name| -> Result<()> {
+            for id in DECLARED {
+                ui.selected_name(id, name)?;
+            }
+            ui.name_stays("echoes", "Echoes []", Duration::from_millis(500))
+        };
+        selected("One")?;
+
+        select(&ui.list_item("free-list", "Zero")?)?;
+        ui.name("free", "Free Some(0)")?;
+        ui.invoke("remove-first")?;
+        ui.name("free", "Free None")?;
+        selected("Two")?;
+
+        ui.invoke("insert-first")?;
+        selected("One")?;
+        ui.invoke("rotate")?;
+        selected("Front")
+    })
+}
 #[test]
 fn list_selection_feedback_and_handler_lifetimes() -> Result<()> {
     process::run("selection", |ui| {

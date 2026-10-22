@@ -263,6 +263,54 @@ impl Automation {
         Ok(())
     }
 
+    /// Waits until the selection of `id` is one element named `name`, either directly or through
+    /// a descendant such as a DataItem's text. Controls without a selection pattern, such as
+    /// RadioButtons, are checked through the named descendant's selection item pattern.
+    pub fn selected_name(&self, id: &str, name: &str) -> Result<()> {
+        const SELECTION_ITEM_PATTERN: i32 = 10010;
+        let control = self.element(id)?;
+        self.wait(
+            &format!("{id:?} selection becomes {name:?}"),
+            || unsafe {
+                let all = self.client.CreateTrueCondition()?;
+                let named = |element: &IUIAutomationElement| -> windows_core::Result<bool> {
+                    if element.CurrentName()? == name {
+                        return Ok(true);
+                    }
+                    let content = element.FindAll(TreeScope_Descendants, &all)?;
+                    for index in 0..content.Length()? {
+                        if content.GetElement(index)?.CurrentName()? == name {
+                            return Ok(true);
+                        }
+                    }
+                    Ok(false)
+                };
+                let Ok(selection) =
+                    control.GetCurrentPatternAs::<IUIAutomationSelectionPattern>(SELECTION_PATTERN)
+                else {
+                    let items = control.FindAll(TreeScope_Descendants, &all)?;
+                    let mut selected = Vec::new();
+                    for index in 0..items.Length()? {
+                        let item = items.GetElement(index)?;
+                        if let Ok(pattern) = item
+                            .GetCurrentPatternAs::<IUIAutomationSelectionItemPattern>(
+                                SELECTION_ITEM_PATTERN,
+                            )
+                            && pattern.CurrentIsSelected()?.as_bool()
+                        {
+                            selected.push(item);
+                        }
+                    }
+                    return Ok(selected.len() == 1 && named(&selected[0])?);
+                };
+                let items = selection.GetCurrentSelection()?;
+                Ok(items.Length()? == 1 && named(&items.GetElement(0)?)?)
+            },
+            |matches| *matches,
+        )?;
+        Ok(())
+    }
+
     pub fn menu_gone(&self, name: &str) -> Result<()> {
         self.wait(
             &format!("menu item {name:?} disappears"),

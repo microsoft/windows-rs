@@ -267,13 +267,17 @@ fn list_view_properties_update_and_clear() {
         )
         .unwrap();
     let list = runtime.graph().root().unwrap();
-    let set = mutations
+    let sets: Vec<_> = mutations
         .iter()
-        .find_map(|mutation| match mutation {
+        .filter_map(|mutation| match mutation {
             Mutation::SetProperties { object, set, .. } if *object == list => Some(set),
             _ => None,
         })
-        .unwrap();
+        .collect();
+    assert_eq!(sets.len(), 2);
+    assert_eq!(sets[1].len(), 1);
+    assert_eq!(sets[1][0].id, PropertyId::SelectedIndex);
+    let set: Vec<_> = sets.iter().flat_map(|set| set.iter()).collect();
     for property in [
         PropertyId::SelectedIndex,
         PropertyId::SelectionMode,
@@ -285,13 +289,14 @@ fn list_view_properties_update_and_clear() {
     }
 
     let mutations = runtime.update(ListView::new()).unwrap();
-    let clear = mutations
+    let clear: Vec<_> = mutations
         .iter()
-        .find_map(|mutation| match mutation {
+        .filter_map(|mutation| match mutation {
             Mutation::SetProperties { object, clear, .. } if *object == list => Some(clear),
             _ => None,
         })
-        .unwrap();
+        .flat_map(|clear| clear.iter().copied())
+        .collect();
     assert_eq!(clear.len(), 5);
     for property in [
         PropertyId::SelectedIndex,
@@ -304,6 +309,207 @@ fn list_view_properties_update_and_clear() {
     }
 }
 
+#[test]
+fn index_is_written_after_its_items_and_reasserted_when_they_change() {
+    let view = |keys: &[&'static str], index: Option<usize>, suffix: &str| {
+        let view = FlipView::new().keyed_items(
+            keys.iter()
+                .map(|key| keyed(*key, TextBlock::new().text(format!("{key}{suffix}")))),
+        );
+        match index {
+            Some(index) => view.selected_index(Some(index)),
+            None => view,
+        }
+    };
+    // The index write as `Some(set)` or `None` for a clear, after every item change.
+    let index_write = |stats: &UpdateStats| {
+        let mutations: Vec<_> = stats.iter().collect();
+        let (position, write) = mutations
+            .iter()
+            .enumerate()
+            .find_map(|(position, mutation)| match mutation {
+                Mutation::SetProperties { set, clear, .. } => {
+                    if let Some(property) = set
+                        .iter()
+                        .find(|property| property.id == PropertyId::SelectedIndex)
+                    {
+                        Some((position, Some(property.value.clone())))
+                    } else {
+                        clear
+                            .contains(&PropertyId::SelectedIndex)
+                            .then_some((position, None))
+                    }
+                }
+                _ => None,
+            })?;
+        assert!(mutations[position + 1..].iter().all(|mutation| !matches!(
+            mutation,
+            Mutation::Insert { .. } | Mutation::Remove { .. } | Mutation::Reorder { .. }
+        )));
+        Some(write)
+    };
+    let selected = |index| Some(Some(PropertyValue::SelectionIndex(Some(index))));
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+
+    let stats = runtime.update(view(&["a", "b", "c"], Some(1), "")).unwrap();
+    assert_eq!(index_write(&stats), selected(1));
+    let stats = runtime
+        .update(view(&["a", "b", "c", "d"], Some(1), ""))
+        .unwrap();
+    assert_eq!(index_write(&stats), selected(1));
+    let stats = runtime
+        .update(view(&["b", "a", "c", "d"], Some(1), ""))
+        .unwrap();
+    assert_eq!(index_write(&stats), selected(1));
+    let stats = runtime
+        .update(view(&["b", "a", "c", "d"], Some(1), "!"))
+        .unwrap();
+    assert_eq!(index_write(&stats), None);
+    let none = Some(Some(PropertyValue::SelectionIndex(None)));
+    let stats = runtime.update(view(&["b"], Some(1), "!")).unwrap();
+    assert_eq!(index_write(&stats), none);
+    let stats = runtime.update(view(&["b"], Some(1), "")).unwrap();
+    assert_eq!(index_write(&stats), None);
+    let stats = runtime.update(view(&["b", "a"], Some(1), "")).unwrap();
+    assert_eq!(index_write(&stats), selected(1));
+    let stats = runtime.update(view(&["b", "a"], Some(5), "")).unwrap();
+    assert_eq!(index_write(&stats), none);
+    let stats = runtime.update(view(&["b", "a"], None, "")).unwrap();
+    assert_eq!(index_write(&stats), Some(None));
+
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    let stats = runtime.update(view(&["a"], Some(1), "")).unwrap();
+    assert_eq!(index_write(&stats), none);
+}
+
+#[test]
+fn selector_items_reject_exit_transitions() {
+    let item = |key: &'static str| {
+        TextBlock::new()
+            .text(key)
+            .exit_fade(Duration::from_millis(100))
+    };
+    let flip = |keys: &[&'static str]| {
+        FlipView::new()
+            .selected_index(Some(1))
+            .keyed_items(keys.iter().map(|key| keyed(*key, item(key))))
+    };
+    let grid = |keys: &[&'static str]| {
+        GridView::new().keyed_items(keys.iter().map(|key| {
+            keyed(
+                *key,
+                GridViewItem::new()
+                    .content(TextBlock::new().text(*key))
+                    .exit_fade(Duration::from_millis(100)),
+            )
+        }))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(flip(&["a", "b", "c"])).unwrap();
+    let graph = runtime.graph().clone();
+    assert_eq!(
+        runtime.update(flip(&["b", "c"])),
+        Err(UpdateError::Graph(GraphError::ExitTransitionUnsupported))
+    );
+    assert_eq!(runtime.graph(), &graph);
+    assert_eq!(runtime.graph().retired_count(), 0);
+
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(grid(&["a", "b"])).unwrap();
+    assert_eq!(
+        runtime.update(grid(&["b"])),
+        Err(UpdateError::Graph(GraphError::ExitTransitionUnsupported))
+    );
+
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    let list = |keys: &[&'static str]| {
+        ListBox::new().keyed_items(keys.iter().map(|key| {
+            keyed(
+                *key,
+                ListBoxItem::new()
+                    .content(*key)
+                    .exit_fade(Duration::from_millis(100)),
+            )
+        }))
+    };
+    runtime.update(list(&["a", "b"])).unwrap();
+    assert_eq!(
+        runtime.update(list(&["b"])),
+        Err(UpdateError::Graph(GraphError::ExitTransitionUnsupported))
+    );
+}
+
+#[test]
+fn index_that_requires_a_selection_falls_back_to_the_first_item() {
+    let view = |count: usize, index: Option<Option<usize>>| {
+        let view =
+            Pivot::new().items((0..count).map(|item| PivotItem::new().header(item.to_string())));
+        match index {
+            Some(index) => view.selected_index(index),
+            None => view,
+        }
+    };
+    let index_writes = |stats: &UpdateStats| {
+        stats
+            .iter()
+            .filter_map(|mutation| match mutation {
+                Mutation::SetProperties { set, clear, .. } => set
+                    .iter()
+                    .find_map(|property| match property.value {
+                        PropertyValue::SelectionIndex(index) => Some(Some(index)),
+                        _ => None,
+                    })
+                    .or_else(|| clear.contains(&PropertyId::SelectedIndex).then_some(None)),
+                _ => None,
+            })
+            .collect::<Vec<_>>()
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    let stats = runtime.update(view(0, Some(None))).unwrap();
+    assert_eq!(index_writes(&stats), [Some(None)]);
+    let stats = runtime.update(view(2, Some(None))).unwrap();
+    assert_eq!(index_writes(&stats), [Some(Some(0))]);
+    let stats = runtime.update(view(2, Some(Some(5)))).unwrap();
+    assert_eq!(index_writes(&stats), [Some(Some(0))]);
+    let stats = runtime.update(view(2, Some(Some(1)))).unwrap();
+    assert_eq!(index_writes(&stats), [Some(Some(1))]);
+    let stats = runtime.update(view(2, None)).unwrap();
+    assert_eq!(index_writes(&stats), []);
+}
+#[test]
+fn index_over_a_list_property_is_written_after_it_and_reasserted_when_it_changes() {
+    let view = |items: &[&str], index| {
+        ComboBox::new()
+            .selected_index(index)
+            .items_source(items.to_vec())
+    };
+    let writes = |stats: &UpdateStats| {
+        stats
+            .iter()
+            .filter_map(|mutation| match mutation {
+                Mutation::SetProperties { set, .. } => Some(
+                    set.iter()
+                        .map(|property| match &property.value {
+                            PropertyValue::SelectionIndex(index) => format!("index {index:?}"),
+                            _ => format!("{:?}", property.id),
+                        })
+                        .collect::<Vec<_>>()
+                        .join(","),
+                ),
+                _ => None,
+            })
+            .collect::<Vec<_>>()
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    let stats = runtime.update(view(&["a", "b"], Some(1))).unwrap();
+    assert_eq!(writes(&stats), ["ItemsSource", "index Some(1)"]);
+    let stats = runtime.update(view(&["a", "b", "c"], Some(1))).unwrap();
+    assert_eq!(writes(&stats), ["ItemsSource", "index Some(1)"]);
+    let stats = runtime.update(view(&["a"], Some(1))).unwrap();
+    assert_eq!(writes(&stats), ["ItemsSource", "index None"]);
+    let stats = runtime.update(view(&["a"], Some(0))).unwrap();
+    assert_eq!(writes(&stats), ["index Some(0)"]);
+}
 #[test]
 fn tree_view_selection_mode_and_item_invocation_replace_remove_and_reject_stale_events() {
     let first = Rc::new(RefCell::new(Vec::new()));

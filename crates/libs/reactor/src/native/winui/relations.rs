@@ -31,6 +31,7 @@ impl WinUiAdapter {
                     parent.cast::<IMap<HSTRING, IInspectable>>()?;
                 let content: IInspectable = child_element.cast()?;
                 properties.Insert(&data_content_key, &content)?;
+                properties.Insert(&self.data_text_visibility_key, &data_string("Collapsed"))?;
             }
             _ => return Err(WinUiError::InvalidRelation(parent, relation)),
         }
@@ -48,7 +49,6 @@ impl WinUiAdapter {
             return Err(WinUiError::ChildNotFound(child));
         }
         let data_content_key = self.data_content_key.clone();
-        let data_text_key = self.data_text_key.clone();
         match (self.handle(parent)?, relation) {
             (Handle::Generated(value), relation) => {
                 value
@@ -64,8 +64,8 @@ impl WinUiAdapter {
             (Handle::Data(parent), RelationId::Content) => {
                 let properties =
                     parent.cast::<IMap<HSTRING, IInspectable>>()?;
-                let text = properties.Lookup(&data_text_key)?;
-                properties.Insert(&data_content_key, &text)?;
+                properties.Insert(&data_content_key, None)?;
+                properties.Insert(&self.data_text_visibility_key, &data_string("Visible"))?;
             }
             _ => return Err(WinUiError::InvalidRelation(parent, relation)),
         }
@@ -156,7 +156,7 @@ impl WinUiAdapter {
         let identity = tracked
             .then(|| self.item_identity(parent, relation, child))
             .transpose()?;
-        let feedback = self.begin_selection_feedback(parent, selection);
+        let feedback = self.suppress_selection(parent, relation, selection)?;
         let result = (|| {
             match relation_contract(self.kind(parent)?, relation)?.realization {
                 Realization::Owned => {
@@ -191,7 +191,7 @@ impl WinUiAdapter {
             }
             Ok(())
         })();
-        self.finish_selection_feedback(parent, feedback);
+        self.release_selection(parent, feedback);
         result
     }
 
@@ -219,7 +219,7 @@ impl WinUiAdapter {
                     .and_then(|value| value.cast::<IInspectable>().map_err(Into::into))
             })
             .transpose()?;
-        let feedback = self.begin_selection_feedback(parent, selection);
+        let feedback = self.suppress_selection(parent, relation, selection)?;
         let result = (|| {
             match relation_contract(self.kind(parent)?, relation)?.realization {
                 Realization::Owned => {
@@ -254,7 +254,7 @@ impl WinUiAdapter {
             }
             Ok(())
         })();
-        self.finish_selection_feedback(parent, feedback);
+        self.release_selection(parent, feedback);
         result
     }
 
@@ -270,7 +270,7 @@ impl WinUiAdapter {
             .map(|selection| self.read_selected_item(parent, selection))
             .transpose()?
             .flatten();
-        let feedback = self.begin_selection_feedback(parent, selection);
+        let feedback = self.suppress_selection(parent, relation, selection)?;
         let result = (|| {
             match relation_contract(self.kind(parent)?, relation)?.realization {
                 Realization::Owned if !self.has_retirements(parent, relation) => {
@@ -382,7 +382,7 @@ impl WinUiAdapter {
             }
             Ok(())
         })();
-        self.finish_selection_feedback(parent, feedback);
+        self.release_selection(parent, feedback);
         result?;
         let active = children.iter().copied().collect::<HashSet<_>>();
         debug_assert_eq!(
@@ -409,22 +409,41 @@ impl WinUiAdapter {
         )
     }
 
-    fn begin_selection_feedback(
+    /// Drops the owner's selection notifications while Reactor mutates a relation whose children
+    /// carry the selection, or whose index the same batch writes afterwards.
+    fn suppress_selection(
         &self,
         owner: ObjectId,
+        relation: RelationId,
         selection: Option<SelectionContract>,
-    ) -> Option<EventId> {
-        let event = selection.map(|selection| selection.event)?;
-        self.event_queue
-            .feedback
-            .borrow_mut()
-            .begin(owner, event, FeedbackExpectation::Suppressed);
-        Some(event)
+    ) -> Result<Option<EventId>, WinUiError> {
+        let event = match selection {
+            Some(selection) => Some(selection.event),
+            None => self.index_event(owner, IndexItems::Relation(relation))?,
+        };
+        if let Some(event) = event {
+            self.event_queue
+                .feedback
+                .borrow_mut()
+                .suppress(owner, event);
+        }
+        Ok(event)
     }
 
-    fn finish_selection_feedback(&self, owner: ObjectId, event: Option<EventId>) {
+    /// The owner's index event when the batch being applied writes the index after `items`.
+    pub(super) fn index_event(
+        &self,
+        owner: ObjectId,
+        items: IndexItems,
+    ) -> Result<Option<EventId>, WinUiError> {
+        Ok(index_for_items(self.kind(owner)?, items)
+            .filter(|contract| self.index_writes.contains(&(owner, contract.property)))
+            .map(|contract| contract.event))
+    }
+
+    fn release_selection(&self, owner: ObjectId, event: Option<EventId>) {
         if let Some(event) = event {
-            self.event_queue.feedback.borrow_mut().finish(owner, event);
+            self.event_queue.feedback.borrow_mut().release(owner, event);
         }
     }
 
@@ -603,17 +622,12 @@ impl WinUiAdapter {
     }
 
     fn set_data_text(&mut self, object: ObjectId, text: &str) -> Result<(), WinUiError> {
-        let content_key = self.data_content_key.clone();
         let text_key = self.data_text_key.clone();
         let Handle::Data(value) = self.handle(object)? else {
             return Err(WinUiError::InvalidObject(object));
         };
         let properties = value.cast::<IMap<HSTRING, IInspectable>>()?;
-        let text: IInspectable = windows_reference::IReference::from(HSTRING::from(text)).into();
-        properties.Insert(&text_key, &text)?;
-        if !properties.HasKey(&content_key)? {
-            properties.Insert(&content_key, &text)?;
-        }
+        properties.Insert(&text_key, &data_string(text))?;
         Ok(())
     }
 
@@ -637,7 +651,11 @@ impl WinUiAdapter {
         }
         let template = native::XamlReader::Load(
             "<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>\
+             <Grid>\
+             <TextBlock HorizontalAlignment='Left' Text='{Binding [Text]}' \
+             Visibility='{Binding [TextVisibility]}'/>\
              <ContentPresenter Content='{Binding [Content]}'/>\
+             </Grid>\
              </DataTemplate>",
         )?
         .cast::<native::DataTemplate>()?;
@@ -847,4 +865,8 @@ impl WinUiAdapter {
             .filter_map(|identity| registered.get(identity).copied())
             .collect())
     }
+}
+
+fn data_string(value: &str) -> IInspectable {
+    windows_reference::IReference::from(HSTRING::from(value)).into()
 }

@@ -577,6 +577,11 @@ struct Property {
     adapter: Option<PropertyAdapter>,
     controlled: Option<String>,
     coerces: Option<String>,
+    indexes: Option<String>,
+    #[serde(default)]
+    requires_selection: bool,
+    #[serde(default)]
+    realize_items: bool,
     feedback: Option<Feedback>,
     #[serde(default)]
     clear_feedback: bool,
@@ -915,6 +920,49 @@ fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::Metad
                     property.name
                 );
             }
+            assert_eq!(
+                property.value == Value::SelectionIndex,
+                property.indexes.is_some(),
+                "{}.{} must name the collection it indexes",
+                object.name,
+                property.name
+            );
+            assert!(
+                property.indexes.is_some()
+                    || !(property.requires_selection || property.realize_items),
+                "{}.{} declares index behavior but indexes nothing",
+                object.name,
+                property.name
+            );
+            if let Some(items) = &property.indexes {
+                assert!(
+                    property.controlled.is_some()
+                        && matches!(property.feedback, Some(Feedback::DeferredExact)),
+                    "{}.{} must be controlled with deferred_exact feedback",
+                    object.name,
+                    property.name
+                );
+                assert!(
+                    object.relations.iter().any(|candidate| {
+                        candidate.name == *items && candidate.cardinality == Cardinality::Many
+                    }) || object.properties.iter().any(|candidate| {
+                        candidate.name == *items && candidate.value == Value::StringList
+                    }),
+                    "{}.{} must index a collection",
+                    object.name,
+                    property.name
+                );
+                assert_eq!(
+                    object
+                        .properties
+                        .iter()
+                        .filter(|property| property.indexes.is_some())
+                        .count(),
+                    1,
+                    "{} has more than one index property",
+                    object.name
+                );
+            }
         }
         for event in &object.events {
             if event.property_changed {
@@ -1161,6 +1209,35 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
                     .map_or_else(|| "None".to_string(), |value| format!("Some({value:?})")),
                 selection.payload_property
             ));
+        }
+    }
+    output.push_str("_ => None,\n} }\n");
+    output.push_str(
+        "pub fn index_contract(kind: ObjectType) -> Option<IndexContract> { match kind {\n",
+    );
+    for object in &schema.objects {
+        for property in &object.properties {
+            if let Some(items) = &property.indexes {
+                let items = if object
+                    .relations
+                    .iter()
+                    .any(|relation| relation.name == *items)
+                {
+                    format!("IndexItems::Relation(RelationId::{items})")
+                } else {
+                    format!("IndexItems::Property(PropertyId::{items})")
+                };
+                output.push_str(&format!(
+                    "ObjectType::{} => Some(IndexContract {{ property: PropertyId::{}, \
+                     items: {items}, requires_selection: {}, realize_items: {}, \
+                     event: EventId::{} }}),\n",
+                    object.name,
+                    property.name,
+                    property.requires_selection,
+                    property.realize_items,
+                    property.controlled.as_ref().unwrap()
+                ));
+            }
         }
     }
     output.push_str("_ => None,\n} }\n");

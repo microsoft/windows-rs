@@ -769,7 +769,7 @@ fn normalized_feedback_defers_latest_observation_until_write_finishes() {
 }
 
 #[test]
-fn suppressed_feedback_drops_selection_observations_during_native_writes() {
+fn suppressed_feedback_drops_selection_observations_and_keeps_expectations() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime
         .update(ListBox::new().keyed_items([
@@ -787,14 +787,35 @@ fn suppressed_feedback_drops_selection_observations_during_native_writes() {
         selected: Some(selected),
     };
     let mut feedback = FeedbackState::default();
+    feedback.suppress(owner, EventId::SelectionChanged);
+    feedback.suppress(owner, EventId::SelectionChanged);
+    assert!(!feedback.observe(owner, EventId::SelectionChanged, observation.clone()));
+    feedback.release(owner, EventId::SelectionChanged);
+    assert!(!feedback.observe(owner, EventId::SelectionChanged, observation.clone()));
+    feedback.release(owner, EventId::SelectionChanged);
+    assert!(feedback.observe(owner, EventId::SelectionChanged, observation));
+
+    let index = |value| Observation::SetProperty {
+        object: owner,
+        property: Property {
+            id: PropertyId::SelectedIndex,
+            value: PropertyValue::SelectionIndex(value),
+        },
+    };
     feedback.begin(
         owner,
         EventId::SelectionChanged,
-        FeedbackExpectation::Suppressed,
+        FeedbackExpectation::DeferredExact(Property {
+            id: PropertyId::SelectedIndex,
+            value: PropertyValue::SelectionIndex(Some(1)),
+        }),
     );
-
-    assert!(!feedback.observe(owner, EventId::SelectionChanged, observation));
     assert_eq!(feedback.finish(owner, EventId::SelectionChanged), None);
+    feedback.suppress(owner, EventId::SelectionChanged);
+    assert!(!feedback.observe(owner, EventId::SelectionChanged, index(Some(0))));
+    feedback.release(owner, EventId::SelectionChanged);
+    assert!(!feedback.observe(owner, EventId::SelectionChanged, index(Some(1))));
+    assert!(feedback.observe(owner, EventId::SelectionChanged, index(Some(2))));
 }
 
 #[test]

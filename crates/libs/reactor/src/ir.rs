@@ -45,6 +45,32 @@ pub fn reorder_event(kind: ObjectType, relation: RelationId) -> Option<EventId> 
         .find(|contract| contract.relation == relation)
         .map(|contract| contract.event)
 }
+
+/// The collection an index property counts: a child relation or a list property.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum IndexItems {
+    Relation(RelationId),
+    Property(PropertyId),
+}
+
+/// A controlled property whose value indexes `items`. Reactor applies it after `items` changes,
+/// and the native `event` raised by changing `items` is not reported when the index is applied
+/// afterwards. An index out of range is applied as no selection, or as the first item when the
+/// control `requires_selection` and has items. A control that applies the index only to realized
+/// item containers lists `realize_items`, and the index is written after a layout pass.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct IndexContract {
+    pub property: PropertyId,
+    pub items: IndexItems,
+    pub requires_selection: bool,
+    pub realize_items: bool,
+    pub event: EventId,
+}
+
+pub fn index_for_items(kind: ObjectType, items: IndexItems) -> Option<IndexContract> {
+    index_contract(kind).filter(|contract| contract.items == items)
+}
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ValueType {
     String,
