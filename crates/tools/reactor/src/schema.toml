@@ -1088,14 +1088,15 @@ name = "IsEnabled"
 [[objects.properties]]
 name = "IsChecked"
 value = "OptionalBool"
-controlled = "Checked"
+controlled = "IsCheckedChanged"
 feedback = "exact"
 
 [[objects.relations]]
 name = "Content"
 
 [[objects.events]]
-name = "Checked"
+name = "IsCheckedChanged"
+property_changed = true
 observes = "IsChecked"
 
 [[objects]]

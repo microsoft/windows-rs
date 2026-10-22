@@ -4383,9 +4383,12 @@ impl RadioButton {
         );
         self
     }
-    pub fn on_checked(mut self, callback: impl IntoPayloadCallback<Option<bool>>) -> Self {
+    pub fn on_is_checked_changed(
+        mut self,
+        callback: impl IntoPayloadCallback<Option<bool>>,
+    ) -> Self {
         self.0 = self.0.event(
-            EventId::Checked,
+            EventId::IsCheckedChanged,
             EventValue::OptionalBool(callback.into_payload_callback()),
         );
         self

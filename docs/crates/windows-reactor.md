@@ -132,9 +132,11 @@ replacement.
 
 A ranged value such as `Slider::value` follows the declared range: a range that excludes it clamps
 the control without a callback, and the declared value returns when the range allows it again.
-For a choice among options, declare `RadioButtons::selected_index`. A standalone `RadioButton`
-reports `on_checked`, but WinUI unchecks the rest of its group, so its `is_checked` does not
-restore a rejected choice.
+For a choice among options, declare `RadioButtons::selected_index`. Grouped `RadioButton`s also
+work: each reports its own `on_is_checked_changed`, including the buttons WinUI unchecks, and a
+rejected choice restores the declared button. When Reactor's own writes change a declared value on
+another control, such as the rest of a group, the change is not reported; undeclared values still
+report it.
 
 The [`controlled`](../../crates/samples/reactor/controlled) sample shows the complete pattern.
 

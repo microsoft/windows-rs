@@ -62,8 +62,56 @@ fn controlled_ranges_keep_declared_values() -> Result<()> {
     })
 }
 
+/// Checking a grouped `RadioButton` reports both buttons, and a rejected choice restores the
+/// declared button even though WinUI unchecked it as a side effect.
+#[test]
+fn radio_group_restores_declared_choice() -> Result<()> {
+    process::run("radio", |ui| {
+        let radios = [ui.element("first")?, ui.element("second")?];
+        let wait = |expected: [bool; 2]| {
+            ui.wait(
+                &format!("radio buttons become {expected:?}"),
+                || {
+                    radios
+                        .iter()
+                        .map(|radio| unsafe {
+                            Ok(radio
+                                .GetCurrentPatternAs::<IUIAutomationSelectionItemPattern>(
+                                    SELECTION_ITEM_PATTERN,
+                                )?
+                                .CurrentIsSelected()?
+                                .as_bool())
+                        })
+                        .collect::<windows_core::Result<Vec<_>>>()
+                },
+                |values| values == &expected,
+            )
+        };
+        let select = |index: usize| unsafe {
+            radios[index]
+                .GetCurrentPatternAs::<IUIAutomationSelectionItemPattern>(SELECTION_ITEM_PATTERN)?
+                .Select()
+                .ok()
+        };
+        wait([true, false])?;
+        ui.name_stays("calls", "", Duration::from_millis(500))?;
+
+        select(1)?;
+        wait([false, true])?;
+        ui.name("calls", "first Some(false); second Some(true)")?;
+
+        ui.invoke("reject")?;
+        select(0)?;
+        wait([false, true])?;
+        let calls = "first Some(false); second Some(true); second Some(false); first Some(true)";
+        ui.name("calls", calls)?;
+        ui.name_stays("calls", calls, Duration::from_millis(500))
+    })
+}
+
 const RANGE_VALUE_PATTERN: i32 = 10003;
 const EXPAND_COLLAPSE_PATTERN: i32 = 10005;
+const SELECTION_ITEM_PATTERN: i32 = 10010;
 const TOGGLE_PATTERN: i32 = 10015;
 const VK_LEFT: i32 = 0x25;
 

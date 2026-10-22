@@ -196,7 +196,7 @@ Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::{add_ValueChanged, get_Va
 Microsoft::UI::Xaml::Controls::Primitives::IRangeBaseValueChangedEventArgs::get_NewValue
 Microsoft::UI::Xaml::Controls::Primitives::ISelector::{add_SelectionChanged, get_SelectedIndex, get_SelectedItem, put_SelectedItem, remove_SelectionChanged}
 Microsoft::UI::Xaml::Controls::Primitives::ISelectorItem::get_IsSelected
-Microsoft::UI::Xaml::Controls::Primitives::IToggleButton::{add_Checked, get_IsChecked, remove_Checked}
+Microsoft::UI::Xaml::Controls::Primitives::IToggleButton::get_IsChecked
 Microsoft::UI::Xaml::Controls::Primitives::PlacementMode::{Bottom, Left, Mouse, Right, Top}
 Microsoft::UI::Xaml::Controls::Primitives::RepeatButton::CreateInstance
 Microsoft::UI::Xaml::Controls::Primitives::ToggleButton::CreateInstance

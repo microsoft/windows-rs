@@ -218,3 +218,78 @@ impl Component for ControlledFixture {
             .into()
     }
 }
+
+/// A controlled `RadioButton` group. WinUI unchecks the rest of the group when one is checked, so
+/// each button reports its own changes and a rejected choice restores the whole group.
+pub(super) struct RadioFixture {
+    first: Option<bool>,
+    second: Option<bool>,
+    accept: bool,
+    calls: Vec<String>,
+}
+
+#[derive(Clone)]
+pub(super) enum RadioMessage {
+    First(Option<bool>),
+    Second(Option<bool>),
+    Reject,
+}
+
+impl Component for RadioFixture {
+    type Input = ();
+    type Message = RadioMessage;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            first: Some(true),
+            second: Some(false),
+            accept: true,
+            calls: Vec::new(),
+        }
+    }
+
+    fn update(&mut self, message: RadioMessage, _: &ComponentContext<Self>) {
+        let (call, value, state) = match message {
+            RadioMessage::First(value) => ("first", value, &mut self.first),
+            RadioMessage::Second(value) => ("second", value, &mut self.second),
+            RadioMessage::Reject => {
+                self.accept = false;
+                return;
+            }
+        };
+        self.calls.push(format!("{call} {value:?}"));
+        if self.accept {
+            *state = value;
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Reactor UI fixture: radio");
+        context.window_visuals(WindowVisuals::new().client_size(480.0, 320.0));
+        StackPanel::new()
+            .margin(20.0)
+            .spacing(8.0)
+            .children((
+                RadioButton::new()
+                    .automation_id("first")
+                    .content("First")
+                    .group_name("group")
+                    .is_checked(self.first)
+                    .on_is_checked_changed(context.callback(RadioMessage::First)),
+                RadioButton::new()
+                    .automation_id("second")
+                    .content("Second")
+                    .group_name("group")
+                    .is_checked(self.second)
+                    .on_is_checked_changed(context.callback(RadioMessage::Second)),
+                Button::new()
+                    .automation_id("reject")
+                    .content("Reject")
+                    .on_click(context.message(RadioMessage::Reject)),
+                TextBlock::new()
+                    .automation_id("calls")
+                    .text(self.calls.join("; ")),
+            ))
+            .into()
+    }
+}

@@ -294,7 +294,6 @@ pub enum EventId {
     AddTabButtonClick,
     BackRequested,
     CharacterReceived,
-    Checked,
     Click,
     Closed,
     ColorChanged,
@@ -719,7 +718,7 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
             value: ValueType::OptionalBool,
         }],
         ObjectType::RadioButton => &[EventContract {
-            id: EventId::Checked,
+            id: EventId::IsCheckedChanged,
             value: ValueType::OptionalBool,
         }],
         ObjectType::RadioButtons => &[EventContract {

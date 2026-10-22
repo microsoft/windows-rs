@@ -53,6 +53,53 @@ fn selection_observations_preserve_declaration_ownership() {
 }
 
 #[test]
+fn applying_selection_side_effects_dispatch_only_undeclared_selection() {
+    let values = Rc::new(RefCell::new(Vec::new()));
+    let received = Rc::clone(&values);
+    let callback = Callback::new(move |value| received.borrow_mut().push(value));
+    let view = |selected: Option<bool>| {
+        let item = ListBoxItem::new().tag("item");
+        ListBox::new()
+            .items((match selected {
+                Some(selected) => item.is_selected(selected),
+                None => item,
+            },))
+            .on_selected_tag_changed(callback.clone())
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    for (declared, dispatched) in [(Some(false), 0), (None, 1)] {
+        runtime.update(view(declared));
+        let owner = runtime.graph().root().unwrap();
+        let item = runtime.graph().children(owner, RelationId::Items).unwrap()[0];
+        runtime.adapter_mut().queue_applying_event(
+            Observation::SetSelection {
+                object: owner,
+                selected: Some(item),
+            },
+            EventDispatch::new(
+                owner,
+                EventId::SelectionChanged,
+                EventValue::Selection(callback.clone()),
+                EventPayload::Selection(SelectionChange {
+                    item: Some(item),
+                    value: Some(Rc::from("item")),
+                }),
+            ),
+        );
+        assert_eq!(runtime.dispatch_native_events(), dispatched);
+    }
+    assert_eq!(*values.borrow(), [Some(Rc::from("item"))]);
+    assert!(matches!(
+        runtime.update(view(Some(false))).as_slice(),
+        [Mutation::SetProperties { set, .. }]
+            if set.as_ref() == [Property {
+                id: PropertyId::IsSelected,
+                value: PropertyValue::Bool(false),
+            }]
+    ));
+}
+
+#[test]
 fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
     let selected_values = Rc::new(RefCell::new(Vec::new()));
     let selected_values_for_callback = Rc::clone(&selected_values);

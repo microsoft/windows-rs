@@ -696,6 +696,7 @@ impl WinUiAdapter {
                     event: None,
                     retirement: Some(RetirementCompletion { root }),
                     realization: None,
+                    applying: false,
                 });
             Self::schedule_event_wake(&event_queue);
         })?;
@@ -823,7 +824,7 @@ impl WinUiAdapter {
                 order.unwrap_or_else(|| queued.payload.clone()),
             ))
         });
-        Some(NativeEvent::new(observation, event))
+        Some(NativeEvent::new(observation, event).applying(queued.applying))
     }
 
     /// Returns the registered children of a reorderable relation in native order.

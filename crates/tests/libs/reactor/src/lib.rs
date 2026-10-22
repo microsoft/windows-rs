@@ -284,6 +284,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "error-with-window" => application::exit_with_open_window(true)?,
         "canvas" => App::run_component::<canvas::CanvasFixture>(())?,
         "controlled" => App::run_component::<controlled::ControlledFixture>(())?,
+        "radio" => App::run_component::<controlled::RadioFixture>(())?,
         "flyout" => App::run_component::<flyout::FlyoutFixture>(())?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,
         "dialog-theme-light" => {
