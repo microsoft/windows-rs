@@ -2,50 +2,50 @@
 mod Windows {
     mod Win32 {
         #[library("OFFREG.dll")]
-        extern fn ORCloseHive(Handle: ORHKEY) -> u32;
+        extern fn ORCloseHive(#[in] Handle: ORHKEY) -> u32;
         #[library("OFFREG.dll")]
-        extern fn ORCloseKey(KeyHandle: ORHKEY) -> u32;
+        extern fn ORCloseKey(#[in] KeyHandle: ORHKEY) -> u32;
         #[library("OFFREG.dll")]
         extern fn ORCreateHive(#[out] HORKey: PORHKEY) -> u32;
         #[library("OFFREG.dll")]
-        extern fn ORCreateKey(KeyHandle: ORHKEY, lpSubKey: PCWSTR, #[opt] lpClass: PWSTR, #[opt] dwOptions: u32, #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] phkResult: PORHKEY, #[out] #[opt] pdwDisposition: PDWORD) -> u32;
+        extern fn ORCreateKey(#[in] KeyHandle: ORHKEY, #[in] lpSubKey: PCWSTR, #[in] #[opt] lpClass: PWSTR, #[in] #[opt] dwOptions: u32, #[in] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[out] phkResult: PORHKEY, #[out] #[opt] pdwDisposition: PDWORD) -> u32;
         #[library("OFFREG.dll")]
-        extern fn ORDeleteKey(Handle: ORHKEY, #[opt] lpSubKey: PCWSTR) -> u32;
+        extern fn ORDeleteKey(#[in] Handle: ORHKEY, #[in] #[opt] lpSubKey: PCWSTR) -> u32;
         #[library("OFFREG.dll")]
-        extern fn ORDeleteValue(Handle: ORHKEY, #[opt] lpValueName: PCWSTR) -> u32;
+        extern fn ORDeleteValue(#[in] Handle: ORHKEY, #[in] #[opt] lpValueName: PCWSTR) -> u32;
         #[library("OFFREG.dll")]
-        extern fn OREnumKey(Handle: ORHKEY, dwIndex: u32, #[len_param(3)] #[out] lpName: PWSTR, #[in] #[out] lpcName: PDWORD, #[len_param(5)] #[out] #[opt] lpClass: PWSTR, #[in] #[out] #[opt] lpcClass: PDWORD, #[out] #[opt] lpftLastWriteTime: PFILETIME) -> u32;
+        extern fn OREnumKey(#[in] Handle: ORHKEY, #[in] dwIndex: u32, #[len_param(3)] #[out] lpName: PWSTR, #[in] #[out] lpcName: PDWORD, #[len_param(5)] #[out] #[opt] lpClass: PWSTR, #[in] #[out] #[opt] lpcClass: PDWORD, #[out] #[opt] lpftLastWriteTime: PFILETIME) -> u32;
         #[library("OFFREG.dll")]
-        extern fn OREnumValue(Handle: ORHKEY, dwIndex: u32, #[len_param(3)] #[out] lpValueName: PWSTR, #[in] #[out] lpcValueName: PDWORD, #[out] #[opt] lpType: PDWORD, #[size_param(6)] #[out] #[opt] lpData: PBYTE, #[in] #[out] #[opt] lpcbData: PDWORD) -> u32;
+        extern fn OREnumValue(#[in] Handle: ORHKEY, #[in] dwIndex: u32, #[len_param(3)] #[out] lpValueName: PWSTR, #[in] #[out] lpcValueName: PDWORD, #[out] #[opt] lpType: PDWORD, #[size_param(6)] #[out] #[opt] lpData: PBYTE, #[in] #[out] #[opt] lpcbData: PDWORD) -> u32;
         #[library("OFFREG.dll")]
-        extern fn ORGetKeySecurity(Handle: ORHKEY, SecurityInformation: SECURITY_INFORMATION, #[out] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] lpcbSecurityDescriptor: PDWORD) -> u32;
+        extern fn ORGetKeySecurity(#[in] Handle: ORHKEY, #[in] SecurityInformation: SECURITY_INFORMATION, #[out] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] lpcbSecurityDescriptor: PDWORD) -> u32;
         #[library("OFFREG.dll")]
-        extern fn ORGetValue(Handle: ORHKEY, #[opt] lpSubKey: PCWSTR, #[opt] lpValue: PCWSTR, #[out] #[opt] pdwType: PDWORD, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: PDWORD) -> u32;
+        extern fn ORGetValue(#[in] Handle: ORHKEY, #[in] #[opt] lpSubKey: PCWSTR, #[in] #[opt] lpValue: PCWSTR, #[out] #[opt] pdwType: PDWORD, #[out] #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: PDWORD) -> u32;
         #[library("OFFREG.dll")]
         extern fn ORGetVersion(#[out] pdwMajorVersion: PDWORD, #[out] pdwMinorVersion: PDWORD);
         #[library("OFFREG.dll")]
-        extern fn ORGetVirtualFlags(Handle: ORHKEY, #[out] pdwFlags: PDWORD) -> u32;
+        extern fn ORGetVirtualFlags(#[in] Handle: ORHKEY, #[out] pdwFlags: PDWORD) -> u32;
         type ORHKEY = *mut void;
         #[library("OFFREG.dll")]
-        extern fn ORMergeHives(#[len_param(1)] #[in] HiveHandles: *mut ORHKEY, HiveCount: u32, #[out] phkResult: PORHKEY) -> u32;
+        extern fn ORMergeHives(#[len_param(1)] #[in] HiveHandles: *mut ORHKEY, #[in] HiveCount: u32, #[out] phkResult: PORHKEY) -> u32;
         #[library("OFFREG.dll")]
-        extern fn OROpenHive(FilePath: PCWSTR, #[out] HORKey: PORHKEY) -> u32;
+        extern fn OROpenHive(#[in] FilePath: PCWSTR, #[out] HORKey: PORHKEY) -> u32;
         #[library("OFFREG.dll")]
-        extern fn OROpenHiveByHandle(FileHandle: HANDLE, #[out] HORKey: PORHKEY) -> u32;
+        extern fn OROpenHiveByHandle(#[in] FileHandle: HANDLE, #[out] HORKey: PORHKEY) -> u32;
         #[library("OFFREG.dll")]
-        extern fn OROpenKey(Handle: ORHKEY, #[opt] lpSubKey: PCWSTR, #[out] phkResult: PORHKEY) -> u32;
+        extern fn OROpenKey(#[in] Handle: ORHKEY, #[in] #[opt] lpSubKey: PCWSTR, #[out] phkResult: PORHKEY) -> u32;
         #[library("OFFREG.dll")]
-        extern fn ORQueryInfoKey(Handle: ORHKEY, #[len_param(2)] #[out] #[opt] lpClass: PWSTR, #[in] #[out] #[opt] lpcClass: PDWORD, #[out] #[opt] lpcSubKeys: PDWORD, #[out] #[opt] lpcMaxSubKeyLen: PDWORD, #[out] #[opt] lpcMaxClassLen: PDWORD, #[out] #[opt] lpcValues: PDWORD, #[out] #[opt] lpcMaxValueNameLen: PDWORD, #[out] #[opt] lpcMaxValueLen: PDWORD, #[out] #[opt] lpcbSecurityDescriptor: PDWORD, #[out] #[opt] lpftLastWriteTime: PFILETIME) -> u32;
+        extern fn ORQueryInfoKey(#[in] Handle: ORHKEY, #[len_param(2)] #[out] #[opt] lpClass: PWSTR, #[in] #[out] #[opt] lpcClass: PDWORD, #[out] #[opt] lpcSubKeys: PDWORD, #[out] #[opt] lpcMaxSubKeyLen: PDWORD, #[out] #[opt] lpcMaxClassLen: PDWORD, #[out] #[opt] lpcValues: PDWORD, #[out] #[opt] lpcMaxValueNameLen: PDWORD, #[out] #[opt] lpcMaxValueLen: PDWORD, #[out] #[opt] lpcbSecurityDescriptor: PDWORD, #[out] #[opt] lpftLastWriteTime: PFILETIME) -> u32;
         #[library("OFFREG.dll")]
-        extern fn ORRenameKey(Handle: ORHKEY, lpNewName: PCWSTR) -> u32;
+        extern fn ORRenameKey(#[in] Handle: ORHKEY, #[in] lpNewName: PCWSTR) -> u32;
         #[library("OFFREG.dll")]
-        extern fn ORSaveHive(HORKey: ORHKEY, HivePath: PCWSTR, OsMajorVersion: u32, OsMinorVersion: u32) -> u32;
+        extern fn ORSaveHive(#[in] HORKey: ORHKEY, #[in] HivePath: PCWSTR, #[in] OsMajorVersion: u32, #[in] OsMinorVersion: u32) -> u32;
         #[library("OFFREG.dll")]
-        extern fn ORSetKeySecurity(Handle: ORHKEY, SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> u32;
+        extern fn ORSetKeySecurity(#[in] Handle: ORHKEY, #[in] SecurityInformation: SECURITY_INFORMATION, #[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> u32;
         #[library("OFFREG.dll")]
-        extern fn ORSetValue(Handle: ORHKEY, #[opt] lpValueName: PCWSTR, dwType: u32, #[size_param(4)] #[opt] lpData: *const u8, cbData: u32) -> u32;
+        extern fn ORSetValue(#[in] Handle: ORHKEY, #[in] #[opt] lpValueName: PCWSTR, #[in] dwType: u32, #[in] #[size_param(4)] #[opt] lpData: *const u8, #[in] cbData: u32) -> u32;
         #[library("OFFREG.dll")]
-        extern fn ORSetVirtualFlags(Handle: ORHKEY, dwFlags: u32) -> u32;
+        extern fn ORSetVirtualFlags(#[in] Handle: ORHKEY, #[in] dwFlags: u32) -> u32;
         type PORHKEY = *mut ORHKEY;
     }
 }
