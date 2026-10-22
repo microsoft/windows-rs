@@ -145,6 +145,13 @@ Message::Reordered(order) => self
     .sort_by_key(|tab| order.iter().position(|key| *key == Key::from(tab.id))),
 ```
 
+A declared `selected_index` on `ListView`, `GridView`, `ComboBox`, `RadioButtons`, `Pivot`,
+`FlipView`, or `TabView` is applied after the items it indexes. When Reactor inserts, removes, or
+moves those items, it applies the index again, and the native selection moves in between are not
+reported. An index past the end selects nothing, except on `Pivot`, which always shows an item and
+falls back to the first. Without a declared index, `on_selection_changed` reports the selection that
+results from item changes.
+
 ## Split up the view
 
 Use a function returning `View` for a stateless piece. Use a child component when a subtree needs
@@ -381,6 +388,16 @@ such as theme brushes and image sources, use the adapters in `native/winui`.
 Use metadata names unless a shared Reactor name matches the public value, role, and behavior.
 Container names distinguish one owned visual (`content`), ordered visuals (`children`), and item
 declarations (`items`).
+
+A controlled index property names what it indexes with `indexes = "<relation or property>"`, where
+the property is a string list such as `ItemsSource`. Reactor writes the index after those items
+change, and the WinUI adapter drops the owner's selection notifications during item changes that
+the same batch follows with an index write.
+
+| Key | Use |
+| --- | --- |
+| `requires_selection = true` | The control always selects an item, so an index past the end selects the first item. |
+| `realize_items = true` | The control selects only realized item containers, so the adapter runs layout before writing the index. |
 
 After a generator or schema change, regenerate and inspect the output:
 

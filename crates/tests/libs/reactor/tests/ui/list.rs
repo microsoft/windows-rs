@@ -1,7 +1,7 @@
 use super::*;
 
-/// Keyed DataItem edits keep the native item order, and a selected index applied at mount or with
-/// a selection mode change lands after the items and mode it depends on.
+/// Keyed DataItem edits keep the native item order and text, and a selected index applied at mount
+/// or with a selection mode change lands after the items and mode it depends on.
 #[test]
 fn list_items_and_selection() -> Result<()> {
     process::run("list", |ui| {
@@ -15,6 +15,9 @@ fn list_items_and_selection() -> Result<()> {
         order(ui, &["Rich content", "Delta", "Beta", "Alpha"])?;
         ui.invoke("remove")?;
         order(ui, &["Rich content", "Delta", "Alpha"])?;
+        // The new item may reuse the removed item's container and must show its own text.
+        ui.invoke("insert-first")?;
+        order(ui, &["Gamma", "Rich content", "Delta", "Alpha"])?;
 
         // Selection mode and index change in one update; the index must apply after the mode.
         ui.invoke("enable-selection")?;

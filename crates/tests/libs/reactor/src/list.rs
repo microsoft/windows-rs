@@ -10,6 +10,7 @@ pub(super) enum Message {
     Reverse,
     Insert,
     Remove,
+    InsertFirst,
     EnableSelection,
 }
 
@@ -29,6 +30,7 @@ impl Component for ListFixture {
             Message::Reverse => self.keys.reverse(),
             Message::Insert => self.keys.insert(1, "delta"),
             Message::Remove => self.keys.retain(|key| *key != "beta"),
+            Message::InsertFirst => self.keys.insert(0, "gamma"),
             Message::EnableSelection => self.selectable = true,
         }
     }
@@ -80,6 +82,10 @@ impl Component for ListFixture {
                     .automation_id("remove")
                     .content("Remove")
                     .on_click(context.message(Message::Remove)),
+                Button::new()
+                    .automation_id("insert-first")
+                    .content("Insert first")
+                    .on_click(context.message(Message::InsertFirst)),
                 Button::new()
                     .automation_id("enable-selection")
                     .content("Enable selection")

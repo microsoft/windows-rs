@@ -265,12 +265,14 @@ pub(crate) enum FeedbackExpectation {
     Exact(Property),
     DeferredExact(Property),
     Normalized { observation: Option<Observation> },
-    Suppressed,
 }
 
 #[derive(Default)]
 pub(crate) struct FeedbackState {
     expectations: HashMap<(ObjectId, EventId), FeedbackExpectation>,
+    /// Events dropped while Reactor writes native state they report, counted per nested write.
+    /// Suppression leaves expectations in place for notifications that arrive afterwards.
+    suppressed: HashMap<(ObjectId, EventId), usize>,
 }
 
 impl FeedbackState {
@@ -290,6 +292,9 @@ impl FeedbackState {
         observation: Observation,
     ) -> bool {
         let key = (object, event);
+        if self.suppressed.contains_key(&key) {
+            return false;
+        }
         if let Some(FeedbackExpectation::DeferredExact(expected)) = self.expectations.get(&key) {
             let suppress = matches!(
                 &observation,
@@ -318,7 +323,6 @@ impl FeedbackState {
                 *pending = Some(observation);
                 false
             }
-            FeedbackExpectation::Suppressed => false,
             FeedbackExpectation::DeferredExact(_) => unreachable!(),
             FeedbackExpectation::Exact(_) => true,
         }
@@ -334,7 +338,20 @@ impl FeedbackState {
                 );
                 None
             }
-            Some(FeedbackExpectation::Exact(_) | FeedbackExpectation::Suppressed) | None => None,
+            Some(FeedbackExpectation::Exact(_)) | None => None,
+        }
+    }
+
+    pub(crate) fn suppress(&mut self, object: ObjectId, event: EventId) {
+        *self.suppressed.entry((object, event)).or_default() += 1;
+    }
+
+    pub(crate) fn release(&mut self, object: ObjectId, event: EventId) {
+        let key = (object, event);
+        let depth = self.suppressed.get_mut(&key).unwrap();
+        *depth -= 1;
+        if *depth == 0 {
+            self.suppressed.remove(&key);
         }
     }
 
@@ -661,6 +678,16 @@ fn retained_events(events: &Option<Rc<Vec<Event>>>) -> &[Event] {
 
 fn retain_events(events: &SharedList<Event>) -> Option<Rc<Vec<Event>>> {
     (!events.as_slice().is_empty()).then(|| Rc::new(events.as_slice().to_vec()))
+}
+
+/// A new object's properties, except an index property that waits for the children it indexes.
+fn properties_before_relations(kind: ObjectType, properties: &[Property]) -> Rc<[Property]> {
+    let index = index_contract(kind).map(|contract| contract.property);
+    properties
+        .iter()
+        .filter(|property| Some(property.id) != index)
+        .cloned()
+        .collect()
 }
 
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -3254,10 +3281,11 @@ impl Planner<'_, '_> {
             object,
             kind: declaration.kind,
         });
-        if !declaration.properties.as_slice().is_empty() {
+        let set = properties_before_relations(declaration.kind, declaration.properties.as_slice());
+        if !set.is_empty() {
             self.mutations.push(Mutation::SetProperties {
                 object,
-                set: Rc::from(declaration.properties.as_slice()),
+                set,
                 clear: Rc::from([]),
             });
         }
@@ -3278,6 +3306,7 @@ impl Planner<'_, '_> {
         for contract in relation_contracts(declaration.kind) {
             self.mount_relation(object, declaration, contract)?;
         }
+        self.apply_index(object, declaration, None, false);
         if let Some(height) = declaration.window_title_bar {
             self.retained.set_window_title_bar(object, height)?;
             self.mutations
@@ -3367,17 +3396,11 @@ impl Planner<'_, '_> {
             object,
             kind: declaration.kind,
         });
-        if !self
-            .retained
-            .get(object)
-            .unwrap()
-            .properties
-            .as_slice()
-            .is_empty()
-        {
+        let set = properties_before_relations(declaration.kind, declaration.properties.as_slice());
+        if !set.is_empty() {
             self.mutations.push(Mutation::SetProperties {
                 object,
-                set: Rc::from(self.retained.get(object).unwrap().properties.as_slice()),
+                set,
                 clear: Rc::from([]),
             });
         }
@@ -3398,6 +3421,7 @@ impl Planner<'_, '_> {
         for contract in relation_contracts(declaration.kind) {
             self.mount_relation(object, declaration, contract)?;
         }
+        self.apply_index(object, declaration, None, false);
         if let Some(height) = declaration.window_title_bar {
             self.mutations
                 .push(Mutation::SetWindowTitleBar { object, height });
@@ -3603,23 +3627,53 @@ impl Planner<'_, '_> {
             )?;
         }
         let properties = declaration.properties.as_slice();
+        let index = index_contract(declaration.kind);
+        let (previous_index, items_property_changed) = {
+            let previous = &self.retained.get(object).unwrap().properties;
+            let find = |properties: &[Property], id| {
+                properties
+                    .iter()
+                    .find(|property| property.id == id)
+                    .cloned()
+            };
+            match index {
+                Some(contract) => (
+                    find(previous.as_slice(), contract.property),
+                    match contract.items {
+                        IndexItems::Property(items) => {
+                            find(previous.as_slice(), items) != find(properties, items)
+                        }
+                        IndexItems::Relation(_) => false,
+                    },
+                ),
+                None => (None, false),
+            }
+        };
+        let index = index.map(|contract| contract.property);
         if self.retained.get(object).unwrap().properties.as_slice() != properties {
             let previous = self.retained.get(object).unwrap().properties.clone();
             let set = properties
                 .iter()
                 .filter(|property| {
-                    previous.iter().find(|current| current.id == property.id) != Some(*property)
+                    Some(property.id) != index
+                        && previous.iter().find(|current| current.id == property.id)
+                            != Some(*property)
                 })
                 .cloned()
                 .collect::<Rc<[_]>>();
             let clear = previous
                 .iter()
-                .filter(|property| !properties.iter().any(|current| current.id == property.id))
+                .filter(|property| {
+                    Some(property.id) != index
+                        && !properties.iter().any(|current| current.id == property.id)
+                })
                 .map(|property| property.id)
                 .collect::<Rc<[_]>>();
             self.retained.get_mut(object).properties = declaration.properties.clone();
-            self.mutations
-                .push(Mutation::SetProperties { object, set, clear });
+            if !set.is_empty() || !clear.is_empty() {
+                self.mutations
+                    .push(Mutation::SetProperties { object, set, clear });
+            }
         }
         let events = declaration.events.as_slice();
         if retained_events(&self.retained.get(object).unwrap().events) != events {
@@ -3644,10 +3698,91 @@ impl Planner<'_, '_> {
                 .push(Mutation::SetEvents { object, set, clear });
         }
         self.reconcile_virtual_items(object, declaration)?;
+        let start = self.mutations.len();
         for contract in relation_contracts(declaration.kind) {
             self.reconcile_relation(object, declaration, contract)?;
         }
+        let items_changed = items_property_changed
+            || index_contract(declaration.kind).is_some_and(|contract| {
+                self.mutations[start..]
+                    .iter()
+                    .any(|mutation| match mutation {
+                        Mutation::Insert {
+                            parent, relation, ..
+                        }
+                        | Mutation::Remove {
+                            parent, relation, ..
+                        }
+                        | Mutation::Reorder {
+                            parent, relation, ..
+                        } => *parent == object && contract.items == IndexItems::Relation(*relation),
+                        _ => false,
+                    })
+            });
+        self.apply_index(object, declaration, previous_index.as_ref(), items_changed);
         Ok(object)
+    }
+
+    /// Applies a declaration's index property after the items it indexes, since native controls
+    /// reject an index past their items. An index out of range is applied as no selection. Native
+    /// controls also move or drop the selection when the items change, so the index is applied
+    /// again after Reactor changes them.
+    fn apply_index(
+        &mut self,
+        object: ObjectId,
+        declaration: &Declaration,
+        previous: Option<&Property>,
+        items_changed: bool,
+    ) {
+        let Some(contract) = index_contract(declaration.kind) else {
+            return;
+        };
+        let declared = declaration
+            .properties
+            .as_slice()
+            .iter()
+            .find(|property| property.id == contract.property);
+        let (set, clear): (Rc<[Property]>, Rc<[PropertyId]>) = match declared {
+            Some(declared) if items_changed || Some(declared) != previous => {
+                let len = match contract.items {
+                    IndexItems::Relation(relation) => self
+                        .retained
+                        .children(object, relation)
+                        .map_or(0, <[_]>::len),
+                    IndexItems::Property(items) => declaration
+                        .properties
+                        .as_slice()
+                        .iter()
+                        .find_map(|property| match &property.value {
+                            PropertyValue::StringList(values) if property.id == items => {
+                                Some(values.len())
+                            }
+                            _ => None,
+                        })
+                        .unwrap_or(0),
+                };
+                let value = match declared.value {
+                    PropertyValue::SelectionIndex(Some(index)) if index < len => {
+                        declared.value.clone()
+                    }
+                    _ if contract.requires_selection && len > 0 => {
+                        PropertyValue::SelectionIndex(Some(0))
+                    }
+                    _ => PropertyValue::SelectionIndex(None),
+                };
+                let property = Property {
+                    id: contract.property,
+                    value,
+                };
+                (Rc::from([property]), Rc::from([]))
+            }
+            None if previous.is_some() && !contract.requires_selection => {
+                (Rc::from([]), Rc::from([contract.property]))
+            }
+            _ => return,
+        };
+        self.mutations
+            .push(Mutation::SetProperties { object, set, clear });
     }
 
     fn reconcile_relation(

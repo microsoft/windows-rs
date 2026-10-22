@@ -25,7 +25,7 @@ fn main() {
             "IUIAutomationTextRange::GetAttributeValue",
             "IUIAutomationValuePattern::{CurrentValue,SetValue}",
             "IUIAutomationSelectionPattern::GetCurrentSelection",
-            "IUIAutomationSelectionItemPattern::Select",
+            "IUIAutomationSelectionItemPattern::{Select,CurrentIsSelected}",
             "TreeScope_Children",
             "TreeScope_Descendants",
             "TreeScope_Subtree",

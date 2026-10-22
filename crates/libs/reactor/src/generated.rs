@@ -456,6 +456,60 @@ pub fn selection_contract(kind: ObjectType) -> Option<SelectionContract> {
         _ => None,
     }
 }
+pub fn index_contract(kind: ObjectType) -> Option<IndexContract> {
+    match kind {
+        ObjectType::ListView => Some(IndexContract {
+            property: PropertyId::SelectedIndex,
+            items: IndexItems::Relation(RelationId::Items),
+            requires_selection: false,
+            realize_items: false,
+            event: EventId::SelectionChanged,
+        }),
+        ObjectType::RadioButtons => Some(IndexContract {
+            property: PropertyId::SelectedIndex,
+            items: IndexItems::Property(PropertyId::ItemsSource),
+            requires_selection: false,
+            realize_items: true,
+            event: EventId::SelectionChanged,
+        }),
+        ObjectType::ComboBox => Some(IndexContract {
+            property: PropertyId::SelectedIndex,
+            items: IndexItems::Property(PropertyId::ItemsSource),
+            requires_selection: false,
+            realize_items: false,
+            event: EventId::SelectionChanged,
+        }),
+        ObjectType::Pivot => Some(IndexContract {
+            property: PropertyId::SelectedIndex,
+            items: IndexItems::Relation(RelationId::Items),
+            requires_selection: true,
+            realize_items: false,
+            event: EventId::SelectionChanged,
+        }),
+        ObjectType::FlipView => Some(IndexContract {
+            property: PropertyId::SelectedIndex,
+            items: IndexItems::Relation(RelationId::Items),
+            requires_selection: false,
+            realize_items: false,
+            event: EventId::SelectionChanged,
+        }),
+        ObjectType::TabView => Some(IndexContract {
+            property: PropertyId::SelectedIndex,
+            items: IndexItems::Relation(RelationId::TabItems),
+            requires_selection: false,
+            realize_items: false,
+            event: EventId::SelectionChanged,
+        }),
+        ObjectType::GridView => Some(IndexContract {
+            property: PropertyId::SelectedIndex,
+            items: IndexItems::Relation(RelationId::Items),
+            requires_selection: false,
+            realize_items: false,
+            event: EventId::SelectionChanged,
+        }),
+        _ => None,
+    }
+}
 pub fn reorder_contracts(kind: ObjectType) -> &'static [ReorderContract] {
     match kind {
         ObjectType::ListView => &[ReorderContract {

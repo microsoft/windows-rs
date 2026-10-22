@@ -79,7 +79,11 @@ impl WinUiAdapter {
                     })
                 }
                 ObjectType::DataItem => {
-                    let values = BTreeMap::<HSTRING, Option<IInspectable>>::new();
+                    let values = BTreeMap::from([
+                        (self.data_text_key.clone(), Some(data_string(""))),
+                        (self.data_content_key.clone(), None),
+                        (self.data_text_visibility_key.clone(), Some(data_string("Visible"))),
+                    ]);
                     Handle::Data(values.into())
                 }
                 _ => unreachable!("generated object was not created"),
@@ -164,20 +168,31 @@ impl WinUiAdapter {
                     .borrow_mut()
                     .begin(object, event, expectation);
             }
-            let selection_feedback = self.selection_feedback(object, property)?;
-            if let Some((owner, event)) = selection_feedback {
-                self.event_queue.feedback.borrow_mut().begin(
-                    owner,
-                    event,
-                    FeedbackExpectation::Suppressed,
-                );
+            let suppressed = match self.selection_feedback(object, property)? {
+                Some(feedback) => Some(feedback),
+                None => self
+                    .index_event(object, IndexItems::Property(property))?
+                    .map(|event| (object, event)),
+            };
+            if let Some((owner, event)) = suppressed {
+                self.event_queue
+                    .feedback
+                    .borrow_mut()
+                    .suppress(owner, event);
+            }
+            if let Some(PropertyValue::SelectionIndex(Some(_))) = value
+                && index_contract(kind)
+                    .is_some_and(|contract| contract.property == property && contract.realize_items)
+                && let Some(element) = element.as_ref()
+            {
+                element.UpdateLayout()?;
             }
             let result = self.apply_property(object, kind, element.as_ref(), property, value);
             let observation = feedback.and_then(|(event, _)| {
                 self.event_queue.feedback.borrow_mut().finish(object, event)
             });
-            if let Some((owner, event)) = selection_feedback {
-                self.event_queue.feedback.borrow_mut().finish(owner, event);
+            if let Some((owner, event)) = suppressed {
+                self.event_queue.feedback.borrow_mut().release(owner, event);
             }
             result?;
             if let Some(observation) = observation {

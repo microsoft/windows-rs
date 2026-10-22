@@ -655,6 +655,7 @@ name = "AllowDrop"
 name = "SelectedIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
+indexes = "Items"
 feedback = "deferred_exact"
 
 [[objects.relations]]
@@ -1111,7 +1112,9 @@ adapter = "inspectable_string_list"
 name = "SelectedIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
-feedback = "normalized"
+indexes = "ItemsSource"
+realize_items = true
+feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Header"
@@ -1438,7 +1441,8 @@ adapter = "inspectable_string_list"
 name = "SelectedIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
-feedback = "exact"
+indexes = "ItemsSource"
+feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Header"
@@ -1458,7 +1462,9 @@ adapter = "inspectable_string"
 name = "SelectedIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
-feedback = "exact"
+indexes = "Items"
+requires_selection = true
+feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Items"
@@ -1486,7 +1492,8 @@ name = "FlipView"
 name = "SelectedIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
-feedback = "exact"
+indexes = "Items"
+feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Items"
@@ -1542,7 +1549,8 @@ name = "IsAddTabButtonVisible"
 name = "SelectedIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
-feedback = "exact"
+indexes = "TabItems"
+feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "TabItems"
@@ -1887,7 +1895,8 @@ name = "AllowDrop"
 name = "SelectedIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
-feedback = "exact"
+indexes = "Items"
+feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Items"
