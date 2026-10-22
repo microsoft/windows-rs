@@ -973,7 +973,7 @@ fn native_semantics() {
             let library = Arc::clone(&library);
             scope.spawn(move || {
                 let previous = set_library(Some(library));
-                assert_eq!(unsafe { windows_clang_getABIVersion() }, 19);
+                assert_eq!(unsafe { windows_clang_getABIVersion() }, 20);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION

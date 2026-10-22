@@ -113,7 +113,7 @@ fn malformed_probes_preserve_valid_siblings() {
 }
 
 #[test]
-fn confirmation_workers_preserve_capture_order() {
+fn multi_target_capture_preserves_order() {
     helpers::ensure_libclang();
     let mut inputs = [
         test_clang::selected_fixture("macro_diagnostics", &["Anchor"]),

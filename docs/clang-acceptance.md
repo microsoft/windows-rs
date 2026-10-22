@@ -74,10 +74,10 @@ generation and downstream-direction gaps. Its findings are tracked in
 | Work | Status and completion check |
 | --- | --- |
 | Canonical annotation quality | D38 arithmetic harmonization and termination owner/storage validation are complete. Short termination contracts are parameter-owned; unsupported owners/storage retain explicit full metadata. Single/double-NUL phases share one attribute family, including #5042's native case. Further annotation families are deferred. Residual SAL and C++ evidence publication remain maintainer decisions, not a reason to keep expanding the grammar. |
-| Branch test health | Not green. Fixture drift, return-row assertions and the known PCH GUID reproducer remain from the wrap-up sweep. Native import consumers pass after the direction correction. WebView2 generation still exposes canonical value-type/alias ownership gaps, and WDK/combined WinMD generation still needs migration. |
+| Branch test health | Not green. Fixture drift and return-row assertions remain from the wrap-up sweep. Native import consumers pass after the direction correction. WebView2 generation still exposes canonical value-type/alias ownership gaps, and WDK/combined WinMD generation still needs migration. |
 | Existing metadata differences | Open after the attribute model. Account for required API families and `activationregistration`/`windowsfoundation`; no automatic exclusions or zero-difference target. |
 | UIA scope and unresolved imports | D23 approves candidate scope only. Keep `CustomNavigationPattern_Navigate` unresolved ownership explicit; generated Rust/live-provider qualification waits. |
-| SDK compilation contexts and PCH GUIDs | Open. Re-evaluate Olectl preloads, INITGUID phases, topology context and lean definition inputs together. Preserve the compiler reproducer; no source retries or guessed values. |
+| SDK compilation contexts | Open. Re-evaluate Olectl preloads, INITGUID phases, topology context and lean definition inputs together. No source retries or guessed values. |
 | Candidate-aware CI | Confirmed gap, deferred. `package_acceptance` reads worktree RDL; clean CI has legacy output and does not generate the candidate first. Require a generated, identified candidate before claiming this gate. |
 | Unspecified-direction projection | Corrected in bindgen: unknown direction preserves native pointer mutability and does not trigger input/output, slice, query or retval conversions. Raw, alias and COM regression fixtures and native import consumers cover the change. |
 | Generation cleanliness | The independent review reports legacy generator and package drift. Separate textual direction changes from WinMD/API differences before landing. Do not overwrite the visible candidate with legacy output as part of metadata polishing. |
@@ -183,12 +183,9 @@ working set. Record machine, CPU/core count, inputs, configuration, and warm dep
 the maintainer to quiet other workloads before controlled measurements; historical timings are not
 acceptance measurements.
 
-**PCH decision in step 1:** inventory affected required declarations in the chosen configuration; do
-not treat the historical count of about 460 ksmedia GUIDs as a current loss count. For remaining
-required gaps, agree on a bounded fix or explicit exclusion; otherwise acceptance stays blocked.
-Preserve the compiler reproducer even if validated definition inputs supply the required values.
-Only a small companion adjustment is within the existing fix scope; libclang rebuilds, parser
-duplication, and per-failure full-source retries remain out of scope.
+**GUID macros in step 1:** discovery runs without a PCH, so `__uuidof` macros publish their native
+values. Inventory any remaining required GUID gaps in the chosen configuration and agree on a
+bounded fix or explicit exclusion; otherwise acceptance stays blocked.
 
 **Metadata compatibility gate:** the maintainer approved requiring updated, paired readers and
 generators for the new metadata; older consumers are not a compatibility target. Qualify inherited

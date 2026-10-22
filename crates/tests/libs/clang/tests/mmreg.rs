@@ -38,10 +38,11 @@ fn discovered_constant_rdl() {
         );
     }
     for name in GUIDS {
-        assert!(!actual.contains(&format!("const {name}:")));
-        assert!(output.omissions.iter().any(|message| {
-            message.starts_with(&format!("Macro(\"{name}\")")) && message.contains("incomplete")
-        }));
+        let line = expected
+            .lines()
+            .find(|line| line.starts_with(&format!("    const {name}:")))
+            .unwrap();
+        assert!(actual.contains(line), "{line}");
         let fragment = format!("STATIC_{name}");
         assert!(!actual.contains(&format!("const {fragment}:")));
         assert!(output.omissions.iter().any(|message| {

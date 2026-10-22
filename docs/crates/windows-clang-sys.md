@@ -33,7 +33,18 @@ does not inspect private cursor fields or depend on Clang C++ class layouts.
 | `windows_clang_getTypeOfOperand` | Original expression in a variable or typedef's `typeof` type. |
 | `windows_clang_getPredefinedType` | Underlying type of compiler-predefined sugar, not user typedefs. |
 | `windows_clang_getConstantIntegerElement` | Evaluated nonnegative integer leaf at a struct/array index path. |
+| `windows_clang_probeMacros` | Classifies each named macro with type/initializer probes after one incremental parse. |
 
+`windows_clang_probeMacros` parses the source once as an incremental TU, then parses each
+candidate's probes as a separate input against that state. Each result reports undefined,
+function-like, empty, rejected, value, or function, plus the active definition location. Rejected
+probes keep their formatted diagnostics, and the diagnostics engine is reset before the next
+candidate. Replacement lists with unbalanced brackets are rejected without a probe, because an
+incremental input must not leave parser state open for the next one; failed probes' declarations
+are removed from lookup as in clang-repl. Original-source errors return `WindowsClangParseFailed`
+with diagnostics in `error`.
+Callers dispose every returned string. The query links Clang's driver, parser, and Sema libraries
+directly because libclang does not export incremental parsing.
 Packing comes from `MaxFieldAlignmentAttr`, not observed record layout or explicit `AlignedAttr`.
 The alignment query reads each `AlignedAttr`, including zero, type operands, and GNU requests
 without an argument. Dependent requests return `WindowsClangDependent` without changing the
@@ -56,7 +67,7 @@ The qualifier query includes qualifiers inherited through typedefs. After identi
 volatile, restrict, and unaligned, it checks the remaining native qualifier set, rather than
 assuming those four exhaust Clang's type qualifiers. Address spaces and other undecoded qualifiers
 set `WindowsClangOtherQualifiers`. Method qualifiers use the same decoding, independently of the
-function type's own qualifiers. The extension ABI version is 19.
+function type's own qualifiers. The extension ABI version is 20.
 
 `windows_clang_getPointerInfo` decodes native, fixed 64-bit, signed 32-bit, unsigned 32-bit and
 other pointer representations. Written pointer-size attributes survive typedef desugaring.

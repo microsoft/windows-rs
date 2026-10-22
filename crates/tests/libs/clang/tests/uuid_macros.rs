@@ -30,7 +30,6 @@ fn probe_declarations_are_not_roots() {
 }
 
 #[test]
-#[ignore = "libclang PCH does not materialize its builtin GUID declaration"]
 fn explicit_and_discovered_uuid() {
     helpers::ensure_libclang();
     let mut input = test_clang::selected_fixture("uuid_macros", &["GUID"]);

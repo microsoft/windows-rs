@@ -1348,11 +1348,28 @@ pub struct WindowsClangImportConvention {
 }
 pub const WindowsClangInvalidArgument: WindowsClangStatus = 1;
 pub type WindowsClangLanguageLinkage = i32;
+pub const WindowsClangMacroEmpty: WindowsClangMacroKind = 2;
+pub const WindowsClangMacroFunction: WindowsClangMacroKind = 5;
+pub const WindowsClangMacroFunctionLike: WindowsClangMacroKind = 1;
+pub type WindowsClangMacroKind = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct WindowsClangMacroProbe {
+    pub kind: WindowsClangMacroKind,
+    pub file: CXString,
+    pub line: u32,
+    pub column: u32,
+    pub diagnostics: CXString,
+}
+pub const WindowsClangMacroRejected: WindowsClangMacroKind = 3;
+pub const WindowsClangMacroUndefined: WindowsClangMacroKind = 0;
+pub const WindowsClangMacroValue: WindowsClangMacroKind = 4;
 pub const WindowsClangMethodQualifiers: WindowsClangFunctionProperties = 16;
 pub const WindowsClangNativePointer: WindowsClangPointerRepresentation = 0;
 pub const WindowsClangNoLanguageLinkage: WindowsClangLanguageLinkage = 0;
 pub const WindowsClangOtherPointer: WindowsClangPointerRepresentation = 4;
 pub const WindowsClangOtherQualifiers: WindowsClangTypeQualifiers = 16;
+pub const WindowsClangParseFailed: WindowsClangStatus = 4;
 pub const WindowsClangPointer64: WindowsClangPointerRepresentation = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1607,6 +1624,13 @@ const _: () = {
     assert!(core::mem::offset_of!(WindowsClangImportConvention, origin) == 0usize);
     assert!(core::mem::offset_of!(WindowsClangImportConvention, stdcall_type) == 8usize);
     assert!(core::mem::offset_of!(WindowsClangImportConvention, stdcall_symbol) == 32usize);
+    assert!(size_of::<WindowsClangMacroProbe>() == 48usize);
+    assert!(align_of::<WindowsClangMacroProbe>() == 8usize);
+    assert!(core::mem::offset_of!(WindowsClangMacroProbe, kind) == 0usize);
+    assert!(core::mem::offset_of!(WindowsClangMacroProbe, file) == 8usize);
+    assert!(core::mem::offset_of!(WindowsClangMacroProbe, line) == 24usize);
+    assert!(core::mem::offset_of!(WindowsClangMacroProbe, column) == 28usize);
+    assert!(core::mem::offset_of!(WindowsClangMacroProbe, diagnostics) == 32usize);
     assert!(size_of::<WindowsClangPointerInfo>() == 32usize);
     assert!(align_of::<WindowsClangPointerInfo>() == 8usize);
     assert!(core::mem::offset_of!(WindowsClangPointerInfo, representation) == 0usize);
@@ -2403,6 +2427,17 @@ pub(crate) struct Functions {
         unsafe extern "C" fn(cursor: CXCursor, uuid: *mut CXString) -> WindowsClangStatus,
     pub windows_clang_getVirtualMethodSlot:
         unsafe extern "C" fn(cursor: CXCursor, slot: *mut u64) -> WindowsClangStatus,
+    pub windows_clang_probeMacros: unsafe extern "C" fn(
+        source_filename: *const i8,
+        command_line_args: *const *const i8,
+        num_command_line_args: i32,
+        unsaved_files: *mut CXUnsavedFile,
+        num_unsaved_files: u32,
+        names: *const *const i8,
+        num_names: u32,
+        probes: *mut WindowsClangMacroProbe,
+        error: *mut CXString,
+    ) -> WindowsClangStatus,
 }
 impl Functions {
     pub(crate) unsafe fn load(
@@ -5042,6 +5077,13 @@ impl Functions {
                         )
                     })?
             },
+            windows_clang_probeMacros: unsafe {
+                *extension
+                    .get(b"windows_clang_probeMacros\0")
+                    .map_err(|error| {
+                        format!("{}: {error}", stringify!(windows_clang_probeMacros))
+                    })?
+            },
         })
     }
 }
@@ -7277,5 +7319,30 @@ pub unsafe fn windows_clang_getVirtualMethodSlot(
 ) -> WindowsClangStatus {
     crate::with_library(|library| unsafe {
         (library.functions.windows_clang_getVirtualMethodSlot)(cursor, slot)
+    })
+}
+pub unsafe fn windows_clang_probeMacros(
+    source_filename: *const i8,
+    command_line_args: *const *const i8,
+    num_command_line_args: i32,
+    unsaved_files: *mut CXUnsavedFile,
+    num_unsaved_files: u32,
+    names: *const *const i8,
+    num_names: u32,
+    probes: *mut WindowsClangMacroProbe,
+    error: *mut CXString,
+) -> WindowsClangStatus {
+    crate::with_library(|library| unsafe {
+        (library.functions.windows_clang_probeMacros)(
+            source_filename,
+            command_line_args,
+            num_command_line_args,
+            unsaved_files,
+            num_unsaved_files,
+            names,
+            num_names,
+            probes,
+            error,
+        )
     })
 }

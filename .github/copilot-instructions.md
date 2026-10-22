@@ -293,8 +293,9 @@ nominal types, qualifiers, callback names and typedef-owned contracts must not b
 Repeated GUID blocks also occur in the main TU (`winioctl.h`); enabling INITGUID before its prelude
 fails even with satellite definition mode disabled.
 `Input.macro_headers` and `--macro-header=header.h` discover object-like macros through compiler
-preprocessing records and isolated expression probes. Failed probe ASTs never supply capture
-evidence. The certbcli slice recovers its 22 baseline constants, retaining `CSBFT` typedefs, plus two
+preprocessing records and per-macro expression probes in one incremental native parse. Failed
+probes never supply capture evidence. The certbcli slice recovers its 22 baseline constants,
+retaining `CSBFT` typedefs, plus two
 string macros whose encoding follows UNICODE. Unselected headers' macros remain absent from both
 output and omissions; track baseline parity separately from captured-declaration counts.
 Winerror and urlmon discovery recover all 7,456 baseline winerror names with unchanged values.
@@ -332,22 +333,13 @@ checked compiler static initializers recover the 38 structure-size macros withou
 Mmreg and its ksmedia/wmsdkidl companions add 2,475 baseline constants without changing prior
 declarations. Active ownership puts 20 speaker flags in ksmedia and `WAVE_FORMAT_DRM` in wmsdkidl.
 Retained values and target availability match; 55 constants preserve written typedefs. The full
-selection retains 1,974 of 1,976 mmreg names and all 78 wmsdkidl names. Mmreg's PCM/WAVEFORMATEX
-GUIDs and 460 ksmedia baseline macro GUIDs remain PCH-blocked in the satellite input.
+selection retains 1,974 of 1,976 mmreg names and all 78 wmsdkidl names. Discovered `__uuidof`
+GUID macros, including mmreg's PCM/WAVEFORMATEX GUIDs, publish their native values.
 Three ksmedia property keys need definitions; `KSEVENTSETID_VIDCAPTOSTI` is a UUID tag without a
 same-named value macro, so publishing its tag name as a constant needs a separate policy decision.
-The standalone mmreg fixture exposes PCH GUID completeness: `uuid_macros.h` captures `__uuidof`
-explicitly but discovery rejects it after PCH reload, even with a complete `_GUID` definition.
-The matching Clang executable reproduces the failure. Do not hide this with selected GUID names or
-guessed values. Per-failure source confirmation recovers the GUIDs but is too slow: the unchanged
-SDK run exceeds 515.9 seconds without completing capture, against 338.8 seconds for
-capture/merge/project without confirmation.
-The prototype is removed. A native diagnostic probe shows the definition is still in the PCH:
-`ExternalASTSource::CompleteRedeclChain` on Clang's builtin GUID tag loads it and restores correct
-GUID values on all targets. Genuinely incomplete types still fail. This libclang bug is deferred:
-only a small companion tweak is in scope, not a libclang rebuild or parser duplication. No suitable
-pre-parse hook is established. Keep the ignored parity reproducer and explicit GUID coverage, record
-affected gaps, and continue measured families. Do not retain source retries or add parser exceptions.
+Macro discovery does not use a PCH; a PCH reload lost the builtin `_GUID` definition and rejected
+every `__uuidof` macro. `uuid_macros` checks explicit and discovered GUID parity. Do not reintroduce
+per-macro reparses or PCH replay; probes share one incremental parse per target.
 Macro probe initializers must not add parentheses around the macro. That turns comma-separated
 initializer fragments into scalar comma expressions. Preserve source-authored grouped expressions;
 let Clang reject field lists without filtering macro names or interpreting their tokens.
