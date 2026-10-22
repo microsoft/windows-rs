@@ -461,8 +461,7 @@ fn emit_event(
             "observed"
         };
         code.push_str(&format!(
-            "let observed = match read_{field}() {{ Ok(value) => value, Err(error) => {{ \
-                         report_error(error); return; }} }};\n\
+            "let observed = read_{field}().unwrap();\n\
                          let observation = Observation::SetProperty {{ \
                          object, property: Property {{ id: PropertyId::{observed}, \
                          value: PropertyValue::{variant}({observed_value}) }} }};\n\
@@ -489,10 +488,9 @@ fn emit_event(
         if event.payload_adapter == Some(PayloadAdapter::ItemKey) {
             code.push_str(&format!(
                 "let args = args.unwrap();\n\
-                             let payload = match args.{payload}()\
-                             .and_then(|value| value.cast::<IInspectable>()) {{\
-                             Ok(value) => event_queue_{field}.item_object(object, &value),\
-                             Err(error) => {{ report_error(error); return; }} }};\n\
+                             let payload = event_queue_{field}.item_object(object, \
+                             &args.{payload}().and_then(|value| value.cast::<IInspectable>())\
+                             .unwrap());\n\
                              let Some(payload) = payload else {{ return; }};\n"
             ));
         } else if matches!(
@@ -502,8 +500,8 @@ fn emit_event(
             code.push_str(&format!(
                 "let args = args.unwrap();\n\
                              let payload = match args.{payload}() {{ Ok(value) => Some(value), \
-                             Err(error) if error.code().is_ok() => None, Err(error) => {{ \
-                             report_error(error); return; }} }};\n"
+                             Err(error) if error.code().is_ok() => None, \
+                             Err(error) => panic!(\"{{error:?}}\") }};\n"
             ));
         } else {
             let conversion = match event.payload_adapter {
@@ -524,10 +522,9 @@ fn emit_event(
                 _ => unreachable!(),
             };
             code.push_str(&format!(
-                            "let args = args.unwrap();\n\
-                             let payload = match args.{payload}(){conversion} {{ Ok(value) => value, \
-                             Err(error) => {{ report_error(error); return; }} }};\n"
-                        ));
+                "let args = args.unwrap();\n\
+                             let payload = args.{payload}(){conversion}.unwrap();\n"
+            ));
         }
     }
     let dispatch_value = if event.payload.is_some() {
@@ -558,11 +555,10 @@ fn emit_event(
         Value::Unit => Some("()"),
         Value::ContentDialogResult => {
             code.push_str(&format!(
-                "match WinUiAdapter::content_dialog_closed(&event_queue_{field}, object) {{ \
-                             Ok(true) if dispatch => WinUiAdapter::dispatch(\
+                "if WinUiAdapter::content_dialog_closed(&event_queue_{field}, object).unwrap() \
+                             && dispatch {{ WinUiAdapter::dispatch(\
                              &event_for_callback, &event_queue_{field}, object, EventId::{}, \
-                             observation, {dispatch_value}), Ok(_) => {{}}, Err(error) => \
-                             report_error(error.into()), }}\n",
+                             observation, {dispatch_value}); }}\n",
                 event.name,
             ));
             None
@@ -584,39 +580,33 @@ fn emit_event(
                 "false"
             };
             code.push_str(&format!(
-                "let value = match WinUiAdapter::pointer_event_info(\
+                "let value = WinUiAdapter::pointer_event_info(\
                              object, &source_{field}, args, {capture_on_press}, {release_capture}, \
-                             {focus_on_release}, &pending_focus_states_{field}) {{ \
-                             Ok(value) => value, Err(error) => {{ \
-                             report_error(error.into()); return; }} }};\n"
+                             {focus_on_release}, &pending_focus_states_{field}).unwrap();\n"
             ));
             Some("value")
         }
         Value::FocusEventInfo => {
             let got_focus = event.name == "GotFocus";
             code.push_str(&format!(
-                            "let value = match WinUiAdapter::focus_event_info(\
+                "let value = WinUiAdapter::focus_event_info(\
                              object, &source_{field}, args, {got_focus}, \
-                             &pending_focus_states_{field}) {{ Ok(value) => value, Err(error) => {{ \
-                             report_error(error.into()); return; }} }};\n"
-                        ));
+                             &pending_focus_states_{field}).unwrap();\n"
+            ));
             Some("value")
         }
         Value::DragKind => {
             code.push_str(&format!(
-                "let value = match WinUiAdapter::drag_kind(\
-                             args, &drop_policy_{field}) {{ Ok(value) => value, Err(error) => {{ \
-                             report_error(error.into()); return; }} }};\n"
+                "let value = WinUiAdapter::drag_kind(args, &drop_policy_{field}).unwrap();\n"
             ));
             Some("value")
         }
         Value::DroppedData => {
             code.push_str(&format!(
                 "let _ = dispatch;\n\
-                             if let Err(error) = WinUiAdapter::dispatch_dropped_data(\
+                             WinUiAdapter::dispatch_dropped_data(\
                              &event_for_callback, &event_queue_{field}, object, EventId::{}, \
-                             observation, args, &drop_policy_{field}) {{ \
-                             report_error(error.into()); }}\n",
+                             observation, args, &drop_policy_{field}).unwrap();\n",
                 event.name
             ));
             None
@@ -624,26 +614,21 @@ fn emit_event(
         Value::Keys => Some("value"),
         Value::KeyEventInfo => {
             code.push_str(
-                            "let args = args.unwrap();\n\
-                             let value = match WinUiAdapter::key_event_info(args) { Ok(value) => value, \
-                             Err(error) => { report_error(error.into()); return; } };\n\
+                "let args = args.unwrap();\n\
+                             let value = WinUiAdapter::key_event_info(args).unwrap();\n\
                              let handled = event_for_callback.borrow().callback.as_ref()\
                              .is_some_and(|callback| callback.call(value));\n\
-                             if let Err(error) = args.SetHandled(handled) { \
-                             report_error(error); }\n",
-                        );
+                             args.SetHandled(handled).unwrap();\n",
+            );
             None
         }
         Value::CharacterEventInfo => {
             code.push_str(
                 "let args = args.unwrap();\n\
-                             let value = match WinUiAdapter::character_event_info(args) { \
-                             Ok(value) => value, Err(error) => { \
-                             report_error(error.into()); return; } };\n\
+                             let value = WinUiAdapter::character_event_info(args).unwrap();\n\
                              let handled = event_for_callback.borrow().callback.as_ref()\
                              .is_some_and(|callback| callback.call(value));\n\
-                             if let Err(error) = args.SetHandled(handled) { \
-                             report_error(error); }\n",
+                             args.SetHandled(handled).unwrap();\n",
             );
             None
         }

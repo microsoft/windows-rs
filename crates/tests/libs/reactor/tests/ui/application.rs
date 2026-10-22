@@ -41,6 +41,12 @@ fn replacing_the_last_window_keeps_the_application_alive() -> Result<()> {
 }
 
 #[test]
+fn exit_with_open_window_returns() -> Result<()> {
+    process::run_to_exit("exit-with-window")?;
+    process::run_to_exit("error-with-window")
+}
+
+#[test]
 fn application_startup_error_is_returned() -> Result<()> {
     process::run_to_exit("startup-error")
 }

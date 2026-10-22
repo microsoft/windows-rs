@@ -336,27 +336,24 @@ fn heterogeneous_components_update_isolated_subtrees() {
             ),
             component::<Label>("label", Rc::from("Label")),
         ],
-    )
-    .unwrap();
+    );
     let counter = host.reference(&Key::from("counter")).unwrap();
     let label = host.reference(&Key::from("label")).unwrap();
     let counter_root = counter.get().unwrap();
     let label_root = label.get().unwrap();
 
-    let mutations = host
-        .update_input::<Label>(&Key::from("label"), Rc::from("Changed"))
-        .unwrap();
+    let mutations = host.update_input::<Label>(&Key::from("label"), Rc::from("Changed"));
     assert_eq!(mutations.len(), 1);
     assert_eq!(counter.get(), Some(counter_root));
     assert_eq!(label.get(), Some(label_root));
 
     let sender = host.sender::<Counter>(&Key::from("counter")).unwrap();
     assert!(sender.send(1));
-    assert_eq!(host.drain(1).unwrap().mutations, 1);
+    assert_eq!(host.drain(1).mutations, 1);
     assert_eq!(cleanup.load(Ordering::Relaxed), 1);
 
     assert!(sender.send(0));
-    assert_eq!(host.drain(1).unwrap().mutations, 0);
+    assert_eq!(host.drain(1).mutations, 0);
     assert_eq!(cleanup.load(Ordering::Relaxed), 1);
 }
 
@@ -365,8 +362,7 @@ fn tooltip_attachment_expands_across_component_boundary() {
     let host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<TooltipParent>("parent", ())],
-    )
-    .unwrap();
+    );
     let target = host
         .reference_at(&[Key::from("parent"), Key::from("label")])
         .unwrap()
@@ -385,8 +381,7 @@ fn content_dialog_attachment_expands_and_refreshes_component_roots() {
     let host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<ContentDialogParent>("parent", ())],
-    )
-    .unwrap();
+    );
     let owner = host
         .reference_at(&[Key::from("parent"), Key::from("owner")])
         .unwrap()
@@ -417,8 +412,7 @@ fn component_boundary_preserves_scope_across_root_type_changes() {
             component::<RootSwitch>("switch", ()),
             component::<Label>("label", Rc::from("Label")),
         ],
-    )
-    .unwrap();
+    );
     let switch = host.sender::<RootSwitch>(&Key::from("switch")).unwrap();
     let label = host.sender::<Label>(&Key::from("label")).unwrap();
     let switch_reference = host.reference(&Key::from("switch")).unwrap();
@@ -428,7 +422,7 @@ fn component_boundary_preserves_scope_across_root_type_changes() {
     host.runtime.adapter_mut().record_batches(true);
 
     assert!(switch.send(()));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(switch_reference.get(), switch_root);
     assert_eq!(label_reference.get(), label_root);
     assert!(
@@ -448,7 +442,7 @@ fn component_boundary_preserves_scope_across_root_type_changes() {
     );
 
     assert!(label.send(()));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(label_reference.get(), label_root);
 }
 
@@ -457,8 +451,7 @@ fn nested_component_updates_through_its_retained_owner() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<NestedRoot>("parent", (0.0, true))],
-    )
-    .unwrap();
+    );
     let path = [Key::from("parent"), Key::from("child")];
     let sender = host.sender_at::<RootSwitch>(&path).unwrap();
     let reference = host.reference_at(&path).unwrap();
@@ -471,7 +464,7 @@ fn nested_component_updates_through_its_retained_owner() {
     );
 
     assert!(sender.send(()));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(reference.get(), Some(root));
     assert_eq!(host.runtime().graph().kind(root), Some(ObjectType::Border));
     assert_eq!(host.runtime().graph().owner(root), Some(parent));
@@ -482,33 +475,29 @@ fn parent_rerender_preserves_and_retires_nested_scope() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<NestedRoot>("parent", (0.0, true))],
-    )
-    .unwrap();
+    );
     let path = [Key::from("parent"), Key::from("child")];
     let sender = host.sender_at::<RootSwitch>(&path).unwrap();
     let reference = host.reference_at(&path).unwrap();
     let child = reference.get();
 
-    host.update_input::<NestedRoot>(&Key::from("parent"), (12.0, true))
-        .unwrap();
+    host.update_input::<NestedRoot>(&Key::from("parent"), (12.0, true));
     assert_eq!(reference.get(), child);
     assert!(host.sender_at::<RootSwitch>(&path).is_some());
 
     assert!(sender.send(()));
-    host.update_input::<NestedRoot>(&Key::from("parent"), (12.0, false))
-        .unwrap();
+    host.update_input::<NestedRoot>(&Key::from("parent"), (12.0, false));
     assert_eq!(reference.get(), None);
     assert!(host.sender_at::<RootSwitch>(&path).is_none());
-    assert_eq!(host.drain(1).unwrap().dropped, 1);
+    assert_eq!(host.drain(1).dropped, 1);
 
-    host.update_input::<NestedRoot>(&Key::from("parent"), (24.0, true))
-        .unwrap();
+    host.update_input::<NestedRoot>(&Key::from("parent"), (24.0, true));
     assert_eq!(host.scopes.len(), 2);
     let replacement = host.sender_at::<RootSwitch>(&path).unwrap();
     assert!(sender.send(()));
-    assert_eq!(host.drain(1).unwrap().dropped, 1);
+    assert_eq!(host.drain(1).dropped, 1);
     assert!(replacement.send(()));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
 }
 
 #[test]
@@ -521,8 +510,7 @@ fn nested_input_update_isolated_to_child_subtree() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<CounterParent>("parent", input)],
-    )
-    .unwrap();
+    );
     let path = [Key::from("parent"), Key::from("counter")];
     let parent = host.reference(&Key::from("parent")).unwrap().get();
     let child = host.reference_at(&path).unwrap().get();
@@ -534,8 +522,7 @@ fn nested_input_update_isolated_to_child_subtree() {
             cleanup: Arc::clone(&cleanup),
             value: 2,
         },
-    )
-    .unwrap();
+    );
     assert_eq!(host.reference(&Key::from("parent")).unwrap().get(), parent);
     assert_eq!(host.reference_at(&path).unwrap().get(), child);
     assert_eq!(cleanup.load(Ordering::Relaxed), 1);
@@ -559,8 +546,7 @@ fn nested_keys_are_parent_local_and_stable_through_reorder() {
             component::<ReorderParent>("left", ()),
             component::<NestedRoot>("right", (0.0, true)),
         ],
-    )
-    .unwrap();
+    );
     let first_path = [Key::from("left"), Key::from("first")];
     let second_path = [Key::from("left"), Key::from("second")];
     let right_path = [Key::from("right"), Key::from("child")];
@@ -581,7 +567,7 @@ fn nested_keys_are_parent_local_and_stable_through_reorder() {
             .unwrap()
             .send(())
     );
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(
         host.runtime()
             .graph()
@@ -598,8 +584,7 @@ fn relation_owned_component_keys_preserve_objects_through_reorder() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<RelationOwnedReorder>("parent", ())],
-    )
-    .unwrap();
+    );
     let parent = host.reference(&Key::from("parent")).unwrap().get().unwrap();
     let before = host
         .runtime()
@@ -613,7 +598,7 @@ fn relation_owned_component_keys_preserve_objects_through_reorder() {
             .unwrap()
             .send(())
     );
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(
         host.runtime()
             .graph()
@@ -628,8 +613,7 @@ fn relation_owned_component_keys_include_the_complete_native_path() {
     let host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<RelationOwnedSiblings>("parent", ())],
-    )
-    .unwrap();
+    );
     let parent = host.reference(&Key::from("parent")).unwrap().get().unwrap();
     let borders = host
         .runtime()
@@ -654,8 +638,7 @@ fn relation_owned_component_keys_include_component_type() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<RelationOwnedTypeSwitch>("parent", ())],
-    )
-    .unwrap();
+    );
     let parent = host.reference(&Key::from("parent")).unwrap().get().unwrap();
     let before = host
         .runtime()
@@ -668,7 +651,7 @@ fn relation_owned_component_keys_include_component_type() {
             .unwrap()
             .send(())
     );
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     let after = host
         .runtime()
         .graph()
@@ -678,41 +661,30 @@ fn relation_owned_component_keys_include_component_type() {
 }
 
 #[test]
-fn duplicate_nested_keys_are_rejected_per_parent() {
-    assert!(matches!(
-        ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<DuplicateNested>("parent", ())]
-        ),
-        Err(ComponentError::DuplicateKey(key)) if key == Key::from("child")
-    ));
+#[should_panic(expected = "duplicate key")]
+fn duplicate_nested_keys_panic() {
+    ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<DuplicateNested>("parent", ())],
+    );
 }
 
 #[test]
+#[should_panic(expected = "does not match relation key")]
 fn component_and_relation_keys_cannot_diverge() {
-    assert!(matches!(
-        ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<MismatchedKey>("parent", ())]
-        ),
-        Err(ComponentError::ComponentKey {
-            component,
-            relation
-        }) if component == Key::from("component") && relation == Key::from("relation")
-    ));
+    ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<MismatchedKey>("parent", ())],
+    );
 }
 
 #[test]
+#[should_panic(expected = "declaration exceeds the maximum depth")]
 fn recursive_component_expansion_enforces_depth_limit() {
-    assert!(matches!(
-        ComponentHost::mount(
-            RecordingAdapter::default(),
-            [component::<RecursiveComponent>("root", MAX_DEPTH + 2)]
-        ),
-        Err(ComponentError::Runtime(UpdateError::Graph(
-            GraphError::DepthExceeded
-        )))
-    ));
+    ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<RecursiveComponent>("root", MAX_DEPTH + 2)],
+    );
 }
 
 #[test]
@@ -720,8 +692,7 @@ fn tree_node_component_content_survives_structural_reorder() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<TreeComponents>("tree", ())],
-    )
-    .unwrap();
+    );
     let first_path = [Key::from("tree"), Key::from("first-content")];
     let second_path = [Key::from("tree"), Key::from("second-content")];
     let first = host.reference_at(&first_path).unwrap().get().unwrap();
@@ -736,7 +707,7 @@ fn tree_node_component_content_survives_structural_reorder() {
     );
 
     assert!(host.sender_at::<TreeContent>(&first_path).unwrap().send(()));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(host.reference_at(&first_path).unwrap().get(), Some(first));
 
     assert!(
@@ -744,11 +715,11 @@ fn tree_node_component_content_survives_structural_reorder() {
             .unwrap()
             .send(())
     );
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(host.reference_at(&first_path).unwrap().get(), Some(first));
     assert_eq!(host.reference_at(&second_path).unwrap().get(), Some(second));
 
     assert!(host.sender_at::<TreeContent>(&first_path).unwrap().send(()));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(host.reference_at(&first_path).unwrap().get(), Some(first));
 }

@@ -76,8 +76,17 @@ impl<T> ElementRef<T> {
         }
     }
 
-    pub(crate) fn clear(&self, object: ObjectId) {
-        if self.object() == Some(object) {
+    /// Clears the binding if `endpoint` published it for `object`; a binding from another runtime
+    /// may share the same object id.
+    pub(crate) fn clear(&self, endpoint: &ReferenceEndpoint, object: ObjectId) {
+        let owned = {
+            let target = self.target.borrow();
+            match &target.binding {
+                Some(binding) => binding.object == object && binding.endpoint.same(endpoint),
+                None => target.direct == Some(object),
+            }
+        };
+        if owned {
             self.retire_current_binding();
             let mut target = self.target.borrow_mut();
             target.binding = None;
@@ -635,6 +644,10 @@ impl ReferenceEndpoint {
             routine_pending: Rc::new(Cell::new(0)),
             waker: Rc::new(RefCell::new(None)),
         }
+    }
+
+    fn same(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.queue, &other.queue)
     }
 
     fn enqueue(&self, request: QueuedImperative) -> bool {

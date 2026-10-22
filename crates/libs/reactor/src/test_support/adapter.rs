@@ -21,7 +21,6 @@ pub struct RecordingAdapter {
     content_dialog_owners: HashMap<ObjectId, ObjectId>,
     content_dialog_states: HashMap<ObjectId, RecordedContentDialog>,
     record_batches: bool,
-    validate_batches: bool,
     read_reorders: bool,
 }
 
@@ -93,17 +92,12 @@ impl RecordingAdapter {
             content_dialog_owners: HashMap::new(),
             content_dialog_states: HashMap::new(),
             record_batches: false,
-            validate_batches: true,
             read_reorders: false,
         }
     }
 
     pub fn record_batches(&mut self, record: bool) {
         self.record_batches = record;
-    }
-
-    pub fn validate_batches(&mut self, validate: bool) {
-        self.validate_batches = validate;
     }
 
     /// Reports reorders in the recorded native order when they are processed, as the WinUI
@@ -126,6 +120,12 @@ impl RecordingAdapter {
 
     pub fn object_count(&self) -> usize {
         self.objects.len()
+    }
+
+    pub(crate) fn focus(&mut self, object: ObjectId) -> bool {
+        assert!(self.objects.contains_key(&object));
+        self.focuses.push(object);
+        true
     }
 
     pub fn focuses(&self) -> &[ObjectId] {
@@ -1039,10 +1039,6 @@ impl Runtime<RecordingAdapter> {
         self.adapter_mut().record_batches(record);
     }
 
-    pub fn validate_batches(&mut self, validate: bool) {
-        self.adapter_mut().validate_batches(validate);
-    }
-
     pub fn complete_retirement(&mut self, root: ObjectId) -> bool {
         self.adapter_mut().complete_retirement(root)
     }
@@ -1069,10 +1065,6 @@ impl ComponentHost<RecordingAdapter> {
         self.runtime_mut_internal().record_batches(record);
     }
 
-    pub fn validate_batches(&mut self, validate: bool) {
-        self.runtime_mut_internal().validate_batches(validate);
-    }
-
     pub fn queue_event(&mut self, event: EventDispatch) {
         self.runtime_mut_internal().queue_event(event);
     }
@@ -1089,15 +1081,9 @@ impl Default for RecordingAdapter {
 }
 
 impl Adapter for RecordingAdapter {
-    type Error = AdapterError;
-
-    fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
-        NativeEvent::preview_prefix(
-            events,
-            self.native_events
-                .iter()
-                .map(|event| self.native_event(event.clone())),
-        );
+    fn peek_native_event(&self) -> Option<NativeEvent> {
+        let event = self.native_events.front()?;
+        Some(self.native_event(event.clone()))
     }
 
     fn pop_native_event(&mut self) -> Option<NativeEvent> {
@@ -1105,34 +1091,15 @@ impl Adapter for RecordingAdapter {
         Some(self.native_event(event))
     }
 
-    fn validate(&self, mutations: &[Mutation]) -> Result<(), Self::Error> {
-        if !self.validate_batches {
-            return Ok(());
-        }
-        let mut candidate = self.clone();
-        candidate.apply_batch(mutations)
-    }
-
-    fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
-        self.apply_batch(mutations)?;
+    fn apply(&mut self, mutations: &[Mutation]) {
+        self.apply_batch(mutations).unwrap();
         if self.record_batches {
             self.batches.push(mutations.to_vec());
         }
-        Ok(())
     }
 
-    fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
-        if !self.objects.contains_key(&object) {
-            return Err(AdapterError::MissingObject(object));
-        }
-        self.focuses.push(object);
-        Ok(true)
-    }
-
-    fn imperative(&mut self, request: ImperativeRequest) -> Result<(), Self::Error> {
-        if !self.objects.contains_key(&request.object()) {
-            return Err(AdapterError::MissingObject(request.object()));
-        }
+    fn imperative(&mut self, request: ImperativeRequest) {
+        assert!(self.objects.contains_key(&request.object()));
         self.imperatives.push(request.clone());
         match request {
             ImperativeRequest::Focus { completion, .. } => {
@@ -1150,6 +1117,5 @@ impl Adapter for RecordingAdapter {
             }
             _ => {}
         }
-        Ok(())
     }
 }

@@ -78,9 +78,8 @@ impl TransientMenuHost {
             .on_message(move |_, message, _, _| {
                 if matches!(message as i32, WM_SETTINGCHANGE | WM_THEMECHANGED)
                     && let Some(theme) = message_theme.upgrade()
-                    && let Err(error) = theme.schedule(&message_dispatcher)
                 {
-                    report_error(error);
+                    theme.schedule(&message_dispatcher).unwrap();
                 }
                 None
             })
@@ -117,9 +116,7 @@ impl TransientMenuHost {
                 return;
             };
             state.borrow_mut().loaded = true;
-            if let Err(error) = show_pending(&state) {
-                report_error(error);
-            }
+            show_pending(&state).unwrap();
         })?;
 
         Ok(Self {
@@ -170,8 +167,7 @@ impl MenuThemeState {
             return Ok(());
         }
         let theme = system_theme()?;
-        // Record the in-flight theme before native code can reenter. Setter failures terminate
-        // the application rather than retrying.
+        // Record the in-flight theme before native code can reenter.
         if self.applied.replace(theme) != theme {
             self.anchor.SetRequestedTheme(theme)?;
         }
@@ -187,24 +183,14 @@ impl MenuThemeState {
             if let Some(theme) = target.upgrade() {
                 // A notification during refresh must be able to enqueue the next refresh.
                 theme.refresh_pending.set(false);
-                if let Err(error) = theme.refresh() {
-                    report_error(error);
-                }
+                theme.refresh().unwrap();
             }
         });
-        match dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &refresh) {
-            Ok(true) => Ok(()),
-            result => {
-                self.refresh_pending.set(false);
-                match result {
-                    Ok(_) => Err(windows_core::Error::new(
-                        E_FAIL,
-                        "dispatcher rejected menu theme refresh",
-                    )),
-                    Err(error) => Err(error),
-                }
-            }
+        // A dispatcher that is shutting down rejects the refresh; no menu will show again.
+        if !dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &refresh)? {
+            self.refresh_pending.set(false);
         }
+        Ok(())
     }
 }
 
@@ -247,8 +233,7 @@ impl TransientMenuHandle {
     }
 
     pub(super) fn show(&self, position: ScreenPoint, menu: Menu) -> windows_core::Result<()> {
-        let mut keys = HashSet::new();
-        validate_menu_items(&menu.items, &mut keys)?;
+        validate_menu_items(&menu.items, &mut HashSet::new());
         let state = self.state.upgrade().ok_or_else(|| {
             windows_core::Error::new(E_FAIL, "the application menu host is unavailable")
         })?;
@@ -283,28 +268,6 @@ fn position_host(host: &windows_window::Window, position: ScreenPoint) -> window
         )
         .ok()
     }
-}
-
-pub(super) fn validate_menu_items(
-    items: &[MenuItem],
-    keys: &mut HashSet<Key>,
-) -> windows_core::Result<()> {
-    for item in items {
-        let (key, children) = match item {
-            MenuItem::Item { key, .. } | MenuItem::Separator { key } => (key, None),
-            MenuItem::Submenu { key, items, .. } => (key, Some(items.as_slice())),
-        };
-        if !keys.insert(key.clone()) {
-            return Err(windows_core::Error::new(
-                HRESULT(0x80070057u32 as i32),
-                "application menu keys must be unique",
-            ));
-        }
-        if let Some(children) = children {
-            validate_menu_items(children, keys)?;
-        }
-    }
-    Ok(())
 }
 
 impl Drop for TransientMenuHost {
@@ -417,14 +380,10 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
                 }
                 state.menu = None;
             });
-            match dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &cleanup) {
-                Ok(true) => {}
-                Ok(false) => report_error(windows_core::Error::new(
-                    E_FAIL,
-                    "dispatcher rejected application menu cleanup",
-                )),
-                Err(error) => report_error(error),
-            }
+            // A dispatcher that is shutting down rejects the cleanup and drops the menu itself.
+            dispatcher
+                .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &cleanup)
+                .unwrap();
         })?);
 
         state.borrow_mut().menu = Some(ActiveMenu {

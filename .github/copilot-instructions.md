@@ -159,8 +159,11 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 - **Module layout**: When a module has a directory, put its entry point in `name/mod.rs`, not
   `name.rs` beside the `name/` directory. The workspace enables Clippy's `self_named_module_files`
   lint to enforce this for modules with external submodules.
-- **Panics**: Use `panic!` only for invariant violations. Use `diag::` helpers for missing features
-  (warn in debug, no-op in release).
+- **Fail fast**: Contract violations, internal bugs, and unexpected native failures panic (`.unwrap()`
+  or `panic!`); Reactor does not roll back or poison state. Return `Result` only where the caller
+  can act: startup and public `App` APIs, errors returned from app closures (surfaced through
+  `App::run`), and imperative completions such as `FocusError`. A dispatcher that rejects work is
+  shutting down; drop the work rather than failing.
 - **`.unwrap()` over `.expect("...")`** - the panic hook provides full context.
 - **No `thread_local!` in app code** - keep state in components and pass shared values through typed
   contexts. `thread_local!` is reserved for framework plumbing.
@@ -233,6 +236,24 @@ Investigate `crates/libs/reactor/src/native/transient_menu.rs` `MenuThemeState::
 `show_pending`. A CI run observed a flyout item remaining Light while its anchor reported Dark.
 The cause is unconfirmed. The headless preference and callback tests do not establish native theme
 propagation; investigate the behavior before adding a focused public-API regression case.
+
+### Reactor live coverage gaps (test-reactor fixtures)
+
+About 49 of the 81 schema objects have no live `test-reactor` coverage. Add contract-style fixtures
+in priority order. Verify indirect coverage (for example `CommandBar` via the menu fixture) before
+adding a case. The `controlled` fixture covers toggles, `Expander`, and ranged values.
+`RadioButton` is a documented exception: WinUI unchecks the group, so `is_checked` does not
+restore a rejected choice; `RadioButtons` is the controlled choice control.
+
+| Priority | Area | Contracts to check |
+| --- | --- | --- |
+| 1 | Panes: `SplitView`, `NavigationView` `is_pane_open` | `SplitView` observes only `PaneClosed`; WinUI has no user-driven open, so likely fine |
+| 1 | Text and pickers: `PasswordBox`, `ColorPicker`, `CalendarDatePicker`, `RichEditBox` | Echo and normalization |
+| 2 | `TreeView` / `TreeNode` | Insert, remove, reorder, expand state, item invoke; no live tests exist |
+| 3 | Item-flag selectors: `ListBox`, `SelectorBar`, `NavigationView`, `BreadcrumbBar` | Selection shape differs from index selectors |
+| 3 | Selector edge cases | Index reassert during retire / exit animation, async intermediate events, `GridView` vs `ListView` parity |
+| 4 | Open/close surfaces: `InfoBar`, `TeachingTip`, `ToolTip` | Open state and close callbacks |
+| 5 | Display-only: shapes, icons, `ProgressBar`, `ProgressRing`, `Viewbox`, panels | Low risk; smoke only |
 
 ### Repo-wide dead-code / quality audit (2026-07)
 

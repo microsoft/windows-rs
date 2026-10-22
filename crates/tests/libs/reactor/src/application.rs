@@ -187,6 +187,28 @@ impl Component for ReplacingWindow {
     }
 }
 
+/// Exits, or fails an app closure, while a window is still open. Teardown must close the window
+/// and `run_with` must return the exit or closure result.
+pub(super) fn exit_with_open_window(fail: bool) -> windows_core::Result<()> {
+    let expected = windows_core::HRESULT(0x80004005u32 as i32);
+    let result = App::run_with(move |context| {
+        context.open_component_window::<ReplacingWindow>(false)?;
+        context.proxy().dispatch(move |context| {
+            if fail {
+                Err(windows_core::Error::new(expected, "callback failed"))
+            } else {
+                context.exit()
+            }
+        })
+    });
+    if fail {
+        assert_eq!(result.unwrap_err().code(), expected);
+    } else {
+        result.unwrap();
+    }
+    Ok(())
+}
+
 pub(super) fn startup_error() -> windows_core::Result<()> {
     let expected = windows_core::HRESULT(0x80004005u32 as i32);
     let called = Rc::new(std::cell::Cell::new(false));

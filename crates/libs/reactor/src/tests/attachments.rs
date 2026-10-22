@@ -3,13 +3,11 @@ use super::*;
 #[test]
 fn title_bar_declaration_owns_window_attachment() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    let mutations = runtime
-        .update(Grid::new().keyed_children([keyed(
-            "title",
-            TitleBar::new().preferred_height(WindowTitleBarHeight::Tall),
-        )]))
-        .unwrap();
-    let (title_bar, height) = runtime.graph().window_title_bar().unwrap().unwrap();
+    let mutations = runtime.update(Grid::new().keyed_children([keyed(
+        "title",
+        TitleBar::new().preferred_height(WindowTitleBarHeight::Tall),
+    )]));
+    let (title_bar, height) = runtime.graph().window_title_bar().unwrap();
     let insert = mutations
         .iter()
         .position(
@@ -33,12 +31,10 @@ fn title_bar_declaration_owns_window_attachment() {
         Some((title_bar, WindowTitleBarHeight::Tall))
     );
 
-    let mutations = runtime
-        .update(Grid::new().keyed_children([keyed(
-            "title",
-            TitleBar::new().preferred_height(WindowTitleBarHeight::Standard),
-        )]))
-        .unwrap();
+    let mutations = runtime.update(Grid::new().keyed_children([keyed(
+        "title",
+        TitleBar::new().preferred_height(WindowTitleBarHeight::Standard),
+    )]));
     assert!(mutations.iter().any(|mutation| {
         matches!(
             mutation,
@@ -57,12 +53,10 @@ fn title_bar_declaration_owns_window_attachment() {
 #[test]
 fn title_bar_clear_precedes_destruction() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Grid::new().keyed_children([keyed("title", TitleBar::new())]))
-        .unwrap();
-    let title_bar = runtime.graph().window_title_bar().unwrap().unwrap().0;
+    runtime.update(Grid::new().keyed_children([keyed("title", TitleBar::new())]));
+    let title_bar = runtime.graph().window_title_bar().unwrap().0;
 
-    let mutations = runtime.update(Grid::new()).unwrap();
+    let mutations = runtime.update(Grid::new());
     let clear = mutations
         .iter()
         .position(|mutation| {
@@ -80,36 +74,27 @@ fn title_bar_clear_precedes_destruction() {
         .unwrap();
 
     assert!(clear < destroy);
-    assert_eq!(runtime.graph().window_title_bar().unwrap(), None);
+    assert_eq!(runtime.graph().window_title_bar(), None);
     assert_eq!(runtime.adapter().window_title_bar(), None);
 }
 
 #[test]
-fn duplicate_title_bars_fail_before_adapter_apply() {
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.record_batches(true);
-
-    assert_eq!(
-        runtime.update(Grid::new().keyed_children([
-            keyed("first", TitleBar::new()),
-            keyed("second", TitleBar::new()),
-        ])),
-        Err(UpdateError::Graph(GraphError::DuplicateWindowTitleBar))
-    );
-    assert!(runtime.adapter().batches().is_empty());
-    assert!(runtime.graph().root().is_none());
+#[should_panic(expected = "window title bar declared more than once")]
+fn duplicate_title_bars_panic() {
+    Runtime::new(RecordingAdapter::default()).update(Grid::new().keyed_children([
+        keyed("first", TitleBar::new()),
+        keyed("second", TitleBar::new()),
+    ]));
 }
 
 #[test]
 fn tooltip_attachment_reconciles_content_and_placement() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    let mutations = runtime
-        .update(
-            TextBlock::new()
-                .text("Target")
-                .tooltip_with(Tooltip::text("First").placement(TooltipPlacement::Bottom)),
-        )
-        .unwrap();
+    let mutations = runtime.update(
+        TextBlock::new()
+            .text("Target")
+            .tooltip_with(Tooltip::text("First").placement(TooltipPlacement::Bottom)),
+    );
     let target = runtime.graph().root().unwrap();
     let tooltip = runtime.graph().tooltip(target).unwrap();
     let attach = mutations
@@ -143,13 +128,11 @@ fn tooltip_attachment_reconciles_content_and_placement() {
         Some((tooltip, TooltipPlacement::Bottom))
     );
 
-    let mutations = runtime
-        .update(
-            TextBlock::new()
-                .text("Target")
-                .tooltip_with(Tooltip::text("Second").placement(TooltipPlacement::Bottom)),
-        )
-        .unwrap();
+    let mutations = runtime.update(
+        TextBlock::new()
+            .text("Target")
+            .tooltip_with(Tooltip::text("Second").placement(TooltipPlacement::Bottom)),
+    );
     assert_eq!(runtime.graph().tooltip(target), Some(tooltip));
     assert!(
         !mutations
@@ -157,13 +140,11 @@ fn tooltip_attachment_reconciles_content_and_placement() {
             .any(|mutation| matches!(mutation, Mutation::SetTooltip { .. }))
     );
 
-    let mutations = runtime
-        .update(
-            TextBlock::new()
-                .text("Target")
-                .tooltip_with(Tooltip::text("Third").placement(TooltipPlacement::Left)),
-        )
-        .unwrap();
+    let mutations = runtime.update(
+        TextBlock::new()
+            .text("Target")
+            .tooltip_with(Tooltip::text("Third").placement(TooltipPlacement::Left)),
+    );
     assert_eq!(runtime.graph().tooltip(target), Some(tooltip));
     assert!(mutations.iter().any(|mutation| {
         matches!(
@@ -180,13 +161,11 @@ fn tooltip_attachment_reconciles_content_and_placement() {
 #[test]
 fn flyout_attachment_reconciles_content_placement_and_removal() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    let mutations = runtime
-        .update(
-            Button::new()
-                .content("Target")
-                .flyout_with(Flyout::text("First").placement(FlyoutPlacement::Bottom)),
-        )
-        .unwrap();
+    let mutations = runtime.update(
+        Button::new()
+            .content("Target")
+            .flyout_with(Flyout::text("First").placement(FlyoutPlacement::Bottom)),
+    );
     let target = runtime.graph().root().unwrap();
     let (content, placement) = runtime.graph().flyout(target).unwrap();
     assert_eq!(placement, FlyoutPlacement::Bottom);
@@ -205,13 +184,11 @@ fn flyout_attachment_reconciles_content_placement_and_removal() {
         Some((content, FlyoutPlacement::Bottom))
     );
 
-    let mutations = runtime
-        .update(
-            Button::new()
-                .content("Target")
-                .flyout_with(Flyout::text("Second").placement(FlyoutPlacement::Bottom)),
-        )
-        .unwrap();
+    let mutations = runtime.update(
+        Button::new()
+            .content("Target")
+            .flyout_with(Flyout::text("Second").placement(FlyoutPlacement::Bottom)),
+    );
     assert_eq!(
         runtime.graph().flyout(target),
         Some((content, FlyoutPlacement::Bottom))
@@ -222,7 +199,7 @@ fn flyout_attachment_reconciles_content_placement_and_removal() {
             .any(|mutation| matches!(mutation, Mutation::SetFlyout { .. }))
     );
 
-    let mutations = runtime.update(Button::new().content("Target")).unwrap();
+    let mutations = runtime.update(Button::new().content("Target"));
     let clear = mutations
         .iter()
         .position(|mutation| {
@@ -245,32 +222,24 @@ fn flyout_attachment_reconciles_content_placement_and_removal() {
 }
 
 #[test]
+#[should_panic(expected = "invalid attachment on TextBlock")]
 fn flyout_rejects_unsupported_targets() {
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    assert_eq!(
-        runtime.update(TextBlock::new().text("Target").flyout("Content")),
-        Err(UpdateError::Graph(GraphError::InvalidAttachment(
-            ObjectType::TextBlock
-        )))
-    );
+    Runtime::new(RecordingAdapter::default())
+        .update(TextBlock::new().text("Target").flyout("Content"));
 }
 
 #[test]
 fn flyout_target_replacement_detaches_before_replace_and_reattaches() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Border::new().content(Button::new().content("Button").flyout("Content")))
-        .unwrap();
+    runtime.update(Border::new().content(Button::new().content("Button").flyout("Content")));
     let root = runtime.graph().root().unwrap();
     let target = runtime.graph().child(root, RelationId::Content).unwrap();
     let content = runtime.graph().flyout(target).unwrap().0;
 
-    let mutations = runtime
-        .update_subtree(
-            target,
-            SplitButton::new().content("Split").flyout("Content"),
-        )
-        .unwrap();
+    let mutations = runtime.update_subtree(
+        target,
+        SplitButton::new().content("Split").flyout("Content"),
+    );
     let clear = mutations
         .iter()
         .position(|mutation| {
@@ -312,24 +281,22 @@ fn menu_attachment_routes_nested_keys_and_suppresses_stale_clicks() {
     let clicked = Rc::new(RefCell::new(Vec::new()));
     let capture = Rc::clone(&clicked);
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Button::new().content("Open").menu(Menu::new(
-            [
-                MenuItem::item("new", "New"),
-                MenuItem::separator("separator"),
-                MenuItem::submenu("share", "Share", [MenuItem::item("email", "Email")]),
-            ],
-            move |key| capture.borrow_mut().push(key),
-        )))
-        .unwrap();
+    runtime.update(Button::new().content("Open").menu(Menu::new(
+        [
+            MenuItem::item("new", "New"),
+            MenuItem::separator("separator"),
+            MenuItem::submenu("share", "Share", [MenuItem::item("email", "Email")]),
+        ],
+        move |key| capture.borrow_mut().push(key),
+    )));
     let target = runtime.graph().root().unwrap();
     assert_eq!(runtime.adapter().menu(target).unwrap().items.len(), 3);
 
     runtime.adapter_mut().queue_menu_click(target, "email");
-    assert_eq!(runtime.dispatch_native_events(), Ok(1));
+    assert_eq!(runtime.dispatch_native_events(), 1);
     assert_eq!(&*clicked.borrow(), &[Key::from("email")]);
 
-    let mutations = runtime.update(Button::new().content("Open")).unwrap();
+    let mutations = runtime.update(Button::new().content("Open"));
     assert!(mutations.iter().any(|mutation| {
         matches!(
             mutation,
@@ -346,13 +313,11 @@ fn menu_attachment_routes_nested_keys_and_suppresses_stale_clicks() {
 #[test]
 fn menu_attachment_supports_drop_down_and_menu_bar_targets() {
     let mut drop_down = Runtime::new(RecordingAdapter::default());
-    drop_down
-        .update(
-            DropDownButton::new()
-                .content("Open")
-                .menu(Menu::new([MenuItem::item("open", "Open")], |_| {})),
-        )
-        .unwrap();
+    drop_down.update(
+        DropDownButton::new()
+            .content("Open")
+            .menu(Menu::new([MenuItem::item("open", "Open")], |_| {})),
+    );
     assert!(
         drop_down
             .adapter()
@@ -361,13 +326,11 @@ fn menu_attachment_supports_drop_down_and_menu_bar_targets() {
     );
 
     let mut menu_bar = Runtime::new(RecordingAdapter::default());
-    menu_bar
-        .update(
-            MenuBarItem::new()
-                .title("File")
-                .menu(Menu::new([MenuItem::item("exit", "Exit")], |_| {})),
-        )
-        .unwrap();
+    menu_bar.update(
+        MenuBarItem::new()
+            .title("File")
+            .menu(Menu::new([MenuItem::item("exit", "Exit")], |_| {})),
+    );
     assert!(
         menu_bar
             .adapter()
@@ -403,25 +366,22 @@ fn menu_attachment_callback_updates_preserve_revision_and_click_order() {
             }
         };
         let mut runtime = Runtime::new(RecordingAdapter::default());
-        runtime.update(build(0, true)).unwrap();
+        runtime.update(build(0, true));
         let target = runtime.graph().root().unwrap();
         runtime.adapter_mut().queue_menu_click(target, "child");
-        assert_eq!(
-            runtime.update(build(1, true)),
-            Err(UpdateError::PendingNativeEvent)
-        );
-        assert_eq!(runtime.dispatch_native_events(), Ok(1));
-        let updates = runtime.update(build(1, true)).unwrap();
+        assert!(!runtime.prepare_update());
+        assert_eq!(runtime.dispatch_native_events(), 1);
+        let updates = runtime.update(build(1, true));
         assert_eq!(updates.len(), 1);
         assert!(matches!(&updates[0], Mutation::SetMenu { revision: 1, .. }));
         runtime.adapter_mut().queue_menu_click(target, "child");
-        assert_eq!(runtime.dispatch_native_events(), Ok(1));
+        assert_eq!(runtime.dispatch_native_events(), 1);
         assert_eq!(
             *clicked.borrow(),
             [(0, Key::from("child")), (1, Key::from("child"))]
         );
 
-        let updates = runtime.update(build(1, true)).unwrap();
+        let updates = runtime.update(build(1, true));
         assert!(matches!(&updates[0], Mutation::SetMenu { revision: 1, .. }));
         let retained = runtime.adapter().menu(target).unwrap().clone();
         let unchanged: View = match kind {
@@ -430,8 +390,8 @@ fn menu_attachment_callback_updates_preserve_revision_and_click_order() {
             ObjectType::MenuBarItem => MenuBarItem::new().menu(retained),
             _ => unreachable!(),
         };
-        assert!(runtime.update(unchanged).unwrap().is_empty());
-        let updates = runtime.update(build(1, false)).unwrap();
+        assert!(runtime.update(unchanged).is_empty());
+        let updates = runtime.update(build(1, false));
         assert!(matches!(&updates[0], Mutation::SetMenu { revision: 2, .. }));
     }
 }
@@ -440,14 +400,10 @@ fn menu_attachment_callback_updates_preserve_revision_and_click_order() {
 fn menu_attachment_target_replacement_advances_lifetime() {
     let menu = Menu::new([MenuItem::item("command", "Command")], |_| {});
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Border::new().content(Button::new().menu(menu.clone())))
-        .unwrap();
+    runtime.update(Border::new().content(Button::new().menu(menu.clone())));
     let root = runtime.graph().root().unwrap();
     let target = runtime.graph().child(root, RelationId::Content).unwrap();
-    let updates = runtime
-        .update_subtree(target, DropDownButton::new().menu(menu))
-        .unwrap();
+    let updates = runtime.update_subtree(target, DropDownButton::new().menu(menu));
     let clear = updates
         .iter()
         .position(|mutation| matches!(mutation, Mutation::SetMenu { menu: None, .. }))
@@ -486,9 +442,9 @@ fn command_bar_flyout_callback_updates_preserve_revision() {
         ))
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(build(0, Symbol::Copy)).unwrap();
+    runtime.update(build(0, Symbol::Copy));
     let target = runtime.graph().root().unwrap();
-    let updates = runtime.update(build(1, Symbol::Copy)).unwrap();
+    let updates = runtime.update(build(1, Symbol::Copy));
     assert_eq!(updates.len(), 1);
     assert!(matches!(
         &updates[0],
@@ -497,12 +453,12 @@ fn command_bar_flyout_callback_updates_preserve_revision() {
     for key in ["primary", "secondary"] {
         runtime.adapter_mut().queue_command_bar_click(target, key);
     }
-    assert_eq!(runtime.dispatch_native_events(), Ok(2));
+    assert_eq!(runtime.dispatch_native_events(), 2);
     assert_eq!(
         *clicked.borrow(),
         [(1, Key::from("primary")), (1, Key::from("secondary"))]
     );
-    let updates = runtime.update(build(1, Symbol::Paste)).unwrap();
+    let updates = runtime.update(build(1, Symbol::Paste));
     assert!(matches!(
         &updates[0],
         Mutation::SetCommandBarFlyout { revision: 2, .. }
@@ -511,33 +467,17 @@ fn command_bar_flyout_callback_updates_preserve_revision() {
 
 #[test]
 fn menu_attachment_rejects_unsupported_targets_and_flyout_conflicts() {
-    let mut unsupported = Runtime::new(RecordingAdapter::default());
-    assert_eq!(
-        unsupported.update(
-            TextBlock::new()
-                .text("Target")
-                .menu(Menu::new([MenuItem::item("open", "Open")], |_| {}))
-        ),
-        Err(UpdateError::Graph(GraphError::InvalidAttachment(
-            ObjectType::TextBlock
-        )))
-    );
-
-    let mut conflict = Runtime::new(RecordingAdapter::default());
-    assert_eq!(
-        conflict.update(
-            Button::new()
-                .menu(Menu::new([MenuItem::item("open", "Open")], |_| {}))
-                .flyout("Flyout")
-        ),
-        Err(UpdateError::Graph(GraphError::InvalidAttachment(
-            ObjectType::Button
-        )))
-    );
-
-    let mut duplicate = Runtime::new(RecordingAdapter::default());
-    assert_eq!(
-        duplicate.update(Button::new().menu(Menu::new(
+    let menu = || Menu::new([MenuItem::item("open", "Open")], |_| {});
+    assert_panics("invalid attachment on TextBlock", || {
+        Runtime::new(RecordingAdapter::default())
+            .update(TextBlock::new().text("Target").menu(menu()));
+    });
+    assert_panics("invalid attachment on Button", || {
+        Runtime::new(RecordingAdapter::default())
+            .update(Button::new().menu(menu()).flyout("Flyout"));
+    });
+    assert_panics("duplicate key", || {
+        Runtime::new(RecordingAdapter::default()).update(Button::new().menu(Menu::new(
             [
                 MenuItem::item("duplicate", "First"),
                 MenuItem::submenu(
@@ -547,11 +487,8 @@ fn menu_attachment_rejects_unsupported_targets_and_flyout_conflicts() {
                 ),
             ],
             |_| {},
-        ))),
-        Err(UpdateError::Graph(GraphError::DuplicateKey(Key::from(
-            "duplicate"
-        ))))
-    );
+        )));
+    });
 }
 
 #[test]
@@ -559,16 +496,14 @@ fn command_bar_owned_commands_route_keys_through_generated_children() {
     let clicked = Rc::new(RefCell::new(Vec::new()));
     let capture = Rc::clone(&clicked);
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(CommandBar::new().owned_commands(
-            [
-                CommandBarCommand::button_with_icon("save", "Save", Symbol::Save),
-                CommandBarCommand::separator("separator"),
-            ],
-            [CommandBarCommand::disabled("print", "Print")],
-            move |key| capture.borrow_mut().push(key),
-        ))
-        .unwrap();
+    runtime.update(CommandBar::new().owned_commands(
+        [
+            CommandBarCommand::button_with_icon("save", "Save", Symbol::Save),
+            CommandBarCommand::separator("separator"),
+        ],
+        [CommandBarCommand::disabled("print", "Print")],
+        move |key| capture.borrow_mut().push(key),
+    ));
     let command_bar = runtime.graph().root().unwrap();
     let save = runtime
         .graph()
@@ -584,7 +519,7 @@ fn command_bar_owned_commands_route_keys_through_generated_children() {
         EventValue::Unit(callback),
         EventPayload::Unit,
     ));
-    assert_eq!(runtime.dispatch_native_events(), Ok(1));
+    assert_eq!(runtime.dispatch_native_events(), 1);
     assert_eq!(&*clicked.borrow(), &[Key::from("save")]);
 }
 
@@ -606,9 +541,7 @@ fn command_bar_flyout_routes_keys_and_clears_on_removal() {
     );
     let first_callback = first.on_click.clone();
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Button::new().content("Format").command_bar_flyout(first))
-        .unwrap();
+    runtime.update(Button::new().content("Format").command_bar_flyout(first));
     let target = runtime.graph().root().unwrap();
     assert_eq!(
         runtime
@@ -622,22 +555,20 @@ fn command_bar_flyout_routes_keys_and_clears_on_removal() {
     runtime
         .adapter_mut()
         .queue_command_bar_click(target, "copy");
-    assert_eq!(runtime.dispatch_native_events(), Ok(1));
+    assert_eq!(runtime.dispatch_native_events(), 1);
     assert_eq!(&*clicked.borrow(), &[Key::from("copy")]);
 
     let replacement_clicked = Rc::new(RefCell::new(Vec::new()));
     let replacement_capture = Rc::clone(&replacement_clicked);
-    runtime
-        .update(
-            Button::new()
-                .content("Format")
-                .command_bar_flyout(CommandBarFlyout::new(
-                    [CommandBarCommand::button("paste", "Paste")],
-                    [],
-                    move |key| replacement_capture.borrow_mut().push(key),
-                )),
-        )
-        .unwrap();
+    runtime.update(
+        Button::new()
+            .content("Format")
+            .command_bar_flyout(CommandBarFlyout::new(
+                [CommandBarCommand::button("paste", "Paste")],
+                [],
+                move |key| replacement_capture.borrow_mut().push(key),
+            )),
+    );
     runtime.adapter_mut().queue_event(EventDispatch::new(
         target,
         EventId::CommandInvoked,
@@ -647,10 +578,10 @@ fn command_bar_flyout_routes_keys_and_clears_on_removal() {
     runtime
         .adapter_mut()
         .queue_command_bar_click(target, "paste");
-    assert_eq!(runtime.dispatch_native_events(), Ok(1));
+    assert_eq!(runtime.dispatch_native_events(), 1);
     assert_eq!(&*replacement_clicked.borrow(), &[Key::from("paste")]);
 
-    let mutations = runtime.update(Button::new().content("Format")).unwrap();
+    let mutations = runtime.update(Button::new().content("Format"));
     assert!(mutations.iter().any(|mutation| matches!(
         mutation,
         Mutation::SetCommandBarFlyout {
@@ -664,48 +595,34 @@ fn command_bar_flyout_routes_keys_and_clears_on_removal() {
 #[test]
 fn command_bar_flyout_rejects_invalid_targets_conflicts_and_duplicate_keys() {
     let flyout = || CommandBarFlyout::new([CommandBarCommand::button("copy", "Copy")], [], |_| {});
-    let mut unsupported = Runtime::new(RecordingAdapter::default());
-    assert_eq!(
-        unsupported.update(DropDownButton::new().command_bar_flyout(flyout())),
-        Err(UpdateError::Graph(GraphError::InvalidAttachment(
-            ObjectType::DropDownButton
-        )))
-    );
-
-    let mut conflict = Runtime::new(RecordingAdapter::default());
-    assert_eq!(
-        conflict.update(Button::new().flyout("Flyout").command_bar_flyout(flyout())),
-        Err(UpdateError::Graph(GraphError::InvalidAttachment(
-            ObjectType::Button
-        )))
-    );
-
-    let mut duplicate = Runtime::new(RecordingAdapter::default());
-    assert_eq!(
-        duplicate.update(Button::new().command_bar_flyout(CommandBarFlyout::new(
-            [CommandBarCommand::button("duplicate", "First")],
-            [CommandBarCommand::button("duplicate", "Second")],
-            |_| {},
-        ))),
-        Err(UpdateError::Graph(GraphError::DuplicateKey(Key::from(
-            "duplicate"
-        ))))
-    );
+    assert_panics("invalid attachment on DropDownButton", || {
+        Runtime::new(RecordingAdapter::default())
+            .update(DropDownButton::new().command_bar_flyout(flyout()));
+    });
+    assert_panics("invalid attachment on Button", || {
+        Runtime::new(RecordingAdapter::default())
+            .update(Button::new().flyout("Flyout").command_bar_flyout(flyout()));
+    });
+    assert_panics("duplicate key", || {
+        Runtime::new(RecordingAdapter::default()).update(Button::new().command_bar_flyout(
+            CommandBarFlyout::new(
+                [CommandBarCommand::button("duplicate", "First")],
+                [CommandBarCommand::button("duplicate", "Second")],
+                |_| {},
+            ),
+        ));
+    });
 }
 
 #[test]
 fn tooltip_target_replacement_clears_before_replace_and_reattaches() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Border::new().content(TextBlock::new().text("Target").tooltip("Tip")))
-        .unwrap();
+    runtime.update(Border::new().content(TextBlock::new().text("Target").tooltip("Tip")));
     let root = runtime.graph().root().unwrap();
     let target = runtime.graph().child(root, RelationId::Content).unwrap();
     let tooltip = runtime.graph().tooltip(target).unwrap();
 
-    let mutations = runtime
-        .update_subtree(target, Button::new().content("Target").tooltip("Tip"))
-        .unwrap();
+    let mutations = runtime.update_subtree(target, Button::new().content("Target").tooltip("Tip"));
     let clear = mutations
         .iter()
         .position(|mutation| {
@@ -753,12 +670,10 @@ fn tooltip_target_replacement_clears_before_replace_and_reattaches() {
 #[test]
 fn recording_adapter_enforces_tooltip_ownership_transactionally() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed("first", Button::new().tooltip("Tip")),
-            keyed("second", Border::new()),
-        ]))
-        .unwrap();
+    runtime.update(Grid::new().keyed_children([
+        keyed("first", Button::new().tooltip("Tip")),
+        keyed("second", Border::new()),
+    ]));
     let root = runtime.graph().root().unwrap();
     let children = runtime
         .graph()
@@ -768,77 +683,67 @@ fn recording_adapter_enforces_tooltip_ownership_transactionally() {
     let second = children[1];
     let tooltip = runtime.graph().tooltip(first).unwrap();
 
-    assert_eq!(
+    assert_panics("AlreadyOwned", || {
         runtime.adapter_mut().apply(&[Mutation::SetTooltip {
             target: second,
             tooltip: Some(tooltip),
             placement: TooltipPlacement::Top,
-        }]),
-        Err(AdapterError::AlreadyOwned(tooltip))
-    );
+        }]);
+    });
     assert_eq!(
         runtime.adapter().tooltip(first),
         Some((tooltip, TooltipPlacement::Top))
     );
     assert_eq!(runtime.adapter().tooltip(second), None);
 
-    assert_eq!(
+    assert_panics("AlreadyOwned", || {
         runtime.adapter_mut().apply(&[Mutation::Attach {
             parent: second,
             relation: RelationId::Content,
             child: tooltip,
-        }]),
-        Err(AdapterError::AlreadyOwned(tooltip))
-    );
-    assert_eq!(
+        }]);
+    });
+    assert_panics("StillOwned", || {
         runtime
             .adapter_mut()
-            .apply(&[Mutation::Destroy { object: first }]),
-        Err(AdapterError::StillOwned(first))
-    );
-    assert_eq!(
+            .apply(&[Mutation::Destroy { object: first }]);
+    });
+    assert_panics("StillOwned", || {
         runtime
             .adapter_mut()
-            .apply(&[Mutation::Destroy { object: tooltip }]),
-        Err(AdapterError::StillOwned(tooltip))
-    );
-    assert_eq!(
+            .apply(&[Mutation::Destroy { object: tooltip }]);
+    });
+    assert_panics("StillOwned", || {
         runtime.adapter_mut().apply(&[Mutation::Replace {
             object: first,
             kind: ObjectType::Border,
-        }]),
-        Err(AdapterError::StillOwned(first))
-    );
+        }]);
+    });
 
-    runtime
-        .adapter_mut()
-        .apply(&[
-            Mutation::SetTooltip {
-                target: first,
-                tooltip: None,
-                placement: TooltipPlacement::Top,
-            },
-            Mutation::Remove {
-                parent: root,
-                relation: RelationId::Children,
-                child: first,
-                index: 0,
-            },
-            Mutation::Destroy { object: first },
-        ])
-        .unwrap();
+    runtime.adapter_mut().apply(&[
+        Mutation::SetTooltip {
+            target: first,
+            tooltip: None,
+            placement: TooltipPlacement::Top,
+        },
+        Mutation::Remove {
+            parent: root,
+            relation: RelationId::Children,
+            child: first,
+            index: 0,
+        },
+        Mutation::Destroy { object: first },
+    ]);
 }
 
 #[test]
 fn tooltip_clear_precedes_destruction() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(TextBlock::new().text("Target").tooltip("Tip"))
-        .unwrap();
+    runtime.update(TextBlock::new().text("Target").tooltip("Tip"));
     let target = runtime.graph().root().unwrap();
     let tooltip = runtime.graph().tooltip(target).unwrap();
 
-    let mutations = runtime.update(TextBlock::new().text("Target")).unwrap();
+    let mutations = runtime.update(TextBlock::new().text("Target"));
     let clear = mutations
         .iter()
         .position(|mutation| {

@@ -422,7 +422,6 @@ mod tests {
                 },
             )],
         )
-        .unwrap()
     }
 
     fn wait_until(mut condition: impl FnMut() -> bool) {
@@ -449,28 +448,28 @@ mod tests {
             .unwrap();
 
         assert!(primary_sender.send(Message::Navigate(Page::Editor)));
-        assert_eq!(primary.drain(1).unwrap().dispatched, 1);
+        assert_eq!(primary.drain(1).dispatched, 1);
         assert!(primary_sender.send(Message::NoteChanged("retained primary draft".to_string())));
-        assert_eq!(primary.drain(1).unwrap().dispatched, 1);
+        assert_eq!(primary.drain(1).dispatched, 1);
         assert!(primary_sender.send(Message::Navigate(Page::Home)));
-        assert_eq!(primary.drain(1).unwrap().dispatched, 1);
+        assert_eq!(primary.drain(1).dispatched, 1);
         assert!(primary_sender.send(Message::Navigate(Page::Editor)));
-        assert_eq!(primary.drain(1).unwrap().dispatched, 1);
+        assert_eq!(primary.drain(1).dispatched, 1);
 
         assert!(primary_sender.send(Message::ToggleTheme));
-        assert_eq!(primary.drain(2).unwrap().dispatched, 2);
-        assert_eq!(secondary.drain(1).unwrap().dispatched, 1);
+        assert_eq!(primary.drain(2).dispatched, 2);
+        assert_eq!(secondary.drain(1).dispatched, 1);
         assert!(shared.dark.get());
 
         assert!(secondary_sender.send(Message::StartWork));
-        assert_eq!(secondary.drain(1).unwrap().dispatched, 1);
+        assert_eq!(secondary.drain(1).dispatched, 1);
         drop(secondary);
         assert!(!secondary_sender.send(Message::Increment));
         wait_until(|| shared.cancellations.load(Ordering::Acquire) == 1);
         assert_eq!(shared.lifecycle[&WindowRole::Secondary].cleanups.get(), 1);
-        assert_eq!(primary.drain(1).unwrap().dispatched, 1);
+        assert_eq!(primary.drain(1).dispatched, 1);
         assert!(primary_sender.send(Message::Increment));
-        assert_eq!(primary.drain(1).unwrap().dispatched, 1);
+        assert_eq!(primary.drain(1).dispatched, 1);
 
         drop(primary);
         assert_eq!(shared.lifecycle[&WindowRole::Primary].cleanups.get(), 1);

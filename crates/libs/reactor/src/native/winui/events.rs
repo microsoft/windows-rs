@@ -142,32 +142,31 @@ impl WinUiAdapter {
         args.SetAcceptedOperation(Self::native_drag_operation(action.operation))?;
         let revision = event.borrow().revision;
         let subscribed = event.borrow().callback.is_some();
-        let result = Arc::new(Mutex::new(None));
+        let result = Arc::new(Mutex::new(None::<windows_core::Result<DroppedData>>));
         let result_for_handler = Arc::clone(&result);
         let event_queue = Rc::clone(event_queue);
         let deferral_for_handler = deferral.clone();
         let callback = AppContext::ui_callback_once(move || {
-            let result = result_for_handler.lock().unwrap().take().unwrap();
-            match result {
-                Ok(value) if subscribed => {
-                    event_queue.queue(
-                        observation,
-                        Some(QueuedEvent {
-                            object,
-                            event: event_id,
-                            revision,
-                            payload: EventPayload::DroppedData(value),
-                        }),
-                    );
-                    Self::schedule_event_wake(&event_queue);
-                }
-                Ok(_) => {}
-                Err(error) => report_error(error),
+            // The drag source owns the data and can fail or disconnect before it is read.
+            let value = result_for_handler
+                .lock()
+                .unwrap()
+                .take()
+                .unwrap()
+                .unwrap_or(DroppedData::Unsupported);
+            if subscribed {
+                event_queue.queue(
+                    observation,
+                    Some(QueuedEvent {
+                        object,
+                        event: event_id,
+                        revision,
+                        payload: EventPayload::DroppedData(value),
+                    }),
+                );
+                Self::schedule_event_wake(&event_queue);
             }
-            if let Err(error) = deferral_for_handler.Complete() {
-                report_error(error);
-            }
-            Ok(())
+            _ = deferral_for_handler.Complete();
         })?;
         match kind {
             DragKind::StorageItems => {
@@ -236,10 +235,7 @@ impl WinUiAdapter {
         let selected = match selected {
             Ok(selected) => Some(selected),
             Err(error) if error.code().is_ok() => None,
-            Err(error) => {
-                report_error(error);
-                return;
-            }
+            Err(error) => panic!("{error:?}"),
         };
         let selected_object = selected
             .as_ref()
@@ -251,18 +247,9 @@ impl WinUiAdapter {
         if !event_queue.observe(object, event_id, observation.clone()) {
             return;
         }
-        let value = match selected.as_ref() {
-            Some(selected) => {
-                match GeneratedHandle::selection_payload(payload_property, selected) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                }
-            }
-            None => None,
-        };
+        let value = selected.as_ref().and_then(|selected| {
+            GeneratedHandle::selection_payload(payload_property, selected).unwrap()
+        });
         let event = event.borrow();
         event_queue.queue(
             Some(observation),
@@ -317,50 +304,26 @@ impl WinUiAdapter {
                 pending_focus_states
                     .borrow_mut()
                     .insert(object, ElementFocusState::Pointer);
-                match element.Focus(native::FocusState::Pointer) {
-                    Ok(true) => {
-                        let cleanup_states = Rc::clone(&pending_focus_states);
-                        let cleanup = native::DispatcherQueueHandler::new(move || {
-                            cleanup_states.borrow_mut().remove(&object);
-                        });
-                        match native::DispatcherQueue::GetForCurrentThread().and_then(|queue| {
-                            queue.TryEnqueueWithPriority(
-                                native::DispatcherQueuePriority::Low,
-                                &cleanup,
-                            )
-                        }) {
-                            Ok(true) => {}
-                            Ok(false) => {
-                                pending_focus_states.borrow_mut().remove(&object);
-                                report_error(windows_core::Error::new(
-                                    native::E_FAIL,
-                                    "dispatcher rejected pointer focus cleanup",
-                                ));
-                            }
-                            Err(error) => {
-                                pending_focus_states.borrow_mut().remove(&object);
-                                report_error(error);
-                            }
-                        }
-                    }
-                    Ok(false) => {
-                        pending_focus_states.borrow_mut().remove(&object);
-                    }
-                    Err(error) => {
-                        pending_focus_states.borrow_mut().remove(&object);
-                        report_error(error);
-                    }
+                if !element.Focus(native::FocusState::Pointer).unwrap() {
+                    pending_focus_states.borrow_mut().remove(&object);
+                    return;
+                }
+                let cleanup_states = Rc::clone(&pending_focus_states);
+                let cleanup = native::DispatcherQueueHandler::new(move || {
+                    cleanup_states.borrow_mut().remove(&object);
+                });
+                // The dispatcher rejects work only once it is shutting down.
+                if !native::DispatcherQueue::GetForCurrentThread()
+                    .unwrap()
+                    .TryEnqueueWithPriority(native::DispatcherQueuePriority::Low, &cleanup)
+                    .unwrap()
+                {
+                    pending_focus_states.borrow_mut().remove(&object);
                 }
             });
-            let accepted = native::DispatcherQueue::GetForCurrentThread()?
+            // The focus request is dropped if the dispatcher is shutting down.
+            native::DispatcherQueue::GetForCurrentThread()?
                 .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)?;
-            if !accepted {
-                return Err(windows_core::Error::new(
-                    native::E_FAIL,
-                    "dispatcher rejected pointer focus",
-                )
-                .into());
-            }
         }
         Ok(PointerEventInfo {
             x: f64::from(local_position.x),
@@ -484,14 +447,7 @@ impl WinUiAdapter {
             return;
         }
         let event_queue = Rc::clone(event_queue);
-        let queue = match native::DispatcherQueue::GetForCurrentThread() {
-            Ok(queue) => queue,
-            Err(error) => {
-                event_queue.wake_pending.set(false);
-                report_error(error);
-                return;
-            }
-        };
+        let queue = native::DispatcherQueue::GetForCurrentThread().unwrap();
         let event_queue_for_handler = Rc::clone(&event_queue);
         let handler = native::DispatcherQueueHandler::new(move || {
             event_queue_for_handler.wake_pending.set(false);
@@ -500,19 +456,12 @@ impl WinUiAdapter {
                 waker();
             }
         });
-        match queue.TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler) {
-            Ok(true) => {}
-            Ok(false) => {
-                event_queue.wake_pending.set(false);
-                report_error(windows_core::Error::new(
-                    native::E_FAIL,
-                    "DispatcherQueue rejected the Reactor event wake",
-                ));
-            }
-            Err(error) => {
-                event_queue.wake_pending.set(false);
-                report_error(error);
-            }
+        // The dispatcher rejects work only once it is shutting down.
+        if !queue
+            .TryEnqueueWithPriority(native::DispatcherQueuePriority::Normal, &handler)
+            .unwrap()
+        {
+            event_queue.wake_pending.set(false);
         }
     }
 

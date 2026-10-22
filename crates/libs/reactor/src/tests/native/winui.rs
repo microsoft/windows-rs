@@ -61,34 +61,28 @@ fn native_queue_preview_uses_current_callback_and_preserves_order() {
     );
     adapter.event_queue.queue(Some(observation.clone()), None);
 
-    let mut preview = Vec::new();
-    adapter.preview_native_events(&mut preview);
-    assert_eq!(preview.len(), 3);
+    let stale = adapter.peek_native_event();
+    assert_eq!(stale, Some(NativeEvent::new(None, None)));
     assert_eq!(adapter.event_queue.events.borrow().len(), 4);
+    assert_eq!(adapter.pop_native_event(), stale);
+    assert_eq!(
+        adapter.pop_native_event(),
+        Some(NativeEvent::new(Some(observation.clone()), None))
+    );
 
     // Callback replacement preserves the menu presentation revision.
     adapter.menus.get_mut(&object).unwrap().menu.on_click = second.clone();
-    preview.clear();
-    adapter.preview_native_events(&mut preview);
-    assert_eq!(
-        preview,
-        [
-            NativeEvent::new(None, None),
-            NativeEvent::new(Some(observation.clone()), None),
-            NativeEvent::new(
-                None,
-                Some(EventDispatch::new(
-                    object,
-                    EventId::MenuItemInvoked,
-                    EventValue::Key(second),
-                    EventPayload::Key("current".into()),
-                )),
-            ),
-        ]
-    );
-    for expected in preview {
-        assert_eq!(adapter.pop_native_event(), Some(expected));
-    }
+    let current = Some(NativeEvent::new(
+        None,
+        Some(EventDispatch::new(
+            object,
+            EventId::MenuItemInvoked,
+            EventValue::Key(second),
+            EventPayload::Key("current".into()),
+        )),
+    ));
+    assert_eq!(adapter.peek_native_event(), current);
+    assert_eq!(adapter.pop_native_event(), current);
     assert_eq!(
         adapter.pop_native_event(),
         Some(NativeEvent::new(Some(observation), None))
@@ -506,7 +500,7 @@ fn window_visual_changes_detect_icon_removal() {
 #[test]
 fn pointer_event_queue_preserves_payload_and_revision() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(Border::new()).unwrap();
+    runtime.update(Border::new());
     let object = runtime.graph().root().unwrap();
     let event = Rc::new(RefCell::new(NativePointerEventInfoEvent {
         revision: 7,

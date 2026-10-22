@@ -9,21 +9,19 @@ fn exit_retirement_leaves_only_native_state_until_completion() {
         Callback::new(move |()| calls.set(calls.get() + 1))
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            Grid::new().keyed_children([
-                keyed(
-                    "item",
-                    Button::new()
-                        .element_ref(&reference)
-                        .exit_fade(Duration::from_millis(200))
-                        .on_click(callback.clone())
-                        .content(TextBlock::new().text("old")),
-                ),
-                keyed("tail", TextBlock::new().text("tail")),
-            ]),
-        )
-        .unwrap();
+    runtime.update(
+        Grid::new().keyed_children([
+            keyed(
+                "item",
+                Button::new()
+                    .element_ref(&reference)
+                    .exit_fade(Duration::from_millis(200))
+                    .on_click(callback.clone())
+                    .content(TextBlock::new().text("old")),
+            ),
+            keyed("tail", TextBlock::new().text("tail")),
+        ]),
+    );
     let root = runtime.graph().root().unwrap();
     let old = runtime
         .graph()
@@ -38,22 +36,19 @@ fn exit_retirement_leaves_only_native_state_until_completion() {
             EventPayload::Unit,
         ));
     }
-    let mut active = runtime.next_native_event().unwrap().unwrap();
+    let mut active = runtime.next_native_event().unwrap();
     active.invoke();
     runtime.adapter_mut().record_batches(true);
 
-    let mutations = runtime
-        .update(Grid::new().keyed_children([keyed("tail", TextBlock::new().text("tail"))]))
-        .unwrap();
+    let mutations =
+        runtime.update(Grid::new().keyed_children([keyed("tail", TextBlock::new().text("tail"))]));
     drop(active);
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+    assert_eq!(runtime.dispatch_native_events(), 0);
     assert_eq!(calls.get(), 1);
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed("item", Button::new().content(TextBlock::new().text("new"))),
-            keyed("tail", TextBlock::new().text("tail")),
-        ]))
-        .unwrap();
+    runtime.update(Grid::new().keyed_children([
+        keyed("item", Button::new().content(TextBlock::new().text("new"))),
+        keyed("tail", TextBlock::new().text("tail")),
+    ]));
     let replacement = runtime
         .graph()
         .children(root, RelationId::Children)
@@ -63,10 +58,7 @@ fn exit_retirement_leaves_only_native_state_until_completion() {
     assert_eq!(runtime.graph().kind(old_content), None);
     assert_eq!(runtime.graph().retired_count(), 1);
     assert_eq!(reference.get(), None);
-    assert!(matches!(
-        runtime.focus(&reference),
-        Err(UpdateError::Graph(GraphError::ReferenceUnavailable))
-    ));
+    assert!(!runtime.focus(&reference));
     assert!(
         mutations
             .iter()
@@ -101,12 +93,10 @@ fn exit_retirement_leaves_only_native_state_until_completion() {
         .graph()
         .children(root, RelationId::Children)
         .unwrap()[1];
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed("tail", TextBlock::new().text("tail")),
-            keyed("item", Button::new().content(TextBlock::new().text("new"))),
-        ]))
-        .unwrap();
+    runtime.update(Grid::new().keyed_children([
+        keyed("tail", TextBlock::new().text("tail")),
+        keyed("item", Button::new().content(TextBlock::new().text("new"))),
+    ]));
     assert_eq!(
         runtime
             .adapter()
@@ -116,7 +106,7 @@ fn exit_retirement_leaves_only_native_state_until_completion() {
     );
 
     assert!(runtime.adapter_mut().complete_retirement(old));
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+    assert_eq!(runtime.dispatch_native_events(), 0);
     assert!(matches!(
         runtime.adapter().batches().last().unwrap().as_slice(),
         [Mutation::CompleteRetirement { root, .. }] if *root == old
@@ -163,7 +153,7 @@ fn owned_reorder_preserves_interleaved_retirement_slot_in_recording_adapter() {
         Grid::new().keyed_children(values)
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(children(true, false)).unwrap();
+    runtime.update(children(true, false));
     let root = runtime.graph().root().unwrap();
     let initial = runtime
         .graph()
@@ -173,7 +163,7 @@ fn owned_reorder_preserves_interleaved_retirement_slot_in_recording_adapter() {
     let retiring = initial[2];
     let active = [initial[4], initial[3], initial[1], initial[0]];
 
-    runtime.update(children(false, true)).unwrap();
+    runtime.update(children(false, true));
 
     assert_eq!(
         runtime
@@ -183,7 +173,7 @@ fn owned_reorder_preserves_interleaved_retirement_slot_in_recording_adapter() {
         &[active[0], active[1], retiring, active[2], active[3]]
     );
     assert!(runtime.adapter_mut().complete_retirement(retiring));
-    runtime.dispatch_native_events().unwrap();
+    runtime.dispatch_native_events();
     assert_eq!(
         runtime
             .adapter()
@@ -196,16 +186,14 @@ fn owned_reorder_preserves_interleaved_retirement_slot_in_recording_adapter() {
 #[test]
 fn exit_retirement_handles_concurrency_zero_duration_and_parent_removal() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed("first", Button::new().exit_fade(Duration::from_millis(100))),
-            keyed(
-                "second",
-                Button::new().exit_fade(Duration::from_millis(200)),
-            ),
-            keyed("tail", TextBlock::new().text("tail")),
-        ]))
-        .unwrap();
+    runtime.update(Grid::new().keyed_children([
+        keyed("first", Button::new().exit_fade(Duration::from_millis(100))),
+        keyed(
+            "second",
+            Button::new().exit_fade(Duration::from_millis(200)),
+        ),
+        keyed("tail", TextBlock::new().text("tail")),
+    ]));
     let root = runtime.graph().root().unwrap();
     let previous = runtime
         .graph()
@@ -213,40 +201,34 @@ fn exit_retirement_handles_concurrency_zero_duration_and_parent_removal() {
         .unwrap()
         .to_vec();
 
-    runtime
-        .update(Grid::new().keyed_children([keyed("tail", TextBlock::new().text("tail"))]))
-        .unwrap();
+    runtime.update(Grid::new().keyed_children([keyed("tail", TextBlock::new().text("tail"))]));
     assert_eq!(runtime.graph().retired_count(), 2);
     assert!(runtime.adapter_mut().complete_retirement(previous[1]));
-    runtime.dispatch_native_events().unwrap();
+    runtime.dispatch_native_events();
     assert_eq!(runtime.graph().retired_count(), 1);
     assert!(runtime.adapter_mut().complete_retirement(previous[0]));
-    runtime.dispatch_native_events().unwrap();
+    runtime.dispatch_native_events();
     assert_eq!(runtime.graph().retired_count(), 0);
 
-    runtime
-        .update(
-            Grid::new().keyed_children([keyed("zero", Button::new().exit_fade(Duration::ZERO))]),
-        )
-        .unwrap();
+    runtime.update(
+        Grid::new().keyed_children([keyed("zero", Button::new().exit_fade(Duration::ZERO))]),
+    );
     let zero = runtime
         .graph()
         .children(root, RelationId::Children)
         .unwrap()[0];
-    runtime.update(Grid::new()).unwrap();
+    runtime.update(Grid::new());
     assert_eq!(runtime.graph().retired_count(), 0);
     assert_eq!(runtime.adapter().retirement_count(), 0);
     assert_eq!(runtime.graph().kind(zero), None);
 
-    runtime
-        .update(Grid::new().keyed_children([keyed(
-            "parent",
-            Grid::new().keyed_children([keyed(
-                "child",
-                Button::new().exit_fade(Duration::from_millis(200)),
-            )]),
-        )]))
-        .unwrap();
+    runtime.update(Grid::new().keyed_children([keyed(
+        "parent",
+        Grid::new().keyed_children([keyed(
+            "child",
+            Button::new().exit_fade(Duration::from_millis(200)),
+        )]),
+    )]));
     let parent = runtime
         .graph()
         .children(root, RelationId::Children)
@@ -255,11 +237,9 @@ fn exit_retirement_handles_concurrency_zero_duration_and_parent_removal() {
         .graph()
         .children(parent, RelationId::Children)
         .unwrap()[0];
-    runtime
-        .update(Grid::new().keyed_children([keyed("parent", Grid::new())]))
-        .unwrap();
+    runtime.update(Grid::new().keyed_children([keyed("parent", Grid::new())]));
     assert_eq!(runtime.graph().retired_count(), 1);
-    runtime.update(Grid::new()).unwrap();
+    runtime.update(Grid::new());
     assert_eq!(runtime.graph().retired_count(), 0);
     assert_eq!(runtime.adapter().retirement_count(), 0);
     assert_eq!(runtime.graph().kind(child), None);
@@ -267,308 +247,55 @@ fn exit_retirement_handles_concurrency_zero_duration_and_parent_removal() {
 }
 
 #[test]
+#[should_panic(expected = "exit transitions are not supported for children of relation Content")]
 fn exit_transition_rejects_single_child_attachment() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            Button::new().content(
-                TextBlock::new()
-                    .text("old")
-                    .exit_fade(Duration::from_millis(200)),
-            ),
-        )
-        .unwrap();
-
-    assert_eq!(
-        runtime.update(Button::new()),
-        Err(UpdateError::Graph(GraphError::ExitTransitionUnsupported))
+    runtime.update(
+        Button::new().content(
+            TextBlock::new()
+                .text("old")
+                .exit_fade(Duration::from_millis(200)),
+        ),
     );
+
+    runtime.update(Button::new());
 }
 
 #[test]
-fn unsupported_retirement_rolls_back_the_entire_update() {
-    let retiring_reference: ElementRef = ElementRef::default();
-    let nested_reference: ElementRef = ElementRef::default();
-    let callback = Callback::new(|()| {});
-    let initial = || {
-        Grid::new().keyed_children([
-            keyed(
-                "retiring",
-                Button::new()
-                    .element_ref(&retiring_reference)
-                    .exit_fade(Duration::from_millis(100))
-                    .on_click(callback.clone()),
-            ),
-            keyed(
-                "holder",
-                Button::new().content(
-                    Button::new()
-                        .element_ref(&nested_reference)
-                        .exit_fade(Duration::from_millis(100))
-                        .on_click(callback.clone()),
-                ),
-            ),
-        ])
-    };
+#[should_panic(expected = "exit transitions are not supported for children of relation Content")]
+fn exit_transition_rejects_nested_child_of_removed_parent() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.adapter_mut().record_batches(true);
-    runtime.update(initial()).unwrap();
-    let graph = runtime.graph().clone();
-    let adapter = runtime.adapter().clone();
-    let retiring = retiring_reference.get();
-    let nested = nested_reference.get();
-
-    assert_eq!(
-        runtime.update(Grid::new().keyed_children([keyed("holder", Button::new())])),
-        Err(UpdateError::Graph(GraphError::ExitTransitionUnsupported))
-    );
-    assert_eq!(runtime.graph(), &graph);
-    assert_eq!(runtime.adapter(), &adapter);
-    assert_eq!(retiring_reference.get(), retiring);
-    assert_eq!(nested_reference.get(), nested);
-    assert_eq!(runtime.graph().retired_count(), 0);
-
-    assert!(runtime.update(initial()).unwrap().is_empty());
-    runtime
-        .update(
-            Grid::new().keyed_children([keyed(
-                "holder",
-                Button::new().content(
-                    Button::new()
-                        .element_ref(&nested_reference)
-                        .exit_fade(Duration::from_millis(100))
-                        .on_click(callback),
-                ),
-            )]),
-        )
-        .unwrap();
-    assert_eq!(runtime.graph().retired_count(), 1);
-}
-
-#[test]
-fn observations_survive_a_later_planning_failure() {
-    let initial = || {
-        Grid::new().keyed_children([
-            keyed(
-                "retiring",
-                Button::new().exit_fade(Duration::from_millis(100)),
-            ),
-            keyed(
-                "holder",
-                Button::new().is_enabled(true).content(
-                    TextBlock::new()
-                        .text("nested")
-                        .exit_fade(Duration::from_millis(100)),
-                ),
-            ),
-        ])
-    };
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    let mut expected = Runtime::new(RecordingAdapter::default());
-    runtime.update(initial()).unwrap();
-    expected.update(initial()).unwrap();
-    let root = runtime.graph().root().unwrap();
-    let holder = runtime
-        .graph()
-        .children(root, RelationId::Children)
-        .unwrap()[1];
-    let expected_root = expected.graph().root().unwrap();
-    let expected_holder = expected
-        .graph()
-        .children(expected_root, RelationId::Children)
-        .unwrap()[1];
-    let observed = Property {
-        id: PropertyId::IsEnabled,
-        value: PropertyValue::Bool(false),
-    };
-    runtime.adapter_mut().observe(Observation::SetProperty {
-        object: holder,
-        property: observed.clone(),
-    });
-    expected.adapter_mut().observe(Observation::SetProperty {
-        object: expected_holder,
-        property: observed.clone(),
-    });
-    expected.dispatch_native_events().unwrap();
-
-    assert_eq!(
-        runtime
-            .update(Grid::new().keyed_children([keyed("holder", Button::new().is_enabled(false))])),
-        Err(UpdateError::Graph(GraphError::ExitTransitionUnsupported))
-    );
-
-    assert_eq!(runtime.graph(), expected.graph());
-    assert_eq!(runtime.adapter(), expected.adapter());
-    assert_eq!(runtime.graph().properties(holder).unwrap(), [observed]);
-    assert!(runtime.update(initial()).unwrap().iter().any(
-        |mutation| matches!(mutation, Mutation::SetProperties { object, .. } if *object == holder)
-    ));
-}
-
-#[test]
-fn allocation_from_the_free_list_rolls_back_generation_and_order() {
-    let nested = || {
-        TextBlock::new()
-            .text("nested")
-            .exit_fade(Duration::from_millis(100))
-    };
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed("spare", Button::new()),
-            keyed("kept", Button::new()),
-            keyed("holder", Button::new().content(nested())),
-        ]))
-        .unwrap();
-    let root = runtime.graph().root().unwrap();
-    let spare = runtime
-        .graph()
-        .children(root, RelationId::Children)
-        .unwrap()[0];
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed("kept", Button::new()),
-            keyed("holder", Button::new().content(nested())),
-        ]))
-        .unwrap();
-    let before = runtime.graph().clone();
-
-    assert_eq!(
-        runtime.update(Grid::new().keyed_children([
-            keyed("kept", Button::new()),
-            keyed("new", Button::new()),
-            keyed("holder", Button::new()),
-        ])),
-        Err(UpdateError::Graph(GraphError::ExitTransitionUnsupported))
-    );
-    assert_eq!(runtime.graph(), &before);
-
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed("kept", Button::new()),
-            keyed("new", Button::new()),
-            keyed("holder", Button::new().content(nested())),
-        ]))
-        .unwrap();
-    let allocated = runtime
-        .graph()
-        .children(root, RelationId::Children)
-        .unwrap()[1];
-    assert_eq!(allocated.index(), spare.index());
-    assert_eq!(allocated.generation(), spare.generation().wrapping_add(1));
-}
-
-#[test]
-fn removal_and_reallocation_roll_back_multiple_slot_generations() {
-    let nested = || {
-        TextBlock::new()
-            .text("nested")
-            .exit_fade(Duration::from_millis(100))
-    };
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed("first", Button::new()),
-            keyed("second", Button::new()),
-            keyed("holder", Button::new().content(nested())),
-        ]))
-        .unwrap();
-    let root = runtime.graph().root().unwrap();
-    let previous = runtime
-        .graph()
-        .children(root, RelationId::Children)
-        .unwrap()
-        .to_vec();
-    let before = runtime.graph().clone();
-
-    assert_eq!(
-        runtime.update(Grid::new().keyed_children([
-            keyed("new-first", Button::new()),
-            keyed("new-second", Button::new()),
-            keyed("holder", Button::new()),
-        ])),
-        Err(UpdateError::Graph(GraphError::ExitTransitionUnsupported))
-    );
-    assert_eq!(runtime.graph(), &before);
-
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed("new-first", Button::new()),
-            keyed("new-second", Button::new()),
-            keyed("holder", Button::new().content(nested())),
-        ]))
-        .unwrap();
-    let allocated = runtime
-        .graph()
-        .children(root, RelationId::Children)
-        .unwrap();
-    for (allocated, previous) in allocated[..2].iter().zip(&previous[..2]) {
-        assert_eq!(allocated.index(), previous.index());
-        assert_eq!(
-            allocated.generation(),
-            previous.generation().wrapping_add(1)
-        );
-    }
-}
-
-#[test]
-fn forced_retirement_completion_rolls_back_with_parent_removal() {
-    let nested = || {
-        TextBlock::new()
-            .text("nested")
-            .exit_fade(Duration::from_millis(100))
-    };
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed(
-                "parent",
-                Grid::new().keyed_children([keyed(
-                    "retiring",
-                    Button::new().exit_fade(Duration::from_millis(100)),
-                )]),
-            ),
-            keyed("holder", Button::new().content(nested())),
-        ]))
-        .unwrap();
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed("parent", Grid::new()),
-            keyed("holder", Button::new().content(nested())),
-        ]))
-        .unwrap();
-    let before_graph = runtime.graph().clone();
-    let before_adapter = runtime.adapter().clone();
-
-    assert_eq!(
-        runtime.update(Grid::new().keyed_children([keyed("holder", Button::new())])),
-        Err(UpdateError::Graph(GraphError::ExitTransitionUnsupported))
-    );
-    assert_eq!(runtime.graph(), &before_graph);
-    assert_eq!(runtime.adapter(), &before_adapter);
-    assert_eq!(runtime.graph().retired_count(), 1);
+    runtime.update(Grid::new().keyed_children([
+        keyed(
+            "retiring",
+            Button::new().exit_fade(Duration::from_millis(100)),
+        ),
+        keyed(
+            "holder",
+            Button::new().content(Button::new().exit_fade(Duration::from_millis(100))),
+        ),
+    ]));
+    runtime.update(Grid::new().keyed_children([keyed("holder", Button::new())]));
 }
 
 #[test]
 fn duplicate_retirement_completion_is_idempotent() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime.adapter_mut().record_batches(true);
-    runtime
-        .update(Grid::new().keyed_children([keyed(
-            "retiring",
-            Button::new().exit_fade(Duration::from_millis(100)),
-        )]))
-        .unwrap();
+    runtime.update(Grid::new().keyed_children([keyed(
+        "retiring",
+        Button::new().exit_fade(Duration::from_millis(100)),
+    )]));
     let root = runtime.graph().root().unwrap();
     let retired = runtime
         .graph()
         .children(root, RelationId::Children)
         .unwrap()[0];
-    runtime.update(Grid::new()).unwrap();
+    runtime.update(Grid::new());
     runtime.adapter_mut().queue_retirement_completion(retired);
     runtime.adapter_mut().queue_retirement_completion(retired);
 
-    runtime.dispatch_native_events().unwrap();
+    runtime.dispatch_native_events();
 
     assert_eq!(runtime.graph().retired_count(), 0);
     assert_eq!(runtime.adapter().retirement_count(), 0);
@@ -585,28 +312,26 @@ fn duplicate_retirement_completion_is_idempotent() {
 fn mixed_duplicate_and_stale_retirement_completions_are_idempotent() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime.adapter_mut().record_batches(true);
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed("first", Button::new().exit_fade(Duration::from_millis(100))),
-            keyed(
-                "second",
-                Button::new().exit_fade(Duration::from_millis(100)),
-            ),
-        ]))
-        .unwrap();
+    runtime.update(Grid::new().keyed_children([
+        keyed("first", Button::new().exit_fade(Duration::from_millis(100))),
+        keyed(
+            "second",
+            Button::new().exit_fade(Duration::from_millis(100)),
+        ),
+    ]));
     let root = runtime.graph().root().unwrap();
     let retired = runtime
         .graph()
         .children(root, RelationId::Children)
         .unwrap()
         .to_vec();
-    runtime.update(Grid::new()).unwrap();
+    runtime.update(Grid::new());
     let completion_batches = runtime.adapter().batches().len();
 
     for object in [retired[0], retired[0], retired[1], retired[1]] {
         runtime.adapter_mut().queue_retirement_completion(object);
     }
-    runtime.dispatch_native_events().unwrap();
+    runtime.dispatch_native_events();
     assert_eq!(runtime.graph().retired_count(), 0);
     assert_eq!(runtime.adapter().retirement_count(), 0);
     let completed = runtime.adapter().batches()[completion_batches..]
@@ -619,9 +344,7 @@ fn mixed_duplicate_and_stale_retirement_completions_are_idempotent() {
         .collect::<Vec<_>>();
     assert_eq!(completed, retired);
 
-    runtime
-        .update(Grid::new().keyed_children([keyed("first", Button::new())]))
-        .unwrap();
+    runtime.update(Grid::new().keyed_children([keyed("first", Button::new())]));
     let replacement = runtime
         .graph()
         .children(root, RelationId::Children)
@@ -634,26 +357,24 @@ fn mixed_duplicate_and_stale_retirement_completions_are_idempotent() {
     runtime
         .adapter_mut()
         .queue_retirement_completion(retired[0]);
-    runtime.dispatch_native_events().unwrap();
+    runtime.dispatch_native_events();
     assert_eq!(runtime.adapter().batches().len(), batches);
     assert_eq!(runtime.graph().kind(replacement), Some(ObjectType::Button));
 }
 
 #[test]
-fn native_queue_retirement_boundary_preserves_later_observation_rollback() {
+fn native_queue_retirement_boundary_precedes_invalid_observation() {
     let mut runtime = Runtime::new(RecordingAdapter::new());
-    runtime
-        .update(Grid::new().width(100.0).keyed_children([keyed(
-            "retiring",
-            Button::new().exit_fade(Duration::from_millis(100)),
-        )]))
-        .unwrap();
+    runtime.update(Grid::new().width(100.0).keyed_children([keyed(
+        "retiring",
+        Button::new().exit_fade(Duration::from_millis(100)),
+    )]));
     let root = runtime.graph().root().unwrap();
     let retiring = runtime
         .graph()
         .children(root, RelationId::Children)
         .unwrap()[0];
-    runtime.update(Grid::new().width(100.0)).unwrap();
+    runtime.update(Grid::new().width(100.0));
     assert_eq!(runtime.graph().retired_count(), 1);
     assert!(runtime.adapter_mut().complete_retirement(retiring));
     for property in [
@@ -673,23 +394,15 @@ fn native_queue_retirement_boundary_preserves_later_observation_rollback() {
     }
 
     assert!(matches!(
-        runtime.next_native_work().unwrap(),
+        runtime.next_native_work(),
         Some(NativeWork::Maintenance)
     ));
     assert_eq!(runtime.graph().retired_count(), 0);
     assert_eq!(runtime.adapter().retirement_count(), 0);
     assert_eq!(runtime.adapter().object_count(), 1);
-    let graph = runtime.graph().clone();
-    let adapter = runtime.adapter().clone();
-    assert_eq!(
-        runtime.prepare_update(),
-        Err(UpdateError::InvalidNativeEvent(
-            GraphError::InvalidProperty(ObjectType::Grid, PropertyId::Text)
-        ))
-    );
-    assert_eq!(runtime.graph(), &graph);
-    assert_eq!(runtime.adapter(), &adapter);
-    assert_eq!(runtime.prepare_update(), Err(UpdateError::Poisoned));
+    assert_panics("invalid property Text for Grid", || {
+        runtime.prepare_update();
+    });
 }
 
 #[test]
@@ -698,30 +411,26 @@ fn native_queue_retirement_cleanup_does_not_consume_later_callback() {
     let called = Rc::clone(&calls);
     let callback = Callback::new(move |()| called.set(called.get() + 1));
     let mut runtime = Runtime::new(RecordingAdapter::new());
-    runtime
-        .update(
-            Grid::new().keyed_children([
-                keyed(
-                    "retiring",
-                    TextBox::new()
-                        .text("Retiring")
-                        .exit_fade(Duration::from_millis(100)),
-                ),
-                keyed("active", Button::new().on_click(callback.clone())),
-            ]),
-        )
-        .unwrap();
+    runtime.update(
+        Grid::new().keyed_children([
+            keyed(
+                "retiring",
+                TextBox::new()
+                    .text("Retiring")
+                    .exit_fade(Duration::from_millis(100)),
+            ),
+            keyed("active", Button::new().on_click(callback.clone())),
+        ]),
+    );
     let root = runtime.graph().root().unwrap();
     let children = runtime
         .graph()
         .children(root, RelationId::Children)
         .unwrap();
     let (retiring, active) = (children[0], children[1]);
-    runtime
-        .update(
-            Grid::new().keyed_children([keyed("active", Button::new().on_click(callback.clone()))]),
-        )
-        .unwrap();
+    runtime.update(
+        Grid::new().keyed_children([keyed("active", Button::new().on_click(callback.clone()))]),
+    );
     runtime.adapter_mut().queue_retirement_completion(retiring);
     runtime.adapter_mut().observe(Observation::SetProperty {
         object: retiring,
@@ -737,13 +446,10 @@ fn native_queue_retirement_cleanup_does_not_consume_later_callback() {
         EventPayload::Unit,
     ));
 
-    assert_eq!(
-        runtime.prepare_update(),
-        Err(UpdateError::PendingNativeEvent)
-    );
+    assert!(!runtime.prepare_update());
     assert_eq!(runtime.graph().retired_count(), 0);
     assert_eq!(runtime.adapter().retirement_count(), 0);
-    let Some(NativeWork::Event(mut event)) = runtime.next_native_work().unwrap() else {
+    let Some(NativeWork::Event(mut event)) = runtime.next_native_work() else {
         panic!("expected callback after native cleanup");
     };
     event.invoke();
@@ -759,26 +465,22 @@ fn native_event_before_retirement_completion_keeps_chronological_order() {
         Callback::new(move |()| calls.set(calls.get() + 1))
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed(
-                "retiring",
-                Button::new().exit_fade(Duration::from_millis(100)),
-            ),
-            keyed("active", Button::new().on_click(callback.clone())),
-        ]))
-        .unwrap();
+    runtime.update(Grid::new().keyed_children([
+        keyed(
+            "retiring",
+            Button::new().exit_fade(Duration::from_millis(100)),
+        ),
+        keyed("active", Button::new().on_click(callback.clone())),
+    ]));
     let root = runtime.graph().root().unwrap();
     let children = runtime
         .graph()
         .children(root, RelationId::Children)
         .unwrap()
         .to_vec();
-    runtime
-        .update(
-            Grid::new().keyed_children([keyed("active", Button::new().on_click(callback.clone()))]),
-        )
-        .unwrap();
+    runtime.update(
+        Grid::new().keyed_children([keyed("active", Button::new().on_click(callback.clone()))]),
+    );
     runtime.adapter_mut().queue_event(EventDispatch::new(
         children[1],
         EventId::Click,
@@ -789,12 +491,12 @@ fn native_event_before_retirement_completion_keeps_chronological_order() {
         .adapter_mut()
         .queue_retirement_completion(children[0]);
 
-    let mut event = runtime.next_native_event().unwrap().unwrap();
+    let mut event = runtime.next_native_event().unwrap();
     assert_eq!(runtime.graph().retired_count(), 1);
     event.invoke();
     drop(event);
     assert_eq!(calls.get(), 1);
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+    assert_eq!(runtime.dispatch_native_events(), 0);
     assert_eq!(runtime.graph().retired_count(), 0);
 }
 
@@ -806,26 +508,22 @@ fn retirement_completion_before_later_event_keeps_chronological_order() {
         Callback::new(move |()| calls.set(calls.get() + 1))
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(Grid::new().keyed_children([
-            keyed(
-                "retiring",
-                Button::new().exit_fade(Duration::from_millis(100)),
-            ),
-            keyed("active", Button::new().on_click(callback.clone())),
-        ]))
-        .unwrap();
+    runtime.update(Grid::new().keyed_children([
+        keyed(
+            "retiring",
+            Button::new().exit_fade(Duration::from_millis(100)),
+        ),
+        keyed("active", Button::new().on_click(callback.clone())),
+    ]));
     let root = runtime.graph().root().unwrap();
     let children = runtime
         .graph()
         .children(root, RelationId::Children)
         .unwrap()
         .to_vec();
-    runtime
-        .update(
-            Grid::new().keyed_children([keyed("active", Button::new().on_click(callback.clone()))]),
-        )
-        .unwrap();
+    runtime.update(
+        Grid::new().keyed_children([keyed("active", Button::new().on_click(callback.clone()))]),
+    );
     runtime
         .adapter_mut()
         .queue_retirement_completion(children[0]);
@@ -836,12 +534,12 @@ fn retirement_completion_before_later_event_keeps_chronological_order() {
         EventPayload::Unit,
     ));
 
-    let mut event = runtime.next_native_event().unwrap().unwrap();
+    let mut event = runtime.next_native_event().unwrap();
     assert_eq!(runtime.graph().retired_count(), 0);
     event.invoke();
     drop(event);
     assert_eq!(calls.get(), 1);
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+    assert_eq!(runtime.dispatch_native_events(), 0);
 }
 
 #[test]
@@ -852,22 +550,20 @@ fn events_queued_after_logical_retirement_are_stale_before_completion() {
         Callback::new(move |()| calls.set(calls.get() + 1))
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            Grid::new().keyed_children([keyed(
-                "retiring",
-                Button::new()
-                    .exit_fade(Duration::from_millis(100))
-                    .on_click(callback.clone()),
-            )]),
-        )
-        .unwrap();
+    runtime.update(
+        Grid::new().keyed_children([keyed(
+            "retiring",
+            Button::new()
+                .exit_fade(Duration::from_millis(100))
+                .on_click(callback.clone()),
+        )]),
+    );
     let root = runtime.graph().root().unwrap();
     let retired = runtime
         .graph()
         .children(root, RelationId::Children)
         .unwrap()[0];
-    runtime.update(Grid::new()).unwrap();
+    runtime.update(Grid::new());
     runtime.adapter_mut().queue_event(EventDispatch::new(
         retired,
         EventId::Click,
@@ -876,7 +572,7 @@ fn events_queued_after_logical_retirement_are_stale_before_completion() {
     ));
     runtime.adapter_mut().queue_retirement_completion(retired);
 
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 0);
+    assert_eq!(runtime.dispatch_native_events(), 0);
     assert_eq!(calls.get(), 0);
     assert_eq!(runtime.graph().retired_count(), 0);
 }

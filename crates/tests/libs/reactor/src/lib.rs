@@ -280,6 +280,8 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "background" => App::run_component::<background::BackgroundFixture>(())?,
         "window-replacement" => App::run_component::<application::ReplacingWindow>(false)?,
         "startup-error" => application::startup_error()?,
+        "exit-with-window" => application::exit_with_open_window(false)?,
+        "error-with-window" => application::exit_with_open_window(true)?,
         "canvas" => App::run_component::<canvas::CanvasFixture>(())?,
         "controlled" => App::run_component::<controlled::ControlledFixture>(())?,
         "flyout" => App::run_component::<flyout::FlyoutFixture>(())?,

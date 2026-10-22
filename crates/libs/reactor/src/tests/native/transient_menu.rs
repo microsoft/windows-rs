@@ -1,6 +1,7 @@
 use super::*;
 
 #[test]
+#[should_panic(expected = "duplicate key")]
 fn application_menu_rejects_duplicate_nested_keys() {
     let menu = [
         MenuItem::item("duplicate", "First"),
@@ -10,7 +11,7 @@ fn application_menu_rejects_duplicate_nested_keys() {
             [MenuItem::item("duplicate", "Second")],
         ),
     ];
-    assert!(validate_menu_items(&menu, &mut HashSet::new()).is_err());
+    validate_menu_items(&menu, &mut HashSet::new());
 }
 
 #[test]

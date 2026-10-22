@@ -777,16 +777,9 @@ impl WinUiAdapter {
             if !self.handles.contains_key(object) {
                 return None;
             }
-            match self.native_children(*object, *relation) {
-                Ok(native) => {
-                    children.clone_from(&native);
-                    order = Some(EventPayload::Items(native));
-                }
-                Err(error) => {
-                    self.event_queue.errors.borrow_mut().push_back(error);
-                    return None;
-                }
-            }
+            let native = self.native_children(*object, *relation).unwrap();
+            children.clone_from(&native);
+            order = Some(EventPayload::Items(native));
         }
         let event = queued.event.as_ref().and_then(|queued| {
             if queued.event == EventId::MenuItemInvoked {

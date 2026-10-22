@@ -233,17 +233,12 @@ impl WinUiAdapter {
 }
 
 impl Adapter for WinUiAdapter {
-    type Error = WinUiError;
-
-    fn preview_native_events(&self, events: &mut Vec<NativeEvent>) {
-        NativeEvent::preview_prefix(
-            events,
-            self.event_queue
-                .events
-                .borrow()
-                .iter()
-                .filter_map(|event| self.native_event(event)),
-        );
+    fn peek_native_event(&self) -> Option<NativeEvent> {
+        self.event_queue
+            .events
+            .borrow()
+            .iter()
+            .find_map(|event| self.native_event(event))
     }
 
     fn pop_native_event(&mut self) -> Option<NativeEvent> {
@@ -255,24 +250,21 @@ impl Adapter for WinUiAdapter {
         }
     }
 
-    fn take_error(&mut self) -> Option<Self::Error> {
-        self.event_queue.errors.borrow_mut().pop_front()
-    }
-
-    fn validate(&self, _mutations: &[Mutation]) -> Result<(), Self::Error> {
-        Ok(())
-    }
-
-    fn apply(&mut self, mutations: &[Mutation]) -> Result<(), Self::Error> {
-        let result = self.apply_mutations(mutations);
+    fn apply(&mut self, mutations: &[Mutation]) {
+        self.apply_mutations(mutations).unwrap();
         if !self.released_images.is_empty() {
             self.released_images.clear();
             self.images.retain(|_, image| image.strong_count() != 0);
         }
-        result
     }
 
-    fn focus(&mut self, object: ObjectId) -> Result<bool, Self::Error> {
+    fn imperative(&mut self, request: ImperativeRequest) {
+        self.apply_imperative(request).unwrap();
+    }
+}
+
+impl WinUiAdapter {
+    fn focus(&mut self, object: ObjectId) -> Result<bool, WinUiError> {
         let element = self.ui_element(object)?;
         self.pending_focus_states
             .borrow_mut()
@@ -285,13 +277,9 @@ impl Adapter for WinUiAdapter {
                 });
                 let accepted = native::DispatcherQueue::GetForCurrentThread()?
                     .TryEnqueueWithPriority(native::DispatcherQueuePriority::Low, &cleanup)?;
+                // A dispatcher that is shutting down rejects the cleanup; clear the state now.
                 if !accepted {
                     self.pending_focus_states.borrow_mut().remove(&object);
-                    return Err(windows_core::Error::new(
-                        native::E_FAIL,
-                        "dispatcher rejected focus cleanup",
-                    )
-                    .into());
                 }
                 Ok(true)
             }
@@ -306,7 +294,7 @@ impl Adapter for WinUiAdapter {
         }
     }
 
-    fn imperative(&mut self, request: ImperativeRequest) -> Result<(), Self::Error> {
+    fn apply_imperative(&mut self, request: ImperativeRequest) -> Result<(), WinUiError> {
         match request {
             ImperativeRequest::Focus { object, completion } => {
                 completion.call(
@@ -569,19 +557,11 @@ impl Adapter for WinUiAdapter {
                 let element = control.value.cast::<native::UIElement>()?;
                 let framework = control.value.cast::<native::IFrameworkElement>()?;
                 let changed = Rc::new(RefCell::new(None));
-                observe_xaml_scale(&element, &changed, &self.event_queue, callback.clone())?;
+                observe_xaml_scale(&element, &changed, callback.clone())?;
                 let loaded_element = element;
                 let loaded_changed = Rc::clone(&changed);
-                let loaded_errors = Rc::clone(&self.event_queue);
                 let loaded = framework.Loaded(move |_, _| {
-                    if let Err(error) = observe_xaml_scale(
-                        &loaded_element,
-                        &loaded_changed,
-                        &loaded_errors,
-                        callback.clone(),
-                    ) {
-                        loaded_errors.errors.borrow_mut().push_back(error.into());
-                    }
+                    observe_xaml_scale(&loaded_element, &loaded_changed, callback.clone()).unwrap();
                 })?;
                 self.observations.insert(
                     (object, observation),
@@ -613,21 +593,15 @@ impl Adapter for WinUiAdapter {
                 });
                 let size_callback = callback.clone();
                 let size_element = element.clone();
-                let size_errors = Rc::clone(&self.event_queue);
                 let size = framework.SizeChanged(move |_, args| {
                     if let Some(args) = args.as_ref()
                         && let Ok(value) = args.NewSize()
                     {
-                        match xaml_scale(&size_element) {
-                            Ok(scale) => size_callback.call(CompositionHostEvent::Metrics {
-                                width: f64::from(value.width),
-                                height: f64::from(value.height),
-                                scale,
-                            }),
-                            Err(error) => {
-                                size_errors.errors.borrow_mut().push_back(error.into());
-                            }
-                        }
+                        size_callback.call(CompositionHostEvent::Metrics {
+                            width: f64::from(value.width),
+                            height: f64::from(value.height),
+                            scale: xaml_scale(&size_element).unwrap(),
+                        });
                     }
                 })?;
                 let changed = Rc::new(RefCell::new(None));
@@ -636,7 +610,6 @@ impl Adapter for WinUiAdapter {
                 observe_xaml_scale(
                     &element,
                     &changed,
-                    &self.event_queue,
                     Callback::new(move |scale| {
                         scale_callback.call(CompositionHostEvent::Metrics {
                             width: scale_framework.ActualWidth().unwrap_or(0.0),
@@ -647,15 +620,13 @@ impl Adapter for WinUiAdapter {
                 )?;
                 let loaded_element = element;
                 let loaded_changed = Rc::clone(&changed);
-                let loaded_errors = Rc::clone(&self.event_queue);
                 let loaded_callback = callback;
                 let loaded_framework = framework;
                 let loaded = loaded_framework.clone().Loaded(move |_, _| {
                     let framework = loaded_framework.clone();
-                    if let Err(error) = observe_xaml_scale(
+                    observe_xaml_scale(
                         &loaded_element,
                         &loaded_changed,
-                        &loaded_errors,
                         Callback::new({
                             let callback = loaded_callback.clone();
                             move |scale| {
@@ -666,9 +637,8 @@ impl Adapter for WinUiAdapter {
                                 });
                             }
                         }),
-                    ) {
-                        loaded_errors.errors.borrow_mut().push_back(error.into());
-                    }
+                    )
+                    .unwrap();
                 })?;
                 self.observations.insert(
                     (object, observation),

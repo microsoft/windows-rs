@@ -372,8 +372,7 @@ mod tests {
         let mut host = reactor::ComponentHost::mount(
             reactor::RecordingAdapter::default(),
             [reactor::component::<Explorer>("explorer", ())],
-        )
-        .unwrap();
+        );
         let projects_path = path("explorer", "row:projects");
         let references_path = path("explorer", "row:references");
         let details_path = path("explorer", "details");
@@ -386,7 +385,7 @@ mod tests {
                 .unwrap()
                 .send(ExplorerMessage::Reverse)
         );
-        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 1);
+        assert_eq!(host.drain(usize::MAX).dispatched, 1);
         assert_eq!(host.reference_at(&projects_path).unwrap().get(), projects);
         assert_eq!(
             host.reference_at(&references_path).unwrap().get(),
@@ -398,7 +397,7 @@ mod tests {
                 .unwrap()
                 .send(RowMessage::Select)
         );
-        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 2);
+        assert_eq!(host.drain(usize::MAX).dispatched, 2);
         assert_eq!(
             host.runtime()
                 .graph()
@@ -418,8 +417,7 @@ mod tests {
         let mut host = reactor::ComponentHost::mount(
             reactor::RecordingAdapter::default(),
             [reactor::component::<Explorer>("explorer", ())],
-        )
-        .unwrap();
+        );
         let projects_path = path("explorer", "row:projects");
         let reference = host.reference_at(&projects_path).unwrap();
         let original = reference.get();
@@ -429,26 +427,26 @@ mod tests {
             .unwrap();
 
         assert!(explorer.send(ExplorerMessage::Filter("README".into())));
-        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 1);
+        assert_eq!(host.drain(usize::MAX).dispatched, 1);
         assert_eq!(reference.get(), None);
         assert!(host.sender_at::<Row>(&projects_path).is_none());
 
         assert!(stale.send(RowMessage::Toggle));
-        assert_eq!(host.drain(usize::MAX).unwrap().dropped, 1);
+        assert_eq!(host.drain(usize::MAX).dropped, 1);
 
         assert!(explorer.send(ExplorerMessage::Filter(String::new())));
-        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 1);
+        assert_eq!(host.drain(usize::MAX).dispatched, 1);
         let replacement = host.reference_at(&projects_path).unwrap().get();
         assert!(replacement.is_some());
         assert_ne!(replacement, original);
 
         assert!(stale.send(RowMessage::Toggle));
-        assert_eq!(host.drain(usize::MAX).unwrap().dropped, 1);
+        assert_eq!(host.drain(usize::MAX).dropped, 1);
         assert!(
             host.sender_at::<Row>(&projects_path)
                 .unwrap()
                 .send(RowMessage::Toggle)
         );
-        assert_eq!(host.drain(usize::MAX).unwrap().dispatched, 3);
+        assert_eq!(host.drain(usize::MAX).dispatched, 3);
     }
 }

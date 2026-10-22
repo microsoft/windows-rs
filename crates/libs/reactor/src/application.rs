@@ -121,20 +121,15 @@ impl ApplicationView {
         self
     }
 
-    pub(crate) fn validate(&self) -> windows_core::Result<()> {
+    pub(crate) fn validate(&self) {
         let mut keys = HashSet::new();
         for (key, _) in &self.windows {
-            if !keys.insert(key) {
-                return Err(application_error("duplicate application window key"));
-            }
+            assert!(keys.insert(key), "duplicate application window key {key:?}");
         }
         keys.clear();
         for (key, _) in &self.icons {
-            if !keys.insert(key) {
-                return Err(application_error("duplicate notification icon key"));
-            }
+            assert!(keys.insert(key), "duplicate notification icon key {key:?}");
         }
-        Ok(())
     }
 }
 
@@ -175,10 +170,6 @@ impl NotifyIcon {
     }
 }
 
-pub(crate) fn application_error(message: &str) -> windows_core::Error {
-    windows_core::Error::new(windows_core::HRESULT(0x80070057u32 as i32), message)
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -215,27 +206,22 @@ mod tests {
 
     #[test]
     fn application_resource_keys_are_unique_within_each_kind() {
-        assert!(
-            ApplicationView::new()
-                .window::<TestWindow>("main", ())
-                .notify_icon("main", NotifyIcon::new("icon.ico"))
-                .validate()
-                .is_ok()
-        );
-        assert!(
+        ApplicationView::new()
+            .window::<TestWindow>("main", ())
+            .notify_icon("main", NotifyIcon::new("icon.ico"))
+            .validate();
+        crate::tests::assert_panics("duplicate application window key", || {
             ApplicationView::new()
                 .window::<TestWindow>("main", ())
                 .window::<TestWindow>("main", ())
-                .validate()
-                .is_err()
-        );
-        assert!(
+                .validate();
+        });
+        crate::tests::assert_panics("duplicate notification icon key", || {
             ApplicationView::new()
                 .notify_icon("tray", NotifyIcon::new("icon.ico"))
                 .notify_icon("tray", NotifyIcon::new("icon.ico"))
-                .validate()
-                .is_err()
-        );
+                .validate();
+        });
     }
 
     #[test]
@@ -331,25 +317,31 @@ mod tests {
         let mut host = ComponentHost::mount(
             RecordingAdapter::default(),
             [component::<ObservedWindow>("main", (1, callback.clone()))],
-        )
-        .unwrap();
-        host.update_root(component::<ObservedWindow>("main", (1, callback.clone())))
-            .unwrap();
-        host.drain(64).unwrap();
+        );
+        host.update_root(component::<ObservedWindow>("main", (1, callback.clone())));
+        host.drain(64);
         assert_eq!(*events.borrow(), ["create", "view"]);
-        host.update_root(component::<ObservedWindow>("main", (2, callback)))
-            .unwrap();
-        host.drain(64).unwrap();
+        host.update_root(component::<ObservedWindow>("main", (2, callback)));
+        host.drain(64);
         assert_eq!(*events.borrow(), ["create", "view", "input", "view"]);
-        assert!(matches!(
-            host.update_root(component::<TestWindow>("main", ())),
-            Err(ComponentError::ComponentType(_))
-        ));
         drop(host);
         assert_eq!(
             *events.borrow(),
             ["create", "view", "input", "view", "drop"]
         );
+    }
+
+    #[test]
+    #[should_panic(expected = "changed type")]
+    fn live_root_input_cannot_change_component_type() {
+        let mut host = ComponentHost::mount(
+            RecordingAdapter::default(),
+            [component::<TestWindow>("main", ())],
+        );
+        host.update_root(component::<ObservedWindow>(
+            "main",
+            (1, Callback::new(|_| {})),
+        ));
     }
 
     #[test]
@@ -360,8 +352,7 @@ mod tests {
         let mut host = ComponentHost::mount(
             RecordingAdapter::default(),
             [component::<ObservedWindow>("main", (1, callback.clone()))],
-        )
-        .unwrap();
+        );
         let object = host.reference(&Key::from("main")).unwrap().get().unwrap();
         let event = host.runtime().graph().events(object).unwrap()[0].clone();
         host.queue_event(EventDispatch::new(
@@ -370,13 +361,11 @@ mod tests {
             event.value,
             EventPayload::Unit,
         ));
-        host.update_root(component::<ObservedWindow>("main", (2, callback.clone())))
-            .unwrap();
-        host.update_root(component::<ObservedWindow>("main", (3, callback)))
-            .unwrap();
+        host.update_root(component::<ObservedWindow>("main", (2, callback.clone())));
+        host.update_root(component::<ObservedWindow>("main", (3, callback)));
         assert_eq!(*events.borrow(), ["create", "view"]);
         assert!(host.has_pending_input());
-        host.drain(64).unwrap();
+        host.drain(64);
         assert!(!host.has_pending_input());
         assert_eq!(
             *events.borrow(),

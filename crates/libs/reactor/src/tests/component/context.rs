@@ -185,19 +185,15 @@ fn context_change_renders_only_subscribers() {
                 },
             ),
         ],
-    )
-    .unwrap();
+    );
 
-    let report = host.set_context(&context, 1).unwrap();
+    let report = host.set_context(&context, 1);
 
     assert_eq!(report.dispatched, 1);
     assert_eq!(report.mutations, 1);
     assert_eq!(subscriber_renders.load(Ordering::Relaxed), 2);
     assert_eq!(other_renders.load(Ordering::Relaxed), 1);
-    assert_eq!(
-        host.set_context(&context, 1).unwrap(),
-        ComponentDrain::default()
-    );
+    assert_eq!(host.set_context(&context, 1), ComponentDrain::default());
 }
 
 #[test]
@@ -212,11 +208,10 @@ fn context_change_renders_nested_subscribers_once() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<ContextParent>("parent", input)],
-    )
-    .unwrap();
+    );
     assert_eq!(renders.load(Ordering::Relaxed), 2);
 
-    let report = host.set_context(&context, 1).unwrap();
+    let report = host.set_context(&context, 1);
     assert_eq!(report.dispatched, 1);
     assert_eq!(renders.load(Ordering::Relaxed), 4);
 }
@@ -228,8 +223,7 @@ fn parent_render_reuses_unchanged_child_views() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<RenderCountParent>("parent", input)],
-    )
-    .unwrap();
+    );
     assert_eq!(renders.load(Ordering::Relaxed), 300);
     let state = host.test_state();
 
@@ -239,7 +233,7 @@ fn parent_render_reuses_unchanged_child_views() {
     for _ in 0..20 {
         assert!(sender.send(()));
     }
-    assert_eq!(host.drain(20).unwrap().dispatched, 20);
+    assert_eq!(host.drain(20).dispatched, 20);
     assert_eq!(renders.load(Ordering::Relaxed), 300);
     assert_eq!(host.test_state(), state);
 }
@@ -256,25 +250,20 @@ fn provided_context_shadows_host_context_across_updates() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<ProviderParent>("parent", input.clone())],
-    )
-    .unwrap();
-    assert_eq!(&*seen.borrow(), &[1]);
-
-    assert_eq!(
-        host.set_context(&context, 9).unwrap(),
-        ComponentDrain::default()
     );
     assert_eq!(&*seen.borrow(), &[1]);
 
-    host.update_input::<ProviderParent>(&Key::from("parent"), ProviderInput { value: 2, ..input })
-        .unwrap();
+    assert_eq!(host.set_context(&context, 9), ComponentDrain::default());
+    assert_eq!(&*seen.borrow(), &[1]);
+
+    host.update_input::<ProviderParent>(&Key::from("parent"), ProviderInput { value: 2, ..input });
     assert_eq!(&*seen.borrow(), &[1, 2]);
 
     let sender = host
         .sender_at::<ProviderChild>(&[Key::from("parent"), Key::from("child")])
         .unwrap();
     assert!(sender.send(()));
-    assert_eq!(host.drain(1).unwrap().dispatched, 1);
+    assert_eq!(host.drain(1).dispatched, 1);
     assert_eq!(&*seen.borrow(), &[1, 2, 2]);
 }
 
@@ -290,11 +279,10 @@ fn ancestor_can_shadow_context_during_host_update() {
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
         [component::<DynamicProviderParent>("parent", input)],
-    )
-    .unwrap();
+    );
     assert_eq!(&*seen.borrow(), &[0]);
 
-    assert_eq!(host.set_context(&context, 1).unwrap().dispatched, 1);
+    assert_eq!(host.set_context(&context, 1).dispatched, 1);
     assert_eq!(&*seen.borrow(), &[0, 42]);
 }
 
@@ -315,65 +303,11 @@ fn broad_context_update_does_not_scan_all_graph_references_per_consumer() {
                 },
             )
         }),
-    )
-    .unwrap();
+    );
     let scans = host.runtime().graph().full_reference_scan_count();
 
-    let report = host.set_context(&context, 1).unwrap();
+    let report = host.set_context(&context, 1);
 
     assert_eq!(report.dispatched, count);
     assert_eq!(host.runtime().graph().full_reference_scan_count(), scans);
-}
-
-#[test]
-fn context_failure_after_one_consumer_commit_poisons_every_consumer() {
-    let context = Rc::new(Context::new(0usize));
-    let fail_after = Rc::new(Cell::new(None));
-    let successful = Rc::new(Cell::new(0));
-    let first_renders = Arc::new(AtomicUsize::new(0));
-    let second_renders = Arc::new(AtomicUsize::new(0));
-    let mut host = ComponentHost::mount(
-        ControlledApplyAdapter {
-            fail_after: Rc::clone(&fail_after),
-            inner: RecordingAdapter::default(),
-            successful: Rc::clone(&successful),
-        },
-        [
-            component::<ContextReader>(
-                "first",
-                ContextInput {
-                    context: Rc::clone(&context),
-                    renders: Arc::clone(&first_renders),
-                    subscribe: true,
-                },
-            ),
-            component::<ContextReader>(
-                "second",
-                ContextInput {
-                    context: Rc::clone(&context),
-                    renders: Arc::clone(&second_renders),
-                    subscribe: true,
-                },
-            ),
-        ],
-    )
-    .unwrap();
-    let first = host.reference(&Key::from("first")).unwrap();
-    let second = host.reference(&Key::from("second")).unwrap();
-    let baseline = successful.get();
-    fail_after.set(Some(1));
-
-    assert!(matches!(
-        host.set_context(&context, 1),
-        Err(ComponentError::Runtime(UpdateError::Adapter(())))
-    ));
-    assert_eq!(successful.get(), baseline + 1);
-    assert_eq!(first_renders.load(Ordering::Relaxed), 2);
-    assert_eq!(second_renders.load(Ordering::Relaxed), 2);
-    assert_eq!(first.get(), None);
-    assert_eq!(second.get(), None);
-    assert!(matches!(
-        host.set_context(&context, 1),
-        Err(ComponentError::Runtime(UpdateError::Poisoned))
-    ));
 }

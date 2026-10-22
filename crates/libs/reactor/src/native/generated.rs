@@ -594,13 +594,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&text_changed);
                 let event_queue_text_changed = Rc::clone(event_queue);
                 let revoker = value.TextChanged(move |_, _| {
-                    let observed = match read_text_changed() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_text_changed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -655,13 +649,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&click);
                 let event_queue_click = Rc::clone(event_queue);
                 let revoker = value.cast::<native::IButtonBase>()?.Click(move |_, _| {
-                    let observed = match read_click() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_click().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -700,13 +688,7 @@ impl GeneratedHandle {
                 let object_is_checked_changed = value.cast::<native::DependencyObject>()?;
                 let callback_is_checked_changed =
                     native::DependencyPropertyChangedCallback::new(move |_, _| {
-                        let observed = match read_is_checked_changed() {
-                            Ok(value) => value,
-                            Err(error) => {
-                                report_error(error);
-                                return;
-                            }
-                        };
+                        let observed = read_is_checked_changed().unwrap();
                         let observation = Observation::SetProperty {
                             object,
                             property: Property {
@@ -858,13 +840,7 @@ impl GeneratedHandle {
                     value
                         .cast::<native::IRangeBase>()?
                         .ValueChanged(move |_, args| {
-                            let observed = match read_value_changed() {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error);
-                                    return;
-                                }
-                            };
+                            let observed = read_value_changed().unwrap();
                             let observation = Observation::SetProperty {
                                 object,
                                 property: Property {
@@ -879,13 +855,7 @@ impl GeneratedHandle {
                             );
                             let observation = dispatch.then_some(observation);
                             let args = args.unwrap();
-                            let payload = match args.NewValue() {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error);
-                                    return;
-                                }
-                            };
+                            let payload = args.NewValue().unwrap();
                             if dispatch {
                                 WinUiAdapter::dispatch(
                                     &event_for_callback,
@@ -920,13 +890,7 @@ impl GeneratedHandle {
                     value
                         .cast::<native::ISelector>()?
                         .SelectionChanged(move |_, _| {
-                            let observed = match read_selection_changed() {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error);
-                                    return;
-                                }
-                            };
+                            let observed = read_selection_changed().unwrap();
                             let observation = Observation::SetProperty {
                                 object,
                                 property: Property {
@@ -1027,13 +991,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&text_changed);
                 let event_queue_text_changed = Rc::clone(event_queue);
                 let revoker = value.TextChanged(move |_, _| {
-                    let observed = match read_text_changed() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_text_changed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -1078,13 +1036,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&password_changed);
                 let event_queue_password_changed = Rc::clone(event_queue);
                 let revoker = value.PasswordChanged(move |_, _| {
-                    let observed = match read_password_changed() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_password_changed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -1124,13 +1076,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&value_changed);
                 let event_queue_value_changed = Rc::clone(event_queue);
                 let revoker = value.ValueChanged(move |_, args| {
-                    let observed = match read_value_changed() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_value_changed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -1145,13 +1091,7 @@ impl GeneratedHandle {
                     );
                     let observation = dispatch.then_some(observation);
                     let args = args.unwrap();
-                    let payload = match args.NewValue().map(number_box_value) {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let payload = args.NewValue().map(number_box_value).unwrap();
                     if dispatch {
                         WinUiAdapter::dispatch(
                             &event_for_callback,
@@ -1181,13 +1121,7 @@ impl GeneratedHandle {
                 let object_is_pane_open_changed = value.cast::<native::DependencyObject>()?;
                 let callback_is_pane_open_changed =
                     native::DependencyPropertyChangedCallback::new(move |_, _| {
-                        let observed = match read_is_pane_open_changed() {
-                            Ok(value) => value,
-                            Err(error) => {
-                                report_error(error);
-                                return;
-                            }
-                        };
+                        let observed = read_is_pane_open_changed().unwrap();
                         let observation = Observation::SetProperty {
                             object,
                             property: Property {
@@ -1261,13 +1195,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&pane_closed);
                 let event_queue_pane_closed = Rc::clone(event_queue);
                 let revoker = value.PaneClosed(move |_, _| {
-                    let observed = match read_pane_closed() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_pane_closed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -1308,13 +1236,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&toggled);
                 let event_queue_toggled = Rc::clone(event_queue);
                 let revoker = value.Toggled(move |_, _| {
-                    let observed = match read_toggled() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_toggled().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -1358,13 +1280,7 @@ impl GeneratedHandle {
                 let object_is_checked_changed = value.cast::<native::DependencyObject>()?;
                 let callback_is_checked_changed =
                     native::DependencyPropertyChangedCallback::new(move |_, _| {
-                        let observed = match read_is_checked_changed() {
-                            Ok(value) => value,
-                            Err(error) => {
-                                report_error(error);
-                                return;
-                            }
-                        };
+                        let observed = read_is_checked_changed().unwrap();
                         let observation = Observation::SetProperty {
                             object,
                             property: Property {
@@ -1420,13 +1336,7 @@ impl GeneratedHandle {
                 let revoker = value
                     .cast::<native::IToggleButton>()?
                     .Checked(move |_, _| {
-                        let observed = match read_checked() {
-                            Ok(value) => value,
-                            Err(error) => {
-                                report_error(error);
-                                return;
-                            }
-                        };
+                        let observed = read_checked().unwrap();
                         let observation = Observation::SetProperty {
                             object,
                             property: Property {
@@ -1470,13 +1380,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&selection_changed);
                 let event_queue_selection_changed = Rc::clone(event_queue);
                 let revoker = value.SelectionChanged(move |_, _| {
-                    let observed = match read_selection_changed() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_selection_changed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -1616,13 +1520,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&value_changed);
                 let event_queue_value_changed = Rc::clone(event_queue);
                 let revoker = value.ValueChanged(move |_, _| {
-                    let observed = match read_value_changed() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_value_changed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -1665,13 +1563,7 @@ impl GeneratedHandle {
                 let object_is_expanded_changed = value.cast::<native::DependencyObject>()?;
                 let callback_is_expanded_changed =
                     native::DependencyPropertyChangedCallback::new(move |_, _| {
-                        let observed = match read_is_expanded_changed() {
-                            Ok(value) => value,
-                            Err(error) => {
-                                report_error(error);
-                                return;
-                            }
-                        };
+                        let observed = read_is_expanded_changed().unwrap();
                         let observation = Observation::SetProperty {
                             object,
                             property: Property {
@@ -1728,13 +1620,7 @@ impl GeneratedHandle {
                     value
                         .cast::<native::ISelector>()?
                         .SelectionChanged(move |_, _| {
-                            let observed = match read_selection_changed() {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error);
-                                    return;
-                                }
-                            };
+                            let observed = read_selection_changed().unwrap();
                             let observation = Observation::SetProperty {
                                 object,
                                 property: Property {
@@ -1778,13 +1664,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&selection_changed);
                 let event_queue_selection_changed = Rc::clone(event_queue);
                 let revoker = value.SelectionChanged(move |_, _| {
-                    let observed = match read_selection_changed() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_selection_changed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -1833,13 +1713,7 @@ impl GeneratedHandle {
                     value
                         .cast::<native::ISelector>()?
                         .SelectionChanged(move |_, _| {
-                            let observed = match read_selection_changed() {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error);
-                                    return;
-                                }
-                            };
+                            let observed = read_selection_changed().unwrap();
                             let observation = Observation::SetProperty {
                                 object,
                                 property: Property {
@@ -1911,13 +1785,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&selection_changed);
                 let event_queue_selection_changed = Rc::clone(event_queue);
                 let revoker = value.SelectionChanged(move |_, _| {
-                    let observed = match read_selection_changed() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_selection_changed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -2038,13 +1906,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&color_changed);
                 let event_queue_color_changed = Rc::clone(event_queue);
                 let revoker = value.ColorChanged(move |_, args| {
-                    let observed = match read_color_changed() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_color_changed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -2059,13 +1921,7 @@ impl GeneratedHandle {
                     );
                     let observation = dispatch.then_some(observation);
                     let args = args.unwrap();
-                    let payload = match args.NewColor().map(from_native_color) {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let payload = args.NewColor().map(from_native_color).unwrap();
                     if dispatch {
                         WinUiAdapter::dispatch(
                             &event_for_callback,
@@ -2118,13 +1974,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&date_changed);
                 let event_queue_date_changed = Rc::clone(event_queue);
                 let revoker = value.DateChanged(move |_, args| {
-                    let observed = match read_date_changed() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_date_changed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -2142,10 +1992,7 @@ impl GeneratedHandle {
                     let payload = match args.NewDate() {
                         Ok(value) => Some(value),
                         Err(error) if error.code().is_ok() => None,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
+                        Err(error) => panic!("{error:?}"),
                     };
                     if dispatch {
                         WinUiAdapter::dispatch(
@@ -2175,24 +2022,18 @@ impl GeneratedHandle {
                     let dispatch = true;
                     let observation = None;
                     let args = args.unwrap();
-                    let payload = match args.Result().map(content_dialog_result) {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
-                    match WinUiAdapter::content_dialog_closed(&event_queue_closed, object) {
-                        Ok(true) if dispatch => WinUiAdapter::dispatch(
+                    let payload = args.Result().map(content_dialog_result).unwrap();
+                    if WinUiAdapter::content_dialog_closed(&event_queue_closed, object).unwrap()
+                        && dispatch
+                    {
+                        WinUiAdapter::dispatch(
                             &event_for_callback,
                             &event_queue_closed,
                             object,
                             EventId::Closed,
                             observation,
                             payload,
-                        ),
-                        Ok(_) => {}
-                        Err(error) => report_error(error.into()),
+                        );
                     }
                 })?;
                 let _closed = GeneratedRevoker::Event(revoker);
@@ -2229,13 +2070,7 @@ impl GeneratedHandle {
                     value
                         .cast::<native::ISelector>()?
                         .SelectionChanged(move |_, _| {
-                            let observed = match read_selection_changed() {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    report_error(error);
-                                    return;
-                                }
-                            };
+                            let observed = read_selection_changed().unwrap();
                             let observation = Observation::SetProperty {
                                 object,
                                 property: Property {
@@ -2305,13 +2140,7 @@ impl GeneratedHandle {
                 let event_for_callback = Rc::clone(&text_changed);
                 let event_queue_text_changed = Rc::clone(event_queue);
                 let revoker = value.TextChanged(move |_, _| {
-                    let observed = match read_text_changed() {
-                        Ok(value) => value,
-                        Err(error) => {
-                            report_error(error);
-                            return;
-                        }
-                    };
+                    let observed = read_text_changed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
                         property: Property {
@@ -6648,7 +6477,7 @@ impl GeneratedBorder {
             .PointerPressed(move |_, args| {
                 let dispatch = true;
                 let observation = None;
-                let value = match WinUiAdapter::pointer_event_info(
+                let value = WinUiAdapter::pointer_event_info(
                     object,
                     &source_pointer_pressed,
                     args,
@@ -6656,13 +6485,8 @@ impl GeneratedBorder {
                     false,
                     false,
                     &pending_focus_states_pointer_pressed,
-                ) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                };
+                )
+                .unwrap();
                 if dispatch {
                     WinUiAdapter::dispatch(
                         &event_for_callback,
@@ -6695,7 +6519,7 @@ impl GeneratedBorder {
             .PointerMoved(move |_, args| {
                 let dispatch = true;
                 let observation = None;
-                let value = match WinUiAdapter::pointer_event_info(
+                let value = WinUiAdapter::pointer_event_info(
                     object,
                     &source_pointer_moved,
                     args,
@@ -6703,13 +6527,8 @@ impl GeneratedBorder {
                     false,
                     false,
                     &pending_focus_states_pointer_moved,
-                ) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                };
+                )
+                .unwrap();
                 if dispatch {
                     WinUiAdapter::dispatch(
                         &event_for_callback,
@@ -6742,7 +6561,7 @@ impl GeneratedBorder {
             .PointerEntered(move |_, args| {
                 let dispatch = true;
                 let observation = None;
-                let value = match WinUiAdapter::pointer_event_info(
+                let value = WinUiAdapter::pointer_event_info(
                     object,
                     &source_pointer_entered,
                     args,
@@ -6750,13 +6569,8 @@ impl GeneratedBorder {
                     false,
                     false,
                     &pending_focus_states_pointer_entered,
-                ) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                };
+                )
+                .unwrap();
                 if dispatch {
                     WinUiAdapter::dispatch(
                         &event_for_callback,
@@ -6789,7 +6603,7 @@ impl GeneratedBorder {
             .PointerExited(move |_, args| {
                 let dispatch = true;
                 let observation = None;
-                let value = match WinUiAdapter::pointer_event_info(
+                let value = WinUiAdapter::pointer_event_info(
                     object,
                     &source_pointer_exited,
                     args,
@@ -6797,13 +6611,8 @@ impl GeneratedBorder {
                     false,
                     false,
                     &pending_focus_states_pointer_exited,
-                ) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                };
+                )
+                .unwrap();
                 if dispatch {
                     WinUiAdapter::dispatch(
                         &event_for_callback,
@@ -6838,7 +6647,7 @@ impl GeneratedBorder {
             .PointerReleased(move |_, args| {
                 let dispatch = true;
                 let observation = None;
-                let value = match WinUiAdapter::pointer_event_info(
+                let value = WinUiAdapter::pointer_event_info(
                     object,
                     &source_pointer_released,
                     args,
@@ -6846,13 +6655,8 @@ impl GeneratedBorder {
                     capture_pointer_on_press_pointer_released.get(),
                     focus_on_pointer_release_pointer_released.get(),
                     &pending_focus_states_pointer_released,
-                ) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                };
+                )
+                .unwrap();
                 if dispatch {
                     WinUiAdapter::dispatch(
                         &event_for_callback,
@@ -6941,21 +6745,13 @@ impl GeneratedBorder {
             .cast::<native::IUIElement>()?
             .PreviewKeyDown(move |_, args| {
                 let args = args.unwrap();
-                let value = match WinUiAdapter::key_event_info(args) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                };
+                let value = WinUiAdapter::key_event_info(args).unwrap();
                 let handled = event_for_callback
                     .borrow()
                     .callback
                     .as_ref()
                     .is_some_and(|callback| callback.call(value));
-                if let Err(error) = args.SetHandled(handled) {
-                    report_error(error);
-                }
+                args.SetHandled(handled).unwrap();
             })?;
         self._preview_key_down = Some(GeneratedRevoker::Event(revoker));
         Ok(())
@@ -6972,21 +6768,13 @@ impl GeneratedBorder {
         let event_for_callback = Rc::clone(&self.key_up);
         let revoker = value.cast::<native::IUIElement>()?.KeyUp(move |_, args| {
             let args = args.unwrap();
-            let value = match WinUiAdapter::key_event_info(args) {
-                Ok(value) => value,
-                Err(error) => {
-                    report_error(error.into());
-                    return;
-                }
-            };
+            let value = WinUiAdapter::key_event_info(args).unwrap();
             let handled = event_for_callback
                 .borrow()
                 .callback
                 .as_ref()
                 .is_some_and(|callback| callback.call(value));
-            if let Err(error) = args.SetHandled(handled) {
-                report_error(error);
-            }
+            args.SetHandled(handled).unwrap();
         })?;
         self._key_up = Some(GeneratedRevoker::Event(revoker));
         Ok(())
@@ -7005,21 +6793,13 @@ impl GeneratedBorder {
             .cast::<native::IUIElement>()?
             .CharacterReceived(move |_, args| {
                 let args = args.unwrap();
-                let value = match WinUiAdapter::character_event_info(args) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                };
+                let value = WinUiAdapter::character_event_info(args).unwrap();
                 let handled = event_for_callback
                     .borrow()
                     .callback
                     .as_ref()
                     .is_some_and(|callback| callback.call(value));
-                if let Err(error) = args.SetHandled(handled) {
-                    report_error(error);
-                }
+                args.SetHandled(handled).unwrap();
             })?;
         self._character_received = Some(GeneratedRevoker::Event(revoker));
         Ok(())
@@ -7042,19 +6822,14 @@ impl GeneratedBorder {
             .GotFocus(move |_, args| {
                 let dispatch = true;
                 let observation = None;
-                let value = match WinUiAdapter::focus_event_info(
+                let value = WinUiAdapter::focus_event_info(
                     object,
                     &source_got_focus,
                     args,
                     true,
                     &pending_focus_states_got_focus,
-                ) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                };
+                )
+                .unwrap();
                 if dispatch {
                     WinUiAdapter::dispatch(
                         &event_for_callback,
@@ -7087,19 +6862,14 @@ impl GeneratedBorder {
             .LostFocus(move |_, args| {
                 let dispatch = true;
                 let observation = None;
-                let value = match WinUiAdapter::focus_event_info(
+                let value = WinUiAdapter::focus_event_info(
                     object,
                     &source_lost_focus,
                     args,
                     false,
                     &pending_focus_states_lost_focus,
-                ) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                };
+                )
+                .unwrap();
                 if dispatch {
                     WinUiAdapter::dispatch(
                         &event_for_callback,
@@ -7131,13 +6901,7 @@ impl GeneratedBorder {
             .DragEnter(move |_, args| {
                 let dispatch = true;
                 let observation = None;
-                let value = match WinUiAdapter::drag_kind(args, &drop_policy_drag_enter) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                };
+                let value = WinUiAdapter::drag_kind(args, &drop_policy_drag_enter).unwrap();
                 if dispatch {
                     WinUiAdapter::dispatch(
                         &event_for_callback,
@@ -7169,13 +6933,7 @@ impl GeneratedBorder {
             .DragOver(move |_, args| {
                 let dispatch = true;
                 let observation = None;
-                let value = match WinUiAdapter::drag_kind(args, &drop_policy_drag_over) {
-                    Ok(value) => value,
-                    Err(error) => {
-                        report_error(error.into());
-                        return;
-                    }
-                };
+                let value = WinUiAdapter::drag_kind(args, &drop_policy_drag_over).unwrap();
                 if dispatch {
                     WinUiAdapter::dispatch(
                         &event_for_callback,
@@ -7234,7 +6992,7 @@ impl GeneratedBorder {
             let dispatch = true;
             let observation = None;
             let _ = dispatch;
-            if let Err(error) = WinUiAdapter::dispatch_dropped_data(
+            WinUiAdapter::dispatch_dropped_data(
                 &event_for_callback,
                 &event_queue_drop,
                 object,
@@ -7242,9 +7000,8 @@ impl GeneratedBorder {
                 observation,
                 args,
                 &drop_policy_drop,
-            ) {
-                report_error(error.into());
-            }
+            )
+            .unwrap();
         })?;
         self._drop = Some(GeneratedRevoker::Event(revoker));
         Ok(())
@@ -7384,18 +7141,12 @@ impl GeneratedBreadcrumbBar {
             let dispatch = true;
             let observation = None;
             let args = args.unwrap();
-            let payload = match args
+            let payload = args
                 .Item()
                 .and_then(|value| value.cast::<windows_reference::IReference<HSTRING>>())
                 .and_then(|value| value.Value())
                 .map(|value| Rc::<str>::from(value.to_string_lossy()))
-            {
-                Ok(value) => value,
-                Err(error) => {
-                    report_error(error);
-                    return;
-                }
-            };
+                .unwrap();
             if dispatch {
                 WinUiAdapter::dispatch(
                     &event_for_callback,
@@ -7427,18 +7178,12 @@ impl GeneratedAutoSuggestBox {
             let dispatch = true;
             let observation = None;
             let args = args.unwrap();
-            let payload = match args
+            let payload = args
                 .SelectedItem()
                 .and_then(|value| value.cast::<windows_reference::IReference<HSTRING>>())
                 .and_then(|value| value.Value())
                 .map(|value| Rc::<str>::from(value.to_string_lossy()))
-            {
-                Ok(value) => value,
-                Err(error) => {
-                    report_error(error);
-                    return;
-                }
-            };
+                .unwrap();
             if dispatch {
                 WinUiAdapter::dispatch(
                     &event_for_callback,
@@ -7470,13 +7215,10 @@ impl GeneratedNavigationView {
             let dispatch = true;
             let observation = None;
             let args = args.unwrap();
-            let payload = match args.DisplayMode().map(navigation_view_display_mode) {
-                Ok(value) => value,
-                Err(error) => {
-                    report_error(error);
-                    return;
-                }
-            };
+            let payload = args
+                .DisplayMode()
+                .map(navigation_view_display_mode)
+                .unwrap();
             if dispatch {
                 WinUiAdapter::dispatch(
                     &event_for_callback,
@@ -7566,13 +7308,13 @@ impl GeneratedTabView {
             let dispatch = true;
             let observation = None;
             let args = args.unwrap();
-            let payload = match args.Tab().and_then(|value| value.cast::<IInspectable>()) {
-                Ok(value) => event_queue_tab_close_requested.item_object(object, &value),
-                Err(error) => {
-                    report_error(error);
-                    return;
-                }
-            };
+            let payload = event_queue_tab_close_requested.item_object(
+                object,
+                &args
+                    .Tab()
+                    .and_then(|value| value.cast::<IInspectable>())
+                    .unwrap(),
+            );
             let Some(payload) = payload else {
                 return;
             };
@@ -7758,10 +7500,7 @@ impl GeneratedDatePicker {
             let payload = match args.NewDate() {
                 Ok(value) => Some(value),
                 Err(error) if error.code().is_ok() => None,
-                Err(error) => {
-                    report_error(error);
-                    return;
-                }
+                Err(error) => panic!("{error:?}"),
             };
             if dispatch {
                 WinUiAdapter::dispatch(
@@ -7797,10 +7536,7 @@ impl GeneratedTimePicker {
             let payload = match args.NewTime() {
                 Ok(value) => Some(value),
                 Err(error) if error.code().is_ok() => None,
-                Err(error) => {
-                    report_error(error);
-                    return;
-                }
+                Err(error) => panic!("{error:?}"),
             };
             if dispatch {
                 WinUiAdapter::dispatch(

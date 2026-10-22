@@ -219,7 +219,6 @@ impl RetainedGraph {
 impl<A: Adapter> Runtime<A> {
     pub fn release_test_scratch(&mut self) {
         self.mutations = Vec::new();
-        self.native_events = Vec::new();
         self.virtual_refreshes = VecDeque::new();
         self.validator = DeclarationValidator::default();
     }
@@ -258,13 +257,6 @@ impl<const N: usize> PartialEq<[Mutation; N]> for UpdateStats {
     }
 }
 
-#[cfg(test)]
-pub(crate) fn panic_during_transaction(graph: &mut RetainedGraph, object: ObjectId) {
-    let mut transaction = GraphTransaction::new(graph);
-    transaction.get_mut(object).exit_transition = ExitTransition::fade(Duration::from_millis(1));
-    panic!("test planning unwind");
-}
-
 impl UpdateStats {
     pub const fn is_empty(&self) -> bool {
         self.mutations == 0
@@ -282,6 +274,10 @@ impl NativeEvent {
 }
 
 impl RetainedGraph {
+    pub fn window_title_bar(&self) -> Option<(ObjectId, WindowTitleBarHeight)> {
+        self.window_title_bar
+    }
+
     pub fn object_count(&self) -> usize {
         self.objects
             .iter()
@@ -303,54 +299,34 @@ impl RetainedGraph {
     }
 }
 
+impl Runtime<RecordingAdapter> {
+    pub fn focus<T>(&mut self, reference: &ElementRef<T>) -> bool {
+        let Some(object) = reference.get() else {
+            return false;
+        };
+        assert!(focus_capable(self.graph.kind(object).unwrap()));
+        self.adapter.focus(object)
+    }
+}
+
 impl<A: Adapter> Runtime<A> {
-    pub fn focus<T>(&mut self, reference: &ElementRef<T>) -> Result<bool, UpdateError<A::Error>> {
-        if self.poisoned {
-            return Err(UpdateError::Poisoned);
-        }
-        let object = reference
-            .get()
-            .ok_or(UpdateError::Graph(GraphError::ReferenceUnavailable))?;
-        let kind = self
-            .graph
-            .kind(object)
-            .ok_or(UpdateError::Graph(GraphError::StaleObject(object)))?;
-        if !focus_capable(kind) {
-            return Err(UpdateError::Graph(GraphError::InvalidFocus(kind)));
-        }
-        self.adapter.focus(object).map_err(UpdateError::Adapter)
-    }
-
-    pub fn next_native_event(
-        &mut self,
-    ) -> Result<Option<NativeEventDispatch>, UpdateError<A::Error>> {
-        if self.poisoned {
-            return Err(UpdateError::Poisoned);
-        }
-        if self.native_event_active.get() {
-            return Err(UpdateError::NativeEventInProgress);
-        }
-        loop {
-            self.preview_native_events()?;
-            let Some(next) = self.native_events.first() else {
-                return Ok(None);
-            };
-            if next.realization.is_some() {
-                return Err(UpdateError::PendingNativeEvent);
-            }
-            if let Some(event) = self.pop_native_event()? {
-                self.native_event_active.set(true);
-                return Ok(Some(NativeEventDispatch::new(
-                    event,
-                    Rc::clone(&self.native_event_active),
-                )));
+    pub fn next_native_event(&mut self) -> Option<NativeEventDispatch> {
+        assert!(
+            !self.native_event_active.get(),
+            "native event dispatch is in progress"
+        );
+        while let Some(next) = self.adapter.peek_native_event() {
+            assert!(next.realization.is_none(), "virtual realization is pending");
+            if let Some(NativeWork::Event(event)) = self.pop_native_work() {
+                return Some(event);
             }
         }
+        None
     }
 
-    pub fn dispatch_native_events(&mut self) -> Result<usize, UpdateError<A::Error>> {
+    pub fn dispatch_native_events(&mut self) -> usize {
         let mut dispatched = 0;
-        while let Some(work) = self.next_native_work()? {
+        while let Some(work) = self.next_native_work() {
             match work {
                 NativeWork::Event(mut event) => {
                     event.invoke();
@@ -359,36 +335,29 @@ impl<A: Adapter> Runtime<A> {
                 NativeWork::Virtual(VirtualWork::Realize {
                     lease, index, view, ..
                 }) => {
-                    self.realize_virtual(&lease, index, *view)?;
+                    self.realize_virtual(&lease, index, *view);
                 }
                 NativeWork::Virtual(VirtualWork::Recycle { lease }) => {
-                    self.recycle_virtual(&lease)?;
+                    self.recycle_virtual(&lease);
                 }
                 NativeWork::Virtual(VirtualWork::Cancel {
                     collection,
                     relation,
                     container,
                 }) => {
-                    self.cancel_virtual(collection, relation, container)?;
+                    self.cancel_virtual(collection, relation, container);
                 }
                 NativeWork::Maintenance => {}
             }
         }
-        Ok(dispatched)
+        dispatched
     }
 
-    pub(crate) fn recycle_virtual(
-        &mut self,
-        lease: &RealizationLease,
-    ) -> Result<UpdateStats, UpdateError<A::Error>> {
+    pub(crate) fn recycle_virtual(&mut self, lease: &RealizationLease) -> UpdateStats {
         self.recycle_virtual_before_apply(lease, || {})
     }
 
-    pub fn update_subtree(
-        &mut self,
-        object: ObjectId,
-        root: impl Into<View>,
-    ) -> Result<UpdateStats, UpdateError<A::Error>> {
+    pub fn update_subtree(&mut self, object: ObjectId, root: impl Into<View>) -> UpdateStats {
         self.update_subtree_before_apply(object, root, || {})
     }
 
@@ -397,72 +366,41 @@ impl<A: Adapter> Runtime<A> {
         parent: ObjectId,
         relation: RelationId,
         child: ObjectId,
-    ) -> Result<UpdateStats, UpdateError<A::Error>> {
-        self.prepare_update()?;
+    ) -> UpdateStats {
+        self.assert_ready();
         self.mutations.clear();
-        let index = self
-            .graph
-            .relation(parent, relation)
-            .and_then(|relation| match &relation.value {
-                RetainedRelationValue::Many(children) => {
-                    children.iter().position(|current| *current == child)
-                }
-                RetainedRelationValue::One(_) => None,
-            })
-            .ok_or(UpdateError::Graph(GraphError::MissingChild(
-                relation, child,
-            )))?;
-        let mut transaction = GraphTransaction::new(&mut self.graph);
+        let RetainedRelationValue::Many(children) =
+            &self.graph.relation(parent, relation).unwrap().value
+        else {
+            panic!("{relation:?} is not a collection relation");
+        };
+        let index = children
+            .iter()
+            .position(|current| *current == child)
+            .unwrap();
         let mut references = Vec::new();
-        let plan = (|| {
-            let mut planner = Planner {
-                retained: &mut transaction,
-                mutations: &mut self.mutations,
-                references: &mut references,
-                virtual_refreshes: None,
-            };
-            if !planner.retire_with_transition(parent, relation, child)? {
-                planner.mutations.push(Mutation::Remove {
-                    parent,
-                    relation,
-                    child,
-                    index,
-                });
-                planner.retire(child);
-            }
-            Ok::<(), GraphError>(())
-        })();
-        let plan = plan.and_then(|()| transaction.window_title_bar().map(|_| ()));
-        if let Err(error) = plan {
-            transaction.rollback();
-            self.mutations.clear();
-            return Err(UpdateError::Graph(error));
+        let mut planner = Planner {
+            retained: &mut self.graph,
+            mutations: &mut self.mutations,
+            references: &mut references,
+            virtual_refreshes: None,
+        };
+        if !planner.retire_with_transition(parent, relation, child) {
+            planner.mutations.push(Mutation::Remove {
+                parent,
+                relation,
+                child,
+                index,
+            });
+            planner.retire(child);
         }
         let RetainedRelationValue::Many(children) =
-            &mut transaction.relation_mut(parent, relation).value
+            &mut self.graph.relation_mut(parent, relation).value
         else {
             unreachable!()
         };
         children.remove(index);
-        defer_window_title_bar_sets(&mut self.mutations);
-        self.poisoned = true;
-        if let Err(error) = validate_adapter(&self.adapter, &self.mutations, || {
-            transaction.rollback_for_native_unwind();
-        }) {
-            transaction.rollback();
-            self.poison_and_discard_all();
-            return Err(UpdateError::Adapter(error));
-        }
-        if let Err(error) = apply_adapter(&mut self.adapter, &self.mutations, || {
-            transaction.rollback_for_native_unwind();
-        }) {
-            transaction.rollback();
-            self.poison_and_discard_all();
-            return Err(UpdateError::Adapter(error));
-        }
-        transaction.commit();
-        self.poisoned = false;
-        apply_reference_changes(&self.references, references);
-        Ok(self.finish_update())
+        self.apply_plan(references, || {});
+        self.finish_update()
     }
 }

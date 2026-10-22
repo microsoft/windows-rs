@@ -8,13 +8,11 @@ fn rich_edit_text_is_canonical_and_uses_deferred_exact_feedback() {
         Callback::new(move |value: Rc<str>| values.borrow_mut().push(value))
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            RichEditBox::new()
-                .text("one\r\ntwo\rthree")
-                .on_text_changed(callback.clone()),
-        )
-        .unwrap();
+    runtime.update(
+        RichEditBox::new()
+            .text("one\r\ntwo\rthree")
+            .on_text_changed(callback.clone()),
+    );
     let object = runtime.graph().root().unwrap();
     assert!(
         runtime
@@ -33,7 +31,6 @@ fn rich_edit_text_is_canonical_and_uses_deferred_exact_feedback() {
                     .text("one\ntwo\nthree")
                     .on_text_changed(callback.clone()),
             )
-            .unwrap()
             .is_empty()
     );
 
@@ -52,7 +49,7 @@ fn rich_edit_text_is_canonical_and_uses_deferred_exact_feedback() {
             EventPayload::String(Rc::from("native\ntext")),
         )),
     );
-    assert_eq!(runtime.dispatch_native_events().unwrap(), 1);
+    assert_eq!(runtime.dispatch_native_events(), 1);
     assert_eq!(&*values.borrow(), &[Rc::from("native\ntext")]);
 }
 
@@ -60,18 +57,14 @@ fn rich_edit_text_is_canonical_and_uses_deferred_exact_feedback() {
 fn rich_edit_document_removal_clears_once_and_stays_omitted() {
     let callback = Callback::new(|_: Rc<str>| {});
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(
-            RichEditBox::new()
-                .text("Before")
-                .on_text_changed(callback.clone()),
-        )
-        .unwrap();
+    runtime.update(
+        RichEditBox::new()
+            .text("Before")
+            .on_text_changed(callback.clone()),
+    );
     let object = runtime.graph().root().unwrap();
 
-    let mutations = runtime
-        .update(RichEditBox::new().on_text_changed(callback.clone()))
-        .unwrap();
+    let mutations = runtime.update(RichEditBox::new().on_text_changed(callback.clone()));
     assert!(mutations.iter().any(|mutation| matches!(
         mutation,
         Mutation::SetProperties { object: changed, clear, .. }
@@ -88,7 +81,6 @@ fn rich_edit_document_removal_clears_once_and_stays_omitted() {
     assert!(
         runtime
             .update(RichEditBox::new().on_text_changed(callback))
-            .unwrap()
             .is_empty()
     );
 }
@@ -96,7 +88,7 @@ fn rich_edit_document_removal_clears_once_and_stays_omitted() {
 #[test]
 fn deferred_exact_feedback_suppresses_matching_observations_until_a_difference() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(RichEditBox::new().text("Before")).unwrap();
+    runtime.update(RichEditBox::new().text("Before"));
     let object = runtime.graph().root().unwrap();
     let property = Property {
         id: PropertyId::Document,
@@ -133,7 +125,7 @@ fn deferred_exact_feedback_suppresses_matching_observations_until_a_difference()
 #[test]
 fn newer_deferred_exact_write_replaces_the_previous_expectation() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(RichEditBox::new()).unwrap();
+    runtime.update(RichEditBox::new());
     let object = runtime.graph().root().unwrap();
     let mut feedback = FeedbackState::default();
     let property = |value| Property {
@@ -174,7 +166,7 @@ fn newer_deferred_exact_write_replaces_the_previous_expectation() {
 #[test]
 fn deferred_exact_clear_suppresses_repeated_empty_observations() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(RichEditBox::new().text("Before")).unwrap();
+    runtime.update(RichEditBox::new().text("Before"));
     let object = runtime.graph().root().unwrap();
     let empty = Property {
         id: PropertyId::Document,
@@ -211,9 +203,7 @@ fn deferred_exact_clear_suppresses_repeated_empty_observations() {
 #[test]
 fn range_changes_rewrite_the_value_they_coerce() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime
-        .update(RatingControl::new().max_rating(5).value(4.0))
-        .unwrap();
+    runtime.update(RatingControl::new().max_rating(5).value(4.0));
     let object = runtime.graph().root().unwrap();
     let max_rating = |value| Property {
         id: PropertyId::MaxRating,
@@ -237,23 +227,16 @@ fn range_changes_rewrite_the_value_they_coerce() {
     // The native control clamps the value without reporting it, so the unchanged declared value
     // is written after each range change.
     for range in [2, 5] {
-        let mutations = runtime
-            .update(RatingControl::new().max_rating(range).value(4.0))
-            .unwrap();
+        let mutations = runtime.update(RatingControl::new().max_rating(range).value(4.0));
         assert_eq!(
             properties(mutations),
             (vec![max_rating(range), value.clone()], vec![])
         );
     }
-    let mutations = runtime.update(RatingControl::new().value(4.0)).unwrap();
+    let mutations = runtime.update(RatingControl::new().value(4.0));
     assert_eq!(
         properties(mutations),
         (vec![value], vec![PropertyId::MaxRating])
     );
-    assert!(
-        runtime
-            .update(RatingControl::new().value(4.0))
-            .unwrap()
-            .is_empty()
-    );
+    assert!(runtime.update(RatingControl::new().value(4.0)).is_empty());
 }

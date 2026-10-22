@@ -68,7 +68,7 @@ impl AppContext {
     }
 
     pub(crate) fn ui_callback_once(
-        callback: impl FnOnce() -> windows_core::Result<()> + 'static,
+        callback: impl FnOnce() + 'static,
     ) -> windows_core::Result<AppCallback> {
         let dispatcher = DispatcherQueue::GetForCurrentThread()?;
         let proxy = AppProxy { dispatcher };
@@ -84,7 +84,8 @@ impl AppContext {
                             APP_CALLBACKS.with(|callbacks| {
                                 callbacks.borrow_mut().remove(&id);
                             });
-                            callback.borrow_mut().take().unwrap()()
+                            callback.borrow_mut().take().unwrap()();
+                            Ok(())
                         }),
                     )
                     .is_none()
@@ -265,6 +266,21 @@ impl AppProxy {
         &self,
         callback: impl FnOnce(&AppContext) -> windows_core::Result<()> + Send + 'static,
     ) -> windows_core::Result<()> {
+        if self.enqueue(callback)? {
+            Ok(())
+        } else {
+            Err(windows_core::Error::new(
+                E_FAIL,
+                "application dispatcher rejected work",
+            ))
+        }
+    }
+
+    /// Returns `false` when the dispatcher is shutting down and rejects the work.
+    fn enqueue(
+        &self,
+        callback: impl FnOnce(&AppContext) -> windows_core::Result<()> + Send + 'static,
+    ) -> windows_core::Result<bool> {
         let callback = Arc::new(Mutex::new(Some(callback)));
         let invoke = Arc::clone(&callback);
         let dispatcher = self.dispatcher.clone();
@@ -276,21 +292,22 @@ impl AppProxy {
                 report_error(error);
             }
         });
-        if self
-            .dispatcher
-            .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &handler)?
-        {
-            Ok(())
-        } else {
-            Err(windows_core::Error::new(
-                E_FAIL,
-                "application dispatcher rejected work",
-            ))
-        }
+        self.dispatcher
+            .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &handler)
     }
 
     pub fn exit(&self) -> windows_core::Result<()> {
         self.dispatch(AppContext::exit)
+    }
+
+    /// Queues application exit from Reactor's own drains. `exit_application` falls back to
+    /// `PostQuitMessage`, and a dispatcher that rejects the work is already shutting down.
+    fn queue_exit(&self) {
+        self.enqueue(|_| {
+            _ = exit_application();
+            Ok(())
+        })
+        .unwrap();
     }
 }
 
@@ -308,6 +325,15 @@ impl AppCallback {
         let id = self.id;
         self.proxy
             .dispatch(move |_| invoke_registered_app_callback(id))
+    }
+
+    /// Queues the callback from any thread. Errors from the callback reach `run` on the UI
+    /// thread; a dispatcher that is shutting down drops the wake.
+    pub(crate) fn wake(&self) {
+        let id = self.id;
+        self.proxy
+            .enqueue(move |_| invoke_registered_app_callback(id))
+            .unwrap();
     }
 
     pub(crate) fn cancel(self) {
@@ -451,9 +477,7 @@ impl WindowDispatch {
             dispatch.active.set(false);
             let deferred = std::mem::take(&mut *dispatch.deferred.borrow_mut());
             for callback in deferred {
-                if let Err(error) = callback.invoke() {
-                    report_error(error);
-                }
+                callback.wake();
             }
             result
         });
@@ -628,11 +652,8 @@ impl LiveWindowServices {
         if self.wake_pending.replace(true) {
             return;
         }
-        if let Some(wake) = self.wake.borrow().as_ref()
-            && let Err(error) = wake.invoke()
-        {
-            self.wake_pending.set(false);
-            report_error(error);
+        if let Some(wake) = self.wake.borrow().as_ref() {
+            wake.wake();
         }
     }
 
@@ -700,7 +721,8 @@ impl LiveApplication {
         let drain_state = Rc::clone(&state);
         let drain_services = Rc::clone(&services);
         let drain_requests = services.dispatch.callback(context, move || {
-            drain_window_requests(&drain_state, &drain_services)
+            drain_window_requests(&drain_state, &drain_services);
+            Ok(())
         });
         services.activate(drain_requests.clone());
         Ok(Self {
@@ -725,10 +747,8 @@ impl Drop for LiveApplication {
                 (state.lifecycle.get() != ComponentWindowLifecycle::Closed)
                     .then(|| state.window.clone())
             });
-            if let Some(native) = native
-                && let Err(error) = native.close()
-            {
-                report_error(error.into());
+            if let Some(native) = native {
+                native.close().unwrap();
             }
             window.dispose();
         }
@@ -778,18 +798,13 @@ impl App {
             let launch_result = Rc::clone(&callback_result);
             let on_launched = Box::new(move || {
                 let launched = (|| {
-                    let application = launch_application
-                        .borrow_mut()
-                        .take()
-                        .ok_or_else(|| windows_core::Error::new(E_FAIL, "missing application"))?;
+                    let application = launch_application.borrow_mut().take().unwrap();
                     install_xaml_controls_resources(&application)?;
                     application
                         .cast::<IApplication3>()?
                         .SetDispatcherShutdownMode(DispatcherShutdownMode::OnExplicitShutdown)?;
                     let dispatcher = DispatcherQueue::GetForCurrentThread()?;
-                    let startup = launch_startup.borrow_mut().take().ok_or_else(|| {
-                        windows_core::Error::new(E_FAIL, "missing application startup")
-                    })?;
+                    let startup = launch_startup.borrow_mut().take().unwrap();
                     let resource = startup(&AppContext::new(dispatcher))?;
                     APP_LIFETIME.with(|lifetime| {
                         *lifetime.borrow_mut() = Some(AppLifetime {
@@ -850,44 +865,33 @@ fn open_component_window(
         context.services.clone(),
         ui_services,
         [root],
-    )?;
+    );
     let drain_state = Rc::clone(&state);
     let changed_application = Rc::downgrade(application);
     let drain = services.dispatch.callback(&context, move || {
-        drain_component_window(&drain_state)?;
+        drain_state
+            .borrow_mut()
+            .as_mut()
+            .unwrap()
+            .host
+            .drain(COMPONENT_DRAIN_BUDGET);
         if let Some(application) = changed_application.upgrade()
             && let Some(changed) = &application.borrow().changed
         {
-            changed.invoke()?;
+            changed.wake();
         }
         Ok(())
     });
     let wake = drain.clone();
-    host.set_waker(move || {
-        if let Err(error) = wake.invoke() {
-            report_error(error);
-        }
-    });
+    host.set_waker(move || wake.wake());
     let native_drain = drain.clone();
     let wake = drain.clone();
     host.set_native_event_wakers(
-        move || {
-            if let Err(error) = invoke_registered_app_callback(native_drain.id) {
-                report_error(error);
-            }
-        },
-        move || {
-            if let Err(error) = wake.invoke() {
-                report_error(error);
-            }
-        },
+        move || invoke_registered_app_callback(native_drain.id).unwrap(),
+        move || wake.wake(),
     );
     let wake = drain.clone();
-    host.set_continuation_waker(move || {
-        if let Err(error) = wake.invoke() {
-            report_error(error);
-        }
-    });
+    host.set_continuation_waker(move || wake.wake());
     let root = host.runtime().graph().root().unwrap();
     let mut window = match host
         .runtime()
@@ -908,12 +912,9 @@ fn open_component_window(
         lifecycle.mark_closed();
         closed_lifecycle.set(lifecycle);
         close_services.push_critical(WindowWork::Closed(id));
-        Ok(())
     }) {
         drain.cancel();
-        if let Err(error) = window.close() {
-            report_error(error.into());
-        }
+        window.close().unwrap();
         return Err(error.into());
     }
     let native = window.clone();
@@ -935,9 +936,7 @@ fn open_component_window(
     );
     if let Err(error) = initialized {
         drain.cancel();
-        if let Err(error) = native.close() {
-            report_error(error.into());
-        }
+        native.close().unwrap();
         return Err(error);
     }
     assert!(
@@ -951,9 +950,7 @@ fn open_component_window(
         if let Some(window) = application.borrow_mut().windows.remove(&id) {
             window.dispose();
         }
-        if let Err(error) = native.close() {
-            report_error(error.into());
-        }
+        native.close().unwrap();
         return Err(error.into());
     }
     Ok(id)
@@ -1009,21 +1006,10 @@ fn apply_component_window_publication(
     Ok(())
 }
 
-fn drain_component_window(
-    state: &Rc<RefCell<Option<ComponentWindowState>>>,
-) -> windows_core::Result<()> {
-    let mut state = state.borrow_mut();
-    let state = state
-        .as_mut()
-        .ok_or_else(|| windows_core::Error::new(E_FAIL, "component window is not initialized"))?;
-    state.host.drain(COMPONENT_DRAIN_BUDGET)?;
-    Ok(())
-}
-
 fn drain_window_requests(
     application: &Rc<RefCell<LiveApplicationState>>,
     services: &Rc<LiveWindowServices>,
-) -> windows_core::Result<()> {
+) {
     services.begin_drain();
     for _ in 0..WINDOW_WORK_BUDGET {
         let Some(work) = services.pop() else {
@@ -1041,7 +1027,7 @@ fn drain_window_requests(
                     })
                 };
                 if let Some(window) = window {
-                    window.activate()?;
+                    window.activate().unwrap();
                 }
             }
             WindowWork::Close(id) => {
@@ -1056,21 +1042,12 @@ fn drain_window_requests(
                         closing.then(|| state.window.clone())
                     })
                 };
-                if let Some(native) = window
-                    && let Err(error) = native.close()
-                {
-                    let application = application.borrow();
-                    if let Some(window) = application.windows.get(&id)
-                        && let Some(state) = window.state.borrow_mut().as_mut()
-                        && state.lifecycle.get() == ComponentWindowLifecycle::Closing
-                    {
-                        state.lifecycle.set(ComponentWindowLifecycle::Open);
-                    }
-                    return Err(error.into());
+                if let Some(native) = window {
+                    native.close().unwrap();
                 }
             }
             WindowWork::Closed(id) => {
-                close_component_window(application, services, id)?;
+                close_component_window(application, services, id);
             }
             WindowWork::Input { root, window } => {
                 let application = application.borrow();
@@ -1079,7 +1056,7 @@ fn drain_window_requests(
                     if let Some(state) = state.as_mut()
                         && state.lifecycle.get() == ComponentWindowLifecycle::Open
                     {
-                        state.host.update_root(root)?;
+                        state.host.update_root(root);
                     }
                 }
             }
@@ -1094,7 +1071,7 @@ fn drain_window_requests(
                     })
                 };
                 if let Some(native) = native {
-                    operation(native.raw_handle()?);
+                    operation(native.raw_handle().unwrap());
                 }
             }
             WindowWork::Publish {
@@ -1112,7 +1089,8 @@ fn drain_window_requests(
                 if state.lifecycle.get() != ComponentWindowLifecycle::Open {
                     continue;
                 }
-                apply_component_window_publication(state, services, window, publication, false)?;
+                apply_component_window_publication(state, services, window, publication, false)
+                    .unwrap();
             }
             WindowWork::ColorScheme {
                 generation,
@@ -1172,26 +1150,25 @@ fn drain_window_requests(
                 }
             }
             WindowWork::Open { policy, root } => {
-                open_component_window(application, services, root, policy)?;
+                open_component_window(application, services, root, policy).unwrap();
             }
         }
     }
     if services.has_pending() {
         services.rearm();
     } else {
-        exit_if_no_windows(application)?;
+        exit_if_no_windows(application);
     }
     if let Some(changed) = &application.borrow().changed {
-        changed.invoke()?;
+        changed.wake();
     }
-    Ok(())
 }
 
 fn close_component_window(
     application: &Rc<RefCell<LiveApplicationState>>,
     services: &Rc<LiveWindowServices>,
     id: u64,
-) -> windows_core::Result<()> {
+) {
     let (window, exit, proxy) = {
         let mut application = application.borrow_mut();
         let window = application.windows.remove(&id);
@@ -1204,20 +1181,18 @@ fn close_component_window(
         window.dispose();
     }
     if exit {
-        proxy.exit()?;
+        proxy.queue_exit();
     }
-    Ok(())
 }
 
-fn exit_if_no_windows(application: &Rc<RefCell<LiveApplicationState>>) -> windows_core::Result<()> {
+fn exit_if_no_windows(application: &Rc<RefCell<LiveApplicationState>>) {
     let application = application.borrow();
     if application.exit_when_empty && application.windows.is_empty() {
-        application.application.exit()?;
+        application.application.queue_exit();
     }
-    Ok(())
 }
 
-pub(super) fn report_error(error: windows_core::Error) {
+fn report_error(error: windows_core::Error) {
     APP_FAULT.with(|fault| {
         if fault.borrow().is_none() {
             *fault.borrow_mut() = Some(error);
