@@ -2,18 +2,26 @@
 mod Windows {
     mod Win32 {
         const FACILITY_XAUDIO2: i32 = 2198;
+        const IID_IXAudio2: GUID = 0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d;
+        const IID_IXAudio2Extension: GUID = 0x84ac29bb_d619_44d2_b197_e4acf7df3ed6;
         #[guid(0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d)]
         interface IXAudio2: IUnknown {
-            fn RegisterForCallbacks(&self, pCallback: IXAudio2EngineCallback) -> HRESULT;
-            fn UnregisterForCallbacks(&self, pCallback: IXAudio2EngineCallback);
-            fn CreateSourceVoice(&self, ppSourceVoice: *mut IXAudio2SourceVoice, pSourceFormat: *const WAVEFORMATEX, Flags: u32, MaxFrequencyRatio: f32, #[opt] pCallback: IXAudio2VoiceCallback, #[opt] pSendList: *const XAUDIO2_VOICE_SENDS, #[opt] pEffectChain: *const XAUDIO2_EFFECT_CHAIN) -> HRESULT;
-            fn CreateSubmixVoice(&self, ppSubmixVoice: *mut IXAudio2SubmixVoice, InputChannels: u32, InputSampleRate: u32, Flags: u32, ProcessingStage: u32, #[opt] pSendList: *const XAUDIO2_VOICE_SENDS, #[opt] pEffectChain: *const XAUDIO2_EFFECT_CHAIN) -> HRESULT;
-            fn CreateMasteringVoice(&self, ppMasteringVoice: *mut IXAudio2MasteringVoice, InputChannels: u32, InputSampleRate: u32, Flags: u32, #[opt] szDeviceId: PCWSTR, #[opt] pEffectChain: *const XAUDIO2_EFFECT_CHAIN, StreamCategory: AUDIO_STREAM_CATEGORY) -> HRESULT;
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvInterface: *mut *mut void) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            fn RegisterForCallbacks(&self, #[in] pCallback: IXAudio2EngineCallback) -> HRESULT;
+            fn UnregisterForCallbacks(&self, #[in] pCallback: IXAudio2EngineCallback);
+            fn CreateSourceVoice(&self, #[out] #[out_ptr] ppSourceVoice: *mut IXAudio2SourceVoice, #[in] pSourceFormat: *const WAVEFORMATEX, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] Flags: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("2.F")] MaxFrequencyRatio: f32, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pCallback: IXAudio2VoiceCallback, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pSendList: *const XAUDIO2_VOICE_SENDS, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pEffectChain: *const XAUDIO2_EFFECT_CHAIN) -> HRESULT;
+            fn CreateSubmixVoice(&self, #[out] #[out_ptr] ppSubmixVoice: *mut IXAudio2SubmixVoice, InputChannels: UINT32, InputSampleRate: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] Flags: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] ProcessingStage: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pSendList: *const XAUDIO2_VOICE_SENDS, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pEffectChain: *const XAUDIO2_EFFECT_CHAIN) -> HRESULT;
+            fn CreateMasteringVoice(&self, #[out] #[out_ptr] ppMasteringVoice: *mut IXAudio2MasteringVoice, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] InputChannels: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] InputSampleRate: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] Flags: UINT32, #[in] #[opt] #[null_terminated(entry)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] szDeviceId: LPCWSTR, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pEffectChain: *const XAUDIO2_EFFECT_CHAIN, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("AudioCategory_GameEffects")] StreamCategory: AUDIO_STREAM_CATEGORY) -> HRESULT;
             fn StartEngine(&self) -> HRESULT;
             fn StopEngine(&self);
-            fn CommitChanges(&self, OperationSet: u32) -> HRESULT;
-            fn GetPerformanceData(&self, pPerfData: *mut XAUDIO2_PERFORMANCE_DATA);
-            fn SetDebugConfiguration(&self, #[opt] pDebugConfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, #[reserved] pReserved: *mut void);
+            fn CommitChanges(&self, OperationSet: UINT32) -> HRESULT;
+            fn GetPerformanceData(&self, #[out] pPerfData: *mut XAUDIO2_PERFORMANCE_DATA);
+            fn SetDebugConfiguration(&self, #[in] #[opt] pDebugConfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, #[reserved] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pReserved: *mut void);
         }
         #[no_guid]
         interface IXAudio2EngineCallback {
@@ -23,53 +31,174 @@ mod Windows {
         }
         #[guid(0x84ac29bb_d619_44d2_b197_e4acf7df3ed6)]
         interface IXAudio2Extension: IUnknown {
-            fn GetProcessingQuantum(&self, quantumNumerator: *mut u32, quantumDenominator: *mut u32);
-            fn GetProcessor(&self, processor: *mut XAUDIO2_PROCESSOR);
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvInterface: *mut *mut void) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            fn GetProcessingQuantum(&self, #[out] quantumNumerator: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "!=,0", "!=,0")] quantumDenominator: *mut UINT32);
+            fn GetProcessor(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "!=,0", "!=,0")] processor: *mut XAUDIO2_PROCESSOR);
         }
         #[no_guid]
         interface IXAudio2MasteringVoice: IXAudio2Voice {
-            fn GetChannelMask(&self, pChannelmask: *mut u32) -> HRESULT;
+            #[override_slot(0)]
+            fn GetVoiceDetails(&self, #[out] pVoiceDetails: *mut XAUDIO2_VOICE_DETAILS);
+            #[override_slot(1)]
+            fn SetOutputVoices(&self, #[in] #[opt] pSendList: *const XAUDIO2_VOICE_SENDS) -> HRESULT;
+            #[override_slot(2)]
+            fn SetEffectChain(&self, #[in] #[opt] pEffectChain: *const XAUDIO2_EFFECT_CHAIN) -> HRESULT;
+            #[override_slot(3)]
+            fn EnableEffect(&self, EffectIndex: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(4)]
+            fn DisableEffect(&self, EffectIndex: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(5)]
+            fn GetEffectState(&self, EffectIndex: UINT32, #[out] pEnabled: *mut BOOL);
+            #[override_slot(6)]
+            fn SetEffectParameters(&self, EffectIndex: UINT32, #[in] #[readable(entry, bytes(ParametersByteSize))] pParameters: *const void, ParametersByteSize: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(7)]
+            fn GetEffectParameters(&self, EffectIndex: UINT32, #[out] #[writable(entry, bytes(ParametersByteSize))] pParameters: *mut void, ParametersByteSize: UINT32) -> HRESULT;
+            #[override_slot(8)]
+            fn SetFilterParameters(&self, #[in] pParameters: *const XAUDIO2_FILTER_PARAMETERS, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(9)]
+            fn GetFilterParameters(&self, #[out] pParameters: *mut XAUDIO2_FILTER_PARAMETERS);
+            #[override_slot(10)]
+            fn SetOutputFilterParameters(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, #[in] pParameters: *const XAUDIO2_FILTER_PARAMETERS, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(11)]
+            fn GetOutputFilterParameters(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, #[out] pParameters: *mut XAUDIO2_FILTER_PARAMETERS);
+            #[override_slot(12)]
+            fn SetVolume(&self, Volume: f32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(13)]
+            fn GetVolume(&self, #[out] pVolume: *mut f32);
+            #[override_slot(14)]
+            fn SetChannelVolumes(&self, Channels: UINT32, #[in] #[readable(entry, Channels)] pVolumes: *const f32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(15)]
+            fn GetChannelVolumes(&self, Channels: UINT32, #[out] #[writable(entry, Channels)] pVolumes: *mut f32);
+            #[override_slot(16)]
+            fn SetOutputMatrix(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, SourceChannels: UINT32, DestinationChannels: UINT32, #[in] #[readable(entry, SourceChannels * DestinationChannels)] pLevelMatrix: *const f32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(17)]
+            fn GetOutputMatrix(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, SourceChannels: UINT32, DestinationChannels: UINT32, #[out] #[writable(entry, SourceChannels * DestinationChannels)] pLevelMatrix: *mut f32);
+            #[override_slot(18)]
+            fn DestroyVoice(&self);
+            fn GetChannelMask(&self, #[out] pChannelmask: *mut DWORD) -> HRESULT;
         }
         #[no_guid]
         interface IXAudio2SourceVoice: IXAudio2Voice {
-            fn Start(&self, Flags: u32, OperationSet: u32) -> HRESULT;
-            fn Stop(&self, Flags: u32, OperationSet: u32) -> HRESULT;
-            fn SubmitSourceBuffer(&self, pBuffer: *const XAUDIO2_BUFFER, #[opt] pBufferWMA: *const XAUDIO2_BUFFER_WMA) -> HRESULT;
+            #[override_slot(0)]
+            fn GetVoiceDetails(&self, #[out] pVoiceDetails: *mut XAUDIO2_VOICE_DETAILS);
+            #[override_slot(1)]
+            fn SetOutputVoices(&self, #[in] #[opt] pSendList: *const XAUDIO2_VOICE_SENDS) -> HRESULT;
+            #[override_slot(2)]
+            fn SetEffectChain(&self, #[in] #[opt] pEffectChain: *const XAUDIO2_EFFECT_CHAIN) -> HRESULT;
+            #[override_slot(3)]
+            fn EnableEffect(&self, EffectIndex: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(4)]
+            fn DisableEffect(&self, EffectIndex: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(5)]
+            fn GetEffectState(&self, EffectIndex: UINT32, #[out] pEnabled: *mut BOOL);
+            #[override_slot(6)]
+            fn SetEffectParameters(&self, EffectIndex: UINT32, #[in] #[readable(entry, bytes(ParametersByteSize))] pParameters: *const void, ParametersByteSize: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(7)]
+            fn GetEffectParameters(&self, EffectIndex: UINT32, #[out] #[writable(entry, bytes(ParametersByteSize))] pParameters: *mut void, ParametersByteSize: UINT32) -> HRESULT;
+            #[override_slot(8)]
+            fn SetFilterParameters(&self, #[in] pParameters: *const XAUDIO2_FILTER_PARAMETERS, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(9)]
+            fn GetFilterParameters(&self, #[out] pParameters: *mut XAUDIO2_FILTER_PARAMETERS);
+            #[override_slot(10)]
+            fn SetOutputFilterParameters(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, #[in] pParameters: *const XAUDIO2_FILTER_PARAMETERS, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(11)]
+            fn GetOutputFilterParameters(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, #[out] pParameters: *mut XAUDIO2_FILTER_PARAMETERS);
+            #[override_slot(12)]
+            fn SetVolume(&self, Volume: f32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(13)]
+            fn GetVolume(&self, #[out] pVolume: *mut f32);
+            #[override_slot(14)]
+            fn SetChannelVolumes(&self, Channels: UINT32, #[in] #[readable(entry, Channels)] pVolumes: *const f32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(15)]
+            fn GetChannelVolumes(&self, Channels: UINT32, #[out] #[writable(entry, Channels)] pVolumes: *mut f32);
+            #[override_slot(16)]
+            fn SetOutputMatrix(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, SourceChannels: UINT32, DestinationChannels: UINT32, #[in] #[readable(entry, SourceChannels * DestinationChannels)] pLevelMatrix: *const f32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(17)]
+            fn GetOutputMatrix(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, SourceChannels: UINT32, DestinationChannels: UINT32, #[out] #[writable(entry, SourceChannels * DestinationChannels)] pLevelMatrix: *mut f32);
+            #[override_slot(18)]
+            fn DestroyVoice(&self);
+            fn Start(&self, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] Flags: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            fn Stop(&self, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] Flags: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            fn SubmitSourceBuffer(&self, #[in] pBuffer: *const XAUDIO2_BUFFER, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pBufferWMA: *const XAUDIO2_BUFFER_WMA) -> HRESULT;
             fn FlushSourceBuffers(&self) -> HRESULT;
             fn Discontinuity(&self) -> HRESULT;
-            fn ExitLoop(&self, OperationSet: u32) -> HRESULT;
-            fn GetState(&self, pVoiceState: *mut XAUDIO2_VOICE_STATE, Flags: u32);
-            fn SetFrequencyRatio(&self, Ratio: f32, OperationSet: u32) -> HRESULT;
-            fn GetFrequencyRatio(&self, pRatio: *mut f32);
-            fn SetSourceSampleRate(&self, NewSourceSampleRate: u32) -> HRESULT;
+            fn ExitLoop(&self, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            fn GetState(&self, #[out] pVoiceState: *mut XAUDIO2_VOICE_STATE, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] Flags: UINT32);
+            fn SetFrequencyRatio(&self, Ratio: f32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            fn GetFrequencyRatio(&self, #[out] pRatio: *mut f32);
+            fn SetSourceSampleRate(&self, NewSourceSampleRate: UINT32) -> HRESULT;
         }
         #[no_guid]
-        interface IXAudio2SubmixVoice: IXAudio2Voice {}
+        interface IXAudio2SubmixVoice: IXAudio2Voice {
+            #[override_slot(0)]
+            fn GetVoiceDetails(&self, #[out] pVoiceDetails: *mut XAUDIO2_VOICE_DETAILS);
+            #[override_slot(1)]
+            fn SetOutputVoices(&self, #[in] #[opt] pSendList: *const XAUDIO2_VOICE_SENDS) -> HRESULT;
+            #[override_slot(2)]
+            fn SetEffectChain(&self, #[in] #[opt] pEffectChain: *const XAUDIO2_EFFECT_CHAIN) -> HRESULT;
+            #[override_slot(3)]
+            fn EnableEffect(&self, EffectIndex: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(4)]
+            fn DisableEffect(&self, EffectIndex: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(5)]
+            fn GetEffectState(&self, EffectIndex: UINT32, #[out] pEnabled: *mut BOOL);
+            #[override_slot(6)]
+            fn SetEffectParameters(&self, EffectIndex: UINT32, #[in] #[readable(entry, bytes(ParametersByteSize))] pParameters: *const void, ParametersByteSize: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(7)]
+            fn GetEffectParameters(&self, EffectIndex: UINT32, #[out] #[writable(entry, bytes(ParametersByteSize))] pParameters: *mut void, ParametersByteSize: UINT32) -> HRESULT;
+            #[override_slot(8)]
+            fn SetFilterParameters(&self, #[in] pParameters: *const XAUDIO2_FILTER_PARAMETERS, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(9)]
+            fn GetFilterParameters(&self, #[out] pParameters: *mut XAUDIO2_FILTER_PARAMETERS);
+            #[override_slot(10)]
+            fn SetOutputFilterParameters(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, #[in] pParameters: *const XAUDIO2_FILTER_PARAMETERS, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(11)]
+            fn GetOutputFilterParameters(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, #[out] pParameters: *mut XAUDIO2_FILTER_PARAMETERS);
+            #[override_slot(12)]
+            fn SetVolume(&self, Volume: f32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(13)]
+            fn GetVolume(&self, #[out] pVolume: *mut f32);
+            #[override_slot(14)]
+            fn SetChannelVolumes(&self, Channels: UINT32, #[in] #[readable(entry, Channels)] pVolumes: *const f32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(15)]
+            fn GetChannelVolumes(&self, Channels: UINT32, #[out] #[writable(entry, Channels)] pVolumes: *mut f32);
+            #[override_slot(16)]
+            fn SetOutputMatrix(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, SourceChannels: UINT32, DestinationChannels: UINT32, #[in] #[readable(entry, SourceChannels * DestinationChannels)] pLevelMatrix: *const f32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            #[override_slot(17)]
+            fn GetOutputMatrix(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, SourceChannels: UINT32, DestinationChannels: UINT32, #[out] #[writable(entry, SourceChannels * DestinationChannels)] pLevelMatrix: *mut f32);
+            #[override_slot(18)]
+            fn DestroyVoice(&self);
+        }
         #[no_guid]
         interface IXAudio2Voice {
-            fn GetVoiceDetails(&self, pVoiceDetails: *mut XAUDIO2_VOICE_DETAILS);
-            fn SetOutputVoices(&self, #[opt] pSendList: *const XAUDIO2_VOICE_SENDS) -> HRESULT;
-            fn SetEffectChain(&self, #[opt] pEffectChain: *const XAUDIO2_EFFECT_CHAIN) -> HRESULT;
-            fn EnableEffect(&self, EffectIndex: u32, OperationSet: u32) -> HRESULT;
-            fn DisableEffect(&self, EffectIndex: u32, OperationSet: u32) -> HRESULT;
-            fn GetEffectState(&self, EffectIndex: u32, pEnabled: *mut BOOL);
-            fn SetEffectParameters(&self, EffectIndex: u32, #[size_param(2)] pParameters: *const void, ParametersByteSize: u32, OperationSet: u32) -> HRESULT;
-            fn GetEffectParameters(&self, EffectIndex: u32, #[size_param(2)] pParameters: *mut void, ParametersByteSize: u32) -> HRESULT;
-            fn SetFilterParameters(&self, pParameters: *const XAUDIO2_FILTER_PARAMETERS, OperationSet: u32) -> HRESULT;
-            fn GetFilterParameters(&self, pParameters: *mut XAUDIO2_FILTER_PARAMETERS);
-            fn SetOutputFilterParameters(&self, #[opt] pDestinationVoice: IXAudio2Voice, pParameters: *const XAUDIO2_FILTER_PARAMETERS, OperationSet: u32) -> HRESULT;
-            fn GetOutputFilterParameters(&self, #[opt] pDestinationVoice: IXAudio2Voice, pParameters: *mut XAUDIO2_FILTER_PARAMETERS);
-            fn SetVolume(&self, Volume: f32, OperationSet: u32) -> HRESULT;
-            fn GetVolume(&self, pVolume: *mut f32);
-            fn SetChannelVolumes(&self, Channels: u32, #[len_param(0)] pVolumes: *const f32, OperationSet: u32) -> HRESULT;
-            fn GetChannelVolumes(&self, Channels: u32, #[len_param(0)] pVolumes: *mut f32);
-            fn SetOutputMatrix(&self, #[opt] pDestinationVoice: IXAudio2Voice, SourceChannels: u32, DestinationChannels: u32, pLevelMatrix: *const f32, OperationSet: u32) -> HRESULT;
-            fn GetOutputMatrix(&self, #[opt] pDestinationVoice: IXAudio2Voice, SourceChannels: u32, DestinationChannels: u32, pLevelMatrix: *mut f32);
+            fn GetVoiceDetails(&self, #[out] pVoiceDetails: *mut XAUDIO2_VOICE_DETAILS);
+            fn SetOutputVoices(&self, #[in] #[opt] pSendList: *const XAUDIO2_VOICE_SENDS) -> HRESULT;
+            fn SetEffectChain(&self, #[in] #[opt] pEffectChain: *const XAUDIO2_EFFECT_CHAIN) -> HRESULT;
+            fn EnableEffect(&self, EffectIndex: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            fn DisableEffect(&self, EffectIndex: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            fn GetEffectState(&self, EffectIndex: UINT32, #[out] pEnabled: *mut BOOL);
+            fn SetEffectParameters(&self, EffectIndex: UINT32, #[in] #[readable(entry, bytes(ParametersByteSize))] pParameters: *const void, ParametersByteSize: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            fn GetEffectParameters(&self, EffectIndex: UINT32, #[out] #[writable(entry, bytes(ParametersByteSize))] pParameters: *mut void, ParametersByteSize: UINT32) -> HRESULT;
+            fn SetFilterParameters(&self, #[in] pParameters: *const XAUDIO2_FILTER_PARAMETERS, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            fn GetFilterParameters(&self, #[out] pParameters: *mut XAUDIO2_FILTER_PARAMETERS);
+            fn SetOutputFilterParameters(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, #[in] pParameters: *const XAUDIO2_FILTER_PARAMETERS, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            fn GetOutputFilterParameters(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, #[out] pParameters: *mut XAUDIO2_FILTER_PARAMETERS);
+            fn SetVolume(&self, Volume: f32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            fn GetVolume(&self, #[out] pVolume: *mut f32);
+            fn SetChannelVolumes(&self, Channels: UINT32, #[in] #[readable(entry, Channels)] pVolumes: *const f32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            fn GetChannelVolumes(&self, Channels: UINT32, #[out] #[writable(entry, Channels)] pVolumes: *mut f32);
+            fn SetOutputMatrix(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, SourceChannels: UINT32, DestinationChannels: UINT32, #[in] #[readable(entry, SourceChannels * DestinationChannels)] pLevelMatrix: *const f32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] OperationSet: UINT32) -> HRESULT;
+            fn GetOutputMatrix(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, SourceChannels: UINT32, DestinationChannels: UINT32, #[out] #[writable(entry, SourceChannels * DestinationChannels)] pLevelMatrix: *mut f32);
             fn DestroyVoice(&self);
         }
         #[no_guid]
         interface IXAudio2VoiceCallback {
-            fn OnVoiceProcessingPassStart(&self, BytesRequired: u32);
+            fn OnVoiceProcessingPassStart(&self, BytesRequired: UINT32);
             fn OnVoiceProcessingPassEnd(&self);
             fn OnStreamEnd(&self);
             fn OnBufferStart(&self, pBufferContext: *mut void);
@@ -119,27 +248,27 @@ mod Windows {
         const XAUDIO2_ANY_PROCESSOR: u32 = 4294967295;
         #[packed(1)]
         struct XAUDIO2_BUFFER {
-            Flags: u32,
-            AudioBytes: u32,
-            pAudioData: *const u8,
-            PlayBegin: u32,
-            PlayLength: u32,
-            LoopBegin: u32,
-            LoopLength: u32,
-            LoopCount: u32,
+            Flags: UINT32,
+            AudioBytes: UINT32,
+            pAudioData: *const BYTE,
+            PlayBegin: UINT32,
+            PlayLength: UINT32,
+            LoopBegin: UINT32,
+            LoopLength: UINT32,
+            LoopCount: UINT32,
             pContext: *mut void,
         }
         #[packed(1)]
         struct XAUDIO2_BUFFER_WMA {
-            pDecodedPacketCumulativeBytes: *const u32,
-            PacketCount: u32,
+            pDecodedPacketCumulativeBytes: *const UINT32,
+            PacketCount: UINT32,
         }
         const XAUDIO2_COMMIT_ALL: i32 = 0;
         const XAUDIO2_COMMIT_NOW: i32 = 0;
         #[packed(1)]
         struct XAUDIO2_DEBUG_CONFIGURATION {
-            TraceMask: u32,
-            BreakMask: u32,
+            TraceMask: UINT32,
+            BreakMask: UINT32,
             LogThreadID: BOOL,
             LogFileline: BOOL,
             LogFunctionName: BOOL,
@@ -161,14 +290,14 @@ mod Windows {
         const XAUDIO2_DLL_W: String = "xaudio2_9.dll";
         #[packed(1)]
         struct XAUDIO2_EFFECT_CHAIN {
-            EffectCount: u32,
+            EffectCount: UINT32,
             pEffectDescriptors: *mut XAUDIO2_EFFECT_DESCRIPTOR,
         }
         #[packed(1)]
         struct XAUDIO2_EFFECT_DESCRIPTOR {
             pEffect: IUnknown,
             InitialState: BOOL,
-            OutputChannels: u32,
+            OutputChannels: UINT32,
         }
         const XAUDIO2_END_OF_STREAM: i32 = 64;
         const XAUDIO2_E_DEVICE_INVALIDATED: HRESULT = -2003435516;
@@ -190,7 +319,7 @@ mod Windows {
             LowPassOnePoleFilter = 4,
             HighPassOnePoleFilter = 5,
         }
-        const XAUDIO2_INVALID_OPSET: u32 = 4294967295;
+        const XAUDIO2_INVALID_OPSET: UINT32 = 4294967295;
         const XAUDIO2_LOG_API_CALLS: i32 = 16;
         const XAUDIO2_LOG_DETAIL: i32 = 8;
         const XAUDIO2_LOG_ERRORS: i32 = 1;
@@ -221,20 +350,20 @@ mod Windows {
         const XAUDIO2_NO_VIRTUAL_AUDIO_CLIENT: i32 = 65536;
         #[packed(1)]
         struct XAUDIO2_PERFORMANCE_DATA {
-            AudioCyclesSinceLastQuery: u64,
-            TotalCyclesSinceLastQuery: u64,
-            MinimumCyclesPerQuantum: u32,
-            MaximumCyclesPerQuantum: u32,
-            MemoryUsageInBytes: u32,
-            CurrentLatencyInSamples: u32,
-            GlitchesSinceEngineStarted: u32,
-            ActiveSourceVoiceCount: u32,
-            TotalSourceVoiceCount: u32,
-            ActiveSubmixVoiceCount: u32,
-            ActiveResamplerCount: u32,
-            ActiveMatrixMixCount: u32,
-            ActiveXmaSourceVoices: u32,
-            ActiveXmaStreams: u32,
+            AudioCyclesSinceLastQuery: UINT64,
+            TotalCyclesSinceLastQuery: UINT64,
+            MinimumCyclesPerQuantum: UINT32,
+            MaximumCyclesPerQuantum: UINT32,
+            MemoryUsageInBytes: UINT32,
+            CurrentLatencyInSamples: UINT32,
+            GlitchesSinceEngineStarted: UINT32,
+            ActiveSourceVoiceCount: UINT32,
+            TotalSourceVoiceCount: UINT32,
+            ActiveSubmixVoiceCount: UINT32,
+            ActiveResamplerCount: UINT32,
+            ActiveMatrixMixCount: UINT32,
+            ActiveXmaSourceVoices: UINT32,
+            ActiveXmaStreams: UINT32,
         }
         const XAUDIO2_PLAY_TAILS: i32 = 32;
         type XAUDIO2_PROCESSOR = u32;
@@ -243,7 +372,7 @@ mod Windows {
         const XAUDIO2_QUANTUM_NUMERATOR: i32 = 1;
         #[packed(1)]
         struct XAUDIO2_SEND_DESCRIPTOR {
-            Flags: u32,
+            Flags: UINT32,
             pOutputVoice: IXAudio2Voice,
         }
         const XAUDIO2_SEND_USEFILTER: i32 = 128;
@@ -251,29 +380,27 @@ mod Windows {
         const XAUDIO2_USE_DEFAULT_PROCESSOR: i32 = 0;
         #[packed(1)]
         struct XAUDIO2_VOICE_DETAILS {
-            CreationFlags: u32,
-            ActiveFlags: u32,
-            InputChannels: u32,
-            InputSampleRate: u32,
+            CreationFlags: UINT32,
+            ActiveFlags: UINT32,
+            InputChannels: UINT32,
+            InputSampleRate: UINT32,
         }
         const XAUDIO2_VOICE_NOPITCH: i32 = 2;
         const XAUDIO2_VOICE_NOSAMPLESPLAYED: i32 = 256;
         const XAUDIO2_VOICE_NOSRC: i32 = 4;
         #[packed(1)]
         struct XAUDIO2_VOICE_SENDS {
-            SendCount: u32,
+            SendCount: UINT32,
             pSends: *mut XAUDIO2_SEND_DESCRIPTOR,
         }
         #[packed(1)]
         struct XAUDIO2_VOICE_STATE {
             pCurrentBufferContext: *mut void,
-            BuffersQueued: u32,
-            SamplesPlayed: u64,
+            BuffersQueued: UINT32,
+            SamplesPlayed: UINT64,
         }
         const XAUDIO2_VOICE_USEFILTER: i32 = 8;
-        #[library("XAudio2_9.dll", import = "?XAudio2Create@@YAJPEAPEAUIXAudio2@@II@Z")]
-        extern fn XAudio2Create(ppXAudio2: *mut IXAudio2, Flags: u32, XAudio2Processor: XAUDIO2_PROCESSOR) -> HRESULT;
         #[library("XAudio2_9.dll")]
-        extern fn XAudio2CreateWithVersionInfo(ppXAudio2: *mut IXAudio2, Flags: u32, XAudio2Processor: XAUDIO2_PROCESSOR, ntddiVersion: u32) -> HRESULT;
+        extern fn XAudio2CreateWithVersionInfo(#[out] #[out_ptr] ppXAudio2: *mut IXAudio2, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] Flags: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("1")] XAudio2Processor: XAUDIO2_PROCESSOR, #[Windows::Win32::Metadata::NativeDefaultArgument("167772178")] ntddiVersion: DWORD) -> HRESULT;
     }
 }

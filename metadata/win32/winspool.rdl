@@ -3,12 +3,12 @@ mod Windows {
     mod Win32 {
         type ADDJOB_INFO_1 = ADDJOB_INFO_1A;
         struct ADDJOB_INFO_1A {
-            Path: PSTR,
-            JobId: u32,
+            Path: LPSTR,
+            JobId: DWORD,
         }
         struct ADDJOB_INFO_1W {
-            Path: PWSTR,
-            JobId: u32,
+            Path: LPWSTR,
+            JobId: DWORD,
         }
         const APD_COPY_ALL_FILES: i32 = 4;
         const APD_COPY_FROM_DIRECTORY: i32 = 16;
@@ -16,55 +16,55 @@ mod Windows {
         const APD_STRICT_DOWNGRADE: i32 = 2;
         const APD_STRICT_UPGRADE: i32 = 1;
         #[library("WINSPOOL.DRV")]
-        extern fn AbortPrinter(hPrinter: HANDLE) -> BOOL;
+        extern fn AbortPrinter(#[in] hPrinter: HANDLE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddFormA(hPrinter: HANDLE, Level: u32, pForm: LPBYTE) -> BOOL;
+        extern fn AddFormA(#[in] hPrinter: HANDLE, #[range(entry, 1..=2)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_(sizeof(FORM_INFO_1A))", "Level == 1, _In_reads_bytes_(sizeof(FORM_INFO_1A))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_(sizeof(FORM_INFO_2A))", "Level == 2, _In_reads_bytes_(sizeof(FORM_INFO_2A))")] pForm: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddFormW(hPrinter: HANDLE, Level: u32, pForm: LPBYTE) -> BOOL;
+        extern fn AddFormW(#[in] hPrinter: HANDLE, #[range(entry, 1..=2)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_(sizeof(FORM_INFO_1W))", "Level == 1, _In_reads_bytes_(sizeof(FORM_INFO_1W))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_(sizeof(FORM_INFO_2W))", "Level == 2, _In_reads_bytes_(sizeof(FORM_INFO_2W))")] pForm: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddJobA(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[out] #[opt] pData: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn AddJobA(#[in] hPrinter: HANDLE, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pData: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddJobW(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[out] #[opt] pData: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn AddJobW(#[in] hPrinter: HANDLE, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pData: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddMonitorA(#[opt] pName: PCSTR, Level: u32, #[opt] pMonitors: LPBYTE) -> BOOL;
+        extern fn AddMonitorA(#[in] #[opt] pName: LPSTR, Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "sizeof(MONITOR_INFO_2)", "sizeof(MONITOR_INFO_2)")] #[in] #[opt] pMonitors: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddMonitorW(#[opt] pName: PCWSTR, Level: u32, #[opt] pMonitors: LPBYTE) -> BOOL;
+        extern fn AddMonitorW(#[in] #[opt] pName: LPWSTR, Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "sizeof(MONITOR_INFO_2)", "sizeof(MONITOR_INFO_2)")] #[in] #[opt] pMonitors: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPortA(#[opt] pName: PCSTR, hWnd: HWND, pMonitorName: PCSTR) -> BOOL;
+        extern fn AddPortA(#[in] #[opt] pName: LPSTR, #[in] hWnd: HWND, #[in] pMonitorName: LPSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPortW(#[opt] pName: PCWSTR, hWnd: HWND, pMonitorName: PCWSTR) -> BOOL;
+        extern fn AddPortW(#[in] #[opt] pName: LPWSTR, #[in] hWnd: HWND, #[in] pMonitorName: LPWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrintProcessorA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, pPathName: PCSTR, pPrintProcessorName: PCSTR) -> BOOL;
+        extern fn AddPrintProcessorA(#[in] #[opt] pName: LPSTR, #[in] #[opt] pEnvironment: LPSTR, #[in] pPathName: LPSTR, #[in] pPrintProcessorName: LPSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrintProcessorW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, pPathName: PCWSTR, pPrintProcessorName: PCWSTR) -> BOOL;
+        extern fn AddPrintProcessorW(#[in] #[opt] pName: LPWSTR, #[in] #[opt] pEnvironment: LPWSTR, #[in] pPathName: LPWSTR, #[in] pPrintProcessorName: LPWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrintProvidorA(#[opt] pName: PCSTR, Level: u32, pProvidorInfo: LPBYTE) -> BOOL;
+        extern fn AddPrintProvidorA(#[in] #[opt] pName: LPSTR, #[range(entry, 1..=2)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_(sizeof(PROVIDOR_INFO_1))", "Level == 1, _In_reads_bytes_(sizeof(PROVIDOR_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_(sizeof(PROVIDOR_INFO_2))", "Level == 2, _In_reads_bytes_(sizeof(PROVIDOR_INFO_2))")] #[in] pProvidorInfo: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrintProvidorW(#[opt] pName: PCWSTR, Level: u32, pProvidorInfo: LPBYTE) -> BOOL;
+        extern fn AddPrintProvidorW(#[in] #[opt] pName: LPWSTR, #[range(entry, 1..=2)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_(sizeof(PROVIDOR_INFO_1))", "Level == 1, _In_reads_bytes_(sizeof(PROVIDOR_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_(sizeof(PROVIDOR_INFO_2))", "Level == 2, _In_reads_bytes_(sizeof(PROVIDOR_INFO_2))")] #[in] pProvidorInfo: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterA(#[opt] pName: PCSTR, Level: u32, pPrinter: LPBYTE) -> HANDLE;
+        extern fn AddPrinterA(#[in] #[opt] pName: LPSTR, #[range(entry, 1..=2)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_(sizeof(PRINTER_INFO_1))", "Level == 1, _In_reads_bytes_(sizeof(PRINTER_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_(sizeof(PRINTER_INFO_2))", "Level == 2, _In_reads_bytes_(sizeof(PRINTER_INFO_2))")] pPrinter: LPBYTE) -> HANDLE;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterConnection2A(#[opt] hWnd: HWND, pszName: PCSTR, dwLevel: u32, #[in] pConnectionInfo: *mut void) -> BOOL;
+        extern fn AddPrinterConnection2A(#[in] #[opt] hWnd: HWND, #[in] pszName: LPCSTR, dwLevel: DWORD, #[in] pConnectionInfo: PVOID) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterConnection2W(#[opt] hWnd: HWND, pszName: PCWSTR, dwLevel: u32, #[in] pConnectionInfo: *mut void) -> BOOL;
+        extern fn AddPrinterConnection2W(#[in] #[opt] hWnd: HWND, #[in] pszName: LPCWSTR, dwLevel: DWORD, #[in] pConnectionInfo: PVOID) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterConnectionA(pName: PCSTR) -> BOOL;
+        extern fn AddPrinterConnectionA(#[in] pName: LPSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterConnectionW(pName: PCWSTR) -> BOOL;
+        extern fn AddPrinterConnectionW(#[in] pName: LPWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterDriverA(#[opt] pName: PCSTR, Level: u32, pDriverInfo: LPBYTE) -> BOOL;
+        extern fn AddPrinterDriverA(#[in] #[opt] pName: LPSTR, Level: DWORD, #[in] pDriverInfo: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterDriverExA(#[opt] pName: PCSTR, Level: u32, lpbDriverInfo: PBYTE, dwFileCopyFlags: u32) -> BOOL;
+        extern fn AddPrinterDriverExA(#[in] #[opt] pName: LPSTR, #[range(entry, 2..=8)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_(sizeof(DRIVER_INFO_2))", "Level == 2, _In_reads_bytes_(sizeof(DRIVER_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 3,_In_reads_bytes_(sizeof(DRIVER_INFO_3))", "Level == 3, _In_reads_bytes_(sizeof(DRIVER_INFO_3))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 4,_In_reads_bytes_(sizeof(DRIVER_INFO_4))", "Level == 4, _In_reads_bytes_(sizeof(DRIVER_INFO_4))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 6,_In_reads_bytes_(sizeof(DRIVER_INFO_6))", "Level == 6, _In_reads_bytes_(sizeof(DRIVER_INFO_6))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 8,_In_reads_bytes_(sizeof(DRIVER_INFO_8))", "Level == 8, _In_reads_bytes_(sizeof(DRIVER_INFO_8))")] lpbDriverInfo: PBYTE, #[in] dwFileCopyFlags: DWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterDriverExW(#[opt] pName: PCWSTR, Level: u32, lpbDriverInfo: PBYTE, dwFileCopyFlags: u32) -> BOOL;
+        extern fn AddPrinterDriverExW(#[in] #[opt] pName: LPWSTR, #[range(entry, 2..=8)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_(sizeof(DRIVER_INFO_2))", "Level == 2, _In_reads_bytes_(sizeof(DRIVER_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 3,_In_reads_bytes_(sizeof(DRIVER_INFO_3))", "Level == 3, _In_reads_bytes_(sizeof(DRIVER_INFO_3))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 4,_In_reads_bytes_(sizeof(DRIVER_INFO_4))", "Level == 4, _In_reads_bytes_(sizeof(DRIVER_INFO_4))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 6,_In_reads_bytes_(sizeof(DRIVER_INFO_6))", "Level == 6, _In_reads_bytes_(sizeof(DRIVER_INFO_6))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 8,_In_reads_bytes_(sizeof(DRIVER_INFO_8))", "Level == 8, _In_reads_bytes_(sizeof(DRIVER_INFO_8))")] lpbDriverInfo: PBYTE, #[in] dwFileCopyFlags: DWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterDriverW(#[opt] pName: PCWSTR, Level: u32, pDriverInfo: LPBYTE) -> BOOL;
+        extern fn AddPrinterDriverW(#[in] #[opt] pName: LPWSTR, Level: DWORD, #[in] pDriverInfo: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn AddPrinterW(#[opt] pName: PCWSTR, Level: u32, pPrinter: LPBYTE) -> HANDLE;
+        extern fn AddPrinterW(#[in] #[opt] pName: LPWSTR, #[range(entry, 1..=2)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_(sizeof(PRINTER_INFO_1))", "Level == 1, _In_reads_bytes_(sizeof(PRINTER_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_(sizeof(PRINTER_INFO_2))", "Level == 2, _In_reads_bytes_(sizeof(PRINTER_INFO_2))")] pPrinter: LPBYTE) -> HANDLE;
         #[library("WINSPOOL.DRV")]
-        extern fn AdvancedDocumentPropertiesA(hWnd: HWND, hPrinter: HANDLE, pDeviceName: PCSTR, #[in] #[out] #[opt] pDevModeOutput: PDEVMODEA, #[opt] pDevModeInput: PDEVMODEA) -> i32;
+        extern fn AdvancedDocumentPropertiesA(#[in] hWnd: HWND, #[in] hPrinter: HANDLE, #[in] pDeviceName: LPSTR, #[in] #[out] #[opt] pDevModeOutput: PDEVMODEA, #[in] #[opt] pDevModeInput: PDEVMODEA) -> LONG;
         #[library("WINSPOOL.DRV")]
-        extern fn AdvancedDocumentPropertiesW(hWnd: HWND, hPrinter: HANDLE, pDeviceName: PCWSTR, #[in] #[out] #[opt] pDevModeOutput: PDEVMODEW, #[opt] pDevModeInput: PDEVMODEW) -> i32;
+        extern fn AdvancedDocumentPropertiesW(#[in] hWnd: HWND, #[in] hPrinter: HANDLE, #[in] pDeviceName: LPWSTR, #[in] #[out] #[opt] pDevModeOutput: PDEVMODEW, #[in] #[opt] pDevModeInput: PDEVMODEW) -> LONG;
         const BIDI_ACCESS_ADMINISTRATOR: i32 = 1;
         const BIDI_ACCESS_USER: i32 = 2;
         #[encoding("utf-16")]
@@ -78,36 +78,36 @@ mod Windows {
         #[encoding("utf-16")]
         const BIDI_ACTION_SET: String = "Set";
         struct BIDI_DATA {
-            dwBidiType: u32,
+            dwBidiType: DWORD,
             u: union {
                 bData: BOOL,
-                iData: i32,
-                sData: PWSTR,
-                fData: f32,
+                iData: LONG,
+                sData: LPWSTR,
+                fData: FLOAT,
                 biData: BINARY_CONTAINER,
             },
         }
         struct BIDI_REQUEST_CONTAINER {
-            Version: u32,
-            Flags: u32,
-            Count: u32,
+            Version: DWORD,
+            Flags: DWORD,
+            Count: DWORD,
             aData: [BIDI_REQUEST_DATA; 1],
         }
         struct BIDI_REQUEST_DATA {
-            dwReqNumber: u32,
-            pSchema: PWSTR,
+            dwReqNumber: DWORD,
+            pSchema: LPWSTR,
             data: BIDI_DATA,
         }
         struct BIDI_RESPONSE_CONTAINER {
-            Version: u32,
-            Flags: u32,
-            Count: u32,
+            Version: DWORD,
+            Flags: DWORD,
+            Count: DWORD,
             aData: [BIDI_RESPONSE_DATA; 1],
         }
         struct BIDI_RESPONSE_DATA {
-            dwResult: u32,
-            dwReqNumber: u32,
-            pSchema: PWSTR,
+            dwResult: DWORD,
+            dwReqNumber: DWORD,
+            pSchema: LPWSTR,
             data: BIDI_DATA,
         }
         #[repr(i32)]
@@ -122,7 +122,7 @@ mod Windows {
             BIDI_BLOB = 7,
         }
         struct BINARY_CONTAINER {
-            cbBuf: u32,
+            cbBuf: DWORD,
             pData: LPBYTE,
         }
         type CORE_PRINTER_DRIVER = CORE_PRINTER_DRIVERA;
@@ -130,36 +130,36 @@ mod Windows {
             CoreDriverGUID: GUID,
             ftDriverDate: FILETIME,
             dwlDriverVersion: DWORDLONG,
-            szPackageID: [i8; 260],
+            szPackageID: [CHAR; 260],
         }
         struct CORE_PRINTER_DRIVERW {
             CoreDriverGUID: GUID,
             ftDriverDate: FILETIME,
             dwlDriverVersion: DWORDLONG,
-            szPackageID: [u16; 260],
+            szPackageID: [WCHAR; 260],
         }
         #[library("WINSPOOL.DRV")]
-        extern fn ClosePrinter(hPrinter: HANDLE) -> BOOL;
+        extern fn ClosePrinter(#[in] hPrinter: HANDLE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn CloseSpoolFileHandle(hPrinter: HANDLE, hSpoolFile: HANDLE) -> BOOL;
+        extern fn CloseSpoolFileHandle(#[in] hPrinter: HANDLE, #[in] hSpoolFile: HANDLE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn CommitSpoolData(hPrinter: HANDLE, hSpoolFile: HANDLE, cbCommit: u32) -> HANDLE;
+        extern fn CommitSpoolData(#[in] hPrinter: HANDLE, #[in] hSpoolFile: HANDLE, cbCommit: DWORD) -> HANDLE;
         #[library("WINSPOOL.DRV")]
-        extern fn ConfigurePortA(#[opt] pName: PCSTR, hWnd: HWND, pPortName: PCSTR) -> BOOL;
+        extern fn ConfigurePortA(#[in] #[opt] pName: LPSTR, #[in] hWnd: HWND, #[in] pPortName: LPSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn ConfigurePortW(#[opt] pName: PCWSTR, hWnd: HWND, pPortName: PCWSTR) -> BOOL;
+        extern fn ConfigurePortW(#[in] #[opt] pName: LPWSTR, #[in] hWnd: HWND, #[in] pPortName: LPWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn ConnectToPrinterDlg(hwnd: HWND, Flags: u32) -> HANDLE;
+        extern fn ConnectToPrinterDlg(#[in] hwnd: HWND, Flags: DWORD) -> HANDLE;
         #[library("WINSPOOL.DRV")]
-        extern fn CorePrinterDriverInstalledA(#[opt] pszServer: PCSTR, #[opt] pszEnvironment: PCSTR, CoreDriverGUID: GUID, ftDriverDate: FILETIME, dwlDriverVersion: DWORDLONG, pbDriverInstalled: *mut BOOL) -> HRESULT;
+        extern fn CorePrinterDriverInstalledA(#[in] #[opt] pszServer: LPCSTR, #[in] #[opt] pszEnvironment: LPCSTR, #[in] CoreDriverGUID: GUID, #[in] ftDriverDate: FILETIME, #[in] dwlDriverVersion: DWORDLONG, #[out] pbDriverInstalled: *mut BOOL) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn CorePrinterDriverInstalledW(#[opt] pszServer: PCWSTR, #[opt] pszEnvironment: PCWSTR, CoreDriverGUID: GUID, ftDriverDate: FILETIME, dwlDriverVersion: DWORDLONG, pbDriverInstalled: *mut BOOL) -> HRESULT;
+        extern fn CorePrinterDriverInstalledW(#[in] #[opt] pszServer: LPCWSTR, #[in] #[opt] pszEnvironment: LPCWSTR, #[in] CoreDriverGUID: GUID, #[in] ftDriverDate: FILETIME, #[in] dwlDriverVersion: DWORDLONG, #[out] pbDriverInstalled: *mut BOOL) -> HRESULT;
         type DATATYPES_INFO_1 = DATATYPES_INFO_1A;
         struct DATATYPES_INFO_1A {
-            pName: PSTR,
+            pName: LPSTR,
         }
         struct DATATYPES_INFO_1W {
-            pName: PWSTR,
+            pName: LPWSTR,
         }
         const DEF_PRIORITY: i32 = 1;
         const DI_CHANNEL: i32 = 1;
@@ -167,236 +167,236 @@ mod Windows {
         const DI_READ_SPOOL_JOB: i32 = 3;
         type DOC_INFO_1 = DOC_INFO_1A;
         struct DOC_INFO_1A {
-            pDocName: PSTR,
-            pOutputFile: PSTR,
-            pDatatype: PSTR,
+            pDocName: LPSTR,
+            pOutputFile: LPSTR,
+            pDatatype: LPSTR,
         }
         struct DOC_INFO_1W {
-            pDocName: PWSTR,
-            pOutputFile: PWSTR,
-            pDatatype: PWSTR,
+            pDocName: LPWSTR,
+            pOutputFile: LPWSTR,
+            pDatatype: LPWSTR,
         }
         type DOC_INFO_2 = DOC_INFO_2A;
         struct DOC_INFO_2A {
-            pDocName: PSTR,
-            pOutputFile: PSTR,
-            pDatatype: PSTR,
-            dwMode: u32,
-            JobId: u32,
+            pDocName: LPSTR,
+            pOutputFile: LPSTR,
+            pDatatype: LPSTR,
+            dwMode: DWORD,
+            JobId: DWORD,
         }
         struct DOC_INFO_2W {
-            pDocName: PWSTR,
-            pOutputFile: PWSTR,
-            pDatatype: PWSTR,
-            dwMode: u32,
-            JobId: u32,
+            pDocName: LPWSTR,
+            pOutputFile: LPWSTR,
+            pDatatype: LPWSTR,
+            dwMode: DWORD,
+            JobId: DWORD,
         }
         type DOC_INFO_3 = DOC_INFO_3A;
         struct DOC_INFO_3A {
-            pDocName: PSTR,
-            pOutputFile: PSTR,
-            pDatatype: PSTR,
-            dwFlags: u32,
+            pDocName: LPSTR,
+            pOutputFile: LPSTR,
+            pDatatype: LPSTR,
+            dwFlags: DWORD,
         }
         struct DOC_INFO_3W {
-            pDocName: PWSTR,
-            pOutputFile: PWSTR,
-            pDatatype: PWSTR,
-            dwFlags: u32,
+            pDocName: LPWSTR,
+            pOutputFile: LPWSTR,
+            pDatatype: LPWSTR,
+            dwFlags: DWORD,
         }
         const DPD_DELETE_ALL_FILES: i32 = 4;
         const DPD_DELETE_SPECIFIC_VERSION: i32 = 2;
         const DPD_DELETE_UNUSED_FILES: i32 = 1;
         type DRIVER_INFO_1 = DRIVER_INFO_1A;
         struct DRIVER_INFO_1A {
-            pName: PSTR,
+            pName: LPSTR,
         }
         struct DRIVER_INFO_1W {
-            pName: PWSTR,
+            pName: LPWSTR,
         }
         type DRIVER_INFO_2 = DRIVER_INFO_2A;
         struct DRIVER_INFO_2A {
-            cVersion: u32,
-            pName: PSTR,
-            pEnvironment: PSTR,
-            pDriverPath: PSTR,
-            pDataFile: PSTR,
-            pConfigFile: PSTR,
+            cVersion: DWORD,
+            pName: LPSTR,
+            pEnvironment: LPSTR,
+            pDriverPath: LPSTR,
+            pDataFile: LPSTR,
+            pConfigFile: LPSTR,
         }
         struct DRIVER_INFO_2W {
-            cVersion: u32,
-            pName: PWSTR,
-            pEnvironment: PWSTR,
-            pDriverPath: PWSTR,
-            pDataFile: PWSTR,
-            pConfigFile: PWSTR,
+            cVersion: DWORD,
+            pName: LPWSTR,
+            pEnvironment: LPWSTR,
+            pDriverPath: LPWSTR,
+            pDataFile: LPWSTR,
+            pConfigFile: LPWSTR,
         }
         type DRIVER_INFO_3 = DRIVER_INFO_3A;
         struct DRIVER_INFO_3A {
-            cVersion: u32,
-            pName: PSTR,
-            pEnvironment: PSTR,
-            pDriverPath: PSTR,
-            pDataFile: PSTR,
-            pConfigFile: PSTR,
-            pHelpFile: PSTR,
-            pDependentFiles: PSTR,
-            pMonitorName: PSTR,
-            pDefaultDataType: PSTR,
+            cVersion: DWORD,
+            pName: LPSTR,
+            pEnvironment: LPSTR,
+            pDriverPath: LPSTR,
+            pDataFile: LPSTR,
+            pConfigFile: LPSTR,
+            pHelpFile: LPSTR,
+            pDependentFiles: LPSTR,
+            pMonitorName: LPSTR,
+            pDefaultDataType: LPSTR,
         }
         struct DRIVER_INFO_3W {
-            cVersion: u32,
-            pName: PWSTR,
-            pEnvironment: PWSTR,
-            pDriverPath: PWSTR,
-            pDataFile: PWSTR,
-            pConfigFile: PWSTR,
-            pHelpFile: PWSTR,
-            pDependentFiles: PWSTR,
-            pMonitorName: PWSTR,
-            pDefaultDataType: PWSTR,
+            cVersion: DWORD,
+            pName: LPWSTR,
+            pEnvironment: LPWSTR,
+            pDriverPath: LPWSTR,
+            pDataFile: LPWSTR,
+            pConfigFile: LPWSTR,
+            pHelpFile: LPWSTR,
+            pDependentFiles: LPWSTR,
+            pMonitorName: LPWSTR,
+            pDefaultDataType: LPWSTR,
         }
         type DRIVER_INFO_4 = DRIVER_INFO_4A;
         struct DRIVER_INFO_4A {
-            cVersion: u32,
-            pName: PSTR,
-            pEnvironment: PSTR,
-            pDriverPath: PSTR,
-            pDataFile: PSTR,
-            pConfigFile: PSTR,
-            pHelpFile: PSTR,
-            pDependentFiles: PSTR,
-            pMonitorName: PSTR,
-            pDefaultDataType: PSTR,
-            pszzPreviousNames: PSTR,
+            cVersion: DWORD,
+            pName: LPSTR,
+            pEnvironment: LPSTR,
+            pDriverPath: LPSTR,
+            pDataFile: LPSTR,
+            pConfigFile: LPSTR,
+            pHelpFile: LPSTR,
+            pDependentFiles: LPSTR,
+            pMonitorName: LPSTR,
+            pDefaultDataType: LPSTR,
+            pszzPreviousNames: LPSTR,
         }
         struct DRIVER_INFO_4W {
-            cVersion: u32,
-            pName: PWSTR,
-            pEnvironment: PWSTR,
-            pDriverPath: PWSTR,
-            pDataFile: PWSTR,
-            pConfigFile: PWSTR,
-            pHelpFile: PWSTR,
-            pDependentFiles: PWSTR,
-            pMonitorName: PWSTR,
-            pDefaultDataType: PWSTR,
-            pszzPreviousNames: PWSTR,
+            cVersion: DWORD,
+            pName: LPWSTR,
+            pEnvironment: LPWSTR,
+            pDriverPath: LPWSTR,
+            pDataFile: LPWSTR,
+            pConfigFile: LPWSTR,
+            pHelpFile: LPWSTR,
+            pDependentFiles: LPWSTR,
+            pMonitorName: LPWSTR,
+            pDefaultDataType: LPWSTR,
+            pszzPreviousNames: LPWSTR,
         }
         type DRIVER_INFO_5 = DRIVER_INFO_5A;
         struct DRIVER_INFO_5A {
-            cVersion: u32,
-            pName: PSTR,
-            pEnvironment: PSTR,
-            pDriverPath: PSTR,
-            pDataFile: PSTR,
-            pConfigFile: PSTR,
-            dwDriverAttributes: u32,
-            dwConfigVersion: u32,
-            dwDriverVersion: u32,
+            cVersion: DWORD,
+            pName: LPSTR,
+            pEnvironment: LPSTR,
+            pDriverPath: LPSTR,
+            pDataFile: LPSTR,
+            pConfigFile: LPSTR,
+            dwDriverAttributes: DWORD,
+            dwConfigVersion: DWORD,
+            dwDriverVersion: DWORD,
         }
         struct DRIVER_INFO_5W {
-            cVersion: u32,
-            pName: PWSTR,
-            pEnvironment: PWSTR,
-            pDriverPath: PWSTR,
-            pDataFile: PWSTR,
-            pConfigFile: PWSTR,
-            dwDriverAttributes: u32,
-            dwConfigVersion: u32,
-            dwDriverVersion: u32,
+            cVersion: DWORD,
+            pName: LPWSTR,
+            pEnvironment: LPWSTR,
+            pDriverPath: LPWSTR,
+            pDataFile: LPWSTR,
+            pConfigFile: LPWSTR,
+            dwDriverAttributes: DWORD,
+            dwConfigVersion: DWORD,
+            dwDriverVersion: DWORD,
         }
         type DRIVER_INFO_6 = DRIVER_INFO_6A;
         struct DRIVER_INFO_6A {
-            cVersion: u32,
-            pName: PSTR,
-            pEnvironment: PSTR,
-            pDriverPath: PSTR,
-            pDataFile: PSTR,
-            pConfigFile: PSTR,
-            pHelpFile: PSTR,
-            pDependentFiles: PSTR,
-            pMonitorName: PSTR,
-            pDefaultDataType: PSTR,
-            pszzPreviousNames: PSTR,
+            cVersion: DWORD,
+            pName: LPSTR,
+            pEnvironment: LPSTR,
+            pDriverPath: LPSTR,
+            pDataFile: LPSTR,
+            pConfigFile: LPSTR,
+            pHelpFile: LPSTR,
+            pDependentFiles: LPSTR,
+            pMonitorName: LPSTR,
+            pDefaultDataType: LPSTR,
+            pszzPreviousNames: LPSTR,
             ftDriverDate: FILETIME,
             dwlDriverVersion: DWORDLONG,
-            pszMfgName: PSTR,
-            pszOEMUrl: PSTR,
-            pszHardwareID: PSTR,
-            pszProvider: PSTR,
+            pszMfgName: LPSTR,
+            pszOEMUrl: LPSTR,
+            pszHardwareID: LPSTR,
+            pszProvider: LPSTR,
         }
         struct DRIVER_INFO_6W {
-            cVersion: u32,
-            pName: PWSTR,
-            pEnvironment: PWSTR,
-            pDriverPath: PWSTR,
-            pDataFile: PWSTR,
-            pConfigFile: PWSTR,
-            pHelpFile: PWSTR,
-            pDependentFiles: PWSTR,
-            pMonitorName: PWSTR,
-            pDefaultDataType: PWSTR,
-            pszzPreviousNames: PWSTR,
+            cVersion: DWORD,
+            pName: LPWSTR,
+            pEnvironment: LPWSTR,
+            pDriverPath: LPWSTR,
+            pDataFile: LPWSTR,
+            pConfigFile: LPWSTR,
+            pHelpFile: LPWSTR,
+            pDependentFiles: LPWSTR,
+            pMonitorName: LPWSTR,
+            pDefaultDataType: LPWSTR,
+            pszzPreviousNames: LPWSTR,
             ftDriverDate: FILETIME,
             dwlDriverVersion: DWORDLONG,
-            pszMfgName: PWSTR,
-            pszOEMUrl: PWSTR,
-            pszHardwareID: PWSTR,
-            pszProvider: PWSTR,
+            pszMfgName: LPWSTR,
+            pszOEMUrl: LPWSTR,
+            pszHardwareID: LPWSTR,
+            pszProvider: LPWSTR,
         }
         type DRIVER_INFO_8 = DRIVER_INFO_8A;
         struct DRIVER_INFO_8A {
-            cVersion: u32,
-            pName: PSTR,
-            pEnvironment: PSTR,
-            pDriverPath: PSTR,
-            pDataFile: PSTR,
-            pConfigFile: PSTR,
-            pHelpFile: PSTR,
-            pDependentFiles: PSTR,
-            pMonitorName: PSTR,
-            pDefaultDataType: PSTR,
-            pszzPreviousNames: PSTR,
+            cVersion: DWORD,
+            pName: LPSTR,
+            pEnvironment: LPSTR,
+            pDriverPath: LPSTR,
+            pDataFile: LPSTR,
+            pConfigFile: LPSTR,
+            pHelpFile: LPSTR,
+            pDependentFiles: LPSTR,
+            pMonitorName: LPSTR,
+            pDefaultDataType: LPSTR,
+            pszzPreviousNames: LPSTR,
             ftDriverDate: FILETIME,
             dwlDriverVersion: DWORDLONG,
-            pszMfgName: PSTR,
-            pszOEMUrl: PSTR,
-            pszHardwareID: PSTR,
-            pszProvider: PSTR,
-            pszPrintProcessor: PSTR,
-            pszVendorSetup: PSTR,
-            pszzColorProfiles: PSTR,
-            pszInfPath: PSTR,
-            dwPrinterDriverAttributes: u32,
-            pszzCoreDriverDependencies: PSTR,
+            pszMfgName: LPSTR,
+            pszOEMUrl: LPSTR,
+            pszHardwareID: LPSTR,
+            pszProvider: LPSTR,
+            pszPrintProcessor: LPSTR,
+            pszVendorSetup: LPSTR,
+            pszzColorProfiles: LPSTR,
+            pszInfPath: LPSTR,
+            dwPrinterDriverAttributes: DWORD,
+            pszzCoreDriverDependencies: LPSTR,
             ftMinInboxDriverVerDate: FILETIME,
             dwlMinInboxDriverVerVersion: DWORDLONG,
         }
         struct DRIVER_INFO_8W {
-            cVersion: u32,
-            pName: PWSTR,
-            pEnvironment: PWSTR,
-            pDriverPath: PWSTR,
-            pDataFile: PWSTR,
-            pConfigFile: PWSTR,
-            pHelpFile: PWSTR,
-            pDependentFiles: PWSTR,
-            pMonitorName: PWSTR,
-            pDefaultDataType: PWSTR,
-            pszzPreviousNames: PWSTR,
+            cVersion: DWORD,
+            pName: LPWSTR,
+            pEnvironment: LPWSTR,
+            pDriverPath: LPWSTR,
+            pDataFile: LPWSTR,
+            pConfigFile: LPWSTR,
+            pHelpFile: LPWSTR,
+            pDependentFiles: LPWSTR,
+            pMonitorName: LPWSTR,
+            pDefaultDataType: LPWSTR,
+            pszzPreviousNames: LPWSTR,
             ftDriverDate: FILETIME,
             dwlDriverVersion: DWORDLONG,
-            pszMfgName: PWSTR,
-            pszOEMUrl: PWSTR,
-            pszHardwareID: PWSTR,
-            pszProvider: PWSTR,
-            pszPrintProcessor: PWSTR,
-            pszVendorSetup: PWSTR,
-            pszzColorProfiles: PWSTR,
-            pszInfPath: PWSTR,
-            dwPrinterDriverAttributes: u32,
-            pszzCoreDriverDependencies: PWSTR,
+            pszMfgName: LPWSTR,
+            pszOEMUrl: LPWSTR,
+            pszHardwareID: LPWSTR,
+            pszProvider: LPWSTR,
+            pszPrintProcessor: LPWSTR,
+            pszVendorSetup: LPWSTR,
+            pszzColorProfiles: LPWSTR,
+            pszInfPath: LPWSTR,
+            dwPrinterDriverAttributes: DWORD,
+            pszzCoreDriverDependencies: LPWSTR,
             ftMinInboxDriverVerDate: FILETIME,
             dwlMinInboxDriverVerVersion: DWORDLONG,
         }
@@ -408,61 +408,63 @@ mod Windows {
         const DSPRINT_UNPUBLISH: i32 = 4;
         const DSPRINT_UPDATE: i32 = 2;
         #[library("WINSPOOL.DRV")]
-        extern fn DeleteFormA(hPrinter: HANDLE, pFormName: PCSTR) -> BOOL;
+        extern fn DeleteFormA(#[in] hPrinter: HANDLE, #[in] pFormName: LPSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeleteFormW(hPrinter: HANDLE, pFormName: PCWSTR) -> BOOL;
+        extern fn DeleteFormW(#[in] hPrinter: HANDLE, #[in] pFormName: LPWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeleteJobNamedProperty(hPrinter: HANDLE, JobId: u32, pszName: PCWSTR) -> u32;
+        extern fn DeleteJobNamedProperty(#[in] hPrinter: HANDLE, #[in] JobId: DWORD, #[in] pszName: PCWSTR) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn DeleteMonitorA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, pMonitorName: PCSTR) -> BOOL;
+        extern fn DeleteMonitorA(#[in] #[opt] pName: LPSTR, #[in] #[opt] pEnvironment: LPSTR, #[in] pMonitorName: LPSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeleteMonitorW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, pMonitorName: PCWSTR) -> BOOL;
+        extern fn DeleteMonitorW(#[in] #[opt] pName: LPWSTR, #[in] #[opt] pEnvironment: LPWSTR, #[in] pMonitorName: LPWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePortA(#[opt] pName: PCSTR, hWnd: HWND, pPortName: PCSTR) -> BOOL;
+        extern fn DeletePortA(#[in] #[opt] pName: LPSTR, #[in] hWnd: HWND, #[in] pPortName: LPSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePortW(#[opt] pName: PCWSTR, hWnd: HWND, pPortName: PCWSTR) -> BOOL;
+        extern fn DeletePortW(#[in] #[opt] pName: LPWSTR, #[in] hWnd: HWND, #[in] pPortName: LPWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrintProcessorA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, pPrintProcessorName: PCSTR) -> BOOL;
+        extern fn DeletePrintProcessorA(#[in] #[opt] pName: LPSTR, #[in] #[opt] pEnvironment: LPSTR, #[in] pPrintProcessorName: LPSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrintProcessorW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, pPrintProcessorName: PCWSTR) -> BOOL;
+        extern fn DeletePrintProcessorW(#[in] #[opt] pName: LPWSTR, #[in] #[opt] pEnvironment: LPWSTR, #[in] pPrintProcessorName: LPWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrintProvidorA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, pPrintProvidorName: PCSTR) -> BOOL;
+        extern fn DeletePrintProvidorA(#[in] #[opt] pName: LPSTR, #[in] #[opt] pEnvironment: LPSTR, #[in] pPrintProvidorName: LPSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrintProvidorW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, pPrintProvidorName: PCWSTR) -> BOOL;
+        extern fn DeletePrintProvidorW(#[in] #[opt] pName: LPWSTR, #[in] #[opt] pEnvironment: LPWSTR, #[in] pPrintProvidorName: LPWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
         extern fn DeletePrinter(#[in] #[out] hPrinter: HANDLE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterConnectionA(pName: PCSTR) -> BOOL;
+        extern fn DeletePrinterConnectionA(#[in] pName: LPSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterConnectionW(pName: PCWSTR) -> BOOL;
+        extern fn DeletePrinterConnectionW(#[in] pName: LPWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterDataA(hPrinter: HANDLE, pValueName: PCSTR) -> u32;
+        extern fn DeletePrinterDataA(#[in] hPrinter: HANDLE, #[in] pValueName: LPSTR) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterDataExA(hPrinter: HANDLE, pKeyName: PCSTR, pValueName: PCSTR) -> u32;
+        extern fn DeletePrinterDataExA(#[in] hPrinter: HANDLE, #[in] pKeyName: LPCSTR, #[in] pValueName: LPCSTR) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterDataExW(hPrinter: HANDLE, pKeyName: PCWSTR, pValueName: PCWSTR) -> u32;
+        extern fn DeletePrinterDataExW(#[in] hPrinter: HANDLE, #[in] pKeyName: LPCWSTR, #[in] pValueName: LPCWSTR) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterDataW(hPrinter: HANDLE, pValueName: PCWSTR) -> u32;
+        extern fn DeletePrinterDataW(#[in] hPrinter: HANDLE, #[in] pValueName: LPWSTR) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterDriverA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, pDriverName: PCSTR) -> BOOL;
+        extern fn DeletePrinterDriverA(#[in] #[opt] pName: LPSTR, #[in] #[opt] pEnvironment: LPSTR, #[in] pDriverName: LPSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterDriverExA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, pDriverName: PCSTR, dwDeleteFlag: u32, dwVersionFlag: u32) -> BOOL;
+        extern fn DeletePrinterDriverExA(#[in] #[opt] pName: LPSTR, #[in] #[opt] pEnvironment: LPSTR, #[in] pDriverName: LPSTR, dwDeleteFlag: DWORD, dwVersionFlag: DWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterDriverExW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, pDriverName: PCWSTR, dwDeleteFlag: u32, dwVersionFlag: u32) -> BOOL;
+        extern fn DeletePrinterDriverExW(#[in] #[opt] pName: LPWSTR, #[in] #[opt] pEnvironment: LPWSTR, #[in] pDriverName: LPWSTR, dwDeleteFlag: DWORD, dwVersionFlag: DWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterDriverPackageA(#[opt] pszServer: PCSTR, pszInfPath: PCSTR, #[opt] pszEnvironment: PCSTR) -> HRESULT;
+        extern fn DeletePrinterDriverPackageA(#[in] #[opt] pszServer: LPCSTR, #[in] pszInfPath: LPCSTR, #[in] #[opt] pszEnvironment: LPCSTR) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterDriverPackageW(#[opt] pszServer: PCWSTR, pszInfPath: PCWSTR, #[opt] pszEnvironment: PCWSTR) -> HRESULT;
+        extern fn DeletePrinterDriverPackageW(#[in] #[opt] pszServer: LPCWSTR, #[in] pszInfPath: LPCWSTR, #[in] #[opt] pszEnvironment: LPCWSTR) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterDriverW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, pDriverName: PCWSTR) -> BOOL;
+        extern fn DeletePrinterDriverW(#[in] #[opt] pName: LPWSTR, #[in] #[opt] pEnvironment: LPWSTR, #[in] pDriverName: LPWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterKeyA(hPrinter: HANDLE, pKeyName: PCSTR) -> u32;
+        extern fn DeletePrinterKeyA(#[in] hPrinter: HANDLE, #[in] pKeyName: LPCSTR) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn DeletePrinterKeyW(hPrinter: HANDLE, pKeyName: PCWSTR) -> u32;
+        extern fn DeletePrinterKeyW(#[in] hPrinter: HANDLE, #[in] pKeyName: LPCWSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "fMode == 0,_Post_satisfies_(return >= sizeof(DEVMODE))", "fMode == 0, _Post_satisfies_(return >= sizeof(DEVMODE))")]
         #[library("WINSPOOL.DRV")]
-        extern fn DocumentPropertiesA(#[opt] hWnd: HWND, hPrinter: HANDLE, pDeviceName: PCSTR, #[out] #[opt] pDevModeOutput: PDEVMODEA, #[opt] pDevModeInput: PDEVMODEA, fMode: u32) -> i32;
+        extern fn DocumentPropertiesA(#[in] #[opt] hWnd: HWND, #[in] hPrinter: HANDLE, #[in] pDeviceName: LPSTR, #[out] #[opt] pDevModeOutput: PDEVMODEA, #[in] #[opt] pDevModeInput: PDEVMODEA, fMode: DWORD) -> LONG;
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "fMode == 0,_Post_satisfies_(return >= sizeof(DEVMODE))", "fMode == 0, _Post_satisfies_(return >= sizeof(DEVMODE))")]
         #[library("WINSPOOL.DRV")]
-        extern fn DocumentPropertiesW(#[opt] hWnd: HWND, hPrinter: HANDLE, pDeviceName: PCWSTR, #[out] #[opt] pDevModeOutput: PDEVMODEW, #[opt] pDevModeInput: PDEVMODEW, fMode: u32) -> i32;
+        extern fn DocumentPropertiesW(#[in] #[opt] hWnd: HWND, #[in] hPrinter: HANDLE, #[in] pDeviceName: LPWSTR, #[out] #[opt] pDevModeOutput: PDEVMODEW, #[in] #[opt] pDevModeInput: PDEVMODEW, fMode: DWORD) -> LONG;
         #[repr(i32)]
         enum EPrintPropertyType {
             kPropertyTypeString = 1,
@@ -516,177 +518,185 @@ mod Windows {
         const ERROR_BIDI_UNSUPPORTED_CLIENT_LANGUAGE: i32 = 13017;
         const ERROR_BIDI_UNSUPPORTED_RESOURCE_FORMAT: i32 = 13018;
         #[library("WINSPOOL.DRV")]
-        extern fn EndDocPrinter(hPrinter: HANDLE) -> BOOL;
+        extern fn EndDocPrinter(#[in] hPrinter: HANDLE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EndPagePrinter(hPrinter: HANDLE) -> BOOL;
+        extern fn EndPagePrinter(#[in] hPrinter: HANDLE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumFormsA(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[out] #[opt] pForm: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumFormsA(#[in] hPrinter: HANDLE, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pForm: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumFormsW(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[out] #[opt] pForm: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumFormsW(#[in] hPrinter: HANDLE, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pForm: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumJobNamedProperties(hPrinter: HANDLE, JobId: u32, pcProperties: *mut u32, ppProperties: *mut *mut PrintNamedProperty) -> u32;
+        extern fn EnumJobNamedProperties(#[in] hPrinter: HANDLE, #[in] JobId: DWORD, #[out] pcProperties: *mut DWORD, #[out] #[writable(success, *pcProperties, indirect)] ppProperties: *mut *mut PrintNamedProperty) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumJobsA(hPrinter: HANDLE, FirstJob: u32, NoJobs: u32, Level: u32, #[size_param(5)] #[out] #[opt] pJob: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumJobsA(#[in] hPrinter: HANDLE, FirstJob: DWORD, NoJobs: DWORD, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pJob: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumJobsW(hPrinter: HANDLE, FirstJob: u32, NoJobs: u32, Level: u32, #[size_param(5)] #[out] #[opt] pJob: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumJobsW(#[in] hPrinter: HANDLE, FirstJob: DWORD, NoJobs: DWORD, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pJob: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumMonitorsA(#[opt] pName: PCSTR, Level: u32, #[size_param(3)] #[out] #[opt] pMonitor: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumMonitorsA(#[in] #[opt] pName: LPSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pMonitor: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumMonitorsW(#[opt] pName: PCWSTR, Level: u32, #[size_param(3)] #[out] #[opt] pMonitor: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumMonitorsW(#[in] #[opt] pName: LPWSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pMonitor: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPortsA(#[opt] pName: PCSTR, Level: u32, #[size_param(3)] #[out] #[opt] pPort: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumPortsA(#[in] #[opt] pName: LPSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pPort: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPortsW(#[opt] pName: PCWSTR, Level: u32, #[size_param(3)] #[out] #[opt] pPort: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumPortsW(#[in] #[opt] pName: LPWSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pPort: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        #[success(return != 0)]
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrintProcessorDatatypesA(#[opt] pName: PCSTR, pPrintProcessorName: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDatatypes: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumPrintProcessorDatatypesA(#[in] #[opt] pName: LPSTR, #[in] pPrintProcessorName: LPSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pDatatypes: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        #[success(return != 0)]
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrintProcessorDatatypesW(#[opt] pName: PCWSTR, pPrintProcessorName: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDatatypes: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumPrintProcessorDatatypesW(#[in] #[opt] pName: LPWSTR, #[in] pPrintProcessorName: LPWSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pDatatypes: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrintProcessorsA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pPrintProcessorInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumPrintProcessorsA(#[in] #[opt] pName: LPSTR, #[in] #[opt] pEnvironment: LPSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pPrintProcessorInfo: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrintProcessorsW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pPrintProcessorInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumPrintProcessorsW(#[in] #[opt] pName: LPWSTR, #[in] #[opt] pEnvironment: LPWSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pPrintProcessorInfo: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterDataA(hPrinter: HANDLE, dwIndex: u32, #[size_param(3)] #[out] pValueName: PSTR, cbValueName: u32, #[out] pcbValueName: LPDWORD, #[out] #[opt] pType: LPDWORD, #[len_param(7)] #[out] #[opt] pData: LPBYTE, cbData: u32, #[out] #[opt] pcbData: LPDWORD) -> u32;
+        extern fn EnumPrinterDataA(#[in] hPrinter: HANDLE, dwIndex: DWORD, #[out] #[writable(entry, bytes(cbValueName))] pValueName: LPSTR, cbValueName: DWORD, #[out] pcbValueName: LPDWORD, #[out] #[opt] pType: LPDWORD, #[out] #[opt] #[writable(entry, cbData)] #[readable(success, if_present(*pcbData))] pData: LPBYTE, cbData: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "pData != NULL,_Pre_notnull_", "pData != 0, _Pre_notnull_")] #[out] #[opt] pcbData: LPDWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterDataExA(hPrinter: HANDLE, pKeyName: PCSTR, #[size_param(3)] #[out] #[opt] pEnumValues: LPBYTE, cbEnumValues: u32, #[out] pcbEnumValues: LPDWORD, #[out] pnEnumValues: LPDWORD) -> u32;
+        extern fn EnumPrinterDataExA(#[in] hPrinter: HANDLE, #[in] pKeyName: LPCSTR, #[out] #[opt] #[writable(entry, bytes(cbEnumValues))] pEnumValues: LPBYTE, cbEnumValues: DWORD, #[out] pcbEnumValues: LPDWORD, #[out] pnEnumValues: LPDWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterDataExW(hPrinter: HANDLE, pKeyName: PCWSTR, #[size_param(3)] #[out] #[opt] pEnumValues: LPBYTE, cbEnumValues: u32, #[out] pcbEnumValues: LPDWORD, #[out] pnEnumValues: LPDWORD) -> u32;
+        extern fn EnumPrinterDataExW(#[in] hPrinter: HANDLE, #[in] pKeyName: LPCWSTR, #[out] #[opt] #[writable(entry, bytes(cbEnumValues))] pEnumValues: LPBYTE, cbEnumValues: DWORD, #[out] pcbEnumValues: LPDWORD, #[out] pnEnumValues: LPDWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterDataW(hPrinter: HANDLE, dwIndex: u32, #[size_param(3)] #[out] pValueName: PWSTR, cbValueName: u32, #[out] pcbValueName: LPDWORD, #[out] #[opt] pType: LPDWORD, #[len_param(7)] #[out] #[opt] pData: LPBYTE, cbData: u32, #[out] #[opt] pcbData: LPDWORD) -> u32;
+        extern fn EnumPrinterDataW(#[in] hPrinter: HANDLE, dwIndex: DWORD, #[out] #[writable(entry, bytes(cbValueName))] pValueName: LPWSTR, cbValueName: DWORD, #[out] pcbValueName: LPDWORD, #[out] #[opt] pType: LPDWORD, #[out] #[opt] #[writable(entry, cbData)] #[readable(success, if_present(*pcbData))] pData: LPBYTE, cbData: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "pData != NULL,_Pre_notnull_", "pData != 0, _Pre_notnull_")] #[out] #[opt] pcbData: LPDWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterDriversA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDriverInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumPrinterDriversA(#[in] #[opt] pName: LPSTR, #[in] #[opt] pEnvironment: LPSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pDriverInfo: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterDriversW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDriverInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumPrinterDriversW(#[in] #[opt] pName: LPWSTR, #[in] #[opt] pEnvironment: LPWSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pDriverInfo: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterKeyA(hPrinter: HANDLE, pKeyName: PCSTR, #[size_param(3)] #[out] #[opt] pSubkey: PSTR, cbSubkey: u32, #[out] pcbSubkey: LPDWORD) -> u32;
+        extern fn EnumPrinterKeyA(#[in] hPrinter: HANDLE, #[in] pKeyName: LPCSTR, #[out] #[opt] #[writable(entry, bytes(cbSubkey))] pSubkey: LPSTR, cbSubkey: DWORD, #[out] pcbSubkey: LPDWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrinterKeyW(hPrinter: HANDLE, pKeyName: PCWSTR, #[size_param(3)] #[out] #[opt] pSubkey: PWSTR, cbSubkey: u32, #[out] pcbSubkey: LPDWORD) -> u32;
+        extern fn EnumPrinterKeyW(#[in] hPrinter: HANDLE, #[in] pKeyName: LPCWSTR, #[out] #[opt] #[writable(entry, bytes(cbSubkey))] pSubkey: LPWSTR, cbSubkey: DWORD, #[out] pcbSubkey: LPDWORD) -> DWORD;
+        #[success(return != 0)]
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrintersA(Flags: u32, #[opt] Name: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pPrinterEnum: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumPrintersA(#[in] Flags: DWORD, #[in] #[opt] Name: LPSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] #[readable(success, bytes(*pcbNeeded))] pPrinterEnum: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        #[success(return != 0)]
         #[library("WINSPOOL.DRV")]
-        extern fn EnumPrintersW(Flags: u32, #[opt] Name: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pPrinterEnum: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
+        extern fn EnumPrintersW(#[in] Flags: DWORD, #[in] #[opt] Name: LPWSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] #[readable(success, bytes(*pcbNeeded))] pPrinterEnum: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD, #[out] pcReturned: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern "C" fn ExtDeviceMode(#[opt] hWnd: HWND, #[opt] hInst: HANDLE, #[in] #[out] #[opt] pDevModeOutput: LPDEVMODEA, #[opt] pDeviceName: PCSTR, #[opt] pPort: PCSTR, #[opt] pDevModeInput: LPDEVMODEA, #[opt] pProfile: PCSTR, fMode: u32) -> i32;
+        #[arch(X64 | Arm64)]
+        extern "C" fn ExtDeviceMode(#[in] #[opt] hWnd: HWND, #[in] #[opt] hInst: HANDLE, #[in] #[out] #[opt] pDevModeOutput: LPDEVMODEA, #[in] #[opt] pDeviceName: LPSTR, #[in] #[opt] pPort: LPSTR, #[in] #[opt] pDevModeInput: LPDEVMODEA, #[in] #[opt] pProfile: LPSTR, fMode: DWORD) -> LONG;
+        #[library("WINSPOOL.DRV")]
+        #[arch(X86)]
+        extern fn ExtDeviceMode(#[in] #[opt] hWnd: HWND, #[in] #[opt] hInst: HANDLE, #[in] #[out] #[opt] pDevModeOutput: LPDEVMODEA, #[in] #[opt] pDeviceName: LPSTR, #[in] #[opt] pPort: LPSTR, #[in] #[opt] pDevModeInput: LPDEVMODEA, #[in] #[opt] pProfile: LPSTR, fMode: DWORD) -> LONG;
         const FORM_BUILTIN: i32 = 1;
         type FORM_INFO_1 = FORM_INFO_1A;
         struct FORM_INFO_1A {
-            Flags: u32,
-            pName: PSTR,
+            Flags: DWORD,
+            pName: LPSTR,
             Size: SIZEL,
             ImageableArea: RECTL,
         }
         struct FORM_INFO_1W {
-            Flags: u32,
-            pName: PWSTR,
+            Flags: DWORD,
+            pName: LPWSTR,
             Size: SIZEL,
             ImageableArea: RECTL,
         }
         type FORM_INFO_2 = FORM_INFO_2A;
         struct FORM_INFO_2A {
-            Flags: u32,
-            pName: PCSTR,
+            Flags: DWORD,
+            pName: LPCSTR,
             Size: SIZEL,
             ImageableArea: RECTL,
-            pKeyword: PCSTR,
-            StringType: u32,
-            pMuiDll: PCSTR,
-            dwResourceId: u32,
-            pDisplayName: PCSTR,
+            pKeyword: LPCSTR,
+            StringType: DWORD,
+            pMuiDll: LPCSTR,
+            dwResourceId: DWORD,
+            pDisplayName: LPCSTR,
             wLangId: LANGID,
         }
         struct FORM_INFO_2W {
-            Flags: u32,
-            pName: PCWSTR,
+            Flags: DWORD,
+            pName: LPCWSTR,
             Size: SIZEL,
             ImageableArea: RECTL,
-            pKeyword: PCSTR,
-            StringType: u32,
-            pMuiDll: PCWSTR,
-            dwResourceId: u32,
-            pDisplayName: PCWSTR,
+            pKeyword: LPCSTR,
+            StringType: DWORD,
+            pMuiDll: LPCWSTR,
+            dwResourceId: DWORD,
+            pDisplayName: LPCWSTR,
             wLangId: LANGID,
         }
         const FORM_PRINTER: i32 = 2;
         const FORM_USER: i32 = 0;
         #[library("WINSPOOL.DRV")]
-        extern fn FindClosePrinterChangeNotification(hChange: HANDLE) -> BOOL;
+        extern fn FindClosePrinterChangeNotification(#[in] hChange: HANDLE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn FindFirstPrinterChangeNotification(hPrinter: HANDLE, fdwFilter: u32, fdwOptions: u32, #[in] #[opt] pPrinterNotifyOptions: *mut void) -> HANDLE;
+        extern fn FindFirstPrinterChangeNotification(#[in] hPrinter: HANDLE, fdwFilter: DWORD, fdwOptions: DWORD, #[in] #[opt] pPrinterNotifyOptions: PVOID) -> HANDLE;
         #[library("WINSPOOL.DRV")]
-        extern fn FindNextPrinterChangeNotification(hChange: HANDLE, #[out] #[opt] pdwChange: PDWORD, #[in] #[opt] pvReserved: *mut void, #[opt] ppPrinterNotifyInfo: *mut *mut void) -> BOOL;
+        extern fn FindNextPrinterChangeNotification(#[in] hChange: HANDLE, #[out] #[opt] pdwChange: PDWORD, #[in] #[opt] pvReserved: LPVOID, #[out] #[opt] ppPrinterNotifyInfo: *mut LPVOID) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn FlushPrinter(hPrinter: HANDLE, #[size_param(2)] #[in] #[opt] pBuf: *mut void, cbBuf: u32, #[out] pcWritten: LPDWORD, cSleep: u32) -> BOOL;
+        extern fn FlushPrinter(#[in] hPrinter: HANDLE, #[in] #[opt] #[readable(entry, bytes(cbBuf))] pBuf: LPVOID, cbBuf: DWORD, #[out] pcWritten: LPDWORD, cSleep: DWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn FreePrintNamedPropertyArray(cProperties: u32, #[in] #[out] #[opt] ppProperties: *mut *mut PrintNamedProperty);
+        extern fn FreePrintNamedPropertyArray(#[in] cProperties: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*ppProperties,_Pre_readable_size_(cProperties) _Post_null_", "*ppProperties, _Pre_readable_size_(cProperties) _Post_null_")] #[in] #[out] #[opt] ppProperties: *mut *mut PrintNamedProperty);
         #[library("WINSPOOL.DRV")]
         extern fn FreePrintPropertyValue(#[in] #[out] pValue: *mut PrintPropertyValue);
         #[library("WINSPOOL.DRV")]
-        extern fn FreePrinterNotifyInfo(pPrinterNotifyInfo: PPRINTER_NOTIFY_INFO) -> BOOL;
+        extern fn FreePrinterNotifyInfo(#[in] pPrinterNotifyInfo: PPRINTER_NOTIFY_INFO) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetCorePrinterDriversA(#[opt] pszServer: PCSTR, #[opt] pszEnvironment: PCSTR, pszzCoreDriverDependencies: PCSTR, cCorePrinterDrivers: u32, #[len_param(3)] #[out] pCorePrinterDrivers: PCORE_PRINTER_DRIVERA) -> HRESULT;
+        extern fn GetCorePrinterDriversA(#[in] #[opt] pszServer: LPCSTR, #[in] #[opt] pszEnvironment: LPCSTR, #[in] pszzCoreDriverDependencies: LPCSTR, #[in] cCorePrinterDrivers: DWORD, #[out] #[writable(entry, cCorePrinterDrivers)] pCorePrinterDrivers: PCORE_PRINTER_DRIVERA) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn GetCorePrinterDriversW(#[opt] pszServer: PCWSTR, #[opt] pszEnvironment: PCWSTR, pszzCoreDriverDependencies: PCWSTR, cCorePrinterDrivers: u32, #[len_param(3)] #[out] pCorePrinterDrivers: PCORE_PRINTER_DRIVERW) -> HRESULT;
+        extern fn GetCorePrinterDriversW(#[in] #[opt] pszServer: LPCWSTR, #[in] #[opt] pszEnvironment: LPCWSTR, #[in] pszzCoreDriverDependencies: LPCWSTR, #[in] cCorePrinterDrivers: DWORD, #[out] #[writable(entry, cCorePrinterDrivers)] pCorePrinterDrivers: PCORE_PRINTER_DRIVERW) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn GetDefaultPrinterA(#[len_param(1)] #[out] #[opt] pszBuffer: PSTR, #[in] #[out] pcchBuffer: LPDWORD) -> BOOL;
+        extern fn GetDefaultPrinterA(#[out] #[opt] #[writable(entry, *pcchBuffer)] pszBuffer: LPSTR, #[in] #[out] pcchBuffer: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetDefaultPrinterW(#[len_param(1)] #[out] #[opt] pszBuffer: PWSTR, #[in] #[out] pcchBuffer: LPDWORD) -> BOOL;
+        extern fn GetDefaultPrinterW(#[out] #[opt] #[writable(entry, *pcchBuffer)] pszBuffer: LPWSTR, #[in] #[out] pcchBuffer: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetFormA(hPrinter: HANDLE, pFormName: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pForm: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetFormA(#[in] hPrinter: HANDLE, #[in] pFormName: LPSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pForm: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetFormW(hPrinter: HANDLE, pFormName: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pForm: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetFormW(#[in] hPrinter: HANDLE, #[in] pFormName: LPWSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pForm: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetJobA(hPrinter: HANDLE, JobId: u32, Level: u32, #[size_param(4)] #[out] #[opt] pJob: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetJobA(#[in] hPrinter: HANDLE, JobId: DWORD, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pJob: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetJobNamedPropertyValue(hPrinter: HANDLE, JobId: u32, pszName: PCWSTR, pValue: *mut PrintPropertyValue) -> u32;
+        extern fn GetJobNamedPropertyValue(#[in] hPrinter: HANDLE, #[in] JobId: DWORD, #[in] pszName: PCWSTR, #[out] pValue: *mut PrintPropertyValue) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn GetJobW(hPrinter: HANDLE, JobId: u32, Level: u32, #[size_param(4)] #[out] #[opt] pJob: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetJobW(#[in] hPrinter: HANDLE, JobId: DWORD, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pJob: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrintExecutionData(pData: *mut PRINT_EXECUTION_DATA) -> BOOL;
+        extern fn GetPrintExecutionData(#[out] pData: *mut PRINT_EXECUTION_DATA) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrintOutputInfo(hWnd: HWND, pszPrinter: PCWSTR, phFile: *mut HANDLE, ppszOutputFile: *mut PWSTR) -> HRESULT;
+        extern fn GetPrintOutputInfo(#[in] hWnd: HWND, #[in] pszPrinter: PCWSTR, #[out] #[out_ptr] phFile: *mut HANDLE, #[out] #[out_ptr] ppszOutputFile: *mut PWSTR) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrintProcessorDirectoryA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pPrintProcessorInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetPrintProcessorDirectoryA(#[in] #[opt] pName: LPSTR, #[in] #[opt] pEnvironment: LPSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pPrintProcessorInfo: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrintProcessorDirectoryW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pPrintProcessorInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetPrintProcessorDirectoryW(#[in] #[opt] pName: LPWSTR, #[in] #[opt] pEnvironment: LPWSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pPrintProcessorInfo: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterA(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[out] #[opt] pPrinter: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetPrinterA(#[in] hPrinter: HANDLE, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pPrinter: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDataA(hPrinter: HANDLE, pValueName: PCSTR, #[out] #[opt] pType: LPDWORD, #[size_param(4)] #[out] #[opt] pData: LPBYTE, nSize: u32, #[out] pcbNeeded: LPDWORD) -> u32;
+        extern fn GetPrinterDataA(#[in] hPrinter: HANDLE, #[in] pValueName: LPSTR, #[out] #[opt] pType: LPDWORD, #[out] #[opt] #[writable(entry, bytes(nSize))] pData: LPBYTE, nSize: DWORD, #[out] pcbNeeded: LPDWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDataExA(hPrinter: HANDLE, pKeyName: PCSTR, pValueName: PCSTR, #[out] #[opt] pType: LPDWORD, #[size_param(5)] #[out] #[opt] pData: LPBYTE, nSize: u32, #[out] pcbNeeded: LPDWORD) -> u32;
+        extern fn GetPrinterDataExA(#[in] hPrinter: HANDLE, #[in] pKeyName: LPCSTR, #[in] pValueName: LPCSTR, #[out] #[opt] pType: LPDWORD, #[out] #[opt] #[writable(entry, bytes(nSize))] pData: LPBYTE, nSize: DWORD, #[out] pcbNeeded: LPDWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDataExW(hPrinter: HANDLE, pKeyName: PCWSTR, pValueName: PCWSTR, #[out] #[opt] pType: LPDWORD, #[size_param(5)] #[out] #[opt] pData: LPBYTE, nSize: u32, #[out] pcbNeeded: LPDWORD) -> u32;
+        extern fn GetPrinterDataExW(#[in] hPrinter: HANDLE, #[in] pKeyName: LPCWSTR, #[in] pValueName: LPCWSTR, #[out] #[opt] pType: LPDWORD, #[out] #[opt] #[writable(entry, bytes(nSize))] pData: LPBYTE, nSize: DWORD, #[out] pcbNeeded: LPDWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDataW(hPrinter: HANDLE, pValueName: PCWSTR, #[out] #[opt] pType: LPDWORD, #[size_param(4)] #[out] #[opt] pData: LPBYTE, nSize: u32, #[out] pcbNeeded: LPDWORD) -> u32;
+        extern fn GetPrinterDataW(#[in] hPrinter: HANDLE, #[in] pValueName: LPWSTR, #[out] #[opt] pType: LPDWORD, #[out] #[opt] #[writable(entry, bytes(nSize))] pData: LPBYTE, nSize: DWORD, #[out] pcbNeeded: LPDWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriver2A(#[opt] hWnd: HWND, hPrinter: HANDLE, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(5)] #[out] #[opt] pDriverInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetPrinterDriver2A(#[in] #[opt] hWnd: HWND, #[in] hPrinter: HANDLE, #[in] #[opt] pEnvironment: LPSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pDriverInfo: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriver2W(#[opt] hWnd: HWND, hPrinter: HANDLE, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(5)] #[out] #[opt] pDriverInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetPrinterDriver2W(#[in] #[opt] hWnd: HWND, #[in] hPrinter: HANDLE, #[in] #[opt] pEnvironment: LPWSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pDriverInfo: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriverA(hPrinter: HANDLE, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDriverInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetPrinterDriverA(#[in] hPrinter: HANDLE, #[in] #[opt] pEnvironment: LPSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pDriverInfo: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriverDirectoryA(#[opt] pName: PCSTR, #[opt] pEnvironment: PCSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDriverDirectory: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetPrinterDriverDirectoryA(#[in] #[opt] pName: LPSTR, #[in] #[opt] pEnvironment: LPSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pDriverDirectory: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriverDirectoryW(#[opt] pName: PCWSTR, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDriverDirectory: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetPrinterDriverDirectoryW(#[in] #[opt] pName: LPWSTR, #[in] #[opt] pEnvironment: LPWSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pDriverDirectory: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriverPackagePathA(#[opt] pszServer: PCSTR, #[opt] pszEnvironment: PCSTR, #[opt] pszLanguage: PCSTR, pszPackageID: PCSTR, #[len_param(5)] #[in] #[out] #[opt] pszDriverPackageCab: PSTR, #[opt] cchDriverPackageCab: u32, #[out] pcchRequiredSize: LPDWORD) -> HRESULT;
+        extern fn GetPrinterDriverPackagePathA(#[in] #[opt] pszServer: LPCSTR, #[in] #[opt] pszEnvironment: LPCSTR, #[in] #[opt] pszLanguage: LPCSTR, #[in] pszPackageID: LPCSTR, #[in] #[out] #[opt] #[writable(entry, cchDriverPackageCab)] pszDriverPackageCab: LPSTR, #[in] #[opt] cchDriverPackageCab: DWORD, #[out] pcchRequiredSize: LPDWORD) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriverPackagePathW(#[opt] pszServer: PCWSTR, #[opt] pszEnvironment: PCWSTR, #[opt] pszLanguage: PCWSTR, pszPackageID: PCWSTR, #[len_param(5)] #[in] #[out] #[opt] pszDriverPackageCab: PWSTR, #[opt] cchDriverPackageCab: u32, #[out] pcchRequiredSize: LPDWORD) -> HRESULT;
+        extern fn GetPrinterDriverPackagePathW(#[in] #[opt] pszServer: LPCWSTR, #[in] #[opt] pszEnvironment: LPCWSTR, #[in] #[opt] pszLanguage: LPCWSTR, #[in] pszPackageID: LPCWSTR, #[in] #[out] #[opt] #[writable(entry, cchDriverPackageCab)] pszDriverPackageCab: LPWSTR, #[in] #[opt] cchDriverPackageCab: DWORD, #[out] pcchRequiredSize: LPDWORD) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterDriverW(hPrinter: HANDLE, #[opt] pEnvironment: PCWSTR, Level: u32, #[size_param(4)] #[out] #[opt] pDriverInfo: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetPrinterDriverW(#[in] hPrinter: HANDLE, #[in] #[opt] pEnvironment: LPWSTR, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pDriverInfo: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetPrinterW(hPrinter: HANDLE, Level: u32, #[size_param(3)] #[out] #[opt] pPrinter: LPBYTE, cbBuf: u32, #[out] pcbNeeded: LPDWORD) -> BOOL;
+        extern fn GetPrinterW(#[in] hPrinter: HANDLE, Level: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBuf))] pPrinter: LPBYTE, cbBuf: DWORD, #[out] pcbNeeded: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn GetSpoolFileHandle(hPrinter: HANDLE) -> HANDLE;
+        extern fn GetSpoolFileHandle(#[in] hPrinter: HANDLE) -> HANDLE;
         const IPDFP_COPY_ALL_FILES: i32 = 1;
         #[library("WINSPOOL.DRV")]
-        extern fn InstallPrinterDriverFromPackageA(#[opt] pszServer: PCSTR, #[opt] pszInfPath: PCSTR, pszDriverName: PCSTR, #[opt] pszEnvironment: PCSTR, dwFlags: u32) -> HRESULT;
+        extern fn InstallPrinterDriverFromPackageA(#[in] #[opt] pszServer: LPCSTR, #[in] #[opt] pszInfPath: LPCSTR, #[in] pszDriverName: LPCSTR, #[in] #[opt] pszEnvironment: LPCSTR, #[in] dwFlags: DWORD) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn InstallPrinterDriverFromPackageW(#[opt] pszServer: PCWSTR, #[opt] pszInfPath: PCWSTR, pszDriverName: PCWSTR, #[opt] pszEnvironment: PCWSTR, dwFlags: u32) -> HRESULT;
+        extern fn InstallPrinterDriverFromPackageW(#[in] #[opt] pszServer: LPCWSTR, #[in] #[opt] pszInfPath: LPCWSTR, #[in] pszDriverName: LPCWSTR, #[in] #[opt] pszEnvironment: LPCWSTR, #[in] dwFlags: DWORD) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn IsValidDevmodeA(#[opt] pDevmode: PDEVMODEA, DevmodeSize: usize) -> BOOL;
+        extern fn IsValidDevmodeA(#[in] #[opt] pDevmode: PDEVMODEA, DevmodeSize: size_t) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn IsValidDevmodeW(#[opt] pDevmode: PDEVMODEW, DevmodeSize: usize) -> BOOL;
+        extern fn IsValidDevmodeW(#[in] #[opt] pDevmode: PDEVMODEW, DevmodeSize: size_t) -> BOOL;
         const JOB_ACCESS_ADMINISTER: i32 = 16;
         const JOB_ACCESS_READ: i32 = 32;
         const JOB_ALL_ACCESS: i32 = 983088;
@@ -704,143 +714,143 @@ mod Windows {
         const JOB_EXECUTE: i32 = 131088;
         type JOB_INFO_1 = JOB_INFO_1A;
         struct JOB_INFO_1A {
-            JobId: u32,
-            pPrinterName: PSTR,
-            pMachineName: PSTR,
-            pUserName: PSTR,
-            pDocument: PSTR,
-            pDatatype: PSTR,
-            pStatus: PSTR,
-            Status: u32,
-            Priority: u32,
-            Position: u32,
-            TotalPages: u32,
-            PagesPrinted: u32,
+            JobId: DWORD,
+            pPrinterName: LPSTR,
+            pMachineName: LPSTR,
+            pUserName: LPSTR,
+            pDocument: LPSTR,
+            pDatatype: LPSTR,
+            pStatus: LPSTR,
+            Status: DWORD,
+            Priority: DWORD,
+            Position: DWORD,
+            TotalPages: DWORD,
+            PagesPrinted: DWORD,
             Submitted: SYSTEMTIME,
         }
         struct JOB_INFO_1W {
-            JobId: u32,
-            pPrinterName: PWSTR,
-            pMachineName: PWSTR,
-            pUserName: PWSTR,
-            pDocument: PWSTR,
-            pDatatype: PWSTR,
-            pStatus: PWSTR,
-            Status: u32,
-            Priority: u32,
-            Position: u32,
-            TotalPages: u32,
-            PagesPrinted: u32,
+            JobId: DWORD,
+            pPrinterName: LPWSTR,
+            pMachineName: LPWSTR,
+            pUserName: LPWSTR,
+            pDocument: LPWSTR,
+            pDatatype: LPWSTR,
+            pStatus: LPWSTR,
+            Status: DWORD,
+            Priority: DWORD,
+            Position: DWORD,
+            TotalPages: DWORD,
+            PagesPrinted: DWORD,
             Submitted: SYSTEMTIME,
         }
         type JOB_INFO_2 = JOB_INFO_2A;
         struct JOB_INFO_2A {
-            JobId: u32,
-            pPrinterName: PSTR,
-            pMachineName: PSTR,
-            pUserName: PSTR,
-            pDocument: PSTR,
-            pNotifyName: PSTR,
-            pDatatype: PSTR,
-            pPrintProcessor: PSTR,
-            pParameters: PSTR,
-            pDriverName: PSTR,
+            JobId: DWORD,
+            pPrinterName: LPSTR,
+            pMachineName: LPSTR,
+            pUserName: LPSTR,
+            pDocument: LPSTR,
+            pNotifyName: LPSTR,
+            pDatatype: LPSTR,
+            pPrintProcessor: LPSTR,
+            pParameters: LPSTR,
+            pDriverName: LPSTR,
             pDevMode: LPDEVMODEA,
-            pStatus: PSTR,
+            pStatus: LPSTR,
             pSecurityDescriptor: PSECURITY_DESCRIPTOR,
-            Status: u32,
-            Priority: u32,
-            Position: u32,
-            StartTime: u32,
-            UntilTime: u32,
-            TotalPages: u32,
-            Size: u32,
+            Status: DWORD,
+            Priority: DWORD,
+            Position: DWORD,
+            StartTime: DWORD,
+            UntilTime: DWORD,
+            TotalPages: DWORD,
+            Size: DWORD,
             Submitted: SYSTEMTIME,
-            Time: u32,
-            PagesPrinted: u32,
+            Time: DWORD,
+            PagesPrinted: DWORD,
         }
         struct JOB_INFO_2W {
-            JobId: u32,
-            pPrinterName: PWSTR,
-            pMachineName: PWSTR,
-            pUserName: PWSTR,
-            pDocument: PWSTR,
-            pNotifyName: PWSTR,
-            pDatatype: PWSTR,
-            pPrintProcessor: PWSTR,
-            pParameters: PWSTR,
-            pDriverName: PWSTR,
+            JobId: DWORD,
+            pPrinterName: LPWSTR,
+            pMachineName: LPWSTR,
+            pUserName: LPWSTR,
+            pDocument: LPWSTR,
+            pNotifyName: LPWSTR,
+            pDatatype: LPWSTR,
+            pPrintProcessor: LPWSTR,
+            pParameters: LPWSTR,
+            pDriverName: LPWSTR,
             pDevMode: LPDEVMODEW,
-            pStatus: PWSTR,
+            pStatus: LPWSTR,
             pSecurityDescriptor: PSECURITY_DESCRIPTOR,
-            Status: u32,
-            Priority: u32,
-            Position: u32,
-            StartTime: u32,
-            UntilTime: u32,
-            TotalPages: u32,
-            Size: u32,
+            Status: DWORD,
+            Priority: DWORD,
+            Position: DWORD,
+            StartTime: DWORD,
+            UntilTime: DWORD,
+            TotalPages: DWORD,
+            Size: DWORD,
             Submitted: SYSTEMTIME,
-            Time: u32,
-            PagesPrinted: u32,
+            Time: DWORD,
+            PagesPrinted: DWORD,
         }
         struct JOB_INFO_3 {
-            JobId: u32,
-            NextJobId: u32,
-            Reserved: u32,
+            JobId: DWORD,
+            NextJobId: DWORD,
+            Reserved: DWORD,
         }
         type JOB_INFO_4 = JOB_INFO_4A;
         struct JOB_INFO_4A {
-            JobId: u32,
-            pPrinterName: PSTR,
-            pMachineName: PSTR,
-            pUserName: PSTR,
-            pDocument: PSTR,
-            pNotifyName: PSTR,
-            pDatatype: PSTR,
-            pPrintProcessor: PSTR,
-            pParameters: PSTR,
-            pDriverName: PSTR,
+            JobId: DWORD,
+            pPrinterName: LPSTR,
+            pMachineName: LPSTR,
+            pUserName: LPSTR,
+            pDocument: LPSTR,
+            pNotifyName: LPSTR,
+            pDatatype: LPSTR,
+            pPrintProcessor: LPSTR,
+            pParameters: LPSTR,
+            pDriverName: LPSTR,
             pDevMode: LPDEVMODEA,
-            pStatus: PSTR,
+            pStatus: LPSTR,
             pSecurityDescriptor: PSECURITY_DESCRIPTOR,
-            Status: u32,
-            Priority: u32,
-            Position: u32,
-            StartTime: u32,
-            UntilTime: u32,
-            TotalPages: u32,
-            Size: u32,
+            Status: DWORD,
+            Priority: DWORD,
+            Position: DWORD,
+            StartTime: DWORD,
+            UntilTime: DWORD,
+            TotalPages: DWORD,
+            Size: DWORD,
             Submitted: SYSTEMTIME,
-            Time: u32,
-            PagesPrinted: u32,
-            SizeHigh: i32,
+            Time: DWORD,
+            PagesPrinted: DWORD,
+            SizeHigh: LONG,
         }
         struct JOB_INFO_4W {
-            JobId: u32,
-            pPrinterName: PWSTR,
-            pMachineName: PWSTR,
-            pUserName: PWSTR,
-            pDocument: PWSTR,
-            pNotifyName: PWSTR,
-            pDatatype: PWSTR,
-            pPrintProcessor: PWSTR,
-            pParameters: PWSTR,
-            pDriverName: PWSTR,
+            JobId: DWORD,
+            pPrinterName: LPWSTR,
+            pMachineName: LPWSTR,
+            pUserName: LPWSTR,
+            pDocument: LPWSTR,
+            pNotifyName: LPWSTR,
+            pDatatype: LPWSTR,
+            pPrintProcessor: LPWSTR,
+            pParameters: LPWSTR,
+            pDriverName: LPWSTR,
             pDevMode: LPDEVMODEW,
-            pStatus: PWSTR,
+            pStatus: LPWSTR,
             pSecurityDescriptor: PSECURITY_DESCRIPTOR,
-            Status: u32,
-            Priority: u32,
-            Position: u32,
-            StartTime: u32,
-            UntilTime: u32,
-            TotalPages: u32,
-            Size: u32,
+            Status: DWORD,
+            Priority: DWORD,
+            Position: DWORD,
+            StartTime: DWORD,
+            UntilTime: DWORD,
+            TotalPages: DWORD,
+            Size: DWORD,
             Submitted: SYSTEMTIME,
-            Time: u32,
-            PagesPrinted: u32,
-            SizeHigh: i32,
+            Time: DWORD,
+            PagesPrinted: DWORD,
+            SizeHigh: LONG,
         }
         const JOB_NOTIFY_FIELD_BYTES_PRINTED: i32 = 23;
         const JOB_NOTIFY_FIELD_DATATYPE: i32 = 5;
@@ -886,7 +896,7 @@ mod Windows {
         const JOB_STATUS_SPOOLING: i32 = 8;
         const JOB_STATUS_USER_INTERVENTION: i32 = 1024;
         const JOB_WRITE: i32 = 131088;
-        type LPADDJOB_INFO_1 = LPADDJOB_INFO_1A;
+        type LPADDJOB_INFO_1 = *mut ADDJOB_INFO_1A;
         type LPADDJOB_INFO_1A = *mut ADDJOB_INFO_1A;
         type LPADDJOB_INFO_1W = *mut ADDJOB_INFO_1W;
         type LPBIDI_DATA = *mut BIDI_DATA;
@@ -894,113 +904,113 @@ mod Windows {
         type LPBIDI_REQUEST_DATA = *mut BIDI_REQUEST_DATA;
         type LPBIDI_RESPONSE_CONTAINER = *mut BIDI_RESPONSE_CONTAINER;
         type LPBIDI_RESPONSE_DATA = *mut BIDI_RESPONSE_DATA;
-        type LPDATATYPES_INFO_1 = LPDATATYPES_INFO_1A;
+        type LPDATATYPES_INFO_1 = *mut DATATYPES_INFO_1A;
         type LPDATATYPES_INFO_1A = *mut DATATYPES_INFO_1A;
         type LPDATATYPES_INFO_1W = *mut DATATYPES_INFO_1W;
-        type LPDOC_INFO_1 = LPDOC_INFO_1A;
+        type LPDOC_INFO_1 = *mut DOC_INFO_1A;
         type LPDOC_INFO_1A = *mut DOC_INFO_1A;
         type LPDOC_INFO_1W = *mut DOC_INFO_1W;
-        type LPDOC_INFO_2 = LPDOC_INFO_2A;
+        type LPDOC_INFO_2 = *mut DOC_INFO_2A;
         type LPDOC_INFO_2A = *mut DOC_INFO_2A;
         type LPDOC_INFO_2W = *mut DOC_INFO_2W;
-        type LPDOC_INFO_3 = LPDOC_INFO_3A;
+        type LPDOC_INFO_3 = *mut DOC_INFO_3A;
         type LPDOC_INFO_3A = *mut DOC_INFO_3A;
         type LPDOC_INFO_3W = *mut DOC_INFO_3W;
-        type LPDRIVER_INFO_1 = LPDRIVER_INFO_1A;
+        type LPDRIVER_INFO_1 = *mut DRIVER_INFO_1A;
         type LPDRIVER_INFO_1A = *mut DRIVER_INFO_1A;
         type LPDRIVER_INFO_1W = *mut DRIVER_INFO_1W;
-        type LPDRIVER_INFO_2 = LPDRIVER_INFO_2A;
+        type LPDRIVER_INFO_2 = *mut DRIVER_INFO_2A;
         type LPDRIVER_INFO_2A = *mut DRIVER_INFO_2A;
         type LPDRIVER_INFO_2W = *mut DRIVER_INFO_2W;
-        type LPDRIVER_INFO_3 = LPDRIVER_INFO_3A;
+        type LPDRIVER_INFO_3 = *mut DRIVER_INFO_3A;
         type LPDRIVER_INFO_3A = *mut DRIVER_INFO_3A;
         type LPDRIVER_INFO_3W = *mut DRIVER_INFO_3W;
-        type LPDRIVER_INFO_4 = LPDRIVER_INFO_4A;
+        type LPDRIVER_INFO_4 = *mut DRIVER_INFO_4A;
         type LPDRIVER_INFO_4A = *mut DRIVER_INFO_4A;
         type LPDRIVER_INFO_4W = *mut DRIVER_INFO_4W;
-        type LPDRIVER_INFO_5 = LPDRIVER_INFO_5A;
+        type LPDRIVER_INFO_5 = *mut DRIVER_INFO_5A;
         type LPDRIVER_INFO_5A = *mut DRIVER_INFO_5A;
         type LPDRIVER_INFO_5W = *mut DRIVER_INFO_5W;
-        type LPDRIVER_INFO_6 = LPDRIVER_INFO_6A;
+        type LPDRIVER_INFO_6 = *mut DRIVER_INFO_6A;
         type LPDRIVER_INFO_6A = *mut DRIVER_INFO_6A;
         type LPDRIVER_INFO_6W = *mut DRIVER_INFO_6W;
-        type LPDRIVER_INFO_8 = LPDRIVER_INFO_8A;
+        type LPDRIVER_INFO_8 = *mut DRIVER_INFO_8A;
         type LPDRIVER_INFO_8A = *mut DRIVER_INFO_8A;
         type LPDRIVER_INFO_8W = *mut DRIVER_INFO_8W;
-        type LPFORM_INFO_1 = LPFORM_INFO_1A;
+        type LPFORM_INFO_1 = *mut FORM_INFO_1A;
         type LPFORM_INFO_1A = *mut FORM_INFO_1A;
         type LPFORM_INFO_1W = *mut FORM_INFO_1W;
-        type LPFORM_INFO_2 = LPFORM_INFO_2A;
+        type LPFORM_INFO_2 = *mut FORM_INFO_2A;
         type LPFORM_INFO_2A = *mut FORM_INFO_2A;
         type LPFORM_INFO_2W = *mut FORM_INFO_2W;
-        type LPJOB_INFO_1 = LPJOB_INFO_1A;
+        type LPJOB_INFO_1 = *mut JOB_INFO_1A;
         type LPJOB_INFO_1A = *mut JOB_INFO_1A;
         type LPJOB_INFO_1W = *mut JOB_INFO_1W;
-        type LPJOB_INFO_2 = LPJOB_INFO_2A;
+        type LPJOB_INFO_2 = *mut JOB_INFO_2A;
         type LPJOB_INFO_2A = *mut JOB_INFO_2A;
         type LPJOB_INFO_2W = *mut JOB_INFO_2W;
         type LPJOB_INFO_3 = *mut JOB_INFO_3;
-        type LPJOB_INFO_4 = LPJOB_INFO_4A;
+        type LPJOB_INFO_4 = *mut JOB_INFO_4A;
         type LPJOB_INFO_4A = *mut JOB_INFO_4A;
         type LPJOB_INFO_4W = *mut JOB_INFO_4W;
-        type LPMONITOR_INFO_1 = LPMONITOR_INFO_1A;
+        type LPMONITOR_INFO_1 = *mut MONITOR_INFO_1A;
         type LPMONITOR_INFO_1A = *mut MONITOR_INFO_1A;
         type LPMONITOR_INFO_1W = *mut MONITOR_INFO_1W;
-        type LPMONITOR_INFO_2 = LPMONITOR_INFO_2A;
+        type LPMONITOR_INFO_2 = *mut MONITOR_INFO_2A;
         type LPMONITOR_INFO_2A = *mut MONITOR_INFO_2A;
         type LPMONITOR_INFO_2W = *mut MONITOR_INFO_2W;
-        type LPPORT_INFO_1 = LPPORT_INFO_1A;
+        type LPPORT_INFO_1 = *mut PORT_INFO_1A;
         type LPPORT_INFO_1A = *mut PORT_INFO_1A;
         type LPPORT_INFO_1W = *mut PORT_INFO_1W;
-        type LPPORT_INFO_2 = LPPORT_INFO_2A;
+        type LPPORT_INFO_2 = *mut PORT_INFO_2A;
         type LPPORT_INFO_2A = *mut PORT_INFO_2A;
         type LPPORT_INFO_2W = *mut PORT_INFO_2W;
-        type LPPORT_INFO_3 = LPPORT_INFO_3A;
+        type LPPORT_INFO_3 = *mut PORT_INFO_3A;
         type LPPORT_INFO_3A = *mut PORT_INFO_3A;
         type LPPORT_INFO_3W = *mut PORT_INFO_3W;
-        type LPPRINTER_DEFAULTS = LPPRINTER_DEFAULTSA;
+        type LPPRINTER_DEFAULTS = *mut PRINTER_DEFAULTSA;
         type LPPRINTER_DEFAULTSA = *mut PRINTER_DEFAULTSA;
         type LPPRINTER_DEFAULTSW = *mut PRINTER_DEFAULTSW;
-        type LPPRINTER_ENUM_VALUES = LPPRINTER_ENUM_VALUESA;
+        type LPPRINTER_ENUM_VALUES = *mut PRINTER_ENUM_VALUESA;
         type LPPRINTER_ENUM_VALUESA = *mut PRINTER_ENUM_VALUESA;
         type LPPRINTER_ENUM_VALUESW = *mut PRINTER_ENUM_VALUESW;
-        type LPPRINTER_INFO_1 = LPPRINTER_INFO_1A;
+        type LPPRINTER_INFO_1 = *mut PRINTER_INFO_1A;
         type LPPRINTER_INFO_1A = *mut PRINTER_INFO_1A;
         type LPPRINTER_INFO_1W = *mut PRINTER_INFO_1W;
-        type LPPRINTER_INFO_2 = LPPRINTER_INFO_2A;
+        type LPPRINTER_INFO_2 = *mut PRINTER_INFO_2A;
         type LPPRINTER_INFO_2A = *mut PRINTER_INFO_2A;
         type LPPRINTER_INFO_2W = *mut PRINTER_INFO_2W;
         type LPPRINTER_INFO_3 = *mut PRINTER_INFO_3;
-        type LPPRINTER_INFO_4 = LPPRINTER_INFO_4A;
+        type LPPRINTER_INFO_4 = *mut PRINTER_INFO_4A;
         type LPPRINTER_INFO_4A = *mut PRINTER_INFO_4A;
         type LPPRINTER_INFO_4W = *mut PRINTER_INFO_4W;
-        type LPPRINTER_INFO_5 = LPPRINTER_INFO_5A;
+        type LPPRINTER_INFO_5 = *mut PRINTER_INFO_5A;
         type LPPRINTER_INFO_5A = *mut PRINTER_INFO_5A;
         type LPPRINTER_INFO_5W = *mut PRINTER_INFO_5W;
         type LPPRINTER_INFO_6 = *mut PRINTER_INFO_6;
-        type LPPRINTER_INFO_7 = LPPRINTER_INFO_7A;
+        type LPPRINTER_INFO_7 = *mut PRINTER_INFO_7A;
         type LPPRINTER_INFO_7A = *mut PRINTER_INFO_7A;
         type LPPRINTER_INFO_7W = *mut PRINTER_INFO_7W;
-        type LPPRINTER_INFO_8 = LPPRINTER_INFO_8A;
+        type LPPRINTER_INFO_8 = *mut PRINTER_INFO_8A;
         type LPPRINTER_INFO_8A = *mut PRINTER_INFO_8A;
         type LPPRINTER_INFO_8W = *mut PRINTER_INFO_8W;
-        type LPPRINTER_INFO_9 = LPPRINTER_INFO_9A;
+        type LPPRINTER_INFO_9 = *mut PRINTER_INFO_9A;
         type LPPRINTER_INFO_9A = *mut PRINTER_INFO_9A;
         type LPPRINTER_INFO_9W = *mut PRINTER_INFO_9W;
         type LPPRINTER_NOTIFY_INFO = *mut PRINTER_NOTIFY_INFO;
         type LPPRINTER_NOTIFY_INFO_DATA = *mut PRINTER_NOTIFY_INFO_DATA;
         type LPPRINTER_NOTIFY_OPTIONS = *mut PRINTER_NOTIFY_OPTIONS;
         type LPPRINTER_NOTIFY_OPTIONS_TYPE = *mut PRINTER_NOTIFY_OPTIONS_TYPE;
-        type LPPRINTER_OPTIONS = LPPRINTER_OPTIONSA;
+        type LPPRINTER_OPTIONS = *mut PRINTER_OPTIONSA;
         type LPPRINTER_OPTIONSA = *mut PRINTER_OPTIONSA;
         type LPPRINTER_OPTIONSW = *mut PRINTER_OPTIONSW;
-        type LPPRINTPROCESSOR_INFO_1 = LPPRINTPROCESSOR_INFO_1A;
+        type LPPRINTPROCESSOR_INFO_1 = *mut PRINTPROCESSOR_INFO_1A;
         type LPPRINTPROCESSOR_INFO_1A = *mut PRINTPROCESSOR_INFO_1A;
         type LPPRINTPROCESSOR_INFO_1W = *mut PRINTPROCESSOR_INFO_1W;
-        type LPPROVIDOR_INFO_1 = LPPROVIDOR_INFO_1A;
+        type LPPROVIDOR_INFO_1 = *mut PROVIDOR_INFO_1A;
         type LPPROVIDOR_INFO_1A = *mut PROVIDOR_INFO_1A;
         type LPPROVIDOR_INFO_1W = *mut PROVIDOR_INFO_1W;
-        type LPPROVIDOR_INFO_2 = LPPROVIDOR_INFO_2A;
+        type LPPROVIDOR_INFO_2 = *mut PROVIDOR_INFO_2A;
         type LPPROVIDOR_INFO_2A = *mut PROVIDOR_INFO_2A;
         type LPPROVIDOR_INFO_2W = *mut PROVIDOR_INFO_2W;
         const MAX_FORM_KEYWORD_LENGTH: i32 = 64;
@@ -1008,35 +1018,35 @@ mod Windows {
         const MIN_PRIORITY: i32 = 1;
         type MONITOR_INFO_1 = MONITOR_INFO_1A;
         struct MONITOR_INFO_1A {
-            pName: PSTR,
+            pName: LPSTR,
         }
         struct MONITOR_INFO_1W {
-            pName: PWSTR,
+            pName: LPWSTR,
         }
         type MONITOR_INFO_2 = MONITOR_INFO_2A;
         struct MONITOR_INFO_2A {
-            pName: PSTR,
-            pEnvironment: PSTR,
-            pDLLName: PSTR,
+            pName: LPSTR,
+            pEnvironment: LPSTR,
+            pDLLName: LPSTR,
         }
         struct MONITOR_INFO_2W {
-            pName: PWSTR,
-            pEnvironment: PWSTR,
-            pDLLName: PWSTR,
+            pName: LPWSTR,
+            pEnvironment: LPWSTR,
+            pDLLName: LPWSTR,
         }
         #[encoding("utf-16")]
         const MS_PRINT_JOB_OUTPUT_FILE: String = "MsPrintJobOutputFile";
         const NORMAL_PRINT: i32 = 0;
         const NO_PRIORITY: i32 = 0;
         #[library("WINSPOOL.DRV")]
-        extern fn OpenPrinter2A(#[opt] pPrinterName: PCSTR, #[out] phPrinter: LPHANDLE, #[opt] pDefault: PPRINTER_DEFAULTSA, #[opt] pOptions: PPRINTER_OPTIONSA) -> BOOL;
+        extern fn OpenPrinter2A(#[in] #[opt] pPrinterName: LPCSTR, #[out] phPrinter: LPHANDLE, #[in] #[opt] pDefault: PPRINTER_DEFAULTSA, #[in] #[opt] pOptions: PPRINTER_OPTIONSA) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn OpenPrinter2W(#[opt] pPrinterName: PCWSTR, #[out] phPrinter: LPHANDLE, #[opt] pDefault: PPRINTER_DEFAULTSW, #[opt] pOptions: PPRINTER_OPTIONSW) -> BOOL;
+        extern fn OpenPrinter2W(#[in] #[opt] pPrinterName: LPCWSTR, #[out] phPrinter: LPHANDLE, #[in] #[opt] pDefault: PPRINTER_DEFAULTSW, #[in] #[opt] pOptions: PPRINTER_OPTIONSW) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn OpenPrinterA(#[opt] pPrinterName: PCSTR, #[out] phPrinter: LPHANDLE, #[opt] pDefault: LPPRINTER_DEFAULTSA) -> BOOL;
+        extern fn OpenPrinterA(#[in] #[opt] pPrinterName: LPSTR, #[out] phPrinter: LPHANDLE, #[in] #[opt] pDefault: LPPRINTER_DEFAULTSA) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn OpenPrinterW(#[opt] pPrinterName: PCWSTR, #[out] phPrinter: LPHANDLE, #[opt] pDefault: LPPRINTER_DEFAULTSW) -> BOOL;
-        type PADDJOB_INFO_1 = PADDJOB_INFO_1A;
+        extern fn OpenPrinterW(#[in] #[opt] pPrinterName: LPWSTR, #[out] phPrinter: LPHANDLE, #[in] #[opt] pDefault: LPPRINTER_DEFAULTSW) -> BOOL;
+        type PADDJOB_INFO_1 = *mut ADDJOB_INFO_1A;
         type PADDJOB_INFO_1A = *mut ADDJOB_INFO_1A;
         type PADDJOB_INFO_1W = *mut ADDJOB_INFO_1W;
         type PBIDI_DATA = *mut BIDI_DATA;
@@ -1045,96 +1055,96 @@ mod Windows {
         type PBIDI_RESPONSE_CONTAINER = *mut BIDI_RESPONSE_CONTAINER;
         type PBIDI_RESPONSE_DATA = *mut BIDI_RESPONSE_DATA;
         type PBINARY_CONTAINER = *mut BINARY_CONTAINER;
-        type PCORE_PRINTER_DRIVER = PCORE_PRINTER_DRIVERA;
+        type PCORE_PRINTER_DRIVER = *mut CORE_PRINTER_DRIVERA;
         type PCORE_PRINTER_DRIVERA = *mut CORE_PRINTER_DRIVERA;
         type PCORE_PRINTER_DRIVERW = *mut CORE_PRINTER_DRIVERW;
-        type PDATATYPES_INFO_1 = PDATATYPES_INFO_1A;
+        type PDATATYPES_INFO_1 = *mut DATATYPES_INFO_1A;
         type PDATATYPES_INFO_1A = *mut DATATYPES_INFO_1A;
         type PDATATYPES_INFO_1W = *mut DATATYPES_INFO_1W;
-        type PDOC_INFO_1 = PDOC_INFO_1A;
+        type PDOC_INFO_1 = *mut DOC_INFO_1A;
         type PDOC_INFO_1A = *mut DOC_INFO_1A;
         type PDOC_INFO_1W = *mut DOC_INFO_1W;
-        type PDOC_INFO_2 = PDOC_INFO_2A;
+        type PDOC_INFO_2 = *mut DOC_INFO_2A;
         type PDOC_INFO_2A = *mut DOC_INFO_2A;
         type PDOC_INFO_2W = *mut DOC_INFO_2W;
-        type PDOC_INFO_3 = PDOC_INFO_3A;
+        type PDOC_INFO_3 = *mut DOC_INFO_3A;
         type PDOC_INFO_3A = *mut DOC_INFO_3A;
         type PDOC_INFO_3W = *mut DOC_INFO_3W;
-        type PDRIVER_INFO_1 = PDRIVER_INFO_1A;
+        type PDRIVER_INFO_1 = *mut DRIVER_INFO_1A;
         type PDRIVER_INFO_1A = *mut DRIVER_INFO_1A;
         type PDRIVER_INFO_1W = *mut DRIVER_INFO_1W;
-        type PDRIVER_INFO_2 = PDRIVER_INFO_2A;
+        type PDRIVER_INFO_2 = *mut DRIVER_INFO_2A;
         type PDRIVER_INFO_2A = *mut DRIVER_INFO_2A;
         type PDRIVER_INFO_2W = *mut DRIVER_INFO_2W;
-        type PDRIVER_INFO_3 = PDRIVER_INFO_3A;
+        type PDRIVER_INFO_3 = *mut DRIVER_INFO_3A;
         type PDRIVER_INFO_3A = *mut DRIVER_INFO_3A;
         type PDRIVER_INFO_3W = *mut DRIVER_INFO_3W;
-        type PDRIVER_INFO_4 = PDRIVER_INFO_4A;
+        type PDRIVER_INFO_4 = *mut DRIVER_INFO_4A;
         type PDRIVER_INFO_4A = *mut DRIVER_INFO_4A;
         type PDRIVER_INFO_4W = *mut DRIVER_INFO_4W;
-        type PDRIVER_INFO_5 = PDRIVER_INFO_5A;
+        type PDRIVER_INFO_5 = *mut DRIVER_INFO_5A;
         type PDRIVER_INFO_5A = *mut DRIVER_INFO_5A;
         type PDRIVER_INFO_5W = *mut DRIVER_INFO_5W;
-        type PDRIVER_INFO_6 = PDRIVER_INFO_6A;
+        type PDRIVER_INFO_6 = *mut DRIVER_INFO_6A;
         type PDRIVER_INFO_6A = *mut DRIVER_INFO_6A;
         type PDRIVER_INFO_6W = *mut DRIVER_INFO_6W;
-        type PDRIVER_INFO_8 = PDRIVER_INFO_8A;
+        type PDRIVER_INFO_8 = *mut DRIVER_INFO_8A;
         type PDRIVER_INFO_8A = *mut DRIVER_INFO_8A;
         type PDRIVER_INFO_8W = *mut DRIVER_INFO_8W;
-        type PFORM_INFO_1 = PFORM_INFO_1A;
+        type PFORM_INFO_1 = *mut FORM_INFO_1A;
         type PFORM_INFO_1A = *mut FORM_INFO_1A;
         type PFORM_INFO_1W = *mut FORM_INFO_1W;
-        type PFORM_INFO_2 = PFORM_INFO_2A;
+        type PFORM_INFO_2 = *mut FORM_INFO_2A;
         type PFORM_INFO_2A = *mut FORM_INFO_2A;
         type PFORM_INFO_2W = *mut FORM_INFO_2W;
-        type PJOB_INFO_1 = PJOB_INFO_1A;
+        type PJOB_INFO_1 = *mut JOB_INFO_1A;
         type PJOB_INFO_1A = *mut JOB_INFO_1A;
         type PJOB_INFO_1W = *mut JOB_INFO_1W;
-        type PJOB_INFO_2 = PJOB_INFO_2A;
+        type PJOB_INFO_2 = *mut JOB_INFO_2A;
         type PJOB_INFO_2A = *mut JOB_INFO_2A;
         type PJOB_INFO_2W = *mut JOB_INFO_2W;
         type PJOB_INFO_3 = *mut JOB_INFO_3;
-        type PJOB_INFO_4 = PJOB_INFO_4A;
+        type PJOB_INFO_4 = *mut JOB_INFO_4A;
         type PJOB_INFO_4A = *mut JOB_INFO_4A;
         type PJOB_INFO_4W = *mut JOB_INFO_4W;
-        type PMONITOR_INFO_1 = PMONITOR_INFO_1A;
+        type PMONITOR_INFO_1 = *mut MONITOR_INFO_1A;
         type PMONITOR_INFO_1A = *mut MONITOR_INFO_1A;
         type PMONITOR_INFO_1W = *mut MONITOR_INFO_1W;
-        type PMONITOR_INFO_2 = PMONITOR_INFO_2A;
+        type PMONITOR_INFO_2 = *mut MONITOR_INFO_2A;
         type PMONITOR_INFO_2A = *mut MONITOR_INFO_2A;
         type PMONITOR_INFO_2W = *mut MONITOR_INFO_2W;
         type PORT_INFO_1 = PORT_INFO_1A;
         struct PORT_INFO_1A {
-            pName: PSTR,
+            pName: LPSTR,
         }
         struct PORT_INFO_1W {
-            pName: PWSTR,
+            pName: LPWSTR,
         }
         type PORT_INFO_2 = PORT_INFO_2A;
         struct PORT_INFO_2A {
-            pPortName: PSTR,
-            pMonitorName: PSTR,
-            pDescription: PSTR,
-            fPortType: u32,
-            Reserved: u32,
+            pPortName: LPSTR,
+            pMonitorName: LPSTR,
+            pDescription: LPSTR,
+            fPortType: DWORD,
+            Reserved: DWORD,
         }
         struct PORT_INFO_2W {
-            pPortName: PWSTR,
-            pMonitorName: PWSTR,
-            pDescription: PWSTR,
-            fPortType: u32,
-            Reserved: u32,
+            pPortName: LPWSTR,
+            pMonitorName: LPWSTR,
+            pDescription: LPWSTR,
+            fPortType: DWORD,
+            Reserved: DWORD,
         }
         type PORT_INFO_3 = PORT_INFO_3A;
         struct PORT_INFO_3A {
-            dwStatus: u32,
-            pszStatus: PSTR,
-            dwSeverity: u32,
+            dwStatus: DWORD,
+            pszStatus: LPSTR,
+            dwSeverity: DWORD,
         }
         struct PORT_INFO_3W {
-            dwStatus: u32,
-            pszStatus: PWSTR,
-            dwSeverity: u32,
+            dwStatus: DWORD,
+            pszStatus: LPWSTR,
+            dwSeverity: DWORD,
         }
         const PORT_STATUS_DOOR_OPEN: i32 = 7;
         const PORT_STATUS_NO_TONER: i32 = 6;
@@ -1164,63 +1174,63 @@ mod Windows {
         const PPCAPS_REVERSE_PAGES_FOR_REVERSE_DUPLEX: i32 = 1;
         const PPCAPS_RIGHT_THEN_DOWN: i32 = 1;
         const PPCAPS_SQUARE_SCALING: i32 = 1;
-        type PPORT_INFO_1 = PPORT_INFO_1A;
+        type PPORT_INFO_1 = *mut PORT_INFO_1A;
         type PPORT_INFO_1A = *mut PORT_INFO_1A;
         type PPORT_INFO_1W = *mut PORT_INFO_1W;
-        type PPORT_INFO_2 = PPORT_INFO_2A;
+        type PPORT_INFO_2 = *mut PORT_INFO_2A;
         type PPORT_INFO_2A = *mut PORT_INFO_2A;
         type PPORT_INFO_2W = *mut PORT_INFO_2W;
-        type PPORT_INFO_3 = PPORT_INFO_3A;
+        type PPORT_INFO_3 = *mut PORT_INFO_3A;
         type PPORT_INFO_3A = *mut PORT_INFO_3A;
         type PPORT_INFO_3W = *mut PORT_INFO_3W;
-        type PPRINTER_CONNECTION_INFO_1 = PPRINTER_CONNECTION_INFO_1A;
+        type PPRINTER_CONNECTION_INFO_1 = *mut PRINTER_CONNECTION_INFO_1A;
         type PPRINTER_CONNECTION_INFO_1A = *mut PRINTER_CONNECTION_INFO_1A;
         type PPRINTER_CONNECTION_INFO_1W = *mut PRINTER_CONNECTION_INFO_1W;
-        type PPRINTER_DEFAULTS = PPRINTER_DEFAULTSA;
+        type PPRINTER_DEFAULTS = *mut PRINTER_DEFAULTSA;
         type PPRINTER_DEFAULTSA = *mut PRINTER_DEFAULTSA;
         type PPRINTER_DEFAULTSW = *mut PRINTER_DEFAULTSW;
-        type PPRINTER_ENUM_VALUES = PPRINTER_ENUM_VALUESA;
+        type PPRINTER_ENUM_VALUES = *mut PRINTER_ENUM_VALUESA;
         type PPRINTER_ENUM_VALUESA = *mut PRINTER_ENUM_VALUESA;
         type PPRINTER_ENUM_VALUESW = *mut PRINTER_ENUM_VALUESW;
-        type PPRINTER_INFO_1 = PPRINTER_INFO_1A;
+        type PPRINTER_INFO_1 = *mut PRINTER_INFO_1A;
         type PPRINTER_INFO_1A = *mut PRINTER_INFO_1A;
         type PPRINTER_INFO_1W = *mut PRINTER_INFO_1W;
-        type PPRINTER_INFO_2 = PPRINTER_INFO_2A;
+        type PPRINTER_INFO_2 = *mut PRINTER_INFO_2A;
         type PPRINTER_INFO_2A = *mut PRINTER_INFO_2A;
         type PPRINTER_INFO_2W = *mut PRINTER_INFO_2W;
         type PPRINTER_INFO_3 = *mut PRINTER_INFO_3;
-        type PPRINTER_INFO_4 = PPRINTER_INFO_4A;
+        type PPRINTER_INFO_4 = *mut PRINTER_INFO_4A;
         type PPRINTER_INFO_4A = *mut PRINTER_INFO_4A;
         type PPRINTER_INFO_4W = *mut PRINTER_INFO_4W;
-        type PPRINTER_INFO_5 = PPRINTER_INFO_5A;
+        type PPRINTER_INFO_5 = *mut PRINTER_INFO_5A;
         type PPRINTER_INFO_5A = *mut PRINTER_INFO_5A;
         type PPRINTER_INFO_5W = *mut PRINTER_INFO_5W;
         type PPRINTER_INFO_6 = *mut PRINTER_INFO_6;
-        type PPRINTER_INFO_7 = PPRINTER_INFO_7A;
+        type PPRINTER_INFO_7 = *mut PRINTER_INFO_7A;
         type PPRINTER_INFO_7A = *mut PRINTER_INFO_7A;
         type PPRINTER_INFO_7W = *mut PRINTER_INFO_7W;
-        type PPRINTER_INFO_8 = PPRINTER_INFO_8A;
+        type PPRINTER_INFO_8 = *mut PRINTER_INFO_8A;
         type PPRINTER_INFO_8A = *mut PRINTER_INFO_8A;
         type PPRINTER_INFO_8W = *mut PRINTER_INFO_8W;
-        type PPRINTER_INFO_9 = PPRINTER_INFO_9A;
+        type PPRINTER_INFO_9 = *mut PRINTER_INFO_9A;
         type PPRINTER_INFO_9A = *mut PRINTER_INFO_9A;
         type PPRINTER_INFO_9W = *mut PRINTER_INFO_9W;
         type PPRINTER_NOTIFY_INFO = *mut PRINTER_NOTIFY_INFO;
         type PPRINTER_NOTIFY_INFO_DATA = *mut PRINTER_NOTIFY_INFO_DATA;
         type PPRINTER_NOTIFY_OPTIONS = *mut PRINTER_NOTIFY_OPTIONS;
         type PPRINTER_NOTIFY_OPTIONS_TYPE = *mut PRINTER_NOTIFY_OPTIONS_TYPE;
-        type PPRINTER_OPTIONS = PPRINTER_OPTIONSA;
+        type PPRINTER_OPTIONS = *mut PRINTER_OPTIONSA;
         type PPRINTER_OPTIONSA = *mut PRINTER_OPTIONSA;
         type PPRINTER_OPTIONSW = *mut PRINTER_OPTIONSW;
         type PPRINTPROCESSOR_CAPS_1 = *mut PRINTPROCESSOR_CAPS_1;
         type PPRINTPROCESSOR_CAPS_2 = *mut PRINTPROCESSOR_CAPS_2;
-        type PPRINTPROCESSOR_INFO_1 = PPRINTPROCESSOR_INFO_1A;
+        type PPRINTPROCESSOR_INFO_1 = *mut PRINTPROCESSOR_INFO_1A;
         type PPRINTPROCESSOR_INFO_1A = *mut PRINTPROCESSOR_INFO_1A;
         type PPRINTPROCESSOR_INFO_1W = *mut PRINTPROCESSOR_INFO_1W;
-        type PPROVIDOR_INFO_1 = PPROVIDOR_INFO_1A;
+        type PPROVIDOR_INFO_1 = *mut PROVIDOR_INFO_1A;
         type PPROVIDOR_INFO_1A = *mut PROVIDOR_INFO_1A;
         type PPROVIDOR_INFO_1W = *mut PROVIDOR_INFO_1W;
-        type PPROVIDOR_INFO_2 = PPROVIDOR_INFO_2A;
+        type PPROVIDOR_INFO_2 = *mut PROVIDOR_INFO_2A;
         type PPROVIDOR_INFO_2A = *mut PROVIDOR_INFO_2A;
         type PPROVIDOR_INFO_2W = *mut PROVIDOR_INFO_2W;
         const PRINTER_ACCESS_ADMINISTER: i32 = 4;
@@ -1280,12 +1290,12 @@ mod Windows {
         const PRINTER_CHANGE_WRITE_JOB: i32 = 2048;
         type PRINTER_CONNECTION_INFO_1 = PRINTER_CONNECTION_INFO_1A;
         struct PRINTER_CONNECTION_INFO_1A {
-            dwFlags: u32,
-            pszDriverName: PSTR,
+            dwFlags: DWORD,
+            pszDriverName: LPSTR,
         }
         struct PRINTER_CONNECTION_INFO_1W {
-            dwFlags: u32,
-            pszDriverName: PWSTR,
+            dwFlags: DWORD,
+            pszDriverName: LPWSTR,
         }
         const PRINTER_CONNECTION_MISMATCH: i32 = 32;
         const PRINTER_CONNECTION_NO_UI: i32 = 64;
@@ -1295,12 +1305,12 @@ mod Windows {
         const PRINTER_CONTROL_SET_STATUS: i32 = 4;
         type PRINTER_DEFAULTS = PRINTER_DEFAULTSA;
         struct PRINTER_DEFAULTSA {
-            pDatatype: PSTR,
+            pDatatype: LPSTR,
             pDevMode: LPDEVMODEA,
             DesiredAccess: ACCESS_MASK,
         }
         struct PRINTER_DEFAULTSW {
-            pDatatype: PWSTR,
+            pDatatype: LPWSTR,
             pDevMode: LPDEVMODEW,
             DesiredAccess: ACCESS_MASK,
         }
@@ -1342,18 +1352,18 @@ mod Windows {
         const PRINTER_ENUM_SHARED: i32 = 32;
         type PRINTER_ENUM_VALUES = PRINTER_ENUM_VALUESA;
         struct PRINTER_ENUM_VALUESA {
-            pValueName: PSTR,
-            cbValueName: u32,
-            dwType: u32,
+            pValueName: LPSTR,
+            cbValueName: DWORD,
+            dwType: DWORD,
             pData: LPBYTE,
-            cbData: u32,
+            cbData: DWORD,
         }
         struct PRINTER_ENUM_VALUESW {
-            pValueName: PWSTR,
-            cbValueName: u32,
-            dwType: u32,
+            pValueName: LPWSTR,
+            cbValueName: DWORD,
+            dwType: DWORD,
             pData: LPBYTE,
-            cbData: u32,
+            cbData: DWORD,
         }
         const PRINTER_ERROR_INFORMATION: u32 = 2147483648;
         const PRINTER_ERROR_JAM: i32 = 2;
@@ -1364,104 +1374,104 @@ mod Windows {
         const PRINTER_EXECUTE: i32 = 131080;
         type PRINTER_INFO_1 = PRINTER_INFO_1A;
         struct PRINTER_INFO_1A {
-            Flags: u32,
-            pDescription: PSTR,
-            pName: PSTR,
-            pComment: PSTR,
+            Flags: DWORD,
+            pDescription: LPSTR,
+            pName: LPSTR,
+            pComment: LPSTR,
         }
         struct PRINTER_INFO_1W {
-            Flags: u32,
-            pDescription: PWSTR,
-            pName: PWSTR,
-            pComment: PWSTR,
+            Flags: DWORD,
+            pDescription: LPWSTR,
+            pName: LPWSTR,
+            pComment: LPWSTR,
         }
         type PRINTER_INFO_2 = PRINTER_INFO_2A;
         struct PRINTER_INFO_2A {
-            pServerName: PSTR,
-            pPrinterName: PSTR,
-            pShareName: PSTR,
-            pPortName: PSTR,
-            pDriverName: PSTR,
-            pComment: PSTR,
-            pLocation: PSTR,
+            pServerName: LPSTR,
+            pPrinterName: LPSTR,
+            pShareName: LPSTR,
+            pPortName: LPSTR,
+            pDriverName: LPSTR,
+            pComment: LPSTR,
+            pLocation: LPSTR,
             pDevMode: LPDEVMODEA,
-            pSepFile: PSTR,
-            pPrintProcessor: PSTR,
-            pDatatype: PSTR,
-            pParameters: PSTR,
+            pSepFile: LPSTR,
+            pPrintProcessor: LPSTR,
+            pDatatype: LPSTR,
+            pParameters: LPSTR,
             pSecurityDescriptor: PSECURITY_DESCRIPTOR,
-            Attributes: u32,
-            Priority: u32,
-            DefaultPriority: u32,
-            StartTime: u32,
-            UntilTime: u32,
-            Status: u32,
-            cJobs: u32,
-            AveragePPM: u32,
+            Attributes: DWORD,
+            Priority: DWORD,
+            DefaultPriority: DWORD,
+            StartTime: DWORD,
+            UntilTime: DWORD,
+            Status: DWORD,
+            cJobs: DWORD,
+            AveragePPM: DWORD,
         }
         struct PRINTER_INFO_2W {
-            pServerName: PWSTR,
-            pPrinterName: PWSTR,
-            pShareName: PWSTR,
-            pPortName: PWSTR,
-            pDriverName: PWSTR,
-            pComment: PWSTR,
-            pLocation: PWSTR,
+            pServerName: LPWSTR,
+            pPrinterName: LPWSTR,
+            pShareName: LPWSTR,
+            pPortName: LPWSTR,
+            pDriverName: LPWSTR,
+            pComment: LPWSTR,
+            pLocation: LPWSTR,
             pDevMode: LPDEVMODEW,
-            pSepFile: PWSTR,
-            pPrintProcessor: PWSTR,
-            pDatatype: PWSTR,
-            pParameters: PWSTR,
+            pSepFile: LPWSTR,
+            pPrintProcessor: LPWSTR,
+            pDatatype: LPWSTR,
+            pParameters: LPWSTR,
             pSecurityDescriptor: PSECURITY_DESCRIPTOR,
-            Attributes: u32,
-            Priority: u32,
-            DefaultPriority: u32,
-            StartTime: u32,
-            UntilTime: u32,
-            Status: u32,
-            cJobs: u32,
-            AveragePPM: u32,
+            Attributes: DWORD,
+            Priority: DWORD,
+            DefaultPriority: DWORD,
+            StartTime: DWORD,
+            UntilTime: DWORD,
+            Status: DWORD,
+            cJobs: DWORD,
+            AveragePPM: DWORD,
         }
         struct PRINTER_INFO_3 {
             pSecurityDescriptor: PSECURITY_DESCRIPTOR,
         }
         type PRINTER_INFO_4 = PRINTER_INFO_4A;
         struct PRINTER_INFO_4A {
-            pPrinterName: PSTR,
-            pServerName: PSTR,
-            Attributes: u32,
+            pPrinterName: LPSTR,
+            pServerName: LPSTR,
+            Attributes: DWORD,
         }
         struct PRINTER_INFO_4W {
-            pPrinterName: PWSTR,
-            pServerName: PWSTR,
-            Attributes: u32,
+            pPrinterName: LPWSTR,
+            pServerName: LPWSTR,
+            Attributes: DWORD,
         }
         type PRINTER_INFO_5 = PRINTER_INFO_5A;
         struct PRINTER_INFO_5A {
-            pPrinterName: PSTR,
-            pPortName: PSTR,
-            Attributes: u32,
-            DeviceNotSelectedTimeout: u32,
-            TransmissionRetryTimeout: u32,
+            pPrinterName: LPSTR,
+            pPortName: LPSTR,
+            Attributes: DWORD,
+            DeviceNotSelectedTimeout: DWORD,
+            TransmissionRetryTimeout: DWORD,
         }
         struct PRINTER_INFO_5W {
-            pPrinterName: PWSTR,
-            pPortName: PWSTR,
-            Attributes: u32,
-            DeviceNotSelectedTimeout: u32,
-            TransmissionRetryTimeout: u32,
+            pPrinterName: LPWSTR,
+            pPortName: LPWSTR,
+            Attributes: DWORD,
+            DeviceNotSelectedTimeout: DWORD,
+            TransmissionRetryTimeout: DWORD,
         }
         struct PRINTER_INFO_6 {
-            dwStatus: u32,
+            dwStatus: DWORD,
         }
         type PRINTER_INFO_7 = PRINTER_INFO_7A;
         struct PRINTER_INFO_7A {
-            pszObjectGUID: PSTR,
-            dwAction: u32,
+            pszObjectGUID: LPSTR,
+            dwAction: DWORD,
         }
         struct PRINTER_INFO_7W {
-            pszObjectGUID: PWSTR,
-            dwAction: u32,
+            pszObjectGUID: LPWSTR,
+            dwAction: DWORD,
         }
         type PRINTER_INFO_8 = PRINTER_INFO_8A;
         struct PRINTER_INFO_8A {
@@ -1509,49 +1519,49 @@ mod Windows {
         const PRINTER_NOTIFY_FIELD_TOTAL_PAGES: i32 = 22;
         const PRINTER_NOTIFY_FIELD_UNTIL_TIME: i32 = 17;
         struct PRINTER_NOTIFY_INFO {
-            Version: u32,
-            Flags: u32,
-            Count: u32,
+            Version: DWORD,
+            Flags: DWORD,
+            Count: DWORD,
             aData: [PRINTER_NOTIFY_INFO_DATA; 1],
         }
         struct PRINTER_NOTIFY_INFO_DATA {
-            Type: u16,
-            Field: u16,
-            Reserved: u32,
-            Id: u32,
+            Type: WORD,
+            Field: WORD,
+            Reserved: DWORD,
+            Id: DWORD,
             NotifyData: union {
-                adwData: [u32; 2],
+                adwData: [DWORD; 2],
                 Data: struct {
-                    cbBuf: u32,
-                    pBuf: *mut void,
+                    cbBuf: DWORD,
+                    pBuf: LPVOID,
                 },
             },
         }
         const PRINTER_NOTIFY_INFO_DISCARDED: i32 = 1;
         struct PRINTER_NOTIFY_OPTIONS {
-            Version: u32,
-            Flags: u32,
-            Count: u32,
+            Version: DWORD,
+            Flags: DWORD,
+            Count: DWORD,
             pTypes: PPRINTER_NOTIFY_OPTIONS_TYPE,
         }
         const PRINTER_NOTIFY_OPTIONS_REFRESH: i32 = 1;
         struct PRINTER_NOTIFY_OPTIONS_TYPE {
-            Type: u16,
-            Reserved0: u16,
-            Reserved1: u32,
-            Reserved2: u32,
-            Count: u32,
+            Type: WORD,
+            Reserved0: WORD,
+            Reserved1: DWORD,
+            Reserved2: DWORD,
+            Count: DWORD,
             pFields: PWORD,
         }
         const PRINTER_NOTIFY_TYPE: i32 = 0;
         type PRINTER_OPTIONS = PRINTER_OPTIONSA;
         struct PRINTER_OPTIONSA {
-            cbSize: u32,
-            dwFlags: u32,
+            cbSize: UINT,
+            dwFlags: DWORD,
         }
         struct PRINTER_OPTIONSW {
-            cbSize: u32,
-            dwFlags: u32,
+            cbSize: UINT,
+            dwFlags: DWORD,
         }
         #[repr(i32)]
         enum PRINTER_OPTION_FLAGS {
@@ -1590,28 +1600,28 @@ mod Windows {
         const PRINTER_STATUS_WARMING_UP: i32 = 65536;
         const PRINTER_WRITE: i32 = 131080;
         struct PRINTPROCESSOR_CAPS_1 {
-            dwLevel: u32,
-            dwNupOptions: u32,
-            dwPageOrderFlags: u32,
-            dwNumberOfCopies: u32,
+            dwLevel: DWORD,
+            dwNupOptions: DWORD,
+            dwPageOrderFlags: DWORD,
+            dwNumberOfCopies: DWORD,
         }
         struct PRINTPROCESSOR_CAPS_2 {
-            dwLevel: u32,
-            dwNupOptions: u32,
-            dwPageOrderFlags: u32,
-            dwNumberOfCopies: u32,
-            dwDuplexHandlingCaps: u32,
-            dwNupDirectionCaps: u32,
-            dwNupBorderCaps: u32,
-            dwBookletHandlingCaps: u32,
-            dwScalingCaps: u32,
+            dwLevel: DWORD,
+            dwNupOptions: DWORD,
+            dwPageOrderFlags: DWORD,
+            dwNumberOfCopies: DWORD,
+            dwDuplexHandlingCaps: DWORD,
+            dwNupDirectionCaps: DWORD,
+            dwNupBorderCaps: DWORD,
+            dwBookletHandlingCaps: DWORD,
+            dwScalingCaps: DWORD,
         }
         type PRINTPROCESSOR_INFO_1 = PRINTPROCESSOR_INFO_1A;
         struct PRINTPROCESSOR_INFO_1A {
-            pName: PSTR,
+            pName: LPSTR,
         }
         struct PRINTPROCESSOR_INFO_1W {
-            pName: PWSTR,
+            pName: LPWSTR,
         }
         #[repr(i32)]
         enum PRINT_EXECUTION_CONTEXT {
@@ -1623,62 +1633,62 @@ mod Windows {
         }
         struct PRINT_EXECUTION_DATA {
             context: PRINT_EXECUTION_CONTEXT,
-            clientAppPID: u32,
+            clientAppPID: DWORD,
         }
         type PROVIDOR_INFO_1 = PROVIDOR_INFO_1A;
         struct PROVIDOR_INFO_1A {
-            pName: PSTR,
-            pEnvironment: PSTR,
-            pDLLName: PSTR,
+            pName: LPSTR,
+            pEnvironment: LPSTR,
+            pDLLName: LPSTR,
         }
         struct PROVIDOR_INFO_1W {
-            pName: PWSTR,
-            pEnvironment: PWSTR,
-            pDLLName: PWSTR,
+            pName: LPWSTR,
+            pEnvironment: LPWSTR,
+            pDLLName: LPWSTR,
         }
         type PROVIDOR_INFO_2 = PROVIDOR_INFO_2A;
         struct PROVIDOR_INFO_2A {
-            pOrder: PSTR,
+            pOrder: LPSTR,
         }
         struct PROVIDOR_INFO_2W {
-            pOrder: PWSTR,
+            pOrder: LPWSTR,
         }
         struct PrintNamedProperty {
-            propertyName: *mut u16,
+            propertyName: *mut WCHAR,
             propertyValue: PrintPropertyValue,
         }
         struct PrintPropertiesCollection {
-            numberOfProperties: u32,
+            numberOfProperties: ULONG,
             propertiesCollection: *mut PrintNamedProperty,
         }
         struct PrintPropertyValue {
             ePropertyType: EPrintPropertyType,
             value: union {
-                propertyByte: u8,
+                propertyByte: BYTE,
                 propertyString: PWSTR,
-                propertyInt32: i32,
-                propertyInt64: i64,
+                propertyInt32: LONG,
+                propertyInt64: LONGLONG,
                 propertyBlob: struct {
-                    cbBuf: u32,
-                    pBuf: *mut void,
+                    cbBuf: DWORD,
+                    pBuf: LPVOID,
                 },
             },
         }
         #[library("WINSPOOL.DRV")]
-        extern fn PrinterMessageBoxA(hPrinter: HANDLE, Error: u32, hWnd: HWND, pText: PCSTR, pCaption: PCSTR, dwType: u32) -> u32;
+        extern fn PrinterMessageBoxA(#[in] hPrinter: HANDLE, Error: DWORD, #[in] hWnd: HWND, #[in] pText: LPSTR, #[in] pCaption: LPSTR, dwType: DWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn PrinterMessageBoxW(hPrinter: HANDLE, Error: u32, hWnd: HWND, pText: PCWSTR, pCaption: PCWSTR, dwType: u32) -> u32;
+        extern fn PrinterMessageBoxW(#[in] hPrinter: HANDLE, Error: DWORD, #[in] hWnd: HWND, #[in] pText: LPWSTR, #[in] pCaption: LPWSTR, dwType: DWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn PrinterProperties(hWnd: HWND, hPrinter: HANDLE) -> BOOL;
+        extern fn PrinterProperties(#[in] hWnd: HWND, #[in] hPrinter: HANDLE) -> BOOL;
         const REVERSE_PRINT: i32 = 1;
         #[library("WINSPOOL.DRV")]
-        extern fn ReadPrinter(hPrinter: HANDLE, #[size_param(2)] pBuf: *mut void, cbBuf: u32, #[out] pNoBytesRead: LPDWORD) -> BOOL;
+        extern fn ReadPrinter(#[in] hPrinter: HANDLE, #[out] #[writable(entry, bytes(cbBuf))] pBuf: LPVOID, cbBuf: DWORD, #[out] pNoBytesRead: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn ReportJobProcessingProgress(printerHandle: HANDLE, jobId: u32, jobOperation: EPrintXPSJobOperation, jobProgress: EPrintXPSJobProgress) -> HRESULT;
+        extern fn ReportJobProcessingProgress(#[in] printerHandle: HANDLE, jobId: ULONG, jobOperation: EPrintXPSJobOperation, jobProgress: EPrintXPSJobProgress) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn ResetPrinterA(hPrinter: HANDLE, #[opt] pDefault: LPPRINTER_DEFAULTSA) -> BOOL;
+        extern fn ResetPrinterA(#[in] hPrinter: HANDLE, #[in] #[opt] pDefault: LPPRINTER_DEFAULTSA) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn ResetPrinterW(hPrinter: HANDLE, #[opt] pDefault: LPPRINTER_DEFAULTSW) -> BOOL;
+        extern fn ResetPrinterW(#[in] hPrinter: HANDLE, #[in] #[opt] pDefault: LPPRINTER_DEFAULTSW) -> BOOL;
         const SERVER_ACCESS_ADMINISTER: i32 = 1;
         const SERVER_ACCESS_ENUMERATE: i32 = 2;
         const SERVER_ALL_ACCESS: i32 = 983043;
@@ -1687,62 +1697,230 @@ mod Windows {
         const SERVER_NOTIFY_TYPE: i32 = 2;
         const SERVER_READ: i32 = 131074;
         const SERVER_WRITE: i32 = 131075;
+        #[encoding("ansi")]
+        const SPLDS_ASSET_NUMBER: String = "assetNumber";
+        #[encoding("ansi")]
+        const SPLDS_BYTES_PER_MINUTE: String = "bytesPerMinute";
+        #[encoding("ansi")]
+        const SPLDS_DESCRIPTION: String = "description";
+        #[encoding("ansi")]
+        const SPLDS_DRIVER_KEY: String = "DsDriver";
+        #[encoding("ansi")]
+        const SPLDS_DRIVER_NAME: String = "driverName";
+        #[encoding("ansi")]
+        const SPLDS_DRIVER_VERSION: String = "driverVersion";
+        #[encoding("ansi")]
+        const SPLDS_FLAGS: String = "flags";
+        #[encoding("ansi")]
+        const SPLDS_LOCATION: String = "location";
+        #[encoding("ansi")]
+        const SPLDS_PORT_NAME: String = "portName";
+        #[encoding("ansi")]
+        const SPLDS_PRINTER_CLASS: String = "printQueue";
+        #[encoding("ansi")]
+        const SPLDS_PRINTER_LOCATIONS: String = "printerLocations";
+        #[encoding("ansi")]
+        const SPLDS_PRINTER_MODEL: String = "printerModel";
+        #[encoding("ansi")]
+        const SPLDS_PRINTER_NAME: String = "printerName";
+        #[encoding("ansi")]
+        const SPLDS_PRINTER_NAME_ALIASES: String = "printerNameAliases";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_ATTRIBUTES: String = "printAttributes";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_BIN_NAMES: String = "printBinNames";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_COLLATE: String = "printCollate";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_COLOR: String = "printColor";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_DUPLEX_SUPPORTED: String = "printDuplexSupported";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_END_TIME: String = "printEndTime";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_IPP_COMPRESSION_SUPPORTED: String = "ippCompressionSupported";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_KEEP_PRINTED_JOBS: String = "printKeepPrintedJobs";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_LANGUAGE: String = "printLanguage";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_MAC_ADDRESS: String = "printMACAddress";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_MAX_RESOLUTION_SUPPORTED: String = "printMaxResolutionSupported";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_MAX_X_EXTENT: String = "printMaxXExtent";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_MAX_Y_EXTENT: String = "printMaxYExtent";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_MEDIA_READY: String = "printMediaReady";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_MEDIA_SUPPORTED: String = "printMediaSupported";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_MEMORY: String = "printMemory";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_MIN_X_EXTENT: String = "printMinXExtent";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_MIN_Y_EXTENT: String = "printMinYExtent";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_NETWORK_ADDRESS: String = "printNetworkAddress";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_NOTIFY: String = "printNotify";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_NUMBER_UP: String = "printNumberUp";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_ORIENTATIONS_SUPPORTED: String = "printOrientationsSupported";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_OWNER: String = "printOwner";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_PAGES_PER_MINUTE: String = "printPagesPerMinute";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_RATE: String = "printRate";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_RATE_UNIT: String = "printRateUnit";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_SEPARATOR_FILE: String = "printSeparatorFile";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_SHARE_NAME: String = "printShareName";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_SPOOLING: String = "printSpooling";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_STAPLING_SUPPORTED: String = "printStaplingSupported";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_START_TIME: String = "printStartTime";
+        #[encoding("ansi")]
+        const SPLDS_PRINT_STATUS: String = "printStatus";
+        #[encoding("ansi")]
+        const SPLDS_PRIORITY: String = "priority";
+        #[encoding("ansi")]
+        const SPLDS_SERVER_NAME: String = "serverName";
+        #[encoding("ansi")]
+        const SPLDS_SHORT_SERVER_NAME: String = "shortServerName";
+        #[encoding("ansi")]
+        const SPLDS_SPOOLER_KEY: String = "DsSpooler";
+        #[encoding("ansi")]
+        const SPLDS_UNC_NAME: String = "uNCName";
+        #[encoding("ansi")]
+        const SPLDS_URL: String = "url";
+        #[encoding("ansi")]
+        const SPLDS_USER_KEY: String = "DsUser";
+        #[encoding("ansi")]
+        const SPLDS_VERSION_NUMBER: String = "versionNumber";
+        #[encoding("ansi")]
+        const SPLREG_ALLOW_USER_MANAGEFORMS: String = "AllowUserManageForms";
+        #[encoding("ansi")]
+        const SPLREG_ARCHITECTURE: String = "Architecture";
+        #[encoding("ansi")]
+        const SPLREG_BEEP_ENABLED: String = "BeepEnabled";
+        #[encoding("ansi")]
+        const SPLREG_DEFAULT_SPOOL_DIRECTORY: String = "DefaultSpoolDirectory";
+        #[encoding("ansi")]
+        const SPLREG_DNS_MACHINE_NAME: String = "DNSMachineName";
+        #[encoding("ansi")]
+        const SPLREG_DS_PRESENT: String = "DsPresent";
+        #[encoding("ansi")]
+        const SPLREG_DS_PRESENT_FOR_USER: String = "DsPresentForUser";
+        #[encoding("ansi")]
+        const SPLREG_EVENT_LOG: String = "EventLog";
+        #[encoding("ansi")]
+        const SPLREG_MAJOR_VERSION: String = "MajorVersion";
+        #[encoding("ansi")]
+        const SPLREG_MINOR_VERSION: String = "MinorVersion";
+        #[encoding("ansi")]
+        const SPLREG_NET_POPUP: String = "NetPopup";
+        #[encoding("ansi")]
+        const SPLREG_NET_POPUP_TO_COMPUTER: String = "NetPopupToComputer";
+        #[encoding("ansi")]
+        const SPLREG_OS_VERSION: String = "OSVersion";
+        #[encoding("ansi")]
+        const SPLREG_OS_VERSIONEX: String = "OSVersionEx";
+        #[encoding("ansi")]
+        const SPLREG_PORT_THREAD_PRIORITY: String = "PortThreadPriority";
+        #[encoding("ansi")]
+        const SPLREG_PORT_THREAD_PRIORITY_DEFAULT: String = "PortThreadPriorityDefault";
+        #[encoding("ansi")]
+        const SPLREG_PRINT_DRIVER_ISOLATION_EXECUTION_POLICY: String = "PrintDriverIsolationExecutionPolicy";
+        #[encoding("ansi")]
+        const SPLREG_PRINT_DRIVER_ISOLATION_GROUPS: String = "PrintDriverIsolationGroups";
         const SPLREG_PRINT_DRIVER_ISOLATION_GROUPS_SEPARATOR: u16 = 92;
+        #[encoding("ansi")]
+        const SPLREG_PRINT_DRIVER_ISOLATION_IDLE_TIMEOUT: String = "PrintDriverIsolationIdleTimeout";
+        #[encoding("ansi")]
+        const SPLREG_PRINT_DRIVER_ISOLATION_MAX_OBJECTS_BEFORE_RECYCLE: String = "PrintDriverIsolationMaxobjsBeforeRecycle";
+        #[encoding("ansi")]
+        const SPLREG_PRINT_DRIVER_ISOLATION_OVERRIDE_POLICY: String = "PrintDriverIsolationOverrideCompat";
+        #[encoding("ansi")]
+        const SPLREG_PRINT_DRIVER_ISOLATION_TIME_BEFORE_RECYCLE: String = "PrintDriverIsolationTimeBeforeRecycle";
+        #[encoding("ansi")]
+        const SPLREG_PRINT_QUEUE_V4_DRIVER_DIRECTORY: String = "PrintQueueV4DriverDirectory";
+        #[encoding("ansi")]
+        const SPLREG_REMOTE_FAX: String = "RemoteFax";
+        #[encoding("ansi")]
+        const SPLREG_RESTART_JOB_ON_POOL_ENABLED: String = "RestartJobOnPoolEnabled";
+        #[encoding("ansi")]
+        const SPLREG_RESTART_JOB_ON_POOL_ERROR: String = "RestartJobOnPoolError";
+        #[encoding("ansi")]
+        const SPLREG_RETRY_POPUP: String = "RetryPopup";
+        #[encoding("ansi")]
+        const SPLREG_SCHEDULER_THREAD_PRIORITY: String = "SchedulerThreadPriority";
+        #[encoding("ansi")]
+        const SPLREG_SCHEDULER_THREAD_PRIORITY_DEFAULT: String = "SchedulerThreadPriorityDefault";
+        #[encoding("ansi")]
+        const SPLREG_WEBSHAREMGMT: String = "WebShareMgmt";
         const SPOOL_FILE_PERSISTENT: i32 = 1;
         const SPOOL_FILE_TEMPORARY: i32 = 2;
         const STRING_LANGPAIR: i32 = 4;
         const STRING_MUIDLL: i32 = 2;
         const STRING_NONE: i32 = 1;
         #[library("WINSPOOL.DRV")]
-        extern fn ScheduleJob(hPrinter: HANDLE, JobId: u32) -> BOOL;
+        extern fn ScheduleJob(#[in] hPrinter: HANDLE, JobId: DWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetDefaultPrinterA(#[opt] pszPrinter: PCSTR) -> BOOL;
+        extern fn SetDefaultPrinterA(#[in] #[opt] pszPrinter: LPCSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetDefaultPrinterW(#[opt] pszPrinter: PCWSTR) -> BOOL;
+        extern fn SetDefaultPrinterW(#[in] #[opt] pszPrinter: LPCWSTR) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetFormA(hPrinter: HANDLE, pFormName: PCSTR, Level: u32, pForm: LPBYTE) -> BOOL;
+        extern fn SetFormA(#[in] hPrinter: HANDLE, #[in] pFormName: LPSTR, #[range(entry, 1..=2)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_(sizeof(FORM_INFO_1A))", "Level == 1, _In_reads_bytes_(sizeof(FORM_INFO_1A))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_(sizeof(FORM_INFO_2A))", "Level == 2, _In_reads_bytes_(sizeof(FORM_INFO_2A))")] pForm: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetFormW(hPrinter: HANDLE, pFormName: PCWSTR, Level: u32, pForm: LPBYTE) -> BOOL;
+        extern fn SetFormW(#[in] hPrinter: HANDLE, #[in] pFormName: LPWSTR, #[range(entry, 1..=2)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_(sizeof(FORM_INFO_1W))", "Level == 1, _In_reads_bytes_(sizeof(FORM_INFO_1W))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_(sizeof(FORM_INFO_2W))", "Level == 2, _In_reads_bytes_(sizeof(FORM_INFO_2W))")] pForm: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetJobA(hPrinter: HANDLE, JobId: u32, Level: u32, pJob: LPBYTE, Command: u32) -> BOOL;
+        extern fn SetJobA(#[in] hPrinter: HANDLE, JobId: DWORD, #[range(entry, 0..=4)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 0,_Reserved_", "Level == 0, _Reserved_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_opt_(sizeof(JOB_INFO_1))", "Level == 1, _In_reads_bytes_opt_(sizeof(JOB_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_opt_(sizeof(JOB_INFO_2))", "Level == 2, _In_reads_bytes_opt_(sizeof(JOB_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 3,_In_reads_bytes_opt_(sizeof(JOB_INFO_3))", "Level == 3, _In_reads_bytes_opt_(sizeof(JOB_INFO_3))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 4,_In_reads_bytes_opt_(sizeof(JOB_INFO_4))", "Level == 4, _In_reads_bytes_opt_(sizeof(JOB_INFO_4))")] pJob: LPBYTE, Command: DWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetJobNamedProperty(hPrinter: HANDLE, JobId: u32, pProperty: *const PrintNamedProperty) -> u32;
+        extern fn SetJobNamedProperty(#[in] hPrinter: HANDLE, #[in] JobId: DWORD, #[in] pProperty: *const PrintNamedProperty) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn SetJobW(hPrinter: HANDLE, JobId: u32, Level: u32, pJob: LPBYTE, Command: u32) -> BOOL;
+        extern fn SetJobW(#[in] hPrinter: HANDLE, JobId: DWORD, #[range(entry, 0..=4)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 0,_Reserved_", "Level == 0, _Reserved_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_opt_(sizeof(JOB_INFO_1))", "Level == 1, _In_reads_bytes_opt_(sizeof(JOB_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_opt_(sizeof(JOB_INFO_2))", "Level == 2, _In_reads_bytes_opt_(sizeof(JOB_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 3,_In_reads_bytes_opt_(sizeof(JOB_INFO_3))", "Level == 3, _In_reads_bytes_opt_(sizeof(JOB_INFO_3))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 4,_In_reads_bytes_opt_(sizeof(JOB_INFO_4))", "Level == 4, _In_reads_bytes_opt_(sizeof(JOB_INFO_4))")] pJob: LPBYTE, Command: DWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPortA(#[opt] pName: PCSTR, pPortName: PCSTR, dwLevel: u32, pPortInfo: LPBYTE) -> BOOL;
+        extern fn SetPortA(#[in] #[opt] pName: LPSTR, #[in] pPortName: LPSTR, dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "sizeof(PORT_INFO_3)", "sizeof(PORT_INFO_3)")] #[in] pPortInfo: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPortW(#[opt] pName: PCWSTR, pPortName: PCWSTR, dwLevel: u32, pPortInfo: LPBYTE) -> BOOL;
+        extern fn SetPortW(#[in] #[opt] pName: LPWSTR, #[in] pPortName: LPWSTR, dwLevel: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "sizeof(PORT_INFO_3)", "sizeof(PORT_INFO_3)")] #[in] pPortInfo: LPBYTE) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPrinterA(hPrinter: HANDLE, Level: u32, pPrinter: LPBYTE, Command: u32) -> BOOL;
+        extern fn SetPrinterA(#[in] hPrinter: HANDLE, #[range(entry, 0..=9)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 0 && Command != PRINTER_CONTROL_SET_STATUS,_In_opt_", "Level == 0 && Command != 4, _In_opt_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 0 && Command == PRINTER_CONTROL_SET_STATUS,_In_reads_bytes_(sizeof(DWORD))", "Level == 0 && Command == 4, _In_reads_bytes_(sizeof(DWORD))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_(sizeof(PRINTER_INFO_1))", "Level == 1, _In_reads_bytes_(sizeof(PRINTER_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_(sizeof(PRINTER_INFO_2))", "Level == 2, _In_reads_bytes_(sizeof(PRINTER_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 3,_In_reads_bytes_(sizeof(PRINTER_INFO_3))", "Level == 3, _In_reads_bytes_(sizeof(PRINTER_INFO_3))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 4,_In_reads_bytes_(sizeof(PRINTER_INFO_4))", "Level == 4, _In_reads_bytes_(sizeof(PRINTER_INFO_4))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 5,_In_reads_bytes_(sizeof(PRINTER_INFO_5))", "Level == 5, _In_reads_bytes_(sizeof(PRINTER_INFO_5))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 6,_In_reads_bytes_(sizeof(PRINTER_INFO_6))", "Level == 6, _In_reads_bytes_(sizeof(PRINTER_INFO_6))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 7,_In_reads_bytes_(sizeof(PRINTER_INFO_7))", "Level == 7, _In_reads_bytes_(sizeof(PRINTER_INFO_7))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 8,_In_reads_bytes_(sizeof(PRINTER_INFO_8))", "Level == 8, _In_reads_bytes_(sizeof(PRINTER_INFO_8))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 9,_In_reads_bytes_(sizeof(PRINTER_INFO_9))", "Level == 9, _In_reads_bytes_(sizeof(PRINTER_INFO_9))")] pPrinter: LPBYTE, #[in] Command: DWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPrinterDataA(hPrinter: HANDLE, pValueName: PCSTR, Type: u32, #[size_param(4)] pData: LPBYTE, cbData: u32) -> u32;
+        extern fn SetPrinterDataA(#[in] hPrinter: HANDLE, #[in] pValueName: LPSTR, Type: DWORD, #[in] #[readable(entry, bytes(cbData))] pData: LPBYTE, cbData: DWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPrinterDataExA(hPrinter: HANDLE, pKeyName: PCSTR, pValueName: PCSTR, Type: u32, #[size_param(5)] pData: LPBYTE, cbData: u32) -> u32;
+        extern fn SetPrinterDataExA(#[in] hPrinter: HANDLE, #[in] pKeyName: LPCSTR, #[in] pValueName: LPCSTR, Type: DWORD, #[in] #[readable(entry, bytes(cbData))] pData: LPBYTE, cbData: DWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPrinterDataExW(hPrinter: HANDLE, pKeyName: PCWSTR, pValueName: PCWSTR, Type: u32, #[size_param(5)] pData: LPBYTE, cbData: u32) -> u32;
+        extern fn SetPrinterDataExW(#[in] hPrinter: HANDLE, #[in] pKeyName: LPCWSTR, #[in] pValueName: LPCWSTR, Type: DWORD, #[in] #[readable(entry, bytes(cbData))] pData: LPBYTE, cbData: DWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPrinterDataW(hPrinter: HANDLE, pValueName: PCWSTR, Type: u32, #[size_param(4)] pData: LPBYTE, cbData: u32) -> u32;
+        extern fn SetPrinterDataW(#[in] hPrinter: HANDLE, #[in] pValueName: LPWSTR, Type: DWORD, #[in] #[readable(entry, bytes(cbData))] pData: LPBYTE, cbData: DWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn SetPrinterW(hPrinter: HANDLE, Level: u32, pPrinter: LPBYTE, Command: u32) -> BOOL;
+        extern fn SetPrinterW(#[in] hPrinter: HANDLE, #[range(entry, 0..=9)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 0 && Command != PRINTER_CONTROL_SET_STATUS,_In_opt_", "Level == 0 && Command != 4, _In_opt_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 0 && Command == PRINTER_CONTROL_SET_STATUS,_In_reads_bytes_(sizeof(DWORD))", "Level == 0 && Command == 4, _In_reads_bytes_(sizeof(DWORD))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_(sizeof(PRINTER_INFO_1))", "Level == 1, _In_reads_bytes_(sizeof(PRINTER_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 2,_In_reads_bytes_(sizeof(PRINTER_INFO_2))", "Level == 2, _In_reads_bytes_(sizeof(PRINTER_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 3,_In_reads_bytes_(sizeof(PRINTER_INFO_3))", "Level == 3, _In_reads_bytes_(sizeof(PRINTER_INFO_3))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 4,_In_reads_bytes_(sizeof(PRINTER_INFO_4))", "Level == 4, _In_reads_bytes_(sizeof(PRINTER_INFO_4))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 5,_In_reads_bytes_(sizeof(PRINTER_INFO_5))", "Level == 5, _In_reads_bytes_(sizeof(PRINTER_INFO_5))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 6,_In_reads_bytes_(sizeof(PRINTER_INFO_6))", "Level == 6, _In_reads_bytes_(sizeof(PRINTER_INFO_6))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 7,_In_reads_bytes_(sizeof(PRINTER_INFO_7))", "Level == 7, _In_reads_bytes_(sizeof(PRINTER_INFO_7))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 8,_In_reads_bytes_(sizeof(PRINTER_INFO_8))", "Level == 8, _In_reads_bytes_(sizeof(PRINTER_INFO_8))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 9,_In_reads_bytes_(sizeof(PRINTER_INFO_9))", "Level == 9, _In_reads_bytes_(sizeof(PRINTER_INFO_9))")] pPrinter: LPBYTE, #[in] Command: DWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn StartDocPrinterA(hPrinter: HANDLE, Level: u32, pDocInfo: LPBYTE) -> u32;
+        extern fn StartDocPrinterA(#[in] hPrinter: HANDLE, #[range(entry, 1..=3)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_(sizeof(DOC_INFO_1))", "Level == 1, _In_reads_bytes_(sizeof(DOC_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 3,_In_reads_bytes_(sizeof(DOC_INFO_3))", "Level == 3, _In_reads_bytes_(sizeof(DOC_INFO_3))")] pDocInfo: LPBYTE) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn StartDocPrinterW(hPrinter: HANDLE, Level: u32, pDocInfo: LPBYTE) -> u32;
+        extern fn StartDocPrinterW(#[in] hPrinter: HANDLE, #[range(entry, 1..=3)] Level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 1,_In_reads_bytes_(sizeof(DOC_INFO_1))", "Level == 1, _In_reads_bytes_(sizeof(DOC_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Level == 3,_In_reads_bytes_(sizeof(DOC_INFO_3))", "Level == 3, _In_reads_bytes_(sizeof(DOC_INFO_3))")] pDocInfo: LPBYTE) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn StartPagePrinter(hPrinter: HANDLE) -> BOOL;
+        extern fn StartPagePrinter(#[in] hPrinter: HANDLE) -> BOOL;
         const UPDP_CHECK_DRIVERSTORE: i32 = 4;
         const UPDP_SILENT_UPLOAD: i32 = 1;
         const UPDP_UPLOAD_ALWAYS: i32 = 2;
         #[library("WINSPOOL.DRV")]
-        extern fn UploadPrinterDriverPackageA(#[opt] pszServer: PCSTR, pszInfPath: PCSTR, #[opt] pszEnvironment: PCSTR, dwFlags: u32, hwnd: HWND, #[len_param(6)] #[out] pszDestInfPath: PSTR, #[in] #[out] pcchDestInfPath: PULONG) -> HRESULT;
+        extern fn UploadPrinterDriverPackageA(#[in] #[opt] pszServer: LPCSTR, #[in] pszInfPath: LPCSTR, #[in] #[opt] pszEnvironment: LPCSTR, #[in] dwFlags: DWORD, #[in] hwnd: HWND, #[out] #[writable(entry, *pcchDestInfPath)] pszDestInfPath: LPSTR, #[in] #[out] pcchDestInfPath: PULONG) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn UploadPrinterDriverPackageW(#[opt] pszServer: PCWSTR, pszInfPath: PCWSTR, #[opt] pszEnvironment: PCWSTR, dwFlags: u32, hwnd: HWND, #[len_param(6)] #[out] pszDestInfPath: PWSTR, #[in] #[out] pcchDestInfPath: PULONG) -> HRESULT;
+        extern fn UploadPrinterDriverPackageW(#[in] #[opt] pszServer: LPCWSTR, #[in] pszInfPath: LPCWSTR, #[in] #[opt] pszEnvironment: LPCWSTR, #[in] dwFlags: DWORD, #[in] hwnd: HWND, #[out] #[writable(entry, *pcchDestInfPath)] pszDestInfPath: LPWSTR, #[in] #[out] pcchDestInfPath: PULONG) -> HRESULT;
         #[library("WINSPOOL.DRV")]
-        extern fn WaitForPrinterChange(hPrinter: HANDLE, Flags: u32) -> u32;
+        extern fn WaitForPrinterChange(#[in] hPrinter: HANDLE, Flags: DWORD) -> DWORD;
         #[library("WINSPOOL.DRV")]
-        extern fn WritePrinter(hPrinter: HANDLE, #[size_param(2)] #[in] pBuf: *mut void, cbBuf: u32, #[out] pcWritten: LPDWORD) -> BOOL;
+        extern fn WritePrinter(#[in] hPrinter: HANDLE, #[in] #[readable(entry, bytes(cbBuf))] pBuf: LPVOID, cbBuf: DWORD, #[out] pcWritten: LPDWORD) -> BOOL;
         #[library("WINSPOOL.DRV")]
-        extern fn XcvDataW(hXcv: HANDLE, pszDataName: PCWSTR, #[size_param(3)] #[opt] pInputData: PBYTE, cbInputData: u32, #[size_param(5)] #[out] #[opt] pOutputData: PBYTE, cbOutputData: u32, #[out] pcbOutputNeeded: PDWORD, #[out] #[opt] pdwStatus: PDWORD) -> BOOL;
+        extern fn XcvDataW(#[in] hXcv: HANDLE, #[in] pszDataName: PCWSTR, #[in] #[opt] #[readable(entry, bytes(cbInputData))] pInputData: PBYTE, cbInputData: DWORD, #[out] #[opt] #[writable(entry, bytes(cbOutputData))] pOutputData: PBYTE, cbOutputData: DWORD, #[out] pcbOutputNeeded: PDWORD, #[out] #[opt] pdwStatus: PDWORD) -> BOOL;
     }
 }

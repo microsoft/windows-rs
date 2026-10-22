@@ -51,55 +51,55 @@ mod Windows {
         const D3DCOMPILE_SKIP_VALIDATION: i32 = 2;
         const D3DCOMPILE_WARNINGS_ARE_ERRORS: i32 = 262144;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DCompile(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, #[opt] pSourceName: PCSTR, #[opt] pDefines: *const D3D_SHADER_MACRO, #[opt] pInclude: ID3DInclude, #[opt] pEntrypoint: PCSTR, pTarget: PCSTR, Flags1: u32, Flags2: u32, ppCode: *mut ID3DBlob, ppErrorMsgs: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DCompile(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] #[opt] pSourceName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(pDefines->Name != 0)", "_Inexpressible_(pDefines->Name != 0)")] #[in] #[opt] pDefines: *const D3D_SHADER_MACRO, #[in] #[opt] pInclude: ID3DInclude, #[in] #[opt] pEntrypoint: LPCSTR, #[in] pTarget: LPCSTR, #[in] Flags1: UINT, #[in] Flags2: UINT, #[out] ppCode: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DCompile2(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, #[opt] pSourceName: PCSTR, #[opt] pDefines: *const D3D_SHADER_MACRO, #[opt] pInclude: ID3DInclude, pEntrypoint: PCSTR, pTarget: PCSTR, Flags1: u32, Flags2: u32, SecondaryDataFlags: u32, #[size_param(11)] #[opt] pSecondaryData: LPCVOID, SecondaryDataSize: usize, ppCode: *mut ID3DBlob, ppErrorMsgs: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DCompile2(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] #[opt] pSourceName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(pDefines->Name != 0)", "_Inexpressible_(pDefines->Name != 0)")] #[in] #[opt] pDefines: *const D3D_SHADER_MACRO, #[in] #[opt] pInclude: ID3DInclude, #[in] pEntrypoint: LPCSTR, #[in] pTarget: LPCSTR, #[in] Flags1: UINT, #[in] Flags2: UINT, #[in] SecondaryDataFlags: UINT, #[in] #[opt] #[readable(entry, bytes(SecondaryDataSize))] pSecondaryData: LPCVOID, #[in] SecondaryDataSize: SIZE_T, #[out] ppCode: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DCompileFromFile(pFileName: PCWSTR, #[opt] pDefines: *const D3D_SHADER_MACRO, #[opt] pInclude: ID3DInclude, pEntrypoint: PCSTR, pTarget: PCSTR, Flags1: u32, Flags2: u32, ppCode: *mut ID3DBlob, ppErrorMsgs: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DCompileFromFile(#[in] pFileName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(pDefines->Name != 0)", "_Inexpressible_(pDefines->Name != 0)")] #[in] #[opt] pDefines: *const D3D_SHADER_MACRO, #[in] #[opt] pInclude: ID3DInclude, #[in] pEntrypoint: LPCSTR, #[in] pTarget: LPCSTR, #[in] Flags1: UINT, #[in] Flags2: UINT, #[out] ppCode: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DCompressShaders(uNumShaders: u32, #[len_param(0)] #[in] pShaderData: *mut D3D_SHADER_DATA, uFlags: u32, ppCompressedData: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DCompressShaders(#[in] uNumShaders: UINT, #[in] #[readable(entry, uNumShaders)] pShaderData: *mut D3D_SHADER_DATA, #[in] uFlags: UINT, #[out] ppCompressedData: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DCreateBlob(Size: usize, ppBlob: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DCreateBlob(#[in] Size: SIZE_T, #[out] ppBlob: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DCreateFunctionLinkingGraph(uFlags: u32, ppFunctionLinkingGraph: *mut ID3D11FunctionLinkingGraph) -> HRESULT;
+        extern fn D3DCreateFunctionLinkingGraph(#[in] uFlags: UINT, #[out] ppFunctionLinkingGraph: *mut ID3D11FunctionLinkingGraph) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DCreateLinker(ppLinker: *mut ID3D11Linker) -> HRESULT;
+        extern fn D3DCreateLinker(#[out] ppLinker: *mut ID3D11Linker) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DDecompressShaders(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, uNumShaders: u32, uStartIndex: u32, #[len_param(2)] #[in] #[opt] pIndices: *mut u32, uFlags: u32, #[len_param(2)] ppShaders: *mut ID3DBlob, #[opt] pTotalShaders: *mut u32) -> HRESULT;
+        extern fn D3DDecompressShaders(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] uNumShaders: UINT, #[in] uStartIndex: UINT, #[in] #[opt] #[readable(entry, uNumShaders)] pIndices: *mut UINT, #[in] uFlags: UINT, #[out] #[writable(entry, uNumShaders)] ppShaders: *mut ID3D10Blob, #[out] #[opt] pTotalShaders: *mut UINT) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DDisassemble(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, Flags: u32, #[opt] szComments: PCSTR, ppDisassembly: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DDisassemble(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] Flags: UINT, #[in] #[opt] szComments: LPCSTR, #[out] ppDisassembly: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DDisassemble10Effect(pEffect: ID3D10Effect, Flags: u32, ppDisassembly: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DDisassemble10Effect(#[in] pEffect: ID3D10Effect, #[in] Flags: UINT, #[out] ppDisassembly: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DDisassembleRegion(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, Flags: u32, #[opt] szComments: PCSTR, StartByteOffset: usize, NumInsts: usize, #[opt] pFinishByteOffset: *mut usize, ppDisassembly: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DDisassembleRegion(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] Flags: UINT, #[in] #[opt] szComments: LPCSTR, #[in] StartByteOffset: SIZE_T, #[in] NumInsts: SIZE_T, #[out] #[opt] pFinishByteOffset: *mut SIZE_T, #[out] ppDisassembly: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DGetBlobPart(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, Part: D3D_BLOB_PART, Flags: u32, ppPart: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DGetBlobPart(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] Part: D3D_BLOB_PART, #[in] Flags: UINT, #[out] ppPart: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DGetDebugInfo(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, ppDebugInfo: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DGetDebugInfo(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[out] ppDebugInfo: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DGetInputAndOutputSignatureBlob(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, ppSignatureBlob: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DGetInputAndOutputSignatureBlob(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[out] ppSignatureBlob: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DGetInputSignatureBlob(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, ppSignatureBlob: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DGetInputSignatureBlob(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[out] ppSignatureBlob: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DGetOutputSignatureBlob(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, ppSignatureBlob: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DGetOutputSignatureBlob(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[out] ppSignatureBlob: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DGetTraceInstructionOffsets(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, Flags: u32, StartInstIndex: usize, NumInsts: usize, #[len_param(4)] #[opt] pOffsets: *mut usize, #[opt] pTotalInsts: *mut usize) -> HRESULT;
+        extern fn D3DGetTraceInstructionOffsets(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] Flags: UINT, #[in] StartInstIndex: SIZE_T, #[in] NumInsts: SIZE_T, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "NumInsts,(((NumInsts) < (*pTotalInsts)) ? (NumInsts) : (*pTotalInsts))", "NumInsts,(((NumInsts) < (*pTotalInsts)) ? (NumInsts) : (*pTotalInsts))")] #[out] #[opt] #[writable(entry, NumInsts)] pOffsets: *mut SIZE_T, #[out] #[opt] pTotalInsts: *mut SIZE_T) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DLoadModule(pSrcData: LPCVOID, cbSrcDataSize: usize, ppModule: *mut ID3D11Module) -> HRESULT;
+        extern fn D3DLoadModule(#[in] pSrcData: LPCVOID, #[in] cbSrcDataSize: SIZE_T, #[out] ppModule: *mut ID3D11Module) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DPreprocess(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, #[opt] pSourceName: PCSTR, #[opt] pDefines: *const D3D_SHADER_MACRO, #[opt] pInclude: ID3DInclude, ppCodeText: *mut ID3DBlob, ppErrorMsgs: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DPreprocess(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] #[opt] pSourceName: LPCSTR, #[in] #[opt] pDefines: *const D3D_SHADER_MACRO, #[in] #[opt] pInclude: ID3DInclude, #[out] ppCodeText: *mut ID3D10Blob, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Outptr_opt_result_maybenull_", "_Outptr_opt_result_maybenull_")] ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DReadFileToBlob(pFileName: PCWSTR, ppContents: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DReadFileToBlob(#[in] pFileName: LPCWSTR, #[out] ppContents: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DReflect(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, pInterface: *const GUID, ppReflector: *mut *mut void) -> HRESULT;
+        extern fn D3DReflect(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] pInterface: &IID, #[out] ppReflector: *mut *mut void) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DReflectLibrary(pSrcData: LPCVOID, SrcDataSize: usize, riid: *const GUID, ppReflector: *mut *mut void) -> HRESULT;
+        extern fn D3DReflectLibrary(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] riid: &IID, #[out] ppReflector: *mut LPVOID) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DSetBlobPart(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, Part: D3D_BLOB_PART, Flags: u32, #[size_param(5)] pPart: LPCVOID, PartSize: usize, ppNewShader: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DSetBlobPart(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] Part: D3D_BLOB_PART, #[in] Flags: UINT, #[in] #[readable(entry, bytes(PartSize))] pPart: LPCVOID, #[in] PartSize: SIZE_T, #[out] ppNewShader: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DStripShader(#[size_param(1)] pShaderBytecode: LPCVOID, BytecodeLength: usize, uStripFlags: u32, ppStrippedBlob: *mut ID3DBlob) -> HRESULT;
+        extern fn D3DStripShader(#[in] #[readable(entry, bytes(BytecodeLength))] pShaderBytecode: LPCVOID, #[in] BytecodeLength: SIZE_T, #[in] uStripFlags: UINT, #[out] ppStrippedBlob: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DWriteBlobToFile(pBlob: ID3DBlob, pFileName: PCWSTR, bOverwrite: BOOL) -> HRESULT;
+        extern fn D3DWriteBlobToFile(#[in] pBlob: ID3D10Blob, #[in] pFileName: LPCWSTR, #[in] bOverwrite: BOOL) -> HRESULT;
         #[repr(i32)]
         enum D3D_BLOB_PART {
             D3D_BLOB_INPUT_SIGNATURE_BLOB = 0,
@@ -121,7 +121,6 @@ mod Windows {
             D3D_BLOB_TEST_COMPILE_REPORT = 32771,
         }
         const D3D_COMPILER_VERSION: i32 = 47;
-        const D3D_COMPILE_STANDARD_FILE_INCLUDE: *mut ID3DInclude = 1;
         const D3D_COMPRESS_SHADER_KEEP_ALL_PARTS: i32 = 1;
         const D3D_DISASM_DISABLE_DEBUG_INFO: i32 = 16;
         const D3D_DISASM_ENABLE_COLOR_CODE: i32 = 1;
@@ -134,10 +133,10 @@ mod Windows {
         const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: i32 = 1;
         struct D3D_SHADER_DATA {
             pBytecode: LPCVOID,
-            BytecodeLength: usize,
+            BytecodeLength: SIZE_T,
         }
-        extern fn pD3DCompile(pSrcData: LPCVOID, SrcDataSize: usize, pFileName: PCSTR, pDefines: *const D3D_SHADER_MACRO, pInclude: ID3DInclude, pEntrypoint: PCSTR, pTarget: PCSTR, Flags1: u32, Flags2: u32, ppCode: *mut ID3DBlob, ppErrorMsgs: *mut ID3DBlob) -> HRESULT;
-        extern fn pD3DDisassemble(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, Flags: u32, #[opt] szComments: PCSTR, ppDisassembly: *mut ID3DBlob) -> HRESULT;
-        extern fn pD3DPreprocess(pSrcData: LPCVOID, SrcDataSize: usize, pFileName: PCSTR, pDefines: *const D3D_SHADER_MACRO, pInclude: ID3DInclude, ppCodeText: *mut ID3DBlob, ppErrorMsgs: *mut ID3DBlob) -> HRESULT;
+        extern fn pD3DCompile(pSrcData: LPCVOID, SrcDataSize: SIZE_T, pFileName: LPCSTR, pDefines: *const D3D_SHADER_MACRO, pInclude: ID3DInclude, pEntrypoint: LPCSTR, pTarget: LPCSTR, Flags1: UINT, Flags2: UINT, ppCode: *mut ID3D10Blob, ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
+        extern fn pD3DDisassemble(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] Flags: UINT, #[in] #[opt] szComments: LPCSTR, #[out] ppDisassembly: *mut ID3D10Blob) -> HRESULT;
+        extern fn pD3DPreprocess(pSrcData: LPCVOID, SrcDataSize: SIZE_T, pFileName: LPCSTR, pDefines: *const D3D_SHADER_MACRO, pInclude: ID3DInclude, ppCodeText: *mut ID3D10Blob, ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
     }
 }

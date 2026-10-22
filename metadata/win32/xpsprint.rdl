@@ -4,16 +4,16 @@ mod Windows {
         #[guid(0x5ab89b06_8194_425f_ab3b_d7a96e350161)]
         interface IXpsPrintJob: IUnknown {
             fn Cancel(&self) -> HRESULT;
-            fn GetJobStatus(&self, #[retval] jobStatus: *mut XPS_JOB_STATUS) -> HRESULT;
+            fn GetJobStatus(&self, #[out] #[retval] jobStatus: *mut XPS_JOB_STATUS) -> HRESULT;
         }
         #[guid(0x7a77dc5f_45d6_4dff_9307_d8cb846347ca)]
         interface IXpsPrintJobStream: ISequentialStream {
             fn Close(&self) -> HRESULT;
         }
         #[library("XPSPRINT.DLL")]
-        extern fn StartXpsPrintJob(printerName: PCWSTR, jobName: PCWSTR, outputFileName: PCWSTR, progressEvent: HANDLE, completionEvent: HANDLE, #[in] printablePagesOn: *mut u8, printablePagesOnCount: u32, xpsPrintJob: *mut IXpsPrintJob, documentStream: *mut IXpsPrintJobStream, printTicketStream: *mut IXpsPrintJobStream) -> HRESULT;
+        extern fn StartXpsPrintJob(#[in] #[null_terminated(entry)] printerName: LPCWSTR, #[in] #[null_terminated(entry)] jobName: LPCWSTR, #[in] #[null_terminated(entry)] outputFileName: LPCWSTR, #[in] progressEvent: HANDLE, #[in] completionEvent: HANDLE, #[in] #[readable(entry, printablePagesOnCount)] printablePagesOn: *mut UINT8, #[in] printablePagesOnCount: UINT32, #[out] #[out_ptr] xpsPrintJob: *mut IXpsPrintJob, #[out] #[out_ptr] documentStream: *mut IXpsPrintJobStream, #[out] #[out_ptr] printTicketStream: *mut IXpsPrintJobStream) -> HRESULT;
         #[library("XPSPRINT.DLL")]
-        extern fn StartXpsPrintJob1(printerName: PCWSTR, jobName: PCWSTR, outputFileName: PCWSTR, progressEvent: HANDLE, completionEvent: HANDLE, xpsPrintJob: *mut IXpsPrintJob, printContentReceiver: *mut IXpsOMPackageTarget) -> HRESULT;
+        extern fn StartXpsPrintJob1(#[in] #[null_terminated(entry)] printerName: LPCWSTR, #[in] #[null_terminated(entry)] jobName: LPCWSTR, #[in] #[null_terminated(entry)] outputFileName: LPCWSTR, #[in] progressEvent: HANDLE, #[in] completionEvent: HANDLE, #[out] #[out_ptr] xpsPrintJob: *mut IXpsPrintJob, #[out] #[out_ptr] printContentReceiver: *mut IXpsOMPackageTarget) -> HRESULT;
         #[repr(i32)]
         enum XPS_JOB_COMPLETION {
             XPS_JOB_IN_PROGRESS = 0,
@@ -22,10 +22,10 @@ mod Windows {
             XPS_JOB_FAILED = 3,
         }
         struct XPS_JOB_STATUS {
-            jobId: u32,
-            currentDocument: i32,
-            currentPage: i32,
-            currentPageTotal: i32,
+            jobId: UINT32,
+            currentDocument: INT32,
+            currentPage: INT32,
+            currentPageTotal: INT32,
             completion: XPS_JOB_COMPLETION,
             jobStatus: HRESULT,
         }

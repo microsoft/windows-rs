@@ -8,17 +8,36 @@ mod Windows {
         }
         #[guid(0x09d0f835_92ff_4e53_8efa_40faa551f233)]
         interface IMFD3D12SynchronizationObjectCommands: IUnknown {
-            fn EnqueueResourceReady(&self, pProducerCommandQueue: ID3D12CommandQueue) -> HRESULT;
-            fn EnqueueResourceReadyWait(&self, pConsumerCommandQueue: ID3D12CommandQueue) -> HRESULT;
+            fn EnqueueResourceReady(&self, #[in] pProducerCommandQueue: ID3D12CommandQueue) -> HRESULT;
+            fn EnqueueResourceReadyWait(&self, #[in] pConsumerCommandQueue: ID3D12CommandQueue) -> HRESULT;
             fn SignalEventOnResourceReady(&self, hEvent: HANDLE) -> HRESULT;
-            fn EnqueueResourceRelease(&self, pConsumerCommandQueue: ID3D12CommandQueue) -> HRESULT;
+            fn EnqueueResourceRelease(&self, #[in] pConsumerCommandQueue: ID3D12CommandQueue) -> HRESULT;
         }
         #[library("MFPlat.DLL")]
-        extern "C" fn MFCreateD3D12SynchronizationObject(pDevice: ID3D12Device, riid: *const GUID, ppvSyncObject: *mut *mut void) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        extern "C" fn MFCreateD3D12SynchronizationObject(#[in] pDevice: ID3D12Device, #[in] riid: &IID, #[out] #[out_ptr] ppvSyncObject: *mut *mut void) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        #[arch(X86)]
+        extern fn MFCreateD3D12SynchronizationObject(#[in] pDevice: ID3D12Device, #[in] riid: &IID, #[out] #[out_ptr] ppvSyncObject: *mut *mut void) -> HRESULT;
+        const MF_D3D12_SYNCHRONIZATION_OBJECT: GUID = 0x2a7c8d6a_85a6_494d_a046_06ea1a138f4b;
+        const MF_MT_D3D12_CPU_READBACK: GUID = 0x28ee9fe3_d481_46a6_b98a_7f69d5280e82;
+        const MF_MT_D3D12_RESOURCE_DIMENSION: GUID = 0x5f772624_16ca_4b89_9651_5ddf769f8ab8;
+        const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER: GUID = 0xa6a1e439_2f96_4ab5_98dc_adf74973505d;
+        const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL: GUID = 0xb1138dc3_01d5_4c14_9bdc_cdc9336f55b9;
+        const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET: GUID = 0xeeac2585_3430_498c_84a2_77b1bba570f6;
+        const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS: GUID = 0x0a4940b2_cfd6_4738_9d02_98113734015a;
+        const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS: GUID = 0x82c85647_5057_4960_9559_f45b8e271427;
+        const MF_MT_D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE: GUID = 0xba06bfac_ffe3_474a_ab55_161ee4417a2e;
+        const MF_MT_D3D12_TEXTURE_LAYOUT: GUID = 0x97c85caa_0beb_4ee1_9715_f22fad8c10f5;
+        const MF_MT_D3D_RESOURCE_VERSION: GUID = 0x174f1e85_fe26_453d_b52e_5bdd4e55b944;
         #[repr(i32)]
         enum MF_MT_D3D_RESOURCE_VERSION_ENUM {
             MF_D3D11_RESOURCE = 0,
             MF_D3D12_RESOURCE = 1,
         }
+        const MF_SA_D3D12_AWARE: GUID = 0x77f0bacb_17a8_4a50_9a7d_a5cc09d39d44;
+        const MF_SA_D3D12_CLEAR_VALUE: GUID = 0x86ba9a39_0526_495d_9ab5_54ec9fad6fc3;
+        const MF_SA_D3D12_HEAP_FLAGS: GUID = 0x496b3266_d28f_4f8c_93a7_4a596b1a31a1;
+        const MF_SA_D3D12_HEAP_TYPE: GUID = 0x56f26a76_bbc1_4ce0_bb11_e22368d874ed;
     }
 }

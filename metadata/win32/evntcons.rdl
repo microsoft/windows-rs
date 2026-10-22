@@ -28,75 +28,75 @@ mod Windows {
         const EVENT_ENABLE_PROPERTY_STACK_TRACE: i32 = 4;
         const EVENT_ENABLE_PROPERTY_TS_ID: i32 = 2;
         struct EVENT_EXTENDED_ITEM_EVENT_KEY {
-            Key: u64,
+            Key: ULONG64,
         }
         struct EVENT_EXTENDED_ITEM_INSTANCE {
-            InstanceId: u32,
-            ParentInstanceId: u32,
+            InstanceId: ULONG,
+            ParentInstanceId: ULONG,
             ParentGuid: GUID,
         }
         struct EVENT_EXTENDED_ITEM_PEBS_INDEX {
-            PebsIndex: u64,
+            PebsIndex: ULONG64,
         }
         struct EVENT_EXTENDED_ITEM_PMC_COUNTERS {
-            Counter: [u64; 1],
+            Counter: [ULONG64; 1],
         }
         struct EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
-            ProcessStartKey: u64,
+            ProcessStartKey: ULONG64,
         }
         struct EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
             RelatedActivityId: GUID,
         }
         struct EVENT_EXTENDED_ITEM_STACK_KEY32 {
-            MatchId: u64,
-            StackKey: u32,
-            Padding: u32,
+            MatchId: ULONG64,
+            StackKey: ULONG,
+            Padding: ULONG,
         }
         struct EVENT_EXTENDED_ITEM_STACK_KEY64 {
-            MatchId: u64,
-            StackKey: u64,
+            MatchId: ULONG64,
+            StackKey: ULONG64,
         }
         struct EVENT_EXTENDED_ITEM_STACK_TRACE32 {
-            MatchId: u64,
-            Address: [u32; 1],
+            MatchId: ULONG64,
+            Address: [ULONG; 1],
         }
         struct EVENT_EXTENDED_ITEM_STACK_TRACE64 {
-            MatchId: u64,
-            Address: [u64; 1],
+            MatchId: ULONG64,
+            Address: [ULONG64; 1],
         }
         struct EVENT_EXTENDED_ITEM_TS_ID {
-            SessionId: u32,
+            SessionId: ULONG,
         }
         struct EVENT_HEADER {
-            Size: u16,
-            HeaderType: u16,
-            Flags: u16,
-            EventProperty: u16,
-            ThreadId: u32,
-            ProcessId: u32,
+            Size: USHORT,
+            HeaderType: USHORT,
+            Flags: USHORT,
+            EventProperty: USHORT,
+            ThreadId: ULONG,
+            ProcessId: ULONG,
             TimeStamp: LARGE_INTEGER,
             ProviderId: GUID,
             EventDescriptor: EVENT_DESCRIPTOR,
             Anonymous: union {
                 Anonymous: struct {
-                    KernelTime: u32,
-                    UserTime: u32,
+                    KernelTime: ULONG,
+                    UserTime: ULONG,
                 },
-                ProcessorTime: u64,
+                ProcessorTime: ULONG64,
             },
             ActivityId: GUID,
         }
         struct EVENT_HEADER_EXTENDED_DATA_ITEM {
-            Reserved1: u16,
-            ExtType: u16,
+            Reserved1: USHORT,
+            ExtType: USHORT,
             Anonymous: struct {
                 _bitfield: u16 {
-                    Linkage: 1,
-                    Reserved2: 15,
+                    Linkage: USHORT: 1,
+                    Reserved2: USHORT: 15,
                 },
             },
-            DataSize: u16,
-            DataPtr: u64,
+            DataSize: USHORT,
+            DataPtr: ULONGLONG,
         }
         const EVENT_HEADER_EXT_TYPE_CONTAINER_ID: i32 = 16;
         const EVENT_HEADER_EXT_TYPE_CONTROL_GUID: i32 = 14;
@@ -135,18 +135,18 @@ mod Windows {
         struct EVENT_RECORD {
             EventHeader: EVENT_HEADER,
             BufferContext: ETW_BUFFER_CONTEXT,
-            ExtendedDataCount: u16,
-            UserDataLength: u16,
+            ExtendedDataCount: USHORT,
+            UserDataLength: USHORT,
             ExtendedData: PEVENT_HEADER_EXTENDED_DATA_ITEM,
-            UserData: *mut void,
-            UserContext: *mut void,
+            UserData: PVOID,
+            UserContext: PVOID,
         }
         #[library("ADVAPI32.dll")]
-        extern fn EventAccessControl(Guid: LPGUID, Operation: u32, Sid: PSID, Rights: u32, AllowOrDeny: BOOLEAN) -> u32;
+        extern fn EventAccessControl(#[in] Guid: LPGUID, #[in] Operation: ULONG, #[in] Sid: PSID, #[in] Rights: ULONG, #[in] AllowOrDeny: BOOLEAN) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventAccessQuery(Guid: LPGUID, #[size_param(2)] #[out] #[opt] Buffer: PSECURITY_DESCRIPTOR, #[in] #[out] BufferSize: PULONG) -> u32;
+        extern fn EventAccessQuery(#[in] Guid: LPGUID, #[out] #[opt] #[writable(entry, bytes(*BufferSize))] Buffer: PSECURITY_DESCRIPTOR, #[in] #[out] BufferSize: PULONG) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventAccessRemove(Guid: LPGUID) -> u32;
+        extern fn EventAccessRemove(#[in] Guid: LPGUID) -> ULONG;
         type PCEVENT_RECORD = *const EVENT_RECORD;
         type PEVENT_EXTENDED_ITEM_EVENT_KEY = *mut EVENT_EXTENDED_ITEM_EVENT_KEY;
         type PEVENT_EXTENDED_ITEM_INSTANCE = *mut EVENT_EXTENDED_ITEM_INSTANCE;
@@ -161,6 +161,7 @@ mod Windows {
         type PEVENT_EXTENDED_ITEM_TS_ID = *mut EVENT_EXTENDED_ITEM_TS_ID;
         type PEVENT_HEADER = *mut EVENT_HEADER;
         type PEVENT_HEADER_EXTENDED_DATA_ITEM = *mut EVENT_HEADER_EXTENDED_DATA_ITEM;
+        type PEVENT_RECORD = *mut EVENT_RECORD;
         const PROCESS_TRACE_MODE_EVENT_RECORD: i32 = 268435456;
         const PROCESS_TRACE_MODE_RAW_TIMESTAMP: i32 = 4096;
         const PROCESS_TRACE_MODE_REAL_TIME: i32 = 256;

@@ -2,23 +2,23 @@
 mod Windows {
     mod Win32 {
         #[library("api-ms-win-core-realtime-l1-1-2.dll")]
-        extern fn ConvertAuxiliaryCounterToPerformanceCounter(ullAuxiliaryCounterValue: u64, #[out] lpPerformanceCounterValue: PULONGLONG, #[out] #[opt] lpConversionError: PULONGLONG) -> HRESULT;
+        extern fn ConvertAuxiliaryCounterToPerformanceCounter(#[in] ullAuxiliaryCounterValue: ULONGLONG, #[out] lpPerformanceCounterValue: PULONGLONG, #[out] #[opt] lpConversionError: PULONGLONG) -> HRESULT;
         #[library("api-ms-win-core-realtime-l1-1-2.dll")]
-        extern fn ConvertPerformanceCounterToAuxiliaryCounter(ullPerformanceCounterValue: u64, #[out] lpAuxiliaryCounterValue: PULONGLONG, #[out] #[opt] lpConversionError: PULONGLONG) -> HRESULT;
+        extern fn ConvertPerformanceCounterToAuxiliaryCounter(#[in] ullPerformanceCounterValue: ULONGLONG, #[out] lpAuxiliaryCounterValue: PULONGLONG, #[out] #[opt] lpConversionError: PULONGLONG) -> HRESULT;
         #[library("api-ms-win-core-realtime-l1-1-2.dll")]
         extern fn QueryAuxiliaryCounterFrequency(#[out] lpAuxiliaryCounterFrequency: PULONGLONG) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn QueryIdleProcessorCycleTime(#[in] #[out] BufferLength: PULONG, #[size_param(0)] #[out] #[opt] ProcessorIdleCycleTime: PULONG64) -> BOOL;
+        extern fn QueryIdleProcessorCycleTime(#[in] #[out] BufferLength: PULONG, #[out] #[opt] #[writable(entry, bytes(*BufferLength))] ProcessorIdleCycleTime: PULONG64) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn QueryIdleProcessorCycleTimeEx(Group: u16, #[in] #[out] BufferLength: PULONG, #[size_param(1)] #[out] #[opt] ProcessorIdleCycleTime: PULONG64) -> BOOL;
+        extern fn QueryIdleProcessorCycleTimeEx(#[in] Group: USHORT, #[in] #[out] BufferLength: PULONG, #[out] #[opt] #[writable(entry, bytes(*BufferLength))] ProcessorIdleCycleTime: PULONG64) -> BOOL;
         #[library("api-ms-win-core-realtime-l1-1-1.dll")]
         extern fn QueryInterruptTime(#[out] lpInterruptTime: PULONGLONG);
         #[library("api-ms-win-core-realtime-l1-1-1.dll")]
         extern fn QueryInterruptTimePrecise(#[out] lpInterruptTimePrecise: PULONGLONG);
         #[library("KERNEL32.dll")]
-        extern fn QueryProcessCycleTime(ProcessHandle: HANDLE, #[out] CycleTime: PULONG64) -> BOOL;
+        extern fn QueryProcessCycleTime(#[in] ProcessHandle: HANDLE, #[out] CycleTime: PULONG64) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn QueryThreadCycleTime(ThreadHandle: HANDLE, #[out] CycleTime: PULONG64) -> BOOL;
+        extern fn QueryThreadCycleTime(#[in] ThreadHandle: HANDLE, #[out] CycleTime: PULONG64) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn QueryUnbiasedInterruptTime(#[out] UnbiasedTime: PULONGLONG) -> BOOL;
         #[library("api-ms-win-core-realtime-l1-1-1.dll")]

@@ -13,31 +13,31 @@ mod Windows {
         const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: i32 = 2;
         const CREATE_WAITABLE_TIMER_MANUAL_RESET: i32 = 1;
         #[library("KERNEL32.dll")]
-        extern fn CancelWaitableTimer(hTimer: HANDLE) -> BOOL;
+        extern fn CancelWaitableTimer(#[in] hTimer: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateEventA(#[opt] lpEventAttributes: LPSECURITY_ATTRIBUTES, bManualReset: BOOL, bInitialState: BOOL, #[opt] lpName: PCSTR) -> HANDLE;
+        extern fn CreateEventA(#[in] #[opt] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[in] bManualReset: BOOL, #[in] bInitialState: BOOL, #[in] #[opt] lpName: LPCSTR) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateEventExA(#[opt] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpName: PCSTR, dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
+        extern fn CreateEventExA(#[in] #[opt] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpName: LPCSTR, #[in] dwFlags: DWORD, #[in] dwDesiredAccess: DWORD) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateEventExW(#[opt] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpName: PCWSTR, dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
+        extern fn CreateEventExW(#[in] #[opt] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpName: LPCWSTR, #[in] dwFlags: DWORD, #[in] dwDesiredAccess: DWORD) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateEventW(#[opt] lpEventAttributes: LPSECURITY_ATTRIBUTES, bManualReset: BOOL, bInitialState: BOOL, #[opt] lpName: PCWSTR) -> HANDLE;
+        extern fn CreateEventW(#[in] #[opt] lpEventAttributes: LPSECURITY_ATTRIBUTES, #[in] bManualReset: BOOL, #[in] bInitialState: BOOL, #[in] #[opt] lpName: LPCWSTR) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateMutexA(#[opt] lpMutexAttributes: LPSECURITY_ATTRIBUTES, bInitialOwner: BOOL, #[opt] lpName: PCSTR) -> HANDLE;
+        extern fn CreateMutexA(#[in] #[opt] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[in] bInitialOwner: BOOL, #[in] #[opt] lpName: LPCSTR) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateMutexExA(#[opt] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpName: PCSTR, dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
+        extern fn CreateMutexExA(#[in] #[opt] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpName: LPCSTR, #[in] dwFlags: DWORD, #[in] dwDesiredAccess: DWORD) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateMutexExW(#[opt] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpName: PCWSTR, dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
+        extern fn CreateMutexExW(#[in] #[opt] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpName: LPCWSTR, #[in] dwFlags: DWORD, #[in] dwDesiredAccess: DWORD) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateMutexW(#[opt] lpMutexAttributes: LPSECURITY_ATTRIBUTES, bInitialOwner: BOOL, #[opt] lpName: PCWSTR) -> HANDLE;
+        extern fn CreateMutexW(#[in] #[opt] lpMutexAttributes: LPSECURITY_ATTRIBUTES, #[in] bInitialOwner: BOOL, #[in] #[opt] lpName: LPCWSTR) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateSemaphoreExW(#[opt] lpSemaphoreAttributes: LPSECURITY_ATTRIBUTES, lInitialCount: i32, lMaximumCount: i32, #[opt] lpName: PCWSTR, #[reserved] dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
+        extern fn CreateSemaphoreExW(#[in] #[opt] lpSemaphoreAttributes: LPSECURITY_ATTRIBUTES, #[in] lInitialCount: LONG, #[in] lMaximumCount: LONG, #[in] #[opt] lpName: LPCWSTR, #[reserved] dwFlags: DWORD, #[in] dwDesiredAccess: DWORD) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateSemaphoreW(#[opt] lpSemaphoreAttributes: LPSECURITY_ATTRIBUTES, lInitialCount: i32, lMaximumCount: i32, #[opt] lpName: PCWSTR) -> HANDLE;
+        extern fn CreateSemaphoreW(#[in] #[opt] lpSemaphoreAttributes: LPSECURITY_ATTRIBUTES, #[in] lInitialCount: LONG, #[in] lMaximumCount: LONG, #[in] #[opt] lpName: LPCWSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateWaitableTimerExW(#[opt] lpTimerAttributes: LPSECURITY_ATTRIBUTES, #[opt] lpTimerName: PCWSTR, dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
+        extern fn CreateWaitableTimerExW(#[in] #[opt] lpTimerAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpTimerName: LPCWSTR, #[in] dwFlags: DWORD, #[in] dwDesiredAccess: DWORD) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateWaitableTimerW(#[opt] lpTimerAttributes: LPSECURITY_ATTRIBUTES, bManualReset: BOOL, #[opt] lpTimerName: PCWSTR) -> HANDLE;
+        extern fn CreateWaitableTimerW(#[in] #[opt] lpTimerAttributes: LPSECURITY_ATTRIBUTES, #[in] bManualReset: BOOL, #[in] #[opt] lpTimerName: LPCWSTR) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
         extern fn DeleteCriticalSection(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION);
         #[library("KERNEL32.dll")]
@@ -45,109 +45,110 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn EnterCriticalSection(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION);
         #[library("KERNEL32.dll")]
-        extern fn EnterSynchronizationBarrier(#[in] #[out] lpBarrier: LPSYNCHRONIZATION_BARRIER, dwFlags: u32) -> BOOL;
+        extern fn EnterSynchronizationBarrier(#[in] #[out] lpBarrier: LPSYNCHRONIZATION_BARRIER, #[in] dwFlags: DWORD) -> BOOL;
         type INIT_ONCE = RTL_RUN_ONCE;
         const INIT_ONCE_ASYNC: u32 = 2;
         const INIT_ONCE_CHECK_ONLY: u32 = 1;
         const INIT_ONCE_CTX_RESERVED_BITS: i32 = 2;
         const INIT_ONCE_INIT_FAILED: u32 = 4;
         #[library("KERNEL32.dll")]
-        extern fn InitOnceBeginInitialize(#[in] #[out] lpInitOnce: LPINIT_ONCE, dwFlags: u32, #[out] fPending: PBOOL, lpContext: *mut *mut void) -> BOOL;
+        extern fn InitOnceBeginInitialize(#[in] #[out] lpInitOnce: LPINIT_ONCE, #[in] dwFlags: DWORD, #[out] fPending: PBOOL, #[out] #[opt] #[out_ptr(nullable)] lpContext: *mut LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn InitOnceComplete(#[in] #[out] lpInitOnce: LPINIT_ONCE, dwFlags: u32, #[in] #[opt] lpContext: *mut void) -> BOOL;
+        extern fn InitOnceComplete(#[in] #[out] lpInitOnce: LPINIT_ONCE, #[in] dwFlags: DWORD, #[in] #[opt] lpContext: LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn InitOnceExecuteOnce(#[in] #[out] InitOnce: PINIT_ONCE, InitFn: PINIT_ONCE_FN, #[in] #[out] #[opt] Parameter: *mut void, Context: *mut *mut void) -> BOOL;
+        extern fn InitOnceExecuteOnce(#[in] #[out] InitOnce: PINIT_ONCE, #[in] InitFn: PINIT_ONCE_FN, #[in] #[out] #[opt] Parameter: PVOID, #[out] #[opt] #[out_ptr(nullable)] Context: *mut LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn InitOnceInitialize(#[out] InitOnce: PINIT_ONCE);
         #[library("KERNEL32.dll")]
         extern fn InitializeConditionVariable(#[out] ConditionVariable: PCONDITION_VARIABLE);
         #[library("KERNEL32.dll")]
         extern fn InitializeCriticalSection(#[out] lpCriticalSection: LPCRITICAL_SECTION);
+        #[must_use]
         #[library("KERNEL32.dll")]
-        extern fn InitializeCriticalSectionAndSpinCount(#[out] lpCriticalSection: LPCRITICAL_SECTION, dwSpinCount: u32) -> BOOL;
+        extern fn InitializeCriticalSectionAndSpinCount(#[out] lpCriticalSection: LPCRITICAL_SECTION, #[in] dwSpinCount: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn InitializeCriticalSectionEx(#[out] lpCriticalSection: LPCRITICAL_SECTION, dwSpinCount: u32, Flags: u32) -> BOOL;
+        extern fn InitializeCriticalSectionEx(#[out] lpCriticalSection: LPCRITICAL_SECTION, #[in] dwSpinCount: DWORD, #[in] Flags: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn InitializeSRWLock(#[out] SRWLock: PSRWLOCK);
         #[library("KERNEL32.dll")]
-        extern fn InitializeSynchronizationBarrier(#[out] lpBarrier: LPSYNCHRONIZATION_BARRIER, lTotalThreads: i32, lSpinCount: i32) -> BOOL;
-        type LPINIT_ONCE = PRTL_RUN_ONCE;
-        type LPSYNCHRONIZATION_BARRIER = PRTL_BARRIER;
+        extern fn InitializeSynchronizationBarrier(#[out] lpBarrier: LPSYNCHRONIZATION_BARRIER, #[in] lTotalThreads: LONG, #[in] lSpinCount: LONG) -> BOOL;
+        type LPINIT_ONCE = *mut RTL_RUN_ONCE;
+        type LPSYNCHRONIZATION_BARRIER = *mut RTL_BARRIER;
         #[library("KERNEL32.dll")]
         extern fn LeaveCriticalSection(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION);
         const MUTEX_ALL_ACCESS: i32 = 2031617;
         const MUTEX_MODIFY_STATE: i32 = 1;
         #[library("KERNEL32.dll")]
-        extern fn OpenEventA(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCSTR) -> HANDLE;
+        extern fn OpenEventA(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpName: LPCSTR) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn OpenEventW(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCWSTR) -> HANDLE;
+        extern fn OpenEventW(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpName: LPCWSTR) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn OpenMutexW(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCWSTR) -> HANDLE;
+        extern fn OpenMutexW(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpName: LPCWSTR) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn OpenSemaphoreW(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCWSTR) -> HANDLE;
+        extern fn OpenSemaphoreW(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpName: LPCWSTR) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn OpenWaitableTimerW(dwDesiredAccess: u32, bInheritHandle: BOOL, lpTimerName: PCWSTR) -> HANDLE;
+        extern fn OpenWaitableTimerW(#[in] dwDesiredAccess: DWORD, #[in] bInheritHandle: BOOL, #[in] lpTimerName: LPCWSTR) -> #[nullable] HANDLE;
         type PCONDITION_VARIABLE = *mut RTL_CONDITION_VARIABLE;
-        type PINIT_ONCE = PRTL_RUN_ONCE;
-        extern fn PINIT_ONCE_FN(#[in] #[out] InitOnce: PINIT_ONCE, #[in] #[out] #[opt] Parameter: *mut void, Context: *mut *mut void) -> BOOL;
+        type PINIT_ONCE = *mut RTL_RUN_ONCE;
+        extern fn PINIT_ONCE_FN(#[in] #[out] InitOnce: PINIT_ONCE, #[in] #[out] #[opt] Parameter: PVOID, #[out] #[opt] #[out_ptr(nullable)] Context: *mut PVOID) -> BOOL;
         type PSRWLOCK = *mut RTL_SRWLOCK;
-        type PSYNCHRONIZATION_BARRIER = PRTL_BARRIER;
-        extern fn PTIMERAPCROUTINE(#[in] #[opt] lpArgToCompletionRoutine: *mut void, dwTimerLowValue: u32, dwTimerHighValue: u32);
+        type PSYNCHRONIZATION_BARRIER = *mut RTL_BARRIER;
+        extern fn PTIMERAPCROUTINE(#[in] #[opt] lpArgToCompletionRoutine: LPVOID, #[in] dwTimerLowValue: DWORD, #[in] dwTimerHighValue: DWORD);
         #[library("KERNEL32.dll")]
-        extern fn ReleaseMutex(hMutex: HANDLE) -> BOOL;
+        extern fn ReleaseMutex(#[in] hMutex: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn ReleaseSRWLockExclusive(#[in] #[out] SRWLock: PSRWLOCK);
         #[library("KERNEL32.dll")]
         extern fn ReleaseSRWLockShared(#[in] #[out] SRWLock: PSRWLOCK);
         #[library("KERNEL32.dll")]
-        extern fn ReleaseSemaphore(hSemaphore: HANDLE, lReleaseCount: i32, #[out] #[opt] lpPreviousCount: LPLONG) -> BOOL;
+        extern fn ReleaseSemaphore(#[in] hSemaphore: HANDLE, #[in] lReleaseCount: LONG, #[out] #[opt] lpPreviousCount: LPLONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ResetEvent(hEvent: HANDLE) -> BOOL;
+        extern fn ResetEvent(#[in] hEvent: HANDLE) -> BOOL;
         type SRWLOCK = RTL_SRWLOCK;
         type SYNCHRONIZATION_BARRIER = RTL_BARRIER;
         const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: i32 = 2;
         const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: i32 = 4;
         const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: i32 = 1;
         #[library("KERNEL32.dll")]
-        extern fn SetCriticalSectionSpinCount(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION, dwSpinCount: u32) -> u32;
+        extern fn SetCriticalSectionSpinCount(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION, #[in] dwSpinCount: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn SetEvent(hEvent: HANDLE) -> BOOL;
+        extern fn SetEvent(#[in] hEvent: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetWaitableTimer(hTimer: HANDLE, lpDueTime: *const LARGE_INTEGER, lPeriod: i32, #[opt] pfnCompletionRoutine: PTIMERAPCROUTINE, #[in] #[opt] lpArgToCompletionRoutine: *mut void, fResume: BOOL) -> BOOL;
+        extern fn SetWaitableTimer(#[in] hTimer: HANDLE, #[in] lpDueTime: *const LARGE_INTEGER, #[in] lPeriod: LONG, #[in] #[opt] pfnCompletionRoutine: PTIMERAPCROUTINE, #[in] #[opt] lpArgToCompletionRoutine: LPVOID, #[in] fResume: BOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetWaitableTimerEx(hTimer: HANDLE, lpDueTime: *const LARGE_INTEGER, lPeriod: i32, #[opt] pfnCompletionRoutine: PTIMERAPCROUTINE, #[in] #[opt] lpArgToCompletionRoutine: *mut void, #[opt] WakeContext: PREASON_CONTEXT, TolerableDelay: u32) -> BOOL;
+        extern fn SetWaitableTimerEx(#[in] hTimer: HANDLE, #[in] lpDueTime: *const LARGE_INTEGER, #[in] lPeriod: LONG, #[in] #[opt] pfnCompletionRoutine: PTIMERAPCROUTINE, #[in] #[opt] lpArgToCompletionRoutine: LPVOID, #[in] #[opt] WakeContext: PREASON_CONTEXT, #[in] TolerableDelay: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SignalObjectAndWait(hObjectToSignal: HANDLE, hObjectToWaitOn: HANDLE, dwMilliseconds: u32, bAlertable: BOOL) -> u32;
+        extern fn Sleep(#[in] dwMilliseconds: DWORD);
         #[library("KERNEL32.dll")]
-        extern fn Sleep(dwMilliseconds: u32);
+        extern fn SleepConditionVariableCS(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE, #[in] #[out] CriticalSection: PCRITICAL_SECTION, #[in] dwMilliseconds: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SleepConditionVariableCS(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE, #[in] #[out] CriticalSection: PCRITICAL_SECTION, dwMilliseconds: u32) -> BOOL;
+        extern fn SleepConditionVariableSRW(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE, #[in] #[out] SRWLock: PSRWLOCK, #[in] dwMilliseconds: DWORD, #[in] Flags: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SleepConditionVariableSRW(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE, #[in] #[out] SRWLock: PSRWLOCK, dwMilliseconds: u32, Flags: u32) -> BOOL;
-        #[library("KERNEL32.dll")]
-        extern fn SleepEx(dwMilliseconds: u32, bAlertable: BOOL) -> u32;
+        extern fn SleepEx(#[in] dwMilliseconds: DWORD, #[in] bAlertable: BOOL) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,_Acquires_exclusive_lock_(*SRWLock)", "return!=0,")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,_Acquires_nonreentrant_lock_(*SRWLock)", "return!=0,")]
         #[library("KERNEL32.dll")]
         extern fn TryAcquireSRWLockExclusive(#[in] #[out] SRWLock: PSRWLOCK) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,_Acquires_nonreentrant_lock_(*SRWLock)", "return!=0,")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,_Acquires_shared_lock_(*SRWLock)", "return!=0,")]
         #[library("KERNEL32.dll")]
         extern fn TryAcquireSRWLockShared(#[in] #[out] SRWLock: PSRWLOCK) -> BOOLEAN;
         #[library("KERNEL32.dll")]
         extern fn TryEnterCriticalSection(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WaitForMultipleObjects(nCount: u32, #[len_param(0)] lpHandles: *const HANDLE, bWaitAll: BOOL, dwMilliseconds: u32) -> u32;
+        extern fn WaitForMultipleObjects(#[in] nCount: DWORD, #[in] #[readable(entry, nCount)] lpHandles: *const HANDLE, #[in] bWaitAll: BOOL, #[in] dwMilliseconds: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn WaitForMultipleObjectsEx(nCount: u32, #[len_param(0)] lpHandles: *const HANDLE, bWaitAll: BOOL, dwMilliseconds: u32, bAlertable: BOOL) -> u32;
+        extern fn WaitForMultipleObjectsEx(#[in] nCount: DWORD, #[in] #[readable(entry, nCount)] lpHandles: *const HANDLE, #[in] bWaitAll: BOOL, #[in] dwMilliseconds: DWORD, #[in] bAlertable: BOOL) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn WaitForSingleObject(hHandle: HANDLE, dwMilliseconds: u32) -> u32;
+        extern fn WaitForSingleObject(#[in] hHandle: HANDLE, #[in] dwMilliseconds: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn WaitForSingleObjectEx(hHandle: HANDLE, dwMilliseconds: u32, bAlertable: BOOL) -> u32;
-        #[library("api-ms-win-core-synch-l1-2-0.dll")]
-        extern fn WaitOnAddress(#[size_param(2)] #[in] Address: *mut void, #[size_param(2)] #[in] CompareAddress: *mut void, AddressSize: usize, #[opt] dwMilliseconds: u32) -> BOOL;
+        extern fn WaitForSingleObjectEx(#[in] hHandle: HANDLE, #[in] dwMilliseconds: DWORD, #[in] bAlertable: BOOL) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn WakeAllConditionVariable(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE);
         #[library("api-ms-win-core-synch-l1-2-0.dll")]
-        extern fn WakeByAddressAll(#[in] Address: *mut void);
+        extern fn WakeByAddressAll(#[in] Address: PVOID);
         #[library("api-ms-win-core-synch-l1-2-0.dll")]
-        extern fn WakeByAddressSingle(#[in] Address: *mut void);
+        extern fn WakeByAddressSingle(#[in] Address: PVOID);
         #[library("KERNEL32.dll")]
         extern fn WakeConditionVariable(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE);
     }

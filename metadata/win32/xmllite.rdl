@@ -2,17 +2,17 @@
 mod Windows {
     mod Win32 {
         #[library("XmlLite.dll")]
-        extern fn CreateXmlReader(riid: *const GUID, ppvObject: *mut *mut void, #[opt] pMalloc: IMalloc) -> HRESULT;
+        extern fn CreateXmlReader(#[in] riid: &IID, #[out] #[out_ptr] ppvObject: *mut *mut void, #[in] #[opt] pMalloc: IMalloc) -> HRESULT;
         #[library("XmlLite.dll")]
-        extern fn CreateXmlReaderInputWithEncodingCodePage(pInputStream: IUnknown, #[opt] pMalloc: IMalloc, nEncodingCodePage: u32, fEncodingHint: BOOL, #[opt] pwszBaseUri: PCWSTR, ppInput: *mut IXmlReaderInput) -> HRESULT;
+        extern fn CreateXmlReaderInputWithEncodingCodePage(#[in] pInputStream: IUnknown, #[in] #[opt] pMalloc: IMalloc, #[in] nEncodingCodePage: UINT, #[in] fEncodingHint: BOOL, #[in] #[opt] pwszBaseUri: LPCWSTR, #[out] ppInput: *mut IUnknown) -> HRESULT;
         #[library("XmlLite.dll")]
-        extern fn CreateXmlReaderInputWithEncodingName(pInputStream: IUnknown, #[opt] pMalloc: IMalloc, pwszEncodingName: PCWSTR, fEncodingHint: BOOL, #[opt] pwszBaseUri: PCWSTR, ppInput: *mut IXmlReaderInput) -> HRESULT;
+        extern fn CreateXmlReaderInputWithEncodingName(#[in] pInputStream: IUnknown, #[in] #[opt] pMalloc: IMalloc, #[in] pwszEncodingName: LPCWSTR, #[in] fEncodingHint: BOOL, #[in] #[opt] pwszBaseUri: LPCWSTR, #[out] ppInput: *mut IUnknown) -> HRESULT;
         #[library("XmlLite.dll")]
-        extern fn CreateXmlWriter(riid: *const GUID, ppvObject: *mut *mut void, #[opt] pMalloc: IMalloc) -> HRESULT;
+        extern fn CreateXmlWriter(#[in] riid: &IID, #[out] ppvObject: *mut *mut void, #[in] #[opt] pMalloc: IMalloc) -> HRESULT;
         #[library("XmlLite.dll")]
-        extern fn CreateXmlWriterOutputWithEncodingCodePage(pOutputStream: IUnknown, #[opt] pMalloc: IMalloc, nEncodingCodePage: u32, ppOutput: *mut IXmlWriterOutput) -> HRESULT;
+        extern fn CreateXmlWriterOutputWithEncodingCodePage(#[in] pOutputStream: IUnknown, #[in] #[opt] pMalloc: IMalloc, #[in] nEncodingCodePage: UINT, #[out] ppOutput: *mut IUnknown) -> HRESULT;
         #[library("XmlLite.dll")]
-        extern fn CreateXmlWriterOutputWithEncodingName(pOutputStream: IUnknown, #[opt] pMalloc: IMalloc, pwszEncodingName: PCWSTR, ppOutput: *mut IXmlWriterOutput) -> HRESULT;
+        extern fn CreateXmlWriterOutputWithEncodingName(#[in] pOutputStream: IUnknown, #[in] #[opt] pMalloc: IMalloc, #[in] pwszEncodingName: LPCWSTR, #[out] ppOutput: *mut IUnknown) -> HRESULT;
         #[repr(i32)]
         enum DtdProcessing {
             DtdProcessing_Prohibit = 0,
@@ -21,96 +21,96 @@ mod Windows {
         }
         #[guid(0x7279fc81_709d_4095_b63d_69fe4b0d9030)]
         interface IXmlReader: IUnknown {
-            fn SetInput(&self, #[opt] pInput: IUnknown) -> HRESULT;
-            fn GetProperty(&self, nProperty: u32, ppValue: *mut isize) -> HRESULT;
-            fn SetProperty(&self, nProperty: u32, #[opt] pValue: isize) -> HRESULT;
-            fn Read(&self, #[opt] pNodeType: *mut XmlNodeType) -> HRESULT;
-            fn GetNodeType(&self, pNodeType: *mut XmlNodeType) -> HRESULT;
+            fn SetInput(&self, #[in] #[opt] pInput: IUnknown) -> HRESULT;
+            fn GetProperty(&self, #[in] nProperty: UINT, #[out] ppValue: *mut LONG_PTR) -> HRESULT;
+            fn SetProperty(&self, #[in] nProperty: UINT, #[in] #[opt] pValue: LONG_PTR) -> HRESULT;
+            fn Read(&self, #[out] #[opt] pNodeType: *mut XmlNodeType) -> HRESULT;
+            fn GetNodeType(&self, #[out] pNodeType: *mut XmlNodeType) -> HRESULT;
             fn MoveToFirstAttribute(&self) -> HRESULT;
             fn MoveToNextAttribute(&self) -> HRESULT;
-            fn MoveToAttributeByName(&self, pwszLocalName: PCWSTR, #[opt] pwszNamespaceUri: PCWSTR) -> HRESULT;
+            fn MoveToAttributeByName(&self, #[in] pwszLocalName: LPCWSTR, #[in] #[opt] pwszNamespaceUri: LPCWSTR) -> HRESULT;
             fn MoveToElement(&self) -> HRESULT;
-            fn GetQualifiedName(&self, ppwszQualifiedName: *mut PCWSTR, #[opt] pcwchQualifiedName: *mut u32) -> HRESULT;
-            fn GetNamespaceUri(&self, ppwszNamespaceUri: *mut PCWSTR, #[opt] pcwchNamespaceUri: *mut u32) -> HRESULT;
-            fn GetLocalName(&self, ppwszLocalName: *mut PCWSTR, #[opt] pcwchLocalName: *mut u32) -> HRESULT;
-            fn GetPrefix(&self, ppwszPrefix: *mut PCWSTR, #[opt] pcwchPrefix: *mut u32) -> HRESULT;
-            fn GetValue(&self, ppwszValue: *mut PCWSTR, #[opt] pcwchValue: *mut u32) -> HRESULT;
-            fn ReadValueChunk(&self, #[len_param(1)] pwchBuffer: *mut u16, cwchChunkSize: u32, #[in] #[out] pcwchRead: *mut u32) -> HRESULT;
-            fn GetBaseUri(&self, ppwszBaseUri: *mut PCWSTR, #[opt] pcwchBaseUri: *mut u32) -> HRESULT;
+            fn GetQualifiedName(&self, #[out] #[writable(success, if_present(*pcwchQualifiedName) + 1, indirect, nullable)] ppwszQualifiedName: *mut LPCWSTR, #[out] #[opt] pcwchQualifiedName: *mut UINT) -> HRESULT;
+            fn GetNamespaceUri(&self, #[out] #[writable(success, if_present(*pcwchNamespaceUri) + 1, indirect, nullable)] ppwszNamespaceUri: *mut LPCWSTR, #[out] #[opt] pcwchNamespaceUri: *mut UINT) -> HRESULT;
+            fn GetLocalName(&self, #[out] #[writable(success, if_present(*pcwchLocalName) + 1, indirect, nullable)] ppwszLocalName: *mut LPCWSTR, #[out] #[opt] pcwchLocalName: *mut UINT) -> HRESULT;
+            fn GetPrefix(&self, #[out] #[writable(success, if_present(*pcwchPrefix) + 1, indirect, nullable)] ppwszPrefix: *mut LPCWSTR, #[out] #[opt] pcwchPrefix: *mut UINT) -> HRESULT;
+            fn GetValue(&self, #[out] #[writable(success, if_present(*pcwchValue) + 1, indirect, nullable)] ppwszValue: *mut LPCWSTR, #[out] #[opt] pcwchValue: *mut UINT) -> HRESULT;
+            fn ReadValueChunk(&self, #[out] #[writable(entry, cwchChunkSize)] #[readable(success, *pcwchRead)] pwchBuffer: *mut WCHAR, #[in] cwchChunkSize: UINT, #[in] #[out] pcwchRead: *mut UINT) -> HRESULT;
+            fn GetBaseUri(&self, #[out] #[writable(success, if_present(*pcwchBaseUri) + 1, indirect, nullable)] ppwszBaseUri: *mut LPCWSTR, #[out] #[opt] pcwchBaseUri: *mut UINT) -> HRESULT;
             fn IsDefault(&self) -> BOOL;
             fn IsEmptyElement(&self) -> BOOL;
-            fn GetLineNumber(&self, pnLineNumber: *mut u32) -> HRESULT;
-            fn GetLinePosition(&self, pnLinePosition: *mut u32) -> HRESULT;
-            fn GetAttributeCount(&self, pnAttributeCount: *mut u32) -> HRESULT;
-            fn GetDepth(&self, pnDepth: *mut u32) -> HRESULT;
+            fn GetLineNumber(&self, #[out] pnLineNumber: *mut UINT) -> HRESULT;
+            fn GetLinePosition(&self, #[out] pnLinePosition: *mut UINT) -> HRESULT;
+            fn GetAttributeCount(&self, #[out] pnAttributeCount: *mut UINT) -> HRESULT;
+            fn GetDepth(&self, #[out] pnDepth: *mut UINT) -> HRESULT;
             fn IsEOF(&self) -> BOOL;
         }
         type IXmlReaderInput = IUnknown;
         #[guid(0x7279fc82_709d_4095_b63d_69fe4b0d9030)]
         interface IXmlResolver: IUnknown {
-            fn ResolveUri(&self, #[opt] pwszBaseUri: PCWSTR, #[opt] pwszPublicIdentifier: PCWSTR, #[opt] pwszSystemIdentifier: PCWSTR, ppResolvedInput: *mut IUnknown) -> HRESULT;
+            fn ResolveUri(&self, #[in] #[opt] pwszBaseUri: LPCWSTR, #[in] #[opt] pwszPublicIdentifier: LPCWSTR, #[in] #[opt] pwszSystemIdentifier: LPCWSTR, #[out] ppResolvedInput: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x7279fc88_709d_4095_b63d_69fe4b0d9030)]
         interface IXmlWriter: IUnknown {
-            fn SetOutput(&self, #[opt] pOutput: IUnknown) -> HRESULT;
-            fn GetProperty(&self, nProperty: u32, ppValue: *mut isize) -> HRESULT;
-            fn SetProperty(&self, nProperty: u32, #[opt] pValue: isize) -> HRESULT;
-            fn WriteAttributes(&self, pReader: IXmlReader, fWriteDefaultAttributes: BOOL) -> HRESULT;
-            fn WriteAttributeString(&self, #[opt] pwszPrefix: PCWSTR, #[opt] pwszLocalName: PCWSTR, #[opt] pwszNamespaceUri: PCWSTR, #[opt] pwszValue: PCWSTR) -> HRESULT;
-            fn WriteCData(&self, #[opt] pwszText: PCWSTR) -> HRESULT;
-            fn WriteCharEntity(&self, wch: u16) -> HRESULT;
-            fn WriteChars(&self, #[len_param(1)] #[opt] pwch: *const u16, cwch: u32) -> HRESULT;
-            fn WriteComment(&self, #[opt] pwszComment: PCWSTR) -> HRESULT;
-            fn WriteDocType(&self, #[opt] pwszName: PCWSTR, #[opt] pwszPublicId: PCWSTR, #[opt] pwszSystemId: PCWSTR, #[opt] pwszSubset: PCWSTR) -> HRESULT;
-            fn WriteElementString(&self, #[opt] pwszPrefix: PCWSTR, pwszLocalName: PCWSTR, #[opt] pwszNamespaceUri: PCWSTR, #[opt] pwszValue: PCWSTR) -> HRESULT;
+            fn SetOutput(&self, #[in] #[opt] pOutput: IUnknown) -> HRESULT;
+            fn GetProperty(&self, #[in] nProperty: UINT, #[out] ppValue: *mut LONG_PTR) -> HRESULT;
+            fn SetProperty(&self, #[in] nProperty: UINT, #[in] #[opt] pValue: LONG_PTR) -> HRESULT;
+            fn WriteAttributes(&self, #[in] pReader: IXmlReader, #[in] fWriteDefaultAttributes: BOOL) -> HRESULT;
+            fn WriteAttributeString(&self, #[in] #[opt] pwszPrefix: LPCWSTR, #[in] #[opt] pwszLocalName: LPCWSTR, #[in] #[opt] pwszNamespaceUri: LPCWSTR, #[in] #[opt] pwszValue: LPCWSTR) -> HRESULT;
+            fn WriteCData(&self, #[in] #[opt] pwszText: LPCWSTR) -> HRESULT;
+            fn WriteCharEntity(&self, #[in] wch: WCHAR) -> HRESULT;
+            fn WriteChars(&self, #[in] #[opt] #[readable(entry, cwch)] pwch: *const WCHAR, #[in] cwch: UINT) -> HRESULT;
+            fn WriteComment(&self, #[in] #[opt] pwszComment: LPCWSTR) -> HRESULT;
+            fn WriteDocType(&self, #[in] #[opt] pwszName: LPCWSTR, #[in] #[opt] pwszPublicId: LPCWSTR, #[in] #[opt] pwszSystemId: LPCWSTR, #[in] #[opt] pwszSubset: LPCWSTR) -> HRESULT;
+            fn WriteElementString(&self, #[in] #[opt] pwszPrefix: LPCWSTR, #[in] pwszLocalName: LPCWSTR, #[in] #[opt] pwszNamespaceUri: LPCWSTR, #[in] #[opt] pwszValue: LPCWSTR) -> HRESULT;
             fn WriteEndDocument(&self) -> HRESULT;
             fn WriteEndElement(&self) -> HRESULT;
-            fn WriteEntityRef(&self, pwszName: PCWSTR) -> HRESULT;
+            fn WriteEntityRef(&self, #[in] pwszName: LPCWSTR) -> HRESULT;
             fn WriteFullEndElement(&self) -> HRESULT;
-            fn WriteName(&self, pwszName: PCWSTR) -> HRESULT;
-            fn WriteNmToken(&self, pwszNmToken: PCWSTR) -> HRESULT;
-            fn WriteNode(&self, pReader: IXmlReader, fWriteDefaultAttributes: BOOL) -> HRESULT;
-            fn WriteNodeShallow(&self, pReader: IXmlReader, fWriteDefaultAttributes: BOOL) -> HRESULT;
-            fn WriteProcessingInstruction(&self, pwszName: PCWSTR, #[opt] pwszText: PCWSTR) -> HRESULT;
-            fn WriteQualifiedName(&self, pwszLocalName: PCWSTR, #[opt] pwszNamespaceUri: PCWSTR) -> HRESULT;
-            fn WriteRaw(&self, #[opt] pwszData: PCWSTR) -> HRESULT;
-            fn WriteRawChars(&self, #[len_param(1)] #[opt] pwch: *const u16, cwch: u32) -> HRESULT;
-            fn WriteStartDocument(&self, standalone: XmlStandalone) -> HRESULT;
-            fn WriteStartElement(&self, #[opt] pwszPrefix: PCWSTR, pwszLocalName: PCWSTR, #[opt] pwszNamespaceUri: PCWSTR) -> HRESULT;
-            fn WriteString(&self, #[opt] pwszText: PCWSTR) -> HRESULT;
-            fn WriteSurrogateCharEntity(&self, wchLow: u16, wchHigh: u16) -> HRESULT;
-            fn WriteWhitespace(&self, #[opt] pwszWhitespace: PCWSTR) -> HRESULT;
+            fn WriteName(&self, #[in] pwszName: LPCWSTR) -> HRESULT;
+            fn WriteNmToken(&self, #[in] pwszNmToken: LPCWSTR) -> HRESULT;
+            fn WriteNode(&self, #[in] pReader: IXmlReader, #[in] fWriteDefaultAttributes: BOOL) -> HRESULT;
+            fn WriteNodeShallow(&self, #[in] pReader: IXmlReader, #[in] fWriteDefaultAttributes: BOOL) -> HRESULT;
+            fn WriteProcessingInstruction(&self, #[in] pwszName: LPCWSTR, #[in] #[opt] pwszText: LPCWSTR) -> HRESULT;
+            fn WriteQualifiedName(&self, #[in] pwszLocalName: LPCWSTR, #[in] #[opt] pwszNamespaceUri: LPCWSTR) -> HRESULT;
+            fn WriteRaw(&self, #[in] #[opt] pwszData: LPCWSTR) -> HRESULT;
+            fn WriteRawChars(&self, #[in] #[opt] #[readable(entry, cwch)] pwch: *const WCHAR, #[in] cwch: UINT) -> HRESULT;
+            fn WriteStartDocument(&self, #[in] standalone: XmlStandalone) -> HRESULT;
+            fn WriteStartElement(&self, #[in] #[opt] pwszPrefix: LPCWSTR, #[in] pwszLocalName: LPCWSTR, #[in] #[opt] pwszNamespaceUri: LPCWSTR) -> HRESULT;
+            fn WriteString(&self, #[in] #[opt] pwszText: LPCWSTR) -> HRESULT;
+            fn WriteSurrogateCharEntity(&self, #[in] wchLow: WCHAR, #[in] wchHigh: WCHAR) -> HRESULT;
+            fn WriteWhitespace(&self, #[in] #[opt] pwszWhitespace: LPCWSTR) -> HRESULT;
             fn Flush(&self) -> HRESULT;
         }
         #[guid(0x862494c6_1310_4aad_b3cd_2dbeebf670d3)]
         interface IXmlWriterLite: IUnknown {
-            fn SetOutput(&self, #[opt] pOutput: IUnknown) -> HRESULT;
-            fn GetProperty(&self, nProperty: u32, ppValue: *mut isize) -> HRESULT;
-            fn SetProperty(&self, nProperty: u32, #[opt] pValue: isize) -> HRESULT;
-            fn WriteAttributes(&self, pReader: IXmlReader, fWriteDefaultAttributes: BOOL) -> HRESULT;
-            fn WriteAttributeString(&self, #[len_param(1)] pwszQName: *const u16, cwszQName: u32, #[len_param(3)] #[opt] pwszValue: *const u16, cwszValue: u32) -> HRESULT;
-            fn WriteCData(&self, #[opt] pwszText: PCWSTR) -> HRESULT;
-            fn WriteCharEntity(&self, wch: u16) -> HRESULT;
-            fn WriteChars(&self, #[len_param(1)] #[opt] pwch: *const u16, cwch: u32) -> HRESULT;
-            fn WriteComment(&self, #[opt] pwszComment: PCWSTR) -> HRESULT;
-            fn WriteDocType(&self, #[opt] pwszName: PCWSTR, #[opt] pwszPublicId: PCWSTR, #[opt] pwszSystemId: PCWSTR, #[opt] pwszSubset: PCWSTR) -> HRESULT;
-            fn WriteElementString(&self, #[len_param(1)] pwszQName: *const u16, cwszQName: u32, #[opt] pwszValue: PCWSTR) -> HRESULT;
+            fn SetOutput(&self, #[in] #[opt] pOutput: IUnknown) -> HRESULT;
+            fn GetProperty(&self, #[in] nProperty: UINT, #[out] ppValue: *mut LONG_PTR) -> HRESULT;
+            fn SetProperty(&self, #[in] nProperty: UINT, #[in] #[opt] pValue: LONG_PTR) -> HRESULT;
+            fn WriteAttributes(&self, #[in] pReader: IXmlReader, #[in] fWriteDefaultAttributes: BOOL) -> HRESULT;
+            fn WriteAttributeString(&self, #[in] #[readable(entry, cwszQName)] pwszQName: *const WCHAR, #[in] cwszQName: UINT, #[in] #[opt] #[readable(entry, cwszValue)] pwszValue: *const WCHAR, #[in] cwszValue: UINT) -> HRESULT;
+            fn WriteCData(&self, #[in] #[opt] pwszText: LPCWSTR) -> HRESULT;
+            fn WriteCharEntity(&self, #[in] wch: WCHAR) -> HRESULT;
+            fn WriteChars(&self, #[in] #[opt] #[readable(entry, cwch)] pwch: *const WCHAR, #[in] cwch: UINT) -> HRESULT;
+            fn WriteComment(&self, #[in] #[opt] pwszComment: LPCWSTR) -> HRESULT;
+            fn WriteDocType(&self, #[in] #[opt] pwszName: LPCWSTR, #[in] #[opt] pwszPublicId: LPCWSTR, #[in] #[opt] pwszSystemId: LPCWSTR, #[in] #[opt] pwszSubset: LPCWSTR) -> HRESULT;
+            fn WriteElementString(&self, #[in] #[readable(entry, cwszQName)] pwszQName: *const WCHAR, #[in] cwszQName: UINT, #[in] #[opt] pwszValue: LPCWSTR) -> HRESULT;
             fn WriteEndDocument(&self) -> HRESULT;
-            fn WriteEndElement(&self, #[len_param(1)] pwszQName: *const u16, cwszQName: u32) -> HRESULT;
-            fn WriteEntityRef(&self, pwszName: PCWSTR) -> HRESULT;
-            fn WriteFullEndElement(&self, #[len_param(1)] pwszQName: *const u16, cwszQName: u32) -> HRESULT;
-            fn WriteName(&self, pwszName: PCWSTR) -> HRESULT;
-            fn WriteNmToken(&self, pwszNmToken: PCWSTR) -> HRESULT;
-            fn WriteNode(&self, pReader: IXmlReader, fWriteDefaultAttributes: BOOL) -> HRESULT;
-            fn WriteNodeShallow(&self, pReader: IXmlReader, fWriteDefaultAttributes: BOOL) -> HRESULT;
-            fn WriteProcessingInstruction(&self, pwszName: PCWSTR, #[opt] pwszText: PCWSTR) -> HRESULT;
-            fn WriteRaw(&self, #[opt] pwszData: PCWSTR) -> HRESULT;
-            fn WriteRawChars(&self, #[len_param(1)] #[opt] pwch: *const u16, cwch: u32) -> HRESULT;
-            fn WriteStartDocument(&self, standalone: XmlStandalone) -> HRESULT;
-            fn WriteStartElement(&self, #[len_param(1)] pwszQName: *const u16, cwszQName: u32) -> HRESULT;
-            fn WriteString(&self, #[opt] pwszText: PCWSTR) -> HRESULT;
-            fn WriteSurrogateCharEntity(&self, wchLow: u16, wchHigh: u16) -> HRESULT;
-            fn WriteWhitespace(&self, #[opt] pwszWhitespace: PCWSTR) -> HRESULT;
+            fn WriteEndElement(&self, #[in] #[readable(entry, cwszQName)] pwszQName: *const WCHAR, #[in] cwszQName: UINT) -> HRESULT;
+            fn WriteEntityRef(&self, #[in] pwszName: LPCWSTR) -> HRESULT;
+            fn WriteFullEndElement(&self, #[in] #[readable(entry, cwszQName)] pwszQName: *const WCHAR, #[in] cwszQName: UINT) -> HRESULT;
+            fn WriteName(&self, #[in] pwszName: LPCWSTR) -> HRESULT;
+            fn WriteNmToken(&self, #[in] pwszNmToken: LPCWSTR) -> HRESULT;
+            fn WriteNode(&self, #[in] pReader: IXmlReader, #[in] fWriteDefaultAttributes: BOOL) -> HRESULT;
+            fn WriteNodeShallow(&self, #[in] pReader: IXmlReader, #[in] fWriteDefaultAttributes: BOOL) -> HRESULT;
+            fn WriteProcessingInstruction(&self, #[in] pwszName: LPCWSTR, #[in] #[opt] pwszText: LPCWSTR) -> HRESULT;
+            fn WriteRaw(&self, #[in] #[opt] pwszData: LPCWSTR) -> HRESULT;
+            fn WriteRawChars(&self, #[in] #[opt] #[readable(entry, cwch)] pwch: *const WCHAR, #[in] cwch: UINT) -> HRESULT;
+            fn WriteStartDocument(&self, #[in] standalone: XmlStandalone) -> HRESULT;
+            fn WriteStartElement(&self, #[in] #[readable(entry, cwszQName)] pwszQName: *const WCHAR, #[in] cwszQName: UINT) -> HRESULT;
+            fn WriteString(&self, #[in] #[opt] pwszText: LPCWSTR) -> HRESULT;
+            fn WriteSurrogateCharEntity(&self, #[in] wchLow: WCHAR, #[in] wchHigh: WCHAR) -> HRESULT;
+            fn WriteWhitespace(&self, #[in] #[opt] pwszWhitespace: LPCWSTR) -> HRESULT;
             fn Flush(&self) -> HRESULT;
         }
         type IXmlWriterOutput = IUnknown;
@@ -261,5 +261,8 @@ mod Windows {
             XmlWriterProperty_CompactEmptyElement = 5,
             _XmlWriterProperty_Last = 5,
         }
+        const _IID_IXmlReader: GUID = 0x7279fc81_709d_4095_b63d_69fe4b0d9030;
+        const _IID_IXmlResolver: GUID = 0x7279fc82_709d_4095_b63d_69fe4b0d9030;
+        const _IID_IXmlWriter: GUID = 0x7279fc88_709d_4095_b63d_69fe4b0d9030;
     }
 }

@@ -1,75 +1,77 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[packed(1)]
         struct ACTIVE_LATENCY_CONFIGURATION {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
                     _bitfield: u16 {
-                        Read0: 1,
-                        Write0: 1,
-                        Trim0: 1,
-                        Read1: 1,
-                        Write1: 1,
-                        Trim1: 1,
-                        Read2: 1,
-                        Write2: 1,
-                        Trim2: 1,
-                        Read3: 1,
-                        Write3: 1,
-                        Trim3: 1,
-                        Reserved: 4,
+                        Read0: USHORT: 1,
+                        Write0: USHORT: 1,
+                        Trim0: USHORT: 1,
+                        Read1: USHORT: 1,
+                        Write1: USHORT: 1,
+                        Trim1: USHORT: 1,
+                        Read2: USHORT: 1,
+                        Write2: USHORT: 1,
+                        Trim2: USHORT: 1,
+                        Read3: USHORT: 1,
+                        Write3: USHORT: 1,
+                        Trim3: USHORT: 1,
+                        Reserved: USHORT: 4,
                     },
                 },
-                AsUshort: u16,
+                AsUshort: USHORT,
             },
         }
         #[packed(1)]
         struct BUCKET_COUNTER {
-            Reserved: u32,
-            Trim: u32,
-            Write: u32,
-            Read: u32,
+            Reserved: ULONG,
+            Trim: ULONG,
+            Write: ULONG,
+            Read: ULONG,
         }
         #[packed(1)]
         struct DEBUG_BIT_FIELD {
             _bitfield: u16 {
-                Read0: 1,
-                Write0: 1,
-                Trim0: 1,
-                Read1: 1,
-                Write1: 1,
-                Trim1: 1,
-                Read2: 1,
-                Write2: 1,
-                Trim2: 1,
-                Read3: 1,
-                Write3: 1,
-                Trim3: 1,
-                Reserved: 4,
+                Read0: USHORT: 1,
+                Write0: USHORT: 1,
+                Trim0: USHORT: 1,
+                Read1: USHORT: 1,
+                Write1: USHORT: 1,
+                Trim1: USHORT: 1,
+                Read2: USHORT: 1,
+                Write2: USHORT: 1,
+                Trim2: USHORT: 1,
+                Read3: USHORT: 1,
+                Write3: USHORT: 1,
+                Trim3: USHORT: 1,
+                Reserved: USHORT: 4,
             },
         }
+        #[packed(1)]
         struct DSSD_POWER_STATE_DESCRIPTOR {
             _bitfield: u8 {
-                NvmePowerState: 5,
-                Reserved: 2,
-                ValidDSSDPowerState: 1,
+                NvmePowerState: UCHAR: 5,
+                Reserved: UCHAR: 2,
+                ValidDSSDPowerState: UCHAR: 1,
             },
         }
         #[packed(1)]
         struct FIRMWARE_ACTIVATION_HISTORY_ENTRY {
-            VersionNumber: u8,
-            Length: u8,
-            Reserved0: u16,
-            ActivationCount: u16,
-            Timestamp: u64,
-            Reserved1: u64,
-            PowerCycleCount: u64,
-            PreviousFirmware: u64,
-            NewFirmware: u64,
-            SlotNumber: u8,
-            CommitActionType: u8,
-            Result: u16,
-            Reserved2: [u8; 14],
+            VersionNumber: UCHAR,
+            Length: UCHAR,
+            Reserved0: USHORT,
+            ActivationCount: USHORT,
+            Timestamp: ULONGLONG,
+            Reserved1: ULONGLONG,
+            PowerCycleCount: ULONGLONG,
+            PreviousFirmware: ULONGLONG,
+            NewFirmware: ULONGLONG,
+            SlotNumber: UCHAR,
+            CommitActionType: UCHAR,
+            Result: USHORT,
+            Reserved2: [UCHAR; 14],
         }
         const FIRMWARE_ACTIVATION_HISTORY_ENTRY_VERSION_1: i32 = 1;
         const GUID_MFND_CHILD_CONTROLLER_EVENT_LOG_PAGE: GUID = 0x98bcce18_a5f0_bf35_a544_d97f259d669c;
@@ -87,72 +89,73 @@ mod Windows {
         const GUID_WCS_DEVICE_SMART_ATTRIBUTES: GUID = 0x2810afc5_bfea_a4f2_9c4f_6f7cc914d5af;
         struct IO_COMMAND_SET_VECTOR {
             _bitfield: u64 {
-                NVMCommandSet: 1,
-                KVCommandSet: 1,
-                ZNCommandSet: 1,
-                Reserved: 61,
+                NVMCommandSet: ULONGLONG: 1,
+                KVCommandSet: ULONGLONG: 1,
+                ZNCommandSet: ULONGLONG: 1,
+                Reserved: ULONGLONG: 61,
             },
         }
+        #[packed(1)]
         struct LATENCY_MONITOR_FEATURE_STATUS {
-            Anonymous: union {
-                Anonymous: struct {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
                     _bitfield: u8 {
-                        FeatureEnabled: 1,
-                        ActiveLatencyMode: 1,
-                        ActiveMeasuredLatency: 1,
-                        Reserved: 5,
+                        FeatureEnabled: UCHAR: 1,
+                        ActiveLatencyMode: UCHAR: 1,
+                        ActiveMeasuredLatency: UCHAR: 1,
+                        Reserved: UCHAR: 5,
                     },
                 },
-                AsUchar: u8,
+                AsUchar: UCHAR,
             },
         }
         #[packed(1)]
         struct LATENCY_STAMP {
-            Trim3: u64,
-            Write3: u64,
-            Read3: u64,
-            Trim2: u64,
-            Write2: u64,
-            Read2: u64,
-            Trim1: u64,
-            Write1: u64,
-            Read1: u64,
-            Trim0: u64,
-            Write0: u64,
-            Read0: u64,
+            Trim3: ULONGLONG,
+            Write3: ULONGLONG,
+            Read3: ULONGLONG,
+            Trim2: ULONGLONG,
+            Write2: ULONGLONG,
+            Read2: ULONGLONG,
+            Trim1: ULONGLONG,
+            Write1: ULONGLONG,
+            Read1: ULONGLONG,
+            Trim0: ULONGLONG,
+            Write0: ULONGLONG,
+            Read0: ULONGLONG,
         }
         #[packed(1)]
         struct LATENCY_STAMP_UNITS {
             _bitfield: u16 {
-                Read0: 1,
-                Write0: 1,
-                Trim0: 1,
-                Read1: 1,
-                Write1: 1,
-                Trim1: 1,
-                Read2: 1,
-                Write2: 1,
-                Trim2: 1,
-                Read3: 1,
-                Write3: 1,
-                Trim3: 1,
-                Reserved: 4,
+                Read0: USHORT: 1,
+                Write0: USHORT: 1,
+                Trim0: USHORT: 1,
+                Read1: USHORT: 1,
+                Write1: USHORT: 1,
+                Trim1: USHORT: 1,
+                Read2: USHORT: 1,
+                Write2: USHORT: 1,
+                Trim2: USHORT: 1,
+                Read3: USHORT: 1,
+                Write3: USHORT: 1,
+                Trim3: USHORT: 1,
+                Reserved: USHORT: 4,
             },
         }
         #[packed(1)]
         struct MEASURED_LATENCY {
-            Trim3: u16,
-            Write3: u16,
-            Read3: u16,
-            Trim2: u16,
-            Write2: u16,
-            Read2: u16,
-            Trim1: u16,
-            Write1: u16,
-            Read1: u16,
-            Trim0: u16,
-            Write0: u16,
-            Read0: u16,
+            Trim3: USHORT,
+            Write3: USHORT,
+            Read3: USHORT,
+            Trim2: USHORT,
+            Write2: USHORT,
+            Read2: USHORT,
+            Trim1: USHORT,
+            Write1: USHORT,
+            Read1: USHORT,
+            Trim0: USHORT,
+            Write0: USHORT,
+            Read0: USHORT,
         }
         #[repr(i32)]
         enum NVMEOF_ADDRESS_FAMILY {
@@ -167,23 +170,23 @@ mod Windows {
         const NVMEOF_ADMINQ_MAX_DEPTH: i32 = 4096;
         const NVMEOF_ADMINQ_MIN_DEPTH: i32 = 32;
         struct NVMEOF_AUTH_DHCHAP_CHALLENGE {
-            AUTH_TYPE: u8,
-            AUTH_ID: u8,
-            Reserved0: u16,
-            T_ID: u16,
-            HL: u8,
-            Reserved1: u8,
-            HashID: u8,
-            DHgID: u8,
-            DHVLEN: u16,
-            SEQNUM: u32,
+            AUTH_TYPE: UCHAR,
+            AUTH_ID: UCHAR,
+            Reserved0: USHORT,
+            T_ID: USHORT,
+            HL: UCHAR,
+            Reserved1: UCHAR,
+            HashID: UCHAR,
+            DHgID: UCHAR,
+            DHVLEN: USHORT,
+            SEQNUM: ULONG,
         }
         struct NVMEOF_AUTH_DHCHAP_DESCRIPTOR {
-            AuthId: u8,
-            Reserved0: u8,
-            HALEN: u8,
-            DHLEN: u8,
-            IdList: [u8; 60],
+            AuthId: UCHAR,
+            Reserved0: UCHAR,
+            HALEN: UCHAR,
+            DHLEN: UCHAR,
+            IdList: [UCHAR; 60],
         }
         #[repr(i32)]
         enum NVMEOF_AUTH_DHCHAP_GROUP_ID {
@@ -204,41 +207,41 @@ mod Windows {
             NvmeofAuthDHCHAPHashMax = 255,
         }
         struct NVMEOF_AUTH_DHCHAP_REPLY {
-            AUTH_TYPE: u8,
-            AUTH_ID: u8,
-            Reserved0: u16,
-            T_ID: u16,
-            HL: u8,
-            Reserved1: u8,
-            CVALID: u8,
-            Reserved2: u8,
-            DHVLEN: u16,
-            SEQNUM: u32,
+            AUTH_TYPE: UCHAR,
+            AUTH_ID: UCHAR,
+            Reserved0: USHORT,
+            T_ID: USHORT,
+            HL: UCHAR,
+            Reserved1: UCHAR,
+            CVALID: UCHAR,
+            Reserved2: UCHAR,
+            DHVLEN: USHORT,
+            SEQNUM: ULONG,
         }
         struct NVMEOF_AUTH_DHCHAP_SUCCESS1 {
-            AUTH_TYPE: u8,
-            AUTH_ID: u8,
-            Reserved0: u16,
-            T_ID: u16,
-            HL: u8,
-            Reserved1: u8,
-            RVALID: u8,
-            Reserved2: [u8; 7],
+            AUTH_TYPE: UCHAR,
+            AUTH_ID: UCHAR,
+            Reserved0: USHORT,
+            T_ID: USHORT,
+            HL: UCHAR,
+            Reserved1: UCHAR,
+            RVALID: UCHAR,
+            Reserved2: [UCHAR; 7],
         }
         struct NVMEOF_AUTH_DHCHAP_SUCCESS2 {
-            AUTH_TYPE: u8,
-            AUTH_ID: u8,
-            Reserved0: u16,
-            T_ID: u16,
-            Reserved1: [u8; 10],
+            AUTH_TYPE: UCHAR,
+            AUTH_ID: UCHAR,
+            Reserved0: USHORT,
+            T_ID: USHORT,
+            Reserved1: [UCHAR; 10],
         }
         struct NVMEOF_AUTH_FAILURE {
-            AUTH_TYPE: u8,
-            AUTH_ID: u8,
-            Reserved0: u16,
-            T_ID: u16,
-            ReasonCode: u8,
-            ReasonExplanation: u8,
+            AUTH_TYPE: UCHAR,
+            AUTH_ID: UCHAR,
+            Reserved0: USHORT,
+            T_ID: USHORT,
+            ReasonCode: UCHAR,
+            ReasonExplanation: UCHAR,
         }
         #[repr(i32)]
         enum NVMEOF_AUTH_FAIL_REASON_CODE {
@@ -265,37 +268,37 @@ mod Windows {
             NvmeofAuthIdFailure1 = 241,
         }
         struct NVMEOF_AUTH_NEGOTIATE {
-            AUTH_TYPE: u8,
-            AUTH_ID: u8,
-            Reserved0: u16,
-            T_ID: u16,
-            SC_C: u8,
-            NAPD: u8,
+            AUTH_TYPE: UCHAR,
+            AUTH_ID: UCHAR,
+            Reserved0: USHORT,
+            T_ID: USHORT,
+            SC_C: UCHAR,
+            NAPD: UCHAR,
         }
         #[repr(i32)]
         enum NVMEOF_AUTH_PROTOCOL {
             NvmeofAuthProtocolDHCHAP = 233,
         }
         struct NVMEOF_AUTH_RECEIVE_COMMAND {
-            OPC: u8,
-            Reserved0: u8,
-            CID: u16,
-            FCTYPE: u8,
-            Reserved1: [u8; 19],
+            OPC: UCHAR,
+            Reserved0: UCHAR,
+            CID: USHORT,
+            FCTYPE: UCHAR,
+            Reserved1: [UCHAR; 19],
             SGL1: NVME_SGL_DESC,
-            Reserved2: u8,
-            SPSP0: u8,
-            SPSP1: u8,
-            SECP: u8,
-            AL: u32,
-            Reserved3: [u8; 16],
+            Reserved2: UCHAR,
+            SPSP0: UCHAR,
+            SPSP1: UCHAR,
+            SECP: UCHAR,
+            AL: ULONG,
+            Reserved3: [UCHAR; 16],
         }
         struct NVMEOF_AUTH_RECEIVE_RESPONSE {
-            Reserved0: u64,
-            SQHD: u16,
-            Reserved1: u16,
-            CID: u16,
-            STS: u16,
+            Reserved0: ULONGLONG,
+            SQHD: USHORT,
+            Reserved1: USHORT,
+            CID: USHORT,
+            STS: USHORT,
         }
         #[repr(i32)]
         enum NVMEOF_AUTH_SECURE_CHANNEL {
@@ -305,25 +308,25 @@ mod Windows {
             NvmeofAuthSCReserved = 3,
         }
         struct NVMEOF_AUTH_SEND_COMMAND {
-            OPC: u8,
-            Reserved0: u8,
-            CID: u16,
-            FCTYPE: u8,
-            Reserved1: [u8; 19],
+            OPC: UCHAR,
+            Reserved0: UCHAR,
+            CID: USHORT,
+            FCTYPE: UCHAR,
+            Reserved1: [UCHAR; 19],
             SGL1: NVME_SGL_DESC,
-            Reserved2: u8,
-            SPSP0: u8,
-            SPSP1: u8,
-            SECP: u8,
-            TL: u32,
-            Reserved3: [u8; 16],
+            Reserved2: UCHAR,
+            SPSP0: UCHAR,
+            SPSP1: UCHAR,
+            SECP: UCHAR,
+            TL: ULONG,
+            Reserved3: [UCHAR; 16],
         }
         struct NVMEOF_AUTH_SEND_RESPONSE {
-            Reserved0: u64,
-            SQHD: u16,
-            Reserved1: u16,
-            CID: u16,
-            STS: u16,
+            Reserved0: ULONGLONG,
+            SQHD: USHORT,
+            Reserved1: USHORT,
+            CID: USHORT,
+            STS: USHORT,
         }
         #[repr(i32)]
         enum NVMEOF_AUTH_TYPE {
@@ -331,61 +334,61 @@ mod Windows {
             NvmeofAuthTypeDHCHAPMessages = 1,
         }
         struct NVMEOF_CONNECT_COMMAND {
-            OPC: u8,
-            Reserved0: u8,
-            CID: u16,
-            FCTYPE: u8,
-            Reserved1: [u8; 19],
+            OPC: UCHAR,
+            Reserved0: UCHAR,
+            CID: USHORT,
+            FCTYPE: UCHAR,
+            Reserved1: [UCHAR; 19],
             SGL1: NVME_SGL_DESC,
-            RECFMT: u16,
-            QID: u16,
-            SQSIZE: u16,
+            RECFMT: USHORT,
+            QID: USHORT,
+            SQSIZE: USHORT,
             CATTR: union {
                 Anonymous: struct {
                     _bitfield: u8 {
-                        PriorityClass: 2,
-                        SqFlowControlDisable: 1,
-                        IoQueueDeletion: 1,
-                        Reserved: 4,
+                        PriorityClass: UCHAR: 2,
+                        SqFlowControlDisable: UCHAR: 1,
+                        IoQueueDeletion: UCHAR: 1,
+                        Reserved: UCHAR: 4,
                     },
                 },
-                AsUchar: u8,
+                AsUchar: UCHAR,
             },
-            Reserved2: u8,
-            KATO: u32,
-            Reserved3: [u8; 12],
+            Reserved2: UCHAR,
+            KATO: ULONG,
+            Reserved3: [UCHAR; 12],
         }
         struct NVMEOF_CONNECT_DATA {
-            HOSTID: [u8; 16],
-            CNTLID: u16,
-            Reserved0: [u8; 238],
-            SUBNQN: [u8; 256],
-            HOSTNQN: [u8; 256],
-            Reserved1: [u8; 256],
+            HOSTID: [UCHAR; 16],
+            CNTLID: USHORT,
+            Reserved0: [UCHAR; 238],
+            SUBNQN: [UCHAR; 256],
+            HOSTNQN: [UCHAR; 256],
+            Reserved1: [UCHAR; 256],
         }
         struct NVMEOF_CONNECT_RESPONSE {
             SCSpecific: union {
                 Success: struct {
-                    CNTLID: u16,
+                    CNTLID: USHORT,
                     AUTHREQ: union {
                         Anonymous: struct {
                             _bitfield: u16 {
-                                Obsolete: 1,
-                                ATR: 1,
-                                ASCR: 1,
-                                Reserved: 13,
+                                Obsolete: USHORT: 1,
+                                ATR: USHORT: 1,
+                                ASCR: USHORT: 1,
+                                Reserved: USHORT: 13,
                             },
                         },
-                        AsUshort: u16,
+                        AsUshort: USHORT,
                     },
                 },
-                AsUlong: u32,
+                AsUlong: ULONG,
             },
-            Reserved0: u32,
-            SQHD: u16,
-            Reserved1: u16,
-            CID: u16,
-            STS: u16,
+            Reserved0: ULONG,
+            SQHD: USHORT,
+            Reserved1: USHORT,
+            CID: USHORT,
+            STS: USHORT,
         }
         #[encoding("ansi")]
         const NVMEOF_DHCHAP_PREFIX_V1: String = "DHHC-1:";
@@ -394,101 +397,91 @@ mod Windows {
         const NVMEOF_DHCHAP_REPLY_CVAL_VALID: i32 = 1;
         const NVMEOF_DHCHAP_SUCCESS1_RVAL_NOTVALID: i32 = 0;
         const NVMEOF_DHCHAP_SUCCESS1_RVAL_VALID: i32 = 1;
-        struct NVMEOF_DISCONNECT_COMMAND {
-            OPC: u8,
-            Reserved0: u8,
-            CID: u16,
-            FCTYPE: u8,
-            Reserved1: [u8; 19],
-            SGL1: NVME_SGL_DATABLOCK_DESC,
-            RECFMT: u16,
-            Reserved2: [u8; 22],
-        }
         struct NVMEOF_DISCONNECT_RESPONSE {
-            Reserved0: u64,
-            SQHD: u16,
-            Reserved1: u16,
-            CID: u16,
-            STS: u16,
+            Reserved0: ULONGLONG,
+            SQHD: USHORT,
+            Reserved1: USHORT,
+            CID: USHORT,
+            STS: USHORT,
         }
         const NVMEOF_DISCOVERY_LOG_VERSION_0: i32 = 0;
         #[encoding("ansi")]
         const NVMEOF_DISCOVERY_NQN: String = "nqn.2014-08.org.nvmexpress.discovery";
         struct NVMEOF_FABRICS_COMMAND {
-            OPC: u8,
-            PSDT: u8,
-            CID: u16,
-            FCTYPE: u8,
-            Reserved: [u8; 35],
-            Specific: [u8; 24],
+            OPC: UCHAR,
+            PSDT: UCHAR,
+            CID: USHORT,
+            FCTYPE: UCHAR,
+            Reserved: [UCHAR; 35],
+            Specific: [UCHAR; 24],
         }
         struct NVMEOF_FABRICS_RESPONSE {
-            Specific: [u8; 8],
-            SQHD: u16,
-            Reserved: u16,
-            CID: u16,
-            STS: u16,
+            Specific: [UCHAR; 8],
+            SQHD: USHORT,
+            Reserved: USHORT,
+            CID: USHORT,
+            STS: USHORT,
         }
         const NVMEOF_IOQ_MAX_DEPTH: i32 = 65536;
         const NVMEOF_IOQ_MIN_DEPTH: i32 = 2;
         struct NVMEOF_PROPERTY_GET_COMMAND {
-            OPC: u8,
-            Reserved0: u8,
-            CID: u16,
-            FCTYPE: u8,
-            Reserved1: [u8; 35],
+            OPC: UCHAR,
+            Reserved0: UCHAR,
+            CID: USHORT,
+            FCTYPE: UCHAR,
+            Reserved1: [UCHAR; 35],
             ATTRIB: struct {
                 _bitfield: u8 {
-                    PropertySize: 3,
-                    Reserved: 5,
+                    PropertySize: UCHAR: 3,
+                    Reserved: UCHAR: 5,
                 },
             },
-            Reserved2: [u8; 3],
-            OFST: u32,
-            Reserved3: [u8; 16],
+            Reserved2: [UCHAR; 3],
+            OFST: ULONG,
+            Reserved3: [UCHAR; 16],
         }
         struct NVMEOF_PROPERTY_GET_RESPONSE {
             VALUE: union {
                 FourBytes: struct {
-                    Value: u32,
-                    Reserved: u32,
+                    Value: ULONG,
+                    Reserved: ULONG,
                 },
-                EightBytes: u64,
+                EightBytes: ULONGLONG,
             },
-            SQHD: u16,
-            Reserved0: u16,
-            CID: u16,
-            STS: u16,
+            SQHD: USHORT,
+            Reserved0: USHORT,
+            CID: USHORT,
+            STS: USHORT,
         }
         struct NVMEOF_PROPERTY_SET_COMMAND {
-            OPC: u8,
-            Reserved0: u8,
-            CID: u16,
-            FCTYPE: u8,
-            Reserved1: [u8; 35],
+            OPC: UCHAR,
+            Reserved0: UCHAR,
+            CID: USHORT,
+            FCTYPE: UCHAR,
+            Reserved1: [UCHAR; 35],
             ATTRIB: struct {
                 _bitfield: u8 {
-                    PropertySize: 3,
-                    Reserved: 5,
+                    PropertySize: UCHAR: 3,
+                    Reserved: UCHAR: 5,
                 },
             },
-            Reserved2: [u8; 3],
-            OFST: u32,
+            Reserved2: [UCHAR; 3],
+            OFST: ULONG,
             VALUE: union {
                 FourBytes: struct {
-                    Value: u32,
-                    Reserved: u32,
+                    Value: ULONG,
+                    Reserved: ULONG,
                 },
-                EightBytes: u64,
+                EightBytes: ULONGLONG,
             },
-            Reserved3: [u8; 8],
+            Reserved3: [UCHAR; 8],
         }
         struct NVMEOF_PROPERTY_SET_RESPONSE {
-            Reserved0: u64,
-            SQHD: u16,
-            Reserved1: u16,
-            CID: u16,
-            STS: u16,
+            Reserved0: ULONGLONG,
+            SQHD: USHORT,
+            Reserved1: USHORT,
+            CID: USHORT,
+            STS: USHORT,
         }
         const NVMEOF_PROPERTY_SIZE_4Bytes: i32 = 0;
         const NVMEOF_PROPERTY_SIZE_8Bytes: i32 = 1;
@@ -546,7 +539,7 @@ mod Windows {
             NVME_ACCESS_LATENCY_LOW = 3,
         }
         struct NVME_ACTIVE_NAMESPACE_ID_LIST {
-            NSID: [u32; 1024],
+            NSID: [ULONG; 1024],
         }
         const NVME_ADMINQ_ID: i32 = 0;
         #[repr(i32)]
@@ -585,31 +578,31 @@ mod Windows {
         union NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS {
             Anonymous: struct {
                 _bitfield: u64 {
-                    Reserved0: 12,
-                    ACQB: 52,
+                    Reserved0: ULONGLONG: 12,
+                    ACQB: ULONGLONG: 52,
                 },
             },
-            AsUlonglong: u64,
+            AsUlonglong: ULONGLONG,
         }
         union NVME_ADMIN_QUEUE_ATTRIBUTES {
             Anonymous: struct {
                 _bitfield: u32 {
-                    ASQS: 12,
-                    Reserved0: 4,
-                    ACQS: 12,
-                    Reserved1: 4,
+                    ASQS: ULONG: 12,
+                    Reserved0: ULONG: 4,
+                    ACQS: ULONG: 12,
+                    Reserved1: ULONG: 4,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS {
             Anonymous: struct {
                 _bitfield: u64 {
-                    Reserved0: 12,
-                    ASQB: 52,
+                    Reserved0: ULONGLONG: 12,
+                    ASQB: ULONGLONG: 52,
                 },
             },
-            AsUlonglong: u64,
+            AsUlonglong: ULONGLONG,
         }
         #[repr(i32)]
         enum NVME_AMS_OPTION {
@@ -669,30 +662,30 @@ mod Windows {
         }
         struct NVME_AUTO_POWER_STATE_TRANSITION_ENTRY {
             _bitfield: u32 {
-                Reserved0: 3,
-                IdleTransitionPowerState: 5,
-                IdleTimePriorToTransition: 24,
+                Reserved0: ULONG: 3,
+                IdleTransitionPowerState: ULONG: 5,
+                IdleTimePriorToTransition: ULONG: 24,
             },
-            Reserved1: u32,
+            Reserved1: ULONG,
         }
         union NVME_BOOT_PARTITION_INFORMATION {
             Anonymous: struct {
                 _bitfield: u32 {
-                    BPSZ: 15,
-                    Reserved0: 9,
-                    BRS: 2,
-                    Reserved1: 5,
-                    ABPID: 1,
+                    BPSZ: ULONG: 15,
+                    Reserved0: ULONG: 9,
+                    BRS: ULONG: 2,
+                    Reserved1: ULONG: 5,
+                    ABPID: ULONG: 1,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_BOOT_PARTITION_LOG {
-            LogIdentifier: u8,
-            Reserved0: [u8; 3],
+            LogIdentifier: UCHAR,
+            Reserved0: [UCHAR; 3],
             BpInfo: NVME_BOOT_PARTITION_INFORMATION,
-            Reserved1: [u8; 8],
-            BootPartitionData: [u8; 1],
+            Reserved1: [UCHAR; 8],
+            BootPartitionData: [UCHAR; 1],
         }
         #[repr(i32)]
         enum NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS {
@@ -703,188 +696,188 @@ mod Windows {
         union NVME_CDW0_FEATURE_DSSD_POWER_STATE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    DSSDPowerState: 7,
-                    Reserved0: 25,
+                    DSSDPowerState: ULONG: 7,
+                    Reserved0: ULONG: 25,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO {
             Anonymous: struct {
                 _bitfield: u32 {
-                    Enabled: 3,
-                    Reserved0: 29,
+                    Enabled: ULONG: 3,
+                    Reserved0: ULONG: 29,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         type NVME_CDW0_FEATURE_ERROR_INJECTION = NVME_CDW11_FEATURE_ERROR_INJECTION;
         union NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    EOLBehavior: 3,
-                    Reserved0: 29,
+                    EOLBehavior: ULONG: 3,
+                    Reserved0: ULONG: 29,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_CDW0_RESERVATION_PERSISTENCE {
             _bitfield: u32 {
-                PTPL: 1,
-                Reserved: 31,
+                PTPL: ULONG: 1,
+                Reserved: ULONG: 31,
             },
         }
         union NVME_CDW10_ABORT {
             Anonymous: struct {
                 _bitfield: u32 {
-                    SQID: 8,
-                    CID: 16,
+                    SQID: ULONG: 8,
+                    CID: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_CREATE_IO_QUEUE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    QID: 16,
-                    QSIZE: 16,
+                    QID: ULONG: 16,
+                    QSIZE: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_DATASET_MANAGEMENT {
             Anonymous: struct {
                 _bitfield: u32 {
-                    NR: 8,
-                    Reserved: 24,
+                    NR: ULONG: 8,
+                    Reserved: ULONG: 24,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_DELETE_IO_QUEUE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    QID: 16,
-                    Reserved: 16,
+                    QID: ULONG: 16,
+                    Reserved: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_DEVICE_SELF_TEST {
             Anonymous: struct {
                 _bitfield: u32 {
-                    STC: 4,
-                    Reserved: 28,
+                    STC: ULONG: 4,
+                    Reserved: ULONG: 28,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_CDW10_DIRECTIVE_RECEIVE {
-            NUMD: u32,
+            NUMD: ULONG,
         }
         struct NVME_CDW10_DIRECTIVE_SEND {
-            NUMD: u32,
+            NUMD: ULONG,
         }
         union NVME_CDW10_DISCOVERY_INFO_MGMT {
             Anonymous: struct {
                 _bitfield: u32 {
-                    TAS: 4,
-                    Reserved: 28,
+                    TAS: ULONG: 4,
+                    Reserved: ULONG: 28,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_FIRMWARE_ACTIVATE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    FS: 3,
-                    AA: 3,
-                    Reserved: 25,
-                    BPID: 1,
+                    FS: ULONG: 3,
+                    AA: ULONG: 3,
+                    Reserved: ULONG: 25,
+                    BPID: ULONG: 1,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_CDW10_FIRMWARE_DOWNLOAD {
-            NUMD: u32,
+            NUMD: ULONG,
         }
         union NVME_CDW10_FORMAT_NVM {
             Anonymous: struct {
                 _bitfield: u32 {
-                    LBAF: 4,
-                    MS: 1,
-                    PI: 3,
-                    PIL: 1,
-                    SES: 3,
-                    ZF: 2,
-                    Reserved: 18,
+                    LBAF: ULONG: 4,
+                    MS: ULONG: 1,
+                    PI: ULONG: 3,
+                    PIL: ULONG: 1,
+                    SES: ULONG: 3,
+                    ZF: ULONG: 2,
+                    Reserved: ULONG: 18,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_GET_FEATURES {
             Anonymous: struct {
                 _bitfield: u32 {
-                    FID: 8,
-                    SEL: 3,
-                    Reserved0: 21,
+                    FID: ULONG: 8,
+                    SEL: ULONG: 3,
+                    Reserved0: ULONG: 21,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_GET_LOG_PAGE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    LID: 8,
-                    Reserved0: 8,
-                    NUMD: 12,
-                    Reserved1: 4,
+                    LID: ULONG: 8,
+                    Reserved0: ULONG: 8,
+                    NUMD: ULONG: 12,
+                    Reserved1: ULONG: 4,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_GET_LOG_PAGE_V121 {
             Anonymous: struct {
                 _bitfield: u32 {
-                    LID: 8,
-                    Reserved0: 8,
-                    NUMDL: 16,
+                    LID: ULONG: 8,
+                    Reserved0: ULONG: 8,
+                    NUMDL: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_GET_LOG_PAGE_V13 {
             Anonymous: struct {
                 _bitfield: u32 {
-                    LID: 8,
-                    LSP: 4,
-                    Reserved0: 3,
-                    RAE: 1,
-                    NUMDL: 16,
+                    LID: ULONG: 8,
+                    LSP: ULONG: 4,
+                    Reserved0: ULONG: 3,
+                    RAE: ULONG: 1,
+                    NUMDL: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_GET_LOG_PAGE_V20 {
             Anonymous: struct {
                 _bitfield: u32 {
-                    LID: 8,
-                    LSP: 7,
-                    RAE: 1,
-                    NUMDL: 16,
+                    LID: ULONG: 8,
+                    LSP: ULONG: 7,
+                    RAE: ULONG: 1,
+                    NUMDL: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_IDENTIFY {
             Anonymous: struct {
                 _bitfield: u32 {
-                    CNS: 8,
-                    Reserved: 8,
-                    CNTID: 16,
+                    CNS: ULONG: 8,
+                    Reserved: ULONG: 8,
+                    CNTID: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         const NVME_CDW10_LSP_ACTION_ESTABLISH_CONTEXT_AND_READ_512_BYTES_OF_HEADER: i32 = 3;
         const NVME_CDW10_LSP_ACTION_ESTABLISH_CONTEXT_AND_READ_LOG_DATA: i32 = 1;
@@ -895,138 +888,138 @@ mod Windows {
         union NVME_CDW10_RESERVATION_ACQUIRE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    RACQA: 3,
-                    IEKEY: 1,
-                    Reserved: 4,
-                    RTYPE: 8,
-                    Reserved1: 16,
+                    RACQA: ULONG: 3,
+                    IEKEY: ULONG: 1,
+                    Reserved: ULONG: 4,
+                    RTYPE: ULONG: 8,
+                    Reserved1: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_RESERVATION_REGISTER {
             Anonymous: struct {
                 _bitfield: u32 {
-                    RREGA: 3,
-                    IEKEY: 1,
-                    Reserved: 26,
-                    CPTPL: 2,
+                    RREGA: ULONG: 3,
+                    IEKEY: ULONG: 1,
+                    Reserved: ULONG: 26,
+                    CPTPL: ULONG: 2,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_RESERVATION_RELEASE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    RRELA: 3,
-                    IEKEY: 1,
-                    Reserved: 4,
-                    RTYPE: 8,
-                    Reserved1: 16,
+                    RRELA: ULONG: 3,
+                    IEKEY: ULONG: 1,
+                    Reserved: ULONG: 4,
+                    RTYPE: ULONG: 8,
+                    Reserved1: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_RESERVATION_REPORT {
             Anonymous: struct {
-                NUMD: u32,
+                NUMD: ULONG,
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_SANITIZE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    SANACT: 3,
-                    AUSE: 1,
-                    OWPASS: 4,
-                    OIPBP: 1,
-                    NDAS: 1,
-                    Reserved: 22,
+                    SANACT: ULONG: 3,
+                    AUSE: ULONG: 1,
+                    OWPASS: ULONG: 4,
+                    OIPBP: ULONG: 1,
+                    NDAS: ULONG: 1,
+                    Reserved: ULONG: 22,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_SECURITY_SEND_RECEIVE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    Reserved0: 8,
-                    SPSP: 16,
-                    SECP: 8,
+                    Reserved0: ULONG: 8,
+                    SPSP: ULONG: 16,
+                    SECP: ULONG: 8,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW10_SET_FEATURES {
             Anonymous: struct {
                 _bitfield: u32 {
-                    FID: 8,
-                    Reserved0: 23,
-                    SV: 1,
+                    FID: ULONG: 8,
+                    Reserved0: ULONG: 23,
+                    SV: ULONG: 1,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_CDW10_ZONE_APPEND {
-            SLBA: u64,
+            SLBA: ULONGLONG,
         }
         struct NVME_CDW10_ZONE_MANAGEMENT_RECEIVE {
-            SLBA: u64,
+            SLBA: ULONGLONG,
         }
         struct NVME_CDW10_ZONE_MANAGEMENT_SEND {
-            SLBA: u64,
+            SLBA: ULONGLONG,
         }
         union NVME_CDW11_CREATE_IO_CQ {
             Anonymous: struct {
                 _bitfield: u32 {
-                    PC: 1,
-                    IEN: 1,
-                    Reserved0: 14,
-                    IV: 16,
+                    PC: ULONG: 1,
+                    IEN: ULONG: 1,
+                    Reserved0: ULONG: 14,
+                    IV: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_CREATE_IO_SQ {
             Anonymous: struct {
                 _bitfield: u32 {
-                    PC: 1,
-                    QPRIO: 2,
-                    Reserved0: 13,
-                    CQID: 16,
+                    PC: ULONG: 1,
+                    QPRIO: ULONG: 2,
+                    Reserved0: ULONG: 13,
+                    CQID: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_DATASET_MANAGEMENT {
             Anonymous: struct {
                 _bitfield: u32 {
-                    IDR: 1,
-                    IDW: 1,
-                    AD: 1,
-                    Reserved: 29,
+                    IDR: ULONG: 1,
+                    IDW: ULONG: 1,
+                    AD: ULONG: 1,
+                    Reserved: ULONG: 29,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_DIRECTIVE_RECEIVE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    DOPER: 8,
-                    DTYPE: 8,
-                    DSPEC: 16,
+                    DOPER: ULONG: 8,
+                    DTYPE: ULONG: 8,
+                    DSPEC: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_DIRECTIVE_SEND {
             Anonymous: struct {
                 _bitfield: u32 {
-                    DOPER: 8,
-                    DTYPE: 8,
-                    DSPEC: 16,
+                    DOPER: ULONG: 8,
+                    DTYPE: ULONG: 8,
+                    DSPEC: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURES {
             NumberOfQueues: NVME_CDW11_FEATURE_NUMBER_OF_QUEUES,
@@ -1050,525 +1043,525 @@ mod Windows {
             ReservationNotificationMask: NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK,
             GetHostMetadata: NVME_CDW11_FEATURE_GET_HOST_METADATA,
             SetHostMetadata: NVME_CDW11_FEATURE_SET_HOST_METADATA,
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_ARBITRATION {
             Anonymous: struct {
                 _bitfield: u32 {
-                    AB: 3,
-                    Reserved0: 5,
-                    LPW: 8,
-                    MPW: 8,
-                    HPW: 8,
+                    AB: ULONG: 3,
+                    Reserved0: ULONG: 5,
+                    LPW: ULONG: 8,
+                    MPW: ULONG: 8,
+                    HPW: ULONG: 8,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG {
             Anonymous: struct {
                 _bitfield: u32 {
-                    CriticalWarnings: 8,
-                    NsAttributeNotices: 1,
-                    FwActivationNotices: 1,
-                    TelemetryLogNotices: 1,
-                    ANAChangeNotices: 1,
-                    PredictableLogChangeNotices: 1,
-                    LBAStatusNotices: 1,
-                    EnduranceEventNotices: 1,
-                    NormalNVMSubsystemShutdown: 1,
-                    Reserved0: 11,
-                    ZoneDescriptorNotices: 1,
-                    Reserved1: 3,
-                    DiscoveryLogPageChange: 1,
+                    CriticalWarnings: ULONG: 8,
+                    NsAttributeNotices: ULONG: 1,
+                    FwActivationNotices: ULONG: 1,
+                    TelemetryLogNotices: ULONG: 1,
+                    ANAChangeNotices: ULONG: 1,
+                    PredictableLogChangeNotices: ULONG: 1,
+                    LBAStatusNotices: ULONG: 1,
+                    EnduranceEventNotices: ULONG: 1,
+                    NormalNVMSubsystemShutdown: ULONG: 1,
+                    Reserved0: ULONG: 11,
+                    ZoneDescriptorNotices: ULONG: 1,
+                    Reserved1: ULONG: 3,
+                    DiscoveryLogPageChange: ULONG: 1,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION {
             Anonymous: struct {
                 _bitfield: u32 {
-                    APSTE: 1,
-                    Reserved0: 31,
+                    APSTE: ULONG: 1,
+                    Reserved0: ULONG: 31,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY {
             Anonymous: struct {
                 _bitfield: u32 {
-                    Reserved0: 31,
-                    Clear: 1,
+                    Reserved0: ULONG: 31,
+                    Clear: ULONG: 1,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS {
             Anonymous: struct {
                 _bitfield: u32 {
-                    Reserved0: 31,
-                    Clear: 1,
+                    Reserved0: ULONG: 31,
+                    Clear: ULONG: 1,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO {
             Anonymous: struct {
                 _bitfield: u32 {
-                    Reserved0: 31,
-                    Enable: 1,
+                    Reserved0: ULONG: 31,
+                    Enable: ULONG: 1,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_ERROR_INJECTION {
             Anonymous: struct {
                 _bitfield: u32 {
-                    NUM: 7,
-                    Reserved0: 25,
+                    NUM: ULONG: 7,
+                    Reserved0: ULONG: 25,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_ERROR_RECOVERY {
             Anonymous: struct {
                 _bitfield: u32 {
-                    TLER: 16,
-                    DULBE: 1,
-                    Reserved0: 15,
+                    TLER: ULONG: 16,
+                    DULBE: ULONG: 1,
+                    Reserved0: ULONG: 15,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_GET_HOST_METADATA {
             Anonymous: struct {
                 _bitfield: u32 {
-                    GDHM: 1,
-                    Reserved: 31,
+                    GDHM: ULONG: 1,
+                    Reserved: ULONG: 31,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_CDW11_FEATURE_HOST_IDENTIFIER {
             _bitfield: u32 {
-                EXHID: 1,
-                Reserved: 31,
+                EXHID: ULONG: 1,
+                Reserved: ULONG: 31,
             },
         }
         union NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER {
             Anonymous: struct {
                 _bitfield: u32 {
-                    EHM: 1,
-                    MR: 1,
-                    Reserved: 30,
+                    EHM: ULONG: 1,
+                    MR: ULONG: 1,
+                    Reserved: ULONG: 30,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_INTERRUPT_COALESCING {
             Anonymous: struct {
                 _bitfield: u32 {
-                    THR: 8,
-                    TIME: 8,
-                    Reserved0: 16,
+                    THR: ULONG: 8,
+                    TIME: ULONG: 8,
+                    Reserved0: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG {
             Anonymous: struct {
                 _bitfield: u32 {
-                    IV: 16,
-                    CD: 1,
-                    Reserved0: 15,
+                    IV: ULONG: 16,
+                    CD: ULONG: 1,
+                    Reserved0: ULONG: 15,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    IOCSCI: 8,
-                    Reserved: 24,
+                    IOCSCI: ULONG: 8,
+                    Reserved: ULONG: 24,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_LBA_RANGE_TYPE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    NUM: 6,
-                    Reserved0: 26,
+                    NUM: ULONG: 6,
+                    Reserved0: ULONG: 26,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    NOPPME: 1,
-                    Reserved0: 31,
+                    NOPPME: ULONG: 1,
+                    Reserved0: ULONG: 31,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_NUMBER_OF_QUEUES {
             Anonymous: struct {
                 _bitfield: u32 {
-                    NSQ: 16,
-                    NCQ: 16,
+                    NSQ: ULONG: 16,
+                    NCQ: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_POWER_MANAGEMENT {
             Anonymous: struct {
                 _bitfield: u32 {
-                    PS: 5,
-                    Reserved0: 27,
+                    PS: ULONG: 5,
+                    Reserved0: ULONG: 27,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    Reserved0: 30,
-                    EOLBehavior: 2,
+                    Reserved0: ULONG: 30,
+                    EOLBehavior: ULONG: 2,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK {
             _bitfield: u32 {
-                Reserved: 1,
-                REGPRE: 1,
-                RESREL: 1,
-                RESPRE: 1,
-                Reserved1: 28,
+                Reserved: ULONG: 1,
+                REGPRE: ULONG: 1,
+                RESREL: ULONG: 1,
+                RESPRE: ULONG: 1,
+                Reserved1: ULONG: 28,
             },
         }
         struct NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE {
             _bitfield: u32 {
-                PTPL: 1,
-                Reserved: 31,
+                PTPL: ULONG: 1,
+                Reserved: ULONG: 31,
             },
         }
         union NVME_CDW11_FEATURE_SET_HOST_METADATA {
             Anonymous: struct {
                 _bitfield: u32 {
-                    Reserved0: 13,
-                    EA: 2,
-                    Reserved1: 17,
+                    Reserved0: ULONG: 13,
+                    EA: ULONG: 2,
+                    Reserved1: ULONG: 17,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY {
             Anonymous: struct {
                 _bitfield: u32 {
-                    SAVE: 1,
-                    NSS: 1,
-                    MOD: 1,
-                    Reserved0: 29,
+                    SAVE: ULONG: 1,
+                    NSS: ULONG: 1,
+                    MOD: ULONG: 1,
+                    Reserved0: ULONG: 29,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD {
             Anonymous: struct {
                 _bitfield: u32 {
-                    TMPTH: 16,
-                    TMPSEL: 4,
-                    THSEL: 2,
-                    Reserved0: 10,
+                    TMPTH: ULONG: 16,
+                    TMPSEL: ULONG: 4,
+                    THSEL: ULONG: 2,
+                    Reserved0: ULONG: 10,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    WCE: 1,
-                    Reserved0: 31,
+                    WCE: ULONG: 1,
+                    Reserved0: ULONG: 31,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL {
             Anonymous: struct {
                 _bitfield: u32 {
-                    DN: 1,
-                    Reserved0: 31,
+                    DN: ULONG: 1,
+                    Reserved0: ULONG: 31,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_CDW11_FIRMWARE_DOWNLOAD {
-            OFST: u32,
+            OFST: ULONG,
         }
         union NVME_CDW11_GET_LOG_PAGE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    NUMDU: 16,
-                    LogSpecificIdentifier: 16,
+                    NUMDU: ULONG: 16,
+                    LogSpecificIdentifier: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_IDENTIFY {
             Anonymous: struct {
-                NVMSETID: u16,
-                Reserved: u16,
+                NVMSETID: USHORT,
+                Reserved: USHORT,
             },
             Anonymous2: struct {
                 _bitfield: u32 {
-                    CNSID: 16,
-                    Reserved2: 8,
-                    CSI: 8,
+                    CNSID: ULONG: 16,
+                    Reserved2: ULONG: 8,
+                    CSI: ULONG: 8,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_RESERVATION_REPORT {
             Anonymous: struct {
                 _bitfield: u32 {
-                    EDS: 1,
-                    Reserved: 31,
+                    EDS: ULONG: 1,
+                    Reserved: ULONG: 31,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW11_SANITIZE {
             Anonymous: struct {
-                OVRPAT: u32,
+                OVRPAT: ULONG,
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_CDW11_SECURITY_RECEIVE {
-            AL: u32,
+            AL: ULONG,
         }
         struct NVME_CDW11_SECURITY_SEND {
-            TL: u32,
+            TL: ULONG,
         }
         union NVME_CDW12_DIRECTIVE_RECEIVE {
             AllocateResources: NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES,
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
             Anonymous: struct {
                 _bitfield: u32 {
-                    NSR: 16,
-                    Reserved: 16,
+                    NSR: ULONG: 16,
+                    Reserved: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW12_DIRECTIVE_SEND {
             EnableDirective: NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE,
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    ENDIR: 1,
-                    Reserved0: 7,
-                    DTYPE: 8,
-                    Reserved1: 16,
+                    ENDIR: ULONG: 1,
+                    Reserved0: ULONG: 7,
+                    DTYPE: ULONG: 8,
+                    Reserved1: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW12_FEATURES {
             HostMemoryBuffer: NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER,
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER {
             Anonymous: struct {
-                HSIZE: u32,
+                HSIZE: ULONG,
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW12_GET_LOG_PAGE {
-            LPOL: u32,
-            AsUlong: u32,
+            LPOL: ULONG,
+            AsUlong: ULONG,
         }
         union NVME_CDW12_READ_WRITE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    NLB: 16,
-                    Reserved0: 4,
-                    DTYPE: 4,
-                    Reserved1: 2,
-                    PRINFO: 4,
-                    FUA: 1,
-                    LR: 1,
+                    NLB: ULONG: 16,
+                    Reserved0: ULONG: 4,
+                    DTYPE: ULONG: 4,
+                    Reserved1: ULONG: 2,
+                    PRINFO: ULONG: 4,
+                    FUA: ULONG: 1,
+                    LR: ULONG: 1,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW12_VERIFYCOMMAND {
             Anonymous: struct {
                 _bitfield: u32 {
-                    NLB: 16,
-                    Reserved: 10,
-                    PRINFO: 4,
-                    FUA: 1,
-                    LR: 1,
+                    NLB: ULONG: 16,
+                    Reserved: ULONG: 10,
+                    PRINFO: ULONG: 4,
+                    FUA: ULONG: 1,
+                    LR: ULONG: 1,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW12_ZONE_APPEND {
             Anonymous: struct {
                 _bitfield: u32 {
-                    NLB: 16,
-                    Reserved: 9,
-                    PIREMAP: 1,
-                    PRINFO: 4,
-                    FUA: 1,
-                    LR: 1,
+                    NLB: ULONG: 16,
+                    Reserved: ULONG: 9,
+                    PIREMAP: ULONG: 1,
+                    PRINFO: ULONG: 4,
+                    FUA: ULONG: 1,
+                    LR: ULONG: 1,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW13_FEATURES {
             HostMemoryBuffer: NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER,
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER {
             Anonymous: struct {
                 _bitfield: u32 {
-                    Reserved: 4,
-                    HMDLLA: 28,
+                    Reserved: ULONG: 4,
+                    HMDLLA: ULONG: 28,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW13_GET_LOG_PAGE {
-            LPOU: u32,
-            AsUlong: u32,
+            LPOU: ULONG,
+            AsUlong: ULONG,
         }
         union NVME_CDW13_READ_WRITE {
             Anonymous: struct {
                 DSM: struct {
                     _bitfield: u8 {
-                        AccessFrequency: 4,
-                        AccessLatency: 2,
-                        SequentialRequest: 1,
-                        Incompressible: 1,
+                        AccessFrequency: UCHAR: 4,
+                        AccessLatency: UCHAR: 2,
+                        SequentialRequest: UCHAR: 1,
+                        Incompressible: UCHAR: 1,
                     },
                 },
-                Reserved: u8,
-                DSPEC: u16,
+                Reserved: UCHAR,
+                DSPEC: USHORT,
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW13_ZONE_MANAGEMENT_RECEIVE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    ZRA: 8,
-                    ZRASpecific: 8,
-                    Partial: 1,
-                    Reserved: 15,
+                    ZRA: ULONG: 8,
+                    ZRASpecific: ULONG: 8,
+                    Partial: ULONG: 1,
+                    Reserved: ULONG: 15,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW13_ZONE_MANAGEMENT_SEND {
             Anonymous: struct {
                 _bitfield: u32 {
-                    ZSA: 8,
-                    SelectAll: 1,
-                    Reserved: 23,
+                    ZSA: ULONG: 8,
+                    SelectAll: ULONG: 1,
+                    Reserved: ULONG: 23,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW14_FEATURES {
             HostMemoryBuffer: NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER,
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER {
             Anonymous: struct {
-                HMDLUA: u32,
+                HMDLUA: ULONG,
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW14_GET_LOG_PAGE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    UUIDIndex: 7,
-                    Reserved: 16,
-                    OT: 1,
-                    CommandSetIdentifier: 8,
+                    UUIDIndex: ULONG: 7,
+                    Reserved: ULONG: 16,
+                    OT: ULONG: 1,
+                    CommandSetIdentifier: ULONG: 8,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW14_GET_LOG_PAGE_V20 {
             Anonymous: struct {
                 _bitfield: u32 {
-                    UUIDIndex: 7,
-                    Reserved: 16,
-                    OffsetType: 1,
-                    CommandSetIdentifier: 8,
+                    UUIDIndex: ULONG: 7,
+                    Reserved: ULONG: 16,
+                    OffsetType: ULONG: 1,
+                    CommandSetIdentifier: ULONG: 8,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW14_IDENTIFY {
             Anonymous: struct {
                 _bitfield: u32 {
-                    UUIDIndex: 7,
-                    Reserved: 25,
+                    UUIDIndex: ULONG: 7,
+                    Reserved: ULONG: 25,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW15_FEATURES {
             HostMemoryBuffer: NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER,
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER {
             Anonymous: struct {
-                HMDLEC: u32,
+                HMDLEC: ULONG,
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW15_READ_WRITE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    ELBAT: 16,
-                    ELBATM: 16,
+                    ELBAT: ULONG: 16,
+                    ELBATM: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW15_VERIFY_COMMAND {
             Anonymous: struct {
                 _bitfield: u32 {
-                    ELBAT: 16,
-                    ELBATM: 16,
+                    ELBAT: ULONG: 16,
+                    ELBATM: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CDW15_ZONE_APPEND {
             Anonymous: struct {
                 _bitfield: u32 {
-                    LBAT: 16,
-                    LBATM: 16,
+                    LBAT: ULONG: 16,
+                    LBATM: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_CHANGED_NAMESPACE_LIST_LOG {
-            NSID: [u32; 1024],
+            NSID: [ULONG; 1024],
         }
         struct NVME_CHANGED_ZONE_LIST_LOG {
-            ZoneIdentifiersCount: u16,
-            Reserved: [u8; 6],
-            ZoneIdentifier: [u64; 511],
+            ZoneIdentifiersCount: USHORT,
+            Reserved: [UCHAR; 6],
+            ZoneIdentifier: [ULONGLONG; 511],
         }
         #[repr(i32)]
         enum NVME_CMBSZ_SIZE_UNITS {
@@ -1582,51 +1575,51 @@ mod Windows {
         }
         struct NVME_COMMAND {
             CDW0: NVME_COMMAND_DWORD0,
-            NSID: u32,
-            Reserved0: [u32; 2],
-            MPTR: u64,
+            NSID: ULONG,
+            Reserved0: [ULONG; 2],
+            MPTR: ULONGLONG,
             Anonymous: union {
                 Anonymous: struct {
-                    PRP1: u64,
-                    PRP2: u64,
+                    PRP1: ULONGLONG,
+                    PRP2: ULONGLONG,
                 },
-                SGL1: [u64; 2],
+                SGL1: [ULONGLONG; 2],
             },
             u: union {
                 GENERAL: struct {
-                    CDW10: u32,
-                    CDW11: u32,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW10: ULONG,
+                    CDW11: ULONG,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 IDENTIFY: struct {
                     CDW10: NVME_CDW10_IDENTIFY,
                     CDW11: NVME_CDW11_IDENTIFY,
-                    CDW12: u32,
-                    CDW13: u32,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
                     Anonymous: union {
-                        CDW14: u32,
+                        CDW14: ULONG,
                         CDW14_V20: NVME_CDW14_IDENTIFY,
                     },
-                    CDW15: u32,
+                    CDW15: ULONG,
                 },
                 ABORT: struct {
                     CDW10: NVME_CDW10_ABORT,
-                    CDW11: u32,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW11: ULONG,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 GETFEATURES: struct {
                     CDW10: NVME_CDW10_GET_FEATURES,
                     CDW11: NVME_CDW11_FEATURES,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 SETFEATURES: struct {
                     CDW10: NVME_CDW10_SET_FEATURES,
@@ -1650,23 +1643,23 @@ mod Windows {
                         CDW14: NVME_CDW14_GET_LOG_PAGE,
                         CDW14_V20: NVME_CDW14_GET_LOG_PAGE_V20,
                     },
-                    CDW15: u32,
+                    CDW15: ULONG,
                 },
                 CREATEIOCQ: struct {
                     CDW10: NVME_CDW10_CREATE_IO_QUEUE,
                     CDW11: NVME_CDW11_CREATE_IO_CQ,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 CREATEIOSQ: struct {
                     CDW10: NVME_CDW10_CREATE_IO_QUEUE,
                     CDW11: NVME_CDW11_CREATE_IO_SQ,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 DELETEIOQUEUE: struct {
                     CDW10: NVME_CDW10_DELETE_IO_QUEUE,
@@ -1674,166 +1667,166 @@ mod Windows {
                 DATASETMANAGEMENT: struct {
                     CDW10: NVME_CDW10_DATASET_MANAGEMENT,
                     CDW11: NVME_CDW11_DATASET_MANAGEMENT,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 SECURITYSEND: struct {
                     CDW10: NVME_CDW10_SECURITY_SEND_RECEIVE,
                     CDW11: NVME_CDW11_SECURITY_SEND,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 SECURITYRECEIVE: struct {
                     CDW10: NVME_CDW10_SECURITY_SEND_RECEIVE,
                     CDW11: NVME_CDW11_SECURITY_RECEIVE,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 FIRMWAREDOWNLOAD: struct {
                     CDW10: NVME_CDW10_FIRMWARE_DOWNLOAD,
                     CDW11: NVME_CDW11_FIRMWARE_DOWNLOAD,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 FIRMWAREACTIVATE: struct {
                     CDW10: NVME_CDW10_FIRMWARE_ACTIVATE,
-                    CDW11: u32,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW11: ULONG,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 FORMATNVM: struct {
                     CDW10: NVME_CDW10_FORMAT_NVM,
-                    CDW11: u32,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW11: ULONG,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 DIRECTIVERECEIVE: struct {
                     CDW10: NVME_CDW10_DIRECTIVE_RECEIVE,
                     CDW11: NVME_CDW11_DIRECTIVE_RECEIVE,
                     CDW12: NVME_CDW12_DIRECTIVE_RECEIVE,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 DIRECTIVESEND: struct {
                     CDW10: NVME_CDW10_DIRECTIVE_SEND,
                     CDW11: NVME_CDW11_DIRECTIVE_SEND,
                     CDW12: NVME_CDW12_DIRECTIVE_SEND,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 SANITIZE: struct {
                     CDW10: NVME_CDW10_SANITIZE,
                     CDW11: NVME_CDW11_SANITIZE,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 READWRITE: struct {
-                    LBALOW: u32,
-                    LBAHIGH: u32,
+                    LBALOW: ULONG,
+                    LBAHIGH: ULONG,
                     CDW12: NVME_CDW12_READ_WRITE,
                     CDW13: NVME_CDW13_READ_WRITE,
-                    CDW14: u32,
+                    CDW14: ULONG,
                     CDW15: NVME_CDW15_READ_WRITE,
                 },
                 RESERVATIONACQUIRE: struct {
                     CDW10: NVME_CDW10_RESERVATION_ACQUIRE,
-                    CDW11: u32,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW11: ULONG,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 RESERVATIONREGISTER: struct {
                     CDW10: NVME_CDW10_RESERVATION_REGISTER,
-                    CDW11: u32,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW11: ULONG,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 RESERVATIONRELEASE: struct {
                     CDW10: NVME_CDW10_RESERVATION_RELEASE,
-                    CDW11: u32,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW11: ULONG,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 RESERVATIONREPORT: struct {
                     CDW10: NVME_CDW10_RESERVATION_REPORT,
                     CDW11: NVME_CDW11_RESERVATION_REPORT,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 ZONEMANAGEMENTSEND: struct {
                     CDW1011: NVME_CDW10_ZONE_MANAGEMENT_SEND,
-                    CDW12: u32,
+                    CDW12: ULONG,
                     CDW13: NVME_CDW13_ZONE_MANAGEMENT_SEND,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 ZONEMANAGEMENTRECEIVE: struct {
                     CDW1011: NVME_CDW10_ZONE_MANAGEMENT_RECEIVE,
-                    DWORDCOUNT: u32,
+                    DWORDCOUNT: ULONG,
                     CDW13: NVME_CDW13_ZONE_MANAGEMENT_RECEIVE,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 ZONEAPPEND: struct {
                     CDW1011: NVME_CDW10_ZONE_APPEND,
                     CDW12: NVME_CDW12_ZONE_APPEND,
-                    CDW13: u32,
-                    ILBRT: u32,
+                    CDW13: ULONG,
+                    ILBRT: ULONG,
                     CDW15: NVME_CDW15_ZONE_APPEND,
                 },
                 DEVICESELFTEST: struct {
                     CDW10: NVME_CDW10_DEVICE_SELF_TEST,
-                    CDW11: u32,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW11: ULONG,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 DISCOVERYINFOMGMT: struct {
                     CDW10: NVME_CDW10_DISCOVERY_INFO_MGMT,
-                    CDW11: u32,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    CDW11: ULONG,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 VENDORSPECIFIC: struct {
-                    NDT: u32,
-                    NDM: u32,
-                    CDW12: u32,
-                    CDW13: u32,
-                    CDW14: u32,
-                    CDW15: u32,
+                    NDT: ULONG,
+                    NDM: ULONG,
+                    CDW12: ULONG,
+                    CDW13: ULONG,
+                    CDW14: ULONG,
+                    CDW15: ULONG,
                 },
                 VERIFYCOMMAND: struct {
-                    LBALOW: u32,
-                    LBAHIGH: u32,
+                    LBALOW: ULONG,
+                    LBAHIGH: ULONG,
                     CDW12: NVME_CDW12_VERIFYCOMMAND,
-                    CDW13: u32,
-                    EILBRT: u32,
+                    CDW13: ULONG,
+                    EILBRT: ULONG,
                     CDW15: NVME_CDW15_VERIFY_COMMAND,
                 },
             },
@@ -1841,41 +1834,41 @@ mod Windows {
         union NVME_COMMAND_DWORD0 {
             Anonymous: struct {
                 _bitfield: u32 {
-                    OPC: 8,
-                    FUSE: 2,
-                    Reserved0: 4,
-                    PSDT: 2,
-                    CID: 16,
+                    OPC: ULONG: 8,
+                    FUSE: ULONG: 2,
+                    Reserved0: ULONG: 4,
+                    PSDT: ULONG: 2,
+                    CID: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_COMMAND_EFFECTS_DATA {
             Anonymous: struct {
                 _bitfield: u32 {
-                    CSUPP: 1,
-                    LBCC: 1,
-                    NCC: 1,
-                    NIC: 1,
-                    CCC: 1,
-                    Reserved: 11,
-                    CSE: 3,
-                    UUIDSelectionSupported: 1,
-                    CSPNamespace: 1,
-                    CSPController: 1,
-                    CSPNVMSet: 1,
-                    CSPEnduranceGroup: 1,
-                    CSPDomain: 1,
-                    CSPNVMSubsystem: 1,
-                    CSPReserved: 6,
+                    CSUPP: ULONG: 1,
+                    LBCC: ULONG: 1,
+                    NCC: ULONG: 1,
+                    NIC: ULONG: 1,
+                    CCC: ULONG: 1,
+                    Reserved: ULONG: 11,
+                    CSE: ULONG: 3,
+                    UUIDSelectionSupported: ULONG: 1,
+                    CSPNamespace: ULONG: 1,
+                    CSPController: ULONG: 1,
+                    CSPNVMSet: ULONG: 1,
+                    CSPEnduranceGroup: ULONG: 1,
+                    CSPDomain: ULONG: 1,
+                    CSPNVMSubsystem: ULONG: 1,
+                    CSPReserved: ULONG: 6,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_COMMAND_EFFECTS_LOG {
             ACS: [NVME_COMMAND_EFFECTS_DATA; 256],
             IOCS: [NVME_COMMAND_EFFECTS_DATA; 256],
-            Reserved: [u8; 2048],
+            Reserved: [UCHAR; 2048],
         }
         #[repr(i32)]
         enum NVME_COMMAND_EFFECT_SBUMISSION_EXECUTION_LIMITS {
@@ -1892,158 +1885,158 @@ mod Windows {
         union NVME_COMMAND_STATUS {
             Anonymous: struct {
                 _bitfield: u16 {
-                    P: 1,
-                    SC: 8,
-                    SCT: 3,
-                    CRD: 2,
-                    M: 1,
-                    DNR: 1,
+                    P: USHORT: 1,
+                    SC: USHORT: 8,
+                    SCT: USHORT: 3,
+                    CRD: USHORT: 2,
+                    M: USHORT: 1,
+                    DNR: USHORT: 1,
                 },
             },
-            AsUshort: u16,
+            AsUshort: USHORT,
         }
         struct NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST {
             _bitfield: u32 {
-                AsyncEventType: 3,
-                Reserved0: 5,
-                AsyncEventInfo: 8,
-                LogPage: 8,
-                Reserved1: 8,
+                AsyncEventType: ULONG: 3,
+                Reserved0: ULONG: 5,
+                AsyncEventInfo: ULONG: 8,
+                LogPage: ULONG: 8,
+                Reserved1: ULONG: 8,
             },
         }
         struct NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
             Anonymous: struct {
                 _bitfield: u32 {
-                    NSA: 16,
-                    Reserved: 16,
+                    NSA: ULONG: 16,
+                    Reserved: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_COMPLETION_ENTRY {
-            DW0: u32,
-            DW1: u32,
+            DW0: ULONG,
+            DW1: ULONG,
             DW2: union {
                 Anonymous: struct {
-                    SQHD: u16,
-                    SQID: u16,
+                    SQHD: USHORT,
+                    SQID: USHORT,
                 },
-                AsUlong: u32,
+                AsUlong: ULONG,
             },
             DW3: union {
                 Anonymous: struct {
-                    CID: u16,
+                    CID: USHORT,
                     Status: NVME_COMMAND_STATUS,
                 },
-                AsUlong: u32,
+                AsUlong: ULONG,
             },
         }
         union NVME_COMPLETION_QUEUE_HEAD_DOORBELL {
             Anonymous: struct {
                 _bitfield: u32 {
-                    CQH: 16,
-                    Reserved0: 16,
+                    CQH: ULONG: 16,
+                    Reserved0: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CONTEXT_ATTRIBUTES {
             Anonymous: struct {
                 _bitfield: u32 {
-                    AccessFrequency: 4,
-                    AccessLatency: 2,
-                    Reserved0: 2,
-                    SequentialReadRange: 1,
-                    SequentialWriteRange: 1,
-                    WritePrepare: 1,
-                    Reserved1: 13,
-                    CommandAccessSize: 8,
+                    AccessFrequency: ULONG: 4,
+                    AccessLatency: ULONG: 2,
+                    Reserved0: ULONG: 2,
+                    SequentialReadRange: ULONG: 1,
+                    SequentialWriteRange: ULONG: 1,
+                    WritePrepare: ULONG: 1,
+                    Reserved1: ULONG: 13,
+                    CommandAccessSize: ULONG: 8,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CONTROLLER_CAPABILITIES {
             Anonymous: struct {
                 _bitfield: u64 {
-                    MQES: 16,
-                    CQR: 1,
-                    AMS_WeightedRoundRobinWithUrgent: 1,
-                    AMS_VendorSpecific: 1,
-                    Reserved0: 5,
-                    TO: 8,
-                    DSTRD: 4,
-                    NSSRS: 1,
-                    CSS_NVM: 1,
-                    CSS_Reserved0: 1,
-                    CSS_Reserved1: 1,
-                    CSS_Reserved2: 1,
-                    CSS_Reserved3: 1,
-                    CSS_Reserved4: 1,
-                    CSS_MultipleIo: 1,
-                    CSS_AdminOnly: 1,
-                    BPS: 1,
-                    CPS: 2,
-                    MPSMIN: 4,
-                    MPSMAX: 4,
-                    PMRS: 1,
-                    CMBS: 1,
-                    NSSS: 1,
-                    CRWMS: 1,
-                    CRIMS: 1,
-                    Reserved2: 3,
+                    MQES: ULONGLONG: 16,
+                    CQR: ULONGLONG: 1,
+                    AMS_WeightedRoundRobinWithUrgent: ULONGLONG: 1,
+                    AMS_VendorSpecific: ULONGLONG: 1,
+                    Reserved0: ULONGLONG: 5,
+                    TO: ULONGLONG: 8,
+                    DSTRD: ULONGLONG: 4,
+                    NSSRS: ULONGLONG: 1,
+                    CSS_NVM: ULONGLONG: 1,
+                    CSS_Reserved0: ULONGLONG: 1,
+                    CSS_Reserved1: ULONGLONG: 1,
+                    CSS_Reserved2: ULONGLONG: 1,
+                    CSS_Reserved3: ULONGLONG: 1,
+                    CSS_Reserved4: ULONGLONG: 1,
+                    CSS_MultipleIo: ULONGLONG: 1,
+                    CSS_AdminOnly: ULONGLONG: 1,
+                    BPS: ULONGLONG: 1,
+                    CPS: ULONGLONG: 2,
+                    MPSMIN: ULONGLONG: 4,
+                    MPSMAX: ULONGLONG: 4,
+                    PMRS: ULONGLONG: 1,
+                    CMBS: ULONGLONG: 1,
+                    NSSS: ULONGLONG: 1,
+                    CRWMS: ULONGLONG: 1,
+                    CRIMS: ULONGLONG: 1,
+                    Reserved2: ULONGLONG: 3,
                 },
             },
-            AsUlonglong: u64,
+            AsUlonglong: ULONGLONG,
         }
         union NVME_CONTROLLER_CONFIGURATION {
             Anonymous: struct {
                 _bitfield: u32 {
-                    EN: 1,
-                    Reserved0: 3,
-                    CSS: 3,
-                    MPS: 4,
-                    AMS: 3,
-                    SHN: 2,
-                    IOSQES: 4,
-                    IOCQES: 4,
-                    CRIME: 1,
-                    Reserved1: 7,
+                    EN: ULONG: 1,
+                    Reserved0: ULONG: 3,
+                    CSS: ULONG: 3,
+                    MPS: ULONG: 4,
+                    AMS: ULONG: 3,
+                    SHN: ULONG: 2,
+                    IOSQES: ULONG: 4,
+                    IOCQES: ULONG: 4,
+                    CRIME: ULONG: 1,
+                    Reserved1: ULONG: 7,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         const NVME_CONTROLLER_ID_DYN: i32 = 65535;
         const NVME_CONTROLLER_ID_MAX: i32 = 65519;
         const NVME_CONTROLLER_ID_MIN: i32 = 0;
         const NVME_CONTROLLER_ID_STAT_PERSIST: i32 = 65534;
         struct NVME_CONTROLLER_LIST {
-            NumberOfIdentifiers: u16,
-            ControllerID: [u16; 2047],
+            NumberOfIdentifiers: USHORT,
+            ControllerID: [USHORT; 2047],
         }
         union NVME_CONTROLLER_MEMORY_BUFFER_LOCATION {
             Anonymous: struct {
                 _bitfield: u32 {
-                    BIR: 3,
-                    Reserved: 9,
-                    OFST: 20,
+                    BIR: ULONG: 3,
+                    Reserved: ULONG: 9,
+                    OFST: ULONG: 20,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         union NVME_CONTROLLER_MEMORY_BUFFER_SIZE {
             Anonymous: struct {
                 _bitfield: u32 {
-                    SQS: 1,
-                    CQS: 1,
-                    LISTS: 1,
-                    RDS: 1,
-                    WDS: 1,
-                    Reserved: 3,
-                    SZU: 4,
-                    SZ: 20,
+                    SQS: ULONG: 1,
+                    CQS: ULONG: 1,
+                    LISTS: ULONG: 1,
+                    RDS: ULONG: 1,
+                    WDS: ULONG: 1,
+                    Reserved: ULONG: 3,
+                    SZU: ULONG: 4,
+                    SZ: ULONG: 20,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         #[repr(i32)]
         enum NVME_CONTROLLER_METADATA_ELEMENT_TYPES {
@@ -2066,18 +2059,18 @@ mod Windows {
         }
         union NVME_CONTROLLER_READY_TIMEOUTS {
             Anonymous: struct {
-                CRWMT: u16,
-                CRIMT: u16,
+                CRWMT: USHORT,
+                CRIMT: USHORT,
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_CONTROLLER_REGISTERS {
             CAP: NVME_CONTROLLER_CAPABILITIES,
             VS: NVME_VERSION,
-            INTMS: u32,
-            INTMC: u32,
+            INTMS: ULONG,
+            INTMC: ULONG,
             CC: NVME_CONTROLLER_CONFIGURATION,
-            Reserved0: u32,
+            Reserved0: ULONG,
             CSTS: NVME_CONTROLLER_STATUS,
             NSSR: NVME_NVM_SUBSYSTEM_RESET,
             AQA: NVME_ADMIN_QUEUE_ATTRIBUTES,
@@ -2086,26 +2079,26 @@ mod Windows {
             CMBLOC: NVME_CONTROLLER_MEMORY_BUFFER_LOCATION,
             CMBSZ: NVME_CONTROLLER_MEMORY_BUFFER_SIZE,
             BPINFO: NVME_BOOT_PARTITION_INFORMATION,
-            Reserved1: [u32; 8],
+            Reserved1: [ULONG; 8],
             NSSD: NVME_NVM_SUBSYSTEM_SHUTDOWN,
             CRTO: NVME_CONTROLLER_READY_TIMEOUTS,
-            Reserved2: [u32; 933],
-            Reserved3: [u32; 64],
-            Doorbells: [u32; 0],
+            Reserved2: [ULONG; 933],
+            Reserved3: [ULONG; 64],
+            Doorbells: [ULONG; 0],
         }
         union NVME_CONTROLLER_STATUS {
             Anonymous: struct {
                 _bitfield: u32 {
-                    RDY: 1,
-                    CFS: 1,
-                    SHST: 2,
-                    NSSRO: 1,
-                    PP: 1,
-                    ST: 1,
-                    Reserved0: 25,
+                    RDY: ULONG: 1,
+                    CFS: ULONG: 1,
+                    SHST: ULONG: 2,
+                    NSSRO: ULONG: 1,
+                    PP: ULONG: 1,
+                    ST: ULONG: 1,
+                    Reserved0: ULONG: 25,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         #[repr(i32)]
         enum NVME_CONTROLLER_TYPE {
@@ -2141,52 +2134,53 @@ mod Windows {
             NVME_READ_BEHAVIOR_RETURN_ZERO = 1,
             NVME_READ_BEHAVIOR_RETURN_ONES = 2,
         }
+        #[packed(1)]
         struct NVME_DEVICE_SELF_TEST_LOG {
-            CurrentOperation: struct {
+            CurrentOperation: #[packed(1)] struct {
                 _bitfield: u8 {
-                    Status: 4,
-                    Reserved: 4,
+                    Status: UCHAR: 4,
+                    Reserved: UCHAR: 4,
                 },
             },
-            CurrentCompletion: struct {
+            CurrentCompletion: #[packed(1)] struct {
                 _bitfield: u8 {
-                    CompletePercent: 7,
-                    Reserved: 1,
+                    CompletePercent: UCHAR: 7,
+                    Reserved: UCHAR: 1,
                 },
             },
-            Reserved: [u8; 2],
+            Reserved: [UCHAR; 2],
             ResultData: [NVME_DEVICE_SELF_TEST_RESULT_DATA; 20],
         }
         #[packed(1)]
         struct NVME_DEVICE_SELF_TEST_RESULT_DATA {
-            Status: struct {
+            Status: #[packed(1)] struct {
                 _bitfield: u8 {
-                    Result: 4,
-                    CodeValue: 4,
+                    Result: UCHAR: 4,
+                    CodeValue: UCHAR: 4,
                 },
             },
-            SegmentNumber: u8,
-            ValidDiagnostics: struct {
+            SegmentNumber: UCHAR,
+            ValidDiagnostics: #[packed(1)] struct {
                 _bitfield: u8 {
-                    NSIDValid: 1,
-                    FLBAValid: 1,
-                    SCTValid: 1,
-                    SCValid: 1,
-                    Reserved: 4,
+                    NSIDValid: UCHAR: 1,
+                    FLBAValid: UCHAR: 1,
+                    SCTValid: UCHAR: 1,
+                    SCValid: UCHAR: 1,
+                    Reserved: UCHAR: 4,
                 },
             },
-            Reserved: u8,
-            POH: u64,
-            NSID: u32,
-            FailingLBA: u64,
-            StatusCodeType: struct {
+            Reserved: UCHAR,
+            POH: ULONGLONG,
+            NSID: ULONG,
+            FailingLBA: ULONGLONG,
+            StatusCodeType: #[packed(1)] struct {
                 _bitfield: u8 {
-                    AdditionalInfo: 3,
-                    Reserved: 5,
+                    AdditionalInfo: UCHAR: 3,
+                    Reserved: UCHAR: 5,
                 },
             },
-            StatusCode: u8,
-            VendorSpecific: u16,
+            StatusCode: UCHAR,
+            VendorSpecific: USHORT,
         }
         struct NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS {
             DirectivesSupported: NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR,
@@ -2194,11 +2188,11 @@ mod Windows {
         }
         struct NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR {
             _bitfield: u8 {
-                Identify: 1,
-                Streams: 1,
-                Reserved0: 6,
+                Identify: UCHAR: 1,
+                Streams: UCHAR: 1,
+                Reserved0: UCHAR: 6,
             },
-            Reserved1: [u8; 31],
+            Reserved1: [UCHAR; 31],
         }
         #[repr(i32)]
         enum NVME_DIRECTIVE_RECEIVE_IDENTIFY_OPERATIONS {
@@ -2220,19 +2214,19 @@ mod Windows {
             NVME_DIRECTIVE_SEND_STREAMS_OPERATION_RELEASE_RESOURCES = 2,
         }
         struct NVME_DIRECTIVE_STREAMS_GET_STATUS_DATA {
-            OpenStreamCount: u16,
-            StreamIdentifiers: [u16; 65535],
+            OpenStreamCount: USHORT,
+            StreamIdentifiers: [USHORT; 65535],
         }
         struct NVME_DIRECTIVE_STREAMS_RETURN_PARAMETERS {
-            MSL: u16,
-            NSSA: u16,
-            NSSO: u16,
-            Reserved0: [u8; 10],
-            SWS: u32,
-            SGS: u16,
-            NSA: u16,
-            NSO: u16,
-            Reserved1: [u8; 6],
+            MSL: USHORT,
+            NSSA: USHORT,
+            NSSO: USHORT,
+            Reserved0: [UCHAR; 10],
+            SWS: ULONG,
+            SGS: USHORT,
+            NSA: USHORT,
+            NSO: USHORT,
+            Reserved1: [UCHAR; 6],
         }
         #[repr(i32)]
         enum NVME_DIRECTIVE_TYPES {
@@ -2240,60 +2234,60 @@ mod Windows {
             NVME_DIRECTIVE_TYPE_STREAMS = 1,
         }
         struct NVME_DISCOVERY_ENTRY {
-            TRTYPE: u8,
-            ADRFAM: u8,
-            SUBTYPE: u8,
+            TRTYPE: UCHAR,
+            ADRFAM: UCHAR,
+            SUBTYPE: UCHAR,
             TREQ: union {
                 Anonymous: struct {
                     _bitfield: u8 {
-                        SecureChannel: 2,
-                        SqFlowControlDisable: 1,
-                        ZeroHostIdSupport: 1,
-                        AuthAndSecureChannel: 2,
-                        Reserved: 2,
+                        SecureChannel: UCHAR: 2,
+                        SqFlowControlDisable: UCHAR: 1,
+                        ZeroHostIdSupport: UCHAR: 1,
+                        AuthAndSecureChannel: UCHAR: 2,
+                        Reserved: UCHAR: 2,
                     },
                 },
-                AsUchar: u8,
+                AsUchar: UCHAR,
             },
-            PORTID: u16,
-            CNTLID: u16,
-            ASQSZ: u16,
+            PORTID: USHORT,
+            CNTLID: USHORT,
+            ASQSZ: USHORT,
             EFLAGS: union {
                 Anonymous: struct {
                     _bitfield: u16 {
-                        DuplicateReturnedInfo: 1,
-                        ExplicitPersistentConnectionSupport: 1,
-                        NoCDCConnectivity: 1,
-                        Reserved: 13,
+                        DuplicateReturnedInfo: USHORT: 1,
+                        ExplicitPersistentConnectionSupport: USHORT: 1,
+                        NoCDCConnectivity: USHORT: 1,
+                        Reserved: USHORT: 13,
                     },
                 },
-                AsUshort: u16,
+                AsUshort: USHORT,
             },
-            Reserved0: [u8; 20],
-            TRSVCID: [u8; 32],
-            Reserved1: [u8; 192],
-            NQN: [u8; 256],
-            TRADDR: [u8; 256],
-            TSAS: [u8; 256],
+            Reserved0: [UCHAR; 20],
+            TRSVCID: [UCHAR; 32],
+            Reserved1: [UCHAR; 192],
+            NQN: [UCHAR; 256],
+            TRADDR: [UCHAR; 256],
+            TSAS: [UCHAR; 256],
         }
         struct NVME_DISCOVERY_HEADER {
-            GENCTR: u64,
-            NUMREC: u64,
-            RECFMT: u16,
+            GENCTR: ULONGLONG,
+            NUMREC: ULONGLONG,
+            RECFMT: USHORT,
             DLPF: union {
                 Anonymous: struct {
                     _bitfield: u8 {
-                        Extended: 1,
-                        PortLocal: 1,
-                        AllSubsystems: 1,
-                        Reserved: 5,
+                        Extended: UCHAR: 1,
+                        PortLocal: UCHAR: 1,
+                        AllSubsystems: UCHAR: 1,
+                        Reserved: UCHAR: 5,
                     },
                 },
-                AsUchar: u8,
+                AsUchar: UCHAR,
             },
-            Reserved0: u8,
-            TDLPL: u32,
-            Reserved1: [u8; 1000],
+            Reserved0: UCHAR,
+            TDLPL: ULONG,
+            Reserved1: [UCHAR; 1000],
         }
         #[repr(i32)]
         enum NVME_DISCOVERY_INFO_ENTITY_TYPES {
@@ -2311,32 +2305,32 @@ mod Windows {
         const NVME_DISCOVERY_INFO_MGMT_EKTYPE_PORTID: i32 = 63;
         const NVME_DISCOVERY_INFO_MGMT_EKTYPE_TRADDR: i32 = 95;
         struct NVME_DISCOVERY_INFO_MGMT_HEADER {
-            TDL: u32,
-            Reserved0: u32,
-            NUMENT: u64,
-            ENTFMT: u16,
-            ETYPE: u16,
-            PORTLCL: u8,
-            Reserved1: u8,
+            TDL: ULONG,
+            Reserved0: ULONG,
+            NUMENT: ULONGLONG,
+            ENTFMT: USHORT,
+            ETYPE: USHORT,
+            PORTLCL: UCHAR,
+            Reserved1: UCHAR,
             EKTYPE: union {
                 Anonymous: struct {
                     _bitfield: u16 {
-                        NQN: 1,
-                        TSAS: 1,
-                        TRSVCID: 1,
-                        ADRFAM: 1,
-                        TRTYPE: 1,
-                        PORTID: 1,
-                        TRADDR: 1,
-                        Reserved: 9,
+                        NQN: USHORT: 1,
+                        TSAS: USHORT: 1,
+                        TRSVCID: USHORT: 1,
+                        ADRFAM: USHORT: 1,
+                        TRTYPE: USHORT: 1,
+                        PORTID: USHORT: 1,
+                        TRADDR: USHORT: 1,
+                        Reserved: USHORT: 9,
                     },
                 },
-                AsUshort: u16,
+                AsUshort: USHORT,
             },
-            EID: [u8; 256],
-            ENAME: [u8; 256],
-            EVER: [u8; 64],
-            Reserved2: [u8; 424],
+            EID: [UCHAR; 256],
+            ENAME: [UCHAR; 256],
+            EVER: [UCHAR; 64],
+            Reserved2: [UCHAR; 424],
         }
         #[repr(i32)]
         enum NVME_DISCOVERY_INFO_MGMT_TASK {
@@ -2354,51 +2348,51 @@ mod Windows {
         }
         #[packed(1)]
         struct NVME_ENDURANCE_GROUP_LOG {
-            Reserved0: u32,
-            AvailableSpareThreshold: u8,
-            PercentageUsed: u8,
-            Reserved1: [u8; 26],
-            EnduranceEstimate: [u8; 16],
-            DataUnitsRead: [u8; 16],
-            DataUnitsWritten: [u8; 16],
-            MediaUnitsWritten: [u8; 16],
-            Reserved2: [u8; 416],
+            Reserved0: ULONG,
+            AvailableSpareThreshold: UCHAR,
+            PercentageUsed: UCHAR,
+            Reserved1: [UCHAR; 26],
+            EnduranceEstimate: [UCHAR; 16],
+            DataUnitsRead: [UCHAR; 16],
+            DataUnitsWritten: [UCHAR; 16],
+            MediaUnitsWritten: [UCHAR; 16],
+            Reserved2: [UCHAR; 416],
         }
         struct NVME_ERROR_INFO_LOG {
-            ErrorCount: u64,
-            SQID: u16,
-            CMDID: u16,
+            ErrorCount: ULONGLONG,
+            SQID: USHORT,
+            CMDID: USHORT,
             Status: NVME_COMMAND_STATUS,
             ParameterErrorLocation: struct {
                 _bitfield: u16 {
-                    Byte: 8,
-                    Bit: 3,
-                    Reserved: 5,
+                    Byte: USHORT: 8,
+                    Bit: USHORT: 3,
+                    Reserved: USHORT: 5,
                 },
             },
-            Lba: u64,
-            NameSpace: u32,
-            VendorInfoAvailable: u8,
-            TRTYPE: u8,
-            Reserved0: [u8; 2],
-            CommandSpecificInfo: u64,
-            TransportTypeSpecificInfo: u16,
-            Reserved1: [u8; 22],
+            Lba: ULONGLONG,
+            NameSpace: ULONG,
+            VendorInfoAvailable: UCHAR,
+            TRTYPE: UCHAR,
+            Reserved0: [UCHAR; 2],
+            CommandSpecificInfo: ULONGLONG,
+            TransportTypeSpecificInfo: USHORT,
+            Reserved1: [UCHAR; 22],
         }
         struct NVME_ERROR_INJECTION_ENTRY {
             Flags: union {
                 Anonymous: struct {
                     _bitfield: u8 {
-                        Enable: 1,
-                        SingleInstance: 1,
-                        Reserved0: 6,
+                        Enable: UCHAR: 1,
+                        SingleInstance: UCHAR: 1,
+                        Reserved0: UCHAR: 6,
                     },
                 },
-                AsUchar: u8,
+                AsUchar: UCHAR,
             },
-            Reserved1: u8,
-            ErrorInjectionType: u16,
-            ErrorInjectionTypeSpecific: [u8; 28],
+            Reserved1: UCHAR,
+            ErrorInjectionType: USHORT,
+            ErrorInjectionTypeSpecific: [UCHAR; 28],
         }
         #[repr(i32)]
         enum NVME_ERROR_INJECTION_TYPES {
@@ -2416,9 +2410,10 @@ mod Windows {
             NVME_ERROR_INJECTION_TYPE_MAX = 65535,
         }
         struct NVME_EXTENDED_ATTR {
-            EXATTYPE: u16,
-            EXATLEN: u16,
-            EXATVAL: [u8; 0],
+            EXATTYPE: USHORT,
+            EXATLEN: USHORT,
+            #[writable(EXATLEN)]
+            EXATVAL: [UCHAR; 0],
         }
         #[repr(i32)]
         enum NVME_EXTENDED_ATTR_TYPE {
@@ -2432,49 +2427,49 @@ mod Windows {
             NvmeExtAttrVendorEnd = 65535,
         }
         struct NVME_EXTENDED_DISCOVERY_ENTRY {
-            TRTYPE: u8,
-            ADRFAM: u8,
-            SUBTYPE: u8,
+            TRTYPE: UCHAR,
+            ADRFAM: UCHAR,
+            SUBTYPE: UCHAR,
             TREQ: union {
                 Anonymous: struct {
                     _bitfield: u8 {
-                        SecureChannel: 2,
-                        SqFlowControlDisable: 1,
-                        ZeroHostIdSupport: 1,
-                        AuthAndSecureChannel: 2,
-                        Reserved: 2,
+                        SecureChannel: UCHAR: 2,
+                        SqFlowControlDisable: UCHAR: 1,
+                        ZeroHostIdSupport: UCHAR: 1,
+                        AuthAndSecureChannel: UCHAR: 2,
+                        Reserved: UCHAR: 2,
                     },
                 },
-                AsUchar: u8,
+                AsUchar: UCHAR,
             },
-            PORTID: u16,
-            CNTLID: u16,
-            ASQSZ: u16,
+            PORTID: USHORT,
+            CNTLID: USHORT,
+            ASQSZ: USHORT,
             EFLAGS: union {
                 Anonymous: struct {
                     _bitfield: u16 {
-                        DuplicateReturnedInfo: 1,
-                        ExplicitPersistentConnectionSupport: 1,
-                        NoCDCConnectivity: 1,
-                        Reserved: 13,
+                        DuplicateReturnedInfo: USHORT: 1,
+                        ExplicitPersistentConnectionSupport: USHORT: 1,
+                        NoCDCConnectivity: USHORT: 1,
+                        Reserved: USHORT: 13,
                     },
                 },
-                AsUshort: u16,
+                AsUshort: USHORT,
             },
-            Reserved0: [u8; 20],
-            TRSVCID: [u8; 32],
-            Reserved1: [u8; 192],
-            NQN: [u8; 256],
-            TRADDR: [u8; 256],
-            TSAS: [u8; 256],
-            TEL: u32,
-            NUMEXAT: u16,
-            Reserved2: u16,
+            Reserved0: [UCHAR; 20],
+            TRSVCID: [UCHAR; 32],
+            Reserved1: [UCHAR; 192],
+            NQN: [UCHAR; 256],
+            TRADDR: [UCHAR; 256],
+            TSAS: [UCHAR; 256],
+            TEL: ULONG,
+            NUMEXAT: USHORT,
+            Reserved2: USHORT,
         }
         const NVME_EXTENDED_HOST_IDENTIFIER_SIZE: i32 = 16;
         struct NVME_EXTENDED_REPORT_ZONE_INFO {
-            ZoneCount: u64,
-            Reserved: [u64; 7],
+            ZoneCount: ULONGLONG,
+            Reserved: [ULONGLONG; 7],
             Desc: [NVME_ZONE_EXTENDED_REPORT_ZONE_DESC; 1],
         }
         #[repr(i32)]
@@ -2531,12 +2526,12 @@ mod Windows {
             NVME_FEATURE_DSSD_POWER_STATE = 199,
         }
         struct NVME_FEATURE_HOST_IDENTIFIER_DATA {
-            HOSTID: [u8; 16],
+            HOSTID: [UCHAR; 16],
         }
         struct NVME_FEATURE_HOST_METADATA_DATA {
-            NumberOfMetadataElementDescriptors: u8,
-            Reserved0: u8,
-            MetadataElementDescriptors: [u8; 4094],
+            NumberOfMetadataElementDescriptors: UCHAR,
+            Reserved0: UCHAR,
+            MetadataElementDescriptors: [UCHAR; 4094],
         }
         struct NVME_FEATURE_IDENTIFIERS_EFFECTS_LOG {
             FeatureIdentifierSupported: [NVME_FID_SUPPORTED_AND_EFFECTS; 256],
@@ -2550,20 +2545,20 @@ mod Windows {
         }
         struct NVME_FID_SUPPORTED_AND_EFFECTS {
             _bitfield: u32 {
-                FSUPP: 1,
-                UDCC: 1,
-                NCC: 1,
-                NIC: 1,
-                CCC: 1,
-                Reserved: 14,
-                UUIDSelectionSupported: 1,
-                FSPNamespace: 1,
-                FSPController: 1,
-                FSPNVMSet: 1,
-                FSPEnduranceGroup: 1,
-                FSPDomain: 1,
-                FSPNVMSubsystem: 1,
-                FSPReserved: 6,
+                FSUPP: ULONG: 1,
+                UDCC: ULONG: 1,
+                NCC: ULONG: 1,
+                NIC: ULONG: 1,
+                CCC: ULONG: 1,
+                Reserved: ULONG: 14,
+                UUIDSelectionSupported: ULONG: 1,
+                FSPNamespace: ULONG: 1,
+                FSPController: ULONG: 1,
+                FSPNVMSet: ULONG: 1,
+                FSPEnduranceGroup: ULONG: 1,
+                FSPDomain: ULONG: 1,
+                FSPNVMSubsystem: ULONG: 1,
+                FSPReserved: ULONG: 6,
             },
         }
         #[repr(i32)]
@@ -2578,15 +2573,15 @@ mod Windows {
         struct NVME_FIRMWARE_SLOT_INFO_LOG {
             AFI: struct {
                 _bitfield: u8 {
-                    ActiveSlot: 3,
-                    Reserved0: 1,
-                    PendingActivateSlot: 3,
-                    Reserved1: 1,
+                    ActiveSlot: UCHAR: 3,
+                    Reserved0: UCHAR: 1,
+                    PendingActivateSlot: UCHAR: 3,
+                    Reserved1: UCHAR: 1,
                 },
             },
-            Reserved0: [u8; 7],
-            FRS: [u64; 7],
-            Reserved1: [u8; 448],
+            Reserved0: [UCHAR; 7],
+            FRS: [ULONGLONG; 7],
+            Reserved1: [UCHAR; 448],
         }
         #[repr(i32)]
         enum NVME_FUSED_OPERATION_CODES {
@@ -2597,66 +2592,66 @@ mod Windows {
         struct NVME_GET_FEATURE_TIMESTAMP {
             Anonymous: struct {
                 _bitfield: u64 {
-                    Timestamp: 48,
-                    Synch: 1,
-                    Origin: 3,
-                    Reserved: 12,
+                    Timestamp: ULONGLONG: 48,
+                    Synch: ULONGLONG: 1,
+                    Origin: ULONGLONG: 3,
+                    Reserved: ULONGLONG: 12,
                 },
             },
-            AsUlonglong: u64,
+            AsUlonglong: ULONGLONG,
         }
         struct NVME_HEALTH_INFO_LOG {
             CriticalWarning: union {
                 Anonymous: struct {
                     _bitfield: u8 {
-                        AvailableSpaceLow: 1,
-                        TemperatureThreshold: 1,
-                        ReliabilityDegraded: 1,
-                        ReadOnly: 1,
-                        VolatileMemoryBackupDeviceFailed: 1,
-                        Reserved: 3,
+                        AvailableSpaceLow: UCHAR: 1,
+                        TemperatureThreshold: UCHAR: 1,
+                        ReliabilityDegraded: UCHAR: 1,
+                        ReadOnly: UCHAR: 1,
+                        VolatileMemoryBackupDeviceFailed: UCHAR: 1,
+                        Reserved: UCHAR: 3,
                     },
                 },
-                AsUchar: u8,
+                AsUchar: UCHAR,
             },
-            Temperature: [u8; 2],
-            AvailableSpare: u8,
-            AvailableSpareThreshold: u8,
-            PercentageUsed: u8,
-            Reserved0: [u8; 26],
-            DataUnitRead: [u8; 16],
-            DataUnitWritten: [u8; 16],
-            HostReadCommands: [u8; 16],
-            HostWrittenCommands: [u8; 16],
-            ControllerBusyTime: [u8; 16],
-            PowerCycle: [u8; 16],
-            PowerOnHours: [u8; 16],
-            UnsafeShutdowns: [u8; 16],
-            MediaErrors: [u8; 16],
-            ErrorInfoLogEntryCount: [u8; 16],
-            WarningCompositeTemperatureTime: u32,
-            CriticalCompositeTemperatureTime: u32,
-            TemperatureSensor1: u16,
-            TemperatureSensor2: u16,
-            TemperatureSensor3: u16,
-            TemperatureSensor4: u16,
-            TemperatureSensor5: u16,
-            TemperatureSensor6: u16,
-            TemperatureSensor7: u16,
-            TemperatureSensor8: u16,
-            Reserved1: [u8; 296],
+            Temperature: [UCHAR; 2],
+            AvailableSpare: UCHAR,
+            AvailableSpareThreshold: UCHAR,
+            PercentageUsed: UCHAR,
+            Reserved0: [UCHAR; 26],
+            DataUnitRead: [UCHAR; 16],
+            DataUnitWritten: [UCHAR; 16],
+            HostReadCommands: [UCHAR; 16],
+            HostWrittenCommands: [UCHAR; 16],
+            ControllerBusyTime: [UCHAR; 16],
+            PowerCycle: [UCHAR; 16],
+            PowerOnHours: [UCHAR; 16],
+            UnsafeShutdowns: [UCHAR; 16],
+            MediaErrors: [UCHAR; 16],
+            ErrorInfoLogEntryCount: [UCHAR; 16],
+            WarningCompositeTemperatureTime: ULONG,
+            CriticalCompositeTemperatureTime: ULONG,
+            TemperatureSensor1: USHORT,
+            TemperatureSensor2: USHORT,
+            TemperatureSensor3: USHORT,
+            TemperatureSensor4: USHORT,
+            TemperatureSensor5: USHORT,
+            TemperatureSensor6: USHORT,
+            TemperatureSensor7: USHORT,
+            TemperatureSensor8: USHORT,
+            Reserved1: [UCHAR; 296],
         }
         struct NVME_HOST_BEHAVIOR_SUPPORT_DATA {
-            ACRE: u8,
-            ETDAS: u8,
-            LBAFEE: u8,
-            Reserved: [u8; 509],
+            ACRE: UCHAR,
+            ETDAS: UCHAR,
+            LBAFEE: UCHAR,
+            Reserved: [UCHAR; 509],
         }
         const NVME_HOST_IDENTIFIER_SIZE: i32 = 8;
         struct NVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY {
-            BADD: u64,
-            BSIZE: u32,
-            Reserved: u32,
+            BADD: ULONGLONG,
+            BSIZE: ULONG,
+            Reserved: ULONG,
         }
         #[repr(i32)]
         enum NVME_HOST_METADATA_ELEMENT_ACTIONS {
@@ -2666,13 +2661,13 @@ mod Windows {
         }
         struct NVME_HOST_METADATA_ELEMENT_DESCRIPTOR {
             _bitfield: u32 {
-                ET: 6,
-                Reserved0: 2,
-                ER: 4,
-                Reserved1: 4,
-                ELEN: 16,
+                ET: ULONG: 6,
+                Reserved0: ULONG: 2,
+                ER: ULONG: 4,
+                Reserved1: ULONG: 4,
+                ELEN: ULONG: 16,
             },
-            EVAL: [u8; 1],
+            EVAL: [UCHAR; 1],
         }
         #[repr(i32)]
         enum NVME_IDENTIFIER_TYPE {
@@ -2714,510 +2709,510 @@ mod Windows {
         }
         const NVME_IDENTIFY_CNS_DESCRIPTOR_NAMESPACE_SIZE: i32 = 4096;
         struct NVME_IDENTIFY_CONTROLLER_DATA {
-            VID: u16,
-            SSVID: u16,
-            SN: [u8; 20],
-            MN: [u8; 40],
-            FR: [u8; 8],
-            RAB: u8,
-            IEEE: [u8; 3],
+            VID: USHORT,
+            SSVID: USHORT,
+            SN: [UCHAR; 20],
+            MN: [UCHAR; 40],
+            FR: [UCHAR; 8],
+            RAB: UCHAR,
+            IEEE: [UCHAR; 3],
             CMIC: struct {
                 _bitfield: u8 {
-                    MultiPorts: 1,
-                    MultiControllers: 1,
-                    SRIOV: 1,
-                    ANAR: 1,
-                    Reserved: 4,
+                    MultiPorts: UCHAR: 1,
+                    MultiControllers: UCHAR: 1,
+                    SRIOV: UCHAR: 1,
+                    ANAR: UCHAR: 1,
+                    Reserved: UCHAR: 4,
                 },
             },
-            MDTS: u8,
-            CNTLID: u16,
-            VER: u32,
-            RTD3R: u32,
-            RTD3E: u32,
+            MDTS: UCHAR,
+            CNTLID: USHORT,
+            VER: ULONG,
+            RTD3R: ULONG,
+            RTD3E: ULONG,
             OAES: struct {
                 _bitfield: u32 {
-                    Reserved0: 8,
-                    NamespaceAttributeChanged: 1,
-                    FirmwareActivation: 1,
-                    Reserved1: 1,
-                    AsymmetricAccessChanged: 1,
-                    PredictableLatencyAggregateLogChanged: 1,
-                    LbaStatusChanged: 1,
-                    EnduranceGroupAggregateLogChanged: 1,
-                    NormalNvmSubsystemShutdown: 1,
-                    Reserved2: 11,
-                    ZoneInformation: 1,
-                    Reserved3: 3,
-                    DiscoveryLogChanged: 1,
+                    Reserved0: ULONG: 8,
+                    NamespaceAttributeChanged: ULONG: 1,
+                    FirmwareActivation: ULONG: 1,
+                    Reserved1: ULONG: 1,
+                    AsymmetricAccessChanged: ULONG: 1,
+                    PredictableLatencyAggregateLogChanged: ULONG: 1,
+                    LbaStatusChanged: ULONG: 1,
+                    EnduranceGroupAggregateLogChanged: ULONG: 1,
+                    NormalNvmSubsystemShutdown: ULONG: 1,
+                    Reserved2: ULONG: 11,
+                    ZoneInformation: ULONG: 1,
+                    Reserved3: ULONG: 3,
+                    DiscoveryLogChanged: ULONG: 1,
                 },
             },
             CTRATT: struct {
                 _bitfield: u32 {
-                    HostIdentifier128Bit: 1,
-                    NOPSPMode: 1,
-                    NVMSets: 1,
-                    ReadRecoveryLevels: 1,
-                    EnduranceGroups: 1,
-                    PredictableLatencyMode: 1,
-                    TBKAS: 1,
-                    NamespaceGranularity: 1,
-                    SQAssociations: 1,
-                    UUIDList: 1,
-                    MultiDomainSubsystem: 1,
-                    FixedCapacityManagement: 1,
-                    VariableCapacityManagement: 1,
-                    DeleteEnduranceGroup: 1,
-                    DeleteNVMSet: 1,
-                    ELBAS: 1,
-                    Reserved0: 16,
+                    HostIdentifier128Bit: ULONG: 1,
+                    NOPSPMode: ULONG: 1,
+                    NVMSets: ULONG: 1,
+                    ReadRecoveryLevels: ULONG: 1,
+                    EnduranceGroups: ULONG: 1,
+                    PredictableLatencyMode: ULONG: 1,
+                    TBKAS: ULONG: 1,
+                    NamespaceGranularity: ULONG: 1,
+                    SQAssociations: ULONG: 1,
+                    UUIDList: ULONG: 1,
+                    MultiDomainSubsystem: ULONG: 1,
+                    FixedCapacityManagement: ULONG: 1,
+                    VariableCapacityManagement: ULONG: 1,
+                    DeleteEnduranceGroup: ULONG: 1,
+                    DeleteNVMSet: ULONG: 1,
+                    ELBAS: ULONG: 1,
+                    Reserved0: ULONG: 16,
                 },
             },
             RRLS: struct {
                 _bitfield: u16 {
-                    ReadRecoveryLevel0: 1,
-                    ReadRecoveryLevel1: 1,
-                    ReadRecoveryLevel2: 1,
-                    ReadRecoveryLevel3: 1,
-                    ReadRecoveryLevel4: 1,
-                    ReadRecoveryLevel5: 1,
-                    ReadRecoveryLevel6: 1,
-                    ReadRecoveryLevel7: 1,
-                    ReadRecoveryLevel8: 1,
-                    ReadRecoveryLevel9: 1,
-                    ReadRecoveryLevel10: 1,
-                    ReadRecoveryLevel11: 1,
-                    ReadRecoveryLevel12: 1,
-                    ReadRecoveryLevel13: 1,
-                    ReadRecoveryLevel14: 1,
-                    ReadRecoveryLevel15: 1,
+                    ReadRecoveryLevel0: USHORT: 1,
+                    ReadRecoveryLevel1: USHORT: 1,
+                    ReadRecoveryLevel2: USHORT: 1,
+                    ReadRecoveryLevel3: USHORT: 1,
+                    ReadRecoveryLevel4: USHORT: 1,
+                    ReadRecoveryLevel5: USHORT: 1,
+                    ReadRecoveryLevel6: USHORT: 1,
+                    ReadRecoveryLevel7: USHORT: 1,
+                    ReadRecoveryLevel8: USHORT: 1,
+                    ReadRecoveryLevel9: USHORT: 1,
+                    ReadRecoveryLevel10: USHORT: 1,
+                    ReadRecoveryLevel11: USHORT: 1,
+                    ReadRecoveryLevel12: USHORT: 1,
+                    ReadRecoveryLevel13: USHORT: 1,
+                    ReadRecoveryLevel14: USHORT: 1,
+                    ReadRecoveryLevel15: USHORT: 1,
                 },
             },
-            Reserved0: [u8; 9],
-            CNTRLTYPE: u8,
-            FGUID: [u8; 16],
-            CRDT1: u16,
-            CRDT2: u16,
-            CRDT3: u16,
-            Reserved1: [u8; 106],
-            ReservedForManagement: [u8; 13],
-            NVMSR: u8,
-            VWCI: u8,
-            MEC: u8,
+            Reserved0: [UCHAR; 9],
+            CNTRLTYPE: UCHAR,
+            FGUID: [UCHAR; 16],
+            CRDT1: USHORT,
+            CRDT2: USHORT,
+            CRDT3: USHORT,
+            Reserved1: [UCHAR; 106],
+            ReservedForManagement: [UCHAR; 13],
+            NVMSR: UCHAR,
+            VWCI: UCHAR,
+            MEC: UCHAR,
             OACS: struct {
                 _bitfield: u16 {
-                    SecurityCommands: 1,
-                    FormatNVM: 1,
-                    FirmwareCommands: 1,
-                    NamespaceCommands: 1,
-                    DeviceSelfTest: 1,
-                    Directives: 1,
-                    NVMeMICommands: 1,
-                    VirtualizationMgmt: 1,
-                    DoorBellBufferConfig: 1,
-                    GetLBAStatus: 1,
-                    CommandFeatureLockdown: 1,
-                    Reserved: 5,
+                    SecurityCommands: USHORT: 1,
+                    FormatNVM: USHORT: 1,
+                    FirmwareCommands: USHORT: 1,
+                    NamespaceCommands: USHORT: 1,
+                    DeviceSelfTest: USHORT: 1,
+                    Directives: USHORT: 1,
+                    NVMeMICommands: USHORT: 1,
+                    VirtualizationMgmt: USHORT: 1,
+                    DoorBellBufferConfig: USHORT: 1,
+                    GetLBAStatus: USHORT: 1,
+                    CommandFeatureLockdown: USHORT: 1,
+                    Reserved: USHORT: 5,
                 },
             },
-            ACL: u8,
-            AERL: u8,
+            ACL: UCHAR,
+            AERL: UCHAR,
             FRMW: struct {
                 _bitfield: u8 {
-                    Slot1ReadOnly: 1,
-                    SlotCount: 3,
-                    ActivationWithoutReset: 1,
-                    Reserved: 3,
+                    Slot1ReadOnly: UCHAR: 1,
+                    SlotCount: UCHAR: 3,
+                    ActivationWithoutReset: UCHAR: 1,
+                    Reserved: UCHAR: 3,
                 },
             },
             LPA: struct {
                 _bitfield: u8 {
-                    SmartPagePerNamespace: 1,
-                    CommandEffectsLog: 1,
-                    LogPageExtendedData: 1,
-                    TelemetrySupport: 1,
-                    PersistentEventLog: 1,
-                    SupportedLogPages: 1,
-                    TelemetryDataArea4: 1,
-                    Reserved1: 1,
+                    SmartPagePerNamespace: UCHAR: 1,
+                    CommandEffectsLog: UCHAR: 1,
+                    LogPageExtendedData: UCHAR: 1,
+                    TelemetrySupport: UCHAR: 1,
+                    PersistentEventLog: UCHAR: 1,
+                    SupportedLogPages: UCHAR: 1,
+                    TelemetryDataArea4: UCHAR: 1,
+                    Reserved1: UCHAR: 1,
                 },
             },
-            ELPE: u8,
-            NPSS: u8,
+            ELPE: UCHAR,
+            NPSS: UCHAR,
             AVSCC: struct {
                 _bitfield: u8 {
-                    CommandFormatInSpec: 1,
-                    Reserved: 7,
+                    CommandFormatInSpec: UCHAR: 1,
+                    Reserved: UCHAR: 7,
                 },
             },
             APSTA: struct {
                 _bitfield: u8 {
-                    Supported: 1,
-                    Reserved: 7,
+                    Supported: UCHAR: 1,
+                    Reserved: UCHAR: 7,
                 },
             },
-            WCTEMP: u16,
-            CCTEMP: u16,
-            MTFA: u16,
-            HMPRE: u32,
-            HMMIN: u32,
-            TNVMCAP: [u8; 16],
-            UNVMCAP: [u8; 16],
+            WCTEMP: USHORT,
+            CCTEMP: USHORT,
+            MTFA: USHORT,
+            HMPRE: ULONG,
+            HMMIN: ULONG,
+            TNVMCAP: [UCHAR; 16],
+            UNVMCAP: [UCHAR; 16],
             RPMBS: struct {
                 _bitfield: u32 {
-                    RPMBUnitCount: 3,
-                    AuthenticationMethod: 3,
-                    Reserved0: 10,
-                    TotalSize: 8,
-                    AccessSize: 8,
+                    RPMBUnitCount: ULONG: 3,
+                    AuthenticationMethod: ULONG: 3,
+                    Reserved0: ULONG: 10,
+                    TotalSize: ULONG: 8,
+                    AccessSize: ULONG: 8,
                 },
             },
-            EDSTT: u16,
-            DSTO: u8,
-            FWUG: u8,
-            KAS: u16,
+            EDSTT: USHORT,
+            DSTO: UCHAR,
+            FWUG: UCHAR,
+            KAS: USHORT,
             HCTMA: struct {
                 _bitfield: u16 {
-                    Supported: 1,
-                    Reserved: 15,
+                    Supported: USHORT: 1,
+                    Reserved: USHORT: 15,
                 },
             },
-            MNTMT: u16,
-            MXTMT: u16,
+            MNTMT: USHORT,
+            MXTMT: USHORT,
             SANICAP: struct {
                 _bitfield: u32 {
-                    CryptoErase: 1,
-                    BlockErase: 1,
-                    Overwrite: 1,
-                    Reserved: 26,
-                    NDI: 1,
-                    NODMMAS: 2,
+                    CryptoErase: ULONG: 1,
+                    BlockErase: ULONG: 1,
+                    Overwrite: ULONG: 1,
+                    Reserved: ULONG: 26,
+                    NDI: ULONG: 1,
+                    NODMMAS: ULONG: 2,
                 },
             },
-            HMMINDS: u32,
-            HMMAXD: u16,
-            NSETIDMAX: u16,
-            ENDGIDMAX: u16,
-            ANATT: u8,
+            HMMINDS: ULONG,
+            HMMAXD: USHORT,
+            NSETIDMAX: USHORT,
+            ENDGIDMAX: USHORT,
+            ANATT: UCHAR,
             ANACAP: struct {
                 _bitfield: u8 {
-                    OptimizedState: 1,
-                    NonOptimizedState: 1,
-                    InaccessibleState: 1,
-                    PersistentLossState: 1,
-                    ChangeState: 1,
-                    Reserved: 1,
-                    StaticANAGRPID: 1,
-                    SupportNonZeroANAGRPID: 1,
+                    OptimizedState: UCHAR: 1,
+                    NonOptimizedState: UCHAR: 1,
+                    InaccessibleState: UCHAR: 1,
+                    PersistentLossState: UCHAR: 1,
+                    ChangeState: UCHAR: 1,
+                    Reserved: UCHAR: 1,
+                    StaticANAGRPID: UCHAR: 1,
+                    SupportNonZeroANAGRPID: UCHAR: 1,
                 },
             },
-            ANAGRPMAX: u32,
-            NANAGRPID: u32,
-            PELS: u32,
-            DomainId: u16,
-            Reserved2: [u8; 10],
-            MEGCAP: [u8; 16],
-            TMPTHHA: u8,
-            Reserved3: u8,
-            CQT: u16,
-            Reserved4: [u8; 124],
+            ANAGRPMAX: ULONG,
+            NANAGRPID: ULONG,
+            PELS: ULONG,
+            DomainId: USHORT,
+            Reserved2: [UCHAR; 10],
+            MEGCAP: [UCHAR; 16],
+            TMPTHHA: UCHAR,
+            Reserved3: UCHAR,
+            CQT: USHORT,
+            Reserved4: [UCHAR; 124],
             SQES: struct {
                 _bitfield: u8 {
-                    RequiredEntrySize: 4,
-                    MaxEntrySize: 4,
+                    RequiredEntrySize: UCHAR: 4,
+                    MaxEntrySize: UCHAR: 4,
                 },
             },
             CQES: struct {
                 _bitfield: u8 {
-                    RequiredEntrySize: 4,
-                    MaxEntrySize: 4,
+                    RequiredEntrySize: UCHAR: 4,
+                    MaxEntrySize: UCHAR: 4,
                 },
             },
-            MAXCMD: u16,
-            NN: u32,
+            MAXCMD: USHORT,
+            NN: ULONG,
             ONCS: struct {
                 _bitfield: u16 {
-                    Compare: 1,
-                    WriteUncorrectable: 1,
-                    DatasetManagement: 1,
-                    WriteZeroes: 1,
-                    FeatureField: 1,
-                    Reservations: 1,
-                    Timestamp: 1,
-                    Verify: 1,
-                    Reserved: 8,
+                    Compare: USHORT: 1,
+                    WriteUncorrectable: USHORT: 1,
+                    DatasetManagement: USHORT: 1,
+                    WriteZeroes: USHORT: 1,
+                    FeatureField: USHORT: 1,
+                    Reservations: USHORT: 1,
+                    Timestamp: USHORT: 1,
+                    Verify: USHORT: 1,
+                    Reserved: USHORT: 8,
                 },
             },
             FUSES: struct {
                 _bitfield: u16 {
-                    CompareAndWrite: 1,
-                    Reserved: 15,
+                    CompareAndWrite: USHORT: 1,
+                    Reserved: USHORT: 15,
                 },
             },
             FNA: struct {
                 _bitfield: u8 {
-                    FormatApplyToAll: 1,
-                    SecureEraseApplyToAll: 1,
-                    CryptographicEraseSupported: 1,
-                    FormatSupportNSIDAllF: 1,
-                    Reserved: 4,
+                    FormatApplyToAll: UCHAR: 1,
+                    SecureEraseApplyToAll: UCHAR: 1,
+                    CryptographicEraseSupported: UCHAR: 1,
+                    FormatSupportNSIDAllF: UCHAR: 1,
+                    Reserved: UCHAR: 4,
                 },
             },
             VWC: struct {
                 _bitfield: u8 {
-                    Present: 1,
-                    FlushBehavior: 2,
-                    Reserved: 5,
+                    Present: UCHAR: 1,
+                    FlushBehavior: UCHAR: 2,
+                    Reserved: UCHAR: 5,
                 },
             },
-            AWUN: u16,
-            AWUPF: u16,
+            AWUN: USHORT,
+            AWUPF: USHORT,
             NVSCC: struct {
                 _bitfield: u8 {
-                    CommandFormatInSpec: 1,
-                    Reserved: 7,
+                    CommandFormatInSpec: UCHAR: 1,
+                    Reserved: UCHAR: 7,
                 },
             },
             NWPC: struct {
                 _bitfield: u8 {
-                    WriteProtect: 1,
-                    UntilPowerCycle: 1,
-                    Permanent: 1,
-                    Reserved: 5,
+                    WriteProtect: UCHAR: 1,
+                    UntilPowerCycle: UCHAR: 1,
+                    Permanent: UCHAR: 1,
+                    Reserved: UCHAR: 5,
                 },
             },
-            ACWU: u16,
-            CopyDescFormats: u16,
+            ACWU: USHORT,
+            CopyDescFormats: USHORT,
             SGLS: struct {
                 _bitfield: u32 {
-                    SGLSupported: 2,
-                    KeyedSGLData: 1,
-                    Reserved0: 13,
-                    BitBucketDescrSupported: 1,
-                    ByteAlignedContiguousPhysicalBuffer: 1,
-                    SGLLengthLargerThanDataLength: 1,
-                    MPTRSGLDescriptor: 1,
-                    AddressFieldSGLDataBlock: 1,
-                    TransportSGLData: 1,
-                    Reserved1: 10,
+                    SGLSupported: ULONG: 2,
+                    KeyedSGLData: ULONG: 1,
+                    Reserved0: ULONG: 13,
+                    BitBucketDescrSupported: ULONG: 1,
+                    ByteAlignedContiguousPhysicalBuffer: ULONG: 1,
+                    SGLLengthLargerThanDataLength: ULONG: 1,
+                    MPTRSGLDescriptor: ULONG: 1,
+                    AddressFieldSGLDataBlock: ULONG: 1,
+                    TransportSGLData: ULONG: 1,
+                    Reserved1: ULONG: 10,
                 },
             },
-            MNAN: u32,
-            MAXDNA: [u8; 16],
-            MAXCNA: u32,
-            Reserved6: [u8; 204],
-            SUBNQN: [u8; 256],
-            Reserved7: [u8; 768],
-            IOCCSZ: u32,
-            IORCSZ: u32,
-            ICDOFF: u16,
+            MNAN: ULONG,
+            MAXDNA: [UCHAR; 16],
+            MAXCNA: ULONG,
+            Reserved6: [UCHAR; 204],
+            SUBNQN: [UCHAR; 256],
+            Reserved7: [UCHAR; 768],
+            IOCCSZ: ULONG,
+            IORCSZ: ULONG,
+            ICDOFF: USHORT,
             FCATT: struct {
                 _bitfield: u8 {
-                    StaticControllerModel: 1,
-                    Reserved: 7,
+                    StaticControllerModel: UCHAR: 1,
+                    Reserved: UCHAR: 7,
                 },
             },
-            MSDBD: u8,
+            MSDBD: UCHAR,
             OFCS: struct {
                 _bitfield: u16 {
-                    IOQueueDeletion: 1,
-                    Reserved: 15,
+                    IOQueueDeletion: USHORT: 1,
+                    Reserved: USHORT: 15,
                 },
             },
-            DCTYPE: u8,
-            Reserved8: [u8; 241],
+            DCTYPE: UCHAR,
+            Reserved8: [UCHAR; 241],
             PDS: [NVME_POWER_STATE_DESC; 32],
-            VS: [u8; 1024],
+            VS: [UCHAR; 1024],
         }
         struct NVME_IDENTIFY_IO_COMMAND_SET {
             IOCommandSetVector: [IO_COMMAND_SET_VECTOR; 512],
         }
         struct NVME_IDENTIFY_NAMESPACE_DATA {
-            NSZE: u64,
-            NCAP: u64,
-            NUSE: u64,
+            NSZE: ULONGLONG,
+            NCAP: ULONGLONG,
+            NUSE: ULONGLONG,
             NSFEAT: struct {
                 _bitfield: u8 {
-                    ThinProvisioning: 1,
-                    NameSpaceAtomicWriteUnit: 1,
-                    DeallocatedOrUnwrittenError: 1,
-                    SkipReuseUI: 1,
-                    NameSpaceIoOptimization: 1,
-                    Reserved: 3,
+                    ThinProvisioning: UCHAR: 1,
+                    NameSpaceAtomicWriteUnit: UCHAR: 1,
+                    DeallocatedOrUnwrittenError: UCHAR: 1,
+                    SkipReuseUI: UCHAR: 1,
+                    NameSpaceIoOptimization: UCHAR: 1,
+                    Reserved: UCHAR: 3,
                 },
             },
-            NLBAF: u8,
+            NLBAF: UCHAR,
             FLBAS: struct {
                 _bitfield: u8 {
-                    LbaFormatIndex: 4,
-                    MetadataInExtendedDataLBA: 1,
-                    LbaFormatIndexMS: 2,
-                    Reserved: 1,
+                    LbaFormatIndex: UCHAR: 4,
+                    MetadataInExtendedDataLBA: UCHAR: 1,
+                    LbaFormatIndexMS: UCHAR: 2,
+                    Reserved: UCHAR: 1,
                 },
             },
             MC: struct {
                 _bitfield: u8 {
-                    MetadataInExtendedDataLBA: 1,
-                    MetadataInSeparateBuffer: 1,
-                    Reserved: 6,
+                    MetadataInExtendedDataLBA: UCHAR: 1,
+                    MetadataInSeparateBuffer: UCHAR: 1,
+                    Reserved: UCHAR: 6,
                 },
             },
             DPC: struct {
                 _bitfield: u8 {
-                    ProtectionInfoType1: 1,
-                    ProtectionInfoType2: 1,
-                    ProtectionInfoType3: 1,
-                    InfoAtBeginningOfMetadata: 1,
-                    InfoAtEndOfMetadata: 1,
-                    Reserved: 3,
+                    ProtectionInfoType1: UCHAR: 1,
+                    ProtectionInfoType2: UCHAR: 1,
+                    ProtectionInfoType3: UCHAR: 1,
+                    InfoAtBeginningOfMetadata: UCHAR: 1,
+                    InfoAtEndOfMetadata: UCHAR: 1,
+                    Reserved: UCHAR: 3,
                 },
             },
             DPS: struct {
                 _bitfield: u8 {
-                    ProtectionInfoTypeEnabled: 3,
-                    InfoAtBeginningOfMetadata: 1,
-                    Reserved: 4,
+                    ProtectionInfoTypeEnabled: UCHAR: 3,
+                    InfoAtBeginningOfMetadata: UCHAR: 1,
+                    Reserved: UCHAR: 4,
                 },
             },
             NMIC: struct {
                 _bitfield: u8 {
-                    SharedNameSpace: 1,
-                    Reserved: 7,
+                    SharedNameSpace: UCHAR: 1,
+                    Reserved: UCHAR: 7,
                 },
             },
             RESCAP: NVM_RESERVATION_CAPABILITIES,
             FPI: struct {
                 _bitfield: u8 {
-                    PercentageRemained: 7,
-                    Supported: 1,
+                    PercentageRemained: UCHAR: 7,
+                    Supported: UCHAR: 1,
                 },
             },
             DLFEAT: struct {
                 _bitfield: u8 {
-                    ReadBehavior: 3,
-                    WriteZeroes: 1,
-                    GuardFieldWithCRC: 1,
-                    Reserved: 3,
+                    ReadBehavior: UCHAR: 3,
+                    WriteZeroes: UCHAR: 1,
+                    GuardFieldWithCRC: UCHAR: 1,
+                    Reserved: UCHAR: 3,
                 },
             },
-            NAWUN: u16,
-            NAWUPF: u16,
-            NACWU: u16,
-            NABSN: u16,
-            NABO: u16,
-            NABSPF: u16,
-            NOIOB: u16,
-            NVMCAP: [u8; 16],
-            NPWG: u16,
-            NPWA: u16,
-            NPDG: u16,
-            NPDA: u16,
-            NOWS: u16,
-            MSSRL: u16,
-            MCL: u32,
-            MSRC: u8,
-            Reserved2: [u8; 11],
-            ANAGRPID: u32,
-            Reserved3: [u8; 3],
+            NAWUN: USHORT,
+            NAWUPF: USHORT,
+            NACWU: USHORT,
+            NABSN: USHORT,
+            NABO: USHORT,
+            NABSPF: USHORT,
+            NOIOB: USHORT,
+            NVMCAP: [UCHAR; 16],
+            NPWG: USHORT,
+            NPWA: USHORT,
+            NPDG: USHORT,
+            NPDA: USHORT,
+            NOWS: USHORT,
+            MSSRL: USHORT,
+            MCL: ULONG,
+            MSRC: UCHAR,
+            Reserved2: [UCHAR; 11],
+            ANAGRPID: ULONG,
+            Reserved3: [UCHAR; 3],
             NSATTR: struct {
                 _bitfield: u8 {
-                    WriteProtected: 1,
-                    Reserved: 7,
+                    WriteProtected: UCHAR: 1,
+                    Reserved: UCHAR: 7,
                 },
             },
-            NVMSETID: u16,
-            ENDGID: u16,
-            NGUID: [u8; 16],
-            EUI64: [u8; 8],
+            NVMSETID: USHORT,
+            ENDGID: USHORT,
+            NGUID: [UCHAR; 16],
+            EUI64: [UCHAR; 8],
             LBAF: [NVME_LBA_FORMAT; 64],
-            VS: [u8; 3712],
+            VS: [UCHAR; 3712],
         }
         struct NVME_IDENTIFY_NAMESPACE_DESCRIPTOR {
-            NIDT: u8,
-            NIDL: u8,
-            Reserved: [u8; 2],
-            NID: [u8; 1],
+            NIDT: UCHAR,
+            NIDL: UCHAR,
+            Reserved: [UCHAR; 2],
+            NID: [UCHAR; 1],
         }
         struct NVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
-            VSL: u8,
-            WZSL: u8,
-            WUSL: u8,
-            DMRL: u8,
-            DMRSL: u32,
-            DMSL: u64,
-            Reserved: [u8; 4080],
+            VSL: UCHAR,
+            WZSL: UCHAR,
+            WUSL: UCHAR,
+            DMRL: UCHAR,
+            DMRSL: ULONG,
+            DMSL: ULONGLONG,
+            Reserved: [UCHAR; 4080],
         }
         struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET {
             ZOC: struct {
                 _bitfield: u16 {
-                    VariableZoneCapacity: 1,
-                    ZoneExcursions: 1,
-                    Reserved: 14,
+                    VariableZoneCapacity: USHORT: 1,
+                    ZoneExcursions: USHORT: 1,
+                    Reserved: USHORT: 14,
                 },
             },
             OZCS: struct {
                 _bitfield: u16 {
-                    ReadAcrossZoneBoundaries: 1,
-                    Reserved: 15,
+                    ReadAcrossZoneBoundaries: USHORT: 1,
+                    Reserved: USHORT: 15,
                 },
             },
-            MAR: u32,
-            MOR: u32,
-            RRL: u32,
-            FRL: u32,
-            Reserved0: [u8; 2796],
+            MAR: ULONG,
+            MOR: ULONG,
+            RRL: ULONG,
+            FRL: ULONG,
+            Reserved0: [UCHAR; 2796],
             LBAEF: [NVME_LBA_ZONE_FORMAT; 16],
-            Reserved1: [u8; 768],
-            VS: [u8; 256],
+            Reserved1: [UCHAR; 768],
+            VS: [UCHAR; 256],
         }
         struct NVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
-            ZASL: u8,
-            Reserved: [u8; 4095],
+            ZASL: UCHAR,
+            Reserved: [UCHAR; 4095],
         }
         #[packed(1)]
         struct NVME_LATENCY_MONITORING_ENTRY {
-            ActiveBucketTimerThreshold: u16,
-            ActiveThresholdA: u8,
-            ActiveThresholdB: u8,
-            ActiveThresholdC: u8,
-            ActiveThresholdD: u8,
-            ActiveLatencyConfig: u16,
-            ActiveLatencyMinimumWindow: u8,
-            DebugLogTriggerEnable: u16,
-            DiscardDebugLog: u8,
-            LatencyMonitorFeatureEnable: u8,
-            Reserved0: [u8; 4083],
+            ActiveBucketTimerThreshold: USHORT,
+            ActiveThresholdA: UCHAR,
+            ActiveThresholdB: UCHAR,
+            ActiveThresholdC: UCHAR,
+            ActiveThresholdD: UCHAR,
+            ActiveLatencyConfig: USHORT,
+            ActiveLatencyMinimumWindow: UCHAR,
+            DebugLogTriggerEnable: USHORT,
+            DiscardDebugLog: UCHAR,
+            LatencyMonitorFeatureEnable: UCHAR,
+            Reserved0: [UCHAR; 4083],
         }
         union NVME_LBA_FORMAT {
             Anonymous: struct {
-                MS: u16,
-                LBADS: u8,
+                MS: USHORT,
+                LBADS: UCHAR,
                 _bitfield: u8 {
-                    RP: 2,
-                    Reserved0: 6,
+                    RP: UCHAR: 2,
+                    Reserved0: UCHAR: 6,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_LBA_RANGE {
             Attributes: NVME_CONTEXT_ATTRIBUTES,
-            LogicalBlockCount: u32,
-            StartingLBA: u64,
+            LogicalBlockCount: ULONG,
+            StartingLBA: ULONGLONG,
         }
         struct NVME_LBA_RANGET_TYPE_ENTRY {
-            Type: u8,
+            Type: UCHAR,
             Attributes: struct {
                 _bitfield: u8 {
-                    MayOverwritten: 1,
-                    Hidden: 1,
-                    Reserved: 6,
+                    MayOverwritten: UCHAR: 1,
+                    Hidden: UCHAR: 1,
+                    Reserved: UCHAR: 6,
                 },
             },
-            Reserved0: [u8; 14],
-            SLBA: u64,
-            NLB: u64,
-            GUID: [u8; 16],
-            Reserved1: [u8; 16],
+            Reserved0: [UCHAR; 14],
+            SLBA: ULONGLONG,
+            NLB: ULONGLONG,
+            GUID: [UCHAR; 16],
+            Reserved1: [UCHAR; 16],
         }
         #[repr(i32)]
         enum NVME_LBA_RANGE_TYPES {
@@ -3228,22 +3223,22 @@ mod Windows {
             NVME_LBA_RANGE_TYPE_PAGE_SWAP_FILE = 4,
         }
         struct NVME_LBA_ZONE_FORMAT {
-            ZoneSize: u64,
-            ZDES: u8,
-            Reserved: [u8; 7],
+            ZoneSize: ULONGLONG,
+            ZDES: UCHAR,
+            Reserved: [UCHAR; 7],
         }
         struct NVME_LID_SPECIFIC_PERSISTENT_EVENT_LOG {
             _bitfield: u16 {
-                EstablishContextAndRead512BytesOfHeaderSupported: 1,
-                Reserved: 15,
+                EstablishContextAndRead512BytesOfHeaderSupported: USHORT: 1,
+                Reserved: USHORT: 15,
             },
         }
         struct NVME_LID_SUPPORTED_AND_EFFECTS {
             _bitfield: u32 {
-                LSUPP: 1,
-                IOS: 1,
-                Reserved: 14,
-                LIDSpecific: 16,
+                LSUPP: ULONG: 1,
+                IOS: ULONG: 1,
+                Reserved: ULONG: 14,
+                LIDSpecific: ULONG: 16,
             },
         }
         #[repr(i32)]
@@ -3304,24 +3299,24 @@ mod Windows {
         const NVME_NUM_UUID_LIST_ENTRIES: i32 = 128;
         struct NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS {
             _bitfield: u32 {
-                CSUPP: 1,
-                UDCC: 1,
-                NCC: 1,
-                NIC: 1,
-                CCC: 1,
-                Reserved: 15,
-                CSPNamespace: 1,
-                CSPController: 1,
-                CSPNVMSet: 1,
-                CSPEnduranceGroup: 1,
-                CSPDomain: 1,
-                CSPNVMSubsystem: 1,
-                CSPReserved: 6,
+                CSUPP: ULONG: 1,
+                UDCC: ULONG: 1,
+                NCC: ULONG: 1,
+                NIC: ULONG: 1,
+                CCC: ULONG: 1,
+                Reserved: ULONG: 15,
+                CSPNamespace: ULONG: 1,
+                CSPController: ULONG: 1,
+                CSPNVMSet: ULONG: 1,
+                CSPEnduranceGroup: ULONG: 1,
+                CSPDomain: ULONG: 1,
+                CSPNVMSubsystem: ULONG: 1,
+                CSPReserved: ULONG: 6,
             },
         }
         struct NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS_LOG {
             ManagementInterfaceCommandSupported: [NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS; 256],
-            Reserved: [u8; 3072],
+            Reserved: [UCHAR; 3072],
         }
         #[repr(i32)]
         enum NVME_NVM_COMMANDS {
@@ -3350,93 +3345,93 @@ mod Windows {
             NVME_NVM_QUEUE_PRIORITY_LOW = 3,
         }
         struct NVME_NVM_SUBSYSTEM_RESET {
-            NSSRC: u32,
+            NSSRC: ULONG,
         }
         struct NVME_NVM_SUBSYSTEM_SHUTDOWN {
-            NSSC: u32,
+            NSSC: ULONG,
         }
         #[packed(1)]
         struct NVME_OCP_DEVICE_CAPABILITIES_LOG {
-            PciePorts: u16,
+            PciePorts: USHORT,
             OobMgmtSupport: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
                     _bitfield: u16 {
-                        MctpOverSMBusSupported: 1,
-                        MctpOverPcieVDMSupported: 1,
-                        BasicMgmtCommandSupported: 1,
-                        Reserved: 12,
-                        CompliesWithSpec: 1,
+                        MctpOverSMBusSupported: USHORT: 1,
+                        MctpOverPcieVDMSupported: USHORT: 1,
+                        BasicMgmtCommandSupported: USHORT: 1,
+                        Reserved: USHORT: 12,
+                        CompliesWithSpec: USHORT: 1,
                     },
                 },
-                AsUshort: u16,
+                AsUshort: USHORT,
             },
             WriteZeroesCommand: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
                     _bitfield: u16 {
-                        Supported: 1,
-                        DEACBitSupported: 1,
-                        FUABitSupported: 1,
-                        NvmeIo5Met: 1,
-                        NvmeIo6Met: 1,
-                        Reserved: 10,
-                        CompliesWithSpec: 1,
+                        Supported: USHORT: 1,
+                        DEACBitSupported: USHORT: 1,
+                        FUABitSupported: USHORT: 1,
+                        NvmeIo5Met: USHORT: 1,
+                        NvmeIo6Met: USHORT: 1,
+                        Reserved: USHORT: 10,
+                        CompliesWithSpec: USHORT: 1,
                     },
                 },
-                AsUshort: u16,
+                AsUshort: USHORT,
             },
             SanitizeCommand: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
                     _bitfield: u16 {
-                        Supported: 1,
-                        CryptoEraseSupported: 1,
-                        BlockEraseSupported: 1,
-                        OverwriteSupported: 1,
-                        DeallocateLbaSupported: 1,
-                        Reserved: 10,
-                        CompliesWithSpec: 1,
+                        Supported: USHORT: 1,
+                        CryptoEraseSupported: USHORT: 1,
+                        BlockEraseSupported: USHORT: 1,
+                        OverwriteSupported: USHORT: 1,
+                        DeallocateLbaSupported: USHORT: 1,
+                        Reserved: USHORT: 10,
+                        CompliesWithSpec: USHORT: 1,
                     },
                 },
-                AsUshort: u16,
+                AsUshort: USHORT,
             },
             DatasetMgmtCommand: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
                     _bitfield: u16 {
-                        Supported: 1,
-                        AttribDeallocateSupported: 1,
-                        Reserved: 13,
-                        CompliesWithSpec: 1,
+                        Supported: USHORT: 1,
+                        AttribDeallocateSupported: USHORT: 1,
+                        Reserved: USHORT: 13,
+                        CompliesWithSpec: USHORT: 1,
                     },
                 },
-                AsUshort: u16,
+                AsUshort: USHORT,
             },
             WriteUncorrectableCommand: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
                     _bitfield: u16 {
-                        Supported: 1,
-                        SingleLBASupported: 1,
-                        MaxLBASupported: 1,
-                        NvmeIo14Met: 1,
-                        Reserved: 11,
-                        CompliesWithSpec: 1,
+                        Supported: USHORT: 1,
+                        SingleLBASupported: USHORT: 1,
+                        MaxLBASupported: USHORT: 1,
+                        NvmeIo14Met: USHORT: 1,
+                        Reserved: USHORT: 11,
+                        CompliesWithSpec: USHORT: 1,
                     },
                 },
-                AsUshort: u16,
+                AsUshort: USHORT,
             },
             FusedCommand: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
                     _bitfield: u16 {
-                        CWFusedSupported: 1,
-                        Reserved: 14,
-                        CompliesWithSpec: 1,
+                        CWFusedSupported: USHORT: 1,
+                        Reserved: USHORT: 14,
+                        CompliesWithSpec: USHORT: 1,
                     },
                 },
-                AsUshort: u16,
+                AsUshort: USHORT,
             },
-            MinimumValidDSSDPowerState: u16,
-            Reserved0: u8,
+            MinimumValidDSSDPowerState: USHORT,
+            Reserved0: UCHAR,
             DssdDescriptors: [DSSD_POWER_STATE_DESCRIPTOR; 127],
-            Reserved1: [u8; 3934],
-            LogPageVersionNumber: u16,
+            Reserved1: [UCHAR; 3934],
+            LogPageVersionNumber: USHORT,
             LogPageGUID: GUID,
         }
         const NVME_OCP_DEVICE_CAPABILITIES_LOG_VERSION_1: i32 = 1;
@@ -3444,47 +3439,47 @@ mod Windows {
         const NVME_OCP_DEVICE_DSSD_SPEC_MAJOR_VERSION_2: i32 = 2;
         #[packed(1)]
         struct NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 {
-            PanicResetWaitTime: u16,
+            PanicResetWaitTime: USHORT,
             PanicResetAction: NVME_WCS_DEVICE_RESET_ACTION,
-            DeviceRecoveryAction1: u8,
-            PanicId: u64,
+            DeviceRecoveryAction1: UCHAR,
+            PanicId: ULONGLONG,
             DeviceCapabilitiesA: NVME_WCS_DEVICE_CAPABILITIES,
-            VendorSpecificRecoveryCode: u8,
-            Reserved0: [u8; 3],
-            VendorSpecificCommandCDW12: u32,
-            VendorSpecificCommandCDW13: u32,
-            VendorSpecificCommandTimeout: u8,
-            DeviceRecoveryAction2: u8,
-            DeviceRecoveryAction2Timeout: u8,
-            Reserved1: [u8; 463],
-            LogPageVersionNumber: u16,
+            VendorSpecificRecoveryCode: UCHAR,
+            Reserved0: [UCHAR; 3],
+            VendorSpecificCommandCDW12: ULONG,
+            VendorSpecificCommandCDW13: ULONG,
+            VendorSpecificCommandTimeout: UCHAR,
+            DeviceRecoveryAction2: UCHAR,
+            DeviceRecoveryAction2Timeout: UCHAR,
+            Reserved1: [UCHAR; 463],
+            LogPageVersionNumber: USHORT,
             LogPageGUID: GUID,
         }
         const NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_VERSION_2: i32 = 2;
         #[packed(1)]
         struct NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG {
-            LID: u8,
-            Reserved0: [u8; 3],
-            ValidNumberOfEntries: u32,
+            LID: UCHAR,
+            Reserved0: [UCHAR; 3],
+            ValidNumberOfEntries: ULONG,
             Entries: [FIRMWARE_ACTIVATION_HISTORY_ENTRY; 20],
-            Reserved1: [u8; 2790],
-            LogPageVersionNumber: u16,
+            Reserved1: [UCHAR; 2790],
+            LogPageVersionNumber: USHORT,
             LogPageGUID: GUID,
         }
         const NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG_VERSION_1: i32 = 1;
         #[packed(1)]
         struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG {
             FeatureStatus: LATENCY_MONITOR_FEATURE_STATUS,
-            Reserved0: u8,
-            ActiveBucketTimer: u16,
-            ActiveBucketTimerThreshold: u16,
-            ActiveThresholdA: u8,
-            ActiveThresholdB: u8,
-            ActiveThresholdC: u8,
-            ActiveThresholdD: u8,
+            Reserved0: UCHAR,
+            ActiveBucketTimer: USHORT,
+            ActiveBucketTimerThreshold: USHORT,
+            ActiveThresholdA: UCHAR,
+            ActiveThresholdB: UCHAR,
+            ActiveThresholdC: UCHAR,
+            ActiveThresholdD: UCHAR,
             ActiveLatencyConfig: ACTIVE_LATENCY_CONFIGURATION,
-            ActiveLatencyMinimumWindow: u8,
-            Reserved1: [u8; 19],
+            ActiveLatencyMinimumWindow: UCHAR,
+            Reserved1: [UCHAR; 19],
             ActiveBucketCounter0: BUCKET_COUNTER,
             ActiveBucketCounter1: BUCKET_COUNTER,
             ActiveBucketCounter2: BUCKET_COUNTER,
@@ -3492,7 +3487,7 @@ mod Windows {
             ActiveLatencyStamp: LATENCY_STAMP,
             ActiveMeasuredLatency: MEASURED_LATENCY,
             ActiveLatencyStampUnits: LATENCY_STAMP_UNITS,
-            Reserved2: [u8; 22],
+            Reserved2: [UCHAR; 22],
             StaticBucketCounter0: BUCKET_COUNTER,
             StaticBucketCounter1: BUCKET_COUNTER,
             StaticBucketCounter2: BUCKET_COUNTER,
@@ -3500,149 +3495,149 @@ mod Windows {
             StaticLatencyStamp: LATENCY_STAMP,
             StaticMeasuredLatency: MEASURED_LATENCY,
             StaticLatencyStampUnits: LATENCY_STAMP_UNITS,
-            Reserved3: [u8; 22],
+            Reserved3: [UCHAR; 22],
             DebugLogTriggerEnable: DEBUG_BIT_FIELD,
-            DebugLogMeasuredLatency: u16,
-            DebugLogLatencyStamp: u64,
-            DebugLogPointer: u16,
+            DebugLogMeasuredLatency: USHORT,
+            DebugLogLatencyStamp: ULONGLONG,
+            DebugLogPointer: USHORT,
             DebugCounterTriggerSource: DEBUG_BIT_FIELD,
-            DebugLogStampUnits: union {
-                Anonymous: struct {
+            DebugLogStampUnits: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
                     _bitfield: u8 {
-                        BasedOnTimestamp: 1,
-                        Reserved: 7,
+                        BasedOnTimestamp: UCHAR: 1,
+                        Reserved: UCHAR: 7,
                     },
                 },
-                AsUchar: u8,
+                AsUchar: UCHAR,
             },
-            Reserved4: [u8; 29],
-            LogPageVersionNumber: u16,
+            Reserved4: [UCHAR; 29],
+            LogPageVersionNumber: USHORT,
             LogPageGUID: GUID,
         }
         const NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_VERSION_1: i32 = 1;
         #[packed(1)]
         struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3 {
-            MediaUnitsWritten: [u8; 16],
-            MediaUnitsRead: [u8; 16],
-            BadUserNANDBlockCount: struct {
-                RawCount: [u8; 6],
-                Normalized: [u8; 2],
+            MediaUnitsWritten: [UCHAR; 16],
+            MediaUnitsRead: [UCHAR; 16],
+            BadUserNANDBlockCount: #[packed(1)] struct {
+                RawCount: [UCHAR; 6],
+                Normalized: [UCHAR; 2],
             },
-            BadSystemNANDBlockCount: struct {
-                RawCount: [u8; 6],
-                Normalized: [u8; 2],
+            BadSystemNANDBlockCount: #[packed(1)] struct {
+                RawCount: [UCHAR; 6],
+                Normalized: [UCHAR; 2],
             },
-            XORRecoveryCount: u64,
-            UnrecoverableReadErrorCount: u64,
-            SoftECCErrorCount: u64,
+            XORRecoveryCount: ULONGLONG,
+            UnrecoverableReadErrorCount: ULONGLONG,
+            SoftECCErrorCount: ULONGLONG,
             EndToEndCorrectionCounts: #[packed(1)] struct {
-                DetectedCounts: u32,
-                CorrectedCounts: u32,
+                DetectedCounts: ULONG,
+                CorrectedCounts: ULONG,
             },
-            PercentageSystemDataUsed: u8,
-            RefreshCount: [u8; 7],
+            PercentageSystemDataUsed: UCHAR,
+            RefreshCount: [UCHAR; 7],
             UserDataEraseCounts: #[packed(1)] struct {
-                MaximumCount: u32,
-                MinimumCount: u32,
+                MaximumCount: ULONG,
+                MinimumCount: ULONG,
             },
-            ThermalThrottling: struct {
-                EventCount: u8,
-                Status: u8,
+            ThermalThrottling: #[packed(1)] struct {
+                EventCount: UCHAR,
+                Status: UCHAR,
             },
             DSSDSpecVersion: #[packed(1)] struct {
-                Errata: u8,
-                PointVersion: u16,
-                MinorVersion: u16,
-                MajorVersion: u8,
+                Errata: UCHAR,
+                PointVersion: USHORT,
+                MinorVersion: USHORT,
+                MajorVersion: UCHAR,
             },
-            PCIeCorrectableErrorCount: u64,
-            IncompleteShutdownCount: u32,
-            Reserved1: u32,
-            PercentageFreeBlocks: u8,
-            Reserved2: [u8; 7],
-            CapacitorHealth: u16,
-            NvmeErrata: u8,
-            Reserved3: [u8; 5],
-            UnalignedIOCount: u64,
-            SecurityVersionNumber: u64,
-            NUSE: u64,
-            PLPStartCount: [u8; 16],
-            EnduranceEstimate: [u8; 16],
-            PCIeLinkRetrainingCount: u64,
-            PowerStateChangeCount: u64,
-            Reserved4: [u8; 286],
-            LogPageVersionNumber: u16,
+            PCIeCorrectableErrorCount: ULONGLONG,
+            IncompleteShutdownCount: ULONG,
+            Reserved1: ULONG,
+            PercentageFreeBlocks: UCHAR,
+            Reserved2: [UCHAR; 7],
+            CapacitorHealth: USHORT,
+            NvmeErrata: UCHAR,
+            Reserved3: [UCHAR; 5],
+            UnalignedIOCount: ULONGLONG,
+            SecurityVersionNumber: ULONGLONG,
+            NUSE: ULONGLONG,
+            PLPStartCount: [UCHAR; 16],
+            EnduranceEstimate: [UCHAR; 16],
+            PCIeLinkRetrainingCount: ULONGLONG,
+            PowerStateChangeCount: ULONGLONG,
+            Reserved4: [UCHAR; 286],
+            LogPageVersionNumber: USHORT,
             LogPageGUID: GUID,
         }
         const NVME_OCP_DEVICE_SMART_INFORMATION_LOG_VERSION_3: i32 = 3;
         #[packed(1)]
         struct NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG {
-            State: union {
-                Anonymous: struct {
+            State: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
                     _bitfield: u8 {
-                        CPINSIDValue: 1,
-                        CPINSIDBlocked: 1,
-                        LockingEnabled: 1,
-                        SUMOwner: 1,
-                        Reserved: 4,
+                        CPINSIDValue: UCHAR: 1,
+                        CPINSIDBlocked: UCHAR: 1,
+                        LockingEnabled: UCHAR: 1,
+                        SUMOwner: UCHAR: 1,
+                        Reserved: UCHAR: 4,
                     },
                 },
-                AsUchar: u8,
+                AsUchar: UCHAR,
             },
-            Reserved0: [u8; 3],
-            LSPActivationCount: u8,
-            TPRevertCount: u8,
-            LSPRevertCount: u8,
-            LOCount: u8,
-            SUMLOCount: u8,
-            RPLOCount: u8,
-            NPLOCount: u8,
-            RLLOCount: u8,
-            WLLOCount: u8,
-            RULOCount: u8,
-            WULOCount: u8,
-            Reserved1: u8,
-            SIDAuthTryCount: u32,
-            SIDAuthTryLimit: u32,
-            ResetCount: u32,
-            ResetLockCount: u32,
-            Reserved2: [u8; 462],
-            LogPageVersionNumber: u16,
+            Reserved0: [UCHAR; 3],
+            LSPActivationCount: UCHAR,
+            TPRevertCount: UCHAR,
+            LSPRevertCount: UCHAR,
+            LOCount: UCHAR,
+            SUMLOCount: UCHAR,
+            RPLOCount: UCHAR,
+            NPLOCount: UCHAR,
+            RLLOCount: UCHAR,
+            WLLOCount: UCHAR,
+            RULOCount: UCHAR,
+            WULOCount: UCHAR,
+            Reserved1: UCHAR,
+            SIDAuthTryCount: ULONG,
+            SIDAuthTryLimit: ULONG,
+            ResetCount: ULONG,
+            ResetLockCount: ULONG,
+            Reserved2: [UCHAR; 462],
+            LogPageVersionNumber: USHORT,
             LogPageGUID: GUID,
         }
         const NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_VERSION_1: i32 = 1;
         #[packed(1)]
         struct NVME_OCP_DEVICE_TCG_HISTORY_LOG {
-            LID: u8,
-            Reserved0: [u8; 3],
-            HistoryEntryCount: u32,
+            LID: UCHAR,
+            Reserved0: [UCHAR; 3],
+            HistoryEntryCount: ULONG,
             HistoryEntries: [TCG_HISTORY_ENTRY; 84],
-            Reserved1: [u8; 38],
-            LogPageVersionNumber: u16,
+            Reserved1: [UCHAR; 38],
+            LogPageVersionNumber: USHORT,
             LogPageGUID: GUID,
         }
         const NVME_OCP_DEVICE_TCG_HISTORY_LOG_VERSION_1: i32 = 1;
         #[packed(1)]
         struct NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG {
-            UnsupportedCount: u16,
-            Reserved0: [u8; 14],
+            UnsupportedCount: USHORT,
+            Reserved0: [UCHAR; 14],
             UnsupportedReqList: [UNSUPPORTED_REQUIREMENT; 253],
-            Reserved1: [u8; 14],
-            LogPageVersionNumber: u16,
+            Reserved1: [UCHAR; 14],
+            LogPageVersionNumber: USHORT,
             LogPageGUID: GUID,
         }
         const NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG_VERSION_1: i32 = 1;
         #[packed(1)]
         struct NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER {
-            EventType: u8,
-            EventTypeRevision: u8,
-            EventHeaderLength: u8,
-            Reserved0: u8,
-            ControllerIdentifier: u16,
-            EventTimestamp: u64,
-            Reserved1: [u8; 6],
-            VendorSpecificInformationLength: u16,
-            EventLength: u16,
+            EventType: UCHAR,
+            EventTypeRevision: UCHAR,
+            EventHeaderLength: UCHAR,
+            Reserved0: UCHAR,
+            ControllerIdentifier: USHORT,
+            EventTimestamp: ULONGLONG,
+            Reserved1: [UCHAR; 6],
+            VendorSpecificInformationLength: USHORT,
+            EventLength: USHORT,
         }
         #[repr(i32)]
         enum NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES {
@@ -3670,63 +3665,63 @@ mod Windows {
         }
         #[packed(1)]
         struct NVME_PERSISTENT_EVENT_LOG_HEADER {
-            LogIdentifier: u8,
-            Reserved0: [u8; 3],
-            TotalNumberOfEvents: u32,
-            TotalLogLength: u64,
-            LogRevision: u8,
-            Reserved1: u8,
-            LogHeaderLength: u16,
-            Timestamp: u64,
-            PowerOnHours: [u8; 16],
-            PowerCycleCount: u64,
-            PciVendorId: u16,
-            PciSubsystemVendorId: u16,
-            SerialNumber: [u8; 20],
-            ModelNumber: [u8; 40],
-            NVMSubsystemNVMeQualifiedName: [u8; 256],
-            Reserved: [u8; 108],
-            SupportedEventsBitmap: [u8; 32],
+            LogIdentifier: UCHAR,
+            Reserved0: [UCHAR; 3],
+            TotalNumberOfEvents: ULONG,
+            TotalLogLength: ULONGLONG,
+            LogRevision: UCHAR,
+            Reserved1: UCHAR,
+            LogHeaderLength: USHORT,
+            Timestamp: ULONGLONG,
+            PowerOnHours: [UCHAR; 16],
+            PowerCycleCount: ULONGLONG,
+            PciVendorId: USHORT,
+            PciSubsystemVendorId: USHORT,
+            SerialNumber: [UCHAR; 20],
+            ModelNumber: [UCHAR; 40],
+            NVMSubsystemNVMeQualifiedName: [UCHAR; 256],
+            Reserved: [UCHAR; 108],
+            SupportedEventsBitmap: [UCHAR; 32],
         }
         struct NVME_POWER_STATE_DESC {
-            MP: u16,
-            Reserved0: u8,
+            MP: USHORT,
+            Reserved0: UCHAR,
             _bitfield1: u8 {
-                MPS: 1,
-                NOPS: 1,
-                Reserved1: 6,
+                MPS: UCHAR: 1,
+                NOPS: UCHAR: 1,
+                Reserved1: UCHAR: 6,
             },
-            ENLAT: u32,
-            EXLAT: u32,
+            ENLAT: ULONG,
+            EXLAT: ULONG,
             _bitfield2: u8 {
-                RRT: 5,
-                Reserved2: 3,
+                RRT: UCHAR: 5,
+                Reserved2: UCHAR: 3,
             },
             _bitfield3: u8 {
-                RRL: 5,
-                Reserved3: 3,
+                RRL: UCHAR: 5,
+                Reserved3: UCHAR: 3,
             },
             _bitfield4: u8 {
-                RWT: 5,
-                Reserved4: 3,
+                RWT: UCHAR: 5,
+                Reserved4: UCHAR: 3,
             },
             _bitfield5: u8 {
-                RWL: 5,
-                Reserved5: 3,
+                RWL: UCHAR: 5,
+                Reserved5: UCHAR: 3,
             },
-            IDLP: u16,
+            IDLP: USHORT,
             _bitfield6: u8 {
-                Reserved6: 6,
-                IPS: 2,
+                Reserved6: UCHAR: 6,
+                IPS: UCHAR: 2,
             },
-            Reserved7: u8,
-            ACTP: u16,
+            Reserved7: UCHAR,
+            ACTP: USHORT,
             _bitfield7: u8 {
-                APW: 3,
-                Reserved8: 3,
-                APS: 2,
+                APW: UCHAR: 3,
+                Reserved8: UCHAR: 3,
+                APS: UCHAR: 2,
             },
-            Reserved9: [u8; 9],
+            Reserved9: [UCHAR; 9],
         }
         #[repr(i32)]
         enum NVME_PROPERTY_OFFSET {
@@ -3769,11 +3764,11 @@ mod Windows {
         union NVME_PRP_ENTRY {
             Anonymous: struct {
                 _bitfield: u64 {
-                    Reserved0: 2,
-                    PBAO: 62,
+                    Reserved0: ULONGLONG: 2,
+                    PBAO: ULONGLONG: 62,
                 },
             },
-            AsUlonglong: u64,
+            AsUlonglong: ULONGLONG,
         }
         const NVME_PSDT_XFER_PRP: i32 = 0;
         const NVME_PSDT_XFER_RESERVED: i32 = 3;
@@ -3784,33 +3779,33 @@ mod Windows {
             NvmeRdmaKeyedSglDescSubtypeInvalidate = 15,
         }
         struct NVME_REGISTERED_CONTROLLER_DATA {
-            CNTLID: u16,
+            CNTLID: USHORT,
             RCSTS: struct {
                 _bitfield: u8 {
-                    HoldReservation: 1,
-                    Reserved: 7,
+                    HoldReservation: UCHAR: 1,
+                    Reserved: UCHAR: 7,
                 },
             },
-            Reserved: [u8; 5],
-            HOSTID: [u8; 8],
-            RKEY: u64,
+            Reserved: [UCHAR; 5],
+            HOSTID: [UCHAR; 8],
+            RKEY: ULONGLONG,
         }
         struct NVME_REGISTERED_CONTROLLER_EXTENDED_DATA {
-            CNTLID: u16,
+            CNTLID: USHORT,
             RCSTS: struct {
                 _bitfield: u8 {
-                    HoldReservation: 1,
-                    Reserved: 7,
+                    HoldReservation: UCHAR: 1,
+                    Reserved: UCHAR: 7,
                 },
             },
-            Reserved: [u8; 5],
-            RKEY: u64,
-            HOSTID: [u8; 16],
-            Reserved1: [u8; 32],
+            Reserved: [UCHAR; 5],
+            RKEY: ULONGLONG,
+            HOSTID: [UCHAR; 16],
+            Reserved1: [UCHAR; 32],
         }
         struct NVME_REPORT_ZONE_INFO {
-            ZoneCount: u64,
-            Reserved: [u64; 7],
+            ZoneCount: ULONGLONG,
+            Reserved: [ULONGLONG; 7],
             ZoneDescriptor: [NVME_ZONE_DESCRIPTOR; 1],
         }
         #[repr(i32)]
@@ -3820,16 +3815,16 @@ mod Windows {
             NVME_RESERVATION_ACQUIRE_ACTION_PREEMPT_AND_ABORT = 2,
         }
         struct NVME_RESERVATION_ACQUIRE_DATA_STRUCTURE {
-            CRKEY: u64,
-            PRKEY: u64,
+            CRKEY: ULONGLONG,
+            PRKEY: ULONGLONG,
         }
         struct NVME_RESERVATION_NOTIFICATION_LOG {
-            LogPageCount: u64,
-            LogPageType: u8,
-            AvailableLogPageCount: u8,
-            Reserved0: [u8; 2],
-            NameSpaceId: u32,
-            Reserved1: [u8; 48],
+            LogPageCount: ULONGLONG,
+            LogPageType: UCHAR,
+            AvailableLogPageCount: UCHAR,
+            Reserved0: [UCHAR; 2],
+            NameSpaceId: ULONG,
+            Reserved1: [UCHAR; 48],
         }
         #[repr(i32)]
         enum NVME_RESERVATION_NOTIFICATION_TYPES {
@@ -3845,8 +3840,8 @@ mod Windows {
             NVME_RESERVATION_REGISTER_ACTION_REPLACE = 2,
         }
         struct NVME_RESERVATION_REGISTER_DATA_STRUCTURE {
-            CRKEY: u64,
-            NRKEY: u64,
+            CRKEY: ULONGLONG,
+            NRKEY: ULONGLONG,
         }
         #[repr(i32)]
         enum NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES {
@@ -3861,7 +3856,7 @@ mod Windows {
             NVME_RESERVATION_RELEASE_ACTION_CLEAR = 1,
         }
         struct NVME_RESERVATION_RELEASE_DATA_STRUCTURE {
-            CRKEY: u64,
+            CRKEY: ULONGLONG,
         }
         struct NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE {
             Header: NVME_RESERVATION_REPORT_STATUS_HEADER,
@@ -3869,17 +3864,17 @@ mod Windows {
         }
         struct NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE {
             Header: NVME_RESERVATION_REPORT_STATUS_HEADER,
-            Reserved1: [u8; 40],
+            Reserved1: [UCHAR; 40],
             RegisteredControllersExtendedData: [NVME_REGISTERED_CONTROLLER_EXTENDED_DATA; 1],
         }
         #[packed(1)]
         struct NVME_RESERVATION_REPORT_STATUS_HEADER {
-            GEN: u32,
-            RTYPE: u8,
-            REGCTL: u16,
-            Reserved: [u8; 2],
-            PTPLS: u8,
-            Reserved1: [u8; 14],
+            GEN: ULONG,
+            RTYPE: UCHAR,
+            REGCTL: USHORT,
+            Reserved: [UCHAR; 2],
+            PTPLS: UCHAR,
+            Reserved1: [UCHAR; 14],
         }
         #[repr(i32)]
         enum NVME_RESERVATION_TYPES {
@@ -3909,29 +3904,29 @@ mod Windows {
         }
         struct NVME_SANITIZE_STATUS {
             _bitfield: u16 {
-                MostRecentSanitizeOperationStatus: 3,
-                NumberCompletedPassesOfOverwrite: 4,
-                GlobalDataErased: 1,
-                Reserved: 8,
+                MostRecentSanitizeOperationStatus: USHORT: 3,
+                NumberCompletedPassesOfOverwrite: USHORT: 4,
+                GlobalDataErased: USHORT: 1,
+                Reserved: USHORT: 8,
             },
         }
         struct NVME_SANITIZE_STATUS_LOG {
-            SPROG: u16,
+            SPROG: USHORT,
             SSTAT: NVME_SANITIZE_STATUS,
-            SCDW10: u32,
-            EstimatedTimeForOverwrite: u32,
-            EstimatedTimeForBlockErase: u32,
-            EstimatedTimeForCryptoErase: u32,
-            EstimatedTimeForOverwriteWithNoDeallocateMediaModification: u32,
-            EstimatedTimeForBlockEraseWithNoDeallocateMediaModification: u32,
-            EstimatedTimeForCryptoEraseWithNoDeallocateMediaModification: u32,
-            Reserved: [u8; 480],
+            SCDW10: ULONG,
+            EstimatedTimeForOverwrite: ULONG,
+            EstimatedTimeForBlockErase: ULONG,
+            EstimatedTimeForCryptoErase: ULONG,
+            EstimatedTimeForOverwriteWithNoDeallocateMediaModification: ULONG,
+            EstimatedTimeForBlockEraseWithNoDeallocateMediaModification: ULONG,
+            EstimatedTimeForCryptoEraseWithNoDeallocateMediaModification: ULONG,
+            Reserved: [UCHAR; 480],
         }
         struct NVME_SCSI_NAME_STRING {
-            PCIVendorID: [i8; 4],
-            ModelNumber: [i8; 40],
-            NamespaceID: [i8; 4],
-            SerialNumber: [i8; 20],
+            PCIVendorID: [CHAR; 4],
+            ModelNumber: [CHAR; 40],
+            NamespaceID: [CHAR; 4],
+            SerialNumber: [CHAR; 20],
         }
         #[repr(i32)]
         enum NVME_SECURE_ERASE_SETTINGS {
@@ -3940,53 +3935,25 @@ mod Windows {
             NVME_SECURE_ERASE_CRYPTOGRAPHIC = 2,
         }
         struct NVME_SET_ATTRIBUTES_ENTRY {
-            Identifier: u16,
-            ENDGID: u16,
-            Reserved1: u32,
-            Random4KBReadTypical: u32,
-            OptimalWriteSize: u32,
-            TotalCapacity: [u8; 16],
-            UnallocatedCapacity: [u8; 16],
-            Reserved2: [u8; 80],
-        }
-        struct NVME_SGL_BITBUCKET_DESC {
-            Reserved0: u64,
-            Length: u32,
-            Reserved1: [u8; 3],
-            Identifier: union {
-                Anonymous: struct {
-                    _bitfield: u8 {
-                        SubType: 4,
-                        Type: 4,
-                    },
-                },
-                AsUchar: u8,
-            },
-        }
-        struct NVME_SGL_DATABLOCK_DESC {
-            Address: u64,
-            Length: u32,
-            Reserved0: [u8; 3],
-            Identifier: union {
-                Anonymous: struct {
-                    _bitfield: u8 {
-                        SubType: 4,
-                        Type: 4,
-                    },
-                },
-                AsUchar: u8,
-            },
+            Identifier: USHORT,
+            ENDGID: USHORT,
+            Reserved1: ULONG,
+            Random4KBReadTypical: ULONG,
+            OptimalWriteSize: ULONG,
+            TotalCapacity: [UCHAR; 16],
+            UnallocatedCapacity: [UCHAR; 16],
+            Reserved2: [UCHAR; 80],
         }
         struct NVME_SGL_DESC {
-            Reserved0: [u8; 15],
+            Reserved0: [UCHAR; 15],
             Identifier: union {
                 Anonymous: struct {
                     _bitfield: u8 {
-                        SubType: 4,
-                        Type: 4,
+                        SubType: UCHAR: 4,
+                        Type: UCHAR: 4,
                     },
                 },
-                AsUchar: u8,
+                AsUchar: UCHAR,
             },
         }
         #[repr(i32)]
@@ -4009,62 +3976,6 @@ mod Windows {
             NvmeSglDescTypeKeyedDataBlock = 4,
             NvmeSglDescTypeTransportDataBlock = 5,
             NvmeSglDescTypeMax = 15,
-        }
-        struct NVME_SGL_KEYDATABLOCK_DESC {
-            Address: u64,
-            Length: [u8; 3],
-            Key: [u8; 4],
-            Identifier: union {
-                Anonymous: struct {
-                    _bitfield: u8 {
-                        SubType: 4,
-                        Type: 4,
-                    },
-                },
-                AsUchar: u8,
-            },
-        }
-        struct NVME_SGL_LASTSEG_DESC {
-            Address: u64,
-            Length: u32,
-            Reserved0: [u8; 3],
-            Identifier: union {
-                Anonymous: struct {
-                    _bitfield: u8 {
-                        SubType: 4,
-                        Type: 4,
-                    },
-                },
-                AsUchar: u8,
-            },
-        }
-        struct NVME_SGL_SEGMENT_DESC {
-            Address: u64,
-            Length: u32,
-            Reserved0: [u8; 3],
-            Identifier: union {
-                Anonymous: struct {
-                    _bitfield: u8 {
-                        SubType: 4,
-                        Type: 4,
-                    },
-                },
-                AsUchar: u8,
-            },
-        }
-        struct NVME_SGL_TRANSPORTDATA_DESC {
-            Reserved0: u64,
-            Length: u32,
-            Reserved1: [u8; 3],
-            Identifier: union {
-                Anonymous: struct {
-                    _bitfield: u8 {
-                        SubType: 4,
-                        Type: 4,
-                    },
-                },
-                AsUchar: u8,
-            },
         }
         #[repr(i32)]
         enum NVME_STATUS_COMMAND_SPECIFIC_CODES {
@@ -4221,44 +4132,44 @@ mod Windows {
         union NVME_SUBMISSION_QUEUE_TAIL_DOORBELL {
             Anonymous: struct {
                 _bitfield: u32 {
-                    SQT: 16,
-                    Reserved0: 16,
+                    SQT: ULONG: 16,
+                    Reserved0: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_SUPPORTED_LOG_PAGES_LOG {
             LogPageIdentifierSupported: [NVME_LID_SUPPORTED_AND_EFFECTS; 256],
         }
         struct NVME_TELEMETRY_CONTROLLER_INITIATED_LOG {
-            LogIdentifier: u8,
-            Reserved0: [u8; 4],
-            OrganizationID: [u8; 3],
-            Area1LastBlock: u16,
-            Area2LastBlock: u16,
-            Area3LastBlock: u16,
-            Reserved1: [u8; 2],
-            Area4LastBlock: u32,
-            Reserved2: [u8; 362],
-            ControllerInitiatedDataAvailable: u8,
-            ControllerInitiatedDataGenerationNumber: u8,
-            ReasonIdentifier: [u8; 128],
+            LogIdentifier: UCHAR,
+            Reserved0: [UCHAR; 4],
+            OrganizationID: [UCHAR; 3],
+            Area1LastBlock: USHORT,
+            Area2LastBlock: USHORT,
+            Area3LastBlock: USHORT,
+            Reserved1: [UCHAR; 2],
+            Area4LastBlock: ULONG,
+            Reserved2: [UCHAR; 362],
+            ControllerInitiatedDataAvailable: UCHAR,
+            ControllerInitiatedDataGenerationNumber: UCHAR,
+            ReasonIdentifier: [UCHAR; 128],
         }
         const NVME_TELEMETRY_DATA_BLOCK_SIZE: i32 = 512;
         struct NVME_TELEMETRY_HOST_INITIATED_LOG {
-            LogIdentifier: u8,
-            Reserved0: [u8; 4],
-            OrganizationID: [u8; 3],
-            Area1LastBlock: u16,
-            Area2LastBlock: u16,
-            Area3LastBlock: u16,
-            Reserved1: [u8; 2],
-            Area4LastBlock: u32,
-            Reserved2: [u8; 361],
-            HostInitiatedDataGenerationNumber: u8,
-            ControllerInitiatedDataAvailable: u8,
-            ControllerInitiatedDataGenerationNumber: u8,
-            ReasonIdentifier: [u8; 128],
+            LogIdentifier: UCHAR,
+            Reserved0: [UCHAR; 4],
+            OrganizationID: [UCHAR; 3],
+            Area1LastBlock: USHORT,
+            Area2LastBlock: USHORT,
+            Area3LastBlock: USHORT,
+            Reserved1: [UCHAR; 2],
+            Area4LastBlock: ULONG,
+            Reserved2: [UCHAR; 361],
+            HostInitiatedDataGenerationNumber: UCHAR,
+            ControllerInitiatedDataAvailable: UCHAR,
+            ControllerInitiatedDataGenerationNumber: UCHAR,
+            ReasonIdentifier: [UCHAR; 128],
         }
         #[repr(i32)]
         enum NVME_TEMPERATURE_THRESHOLD_TYPES {
@@ -4274,11 +4185,11 @@ mod Windows {
         }
         struct NVME_UUID_LIST_ENTRY {
             _bitfield: u8 {
-                IdentifierAssociation: 2,
-                Reserved: 6,
+                IdentifierAssociation: UCHAR: 2,
+                Reserved: UCHAR: 6,
             },
-            Reserved1: [u8; 15],
-            UUID: [u8; 16],
+            Reserved1: [UCHAR; 15],
+            UUID: [UCHAR; 16],
         }
         #[repr(i32)]
         enum NVME_VENDOR_LOG_PAGES {
@@ -4302,38 +4213,38 @@ mod Windows {
         union NVME_VERSION {
             Anonymous: struct {
                 _bitfield: u32 {
-                    TER: 8,
-                    MNR: 8,
-                    MJR: 16,
+                    TER: ULONG: 8,
+                    MNR: ULONG: 8,
+                    MJR: ULONG: 16,
                 },
             },
-            AsUlong: u32,
+            AsUlong: ULONG,
         }
         struct NVME_WCS_DEVICE_CAPABILITIES {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        PanicAEN: 1,
-                        PanicCFS: 1,
-                        Reserved: 30,
+                        PanicAEN: ULONG: 1,
+                        PanicCFS: ULONG: 1,
+                        Reserved: ULONG: 30,
                     },
                 },
-                AsULONG: u32,
+                AsULONG: ULONG,
             },
         }
         #[packed(1)]
         struct NVME_WCS_DEVICE_ERROR_RECOVERY_LOG {
-            PanicResetWaitTime: u16,
+            PanicResetWaitTime: USHORT,
             PanicResetAction: NVME_WCS_DEVICE_RESET_ACTION,
-            DriveRecoveryAction: u8,
-            PanicId: u64,
+            DriveRecoveryAction: UCHAR,
+            PanicId: ULONGLONG,
             DeviceCapabilitiesA: NVME_WCS_DEVICE_CAPABILITIES,
-            VendorSpecificRecoveryCode: u8,
-            Reserved0: [u8; 3],
-            VendorSpecificCommandCDW12: u32,
-            VendorSpecificCommandCDW13: u32,
-            Reserved1: [u8; 466],
-            LogPageVersionNumber: u16,
+            VendorSpecificRecoveryCode: UCHAR,
+            Reserved0: [UCHAR; 3],
+            VendorSpecificCommandCDW12: ULONG,
+            VendorSpecificCommandCDW13: ULONG,
+            Reserved1: [UCHAR; 466],
+            LogPageVersionNumber: USHORT,
             LogPageGUID: GUID,
         }
         type NVME_WCS_DEVICE_ERROR_RECOVERY_LOG_V1 = NVME_WCS_DEVICE_ERROR_RECOVERY_LOG;
@@ -4362,101 +4273,101 @@ mod Windows {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u8 {
-                        ControllerReset: 1,
-                        NVMeSubsystemReset: 1,
-                        PCIeFLR: 1,
-                        PERST: 1,
-                        PowerCycle: 1,
-                        PCIeConventionalHotReset: 1,
-                        Reserved: 2,
+                        ControllerReset: UCHAR: 1,
+                        NVMeSubsystemReset: UCHAR: 1,
+                        PCIeFLR: UCHAR: 1,
+                        PERST: UCHAR: 1,
+                        PowerCycle: UCHAR: 1,
+                        PCIeConventionalHotReset: UCHAR: 1,
+                        Reserved: UCHAR: 2,
                     },
                 },
-                AsUCHAR: u8,
+                AsUCHAR: UCHAR,
             },
         }
         #[packed(1)]
         struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG {
-            VersionSpecificData: [u8; 494],
-            LogPageVersionNumber: u16,
+            VersionSpecificData: [UCHAR; 494],
+            LogPageVersionNumber: USHORT,
             LogPageGUID: GUID,
         }
         #[packed(1)]
         struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2 {
-            MediaUnitsWritten: [u8; 16],
-            MediaUnitsRead: [u8; 16],
-            BadUserNANDBlockCount: struct {
-                RawCount: [u8; 6],
-                Normalized: [u8; 2],
+            MediaUnitsWritten: [UCHAR; 16],
+            MediaUnitsRead: [UCHAR; 16],
+            BadUserNANDBlockCount: #[packed(1)] struct {
+                RawCount: [UCHAR; 6],
+                Normalized: [UCHAR; 2],
             },
-            BadSystemNANDBlockCount: struct {
-                RawCount: [u8; 6],
-                Normalized: [u8; 2],
+            BadSystemNANDBlockCount: #[packed(1)] struct {
+                RawCount: [UCHAR; 6],
+                Normalized: [UCHAR; 2],
             },
-            XORRecoveryCount: u64,
-            UnrecoverableReadErrorCount: u64,
-            SoftECCErrorCount: u64,
+            XORRecoveryCount: ULONGLONG,
+            UnrecoverableReadErrorCount: ULONGLONG,
+            SoftECCErrorCount: ULONGLONG,
             EndToEndCorrectionCounts: #[packed(1)] struct {
-                DetectedCounts: u32,
-                CorrectedCounts: u32,
+                DetectedCounts: ULONG,
+                CorrectedCounts: ULONG,
             },
-            PercentageSystemDataUsed: u8,
-            RefreshCount: [u8; 7],
+            PercentageSystemDataUsed: UCHAR,
+            RefreshCount: [UCHAR; 7],
             UserDataEraseCounts: #[packed(1)] struct {
-                MaximumCount: u32,
-                MinimumCount: u32,
+                MaximumCount: ULONG,
+                MinimumCount: ULONG,
             },
-            ThermalThrottling: struct {
-                EventCount: u8,
-                Status: u8,
+            ThermalThrottling: #[packed(1)] struct {
+                EventCount: UCHAR,
+                Status: UCHAR,
             },
-            Reserved0: [u8; 6],
-            PCIeCorrectableErrorCount: u64,
-            IncompleteShutdownCount: u32,
-            Reserved1: u32,
-            PercentageFreeBlocks: u8,
-            Reserved2: [u8; 7],
-            CapacitorHealth: u16,
-            Reserved3: [u8; 6],
-            UnalignedIOCount: u64,
-            SecurityVersionNumber: u64,
-            NUSE: u64,
-            PLPStartCount: [u8; 16],
-            EnduranceEstimate: [u8; 16],
-            Reserved4: [u8; 302],
-            LogPageVersionNumber: u16,
+            Reserved0: [UCHAR; 6],
+            PCIeCorrectableErrorCount: ULONGLONG,
+            IncompleteShutdownCount: ULONG,
+            Reserved1: ULONG,
+            PercentageFreeBlocks: UCHAR,
+            Reserved2: [UCHAR; 7],
+            CapacitorHealth: USHORT,
+            Reserved3: [UCHAR; 6],
+            UnalignedIOCount: ULONGLONG,
+            SecurityVersionNumber: ULONGLONG,
+            NUSE: ULONGLONG,
+            PLPStartCount: [UCHAR; 16],
+            EnduranceEstimate: [UCHAR; 16],
+            Reserved4: [UCHAR; 302],
+            LogPageVersionNumber: USHORT,
             LogPageGUID: GUID,
         }
         const NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_VERSION_2: i32 = 2;
         struct NVME_ZONE_DESCRIPTOR {
             Anonymous: struct {
                 _bitfield: u8 {
-                    ZT: 4,
-                    Reserved1: 4,
+                    ZT: UCHAR: 4,
+                    Reserved1: UCHAR: 4,
                 },
             },
             Anonymous2: struct {
                 _bitfield: u8 {
-                    Reserved2: 4,
-                    ZS: 4,
+                    Reserved2: UCHAR: 4,
+                    ZS: UCHAR: 4,
                 },
             },
             ZA: struct {
                 _bitfield: u8 {
-                    ZFC: 1,
-                    FZR: 1,
-                    RZR: 1,
-                    Reserved: 4,
-                    ZDEV: 1,
+                    ZFC: UCHAR: 1,
+                    FZR: UCHAR: 1,
+                    RZR: UCHAR: 1,
+                    Reserved: UCHAR: 4,
+                    ZDEV: UCHAR: 1,
                 },
             },
-            Reserved3: [u8; 5],
-            ZCAP: u64,
-            ZSLBA: u64,
-            WritePointer: u64,
-            Reserved4: [u8; 32],
+            Reserved3: [UCHAR; 5],
+            ZCAP: ULONGLONG,
+            ZSLBA: ULONGLONG,
+            WritePointer: ULONGLONG,
+            Reserved4: [UCHAR; 32],
         }
         struct NVME_ZONE_DESCRIPTOR_EXTENSION {
-            ZoneDescriptorExtensionInfo: [u8; 64],
+            ZoneDescriptorExtensionInfo: [UCHAR; 64],
         }
         struct NVME_ZONE_EXTENDED_REPORT_ZONE_DESC {
             ZoneDescriptor: NVME_ZONE_DESCRIPTOR,
@@ -4490,21 +4401,21 @@ mod Windows {
         union NVM_RESERVATION_CAPABILITIES {
             Anonymous: struct {
                 _bitfield: u8 {
-                    PersistThroughPowerLoss: 1,
-                    WriteExclusiveReservation: 1,
-                    ExclusiveAccessReservation: 1,
-                    WriteExclusiveRegistrantsOnlyReservation: 1,
-                    ExclusiveAccessRegistrantsOnlyReservation: 1,
-                    WriteExclusiveAllRegistrantsReservation: 1,
-                    ExclusiveAccessAllRegistrantsReservation: 1,
-                    Reserved: 1,
+                    PersistThroughPowerLoss: UCHAR: 1,
+                    WriteExclusiveReservation: UCHAR: 1,
+                    ExclusiveAccessReservation: UCHAR: 1,
+                    WriteExclusiveRegistrantsOnlyReservation: UCHAR: 1,
+                    ExclusiveAccessRegistrantsOnlyReservation: UCHAR: 1,
+                    WriteExclusiveAllRegistrantsReservation: UCHAR: 1,
+                    ExclusiveAccessAllRegistrantsReservation: UCHAR: 1,
+                    Reserved: UCHAR: 1,
                 },
             },
-            AsUchar: u8,
+            AsUchar: UCHAR,
         }
         struct NVM_SET_LIST {
-            IdentifierCount: u8,
-            Reserved: [u8; 127],
+            IdentifierCount: UCHAR,
+            Reserved: [UCHAR; 127],
             Entry: [NVME_SET_ATTRIBUTES_ENTRY; 1],
         }
         const NVM_SUBSYSTEM_SHUTDOWN_ABRUPT: i32 = 1096970356;
@@ -4533,7 +4444,6 @@ mod Windows {
         type PNVMEOF_CONNECT_COMMAND = *mut NVMEOF_CONNECT_COMMAND;
         type PNVMEOF_CONNECT_DATA = *mut NVMEOF_CONNECT_DATA;
         type PNVMEOF_CONNECT_RESPONSE = *mut NVMEOF_CONNECT_RESPONSE;
-        type PNVMEOF_DISCONNECT_COMMAND = *mut NVMEOF_DISCONNECT_COMMAND;
         type PNVMEOF_DISCONNECT_RESPONSE = *mut NVMEOF_DISCONNECT_RESPONSE;
         type PNVMEOF_FABRICS_COMMAND = *mut NVMEOF_FABRICS_COMMAND;
         type PNVMEOF_FABRICS_RESPONSE = *mut NVMEOF_FABRICS_RESPONSE;
@@ -4735,13 +4645,7 @@ mod Windows {
         type PNVME_SANITIZE_STATUS_LOG = *mut NVME_SANITIZE_STATUS_LOG;
         type PNVME_SCSI_NAME_STRING = *mut NVME_SCSI_NAME_STRING;
         type PNVME_SET_ATTRIBUTES_ENTRY = *mut NVME_SET_ATTRIBUTES_ENTRY;
-        type PNVME_SGL_BITBUCKET_DESC = *mut NVME_SGL_BITBUCKET_DESC;
-        type PNVME_SGL_DATABLOCK_DESC = *mut NVME_SGL_DATABLOCK_DESC;
         type PNVME_SGL_DESC = *mut NVME_SGL_DESC;
-        type PNVME_SGL_KEYDATABLOCK_DESC = *mut NVME_SGL_KEYDATABLOCK_DESC;
-        type PNVME_SGL_LASTSEG_DESC = *mut NVME_SGL_LASTSEG_DESC;
-        type PNVME_SGL_SEGMENT_DESC = *mut NVME_SGL_SEGMENT_DESC;
-        type PNVME_SGL_TRANSPORTDATA_DESC = *mut NVME_SGL_TRANSPORTDATA_DESC;
         type PNVME_SUBMISSION_QUEUE_TAIL_DOORBELL = *mut NVME_SUBMISSION_QUEUE_TAIL_DOORBELL;
         type PNVME_SUPPORTED_LOG_PAGES_LOG = *mut NVME_SUPPORTED_LOG_PAGES_LOG;
         type PNVME_TELEMETRY_CONTROLLER_INITIATED_LOG = *mut NVME_TELEMETRY_CONTROLLER_INITIATED_LOG;
@@ -4768,42 +4672,46 @@ mod Windows {
         type PTCG_HISTORY_ENTRY = *mut TCG_HISTORY_ENTRY;
         type PTCG_REACTIVATE_METHOD_SPECIFIC = *mut TCG_REACTIVATE_METHOD_SPECIFIC;
         type PUNSUPPORTED_REQUIREMENT = *mut UNSUPPORTED_REQUIREMENT;
+        #[packed(1)]
         struct TCG_ACTIVATE_METHOD_SPECIFIC {
-            RangeStartLengthPolicy: u8,
+            RangeStartLengthPolicy: UCHAR,
         }
         #[packed(1)]
         struct TCG_ASSIGN_METHOD_SPECIFIC {
-            NamespaceId: u32,
+            NamespaceId: ULONG,
         }
         #[packed(1)]
         struct TCG_AUTH_METHOD_SPECIFIC {
-            AuthorityId: u64,
-            TriesCount: u8,
+            AuthorityId: ULONGLONG,
+            TriesCount: UCHAR,
         }
+        #[packed(1)]
         struct TCG_BLOCKSID_METHOD_SPECIFIC {
-            ClearEvents: u8,
+            ClearEvents: UCHAR,
         }
         #[packed(1)]
         struct TCG_HISTORY_ENTRY {
-            VersionNumber: u8,
-            EntryLength: u8,
-            PowerCycleCount: u16,
-            TcgCommandCount: u32,
-            TcgCommandCompletionTS: u64,
-            InvokingId: u64,
-            MethodId: u64,
-            ComId: u16,
-            ProtocolId: u8,
-            TcgStatus: u8,
-            ProcessTime: u16,
-            CommandSpecific: [u8; 10],
+            VersionNumber: UCHAR,
+            EntryLength: UCHAR,
+            PowerCycleCount: USHORT,
+            TcgCommandCount: ULONG,
+            TcgCommandCompletionTS: ULONGLONG,
+            InvokingId: ULONGLONG,
+            MethodId: ULONGLONG,
+            ComId: USHORT,
+            ProtocolId: UCHAR,
+            TcgStatus: UCHAR,
+            ProcessTime: USHORT,
+            CommandSpecific: [UCHAR; 10],
         }
         const TCG_HISTORY_ENTRY_VERSION_1: i32 = 1;
+        #[packed(1)]
         struct TCG_REACTIVATE_METHOD_SPECIFIC {
-            RangeStartLengthPolicy: u8,
+            RangeStartLengthPolicy: UCHAR,
         }
+        #[packed(1)]
         struct UNSUPPORTED_REQUIREMENT {
-            ReqId: [u8; 16],
+            ReqId: [UCHAR; 16],
         }
         const ZDES_SIZE_MULTIPLIER_IN_BYTES: i32 = 64;
         #[repr(i32)]

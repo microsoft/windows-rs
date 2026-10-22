@@ -2,36 +2,36 @@
 mod Windows {
     mod Win32 {
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoA(lptstrFilename: PCSTR, #[reserved] dwHandle: u32, dwLen: u32, #[size_param(2)] lpData: *mut void) -> BOOL;
+        extern fn GetFileVersionInfoA(#[in] lptstrFilename: LPCSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[out] #[writable(entry, bytes(dwLen))] lpData: LPVOID) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoExA(dwFlags: u32, lpwstrFilename: PCSTR, #[reserved] dwHandle: u32, dwLen: u32, #[size_param(3)] lpData: *mut void) -> BOOL;
+        extern fn GetFileVersionInfoExA(#[in] dwFlags: DWORD, #[in] lpwstrFilename: LPCSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[out] #[writable(entry, bytes(dwLen))] lpData: LPVOID) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoExW(dwFlags: u32, lpwstrFilename: PCWSTR, #[reserved] dwHandle: u32, dwLen: u32, #[size_param(3)] lpData: *mut void) -> BOOL;
+        extern fn GetFileVersionInfoExW(#[in] dwFlags: DWORD, #[in] lpwstrFilename: LPCWSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[out] #[writable(entry, bytes(dwLen))] lpData: LPVOID) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoSizeA(lptstrFilename: PCSTR, #[out] #[opt] lpdwHandle: LPDWORD) -> u32;
+        extern fn GetFileVersionInfoSizeA(#[in] lptstrFilename: LPCSTR, #[out] #[opt] lpdwHandle: LPDWORD) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoSizeExA(dwFlags: u32, lpwstrFilename: PCSTR, #[out] lpdwHandle: LPDWORD) -> u32;
+        extern fn GetFileVersionInfoSizeExA(#[in] dwFlags: DWORD, #[in] lpwstrFilename: LPCSTR, #[out] lpdwHandle: LPDWORD) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoSizeExW(dwFlags: u32, lpwstrFilename: PCWSTR, #[out] lpdwHandle: LPDWORD) -> u32;
+        extern fn GetFileVersionInfoSizeExW(#[in] dwFlags: DWORD, #[in] lpwstrFilename: LPCWSTR, #[out] lpdwHandle: LPDWORD) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoSizeW(lptstrFilename: PCWSTR, #[out] #[opt] lpdwHandle: LPDWORD) -> u32;
+        extern fn GetFileVersionInfoSizeW(#[in] lptstrFilename: LPCWSTR, #[out] #[opt] lpdwHandle: LPDWORD) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoW(lptstrFilename: PCWSTR, #[reserved] dwHandle: u32, dwLen: u32, #[size_param(2)] lpData: *mut void) -> BOOL;
+        extern fn GetFileVersionInfoW(#[in] lptstrFilename: LPCWSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[out] #[writable(entry, bytes(dwLen))] lpData: LPVOID) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn VerFindFileA(uFlags: u32, szFileName: PCSTR, #[opt] szWinDir: PCSTR, szAppDir: PCSTR, #[len_param(5)] #[out] szCurDir: PSTR, #[in] #[out] puCurDirLen: PUINT, #[len_param(7)] #[out] szDestDir: PSTR, #[in] #[out] puDestDirLen: PUINT) -> u32;
+        extern fn VerFindFileA(#[in] uFlags: DWORD, #[in] szFileName: LPCSTR, #[in] #[opt] szWinDir: LPCSTR, #[in] szAppDir: LPCSTR, #[out] #[writable(entry, *puCurDirLen)] szCurDir: LPSTR, #[in] #[out] puCurDirLen: PUINT, #[out] #[writable(entry, *puDestDirLen)] szDestDir: LPSTR, #[in] #[out] puDestDirLen: PUINT) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn VerFindFileW(uFlags: u32, szFileName: PCWSTR, #[opt] szWinDir: PCWSTR, szAppDir: PCWSTR, #[len_param(5)] #[out] szCurDir: PWSTR, #[in] #[out] puCurDirLen: PUINT, #[len_param(7)] #[out] szDestDir: PWSTR, #[in] #[out] puDestDirLen: PUINT) -> u32;
+        extern fn VerFindFileW(#[in] uFlags: DWORD, #[in] szFileName: LPCWSTR, #[in] #[opt] szWinDir: LPCWSTR, #[in] szAppDir: LPCWSTR, #[out] #[writable(entry, *puCurDirLen)] szCurDir: LPWSTR, #[in] #[out] puCurDirLen: PUINT, #[out] #[writable(entry, *puDestDirLen)] szDestDir: LPWSTR, #[in] #[out] puDestDirLen: PUINT) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn VerInstallFileA(uFlags: u32, szSrcFileName: PCSTR, szDestFileName: PCSTR, szSrcDir: PCSTR, szDestDir: PCSTR, szCurDir: PCSTR, #[len_param(7)] #[out] szTmpFile: PSTR, #[in] #[out] puTmpFileLen: PUINT) -> u32;
+        extern fn VerInstallFileA(#[in] uFlags: DWORD, #[in] szSrcFileName: LPCSTR, #[in] szDestFileName: LPCSTR, #[in] szSrcDir: LPCSTR, #[in] szDestDir: LPCSTR, #[in] szCurDir: LPCSTR, #[out] #[writable(entry, *puTmpFileLen)] szTmpFile: LPSTR, #[in] #[out] puTmpFileLen: PUINT) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn VerInstallFileW(uFlags: u32, szSrcFileName: PCWSTR, szDestFileName: PCWSTR, szSrcDir: PCWSTR, szDestDir: PCWSTR, szCurDir: PCWSTR, #[len_param(7)] #[out] szTmpFile: PWSTR, #[in] #[out] puTmpFileLen: PUINT) -> u32;
+        extern fn VerInstallFileW(#[in] uFlags: DWORD, #[in] szSrcFileName: LPCWSTR, #[in] szDestFileName: LPCWSTR, #[in] szSrcDir: LPCWSTR, #[in] szDestDir: LPCWSTR, #[in] szCurDir: LPCWSTR, #[out] #[writable(entry, *puTmpFileLen)] szTmpFile: LPWSTR, #[in] #[out] puTmpFileLen: PUINT) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn VerLanguageNameA(wLang: u32, #[len_param(2)] #[out] szLang: PSTR, cchLang: u32) -> u32;
+        extern fn VerLanguageNameA(#[in] wLang: DWORD, #[out] #[writable(entry, cchLang)] szLang: LPSTR, #[in] cchLang: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn VerLanguageNameW(wLang: u32, #[len_param(2)] #[out] szLang: PWSTR, cchLang: u32) -> u32;
+        extern fn VerLanguageNameW(#[in] wLang: DWORD, #[out] #[writable(entry, cchLang)] szLang: LPWSTR, #[in] cchLang: DWORD) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn VerQueryValueA(pBlock: LPCVOID, lpSubBlock: PCSTR, lplpBuffer: *mut *mut void, #[out] puLen: PUINT) -> BOOL;
+        extern fn VerQueryValueA(#[in] pBlock: LPCVOID, #[in] lpSubBlock: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")")] #[out] lplpBuffer: *mut LPVOID, #[out] puLen: PUINT) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn VerQueryValueW(pBlock: LPCVOID, lpSubBlock: PCWSTR, lplpBuffer: *mut *mut void, #[out] puLen: PUINT) -> BOOL;
+        extern fn VerQueryValueW(#[in] pBlock: LPCVOID, #[in] lpSubBlock: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")", "_Inexpressible_(\"buffer can be PWSTR or DWORD*\")")] #[out] lplpBuffer: *mut LPVOID, #[out] puLen: PUINT) -> BOOL;
     }
 }

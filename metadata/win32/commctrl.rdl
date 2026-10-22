@@ -64,7 +64,7 @@ mod Windows {
         struct BUTTON_IMAGELIST {
             himl: HIMAGELIST,
             margin: RECT,
-            uAlign: u32,
+            uAlign: UINT,
         }
         const BUTTON_IMAGELIST_ALIGN_BOTTOM: i32 = 3;
         const BUTTON_IMAGELIST_ALIGN_CENTER: i32 = 4;
@@ -72,9 +72,9 @@ mod Windows {
         const BUTTON_IMAGELIST_ALIGN_RIGHT: i32 = 1;
         const BUTTON_IMAGELIST_ALIGN_TOP: i32 = 2;
         struct BUTTON_SPLITINFO {
-            mask: u32,
+            mask: UINT,
             himlGlyph: HIMAGELIST,
-            uSplitStyle: u32,
+            uSplitStyle: UINT,
             size: SIZE,
         }
         const CBEIF_DI_SETITEM: i32 = 268435456;
@@ -201,14 +201,14 @@ mod Windows {
             to: COLORREF,
         }
         struct COLORSCHEME {
-            dwSize: u32,
+            dwSize: DWORD,
             clrBtnHighlight: COLORREF,
             clrBtnShadow: COLORREF,
         }
         struct COMBOBOXEXITEMA {
-            mask: u32,
-            iItem: isize,
-            pszText: PSTR,
+            mask: UINT,
+            iItem: INT_PTR,
+            pszText: LPSTR,
             cchTextMax: i32,
             iImage: i32,
             iSelectedImage: i32,
@@ -217,9 +217,9 @@ mod Windows {
             lParam: LPARAM,
         }
         struct COMBOBOXEXITEMW {
-            mask: u32,
-            iItem: isize,
-            pszText: PWSTR,
+            mask: UINT,
+            iItem: INT_PTR,
+            pszText: LPWSTR,
             cchTextMax: i32,
             iImage: i32,
             iSelectedImage: i32,
@@ -229,21 +229,21 @@ mod Windows {
         }
         const COMCTL32_VERSION: i32 = 6;
         #[library("COMCTL32.dll")]
-        extern fn CreateMappedBitmap(hInstance: HINSTANCE, idBitmap: isize, wFlags: u32, #[opt] lpColorMap: LPCOLORMAP, iNumMaps: i32) -> HBITMAP;
+        extern fn CreateMappedBitmap(hInstance: HINSTANCE, idBitmap: INT_PTR, wFlags: UINT, #[in] #[opt] lpColorMap: LPCOLORMAP, iNumMaps: i32) -> HBITMAP;
         #[library("COMCTL32.dll")]
-        extern fn CreateStatusWindowA(style: i32, lpszText: PCSTR, hwndParent: HWND, wID: u32) -> HWND;
+        extern fn CreateStatusWindowA(style: LONG, lpszText: LPCSTR, hwndParent: HWND, wID: UINT) -> HWND;
         #[library("COMCTL32.dll")]
-        extern fn CreateStatusWindowW(style: i32, lpszText: PCWSTR, hwndParent: HWND, wID: u32) -> HWND;
+        extern fn CreateStatusWindowW(style: LONG, lpszText: LPCWSTR, hwndParent: HWND, wID: UINT) -> HWND;
         #[library("COMCTL32.dll")]
-        extern fn CreateToolbarEx(hwnd: HWND, ws: u32, wID: u32, nBitmaps: i32, hBMInst: HINSTANCE, wBMID: usize, lpButtons: LPCTBBUTTON, iNumButtons: i32, dxButton: i32, dyButton: i32, dxBitmap: i32, dyBitmap: i32, uStructSize: u32) -> HWND;
+        extern fn CreateToolbarEx(hwnd: HWND, ws: DWORD, wID: UINT, nBitmaps: i32, hBMInst: HINSTANCE, wBMID: UINT_PTR, lpButtons: LPCTBBUTTON, iNumButtons: i32, dxButton: i32, dyButton: i32, dxBitmap: i32, dyBitmap: i32, uStructSize: UINT) -> HWND;
         #[library("COMCTL32.dll")]
-        extern fn CreateUpDownControl(dwStyle: u32, x: i32, y: i32, cx: i32, cy: i32, hParent: HWND, nID: i32, hInst: HINSTANCE, hBuddy: HWND, nUpper: i32, nLower: i32, nPos: i32) -> HWND;
+        extern fn CreateUpDownControl(dwStyle: DWORD, x: i32, y: i32, cx: i32, cy: i32, hParent: HWND, nID: i32, hInst: HINSTANCE, hBuddy: HWND, nUpper: i32, nLower: i32, nPos: i32) -> HWND;
         struct DATETIMEPICKERINFO {
-            cbSize: u32,
+            cbSize: DWORD,
             rcCheck: RECT,
-            stateCheck: u32,
+            stateCheck: DWORD,
             rcButton: RECT,
-            stateButton: u32,
+            stateButton: DWORD,
             hwndEdit: HWND,
             hwndUD: HWND,
             hwndDropDown: HWND,
@@ -263,10 +263,12 @@ mod Windows {
         const DL_MOVECURSOR: i32 = 3;
         const DL_STOPCURSOR: i32 = 1;
         struct DRAGLISTINFO {
-            uNotification: u32,
+            uNotification: UINT,
             hWnd: HWND,
             ptCursor: POINT,
         }
+        #[encoding("ansi")]
+        const DRAGLISTMSGSTRING: String = "commctrl_DragListMsg";
         const DTM_CLOSEMONTHCAL: i32 = 4109;
         const DTM_FIRST: i32 = 4096;
         const DTM_GETDATETIMEPICKERINFO: i32 = 4110;
@@ -313,15 +315,15 @@ mod Windows {
         const DTS_TIMEFORMAT: i32 = 9;
         const DTS_UPDOWN: i32 = 1;
         #[library("COMCTL32.dll")]
-        extern fn DefSubclassProc(hWnd: HWND, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
+        extern fn DefSubclassProc(hWnd: HWND, uMsg: UINT, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
         #[library("COMCTL32.dll")]
         extern fn DrawInsert(handParent: HWND, hLB: HWND, nItem: i32);
         #[library("COMCTL32.dll")]
-        extern fn DrawShadowText(hdc: HDC, #[len_param(2)] pszText: PCWSTR, cch: u32, #[in] prc: *mut RECT, dwFlags: u32, crText: COLORREF, crShadow: COLORREF, ixOffset: i32, iyOffset: i32) -> i32;
+        extern fn DrawShadowText(#[in] hdc: HDC, #[in] #[readable(entry, cch)] pszText: LPCWSTR, #[in] cch: UINT, #[in] prc: *mut RECT, #[in] dwFlags: DWORD, #[in] crText: COLORREF, #[in] crShadow: COLORREF, #[in] ixOffset: i32, #[in] iyOffset: i32) -> i32;
         #[library("COMCTL32.dll")]
-        extern fn DrawStatusTextA(hDC: HDC, lprc: LPCRECT, pszText: PCSTR, uFlags: u32);
+        extern fn DrawStatusTextA(hDC: HDC, lprc: LPCRECT, pszText: LPCSTR, uFlags: UINT);
         #[library("COMCTL32.dll")]
-        extern fn DrawStatusTextW(hDC: HDC, lprc: LPCRECT, pszText: PCWSTR, uFlags: u32);
+        extern fn DrawStatusTextW(hDC: HDC, lprc: LPCRECT, pszText: LPCWSTR, uFlags: UINT);
         const ECM_FIRST: i32 = 5376;
         #[repr(i32)]
         enum EC_ENDOFLINE {
@@ -336,10 +338,10 @@ mod Windows {
             EC_SEARCHWEB_ENTRYPOINT_CONTEXTMENU = 1,
         }
         struct EDITBALLOONTIP {
-            cbStruct: u32,
-            pszTitle: PCWSTR,
-            pszText: PCWSTR,
-            ttiIcon: i32,
+            cbStruct: DWORD,
+            pszTitle: LPCWSTR,
+            pszText: LPCWSTR,
+            ttiIcon: INT,
         }
         const EMF_CENTERED: i32 = 1;
         const EM_ENABLESEARCHWEB: i32 = 5390;
@@ -353,7 +355,6 @@ mod Windows {
         const EM_GETFILELINE: i32 = 5398;
         const EM_GETFILELINECOUNT: i32 = 5399;
         const EM_GETHILITE: i32 = 5382;
-        const EM_GETZOOM: i32 = 1248;
         const EM_HIDEBALLOONTIP: i32 = 5380;
         const EM_NOSETFOCUS: i32 = 5383;
         const EM_SEARCHWEB: i32 = 5391;
@@ -362,7 +363,6 @@ mod Windows {
         const EM_SETENDOFLINE: i32 = 5388;
         const EM_SETEXTENDEDSTYLE: i32 = 5386;
         const EM_SETHILITE: i32 = 5381;
-        const EM_SETZOOM: i32 = 1249;
         const EM_SHOWBALLOONTIP: i32 = 5379;
         const EM_TAKEFOCUS: i32 = 5384;
         const EN_FIRST: u32 = 4294965776;
@@ -377,7 +377,7 @@ mod Windows {
         const FSB_FLAT_MODE: i32 = 2;
         const FSB_REGULAR_MODE: i32 = 0;
         #[library("COMCTL32.dll")]
-        extern fn FlatSB_EnableScrollBar(param0: HWND, param1: i32, param2: u32) -> BOOL;
+        extern fn FlatSB_EnableScrollBar(param0: HWND, param1: i32, param2: UINT) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn FlatSB_GetScrollInfo(param0: HWND, code: i32, param2: LPSCROLLINFO) -> BOOL;
         #[library("COMCTL32.dll")]
@@ -391,7 +391,7 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn FlatSB_SetScrollPos(param0: HWND, code: i32, pos: i32, fRedraw: BOOL) -> i32;
         #[library("COMCTL32.dll")]
-        extern fn FlatSB_SetScrollProp(param0: HWND, index: u32, newValue: isize, param3: BOOL) -> BOOL;
+        extern fn FlatSB_SetScrollProp(param0: HWND, index: UINT, newValue: INT_PTR, param3: BOOL) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn FlatSB_SetScrollRange(param0: HWND, code: i32, min: i32, max: i32, fRedraw: BOOL) -> i32;
         #[library("COMCTL32.dll")]
@@ -404,11 +404,12 @@ mod Windows {
         const GMR_DAYSTATE: i32 = 1;
         const GMR_VISIBLE: i32 = 0;
         #[library("COMCTL32.dll")]
-        extern fn GetEffectiveClientRect(hWnd: HWND, #[out] lprc: LPRECT, lpInfo: *const i32);
+        extern fn GetEffectiveClientRect(#[in] hWnd: HWND, #[out] lprc: LPRECT, #[in] #[null_terminated(entry)] lpInfo: *const INT);
         #[library("COMCTL32.dll")]
         extern fn GetMUILanguage() -> LANGID;
+        #[success(return != 0)]
         #[library("COMCTL32.dll")]
-        extern fn GetWindowSubclass(hWnd: HWND, pfnSubclass: SUBCLASSPROC, uIdSubclass: usize, #[opt] pdwRefData: *mut usize) -> BOOL;
+        extern fn GetWindowSubclass(#[in] hWnd: HWND, #[in] pfnSubclass: SUBCLASSPROC, #[in] uIdSubclass: UINT_PTR, #[out] #[opt] pdwRefData: *mut DWORD_PTR) -> BOOL;
         const HBITMAP_CALLBACK: HBITMAP = -1;
         const HDFT_HASNOVALUE: i32 = 32768;
         const HDFT_ISDATE: i32 = 2;
@@ -432,41 +433,41 @@ mod Windows {
         const HDF_STRING: i32 = 16384;
         struct HDHITTESTINFO {
             pt: POINT,
-            flags: u32,
+            flags: UINT,
             iItem: i32,
         }
         const HDIS_FOCUSED: i32 = 1;
         struct HDITEMA {
-            mask: u32,
+            mask: UINT,
             cxy: i32,
-            pszText: PSTR,
+            pszText: LPSTR,
             hbm: HBITMAP,
             cchTextMax: i32,
             fmt: i32,
             lParam: LPARAM,
             iImage: i32,
             iOrder: i32,
-            r#type: u32,
+            r#type: UINT,
             pvFilter: *mut void,
-            state: u32,
+            state: UINT,
         }
         #[arch(X64 | Arm64)]
         const HDITEMA_V1_SIZE: u64 = 40;
         #[arch(X86)]
         const HDITEMA_V1_SIZE: u32 = 28;
         struct HDITEMW {
-            mask: u32,
+            mask: UINT,
             cxy: i32,
-            pszText: PWSTR,
+            pszText: LPWSTR,
             hbm: HBITMAP,
             cchTextMax: i32,
             fmt: i32,
             lParam: LPARAM,
             iImage: i32,
             iOrder: i32,
-            r#type: u32,
+            r#type: UINT,
             pvFilter: *mut void,
-            state: u32,
+            state: UINT,
         }
         #[arch(X64 | Arm64)]
         const HDITEMW_V1_SIZE: u64 = 40;
@@ -577,12 +578,12 @@ mod Windows {
         const HDS_NOSIZING: i32 = 2048;
         const HDS_OVERFLOW: i32 = 4096;
         struct HD_TEXTFILTERA {
-            pszText: PSTR,
-            cchTextMax: i32,
+            pszText: LPSTR,
+            cchTextMax: INT,
         }
         struct HD_TEXTFILTERW {
-            pszText: PWSTR,
-            cchTextMax: i32,
+            pszText: LPWSTR,
+            cchTextMax: INT,
         }
         const HHT_ABOVE: i32 = 256;
         const HHT_BELOW: i32 = 512;
@@ -609,7 +610,7 @@ mod Windows {
         const HICF_TOGGLEDROPDOWN: i32 = 256;
         type HIMAGELIST = *mut _IMAGELIST;
         #[library("COMCTL32.dll")]
-        extern fn HIMAGELIST_QueryInterface(himl: HIMAGELIST, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn HIMAGELIST_QueryInterface(#[in] himl: HIMAGELIST, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
         const HINST_COMMCTRL: HINSTANCE = -1;
         const HIST_ADDTOFAVORITES: i32 = 3;
         const HIST_BACK: i32 = 0;
@@ -712,7 +713,7 @@ mod Windows {
             rcImage: RECT,
         }
         struct IMAGELISTDRAWPARAMS {
-            cbSize: u32,
+            cbSize: DWORD,
             himl: HIMAGELIST,
             i: i32,
             hdcDst: HDC,
@@ -724,10 +725,10 @@ mod Windows {
             yBitmap: i32,
             rgbBk: COLORREF,
             rgbFg: COLORREF,
-            fStyle: u32,
-            dwRop: u32,
-            fState: u32,
-            Frame: u32,
+            fStyle: UINT,
+            dwRop: DWORD,
+            fState: DWORD,
+            Frame: DWORD,
             crEffect: COLORREF,
         }
         #[arch(X64 | Arm64)]
@@ -736,8 +737,8 @@ mod Windows {
         const IMAGELISTDRAWPARAMS_V3_SIZE: u32 = 56;
         const INFOTIPSIZE: i32 = 1024;
         struct INITCOMMONCONTROLSEX {
-            dwSize: u32,
-            dwICC: u32,
+            dwSize: DWORD,
+            dwICC: DWORD,
         }
         const INVALID_LINK_INDEX: i32 = -1;
         const IPM_CLEARADDRESS: i32 = 1124;
@@ -751,24 +752,24 @@ mod Windows {
         const IPN_LAST: u32 = 4294966417;
         const I_CHILDRENAUTO: i32 = -2;
         const I_CHILDRENCALLBACK: i32 = -1;
-        const I_COLUMNSCALLBACK: u32 = 4294967295;
+        const I_COLUMNSCALLBACK: UINT = 4294967295;
         const I_GROUPIDCALLBACK: i32 = -1;
         const I_GROUPIDNONE: i32 = -2;
         const I_IMAGECALLBACK: i32 = -1;
         const I_IMAGENONE: i32 = -2;
         const I_INDENTCALLBACK: i32 = -1;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_Add(himl: HIMAGELIST, hbmImage: HBITMAP, #[opt] hbmMask: HBITMAP) -> i32;
+        extern fn ImageList_Add(#[in] himl: HIMAGELIST, #[in] hbmImage: HBITMAP, #[in] #[opt] hbmMask: HBITMAP) -> i32;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_AddMasked(himl: HIMAGELIST, hbmImage: HBITMAP, crMask: COLORREF) -> i32;
+        extern fn ImageList_AddMasked(#[in] himl: HIMAGELIST, #[in] hbmImage: HBITMAP, #[in] crMask: COLORREF) -> i32;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_BeginDrag(himlTrack: HIMAGELIST, iTrack: i32, dxHotspot: i32, dyHotspot: i32) -> BOOL;
+        extern fn ImageList_BeginDrag(#[in] himlTrack: HIMAGELIST, #[in] iTrack: i32, #[in] dxHotspot: i32, #[in] dyHotspot: i32) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_Copy(himlDst: HIMAGELIST, iDst: i32, himlSrc: HIMAGELIST, iSrc: i32, uFlags: u32) -> BOOL;
+        extern fn ImageList_Copy(#[in] himlDst: HIMAGELIST, #[in] iDst: i32, #[in] himlSrc: HIMAGELIST, #[in] iSrc: i32, #[in] uFlags: UINT) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_Create(cx: i32, cy: i32, flags: u32, cInitial: i32, cGrow: i32) -> HIMAGELIST;
+        extern fn ImageList_Create(cx: i32, cy: i32, flags: UINT, cInitial: i32, cGrow: i32) -> HIMAGELIST;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_Destroy(#[opt] himl: HIMAGELIST) -> BOOL;
+        extern fn ImageList_Destroy(#[in] #[opt] himl: HIMAGELIST) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn ImageList_DragEnter(hwndLock: HWND, x: i32, y: i32) -> BOOL;
         #[library("COMCTL32.dll")]
@@ -778,61 +779,65 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn ImageList_DragShowNolock(fShow: BOOL) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_Draw(himl: HIMAGELIST, i: i32, hdcDst: HDC, x: i32, y: i32, fStyle: u32) -> BOOL;
+        extern fn ImageList_Draw(#[in] himl: HIMAGELIST, #[in] i: i32, #[in] hdcDst: HDC, #[in] x: i32, #[in] y: i32, #[in] fStyle: UINT) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_DrawEx(himl: HIMAGELIST, i: i32, hdcDst: HDC, x: i32, y: i32, dx: i32, dy: i32, rgbBk: COLORREF, rgbFg: COLORREF, fStyle: u32) -> BOOL;
+        extern fn ImageList_DrawEx(#[in] himl: HIMAGELIST, #[in] i: i32, #[in] hdcDst: HDC, #[in] x: i32, #[in] y: i32, #[in] dx: i32, #[in] dy: i32, #[in] rgbBk: COLORREF, #[in] rgbFg: COLORREF, #[in] fStyle: UINT) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn ImageList_DrawIndirect(#[in] pimldp: *mut IMAGELISTDRAWPARAMS) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_Duplicate(himl: HIMAGELIST) -> HIMAGELIST;
+        extern fn ImageList_Duplicate(#[in] himl: HIMAGELIST) -> HIMAGELIST;
         #[library("COMCTL32.dll")]
         extern fn ImageList_EndDrag();
         #[library("COMCTL32.dll")]
-        extern fn ImageList_GetBkColor(himl: HIMAGELIST) -> COLORREF;
+        extern fn ImageList_GetBkColor(#[in] himl: HIMAGELIST) -> COLORREF;
+        #[success(return != 0)]
         #[library("COMCTL32.dll")]
-        extern fn ImageList_GetDragImage(#[opt] ppt: *mut POINT, #[opt] pptHotspot: *mut POINT) -> HIMAGELIST;
+        extern fn ImageList_GetDragImage(#[out] #[opt] ppt: *mut POINT, #[out] #[opt] pptHotspot: *mut POINT) -> HIMAGELIST;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_GetIcon(himl: HIMAGELIST, i: i32, flags: u32) -> HICON;
+        extern fn ImageList_GetIcon(#[in] himl: HIMAGELIST, #[in] i: i32, #[in] flags: UINT) -> HICON;
+        #[success(return != 0)]
         #[library("COMCTL32.dll")]
-        extern fn ImageList_GetIconSize(himl: HIMAGELIST, #[opt] cx: *mut i32, #[opt] cy: *mut i32) -> BOOL;
+        extern fn ImageList_GetIconSize(#[in] himl: HIMAGELIST, #[out] #[opt] cx: *mut i32, #[out] #[opt] cy: *mut i32) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_GetImageCount(himl: HIMAGELIST) -> i32;
+        extern fn ImageList_GetImageCount(#[in] himl: HIMAGELIST) -> i32;
+        #[success(return != 0)]
         #[library("COMCTL32.dll")]
-        extern fn ImageList_GetImageInfo(himl: HIMAGELIST, i: i32, pImageInfo: *mut IMAGEINFO) -> BOOL;
+        extern fn ImageList_GetImageInfo(#[in] himl: HIMAGELIST, #[in] i: i32, #[out] pImageInfo: *mut IMAGEINFO) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_LoadImageA(hi: HINSTANCE, lpbmp: PCSTR, cx: i32, cGrow: i32, crMask: COLORREF, uType: u32, uFlags: u32) -> HIMAGELIST;
+        extern fn ImageList_LoadImageA(hi: HINSTANCE, lpbmp: LPCSTR, cx: i32, cGrow: i32, crMask: COLORREF, uType: UINT, uFlags: UINT) -> HIMAGELIST;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_LoadImageW(hi: HINSTANCE, lpbmp: PCWSTR, cx: i32, cGrow: i32, crMask: COLORREF, uType: u32, uFlags: u32) -> HIMAGELIST;
+        extern fn ImageList_LoadImageW(hi: HINSTANCE, lpbmp: LPCWSTR, cx: i32, cGrow: i32, crMask: COLORREF, uType: UINT, uFlags: UINT) -> HIMAGELIST;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_Merge(himl1: HIMAGELIST, i1: i32, himl2: HIMAGELIST, i2: i32, dx: i32, dy: i32) -> HIMAGELIST;
+        extern fn ImageList_Merge(#[in] himl1: HIMAGELIST, #[in] i1: i32, #[in] himl2: HIMAGELIST, #[in] i2: i32, #[in] dx: i32, #[in] dy: i32) -> HIMAGELIST;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_Read(pstm: IStream) -> HIMAGELIST;
+        extern fn ImageList_Read(#[in] pstm: IStream) -> HIMAGELIST;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_ReadEx(dwFlags: u32, pstm: IStream, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn ImageList_ReadEx(#[in] dwFlags: DWORD, #[in] pstm: IStream, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut PVOID) -> HRESULT;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_Remove(himl: HIMAGELIST, i: i32) -> BOOL;
+        extern fn ImageList_Remove(#[in] himl: HIMAGELIST, #[in] i: i32) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_Replace(himl: HIMAGELIST, i: i32, hbmImage: HBITMAP, #[opt] hbmMask: HBITMAP) -> BOOL;
+        extern fn ImageList_Replace(#[in] himl: HIMAGELIST, #[in] i: i32, #[in] hbmImage: HBITMAP, #[in] #[opt] hbmMask: HBITMAP) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_ReplaceIcon(himl: HIMAGELIST, i: i32, hicon: HICON) -> i32;
+        extern fn ImageList_ReplaceIcon(#[in] himl: HIMAGELIST, #[in] i: i32, #[in] hicon: HICON) -> i32;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_SetBkColor(himl: HIMAGELIST, clrBk: COLORREF) -> COLORREF;
+        extern fn ImageList_SetBkColor(#[in] himl: HIMAGELIST, #[in] clrBk: COLORREF) -> COLORREF;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_SetDragCursorImage(himlDrag: HIMAGELIST, iDrag: i32, dxHotspot: i32, dyHotspot: i32) -> BOOL;
+        extern fn ImageList_SetDragCursorImage(#[in] himlDrag: HIMAGELIST, #[in] iDrag: i32, #[in] dxHotspot: i32, #[in] dyHotspot: i32) -> BOOL;
+        #[success(return != 0)]
         #[library("COMCTL32.dll")]
-        extern fn ImageList_SetIconSize(himl: HIMAGELIST, cx: i32, cy: i32) -> BOOL;
+        extern fn ImageList_SetIconSize(#[in] himl: HIMAGELIST, #[in] cx: i32, #[in] cy: i32) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_SetImageCount(himl: HIMAGELIST, uNewCount: u32) -> BOOL;
+        extern fn ImageList_SetImageCount(#[in] himl: HIMAGELIST, #[in] uNewCount: UINT) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_SetOverlayImage(himl: HIMAGELIST, iImage: i32, iOverlay: i32) -> BOOL;
+        extern fn ImageList_SetOverlayImage(#[in] himl: HIMAGELIST, #[in] iImage: i32, #[in] iOverlay: i32) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_Write(himl: HIMAGELIST, pstm: IStream) -> BOOL;
+        extern fn ImageList_Write(#[in] himl: HIMAGELIST, #[in] pstm: IStream) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_WriteEx(himl: HIMAGELIST, dwFlags: u32, pstm: IStream) -> HRESULT;
+        extern fn ImageList_WriteEx(#[in] himl: HIMAGELIST, #[in] dwFlags: DWORD, #[in] pstm: IStream) -> HRESULT;
         #[library("COMCTL32.dll")]
         extern fn InitCommonControls();
         #[library("COMCTL32.dll")]
-        extern fn InitCommonControlsEx(picce: *const INITCOMMONCONTROLSEX) -> BOOL;
+        extern fn InitCommonControlsEx(#[in] picce: *const INITCOMMONCONTROLSEX) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn InitMUILanguage(uiLang: LANGID);
         #[library("COMCTL32.dll")]
@@ -853,12 +858,12 @@ mod Windows {
         const LIS_HOTTRACK: i32 = 8;
         const LIS_VISITED: i32 = 4;
         struct LITEM {
-            mask: u32,
+            mask: UINT,
             iLink: i32,
-            state: u32,
-            stateMask: u32,
-            szID: [u16; 48],
-            szUrl: [u16; 2084],
+            state: UINT,
+            stateMask: UINT,
+            szID: [WCHAR; 48],
+            szUrl: [WCHAR; 2084],
         }
         const LM_GETIDEALHEIGHT: i32 = 1793;
         const LM_GETIDEALSIZE: i32 = 1793;
@@ -901,7 +906,7 @@ mod Windows {
         type LPNMCBEENDEDITA = *mut NMCBEENDEDITA;
         type LPNMCBEENDEDITW = *mut NMCBEENDEDITW;
         type LPNMCHAR = *mut NMCHAR;
-        type LPNMCLICK = LPNMMOUSE;
+        type LPNMCLICK = *mut NMMOUSE;
         type LPNMCUSTOMDRAW = *mut NMCUSTOMDRAW;
         type LPNMCUSTOMSPLITRECTINFO = *mut NMCUSTOMSPLITRECTINFO;
         type LPNMCUSTOMTEXT = *mut NMCUSTOMTEXT;
@@ -979,9 +984,9 @@ mod Windows {
         type LPREBARBANDINFOA = *mut REBARBANDINFOA;
         type LPREBARBANDINFOW = *mut REBARBANDINFOW;
         type LPREBARINFO = *mut REBARINFO;
-        const LPSTR_TEXTCALLBACK: PSTR = -1;
-        const LPSTR_TEXTCALLBACKA: PSTR = -1;
-        const LPSTR_TEXTCALLBACKW: PWSTR = -1;
+        const LPSTR_TEXTCALLBACK: LPSTR = -1;
+        const LPSTR_TEXTCALLBACKA: LPSTR = -1;
+        const LPSTR_TEXTCALLBACKW: LPWSTR = -1;
         type LPTBADDBITMAP = *mut TBADDBITMAP;
         type LPTBBUTTON = *mut TBBUTTON;
         type LPTBBUTTONINFOA = *mut TBBUTTONINFOA;
@@ -1004,7 +1009,7 @@ mod Windows {
         type LPTVINSERTSTRUCTA = *mut TVINSERTSTRUCTA;
         type LPTVINSERTSTRUCTW = *mut TVINSERTSTRUCTW;
         type LPTVITEMA = *mut TVITEMA;
-        type LPTVITEMEX = LPTVITEMEXA;
+        type LPTVITEMEX = *mut TVITEMEXA;
         type LPTVITEMEXA = *mut TVITEMEXA;
         type LPTVITEMEXW = *mut TVITEMEXW;
         type LPTVITEMW = *mut TVITEMW;
@@ -1025,18 +1030,18 @@ mod Windows {
         const LVBKIF_STYLE_TILE: i32 = 16;
         const LVBKIF_TYPE_WATERMARK: i32 = 268435456;
         struct LVBKIMAGEA {
-            ulFlags: u32,
+            ulFlags: ULONG,
             hbm: HBITMAP,
-            pszImage: PSTR,
-            cchImageMax: u32,
+            pszImage: LPSTR,
+            cchImageMax: UINT,
             xOffsetPercent: i32,
             yOffsetPercent: i32,
         }
         struct LVBKIMAGEW {
-            ulFlags: u32,
+            ulFlags: ULONG,
             hbm: HBITMAP,
-            pszImage: PWSTR,
-            cchImageMax: u32,
+            pszImage: LPWSTR,
+            cchImageMax: UINT,
             xOffsetPercent: i32,
             yOffsetPercent: i32,
         }
@@ -1071,10 +1076,10 @@ mod Windows {
         const LVCF_TEXT: i32 = 4;
         const LVCF_WIDTH: i32 = 2;
         struct LVCOLUMNA {
-            mask: u32,
+            mask: UINT,
             fmt: i32,
             cx: i32,
-            pszText: PSTR,
+            pszText: LPSTR,
             cchTextMax: i32,
             iSubItem: i32,
             iImage: i32,
@@ -1088,10 +1093,10 @@ mod Windows {
         #[arch(X86)]
         const LVCOLUMNA_V1_SIZE: u32 = 24;
         struct LVCOLUMNW {
-            mask: u32,
+            mask: UINT,
             fmt: i32,
             cx: i32,
-            pszText: PWSTR,
+            pszText: LPWSTR,
             cchTextMax: i32,
             iSubItem: i32,
             iImage: i32,
@@ -1112,18 +1117,18 @@ mod Windows {
         const LVFIF_STATE: i32 = 2;
         const LVFIF_TEXT: i32 = 1;
         struct LVFINDINFOA {
-            flags: u32,
-            psz: PCSTR,
+            flags: UINT,
+            psz: LPCSTR,
             lParam: LPARAM,
             pt: POINT,
-            vkDirection: u32,
+            vkDirection: UINT,
         }
         struct LVFINDINFOW {
-            flags: u32,
-            psz: PCWSTR,
+            flags: UINT,
+            psz: LPCWSTR,
             lParam: LPARAM,
             pt: POINT,
-            vkDirection: u32,
+            vkDirection: UINT,
         }
         const LVFIS_FOCUSED: i32 = 1;
         const LVFI_NEARESTXY: i32 = 64;
@@ -1133,18 +1138,18 @@ mod Windows {
         const LVFI_SUBSTRING: i32 = 4;
         const LVFI_WRAP: i32 = 32;
         struct LVFOOTERINFO {
-            mask: u32,
-            pszText: PWSTR,
+            mask: UINT,
+            pszText: LPWSTR,
             cchTextMax: i32,
-            cItems: u32,
+            cItems: UINT,
         }
         struct LVFOOTERITEM {
-            mask: u32,
+            mask: UINT,
             iItem: i32,
-            pszText: PWSTR,
+            pszText: LPWSTR,
             cchTextMax: i32,
-            state: u32,
-            stateMask: u32,
+            state: UINT,
+            stateMask: UINT,
         }
         const LVGA_FOOTER_CENTER: i32 = 16;
         const LVGA_FOOTER_LEFT: i32 = 8;
@@ -1177,38 +1182,38 @@ mod Windows {
         const LVGMF_NONE: i32 = 0;
         const LVGMF_TEXTCOLOR: i32 = 4;
         struct LVGROUP {
-            cbSize: u32,
-            mask: u32,
-            pszHeader: PWSTR,
+            cbSize: UINT,
+            mask: UINT,
+            pszHeader: LPWSTR,
             cchHeader: i32,
-            pszFooter: PWSTR,
+            pszFooter: LPWSTR,
             cchFooter: i32,
             iGroupId: i32,
-            stateMask: u32,
-            state: u32,
-            uAlign: u32,
-            pszSubtitle: PWSTR,
-            cchSubtitle: u32,
-            pszTask: PWSTR,
-            cchTask: u32,
-            pszDescriptionTop: PWSTR,
-            cchDescriptionTop: u32,
-            pszDescriptionBottom: PWSTR,
-            cchDescriptionBottom: u32,
+            stateMask: UINT,
+            state: UINT,
+            uAlign: UINT,
+            pszSubtitle: LPWSTR,
+            cchSubtitle: UINT,
+            pszTask: LPWSTR,
+            cchTask: UINT,
+            pszDescriptionTop: LPWSTR,
+            cchDescriptionTop: UINT,
+            pszDescriptionBottom: LPWSTR,
+            cchDescriptionBottom: UINT,
             iTitleImage: i32,
             iExtendedImage: i32,
             iFirstItem: i32,
-            cItems: u32,
-            pszSubsetTitle: PWSTR,
-            cchSubsetTitle: u32,
+            cItems: UINT,
+            pszSubsetTitle: LPWSTR,
+            cchSubsetTitle: UINT,
         }
         struct LVGROUPMETRICS {
-            cbSize: u32,
-            mask: u32,
-            Left: u32,
-            Top: u32,
-            Right: u32,
-            Bottom: u32,
+            cbSize: UINT,
+            mask: UINT,
+            Left: UINT,
+            Top: UINT,
+            Right: UINT,
+            Bottom: UINT,
             crLeft: COLORREF,
             crTop: COLORREF,
             crRight: COLORREF,
@@ -1231,7 +1236,7 @@ mod Windows {
         const LVGS_SUBSETLINKFOCUSED: i32 = 128;
         struct LVHITTESTINFO {
             pt: POINT,
-            flags: u32,
+            flags: UINT,
             iItem: i32,
             iSubItem: i32,
             iGroup: i32,
@@ -1275,10 +1280,10 @@ mod Windows {
             lvGroup: LVGROUP,
         }
         struct LVINSERTMARK {
-            cbSize: u32,
-            dwFlags: u32,
+            cbSize: UINT,
+            dwFlags: DWORD,
             iItem: i32,
-            dwReserved: u32,
+            dwReserved: DWORD,
         }
         const LVIR_BOUNDS: i32 = 0;
         const LVIR_ICON: i32 = 1;
@@ -1293,18 +1298,18 @@ mod Windows {
         const LVIS_SELECTED: i32 = 2;
         const LVIS_STATEIMAGEMASK: i32 = 61440;
         struct LVITEMA {
-            mask: u32,
+            mask: UINT,
             iItem: i32,
             iSubItem: i32,
-            state: u32,
-            stateMask: u32,
-            pszText: PSTR,
+            state: UINT,
+            stateMask: UINT,
+            pszText: LPSTR,
             cchTextMax: i32,
             iImage: i32,
             lParam: LPARAM,
             iIndent: i32,
             iGroupId: i32,
-            cColumns: u32,
+            cColumns: UINT,
             puColumns: PUINT,
             piColFmt: *mut i32,
             iGroup: i32,
@@ -1322,18 +1327,18 @@ mod Windows {
             iGroup: i32,
         }
         struct LVITEMW {
-            mask: u32,
+            mask: UINT,
             iItem: i32,
             iSubItem: i32,
-            state: u32,
-            stateMask: u32,
-            pszText: PWSTR,
+            state: UINT,
+            stateMask: UINT,
+            pszText: LPWSTR,
             cchTextMax: i32,
             iImage: i32,
             lParam: LPARAM,
             iIndent: i32,
             iGroupId: i32,
-            cColumns: u32,
+            cColumns: UINT,
             puColumns: PUINT,
             piColFmt: *mut i32,
             iGroup: i32,
@@ -1576,9 +1581,9 @@ mod Windows {
         const LVSCW_AUTOSIZE: i32 = -1;
         const LVSCW_AUTOSIZE_USEHEADER: i32 = -2;
         struct LVSETINFOTIP {
-            cbSize: u32,
-            dwFlags: u32,
-            pszText: PWSTR,
+            cbSize: UINT,
+            dwFlags: DWORD,
+            pszText: LPWSTR,
             iItem: i32,
             iSubItem: i32,
         }
@@ -1641,9 +1646,9 @@ mod Windows {
         const LVS_TYPEMASK: i32 = 3;
         const LVS_TYPESTYLEMASK: i32 = 64512;
         struct LVTILEINFO {
-            cbSize: u32,
+            cbSize: UINT,
             iItem: i32,
-            cColumns: u32,
+            cColumns: UINT,
             puColumns: PUINT,
             piColFmt: *mut i32,
         }
@@ -1652,9 +1657,9 @@ mod Windows {
         #[arch(X86)]
         const LVTILEINFO_V5_SIZE: u32 = 16;
         struct LVTILEVIEWINFO {
-            cbSize: u32,
-            dwMask: u32,
-            dwFlags: u32,
+            cbSize: UINT,
+            dwMask: DWORD,
+            dwFlags: DWORD,
             sizeTile: SIZE,
             cLines: i32,
             rcLabelMargin: RECT,
@@ -1680,10 +1685,14 @@ mod Windows {
         const LWS_TRANSPARENT: i32 = 1;
         const LWS_USECUSTOMTEXT: i32 = 16;
         const LWS_USEVISUALSTYLE: i32 = 8;
+        #[arch(X64 | Arm64)]
+        const L_MAX_URL_LENGTH: u64 = 2084;
+        #[arch(X86)]
+        const L_MAX_URL_LENGTH: u32 = 2084;
         #[library("COMCTL32.dll")]
-        extern fn LoadIconMetric(hinst: HINSTANCE, pszName: PCWSTR, lims: i32, phico: *mut HICON) -> HRESULT;
+        extern fn LoadIconMetric(hinst: HINSTANCE, pszName: PCWSTR, lims: i32, #[out] phico: *mut HICON) -> HRESULT;
         #[library("COMCTL32.dll")]
-        extern fn LoadIconWithScaleDown(hinst: HINSTANCE, pszName: PCWSTR, cx: i32, cy: i32, phico: *mut HICON) -> HRESULT;
+        extern fn LoadIconWithScaleDown(hinst: HINSTANCE, pszName: PCWSTR, cx: i32, cy: i32, #[out] phico: *mut HICON) -> HRESULT;
         const MAX_LINKID_TEXT: i32 = 48;
         const MCGIF_DATE: i32 = 1;
         const MCGIF_NAME: i32 = 4;
@@ -1698,9 +1707,9 @@ mod Windows {
         const MCGIP_NEXT: i32 = 1;
         const MCGIP_PREV: i32 = 2;
         struct MCGRIDINFO {
-            cbSize: u32,
-            dwPart: u32,
-            dwFlags: u32,
+            cbSize: UINT,
+            dwPart: DWORD,
+            dwFlags: DWORD,
             iCalendar: i32,
             iRow: i32,
             iCol: i32,
@@ -1709,12 +1718,12 @@ mod Windows {
             stEnd: SYSTEMTIME,
             rc: RECT,
             pszName: PWSTR,
-            cchName: usize,
+            cchName: size_t,
         }
         struct MCHITTESTINFO {
-            cbSize: u32,
+            cbSize: UINT,
             pt: POINT,
-            uHit: u32,
+            uHit: UINT,
             st: SYSTEMTIME,
             rc: RECT,
             iOffset: i32,
@@ -1818,7 +1827,7 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn MakeDragList(hLB: HWND) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn MenuHelp(uMsg: u32, wParam: WPARAM, lParam: LPARAM, hMainMenu: HMENU, hInst: HINSTANCE, hwndStatus: HWND, #[in] lpwIDs: *mut u32);
+        extern fn MenuHelp(uMsg: UINT, wParam: WPARAM, lParam: LPARAM, hMainMenu: HMENU, hInst: HINSTANCE, hwndStatus: HWND, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(2 + 2n && n >= 1)", "_Inexpressible_(2 + 2n && n >= 1)")] #[in] lpwIDs: *mut UINT);
         const NFS_ALL: i32 = 16;
         const NFS_BUTTON: i32 = 8;
         const NFS_EDIT: i32 = 1;
@@ -1831,7 +1840,7 @@ mod Windows {
         }
         struct NMBCHOTITEM {
             hdr: NMHDR,
-            dwFlags: u32,
+            dwFlags: DWORD,
         }
         struct NMCBEDRAGBEGINA {
             hdr: NMHDR,
@@ -1841,7 +1850,7 @@ mod Windows {
         struct NMCBEDRAGBEGINW {
             hdr: NMHDR,
             iItemid: i32,
-            szText: [u16; 260],
+            szText: [WCHAR; 260],
         }
         struct NMCBEENDEDITA {
             hdr: NMHDR,
@@ -1854,14 +1863,14 @@ mod Windows {
             hdr: NMHDR,
             fChanged: BOOL,
             iNewSelection: i32,
-            szText: [u16; 260],
+            szText: [WCHAR; 260],
             iWhy: i32,
         }
         struct NMCHAR {
             hdr: NMHDR,
-            ch: u32,
-            dwItemPrev: u32,
-            dwItemNext: u32,
+            ch: UINT,
+            dwItemPrev: DWORD,
+            dwItemNext: DWORD,
         }
         type NMCLICK = NMMOUSE;
         struct NMCOMBOBOXEXA {
@@ -1874,11 +1883,11 @@ mod Windows {
         }
         struct NMCUSTOMDRAW {
             hdr: NMHDR,
-            dwDrawStage: u32,
+            dwDrawStage: DWORD,
             hdc: HDC,
             rc: RECT,
-            dwItemSpec: usize,
-            uItemState: u32,
+            dwItemSpec: DWORD_PTR,
+            uItemState: UINT,
             lItemlParam: LPARAM,
         }
         struct NMCUSTOMSPLITRECTINFO {
@@ -1890,63 +1899,63 @@ mod Windows {
         struct NMCUSTOMTEXT {
             hdr: NMHDR,
             hDC: HDC,
-            lpString: PCWSTR,
+            lpString: LPCWSTR,
             nCount: i32,
             lpRect: LPRECT,
-            uFormat: u32,
+            uFormat: UINT,
             fLink: BOOL,
         }
         struct NMDATETIMECHANGE {
             nmhdr: NMHDR,
-            dwFlags: u32,
+            dwFlags: DWORD,
             st: SYSTEMTIME,
         }
         struct NMDATETIMEFORMATA {
             nmhdr: NMHDR,
-            pszFormat: PCSTR,
+            pszFormat: LPCSTR,
             st: SYSTEMTIME,
-            pszDisplay: PCSTR,
-            szDisplay: [i8; 64],
+            pszDisplay: LPCSTR,
+            szDisplay: [CHAR; 64],
         }
         struct NMDATETIMEFORMATQUERYA {
             nmhdr: NMHDR,
-            pszFormat: PCSTR,
+            pszFormat: LPCSTR,
             szMax: SIZE,
         }
         struct NMDATETIMEFORMATQUERYW {
             nmhdr: NMHDR,
-            pszFormat: PCWSTR,
+            pszFormat: LPCWSTR,
             szMax: SIZE,
         }
         struct NMDATETIMEFORMATW {
             nmhdr: NMHDR,
-            pszFormat: PCWSTR,
+            pszFormat: LPCWSTR,
             st: SYSTEMTIME,
-            pszDisplay: PCWSTR,
-            szDisplay: [u16; 64],
+            pszDisplay: LPCWSTR,
+            szDisplay: [WCHAR; 64],
         }
         struct NMDATETIMESTRINGA {
             nmhdr: NMHDR,
-            pszUserString: PCSTR,
+            pszUserString: LPCSTR,
             st: SYSTEMTIME,
-            dwFlags: u32,
+            dwFlags: DWORD,
         }
         struct NMDATETIMESTRINGW {
             nmhdr: NMHDR,
-            pszUserString: PCWSTR,
+            pszUserString: LPCWSTR,
             st: SYSTEMTIME,
-            dwFlags: u32,
+            dwFlags: DWORD,
         }
         struct NMDATETIMEWMKEYDOWNA {
             nmhdr: NMHDR,
             nVirtKey: i32,
-            pszFormat: PCSTR,
+            pszFormat: LPCSTR,
             st: SYSTEMTIME,
         }
         struct NMDATETIMEWMKEYDOWNW {
             nmhdr: NMHDR,
             nVirtKey: i32,
-            pszFormat: PCWSTR,
+            pszFormat: LPCWSTR,
             st: SYSTEMTIME,
         }
         struct NMDAYSTATE {
@@ -1958,8 +1967,8 @@ mod Windows {
         struct NMHDDISPINFOA {
             hdr: NMHDR,
             iItem: i32,
-            mask: u32,
-            pszText: PSTR,
+            mask: UINT,
+            pszText: LPSTR,
             cchTextMax: i32,
             iImage: i32,
             lParam: LPARAM,
@@ -1967,15 +1976,15 @@ mod Windows {
         struct NMHDDISPINFOW {
             hdr: NMHDR,
             iItem: i32,
-            mask: u32,
-            pszText: PWSTR,
+            mask: UINT,
+            pszText: LPWSTR,
             cchTextMax: i32,
             iImage: i32,
             lParam: LPARAM,
         }
         struct NMHDFILTERBTNCLICK {
             hdr: NMHDR,
-            iItem: i32,
+            iItem: INT,
             rc: RECT,
         }
         struct NMHEADERA {
@@ -1999,17 +2008,17 @@ mod Windows {
             hdr: NMHDR,
             iItem: i32,
             iSubItem: i32,
-            uNewState: u32,
-            uOldState: u32,
-            uChanged: u32,
+            uNewState: UINT,
+            uOldState: UINT,
+            uChanged: UINT,
             ptAction: POINT,
             lParam: LPARAM,
-            uKeyFlags: u32,
+            uKeyFlags: UINT,
         }
         struct NMKEY {
             hdr: NMHDR,
-            nVKey: u32,
-            uFlags: u32,
+            nVKey: UINT,
+            uFlags: UINT,
         }
         struct NMLINK {
             hdr: NMHDR,
@@ -2019,9 +2028,9 @@ mod Windows {
             hdr: NMHDR,
             iItem: i32,
             iSubItem: i32,
-            uNewState: u32,
-            uOldState: u32,
-            uChanged: u32,
+            uNewState: UINT,
+            uOldState: UINT,
+            uChanged: UINT,
             ptAction: POINT,
             lParam: LPARAM,
         }
@@ -2035,14 +2044,14 @@ mod Windows {
             clrText: COLORREF,
             clrTextBk: COLORREF,
             iSubItem: i32,
-            dwItemType: u32,
+            dwItemType: DWORD,
             clrFace: COLORREF,
             iIconEffect: i32,
             iIconPhase: i32,
             iPartId: i32,
             iStateId: i32,
             rcText: RECT,
-            uAlign: u32,
+            uAlign: UINT,
         }
         #[arch(X64 | Arm64)]
         const NMLVCUSTOMDRAW_V3_SIZE: u64 = 88;
@@ -2058,8 +2067,8 @@ mod Windows {
         }
         struct NMLVEMPTYMARKUP {
             hdr: NMHDR,
-            dwFlags: u32,
-            szMarkup: [u16; 2084],
+            dwFlags: DWORD,
+            szMarkup: [WCHAR; 2084],
         }
         struct NMLVFINDITEMA {
             hdr: NMHDR,
@@ -2073,8 +2082,8 @@ mod Windows {
         }
         struct NMLVGETINFOTIPA {
             hdr: NMHDR,
-            dwFlags: u32,
-            pszText: PSTR,
+            dwFlags: DWORD,
+            pszText: LPSTR,
             cchTextMax: i32,
             iItem: i32,
             iSubItem: i32,
@@ -2082,8 +2091,8 @@ mod Windows {
         }
         struct NMLVGETINFOTIPW {
             hdr: NMHDR,
-            dwFlags: u32,
-            pszText: PWSTR,
+            dwFlags: DWORD,
+            pszText: LPWSTR,
             cchTextMax: i32,
             iItem: i32,
             iSubItem: i32,
@@ -2092,8 +2101,8 @@ mod Windows {
         #[packed(1)]
         struct NMLVKEYDOWN {
             hdr: NMHDR,
-            wVKey: u16,
-            flags: u32,
+            wVKey: WORD,
+            flags: UINT,
         }
         struct NMLVLINK {
             hdr: NMHDR,
@@ -2105,8 +2114,8 @@ mod Windows {
             hdr: NMHDR,
             iFrom: i32,
             iTo: i32,
-            uNewState: u32,
-            uOldState: u32,
+            uNewState: UINT,
+            uOldState: UINT,
         }
         struct NMLVSCROLL {
             hdr: NMHDR,
@@ -2115,22 +2124,22 @@ mod Windows {
         }
         struct NMMOUSE {
             hdr: NMHDR,
-            dwItemSpec: usize,
-            dwItemData: usize,
+            dwItemSpec: DWORD_PTR,
+            dwItemData: DWORD_PTR,
             pt: POINT,
             dwHitInfo: LPARAM,
         }
         struct NMOBJECTNOTIFY {
             hdr: NMHDR,
             iItem: i32,
-            piid: *const GUID,
+            piid: *const IID,
             pObject: *mut void,
             hResult: HRESULT,
-            dwFlags: u32,
+            dwFlags: DWORD,
         }
         struct NMPGCALCSIZE {
             hdr: NMHDR,
-            dwFlag: u32,
+            dwFlag: DWORD,
             iWidth: i32,
             iHeight: i32,
         }
@@ -2138,12 +2147,12 @@ mod Windows {
             hdr: NMHDR,
             idOld: i32,
             idNew: i32,
-            dwFlags: u32,
+            dwFlags: DWORD,
         }
         #[packed(1)]
         struct NMPGSCROLL {
             hdr: NMHDR,
-            fwKeys: u16,
+            fwKeys: WORD,
             rcParent: RECT,
             iDir: i32,
             iXpos: i32,
@@ -2158,33 +2167,33 @@ mod Windows {
         }
         struct NMREBAR {
             hdr: NMHDR,
-            dwMask: u32,
-            uBand: u32,
-            fStyle: u32,
-            wID: u32,
+            dwMask: DWORD,
+            uBand: UINT,
+            fStyle: UINT,
+            wID: UINT,
             lParam: LPARAM,
         }
         struct NMREBARAUTOBREAK {
             hdr: NMHDR,
-            uBand: u32,
-            wID: u32,
+            uBand: UINT,
+            wID: UINT,
             lParam: LPARAM,
-            uMsg: u32,
-            fStyleCurrent: u32,
+            uMsg: UINT,
+            fStyleCurrent: UINT,
             fAutoBreak: BOOL,
         }
         struct NMREBARCHEVRON {
             hdr: NMHDR,
-            uBand: u32,
-            wID: u32,
+            uBand: UINT,
+            wID: UINT,
             lParam: LPARAM,
             rc: RECT,
             lParamNM: LPARAM,
         }
         struct NMREBARCHILDSIZE {
             hdr: NMHDR,
-            uBand: u32,
-            wID: u32,
+            uBand: UINT,
+            wID: UINT,
             rcChild: RECT,
             rcBand: RECT,
         }
@@ -2222,32 +2231,32 @@ mod Windows {
         }
         struct NMTBDISPINFOA {
             hdr: NMHDR,
-            dwMask: u32,
+            dwMask: DWORD,
             idCommand: i32,
-            lParam: usize,
+            lParam: DWORD_PTR,
             iImage: i32,
-            pszText: PSTR,
+            pszText: LPSTR,
             cchText: i32,
         }
         struct NMTBDISPINFOW {
             hdr: NMHDR,
-            dwMask: u32,
+            dwMask: DWORD,
             idCommand: i32,
-            lParam: usize,
+            lParam: DWORD_PTR,
             iImage: i32,
-            pszText: PWSTR,
+            pszText: LPWSTR,
             cchText: i32,
         }
         struct NMTBGETINFOTIPA {
             hdr: NMHDR,
-            pszText: PSTR,
+            pszText: LPSTR,
             cchTextMax: i32,
             iItem: i32,
             lParam: LPARAM,
         }
         struct NMTBGETINFOTIPW {
             hdr: NMHDR,
-            pszText: PWSTR,
+            pszText: LPWSTR,
             cchTextMax: i32,
             iItem: i32,
             lParam: LPARAM,
@@ -2256,13 +2265,13 @@ mod Windows {
             hdr: NMHDR,
             idOld: i32,
             idNew: i32,
-            dwFlags: u32,
+            dwFlags: DWORD,
         }
         struct NMTBRESTORE {
             hdr: NMHDR,
-            pData: *mut u32,
-            pCurrent: *mut u32,
-            cbData: u32,
+            pData: *mut DWORD,
+            pCurrent: *mut DWORD,
+            cbData: UINT,
             iItem: i32,
             cButtons: i32,
             cbBytesPerRecord: i32,
@@ -2270,9 +2279,9 @@ mod Windows {
         }
         struct NMTBSAVE {
             hdr: NMHDR,
-            pData: *mut u32,
-            pCurrent: *mut u32,
-            cbData: u32,
+            pData: *mut DWORD,
+            pCurrent: *mut DWORD,
+            cbData: UINT,
             iItem: i32,
             cButtons: i32,
             tbButton: TBBUTTON,
@@ -2280,15 +2289,15 @@ mod Windows {
         #[packed(1)]
         struct NMTCKEYDOWN {
             hdr: NMHDR,
-            wVKey: u16,
-            flags: u32,
+            wVKey: WORD,
+            flags: UINT,
         }
         struct NMTOOLBARA {
             hdr: NMHDR,
             iItem: i32,
             tbButton: TBBUTTON,
             cchText: i32,
-            pszText: PSTR,
+            pszText: LPSTR,
             rcButton: RECT,
         }
         struct NMTOOLBARW {
@@ -2296,7 +2305,7 @@ mod Windows {
             iItem: i32,
             tbButton: TBBUTTON,
             cchText: i32,
-            pszText: PWSTR,
+            pszText: LPWSTR,
             rcButton: RECT,
         }
         struct NMTOOLTIPSCREATED {
@@ -2305,33 +2314,33 @@ mod Windows {
         }
         struct NMTRBTHUMBPOSCHANGING {
             hdr: NMHDR,
-            dwPos: u32,
+            dwPos: DWORD,
             nReason: i32,
         }
         struct NMTREEVIEWA {
             hdr: NMHDR,
-            action: u32,
+            action: UINT,
             itemOld: TVITEMA,
             itemNew: TVITEMA,
             ptDrag: POINT,
         }
         struct NMTREEVIEWW {
             hdr: NMHDR,
-            action: u32,
+            action: UINT,
             itemOld: TVITEMW,
             itemNew: TVITEMW,
             ptDrag: POINT,
         }
         struct NMTTCUSTOMDRAW {
             nmcd: NMCUSTOMDRAW,
-            uDrawFlags: u32,
+            uDrawFlags: UINT,
         }
         struct NMTTDISPINFOA {
             hdr: NMHDR,
-            lpszText: PSTR,
+            lpszText: LPSTR,
             szText: [i8; 80],
             hinst: HINSTANCE,
-            uFlags: u32,
+            uFlags: UINT,
             lParam: LPARAM,
         }
         #[arch(X64 | Arm64)]
@@ -2340,10 +2349,10 @@ mod Windows {
         const NMTTDISPINFOA_V1_SIZE: u32 = 104;
         struct NMTTDISPINFOW {
             hdr: NMHDR,
-            lpszText: PWSTR,
-            szText: [u16; 80],
+            lpszText: LPWSTR,
+            szText: [WCHAR; 80],
             hinst: HINSTANCE,
-            uFlags: u32,
+            uFlags: UINT,
             lParam: LPARAM,
         }
         #[arch(X64 | Arm64)]
@@ -2360,7 +2369,7 @@ mod Windows {
             hr: HRESULT,
             hItem: HTREEITEM,
             lParam: LPARAM,
-            dwRetFlags: u32,
+            dwRetFlags: DWORD,
             iRetImageIndex: i32,
         }
         struct NMTVCUSTOMDRAW {
@@ -2391,31 +2400,31 @@ mod Windows {
         }
         struct NMTVGETINFOTIPA {
             hdr: NMHDR,
-            pszText: PSTR,
+            pszText: LPSTR,
             cchTextMax: i32,
             hItem: HTREEITEM,
             lParam: LPARAM,
         }
         struct NMTVGETINFOTIPW {
             hdr: NMHDR,
-            pszText: PWSTR,
+            pszText: LPWSTR,
             cchTextMax: i32,
             hItem: HTREEITEM,
             lParam: LPARAM,
         }
         struct NMTVITEMCHANGE {
             hdr: NMHDR,
-            uChanged: u32,
+            uChanged: UINT,
             hItem: HTREEITEM,
-            uStateNew: u32,
-            uStateOld: u32,
+            uStateNew: UINT,
+            uStateOld: UINT,
             lParam: LPARAM,
         }
         #[packed(1)]
         struct NMTVKEYDOWN {
             hdr: NMHDR,
-            wVKey: u16,
-            flags: u32,
+            wVKey: WORD,
+            flags: UINT,
         }
         struct NMTVSTATEIMAGECHANGING {
             hdr: NMHDR,
@@ -2430,8 +2439,8 @@ mod Windows {
         }
         struct NMVIEWCHANGE {
             nmhdr: NMHDR,
-            dwOldView: u32,
-            dwNewView: u32,
+            dwOldView: DWORD,
+            dwNewView: DWORD,
         }
         const NM_CHAR: u32 = 4294967278;
         const NM_CLICK: u32 = 4294967294;
@@ -2498,7 +2507,7 @@ mod Windows {
         extern fn PFNLVCOMPARE(param0: LPARAM, param1: LPARAM, param2: LPARAM) -> i32;
         extern fn PFNLVGROUPCOMPARE(param0: i32, param1: i32, param2: *mut void) -> i32;
         extern fn PFNTVCOMPARE(lParam1: LPARAM, lParam2: LPARAM, lParamSort: LPARAM) -> i32;
-        extern fn PFTASKDIALOGCALLBACK(hwnd: HWND, msg: u32, wParam: WPARAM, lParam: LPARAM, lpRefData: isize) -> HRESULT;
+        extern fn PFTASKDIALOGCALLBACK(#[in] hwnd: HWND, #[in] msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[in] lpRefData: LONG_PTR) -> HRESULT;
         const PGB_BOTTOMORRIGHT: i32 = 1;
         const PGB_TOPORLEFT: i32 = 0;
         const PGF_CALCHEIGHT: i32 = 2;
@@ -2599,7 +2608,7 @@ mod Windows {
         const RBBS_VARIABLEHEIGHT: i32 = 64;
         struct RBHITTESTINFO {
             pt: POINT,
-            flags: u32,
+            flags: UINT,
             iBand: i32,
         }
         const RBHT_CAPTION: i32 = 2;
@@ -2685,28 +2694,28 @@ mod Windows {
         const RB_SHOWBAND: i32 = 1059;
         const RB_SIZETORECT: i32 = 1047;
         struct REBARBANDINFOA {
-            cbSize: u32,
-            fMask: u32,
-            fStyle: u32,
+            cbSize: UINT,
+            fMask: UINT,
+            fStyle: UINT,
             clrFore: COLORREF,
             clrBack: COLORREF,
-            lpText: PSTR,
-            cch: u32,
+            lpText: LPSTR,
+            cch: UINT,
             iImage: i32,
             hwndChild: HWND,
-            cxMinChild: u32,
-            cyMinChild: u32,
-            cx: u32,
+            cxMinChild: UINT,
+            cyMinChild: UINT,
+            cx: UINT,
             hbmBack: HBITMAP,
-            wID: u32,
-            cyChild: u32,
-            cyMaxChild: u32,
-            cyIntegral: u32,
-            cxIdeal: u32,
+            wID: UINT,
+            cyChild: UINT,
+            cyMaxChild: UINT,
+            cyIntegral: UINT,
+            cxIdeal: UINT,
             lParam: LPARAM,
-            cxHeader: u32,
+            cxHeader: UINT,
             rcChevronLocation: RECT,
-            uChevronState: u32,
+            uChevronState: UINT,
         }
         #[arch(X64 | Arm64)]
         const REBARBANDINFOA_V3_SIZE: u64 = 76;
@@ -2717,28 +2726,28 @@ mod Windows {
         #[arch(X86)]
         const REBARBANDINFOA_V6_SIZE: u32 = 80;
         struct REBARBANDINFOW {
-            cbSize: u32,
-            fMask: u32,
-            fStyle: u32,
+            cbSize: UINT,
+            fMask: UINT,
+            fStyle: UINT,
             clrFore: COLORREF,
             clrBack: COLORREF,
-            lpText: PWSTR,
-            cch: u32,
+            lpText: LPWSTR,
+            cch: UINT,
             iImage: i32,
             hwndChild: HWND,
-            cxMinChild: u32,
-            cyMinChild: u32,
-            cx: u32,
+            cxMinChild: UINT,
+            cyMinChild: UINT,
+            cx: UINT,
             hbmBack: HBITMAP,
-            wID: u32,
-            cyChild: u32,
-            cyMaxChild: u32,
-            cyIntegral: u32,
-            cxIdeal: u32,
+            wID: UINT,
+            cyChild: UINT,
+            cyMaxChild: UINT,
+            cyIntegral: UINT,
+            cxIdeal: UINT,
             lParam: LPARAM,
-            cxHeader: u32,
+            cxHeader: UINT,
             rcChevronLocation: RECT,
-            uChevronState: u32,
+            uChevronState: UINT,
         }
         #[arch(X64 | Arm64)]
         const REBARBANDINFOW_V3_SIZE: u64 = 76;
@@ -2763,12 +2772,13 @@ mod Windows {
         #[encoding("utf-16")]
         const REBARCLASSNAMEW: String = "ReBarWindow32";
         struct REBARINFO {
-            cbSize: u32,
-            fMask: u32,
+            cbSize: UINT,
+            fMask: UINT,
             himl: HIMAGELIST,
         }
+        #[success(return != 0)]
         #[library("COMCTL32.dll")]
-        extern fn RemoveWindowSubclass(hWnd: HWND, pfnSubclass: SUBCLASSPROC, uIdSubclass: usize) -> BOOL;
+        extern fn RemoveWindowSubclass(#[in] hWnd: HWND, #[in] pfnSubclass: SUBCLASSPROC, #[in] uIdSubclass: UINT_PTR) -> BOOL;
         const SBARS_SIZEGRIP: i32 = 256;
         const SBARS_TOOLTIPS: i32 = 2048;
         const SBN_FIRST: u32 = 4294966416;
@@ -2829,14 +2839,15 @@ mod Windows {
         const STD_REDOW: i32 = 4;
         const STD_REPLACE: i32 = 13;
         const STD_UNDO: i32 = 3;
-        extern fn SUBCLASSPROC(hWnd: HWND, uMsg: u32, wParam: WPARAM, lParam: LPARAM, uIdSubclass: usize, dwRefData: usize) -> LRESULT;
+        extern fn SUBCLASSPROC(hWnd: HWND, uMsg: UINT, wParam: WPARAM, lParam: LPARAM, uIdSubclass: UINT_PTR, dwRefData: DWORD_PTR) -> LRESULT;
+        #[success(return != 0)]
         #[library("COMCTL32.dll")]
-        extern fn SetWindowSubclass(hWnd: HWND, pfnSubclass: SUBCLASSPROC, uIdSubclass: usize, dwRefData: usize) -> BOOL;
+        extern fn SetWindowSubclass(#[in] hWnd: HWND, #[in] pfnSubclass: SUBCLASSPROC, #[in] uIdSubclass: UINT_PTR, #[in] dwRefData: DWORD_PTR) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn ShowHideMenuCtl(hWnd: HWND, uFlags: usize, lpInfo: LPINT) -> BOOL;
+        extern fn ShowHideMenuCtl(#[in] hWnd: HWND, #[in] uFlags: UINT_PTR, #[in] #[null_terminated(entry)] lpInfo: LPINT) -> BOOL;
         #[packed(1)]
         struct TASKDIALOGCONFIG {
-            cbSize: u32,
+            cbSize: UINT,
             hwndParent: HWND,
             hInstance: HINSTANCE,
             dwFlags: TASKDIALOG_FLAGS,
@@ -2848,10 +2859,10 @@ mod Windows {
             },
             pszMainInstruction: PCWSTR,
             pszContent: PCWSTR,
-            cButtons: u32,
+            cButtons: UINT,
             pButtons: *const TASKDIALOG_BUTTON,
             nDefaultButton: i32,
-            cRadioButtons: u32,
+            cRadioButtons: UINT,
             pRadioButtons: *const TASKDIALOG_BUTTON,
             nDefaultRadioButton: i32,
             pszVerificationText: PCWSTR,
@@ -2864,8 +2875,8 @@ mod Windows {
             },
             pszFooter: PCWSTR,
             pfCallback: PFTASKDIALOGCALLBACK,
-            lpCallbackData: isize,
-            cxWidth: u32,
+            lpCallbackData: LONG_PTR,
+            cxWidth: UINT,
         }
         #[packed(1)]
         struct TASKDIALOG_BUTTON {
@@ -2920,51 +2931,51 @@ mod Windows {
         }
         struct TBADDBITMAP {
             hInst: HINSTANCE,
-            nID: usize,
+            nID: UINT_PTR,
         }
         const TBBF_LARGE: i32 = 1;
         #[arch(X64 | Arm64)]
         struct TBBUTTON {
             iBitmap: i32,
             idCommand: i32,
-            fsState: u8,
-            fsStyle: u8,
-            bReserved: [u8; 6],
-            dwData: usize,
-            iString: isize,
+            fsState: BYTE,
+            fsStyle: BYTE,
+            bReserved: [BYTE; 6],
+            dwData: DWORD_PTR,
+            iString: INT_PTR,
         }
         #[arch(X86)]
         struct TBBUTTON {
             iBitmap: i32,
             idCommand: i32,
-            fsState: u8,
-            fsStyle: u8,
-            bReserved: [u8; 2],
-            dwData: usize,
-            iString: isize,
+            fsState: BYTE,
+            fsStyle: BYTE,
+            bReserved: [BYTE; 2],
+            dwData: DWORD_PTR,
+            iString: INT_PTR,
         }
         struct TBBUTTONINFOA {
-            cbSize: u32,
-            dwMask: u32,
+            cbSize: UINT,
+            dwMask: DWORD,
             idCommand: i32,
             iImage: i32,
-            fsState: u8,
-            fsStyle: u8,
-            cx: u16,
-            lParam: usize,
-            pszText: PSTR,
+            fsState: BYTE,
+            fsStyle: BYTE,
+            cx: WORD,
+            lParam: DWORD_PTR,
+            pszText: LPSTR,
             cchText: i32,
         }
         struct TBBUTTONINFOW {
-            cbSize: u32,
-            dwMask: u32,
+            cbSize: UINT,
+            dwMask: DWORD,
             idCommand: i32,
             iImage: i32,
-            fsState: u8,
-            fsStyle: u8,
-            cx: u16,
-            lParam: usize,
-            pszText: PWSTR,
+            fsState: BYTE,
+            fsStyle: BYTE,
+            cx: WORD,
+            lParam: DWORD_PTR,
+            pszText: LPWSTR,
             cchText: i32,
         }
         const TBCDRF_BLENDICON: i32 = 2097152;
@@ -2993,11 +3004,11 @@ mod Windows {
         const TBIMHT_BACKGROUND: i32 = 2;
         struct TBINSERTMARK {
             iButton: i32,
-            dwFlags: u32,
+            dwFlags: DWORD,
         }
         struct TBMETRICS {
-            cbSize: u32,
-            dwMask: u32,
+            cbSize: UINT,
+            dwMask: DWORD,
             cxPad: i32,
             cyPad: i32,
             cxBarPad: i32,
@@ -3084,20 +3095,20 @@ mod Windows {
         const TBN_WRAPHOTITEM: u32 = 4294966572;
         struct TBREPLACEBITMAP {
             hInstOld: HINSTANCE,
-            nIDOld: usize,
+            nIDOld: UINT_PTR,
             hInstNew: HINSTANCE,
-            nIDNew: usize,
+            nIDNew: UINT_PTR,
             nButtons: i32,
         }
         struct TBSAVEPARAMSA {
             hkr: HKEY,
-            pszSubKey: PCSTR,
-            pszValueName: PCSTR,
+            pszSubKey: LPCSTR,
+            pszValueName: LPCSTR,
         }
         struct TBSAVEPARAMSW {
             hkr: HKEY,
-            pszSubKey: PCWSTR,
-            pszValueName: PCWSTR,
+            pszSubKey: LPCWSTR,
+            pszValueName: LPCWSTR,
         }
         const TBSTATE_CHECKED: i32 = 1;
         const TBSTATE_ELLIPSES: i32 = 64;
@@ -3272,7 +3283,7 @@ mod Windows {
         const TB_TOP: i32 = 6;
         struct TCHITTESTINFO {
             pt: POINT,
-            flags: u32,
+            flags: UINT,
         }
         const TCHT_NOWHERE: i32 = 1;
         const TCHT_ONITEM: i32 = 6;
@@ -3286,35 +3297,35 @@ mod Windows {
         const TCIS_BUTTONPRESSED: i32 = 1;
         const TCIS_HIGHLIGHTED: i32 = 2;
         struct TCITEMA {
-            mask: u32,
-            dwState: u32,
-            dwStateMask: u32,
-            pszText: PSTR,
+            mask: UINT,
+            dwState: DWORD,
+            dwStateMask: DWORD,
+            pszText: LPSTR,
             cchTextMax: i32,
             iImage: i32,
             lParam: LPARAM,
         }
         struct TCITEMHEADERA {
-            mask: u32,
-            lpReserved1: u32,
-            lpReserved2: u32,
-            pszText: PSTR,
+            mask: UINT,
+            lpReserved1: UINT,
+            lpReserved2: UINT,
+            pszText: LPSTR,
             cchTextMax: i32,
             iImage: i32,
         }
         struct TCITEMHEADERW {
-            mask: u32,
-            lpReserved1: u32,
-            lpReserved2: u32,
-            pszText: PWSTR,
+            mask: UINT,
+            lpReserved1: UINT,
+            lpReserved2: UINT,
+            pszText: LPWSTR,
             cchTextMax: i32,
             iImage: i32,
         }
         struct TCITEMW {
-            mask: u32,
-            dwState: u32,
-            dwStateMask: u32,
-            pszText: PWSTR,
+            mask: UINT,
+            dwState: DWORD,
+            dwStateMask: DWORD,
+            pszText: LPWSTR,
             cchTextMax: i32,
             iImage: i32,
             lParam: LPARAM,
@@ -3384,10 +3395,10 @@ mod Windows {
         const TCS_TABS: i32 = 0;
         const TCS_TOOLTIPS: i32 = 16384;
         const TCS_VERTICAL: i32 = 128;
-        const TD_ERROR_ICON: PWSTR = 65534;
-        const TD_INFORMATION_ICON: PWSTR = 65533;
-        const TD_SHIELD_ICON: PWSTR = 65532;
-        const TD_WARNING_ICON: PWSTR = 65535;
+        const TD_ERROR_ICON: LPWSTR = 65534;
+        const TD_INFORMATION_ICON: LPWSTR = 65533;
+        const TD_SHIELD_ICON: LPWSTR = 65532;
+        const TD_WARNING_ICON: LPWSTR = 65535;
         #[encoding("ansi")]
         const TOOLBARCLASSNAME: String = "ToolbarWindow32";
         #[encoding("ansi")]
@@ -3423,10 +3434,10 @@ mod Windows {
         const TTF_TRACK: i32 = 32;
         const TTF_TRANSPARENT: i32 = 256;
         struct TTGETTITLE {
-            dwSize: u32,
-            uTitleBitmap: u32,
-            cch: u32,
-            pszTitle: *mut u16,
+            dwSize: DWORD,
+            uTitleBitmap: UINT,
+            cch: UINT,
+            pszTitle: *mut WCHAR,
         }
         struct TTHITTESTINFOA {
             hwnd: HWND,
@@ -3520,13 +3531,13 @@ mod Windows {
         const TTS_NOPREFIX: i32 = 2;
         const TTS_USEVISUALSTYLE: i32 = 256;
         struct TTTOOLINFOA {
-            cbSize: u32,
-            uFlags: u32,
+            cbSize: UINT,
+            uFlags: UINT,
             hwnd: HWND,
-            uId: usize,
+            uId: UINT_PTR,
             rect: RECT,
             hinst: HINSTANCE,
-            lpszText: PSTR,
+            lpszText: LPSTR,
             lParam: LPARAM,
             lpReserved: *mut void,
         }
@@ -3543,13 +3554,13 @@ mod Windows {
         #[arch(X86)]
         const TTTOOLINFOA_V3_SIZE: u32 = 48;
         struct TTTOOLINFOW {
-            cbSize: u32,
-            uFlags: u32,
+            cbSize: UINT,
+            uFlags: UINT,
             hwnd: HWND,
-            uId: usize,
+            uId: UINT_PTR,
             rect: RECT,
             hinst: HINSTANCE,
-            lpszText: PWSTR,
+            lpszText: LPWSTR,
             lParam: LPARAM,
             lpReserved: *mut void,
         }
@@ -3597,7 +3608,7 @@ mod Windows {
         const TVGN_ROOT: i32 = 0;
         struct TVHITTESTINFO {
             pt: POINT,
-            flags: u32,
+            flags: UINT,
             hItem: HTREEITEM,
         }
         const TVHT_ABOVE: i32 = 256;
@@ -3665,11 +3676,11 @@ mod Windows {
         const TVIS_STATEIMAGEMASK: i32 = 61440;
         const TVIS_USERMASK: i32 = 61440;
         struct TVITEMA {
-            mask: u32,
+            mask: UINT,
             hItem: HTREEITEM,
-            state: u32,
-            stateMask: u32,
-            pszText: PSTR,
+            state: UINT,
+            stateMask: UINT,
+            pszText: LPSTR,
             cchTextMax: i32,
             iImage: i32,
             iSelectedImage: i32,
@@ -3678,35 +3689,35 @@ mod Windows {
         }
         type TVITEMEX = TVITEMEXA;
         struct TVITEMEXA {
-            mask: u32,
+            mask: UINT,
             hItem: HTREEITEM,
-            state: u32,
-            stateMask: u32,
-            pszText: PSTR,
+            state: UINT,
+            stateMask: UINT,
+            pszText: LPSTR,
             cchTextMax: i32,
             iImage: i32,
             iSelectedImage: i32,
             cChildren: i32,
             lParam: LPARAM,
             iIntegral: i32,
-            uStateEx: u32,
+            uStateEx: UINT,
             hwnd: HWND,
             iExpandedImage: i32,
             iReserved: i32,
         }
         struct TVITEMEXW {
-            mask: u32,
+            mask: UINT,
             hItem: HTREEITEM,
-            state: u32,
-            stateMask: u32,
-            pszText: PWSTR,
+            state: UINT,
+            stateMask: UINT,
+            pszText: LPWSTR,
             cchTextMax: i32,
             iImage: i32,
             iSelectedImage: i32,
             cChildren: i32,
             lParam: LPARAM,
             iIntegral: i32,
-            uStateEx: u32,
+            uStateEx: UINT,
             hwnd: HWND,
             iExpandedImage: i32,
             iReserved: i32,
@@ -3716,11 +3727,11 @@ mod Windows {
             TVGIPR_BUTTON = 1,
         }
         struct TVITEMW {
-            mask: u32,
+            mask: UINT,
             hItem: HTREEITEM,
-            state: u32,
-            stateMask: u32,
-            pszText: PWSTR,
+            state: UINT,
+            stateMask: UINT,
+            pszText: LPWSTR,
             cchTextMax: i32,
             iImage: i32,
             iSelectedImage: i32,
@@ -3881,12 +3892,12 @@ mod Windows {
         const TVS_TRACKSELECT: i32 = 512;
         const TV_FIRST: i32 = 4352;
         #[library("COMCTL32.dll")]
-        extern fn TaskDialog(#[opt] hwndOwner: HWND, #[opt] hInstance: HINSTANCE, #[opt] pszWindowTitle: PCWSTR, #[opt] pszMainInstruction: PCWSTR, #[opt] pszContent: PCWSTR, dwCommonButtons: TASKDIALOG_COMMON_BUTTON_FLAGS, #[opt] pszIcon: PCWSTR, #[opt] pnButton: *mut i32) -> HRESULT;
+        extern fn TaskDialog(#[in] #[opt] hwndOwner: HWND, #[in] #[opt] hInstance: HINSTANCE, #[in] #[opt] pszWindowTitle: PCWSTR, #[in] #[opt] pszMainInstruction: PCWSTR, #[in] #[opt] pszContent: PCWSTR, dwCommonButtons: TASKDIALOG_COMMON_BUTTON_FLAGS, #[in] #[opt] pszIcon: PCWSTR, #[out] #[opt] pnButton: *mut i32) -> HRESULT;
         #[library("COMCTL32.dll")]
-        extern fn TaskDialogIndirect(pTaskConfig: *const TASKDIALOGCONFIG, #[opt] pnButton: *mut i32, #[opt] pnRadioButton: *mut i32, #[opt] pfVerificationFlagChecked: *mut BOOL) -> HRESULT;
+        extern fn TaskDialogIndirect(#[in] pTaskConfig: *const TASKDIALOGCONFIG, #[out] #[opt] pnButton: *mut i32, #[out] #[opt] pnRadioButton: *mut i32, #[out] #[opt] pfVerificationFlagChecked: *mut BOOL) -> HRESULT;
         struct UDACCEL {
-            nSec: u32,
-            nInc: u32,
+            nSec: UINT,
+            nInc: UINT,
         }
         const UDM_GETACCEL: i32 = 1132;
         const UDM_GETBASE: i32 = 1134;

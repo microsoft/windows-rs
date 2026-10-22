@@ -10,92 +10,117 @@ mod Windows {
         const GUID_ScanFaxImage: GUID = 0xc00eb793_8c6e_11d2_977a_0000f87a926f;
         const GUID_ScanImage: GUID = 0xa6c5a715_8c6e_11d2_977a_0000f87a926f;
         const GUID_ScanPrintImage: GUID = 0xb441f425_8c6e_11d2_977a_0000f87a926f;
-        #[guid(0x6cfa5a80_2dc8_11d0_90ea_00aa0060f86c)]
+        const IID_IStiDevice: GUID = 0x6cfa5a80_2dc8_11d0_90ea_00aa0060f86c;
+        const IID_IStillImageW: GUID = 0x641bd880_2dc8_11d0_90ea_00aa0060f86c;
+        #[no_guid]
         interface IStiDevice: IUnknown {
-            fn Initialize(&self, hinst: HINSTANCE, pwszDeviceName: PCWSTR, dwVersion: u32, dwMode: u32) -> HRESULT;
+            #[override_slot(0)]
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            fn Initialize(&self, #[in] hinst: HINSTANCE, #[in] pwszDeviceName: LPCWSTR, dwVersion: DWORD, dwMode: DWORD) -> HRESULT;
             fn GetCapabilities(&self, #[in] #[out] pDevCaps: PSTI_DEV_CAPS) -> HRESULT;
             fn GetStatus(&self, #[in] #[out] pDevStatus: PSTI_DEVICE_STATUS) -> HRESULT;
             fn DeviceReset(&self) -> HRESULT;
             fn Diagnostic(&self, #[in] #[out] pBuffer: LPSTI_DIAG) -> HRESULT;
-            fn Escape(&self, EscapeFunction: STI_RAW_CONTROL_CODE, #[size_param(2)] #[in] lpInData: *mut void, cbInDataSize: u32, #[size_param(4)] #[in] #[out] pOutData: *mut void, dwOutDataSize: u32, #[out] pdwActualData: LPDWORD) -> HRESULT;
+            fn Escape(&self, EscapeFunction: STI_RAW_CONTROL_CODE, #[in] #[readable(entry, bytes(cbInDataSize))] lpInData: LPVOID, cbInDataSize: DWORD, #[in] #[out] #[readable(entry, bytes(dwOutDataSize))] #[writable(entry, bytes(dwOutDataSize))] #[readable(success, bytes(*pdwActualData))] pOutData: LPVOID, dwOutDataSize: DWORD, #[out] pdwActualData: LPDWORD) -> HRESULT;
             fn GetLastError(&self, #[out] pdwLastDeviceError: LPDWORD) -> HRESULT;
-            fn LockDevice(&self, dwTimeOut: u32) -> HRESULT;
+            fn LockDevice(&self, dwTimeOut: DWORD) -> HRESULT;
             fn UnLockDevice(&self) -> HRESULT;
-            fn RawReadData(&self, #[size_param(1)] #[in] #[out] lpBuffer: *mut void, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
-            fn RawWriteData(&self, #[size_param(1)] #[in] lpBuffer: *mut void, nNumberOfBytes: u32, #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
-            fn RawReadCommand(&self, #[size_param(1)] #[in] #[out] lpBuffer: *mut void, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
-            fn RawWriteCommand(&self, #[size_param(1)] #[in] lpBuffer: *mut void, nNumberOfBytes: u32, #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+            fn RawReadData(&self, #[in] #[out] #[writable(entry, bytes(*lpdwNumberOfBytes))] lpBuffer: LPVOID, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+            fn RawWriteData(&self, #[in] #[readable(entry, bytes(nNumberOfBytes))] lpBuffer: LPVOID, nNumberOfBytes: DWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+            fn RawReadCommand(&self, #[in] #[out] #[writable(entry, bytes(*lpdwNumberOfBytes))] lpBuffer: LPVOID, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+            fn RawWriteCommand(&self, #[in] #[readable(entry, bytes(nNumberOfBytes))] lpBuffer: LPVOID, nNumberOfBytes: DWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
             fn Subscribe(&self, #[in] #[out] lpSubsribe: LPSTISUBSCRIBE) -> HRESULT;
             fn GetLastNotificationData(&self, #[out] lpNotify: LPSTINOTIFY) -> HRESULT;
             fn UnSubscribe(&self) -> HRESULT;
-            fn GetLastErrorInfo(&self, pLastErrorInfo: *mut STI_ERROR_INFO) -> HRESULT;
+            fn GetLastErrorInfo(&self, #[out] pLastErrorInfo: *mut STI_ERROR_INFO) -> HRESULT;
         }
         struct IStiDeviceW {}
-        #[guid(0x641bd880_2dc8_11d0_90ea_00aa0060f86c)]
+        #[no_guid]
         interface IStillImageW: IUnknown {
-            fn Initialize(&self, hinst: HINSTANCE, dwVersion: u32) -> HRESULT;
-            fn GetDeviceList(&self, dwType: u32, dwFlags: u32, pdwItemsReturned: *mut u32, ppBuffer: *mut *mut void) -> HRESULT;
-            fn GetDeviceInfo(&self, pwszDeviceName: PCWSTR, ppBuffer: *mut *mut void) -> HRESULT;
-            fn CreateDevice(&self, pwszDeviceName: PCWSTR, dwMode: u32, pDevice: *mut IStiDevice, #[opt] punkOuter: IUnknown) -> HRESULT;
-            fn GetDeviceValue(&self, pwszDeviceName: PCWSTR, pValueName: PCWSTR, #[out] pType: LPDWORD, #[size_param(4)] #[out] pData: LPBYTE, #[in] #[out] cbData: LPDWORD) -> HRESULT;
-            fn SetDeviceValue(&self, pwszDeviceName: PCWSTR, pValueName: PCWSTR, Type: u32, #[size_param(4)] pData: LPBYTE, cbData: u32) -> HRESULT;
-            fn GetSTILaunchInformation(&self, #[out] pwszDeviceName: PWSTR, #[opt] pdwEventCode: *mut u32, #[out] pwszEventName: PWSTR) -> HRESULT;
-            fn RegisterLaunchApplication(&self, pwszAppName: PCWSTR, pwszCommandLine: PCWSTR) -> HRESULT;
-            fn UnregisterLaunchApplication(&self, pwszAppName: PCWSTR) -> HRESULT;
-            fn EnableHwNotifications(&self, pwszDeviceName: PCWSTR, bNewState: BOOL) -> HRESULT;
-            fn GetHwNotificationState(&self, pwszDeviceName: PCWSTR, pbCurrentState: *mut BOOL) -> HRESULT;
-            fn RefreshDeviceBus(&self, pwszDeviceName: PCWSTR) -> HRESULT;
-            fn LaunchApplicationForDevice(&self, pwszDeviceName: PCWSTR, pwszAppName: PCWSTR, pStiNotify: LPSTINOTIFY) -> HRESULT;
+            #[override_slot(0)]
+            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            fn Initialize(&self, #[in] hinst: HINSTANCE, dwVersion: DWORD) -> HRESULT;
+            fn GetDeviceList(&self, dwType: DWORD, dwFlags: DWORD, #[out] pdwItemsReturned: *mut DWORD, #[out] ppBuffer: *mut LPVOID) -> HRESULT;
+            fn GetDeviceInfo(&self, #[in] pwszDeviceName: LPWSTR, #[out] ppBuffer: *mut LPVOID) -> HRESULT;
+            fn CreateDevice(&self, #[in] pwszDeviceName: LPWSTR, dwMode: DWORD, #[out] pDevice: *mut PSTIDEVICE, #[in] #[opt] punkOuter: LPUNKNOWN) -> HRESULT;
+            fn GetDeviceValue(&self, #[in] pwszDeviceName: LPWSTR, #[in] pValueName: LPWSTR, #[out] pType: LPDWORD, #[out] #[writable(entry, bytes(*cbData))] pData: LPBYTE, #[in] #[out] cbData: LPDWORD) -> HRESULT;
+            fn SetDeviceValue(&self, #[in] pwszDeviceName: LPWSTR, #[in] pValueName: LPWSTR, Type: DWORD, #[in] #[readable(entry, bytes(cbData))] pData: LPBYTE, cbData: DWORD) -> HRESULT;
+            fn GetSTILaunchInformation(&self, #[out] #[writable(entry, 128)] pwszDeviceName: LPWSTR, #[out] #[opt] pdwEventCode: *mut DWORD, #[out] #[writable(entry, 128)] pwszEventName: LPWSTR) -> HRESULT;
+            fn RegisterLaunchApplication(&self, #[in] pwszAppName: LPWSTR, #[in] pwszCommandLine: LPWSTR) -> HRESULT;
+            fn UnregisterLaunchApplication(&self, #[in] pwszAppName: LPWSTR) -> HRESULT;
+            fn EnableHwNotifications(&self, #[in] pwszDeviceName: LPCWSTR, bNewState: BOOL) -> HRESULT;
+            fn GetHwNotificationState(&self, #[in] pwszDeviceName: LPCWSTR, #[out] pbCurrentState: *mut BOOL) -> HRESULT;
+            fn RefreshDeviceBus(&self, #[in] pwszDeviceName: LPCWSTR) -> HRESULT;
+            fn LaunchApplicationForDevice(&self, #[in] pwszDeviceName: LPWSTR, #[in] pwszAppName: LPWSTR, #[in] pStiNotify: LPSTINOTIFY) -> HRESULT;
             fn SetupDeviceParameters(&self, #[in] #[out] param0: PSTI_DEVICE_INFORMATIONW) -> HRESULT;
-            fn WriteToErrorLog(&self, dwMessageType: u32, pszMessage: PCWSTR) -> HRESULT;
+            fn WriteToErrorLog(&self, dwMessageType: DWORD, #[in] pszMessage: LPCWSTR) -> HRESULT;
         }
-        type LPDIAG = LPSTI_DIAG;
+        type LPDIAG = *mut STI_DIAG;
+        type LPSTILLIMAGE = IStillImageW;
+        type LPSTILLIMAGEDEVICE = IStiDevice;
+        type LPSTILLIMAGEW = IStillImageW;
         type LPSTINOTIFY = *mut STINOTIFY;
         type LPSTISUBSCRIBE = *mut STISUBSCRIBE;
         type LPSTI_DIAG = *mut STI_DIAG;
         const MAX_NOTIFICATION_DATA: i32 = 64;
+        type PSTI = IStillImageW;
+        type PSTIDEVICE = IStiDevice;
         type PSTIDEVICEW = *mut IStiDeviceW;
-        type PSTI_DEVICE_INFORMATION = PSTI_DEVICE_INFORMATIONW;
+        type PSTIW = IStillImageW;
+        type PSTI_DEVICE_INFORMATION = *mut STI_DEVICE_INFORMATIONW;
         type PSTI_DEVICE_INFORMATIONW = *mut STI_DEVICE_INFORMATIONW;
         type PSTI_DEVICE_STATUS = *mut STI_DEVICE_STATUS;
         type PSTI_DEV_CAPS = *mut STI_DEV_CAPS;
-        type PSTI_ERROR_INFO = *mut STI_ERROR_INFO;
+        type PSTI_ERROR_INFO = *mut STI_ERROR_INFOW;
         type PSTI_ERROR_INFOW = *mut STI_ERROR_INFOW;
-        type PSTI_WIA_DEVICE_INFORMATION = PSTI_WIA_DEVICE_INFORMATIONW;
+        type PSTI_WIA_DEVICE_INFORMATION = *mut STI_WIA_DEVICE_INFORMATIONW;
         type PSTI_WIA_DEVICE_INFORMATIONW = *mut STI_WIA_DEVICE_INFORMATIONW;
         const STIEDFL_ALLDEVICES: i32 = 0;
         const STIEDFL_ATTACHEDONLY: i32 = 1;
+        #[packed(8)]
         struct STINOTIFY {
-            dwSize: u32,
+            dwSize: DWORD,
             guidNotificationCode: GUID,
-            abNotificationData: [u8; 64],
+            abNotificationData: [BYTE; 64],
         }
+        #[packed(8)]
         struct STISUBSCRIBE {
-            dwSize: u32,
-            dwFlags: u32,
-            dwFilter: u32,
+            dwSize: DWORD,
+            dwFlags: DWORD,
+            dwFilter: DWORD,
             hWndNotify: HWND,
             hEvent: HANDLE,
-            uiNotificationMessage: u32,
+            uiNotificationMessage: UINT,
         }
         #[encoding("ansi")]
         const STI_ADD_DEVICE_BROADCAST_ACTION: String = "Arrival";
+        #[encoding("ansi")]
+        const STI_ADD_DEVICE_BROADCAST_STRING: String = "STI\\Arrival\\%s";
         const STI_DEVICE_CREATE_BOTH: i32 = 3;
         const STI_DEVICE_CREATE_DATA: i32 = 2;
         const STI_DEVICE_CREATE_MASK: i32 = 65535;
         const STI_DEVICE_CREATE_STATUS: i32 = 1;
         type STI_DEVICE_INFORMATION = STI_DEVICE_INFORMATIONW;
+        #[packed(8)]
         struct STI_DEVICE_INFORMATIONW {
-            dwSize: u32,
+            dwSize: DWORD,
             DeviceType: STI_DEVICE_TYPE,
-            szDeviceInternalName: [u16; 128],
+            szDeviceInternalName: [WCHAR; 128],
             DeviceCapabilitiesA: STI_DEV_CAPS,
-            dwHardwareConfiguration: u32,
-            pszVendorDescription: PWSTR,
-            pszDeviceDescription: PWSTR,
-            pszPortName: PWSTR,
-            pszPropProvider: PWSTR,
-            pszLocalName: PWSTR,
+            dwHardwareConfiguration: DWORD,
+            pszVendorDescription: LPWSTR,
+            pszDeviceDescription: LPWSTR,
+            pszPortName: LPWSTR,
+            pszPropProvider: LPWSTR,
+            pszLocalName: LPWSTR,
         }
         #[repr(i32)]
         enum STI_DEVICE_MJ_TYPE {
@@ -104,40 +129,44 @@ mod Windows {
             StiDeviceTypeDigitalCamera = 2,
             StiDeviceTypeStreamingVideo = 3,
         }
+        #[packed(8)]
         struct STI_DEVICE_STATUS {
-            dwSize: u32,
-            StatusMask: u32,
-            dwOnlineState: u32,
-            dwHardwareStatusCode: u32,
-            dwEventHandlingState: u32,
-            dwPollingInterval: u32,
+            dwSize: DWORD,
+            StatusMask: DWORD,
+            dwOnlineState: DWORD,
+            dwHardwareStatusCode: DWORD,
+            dwEventHandlingState: DWORD,
+            dwPollingInterval: DWORD,
         }
         type STI_DEVICE_TYPE = u32;
         const STI_DEVSTATUS_EVENTS_STATE: i32 = 2;
         const STI_DEVSTATUS_ONLINE_STATE: i32 = 1;
+        #[packed(8)]
         struct STI_DEV_CAPS {
-            dwGeneric: u32,
+            dwGeneric: DWORD,
         }
+        #[packed(8)]
         struct STI_DIAG {
-            dwSize: u32,
-            dwBasicDiagCode: u32,
-            dwVendorDiagCode: u32,
-            dwStatusMask: u32,
+            dwSize: DWORD,
+            dwBasicDiagCode: DWORD,
+            dwVendorDiagCode: DWORD,
+            dwStatusMask: DWORD,
             sErrorInfo: STI_ERROR_INFO,
         }
         const STI_DIAGCODE_HWPRESENCE: i32 = 1;
         type STI_ERROR_INFO = STI_ERROR_INFOW;
+        #[packed(8)]
         struct STI_ERROR_INFOW {
-            dwSize: u32,
-            dwGenericError: u32,
-            dwVendorError: u32,
-            szExtendedErrorText: [u16; 255],
+            dwSize: DWORD,
+            dwGenericError: DWORD,
+            dwVendorError: DWORD,
+            szExtendedErrorText: [WCHAR; 255],
         }
         const STI_EVENTHANDLING_ENABLED: i32 = 1;
         const STI_EVENTHANDLING_PENDING: i32 = 4;
         const STI_EVENTHANDLING_POLLING: i32 = 2;
         const STI_GENCAP_AUTO_PORTSELECT: i32 = 8;
-        const STI_GENCAP_COMMON_MASK: u32 = 255;
+        const STI_GENCAP_COMMON_MASK: DWORD = 255;
         const STI_GENCAP_GENERATE_ARRIVALEVENT: i32 = 4;
         const STI_GENCAP_NOTIFICATIONS: i32 = 1;
         const STI_GENCAP_POLLING_NEEDED: i32 = 2;
@@ -167,6 +196,8 @@ mod Windows {
         const STI_RAW_RESERVED: i32 = 4096;
         #[encoding("ansi")]
         const STI_REMOVE_DEVICE_BROADCAST_ACTION: String = "Removal";
+        #[encoding("ansi")]
+        const STI_REMOVE_DEVICE_BROADCAST_STRING: String = "STI\\Removal\\%s";
         const STI_SUBSCRIBE_FLAG_EVENT: i32 = 2;
         const STI_SUBSCRIBE_FLAG_WINDOW: i32 = 1;
         const STI_TRACE_ERROR: i32 = 4;
@@ -180,22 +211,23 @@ mod Windows {
         const STI_VERSION_MIN_ALLOWED: i32 = 2;
         const STI_VERSION_REAL: i32 = 2;
         type STI_WIA_DEVICE_INFORMATION = STI_WIA_DEVICE_INFORMATIONW;
+        #[packed(8)]
         struct STI_WIA_DEVICE_INFORMATIONW {
-            dwSize: u32,
+            dwSize: DWORD,
             DeviceType: STI_DEVICE_TYPE,
-            szDeviceInternalName: [u16; 128],
+            szDeviceInternalName: [WCHAR; 128],
             DeviceCapabilitiesA: STI_DEV_CAPS,
-            dwHardwareConfiguration: u32,
-            pszVendorDescription: PWSTR,
-            pszDeviceDescription: PWSTR,
-            pszPortName: PWSTR,
-            pszPropProvider: PWSTR,
-            pszLocalName: PWSTR,
-            pszUiDll: PWSTR,
-            pszServer: PWSTR,
+            dwHardwareConfiguration: DWORD,
+            pszVendorDescription: LPWSTR,
+            pszDeviceDescription: LPWSTR,
+            pszPortName: LPWSTR,
+            pszPropProvider: LPWSTR,
+            pszLocalName: LPWSTR,
+            pszUiDll: LPWSTR,
+            pszServer: LPWSTR,
         }
         #[library("STI.dll")]
-        extern fn StiCreateInstanceW(hinst: HINSTANCE, dwVer: u32, ppSti: *mut IStillImageW, punkOuter: IUnknown) -> HRESULT;
+        extern fn StiCreateInstanceW(hinst: HINSTANCE, dwVer: DWORD, ppSti: *mut IStillImageW, punkOuter: LPUNKNOWN) -> HRESULT;
         const WIA_INCOMPAT_XP: i32 = 1;
     }
 }

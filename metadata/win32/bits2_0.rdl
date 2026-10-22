@@ -7,22 +7,22 @@ mod Windows {
         const BG_COPY_FILE_OWNER: i32 = 1;
         const BG_COPY_FILE_SACL: i32 = 8;
         struct BG_FILE_RANGE {
-            InitialOffset: u64,
-            Length: u64,
+            InitialOffset: UINT64,
+            Length: UINT64,
         }
-        const BG_LENGTH_TO_EOF: u64 = 18446744073709551615;
+        const BG_LENGTH_TO_EOF: UINT64 = 18446744073709551615;
         const BackgroundCopyManager2_0: GUID = 0x6d18ad12_bde3_4393_b311_099c346e6df9;
         #[guid(0x83e81b93_0873_474d_8a8c_f2018b1a939c)]
         interface IBackgroundCopyFile2: IBackgroundCopyFile {
-            fn GetFileRanges(&self, #[in] #[out] RangeCount: *mut u32, Ranges: *mut *mut BG_FILE_RANGE) -> HRESULT;
-            fn SetRemoteName(&self, Val: PCWSTR) -> HRESULT;
+            fn GetFileRanges(&self, #[in] #[out] #[opt] RangeCount: *mut DWORD, #[out] #[nullable(entry, indirect)] #[writable(success, if_present(*RangeCount), indirect, nullable)] #[readable(success, if_present(*RangeCount), indirect, nullable)] Ranges: *mut *mut BG_FILE_RANGE) -> HRESULT;
+            fn SetRemoteName(&self, #[in] Val: LPCWSTR) -> HRESULT;
         }
         #[guid(0x443c8934_90ff_48ed_bcde_26f5c7450042)]
         interface IBackgroundCopyJob3: IBackgroundCopyJob2 {
-            fn ReplaceRemotePrefix(&self, OldPrefix: PCWSTR, NewPrefix: PCWSTR) -> HRESULT;
-            fn AddFileWithRanges(&self, RemoteUrl: PCWSTR, LocalName: PCWSTR, RangeCount: u32, #[in] Ranges: *mut BG_FILE_RANGE) -> HRESULT;
-            fn SetFileACLFlags(&self, Flags: u32) -> HRESULT;
-            fn GetFileACLFlags(&self, Flags: *mut u32) -> HRESULT;
+            fn ReplaceRemotePrefix(&self, #[in] OldPrefix: LPCWSTR, #[in] NewPrefix: LPCWSTR) -> HRESULT;
+            fn AddFileWithRanges(&self, #[in] RemoteUrl: LPCWSTR, #[in] LocalName: LPCWSTR, #[in] RangeCount: DWORD, #[in] #[readable(entry, RangeCount)] Ranges: *mut BG_FILE_RANGE) -> HRESULT;
+            fn SetFileACLFlags(&self, #[in] Flags: DWORD) -> HRESULT;
+            fn GetFileACLFlags(&self, #[out] Flags: *mut DWORD) -> HRESULT;
         }
     }
 }

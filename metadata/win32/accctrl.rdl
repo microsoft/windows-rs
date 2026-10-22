@@ -18,7 +18,7 @@ mod Windows {
             SET_AUDIT_FAILURE = 6,
         }
         type ACCESS_RIGHTS = u32;
-        type ACTRL_ACCESS = ACTRL_ACCESSA;
+        type ACTRL_ACCESS = _ACTRL_ALISTA;
         type ACTRL_ACCESSA = _ACTRL_ALISTA;
         type ACTRL_ACCESSW = _ACTRL_ALISTW;
         const ACTRL_ACCESS_ALLOWED: i32 = 1;
@@ -26,42 +26,42 @@ mod Windows {
         type ACTRL_ACCESS_ENTRY = ACTRL_ACCESS_ENTRYA;
         struct ACTRL_ACCESS_ENTRYA {
             Trustee: TRUSTEE_A,
-            fAccessFlags: u32,
+            fAccessFlags: ULONG,
             Access: ACCESS_RIGHTS,
             ProvSpecificAccess: ACCESS_RIGHTS,
             Inheritance: INHERIT_FLAGS,
-            lpInheritProperty: PSTR,
+            lpInheritProperty: LPSTR,
         }
         struct ACTRL_ACCESS_ENTRYW {
             Trustee: TRUSTEE_W,
-            fAccessFlags: u32,
+            fAccessFlags: ULONG,
             Access: ACCESS_RIGHTS,
             ProvSpecificAccess: ACCESS_RIGHTS,
             Inheritance: INHERIT_FLAGS,
-            lpInheritProperty: PWSTR,
+            lpInheritProperty: LPWSTR,
         }
         type ACTRL_ACCESS_ENTRY_LIST = ACTRL_ACCESS_ENTRY_LISTA;
         struct ACTRL_ACCESS_ENTRY_LISTA {
-            cEntries: u32,
+            cEntries: ULONG,
             pAccessList: *mut ACTRL_ACCESS_ENTRYA,
         }
         struct ACTRL_ACCESS_ENTRY_LISTW {
-            cEntries: u32,
+            cEntries: ULONG,
             pAccessList: *mut ACTRL_ACCESS_ENTRYW,
         }
         type ACTRL_ACCESS_INFO = ACTRL_ACCESS_INFOA;
         struct ACTRL_ACCESS_INFOA {
-            fAccessPermission: u32,
-            lpAccessPermissionName: PSTR,
+            fAccessPermission: ULONG,
+            lpAccessPermissionName: LPSTR,
         }
         struct ACTRL_ACCESS_INFOW {
-            fAccessPermission: u32,
-            lpAccessPermissionName: PWSTR,
+            fAccessPermission: ULONG,
+            lpAccessPermissionName: LPWSTR,
         }
         const ACTRL_ACCESS_NO_OPTIONS: i32 = 0;
         const ACTRL_ACCESS_PROTECTED: i32 = 1;
         const ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES: i32 = 1;
-        type ACTRL_AUDIT = ACTRL_AUDITA;
+        type ACTRL_AUDIT = _ACTRL_ALISTA;
         type ACTRL_AUDITA = _ACTRL_ALISTA;
         type ACTRL_AUDITW = _ACTRL_ALISTW;
         const ACTRL_AUDIT_FAILURE: i32 = 8;
@@ -70,12 +70,12 @@ mod Windows {
         const ACTRL_CHANGE_OWNER: i32 = 1073741824;
         type ACTRL_CONTROL_INFO = ACTRL_CONTROL_INFOA;
         struct ACTRL_CONTROL_INFOA {
-            lpControlId: PSTR,
-            lpControlName: PSTR,
+            lpControlId: LPSTR,
+            lpControlName: LPSTR,
         }
         struct ACTRL_CONTROL_INFOW {
-            lpControlId: PWSTR,
-            lpControlName: PWSTR,
+            lpControlId: LPWSTR,
+            lpControlName: LPWSTR,
         }
         const ACTRL_DELETE: i32 = 134217728;
         const ACTRL_DIR_CREATE_CHILD: i32 = 4;
@@ -120,10 +120,10 @@ mod Windows {
         const ACTRL_KERNEL_VM_WRITE: i32 = 16;
         struct ACTRL_OVERLAPPED {
             Anonymous: union {
-                Provider: *mut void,
-                Reserved1: u32,
+                Provider: PVOID,
+                Reserved1: ULONG,
             },
-            Reserved2: u32,
+            Reserved2: ULONG,
             hEvent: HANDLE,
         }
         const ACTRL_PERM_1: i32 = 1;
@@ -153,14 +153,14 @@ mod Windows {
         const ACTRL_PRINT_SLIST: i32 = 2;
         type ACTRL_PROPERTY_ENTRY = ACTRL_PROPERTY_ENTRYA;
         struct ACTRL_PROPERTY_ENTRYA {
-            lpProperty: PSTR,
+            lpProperty: LPSTR,
             pAccessEntryList: PACTRL_ACCESS_ENTRY_LISTA,
-            fListFlags: u32,
+            fListFlags: ULONG,
         }
         struct ACTRL_PROPERTY_ENTRYW {
-            lpProperty: PWSTR,
+            lpProperty: LPWSTR,
             pAccessEntryList: PACTRL_ACCESS_ENTRY_LISTW,
-            fListFlags: u32,
+            fListFlags: ULONG,
         }
         const ACTRL_READ_CONTROL: i32 = 268435456;
         const ACTRL_REG_CREATE_CHILD: i32 = 4;
@@ -192,34 +192,24 @@ mod Windows {
         const ACTRL_WIN_READ_ATTRIBS: i32 = 32;
         const ACTRL_WIN_SCREEN: i32 = 128;
         const ACTRL_WIN_WRITE_ATTRIBS: i32 = 64;
-        type EXPLICIT_ACCESS = EXPLICIT_ACCESSA;
-        type EXPLICIT_ACCESSA = EXPLICIT_ACCESS_A;
-        type EXPLICIT_ACCESSW = EXPLICIT_ACCESS_W;
-        type EXPLICIT_ACCESS_ = EXPLICIT_ACCESS_A;
-        struct EXPLICIT_ACCESS_A {
-            grfAccessPermissions: u32,
-            grfAccessMode: ACCESS_MODE,
-            grfInheritance: u32,
-            Trustee: TRUSTEE_A,
-        }
-        struct EXPLICIT_ACCESS_W {
-            grfAccessPermissions: u32,
-            grfAccessMode: ACCESS_MODE,
-            grfInheritance: u32,
-            Trustee: TRUSTEE_W,
-        }
+        type EXPLICIT_ACCESS = _EXPLICIT_ACCESS_A;
+        type EXPLICIT_ACCESSA = _EXPLICIT_ACCESS_A;
+        type EXPLICIT_ACCESSW = _EXPLICIT_ACCESS_W;
+        type EXPLICIT_ACCESS_ = _EXPLICIT_ACCESS_A;
+        type EXPLICIT_ACCESS_A = _EXPLICIT_ACCESS_A;
+        type EXPLICIT_ACCESS_W = _EXPLICIT_ACCESS_W;
         struct FN_OBJECT_MGR_FUNCTS {
-            Placeholder: u32,
+            Placeholder: ULONG,
         }
         const INHERITED_ACCESS_ENTRY: i32 = 16;
         type INHERITED_FROM = INHERITED_FROMA;
         struct INHERITED_FROMA {
-            GenerationGap: i32,
-            AncestorName: PSTR,
+            GenerationGap: LONG,
+            AncestorName: LPSTR,
         }
         struct INHERITED_FROMW {
-            GenerationGap: i32,
-            AncestorName: PWSTR,
+            GenerationGap: LONG,
+            AncestorName: LPWSTR,
         }
         const INHERITED_GRANDPARENT: i32 = 536870912;
         const INHERITED_PARENT: i32 = 268435456;
@@ -234,60 +224,60 @@ mod Windows {
         const NO_INHERITANCE: i32 = 0;
         type OBJECTS_AND_NAME_ = OBJECTS_AND_NAME_A;
         struct OBJECTS_AND_NAME_A {
-            ObjectsPresent: u32,
+            ObjectsPresent: DWORD,
             ObjectType: SE_OBJECT_TYPE,
-            ObjectTypeName: PSTR,
-            InheritedObjectTypeName: PSTR,
-            ptstrName: PSTR,
+            ObjectTypeName: LPSTR,
+            InheritedObjectTypeName: LPSTR,
+            ptstrName: LPSTR,
         }
         struct OBJECTS_AND_NAME_W {
-            ObjectsPresent: u32,
+            ObjectsPresent: DWORD,
             ObjectType: SE_OBJECT_TYPE,
-            ObjectTypeName: PWSTR,
-            InheritedObjectTypeName: PWSTR,
-            ptstrName: PWSTR,
+            ObjectTypeName: LPWSTR,
+            InheritedObjectTypeName: LPWSTR,
+            ptstrName: LPWSTR,
         }
         struct OBJECTS_AND_SID {
-            ObjectsPresent: u32,
+            ObjectsPresent: DWORD,
             ObjectTypeGuid: GUID,
             InheritedObjectTypeGuid: GUID,
             pSid: *mut SID,
         }
         type PACCESS_RIGHTS = *mut u32;
-        type PACTRL_ACCESS = PACTRL_ACCESSA;
+        type PACTRL_ACCESS = *mut _ACTRL_ALISTA;
         type PACTRL_ACCESSA = *mut _ACTRL_ALISTA;
         type PACTRL_ACCESSW = *mut _ACTRL_ALISTW;
-        type PACTRL_ACCESS_ENTRY = PACTRL_ACCESS_ENTRYA;
+        type PACTRL_ACCESS_ENTRY = *mut ACTRL_ACCESS_ENTRYA;
         type PACTRL_ACCESS_ENTRYA = *mut ACTRL_ACCESS_ENTRYA;
         type PACTRL_ACCESS_ENTRYW = *mut ACTRL_ACCESS_ENTRYW;
-        type PACTRL_ACCESS_ENTRY_LIST = PACTRL_ACCESS_ENTRY_LISTA;
+        type PACTRL_ACCESS_ENTRY_LIST = *mut ACTRL_ACCESS_ENTRY_LISTA;
         type PACTRL_ACCESS_ENTRY_LISTA = *mut ACTRL_ACCESS_ENTRY_LISTA;
         type PACTRL_ACCESS_ENTRY_LISTW = *mut ACTRL_ACCESS_ENTRY_LISTW;
-        type PACTRL_ACCESS_INFO = PACTRL_ACCESS_INFOA;
+        type PACTRL_ACCESS_INFO = *mut ACTRL_ACCESS_INFOA;
         type PACTRL_ACCESS_INFOA = *mut ACTRL_ACCESS_INFOA;
         type PACTRL_ACCESS_INFOW = *mut ACTRL_ACCESS_INFOW;
-        type PACTRL_AUDIT = PACTRL_AUDITA;
+        type PACTRL_AUDIT = *mut _ACTRL_ALISTA;
         type PACTRL_AUDITA = *mut _ACTRL_ALISTA;
         type PACTRL_AUDITW = *mut _ACTRL_ALISTW;
-        type PACTRL_CONTROL_INFO = PACTRL_CONTROL_INFOA;
+        type PACTRL_CONTROL_INFO = *mut ACTRL_CONTROL_INFOA;
         type PACTRL_CONTROL_INFOA = *mut ACTRL_CONTROL_INFOA;
         type PACTRL_CONTROL_INFOW = *mut ACTRL_CONTROL_INFOW;
         type PACTRL_OVERLAPPED = *mut ACTRL_OVERLAPPED;
-        type PACTRL_PROPERTY_ENTRY = PACTRL_PROPERTY_ENTRYA;
+        type PACTRL_PROPERTY_ENTRY = *mut ACTRL_PROPERTY_ENTRYA;
         type PACTRL_PROPERTY_ENTRYA = *mut ACTRL_PROPERTY_ENTRYA;
         type PACTRL_PROPERTY_ENTRYW = *mut ACTRL_PROPERTY_ENTRYW;
-        type PEXPLICIT_ACCESS = PEXPLICIT_ACCESSA;
-        type PEXPLICIT_ACCESSA = *mut EXPLICIT_ACCESS_A;
-        type PEXPLICIT_ACCESSW = *mut EXPLICIT_ACCESS_W;
-        type PEXPLICIT_ACCESS_ = PEXPLICIT_ACCESS_A;
-        type PEXPLICIT_ACCESS_A = *mut EXPLICIT_ACCESS_A;
-        type PEXPLICIT_ACCESS_W = *mut EXPLICIT_ACCESS_W;
+        type PEXPLICIT_ACCESS = *mut _EXPLICIT_ACCESS_A;
+        type PEXPLICIT_ACCESSA = *mut _EXPLICIT_ACCESS_A;
+        type PEXPLICIT_ACCESSW = *mut _EXPLICIT_ACCESS_W;
+        type PEXPLICIT_ACCESS_ = *mut _EXPLICIT_ACCESS_A;
+        type PEXPLICIT_ACCESS_A = *mut _EXPLICIT_ACCESS_A;
+        type PEXPLICIT_ACCESS_W = *mut _EXPLICIT_ACCESS_W;
         type PFN_OBJECT_MGR_FUNCTS = *mut FN_OBJECT_MGR_FUNCTS;
-        type PINHERITED_FROM = PINHERITED_FROMA;
+        type PINHERITED_FROM = *mut INHERITED_FROMA;
         type PINHERITED_FROMA = *mut INHERITED_FROMA;
         type PINHERITED_FROMW = *mut INHERITED_FROMW;
         type PINHERIT_FLAGS = *mut u32;
-        type POBJECTS_AND_NAME_ = POBJECTS_AND_NAME_A;
+        type POBJECTS_AND_NAME_ = *mut OBJECTS_AND_NAME_A;
         type POBJECTS_AND_NAME_A = *mut OBJECTS_AND_NAME_A;
         type POBJECTS_AND_NAME_W = *mut OBJECTS_AND_NAME_W;
         type POBJECTS_AND_SID = *mut OBJECTS_AND_SID;
@@ -301,15 +291,15 @@ mod Windows {
             ProgressRetryOperation = 5,
             ProgressInvokePrePostError = 6,
         }
-        type PTRUSTEE = PTRUSTEEA;
-        type PTRUSTEEA = *mut TRUSTEE_A;
-        type PTRUSTEEW = *mut TRUSTEE_W;
-        type PTRUSTEE_ = PTRUSTEE_A;
-        type PTRUSTEE_A = *mut TRUSTEE_A;
-        type PTRUSTEE_ACCESS = PTRUSTEE_ACCESSA;
+        type PTRUSTEE = *mut _TRUSTEE_A;
+        type PTRUSTEEA = *mut _TRUSTEE_A;
+        type PTRUSTEEW = *mut _TRUSTEE_W;
+        type PTRUSTEE_ = *mut _TRUSTEE_A;
+        type PTRUSTEE_A = *mut _TRUSTEE_A;
+        type PTRUSTEE_ACCESS = *mut TRUSTEE_ACCESSA;
         type PTRUSTEE_ACCESSA = *mut TRUSTEE_ACCESSA;
         type PTRUSTEE_ACCESSW = *mut TRUSTEE_ACCESSW;
-        type PTRUSTEE_W = *mut TRUSTEE_W;
+        type PTRUSTEE_W = *mut _TRUSTEE_W;
         #[repr(i32)]
         enum SE_OBJECT_TYPE {
             SE_UNKNOWN_OBJECT_TYPE = 0,
@@ -333,29 +323,23 @@ mod Windows {
         const TREE_SEC_INFO_RESET: i32 = 2;
         const TREE_SEC_INFO_RESET_KEEP_EXPLICIT: i32 = 3;
         const TREE_SEC_INFO_SET: i32 = 1;
-        type TRUSTEE = TRUSTEEA;
-        type TRUSTEEA = TRUSTEE_A;
-        type TRUSTEEW = TRUSTEE_W;
-        type TRUSTEE_ = TRUSTEE_A;
-        struct TRUSTEE_A {
-            pMultipleTrustee: *mut TRUSTEE_A,
-            MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
-            TrusteeForm: TRUSTEE_FORM,
-            TrusteeType: TRUSTEE_TYPE,
-            ptstrName: LPCH,
-        }
+        type TRUSTEE = _TRUSTEE_A;
+        type TRUSTEEA = _TRUSTEE_A;
+        type TRUSTEEW = _TRUSTEE_W;
+        type TRUSTEE_ = _TRUSTEE_A;
+        type TRUSTEE_A = _TRUSTEE_A;
         type TRUSTEE_ACCESS = TRUSTEE_ACCESSA;
         struct TRUSTEE_ACCESSA {
-            lpProperty: PSTR,
+            lpProperty: LPSTR,
             Access: ACCESS_RIGHTS,
-            fAccessFlags: u32,
-            fReturnedAccess: u32,
+            fAccessFlags: ULONG,
+            fReturnedAccess: ULONG,
         }
         struct TRUSTEE_ACCESSW {
-            lpProperty: PWSTR,
+            lpProperty: LPWSTR,
             Access: ACCESS_RIGHTS,
-            fAccessFlags: u32,
-            fReturnedAccess: u32,
+            fAccessFlags: ULONG,
+            fReturnedAccess: ULONG,
         }
         const TRUSTEE_ACCESS_ALL: u32 = 4294967295;
         const TRUSTEE_ACCESS_ALLOWED: i32 = 1;
@@ -383,20 +367,40 @@ mod Windows {
             TRUSTEE_IS_INVALID = 7,
             TRUSTEE_IS_COMPUTER = 8,
         }
-        struct TRUSTEE_W {
-            pMultipleTrustee: *mut TRUSTEE_W,
+        type TRUSTEE_W = _TRUSTEE_W;
+        struct _ACTRL_ALISTA {
+            cEntries: ULONG,
+            pPropertyAccessList: PACTRL_PROPERTY_ENTRYA,
+        }
+        struct _ACTRL_ALISTW {
+            cEntries: ULONG,
+            pPropertyAccessList: PACTRL_PROPERTY_ENTRYW,
+        }
+        struct _EXPLICIT_ACCESS_A {
+            grfAccessPermissions: DWORD,
+            grfAccessMode: ACCESS_MODE,
+            grfInheritance: DWORD,
+            Trustee: TRUSTEE_A,
+        }
+        struct _EXPLICIT_ACCESS_W {
+            grfAccessPermissions: DWORD,
+            grfAccessMode: ACCESS_MODE,
+            grfInheritance: DWORD,
+            Trustee: TRUSTEE_W,
+        }
+        struct _TRUSTEE_A {
+            pMultipleTrustee: *mut _TRUSTEE_A,
+            MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
+            TrusteeForm: TRUSTEE_FORM,
+            TrusteeType: TRUSTEE_TYPE,
+            ptstrName: LPCH,
+        }
+        struct _TRUSTEE_W {
+            pMultipleTrustee: *mut _TRUSTEE_W,
             MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
             TrusteeForm: TRUSTEE_FORM,
             TrusteeType: TRUSTEE_TYPE,
             ptstrName: LPWCH,
-        }
-        struct _ACTRL_ALISTA {
-            cEntries: u32,
-            pPropertyAccessList: PACTRL_PROPERTY_ENTRYA,
-        }
-        struct _ACTRL_ALISTW {
-            cEntries: u32,
-            pPropertyAccessList: PACTRL_PROPERTY_ENTRYW,
         }
     }
 }

@@ -1,21 +1,26 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[must_use]
         #[library("KERNEL32.dll")]
-        extern fn ChangeTimerQueueTimer(#[opt] TimerQueue: HANDLE, #[in] #[out] Timer: HANDLE, DueTime: u32, Period: u32) -> BOOL;
+        extern fn ChangeTimerQueueTimer(#[in] #[opt] TimerQueue: HANDLE, #[in] #[out] Timer: HANDLE, #[in] DueTime: ULONG, #[in] Period: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateTimerQueue() -> HANDLE;
+        extern fn CreateTimerQueue() -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateTimerQueueTimer(phNewTimer: PHANDLE, #[opt] TimerQueue: HANDLE, Callback: WAITORTIMERCALLBACK, #[in] #[opt] Parameter: *mut void, DueTime: u32, Period: u32, Flags: u32) -> BOOL;
+        extern fn CreateTimerQueueTimer(#[out] #[out_ptr] phNewTimer: PHANDLE, #[in] #[opt] TimerQueue: HANDLE, #[in] Callback: WAITORTIMERCALLBACK, #[in] #[opt] Parameter: PVOID, #[in] DueTime: DWORD, #[in] Period: DWORD, #[in] Flags: ULONG) -> BOOL;
+        #[must_use]
         #[library("KERNEL32.dll")]
-        extern fn DeleteTimerQueue(TimerQueue: HANDLE) -> BOOL;
+        extern fn DeleteTimerQueue(#[in] TimerQueue: HANDLE) -> BOOL;
+        #[must_use]
         #[library("KERNEL32.dll")]
-        extern fn DeleteTimerQueueEx(TimerQueue: HANDLE, #[opt] CompletionEvent: HANDLE) -> BOOL;
+        extern fn DeleteTimerQueueEx(#[in] TimerQueue: HANDLE, #[in] #[opt] CompletionEvent: HANDLE) -> BOOL;
+        #[must_use]
         #[library("KERNEL32.dll")]
-        extern fn DeleteTimerQueueTimer(#[opt] TimerQueue: HANDLE, Timer: HANDLE, #[opt] CompletionEvent: HANDLE) -> BOOL;
+        extern fn DeleteTimerQueueTimer(#[in] #[opt] TimerQueue: HANDLE, #[in] Timer: HANDLE, #[in] #[opt] CompletionEvent: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn QueueUserWorkItem(Function: LPTHREAD_START_ROUTINE, #[in] #[opt] Context: *mut void, Flags: u32) -> BOOL;
+        extern fn QueueUserWorkItem(#[in] Function: LPTHREAD_START_ROUTINE, #[in] #[opt] Context: PVOID, #[in] Flags: ULONG) -> BOOL;
+        #[must_use]
         #[library("KERNEL32.dll")]
-        extern fn UnregisterWaitEx(WaitHandle: HANDLE, #[opt] CompletionEvent: HANDLE) -> BOOL;
+        extern fn UnregisterWaitEx(#[in] WaitHandle: HANDLE, #[in] #[opt] CompletionEvent: HANDLE) -> BOOL;
     }
 }

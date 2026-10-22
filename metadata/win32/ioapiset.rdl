@@ -2,24 +2,24 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn CancelIo(hFile: HANDLE) -> BOOL;
+        extern fn CancelIo(#[in] hFile: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CancelIoEx(hFile: HANDLE, #[opt] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn CancelIoEx(#[in] hFile: HANDLE, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CancelSynchronousIo(hThread: HANDLE) -> BOOL;
+        extern fn CancelSynchronousIo(#[in] hThread: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateIoCompletionPort(FileHandle: HANDLE, #[opt] ExistingCompletionPort: HANDLE, CompletionKey: usize, NumberOfConcurrentThreads: u32) -> HANDLE;
+        extern fn CreateIoCompletionPort(#[in] FileHandle: HANDLE, #[in] #[opt] ExistingCompletionPort: HANDLE, #[in] CompletionKey: ULONG_PTR, #[in] NumberOfConcurrentThreads: DWORD) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn DeviceIoControl(hDevice: HANDLE, dwIoControlCode: u32, #[size_param(3)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(5)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn DeviceIoControl(#[in] hDevice: HANDLE, #[in] dwIoControlCode: DWORD, #[in] #[opt] #[readable(entry, bytes(nInBufferSize))] lpInBuffer: LPVOID, #[in] nInBufferSize: DWORD, #[out] #[opt] #[writable(entry, bytes(nOutBufferSize))] #[readable(success, bytes(if_present(*lpBytesReturned)))] lpOutBuffer: LPVOID, #[in] nOutBufferSize: DWORD, #[out] #[opt] lpBytesReturned: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetOverlappedResult(hFile: HANDLE, lpOverlapped: LPOVERLAPPED, #[out] lpNumberOfBytesTransferred: LPDWORD, bWait: BOOL) -> BOOL;
+        extern fn GetOverlappedResult(#[in] hFile: HANDLE, #[in] lpOverlapped: LPOVERLAPPED, #[out] lpNumberOfBytesTransferred: LPDWORD, #[in] bWait: BOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetOverlappedResultEx(hFile: HANDLE, lpOverlapped: LPOVERLAPPED, #[out] lpNumberOfBytesTransferred: LPDWORD, dwMilliseconds: u32, bAlertable: BOOL) -> BOOL;
+        extern fn GetOverlappedResultEx(#[in] hFile: HANDLE, #[in] lpOverlapped: LPOVERLAPPED, #[out] lpNumberOfBytesTransferred: LPDWORD, #[in] dwMilliseconds: DWORD, #[in] bAlertable: BOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetQueuedCompletionStatus(CompletionPort: HANDLE, #[out] lpNumberOfBytesTransferred: LPDWORD, #[out] lpCompletionKey: PULONG_PTR, lpOverlapped: *mut LPOVERLAPPED, dwMilliseconds: u32) -> BOOL;
+        extern fn GetQueuedCompletionStatus(#[in] CompletionPort: HANDLE, #[out] lpNumberOfBytesTransferred: LPDWORD, #[out] lpCompletionKey: PULONG_PTR, #[out] lpOverlapped: *mut LPOVERLAPPED, #[in] dwMilliseconds: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetQueuedCompletionStatusEx(CompletionPort: HANDLE, #[len_param(2)] #[out] lpCompletionPortEntries: LPOVERLAPPED_ENTRY, ulCount: u32, #[out] ulNumEntriesRemoved: PULONG, dwMilliseconds: u32, fAlertable: BOOL) -> BOOL;
+        extern fn GetQueuedCompletionStatusEx(#[in] CompletionPort: HANDLE, #[out] #[writable(entry, ulCount)] #[readable(success, *ulNumEntriesRemoved)] lpCompletionPortEntries: LPOVERLAPPED_ENTRY, #[in] ulCount: ULONG, #[out] ulNumEntriesRemoved: PULONG, #[in] dwMilliseconds: DWORD, #[in] fAlertable: BOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn PostQueuedCompletionStatus(CompletionPort: HANDLE, dwNumberOfBytesTransferred: u32, dwCompletionKey: usize, #[opt] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn PostQueuedCompletionStatus(#[in] CompletionPort: HANDLE, #[in] dwNumberOfBytesTransferred: DWORD, #[in] dwCompletionKey: ULONG_PTR, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> BOOL;
     }
 }

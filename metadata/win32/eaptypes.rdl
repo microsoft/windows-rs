@@ -4,23 +4,23 @@ mod Windows {
         const CERTIFICATE_HASH_LENGTH: i32 = 20;
         struct EAPHOST_IDENTITY_UI_PARAMS {
             eapMethodType: EAP_METHOD_TYPE,
-            dwFlags: u32,
-            dwSizeofConnectionData: u32,
-            pConnectionData: *mut u8,
-            dwSizeofUserData: u32,
-            pUserData: *mut u8,
-            dwSizeofUserDataOut: u32,
-            pUserDataOut: *mut u8,
-            pwszIdentity: PWSTR,
-            dwError: u32,
+            dwFlags: DWORD,
+            dwSizeofConnectionData: DWORD,
+            pConnectionData: *mut BYTE,
+            dwSizeofUserData: DWORD,
+            pUserData: *mut BYTE,
+            dwSizeofUserDataOut: DWORD,
+            pUserDataOut: *mut BYTE,
+            pwszIdentity: LPWSTR,
+            dwError: DWORD,
             pEapError: *mut EAP_ERROR,
         }
         struct EAPHOST_INTERACTIVE_UI_PARAMS {
-            dwSizeofContextData: u32,
-            pContextData: *mut u8,
-            dwSizeofInteractiveUIData: u32,
-            pInteractiveUIData: *mut u8,
-            dwError: u32,
+            dwSizeofContextData: DWORD,
+            pContextData: *mut BYTE,
+            dwSizeofInteractiveUIData: DWORD,
+            pInteractiveUIData: *mut BYTE,
+            dwError: DWORD,
             pEapError: *mut EAP_ERROR,
         }
         const EAPHOST_METHOD_API_VERSION: i32 = 1;
@@ -29,18 +29,18 @@ mod Windows {
         type EAP_ATTRIBUTES = _EAP_ATTRIBUTES;
         type EAP_ATTRIBUTE_TYPE = _EAP_ATTRIBUTE_TYPE;
         struct EAP_CONFIG_INPUT_FIELD_ARRAY {
-            dwVersion: u32,
-            dwNumberOfFields: u32,
+            dwVersion: DWORD,
+            dwNumberOfFields: DWORD,
             pFields: *mut EAP_CONFIG_INPUT_FIELD_DATA,
         }
         struct EAP_CONFIG_INPUT_FIELD_DATA {
-            dwSize: u32,
+            dwSize: DWORD,
             Type: EAP_CONFIG_INPUT_FIELD_TYPE,
-            dwFlagProps: u32,
-            pwszLabel: PWSTR,
-            pwszData: PWSTR,
-            dwMinDataLength: u32,
-            dwMaxDataLength: u32,
+            dwFlagProps: DWORD,
+            pwszLabel: LPWSTR,
+            pwszData: LPWSTR,
+            dwMinDataLength: DWORD,
+            dwMaxDataLength: DWORD,
         }
         const EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT: i32 = 0;
         const EAP_CONFIG_INPUT_FIELD_PROPS_NON_DISPLAYABLE: i32 = 1;
@@ -65,14 +65,14 @@ mod Windows {
         type EAP_CRED_REQ = EAP_CONFIG_INPUT_FIELD_ARRAY;
         type EAP_CRED_RESP = EAP_CONFIG_INPUT_FIELD_ARRAY;
         struct EAP_ERROR {
-            dwWinError: u32,
+            dwWinError: DWORD,
             r#type: EAP_METHOD_TYPE,
-            dwReasonCode: u32,
+            dwReasonCode: DWORD,
             rootCauseGuid: GUID,
             repairGuid: GUID,
             helpLinkGuid: GUID,
-            pRootCauseString: PWSTR,
-            pRepairString: PWSTR,
+            pRootCauseString: LPWSTR,
+            pRepairString: LPWSTR,
         }
         const EAP_FLAG_CONFG_READONLY: i32 = 524288;
         const EAP_FLAG_DISABLE_SESSION_RESUMPTION: i32 = 67108864;
@@ -100,10 +100,10 @@ mod Windows {
         const EAP_FLAG_USER_AUTH: i32 = 262144;
         const EAP_FLAG_VPN: i32 = 8388608;
         struct EAP_INTERACTIVE_UI_DATA {
-            dwVersion: u32,
-            dwSize: u32,
+            dwVersion: DWORD,
+            dwSize: DWORD,
             dwDataType: EAP_INTERACTIVE_UI_DATA_TYPE,
-            cbUiData: u32,
+            cbUiData: DWORD,
             pbUiData: EAP_UI_DATA_FORMAT,
         }
         #[repr(i32)]
@@ -118,24 +118,24 @@ mod Windows {
         const EAP_INTERACTIVE_UI_DATA_VERSION: i32 = 1;
         struct EAP_METHOD_INFO {
             eaptype: EAP_METHOD_TYPE,
-            pwszAuthorName: PWSTR,
-            pwszFriendlyName: PWSTR,
-            eapProperties: u32,
+            pwszAuthorName: LPWSTR,
+            pwszFriendlyName: LPWSTR,
+            eapProperties: DWORD,
             pInnerMethodInfo: *mut EAP_METHOD_INFO,
         }
         struct EAP_METHOD_INFO_ARRAY {
-            dwNumberOfMethods: u32,
+            dwNumberOfMethods: DWORD,
             pEapMethods: *mut EAP_METHOD_INFO,
         }
         struct EAP_METHOD_INFO_ARRAY_EX {
-            dwNumberOfMethods: u32,
+            dwNumberOfMethods: DWORD,
             pEapMethods: *mut EAP_METHOD_INFO_EX,
         }
         struct EAP_METHOD_INFO_EX {
             eaptype: EAP_METHOD_TYPE,
-            pwszAuthorName: PWSTR,
-            pwszFriendlyName: PWSTR,
-            eapProperties: u32,
+            pwszAuthorName: LPWSTR,
+            pwszFriendlyName: LPWSTR,
+            eapProperties: DWORD,
             pInnerMethodInfoArray: *mut EAP_METHOD_INFO_ARRAY_EX,
         }
         struct EAP_METHOD_PROPERTY {
@@ -144,7 +144,7 @@ mod Windows {
             eapMethodPropertyValue: EAP_METHOD_PROPERTY_VALUE,
         }
         struct EAP_METHOD_PROPERTY_ARRAY {
-            dwNumberOfProperties: u32,
+            dwNumberOfProperties: DWORD,
             pMethodProperty: *mut EAP_METHOD_PROPERTY,
         }
         #[repr(i32)]
@@ -187,16 +187,16 @@ mod Windows {
             empvString: EAP_METHOD_PROPERTY_VALUE_STRING,
         }
         struct EAP_METHOD_PROPERTY_VALUE_BOOL {
-            length: u32,
+            length: DWORD,
             value: BOOL,
         }
         struct EAP_METHOD_PROPERTY_VALUE_DWORD {
-            length: u32,
-            value: u32,
+            length: DWORD,
+            value: DWORD,
         }
         struct EAP_METHOD_PROPERTY_VALUE_STRING {
-            length: u32,
-            value: *mut u8,
+            length: DWORD,
+            value: *mut BYTE,
         }
         #[repr(i32)]
         enum EAP_METHOD_PROPERTY_VALUE_TYPE {
@@ -206,14 +206,14 @@ mod Windows {
         }
         struct EAP_METHOD_TYPE {
             eapType: EAP_TYPE,
-            dwAuthorId: u32,
+            dwAuthorId: DWORD,
         }
         const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: i32 = 32768;
         type EAP_SESSIONID = u32;
         struct EAP_TYPE {
-            r#type: u8,
-            dwVendorId: u32,
-            dwVendorType: u32,
+            r#type: BYTE,
+            dwVendorId: DWORD,
+            dwVendorType: DWORD,
         }
         union EAP_UI_DATA_FORMAT {
             credData: *mut EAP_CRED_REQ,
@@ -230,8 +230,8 @@ mod Windows {
         type EapAttributeType = _EAP_ATTRIBUTE_TYPE;
         type EapAttributes = _EAP_ATTRIBUTES;
         struct EapCertificateCredential {
-            certHash: [u8; 20],
-            password: PWSTR,
+            certHash: [BYTE; 20],
+            password: LPWSTR,
         }
         struct EapCredential {
             credType: EapCredentialType,
@@ -251,11 +251,11 @@ mod Windows {
             sim: EapSimCredential,
         }
         struct EapSimCredential {
-            iccID: PWSTR,
+            iccID: LPWSTR,
         }
         struct EapUsernamePasswordCredential {
-            username: PWSTR,
-            password: PWSTR,
+            username: LPWSTR,
+            password: LPWSTR,
         }
         const MAX_EAP_CONFIG_INPUT_FIELD_LENGTH: i32 = 256;
         const MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH: i32 = 1024;
@@ -264,11 +264,11 @@ mod Windows {
         type PEAP_CONFIG_INPUT_FIELD_TYPE = *mut EAP_CONFIG_INPUT_FIELD_TYPE;
         struct _EAP_ATTRIBUTE {
             eaType: EAP_ATTRIBUTE_TYPE,
-            dwLength: u32,
-            pValue: *mut u8,
+            dwLength: DWORD,
+            pValue: *mut BYTE,
         }
         struct _EAP_ATTRIBUTES {
-            dwNumberOfAttributes: u32,
+            dwNumberOfAttributes: DWORD,
             pAttribs: *mut EAP_ATTRIBUTE,
         }
         #[repr(i32)]

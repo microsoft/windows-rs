@@ -22,27 +22,27 @@ mod Windows {
         const CBF_SKIP_UNREGISTRATIONS: i32 = 1048576;
         const CBR_BLOCK: HDDEDATA = -1;
         struct CONVCONTEXT {
-            cb: u32,
-            wFlags: u32,
-            wCountryID: u32,
+            cb: UINT,
+            wFlags: UINT,
+            wCountryID: UINT,
             iCodePage: i32,
-            dwLangID: u32,
-            dwSecurity: u32,
+            dwLangID: DWORD,
+            dwSecurity: DWORD,
             qos: SECURITY_QUALITY_OF_SERVICE,
         }
         struct CONVINFO {
-            cb: u32,
-            hUser: usize,
+            cb: DWORD,
+            hUser: DWORD_PTR,
             hConvPartner: HCONV,
             hszSvcPartner: HSZ,
             hszServiceReq: HSZ,
             hszTopic: HSZ,
             hszItem: HSZ,
-            wFmt: u32,
-            wType: u32,
-            wStatus: u32,
-            wConvst: u32,
-            wLastError: u32,
+            wFmt: UINT,
+            wType: UINT,
+            wStatus: UINT,
+            wConvst: UINT,
+            wLastError: UINT,
             hConvList: HCONVLIST,
             ConvCtxt: CONVCONTEXT,
             hwnd: HWND,
@@ -52,10 +52,10 @@ mod Windows {
         const CP_WINNEUTRAL: i32 = 1004;
         const CP_WINUNICODE: i32 = 1200;
         struct DDEML_MSG_HOOK_DATA {
-            uiLo: usize,
-            uiHi: usize,
-            cbData: u32,
-            Data: [u32; 8],
+            uiLo: UINT_PTR,
+            uiHi: UINT_PTR,
+            cbData: DWORD,
+            Data: [DWORD; 8],
         }
         const DDE_FACK: i32 = 32768;
         const DDE_FACKREQ: i32 = 32768;
@@ -95,72 +95,72 @@ mod Windows {
         const DNS_REGISTER: i32 = 1;
         const DNS_UNREGISTER: i32 = 2;
         #[library("USER32.dll")]
-        extern fn DdeAbandonTransaction(idInst: u32, hConv: HCONV, idTransaction: u32) -> BOOL;
+        extern fn DdeAbandonTransaction(#[in] idInst: DWORD, #[in] hConv: HCONV, #[in] idTransaction: DWORD) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DdeAccessData(hData: HDDEDATA, #[out] #[opt] pcbDataSize: LPDWORD) -> LPBYTE;
+        extern fn DdeAccessData(#[in] hData: HDDEDATA, #[out] #[opt] pcbDataSize: LPDWORD) -> LPBYTE;
         #[library("USER32.dll")]
-        extern fn DdeAddData(hData: HDDEDATA, #[size_param(2)] pSrc: LPBYTE, cb: u32, cbOff: u32) -> HDDEDATA;
+        extern fn DdeAddData(#[in] hData: HDDEDATA, #[in] #[readable(entry, bytes(cb))] pSrc: LPBYTE, #[in] cb: DWORD, #[in] cbOff: DWORD) -> HDDEDATA;
         #[library("USER32.dll")]
-        extern fn DdeClientTransaction(#[opt] pData: LPBYTE, cbData: u32, hConv: HCONV, #[opt] hszItem: HSZ, wFmt: u32, wType: u32, dwTimeout: u32, #[out] #[opt] pdwResult: LPDWORD) -> HDDEDATA;
+        extern fn DdeClientTransaction(#[in] #[opt] pData: LPBYTE, #[in] cbData: DWORD, #[in] hConv: HCONV, #[in] #[opt] hszItem: HSZ, #[in] wFmt: UINT, #[in] wType: UINT, #[in] dwTimeout: DWORD, #[out] #[opt] pdwResult: LPDWORD) -> HDDEDATA;
         #[library("USER32.dll")]
-        extern fn DdeCmpStringHandles(hsz1: HSZ, hsz2: HSZ) -> i32;
+        extern fn DdeCmpStringHandles(#[in] hsz1: HSZ, #[in] hsz2: HSZ) -> i32;
         #[library("USER32.dll")]
-        extern fn DdeConnect(idInst: u32, hszService: HSZ, hszTopic: HSZ, #[opt] pCC: PCONVCONTEXT) -> HCONV;
+        extern fn DdeConnect(#[in] idInst: DWORD, #[in] hszService: HSZ, #[in] hszTopic: HSZ, #[in] #[opt] pCC: PCONVCONTEXT) -> HCONV;
         #[library("USER32.dll")]
-        extern fn DdeConnectList(idInst: u32, hszService: HSZ, hszTopic: HSZ, hConvList: HCONVLIST, #[opt] pCC: PCONVCONTEXT) -> HCONVLIST;
+        extern fn DdeConnectList(#[in] idInst: DWORD, #[in] hszService: HSZ, #[in] hszTopic: HSZ, #[in] hConvList: HCONVLIST, #[in] #[opt] pCC: PCONVCONTEXT) -> HCONVLIST;
         #[library("USER32.dll")]
-        extern fn DdeCreateDataHandle(idInst: u32, #[size_param(2)] #[opt] pSrc: LPBYTE, cb: u32, cbOff: u32, #[opt] hszItem: HSZ, wFmt: u32, afCmd: u32) -> HDDEDATA;
+        extern fn DdeCreateDataHandle(#[in] idInst: DWORD, #[in] #[opt] #[readable(entry, bytes(cb))] pSrc: LPBYTE, #[in] cb: DWORD, #[in] cbOff: DWORD, #[in] #[opt] hszItem: HSZ, #[in] wFmt: UINT, #[in] afCmd: UINT) -> HDDEDATA;
         #[library("USER32.dll")]
-        extern fn DdeCreateStringHandleA(idInst: u32, psz: PCSTR, iCodePage: i32) -> HSZ;
+        extern fn DdeCreateStringHandleA(#[in] idInst: DWORD, #[in] psz: LPCSTR, #[in] iCodePage: i32) -> HSZ;
         #[library("USER32.dll")]
-        extern fn DdeCreateStringHandleW(idInst: u32, psz: PCWSTR, iCodePage: i32) -> HSZ;
+        extern fn DdeCreateStringHandleW(#[in] idInst: DWORD, #[in] psz: LPCWSTR, #[in] iCodePage: i32) -> HSZ;
         #[library("USER32.dll")]
-        extern fn DdeDisconnect(hConv: HCONV) -> BOOL;
+        extern fn DdeDisconnect(#[in] hConv: HCONV) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DdeDisconnectList(hConvList: HCONVLIST) -> BOOL;
+        extern fn DdeDisconnectList(#[in] hConvList: HCONVLIST) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DdeEnableCallback(idInst: u32, hConv: HCONV, wCmd: u32) -> BOOL;
+        extern fn DdeEnableCallback(#[in] idInst: DWORD, #[in] hConv: HCONV, #[in] wCmd: UINT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DdeFreeDataHandle(hData: HDDEDATA) -> BOOL;
+        extern fn DdeFreeDataHandle(#[in] hData: HDDEDATA) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DdeFreeStringHandle(idInst: u32, hsz: HSZ) -> BOOL;
+        extern fn DdeFreeStringHandle(#[in] idInst: DWORD, #[in] hsz: HSZ) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DdeGetData(hData: HDDEDATA, #[size_param(2)] #[out] #[opt] pDst: LPBYTE, cbMax: u32, cbOff: u32) -> u32;
+        extern fn DdeGetData(#[in] hData: HDDEDATA, #[out] #[opt] #[writable(entry, bytes(cbMax))] pDst: LPBYTE, #[in] cbMax: DWORD, #[in] cbOff: DWORD) -> DWORD;
         #[library("USER32.dll")]
-        extern fn DdeGetLastError(idInst: u32) -> u32;
+        extern fn DdeGetLastError(#[in] idInst: DWORD) -> UINT;
         #[library("USER32.dll")]
-        extern fn DdeImpersonateClient(hConv: HCONV) -> BOOL;
+        extern fn DdeImpersonateClient(#[in] hConv: HCONV) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DdeInitializeA(#[in] #[out] pidInst: LPDWORD, pfnCallback: PFNCALLBACK, afCmd: u32, #[reserved] ulRes: u32) -> u32;
+        extern fn DdeInitializeA(#[in] #[out] pidInst: LPDWORD, #[in] pfnCallback: PFNCALLBACK, #[in] afCmd: DWORD, #[reserved] ulRes: DWORD) -> UINT;
         #[library("USER32.dll")]
-        extern fn DdeInitializeW(#[in] #[out] pidInst: LPDWORD, pfnCallback: PFNCALLBACK, afCmd: u32, #[reserved] ulRes: u32) -> u32;
+        extern fn DdeInitializeW(#[in] #[out] pidInst: LPDWORD, #[in] pfnCallback: PFNCALLBACK, #[in] afCmd: DWORD, #[reserved] ulRes: DWORD) -> UINT;
         #[library("USER32.dll")]
-        extern fn DdeKeepStringHandle(idInst: u32, hsz: HSZ) -> BOOL;
+        extern fn DdeKeepStringHandle(#[in] idInst: DWORD, #[in] hsz: HSZ) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DdeNameService(idInst: u32, #[opt] hsz1: HSZ, #[opt] hsz2: HSZ, afCmd: u32) -> HDDEDATA;
+        extern fn DdeNameService(#[in] idInst: DWORD, #[in] #[opt] hsz1: HSZ, #[in] #[opt] hsz2: HSZ, #[in] afCmd: UINT) -> HDDEDATA;
         #[library("USER32.dll")]
-        extern fn DdePostAdvise(idInst: u32, hszTopic: HSZ, hszItem: HSZ) -> BOOL;
+        extern fn DdePostAdvise(#[in] idInst: DWORD, #[in] hszTopic: HSZ, #[in] hszItem: HSZ) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DdeQueryConvInfo(hConv: HCONV, idTransaction: u32, #[in] #[out] pConvInfo: PCONVINFO) -> u32;
+        extern fn DdeQueryConvInfo(#[in] hConv: HCONV, #[in] idTransaction: DWORD, #[in] #[out] pConvInfo: PCONVINFO) -> UINT;
         #[library("USER32.dll")]
-        extern fn DdeQueryNextServer(hConvList: HCONVLIST, hConvPrev: HCONV) -> HCONV;
+        extern fn DdeQueryNextServer(#[in] hConvList: HCONVLIST, #[in] hConvPrev: HCONV) -> HCONV;
         #[library("USER32.dll")]
-        extern fn DdeQueryStringA(idInst: u32, hsz: HSZ, #[len_param(3)] #[out] #[opt] psz: PSTR, cchMax: u32, iCodePage: i32) -> u32;
+        extern fn DdeQueryStringA(#[in] idInst: DWORD, #[in] hsz: HSZ, #[out] #[opt] #[writable(entry, cchMax)] psz: LPSTR, #[in] cchMax: DWORD, #[in] iCodePage: i32) -> DWORD;
         #[library("USER32.dll")]
-        extern fn DdeQueryStringW(idInst: u32, hsz: HSZ, #[len_param(3)] #[out] #[opt] psz: PWSTR, cchMax: u32, iCodePage: i32) -> u32;
+        extern fn DdeQueryStringW(#[in] idInst: DWORD, #[in] hsz: HSZ, #[out] #[opt] #[writable(entry, cchMax)] psz: LPWSTR, #[in] cchMax: DWORD, #[in] iCodePage: i32) -> DWORD;
         #[library("USER32.dll")]
-        extern fn DdeReconnect(hConv: HCONV) -> HCONV;
+        extern fn DdeReconnect(#[in] hConv: HCONV) -> HCONV;
         #[library("USER32.dll")]
-        extern fn DdeSetUserHandle(hConv: HCONV, id: u32, hUser: usize) -> BOOL;
+        extern fn DdeSetUserHandle(#[in] hConv: HCONV, #[in] id: DWORD, #[in] hUser: DWORD_PTR) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DdeUnaccessData(hData: HDDEDATA) -> BOOL;
+        extern fn DdeUnaccessData(#[in] hData: HDDEDATA) -> BOOL;
         #[library("USER32.dll")]
-        extern fn DdeUninitialize(idInst: u32) -> BOOL;
+        extern fn DdeUninitialize(#[in] idInst: DWORD) -> BOOL;
         const EC_DISABLE: i32 = 8;
         const EC_ENABLEALL: i32 = 0;
         const EC_ENABLEONE: i32 = 128;
         const EC_QUERYWAITING: i32 = 2;
-        extern fn FNCALLBACK(wType: u32, wFmt: u32, hConv: HCONV, hsz1: HSZ, hsz2: HSZ, hData: HDDEDATA, dwData1: usize, dwData2: usize) -> HDDEDATA;
+        extern fn FNCALLBACK(wType: UINT, wFmt: UINT, hConv: HCONV, hsz1: HSZ, hsz2: HSZ, hData: HDDEDATA, dwData1: ULONG_PTR, dwData2: ULONG_PTR) -> HDDEDATA;
         type HCONV = *mut HCONV__;
         type HCONVLIST = *mut HCONVLIST__;
         struct HCONVLIST__ {
@@ -196,26 +196,26 @@ mod Windows {
         const MH_DELETE: i32 = 3;
         const MH_KEEP: i32 = 2;
         struct MONCBSTRUCT {
-            cb: u32,
-            dwTime: u32,
+            cb: UINT,
+            dwTime: DWORD,
             hTask: HANDLE,
-            dwRet: u32,
-            wType: u32,
-            wFmt: u32,
+            dwRet: DWORD,
+            wType: UINT,
+            wFmt: UINT,
             hConv: HCONV,
             hsz1: HSZ,
             hsz2: HSZ,
             hData: HDDEDATA,
-            dwData1: usize,
-            dwData2: usize,
+            dwData1: ULONG_PTR,
+            dwData2: ULONG_PTR,
             cc: CONVCONTEXT,
-            cbData: u32,
-            Data: [u32; 8],
+            cbData: DWORD,
+            Data: [DWORD; 8],
         }
         struct MONCONVSTRUCT {
-            cb: u32,
+            cb: UINT,
             fConnect: BOOL,
-            dwTime: u32,
+            dwTime: DWORD,
             hTask: HANDLE,
             hszSvc: HSZ,
             hszTopic: HSZ,
@@ -223,48 +223,48 @@ mod Windows {
             hConvServer: HCONV,
         }
         struct MONERRSTRUCT {
-            cb: u32,
-            wLastError: u32,
-            dwTime: u32,
+            cb: UINT,
+            wLastError: UINT,
+            dwTime: DWORD,
             hTask: HANDLE,
         }
         type MONHSZSTRUCT = MONHSZSTRUCTA;
         struct MONHSZSTRUCTA {
-            cb: u32,
+            cb: UINT,
             fsAction: BOOL,
-            dwTime: u32,
+            dwTime: DWORD,
             hsz: HSZ,
             hTask: HANDLE,
-            str: [i8; 1],
+            str: [CHAR; 1],
         }
         struct MONHSZSTRUCTW {
-            cb: u32,
+            cb: UINT,
             fsAction: BOOL,
-            dwTime: u32,
+            dwTime: DWORD,
             hsz: HSZ,
             hTask: HANDLE,
-            str: [u16; 1],
+            str: [WCHAR; 1],
         }
         struct MONLINKSTRUCT {
-            cb: u32,
-            dwTime: u32,
+            cb: UINT,
+            dwTime: DWORD,
             hTask: HANDLE,
             fEstablished: BOOL,
             fNoData: BOOL,
             hszSvc: HSZ,
             hszTopic: HSZ,
             hszItem: HSZ,
-            wFmt: u32,
+            wFmt: UINT,
             fServer: BOOL,
             hConvServer: HCONV,
             hConvClient: HCONV,
         }
         struct MONMSGSTRUCT {
-            cb: u32,
+            cb: UINT,
             hwndTo: HWND,
-            dwTime: u32,
+            dwTime: DWORD,
             hTask: HANDLE,
-            wMsg: u32,
+            wMsg: UINT,
             wParam: WPARAM,
             lParam: LPARAM,
             dmhd: DDEML_MSG_HOOK_DATA,
@@ -273,12 +273,12 @@ mod Windows {
         type PCONVCONTEXT = *mut CONVCONTEXT;
         type PCONVINFO = *mut CONVINFO;
         type PDDEML_MSG_HOOK_DATA = *mut DDEML_MSG_HOOK_DATA;
-        extern fn PFNCALLBACK(wType: u32, wFmt: u32, hConv: HCONV, hsz1: HSZ, hsz2: HSZ, hData: HDDEDATA, dwData1: usize, dwData2: usize) -> HDDEDATA;
+        extern fn PFNCALLBACK(wType: UINT, wFmt: UINT, hConv: HCONV, hsz1: HSZ, hsz2: HSZ, hData: HDDEDATA, dwData1: ULONG_PTR, dwData2: ULONG_PTR) -> HDDEDATA;
         type PHSZPAIR = *mut HSZPAIR;
         type PMONCBSTRUCT = *mut MONCBSTRUCT;
         type PMONCONVSTRUCT = *mut MONCONVSTRUCT;
         type PMONERRSTRUCT = *mut MONERRSTRUCT;
-        type PMONHSZSTRUCT = PMONHSZSTRUCTA;
+        type PMONHSZSTRUCT = *mut MONHSZSTRUCTA;
         type PMONHSZSTRUCTA = *mut MONHSZSTRUCTA;
         type PMONHSZSTRUCTW = *mut MONHSZSTRUCTW;
         type PMONLINKSTRUCT = *mut MONLINKSTRUCT;

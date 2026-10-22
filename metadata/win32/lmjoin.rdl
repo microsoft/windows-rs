@@ -4,15 +4,15 @@ mod Windows {
         struct DSREG_JOIN_INFO {
             joinType: DSREG_JOIN_TYPE,
             pJoinCertificate: PCCERT_CONTEXT,
-            pszDeviceId: PWSTR,
-            pszIdpDomain: PWSTR,
-            pszTenantId: PWSTR,
-            pszJoinUserEmail: PWSTR,
-            pszTenantDisplayName: PWSTR,
-            pszMdmEnrollmentUrl: PWSTR,
-            pszMdmTermsOfUseUrl: PWSTR,
-            pszMdmComplianceUrl: PWSTR,
-            pszUserSettingSyncUrl: PWSTR,
+            pszDeviceId: LPWSTR,
+            pszIdpDomain: LPWSTR,
+            pszTenantId: LPWSTR,
+            pszJoinUserEmail: LPWSTR,
+            pszTenantDisplayName: LPWSTR,
+            pszMdmEnrollmentUrl: LPWSTR,
+            pszMdmTermsOfUseUrl: LPWSTR,
+            pszMdmComplianceUrl: LPWSTR,
+            pszUserSettingSyncUrl: LPWSTR,
             pUserInfo: *mut DSREG_USER_INFO,
         }
         #[repr(i32)]
@@ -22,9 +22,9 @@ mod Windows {
             DSREG_WORKPLACE_JOIN = 2,
         }
         struct DSREG_USER_INFO {
-            pszUserEmail: PWSTR,
-            pszUserKeyId: PWSTR,
-            pszUserKeyName: PWSTR,
+            pszUserEmail: LPWSTR,
+            pszUserKeyId: LPWSTR,
+            pszUserKeyName: LPWSTR,
         }
         const NETSETUP_ACCT_CREATE: i32 = 2;
         const NETSETUP_ACCT_DELETE: i32 = 4;
@@ -63,21 +63,21 @@ mod Windows {
         const NETSETUP_NO_NETLOGON_CACHE: i32 = 8192;
         const NETSETUP_PROCESS_OFFLINE_FLAGS: i32 = 17569;
         struct NETSETUP_PROVISIONING_PARAMS {
-            dwVersion: u32,
-            lpDomain: PCWSTR,
-            lpHostName: PCWSTR,
-            lpMachineAccountOU: PCWSTR,
-            lpDcName: PCWSTR,
-            dwProvisionOptions: u32,
-            aCertTemplateNames: *mut PCWSTR,
-            cCertTemplateNames: u32,
-            aMachinePolicyNames: *mut PCWSTR,
-            cMachinePolicyNames: u32,
-            aMachinePolicyPaths: *mut PCWSTR,
-            cMachinePolicyPaths: u32,
-            lpNetbiosName: PWSTR,
-            lpSiteName: PWSTR,
-            lpPrimaryDNSDomain: PWSTR,
+            dwVersion: DWORD,
+            lpDomain: LPCWSTR,
+            lpHostName: LPCWSTR,
+            lpMachineAccountOU: LPCWSTR,
+            lpDcName: LPCWSTR,
+            dwProvisionOptions: DWORD,
+            aCertTemplateNames: *mut LPCWSTR,
+            cCertTemplateNames: DWORD,
+            aMachinePolicyNames: *mut LPCWSTR,
+            cMachinePolicyNames: DWORD,
+            aMachinePolicyPaths: *mut LPCWSTR,
+            cMachinePolicyPaths: DWORD,
+            lpNetbiosName: LPWSTR,
+            lpSiteName: LPWSTR,
+            lpPrimaryDNSDomain: LPWSTR,
         }
         const NETSETUP_PROVISIONING_PARAMS_CURRENT_VERSION: i32 = 2;
         const NETSETUP_PROVISIONING_PARAMS_WIN8_VERSION: i32 = 1;
@@ -101,37 +101,37 @@ mod Windows {
         }
         const NET_IGNORE_UNSUPPORTED_FLAGS: i32 = 1;
         #[library("NETAPI32.dll")]
-        extern fn NetAddAlternateComputerName(#[opt] Server: PCWSTR, AlternateName: PCWSTR, #[opt] DomainAccount: PCWSTR, #[opt] DomainAccountPassword: PCWSTR, Reserved: u32) -> u32;
+        extern fn NetAddAlternateComputerName(#[in] #[opt] Server: LPCWSTR, #[in] AlternateName: LPCWSTR, #[in] #[opt] DomainAccount: LPCWSTR, #[in] #[opt] DomainAccountPassword: LPCWSTR, #[in] Reserved: ULONG) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetCreateProvisioningPackage(pProvisioningParams: PNETSETUP_PROVISIONING_PARAMS, ppPackageBinData: *mut PBYTE, #[opt] pdwPackageBinDataSize: *mut u32, ppPackageTextData: *mut PWSTR) -> u32;
+        extern fn NetCreateProvisioningPackage(#[in] pProvisioningParams: PNETSETUP_PROVISIONING_PARAMS, #[out] #[opt] #[writable(success, bytes(if_present(*pdwPackageBinDataSize)), indirect, nullable)] ppPackageBinData: *mut PBYTE, #[out] #[opt] pdwPackageBinDataSize: *mut DWORD, #[out] #[opt] #[out_ptr(nullable)] #[null_terminated(success, indirect)] ppPackageTextData: *mut LPWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetEnumerateComputerNames(#[opt] Server: PCWSTR, NameType: NET_COMPUTER_NAME_TYPE, Reserved: u32, #[out] EntryCount: PDWORD, ComputerNames: *mut *mut PWSTR) -> u32;
+        extern fn NetEnumerateComputerNames(#[in] #[opt] Server: LPCWSTR, #[in] NameType: NET_COMPUTER_NAME_TYPE, #[in] Reserved: ULONG, #[out] EntryCount: PDWORD, #[out] #[writable(success, *EntryCount, indirect)] ComputerNames: *mut *mut LPWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetFreeAadJoinInformation(#[opt] pJoinInfo: PDSREG_JOIN_INFO);
+        extern fn NetFreeAadJoinInformation(#[in] #[opt] pJoinInfo: PDSREG_JOIN_INFO);
         #[library("NETAPI32.dll")]
-        extern fn NetGetAadJoinInformation(#[opt] pcszTenantId: PCWSTR, ppJoinInfo: *mut PDSREG_JOIN_INFO) -> HRESULT;
+        extern fn NetGetAadJoinInformation(#[in] #[opt] pcszTenantId: LPCWSTR, #[out] #[out_ptr(nullable)] ppJoinInfo: *mut PDSREG_JOIN_INFO) -> HRESULT;
         #[library("NETAPI32.dll")]
-        extern fn NetGetJoinInformation(#[opt] lpServer: PCWSTR, lpNameBuffer: *mut PWSTR, #[out] BufferType: PNETSETUP_JOIN_STATUS) -> u32;
+        extern fn NetGetJoinInformation(#[in] #[opt] lpServer: LPCWSTR, #[out] #[out_ptr] lpNameBuffer: *mut LPWSTR, #[out] BufferType: PNETSETUP_JOIN_STATUS) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetGetJoinableOUs(lpServer: PCWSTR, lpDomain: PCWSTR, #[opt] lpAccount: PCWSTR, #[opt] lpPassword: PCWSTR, OUCount: *mut u32, OUs: *mut *mut PWSTR) -> u32;
+        extern fn NetGetJoinableOUs(#[in] lpServer: LPCWSTR, #[in] lpDomain: LPCWSTR, #[in] #[opt] lpAccount: LPCWSTR, #[in] #[opt] lpPassword: LPCWSTR, #[out] OUCount: *mut DWORD, #[out] #[writable(success, *OUCount, indirect)] OUs: *mut *mut LPWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetJoinDomain(#[opt] lpServer: PCWSTR, lpDomain: PCWSTR, #[opt] lpMachineAccountOU: PCWSTR, #[opt] lpAccount: PCWSTR, #[opt] lpPassword: PCWSTR, fJoinOptions: u32) -> u32;
+        extern fn NetJoinDomain(#[in] #[opt] lpServer: LPCWSTR, #[in] lpDomain: LPCWSTR, #[in] #[opt] lpMachineAccountOU: LPCWSTR, #[in] #[opt] lpAccount: LPCWSTR, #[in] #[opt] lpPassword: LPCWSTR, #[in] fJoinOptions: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetProvisionComputerAccount(lpDomain: PCWSTR, lpMachineName: PCWSTR, #[opt] lpMachineAccountOU: PCWSTR, #[opt] lpDcName: PCWSTR, dwOptions: u32, pProvisionBinData: *mut PBYTE, #[opt] pdwProvisionBinDataSize: *mut u32, pProvisionTextData: *mut PWSTR) -> u32;
+        extern fn NetProvisionComputerAccount(#[in] #[null_terminated(entry)] lpDomain: LPCWSTR, #[in] #[null_terminated(entry)] lpMachineName: LPCWSTR, #[in] #[opt] #[null_terminated(entry)] lpMachineAccountOU: LPCWSTR, #[in] #[opt] #[null_terminated(entry)] lpDcName: LPCWSTR, #[in] dwOptions: DWORD, #[out] #[opt] #[writable(success, bytes(if_present(*pdwProvisionBinDataSize)), indirect, nullable)] pProvisionBinData: *mut PBYTE, #[out] #[opt] pdwProvisionBinDataSize: *mut DWORD, #[out] #[opt] #[out_ptr(nullable)] #[null_terminated(success, indirect)] pProvisionTextData: *mut LPWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetRemoveAlternateComputerName(#[opt] Server: PCWSTR, AlternateName: PCWSTR, #[opt] DomainAccount: PCWSTR, #[opt] DomainAccountPassword: PCWSTR, Reserved: u32) -> u32;
+        extern fn NetRemoveAlternateComputerName(#[in] #[opt] Server: LPCWSTR, #[in] AlternateName: LPCWSTR, #[in] #[opt] DomainAccount: LPCWSTR, #[in] #[opt] DomainAccountPassword: LPCWSTR, #[in] Reserved: ULONG) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetRenameMachineInDomain(#[opt] lpServer: PCWSTR, #[opt] lpNewMachineName: PCWSTR, #[opt] lpAccount: PCWSTR, #[opt] lpPassword: PCWSTR, fRenameOptions: u32) -> u32;
+        extern fn NetRenameMachineInDomain(#[in] #[opt] lpServer: LPCWSTR, #[in] #[opt] lpNewMachineName: LPCWSTR, #[in] #[opt] lpAccount: LPCWSTR, #[in] #[opt] lpPassword: LPCWSTR, #[in] fRenameOptions: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetRequestOfflineDomainJoin(#[size_param(1)] #[in] pProvisionBinData: *mut u8, cbProvisionBinDataSize: u32, dwOptions: u32, lpWindowsPath: PCWSTR) -> u32;
+        extern fn NetRequestOfflineDomainJoin(#[in] #[readable(entry, bytes(cbProvisionBinDataSize))] pProvisionBinData: *mut BYTE, #[in] cbProvisionBinDataSize: DWORD, #[in] dwOptions: DWORD, #[in] #[null_terminated(entry)] lpWindowsPath: LPCWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetRequestProvisioningPackageInstall(#[size_param(1)] #[in] pPackageBinData: *mut u8, dwPackageBinDataSize: u32, dwProvisionOptions: u32, lpWindowsPath: PCWSTR, #[reserved] pvReserved: *mut void) -> u32;
+        extern fn NetRequestProvisioningPackageInstall(#[in] #[readable(entry, bytes(dwPackageBinDataSize))] pPackageBinData: *mut BYTE, #[in] dwPackageBinDataSize: DWORD, #[in] dwProvisionOptions: DWORD, #[in] #[null_terminated(entry)] lpWindowsPath: LPCWSTR, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetSetPrimaryComputerName(#[opt] Server: PCWSTR, PrimaryName: PCWSTR, #[opt] DomainAccount: PCWSTR, #[opt] DomainAccountPassword: PCWSTR, Reserved: u32) -> u32;
+        extern fn NetSetPrimaryComputerName(#[in] #[opt] Server: LPCWSTR, #[in] PrimaryName: LPCWSTR, #[in] #[opt] DomainAccount: LPCWSTR, #[in] #[opt] DomainAccountPassword: LPCWSTR, #[in] Reserved: ULONG) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUnjoinDomain(#[opt] lpServer: PCWSTR, #[opt] lpAccount: PCWSTR, #[opt] lpPassword: PCWSTR, fUnjoinOptions: u32) -> u32;
+        extern fn NetUnjoinDomain(#[in] #[opt] lpServer: LPCWSTR, #[in] #[opt] lpAccount: LPCWSTR, #[in] #[opt] lpPassword: LPCWSTR, #[in] fUnjoinOptions: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetValidateName(#[opt] lpServer: PCWSTR, lpName: PCWSTR, #[opt] lpAccount: PCWSTR, #[opt] lpPassword: PCWSTR, NameType: NETSETUP_NAME_TYPE) -> u32;
+        extern fn NetValidateName(#[in] #[opt] lpServer: LPCWSTR, #[in] lpName: LPCWSTR, #[in] #[opt] lpAccount: LPCWSTR, #[in] #[opt] lpPassword: LPCWSTR, #[in] NameType: NETSETUP_NAME_TYPE) -> DWORD;
         type PDSREG_JOIN_INFO = *mut DSREG_JOIN_INFO;
         type PDSREG_JOIN_TYPE = *mut DSREG_JOIN_TYPE;
         type PDSREG_USER_INFO = *mut DSREG_USER_INFO;

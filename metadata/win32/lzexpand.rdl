@@ -1,16 +1,24 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[must_use]
+        #[success(return >= 0)]
         #[library("LZ32.dll")]
-        extern fn CopyLZFile(hfSource: i32, hfDest: i32) -> i32;
+        extern fn CopyLZFile(#[in] hfSource: INT, #[in] hfDest: INT) -> LONG;
+        #[must_use]
+        #[success(return >= 0)]
         #[library("LZ32.dll")]
-        extern fn GetExpandedNameA(lpszSource: PCSTR, #[out] lpszBuffer: PSTR) -> i32;
+        extern fn GetExpandedNameA(#[in] lpszSource: LPSTR, #[out] #[writable(entry, 260)] lpszBuffer: LPSTR) -> INT;
+        #[must_use]
+        #[success(return >= 0)]
         #[library("LZ32.dll")]
-        extern fn GetExpandedNameW(lpszSource: PCWSTR, #[out] lpszBuffer: PWSTR) -> i32;
+        extern fn GetExpandedNameW(#[in] lpszSource: LPWSTR, #[out] #[writable(entry, 260)] lpszBuffer: LPWSTR) -> INT;
         #[library("LZ32.dll")]
-        extern fn LZClose(hFile: i32);
+        extern fn LZClose(#[in] hFile: INT);
+        #[must_use]
+        #[success(return >= 0)]
         #[library("LZ32.dll")]
-        extern fn LZCopy(hfSource: i32, hfDest: i32) -> i32;
+        extern fn LZCopy(#[in] hfSource: INT, #[in] hfDest: INT) -> LONG;
         #[library("LZ32.dll")]
         extern fn LZDone();
         const LZERROR_BADINHANDLE: i32 = -1;
@@ -21,17 +29,29 @@ mod Windows {
         const LZERROR_READ: i32 = -3;
         const LZERROR_UNKNOWNALG: i32 = -8;
         const LZERROR_WRITE: i32 = -4;
+        #[must_use]
+        #[success(return >= 0)]
         #[library("LZ32.dll")]
-        extern fn LZInit(hfSource: i32) -> i32;
+        extern fn LZInit(#[in] hfSource: INT) -> INT;
+        #[must_use]
+        #[success(return >= 0)]
         #[library("LZ32.dll")]
-        extern fn LZOpenFileA(lpFileName: PCSTR, #[in] #[out] lpReOpenBuf: LPOFSTRUCT, wStyle: u16) -> i32;
+        extern fn LZOpenFileA(#[in] lpFileName: LPSTR, #[in] #[out] lpReOpenBuf: LPOFSTRUCT, #[in] wStyle: WORD) -> INT;
+        #[must_use]
+        #[success(return >= 0)]
         #[library("LZ32.dll")]
-        extern fn LZOpenFileW(lpFileName: PCWSTR, #[in] #[out] lpReOpenBuf: LPOFSTRUCT, wStyle: u16) -> i32;
+        extern fn LZOpenFileW(#[in] lpFileName: LPWSTR, #[in] #[out] lpReOpenBuf: LPOFSTRUCT, #[in] wStyle: WORD) -> INT;
+        #[must_use]
+        #[success(return >= 0)]
         #[library("LZ32.dll")]
-        extern fn LZRead(hFile: i32, #[size_param(2)] lpBuffer: *mut i8, cbRead: i32) -> i32;
+        extern fn LZRead(#[in] hFile: INT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "cbRead,return", "cbRead,return")] #[out] #[writable(entry, bytes(cbRead))] lpBuffer: *mut CHAR, #[in] cbRead: INT) -> INT;
+        #[must_use]
+        #[success(return >= 0)]
         #[library("LZ32.dll")]
-        extern fn LZSeek(hFile: i32, lOffset: i32, iOrigin: i32) -> i32;
+        extern fn LZSeek(#[in] hFile: INT, #[in] lOffset: LONG, #[in] iOrigin: INT) -> LONG;
+        #[must_use]
+        #[success(return >= 0)]
         #[library("LZ32.dll")]
-        extern fn LZStart() -> i32;
+        extern fn LZStart() -> INT;
     }
 }

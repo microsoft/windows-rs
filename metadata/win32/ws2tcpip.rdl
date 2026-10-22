@@ -15,49 +15,52 @@ mod Windows {
         const EAI_NOSECURENAME: i32 = 11032;
         const EAI_SERVICE: i32 = 10109;
         const EAI_SOCKTYPE: i32 = 10044;
+        #[Windows::Win32::Metadata::NativeDeprecated("Use FreeAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
         #[library("WS2_32.dll")]
-        extern fn FreeAddrInfoEx(#[opt] pAddrInfoEx: PADDRINFOEXA);
+        extern fn FreeAddrInfoEx(#[in] #[opt] pAddrInfoEx: PADDRINFOEXA);
         #[library("WS2_32.dll")]
-        extern fn FreeAddrInfoExW(#[opt] pAddrInfoEx: PADDRINFOEXW);
+        extern fn FreeAddrInfoExW(#[in] #[opt] pAddrInfoEx: PADDRINFOEXW);
         #[library("WS2_32.dll")]
-        extern fn FreeAddrInfoW(#[opt] pAddrInfo: PADDRINFOW);
+        extern fn FreeAddrInfoW(#[in] #[opt] pAddrInfo: PADDRINFOW);
         const GAI_STRERROR_BUFFER_SIZE: i32 = 1024;
+        #[Windows::Win32::Metadata::NativeDeprecated("Use GetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
         #[library("WS2_32.dll")]
-        extern fn GetAddrInfoExA(#[opt] pName: PCSTR, #[opt] pServiceName: PCSTR, dwNameSpace: u32, #[opt] lpNspId: LPGUID, #[opt] hints: *const ADDRINFOEXA, ppResult: *mut PADDRINFOEXA, #[in] #[opt] timeout: *mut TIMEVAL, #[opt] lpOverlapped: LPOVERLAPPED, #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[out] #[opt] lpNameHandle: LPHANDLE) -> i32;
+        extern fn GetAddrInfoExA(#[in] #[opt] pName: PCSTR, #[in] #[opt] pServiceName: PCSTR, #[in] dwNameSpace: DWORD, #[in] #[opt] lpNspId: LPGUID, #[in] #[opt] hints: *const ADDRINFOEXA, #[out] #[out_ptr] ppResult: *mut PADDRINFOEXA, #[in] #[opt] timeout: *mut timeval, #[in] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[out] #[opt] lpNameHandle: LPHANDLE) -> INT;
         #[library("WS2_32.dll")]
-        extern fn GetAddrInfoExCancel(lpHandle: LPHANDLE) -> i32;
+        extern fn GetAddrInfoExCancel(#[in] lpHandle: LPHANDLE) -> INT;
         #[library("WS2_32.dll")]
-        extern fn GetAddrInfoExOverlappedResult(lpOverlapped: LPOVERLAPPED) -> i32;
+        extern fn GetAddrInfoExOverlappedResult(#[in] lpOverlapped: LPOVERLAPPED) -> INT;
         #[library("WS2_32.dll")]
-        extern fn GetAddrInfoExW(#[opt] pName: PCWSTR, #[opt] pServiceName: PCWSTR, dwNameSpace: u32, #[opt] lpNspId: LPGUID, #[opt] hints: *const ADDRINFOEXW, ppResult: *mut PADDRINFOEXW, #[in] #[opt] timeout: *mut TIMEVAL, #[opt] lpOverlapped: LPOVERLAPPED, #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[out] #[opt] lpHandle: LPHANDLE) -> i32;
+        extern fn GetAddrInfoExW(#[in] #[opt] pName: PCWSTR, #[in] #[opt] pServiceName: PCWSTR, #[in] dwNameSpace: DWORD, #[in] #[opt] lpNspId: LPGUID, #[in] #[opt] hints: *const ADDRINFOEXW, #[out] #[out_ptr] ppResult: *mut PADDRINFOEXW, #[in] #[opt] timeout: *mut timeval, #[in] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[out] #[opt] lpHandle: LPHANDLE) -> INT;
         #[library("WS2_32.dll")]
-        extern fn GetAddrInfoW(#[opt] pNodeName: PCWSTR, #[opt] pServiceName: PCWSTR, #[opt] pHints: *const ADDRINFOW, ppResult: *mut PADDRINFOW) -> i32;
+        extern fn GetAddrInfoW(#[in] #[opt] pNodeName: PCWSTR, #[in] #[opt] pServiceName: PCWSTR, #[in] #[opt] pHints: *const ADDRINFOW, #[out] #[out_ptr] ppResult: *mut PADDRINFOW) -> INT;
         #[library("WS2_32.dll")]
-        extern fn GetNameInfoW(#[size_param(1)] pSockaddr: *const SOCKADDR, SockaddrLength: socklen_t, #[len_param(3)] #[out] #[opt] pNodeBuffer: PWCHAR, NodeBufferSize: u32, #[len_param(5)] #[out] #[opt] pServiceBuffer: PWCHAR, ServiceBufferSize: u32, Flags: i32) -> i32;
+        extern fn GetNameInfoW(#[in] #[readable(entry, bytes(SockaddrLength))] pSockaddr: *const SOCKADDR, #[in] SockaddrLength: socklen_t, #[out] #[opt] #[writable(entry, NodeBufferSize)] pNodeBuffer: PWCHAR, #[in] NodeBufferSize: DWORD, #[out] #[opt] #[writable(entry, ServiceBufferSize)] pServiceBuffer: PWCHAR, #[in] ServiceBufferSize: DWORD, #[in] Flags: INT) -> INT;
         #[library("WS2_32.dll")]
-        extern fn InetNtopW(Family: i32, pAddr: *const void, #[len_param(3)] #[out] pStringBuf: PWSTR, StringBufSize: usize) -> PCWSTR;
+        extern fn InetNtopW(#[in] Family: INT, #[in] pAddr: *const void, #[out] #[writable(entry, StringBufSize)] pStringBuf: PWSTR, #[in] StringBufSize: size_t) -> PCWSTR;
         #[library("WS2_32.dll")]
-        extern fn InetPtonW(Family: i32, pszAddrString: PCWSTR, pAddrBuf: *mut void) -> i32;
+        extern fn InetPtonW(#[in] Family: INT, #[in] pszAddrString: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET,_Out_writes_bytes_(sizeof(IN_ADDR))", "Family == 2, _Out_writes_bytes_(sizeof(IN_ADDR))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET6,_Out_writes_bytes_(sizeof(IN6_ADDR))", "Family == 23, _Out_writes_bytes_(sizeof(IN6_ADDR))")] pAddrBuf: PVOID) -> INT;
         type LPADDRINFO = *mut ADDRINFOA;
-        extern fn LPLOOKUPSERVICE_COMPLETION_ROUTINE(dwError: u32, dwBytes: u32, lpOverlapped: LPWSAOVERLAPPED);
+        extern fn LPLOOKUPSERVICE_COMPLETION_ROUTINE(#[in] dwError: DWORD, #[in] dwBytes: DWORD, #[in] lpOverlapped: LPWSAOVERLAPPED);
         type PADDRINFOEX = *mut ADDRINFOEXA;
         type PADDRINFOT = *mut ADDRINFOA;
+        #[Windows::Win32::Metadata::NativeDeprecated("Use SetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings", "")]
         #[library("WS2_32.dll")]
-        extern fn SetAddrInfoExA(pName: PCSTR, #[opt] pServiceName: PCSTR, #[in] #[opt] pAddresses: *mut SOCKET_ADDRESS, dwAddressCount: u32, #[opt] lpBlob: LPBLOB, dwFlags: u32, dwNameSpace: u32, #[opt] lpNspId: LPGUID, #[in] #[opt] timeout: *mut TIMEVAL, #[opt] lpOverlapped: LPOVERLAPPED, #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[out] #[opt] lpNameHandle: LPHANDLE) -> i32;
+        extern fn SetAddrInfoExA(#[in] pName: PCSTR, #[in] #[opt] pServiceName: PCSTR, #[in] #[opt] pAddresses: *mut SOCKET_ADDRESS, #[in] dwAddressCount: DWORD, #[in] #[opt] lpBlob: LPBLOB, #[in] dwFlags: DWORD, #[in] dwNameSpace: DWORD, #[in] #[opt] lpNspId: LPGUID, #[in] #[opt] timeout: *mut timeval, #[in] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[out] #[opt] lpNameHandle: LPHANDLE) -> INT;
         #[library("WS2_32.dll")]
-        extern fn SetAddrInfoExW(pName: PCWSTR, #[opt] pServiceName: PCWSTR, #[in] #[opt] pAddresses: *mut SOCKET_ADDRESS, dwAddressCount: u32, #[opt] lpBlob: LPBLOB, dwFlags: u32, dwNameSpace: u32, #[opt] lpNspId: LPGUID, #[in] #[opt] timeout: *mut TIMEVAL, #[opt] lpOverlapped: LPOVERLAPPED, #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[out] #[opt] lpNameHandle: LPHANDLE) -> i32;
+        extern fn SetAddrInfoExW(#[in] pName: PCWSTR, #[in] #[opt] pServiceName: PCWSTR, #[in] #[opt] pAddresses: *mut SOCKET_ADDRESS, #[in] dwAddressCount: DWORD, #[in] #[opt] lpBlob: LPBLOB, #[in] dwFlags: DWORD, #[in] dwNameSpace: DWORD, #[in] #[opt] lpNspId: LPGUID, #[in] #[opt] timeout: *mut timeval, #[in] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[out] #[opt] lpNameHandle: LPHANDLE) -> INT;
         const UDP_CHECKSUM_COVERAGE: i32 = 20;
         const UDP_NOCHECKSUM: i32 = 1;
         #[library("WS2_32.dll")]
-        extern fn freeaddrinfo(#[opt] pAddrInfo: PADDRINFOA);
+        extern fn freeaddrinfo(#[in] #[opt] pAddrInfo: PADDRINFOA);
         #[library("WS2_32.dll")]
-        extern fn getaddrinfo(#[opt] pNodeName: PCSTR, #[opt] pServiceName: PCSTR, #[opt] pHints: *const ADDRINFOA, ppResult: *mut PADDRINFOA) -> i32;
+        extern fn getaddrinfo(#[in] #[opt] pNodeName: PCSTR, #[in] #[opt] pServiceName: PCSTR, #[in] #[opt] pHints: *const ADDRINFOA, #[out] #[out_ptr] ppResult: *mut PADDRINFOA) -> INT;
         #[library("WS2_32.dll")]
-        extern fn getnameinfo(#[size_param(1)] pSockaddr: *const SOCKADDR, SockaddrLength: socklen_t, #[len_param(3)] #[out] #[opt] pNodeBuffer: PCHAR, NodeBufferSize: u32, #[len_param(5)] #[out] #[opt] pServiceBuffer: PCHAR, ServiceBufferSize: u32, Flags: i32) -> i32;
+        extern fn getnameinfo(#[in] #[readable(entry, bytes(SockaddrLength))] pSockaddr: *const SOCKADDR, #[in] SockaddrLength: socklen_t, #[out] #[opt] #[writable(entry, NodeBufferSize)] pNodeBuffer: PCHAR, #[in] NodeBufferSize: DWORD, #[out] #[opt] #[writable(entry, ServiceBufferSize)] pServiceBuffer: PCHAR, #[in] ServiceBufferSize: DWORD, #[in] Flags: INT) -> INT;
         #[library("WS2_32.dll")]
-        extern fn inet_ntop(Family: i32, pAddr: *const void, #[len_param(3)] #[out] pStringBuf: PSTR, StringBufSize: usize) -> PCSTR;
+        extern fn inet_ntop(#[in] Family: INT, #[in] pAddr: *const void, #[out] #[writable(entry, StringBufSize)] pStringBuf: PSTR, #[in] StringBufSize: size_t) -> PCSTR;
         #[library("WS2_32.dll")]
-        extern fn inet_pton(Family: i32, pszAddrString: PCSTR, pAddrBuf: *mut void) -> i32;
+        extern fn inet_pton(#[in] Family: INT, #[in] pszAddrString: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET,_Out_writes_bytes_(sizeof(IN_ADDR))", "Family == 2, _Out_writes_bytes_(sizeof(IN_ADDR))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Family == AF_INET6,_Out_writes_bytes_(sizeof(IN6_ADDR))", "Family == 23, _Out_writes_bytes_(sizeof(IN6_ADDR))")] pAddrBuf: PVOID) -> INT;
         type socklen_t = i32;
     }
 }

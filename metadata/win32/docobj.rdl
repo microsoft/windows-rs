@@ -8,33 +8,17 @@ mod Windows {
             DOCMISC_CANTOPENEDIT = 4,
             DOCMISC_NOFILESUPPORT = 8,
         }
-        #[library("ole32.dll")]
-        extern fn HMENU_UserFree(param0: *mut u32, param1: *mut HMENU);
-        #[library("ole32.dll")]
-        extern fn HMENU_UserFree64(param0: *mut u32, param1: *mut HMENU);
-        #[library("ole32.dll")]
-        extern fn HMENU_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut HMENU) -> *mut u8;
-        #[library("ole32.dll")]
-        extern fn HMENU_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HMENU) -> *mut u8;
-        #[library("ole32.dll")]
-        extern fn HMENU_UserSize(param0: *mut u32, param1: u32, param2: *mut HMENU) -> u32;
-        #[library("ole32.dll")]
-        extern fn HMENU_UserSize64(param0: *mut u32, param1: u32, param2: *mut HMENU) -> u32;
-        #[library("ole32.dll")]
-        extern fn HMENU_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut HMENU) -> *mut u8;
-        #[library("ole32.dll")]
-        extern fn HMENU_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HMENU) -> *mut u8;
         #[guid(0xb722bcca_4e68_101b_a2bc_00aa00404770)]
         interface IContinueCallback: IUnknown {
             fn FContinue(&self) -> HRESULT;
-            fn FContinuePrinting(&self, nCntPrinted: i32, nCurPage: i32, #[in] pwszPrintStatus: *mut u16) -> HRESULT;
+            fn FContinuePrinting(&self, #[in] nCntPrinted: LONG, #[in] nCurPage: LONG, #[in] #[opt] pwszPrintStatus: *mut u16) -> HRESULT;
         }
         #[guid(0xb722bcc8_4e68_101b_a2bc_00aa00404770)]
         interface IEnumOleDocumentViews: IUnknown {
-            fn Next(&self, cViews: u32, rgpView: *mut IOleDocumentView, pcFetched: *mut u32) -> HRESULT;
-            fn Skip(&self, cViews: u32) -> HRESULT;
+            fn Next(&self, #[in] cViews: ULONG, #[out] rgpView: *mut IOleDocumentView, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn Skip(&self, #[in] cViews: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
-            fn Clone(&self, ppEnum: *mut IEnumOleDocumentViews) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumOleDocumentViews) -> HRESULT;
         }
         #[repr(i32)]
         enum IGNOREMIME {
@@ -46,55 +30,69 @@ mod Windows {
         const INSTALL_SCOPE_USER: i32 = 2;
         #[guid(0xb722bccb_4e68_101b_a2bc_00aa00404770)]
         interface IOleCommandTarget: IUnknown {
-            fn QueryStatus(&self, pguidCmdGroup: *const GUID, cCmds: u32, #[in] #[out] prgCmds: *mut OLECMD, #[in] #[out] pCmdText: *mut OLECMDTEXT) -> HRESULT;
-            fn Exec(&self, pguidCmdGroup: *const GUID, nCmdID: u32, nCmdexecopt: u32, #[in] pvaIn: *mut VARIANT, #[in] #[out] pvaOut: *mut VARIANT) -> HRESULT;
+            fn QueryStatus(&self, #[in] #[opt] pguidCmdGroup: *const GUID, #[in] cCmds: ULONG, #[in] #[out] #[readable(entry, cCmds)] #[writable(entry, cCmds)] #[readable(success, cCmds)] prgCmds: *mut OLECMD, #[in] #[out] #[opt] pCmdText: *mut OLECMDTEXT) -> HRESULT;
+            fn Exec(&self, #[in] #[opt] pguidCmdGroup: *const GUID, #[in] nCmdID: DWORD, #[in] nCmdexecopt: DWORD, #[in] #[opt] pvaIn: *mut VARIANT, #[in] #[out] #[opt] pvaOut: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xb722bcc5_4e68_101b_a2bc_00aa00404770)]
         interface IOleDocument: IUnknown {
-            fn CreateView(&self, pIPSite: IOleInPlaceSite, pstm: IStream, dwReserved: u32, ppView: *mut IOleDocumentView) -> HRESULT;
-            fn GetDocMiscStatus(&self, pdwStatus: *mut u32) -> HRESULT;
-            fn EnumViews(&self, ppEnum: *mut IEnumOleDocumentViews, ppView: *mut IOleDocumentView) -> HRESULT;
+            fn CreateView(&self, #[in] #[opt] pIPSite: IOleInPlaceSite, #[in] #[opt] pstm: IStream, #[in] dwReserved: DWORD, #[out] #[out_ptr] ppView: *mut IOleDocumentView) -> HRESULT;
+            fn GetDocMiscStatus(&self, #[out] pdwStatus: *mut DWORD) -> HRESULT;
+            fn EnumViews(&self, #[out] #[out_ptr] ppEnum: *mut IEnumOleDocumentViews, #[out] #[out_ptr] ppView: *mut IOleDocumentView) -> HRESULT;
         }
         #[guid(0xb722bcc7_4e68_101b_a2bc_00aa00404770)]
         interface IOleDocumentSite: IUnknown {
-            fn ActivateMe(&self, pViewToActivate: IOleDocumentView) -> HRESULT;
+            fn ActivateMe(&self, #[in] #[opt] pViewToActivate: IOleDocumentView) -> HRESULT;
         }
         #[guid(0xb722bcc6_4e68_101b_a2bc_00aa00404770)]
         interface IOleDocumentView: IUnknown {
-            fn SetInPlaceSite(&self, pIPSite: IOleInPlaceSite) -> HRESULT;
-            fn GetInPlaceSite(&self, ppIPSite: *mut IOleInPlaceSite) -> HRESULT;
-            fn GetDocument(&self, ppunk: *mut IUnknown) -> HRESULT;
-            fn SetRect(&self, prcView: LPRECT) -> HRESULT;
+            fn SetInPlaceSite(&self, #[in] #[opt] pIPSite: IOleInPlaceSite) -> HRESULT;
+            fn GetInPlaceSite(&self, #[out] #[out_ptr] ppIPSite: *mut IOleInPlaceSite) -> HRESULT;
+            fn GetDocument(&self, #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+            fn SetRect(&self, #[in] prcView: LPRECT) -> HRESULT;
             fn GetRect(&self, #[out] prcView: LPRECT) -> HRESULT;
-            fn SetRectComplex(&self, prcView: LPRECT, prcHScroll: LPRECT, prcVScroll: LPRECT, prcSizeBox: LPRECT) -> HRESULT;
-            fn Show(&self, fShow: BOOL) -> HRESULT;
-            fn UIActivate(&self, fUIActivate: BOOL) -> HRESULT;
+            fn SetRectComplex(&self, #[in] #[opt] prcView: LPRECT, #[in] #[opt] prcHScroll: LPRECT, #[in] #[opt] prcVScroll: LPRECT, #[in] #[opt] prcSizeBox: LPRECT) -> HRESULT;
+            fn Show(&self, #[in] fShow: BOOL) -> HRESULT;
+            fn UIActivate(&self, #[in] fUIActivate: BOOL) -> HRESULT;
             fn Open(&self) -> HRESULT;
-            fn CloseView(&self, dwReserved: u32) -> HRESULT;
-            fn SaveViewState(&self, pstm: IStream) -> HRESULT;
-            fn ApplyViewState(&self, pstm: IStream) -> HRESULT;
-            fn Clone(&self, pIPSiteNew: IOleInPlaceSite, ppViewNew: *mut IOleDocumentView) -> HRESULT;
+            fn CloseView(&self, #[in] dwReserved: DWORD) -> HRESULT;
+            fn SaveViewState(&self, #[in] #[opt] pstm: LPSTREAM) -> HRESULT;
+            fn ApplyViewState(&self, #[in] #[opt] pstm: LPSTREAM) -> HRESULT;
+            fn Clone(&self, #[in] #[opt] pIPSiteNew: IOleInPlaceSite, #[out] #[out_ptr] ppViewNew: *mut IOleDocumentView) -> HRESULT;
         }
         #[guid(0xb722bcc9_4e68_101b_a2bc_00aa00404770)]
         interface IPrint: IUnknown {
-            fn SetInitialPageNum(&self, nFirstPage: i32) -> HRESULT;
-            fn GetPageInfo(&self, pnFirstPage: *mut i32, pcPages: *mut i32) -> HRESULT;
-            fn Print(&self, grfFlags: u32, #[in] #[out] pptd: *mut *mut DVTARGETDEVICE, #[in] #[out] ppPageSet: *mut *mut PAGESET, #[in] #[out] pstgmOptions: *mut STGMEDIUM, pcallback: IContinueCallback, nFirstPage: i32, pcPagesPrinted: *mut i32, pnLastPage: *mut i32) -> HRESULT;
+            fn SetInitialPageNum(&self, #[in] nFirstPage: LONG) -> HRESULT;
+            fn GetPageInfo(&self, #[out] pnFirstPage: *mut LONG, #[out] pcPages: *mut LONG) -> HRESULT;
+            fn Print(&self, #[in] grfFlags: DWORD, #[in] #[out] pptd: *mut *mut DVTARGETDEVICE, #[in] #[out] ppPageSet: *mut *mut PAGESET, #[in] #[out] pstgmOptions: *mut STGMEDIUM, #[in] pcallback: IContinueCallback, #[in] nFirstPage: LONG, #[out] pcPagesPrinted: *mut LONG, #[out] pnLastPage: *mut LONG) -> HRESULT;
         }
         #[guid(0xd81f90a3_8156_44f7_ad28_5abb87003274)]
         interface IProtectFocus: IUnknown {
-            fn AllowFocusChange(&self, pfAllow: *mut BOOL) -> HRESULT;
+            fn AllowFocusChange(&self, #[out] pfAllow: *mut BOOL) -> HRESULT;
         }
         #[guid(0x73c105ee_9dff_4a07_b83c_7eff290c266e)]
         interface IProtectedModeMenuServices: IUnknown {
-            fn CreateMenu(&self, phMenu: *mut HMENU) -> HRESULT;
-            fn LoadMenu(&self, pszModuleName: PCWSTR, pszMenuName: PCWSTR, phMenu: *mut HMENU) -> HRESULT;
-            fn LoadMenuID(&self, pszModuleName: PCWSTR, wResourceID: u16, phMenu: *mut HMENU) -> HRESULT;
+            fn CreateMenu(&self, #[out] #[out_ptr] phMenu: *mut HMENU) -> HRESULT;
+            fn LoadMenuA(&self, #[in] #[null_terminated(entry)] pszModuleName: LPCWSTR, #[in] #[null_terminated(entry)] pszMenuName: LPCWSTR, #[out] #[out_ptr] phMenu: *mut HMENU) -> HRESULT;
+            fn LoadMenuID(&self, #[in] #[null_terminated(entry)] pszModuleName: LPCWSTR, #[in] wResourceID: WORD, #[out] #[out_ptr] phMenu: *mut HMENU) -> HRESULT;
         }
         #[guid(0x41b68150_904c_4e17_a0ba_a438182e359d)]
         interface IZoomEvents: IUnknown {
-            fn OnZoomPercentChanged(&self, ulZoomPercent: u32) -> HRESULT;
+            fn OnZoomPercentChanged(&self, #[in] ulZoomPercent: ULONG) -> HRESULT;
         }
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPCONTINUECALLBACK = IContinueCallback;
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPENUMOLEDOCUMENTVIEWS = IEnumOleDocumentViews;
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPOLECOMMANDTARGET = IOleCommandTarget;
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPOLEDOCUMENT = IOleDocument;
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPOLEDOCUMENTSITE = IOleDocumentSite;
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPOLEDOCUMENTVIEW = IOleDocumentView;
+        #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]
+        type LPPRINT = IPrint;
         #[repr(i32)]
         enum MEDIAPLAYBACK_STATE {
             MEDIAPLAYBACK_RESUME = 0,
@@ -140,8 +138,8 @@ mod Windows {
         const MSOCMDTEXTF_NONE: OLECMDTEXTF = 0;
         const MSOCMDTEXTF_STATUS: OLECMDTEXTF = 2;
         struct OLECMD {
-            cmdID: u32,
-            cmdf: u32,
+            cmdID: ULONG,
+            cmdf: DWORD,
         }
         const OLECMDARGINDEX_ACTIVEXINSTALL_CLSID: i32 = 2;
         const OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME: i32 = 1;
@@ -353,9 +351,9 @@ mod Windows {
             OLECMDIDF_WINDOWSTATE_ENABLED_VALID = 131072,
         }
         struct OLECMDTEXT {
-            cmdtextf: u32,
-            cwActual: u32,
-            cwBuf: u32,
+            cmdtextf: DWORD,
+            cwActual: ULONG,
+            cwBuf: ULONG,
             rgwz: [u16; 1],
         }
         #[repr(i32)]
@@ -373,17 +371,17 @@ mod Windows {
             PAGEACTION_UI_SILENT = 3,
         }
         struct PAGERANGE {
-            nFromPage: i32,
-            nToPage: i32,
+            nFromPage: LONG,
+            nToPage: LONG,
         }
         struct PAGESET {
-            cbStruct: u32,
+            cbStruct: ULONG,
             fOddPages: BOOL,
             fEvenPages: BOOL,
-            cPageRange: u32,
+            cPageRange: ULONG,
             rgPages: [PAGERANGE; 1],
         }
-        const PAGESET_TOLASTPAGE: u16 = 65535;
+        const PAGESET_TOLASTPAGE: WORD = 65535;
         #[repr(i32)]
         enum PRINTFLAG {
             PRINTFLAG_MAYBOTHERUSER = 1,

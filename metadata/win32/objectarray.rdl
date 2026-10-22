@@ -3,14 +3,14 @@ mod Windows {
     mod Win32 {
         #[guid(0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9)]
         interface IObjectArray: IUnknown {
-            fn GetCount(&self, pcObjects: *mut u32) -> HRESULT;
-            fn GetAt(&self, uiIndex: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetCount(&self, #[out] pcObjects: *mut UINT) -> HRESULT;
+            fn GetAt(&self, #[in] uiIndex: UINT, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x5632b1a4_e38a_400a_928a_d4cd63230295)]
         interface IObjectCollection: IObjectArray {
-            fn AddObject(&self, punk: IUnknown) -> HRESULT;
-            fn AddFromArray(&self, poaSource: IObjectArray) -> HRESULT;
-            fn RemoveObjectAt(&self, uiIndex: u32) -> HRESULT;
+            fn AddObject(&self, #[in] #[opt] punk: IUnknown) -> HRESULT;
+            fn AddFromArray(&self, #[in] #[opt] poaSource: IObjectArray) -> HRESULT;
+            fn RemoveObjectAt(&self, #[in] uiIndex: UINT) -> HRESULT;
             fn Clear(&self) -> HRESULT;
         }
     }

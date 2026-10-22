@@ -9,23 +9,23 @@ mod Windows {
         type LPQOS_TRAFFIC_CLASS = *mut QOS_TRAFFIC_CLASS;
         struct QOS_DIFFSERV {
             ObjectHdr: QOS_OBJECT_HDR,
-            DSFieldCount: u32,
-            DiffservRule: [u8; 1],
+            DSFieldCount: ULONG,
+            DiffservRule: [UCHAR; 1],
         }
         struct QOS_DIFFSERV_RULE {
-            InboundDSField: u8,
-            ConformingOutboundDSField: u8,
-            NonConformingOutboundDSField: u8,
-            ConformingUserPriority: u8,
-            NonConformingUserPriority: u8,
+            InboundDSField: UCHAR,
+            ConformingOutboundDSField: UCHAR,
+            NonConformingOutboundDSField: UCHAR,
+            ConformingUserPriority: UCHAR,
+            NonConformingUserPriority: UCHAR,
         }
         struct QOS_DS_CLASS {
             ObjectHdr: QOS_OBJECT_HDR,
-            DSField: u32,
+            DSField: ULONG,
         }
         struct QOS_FRIENDLY_NAME {
             ObjectHdr: QOS_OBJECT_HDR,
-            FriendlyName: [u16; 256],
+            FriendlyName: [WCHAR; 256],
         }
         const QOS_MAX_OBJECT_STRING_LENGTH: i32 = 256;
         const QOS_OBJECT_DIFFSERV: i32 = 4003;
@@ -38,7 +38,7 @@ mod Windows {
         }
         struct QOS_TRAFFIC_CLASS {
             ObjectHdr: QOS_OBJECT_HDR,
-            TrafficClass: u32,
+            TrafficClass: ULONG,
         }
         const QOS_TRAFFIC_GENERAL_ID_BASE: i32 = 4000;
     }

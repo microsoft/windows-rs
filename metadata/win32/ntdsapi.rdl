@@ -42,34 +42,34 @@ mod Windows {
         const DS_BEHAVIOR_WIN8: i32 = 5;
         const DS_BEHAVIOR_WINBLUE: i32 = 6;
         const DS_BEHAVIOR_WINTHRESHOLD: i32 = 7;
-        const DS_DEFAULT_LOCALE: u32 = 1033;
+        const DS_DEFAULT_LOCALE: DWORD = 1033;
         const DS_DEFAULT_LOCALE_COMPARE_FLAGS: i32 = 200707;
         struct DS_DOMAIN_CONTROLLER_INFO_1A {
-            NetbiosName: PSTR,
-            DnsHostName: PSTR,
-            SiteName: PSTR,
-            ComputerObjectName: PSTR,
-            ServerObjectName: PSTR,
+            NetbiosName: LPSTR,
+            DnsHostName: LPSTR,
+            SiteName: LPSTR,
+            ComputerObjectName: LPSTR,
+            ServerObjectName: LPSTR,
             fIsPdc: BOOL,
             fDsEnabled: BOOL,
         }
         struct DS_DOMAIN_CONTROLLER_INFO_1W {
-            NetbiosName: PWSTR,
-            DnsHostName: PWSTR,
-            SiteName: PWSTR,
-            ComputerObjectName: PWSTR,
-            ServerObjectName: PWSTR,
+            NetbiosName: LPWSTR,
+            DnsHostName: LPWSTR,
+            SiteName: LPWSTR,
+            ComputerObjectName: LPWSTR,
+            ServerObjectName: LPWSTR,
             fIsPdc: BOOL,
             fDsEnabled: BOOL,
         }
         struct DS_DOMAIN_CONTROLLER_INFO_2A {
-            NetbiosName: PSTR,
-            DnsHostName: PSTR,
-            SiteName: PSTR,
-            SiteObjectName: PSTR,
-            ComputerObjectName: PSTR,
-            ServerObjectName: PSTR,
-            NtdsDsaObjectName: PSTR,
+            NetbiosName: LPSTR,
+            DnsHostName: LPSTR,
+            SiteName: LPSTR,
+            SiteObjectName: LPSTR,
+            ComputerObjectName: LPSTR,
+            ServerObjectName: LPSTR,
+            NtdsDsaObjectName: LPSTR,
             fIsPdc: BOOL,
             fDsEnabled: BOOL,
             fIsGc: BOOL,
@@ -79,13 +79,13 @@ mod Windows {
             NtdsDsaObjectGuid: GUID,
         }
         struct DS_DOMAIN_CONTROLLER_INFO_2W {
-            NetbiosName: PWSTR,
-            DnsHostName: PWSTR,
-            SiteName: PWSTR,
-            SiteObjectName: PWSTR,
-            ComputerObjectName: PWSTR,
-            ServerObjectName: PWSTR,
-            NtdsDsaObjectName: PWSTR,
+            NetbiosName: LPWSTR,
+            DnsHostName: LPWSTR,
+            SiteName: LPWSTR,
+            SiteObjectName: LPWSTR,
+            ComputerObjectName: LPWSTR,
+            ServerObjectName: LPWSTR,
+            NtdsDsaObjectName: LPWSTR,
             fIsPdc: BOOL,
             fDsEnabled: BOOL,
             fIsGc: BOOL,
@@ -95,13 +95,13 @@ mod Windows {
             NtdsDsaObjectGuid: GUID,
         }
         struct DS_DOMAIN_CONTROLLER_INFO_3A {
-            NetbiosName: PSTR,
-            DnsHostName: PSTR,
-            SiteName: PSTR,
-            SiteObjectName: PSTR,
-            ComputerObjectName: PSTR,
-            ServerObjectName: PSTR,
-            NtdsDsaObjectName: PSTR,
+            NetbiosName: LPSTR,
+            DnsHostName: LPSTR,
+            SiteName: LPSTR,
+            SiteObjectName: LPSTR,
+            ComputerObjectName: LPSTR,
+            ServerObjectName: LPSTR,
+            NtdsDsaObjectName: LPSTR,
             fIsPdc: BOOL,
             fDsEnabled: BOOL,
             fIsGc: BOOL,
@@ -112,13 +112,13 @@ mod Windows {
             NtdsDsaObjectGuid: GUID,
         }
         struct DS_DOMAIN_CONTROLLER_INFO_3W {
-            NetbiosName: PWSTR,
-            DnsHostName: PWSTR,
-            SiteName: PWSTR,
-            SiteObjectName: PWSTR,
-            ComputerObjectName: PWSTR,
-            ServerObjectName: PWSTR,
-            NtdsDsaObjectName: PWSTR,
+            NetbiosName: LPWSTR,
+            DnsHostName: LPWSTR,
+            SiteName: LPWSTR,
+            SiteObjectName: LPWSTR,
+            ComputerObjectName: LPWSTR,
+            ServerObjectName: LPWSTR,
+            NtdsDsaObjectName: LPWSTR,
             fIsPdc: BOOL,
             fDsEnabled: BOOL,
             fIsGc: BOOL,
@@ -179,22 +179,22 @@ mod Windows {
         }
         const DS_NAME_LEGAL_FLAGS: DS_NAME_FLAGS = 1;
         struct DS_NAME_RESULTA {
-            cItems: u32,
+            cItems: DWORD,
             rItems: PDS_NAME_RESULT_ITEMA,
         }
         struct DS_NAME_RESULTW {
-            cItems: u32,
+            cItems: DWORD,
             rItems: PDS_NAME_RESULT_ITEMW,
         }
         struct DS_NAME_RESULT_ITEMA {
-            status: u32,
-            pDomain: PSTR,
-            pName: PSTR,
+            status: DWORD,
+            pDomain: LPSTR,
+            pName: LPSTR,
         }
         struct DS_NAME_RESULT_ITEMW {
-            status: u32,
-            pDomain: PWSTR,
-            pName: PWSTR,
+            status: DWORD,
+            pDomain: LPWSTR,
+            pName: LPWSTR,
         }
         const DS_REPADD_ASYNCHRONOUS_OPERATION: i32 = 1;
         const DS_REPADD_ASYNCHRONOUS_REPLICA: i32 = 32;
@@ -218,81 +218,81 @@ mod Windows {
         const DS_REPDEL_REF_OK: i32 = 64;
         const DS_REPDEL_WRITEABLE: i32 = 2;
         struct DS_REPL_ATTR_META_DATA {
-            pszAttributeName: PWSTR,
-            dwVersion: u32,
+            pszAttributeName: LPWSTR,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
         }
         struct DS_REPL_ATTR_META_DATA_2 {
-            pszAttributeName: PWSTR,
-            dwVersion: u32,
+            pszAttributeName: LPWSTR,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
-            pszLastOriginatingDsaDN: PWSTR,
+            pszLastOriginatingDsaDN: LPWSTR,
         }
         struct DS_REPL_ATTR_META_DATA_BLOB {
-            oszAttributeName: u32,
-            dwVersion: u32,
+            oszAttributeName: DWORD,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
-            oszLastOriginatingDsaDN: u32,
+            oszLastOriginatingDsaDN: DWORD,
         }
         struct DS_REPL_ATTR_VALUE_META_DATA {
-            cNumEntries: u32,
-            dwEnumerationContext: u32,
+            cNumEntries: DWORD,
+            dwEnumerationContext: DWORD,
             rgMetaData: [DS_REPL_VALUE_META_DATA; 1],
         }
         struct DS_REPL_ATTR_VALUE_META_DATA_2 {
-            cNumEntries: u32,
-            dwEnumerationContext: u32,
+            cNumEntries: DWORD,
+            dwEnumerationContext: DWORD,
             rgMetaData: [DS_REPL_VALUE_META_DATA_2; 1],
         }
         struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
-            cNumEntries: u32,
-            dwEnumerationContext: u32,
+            cNumEntries: DWORD,
+            dwEnumerationContext: DWORD,
             rgMetaData: [DS_REPL_VALUE_META_DATA_EXT; 1],
         }
         struct DS_REPL_CURSOR {
-            uuidSourceDsaInvocationID: GUID,
+            uuidSourceDsaInvocationID: UUID,
             usnAttributeFilter: USN,
         }
         struct DS_REPL_CURSORS {
-            cNumCursors: u32,
-            dwReserved: u32,
+            cNumCursors: DWORD,
+            dwReserved: DWORD,
             rgCursor: [DS_REPL_CURSOR; 1],
         }
         struct DS_REPL_CURSORS_2 {
-            cNumCursors: u32,
-            dwEnumerationContext: u32,
+            cNumCursors: DWORD,
+            dwEnumerationContext: DWORD,
             rgCursor: [DS_REPL_CURSOR_2; 1],
         }
         struct DS_REPL_CURSORS_3W {
-            cNumCursors: u32,
-            dwEnumerationContext: u32,
+            cNumCursors: DWORD,
+            dwEnumerationContext: DWORD,
             rgCursor: [DS_REPL_CURSOR_3W; 1],
         }
         struct DS_REPL_CURSOR_2 {
-            uuidSourceDsaInvocationID: GUID,
+            uuidSourceDsaInvocationID: UUID,
             usnAttributeFilter: USN,
             ftimeLastSyncSuccess: FILETIME,
         }
         struct DS_REPL_CURSOR_3W {
-            uuidSourceDsaInvocationID: GUID,
+            uuidSourceDsaInvocationID: UUID,
             usnAttributeFilter: USN,
             ftimeLastSyncSuccess: FILETIME,
-            pszSourceDsaDN: PWSTR,
+            pszSourceDsaDN: LPWSTR,
         }
         struct DS_REPL_CURSOR_BLOB {
-            uuidSourceDsaInvocationID: GUID,
+            uuidSourceDsaInvocationID: UUID,
             usnAttributeFilter: USN,
             ftimeLastSyncSuccess: FILETIME,
-            oszSourceDsaDN: u32,
+            oszSourceDsaDN: DWORD,
         }
         const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: i32 = 1;
         #[repr(i32)]
@@ -312,23 +312,23 @@ mod Windows {
             DS_REPL_INFO_TYPE_MAX = 12,
         }
         struct DS_REPL_KCC_DSA_FAILURESW {
-            cNumEntries: u32,
-            dwReserved: u32,
+            cNumEntries: DWORD,
+            dwReserved: DWORD,
             rgDsaFailure: [DS_REPL_KCC_DSA_FAILUREW; 1],
         }
         struct DS_REPL_KCC_DSA_FAILUREW {
-            pszDsaDN: PWSTR,
-            uuidDsaObjGuid: GUID,
+            pszDsaDN: LPWSTR,
+            uuidDsaObjGuid: UUID,
             ftimeFirstFailure: FILETIME,
-            cNumFailures: u32,
-            dwLastResult: u32,
+            cNumFailures: DWORD,
+            dwLastResult: DWORD,
         }
         struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
-            oszDsaDN: u32,
-            uuidDsaObjGuid: GUID,
+            oszDsaDN: DWORD,
+            uuidDsaObjGuid: UUID,
             ftimeFirstFailure: FILETIME,
-            cNumFailures: u32,
-            dwLastResult: u32,
+            cNumFailures: DWORD,
+            dwLastResult: DWORD,
         }
         const DS_REPL_NBR_COMPRESS_CHANGES: i32 = 268435456;
         const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: i32 = 134217728;
@@ -350,79 +350,79 @@ mod Windows {
         const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: i32 = 128;
         const DS_REPL_NBR_WRITEABLE: i32 = 16;
         struct DS_REPL_NEIGHBORSW {
-            cNumNeighbors: u32,
-            dwReserved: u32,
+            cNumNeighbors: DWORD,
+            dwReserved: DWORD,
             rgNeighbor: [DS_REPL_NEIGHBORW; 1],
         }
         struct DS_REPL_NEIGHBORW {
-            pszNamingContext: PWSTR,
-            pszSourceDsaDN: PWSTR,
-            pszSourceDsaAddress: PWSTR,
-            pszAsyncIntersiteTransportDN: PWSTR,
-            dwReplicaFlags: u32,
-            dwReserved: u32,
-            uuidNamingContextObjGuid: GUID,
-            uuidSourceDsaObjGuid: GUID,
-            uuidSourceDsaInvocationID: GUID,
-            uuidAsyncIntersiteTransportObjGuid: GUID,
+            pszNamingContext: LPWSTR,
+            pszSourceDsaDN: LPWSTR,
+            pszSourceDsaAddress: LPWSTR,
+            pszAsyncIntersiteTransportDN: LPWSTR,
+            dwReplicaFlags: DWORD,
+            dwReserved: DWORD,
+            uuidNamingContextObjGuid: UUID,
+            uuidSourceDsaObjGuid: UUID,
+            uuidSourceDsaInvocationID: UUID,
+            uuidAsyncIntersiteTransportObjGuid: UUID,
             usnLastObjChangeSynced: USN,
             usnAttributeFilter: USN,
             ftimeLastSyncSuccess: FILETIME,
             ftimeLastSyncAttempt: FILETIME,
-            dwLastSyncResult: u32,
-            cNumConsecutiveSyncFailures: u32,
+            dwLastSyncResult: DWORD,
+            cNumConsecutiveSyncFailures: DWORD,
         }
         struct DS_REPL_NEIGHBORW_BLOB {
-            oszNamingContext: u32,
-            oszSourceDsaDN: u32,
-            oszSourceDsaAddress: u32,
-            oszAsyncIntersiteTransportDN: u32,
-            dwReplicaFlags: u32,
-            dwReserved: u32,
-            uuidNamingContextObjGuid: GUID,
-            uuidSourceDsaObjGuid: GUID,
-            uuidSourceDsaInvocationID: GUID,
-            uuidAsyncIntersiteTransportObjGuid: GUID,
+            oszNamingContext: DWORD,
+            oszSourceDsaDN: DWORD,
+            oszSourceDsaAddress: DWORD,
+            oszAsyncIntersiteTransportDN: DWORD,
+            dwReplicaFlags: DWORD,
+            dwReserved: DWORD,
+            uuidNamingContextObjGuid: UUID,
+            uuidSourceDsaObjGuid: UUID,
+            uuidSourceDsaInvocationID: UUID,
+            uuidAsyncIntersiteTransportObjGuid: UUID,
             usnLastObjChangeSynced: USN,
             usnAttributeFilter: USN,
             ftimeLastSyncSuccess: FILETIME,
             ftimeLastSyncAttempt: FILETIME,
-            dwLastSyncResult: u32,
-            cNumConsecutiveSyncFailures: u32,
+            dwLastSyncResult: DWORD,
+            cNumConsecutiveSyncFailures: DWORD,
         }
         struct DS_REPL_OBJ_META_DATA {
-            cNumEntries: u32,
-            dwReserved: u32,
+            cNumEntries: DWORD,
+            dwReserved: DWORD,
             rgMetaData: [DS_REPL_ATTR_META_DATA; 1],
         }
         struct DS_REPL_OBJ_META_DATA_2 {
-            cNumEntries: u32,
-            dwReserved: u32,
+            cNumEntries: DWORD,
+            dwReserved: DWORD,
             rgMetaData: [DS_REPL_ATTR_META_DATA_2; 1],
         }
         struct DS_REPL_OPW {
             ftimeEnqueued: FILETIME,
-            ulSerialNumber: u32,
-            ulPriority: u32,
+            ulSerialNumber: ULONG,
+            ulPriority: ULONG,
             OpType: DS_REPL_OP_TYPE,
-            ulOptions: u32,
-            pszNamingContext: PWSTR,
-            pszDsaDN: PWSTR,
-            pszDsaAddress: PWSTR,
-            uuidNamingContextObjGuid: GUID,
-            uuidDsaObjGuid: GUID,
+            ulOptions: ULONG,
+            pszNamingContext: LPWSTR,
+            pszDsaDN: LPWSTR,
+            pszDsaAddress: LPWSTR,
+            uuidNamingContextObjGuid: UUID,
+            uuidDsaObjGuid: UUID,
         }
         struct DS_REPL_OPW_BLOB {
             ftimeEnqueued: FILETIME,
-            ulSerialNumber: u32,
-            ulPriority: u32,
+            ulSerialNumber: ULONG,
+            ulPriority: ULONG,
             OpType: DS_REPL_OP_TYPE,
-            ulOptions: u32,
-            oszNamingContext: u32,
-            oszDsaDN: u32,
-            oszDsaAddress: u32,
-            uuidNamingContextObjGuid: GUID,
-            uuidDsaObjGuid: GUID,
+            ulOptions: ULONG,
+            oszNamingContext: DWORD,
+            oszDsaDN: DWORD,
+            oszDsaAddress: DWORD,
+            uuidNamingContextObjGuid: UUID,
+            uuidDsaObjGuid: UUID,
         }
         #[repr(i32)]
         enum DS_REPL_OP_TYPE {
@@ -434,85 +434,93 @@ mod Windows {
         }
         struct DS_REPL_PENDING_OPSW {
             ftimeCurrentOpStarted: FILETIME,
-            cNumPendingOps: u32,
+            cNumPendingOps: DWORD,
             rgPendingOp: [DS_REPL_OPW; 1],
         }
-        type DS_REPL_QUEUE_STATISTICSW = _DS_REPL_QUEUE_STATISTICSW;
-        type DS_REPL_QUEUE_STATISTICSW_BLOB = _DS_REPL_QUEUE_STATISTICSW;
+        struct DS_REPL_QUEUE_STATISTICSW {
+            ftimeCurrentOpStarted: FILETIME,
+            cNumPendingOps: DWORD,
+            ftimeOldestSync: FILETIME,
+            ftimeOldestAdd: FILETIME,
+            ftimeOldestMod: FILETIME,
+            ftimeOldestDel: FILETIME,
+            ftimeOldestUpdRefs: FILETIME,
+        }
+        type DS_REPL_QUEUE_STATISTICSW_BLOB = DS_REPL_QUEUE_STATISTICSW;
         struct DS_REPL_VALUE_META_DATA {
-            pszAttributeName: PWSTR,
-            pszObjectDn: PWSTR,
-            cbData: u32,
-            pbData: *mut u8,
+            pszAttributeName: LPWSTR,
+            pszObjectDn: LPWSTR,
+            cbData: DWORD,
+            pbData: *mut BYTE,
             ftimeDeleted: FILETIME,
             ftimeCreated: FILETIME,
-            dwVersion: u32,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
         }
         struct DS_REPL_VALUE_META_DATA_2 {
-            pszAttributeName: PWSTR,
-            pszObjectDn: PWSTR,
-            cbData: u32,
-            pbData: *mut u8,
+            pszAttributeName: LPWSTR,
+            pszObjectDn: LPWSTR,
+            cbData: DWORD,
+            pbData: *mut BYTE,
             ftimeDeleted: FILETIME,
             ftimeCreated: FILETIME,
-            dwVersion: u32,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
-            pszLastOriginatingDsaDN: PWSTR,
+            pszLastOriginatingDsaDN: LPWSTR,
         }
         struct DS_REPL_VALUE_META_DATA_BLOB {
-            oszAttributeName: u32,
-            oszObjectDn: u32,
-            cbData: u32,
-            obData: u32,
+            oszAttributeName: DWORD,
+            oszObjectDn: DWORD,
+            cbData: DWORD,
+            obData: DWORD,
             ftimeDeleted: FILETIME,
             ftimeCreated: FILETIME,
-            dwVersion: u32,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
-            oszLastOriginatingDsaDN: u32,
+            oszLastOriginatingDsaDN: DWORD,
         }
         struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
-            oszAttributeName: u32,
-            oszObjectDn: u32,
-            cbData: u32,
-            obData: u32,
+            oszAttributeName: DWORD,
+            oszObjectDn: DWORD,
+            cbData: DWORD,
+            obData: DWORD,
             ftimeDeleted: FILETIME,
             ftimeCreated: FILETIME,
-            dwVersion: u32,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
-            oszLastOriginatingDsaDN: u32,
-            dwUserIdentifier: u32,
-            dwPriorLinkState: u32,
-            dwCurrentLinkState: u32,
+            oszLastOriginatingDsaDN: DWORD,
+            dwUserIdentifier: DWORD,
+            dwPriorLinkState: DWORD,
+            dwCurrentLinkState: DWORD,
         }
         struct DS_REPL_VALUE_META_DATA_EXT {
-            pszAttributeName: PWSTR,
-            pszObjectDn: PWSTR,
-            cbData: u32,
-            pbData: *mut u8,
+            pszAttributeName: LPWSTR,
+            pszObjectDn: LPWSTR,
+            cbData: DWORD,
+            pbData: *mut BYTE,
             ftimeDeleted: FILETIME,
             ftimeCreated: FILETIME,
-            dwVersion: u32,
+            dwVersion: DWORD,
             ftimeLastOriginatingChange: FILETIME,
-            uuidLastOriginatingDsaInvocationID: GUID,
+            uuidLastOriginatingDsaInvocationID: UUID,
             usnOriginatingChange: USN,
             usnLocalChange: USN,
-            pszLastOriginatingDsaDN: PWSTR,
-            dwUserIdentifier: u32,
-            dwPriorLinkState: u32,
-            dwCurrentLinkState: u32,
+            pszLastOriginatingDsaDN: LPWSTR,
+            dwUserIdentifier: DWORD,
+            dwPriorLinkState: DWORD,
+            dwCurrentLinkState: DWORD,
         }
         const DS_REPMOD_ASYNCHRONOUS_OPERATION: i32 = 1;
         const DS_REPMOD_UPDATE_ADDRESS: i32 = 2;
@@ -526,16 +534,16 @@ mod Windows {
         const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: i32 = 64;
         const DS_REPSYNCALL_DO_NOT_SYNC: i32 = 8;
         struct DS_REPSYNCALL_ERRINFOA {
-            pszSvrId: PSTR,
+            pszSvrId: LPSTR,
             error: DS_REPSYNCALL_ERROR,
-            dwWin32Err: u32,
-            pszSrcId: PSTR,
+            dwWin32Err: DWORD,
+            pszSrcId: LPSTR,
         }
         struct DS_REPSYNCALL_ERRINFOW {
-            pszSvrId: PWSTR,
+            pszSvrId: LPWSTR,
             error: DS_REPSYNCALL_ERROR,
-            dwWin32Err: u32,
-            pszSrcId: PWSTR,
+            dwWin32Err: DWORD,
+            pszSrcId: LPWSTR,
         }
         #[repr(i32)]
         enum DS_REPSYNCALL_ERROR {
@@ -555,16 +563,16 @@ mod Windows {
         const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: i32 = 32;
         const DS_REPSYNCALL_SKIP_INITIAL_CHECK: i32 = 16;
         struct DS_REPSYNCALL_SYNCA {
-            pszSrcId: PSTR,
-            pszDstId: PSTR,
-            pszNC: PSTR,
+            pszSrcId: LPSTR,
+            pszDstId: LPSTR,
+            pszNC: LPSTR,
             pguidSrc: *mut GUID,
             pguidDst: *mut GUID,
         }
         struct DS_REPSYNCALL_SYNCW {
-            pszSrcId: PWSTR,
-            pszDstId: PWSTR,
-            pszNC: PWSTR,
+            pszSrcId: LPWSTR,
+            pszDstId: LPWSTR,
+            pszNC: LPWSTR,
             pguidSrc: *mut GUID,
             pguidDst: *mut GUID,
         }
@@ -620,18 +628,18 @@ mod Windows {
         const DS_SCHEMA_GUID_CONTROL_RIGHT: i32 = 4;
         struct DS_SCHEMA_GUID_MAPA {
             guid: GUID,
-            guidType: u32,
-            pName: PSTR,
+            guidType: DWORD,
+            pName: LPSTR,
         }
         struct DS_SCHEMA_GUID_MAPW {
             guid: GUID,
-            guidType: u32,
-            pName: PWSTR,
+            guidType: DWORD,
+            pName: LPWSTR,
         }
         const DS_SCHEMA_GUID_NOT_FOUND: i32 = 0;
         struct DS_SITE_COST_INFO {
-            errorCode: u32,
-            cost: u32,
+            errorCode: DWORD,
+            cost: DWORD,
         }
         #[repr(i32)]
         enum DS_SPN_NAME_TYPE {
@@ -652,168 +660,242 @@ mod Windows {
         const DS_SYNCED_EVENT_NAME: String = "NTDSInitialSyncsCompleted";
         #[encoding("utf-16")]
         const DS_SYNCED_EVENT_NAME_W: String = "NTDSInitialSyncsCompleted";
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsAddSidHistoryA(hDS: HANDLE, #[reserved] Flags: u32, SrcDomain: PCSTR, SrcPrincipal: PCSTR, #[opt] SrcDomainController: PCSTR, #[opt] SrcDomainCreds: RPC_AUTH_IDENTITY_HANDLE, DstDomain: PCSTR, DstPrincipal: PCSTR) -> u32;
+        extern fn DsAddSidHistoryA(#[in] hDS: HANDLE, #[reserved] Flags: DWORD, #[in] SrcDomain: LPCSTR, #[in] SrcPrincipal: LPCSTR, #[in] #[opt] SrcDomainController: LPCSTR, #[in] #[opt] SrcDomainCreds: RPC_AUTH_IDENTITY_HANDLE, #[in] DstDomain: LPCSTR, #[in] DstPrincipal: LPCSTR) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsAddSidHistoryW(hDS: HANDLE, #[reserved] Flags: u32, SrcDomain: PCWSTR, SrcPrincipal: PCWSTR, #[opt] SrcDomainController: PCWSTR, #[opt] SrcDomainCreds: RPC_AUTH_IDENTITY_HANDLE, DstDomain: PCWSTR, DstPrincipal: PCWSTR) -> u32;
+        extern fn DsAddSidHistoryW(#[in] hDS: HANDLE, #[reserved] Flags: DWORD, #[in] SrcDomain: LPCWSTR, #[in] SrcPrincipal: LPCWSTR, #[in] #[opt] SrcDomainController: LPCWSTR, #[in] #[opt] SrcDomainCreds: RPC_AUTH_IDENTITY_HANDLE, #[in] DstDomain: LPCWSTR, #[in] DstPrincipal: LPCWSTR) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsBindA(#[opt] DomainControllerName: PCSTR, #[opt] DnsDomainName: PCSTR, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindA(#[in] #[opt] DomainControllerName: LPCSTR, #[in] #[opt] DnsDomainName: LPCSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsBindByInstanceA(#[opt] ServerName: PCSTR, #[opt] Annotation: PCSTR, #[in] #[opt] InstanceGuid: *mut GUID, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindByInstanceA(#[in] #[opt] ServerName: LPCSTR, #[in] #[opt] Annotation: LPCSTR, #[in] #[opt] InstanceGuid: *mut GUID, #[in] #[opt] DnsDomainName: LPCSTR, #[in] #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] ServicePrincipalName: LPCSTR, #[in] #[opt] BindFlags: DWORD, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsBindByInstanceW(#[opt] ServerName: PCWSTR, #[opt] Annotation: PCWSTR, #[in] #[opt] InstanceGuid: *mut GUID, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCWSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindByInstanceW(#[in] #[opt] ServerName: LPCWSTR, #[in] #[opt] Annotation: LPCWSTR, #[in] #[opt] InstanceGuid: *mut GUID, #[in] #[opt] DnsDomainName: LPCWSTR, #[in] #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] ServicePrincipalName: LPCWSTR, #[in] #[opt] BindFlags: DWORD, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsBindToISTGA(#[opt] SiteName: PCSTR, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindToISTGA(#[in] #[opt] SiteName: LPCSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsBindToISTGW(#[opt] SiteName: PCWSTR, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindToISTGW(#[in] #[opt] SiteName: LPCWSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsBindW(#[opt] DomainControllerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindW(#[in] #[opt] DomainControllerName: LPCWSTR, #[in] #[opt] DnsDomainName: LPCWSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsBindWithCredA(#[opt] DomainControllerName: PCSTR, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindWithCredA(#[in] #[opt] DomainControllerName: LPCSTR, #[in] #[opt] DnsDomainName: LPCSTR, #[in] #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsBindWithCredW(#[opt] DomainControllerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindWithCredW(#[in] #[opt] DomainControllerName: LPCWSTR, #[in] #[opt] DnsDomainName: LPCWSTR, #[in] #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsBindWithSpnA(#[opt] DomainControllerName: PCSTR, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCSTR, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindWithSpnA(#[in] #[opt] DomainControllerName: LPCSTR, #[in] #[opt] DnsDomainName: LPCSTR, #[in] #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] ServicePrincipalName: LPCSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsBindWithSpnExA(#[opt] DomainControllerName: PCSTR, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindWithSpnExA(#[in] #[opt] DomainControllerName: LPCSTR, #[in] #[opt] DnsDomainName: LPCSTR, #[in] #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] ServicePrincipalName: LPCSTR, #[in] #[opt] BindFlags: DWORD, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsBindWithSpnExW(#[opt] DomainControllerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCWSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindWithSpnExW(#[in] #[opt] DomainControllerName: LPCWSTR, #[in] #[opt] DnsDomainName: LPCWSTR, #[in] #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] ServicePrincipalName: LPCWSTR, #[in] #[opt] BindFlags: DWORD, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsBindWithSpnW(#[opt] DomainControllerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCWSTR, phDS: *mut HANDLE) -> u32;
+        extern fn DsBindWithSpnW(#[in] #[opt] DomainControllerName: LPCWSTR, #[in] #[opt] DnsDomainName: LPCWSTR, #[in] #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] #[opt] ServicePrincipalName: LPCWSTR, #[out] phDS: *mut HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsBindingSetTimeout(hDS: HANDLE, cTimeoutSecs: u32) -> u32;
+        extern fn DsBindingSetTimeout(#[in] hDS: HANDLE, #[in] cTimeoutSecs: ULONG) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsClientMakeSpnForTargetServerA(ServiceClass: PCSTR, ServiceName: PCSTR, #[in] #[out] pcSpnLength: *mut u32, #[len_param(2)] #[out] pszSpn: PSTR) -> u32;
+        extern fn DsClientMakeSpnForTargetServerA(#[in] ServiceClass: LPCSTR, #[in] ServiceName: LPCSTR, #[in] #[out] pcSpnLength: *mut DWORD, #[out] #[writable(entry, *pcSpnLength)] #[readable(success, *pcSpnLength)] pszSpn: LPSTR) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsClientMakeSpnForTargetServerW(ServiceClass: PCWSTR, ServiceName: PCWSTR, #[in] #[out] pcSpnLength: *mut u32, #[len_param(2)] #[out] pszSpn: PWSTR) -> u32;
+        extern fn DsClientMakeSpnForTargetServerW(#[in] ServiceClass: LPCWSTR, #[in] ServiceName: LPCWSTR, #[in] #[out] pcSpnLength: *mut DWORD, #[out] #[writable(entry, *pcSpnLength)] #[readable(success, *pcSpnLength)] pszSpn: LPWSTR) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsCrackNamesA(#[opt] hDS: HANDLE, flags: DS_NAME_FLAGS, formatOffered: DS_NAME_FORMAT, formatDesired: DS_NAME_FORMAT, cNames: u32, #[len_param(4)] rpNames: *const PCSTR, ppResult: *mut PDS_NAME_RESULTA) -> u32;
+        extern fn DsCrackNamesA(#[in] #[opt] hDS: HANDLE, #[in] flags: DS_NAME_FLAGS, #[in] formatOffered: DS_NAME_FORMAT, #[in] formatDesired: DS_NAME_FORMAT, #[in] cNames: DWORD, #[in] #[readable(entry, cNames)] rpNames: *const LPCSTR, #[out] #[out_ptr] ppResult: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsCrackNamesW(#[opt] hDS: HANDLE, flags: DS_NAME_FLAGS, formatOffered: DS_NAME_FORMAT, formatDesired: DS_NAME_FORMAT, cNames: u32, #[len_param(4)] rpNames: *const PCWSTR, ppResult: *mut PDS_NAME_RESULTW) -> u32;
+        extern fn DsCrackNamesW(#[in] #[opt] hDS: HANDLE, #[in] flags: DS_NAME_FLAGS, #[in] formatOffered: DS_NAME_FORMAT, #[in] formatDesired: DS_NAME_FORMAT, #[in] cNames: DWORD, #[in] #[readable(entry, cNames)] rpNames: *const LPCWSTR, #[out] #[out_ptr] ppResult: *mut PDS_NAME_RESULTW) -> DWORD;
         #[library("NTDSAPI.dll")]
-        extern fn DsFreeDomainControllerInfoA(InfoLevel: u32, cInfo: u32, #[len_param(1)] #[in] pInfo: *mut void);
+        extern fn DsFreeDomainControllerInfoA(InfoLevel: DWORD, cInfo: DWORD, #[in] #[readable(entry, cInfo)] pInfo: *mut void);
         #[library("NTDSAPI.dll")]
-        extern fn DsFreeDomainControllerInfoW(InfoLevel: u32, cInfo: u32, #[len_param(1)] #[in] pInfo: *mut void);
+        extern fn DsFreeDomainControllerInfoW(InfoLevel: DWORD, cInfo: DWORD, #[in] #[readable(entry, cInfo)] pInfo: *mut void);
         #[library("NTDSAPI.dll")]
         extern fn DsFreeNameResultA(#[in] pResult: *mut DS_NAME_RESULTA);
         #[library("NTDSAPI.dll")]
         extern fn DsFreeNameResultW(#[in] pResult: *mut DS_NAME_RESULTW);
         #[library("NTDSAPI.dll")]
-        extern fn DsFreePasswordCredentials(AuthIdentity: RPC_AUTH_IDENTITY_HANDLE);
+        extern fn DsFreePasswordCredentials(#[in] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE);
         #[library("NTDSAPI.dll")]
-        extern fn DsFreeSchemaGuidMapA(pGuidMap: PDS_SCHEMA_GUID_MAPA);
+        extern fn DsFreeSchemaGuidMapA(#[in] pGuidMap: PDS_SCHEMA_GUID_MAPA);
         #[library("NTDSAPI.dll")]
-        extern fn DsFreeSchemaGuidMapW(pGuidMap: PDS_SCHEMA_GUID_MAPW);
+        extern fn DsFreeSchemaGuidMapW(#[in] pGuidMap: PDS_SCHEMA_GUID_MAPW);
         #[library("NTDSAPI.dll")]
-        extern fn DsFreeSpnArrayA(cSpn: u32, #[len_param(0)] #[in] #[out] rpszSpn: *mut PSTR);
+        extern fn DsFreeSpnArrayA(#[in] cSpn: DWORD, #[in] #[out] #[readable(entry, cSpn)] #[writable(entry, cSpn)] #[readable(success, 0)] rpszSpn: *mut LPSTR);
         #[library("NTDSAPI.dll")]
-        extern fn DsFreeSpnArrayW(cSpn: u32, #[len_param(0)] #[in] #[out] rpszSpn: *mut PWSTR);
+        extern fn DsFreeSpnArrayW(#[in] cSpn: DWORD, #[in] #[out] #[readable(entry, cSpn)] #[writable(entry, cSpn)] #[readable(success, 0)] rpszSpn: *mut LPWSTR);
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 1,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1A)))", "InfoLevel == 1, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1A)))")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 2,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2A)))", "InfoLevel == 2, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2A)))")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 3,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3A)))", "InfoLevel == 3, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3A)))")]
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsGetDomainControllerInfoA(hDs: HANDLE, DomainName: PCSTR, InfoLevel: u32, pcOut: *mut u32, ppInfo: *mut *mut void) -> u32;
+        extern fn DsGetDomainControllerInfoA(#[in] hDs: HANDLE, #[in] DomainName: LPCSTR, #[in] InfoLevel: DWORD, #[out] pcOut: *mut DWORD, #[out] #[out_ptr] ppInfo: *mut *mut void) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 1,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1W)))", "InfoLevel == 1, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1W)))")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 2,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2W)))", "InfoLevel == 2, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2W)))")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "InfoLevel == 3,_At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3W)))", "InfoLevel == 3, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3W)))")]
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsGetDomainControllerInfoW(hDs: HANDLE, DomainName: PCWSTR, InfoLevel: u32, pcOut: *mut u32, ppInfo: *mut *mut void) -> u32;
+        extern fn DsGetDomainControllerInfoW(#[in] hDs: HANDLE, #[in] DomainName: LPCWSTR, #[in] InfoLevel: DWORD, #[out] pcOut: *mut DWORD, #[out] #[out_ptr] ppInfo: *mut *mut void) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsGetSpnA(ServiceType: DS_SPN_NAME_TYPE, ServiceClass: PCSTR, #[opt] ServiceName: PCSTR, InstancePort: u16, cInstanceNames: u16, #[len_param(4)] #[in] #[opt] pInstanceNames: *mut PCSTR, #[len_param(4)] #[opt] pInstancePorts: *const u16, pcSpn: *mut u32, prpszSpn: *mut *mut PSTR) -> u32;
+        extern fn DsGetSpnA(#[in] ServiceType: DS_SPN_NAME_TYPE, #[in] ServiceClass: LPCSTR, #[in] #[opt] ServiceName: LPCSTR, #[in] InstancePort: USHORT, #[in] cInstanceNames: USHORT, #[in] #[opt] #[readable(entry, cInstanceNames)] pInstanceNames: *mut LPCSTR, #[in] #[opt] #[readable(entry, cInstanceNames)] pInstancePorts: *const USHORT, #[out] pcSpn: *mut DWORD, #[out] #[writable(success, *pcSpn, indirect)] prpszSpn: *mut *mut LPSTR) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsGetSpnW(ServiceType: DS_SPN_NAME_TYPE, ServiceClass: PCWSTR, #[opt] ServiceName: PCWSTR, InstancePort: u16, cInstanceNames: u16, #[len_param(4)] #[in] #[opt] pInstanceNames: *mut PCWSTR, #[len_param(4)] #[opt] pInstancePorts: *const u16, pcSpn: *mut u32, prpszSpn: *mut *mut PWSTR) -> u32;
+        extern fn DsGetSpnW(#[in] ServiceType: DS_SPN_NAME_TYPE, #[in] ServiceClass: LPCWSTR, #[in] #[opt] ServiceName: LPCWSTR, #[in] InstancePort: USHORT, #[in] cInstanceNames: USHORT, #[in] #[opt] #[readable(entry, cInstanceNames)] pInstanceNames: *mut LPCWSTR, #[in] #[opt] #[readable(entry, cInstanceNames)] pInstancePorts: *const USHORT, #[out] pcSpn: *mut DWORD, #[out] #[writable(success, *pcSpn, indirect)] prpszSpn: *mut *mut LPWSTR) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsInheritSecurityIdentityA(hDS: HANDLE, #[reserved] Flags: u32, SrcPrincipal: PCSTR, DstPrincipal: PCSTR) -> u32;
+        extern fn DsInheritSecurityIdentityA(#[in] hDS: HANDLE, #[reserved] Flags: DWORD, #[in] SrcPrincipal: LPCSTR, #[in] DstPrincipal: LPCSTR) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsInheritSecurityIdentityW(hDS: HANDLE, #[reserved] Flags: u32, SrcPrincipal: PCWSTR, DstPrincipal: PCWSTR) -> u32;
+        extern fn DsInheritSecurityIdentityW(#[in] hDS: HANDLE, #[reserved] Flags: DWORD, #[in] SrcPrincipal: LPCWSTR, #[in] DstPrincipal: LPCWSTR) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsListDomainsInSiteA(hDs: HANDLE, site: PCSTR, ppDomains: *mut PDS_NAME_RESULTA) -> u32;
+        extern fn DsListDomainsInSiteA(#[in] hDs: HANDLE, #[in] site: LPCSTR, #[out] #[out_ptr] ppDomains: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsListDomainsInSiteW(hDs: HANDLE, site: PCWSTR, ppDomains: *mut PDS_NAME_RESULTW) -> u32;
+        extern fn DsListDomainsInSiteW(#[in] hDs: HANDLE, #[in] site: LPCWSTR, #[out] #[out_ptr] ppDomains: *mut PDS_NAME_RESULTW) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsListInfoForServerA(hDs: HANDLE, server: PCSTR, ppInfo: *mut PDS_NAME_RESULTA) -> u32;
+        extern fn DsListInfoForServerA(#[in] hDs: HANDLE, #[in] server: LPCSTR, #[out] #[out_ptr] ppInfo: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsListInfoForServerW(hDs: HANDLE, server: PCWSTR, ppInfo: *mut PDS_NAME_RESULTW) -> u32;
+        extern fn DsListInfoForServerW(#[in] hDs: HANDLE, #[in] server: LPCWSTR, #[out] #[out_ptr] ppInfo: *mut PDS_NAME_RESULTW) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsListRolesA(hDs: HANDLE, ppRoles: *mut PDS_NAME_RESULTA) -> u32;
+        extern fn DsListRolesA(#[in] hDs: HANDLE, #[out] #[out_ptr] ppRoles: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsListRolesW(hDs: HANDLE, ppRoles: *mut PDS_NAME_RESULTW) -> u32;
+        extern fn DsListRolesW(#[in] hDs: HANDLE, #[out] #[out_ptr] ppRoles: *mut PDS_NAME_RESULTW) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsListServersForDomainInSiteA(hDs: HANDLE, domain: PCSTR, site: PCSTR, ppServers: *mut PDS_NAME_RESULTA) -> u32;
+        extern fn DsListServersForDomainInSiteA(#[in] hDs: HANDLE, #[in] domain: LPCSTR, #[in] site: LPCSTR, #[out] #[out_ptr] ppServers: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsListServersForDomainInSiteW(hDs: HANDLE, domain: PCWSTR, site: PCWSTR, ppServers: *mut PDS_NAME_RESULTW) -> u32;
+        extern fn DsListServersForDomainInSiteW(#[in] hDs: HANDLE, #[in] domain: LPCWSTR, #[in] site: LPCWSTR, #[out] #[out_ptr] ppServers: *mut PDS_NAME_RESULTW) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsListServersInSiteA(hDs: HANDLE, site: PCSTR, ppServers: *mut PDS_NAME_RESULTA) -> u32;
+        extern fn DsListServersInSiteA(#[in] hDs: HANDLE, #[in] site: LPCSTR, #[out] #[out_ptr] ppServers: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsListServersInSiteW(hDs: HANDLE, site: PCWSTR, ppServers: *mut PDS_NAME_RESULTW) -> u32;
+        extern fn DsListServersInSiteW(#[in] hDs: HANDLE, #[in] site: LPCWSTR, #[out] #[out_ptr] ppServers: *mut PDS_NAME_RESULTW) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsListSitesA(hDs: HANDLE, ppSites: *mut PDS_NAME_RESULTA) -> u32;
+        extern fn DsListSitesA(#[in] hDs: HANDLE, #[out] #[out_ptr] ppSites: *mut PDS_NAME_RESULTA) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsListSitesW(hDs: HANDLE, ppSites: *mut PDS_NAME_RESULTW) -> u32;
+        extern fn DsListSitesW(#[in] hDs: HANDLE, #[out] #[out_ptr] ppSites: *mut PDS_NAME_RESULTW) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsMakePasswordCredentialsA(#[opt] User: PCSTR, #[opt] Domain: PCSTR, #[opt] Password: PCSTR, pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> u32;
+        extern fn DsMakePasswordCredentialsA(#[in] #[opt] User: LPCSTR, #[in] #[opt] Domain: LPCSTR, #[in] #[opt] Password: LPCSTR, #[out] pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsMakePasswordCredentialsW(#[opt] User: PCWSTR, #[opt] Domain: PCWSTR, #[opt] Password: PCWSTR, pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> u32;
+        extern fn DsMakePasswordCredentialsW(#[in] #[opt] User: LPCWSTR, #[in] #[opt] Domain: LPCWSTR, #[in] #[opt] Password: LPCWSTR, #[out] pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsMapSchemaGuidsA(hDs: HANDLE, cGuids: u32, #[len_param(1)] #[in] rGuids: *mut GUID, ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32;
+        extern fn DsMapSchemaGuidsA(#[in] hDs: HANDLE, cGuids: DWORD, #[in] #[readable(entry, cGuids)] rGuids: *mut GUID, #[out] #[out_ptr] ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPA) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsMapSchemaGuidsW(hDs: HANDLE, cGuids: u32, #[len_param(1)] #[in] rGuids: *mut GUID, ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32;
+        extern fn DsMapSchemaGuidsW(#[in] hDs: HANDLE, cGuids: DWORD, #[in] #[readable(entry, cGuids)] rGuids: *mut GUID, #[out] #[out_ptr] ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPW) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsQuerySitesByCostA(hDS: HANDLE, pszFromSite: PCSTR, #[len_param(3)] #[in] rgszToSites: *mut PSTR, cToSites: u32, #[reserved] dwFlags: u32, prgSiteInfo: *mut PDS_SITE_COST_INFO) -> u32;
+        extern fn DsQuerySitesByCostA(#[in] hDS: HANDLE, #[in] pszFromSite: LPSTR, #[in] #[readable(entry, cToSites)] rgszToSites: *mut LPSTR, cToSites: DWORD, #[reserved] dwFlags: DWORD, #[out] #[out_ptr] prgSiteInfo: *mut PDS_SITE_COST_INFO) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsQuerySitesByCostW(hDS: HANDLE, pwszFromSite: PCWSTR, #[len_param(3)] #[in] rgwszToSites: *mut PWSTR, cToSites: u32, #[reserved] dwFlags: u32, prgSiteInfo: *mut PDS_SITE_COST_INFO) -> u32;
+        extern fn DsQuerySitesByCostW(#[in] hDS: HANDLE, #[in] pwszFromSite: LPWSTR, #[in] #[readable(entry, cToSites)] rgwszToSites: *mut LPWSTR, #[in] cToSites: DWORD, #[reserved] dwFlags: DWORD, #[out] #[out_ptr] prgSiteInfo: *mut PDS_SITE_COST_INFO) -> DWORD;
         #[library("NTDSAPI.dll")]
-        extern fn DsQuerySitesFree(rgSiteInfo: PDS_SITE_COST_INFO);
+        extern fn DsQuerySitesFree(#[in] rgSiteInfo: PDS_SITE_COST_INFO);
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsRemoveDsDomainA(hDs: HANDLE, DomainDN: PCSTR) -> u32;
+        extern fn DsRemoveDsDomainA(#[in] hDs: HANDLE, #[in] DomainDN: LPSTR) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsRemoveDsDomainW(hDs: HANDLE, DomainDN: PCWSTR) -> u32;
+        extern fn DsRemoveDsDomainW(#[in] hDs: HANDLE, #[in] DomainDN: LPWSTR) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsRemoveDsServerA(hDs: HANDLE, ServerDN: PCSTR, #[opt] DomainDN: PCSTR, #[opt] fLastDcInDomain: *mut BOOL, fCommit: BOOL) -> u32;
+        extern fn DsRemoveDsServerA(#[in] hDs: HANDLE, #[in] ServerDN: LPSTR, #[in] #[opt] DomainDN: LPSTR, #[out] #[opt] fLastDcInDomain: *mut BOOL, fCommit: BOOL) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsRemoveDsServerW(hDs: HANDLE, ServerDN: PCWSTR, #[opt] DomainDN: PCWSTR, #[opt] fLastDcInDomain: *mut BOOL, fCommit: BOOL) -> u32;
+        extern fn DsRemoveDsServerW(#[in] hDs: HANDLE, #[in] ServerDN: LPWSTR, #[in] #[opt] DomainDN: LPWSTR, #[out] #[opt] fLastDcInDomain: *mut BOOL, fCommit: BOOL) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaAddA(hDS: HANDLE, NameContext: PCSTR, SourceDsaDn: PCSTR, TransportDn: PCSTR, SourceDsaAddress: PCSTR, #[opt] pSchedule: PSCHEDULE, Options: u32) -> u32;
+        extern fn DsReplicaAddA(#[in] hDS: HANDLE, #[in] NameContext: LPCSTR, #[in] SourceDsaDn: LPCSTR, #[in] TransportDn: LPCSTR, #[in] SourceDsaAddress: LPCSTR, #[in] #[opt] pSchedule: PSCHEDULE, Options: DWORD) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaAddW(hDS: HANDLE, NameContext: PCWSTR, SourceDsaDn: PCWSTR, TransportDn: PCWSTR, SourceDsaAddress: PCWSTR, #[opt] pSchedule: PSCHEDULE, Options: u32) -> u32;
+        extern fn DsReplicaAddW(#[in] hDS: HANDLE, #[in] NameContext: LPCWSTR, #[in] SourceDsaDn: LPCWSTR, #[in] TransportDn: LPCWSTR, #[in] SourceDsaAddress: LPCWSTR, #[in] #[opt] pSchedule: PSCHEDULE, Options: DWORD) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaConsistencyCheck(hDS: HANDLE, TaskID: DS_KCC_TASKID, dwFlags: u32) -> u32;
+        extern fn DsReplicaConsistencyCheck(#[in] hDS: HANDLE, TaskID: DS_KCC_TASKID, dwFlags: DWORD) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaDelA(hDS: HANDLE, NameContext: PCSTR, DsaSrc: PCSTR, Options: u32) -> u32;
+        extern fn DsReplicaDelA(#[in] hDS: HANDLE, #[in] NameContext: LPCSTR, #[in] DsaSrc: LPCSTR, Options: ULONG) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaDelW(hDS: HANDLE, NameContext: PCWSTR, DsaSrc: PCWSTR, Options: u32) -> u32;
+        extern fn DsReplicaDelW(#[in] hDS: HANDLE, #[in] NameContext: LPCWSTR, #[in] DsaSrc: LPCWSTR, Options: ULONG) -> DWORD;
         #[library("NTDSAPI.dll")]
         extern fn DsReplicaFreeInfo(InfoType: DS_REPL_INFO_TYPE, #[in] pInfo: *mut void);
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaGetInfo2W(hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[opt] pszObject: PCWSTR, #[in] #[opt] puuidForSourceDsaObjGuid: *mut GUID, #[opt] pszAttributeName: PCWSTR, #[opt] pszValue: PCWSTR, dwFlags: u32, dwEnumerationContext: u32, ppInfo: *mut *mut void) -> u32;
+        extern fn DsReplicaGetInfo2W(#[in] hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[in] #[opt] pszObject: LPCWSTR, #[in] #[opt] puuidForSourceDsaObjGuid: *mut UUID, #[in] #[opt] pszAttributeName: LPCWSTR, #[in] #[opt] pszValue: LPCWSTR, dwFlags: DWORD, dwEnumerationContext: DWORD, #[out] #[out_ptr] ppInfo: *mut *mut void) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaGetInfoW(hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[opt] pszObject: PCWSTR, #[in] #[opt] puuidForSourceDsaObjGuid: *mut GUID, ppInfo: *mut *mut void) -> u32;
+        extern fn DsReplicaGetInfoW(#[in] hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[in] #[opt] pszObject: LPCWSTR, #[in] #[opt] puuidForSourceDsaObjGuid: *mut UUID, #[out] #[out_ptr] ppInfo: *mut *mut void) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaModifyA(hDS: HANDLE, NameContext: PCSTR, #[opt] pUuidSourceDsa: *const GUID, #[reserved] TransportDn: PCSTR, SourceDsaAddress: PCSTR, #[opt] pSchedule: PSCHEDULE, #[reserved] ReplicaFlags: u32, ModifyFields: u32, Options: u32) -> u32;
+        extern fn DsReplicaModifyA(#[in] hDS: HANDLE, #[in] NameContext: LPCSTR, #[in] #[opt] pUuidSourceDsa: *const UUID, #[reserved] TransportDn: LPCSTR, #[in] SourceDsaAddress: LPCSTR, #[in] #[opt] pSchedule: PSCHEDULE, #[reserved] ReplicaFlags: DWORD, ModifyFields: DWORD, Options: DWORD) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaModifyW(hDS: HANDLE, NameContext: PCWSTR, #[opt] pUuidSourceDsa: *const GUID, #[reserved] TransportDn: PCWSTR, SourceDsaAddress: PCWSTR, #[opt] pSchedule: PSCHEDULE, ReplicaFlags: u32, ModifyFields: u32, Options: u32) -> u32;
+        extern fn DsReplicaModifyW(#[in] hDS: HANDLE, #[in] NameContext: LPCWSTR, #[in] #[opt] pUuidSourceDsa: *const UUID, #[reserved] TransportDn: LPCWSTR, #[in] SourceDsaAddress: LPCWSTR, #[in] #[opt] pSchedule: PSCHEDULE, ReplicaFlags: DWORD, ModifyFields: DWORD, Options: DWORD) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaSyncA(hDS: HANDLE, NameContext: PCSTR, pUuidDsaSrc: *const GUID, Options: u32) -> u32;
+        extern fn DsReplicaSyncA(#[in] hDS: HANDLE, #[in] NameContext: LPCSTR, #[in] pUuidDsaSrc: *const UUID, Options: ULONG) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaSyncAllA(hDS: HANDLE, pszNameContext: PCSTR, ulFlags: u32, pFnCallBack: *mut u8, #[in] #[opt] pCallbackData: *mut void, pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOA) -> u32;
+        extern fn DsReplicaSyncAllA(#[in] hDS: HANDLE, #[in] pszNameContext: LPCSTR, ulFlags: ULONG, pFnCallBack: extern fn(LPVOID, PDS_REPSYNCALL_UPDATEA) -> BOOL, #[in] #[opt] pCallbackData: LPVOID, #[out] #[out_ptr(nullable)] #[null_terminated(success, indirect)] pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOA) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaSyncAllW(hDS: HANDLE, pszNameContext: PCWSTR, ulFlags: u32, pFnCallBack: *mut u8, #[in] #[opt] pCallbackData: *mut void, pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOW) -> u32;
+        extern fn DsReplicaSyncAllW(#[in] hDS: HANDLE, #[in] pszNameContext: LPCWSTR, ulFlags: ULONG, pFnCallBack: extern fn(LPVOID, PDS_REPSYNCALL_UPDATEW) -> BOOL, #[in] #[opt] pCallbackData: LPVOID, #[out] #[out_ptr(nullable)] #[null_terminated(success, indirect)] pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOW) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaSyncW(hDS: HANDLE, NameContext: PCWSTR, pUuidDsaSrc: *const GUID, Options: u32) -> u32;
+        extern fn DsReplicaSyncW(#[in] hDS: HANDLE, #[in] NameContext: LPCWSTR, #[in] pUuidDsaSrc: *const UUID, Options: ULONG) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaUpdateRefsA(hDS: HANDLE, NameContext: PCSTR, DsaDest: PCSTR, pUuidDsaDest: *const GUID, Options: u32) -> u32;
+        extern fn DsReplicaUpdateRefsA(#[in] hDS: HANDLE, #[in] NameContext: LPCSTR, #[in] DsaDest: LPCSTR, #[in] pUuidDsaDest: *const UUID, Options: ULONG) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaUpdateRefsW(hDS: HANDLE, NameContext: PCWSTR, DsaDest: PCWSTR, pUuidDsaDest: *const GUID, Options: u32) -> u32;
+        extern fn DsReplicaUpdateRefsW(#[in] hDS: HANDLE, #[in] NameContext: LPCWSTR, #[in] DsaDest: LPCWSTR, #[in] pUuidDsaDest: *const UUID, Options: ULONG) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaVerifyObjectsA(hDS: HANDLE, NameContext: PCSTR, pUuidDsaSrc: *const GUID, ulOptions: u32) -> u32;
+        extern fn DsReplicaVerifyObjectsA(#[in] hDS: HANDLE, #[in] NameContext: LPCSTR, #[in] pUuidDsaSrc: *const UUID, ulOptions: ULONG) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsReplicaVerifyObjectsW(hDS: HANDLE, NameContext: PCWSTR, pUuidDsaSrc: *const GUID, ulOptions: u32) -> u32;
+        extern fn DsReplicaVerifyObjectsW(#[in] hDS: HANDLE, #[in] NameContext: LPCWSTR, #[in] pUuidDsaSrc: *const UUID, ulOptions: ULONG) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsServerRegisterSpnA(Operation: DS_SPN_WRITE_OP, ServiceClass: PCSTR, #[opt] UserObjectDN: PCSTR) -> u32;
+        extern fn DsServerRegisterSpnA(Operation: DS_SPN_WRITE_OP, #[in] ServiceClass: LPCSTR, #[in] #[opt] UserObjectDN: LPCSTR) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsServerRegisterSpnW(Operation: DS_SPN_WRITE_OP, ServiceClass: PCWSTR, #[opt] UserObjectDN: PCWSTR) -> u32;
+        extern fn DsServerRegisterSpnW(Operation: DS_SPN_WRITE_OP, #[in] ServiceClass: LPCWSTR, #[in] #[opt] UserObjectDN: LPCWSTR) -> DWORD;
         #[library("NTDSAPI.dll")]
-        extern fn DsUnBindA(#[in] phDS: *mut HANDLE) -> u32;
+        extern fn DsUnBindA(#[in] phDS: *mut HANDLE) -> DWORD;
         #[library("NTDSAPI.dll")]
-        extern fn DsUnBindW(#[in] phDS: *mut HANDLE) -> u32;
+        extern fn DsUnBindW(#[in] phDS: *mut HANDLE) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsWriteAccountSpnA(hDS: HANDLE, Operation: DS_SPN_WRITE_OP, pszAccount: PCSTR, cSpn: u32, #[len_param(3)] #[in] rpszSpn: *mut PCSTR) -> u32;
+        extern fn DsWriteAccountSpnA(#[in] hDS: HANDLE, #[in] Operation: DS_SPN_WRITE_OP, #[in] pszAccount: LPCSTR, #[in] cSpn: DWORD, #[in] #[readable(entry, cSpn)] rpszSpn: *mut LPCSTR) -> DWORD;
+        #[must_use]
         #[library("NTDSAPI.dll")]
-        extern fn DsWriteAccountSpnW(hDS: HANDLE, Operation: DS_SPN_WRITE_OP, pszAccount: PCWSTR, cSpn: u32, #[len_param(3)] #[in] rpszSpn: *mut PCWSTR) -> u32;
+        extern fn DsWriteAccountSpnW(#[in] hDS: HANDLE, #[in] Operation: DS_SPN_WRITE_OP, #[in] pszAccount: LPCWSTR, #[in] cSpn: DWORD, #[in] #[readable(entry, cSpn)] rpszSpn: *mut LPCWSTR) -> DWORD;
         const FLAG_DISABLABLE_OPTIONAL_FEATURE: i32 = 4;
         const FLAG_DOMAIN_OPTIONAL_FEATURE: i32 = 2;
         const FLAG_FOREST_OPTIONAL_FEATURE: i32 = 1;
@@ -950,14 +1032,5 @@ mod Windows {
         type PDS_SCHEMA_GUID_MAPA = *mut DS_SCHEMA_GUID_MAPA;
         type PDS_SCHEMA_GUID_MAPW = *mut DS_SCHEMA_GUID_MAPW;
         type PDS_SITE_COST_INFO = *mut DS_SITE_COST_INFO;
-        struct _DS_REPL_QUEUE_STATISTICSW {
-            ftimeCurrentOpStarted: FILETIME,
-            cNumPendingOps: u32,
-            ftimeOldestSync: FILETIME,
-            ftimeOldestAdd: FILETIME,
-            ftimeOldestMod: FILETIME,
-            ftimeOldestDel: FILETIME,
-            ftimeOldestUpdRefs: FILETIME,
-        }
     }
 }

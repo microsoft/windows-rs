@@ -4,7 +4,7 @@ mod Windows {
         const ASSOCIATE_NAMERES_CONTEXT: GUID = 0x59a38b67_d4fe_46e1_ba3c_87ea74ca3049;
         struct ASSOCIATE_NAMERES_CONTEXT_INPUT {
             TransportSettingId: TRANSPORT_SETTING_ID,
-            Handle: u64,
+            Handle: UINT64,
         }
         #[repr(i32)]
         enum CONTROL_CHANNEL_TRIGGER_STATUS {
@@ -17,33 +17,31 @@ mod Windows {
             CONTROL_CHANNEL_TRIGGER_STATUS_SERVICE_UNAVAILABLE = 6,
         }
         const CONTROL_CHANNEL_TRIGGER_STATUS_MAX: CONTROL_CHANNEL_TRIGGER_STATUS = 4;
-        union DL_EUI48 {}
-        const IN4ADDR_ANY: u32 = 0;
-        const IN4ADDR_BROADCAST: u32 = 4294967295;
+        const IN4ADDR_ANY: ULONG = 0;
+        const IN4ADDR_BROADCAST: ULONG = 4294967295;
         const IN4ADDR_LINKLOCALPREFIX_LENGTH: i32 = 16;
         const IN4ADDR_LOOPBACK: i32 = 16777343;
         const IN4ADDR_LOOPBACKPREFIX_LENGTH: i32 = 8;
         const IN4ADDR_MULTICASTPREFIX_LENGTH: i32 = 4;
         const IN4ADDR_NONE: u32 = 4294967295;
         struct INET_PORT_RANGE {
-            StartPort: u16,
-            NumberOfPorts: u16,
+            StartPort: USHORT,
+            NumberOfPorts: USHORT,
         }
         type INET_PORT_RESERVATION = INET_PORT_RANGE;
         struct INET_PORT_RESERVATION_INFORMATION {
-            OwningPid: u32,
+            OwningPid: ULONG,
         }
         struct INET_PORT_RESERVATION_INSTANCE {
             Reservation: INET_PORT_RESERVATION,
             Token: INET_PORT_RESERVATION_TOKEN,
         }
         struct INET_PORT_RESERVATION_TOKEN {
-            Token: u64,
+            Token: ULONG64,
         }
-        const INVALID_PORT_RESERVATION_TOKEN: u64 = 0;
+        const INVALID_PORT_RESERVATION_TOKEN: ULONG64 = 0;
         type PASSOCIATE_NAMERES_CONTEXT_INPUT = *mut ASSOCIATE_NAMERES_CONTEXT_INPUT;
         type PCONTROL_CHANNEL_TRIGGER_STATUS = *mut CONTROL_CHANNEL_TRIGGER_STATUS;
-        type PDL_EUI48 = *mut DL_EUI48;
         type PINET_PORT_RANGE = *mut INET_PORT_RANGE;
         type PINET_PORT_RESERVATION = *mut INET_PORT_RANGE;
         type PINET_PORT_RESERVATION_INFORMATION = *mut INET_PORT_RESERVATION_INFORMATION;
@@ -72,7 +70,7 @@ mod Windows {
         type PTRANSPORT_SETTING_ID = *mut TRANSPORT_SETTING_ID;
         struct RCVALL_IF {
             Mode: RCVALL_VALUE,
-            Interface: u32,
+            Interface: ULONG,
         }
         const RCVALL_MAX: RCVALL_VALUE = 3;
         #[repr(i32)]
@@ -100,45 +98,37 @@ mod Windows {
             RssEnabled: BOOLEAN,
         }
         #[library("ntdll.dll")]
-        extern fn RtlEthernetAddressToStringA(Addr: *const DL_EUI48, #[len_const(18)] #[out] S: PSTR) -> PSTR;
+        extern fn RtlIpv4AddressToStringA(#[in] Addr: *const IN_ADDR, #[out] #[writable(entry, 16)] S: PSTR) -> PSTR;
         #[library("ntdll.dll")]
-        extern fn RtlEthernetAddressToStringW(Addr: *const DL_EUI48, #[len_const(18)] #[out] S: PWSTR) -> PWSTR;
+        extern fn RtlIpv4AddressToStringExA(#[in] Address: *const IN_ADDR, #[in] Port: USHORT, #[out] #[writable(entry, *AddressStringLength)] #[readable(success, *AddressStringLength)] AddressString: PSTR, #[in] #[out] AddressStringLength: PULONG) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlEthernetStringToAddressA(S: PCSTR, Terminator: *mut PCSTR, Addr: *mut DL_EUI48) -> i32;
+        extern fn RtlIpv4AddressToStringExW(#[in] Address: *const IN_ADDR, #[in] Port: USHORT, #[out] #[writable(entry, *AddressStringLength)] #[readable(success, *AddressStringLength)] AddressString: PWSTR, #[in] #[out] AddressStringLength: PULONG) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlEthernetStringToAddressW(S: PCWSTR, Terminator: *mut PCWSTR, Addr: *mut DL_EUI48) -> i32;
+        extern fn RtlIpv4AddressToStringW(#[in] Addr: *const IN_ADDR, #[out] #[writable(entry, 16)] S: PWSTR) -> PWSTR;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4AddressToStringA(Addr: *const IN_ADDR, #[len_const(16)] #[out] S: PSTR) -> PSTR;
+        extern fn RtlIpv4StringToAddressA(#[in] S: PCSTR, #[in] Strict: BOOLEAN, #[out] Terminator: *mut PCSTR, #[out] Addr: *mut IN_ADDR) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4AddressToStringExA(Address: *const IN_ADDR, Port: u16, #[len_param(3)] #[out] AddressString: PSTR, #[in] #[out] AddressStringLength: PULONG) -> i32;
+        extern fn RtlIpv4StringToAddressExA(#[in] AddressString: PCSTR, #[in] Strict: BOOLEAN, #[out] Address: *mut IN_ADDR, #[out] Port: PUSHORT) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4AddressToStringExW(Address: *const IN_ADDR, Port: u16, #[len_param(3)] #[out] AddressString: PWSTR, #[in] #[out] AddressStringLength: PULONG) -> i32;
+        extern fn RtlIpv4StringToAddressExW(#[in] AddressString: PCWSTR, #[in] Strict: BOOLEAN, #[out] Address: *mut IN_ADDR, #[out] Port: PUSHORT) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4AddressToStringW(Addr: *const IN_ADDR, #[len_const(16)] #[out] S: PWSTR) -> PWSTR;
+        extern fn RtlIpv4StringToAddressW(#[in] S: PCWSTR, #[in] Strict: BOOLEAN, #[out] Terminator: *mut LPCWSTR, #[out] Addr: *mut IN_ADDR) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4StringToAddressA(S: PCSTR, Strict: BOOLEAN, Terminator: *mut PCSTR, Addr: *mut IN_ADDR) -> i32;
+        extern fn RtlIpv6AddressToStringA(#[in] Addr: *const IN6_ADDR, #[out] #[writable(entry, 46)] S: PSTR) -> PSTR;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4StringToAddressExA(AddressString: PCSTR, Strict: BOOLEAN, Address: *mut IN_ADDR, #[out] Port: PUSHORT) -> i32;
+        extern fn RtlIpv6AddressToStringExA(#[in] Address: *const IN6_ADDR, #[in] ScopeId: ULONG, #[in] Port: USHORT, #[out] #[writable(entry, *AddressStringLength)] #[readable(success, *AddressStringLength)] AddressString: PSTR, #[in] #[out] AddressStringLength: PULONG) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4StringToAddressExW(AddressString: PCWSTR, Strict: BOOLEAN, Address: *mut IN_ADDR, #[out] Port: PUSHORT) -> i32;
+        extern fn RtlIpv6AddressToStringExW(#[in] Address: *const IN6_ADDR, #[in] ScopeId: ULONG, #[in] Port: USHORT, #[out] #[writable(entry, *AddressStringLength)] #[readable(success, *AddressStringLength)] AddressString: PWSTR, #[in] #[out] AddressStringLength: PULONG) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4StringToAddressW(S: PCWSTR, Strict: BOOLEAN, Terminator: *mut PCWSTR, Addr: *mut IN_ADDR) -> i32;
+        extern fn RtlIpv6AddressToStringW(#[in] Addr: *const IN6_ADDR, #[out] #[writable(entry, 46)] S: PWSTR) -> PWSTR;
         #[library("ntdll.dll")]
-        extern fn RtlIpv6AddressToStringA(Addr: *const IN6_ADDR, #[len_const(46)] #[out] S: PSTR) -> PSTR;
+        extern fn RtlIpv6StringToAddressA(#[in] S: PCSTR, #[out] Terminator: *mut PCSTR, #[out] Addr: *mut IN6_ADDR) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlIpv6AddressToStringExA(Address: *const IN6_ADDR, ScopeId: u32, Port: u16, #[len_param(4)] #[out] AddressString: PSTR, #[in] #[out] AddressStringLength: PULONG) -> i32;
+        extern fn RtlIpv6StringToAddressExA(#[in] AddressString: PCSTR, #[out] Address: *mut IN6_ADDR, #[out] ScopeId: PULONG, #[out] Port: PUSHORT) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlIpv6AddressToStringExW(Address: *const IN6_ADDR, ScopeId: u32, Port: u16, #[len_param(4)] #[out] AddressString: PWSTR, #[in] #[out] AddressStringLength: PULONG) -> i32;
+        extern fn RtlIpv6StringToAddressExW(#[in] AddressString: PCWSTR, #[out] Address: *mut IN6_ADDR, #[out] ScopeId: PULONG, #[out] Port: PUSHORT) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlIpv6AddressToStringW(Addr: *const IN6_ADDR, #[len_const(46)] #[out] S: PWSTR) -> PWSTR;
-        #[library("ntdll.dll")]
-        extern fn RtlIpv6StringToAddressA(S: PCSTR, Terminator: *mut PCSTR, Addr: *mut IN6_ADDR) -> i32;
-        #[library("ntdll.dll")]
-        extern fn RtlIpv6StringToAddressExA(AddressString: PCSTR, Address: *mut IN6_ADDR, #[out] ScopeId: PULONG, #[out] Port: PUSHORT) -> i32;
-        #[library("ntdll.dll")]
-        extern fn RtlIpv6StringToAddressExW(AddressString: PCWSTR, Address: *mut IN6_ADDR, #[out] ScopeId: PULONG, #[out] Port: PUSHORT) -> i32;
-        #[library("ntdll.dll")]
-        extern fn RtlIpv6StringToAddressW(S: PCWSTR, Terminator: *mut PCWSTR, Addr: *mut IN6_ADDR) -> i32;
+        extern fn RtlIpv6StringToAddressW(#[in] S: PCWSTR, #[out] Terminator: *mut PCWSTR, #[out] Addr: *mut IN6_ADDR) -> LONG;
         const SIO_ABSORB_RTRALERT: u32 = 2550136837;
         const SIO_ACQUIRE_PORT_RESERVATION: u32 = 2550136932;
         const SIO_APPLY_TRANSPORT_SETTING: u32 = 2550136851;
@@ -184,7 +174,7 @@ mod Windows {
         struct SOCKET_PEER_TARGET_NAME {
             SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
             PeerAddress: SOCKADDR_STORAGE,
-            PeerTargetNameStringLen: u32,
+            PeerTargetNameStringLen: ULONG,
             AllStrings: [u16; 0],
         }
         #[repr(i32)]
@@ -206,47 +196,47 @@ mod Windows {
         }
         struct SOCKET_SECURITY_QUERY_INFO {
             SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
-            Flags: u32,
-            PeerApplicationAccessTokenHandle: u64,
-            PeerMachineAccessTokenHandle: u64,
+            Flags: ULONG,
+            PeerApplicationAccessTokenHandle: UINT64,
+            PeerMachineAccessTokenHandle: UINT64,
         }
         struct SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
             SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
-            Flags: u32,
-            PeerApplicationAccessTokenHandle: u64,
-            PeerMachineAccessTokenHandle: u64,
-            MmSaId: u64,
-            QmSaId: u64,
-            NegotiationWinerr: u32,
+            Flags: ULONG,
+            PeerApplicationAccessTokenHandle: UINT64,
+            PeerMachineAccessTokenHandle: UINT64,
+            MmSaId: UINT64,
+            QmSaId: UINT64,
+            NegotiationWinerr: UINT32,
             SaLookupContext: GUID,
         }
         struct SOCKET_SECURITY_QUERY_TEMPLATE {
             SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
             PeerAddress: SOCKADDR_STORAGE,
-            PeerTokenAccessMask: u32,
+            PeerTokenAccessMask: ULONG,
         }
         struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
             SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
             PeerAddress: SOCKADDR_STORAGE,
-            PeerTokenAccessMask: u32,
-            Flags: u32,
-            FieldMask: u32,
+            PeerTokenAccessMask: ULONG,
+            Flags: ULONG,
+            FieldMask: ULONG,
         }
         struct SOCKET_SECURITY_SETTINGS {
             SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
-            SecurityFlags: u32,
+            SecurityFlags: ULONG,
         }
         struct SOCKET_SECURITY_SETTINGS_IPSEC {
             SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
-            SecurityFlags: u32,
-            IpsecFlags: u32,
+            SecurityFlags: ULONG,
+            IpsecFlags: ULONG,
             AuthipMMPolicyKey: GUID,
             AuthipQMPolicyKey: GUID,
             Reserved: GUID,
-            Reserved2: u64,
-            UserNameStringLen: u32,
-            DomainNameStringLen: u32,
-            PasswordStringLen: u32,
+            Reserved2: UINT64,
+            UserNameStringLen: ULONG,
+            DomainNameStringLen: ULONG,
+            PasswordStringLen: ULONG,
             AllStrings: [u16; 0],
         }
         const SOCKET_SETTINGS_ALLOW_INSECURE: i32 = 2;
@@ -277,7 +267,7 @@ mod Windows {
             TCPSTATE_MAX = 11,
         }
         struct TCP_ACK_FREQUENCY_PARAMETERS {
-            TcpDelayedAckFrequency: u8,
+            TcpDelayedAckFrequency: UCHAR,
         }
         #[repr(i32)]
         enum TCP_ICW_LEVEL {
@@ -294,101 +284,101 @@ mod Windows {
         }
         struct TCP_INFO_v0 {
             State: TCPSTATE,
-            Mss: u32,
-            ConnectionTimeMs: u64,
+            Mss: ULONG,
+            ConnectionTimeMs: ULONG64,
             TimestampsEnabled: BOOLEAN,
-            RttUs: u32,
-            MinRttUs: u32,
-            BytesInFlight: u32,
-            Cwnd: u32,
-            SndWnd: u32,
-            RcvWnd: u32,
-            RcvBuf: u32,
-            BytesOut: u64,
-            BytesIn: u64,
-            BytesReordered: u32,
-            BytesRetrans: u32,
-            FastRetrans: u32,
-            DupAcksIn: u32,
-            TimeoutEpisodes: u32,
-            SynRetrans: u8,
+            RttUs: ULONG,
+            MinRttUs: ULONG,
+            BytesInFlight: ULONG,
+            Cwnd: ULONG,
+            SndWnd: ULONG,
+            RcvWnd: ULONG,
+            RcvBuf: ULONG,
+            BytesOut: ULONG64,
+            BytesIn: ULONG64,
+            BytesReordered: ULONG,
+            BytesRetrans: ULONG,
+            FastRetrans: ULONG,
+            DupAcksIn: ULONG,
+            TimeoutEpisodes: ULONG,
+            SynRetrans: UCHAR,
         }
         struct TCP_INFO_v1 {
             State: TCPSTATE,
-            Mss: u32,
-            ConnectionTimeMs: u64,
+            Mss: ULONG,
+            ConnectionTimeMs: ULONG64,
             TimestampsEnabled: BOOLEAN,
-            RttUs: u32,
-            MinRttUs: u32,
-            BytesInFlight: u32,
-            Cwnd: u32,
-            SndWnd: u32,
-            RcvWnd: u32,
-            RcvBuf: u32,
-            BytesOut: u64,
-            BytesIn: u64,
-            BytesReordered: u32,
-            BytesRetrans: u32,
-            FastRetrans: u32,
-            DupAcksIn: u32,
-            TimeoutEpisodes: u32,
-            SynRetrans: u8,
-            SndLimTransRwin: u32,
-            SndLimTimeRwin: u32,
-            SndLimBytesRwin: u64,
-            SndLimTransCwnd: u32,
-            SndLimTimeCwnd: u32,
-            SndLimBytesCwnd: u64,
-            SndLimTransSnd: u32,
-            SndLimTimeSnd: u32,
-            SndLimBytesSnd: u64,
+            RttUs: ULONG,
+            MinRttUs: ULONG,
+            BytesInFlight: ULONG,
+            Cwnd: ULONG,
+            SndWnd: ULONG,
+            RcvWnd: ULONG,
+            RcvBuf: ULONG,
+            BytesOut: ULONG64,
+            BytesIn: ULONG64,
+            BytesReordered: ULONG,
+            BytesRetrans: ULONG,
+            FastRetrans: ULONG,
+            DupAcksIn: ULONG,
+            TimeoutEpisodes: ULONG,
+            SynRetrans: UCHAR,
+            SndLimTransRwin: ULONG,
+            SndLimTimeRwin: ULONG,
+            SndLimBytesRwin: ULONG64,
+            SndLimTransCwnd: ULONG,
+            SndLimTimeCwnd: ULONG,
+            SndLimBytesCwnd: ULONG64,
+            SndLimTransSnd: ULONG,
+            SndLimTimeSnd: ULONG,
+            SndLimBytesSnd: ULONG64,
         }
         struct TCP_INFO_v2 {
             State: TCPSTATE,
-            Mss: u32,
-            ConnectionTimeMs: u64,
+            Mss: ULONG,
+            ConnectionTimeMs: ULONG64,
             TimestampsEnabled: BOOLEAN,
-            RttUs: u32,
-            MinRttUs: u32,
-            BytesInFlight: u32,
-            Cwnd: u32,
-            SndWnd: u32,
-            RcvWnd: u32,
-            RcvBuf: u32,
-            BytesOut: u64,
-            BytesIn: u64,
-            BytesReordered: u32,
-            BytesRetrans: u32,
-            FastRetrans: u32,
-            DupAcksIn: u32,
-            TimeoutEpisodes: u32,
-            SynRetrans: u8,
-            SndLimTransRwin: u32,
-            SndLimTimeRwin: u32,
-            SndLimBytesRwin: u64,
-            SndLimTransCwnd: u32,
-            SndLimTimeCwnd: u32,
-            SndLimBytesCwnd: u64,
-            SndLimTransSnd: u32,
-            SndLimTimeSnd: u32,
-            SndLimBytesSnd: u64,
-            OutOfOrderPktsIn: u32,
+            RttUs: ULONG,
+            MinRttUs: ULONG,
+            BytesInFlight: ULONG,
+            Cwnd: ULONG,
+            SndWnd: ULONG,
+            RcvWnd: ULONG,
+            RcvBuf: ULONG,
+            BytesOut: ULONG64,
+            BytesIn: ULONG64,
+            BytesReordered: ULONG,
+            BytesRetrans: ULONG,
+            FastRetrans: ULONG,
+            DupAcksIn: ULONG,
+            TimeoutEpisodes: ULONG,
+            SynRetrans: UCHAR,
+            SndLimTransRwin: ULONG,
+            SndLimTimeRwin: ULONG,
+            SndLimBytesRwin: ULONG64,
+            SndLimTransCwnd: ULONG,
+            SndLimTimeCwnd: ULONG,
+            SndLimBytesCwnd: ULONG64,
+            SndLimTransSnd: ULONG,
+            SndLimTimeSnd: ULONG,
+            SndLimBytesSnd: ULONG64,
+            OutOfOrderPktsIn: ULONG,
             EcnNegotiated: BOOLEAN,
-            EceAcksIn: u32,
-            PtoEpisodes: u32,
+            EceAcksIn: ULONG,
+            PtoEpisodes: ULONG,
         }
         const TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS: i32 = 0;
         const TCP_INITIAL_RTO_DEFAULT_RTT: i32 = 0;
-        const TCP_INITIAL_RTO_NO_SYN_RETRANSMISSIONS: u8 = 254;
+        const TCP_INITIAL_RTO_NO_SYN_RETRANSMISSIONS: UCHAR = 254;
         struct TCP_INITIAL_RTO_PARAMETERS {
-            Rtt: u16,
-            MaxSynRetransmissions: u8,
+            Rtt: USHORT,
+            MaxSynRetransmissions: UCHAR,
         }
-        const TCP_INITIAL_RTO_UNSPECIFIED_MAX_SYN_RETRANSMISSIONS: u8 = 255;
-        const TCP_INITIAL_RTO_UNSPECIFIED_RTT: u16 = 65535;
+        const TCP_INITIAL_RTO_UNSPECIFIED_MAX_SYN_RETRANSMISSIONS: UCHAR = 255;
+        const TCP_INITIAL_RTO_UNSPECIFIED_RTT: USHORT = 65535;
         struct TIMESTAMPING_CONFIG {
-            Flags: u32,
-            TxTimestampsBuffered: u16,
+            Flags: ULONG,
+            TxTimestampsBuffered: USHORT,
         }
         const TIMESTAMPING_FLAG_RX: i32 = 1;
         const TIMESTAMPING_FLAG_TX: i32 = 2;
@@ -396,9 +386,9 @@ mod Windows {
             Guid: GUID,
         }
         struct tcp_keepalive {
-            onoff: u32,
-            keepalivetime: u32,
-            keepaliveinterval: u32,
+            onoff: ULONG,
+            keepalivetime: ULONG,
+            keepaliveinterval: ULONG,
         }
     }
 }

@@ -10,39 +10,36 @@ mod Windows {
         const FreeThreadedXMLHTTP60: GUID = 0x88d96a09_f192_11d4_a65f_0040963251e5;
         #[guid(0xf10d27cc_3ec0_415c_8ed8_77ab1c5e7262)]
         interface IMXAttributes: IDispatch {
-            fn addAttribute(&self, strURI: BSTR, strLocalName: BSTR, strQName: BSTR, strType: BSTR, strValue: BSTR) -> HRESULT;
-            fn addAttributeFromIndex(&self, varAtts: VARIANT, nIndex: i32) -> HRESULT;
+            fn addAttribute(&self, #[in] strURI: BSTR, #[in] strLocalName: BSTR, #[in] strQName: BSTR, #[in] strType: BSTR, #[in] strValue: BSTR) -> HRESULT;
+            fn addAttributeFromIndex(&self, #[in] varAtts: VARIANT, #[in] nIndex: i32) -> HRESULT;
             fn clear(&self) -> HRESULT;
-            fn removeAttribute(&self, nIndex: i32) -> HRESULT;
-            fn setAttribute(&self, nIndex: i32, strURI: BSTR, strLocalName: BSTR, strQName: BSTR, strType: BSTR, strValue: BSTR) -> HRESULT;
-            fn setAttributes(&self, varAtts: VARIANT) -> HRESULT;
-            fn setLocalName(&self, nIndex: i32, strLocalName: BSTR) -> HRESULT;
-            fn setQName(&self, nIndex: i32, strQName: BSTR) -> HRESULT;
-            fn setType(&self, nIndex: i32, strType: BSTR) -> HRESULT;
-            fn setURI(&self, nIndex: i32, strURI: BSTR) -> HRESULT;
-            fn setValue(&self, nIndex: i32, strValue: BSTR) -> HRESULT;
+            fn removeAttribute(&self, #[in] nIndex: i32) -> HRESULT;
+            fn setAttribute(&self, #[in] nIndex: i32, #[in] strURI: BSTR, #[in] strLocalName: BSTR, #[in] strQName: BSTR, #[in] strType: BSTR, #[in] strValue: BSTR) -> HRESULT;
+            fn setAttributes(&self, #[in] varAtts: VARIANT) -> HRESULT;
+            fn setLocalName(&self, #[in] nIndex: i32, #[in] strLocalName: BSTR) -> HRESULT;
+            fn setQName(&self, #[in] nIndex: i32, #[in] strQName: BSTR) -> HRESULT;
+            fn setType(&self, #[in] nIndex: i32, #[in] strType: BSTR) -> HRESULT;
+            fn setURI(&self, #[in] nIndex: i32, #[in] strURI: BSTR) -> HRESULT;
+            fn setValue(&self, #[in] nIndex: i32, #[in] strValue: BSTR) -> HRESULT;
         }
         #[guid(0xc90352f6_643c_4fbc_bb23_e996eb2d51fd)]
         interface IMXNamespaceManager: IUnknown {
-            fn putAllowOverride(&self, fOverride: VARIANT_BOOL) -> HRESULT;
-            fn getAllowOverride(&self, #[retval] fOverride: *mut VARIANT_BOOL) -> HRESULT;
+            fn putAllowOverride(&self, #[in] fOverride: VARIANT_BOOL) -> HRESULT;
+            fn getAllowOverride(&self, #[out] #[retval] fOverride: *mut VARIANT_BOOL) -> HRESULT;
             fn reset(&self) -> HRESULT;
             fn pushContext(&self) -> HRESULT;
-            fn pushNodeContext(&self, contextNode: IXMLDOMNode, fDeep: VARIANT_BOOL) -> HRESULT;
+            fn pushNodeContext(&self, #[in] contextNode: IXMLDOMNode, #[in] fDeep: VARIANT_BOOL) -> HRESULT;
             fn popContext(&self) -> HRESULT;
-            fn declarePrefix(&self, prefix: PCWSTR, namespaceURI: PCWSTR) -> HRESULT;
-            fn getDeclaredPrefix(&self, nIndex: i32, #[len_param(2)] #[in] #[out] pwchPrefix: *mut u16, #[in] #[out] pcchPrefix: *mut i32) -> HRESULT;
-            fn getPrefix(&self, pwszNamespaceURI: PCWSTR, nIndex: i32, #[len_param(3)] #[in] #[out] pwchPrefix: *mut u16, #[in] #[out] pcchPrefix: *mut i32) -> HRESULT;
-            fn getURI(&self, pwchPrefix: PCWSTR, pContextNode: IXMLDOMNode, #[len_param(3)] #[in] #[out] pwchUri: *mut u16, #[in] #[out] pcchUri: *mut i32) -> HRESULT;
+            fn declarePrefix(&self, #[in] prefix: LPCWSTR, #[in] namespaceURI: LPCWSTR) -> HRESULT;
+            fn getDeclaredPrefix(&self, #[in] nIndex: i32, #[in] #[out] #[writable(entry, *pcchPrefix)] #[readable(success, *pcchPrefix)] pwchPrefix: *mut u16, #[in] #[out] pcchPrefix: *mut i32) -> HRESULT;
+            fn getPrefix(&self, #[in] pwszNamespaceURI: LPCWSTR, #[in] nIndex: i32, #[in] #[out] #[writable(entry, *pcchPrefix)] #[readable(success, *pcchPrefix)] pwchPrefix: *mut u16, #[in] #[out] pcchPrefix: *mut i32) -> HRESULT;
+            fn getURI(&self, #[in] pwchPrefix: LPCWSTR, #[in] pContextNode: IXMLDOMNode, #[in] #[out] #[writable(entry, *pcchUri)] #[readable(success, *pcchUri)] pwchUri: *mut u16, #[in] #[out] pcchUri: *mut i32) -> HRESULT;
         }
         #[guid(0xc90352f4_643c_4fbc_bb23_e996eb2d51fd)]
         interface IMXNamespacePrefixes: IDispatch {
-            #[special]
-            fn get_item(&self, index: i32, #[retval] prefix: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_length(&self, #[retval] length: *mut i32) -> HRESULT;
-            #[special]
-            fn get__newEnum(&self, #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+            fn get_item(&self, #[in] index: i32, #[out] #[retval] prefix: *mut BSTR) -> HRESULT;
+            fn get_length(&self, #[out] #[retval] length: *mut i32) -> HRESULT;
+            fn get__newEnum(&self, #[out] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x808f4e35_8d5a_4fbe_8466_33a41279ed30)]
         interface IMXReaderControl: IDispatch {
@@ -52,400 +49,305 @@ mod Windows {
         }
         #[guid(0xfa4bb38c_faf9_4cca_9302_d1dd0fe520db)]
         interface IMXSchemaDeclHandler: IDispatch {
-            fn schemaElementDecl(&self, oSchemaElement: ISchemaElement) -> HRESULT;
+            fn schemaElementDecl(&self, #[in] oSchemaElement: ISchemaElement) -> HRESULT;
         }
         #[guid(0x4d7ff4ba_1565_4ea8_94e1_6e724a46f98d)]
         interface IMXWriter: IDispatch {
-            #[special]
-            fn put_output(&self, varDestination: VARIANT) -> HRESULT;
-            #[special]
-            fn get_output(&self, #[retval] varDestination: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn put_encoding(&self, strEncoding: BSTR) -> HRESULT;
-            #[special]
-            fn get_encoding(&self, #[retval] strEncoding: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_byteOrderMark(&self, fWriteByteOrderMark: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_byteOrderMark(&self, #[retval] fWriteByteOrderMark: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_indent(&self, fIndentMode: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_indent(&self, #[retval] fIndentMode: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_standalone(&self, fValue: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_standalone(&self, #[retval] fValue: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_omitXMLDeclaration(&self, fValue: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_omitXMLDeclaration(&self, #[retval] fValue: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_version(&self, strVersion: BSTR) -> HRESULT;
-            #[special]
-            fn get_version(&self, #[retval] strVersion: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_disableOutputEscaping(&self, fValue: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_disableOutputEscaping(&self, #[retval] fValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_output(&self, #[in] varDestination: VARIANT) -> HRESULT;
+            fn get_output(&self, #[out] #[retval] varDestination: *mut VARIANT) -> HRESULT;
+            fn put_encoding(&self, #[in] strEncoding: BSTR) -> HRESULT;
+            fn get_encoding(&self, #[out] #[retval] strEncoding: *mut BSTR) -> HRESULT;
+            fn put_byteOrderMark(&self, #[in] fWriteByteOrderMark: VARIANT_BOOL) -> HRESULT;
+            fn get_byteOrderMark(&self, #[out] #[retval] fWriteByteOrderMark: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_indent(&self, #[in] fIndentMode: VARIANT_BOOL) -> HRESULT;
+            fn get_indent(&self, #[out] #[retval] fIndentMode: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_standalone(&self, #[in] fValue: VARIANT_BOOL) -> HRESULT;
+            fn get_standalone(&self, #[out] #[retval] fValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_omitXMLDeclaration(&self, #[in] fValue: VARIANT_BOOL) -> HRESULT;
+            fn get_omitXMLDeclaration(&self, #[out] #[retval] fValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_version(&self, #[in] strVersion: BSTR) -> HRESULT;
+            fn get_version(&self, #[out] #[retval] strVersion: *mut BSTR) -> HRESULT;
+            fn put_disableOutputEscaping(&self, #[in] fValue: VARIANT_BOOL) -> HRESULT;
+            fn get_disableOutputEscaping(&self, #[out] #[retval] fValue: *mut VARIANT_BOOL) -> HRESULT;
             fn flush(&self) -> HRESULT;
         }
         #[guid(0xc90352f7_643c_4fbc_bb23_e996eb2d51fd)]
         interface IMXXMLFilter: IDispatch {
-            fn getFeature(&self, strName: BSTR, #[retval] fValue: *mut VARIANT_BOOL) -> HRESULT;
-            fn putFeature(&self, strName: BSTR, fValue: VARIANT_BOOL) -> HRESULT;
-            fn getProperty(&self, strName: BSTR, #[retval] varValue: *mut VARIANT) -> HRESULT;
-            fn putProperty(&self, strName: BSTR, varValue: VARIANT) -> HRESULT;
-            #[special]
-            fn get_entityResolver(&self, #[retval] oResolver: *mut IUnknown) -> HRESULT;
-            fn putref_entityResolver(&self, oResolver: IUnknown) -> HRESULT;
-            #[special]
-            fn get_contentHandler(&self, #[retval] oHandler: *mut IUnknown) -> HRESULT;
-            fn putref_contentHandler(&self, oHandler: IUnknown) -> HRESULT;
-            #[special]
-            fn get_dtdHandler(&self, #[retval] oHandler: *mut IUnknown) -> HRESULT;
-            fn putref_dtdHandler(&self, oHandler: IUnknown) -> HRESULT;
-            #[special]
-            fn get_errorHandler(&self, #[retval] oHandler: *mut IUnknown) -> HRESULT;
-            fn putref_errorHandler(&self, oHandler: IUnknown) -> HRESULT;
+            fn getFeature(&self, #[in] strName: BSTR, #[out] #[retval] fValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn putFeature(&self, #[in] strName: BSTR, #[in] fValue: VARIANT_BOOL) -> HRESULT;
+            fn getProperty(&self, #[in] strName: BSTR, #[out] #[retval] varValue: *mut VARIANT) -> HRESULT;
+            fn putProperty(&self, #[in] strName: BSTR, #[in] varValue: VARIANT) -> HRESULT;
+            fn get_entityResolver(&self, #[out] #[retval] oResolver: *mut IUnknown) -> HRESULT;
+            fn putref_entityResolver(&self, #[in] oResolver: IUnknown) -> HRESULT;
+            fn get_contentHandler(&self, #[out] #[retval] oHandler: *mut IUnknown) -> HRESULT;
+            fn putref_contentHandler(&self, #[in] oHandler: IUnknown) -> HRESULT;
+            fn get_dtdHandler(&self, #[out] #[retval] oHandler: *mut IUnknown) -> HRESULT;
+            fn putref_dtdHandler(&self, #[in] oHandler: IUnknown) -> HRESULT;
+            fn get_errorHandler(&self, #[out] #[retval] oHandler: *mut IUnknown) -> HRESULT;
+            fn putref_errorHandler(&self, #[in] oHandler: IUnknown) -> HRESULT;
         }
         #[guid(0xf078abe1_45d2_4832_91ea_4466ce2f25c9)]
         interface ISAXAttributes: IUnknown {
-            fn getLength(&self, #[retval] pnLength: *mut i32) -> HRESULT;
-            fn getURI(&self, nIndex: i32, #[out] ppwchUri: *const *const u16, pcchUri: *mut i32) -> HRESULT;
-            fn getLocalName(&self, nIndex: i32, #[out] ppwchLocalName: *const *const u16, pcchLocalName: *mut i32) -> HRESULT;
-            fn getQName(&self, nIndex: i32, #[out] ppwchQName: *const *const u16, pcchQName: *mut i32) -> HRESULT;
-            fn getName(&self, nIndex: i32, #[out] ppwchUri: *const *const u16, pcchUri: *mut i32, #[out] ppwchLocalName: *const *const u16, pcchLocalName: *mut i32, #[out] ppwchQName: *const *const u16, pcchQName: *mut i32) -> HRESULT;
-            fn getIndexFromName(&self, pwchUri: *const u16, cchUri: i32, pwchLocalName: *const u16, cchLocalName: i32, #[retval] pnIndex: *mut i32) -> HRESULT;
-            fn getIndexFromQName(&self, pwchQName: *const u16, cchQName: i32, #[retval] pnIndex: *mut i32) -> HRESULT;
-            fn getType(&self, nIndex: i32, #[out] ppwchType: *const *const u16, pcchType: *mut i32) -> HRESULT;
-            fn getTypeFromName(&self, pwchUri: *const u16, cchUri: i32, pwchLocalName: *const u16, cchLocalName: i32, #[out] ppwchType: *const *const u16, pcchType: *mut i32) -> HRESULT;
-            fn getTypeFromQName(&self, pwchQName: *const u16, cchQName: i32, #[out] ppwchType: *const *const u16, pcchType: *mut i32) -> HRESULT;
-            fn getValue(&self, nIndex: i32, #[out] ppwchValue: *const *const u16, pcchValue: *mut i32) -> HRESULT;
-            fn getValueFromName(&self, pwchUri: *const u16, cchUri: i32, pwchLocalName: *const u16, cchLocalName: i32, #[out] ppwchValue: *const *const u16, pcchValue: *mut i32) -> HRESULT;
-            fn getValueFromQName(&self, pwchQName: *const u16, cchQName: i32, #[out] ppwchValue: *const *const u16, pcchValue: *mut i32) -> HRESULT;
+            fn getLength(&self, #[out] #[retval] pnLength: *mut i32) -> HRESULT;
+            fn getURI(&self, #[in] nIndex: i32, #[out] ppwchUri: *mut *const u16, #[out] pcchUri: *mut i32) -> HRESULT;
+            fn getLocalName(&self, #[in] nIndex: i32, #[out] ppwchLocalName: *mut *const u16, #[out] pcchLocalName: *mut i32) -> HRESULT;
+            fn getQName(&self, #[in] nIndex: i32, #[out] ppwchQName: *mut *const u16, #[out] pcchQName: *mut i32) -> HRESULT;
+            fn getName(&self, #[in] nIndex: i32, #[out] ppwchUri: *mut *const u16, #[out] pcchUri: *mut i32, #[out] ppwchLocalName: *mut *const u16, #[out] pcchLocalName: *mut i32, #[out] ppwchQName: *mut *const u16, #[out] pcchQName: *mut i32) -> HRESULT;
+            fn getIndexFromName(&self, #[in] pwchUri: *const u16, #[in] cchUri: i32, #[in] pwchLocalName: *const u16, #[in] cchLocalName: i32, #[out] #[retval] pnIndex: *mut i32) -> HRESULT;
+            fn getIndexFromQName(&self, #[in] pwchQName: *const u16, #[in] cchQName: i32, #[out] #[retval] pnIndex: *mut i32) -> HRESULT;
+            fn getType(&self, #[in] nIndex: i32, #[out] ppwchType: *mut *const u16, #[out] pcchType: *mut i32) -> HRESULT;
+            fn getTypeFromName(&self, #[in] pwchUri: *const u16, #[in] cchUri: i32, #[in] pwchLocalName: *const u16, #[in] cchLocalName: i32, #[out] ppwchType: *mut *const u16, #[out] pcchType: *mut i32) -> HRESULT;
+            fn getTypeFromQName(&self, #[in] pwchQName: *const u16, #[in] cchQName: i32, #[out] ppwchType: *mut *const u16, #[out] pcchType: *mut i32) -> HRESULT;
+            fn getValue(&self, #[in] nIndex: i32, #[out] ppwchValue: *mut *const u16, #[out] pcchValue: *mut i32) -> HRESULT;
+            fn getValueFromName(&self, #[in] pwchUri: *const u16, #[in] cchUri: i32, #[in] pwchLocalName: *const u16, #[in] cchLocalName: i32, #[out] ppwchValue: *mut *const u16, #[out] pcchValue: *mut i32) -> HRESULT;
+            fn getValueFromQName(&self, #[in] pwchQName: *const u16, #[in] cchQName: i32, #[out] ppwchValue: *mut *const u16, #[out] pcchValue: *mut i32) -> HRESULT;
         }
         #[guid(0x1545cdfa_9e4e_4497_a8a4_2bf7d0112c44)]
         interface ISAXContentHandler: IUnknown {
-            fn putDocumentLocator(&self, pLocator: ISAXLocator) -> HRESULT;
+            fn putDocumentLocator(&self, #[in] pLocator: ISAXLocator) -> HRESULT;
             fn startDocument(&self) -> HRESULT;
             fn endDocument(&self) -> HRESULT;
-            fn startPrefixMapping(&self, pwchPrefix: *const u16, cchPrefix: i32, pwchUri: *const u16, cchUri: i32) -> HRESULT;
-            fn endPrefixMapping(&self, pwchPrefix: *const u16, cchPrefix: i32) -> HRESULT;
-            fn startElement(&self, pwchNamespaceUri: *const u16, cchNamespaceUri: i32, pwchLocalName: *const u16, cchLocalName: i32, pwchQName: *const u16, cchQName: i32, pAttributes: ISAXAttributes) -> HRESULT;
-            fn endElement(&self, pwchNamespaceUri: *const u16, cchNamespaceUri: i32, pwchLocalName: *const u16, cchLocalName: i32, pwchQName: *const u16, cchQName: i32) -> HRESULT;
-            fn characters(&self, pwchChars: *const u16, cchChars: i32) -> HRESULT;
-            fn ignorableWhitespace(&self, pwchChars: *const u16, cchChars: i32) -> HRESULT;
-            fn processingInstruction(&self, pwchTarget: *const u16, cchTarget: i32, pwchData: *const u16, cchData: i32) -> HRESULT;
-            fn skippedEntity(&self, pwchName: *const u16, cchName: i32) -> HRESULT;
+            fn startPrefixMapping(&self, #[in] pwchPrefix: *const u16, #[in] cchPrefix: i32, #[in] pwchUri: *const u16, #[in] cchUri: i32) -> HRESULT;
+            fn endPrefixMapping(&self, #[in] pwchPrefix: *const u16, #[in] cchPrefix: i32) -> HRESULT;
+            fn startElement(&self, #[in] pwchNamespaceUri: *const u16, #[in] cchNamespaceUri: i32, #[in] pwchLocalName: *const u16, #[in] cchLocalName: i32, #[in] pwchQName: *const u16, #[in] cchQName: i32, #[in] pAttributes: ISAXAttributes) -> HRESULT;
+            fn endElement(&self, #[in] pwchNamespaceUri: *const u16, #[in] cchNamespaceUri: i32, #[in] pwchLocalName: *const u16, #[in] cchLocalName: i32, #[in] pwchQName: *const u16, #[in] cchQName: i32) -> HRESULT;
+            fn characters(&self, #[in] pwchChars: *const u16, #[in] cchChars: i32) -> HRESULT;
+            fn ignorableWhitespace(&self, #[in] pwchChars: *const u16, #[in] cchChars: i32) -> HRESULT;
+            fn processingInstruction(&self, #[in] pwchTarget: *const u16, #[in] cchTarget: i32, #[in] pwchData: *const u16, #[in] cchData: i32) -> HRESULT;
+            fn skippedEntity(&self, #[in] pwchName: *const u16, #[in] cchName: i32) -> HRESULT;
         }
         #[guid(0xe15c1baf_afb3_4d60_8c36_19a8c45defed)]
         interface ISAXDTDHandler: IUnknown {
-            fn notationDecl(&self, pwchName: *const u16, cchName: i32, pwchPublicId: *const u16, cchPublicId: i32, pwchSystemId: *const u16, cchSystemId: i32) -> HRESULT;
-            fn unparsedEntityDecl(&self, pwchName: *const u16, cchName: i32, pwchPublicId: *const u16, cchPublicId: i32, pwchSystemId: *const u16, cchSystemId: i32, pwchNotationName: *const u16, cchNotationName: i32) -> HRESULT;
+            fn notationDecl(&self, #[in] pwchName: *const u16, #[in] cchName: i32, #[in] pwchPublicId: *const u16, #[in] cchPublicId: i32, #[in] pwchSystemId: *const u16, #[in] cchSystemId: i32) -> HRESULT;
+            fn unparsedEntityDecl(&self, #[in] pwchName: *const u16, #[in] cchName: i32, #[in] pwchPublicId: *const u16, #[in] cchPublicId: i32, #[in] pwchSystemId: *const u16, #[in] cchSystemId: i32, #[in] pwchNotationName: *const u16, #[in] cchNotationName: i32) -> HRESULT;
         }
         #[guid(0x862629ac_771a_47b2_8337_4e6843c1be90)]
         interface ISAXDeclHandler: IUnknown {
-            fn elementDecl(&self, pwchName: *const u16, cchName: i32, pwchModel: *const u16, cchModel: i32) -> HRESULT;
-            fn attributeDecl(&self, pwchElementName: *const u16, cchElementName: i32, pwchAttributeName: *const u16, cchAttributeName: i32, pwchType: *const u16, cchType: i32, pwchValueDefault: *const u16, cchValueDefault: i32, pwchValue: *const u16, cchValue: i32) -> HRESULT;
-            fn internalEntityDecl(&self, pwchName: *const u16, cchName: i32, pwchValue: *const u16, cchValue: i32) -> HRESULT;
-            fn externalEntityDecl(&self, pwchName: *const u16, cchName: i32, pwchPublicId: *const u16, cchPublicId: i32, pwchSystemId: *const u16, cchSystemId: i32) -> HRESULT;
+            fn elementDecl(&self, #[in] pwchName: *const u16, #[in] cchName: i32, #[in] pwchModel: *const u16, #[in] cchModel: i32) -> HRESULT;
+            fn attributeDecl(&self, #[in] pwchElementName: *const u16, #[in] cchElementName: i32, #[in] pwchAttributeName: *const u16, #[in] cchAttributeName: i32, #[in] pwchType: *const u16, #[in] cchType: i32, #[in] pwchValueDefault: *const u16, #[in] cchValueDefault: i32, #[in] pwchValue: *const u16, #[in] cchValue: i32) -> HRESULT;
+            fn internalEntityDecl(&self, #[in] pwchName: *const u16, #[in] cchName: i32, #[in] pwchValue: *const u16, #[in] cchValue: i32) -> HRESULT;
+            fn externalEntityDecl(&self, #[in] pwchName: *const u16, #[in] cchName: i32, #[in] pwchPublicId: *const u16, #[in] cchPublicId: i32, #[in] pwchSystemId: *const u16, #[in] cchSystemId: i32) -> HRESULT;
         }
         #[guid(0x99bca7bd_e8c4_4d5f_a0cf_6d907901ff07)]
         interface ISAXEntityResolver: IUnknown {
-            fn resolveEntity(&self, pwchPublicId: *const u16, pwchSystemId: *const u16, #[retval] pvarInput: *mut VARIANT) -> HRESULT;
+            fn resolveEntity(&self, #[in] pwchPublicId: *const u16, #[in] pwchSystemId: *const u16, #[out] #[retval] pvarInput: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xa60511c4_ccf5_479e_98a3_dc8dc545b7d0)]
         interface ISAXErrorHandler: IUnknown {
-            fn error(&self, pLocator: ISAXLocator, pwchErrorMessage: *const u16, hrErrorCode: HRESULT) -> HRESULT;
-            fn fatalError(&self, pLocator: ISAXLocator, pwchErrorMessage: *const u16, hrErrorCode: HRESULT) -> HRESULT;
-            fn ignorableWarning(&self, pLocator: ISAXLocator, pwchErrorMessage: *const u16, hrErrorCode: HRESULT) -> HRESULT;
+            fn error(&self, #[in] pLocator: ISAXLocator, #[in] pwchErrorMessage: *const u16, #[in] hrErrorCode: HRESULT) -> HRESULT;
+            fn fatalError(&self, #[in] pLocator: ISAXLocator, #[in] pwchErrorMessage: *const u16, #[in] hrErrorCode: HRESULT) -> HRESULT;
+            fn ignorableWarning(&self, #[in] pLocator: ISAXLocator, #[in] pwchErrorMessage: *const u16, #[in] hrErrorCode: HRESULT) -> HRESULT;
         }
         #[guid(0x7f85d5f5_47a8_4497_bda5_84ba04819ea6)]
         interface ISAXLexicalHandler: IUnknown {
-            fn startDTD(&self, pwchName: *const u16, cchName: i32, pwchPublicId: *const u16, cchPublicId: i32, pwchSystemId: *const u16, cchSystemId: i32) -> HRESULT;
+            fn startDTD(&self, #[in] pwchName: *const u16, #[in] cchName: i32, #[in] pwchPublicId: *const u16, #[in] cchPublicId: i32, #[in] pwchSystemId: *const u16, #[in] cchSystemId: i32) -> HRESULT;
             fn endDTD(&self) -> HRESULT;
-            fn startEntity(&self, pwchName: *const u16, cchName: i32) -> HRESULT;
-            fn endEntity(&self, pwchName: *const u16, cchName: i32) -> HRESULT;
+            fn startEntity(&self, #[in] pwchName: *const u16, #[in] cchName: i32) -> HRESULT;
+            fn endEntity(&self, #[in] pwchName: *const u16, #[in] cchName: i32) -> HRESULT;
             fn startCDATA(&self) -> HRESULT;
             fn endCDATA(&self) -> HRESULT;
-            fn comment(&self, pwchChars: *const u16, cchChars: i32) -> HRESULT;
+            fn comment(&self, #[in] pwchChars: *const u16, #[in] cchChars: i32) -> HRESULT;
         }
         #[guid(0x9b7e472a_0de4_4640_bff3_84d38a051c31)]
         interface ISAXLocator: IUnknown {
-            fn getColumnNumber(&self, #[retval] pnColumn: *mut i32) -> HRESULT;
-            fn getLineNumber(&self, #[retval] pnLine: *mut i32) -> HRESULT;
-            fn getPublicId(&self, #[retval] #[out] ppwchPublicId: *const *const u16) -> HRESULT;
-            fn getSystemId(&self, #[retval] #[out] ppwchSystemId: *const *const u16) -> HRESULT;
+            fn getColumnNumber(&self, #[out] #[retval] pnColumn: *mut i32) -> HRESULT;
+            fn getLineNumber(&self, #[out] #[retval] pnLine: *mut i32) -> HRESULT;
+            fn getPublicId(&self, #[out] #[retval] ppwchPublicId: *mut *const u16) -> HRESULT;
+            fn getSystemId(&self, #[out] #[retval] ppwchSystemId: *mut *const u16) -> HRESULT;
         }
         #[guid(0x70409222_ca09_4475_acb8_40312fe8d145)]
         interface ISAXXMLFilter: ISAXXMLReader {
-            fn getParent(&self, #[retval] ppReader: *mut ISAXXMLReader) -> HRESULT;
-            fn putParent(&self, pReader: ISAXXMLReader) -> HRESULT;
+            fn getParent(&self, #[out] #[retval] ppReader: *mut ISAXXMLReader) -> HRESULT;
+            fn putParent(&self, #[in] pReader: ISAXXMLReader) -> HRESULT;
         }
         #[guid(0xa4f96ed0_f829_476e_81c0_cdc7bd2a0802)]
         interface ISAXXMLReader: IUnknown {
-            fn getFeature(&self, pwchName: *const u16, #[retval] pvfValue: *mut VARIANT_BOOL) -> HRESULT;
-            fn putFeature(&self, pwchName: *const u16, vfValue: VARIANT_BOOL) -> HRESULT;
-            fn getProperty(&self, pwchName: *const u16, #[retval] pvarValue: *mut VARIANT) -> HRESULT;
-            fn putProperty(&self, pwchName: *const u16, varValue: VARIANT) -> HRESULT;
-            fn getEntityResolver(&self, #[retval] ppResolver: *mut ISAXEntityResolver) -> HRESULT;
-            fn putEntityResolver(&self, pResolver: ISAXEntityResolver) -> HRESULT;
-            fn getContentHandler(&self, #[retval] ppHandler: *mut ISAXContentHandler) -> HRESULT;
-            fn putContentHandler(&self, pHandler: ISAXContentHandler) -> HRESULT;
-            fn getDTDHandler(&self, #[retval] ppHandler: *mut ISAXDTDHandler) -> HRESULT;
-            fn putDTDHandler(&self, pHandler: ISAXDTDHandler) -> HRESULT;
-            fn getErrorHandler(&self, #[retval] ppHandler: *mut ISAXErrorHandler) -> HRESULT;
-            fn putErrorHandler(&self, pHandler: ISAXErrorHandler) -> HRESULT;
-            fn getBaseURL(&self, #[retval] #[out] ppwchBaseUrl: *const *const u16) -> HRESULT;
-            fn putBaseURL(&self, pwchBaseUrl: *const u16) -> HRESULT;
-            fn getSecureBaseURL(&self, #[retval] #[out] ppwchSecureBaseUrl: *const *const u16) -> HRESULT;
-            fn putSecureBaseURL(&self, pwchSecureBaseUrl: *const u16) -> HRESULT;
-            fn parse(&self, #[opt] varInput: VARIANT) -> HRESULT;
-            fn parseURL(&self, pwchUrl: *const u16) -> HRESULT;
+            fn getFeature(&self, #[in] pwchName: *const u16, #[out] #[retval] pvfValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn putFeature(&self, #[in] pwchName: *const u16, #[in] vfValue: VARIANT_BOOL) -> HRESULT;
+            fn getProperty(&self, #[in] pwchName: *const u16, #[out] #[retval] pvarValue: *mut VARIANT) -> HRESULT;
+            fn putProperty(&self, #[in] pwchName: *const u16, #[in] varValue: VARIANT) -> HRESULT;
+            fn getEntityResolver(&self, #[out] #[retval] ppResolver: *mut ISAXEntityResolver) -> HRESULT;
+            fn putEntityResolver(&self, #[in] pResolver: ISAXEntityResolver) -> HRESULT;
+            fn getContentHandler(&self, #[out] #[retval] ppHandler: *mut ISAXContentHandler) -> HRESULT;
+            fn putContentHandler(&self, #[in] pHandler: ISAXContentHandler) -> HRESULT;
+            fn getDTDHandler(&self, #[out] #[retval] ppHandler: *mut ISAXDTDHandler) -> HRESULT;
+            fn putDTDHandler(&self, #[in] pHandler: ISAXDTDHandler) -> HRESULT;
+            fn getErrorHandler(&self, #[out] #[retval] ppHandler: *mut ISAXErrorHandler) -> HRESULT;
+            fn putErrorHandler(&self, #[in] pHandler: ISAXErrorHandler) -> HRESULT;
+            fn getBaseURL(&self, #[out] #[retval] ppwchBaseUrl: *mut *const u16) -> HRESULT;
+            fn putBaseURL(&self, #[in] pwchBaseUrl: *const u16) -> HRESULT;
+            fn getSecureBaseURL(&self, #[out] #[retval] ppwchSecureBaseUrl: *mut *const u16) -> HRESULT;
+            fn putSecureBaseURL(&self, #[in] pwchSecureBaseUrl: *const u16) -> HRESULT;
+            fn parse(&self, #[in] varInput: VARIANT) -> HRESULT;
+            fn parseURL(&self, #[in] pwchUrl: *const u16) -> HRESULT;
         }
         #[guid(0x50ea08b4_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchema: ISchemaItem {
-            #[special]
-            fn get_targetNamespace(&self, #[retval] targetNamespace: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_version(&self, #[retval] version: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_types(&self, #[retval] types: *mut ISchemaItemCollection) -> HRESULT;
-            #[special]
-            fn get_elements(&self, #[retval] elements: *mut ISchemaItemCollection) -> HRESULT;
-            #[special]
-            fn get_attributes(&self, #[retval] attributes: *mut ISchemaItemCollection) -> HRESULT;
-            #[special]
-            fn get_attributeGroups(&self, #[retval] attributeGroups: *mut ISchemaItemCollection) -> HRESULT;
-            #[special]
-            fn get_modelGroups(&self, #[retval] modelGroups: *mut ISchemaItemCollection) -> HRESULT;
-            #[special]
-            fn get_notations(&self, #[retval] notations: *mut ISchemaItemCollection) -> HRESULT;
-            #[special]
-            fn get_schemaLocations(&self, #[retval] schemaLocations: *mut ISchemaStringCollection) -> HRESULT;
+            fn get_targetNamespace(&self, #[out] #[retval] targetNamespace: *mut BSTR) -> HRESULT;
+            fn get_version(&self, #[out] #[retval] version: *mut BSTR) -> HRESULT;
+            fn get_types(&self, #[out] #[retval] types: *mut ISchemaItemCollection) -> HRESULT;
+            fn get_elements(&self, #[out] #[retval] elements: *mut ISchemaItemCollection) -> HRESULT;
+            fn get_attributes(&self, #[out] #[retval] attributes: *mut ISchemaItemCollection) -> HRESULT;
+            fn get_attributeGroups(&self, #[out] #[retval] attributeGroups: *mut ISchemaItemCollection) -> HRESULT;
+            fn get_modelGroups(&self, #[out] #[retval] modelGroups: *mut ISchemaItemCollection) -> HRESULT;
+            fn get_notations(&self, #[out] #[retval] notations: *mut ISchemaItemCollection) -> HRESULT;
+            fn get_schemaLocations(&self, #[out] #[retval] schemaLocations: *mut ISchemaStringCollection) -> HRESULT;
         }
         #[guid(0x50ea08bc_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchemaAny: ISchemaParticle {
-            #[special]
-            fn get_namespaces(&self, #[retval] namespaces: *mut ISchemaStringCollection) -> HRESULT;
-            #[special]
-            fn get_processContents(&self, #[retval] processContents: *mut SCHEMAPROCESSCONTENTS) -> HRESULT;
+            fn get_namespaces(&self, #[out] #[retval] namespaces: *mut ISchemaStringCollection) -> HRESULT;
+            fn get_processContents(&self, #[out] #[retval] processContents: *mut SCHEMAPROCESSCONTENTS) -> HRESULT;
         }
         #[guid(0x50ea08b6_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchemaAttribute: ISchemaItem {
-            #[special]
-            fn get_type(&self, #[retval] r#type: *mut ISchemaType) -> HRESULT;
-            #[special]
-            fn get_scope(&self, #[retval] scope: *mut ISchemaComplexType) -> HRESULT;
-            #[special]
-            fn get_defaultValue(&self, #[retval] defaultValue: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_fixedValue(&self, #[retval] fixedValue: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_use(&self, #[retval] r#use: *mut SCHEMAUSE) -> HRESULT;
-            #[special]
-            fn get_isReference(&self, #[retval] reference: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_type(&self, #[out] #[retval] r#type: *mut ISchemaType) -> HRESULT;
+            fn get_scope(&self, #[out] #[retval] scope: *mut ISchemaComplexType) -> HRESULT;
+            fn get_defaultValue(&self, #[out] #[retval] defaultValue: *mut BSTR) -> HRESULT;
+            fn get_fixedValue(&self, #[out] #[retval] fixedValue: *mut BSTR) -> HRESULT;
+            fn get_use(&self, #[out] #[retval] r#use: *mut SCHEMAUSE) -> HRESULT;
+            fn get_isReference(&self, #[out] #[retval] reference: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x50ea08ba_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchemaAttributeGroup: ISchemaItem {
-            #[special]
-            fn get_anyAttribute(&self, #[retval] anyAttribute: *mut ISchemaAny) -> HRESULT;
-            #[special]
-            fn get_attributes(&self, #[retval] attributes: *mut ISchemaItemCollection) -> HRESULT;
+            fn get_anyAttribute(&self, #[out] #[retval] anyAttribute: *mut ISchemaAny) -> HRESULT;
+            fn get_attributes(&self, #[out] #[retval] attributes: *mut ISchemaItemCollection) -> HRESULT;
         }
         #[guid(0x50ea08b9_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchemaComplexType: ISchemaType {
-            #[special]
-            fn get_isAbstract(&self, #[retval] r#abstract: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_anyAttribute(&self, #[retval] anyAttribute: *mut ISchemaAny) -> HRESULT;
-            #[special]
-            fn get_attributes(&self, #[retval] attributes: *mut ISchemaItemCollection) -> HRESULT;
-            #[special]
-            fn get_contentType(&self, #[retval] contentType: *mut SCHEMACONTENTTYPE) -> HRESULT;
-            #[special]
-            fn get_contentModel(&self, #[retval] contentModel: *mut ISchemaModelGroup) -> HRESULT;
-            #[special]
-            fn get_prohibitedSubstitutions(&self, #[retval] prohibited: *mut SCHEMADERIVATIONMETHOD) -> HRESULT;
+            fn get_isAbstract(&self, #[out] #[retval] r#abstract: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_anyAttribute(&self, #[out] #[retval] anyAttribute: *mut ISchemaAny) -> HRESULT;
+            fn get_attributes(&self, #[out] #[retval] attributes: *mut ISchemaItemCollection) -> HRESULT;
+            fn get_contentType(&self, #[out] #[retval] contentType: *mut SCHEMACONTENTTYPE) -> HRESULT;
+            fn get_contentModel(&self, #[out] #[retval] contentModel: *mut ISchemaModelGroup) -> HRESULT;
+            fn get_prohibitedSubstitutions(&self, #[out] #[retval] prohibited: *mut SCHEMADERIVATIONMETHOD) -> HRESULT;
         }
         #[guid(0x50ea08b7_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchemaElement: ISchemaParticle {
-            #[special]
-            fn get_type(&self, #[retval] r#type: *mut ISchemaType) -> HRESULT;
-            #[special]
-            fn get_scope(&self, #[retval] scope: *mut ISchemaComplexType) -> HRESULT;
-            #[special]
-            fn get_defaultValue(&self, #[retval] defaultValue: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_fixedValue(&self, #[retval] fixedValue: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_isNillable(&self, #[retval] nillable: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_identityConstraints(&self, #[retval] constraints: *mut ISchemaItemCollection) -> HRESULT;
-            #[special]
-            fn get_substitutionGroup(&self, #[retval] element: *mut ISchemaElement) -> HRESULT;
-            #[special]
-            fn get_substitutionGroupExclusions(&self, #[retval] exclusions: *mut SCHEMADERIVATIONMETHOD) -> HRESULT;
-            #[special]
-            fn get_disallowedSubstitutions(&self, #[retval] disallowed: *mut SCHEMADERIVATIONMETHOD) -> HRESULT;
-            #[special]
-            fn get_isAbstract(&self, #[retval] r#abstract: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_isReference(&self, #[retval] reference: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_type(&self, #[out] #[retval] r#type: *mut ISchemaType) -> HRESULT;
+            fn get_scope(&self, #[out] #[retval] scope: *mut ISchemaComplexType) -> HRESULT;
+            fn get_defaultValue(&self, #[out] #[retval] defaultValue: *mut BSTR) -> HRESULT;
+            fn get_fixedValue(&self, #[out] #[retval] fixedValue: *mut BSTR) -> HRESULT;
+            fn get_isNillable(&self, #[out] #[retval] nillable: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_identityConstraints(&self, #[out] #[retval] constraints: *mut ISchemaItemCollection) -> HRESULT;
+            fn get_substitutionGroup(&self, #[out] #[retval] element: *mut ISchemaElement) -> HRESULT;
+            fn get_substitutionGroupExclusions(&self, #[out] #[retval] exclusions: *mut SCHEMADERIVATIONMETHOD) -> HRESULT;
+            fn get_disallowedSubstitutions(&self, #[out] #[retval] disallowed: *mut SCHEMADERIVATIONMETHOD) -> HRESULT;
+            fn get_isAbstract(&self, #[out] #[retval] r#abstract: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_isReference(&self, #[out] #[retval] reference: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x50ea08bd_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchemaIdentityConstraint: ISchemaItem {
-            #[special]
-            fn get_selector(&self, #[retval] selector: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_fields(&self, #[retval] fields: *mut ISchemaStringCollection) -> HRESULT;
-            #[special]
-            fn get_referencedKey(&self, #[retval] key: *mut ISchemaIdentityConstraint) -> HRESULT;
+            fn get_selector(&self, #[out] #[retval] selector: *mut BSTR) -> HRESULT;
+            fn get_fields(&self, #[out] #[retval] fields: *mut ISchemaStringCollection) -> HRESULT;
+            fn get_referencedKey(&self, #[out] #[retval] key: *mut ISchemaIdentityConstraint) -> HRESULT;
         }
         #[guid(0x50ea08b3_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchemaItem: IDispatch {
-            #[special]
-            fn get_name(&self, #[retval] name: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_namespaceURI(&self, #[retval] namespaceURI: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_schema(&self, #[retval] schema: *mut ISchema) -> HRESULT;
-            #[special]
-            fn get_id(&self, #[retval] id: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_itemType(&self, #[retval] itemType: *mut SOMITEMTYPE) -> HRESULT;
-            #[special]
-            fn get_unhandledAttributes(&self, #[retval] attributes: *mut IVBSAXAttributes) -> HRESULT;
-            fn writeAnnotation(&self, annotationSink: IUnknown, #[retval] isWritten: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_name(&self, #[out] #[retval] name: *mut BSTR) -> HRESULT;
+            fn get_namespaceURI(&self, #[out] #[retval] namespaceURI: *mut BSTR) -> HRESULT;
+            fn get_schema(&self, #[out] #[retval] schema: *mut ISchema) -> HRESULT;
+            fn get_id(&self, #[out] #[retval] id: *mut BSTR) -> HRESULT;
+            fn get_itemType(&self, #[out] #[retval] itemType: *mut SOMITEMTYPE) -> HRESULT;
+            fn get_unhandledAttributes(&self, #[out] #[retval] attributes: *mut IVBSAXAttributes) -> HRESULT;
+            fn writeAnnotation(&self, #[in] annotationSink: IUnknown, #[out] #[retval] isWritten: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x50ea08b2_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchemaItemCollection: IDispatch {
-            #[special]
-            fn get_item(&self, index: i32, #[retval] item: *mut ISchemaItem) -> HRESULT;
-            fn itemByName(&self, name: BSTR, #[retval] item: *mut ISchemaItem) -> HRESULT;
-            fn itemByQName(&self, name: BSTR, namespaceURI: BSTR, #[retval] item: *mut ISchemaItem) -> HRESULT;
-            #[special]
-            fn get_length(&self, #[retval] length: *mut i32) -> HRESULT;
-            #[special]
-            fn get__newEnum(&self, #[retval] ppunk: *mut IUnknown) -> HRESULT;
+            fn get_item(&self, #[in] index: i32, #[out] #[retval] item: *mut ISchemaItem) -> HRESULT;
+            fn itemByName(&self, #[in] name: BSTR, #[out] #[retval] item: *mut ISchemaItem) -> HRESULT;
+            fn itemByQName(&self, #[in] name: BSTR, #[in] namespaceURI: BSTR, #[out] #[retval] item: *mut ISchemaItem) -> HRESULT;
+            fn get_length(&self, #[out] #[retval] length: *mut i32) -> HRESULT;
+            fn get__newEnum(&self, #[out] #[retval] ppunk: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x50ea08bb_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchemaModelGroup: ISchemaParticle {
-            #[special]
-            fn get_particles(&self, #[retval] particles: *mut ISchemaItemCollection) -> HRESULT;
+            fn get_particles(&self, #[out] #[retval] particles: *mut ISchemaItemCollection) -> HRESULT;
         }
         #[guid(0x50ea08be_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchemaNotation: ISchemaItem {
-            #[special]
-            fn get_systemIdentifier(&self, #[retval] uri: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_publicIdentifier(&self, #[retval] uri: *mut BSTR) -> HRESULT;
+            fn get_systemIdentifier(&self, #[out] #[retval] uri: *mut BSTR) -> HRESULT;
+            fn get_publicIdentifier(&self, #[out] #[retval] uri: *mut BSTR) -> HRESULT;
         }
         #[guid(0x50ea08b5_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchemaParticle: ISchemaItem {
-            #[special]
-            fn get_minOccurs(&self, #[retval] minOccurs: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_maxOccurs(&self, #[retval] maxOccurs: *mut VARIANT) -> HRESULT;
+            fn get_minOccurs(&self, #[out] #[retval] minOccurs: *mut VARIANT) -> HRESULT;
+            fn get_maxOccurs(&self, #[out] #[retval] maxOccurs: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x50ea08b1_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchemaStringCollection: IDispatch {
-            #[special]
-            fn get_item(&self, index: i32, #[retval] bstr: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_length(&self, #[retval] length: *mut i32) -> HRESULT;
-            #[special]
-            fn get__newEnum(&self, #[retval] ppunk: *mut IUnknown) -> HRESULT;
+            fn get_item(&self, #[in] index: i32, #[out] #[retval] bstr: *mut BSTR) -> HRESULT;
+            fn get_length(&self, #[out] #[retval] length: *mut i32) -> HRESULT;
+            fn get__newEnum(&self, #[out] #[retval] ppunk: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x50ea08b8_dd1b_4664_9a50_c2f40f4bd79a)]
         interface ISchemaType: ISchemaItem {
-            #[special]
-            fn get_baseTypes(&self, #[retval] baseTypes: *mut ISchemaItemCollection) -> HRESULT;
-            #[special]
-            fn get_final(&self, #[retval] r#final: *mut SCHEMADERIVATIONMETHOD) -> HRESULT;
-            #[special]
-            fn get_variety(&self, #[retval] variety: *mut SCHEMATYPEVARIETY) -> HRESULT;
-            #[special]
-            fn get_derivedBy(&self, #[retval] derivedBy: *mut SCHEMADERIVATIONMETHOD) -> HRESULT;
-            fn isValid(&self, data: BSTR, #[retval] valid: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_minExclusive(&self, #[retval] minExclusive: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_minInclusive(&self, #[retval] minInclusive: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_maxExclusive(&self, #[retval] maxExclusive: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_maxInclusive(&self, #[retval] maxInclusive: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_totalDigits(&self, #[retval] totalDigits: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_fractionDigits(&self, #[retval] fractionDigits: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_length(&self, #[retval] length: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_minLength(&self, #[retval] minLength: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_maxLength(&self, #[retval] maxLength: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_enumeration(&self, #[retval] enumeration: *mut ISchemaStringCollection) -> HRESULT;
-            #[special]
-            fn get_whitespace(&self, #[retval] whitespace: *mut SCHEMAWHITESPACE) -> HRESULT;
-            #[special]
-            fn get_patterns(&self, #[retval] patterns: *mut ISchemaStringCollection) -> HRESULT;
+            fn get_baseTypes(&self, #[out] #[retval] baseTypes: *mut ISchemaItemCollection) -> HRESULT;
+            fn get_final(&self, #[out] #[retval] r#final: *mut SCHEMADERIVATIONMETHOD) -> HRESULT;
+            fn get_variety(&self, #[out] #[retval] variety: *mut SCHEMATYPEVARIETY) -> HRESULT;
+            fn get_derivedBy(&self, #[out] #[retval] derivedBy: *mut SCHEMADERIVATIONMETHOD) -> HRESULT;
+            fn isValid(&self, #[in] data: BSTR, #[out] #[retval] valid: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_minExclusive(&self, #[out] #[retval] minExclusive: *mut BSTR) -> HRESULT;
+            fn get_minInclusive(&self, #[out] #[retval] minInclusive: *mut BSTR) -> HRESULT;
+            fn get_maxExclusive(&self, #[out] #[retval] maxExclusive: *mut BSTR) -> HRESULT;
+            fn get_maxInclusive(&self, #[out] #[retval] maxInclusive: *mut BSTR) -> HRESULT;
+            fn get_totalDigits(&self, #[out] #[retval] totalDigits: *mut VARIANT) -> HRESULT;
+            fn get_fractionDigits(&self, #[out] #[retval] fractionDigits: *mut VARIANT) -> HRESULT;
+            fn get_length(&self, #[out] #[retval] length: *mut VARIANT) -> HRESULT;
+            fn get_minLength(&self, #[out] #[retval] minLength: *mut VARIANT) -> HRESULT;
+            fn get_maxLength(&self, #[out] #[retval] maxLength: *mut VARIANT) -> HRESULT;
+            fn get_enumeration(&self, #[out] #[retval] enumeration: *mut ISchemaStringCollection) -> HRESULT;
+            fn get_whitespace(&self, #[out] #[retval] whitespace: *mut SCHEMAWHITESPACE) -> HRESULT;
+            fn get_patterns(&self, #[out] #[retval] patterns: *mut ISchemaStringCollection) -> HRESULT;
         }
         #[guid(0x2e9196bf_13ba_4dd4_91ca_6c571f281495)]
         interface IServerXMLHTTPRequest: IXMLHTTPRequest {
-            fn setTimeouts(&self, resolveTimeout: i32, connectTimeout: i32, sendTimeout: i32, receiveTimeout: i32) -> HRESULT;
-            fn waitForResponse(&self, #[opt] timeoutInSeconds: VARIANT, #[retval] isSuccessful: *mut VARIANT_BOOL) -> HRESULT;
-            fn getOption(&self, option: SERVERXMLHTTP_OPTION, #[retval] value: *mut VARIANT) -> HRESULT;
-            fn setOption(&self, option: SERVERXMLHTTP_OPTION, value: VARIANT) -> HRESULT;
+            fn setTimeouts(&self, #[in] resolveTimeout: i32, #[in] connectTimeout: i32, #[in] sendTimeout: i32, #[in] receiveTimeout: i32) -> HRESULT;
+            fn waitForResponse(&self, #[in] timeoutInSeconds: VARIANT, #[out] #[retval] isSuccessful: *mut VARIANT_BOOL) -> HRESULT;
+            fn getOption(&self, #[in] option: SERVERXMLHTTP_OPTION, #[out] #[retval] value: *mut VARIANT) -> HRESULT;
+            fn setOption(&self, #[in] option: SERVERXMLHTTP_OPTION, #[in] value: VARIANT) -> HRESULT;
         }
         #[guid(0x2e01311b_c322_4b0a_bd77_b90cfdc8dce7)]
         interface IServerXMLHTTPRequest2: IServerXMLHTTPRequest {
-            fn setProxy(&self, proxySetting: SXH_PROXY_SETTING, #[opt] varProxyServer: VARIANT, #[opt] varBypassList: VARIANT) -> HRESULT;
-            fn setProxyCredentials(&self, bstrUserName: BSTR, bstrPassword: BSTR) -> HRESULT;
+            fn setProxy(&self, #[in] proxySetting: SXH_PROXY_SETTING, #[in] varProxyServer: VARIANT, #[in] varBypassList: VARIANT) -> HRESULT;
+            fn setProxyCredentials(&self, #[in] bstrUserName: BSTR, #[in] bstrPassword: BSTR) -> HRESULT;
         }
         #[guid(0xc90352f5_643c_4fbc_bb23_e996eb2d51fd)]
         interface IVBMXNamespaceManager: IDispatch {
-            #[special]
-            fn put_allowOverride(&self, fOverride: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_allowOverride(&self, #[retval] fOverride: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_allowOverride(&self, #[in] fOverride: VARIANT_BOOL) -> HRESULT;
+            fn get_allowOverride(&self, #[out] #[retval] fOverride: *mut VARIANT_BOOL) -> HRESULT;
             fn reset(&self) -> HRESULT;
             fn pushContext(&self) -> HRESULT;
-            fn pushNodeContext(&self, contextNode: IXMLDOMNode, fDeep: VARIANT_BOOL) -> HRESULT;
+            fn pushNodeContext(&self, #[in] contextNode: IXMLDOMNode, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("-1")] fDeep: VARIANT_BOOL) -> HRESULT;
             fn popContext(&self) -> HRESULT;
-            fn declarePrefix(&self, prefix: BSTR, namespaceURI: BSTR) -> HRESULT;
-            fn getDeclaredPrefixes(&self, #[retval] prefixes: *mut IMXNamespacePrefixes) -> HRESULT;
-            fn getPrefixes(&self, namespaceURI: BSTR, #[retval] prefixes: *mut IMXNamespacePrefixes) -> HRESULT;
-            fn getURI(&self, prefix: BSTR, #[retval] uri: *mut VARIANT) -> HRESULT;
-            fn getURIFromNode(&self, strPrefix: BSTR, contextNode: IXMLDOMNode, #[retval] uri: *mut VARIANT) -> HRESULT;
+            fn declarePrefix(&self, #[in] prefix: BSTR, #[in] namespaceURI: BSTR) -> HRESULT;
+            fn getDeclaredPrefixes(&self, #[out] #[retval] prefixes: *mut IMXNamespacePrefixes) -> HRESULT;
+            fn getPrefixes(&self, #[in] namespaceURI: BSTR, #[out] #[retval] prefixes: *mut IMXNamespacePrefixes) -> HRESULT;
+            fn getURI(&self, #[in] prefix: BSTR, #[out] #[retval] uri: *mut VARIANT) -> HRESULT;
+            fn getURIFromNode(&self, #[in] strPrefix: BSTR, #[in] contextNode: IXMLDOMNode, #[out] #[retval] uri: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x10dc0586_132b_4cac_8bb3_db00ac8b7ee0)]
         interface IVBSAXAttributes: IDispatch {
-            #[special]
-            fn get_length(&self, #[retval] nLength: *mut i32) -> HRESULT;
-            fn getURI(&self, nIndex: i32, #[retval] strURI: *mut BSTR) -> HRESULT;
-            fn getLocalName(&self, nIndex: i32, #[retval] strLocalName: *mut BSTR) -> HRESULT;
-            fn getQName(&self, nIndex: i32, #[retval] strQName: *mut BSTR) -> HRESULT;
-            fn getIndexFromName(&self, strURI: BSTR, strLocalName: BSTR, #[retval] nIndex: *mut i32) -> HRESULT;
-            fn getIndexFromQName(&self, strQName: BSTR, #[retval] nIndex: *mut i32) -> HRESULT;
-            fn getType(&self, nIndex: i32, #[retval] strType: *mut BSTR) -> HRESULT;
-            fn getTypeFromName(&self, strURI: BSTR, strLocalName: BSTR, #[retval] strType: *mut BSTR) -> HRESULT;
-            fn getTypeFromQName(&self, strQName: BSTR, #[retval] strType: *mut BSTR) -> HRESULT;
-            fn getValue(&self, nIndex: i32, #[retval] strValue: *mut BSTR) -> HRESULT;
-            fn getValueFromName(&self, strURI: BSTR, strLocalName: BSTR, #[retval] strValue: *mut BSTR) -> HRESULT;
-            fn getValueFromQName(&self, strQName: BSTR, #[retval] strValue: *mut BSTR) -> HRESULT;
+            fn get_length(&self, #[out] #[retval] nLength: *mut i32) -> HRESULT;
+            fn getURI(&self, #[in] nIndex: i32, #[out] #[retval] strURI: *mut BSTR) -> HRESULT;
+            fn getLocalName(&self, #[in] nIndex: i32, #[out] #[retval] strLocalName: *mut BSTR) -> HRESULT;
+            fn getQName(&self, #[in] nIndex: i32, #[out] #[retval] strQName: *mut BSTR) -> HRESULT;
+            fn getIndexFromName(&self, #[in] strURI: BSTR, #[in] strLocalName: BSTR, #[out] #[retval] nIndex: *mut i32) -> HRESULT;
+            fn getIndexFromQName(&self, #[in] strQName: BSTR, #[out] #[retval] nIndex: *mut i32) -> HRESULT;
+            fn getType(&self, #[in] nIndex: i32, #[out] #[retval] strType: *mut BSTR) -> HRESULT;
+            fn getTypeFromName(&self, #[in] strURI: BSTR, #[in] strLocalName: BSTR, #[out] #[retval] strType: *mut BSTR) -> HRESULT;
+            fn getTypeFromQName(&self, #[in] strQName: BSTR, #[out] #[retval] strType: *mut BSTR) -> HRESULT;
+            fn getValue(&self, #[in] nIndex: i32, #[out] #[retval] strValue: *mut BSTR) -> HRESULT;
+            fn getValueFromName(&self, #[in] strURI: BSTR, #[in] strLocalName: BSTR, #[out] #[retval] strValue: *mut BSTR) -> HRESULT;
+            fn getValueFromQName(&self, #[in] strQName: BSTR, #[out] #[retval] strValue: *mut BSTR) -> HRESULT;
         }
         #[guid(0x2ed7290a_4dd5_4b46_bb26_4e4155e77faa)]
         interface IVBSAXContentHandler: IDispatch {
-            fn putref_documentLocator(&self, oLocator: IVBSAXLocator) -> HRESULT;
+            fn putref_documentLocator(&self, #[in] oLocator: IVBSAXLocator) -> HRESULT;
             fn startDocument(&self) -> HRESULT;
             fn endDocument(&self) -> HRESULT;
             fn startPrefixMapping(&self, #[in] #[out] strPrefix: *mut BSTR, #[in] #[out] strURI: *mut BSTR) -> HRESULT;
             fn endPrefixMapping(&self, #[in] #[out] strPrefix: *mut BSTR) -> HRESULT;
-            fn startElement(&self, #[in] #[out] strNamespaceURI: *mut BSTR, #[in] #[out] strLocalName: *mut BSTR, #[in] #[out] strQName: *mut BSTR, oAttributes: IVBSAXAttributes) -> HRESULT;
+            fn startElement(&self, #[in] #[out] strNamespaceURI: *mut BSTR, #[in] #[out] strLocalName: *mut BSTR, #[in] #[out] strQName: *mut BSTR, #[in] oAttributes: IVBSAXAttributes) -> HRESULT;
             fn endElement(&self, #[in] #[out] strNamespaceURI: *mut BSTR, #[in] #[out] strLocalName: *mut BSTR, #[in] #[out] strQName: *mut BSTR) -> HRESULT;
             fn characters(&self, #[in] #[out] strChars: *mut BSTR) -> HRESULT;
             fn ignorableWhitespace(&self, #[in] #[out] strChars: *mut BSTR) -> HRESULT;
@@ -466,13 +368,13 @@ mod Windows {
         }
         #[guid(0x0c05d096_f45b_4aca_ad1a_aa0bc25518dc)]
         interface IVBSAXEntityResolver: IDispatch {
-            fn resolveEntity(&self, #[in] #[out] strPublicId: *mut BSTR, #[in] #[out] strSystemId: *mut BSTR, #[retval] varInput: *mut VARIANT) -> HRESULT;
+            fn resolveEntity(&self, #[in] #[out] strPublicId: *mut BSTR, #[in] #[out] strSystemId: *mut BSTR, #[out] #[retval] varInput: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xd963d3fe_173c_4862_9095_b92f66995f52)]
         interface IVBSAXErrorHandler: IDispatch {
-            fn error(&self, oLocator: IVBSAXLocator, #[in] #[out] strErrorMessage: *mut BSTR, nErrorCode: i32) -> HRESULT;
-            fn fatalError(&self, oLocator: IVBSAXLocator, #[in] #[out] strErrorMessage: *mut BSTR, nErrorCode: i32) -> HRESULT;
-            fn ignorableWarning(&self, oLocator: IVBSAXLocator, #[in] #[out] strErrorMessage: *mut BSTR, nErrorCode: i32) -> HRESULT;
+            fn error(&self, #[in] oLocator: IVBSAXLocator, #[in] #[out] strErrorMessage: *mut BSTR, #[in] nErrorCode: i32) -> HRESULT;
+            fn fatalError(&self, #[in] oLocator: IVBSAXLocator, #[in] #[out] strErrorMessage: *mut BSTR, #[in] nErrorCode: i32) -> HRESULT;
+            fn ignorableWarning(&self, #[in] oLocator: IVBSAXLocator, #[in] #[out] strErrorMessage: *mut BSTR, #[in] nErrorCode: i32) -> HRESULT;
         }
         #[guid(0x032aac35_8c0e_4d9d_979f_e3b702935576)]
         interface IVBSAXLexicalHandler: IDispatch {
@@ -486,215 +388,167 @@ mod Windows {
         }
         #[guid(0x796e7ac5_5aa2_4eff_acad_3faaf01a3288)]
         interface IVBSAXLocator: IDispatch {
-            #[special]
-            fn get_columnNumber(&self, #[retval] nColumn: *mut i32) -> HRESULT;
-            #[special]
-            fn get_lineNumber(&self, #[retval] nLine: *mut i32) -> HRESULT;
-            #[special]
-            fn get_publicId(&self, #[retval] strPublicId: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_systemId(&self, #[retval] strSystemId: *mut BSTR) -> HRESULT;
+            fn get_columnNumber(&self, #[out] #[retval] nColumn: *mut i32) -> HRESULT;
+            fn get_lineNumber(&self, #[out] #[retval] nLine: *mut i32) -> HRESULT;
+            fn get_publicId(&self, #[out] #[retval] strPublicId: *mut BSTR) -> HRESULT;
+            fn get_systemId(&self, #[out] #[retval] strSystemId: *mut BSTR) -> HRESULT;
         }
         #[guid(0x1299eb1b_5b88_433e_82de_82ca75ad4e04)]
         interface IVBSAXXMLFilter: IDispatch {
-            #[special]
-            fn get_parent(&self, #[retval] oReader: *mut IVBSAXXMLReader) -> HRESULT;
-            fn putref_parent(&self, oReader: IVBSAXXMLReader) -> HRESULT;
+            fn get_parent(&self, #[out] #[retval] oReader: *mut IVBSAXXMLReader) -> HRESULT;
+            fn putref_parent(&self, #[in] oReader: IVBSAXXMLReader) -> HRESULT;
         }
         #[guid(0x8c033caa_6cd6_4f73_b728_4531af74945f)]
         interface IVBSAXXMLReader: IDispatch {
-            fn getFeature(&self, strName: BSTR, #[retval] fValue: *mut VARIANT_BOOL) -> HRESULT;
-            fn putFeature(&self, strName: BSTR, fValue: VARIANT_BOOL) -> HRESULT;
-            fn getProperty(&self, strName: BSTR, #[retval] varValue: *mut VARIANT) -> HRESULT;
-            fn putProperty(&self, strName: BSTR, varValue: VARIANT) -> HRESULT;
-            #[special]
-            fn get_entityResolver(&self, #[retval] oResolver: *mut IVBSAXEntityResolver) -> HRESULT;
-            fn putref_entityResolver(&self, oResolver: IVBSAXEntityResolver) -> HRESULT;
-            #[special]
-            fn get_contentHandler(&self, #[retval] oHandler: *mut IVBSAXContentHandler) -> HRESULT;
-            fn putref_contentHandler(&self, oHandler: IVBSAXContentHandler) -> HRESULT;
-            #[special]
-            fn get_dtdHandler(&self, #[retval] oHandler: *mut IVBSAXDTDHandler) -> HRESULT;
-            fn putref_dtdHandler(&self, oHandler: IVBSAXDTDHandler) -> HRESULT;
-            #[special]
-            fn get_errorHandler(&self, #[retval] oHandler: *mut IVBSAXErrorHandler) -> HRESULT;
-            fn putref_errorHandler(&self, oHandler: IVBSAXErrorHandler) -> HRESULT;
-            #[special]
-            fn get_baseURL(&self, #[retval] strBaseURL: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_baseURL(&self, strBaseURL: BSTR) -> HRESULT;
-            #[special]
-            fn get_secureBaseURL(&self, #[retval] strSecureBaseURL: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_secureBaseURL(&self, strSecureBaseURL: BSTR) -> HRESULT;
-            fn parse(&self, #[opt] varInput: VARIANT) -> HRESULT;
-            fn parseURL(&self, strURL: BSTR) -> HRESULT;
+            fn getFeature(&self, #[in] strName: BSTR, #[out] #[retval] fValue: *mut VARIANT_BOOL) -> HRESULT;
+            fn putFeature(&self, #[in] strName: BSTR, #[in] fValue: VARIANT_BOOL) -> HRESULT;
+            fn getProperty(&self, #[in] strName: BSTR, #[out] #[retval] varValue: *mut VARIANT) -> HRESULT;
+            fn putProperty(&self, #[in] strName: BSTR, #[in] varValue: VARIANT) -> HRESULT;
+            fn get_entityResolver(&self, #[out] #[retval] oResolver: *mut IVBSAXEntityResolver) -> HRESULT;
+            fn putref_entityResolver(&self, #[in] oResolver: IVBSAXEntityResolver) -> HRESULT;
+            fn get_contentHandler(&self, #[out] #[retval] oHandler: *mut IVBSAXContentHandler) -> HRESULT;
+            fn putref_contentHandler(&self, #[in] oHandler: IVBSAXContentHandler) -> HRESULT;
+            fn get_dtdHandler(&self, #[out] #[retval] oHandler: *mut IVBSAXDTDHandler) -> HRESULT;
+            fn putref_dtdHandler(&self, #[in] oHandler: IVBSAXDTDHandler) -> HRESULT;
+            fn get_errorHandler(&self, #[out] #[retval] oHandler: *mut IVBSAXErrorHandler) -> HRESULT;
+            fn putref_errorHandler(&self, #[in] oHandler: IVBSAXErrorHandler) -> HRESULT;
+            fn get_baseURL(&self, #[out] #[retval] strBaseURL: *mut BSTR) -> HRESULT;
+            fn put_baseURL(&self, #[in] strBaseURL: BSTR) -> HRESULT;
+            fn get_secureBaseURL(&self, #[out] #[retval] strSecureBaseURL: *mut BSTR) -> HRESULT;
+            fn put_secureBaseURL(&self, #[in] strSecureBaseURL: BSTR) -> HRESULT;
+            fn parse(&self, #[in] varInput: VARIANT) -> HRESULT;
+            fn parseURL(&self, #[in] strURL: BSTR) -> HRESULT;
         }
         #[guid(0x2933bf95_7b36_11d2_b20e_00c04f983e60)]
         interface IXMLDOMDocument2: IXMLDOMDocument {
-            #[special]
-            fn get_namespaces(&self, #[retval] namespaceCollection: *mut IXMLDOMSchemaCollection) -> HRESULT;
-            #[special]
-            fn get_schemas(&self, #[retval] otherCollection: *mut VARIANT) -> HRESULT;
-            fn putref_schemas(&self, otherCollection: VARIANT) -> HRESULT;
-            fn validate(&self, #[retval] errorObj: *mut IXMLDOMParseError) -> HRESULT;
-            fn setProperty(&self, name: BSTR, value: VARIANT) -> HRESULT;
-            fn getProperty(&self, name: BSTR, #[retval] value: *mut VARIANT) -> HRESULT;
+            fn get_namespaces(&self, #[out] #[retval] namespaceCollection: *mut IXMLDOMSchemaCollection) -> HRESULT;
+            fn get_schemas(&self, #[out] #[retval] otherCollection: *mut VARIANT) -> HRESULT;
+            fn putref_schemas(&self, #[in] otherCollection: VARIANT) -> HRESULT;
+            fn validate(&self, #[out] #[retval] errorObj: *mut IXMLDOMParseError) -> HRESULT;
+            fn setProperty(&self, #[in] name: BSTR, #[in] value: VARIANT) -> HRESULT;
+            fn getProperty(&self, #[in] name: BSTR, #[out] #[retval] value: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x2933bf96_7b36_11d2_b20e_00c04f983e60)]
         interface IXMLDOMDocument3: IXMLDOMDocument2 {
-            fn validateNode(&self, node: IXMLDOMNode, #[retval] errorObj: *mut IXMLDOMParseError) -> HRESULT;
-            fn importNode(&self, node: IXMLDOMNode, deep: VARIANT_BOOL, #[retval] clone: *mut IXMLDOMNode) -> HRESULT;
+            fn validateNode(&self, #[in] node: IXMLDOMNode, #[out] #[retval] errorObj: *mut IXMLDOMParseError) -> HRESULT;
+            fn importNode(&self, #[in] node: IXMLDOMNode, #[in] deep: VARIANT_BOOL, #[out] #[retval] clone: *mut IXMLDOMNode) -> HRESULT;
         }
         #[guid(0x3efaa428_272f_11d2_836f_0000f87a7782)]
         interface IXMLDOMParseError2: IXMLDOMParseError {
-            #[special]
-            fn get_errorXPath(&self, #[retval] xpathexpr: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_allErrors(&self, #[retval] allErrors: *mut IXMLDOMParseErrorCollection) -> HRESULT;
-            fn errorParameters(&self, index: i32, #[retval] param: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_errorParametersCount(&self, #[retval] count: *mut i32) -> HRESULT;
+            fn get_errorXPath(&self, #[out] #[retval] xpathexpr: *mut BSTR) -> HRESULT;
+            fn get_allErrors(&self, #[out] #[retval] allErrors: *mut IXMLDOMParseErrorCollection) -> HRESULT;
+            fn errorParameters(&self, #[in] index: i32, #[out] #[retval] param: *mut BSTR) -> HRESULT;
+            fn get_errorParametersCount(&self, #[out] #[retval] count: *mut i32) -> HRESULT;
         }
         #[guid(0x3efaa429_272f_11d2_836f_0000f87a7782)]
         interface IXMLDOMParseErrorCollection: IDispatch {
-            #[special]
-            fn get_item(&self, index: i32, #[retval] error: *mut IXMLDOMParseError2) -> HRESULT;
-            #[special]
-            fn get_length(&self, #[retval] length: *mut i32) -> HRESULT;
-            #[special]
-            fn get_next(&self, #[retval] error: *mut IXMLDOMParseError2) -> HRESULT;
+            fn get_item(&self, #[in] index: i32, #[out] #[retval] error: *mut IXMLDOMParseError2) -> HRESULT;
+            fn get_length(&self, #[out] #[retval] length: *mut i32) -> HRESULT;
+            fn get_next(&self, #[out] #[retval] error: *mut IXMLDOMParseError2) -> HRESULT;
             fn reset(&self) -> HRESULT;
-            #[special]
-            fn get__newEnum(&self, #[retval] ppunk: *mut IUnknown) -> HRESULT;
+            fn get__newEnum(&self, #[out] #[retval] ppunk: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x373984c8_b845_449b_91e7_45ac83036ade)]
         interface IXMLDOMSchemaCollection: IDispatch {
-            fn add(&self, namespaceURI: BSTR, var: VARIANT) -> HRESULT;
-            fn get(&self, namespaceURI: BSTR, #[retval] schemaNode: *mut IXMLDOMNode) -> HRESULT;
-            fn remove(&self, namespaceURI: BSTR) -> HRESULT;
-            #[special]
-            fn get_length(&self, #[retval] length: *mut i32) -> HRESULT;
-            #[special]
-            fn get_namespaceURI(&self, index: i32, #[retval] length: *mut BSTR) -> HRESULT;
-            fn addCollection(&self, otherCollection: IXMLDOMSchemaCollection) -> HRESULT;
-            #[special]
-            fn get__newEnum(&self, #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+            fn add(&self, #[in] namespaceURI: BSTR, #[in] var: VARIANT) -> HRESULT;
+            fn get(&self, #[in] namespaceURI: BSTR, #[out] #[retval] schemaNode: *mut IXMLDOMNode) -> HRESULT;
+            fn remove(&self, #[in] namespaceURI: BSTR) -> HRESULT;
+            fn get_length(&self, #[out] #[retval] length: *mut i32) -> HRESULT;
+            fn get_namespaceURI(&self, #[in] index: i32, #[out] #[retval] length: *mut BSTR) -> HRESULT;
+            fn addCollection(&self, #[in] otherCollection: IXMLDOMSchemaCollection) -> HRESULT;
+            fn get__newEnum(&self, #[out] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x50ea08b0_dd1b_4664_9a50_c2f40f4bd79a)]
         interface IXMLDOMSchemaCollection2: IXMLDOMSchemaCollection {
             fn validate(&self) -> HRESULT;
-            #[special]
-            fn put_validateOnLoad(&self, validateOnLoad: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_validateOnLoad(&self, #[retval] validateOnLoad: *mut VARIANT_BOOL) -> HRESULT;
-            fn getSchema(&self, namespaceURI: BSTR, #[retval] schema: *mut ISchema) -> HRESULT;
-            fn getDeclaration(&self, node: IXMLDOMNode, #[retval] item: *mut ISchemaItem) -> HRESULT;
+            fn put_validateOnLoad(&self, #[in] validateOnLoad: VARIANT_BOOL) -> HRESULT;
+            fn get_validateOnLoad(&self, #[out] #[retval] validateOnLoad: *mut VARIANT_BOOL) -> HRESULT;
+            fn getSchema(&self, #[in] namespaceURI: BSTR, #[out] #[retval] schema: *mut ISchema) -> HRESULT;
+            fn getDeclaration(&self, #[in] node: IXMLDOMNode, #[out] #[retval] item: *mut ISchemaItem) -> HRESULT;
         }
         #[guid(0xaa634fc7_5888_44a7_a257_3a47150d3a0e)]
         interface IXMLDOMSelection: IXMLDOMNodeList {
-            #[special]
-            fn get_expr(&self, #[retval] expression: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_expr(&self, expression: BSTR) -> HRESULT;
-            #[special]
-            fn get_context(&self, #[retval] ppNode: *mut IXMLDOMNode) -> HRESULT;
-            fn putref_context(&self, pNode: IXMLDOMNode) -> HRESULT;
-            fn peekNode(&self, #[retval] ppNode: *mut IXMLDOMNode) -> HRESULT;
-            fn matches(&self, pNode: IXMLDOMNode, #[retval] ppNode: *mut IXMLDOMNode) -> HRESULT;
-            fn removeNext(&self, #[retval] ppNode: *mut IXMLDOMNode) -> HRESULT;
+            fn get_expr(&self, #[out] #[retval] expression: *mut BSTR) -> HRESULT;
+            fn put_expr(&self, #[in] expression: BSTR) -> HRESULT;
+            fn get_context(&self, #[out] #[retval] ppNode: *mut IXMLDOMNode) -> HRESULT;
+            fn putref_context(&self, #[in] pNode: IXMLDOMNode) -> HRESULT;
+            fn peekNode(&self, #[out] #[retval] ppNode: *mut IXMLDOMNode) -> HRESULT;
+            fn matches(&self, #[in] pNode: IXMLDOMNode, #[out] #[retval] ppNode: *mut IXMLDOMNode) -> HRESULT;
+            fn removeNext(&self, #[out] #[retval] ppNode: *mut IXMLDOMNode) -> HRESULT;
             fn removeAll(&self) -> HRESULT;
-            fn clone(&self, #[retval] ppNode: *mut IXMLDOMSelection) -> HRESULT;
-            fn getProperty(&self, name: BSTR, #[retval] value: *mut VARIANT) -> HRESULT;
-            fn setProperty(&self, name: BSTR, value: VARIANT) -> HRESULT;
+            fn clone(&self, #[out] #[retval] ppNode: *mut IXMLDOMSelection) -> HRESULT;
+            fn getProperty(&self, #[in] name: BSTR, #[out] #[retval] value: *mut VARIANT) -> HRESULT;
+            fn setProperty(&self, #[in] name: BSTR, #[in] value: VARIANT) -> HRESULT;
         }
         #[guid(0xed8c108d_4349_11d2_91a4_00c04f7969e8)]
         interface IXMLHTTPRequest: IDispatch {
-            fn open(&self, bstrMethod: BSTR, bstrUrl: BSTR, #[opt] varAsync: VARIANT, #[opt] bstrUser: VARIANT, #[opt] bstrPassword: VARIANT) -> HRESULT;
-            fn setRequestHeader(&self, bstrHeader: BSTR, bstrValue: BSTR) -> HRESULT;
-            fn getResponseHeader(&self, bstrHeader: BSTR, #[retval] pbstrValue: *mut BSTR) -> HRESULT;
-            fn getAllResponseHeaders(&self, #[retval] pbstrHeaders: *mut BSTR) -> HRESULT;
-            fn send(&self, #[opt] varBody: VARIANT) -> HRESULT;
+            fn open(&self, #[in] bstrMethod: BSTR, #[in] bstrUrl: BSTR, #[in] varAsync: VARIANT, #[in] bstrUser: VARIANT, #[in] bstrPassword: VARIANT) -> HRESULT;
+            fn setRequestHeader(&self, #[in] bstrHeader: BSTR, #[in] bstrValue: BSTR) -> HRESULT;
+            fn getResponseHeader(&self, #[in] bstrHeader: BSTR, #[out] #[retval] #[out_ptr] pbstrValue: *mut BSTR) -> HRESULT;
+            fn getAllResponseHeaders(&self, #[out] #[retval] #[out_ptr] pbstrHeaders: *mut BSTR) -> HRESULT;
+            fn send(&self, #[in] varBody: VARIANT) -> HRESULT;
             fn abort(&self) -> HRESULT;
-            #[special]
-            fn get_status(&self, #[retval] plStatus: *mut i32) -> HRESULT;
-            #[special]
-            fn get_statusText(&self, #[retval] pbstrStatus: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_responseXML(&self, #[retval] ppBody: *mut IDispatch) -> HRESULT;
-            #[special]
-            fn get_responseText(&self, #[retval] pbstrBody: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_responseBody(&self, #[retval] pvarBody: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_responseStream(&self, #[retval] pvarBody: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_readyState(&self, #[retval] plState: *mut i32) -> HRESULT;
-            #[special]
-            fn put_onreadystatechange(&self, pReadyStateSink: IDispatch) -> HRESULT;
+            fn get_status(&self, #[out] #[retval] plStatus: *mut i32) -> HRESULT;
+            fn get_statusText(&self, #[out] #[retval] #[out_ptr] pbstrStatus: *mut BSTR) -> HRESULT;
+            fn get_responseXML(&self, #[out] #[retval] #[out_ptr] ppBody: *mut IDispatch) -> HRESULT;
+            fn get_responseText(&self, #[out] #[retval] #[out_ptr] pbstrBody: *mut BSTR) -> HRESULT;
+            fn get_responseBody(&self, #[out] #[retval] pvarBody: *mut VARIANT) -> HRESULT;
+            fn get_responseStream(&self, #[out] #[retval] pvarBody: *mut VARIANT) -> HRESULT;
+            fn get_readyState(&self, #[out] #[retval] plState: *mut i32) -> HRESULT;
+            fn put_onreadystatechange(&self, #[in] #[opt] pReadyStateSink: IDispatch) -> HRESULT;
         }
         #[guid(0xe5d37dc0_552a_4d52_9cc0_a14d546fbd04)]
         interface IXMLHTTPRequest2: IUnknown {
-            fn Open(&self, pwszMethod: *const u16, pwszUrl: *const u16, pStatusCallback: IXMLHTTPRequest2Callback, pwszUserName: *const u16, pwszPassword: *const u16, pwszProxyUserName: *const u16, pwszProxyPassword: *const u16) -> HRESULT;
-            fn Send(&self, pBody: ISequentialStream, cbBody: u64) -> HRESULT;
+            fn Open(&self, #[in] #[null_terminated(entry)] pwszMethod: *const WCHAR, #[in] #[null_terminated(entry)] pwszUrl: *const WCHAR, #[in] #[opt] pStatusCallback: IXMLHTTPRequest2Callback, #[in] #[opt] #[null_terminated(entry)] pwszUserName: *const WCHAR, #[in] #[opt] #[null_terminated(entry)] pwszPassword: *const WCHAR, #[in] #[opt] #[null_terminated(entry)] pwszProxyUserName: *const WCHAR, #[in] #[opt] #[null_terminated(entry)] pwszProxyPassword: *const WCHAR) -> HRESULT;
+            fn Send(&self, #[in] #[opt] pBody: ISequentialStream, #[in] cbBody: ULONGLONG) -> HRESULT;
             fn Abort(&self) -> HRESULT;
-            fn SetCookie(&self, pCookie: *const XHR_COOKIE, pdwCookieState: *mut u32) -> HRESULT;
-            fn SetCustomResponseStream(&self, pSequentialStream: ISequentialStream) -> HRESULT;
-            fn SetProperty(&self, eProperty: XHR_PROPERTY, ullValue: u64) -> HRESULT;
-            fn SetRequestHeader(&self, pwszHeader: *const u16, pwszValue: *const u16) -> HRESULT;
-            fn GetAllResponseHeaders(&self, ppwszHeaders: *mut *mut u16) -> HRESULT;
-            fn GetCookie(&self, pwszUrl: *const u16, pwszName: *const u16, dwFlags: u32, pcCookies: *mut u32, ppCookies: *mut *mut XHR_COOKIE) -> HRESULT;
-            fn GetResponseHeader(&self, pwszHeader: *const u16, ppwszValue: *mut *mut u16) -> HRESULT;
+            fn SetCookie(&self, #[in] pCookie: *const XHR_COOKIE, #[out] pdwCookieState: *mut DWORD) -> HRESULT;
+            fn SetCustomResponseStream(&self, #[in] #[opt] pSequentialStream: ISequentialStream) -> HRESULT;
+            fn SetProperty(&self, #[in] eProperty: XHR_PROPERTY, #[in] ullValue: ULONGLONG) -> HRESULT;
+            fn SetRequestHeader(&self, #[in] #[null_terminated(entry)] pwszHeader: *const WCHAR, #[in] #[opt] #[null_terminated(entry)] pwszValue: *const WCHAR) -> HRESULT;
+            fn GetAllResponseHeaders(&self, #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[null_terminated(entry, success, indirect)] ppwszHeaders: *mut *mut WCHAR) -> HRESULT;
+            fn GetCookie(&self, #[in] #[null_terminated(entry)] pwszUrl: *const WCHAR, #[in] #[opt] #[null_terminated(entry)] pwszName: *const WCHAR, #[in] dwFlags: DWORD, #[out] pcCookies: *mut ULONG, #[out] #[nullable(entry, indirect)] #[writable(success, *pcCookies, indirect, nullable)] #[readable(success, *pcCookies, indirect, nullable)] ppCookies: *mut *mut XHR_COOKIE) -> HRESULT;
+            fn GetResponseHeader(&self, #[in] #[null_terminated(entry)] pwszHeader: *const WCHAR, #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[null_terminated(entry, success, indirect)] ppwszValue: *mut *mut WCHAR) -> HRESULT;
         }
         #[guid(0xa44a9299_e321_40de_8866_341b41669162)]
         interface IXMLHTTPRequest2Callback: IUnknown {
-            fn OnRedirect(&self, pXHR: IXMLHTTPRequest2, pwszRedirectUrl: *const u16) -> HRESULT;
-            fn OnHeadersAvailable(&self, pXHR: IXMLHTTPRequest2, dwStatus: u32, pwszStatus: *const u16) -> HRESULT;
-            fn OnDataAvailable(&self, pXHR: IXMLHTTPRequest2, pResponseStream: ISequentialStream) -> HRESULT;
-            fn OnResponseReceived(&self, pXHR: IXMLHTTPRequest2, pResponseStream: ISequentialStream) -> HRESULT;
-            fn OnError(&self, pXHR: IXMLHTTPRequest2, hrError: HRESULT) -> HRESULT;
+            fn OnRedirect(&self, #[in] #[opt] pXHR: IXMLHTTPRequest2, #[in] #[null_terminated(entry)] pwszRedirectUrl: *const WCHAR) -> HRESULT;
+            fn OnHeadersAvailable(&self, #[in] #[opt] pXHR: IXMLHTTPRequest2, #[in] dwStatus: DWORD, #[in] #[null_terminated(entry)] pwszStatus: *const WCHAR) -> HRESULT;
+            fn OnDataAvailable(&self, #[in] #[opt] pXHR: IXMLHTTPRequest2, #[in] #[opt] pResponseStream: ISequentialStream) -> HRESULT;
+            fn OnResponseReceived(&self, #[in] #[opt] pXHR: IXMLHTTPRequest2, #[in] #[opt] pResponseStream: ISequentialStream) -> HRESULT;
+            fn OnError(&self, #[in] #[opt] pXHR: IXMLHTTPRequest2, #[in] hrError: HRESULT) -> HRESULT;
         }
         #[guid(0xa1c9feee_0617_4f23_9d58_8961ea43567c)]
         interface IXMLHTTPRequest3: IXMLHTTPRequest2 {
-            fn SetClientCertificate(&self, cbClientCertificateHash: u32, pbClientCertificateHash: *const u8, pwszPin: *const u16) -> HRESULT;
+            fn SetClientCertificate(&self, #[in] cbClientCertificateHash: DWORD, #[in] #[opt] #[readable(entry, cbClientCertificateHash)] pbClientCertificateHash: *const BYTE, #[in] #[opt] #[null_terminated(entry)] pwszPin: *const WCHAR) -> HRESULT;
         }
         #[guid(0xb9e57830_8c6c_4a6f_9c13_47772bb047bb)]
         interface IXMLHTTPRequest3Callback: IXMLHTTPRequest2Callback {
-            fn OnServerCertificateReceived(&self, pXHR: IXMLHTTPRequest3, dwCertificateErrors: u32, cServerCertificateChain: u32, rgServerCertificateChain: *const XHR_CERT) -> HRESULT;
-            fn OnClientCertificateRequested(&self, pXHR: IXMLHTTPRequest3, cIssuerList: u32, rgpwszIssuerList: *const *const u16) -> HRESULT;
+            fn OnServerCertificateReceived(&self, #[in] #[opt] pXHR: IXMLHTTPRequest3, #[in] dwCertificateErrors: DWORD, #[in] cServerCertificateChain: DWORD, #[in] #[opt] #[readable(entry, cServerCertificateChain)] rgServerCertificateChain: *const XHR_CERT) -> HRESULT;
+            fn OnClientCertificateRequested(&self, #[in] #[opt] pXHR: IXMLHTTPRequest3, #[in] cIssuerList: DWORD, #[in] #[opt] #[readable(entry, cIssuerList)] rgpwszIssuerList: *mut *const WCHAR) -> HRESULT;
         }
         #[guid(0x2933bf92_7b36_11d2_b20e_00c04f983e60)]
         interface IXSLProcessor: IDispatch {
-            #[special]
-            fn put_input(&self, var: VARIANT) -> HRESULT;
-            #[special]
-            fn get_input(&self, #[retval] pVar: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_ownerTemplate(&self, #[retval] ppTemplate: *mut IXSLTemplate) -> HRESULT;
-            fn setStartMode(&self, mode: BSTR, namespaceURI: BSTR) -> HRESULT;
-            #[special]
-            fn get_startMode(&self, #[retval] mode: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_startModeURI(&self, #[retval] namespaceURI: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_output(&self, output: VARIANT) -> HRESULT;
-            #[special]
-            fn get_output(&self, #[retval] pOutput: *mut VARIANT) -> HRESULT;
-            fn transform(&self, #[retval] pDone: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_input(&self, #[in] var: VARIANT) -> HRESULT;
+            fn get_input(&self, #[out] #[retval] pVar: *mut VARIANT) -> HRESULT;
+            fn get_ownerTemplate(&self, #[out] #[retval] ppTemplate: *mut IXSLTemplate) -> HRESULT;
+            fn setStartMode(&self, #[in] mode: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] namespaceURI: BSTR) -> HRESULT;
+            fn get_startMode(&self, #[out] #[retval] mode: *mut BSTR) -> HRESULT;
+            fn get_startModeURI(&self, #[out] #[retval] namespaceURI: *mut BSTR) -> HRESULT;
+            fn put_output(&self, #[in] output: VARIANT) -> HRESULT;
+            fn get_output(&self, #[out] #[retval] pOutput: *mut VARIANT) -> HRESULT;
+            fn transform(&self, #[out] #[retval] pDone: *mut VARIANT_BOOL) -> HRESULT;
             fn reset(&self) -> HRESULT;
-            #[special]
-            fn get_readyState(&self, #[retval] pReadyState: *mut i32) -> HRESULT;
-            fn addParameter(&self, baseName: BSTR, parameter: VARIANT, namespaceURI: BSTR) -> HRESULT;
-            fn addObject(&self, obj: IDispatch, namespaceURI: BSTR) -> HRESULT;
-            #[special]
-            fn get_stylesheet(&self, #[retval] stylesheet: *mut IXMLDOMNode) -> HRESULT;
+            fn get_readyState(&self, #[out] #[retval] pReadyState: *mut i32) -> HRESULT;
+            fn addParameter(&self, #[in] baseName: BSTR, #[in] parameter: VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] namespaceURI: BSTR) -> HRESULT;
+            fn addObject(&self, #[in] obj: IDispatch, #[in] namespaceURI: BSTR) -> HRESULT;
+            fn get_stylesheet(&self, #[out] #[retval] stylesheet: *mut IXMLDOMNode) -> HRESULT;
         }
         #[guid(0x2933bf93_7b36_11d2_b20e_00c04f983e60)]
         interface IXSLTemplate: IDispatch {
-            fn putref_stylesheet(&self, stylesheet: IXMLDOMNode) -> HRESULT;
-            #[special]
-            fn get_stylesheet(&self, #[retval] stylesheet: *mut IXMLDOMNode) -> HRESULT;
-            fn createProcessor(&self, #[retval] ppProcessor: *mut IXSLProcessor) -> HRESULT;
+            fn putref_stylesheet(&self, #[in] stylesheet: IXMLDOMNode) -> HRESULT;
+            fn get_stylesheet(&self, #[out] #[retval] stylesheet: *mut IXMLDOMNode) -> HRESULT;
+            fn createProcessor(&self, #[out] #[retval] ppProcessor: *mut IXSLProcessor) -> HRESULT;
         }
         const MXHTMLWriter60: GUID = 0x88d96a10_f192_11d4_a65f_0040963251e5;
         const MXNamespaceManager60: GUID = 0x88d96a11_f192_11d4_a65f_0040963251e5;
@@ -853,8 +707,8 @@ mod Windows {
             XHR_AUTH_PROXY = 2,
         }
         struct XHR_CERT {
-            cbCert: u32,
-            pbCert: *mut u8,
+            cbCert: DWORD,
+            pbCert: *mut BYTE,
         }
         #[repr(i32)]
         enum XHR_CERT_ERROR_FLAG {
@@ -873,12 +727,12 @@ mod Windows {
             XHR_CERT_IGNORE_ALL_SERVER_ERRORS = 12672,
         }
         struct XHR_COOKIE {
-            pwszUrl: *mut u16,
-            pwszName: *mut u16,
-            pwszValue: *mut u16,
-            pwszP3PPolicy: *mut u16,
+            pwszUrl: *mut WCHAR,
+            pwszName: *mut WCHAR,
+            pwszValue: *mut WCHAR,
+            pwszP3PPolicy: *mut WCHAR,
             ftExpires: FILETIME,
-            dwFlags: u32,
+            dwFlags: DWORD,
         }
         #[repr(i32)]
         enum XHR_COOKIE_FLAG {

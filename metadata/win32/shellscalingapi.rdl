@@ -7,15 +7,15 @@ mod Windows {
             DEVICE_IMMERSIVE = 1,
         }
         #[library("api-ms-win-shcore-scaling-l1-1-1.dll")]
-        extern fn GetDpiForMonitor(hmonitor: HMONITOR, dpiType: MONITOR_DPI_TYPE, dpiX: *mut u32, dpiY: *mut u32) -> HRESULT;
+        extern fn GetDpiForMonitor(#[in] hmonitor: HMONITOR, #[in] dpiType: MONITOR_DPI_TYPE, #[out] dpiX: *mut UINT, #[out] dpiY: *mut UINT) -> HRESULT;
         #[library("api-ms-win-shcore-scaling-l1-1-2.dll")]
-        extern fn GetDpiForShellUIComponent(param0: SHELL_UI_COMPONENT) -> u32;
+        extern fn GetDpiForShellUIComponent(#[in] param0: SHELL_UI_COMPONENT) -> UINT;
         #[library("api-ms-win-shcore-scaling-l1-1-1.dll")]
-        extern fn GetProcessDpiAwareness(#[opt] hprocess: HANDLE, value: *mut PROCESS_DPI_AWARENESS) -> HRESULT;
+        extern fn GetProcessDpiAwareness(#[in] #[opt] hprocess: HANDLE, #[out] value: *mut PROCESS_DPI_AWARENESS) -> HRESULT;
         #[library("api-ms-win-shcore-scaling-l1-1-0.dll")]
-        extern fn GetScaleFactorForDevice(deviceType: DISPLAY_DEVICE_TYPE) -> DEVICE_SCALE_FACTOR;
+        extern fn GetScaleFactorForDevice(#[in] deviceType: DISPLAY_DEVICE_TYPE) -> DEVICE_SCALE_FACTOR;
         #[library("api-ms-win-shcore-scaling-l1-1-1.dll")]
-        extern fn GetScaleFactorForMonitor(hMon: HMONITOR, pScale: *mut DEVICE_SCALE_FACTOR) -> HRESULT;
+        extern fn GetScaleFactorForMonitor(#[in] hMon: HMONITOR, #[out] pScale: *mut DEVICE_SCALE_FACTOR) -> HRESULT;
         #[repr(i32)]
         enum MONITOR_DPI_TYPE {
             MDT_EFFECTIVE_DPI = 0,
@@ -30,13 +30,12 @@ mod Windows {
             PROCESS_PER_MONITOR_DPI_AWARE = 2,
         }
         #[library("api-ms-win-shcore-scaling-l1-1-1.dll")]
-        extern fn RegisterScaleChangeEvent(hEvent: HANDLE, pdwCookie: *mut usize) -> HRESULT;
+        extern fn RegisterScaleChangeEvent(#[in] hEvent: HANDLE, #[out] pdwCookie: *mut DWORD_PTR) -> HRESULT;
         #[library("api-ms-win-shcore-scaling-l1-1-0.dll")]
-        extern fn RegisterScaleChangeNotifications(displayDevice: DISPLAY_DEVICE_TYPE, hwndNotify: HWND, uMsgNotify: u32, pdwCookie: *mut u32) -> HRESULT;
+        extern fn RegisterScaleChangeNotifications(#[in] displayDevice: DISPLAY_DEVICE_TYPE, #[in] hwndNotify: HWND, #[in] uMsgNotify: UINT, #[out] pdwCookie: *mut DWORD) -> HRESULT;
         #[library("api-ms-win-shcore-scaling-l1-1-0.dll")]
-        extern fn RevokeScaleChangeNotifications(displayDevice: DISPLAY_DEVICE_TYPE, dwCookie: u32) -> HRESULT;
-        #[repr(u32)]
-        #[flags]
+        extern fn RevokeScaleChangeNotifications(#[in] displayDevice: DISPLAY_DEVICE_TYPE, #[in] dwCookie: DWORD) -> HRESULT;
+        #[repr(i32)]
         enum SCALE_CHANGE_FLAGS {
             SCF_VALUE_NONE = 0,
             SCF_SCALE = 1,
@@ -49,8 +48,8 @@ mod Windows {
             SHELL_UI_COMPONENT_DESKBAND = 2,
         }
         #[library("api-ms-win-shcore-scaling-l1-1-1.dll")]
-        extern fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> HRESULT;
+        extern fn SetProcessDpiAwareness(#[in] value: PROCESS_DPI_AWARENESS) -> HRESULT;
         #[library("api-ms-win-shcore-scaling-l1-1-1.dll")]
-        extern fn UnregisterScaleChangeEvent(dwCookie: usize) -> HRESULT;
+        extern fn UnregisterScaleChangeEvent(#[in] dwCookie: DWORD_PTR) -> HRESULT;
     }
 }

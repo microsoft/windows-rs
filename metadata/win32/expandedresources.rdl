@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("api-ms-win-gaming-expandedresources-l1-1-0.dll")]
-        extern fn GetExpandedResourceExclusiveCpuCount(exclusiveCpuCount: *mut u32) -> HRESULT;
+        extern fn GetExpandedResourceExclusiveCpuCount(#[out] exclusiveCpuCount: *mut ULONG) -> HRESULT;
         #[library("api-ms-win-gaming-expandedresources-l1-1-0.dll")]
-        extern fn HasExpandedResources(hasExpandedResources: *mut BOOL) -> HRESULT;
+        extern fn HasExpandedResources(#[out] hasExpandedResources: *mut BOOL) -> HRESULT;
         #[library("api-ms-win-gaming-expandedresources-l1-1-0.dll")]
         extern fn ReleaseExclusiveCpuSets() -> HRESULT;
     }

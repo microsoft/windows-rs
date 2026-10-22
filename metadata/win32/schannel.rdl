@@ -57,54 +57,54 @@ mod Windows {
         type PTLS_EXTENSION_SUBSCRIPTION = *mut TLS_EXTENSION_SUBSCRIPTION;
         type PX509Certificate = *mut X509Certificate;
         struct PctPublicKey {
-            Type: u32,
-            cbKey: u32,
-            pKey: [u8; 1],
+            Type: DWORD,
+            cbKey: DWORD,
+            pKey: [UCHAR; 1],
         }
         const RCRED_CRED_EXISTS: i32 = 1;
         const RCRED_STATUS_NOCRED: i32 = 0;
         const RCRED_STATUS_UNKNOWN_ISSUER: i32 = 2;
         const SCHANNEL_ALERT: i32 = 2;
         struct SCHANNEL_ALERT_TOKEN {
-            dwTokenType: u32,
-            dwAlertType: u32,
-            dwAlertNumber: u32,
+            dwTokenType: DWORD,
+            dwAlertType: DWORD,
+            dwAlertNumber: DWORD,
         }
         struct SCHANNEL_CERT_HASH {
-            dwLength: u32,
-            dwFlags: u32,
+            dwLength: DWORD,
+            dwFlags: DWORD,
             hProv: HCRYPTPROV,
-            ShaHash: [u8; 20],
+            ShaHash: [BYTE; 20],
         }
         struct SCHANNEL_CERT_HASH_STORE {
-            dwLength: u32,
-            dwFlags: u32,
+            dwLength: DWORD,
+            dwFlags: DWORD,
             hProv: HCRYPTPROV,
-            ShaHash: [u8; 20],
-            pwszStoreName: [u16; 128],
+            ShaHash: [BYTE; 20],
+            pwszStoreName: [WCHAR; 128],
         }
         struct SCHANNEL_CLIENT_SIGNATURE {
-            cbLength: u32,
+            cbLength: DWORD,
             aiHash: ALG_ID,
-            cbHash: u32,
-            HashValue: [u8; 36],
-            CertThumbprint: [u8; 20],
+            cbHash: DWORD,
+            HashValue: [BYTE; 36],
+            CertThumbprint: [BYTE; 20],
         }
         struct SCHANNEL_CRED {
-            dwVersion: u32,
-            cCreds: u32,
+            dwVersion: DWORD,
+            cCreds: DWORD,
             paCred: *mut PCCERT_CONTEXT,
             hRootStore: HCERTSTORE,
-            cMappers: u32,
+            cMappers: DWORD,
             aphMappers: *mut *mut _HMAPPER,
-            cSupportedAlgs: u32,
+            cSupportedAlgs: DWORD,
             palgSupportedAlgs: *mut ALG_ID,
-            grbitEnabledProtocols: u32,
-            dwMinimumCipherStrength: u32,
-            dwMaximumCipherStrength: u32,
-            dwSessionLifespan: u32,
-            dwFlags: u32,
-            dwCredFormat: u32,
+            grbitEnabledProtocols: DWORD,
+            dwMinimumCipherStrength: DWORD,
+            dwMaximumCipherStrength: DWORD,
+            dwSessionLifespan: DWORD,
+            dwFlags: DWORD,
+            dwCredFormat: DWORD,
         }
         const SCHANNEL_CRED_VERSION: i32 = 4;
         #[encoding("ansi")]
@@ -118,17 +118,17 @@ mod Windows {
         const SCHANNEL_SECRET_TYPE_CAPI: i32 = 1;
         const SCHANNEL_SESSION: i32 = 3;
         struct SCHANNEL_SESSION_TOKEN {
-            dwTokenType: u32,
-            dwFlags: u32,
+            dwTokenType: DWORD,
+            dwFlags: DWORD,
         }
         const SCHANNEL_SHUTDOWN: i32 = 1;
         const SCH_ALLOW_NULL_ENCRYPTION: i32 = 33554432;
         struct SCH_CRED {
-            dwVersion: u32,
-            cCreds: u32,
-            paSecret: *mut *mut void,
-            paPublic: *mut *mut void,
-            cMappers: u32,
+            dwVersion: DWORD,
+            cCreds: DWORD,
+            paSecret: *mut PVOID,
+            paPublic: *mut PVOID,
+            cMappers: DWORD,
             aphMappers: *mut *mut _HMAPPER,
         }
         const SCH_CREDENTIALS_VERSION: i32 = 5;
@@ -152,8 +152,8 @@ mod Windows {
         const SCH_CRED_NO_SERVERNAME_CHECK: i32 = 4;
         const SCH_CRED_NO_SYSTEM_MAPPER: i32 = 2;
         struct SCH_CRED_PUBLIC_CERTCHAIN {
-            dwType: u32,
-            cbCertChain: u32,
+            dwType: DWORD,
+            cbCertChain: DWORD,
             pCertChain: PBYTE,
         }
         const SCH_CRED_RESTRICTED_ROOTS: i32 = 8192;
@@ -162,13 +162,13 @@ mod Windows {
         const SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: i32 = 1024;
         const SCH_CRED_REVOCATION_CHECK_END_CERT: i32 = 256;
         struct SCH_CRED_SECRET_CAPI {
-            dwType: u32,
+            dwType: DWORD,
             hProv: HCRYPTPROV,
         }
         struct SCH_CRED_SECRET_PRIVKEY {
-            dwType: u32,
+            dwType: DWORD,
             pPrivateKey: PBYTE,
-            cbPrivateKey: u32,
+            cbPrivateKey: DWORD,
             pszPassword: PSTR,
         }
         const SCH_CRED_SNI_CREDENTIAL: i32 = 524288;
@@ -181,9 +181,9 @@ mod Windows {
         const SCH_CRED_X509_CAPI: i32 = 2;
         const SCH_CRED_X509_CERTCHAIN: i32 = 1;
         struct SCH_EXTENSION_DATA {
-            ExtensionType: u16,
-            pExtData: *const u8,
-            cbExtData: u32,
+            ExtensionType: WORD,
+            pExtData: *const BYTE,
+            cbExtData: DWORD,
         }
         const SCH_MACHINE_CERT_HASH: i32 = 1;
         const SCH_MAX_EXT_SUBSCRIPTIONS: i32 = 2;
@@ -195,11 +195,11 @@ mod Windows {
         const SECPKGCONTEXT_CIPHERINFO_V1: i32 = 1;
         const SECPKGCONTEXT_CONNECTION_INFO_EX_V1: i32 = 1;
         struct SEND_GENERIC_TLS_EXTENSION {
-            ExtensionType: u16,
-            HandshakeType: u16,
-            Flags: u32,
-            BufferSize: u16,
-            Buffer: [u8; 1],
+            ExtensionType: WORD,
+            HandshakeType: WORD,
+            Flags: DWORD,
+            BufferSize: WORD,
+            Buffer: [UCHAR; 1],
         }
         const SP_PROT_ALL: u32 = 4294967295;
         const SP_PROT_CLIENTS: u32 = 2147483818;
@@ -273,192 +273,190 @@ mod Windows {
         const SSL3SP_NAME_A: String = "Microsoft SSL 3.0";
         #[encoding("utf-16")]
         const SSL3SP_NAME_W: String = "Microsoft SSL 3.0";
-        extern fn SSL_CRACK_CERTIFICATE_FN(pbCertificate: PUCHAR, cbCertificate: u32, VerifySignature: BOOL, ppCertificate: *mut PX509Certificate) -> BOOL;
+        extern fn SSL_CRACK_CERTIFICATE_FN(pbCertificate: PUCHAR, cbCertificate: DWORD, VerifySignature: BOOL, ppCertificate: *mut PX509Certificate) -> BOOL;
+        #[encoding("ansi")]
+        const SSL_CRACK_CERTIFICATE_NAME: String = "SslCrackCertificate";
         struct SSL_CREDENTIAL_CERTIFICATE {
-            cbPrivateKey: u32,
+            cbPrivateKey: DWORD,
             pPrivateKey: PBYTE,
-            cbCertificate: u32,
+            cbCertificate: DWORD,
             pCertificate: PBYTE,
             pszPassword: PSTR,
         }
-        extern fn SSL_EMPTY_CACHE_FN_A(pszTargetName: PSTR, dwFlags: u32) -> BOOL;
-        extern fn SSL_EMPTY_CACHE_FN_W(pszTargetName: PWSTR, dwFlags: u32) -> BOOL;
+        extern fn SSL_EMPTY_CACHE_FN_A(pszTargetName: LPSTR, dwFlags: DWORD) -> BOOL;
+        extern fn SSL_EMPTY_CACHE_FN_W(pszTargetName: LPWSTR, dwFlags: DWORD) -> BOOL;
         extern fn SSL_FREE_CERTIFICATE_FN(pCertificate: PX509Certificate);
+        #[encoding("ansi")]
+        const SSL_FREE_CERTIFICATE_NAME: String = "SslFreeCertificate";
         const SSL_SESSION_DISABLE_RECONNECTS: i32 = 2;
         const SSL_SESSION_ENABLE_RECONNECTS: i32 = 1;
         const SSL_SESSION_RECONNECT: i32 = 1;
         struct SUBSCRIBE_GENERIC_TLS_EXTENSION {
-            Flags: u32,
-            SubscriptionsCount: u32,
+            Flags: DWORD,
+            SubscriptionsCount: DWORD,
             Subscriptions: [TLS_EXTENSION_SUBSCRIPTION; 1],
         }
-        #[repr(u32)]
-        #[flags]
+        const SZ_ALG_MAX_SIZE: i32 = 64;
+        #[repr(i32)]
         enum SchGetExtensionsOptions {
             SCH_EXTENSIONS_OPTIONS_NONE = 0,
             SCH_NO_RECORD_HEADER = 1,
         }
         struct SecPkgContext_CertInfo {
-            dwVersion: u32,
-            cbSubjectName: u32,
-            pwszSubjectName: PWSTR,
-            cbIssuerName: u32,
-            pwszIssuerName: PWSTR,
-            dwKeySize: u32,
+            dwVersion: DWORD,
+            cbSubjectName: DWORD,
+            pwszSubjectName: LPWSTR,
+            cbIssuerName: DWORD,
+            pwszIssuerName: LPWSTR,
+            dwKeySize: DWORD,
         }
         struct SecPkgContext_CertificateValidationResult {
-            dwChainErrorStatus: u32,
+            dwChainErrorStatus: DWORD,
             hrVerifyChainStatus: HRESULT,
         }
         struct SecPkgContext_Certificates {
-            cCertificates: u32,
-            cbCertificateChain: u32,
+            cCertificates: DWORD,
+            cbCertificateChain: DWORD,
             pbCertificateChain: PBYTE,
         }
         struct SecPkgContext_CipherInfo {
-            dwVersion: u32,
-            dwProtocol: u32,
-            dwCipherSuite: u32,
-            dwBaseCipherSuite: u32,
-            szCipherSuite: [u16; 64],
-            szCipher: [u16; 64],
-            dwCipherLen: u32,
-            dwCipherBlockLen: u32,
-            szHash: [u16; 64],
-            dwHashLen: u32,
-            szExchange: [u16; 64],
-            dwMinExchangeLen: u32,
-            dwMaxExchangeLen: u32,
-            szCertificate: [u16; 64],
-            dwKeyType: u32,
+            dwVersion: DWORD,
+            dwProtocol: DWORD,
+            dwCipherSuite: DWORD,
+            dwBaseCipherSuite: DWORD,
+            szCipherSuite: [WCHAR; 64],
+            szCipher: [WCHAR; 64],
+            dwCipherLen: DWORD,
+            dwCipherBlockLen: DWORD,
+            szHash: [WCHAR; 64],
+            dwHashLen: DWORD,
+            szExchange: [WCHAR; 64],
+            dwMinExchangeLen: DWORD,
+            dwMaxExchangeLen: DWORD,
+            szCertificate: [WCHAR; 64],
+            dwKeyType: DWORD,
         }
         struct SecPkgContext_ClientCertPolicyResult {
             dwPolicyResult: HRESULT,
             guidPolicyId: GUID,
         }
         struct SecPkgContext_ConnectionInfo {
-            dwProtocol: u32,
+            dwProtocol: DWORD,
             aiCipher: ALG_ID,
-            dwCipherStrength: u32,
+            dwCipherStrength: DWORD,
             aiHash: ALG_ID,
-            dwHashStrength: u32,
+            dwHashStrength: DWORD,
             aiExch: ALG_ID,
-            dwExchStrength: u32,
+            dwExchStrength: DWORD,
         }
         struct SecPkgContext_ConnectionInfoEx {
-            dwVersion: u32,
-            dwProtocol: u32,
-            szCipher: [u16; 64],
-            dwCipherStrength: u32,
-            szHash: [u16; 64],
-            dwHashStrength: u32,
-            szExchange: [u16; 64],
-            dwExchStrength: u32,
+            dwVersion: DWORD,
+            dwProtocol: DWORD,
+            szCipher: [WCHAR; 64],
+            dwCipherStrength: DWORD,
+            szHash: [WCHAR; 64],
+            dwHashStrength: DWORD,
+            szExchange: [WCHAR; 64],
+            dwExchStrength: DWORD,
         }
         struct SecPkgContext_EapKeyBlock {
-            rgbKeys: [u8; 128],
-            rgbIVs: [u8; 64],
+            rgbKeys: [BYTE; 128],
+            rgbIVs: [BYTE; 64],
         }
         struct SecPkgContext_EapPrfInfo {
-            dwVersion: u32,
-            cbPrfData: u32,
+            dwVersion: DWORD,
+            cbPrfData: DWORD,
+            #[writable(bytes(cbPrfData))]
             pbPrfData: PBYTE,
         }
         struct SecPkgContext_EarlyStart {
-            dwEarlyStartFlags: u32,
+            dwEarlyStartFlags: DWORD,
         }
         struct SecPkgContext_IssuerListInfoEx {
             aIssuers: PCERT_NAME_BLOB,
-            cIssuers: u32,
+            cIssuers: DWORD,
         }
         struct SecPkgContext_KeyingMaterial {
-            cbKeyingMaterial: u32,
+            cbKeyingMaterial: DWORD,
+            #[writable(bytes(cbKeyingMaterial))]
             pbKeyingMaterial: PBYTE,
         }
         struct SecPkgContext_KeyingMaterialInfo {
-            cbLabel: u16,
-            pszLabel: PSTR,
-            cbContextValue: u16,
+            cbLabel: WORD,
+            pszLabel: LPSTR,
+            cbContextValue: WORD,
             pbContextValue: PBYTE,
-            cbKeyingMaterial: u32,
+            cbKeyingMaterial: DWORD,
         }
         struct SecPkgContext_KeyingMaterial_Inproc {
-            cbLabel: u16,
-            pszLabel: PSTR,
-            cbContextValue: u16,
+            cbLabel: WORD,
+            pszLabel: LPSTR,
+            cbContextValue: WORD,
             pbContextValue: PBYTE,
-            cbKeyingMaterial: u32,
+            cbKeyingMaterial: DWORD,
             pbKeyingMaterial: PBYTE,
         }
         type SecPkgContext_LocalCredenitalInfo = SecPkgContext_LocalCredentialInfo;
         struct SecPkgContext_LocalCredentialInfo {
-            cbCertificateChain: u32,
+            cbCertificateChain: DWORD,
             pbCertificateChain: PBYTE,
-            cCertificates: u32,
-            fFlags: u32,
-            dwBits: u32,
+            cCertificates: DWORD,
+            fFlags: DWORD,
+            dwBits: DWORD,
         }
         struct SecPkgContext_MappedCredAttr {
-            dwAttribute: u32,
-            pvBuffer: *mut void,
+            dwAttribute: DWORD,
+            pvBuffer: PVOID,
         }
         type SecPkgContext_RemoteCredenitalInfo = SecPkgContext_RemoteCredentialInfo;
         struct SecPkgContext_RemoteCredentialInfo {
-            cbCertificateChain: u32,
+            cbCertificateChain: DWORD,
             pbCertificateChain: PBYTE,
-            cCertificates: u32,
-            fFlags: u32,
-            dwBits: u32,
+            cCertificates: DWORD,
+            fFlags: DWORD,
+            dwBits: DWORD,
         }
         struct SecPkgContext_SessionAppData {
-            dwFlags: u32,
-            cbAppData: u32,
+            dwFlags: DWORD,
+            cbAppData: DWORD,
+            #[writable(bytes(cbAppData))]
             pbAppData: PBYTE,
         }
         struct SecPkgContext_SessionInfo {
-            dwFlags: u32,
-            cbSessionId: u32,
-            rgbSessionId: [u8; 32],
+            dwFlags: DWORD,
+            cbSessionId: DWORD,
+            rgbSessionId: [BYTE; 32],
         }
         struct SecPkgContext_SrtpParameters {
-            ProtectionProfile: u16,
-            MasterKeyIdentifierSize: u8,
+            ProtectionProfile: WORD,
+            MasterKeyIdentifierSize: BYTE,
+            #[writable(bytes(MasterKeyIdentifierSize))]
             MasterKeyIdentifier: PBYTE,
         }
         struct SecPkgContext_SupportedSignatures {
-            cSignatureAndHashAlgorithms: u16,
-            pSignatureAndHashAlgorithms: *mut u16,
+            cSignatureAndHashAlgorithms: WORD,
+            #[writable(cSignatureAndHashAlgorithms)]
+            pSignatureAndHashAlgorithms: *mut WORD,
         }
         struct SecPkgContext_TokenBinding {
-            MajorVersion: u8,
-            MinorVersion: u8,
-            KeyParametersSize: u16,
+            MajorVersion: BYTE,
+            MinorVersion: BYTE,
+            KeyParametersSize: WORD,
+            #[writable(bytes(KeyParametersSize))]
             KeyParameters: PBYTE,
         }
         struct SecPkgContext_UiInfo {
             hParentWindow: HWND,
         }
-        #[library("SCHANNEL.dll", import = "?SslCrackCertificate@@YAHPEAEKKPEAPEAU_X509Certificate@@@Z")]
-        extern fn SslCrackCertificate(pbCertificate: PUCHAR, cbCertificate: u32, dwFlags: u32, ppCertificate: *mut PX509Certificate) -> BOOL;
         #[library("SCHANNEL.dll")]
-        extern fn SslDeserializeCertificateStore(SerializedCertificateStore: CERT_BLOB, ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
-        extern fn SslDeserializeCertificateStoreFn(SerializedCertificateStore: CERT_BLOB, ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
-        #[library("SCHANNEL.dll", import = "?SslEmptyCacheA@@YAHPEADK@Z")]
-        extern fn SslEmptyCacheA(pszTargetName: PCSTR, dwFlags: u32) -> BOOL;
-        #[library("SCHANNEL.dll", import = "?SslEmptyCacheW@@YAHPEA_WK@Z")]
-        extern fn SslEmptyCacheW(pszTargetName: PCWSTR, dwFlags: u32) -> BOOL;
-        #[library("SCHANNEL.dll", import = "?SslFreeCertificate@@YAXPEAU_X509Certificate@@@Z")]
-        extern fn SslFreeCertificate(pCertificate: PX509Certificate);
-        #[library("SCHANNEL.dll", import = "?SslGenerateRandomBits@@YAXPEAEJ@Z")]
-        extern fn SslGenerateRandomBits(pRandomData: PUCHAR, cRandomData: i32);
+        extern fn SslDeserializeCertificateStore(#[in] SerializedCertificateStore: CERT_BLOB, #[out] #[out_ptr(nullable)] ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
+        extern fn SslDeserializeCertificateStoreFn(#[in] SerializedCertificateStore: CERT_BLOB, #[out] #[out_ptr(nullable)] ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
         #[library("SCHANNEL.dll")]
-        extern fn SslGetExtensions(#[len_param(1)] clientHello: *const u8, clientHelloByteSize: u32, #[len_param(3)] #[in] #[out] genericExtensions: *mut SCH_EXTENSION_DATA, genericExtensionsCount: u8, bytesToRead: *mut u32, flags: SchGetExtensionsOptions) -> SECURITY_STATUS;
-        extern fn SslGetExtensionsFn(#[len_param(1)] clientHello: *const u8, clientHelloByteSize: u32, #[len_param(3)] #[in] #[out] genericExtensions: *mut SCH_EXTENSION_DATA, genericExtensionsCount: u8, bytesToRead: *mut u32, flags: SchGetExtensionsOptions) -> SECURITY_STATUS;
-        #[library("SCHANNEL.dll", import = "?SslGetMaximumKeySize@@YAKK@Z")]
-        extern fn SslGetMaximumKeySize(Reserved: u32) -> u32;
+        extern fn SslGetExtensions(#[in] #[readable(entry, clientHelloByteSize)] clientHello: *const BYTE, #[in] clientHelloByteSize: DWORD, #[in] #[out] #[writable(entry, genericExtensionsCount)] genericExtensions: *mut SCH_EXTENSION_DATA, #[in] genericExtensionsCount: BYTE, #[out] bytesToRead: *mut DWORD, #[in] flags: SchGetExtensionsOptions) -> SECURITY_STATUS;
+        extern fn SslGetExtensionsFn(#[in] #[readable(entry, clientHelloByteSize)] clientHello: *const BYTE, #[in] clientHelloByteSize: DWORD, #[in] #[out] #[writable(entry, genericExtensionsCount)] genericExtensions: *mut SCH_EXTENSION_DATA, #[in] genericExtensionsCount: BYTE, #[out] bytesToRead: *mut DWORD, #[in] flags: SchGetExtensionsOptions) -> SECURITY_STATUS;
         #[library("SCHANNEL.dll")]
-        extern fn SslGetServerIdentity(#[size_param(1)] ClientHello: PBYTE, ClientHelloSize: u32, ServerIdentity: *mut PBYTE, #[out] ServerIdentitySize: PDWORD, Flags: u32) -> SECURITY_STATUS;
-        extern fn SslGetServerIdentityFn(#[size_param(1)] ClientHello: PBYTE, ClientHelloSize: u32, ServerIdentity: *mut PBYTE, #[out] ServerIdentitySize: PDWORD, Flags: u32) -> SECURITY_STATUS;
+        extern fn SslGetServerIdentity(#[in] #[readable(entry, bytes(ClientHelloSize))] ClientHello: PBYTE, #[in] ClientHelloSize: DWORD, #[out] #[writable(success, bytes(*ServerIdentitySize), indirect)] ServerIdentity: *mut PBYTE, #[out] ServerIdentitySize: PDWORD, #[in] Flags: DWORD) -> SECURITY_STATUS;
+        extern fn SslGetServerIdentityFn(#[in] #[readable(entry, bytes(ClientHelloSize))] ClientHello: PBYTE, #[in] ClientHelloSize: DWORD, #[out] #[writable(success, bytes(*ServerIdentitySize), indirect)] ServerIdentity: *mut PBYTE, #[out] ServerIdentitySize: PDWORD, #[in] Flags: DWORD) -> SECURITY_STATUS;
         #[encoding("ansi")]
         const TLS1SP_NAME: String = "Microsoft TLS 1.0";
         #[encoding("ansi")]
@@ -494,8 +492,8 @@ mod Windows {
         const TLS1_ALERT_USER_CANCELED: i32 = 90;
         const TLS1_ALERT_WARNING: i32 = 1;
         struct TLS_EXTENSION_SUBSCRIPTION {
-            ExtensionType: u16,
-            HandshakeType: u16,
+            ExtensionType: WORD,
+            HandshakeType: WORD,
         }
         #[encoding("ansi")]
         const UNISP_NAME: String = "Microsoft Unified Security Protocol Provider";
@@ -505,8 +503,8 @@ mod Windows {
         const UNISP_NAME_W: String = "Microsoft Unified Security Protocol Provider";
         const UNISP_RPC_ID: i32 = 14;
         struct X509Certificate {
-            Version: u32,
-            SerialNumber: [u32; 4],
+            Version: DWORD,
+            SerialNumber: [DWORD; 4],
             SignatureAlgorithm: ALG_ID,
             ValidFrom: FILETIME,
             ValidUntil: FILETIME,

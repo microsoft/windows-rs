@@ -16,7 +16,7 @@ mod Windows {
         const AMDDS_YUVOFF: i32 = 32;
         const AMDDS_YUVOVR: i32 = 8;
         struct AM_FRAMESTEP_STEP {
-            dwFramesToStep: u32,
+            dwFramesToStep: DWORD,
         }
         #[repr(i32)]
         enum AM_PROPERTY_FRAMESTEP {
@@ -28,81 +28,139 @@ mod Windows {
         struct ANALOGVIDEOINFO {
             rcSource: RECT,
             rcTarget: RECT,
-            dwActiveWidth: u32,
-            dwActiveHeight: u32,
+            dwActiveWidth: DWORD,
+            dwActiveHeight: DWORD,
             AvgTimePerFrame: REFERENCE_TIME,
         }
         #[no_guid]
         interface IBaseVideoMixer: IUnknown {
             fn SetLeadPin(&self, iPin: i32) -> HRESULT;
-            fn GetLeadPin(&self, piPin: *mut i32) -> HRESULT;
-            fn GetInputPinCount(&self, piPinCount: *mut i32) -> HRESULT;
-            fn IsUsingClock(&self, pbValue: *mut i32) -> HRESULT;
+            fn GetLeadPin(&self, #[out] piPin: *mut i32) -> HRESULT;
+            fn GetInputPinCount(&self, #[out] piPinCount: *mut i32) -> HRESULT;
+            fn IsUsingClock(&self, #[out] pbValue: *mut i32) -> HRESULT;
             fn SetUsingClock(&self, bValue: i32) -> HRESULT;
-            fn GetClockPeriod(&self, pbValue: *mut i32) -> HRESULT;
+            fn GetClockPeriod(&self, #[out] pbValue: *mut i32) -> HRESULT;
             fn SetClockPeriod(&self, bValue: i32) -> HRESULT;
         }
         #[no_guid]
         interface IDirectDrawVideo: IUnknown {
-            fn GetSwitches(&self, pSwitches: *mut u32) -> HRESULT;
-            fn SetSwitches(&self, Switches: u32) -> HRESULT;
-            fn GetCaps(&self, pCaps: *mut DDCAPS) -> HRESULT;
-            fn GetEmulatedCaps(&self, pCaps: *mut DDCAPS) -> HRESULT;
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            fn GetSwitches(&self, #[out] pSwitches: *mut DWORD) -> HRESULT;
+            fn SetSwitches(&self, Switches: DWORD) -> HRESULT;
+            fn GetCaps(&self, #[out] pCaps: *mut DDCAPS) -> HRESULT;
+            fn GetEmulatedCaps(&self, #[out] pCaps: *mut DDCAPS) -> HRESULT;
             fn GetSurfaceDesc(&self, #[in] #[out] pSurfaceDesc: *mut DDSURFACEDESC) -> HRESULT;
-            fn GetFourCCCodes(&self, pCount: *mut u32, pCodes: *mut u32) -> HRESULT;
-            fn SetDirectDraw(&self, pDirectDraw: IDirectDraw) -> HRESULT;
-            fn GetDirectDraw(&self, ppDirectDraw: *mut IDirectDraw) -> HRESULT;
-            fn GetSurfaceType(&self, pSurfaceType: *mut u32) -> HRESULT;
+            fn GetFourCCCodes(&self, #[out] pCount: *mut DWORD, #[out] pCodes: *mut DWORD) -> HRESULT;
+            fn SetDirectDraw(&self, pDirectDraw: LPDIRECTDRAW) -> HRESULT;
+            fn GetDirectDraw(&self, #[out] #[out_ptr] ppDirectDraw: *mut LPDIRECTDRAW) -> HRESULT;
+            fn GetSurfaceType(&self, #[out] pSurfaceType: *mut DWORD) -> HRESULT;
             fn SetDefault(&self) -> HRESULT;
             fn UseScanLine(&self, UseScanLine: i32) -> HRESULT;
-            fn CanUseScanLine(&self, UseScanLine: *mut i32) -> HRESULT;
+            fn CanUseScanLine(&self, #[out] UseScanLine: *mut i32) -> HRESULT;
             fn UseOverlayStretch(&self, UseOverlayStretch: i32) -> HRESULT;
-            fn CanUseOverlayStretch(&self, UseOverlayStretch: *mut i32) -> HRESULT;
+            fn CanUseOverlayStretch(&self, #[out] UseOverlayStretch: *mut i32) -> HRESULT;
             fn UseWhenFullScreen(&self, UseWhenFullScreen: i32) -> HRESULT;
-            fn WillUseFullScreen(&self, UseWhenFullScreen: *mut i32) -> HRESULT;
+            fn WillUseFullScreen(&self, #[out] UseWhenFullScreen: *mut i32) -> HRESULT;
         }
         #[no_guid]
         interface IFullScreenVideo: IUnknown {
-            fn CountModes(&self, pModes: *mut i32) -> HRESULT;
-            fn GetModeInfo(&self, Mode: i32, pWidth: *mut i32, pHeight: *mut i32, pDepth: *mut i32) -> HRESULT;
-            fn GetCurrentMode(&self, pMode: *mut i32) -> HRESULT;
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            fn CountModes(&self, #[out] pModes: *mut i32) -> HRESULT;
+            fn GetModeInfo(&self, Mode: i32, #[out] pWidth: *mut i32, #[out] pHeight: *mut i32, #[out] pDepth: *mut i32) -> HRESULT;
+            fn GetCurrentMode(&self, #[out] pMode: *mut i32) -> HRESULT;
             fn IsModeAvailable(&self, Mode: i32) -> HRESULT;
             fn IsModeEnabled(&self, Mode: i32) -> HRESULT;
             fn SetEnabled(&self, Mode: i32, bEnabled: i32) -> HRESULT;
-            fn GetClipFactor(&self, pClipFactor: *mut i32) -> HRESULT;
+            fn GetClipFactor(&self, #[out] pClipFactor: *mut i32) -> HRESULT;
             fn SetClipFactor(&self, ClipFactor: i32) -> HRESULT;
             fn SetMessageDrain(&self, hwnd: HWND) -> HRESULT;
-            fn GetMessageDrain(&self, hwnd: *mut HWND) -> HRESULT;
+            fn GetMessageDrain(&self, #[out] hwnd: *mut HWND) -> HRESULT;
             fn SetMonitor(&self, Monitor: i32) -> HRESULT;
-            fn GetMonitor(&self, Monitor: *mut i32) -> HRESULT;
+            fn GetMonitor(&self, #[out] Monitor: *mut i32) -> HRESULT;
             fn HideOnDeactivate(&self, Hide: i32) -> HRESULT;
             fn IsHideOnDeactivate(&self) -> HRESULT;
-            fn SetCaption(&self, strCaption: BSTR) -> HRESULT;
-            fn GetCaption(&self, pstrCaption: *mut BSTR) -> HRESULT;
+            fn SetCaption(&self, #[in] strCaption: BSTR) -> HRESULT;
+            fn GetCaption(&self, #[out] #[out_ptr] pstrCaption: *mut BSTR) -> HRESULT;
             fn SetDefault(&self) -> HRESULT;
         }
         #[no_guid]
         interface IFullScreenVideoEx: IFullScreenVideo {
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            #[override_slot(3)]
+            fn CountModes(&self, #[out] pModes: *mut i32) -> HRESULT;
+            #[override_slot(4)]
+            fn GetModeInfo(&self, Mode: i32, #[out] pWidth: *mut i32, #[out] pHeight: *mut i32, #[out] pDepth: *mut i32) -> HRESULT;
+            #[override_slot(5)]
+            fn GetCurrentMode(&self, #[out] pMode: *mut i32) -> HRESULT;
+            #[override_slot(6)]
+            fn IsModeAvailable(&self, Mode: i32) -> HRESULT;
+            #[override_slot(7)]
+            fn IsModeEnabled(&self, Mode: i32) -> HRESULT;
+            #[override_slot(8)]
+            fn SetEnabled(&self, Mode: i32, bEnabled: i32) -> HRESULT;
+            #[override_slot(9)]
+            fn GetClipFactor(&self, #[out] pClipFactor: *mut i32) -> HRESULT;
+            #[override_slot(10)]
+            fn SetClipFactor(&self, ClipFactor: i32) -> HRESULT;
+            #[override_slot(11)]
+            fn SetMessageDrain(&self, hwnd: HWND) -> HRESULT;
+            #[override_slot(12)]
+            fn GetMessageDrain(&self, #[out] hwnd: *mut HWND) -> HRESULT;
+            #[override_slot(13)]
+            fn SetMonitor(&self, Monitor: i32) -> HRESULT;
+            #[override_slot(14)]
+            fn GetMonitor(&self, #[out] Monitor: *mut i32) -> HRESULT;
+            #[override_slot(15)]
+            fn HideOnDeactivate(&self, Hide: i32) -> HRESULT;
+            #[override_slot(16)]
+            fn IsHideOnDeactivate(&self) -> HRESULT;
+            #[override_slot(17)]
+            fn SetCaption(&self, #[in] strCaption: BSTR) -> HRESULT;
+            #[override_slot(18)]
+            fn GetCaption(&self, #[out] #[out_ptr] pstrCaption: *mut BSTR) -> HRESULT;
+            #[override_slot(19)]
+            fn SetDefault(&self) -> HRESULT;
             fn SetAcceleratorTable(&self, hwnd: HWND, hAccel: HACCEL) -> HRESULT;
-            fn GetAcceleratorTable(&self, phwnd: *mut HWND, phAccel: *mut HACCEL) -> HRESULT;
+            fn GetAcceleratorTable(&self, #[out] phwnd: *mut HWND, phAccel: *mut HACCEL) -> HRESULT;
             fn KeepPixelAspectRatio(&self, KeepAspect: i32) -> HRESULT;
-            fn IsKeepPixelAspectRatio(&self, pKeepAspect: *mut i32) -> HRESULT;
+            fn IsKeepPixelAspectRatio(&self, #[out] pKeepAspect: *mut i32) -> HRESULT;
         }
         #[no_guid]
         interface IQualProp: IUnknown {
-            fn get_FramesDroppedInRenderer(&self, pcFrames: *mut i32) -> HRESULT;
-            fn get_FramesDrawn(&self, pcFramesDrawn: *mut i32) -> HRESULT;
-            fn get_AvgFrameRate(&self, piAvgFrameRate: *mut i32) -> HRESULT;
-            fn get_Jitter(&self, iJitter: *mut i32) -> HRESULT;
-            fn get_AvgSyncOffset(&self, piAvg: *mut i32) -> HRESULT;
-            fn get_DevSyncOffset(&self, piDev: *mut i32) -> HRESULT;
+            #[override_slot(0)]
+            fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+            #[override_slot(1)]
+            fn AddRef(&self) -> ULONG;
+            #[override_slot(2)]
+            fn Release(&self) -> ULONG;
+            fn get_FramesDroppedInRenderer(&self, #[out] pcFrames: *mut i32) -> HRESULT;
+            fn get_FramesDrawn(&self, #[out] pcFramesDrawn: *mut i32) -> HRESULT;
+            fn get_AvgFrameRate(&self, #[out] piAvgFrameRate: *mut i32) -> HRESULT;
+            fn get_Jitter(&self, #[out] iJitter: *mut i32) -> HRESULT;
+            fn get_AvgSyncOffset(&self, #[out] piAvg: *mut i32) -> HRESULT;
+            fn get_DevSyncOffset(&self, #[out] piDev: *mut i32) -> HRESULT;
         }
         const MAX_SIZE_MPEG1_SEQUENCE_INFO: i32 = 140;
         struct MPEG1VIDEOINFO {
             hdr: VIDEOINFOHEADER,
-            dwStartTimeCode: u32,
-            cbSequenceHeader: u32,
-            bSequenceHeader: [u8; 1],
+            dwStartTimeCode: DWORD,
+            cbSequenceHeader: DWORD,
+            bSequenceHeader: [BYTE; 1],
         }
         #[arch(X64 | Arm64)]
         const SIZE_EGA_PALETTE: u64 = 64;
@@ -116,33 +174,33 @@ mod Windows {
         const SIZE_PALETTE: u64 = 1024;
         #[arch(X86)]
         const SIZE_PALETTE: u32 = 1024;
-        const SIZE_PREHEADER: i32 = 48;
+        const SIZE_PREHEADER: LONG = 48;
         #[arch(X64 | Arm64)]
         const SIZE_VIDEOHEADER: u64 = 88;
         #[arch(X86)]
         const SIZE_VIDEOHEADER: u32 = 88;
         struct TRUECOLORINFO {
-            dwBitMasks: [u32; 3],
+            dwBitMasks: [DWORD; 3],
             bmiColors: [RGBQUAD; 256],
         }
         struct VIDEOINFO {
             rcSource: RECT,
             rcTarget: RECT,
-            dwBitRate: u32,
-            dwBitErrorRate: u32,
+            dwBitRate: DWORD,
+            dwBitErrorRate: DWORD,
             AvgTimePerFrame: REFERENCE_TIME,
             bmiHeader: BITMAPINFOHEADER,
             Anonymous: union {
                 bmiColors: [RGBQUAD; 256],
-                dwBitMasks: [u32; 3],
+                dwBitMasks: [DWORD; 3],
                 TrueColorInfo: TRUECOLORINFO,
             },
         }
         struct VIDEOINFOHEADER {
             rcSource: RECT,
             rcTarget: RECT,
-            dwBitRate: u32,
-            dwBitErrorRate: u32,
+            dwBitRate: DWORD,
+            dwBitErrorRate: DWORD,
             AvgTimePerFrame: REFERENCE_TIME,
             bmiHeader: BITMAPINFOHEADER,
         }

@@ -1,118 +1,143 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        const CLSID_MFReadWriteClassFactory: GUID = 0x48e2ed0f_98c2_4a37_bed5_166312ddd83f;
+        const CLSID_MFSinkWriter: GUID = 0xa3bbfb17_8273_4e52_9e0e_9739dc887990;
+        const CLSID_MFSourceReader: GUID = 0x1777133c_0881_411b_a577_ad545f0714c4;
         #[guid(0xe7fe2e12_661c_40da_92f9_4f002ab67627)]
         interface IMFReadWriteClassFactory: IUnknown {
-            fn CreateInstanceFromURL(&self, clsid: *const GUID, pwszURL: PCWSTR, #[opt] pAttributes: IMFAttributes, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
-            fn CreateInstanceFromObject(&self, clsid: *const GUID, punkObject: IUnknown, #[opt] pAttributes: IMFAttributes, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn CreateInstanceFromURL(&self, #[in] clsid: &IID, #[in] pwszURL: LPCWSTR, #[in] #[opt] pAttributes: IMFAttributes, #[in] riid: &IID, #[out] #[iid_is] ppvObject: *mut LPVOID) -> HRESULT;
+            fn CreateInstanceFromObject(&self, #[in] clsid: &IID, #[in] punkObject: IUnknown, #[in] #[opt] pAttributes: IMFAttributes, #[in] riid: &IID, #[out] #[iid_is] ppvObject: *mut LPVOID) -> HRESULT;
         }
         #[guid(0x3137f1cd_fe5e_4805_a5d8_fb477448cb3d)]
         interface IMFSinkWriter: IUnknown {
-            fn AddStream(&self, pTargetMediaType: IMFMediaType, pdwStreamIndex: *mut u32) -> HRESULT;
-            fn SetInputMediaType(&self, dwStreamIndex: u32, pInputMediaType: IMFMediaType, #[opt] pEncodingParameters: IMFAttributes) -> HRESULT;
+            fn AddStream(&self, #[in] pTargetMediaType: IMFMediaType, #[out] pdwStreamIndex: *mut DWORD) -> HRESULT;
+            fn SetInputMediaType(&self, #[in] dwStreamIndex: DWORD, #[in] pInputMediaType: IMFMediaType, #[in] #[opt] pEncodingParameters: IMFAttributes) -> HRESULT;
             fn BeginWriting(&self) -> HRESULT;
-            fn WriteSample(&self, dwStreamIndex: u32, pSample: IMFSample) -> HRESULT;
-            fn SendStreamTick(&self, dwStreamIndex: u32, llTimestamp: i64) -> HRESULT;
-            fn PlaceMarker(&self, dwStreamIndex: u32, #[in] pvContext: *mut void) -> HRESULT;
-            fn NotifyEndOfSegment(&self, dwStreamIndex: u32) -> HRESULT;
-            fn Flush(&self, dwStreamIndex: u32) -> HRESULT;
+            fn WriteSample(&self, #[in] dwStreamIndex: DWORD, #[in] pSample: IMFSample) -> HRESULT;
+            fn SendStreamTick(&self, #[in] dwStreamIndex: DWORD, #[in] llTimestamp: LONGLONG) -> HRESULT;
+            fn PlaceMarker(&self, #[in] dwStreamIndex: DWORD, #[in] pvContext: LPVOID) -> HRESULT;
+            fn NotifyEndOfSegment(&self, #[in] dwStreamIndex: DWORD) -> HRESULT;
+            fn Flush(&self, #[in] dwStreamIndex: DWORD) -> HRESULT;
             fn Finalize(&self) -> HRESULT;
-            fn GetServiceForStream(&self, dwStreamIndex: u32, guidService: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
-            fn GetStatistics(&self, dwStreamIndex: u32, pStats: *mut MF_SINK_WRITER_STATISTICS) -> HRESULT;
+            fn GetServiceForStream(&self, #[in] dwStreamIndex: DWORD, #[in] guidService: &GUID, #[in] riid: &IID, #[out] ppvObject: *mut LPVOID) -> HRESULT;
+            fn GetStatistics(&self, #[in] dwStreamIndex: DWORD, #[out] pStats: *mut MF_SINK_WRITER_STATISTICS) -> HRESULT;
         }
         #[guid(0x666f76de_33d2_41b9_a458_29ed0a972c58)]
         interface IMFSinkWriterCallback: IUnknown {
-            fn OnFinalize(&self, hrStatus: HRESULT) -> HRESULT;
-            fn OnMarker(&self, dwStreamIndex: u32, #[in] pvContext: *mut void) -> HRESULT;
+            fn OnFinalize(&self, #[in] hrStatus: HRESULT) -> HRESULT;
+            fn OnMarker(&self, #[in] dwStreamIndex: DWORD, #[in] pvContext: LPVOID) -> HRESULT;
         }
         #[guid(0x2456bd58_c067_4513_84fe_8d0c88ffdc61)]
         interface IMFSinkWriterCallback2: IMFSinkWriterCallback {
             fn OnTransformChange(&self) -> HRESULT;
-            fn OnStreamError(&self, dwStreamIndex: u32, hrStatus: HRESULT) -> HRESULT;
+            fn OnStreamError(&self, #[in] dwStreamIndex: DWORD, #[in] hrStatus: HRESULT) -> HRESULT;
         }
         #[guid(0x17c3779e_3cde_4ede_8c60_3899f5f53ad6)]
         interface IMFSinkWriterEncoderConfig: IUnknown {
-            fn SetTargetMediaType(&self, dwStreamIndex: u32, pTargetMediaType: IMFMediaType, #[opt] pEncodingParameters: IMFAttributes) -> HRESULT;
-            fn PlaceEncodingParameters(&self, dwStreamIndex: u32, pEncodingParameters: IMFAttributes) -> HRESULT;
+            fn SetTargetMediaType(&self, #[in] dwStreamIndex: DWORD, #[in] pTargetMediaType: IMFMediaType, #[in] #[opt] pEncodingParameters: IMFAttributes) -> HRESULT;
+            fn PlaceEncodingParameters(&self, #[in] dwStreamIndex: DWORD, #[in] pEncodingParameters: IMFAttributes) -> HRESULT;
         }
         #[guid(0x588d72ab_5bc1_496a_8714_b70617141b25)]
         interface IMFSinkWriterEx: IMFSinkWriter {
-            fn GetTransformForStream(&self, dwStreamIndex: u32, dwTransformIndex: u32, #[opt] pGuidCategory: *mut GUID, ppTransform: *mut IMFTransform) -> HRESULT;
+            fn GetTransformForStream(&self, #[in] dwStreamIndex: DWORD, #[in] dwTransformIndex: DWORD, #[out] #[opt] pGuidCategory: *mut GUID, #[out] ppTransform: *mut IMFTransform) -> HRESULT;
         }
         #[guid(0x70ae66f2_c809_4e4f_8915_bdcb406b7993)]
         interface IMFSourceReader: IUnknown {
-            fn GetStreamSelection(&self, dwStreamIndex: u32, pfSelected: *mut BOOL) -> HRESULT;
-            fn SetStreamSelection(&self, dwStreamIndex: u32, fSelected: BOOL) -> HRESULT;
-            fn GetNativeMediaType(&self, dwStreamIndex: u32, dwMediaTypeIndex: u32, ppMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetCurrentMediaType(&self, dwStreamIndex: u32, ppMediaType: *mut IMFMediaType) -> HRESULT;
-            fn SetCurrentMediaType(&self, dwStreamIndex: u32, #[reserved] #[in] #[out] pdwReserved: *mut u32, pMediaType: IMFMediaType) -> HRESULT;
-            fn SetCurrentPosition(&self, guidTimeFormat: *const GUID, varPosition: *const PROPVARIANT) -> HRESULT;
-            fn ReadSample(&self, dwStreamIndex: u32, dwControlFlags: u32, #[opt] pdwActualStreamIndex: *mut u32, #[opt] pdwStreamFlags: *mut u32, #[opt] pllTimestamp: *mut i64, #[opt] ppSample: *mut IMFSample) -> HRESULT;
-            fn Flush(&self, dwStreamIndex: u32) -> HRESULT;
-            fn GetServiceForStream(&self, dwStreamIndex: u32, guidService: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
-            fn GetPresentationAttribute(&self, dwStreamIndex: u32, guidAttribute: *const GUID, pvarAttribute: *mut PROPVARIANT) -> HRESULT;
+            fn GetStreamSelection(&self, #[in] dwStreamIndex: DWORD, #[out] pfSelected: *mut BOOL) -> HRESULT;
+            fn SetStreamSelection(&self, #[in] dwStreamIndex: DWORD, #[in] fSelected: BOOL) -> HRESULT;
+            fn GetNativeMediaType(&self, #[in] dwStreamIndex: DWORD, #[in] dwMediaTypeIndex: DWORD, #[out] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetCurrentMediaType(&self, #[in] dwStreamIndex: DWORD, #[out] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn SetCurrentMediaType(&self, #[in] dwStreamIndex: DWORD, #[in] #[out] #[reserved] pdwReserved: *mut DWORD, #[in] pMediaType: IMFMediaType) -> HRESULT;
+            fn SetCurrentPosition(&self, #[in] guidTimeFormat: &GUID, #[in] varPosition: &PROPVARIANT) -> HRESULT;
+            fn ReadSample(&self, #[in] dwStreamIndex: DWORD, #[in] dwControlFlags: DWORD, #[out] #[opt] pdwActualStreamIndex: *mut DWORD, #[out] #[opt] pdwStreamFlags: *mut DWORD, #[out] #[opt] pllTimestamp: *mut LONGLONG, #[out] #[opt] ppSample: *mut IMFSample) -> HRESULT;
+            fn Flush(&self, #[in] dwStreamIndex: DWORD) -> HRESULT;
+            fn GetServiceForStream(&self, #[in] dwStreamIndex: DWORD, #[in] guidService: &GUID, #[in] riid: &IID, #[out] ppvObject: *mut LPVOID) -> HRESULT;
+            fn GetPresentationAttribute(&self, #[in] dwStreamIndex: DWORD, #[in] guidAttribute: &GUID, #[out] pvarAttribute: *mut PROPVARIANT) -> HRESULT;
         }
         #[guid(0xdeec8d99_fa1d_4d82_84c2_2c8969944867)]
         interface IMFSourceReaderCallback: IUnknown {
-            fn OnReadSample(&self, hrStatus: HRESULT, dwStreamIndex: u32, dwStreamFlags: u32, llTimestamp: i64, #[opt] pSample: IMFSample) -> HRESULT;
-            fn OnFlush(&self, dwStreamIndex: u32) -> HRESULT;
-            fn OnEvent(&self, dwStreamIndex: u32, pEvent: IMFMediaEvent) -> HRESULT;
+            fn OnReadSample(&self, #[in] hrStatus: HRESULT, #[in] dwStreamIndex: DWORD, #[in] dwStreamFlags: DWORD, #[in] llTimestamp: LONGLONG, #[in] #[opt] pSample: IMFSample) -> HRESULT;
+            fn OnFlush(&self, #[in] dwStreamIndex: DWORD) -> HRESULT;
+            fn OnEvent(&self, #[in] dwStreamIndex: DWORD, #[in] pEvent: IMFMediaEvent) -> HRESULT;
         }
         #[guid(0xcf839fe6_8c2a_4dd2_b6ea_c22d6961af05)]
         interface IMFSourceReaderCallback2: IMFSourceReaderCallback {
             fn OnTransformChange(&self) -> HRESULT;
-            fn OnStreamError(&self, dwStreamIndex: u32, hrStatus: HRESULT) -> HRESULT;
+            fn OnStreamError(&self, #[in] dwStreamIndex: DWORD, #[in] hrStatus: HRESULT) -> HRESULT;
         }
         #[guid(0x7b981cf0_560e_4116_9875_b099895f23d7)]
         interface IMFSourceReaderEx: IMFSourceReader {
-            fn SetNativeMediaType(&self, dwStreamIndex: u32, #[opt] pMediaType: IMFMediaType, pdwStreamFlags: *mut u32) -> HRESULT;
-            fn AddTransformForStream(&self, dwStreamIndex: u32, pTransformOrActivate: IUnknown) -> HRESULT;
-            fn RemoveAllTransformsForStream(&self, dwStreamIndex: u32) -> HRESULT;
-            fn GetTransformForStream(&self, dwStreamIndex: u32, dwTransformIndex: u32, #[opt] pGuidCategory: *mut GUID, ppTransform: *mut IMFTransform) -> HRESULT;
+            fn SetNativeMediaType(&self, #[in] dwStreamIndex: DWORD, #[in] #[opt] pMediaType: IMFMediaType, #[out] pdwStreamFlags: *mut DWORD) -> HRESULT;
+            fn AddTransformForStream(&self, #[in] dwStreamIndex: DWORD, #[in] pTransformOrActivate: IUnknown) -> HRESULT;
+            fn RemoveAllTransformsForStream(&self, #[in] dwStreamIndex: DWORD) -> HRESULT;
+            fn GetTransformForStream(&self, #[in] dwStreamIndex: DWORD, #[in] dwTransformIndex: DWORD, #[out] #[opt] pGuidCategory: *mut GUID, #[out] ppTransform: *mut IMFTransform) -> HRESULT;
         }
         #[library("MFReadWrite.dll")]
-        extern fn MFCreateSinkWriterFromMediaSink(pMediaSink: IMFMediaSink, #[opt] pAttributes: IMFAttributes, ppSinkWriter: *mut IMFSinkWriter) -> HRESULT;
+        extern fn MFCreateSinkWriterFromMediaSink(#[in] pMediaSink: IMFMediaSink, #[in] #[opt] pAttributes: IMFAttributes, #[out] ppSinkWriter: *mut IMFSinkWriter) -> HRESULT;
         #[library("MFReadWrite.dll")]
-        extern fn MFCreateSinkWriterFromURL(#[opt] pwszOutputURL: PCWSTR, #[opt] pByteStream: IMFByteStream, #[opt] pAttributes: IMFAttributes, ppSinkWriter: *mut IMFSinkWriter) -> HRESULT;
+        extern fn MFCreateSinkWriterFromURL(#[in] #[opt] pwszOutputURL: LPCWSTR, #[in] #[opt] pByteStream: IMFByteStream, #[in] #[opt] pAttributes: IMFAttributes, #[out] ppSinkWriter: *mut IMFSinkWriter) -> HRESULT;
         #[library("MFReadWrite.dll")]
-        extern fn MFCreateSourceReaderFromByteStream(pByteStream: IMFByteStream, #[opt] pAttributes: IMFAttributes, ppSourceReader: *mut IMFSourceReader) -> HRESULT;
+        extern fn MFCreateSourceReaderFromByteStream(#[in] pByteStream: IMFByteStream, #[in] #[opt] pAttributes: IMFAttributes, #[out] ppSourceReader: *mut IMFSourceReader) -> HRESULT;
         #[library("MFReadWrite.dll")]
-        extern fn MFCreateSourceReaderFromMediaSource(pMediaSource: IMFMediaSource, #[opt] pAttributes: IMFAttributes, ppSourceReader: *mut IMFSourceReader) -> HRESULT;
+        extern fn MFCreateSourceReaderFromMediaSource(#[in] pMediaSource: IMFMediaSource, #[in] #[opt] pAttributes: IMFAttributes, #[out] ppSourceReader: *mut IMFSourceReader) -> HRESULT;
         #[library("MFReadWrite.dll")]
-        extern fn MFCreateSourceReaderFromURL(pwszURL: PCWSTR, #[opt] pAttributes: IMFAttributes, ppSourceReader: *mut IMFSourceReader) -> HRESULT;
+        extern fn MFCreateSourceReaderFromURL(#[in] pwszURL: LPCWSTR, #[in] #[opt] pAttributes: IMFAttributes, #[out] ppSourceReader: *mut IMFSourceReader) -> HRESULT;
+        const MF_MEDIASINK_AUTOFINALIZE_SUPPORTED: GUID = 0x48c131be_135a_41cb_8290_03652509c999;
+        const MF_MEDIASINK_ENABLE_AUTOFINALIZE: GUID = 0x34014265_cb7e_4cde_ac7c_effd3b3c2530;
+        const MF_READWRITE_D3D_OPTIONAL: GUID = 0x216479d9_3071_42ca_bb6c_4c22102e1d18;
+        const MF_READWRITE_DISABLE_CONVERTERS: GUID = 0x98d5b065_1374_4847_8d5d_31520fee7156;
+        const MF_READWRITE_ENABLE_AUTOFINALIZE: GUID = 0xdd7ca129_8cd1_4dc5_9dde_ce168675de61;
+        const MF_READWRITE_ENABLE_HARDWARE_TRANSFORMS: GUID = 0xa634a91c_822b_41b9_a494_4de4643612b0;
+        const MF_READWRITE_MMCSS_CLASS: GUID = 0x39384300_d0eb_40b1_87a0_3318871b5a53;
+        const MF_READWRITE_MMCSS_CLASS_AUDIO: GUID = 0x430847da_0890_4b0e_938c_054332c547e1;
+        const MF_READWRITE_MMCSS_PRIORITY: GUID = 0x43ad19ce_f33f_4ba9_a580_e4cd12f2d144;
+        const MF_READWRITE_MMCSS_PRIORITY_AUDIO: GUID = 0x273db885_2de2_4db2_a6a7_fdb66fb40b61;
+        const MF_READWRITE_USE_ONLY_HARDWARE_TRANSFORMS: GUID = 0xf9074427_bf8b_4f69_bbaf_524969056fb6;
         const MF_SINK_WRITER_ALL_STREAMS: i32 = -2;
+        const MF_SINK_WRITER_ASYNC_CALLBACK: GUID = 0x48cb183e_7b0b_46f4_822e_5e1d2dda4354;
+        const MF_SINK_WRITER_D3D_MANAGER: GUID = 0xec822da2_e1e9_4b29_a0d8_563c719f5269;
+        const MF_SINK_WRITER_DISABLE_THROTTLING: GUID = 0x08b845d8_2b74_4afe_9d53_be16d2d5ae4f;
+        const MF_SINK_WRITER_ENCODER_CONFIG: GUID = 0xad91cd04_a7cc_4ac7_99b6_a57b9a4a7c70;
         const MF_SINK_WRITER_INVALID_STREAM_INDEX: i32 = -1;
         const MF_SINK_WRITER_MEDIASINK: i32 = -1;
         struct MF_SINK_WRITER_STATISTICS {
-            cb: u32,
-            llLastTimestampReceived: i64,
-            llLastTimestampEncoded: i64,
-            llLastTimestampProcessed: i64,
-            llLastStreamTickReceived: i64,
-            llLastSinkSampleRequest: i64,
-            qwNumSamplesReceived: u64,
-            qwNumSamplesEncoded: u64,
-            qwNumSamplesProcessed: u64,
-            qwNumStreamTicksReceived: u64,
-            dwByteCountQueued: u32,
-            qwByteCountProcessed: u64,
-            dwNumOutstandingSinkSampleRequests: u32,
-            dwAverageSampleRateReceived: u32,
-            dwAverageSampleRateEncoded: u32,
-            dwAverageSampleRateProcessed: u32,
+            cb: DWORD,
+            llLastTimestampReceived: LONGLONG,
+            llLastTimestampEncoded: LONGLONG,
+            llLastTimestampProcessed: LONGLONG,
+            llLastStreamTickReceived: LONGLONG,
+            llLastSinkSampleRequest: LONGLONG,
+            qwNumSamplesReceived: QWORD,
+            qwNumSamplesEncoded: QWORD,
+            qwNumSamplesProcessed: QWORD,
+            qwNumStreamTicksReceived: QWORD,
+            dwByteCountQueued: DWORD,
+            qwByteCountProcessed: QWORD,
+            dwNumOutstandingSinkSampleRequests: DWORD,
+            dwAverageSampleRateReceived: DWORD,
+            dwAverageSampleRateEncoded: DWORD,
+            dwAverageSampleRateProcessed: DWORD,
         }
         const MF_SOURCE_READER_ALL_STREAMS: i32 = -2;
         const MF_SOURCE_READER_ANY_STREAM: i32 = -2;
-        #[repr(u32)]
-        #[flags]
+        const MF_SOURCE_READER_ASYNC_CALLBACK: GUID = 0x1e3dbeac_bb43_4c35_b507_cd644464c965;
+        #[repr(i32)]
         enum MF_SOURCE_READER_CONTROL_FLAG {
             MF_SOURCE_READER_CONTROLF_DRAIN = 1,
         }
         const MF_SOURCE_READER_CURRENT_TYPE_INDEX: i32 = -1;
+        const MF_SOURCE_READER_D3D11_BIND_FLAGS: GUID = 0x33f3197b_f73a_4e14_8d85_0e4c4368788d;
+        const MF_SOURCE_READER_D3D_MANAGER: GUID = 0xec822da2_e1e9_4b29_a0d8_563c719f5269;
+        const MF_SOURCE_READER_DISABLE_CAMERA_PLUGINS: GUID = 0x9d3365dd_058f_4cfb_9f97_b314cc99c8ad;
+        const MF_SOURCE_READER_DISABLE_DXVA: GUID = 0xaa456cfd_3943_4a1e_a77d_1838c0ea2e35;
+        const MF_SOURCE_READER_DISCONNECT_MEDIASOURCE_ON_SHUTDOWN: GUID = 0x56b67165_219e_456d_a22e_2d3004c7fe56;
+        const MF_SOURCE_READER_ENABLE_ADVANCED_VIDEO_PROCESSING: GUID = 0x0f81da2c_b537_4672_a8b2_a681b17307a3;
+        const MF_SOURCE_READER_ENABLE_TRANSCODE_ONLY_TRANSFORMS: GUID = 0xdfd4f008_b5fd_4e78_ae44_62a1e67bbe27;
+        const MF_SOURCE_READER_ENABLE_VIDEO_PROCESSING: GUID = 0xfb394f3d_ccf1_42ee_bbb3_f9b845d5681d;
         const MF_SOURCE_READER_FIRST_AUDIO_STREAM: i32 = -3;
         const MF_SOURCE_READER_FIRST_VIDEO_STREAM: i32 = -4;
-        #[repr(u32)]
-        #[flags]
+        #[repr(i32)]
         enum MF_SOURCE_READER_FLAG {
             MF_SOURCE_READERF_ERROR = 1,
             MF_SOURCE_READERF_ENDOFSTREAM = 2,
@@ -124,5 +149,8 @@ mod Windows {
         }
         const MF_SOURCE_READER_INVALID_STREAM_INDEX: i32 = -1;
         const MF_SOURCE_READER_MEDIASOURCE: i32 = -1;
+        const MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS: GUID = 0x6d23f5c8_c5d7_4a9b_9971_5d11f8bca880;
+        const MF_SOURCE_READER_MEDIASOURCE_CONFIG: GUID = 0x9085abeb_0354_48f9_abb5_200df838c68e;
+        const MF_SOURCE_READER_PASSTHROUGH_MODE: GUID = 0x043ff126_fe2c_4708_a09b_da2ab435ced9;
     }
 }

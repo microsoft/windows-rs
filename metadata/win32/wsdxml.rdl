@@ -3,10 +3,10 @@ mod Windows {
     mod Win32 {
         #[guid(0x75d8f3ee_3e5a_43b4_a15a_bcf6887460c0)]
         interface IWSDXMLContext: IUnknown {
-            fn AddNamespace(&self, pszUri: PCWSTR, pszSuggestedPrefix: PCWSTR, ppNamespace: *mut *mut WSDXML_NAMESPACE) -> HRESULT;
-            fn AddNameToNamespace(&self, pszUri: PCWSTR, pszName: PCWSTR, ppName: *mut *mut WSDXML_NAME) -> HRESULT;
-            fn SetNamespaces(&self, #[len_param(1)] pNamespaces: *const PCWSDXML_NAMESPACE, wNamespacesCount: u16, bLayerNumber: u8) -> HRESULT;
-            fn SetTypes(&self, #[len_param(1)] pTypes: *const PCWSDXML_TYPE, dwTypesCount: u32, bLayerNumber: u8) -> HRESULT;
+            fn AddNamespace(&self, #[in] pszUri: LPCWSTR, #[in] pszSuggestedPrefix: LPCWSTR, #[out] #[opt] #[out_ptr] ppNamespace: *mut *mut WSDXML_NAMESPACE) -> HRESULT;
+            fn AddNameToNamespace(&self, #[in] pszUri: LPCWSTR, #[in] pszName: LPCWSTR, #[out] #[opt] #[out_ptr] ppName: *mut *mut WSDXML_NAME) -> HRESULT;
+            fn SetNamespaces(&self, #[in] #[readable(entry, wNamespacesCount)] pNamespaces: *const PCWSDXML_NAMESPACE, #[in] wNamespacesCount: WORD, #[in] bLayerNumber: BYTE) -> HRESULT;
+            fn SetTypes(&self, #[in] #[readable(entry, dwTypesCount)] pTypes: *const PCWSDXML_TYPE, #[in] dwTypesCount: DWORD, #[in] bLayerNumber: BYTE) -> HRESULT;
         }
         const OpAnyElement: i32 = 6;
         const OpAnyElements: i32 = 7;
@@ -55,35 +55,35 @@ mod Windows {
         const OpOptional: i32 = 19;
         const OpProcess_: i32 = 43;
         const OpQualifiedAttribute_: i32 = 44;
-        type PCWSDXML_NAMESPACE = *const WSDXML_NAMESPACE;
-        type PCWSDXML_TYPE = *const WSDXML_TYPE;
+        type PCWSDXML_NAMESPACE = *const _WSDXML_NAMESPACE;
+        type PCWSDXML_TYPE = *const _WSDXML_TYPE;
         #[library("wsdapi.dll")]
-        extern fn WSDXMLCreateContext(ppContext: *mut IWSDXMLContext) -> HRESULT;
+        extern fn WSDXMLCreateContext(#[out] #[out_ptr] ppContext: *mut IWSDXMLContext) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDXMLGetNameFromBuiltinNamespace(pszNamespace: PCWSTR, pszName: PCWSTR, ppName: *mut *mut WSDXML_NAME) -> HRESULT;
+        extern fn WSDXMLGetNameFromBuiltinNamespace(#[in] pszNamespace: LPCWSTR, #[in] pszName: LPCWSTR, #[out] #[out_ptr] ppName: *mut *mut WSDXML_NAME) -> HRESULT;
         struct WSD_DATETIME {
             isPositive: BOOL,
-            year: u32,
-            month: u8,
-            day: u8,
-            hour: u8,
-            minute: u8,
-            second: u8,
-            millisecond: u32,
+            year: ULONG,
+            month: UCHAR,
+            day: UCHAR,
+            hour: UCHAR,
+            minute: UCHAR,
+            second: UCHAR,
+            millisecond: UINT,
             TZIsLocal: BOOL,
             TZIsPositive: BOOL,
-            TZHour: u8,
-            TZMinute: u8,
+            TZHour: UCHAR,
+            TZMinute: UCHAR,
         }
         struct WSD_DURATION {
             isPositive: BOOL,
-            year: u32,
-            month: u32,
-            day: u32,
-            hour: u32,
-            minute: u32,
-            second: u32,
-            millisecond: u32,
+            year: ULONG,
+            month: ULONG,
+            day: ULONG,
+            hour: ULONG,
+            minute: ULONG,
+            second: ULONG,
+            millisecond: ULONG,
         }
     }
 }

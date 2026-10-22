@@ -21,13 +21,16 @@ mod Windows {
         }
         union WEB_SOCKET_BUFFER {
             Data: struct {
+                #[writable(bytes(ulBufferLength))]
                 pbBuffer: PBYTE,
-                ulBufferLength: u32,
+                ulBufferLength: ULONG,
             },
             CloseStatus: struct {
+                #[writable(bytes(ulReasonLength))]
                 pbReason: PBYTE,
-                ulReasonLength: u32,
-                usStatus: u16,
+                #[range(0..=123)]
+                ulReasonLength: ULONG,
+                usStatus: USHORT,
             },
         }
         #[repr(i32)]
@@ -61,15 +64,15 @@ mod Windows {
         }
         struct WEB_SOCKET_HTTP_HEADER {
             pcName: PCHAR,
-            ulNameLength: u32,
+            ulNameLength: ULONG,
             pcValue: PCHAR,
-            ulValueLength: u32,
+            ulValueLength: ULONG,
         }
         const WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: i32 = 123;
         struct WEB_SOCKET_PROPERTY {
             Type: WEB_SOCKET_PROPERTY_TYPE,
-            pvValue: *mut void,
-            ulValueSize: u32,
+            pvValue: PVOID,
+            ulValueSize: ULONG,
         }
         #[repr(i32)]
         enum WEB_SOCKET_PROPERTY_TYPE {
@@ -82,30 +85,30 @@ mod Windows {
             WEB_SOCKET_SUPPORTED_VERSIONS_PROPERTY_TYPE = 6,
         }
         #[library("websocket.dll")]
-        extern fn WebSocketAbortHandle(hWebSocket: WEB_SOCKET_HANDLE);
+        extern fn WebSocketAbortHandle(#[in] hWebSocket: WEB_SOCKET_HANDLE);
         #[library("websocket.dll")]
-        extern fn WebSocketBeginClientHandshake(hWebSocket: WEB_SOCKET_HANDLE, #[len_param(2)] #[in] #[opt] pszSubprotocols: *mut PCSTR, ulSubprotocolCount: u32, #[len_param(4)] #[in] #[opt] pszExtensions: *mut PCSTR, ulExtensionCount: u32, #[len_param(6)] #[opt] pInitialHeaders: PWEB_SOCKET_HTTP_HEADER, ulInitialHeaderCount: u32, #[len_param(8)] pAdditionalHeaders: *mut PWEB_SOCKET_HTTP_HEADER, pulAdditionalHeaderCount: *mut u32) -> HRESULT;
+        extern fn WebSocketBeginClientHandshake(#[in] hWebSocket: WEB_SOCKET_HANDLE, #[in] #[opt] #[readable(entry, ulSubprotocolCount)] pszSubprotocols: *mut PCSTR, #[in] ulSubprotocolCount: ULONG, #[in] #[opt] #[readable(entry, ulExtensionCount)] pszExtensions: *mut PCSTR, #[in] ulExtensionCount: ULONG, #[in] #[opt] #[readable(entry, ulInitialHeaderCount)] pInitialHeaders: PWEB_SOCKET_HTTP_HEADER, #[in] ulInitialHeaderCount: ULONG, #[out] #[writable(entry, *pulAdditionalHeaderCount)] pAdditionalHeaders: *mut PWEB_SOCKET_HTTP_HEADER, #[out] pulAdditionalHeaderCount: *mut ULONG) -> HRESULT;
         #[library("websocket.dll")]
-        extern fn WebSocketBeginServerHandshake(hWebSocket: WEB_SOCKET_HANDLE, #[opt] pszSubprotocolSelected: PCSTR, #[len_param(3)] #[in] #[opt] pszExtensionSelected: *mut PCSTR, ulExtensionSelectedCount: u32, #[len_param(5)] pRequestHeaders: PWEB_SOCKET_HTTP_HEADER, ulRequestHeaderCount: u32, #[len_param(7)] pResponseHeaders: *mut PWEB_SOCKET_HTTP_HEADER, pulResponseHeaderCount: *mut u32) -> HRESULT;
+        extern fn WebSocketBeginServerHandshake(#[in] hWebSocket: WEB_SOCKET_HANDLE, #[in] #[opt] pszSubprotocolSelected: PCSTR, #[in] #[opt] #[readable(entry, ulExtensionSelectedCount)] pszExtensionSelected: *mut PCSTR, #[in] ulExtensionSelectedCount: ULONG, #[in] #[readable(entry, ulRequestHeaderCount)] pRequestHeaders: PWEB_SOCKET_HTTP_HEADER, #[in] ulRequestHeaderCount: ULONG, #[out] #[writable(entry, *pulResponseHeaderCount)] pResponseHeaders: *mut PWEB_SOCKET_HTTP_HEADER, #[out] pulResponseHeaderCount: *mut ULONG) -> HRESULT;
         #[library("websocket.dll")]
-        extern fn WebSocketCompleteAction(hWebSocket: WEB_SOCKET_HANDLE, #[in] pvActionContext: *mut void, ulBytesTransferred: u32);
+        extern fn WebSocketCompleteAction(#[in] hWebSocket: WEB_SOCKET_HANDLE, #[in] pvActionContext: PVOID, #[in] ulBytesTransferred: ULONG);
         #[library("websocket.dll")]
-        extern fn WebSocketCreateClientHandle(#[len_param(1)] pProperties: PWEB_SOCKET_PROPERTY, ulPropertyCount: u32, phWebSocket: *mut WEB_SOCKET_HANDLE) -> HRESULT;
+        extern fn WebSocketCreateClientHandle(#[in] #[readable(entry, ulPropertyCount)] pProperties: PWEB_SOCKET_PROPERTY, #[in] ulPropertyCount: ULONG, #[out] phWebSocket: *mut WEB_SOCKET_HANDLE) -> HRESULT;
         #[library("websocket.dll")]
-        extern fn WebSocketCreateServerHandle(#[len_param(1)] pProperties: PWEB_SOCKET_PROPERTY, ulPropertyCount: u32, phWebSocket: *mut WEB_SOCKET_HANDLE) -> HRESULT;
+        extern fn WebSocketCreateServerHandle(#[in] #[readable(entry, ulPropertyCount)] pProperties: PWEB_SOCKET_PROPERTY, #[in] ulPropertyCount: ULONG, #[out] phWebSocket: *mut WEB_SOCKET_HANDLE) -> HRESULT;
         #[library("websocket.dll")]
-        extern fn WebSocketDeleteHandle(hWebSocket: WEB_SOCKET_HANDLE);
+        extern fn WebSocketDeleteHandle(#[in] hWebSocket: WEB_SOCKET_HANDLE);
         #[library("websocket.dll")]
-        extern fn WebSocketEndClientHandshake(hWebSocket: WEB_SOCKET_HANDLE, #[len_param(2)] pResponseHeaders: PWEB_SOCKET_HTTP_HEADER, ulReponseHeaderCount: u32, #[len_param(4)] #[in] #[out] #[opt] pulSelectedExtensions: *mut u32, #[in] #[out] #[opt] pulSelectedExtensionCount: *mut u32, #[in] #[out] #[opt] pulSelectedSubprotocol: *mut u32) -> HRESULT;
+        extern fn WebSocketEndClientHandshake(#[in] hWebSocket: WEB_SOCKET_HANDLE, #[in] #[readable(entry, ulReponseHeaderCount)] pResponseHeaders: PWEB_SOCKET_HTTP_HEADER, #[in] ulReponseHeaderCount: ULONG, #[in] #[out] #[opt] #[readable(entry, if_present(*pulSelectedExtensionCount))] #[writable(entry, if_present(*pulSelectedExtensionCount))] #[readable(success, if_present(*pulSelectedExtensionCount))] pulSelectedExtensions: *mut ULONG, #[in] #[out] #[opt] pulSelectedExtensionCount: *mut ULONG, #[in] #[out] #[opt] pulSelectedSubprotocol: *mut ULONG) -> HRESULT;
         #[library("websocket.dll")]
-        extern fn WebSocketEndServerHandshake(hWebSocket: WEB_SOCKET_HANDLE) -> HRESULT;
+        extern fn WebSocketEndServerHandshake(#[in] hWebSocket: WEB_SOCKET_HANDLE) -> HRESULT;
         #[library("websocket.dll")]
-        extern fn WebSocketGetAction(hWebSocket: WEB_SOCKET_HANDLE, eActionQueue: WEB_SOCKET_ACTION_QUEUE, #[len_param(3)] #[in] #[out] pDataBuffers: *mut WEB_SOCKET_BUFFER, #[in] #[out] pulDataBufferCount: *mut u32, pAction: *mut WEB_SOCKET_ACTION, pBufferType: *mut WEB_SOCKET_BUFFER_TYPE, #[opt] pvApplicationContext: *mut *mut void, pvActionContext: *mut *mut void) -> HRESULT;
+        extern fn WebSocketGetAction(#[in] hWebSocket: WEB_SOCKET_HANDLE, #[in] eActionQueue: WEB_SOCKET_ACTION_QUEUE, #[in] #[out] #[readable(entry, *pulDataBufferCount)] #[writable(entry, *pulDataBufferCount)] #[readable(success, *pulDataBufferCount)] pDataBuffers: *mut WEB_SOCKET_BUFFER, #[in] #[out] pulDataBufferCount: *mut ULONG, #[out] pAction: *mut WEB_SOCKET_ACTION, #[out] pBufferType: *mut WEB_SOCKET_BUFFER_TYPE, #[out] #[opt] pvApplicationContext: *mut PVOID, #[out] pvActionContext: *mut PVOID) -> HRESULT;
         #[library("websocket.dll")]
-        extern fn WebSocketGetGlobalProperty(eType: WEB_SOCKET_PROPERTY_TYPE, #[len_param(2)] #[in] #[out] pvValue: *mut void, #[in] #[out] ulSize: *mut u32) -> HRESULT;
+        extern fn WebSocketGetGlobalProperty(#[in] eType: WEB_SOCKET_PROPERTY_TYPE, #[in] #[out] #[readable(entry, *ulSize)] #[writable(entry, *ulSize)] #[readable(success, *ulSize)] pvValue: PVOID, #[in] #[out] ulSize: *mut ULONG) -> HRESULT;
         #[library("websocket.dll")]
-        extern fn WebSocketReceive(hWebSocket: WEB_SOCKET_HANDLE, #[in] #[opt] pBuffer: *mut WEB_SOCKET_BUFFER, #[in] #[opt] pvContext: *mut void) -> HRESULT;
+        extern fn WebSocketReceive(#[in] hWebSocket: WEB_SOCKET_HANDLE, #[in] #[opt] pBuffer: *mut WEB_SOCKET_BUFFER, #[in] #[opt] pvContext: PVOID) -> HRESULT;
         #[library("websocket.dll")]
-        extern fn WebSocketSend(hWebSocket: WEB_SOCKET_HANDLE, BufferType: WEB_SOCKET_BUFFER_TYPE, #[in] #[opt] pBuffer: *mut WEB_SOCKET_BUFFER, #[in] #[opt] Context: *mut void) -> HRESULT;
+        extern fn WebSocketSend(#[in] hWebSocket: WEB_SOCKET_HANDLE, #[in] BufferType: WEB_SOCKET_BUFFER_TYPE, #[in] #[opt] pBuffer: *mut WEB_SOCKET_BUFFER, #[in] #[opt] Context: PVOID) -> HRESULT;
     }
 }

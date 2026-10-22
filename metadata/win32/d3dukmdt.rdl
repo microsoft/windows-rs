@@ -5,11 +5,11 @@ mod Windows {
             Format: D3DDDIFORMAT,
             Pool: D3DDDI_POOL,
             MultisampleType: D3DDDIMULTISAMPLE_TYPE,
-            MultisampleQuality: u32,
+            MultisampleQuality: UINT,
             pSurfList: *const D3DDDI_SURFACEINFO,
-            SurfCount: u32,
-            MipLevels: u32,
-            Fvf: u32,
+            SurfCount: UINT,
+            MipLevels: UINT,
+            Fvf: UINT,
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             RefreshRate: D3DDDI_RATIONAL,
             hResource: HANDLE,
@@ -20,11 +20,11 @@ mod Windows {
             Format: D3DDDIFORMAT,
             Pool: D3DDDI_POOL,
             MultisampleType: D3DDDIMULTISAMPLE_TYPE,
-            MultisampleQuality: u32,
+            MultisampleQuality: UINT,
             pSurfList: *const D3DDDI_SURFACEINFO,
-            SurfCount: u32,
-            MipLevels: u32,
-            Fvf: u32,
+            SurfCount: UINT,
+            MipLevels: UINT,
+            Fvf: UINT,
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             RefreshRate: D3DDDI_RATIONAL,
             hResource: HANDLE,
@@ -36,58 +36,58 @@ mod Windows {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        AssumeNotInUse: 1,
-                        SynchronousDestroy: 1,
-                        Reserved: 29,
-                        SystemUseOnly: 1,
+                        AssumeNotInUse: UINT: 1,
+                        SynchronousDestroy: UINT: 1,
+                        Reserved: UINT: 29,
+                        SystemUseOnly: UINT: 1,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDICB_LOCK2FLAGS {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        Reserved: 32,
+                        Reserved: UINT: 32,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDICB_LOCKFLAGS {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        ReadOnly: 1,
-                        WriteOnly: 1,
-                        DonotWait: 1,
-                        IgnoreSync: 1,
-                        LockEntire: 1,
-                        DonotEvict: 1,
-                        AcquireAperture: 1,
-                        Discard: 1,
-                        NoExistingReference: 1,
-                        UseAlternateVA: 1,
-                        IgnoreReadSync: 1,
-                        Reserved: 21,
+                        ReadOnly: UINT: 1,
+                        WriteOnly: UINT: 1,
+                        DonotWait: UINT: 1,
+                        IgnoreSync: UINT: 1,
+                        LockEntire: UINT: 1,
+                        DonotEvict: UINT: 1,
+                        AcquireAperture: UINT: 1,
+                        Discard: UINT: 1,
+                        NoExistingReference: UINT: 1,
+                        UseAlternateVA: UINT: 1,
+                        IgnoreReadSync: UINT: 1,
+                        Reserved: UINT: 21,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDICB_SIGNALFLAGS {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        SignalAtSubmission: 1,
-                        EnqueueCpuEvent: 1,
-                        AllowFenceRewind: 1,
-                        Reserved: 28,
-                        DXGK_SIGNAL_FLAG_INTERNAL0: 1,
+                        SignalAtSubmission: UINT: 1,
+                        EnqueueCpuEvent: UINT: 1,
+                        AllowFenceRewind: UINT: 1,
+                        Reserved: UINT: 28,
+                        DXGK_SIGNAL_FLAG_INTERNAL0: UINT: 1,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         #[repr(i32)]
@@ -204,15 +204,15 @@ mod Windows {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u64 {
-                        Write: 1,
-                        Execute: 1,
-                        Zero: 1,
-                        NoAccess: 1,
-                        SystemUseOnly: 1,
-                        Reserved: 59,
+                        Write: UINT64: 1,
+                        Execute: UINT64: 1,
+                        Zero: UINT64: 1,
+                        NoAccess: UINT64: 1,
+                        SystemUseOnly: UINT64: 1,
+                        Reserved: UINT64: 59,
                     },
                 },
-                Value: u64,
+                Value: UINT64,
             },
         }
         #[repr(i32)]
@@ -243,26 +243,26 @@ mod Windows {
             D3DDDIMULTISAMPLE_FORCE_UINT = 2147483647,
         }
         struct D3DDDIRECT {
-            left: i32,
-            top: i32,
-            right: i32,
-            bottom: i32,
+            left: LONG,
+            top: LONG,
+            right: LONG,
+            bottom: LONG,
         }
         struct D3DDDI_ALLOCATIONINFO {
             hAllocation: D3DKMT_HANDLE,
             pSystemMem: *const void,
             pPrivateDriverData: *mut void,
-            PrivateDriverDataSize: u32,
+            PrivateDriverDataSize: UINT,
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             Flags: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        Primary: 1,
-                        Stereo: 1,
-                        Reserved: 30,
+                        Primary: UINT: 1,
+                        Stereo: UINT: 1,
+                        Reserved: UINT: 30,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_ALLOCATIONINFO2 {
@@ -272,38 +272,38 @@ mod Windows {
                 pSystemMem: *const void,
             },
             pPrivateDriverData: *mut void,
-            PrivateDriverDataSize: u32,
+            PrivateDriverDataSize: UINT,
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             Flags: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        Primary: 1,
-                        Stereo: 1,
-                        OverridePriority: 1,
-                        Reserved: 29,
+                        Primary: UINT: 1,
+                        Stereo: UINT: 1,
+                        OverridePriority: UINT: 1,
+                        Reserved: UINT: 29,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
             GpuVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
             Anonymous2: union {
-                Priority: u32,
-                Unused: usize,
+                Priority: UINT,
+                Unused: ULONG_PTR,
             },
-            Reserved: [usize; 5],
+            Reserved: [ULONG_PTR; 5],
         }
         struct D3DDDI_ALLOCATIONLIST {
             hAllocation: D3DKMT_HANDLE,
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        WriteOperation: 1,
-                        DoNotRetireInstance: 1,
-                        OfferPriority: 3,
-                        Reserved: 27,
+                        WriteOperation: UINT: 1,
+                        DoNotRetireInstance: UINT: 1,
+                        OfferPriority: UINT: 3,
+                        Reserved: UINT: 27,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         const D3DDDI_ALLOCATIONPRIORITY_HIGH: u32 = 2684354560;
@@ -315,11 +315,11 @@ mod Windows {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        HardwareQueue: 1,
-                        Reserved: 31,
+                        HardwareQueue: UINT: 1,
+                        Reserved: UINT: 31,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         #[repr(i32)]
@@ -356,60 +356,60 @@ mod Windows {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        NullRendering: 1,
-                        InitialData: 1,
-                        DisableGpuTimeout: 1,
-                        SynchronizationOnly: 1,
-                        HwQueueSupported: 1,
-                        NoKmdAccess: 1,
-                        TestContext: 1,
-                        Reserved: 25,
+                        NullRendering: UINT: 1,
+                        InitialData: UINT: 1,
+                        DisableGpuTimeout: UINT: 1,
+                        SynchronizationOnly: UINT: 1,
+                        HwQueueSupported: UINT: 1,
+                        NoKmdAccess: UINT: 1,
+                        TestContext: UINT: 1,
+                        Reserved: UINT: 25,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_CREATEHWCONTEXTFLAGS {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        Reserved: 32,
+                        Reserved: UINT: 32,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_CREATEHWQUEUEFLAGS {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        DisableGpuTimeout: 1,
-                        NoBroadcastSignal: 1,
-                        NoBroadcastWait: 1,
-                        NoKmdAccess: 1,
-                        UserModeSubmission: 1,
-                        NativeProgressFence: 1,
-                        TestQueue: 1,
-                        Reserved: 25,
+                        DisableGpuTimeout: UINT: 1,
+                        NoBroadcastSignal: UINT: 1,
+                        NoBroadcastWait: UINT: 1,
+                        NoKmdAccess: UINT: 1,
+                        UserModeSubmission: UINT: 1,
+                        NativeProgressFence: UINT: 1,
+                        TestQueue: UINT: 1,
+                        Reserved: UINT: 25,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        DisableGpuTimeout: 1,
-                        NoBroadcastSignal: 1,
-                        NoBroadcastWait: 1,
-                        NoKmdAccess: 1,
-                        TestQueue: 1,
-                        DoorbellRequiresSecondaryCpuVA: 1,
-                        Reserved: 26,
+                        DisableGpuTimeout: UINT: 1,
+                        NoBroadcastSignal: UINT: 1,
+                        NoBroadcastWait: UINT: 1,
+                        NoKmdAccess: UINT: 1,
+                        TestQueue: UINT: 1,
+                        DoorbellRequiresSecondaryCpuVA: UINT: 1,
+                        Reserved: UINT: 26,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_DESTROYPAGINGQUEUE {
@@ -441,18 +441,20 @@ mod Windows {
             hContext: D3DKMT_HANDLE,
             Flags: D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS,
             Command: D3DDDI_TESTCOMMANDBUFFER,
-            pDmaBuffer: *mut void,
-            pDmaBufferPrivateData: *mut void,
-            DmaBufferSize: u32,
-            DmaBufferPrivateDataSize: u32,
-            HardwareProgressFenceId: u64,
-            HardwareProgressFenceGpuVa: u64,
+            #[writable(bytes(DmaBufferSize))]
+            pDmaBuffer: PVOID,
+            #[writable(bytes(DmaBufferPrivateDataSize))]
+            pDmaBufferPrivateData: PVOID,
+            DmaBufferSize: UINT,
+            DmaBufferPrivateDataSize: UINT,
+            HardwareProgressFenceId: UINT64,
+            HardwareProgressFenceGpuVa: UINT64,
         }
         struct D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
             EscapeType: D3DDDI_DRIVERESCAPETYPE,
             hSyncObject: D3DKMT_HANDLE,
-            hKmdCpuEvent: u64,
-            Usage: [u32; 8],
+            hKmdCpuEvent: UINT64,
+            Usage: [UINT; 8],
         }
         struct D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {
             EscapeType: D3DDDI_DRIVERESCAPETYPE,
@@ -471,30 +473,30 @@ mod Windows {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        HardwareAccess: 1,
-                        DeviceStatusQuery: 1,
-                        ChangeFrameLatency: 1,
-                        NoAdapterSynchronization: 1,
-                        Reserved: 1,
-                        VirtualMachineData: 1,
-                        DriverKnownEscape: 1,
-                        DriverCommonEscape: 1,
-                        Reserved2: 24,
+                        HardwareAccess: UINT: 1,
+                        DeviceStatusQuery: UINT: 1,
+                        ChangeFrameLatency: UINT: 1,
+                        NoAdapterSynchronization: UINT: 1,
+                        Reserved: UINT: 1,
+                        VirtualMachineData: UINT: 1,
+                        DriverKnownEscape: UINT: 1,
+                        DriverCommonEscape: UINT: 1,
+                        Reserved2: UINT: 24,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_EVICT_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        EvictOnlyIfNecessary: 1,
-                        NotWrittenTo: 1,
-                        Reserved: 30,
+                        EvictOnlyIfNecessary: UINT: 1,
+                        NotWrittenTo: UINT: 1,
+                        Reserved: UINT: 30,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         #[repr(i32)]
@@ -521,27 +523,27 @@ mod Windows {
             GammaCurve: [D3DDDI_DXGI_RGB; 1025],
         }
         struct D3DDDI_GAMMA_RAMP_RGB256x3x16 {
-            Red: [u16; 256],
-            Green: [u16; 256],
-            Blue: [u16; 256],
+            Red: [USHORT; 256],
+            Green: [USHORT; 256],
+            Blue: [USHORT; 256],
         }
         struct D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
             hResource: D3DKMT_HANDLE,
-            PrivateDriverDataSize: u32,
-            pPrivateDriverData: *mut void,
+            PrivateDriverDataSize: UINT,
+            pPrivateDriverData: PVOID,
         }
         struct D3DDDI_HDR_METADATA_HDR10 {
-            RedPrimary: [u16; 2],
-            GreenPrimary: [u16; 2],
-            BluePrimary: [u16; 2],
-            WhitePoint: [u16; 2],
-            MaxMasteringLuminance: u32,
-            MinMasteringLuminance: u32,
-            MaxContentLightLevel: u16,
-            MaxFrameAverageLightLevel: u16,
+            RedPrimary: [UINT16; 2],
+            GreenPrimary: [UINT16; 2],
+            BluePrimary: [UINT16; 2],
+            WhitePoint: [UINT16; 2],
+            MaxMasteringLuminance: UINT,
+            MinMasteringLuminance: UINT,
+            MaxContentLightLevel: UINT16,
+            MaxFrameAverageLightLevel: UINT16,
         }
         struct D3DDDI_HDR_METADATA_HDR10PLUS {
-            Data: [u8; 72],
+            Data: [BYTE; 72],
         }
         #[repr(i32)]
         enum D3DDDI_HDR_METADATA_TYPE {
@@ -549,36 +551,37 @@ mod Windows {
             D3DDDI_HDR_METADATA_TYPE_HDR10 = 1,
             D3DDDI_HDR_METADATA_TYPE_HDR10PLUS = 2,
         }
-        const D3DDDI_ID_ALL: u32 = 4294967293;
-        const D3DDDI_ID_ANY: u32 = 4294967294;
-        const D3DDDI_ID_NOTAPPLICABLE: u32 = 0;
-        const D3DDDI_ID_UNINITIALIZED: u32 = 4294967295;
+        const D3DDDI_ID_ALL: UINT = 4294967293;
+        const D3DDDI_ID_ANY: UINT = 4294967294;
+        const D3DDDI_ID_NOTAPPLICABLE: UINT = 0;
+        const D3DDDI_ID_UNINITIALIZED: UINT = 4294967295;
         struct D3DDDI_KERNELOVERLAYINFO {
             hAllocation: D3DKMT_HANDLE,
             DstRect: D3DDDIRECT,
             SrcRect: D3DDDIRECT,
             pPrivateDriverData: *mut void,
-            PrivateDriverDataSize: u32,
+            PrivateDriverDataSize: UINT,
         }
         struct D3DDDI_MAKERESIDENT {
             hPagingQueue: D3DKMT_HANDLE,
-            NumAllocations: u32,
+            NumAllocations: UINT,
+            #[writable(NumAllocations)]
             AllocationList: *const D3DKMT_HANDLE,
-            PriorityList: *const u32,
+            PriorityList: *const UINT,
             Flags: D3DDDI_MAKERESIDENT_FLAGS,
-            PagingFenceValue: u64,
-            NumBytesToTrim: u64,
+            PagingFenceValue: UINT64,
+            NumBytesToTrim: UINT64,
         }
         struct D3DDDI_MAKERESIDENT_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        CantTrimFurther: 1,
-                        MustSucceed: 1,
-                        Reserved: 30,
+                        CantTrimFurther: UINT: 1,
+                        MustSucceed: UINT: 1,
+                        Reserved: UINT: 30,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_MAPGPUVIRTUALADDRESS {
@@ -590,11 +593,11 @@ mod Windows {
             OffsetInPages: D3DGPU_SIZE_T,
             SizeInPages: D3DGPU_SIZE_T,
             Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
-            DriverProtection: u64,
-            Reserved0: u32,
-            Reserved1: u64,
+            DriverProtection: UINT64,
+            Reserved0: UINT,
+            Reserved1: UINT64,
             VirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-            PagingFenceValue: u64,
+            PagingFenceValue: UINT64,
         }
         const D3DDDI_MAXTESTBUFFERPRIVATEDRIVERDATASIZE: i32 = 1024;
         const D3DDDI_MAXTESTBUFFERSIZE: i32 = 4096;
@@ -604,30 +607,30 @@ mod Windows {
         const D3DDDI_MAX_OBJECT_WAITED_ON: i32 = 32;
         const D3DDDI_MAX_WRITTEN_PRIMARIES: i32 = 16;
         struct D3DDDI_MULTISAMPLINGMETHOD {
-            NumSamples: u32,
-            NumQualityLevels: u32,
+            NumSamples: UINT,
+            NumQualityLevels: UINT,
         }
         struct D3DDDI_NATIVEFENCEINFO {
-            InitialFenceValue: u64,
-            EngineAffinity: u32,
+            InitialFenceValue: UINT64,
+            EngineAffinity: UINT,
             Type: D3DDDI_NATIVEFENCE_TYPE,
             Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS,
             NativeFenceMapping: D3DDDI_NATIVEFENCEMAPPING,
-            PhysicalAdapterIndex: u32,
-            Reserved: [u8; 24],
+            PhysicalAdapterIndex: UINT,
+            Reserved: [BYTE; 24],
         }
         struct D3DDDI_NATIVEFENCELOGDETAIL {
-            WaitLogNumberOfEntries: u32,
-            SignalLogNumberOfEntries: u32,
+            WaitLogNumberOfEntries: UINT32,
+            SignalLogNumberOfEntries: UINT32,
             WaitLogGpuBaseAddress: D3DGPU_VIRTUAL_ADDRESS,
             SignalLogGpuBaseAddress: D3DGPU_VIRTUAL_ADDRESS,
-            Reserved: [u8; 64],
+            Reserved: [BYTE; 64],
         }
         struct D3DDDI_NATIVEFENCEMAPPING {
             CurrentValueCpuVa: *mut void,
             CurrentValueGpuVa: D3DGPU_VIRTUAL_ADDRESS,
             MonitoredValueGpuVa: D3DGPU_VIRTUAL_ADDRESS,
-            Reserved: [u8; 32],
+            Reserved: [BYTE; 32],
         }
         #[repr(i32)]
         enum D3DDDI_NATIVEFENCE_TYPE {
@@ -639,11 +642,11 @@ mod Windows {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        AllowDecommit: 1,
-                        Reserved: 31,
+                        AllowDecommit: UINT: 1,
+                        Reserved: UINT: 31,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         #[repr(i32)]
@@ -657,14 +660,14 @@ mod Windows {
         struct D3DDDI_OPENALLOCATIONINFO {
             hAllocation: D3DKMT_HANDLE,
             pPrivateDriverData: *const void,
-            PrivateDriverDataSize: u32,
+            PrivateDriverDataSize: UINT,
         }
         struct D3DDDI_OPENALLOCATIONINFO2 {
             hAllocation: D3DKMT_HANDLE,
             pPrivateDriverData: *const void,
-            PrivateDriverDataSize: u32,
+            PrivateDriverDataSize: UINT,
             GpuVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-            Reserved: [usize; 6],
+            Reserved: [ULONG_PTR; 6],
         }
         #[repr(i32)]
         enum D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE {
@@ -683,20 +686,20 @@ mod Windows {
             D3DDDI_PAGINGQUEUE_PRIORITY_ABOVE_NORMAL = 1,
         }
         struct D3DDDI_PATCHLOCATIONLIST {
-            AllocationIndex: u32,
+            AllocationIndex: UINT,
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        SlotId: 24,
-                        Reserved: 8,
+                        SlotId: UINT: 24,
+                        Reserved: UINT: 8,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
-            DriverId: u32,
-            AllocationOffset: u32,
-            PatchOffset: u32,
-            SplitOffset: u32,
+            DriverId: UINT,
+            AllocationOffset: UINT,
+            PatchOffset: UINT,
+            SplitOffset: UINT,
         }
         #[repr(i32)]
         enum D3DDDI_POOL {
@@ -710,27 +713,27 @@ mod Windows {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        TranslatePath: 1,
-                        MutableValue: 1,
-                        Reserved: 30,
+                        TranslatePath: UINT: 1,
+                        MutableValue: UINT: 1,
+                        Reserved: UINT: 30,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_QUERYREGISTRY_INFO {
             QueryType: D3DDDI_QUERYREGISTRY_TYPE,
             QueryFlags: D3DDDI_QUERYREGISTRY_FLAGS,
-            ValueName: [u16; 260],
-            ValueType: u32,
-            PhysicalAdapterIndex: u32,
-            OutputValueSize: u32,
+            ValueName: [WCHAR; 260],
+            ValueType: ULONG,
+            PhysicalAdapterIndex: ULONG,
+            OutputValueSize: ULONG,
             Status: D3DDDI_QUERYREGISTRY_STATUS,
             Anonymous: union {
-                OutputDword: u32,
-                OutputQword: u64,
-                OutputString: [u16; 1],
-                OutputBinary: [u8; 1],
+                OutputDword: DWORD,
+                OutputQword: UINT64,
+                OutputString: [WCHAR; 1],
+                OutputBinary: [BYTE; 1],
             },
         }
         #[repr(i32)]
@@ -749,8 +752,8 @@ mod Windows {
             D3DDDI_QUERYREGISTRY_MAX = 4,
         }
         struct D3DDDI_RATIONAL {
-            Numerator: u32,
-            Denominator: u32,
+            Numerator: UINT,
+            Denominator: UINT,
         }
         #[repr(i32)]
         enum D3DDDI_RECLAIM_RESULT {
@@ -769,71 +772,71 @@ mod Windows {
             Size: D3DGPU_SIZE_T,
             Anonymous2: union {
                 ReservationType: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE,
-                Reserved0: u32,
+                Reserved0: UINT,
             },
             Anonymous3: union {
-                DriverProtection: u64,
-                Reserved1: u64,
+                DriverProtection: UINT64,
+                Reserved1: UINT64,
             },
             VirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
             Anonymous4: union {
-                PagingFenceValue: u64,
-                Reserved2: u64,
+                PagingFenceValue: UINT64,
+                Reserved2: UINT64,
             },
         }
         struct D3DDDI_RESOURCEFLAGS {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        RenderTarget: 1,
-                        ZBuffer: 1,
-                        Dynamic: 1,
-                        HintStatic: 1,
-                        AutogenMipmap: 1,
-                        DMap: 1,
-                        WriteOnly: 1,
-                        NotLockable: 1,
-                        Points: 1,
-                        RtPatches: 1,
-                        NPatches: 1,
-                        SharedResource: 1,
-                        DiscardRenderTarget: 1,
-                        Video: 1,
-                        CaptureBuffer: 1,
-                        Primary: 1,
-                        Texture: 1,
-                        CubeMap: 1,
-                        Volume: 1,
-                        VertexBuffer: 1,
-                        IndexBuffer: 1,
-                        DecodeRenderTarget: 1,
-                        DecodeCompressedBuffer: 1,
-                        VideoProcessRenderTarget: 1,
-                        CpuOptimized: 1,
-                        MightDrawFromLocked: 1,
-                        Overlay: 1,
-                        MatchGdiPrimary: 1,
-                        InterlacedRefresh: 1,
-                        TextApi: 1,
-                        RestrictedContent: 1,
-                        RestrictSharedAccess: 1,
+                        RenderTarget: UINT: 1,
+                        ZBuffer: UINT: 1,
+                        Dynamic: UINT: 1,
+                        HintStatic: UINT: 1,
+                        AutogenMipmap: UINT: 1,
+                        DMap: UINT: 1,
+                        WriteOnly: UINT: 1,
+                        NotLockable: UINT: 1,
+                        Points: UINT: 1,
+                        RtPatches: UINT: 1,
+                        NPatches: UINT: 1,
+                        SharedResource: UINT: 1,
+                        DiscardRenderTarget: UINT: 1,
+                        Video: UINT: 1,
+                        CaptureBuffer: UINT: 1,
+                        Primary: UINT: 1,
+                        Texture: UINT: 1,
+                        CubeMap: UINT: 1,
+                        Volume: UINT: 1,
+                        VertexBuffer: UINT: 1,
+                        IndexBuffer: UINT: 1,
+                        DecodeRenderTarget: UINT: 1,
+                        DecodeCompressedBuffer: UINT: 1,
+                        VideoProcessRenderTarget: UINT: 1,
+                        CpuOptimized: UINT: 1,
+                        MightDrawFromLocked: UINT: 1,
+                        Overlay: UINT: 1,
+                        MatchGdiPrimary: UINT: 1,
+                        InterlacedRefresh: UINT: 1,
+                        TextApi: UINT: 1,
+                        RestrictedContent: UINT: 1,
+                        RestrictSharedAccess: UINT: 1,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_RESOURCEFLAGS2 {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        VideoEncoder: 1,
-                        UserMemory: 1,
-                        CrossAdapter: 1,
-                        IsDisplayable: 1,
-                        Reserved: 28,
+                        VideoEncoder: UINT: 1,
+                        UserMemory: UINT: 1,
+                        CrossAdapter: UINT: 1,
+                        IsDisplayable: UINT: 1,
+                        Reserved: UINT: 28,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         #[repr(i32)]
@@ -853,29 +856,29 @@ mod Windows {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        SegmentId0: 5,
-                        Direction0: 1,
-                        SegmentId1: 5,
-                        Direction1: 1,
-                        SegmentId2: 5,
-                        Direction2: 1,
-                        SegmentId3: 5,
-                        Direction3: 1,
-                        SegmentId4: 5,
-                        Direction4: 1,
-                        Reserved: 2,
+                        SegmentId0: UINT: 5,
+                        Direction0: UINT: 1,
+                        SegmentId1: UINT: 5,
+                        Direction1: UINT: 1,
+                        SegmentId2: UINT: 5,
+                        Direction2: UINT: 1,
+                        SegmentId3: UINT: 5,
+                        Direction3: UINT: 1,
+                        SegmentId4: UINT: 5,
+                        Direction4: UINT: 1,
+                        Reserved: UINT: 2,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_SURFACEINFO {
-            Width: u32,
-            Height: u32,
-            Depth: u32,
+            Width: UINT,
+            Height: UINT,
+            Depth: UINT,
             pSysMem: *const void,
-            SysMemPitch: u32,
-            SysMemSlicePitch: u32,
+            SysMemPitch: UINT,
+            SysMemSlicePitch: UINT,
         }
         struct D3DDDI_SYNCHRONIZATIONOBJECTINFO {
             Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
@@ -884,11 +887,11 @@ mod Windows {
                     InitialState: BOOL,
                 },
                 Semaphore: struct {
-                    MaxCount: u32,
-                    InitialCount: u32,
+                    MaxCount: UINT,
+                    InitialCount: UINT,
                 },
                 Reserved: struct {
-                    Reserved: [u32; 16],
+                    Reserved: [UINT; 16],
                 },
             },
         }
@@ -900,33 +903,33 @@ mod Windows {
                     InitialState: BOOL,
                 },
                 Semaphore: struct {
-                    MaxCount: u32,
-                    InitialCount: u32,
+                    MaxCount: UINT,
+                    InitialCount: UINT,
                 },
                 Fence: struct {
-                    FenceValue: u64,
+                    FenceValue: UINT64,
                 },
                 CPUNotification: struct {
                     Event: HANDLE,
                 },
                 MonitoredFence: struct {
-                    InitialFenceValue: u64,
+                    InitialFenceValue: UINT64,
                     FenceValueCPUVirtualAddress: *mut void,
                     FenceValueGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-                    EngineAffinity: u32,
-                    Padding: u32,
+                    EngineAffinity: UINT,
+                    Padding: UINT,
                 },
                 PeriodicMonitoredFence: struct {
                     hAdapter: D3DKMT_HANDLE,
                     VidPnTargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
-                    Time: u64,
+                    Time: UINT64,
                     FenceValueCPUVirtualAddress: *mut void,
                     FenceValueGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-                    EngineAffinity: u32,
-                    Padding: u32,
+                    EngineAffinity: UINT,
+                    Padding: UINT,
                 },
                 Reserved: struct {
-                    Reserved: [u64; 8],
+                    Reserved: [UINT64; 8],
                 },
             },
             SharedHandle: D3DKMT_HANDLE,
@@ -935,22 +938,22 @@ mod Windows {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        Shared: 1,
-                        NtSecuritySharing: 1,
-                        CrossAdapter: 1,
-                        TopOfPipeline: 1,
-                        NoSignal: 1,
-                        NoWait: 1,
-                        NoSignalMaxValueOnTdr: 1,
-                        NoGPUAccess: 1,
-                        SignalByKmd: 1,
-                        Unused: 1,
-                        UnwaitCpuWaitersOnlyOnDestroy: 1,
-                        Reserved: 20,
-                        Reserved0: 1,
+                        Shared: UINT: 1,
+                        NtSecuritySharing: UINT: 1,
+                        CrossAdapter: UINT: 1,
+                        TopOfPipeline: UINT: 1,
+                        NoSignal: UINT: 1,
+                        NoWait: UINT: 1,
+                        NoSignalMaxValueOnTdr: UINT: 1,
+                        NoGPUAccess: UINT: 1,
+                        SignalByKmd: UINT: 1,
+                        Unused: UINT: 1,
+                        UnwaitCpuWaitersOnlyOnDestroy: UINT: 1,
+                        Reserved: UINT: 20,
+                        Reserved0: UINT: 1,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         #[repr(i32)]
@@ -974,7 +977,7 @@ mod Windows {
                 Reserved: [i8; 64],
             },
             Operation: D3DDDI_TESTCOMMANDBUFFEROP,
-            Reserved1: u32,
+            Reserved1: UINT,
         }
         #[repr(i32)]
         enum D3DDDI_TESTCOMMANDBUFFEROP {
@@ -989,57 +992,57 @@ mod Windows {
         struct D3DDDI_TESTCOMMANDBUFFER_COPY {
             SrcAddress: D3DGPU_VIRTUAL_ADDRESS,
             DstAddress: D3DGPU_VIRTUAL_ADDRESS,
-            NumBytes: u32,
+            NumBytes: UINT,
         }
         struct D3DDDI_TESTCOMMANDBUFFER_FILL {
             DstAddress: D3DGPU_VIRTUAL_ADDRESS,
-            NumBytes: u32,
-            Pattern: u32,
+            NumBytes: UINT,
+            Pattern: UINT,
         }
         struct D3DDDI_TRIMRESIDENCYSET_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        PeriodicTrim: 1,
-                        RestartPeriodicTrim: 1,
-                        TrimToBudget: 1,
-                        Reserved: 29,
+                        PeriodicTrim: UINT: 1,
+                        RestartPeriodicTrim: UINT: 1,
+                        TrimToBudget: UINT: 1,
+                        Reserved: UINT: 29,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         const D3DDDI_UMS_PDD_SIZE: i32 = 64;
         struct D3DDDI_UPDATEALLOCPROPERTY {
             hPagingQueue: D3DKMT_HANDLE,
             hAllocation: D3DKMT_HANDLE,
-            SupportedSegmentSet: u32,
+            SupportedSegmentSet: UINT,
             PreferredSegment: D3DDDI_SEGMENTPREFERENCE,
             Flags: D3DDDI_UPDATEALLOCPROPERTY_FLAGS,
-            PagingFenceValue: u64,
+            PagingFenceValue: UINT64,
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        SetAccessedPhysically: 1,
-                        SetSupportedSegmentSet: 1,
-                        SetPreferredSegment: 1,
-                        SetUnmoveable: 1,
-                        Reserved: 28,
+                        SetAccessedPhysically: UINT: 1,
+                        SetSupportedSegmentSet: UINT: 1,
+                        SetPreferredSegment: UINT: 1,
+                        SetUnmoveable: UINT: 1,
+                        Reserved: UINT: 28,
                     },
                 },
-                PropertyMaskValue: u32,
+                PropertyMaskValue: UINT,
             },
         }
         struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        AccessedPhysically: 1,
-                        Unmoveable: 1,
-                        Reserved: 30,
+                        AccessedPhysically: UINT: 1,
+                        Unmoveable: UINT: 1,
+                        Reserved: UINT: 30,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
@@ -1059,7 +1062,7 @@ mod Windows {
                     AllocationOffsetInBytes: D3DGPU_SIZE_T,
                     AllocationSizeInBytes: D3DGPU_SIZE_T,
                     Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
-                    DriverProtection: u64,
+                    DriverProtection: UINT64,
                 },
                 Unmap: struct {
                     BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
@@ -1094,18 +1097,18 @@ mod Windows {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        WaitAny: 1,
-                        Reserved: 31,
+                        WaitAny: UINT: 1,
+                        Reserved: UINT: 31,
                     },
                 },
-                Value: u32,
+                Value: UINT,
             },
         }
         const D3DGPU_NULL: i32 = 0;
         struct D3DGPU_PHYSICAL_ADDRESS {
-            SegmentId: u32,
-            Padding: u32,
-            SegmentOffset: u64,
+            SegmentId: UINT,
+            Padding: UINT,
+            SegmentOffset: UINT64,
         }
         type D3DGPU_SIZE_T = u64;
         const D3DGPU_UNIQUE_DRIVER_PROTECTION: u64 = 9223372036854775808;
@@ -1134,10 +1137,19 @@ mod Windows {
         const D3DKMT_CROSS_ADAPTER_RESOURCE_HEIGHT_ALIGNMENT: i32 = 4;
         const D3DKMT_CROSS_ADAPTER_RESOURCE_PITCH_ALIGNMENT: i32 = 128;
         type D3DKMT_HANDLE = u32;
-        type D3DKMT_PTR_TYPE = HANDLE;
-        type D3DKMT_SIZE_T = usize;
-        type D3DKMT_UINT_PTR = usize;
-        type D3DKMT_ULONG_PTR = usize;
+        type D3DKMT_PTR_TYPE = *mut void;
+        #[arch(X64 | Arm64)]
+        type D3DKMT_SIZE_T = u64;
+        #[arch(X86)]
+        type D3DKMT_SIZE_T = u32;
+        #[arch(X64 | Arm64)]
+        type D3DKMT_UINT_PTR = u64;
+        #[arch(X86)]
+        type D3DKMT_UINT_PTR = u32;
+        #[arch(X64 | Arm64)]
+        type D3DKMT_ULONG_PTR = u64;
+        #[arch(X86)]
+        type D3DKMT_ULONG_PTR = u32;
         const D3D_UMD_INTERFACE_VERSION: i32 = 69633;
         const D3D_UMD_INTERFACE_VERSION_VISTA: i32 = 12;
         const D3D_UMD_INTERFACE_VERSION_WDDM1_3: i32 = 16386;
@@ -1223,20 +1235,20 @@ mod Windows {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u32 {
-                        GuestVmRunning: 1,
+                        GuestVmRunning: UINT: 1,
                     },
                 },
-                Flags: u32,
+                Flags: UINT,
             },
         }
         struct DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
             Header: DXGKVGPU_ESCAPE_HEAD,
-            PowerState: u32,
+            PowerState: UINT,
         }
         struct DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
             Header: DXGKVGPU_ESCAPE_HEAD,
-            Offset: u32,
-            Size: u32,
+            Offset: UINT,
+            Size: UINT,
         }
         struct DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
             Header: DXGKVGPU_ESCAPE_HEAD,
@@ -1247,7 +1259,7 @@ mod Windows {
         struct DXGKVGPU_ESCAPE_RESUME {
             Header: DXGKVGPU_ESCAPE_HEAD,
             DeviceLuid: LUID,
-            Flags: u32,
+            Flags: UINT,
         }
         #[repr(i32)]
         enum DXGKVGPU_ESCAPE_TYPE {
@@ -1262,14 +1274,14 @@ mod Windows {
         }
         struct DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
             Header: DXGKVGPU_ESCAPE_HEAD,
-            Offset: u32,
-            Size: u32,
+            Offset: UINT,
+            Size: UINT,
         }
         union DXGK_DETAILED_FEATURE_ID {
             Anonymous: struct {
                 _bitfield: u32 {
-                    Feature: 28,
-                    Category: 4,
+                    Feature: UINT32: 28,
+                    Category: UINT32: 4,
                 },
             },
             Value: DXGK_FEATURE_ID,
@@ -1385,17 +1397,17 @@ mod Windows {
         const DXGK_FEATURE_MAX: DXGK_DRIVER_FEATURE = 47;
         type DXGK_FEATURE_VERSION = u16;
         struct DXGK_ISFEATUREENABLED_RESULT {
-            Version: u16,
+            Version: UINT16,
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u16 {
-                        Enabled: 1,
-                        KnownFeature: 1,
-                        SupportedByDriver: 1,
-                        SupportedOnCurrentConfig: 1,
-                        Available: 1,
-                        Experimental: 1,
-                        Reserved: 10,
+                        Enabled: UINT16: 1,
+                        KnownFeature: UINT16: 1,
+                        SupportedByDriver: UINT16: 1,
+                        SupportedOnCurrentConfig: UINT16: 1,
+                        Available: UINT16: 1,
+                        Experimental: UINT16: 1,
+                        Reserved: UINT16: 10,
                     },
                 },
                 Value: DXGK_FEATURE_VERSION,
@@ -1407,17 +1419,17 @@ mod Windows {
         union DXGK_MIRACAST_CHUNK_ID {
             Anonymous: struct {
                 _bitfield: u64 {
-                    FrameNumber: 40,
-                    PartNumber: 24,
+                    FrameNumber: UINT64: 40,
+                    PartNumber: UINT64: 24,
                 },
             },
-            Value: u64,
+            Value: UINT64,
         }
         struct DXGK_MIRACAST_CHUNK_INFO {
             ChunkType: DXGK_MIRACAST_CHUNK_TYPE,
             ChunkId: DXGK_MIRACAST_CHUNK_ID,
-            ProcessingTime: u32,
-            EncodeRate: u32,
+            ProcessingTime: UINT,
+            EncodeRate: UINT,
         }
         #[repr(i32)]
         enum DXGK_MIRACAST_CHUNK_TYPE {
@@ -1431,28 +1443,29 @@ mod Windows {
         }
         struct DXGK_NATIVE_FENCE_LOG_BUFFER {
             Header: DXGK_NATIVE_FENCE_LOG_HEADER,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "Header.NumberOfEntries", "Header.NumberOfEntries")]
             Entries: [DXGK_NATIVE_FENCE_LOG_ENTRY; 1],
         }
         struct DXGK_NATIVE_FENCE_LOG_ENTRY {
-            FenceValue: u64,
+            FenceValue: UINT64,
             hNativeFence: D3DKMT_HANDLE,
-            OperationType: u32,
-            Reserved0: u64,
-            FenceObservedGpuTimestamp: u64,
-            Reserved1: u64,
-            FenceEndGpuTimestamp: u64,
+            OperationType: UINT,
+            Reserved0: UINT64,
+            FenceObservedGpuTimestamp: UINT64,
+            Reserved1: UINT64,
+            FenceEndGpuTimestamp: UINT64,
         }
         struct DXGK_NATIVE_FENCE_LOG_HEADER {
             Anonymous: union {
                 Anonymous: struct {
-                    FirstFreeEntryIndex: u32,
-                    WraparoundCount: u32,
+                    FirstFreeEntryIndex: UINT32,
+                    WraparoundCount: UINT32,
                 },
                 AtomicWraparoundAndEntryIndex: ULARGE_INTEGER,
             },
             Type: DXGK_NATIVE_FENCE_LOG_TYPE,
-            NumberOfEntries: u64,
-            Reserved: [u64; 2],
+            NumberOfEntries: UINT64,
+            Reserved: [UINT64; 2],
         }
         #[repr(i32)]
         enum DXGK_NATIVE_FENCE_LOG_OPERATION {
@@ -1480,25 +1493,25 @@ mod Windows {
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: u64 {
-                        Valid: 1,
-                        Zero: 1,
-                        CacheCoherent: 1,
-                        ReadOnly: 1,
-                        NoExecute: 1,
-                        Segment: 5,
-                        LargePage: 1,
-                        PhysicalAdapterIndex: 6,
-                        PageTablePageSize: 2,
-                        SystemReserved0: 1,
-                        BlockAccessMode: 2,
-                        Reserved: 42,
+                        Valid: ULONGLONG: 1,
+                        Zero: ULONGLONG: 1,
+                        CacheCoherent: ULONGLONG: 1,
+                        ReadOnly: ULONGLONG: 1,
+                        NoExecute: ULONGLONG: 1,
+                        Segment: ULONGLONG: 5,
+                        LargePage: ULONGLONG: 1,
+                        PhysicalAdapterIndex: ULONGLONG: 6,
+                        PageTablePageSize: ULONGLONG: 2,
+                        SystemReserved0: ULONGLONG: 1,
+                        BlockAccessMode: ULONGLONG: 2,
+                        Reserved: ULONGLONG: 42,
                     },
                 },
-                Flags: u64,
+                Flags: ULONGLONG,
             },
             Anonymous2: union {
-                PageAddress: u64,
-                PageTableAddress: u64,
+                PageAddress: ULONGLONG,
+                PageTableAddress: ULONGLONG,
             },
         }
         #[repr(i32)]

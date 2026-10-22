@@ -9,27 +9,27 @@ mod Windows {
         const DEVPKEY_DeviceInterface_VirtualCameraAssociatedCameras: DEVPROPKEY = 5;
         #[guid(0x6338b23a_3042_49d2_a3ea_ec0fed815407)]
         interface IMFCameraSyncObject: IUnknown {
-            fn WaitOnSignal(&self, timeOutInMs: u32) -> HRESULT;
+            fn WaitOnSignal(&self, #[in] timeOutInMs: DWORD) -> HRESULT;
             fn Shutdown(&self);
         }
         #[guid(0x1c08a864_ef6c_4c75_af59_5f2d68da9563)]
         interface IMFVirtualCamera: IMFAttributes {
-            fn AddDeviceSourceInfo(&self, DeviceSourceInfo: PCWSTR) -> HRESULT;
-            fn AddProperty(&self, pKey: *const DEVPROPKEY, Type: DEVPROPTYPE, #[size_param(3)] pbData: *const u8, cbData: u32) -> HRESULT;
-            fn AddRegistryEntry(&self, EntryName: PCWSTR, #[opt] SubkeyPath: PCWSTR, dwRegType: u32, #[size_param(4)] pbData: *const u8, cbData: u32) -> HRESULT;
-            fn Start(&self, #[opt] pCallback: IMFAsyncCallback) -> HRESULT;
+            fn AddDeviceSourceInfo(&self, #[in] #[null_terminated(entry)] DeviceSourceInfo: LPCWSTR) -> HRESULT;
+            fn AddProperty(&self, #[in] pKey: *const DEVPROPKEY, #[in] Type: DEVPROPTYPE, #[in] #[readable(entry, bytes(cbData))] pbData: *const BYTE, #[in] cbData: ULONG) -> HRESULT;
+            fn AddRegistryEntry(&self, #[in] #[null_terminated(entry)] EntryName: LPCWSTR, #[in] #[opt] #[null_terminated(entry)] SubkeyPath: LPCWSTR, #[in] dwRegType: DWORD, #[in] #[readable(entry, bytes(cbData))] pbData: *const BYTE, #[in] cbData: ULONG) -> HRESULT;
+            fn Start(&self, #[in] #[opt] pCallback: IMFAsyncCallback) -> HRESULT;
             fn Stop(&self) -> HRESULT;
             fn Remove(&self) -> HRESULT;
-            fn GetMediaSource(&self, ppMediaSource: *mut IMFMediaSource) -> HRESULT;
-            fn SendCameraProperty(&self, propertySet: *const GUID, propertyId: u32, propertyFlags: u32, #[size_param(4)] #[in] #[out] #[opt] propertyPayload: *mut void, propertyPayloadLength: u32, #[size_param(6)] #[in] #[out] #[opt] data: *mut void, dataLength: u32, dataWritten: *mut u32) -> HRESULT;
-            fn CreateSyncEvent(&self, kseventSet: *const GUID, kseventId: u32, kseventFlags: u32, eventHandle: HANDLE, cameraSyncObject: *mut IMFCameraSyncObject) -> HRESULT;
-            fn CreateSyncSemaphore(&self, kseventSet: *const GUID, kseventId: u32, kseventFlags: u32, semaphoreHandle: HANDLE, semaphoreAdjustment: i32, cameraSyncObject: *mut IMFCameraSyncObject) -> HRESULT;
+            fn GetMediaSource(&self, #[out] #[out_ptr(null_on_failure)] ppMediaSource: *mut IMFMediaSource) -> HRESULT;
+            fn SendCameraProperty(&self, #[in] propertySet: &GUID, #[in] propertyId: ULONG, #[in] propertyFlags: ULONG, #[in] #[out] #[opt] #[writable(entry, bytes(propertyPayloadLength))] propertyPayload: *mut void, #[in] propertyPayloadLength: ULONG, #[in] #[out] #[opt] #[readable(entry, bytes(dataLength))] #[writable(entry, bytes(dataLength))] #[readable(success, bytes(*dataWritten))] data: *mut void, #[in] dataLength: ULONG, #[out] dataWritten: *mut ULONG) -> HRESULT;
+            fn CreateSyncEvent(&self, #[in] kseventSet: &GUID, #[in] kseventId: ULONG, #[in] kseventFlags: ULONG, #[in] eventHandle: HANDLE, #[out] #[out_ptr(null_on_failure)] cameraSyncObject: *mut IMFCameraSyncObject) -> HRESULT;
+            fn CreateSyncSemaphore(&self, #[in] kseventSet: &GUID, #[in] kseventId: ULONG, #[in] kseventFlags: ULONG, #[in] semaphoreHandle: HANDLE, #[in] semaphoreAdjustment: LONG, #[out] #[out_ptr(null_on_failure)] cameraSyncObject: *mut IMFCameraSyncObject) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
         }
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateVirtualCamera(r#type: MFVirtualCameraType, lifetime: MFVirtualCameraLifetime, access: MFVirtualCameraAccess, friendlyName: PCWSTR, sourceId: PCWSTR, #[len_param(6)] #[opt] categories: *const GUID, categoryCount: u32, virtualCamera: *mut IMFVirtualCamera) -> HRESULT;
+        extern fn MFCreateVirtualCamera(#[in] r#type: MFVirtualCameraType, #[in] lifetime: MFVirtualCameraLifetime, #[in] access: MFVirtualCameraAccess, #[in] #[null_terminated(entry)] friendlyName: LPCWSTR, #[in] #[null_terminated(entry)] sourceId: LPCWSTR, #[in] #[opt] #[readable(entry, categoryCount)] categories: *const GUID, #[in] categoryCount: ULONG, #[out] #[out_ptr(null_on_failure)] virtualCamera: *mut IMFVirtualCamera) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFIsVirtualCameraTypeSupported(r#type: MFVirtualCameraType, supported: *mut BOOL) -> HRESULT;
+        extern fn MFIsVirtualCameraTypeSupported(#[in] r#type: MFVirtualCameraType, #[out] supported: *mut BOOL) -> HRESULT;
         #[repr(i32)]
         enum MFVirtualCameraAccess {
             MFVirtualCameraAccess_CurrentUser = 0,
@@ -44,6 +44,16 @@ mod Windows {
         enum MFVirtualCameraType {
             MFVirtualCameraType_SoftwareCameraSource = 0,
         }
+        const MF_DEVSOURCE_ATTRIBUTE_ENABLE_MS_CAMERA_EFFECTS: GUID = 0x28a5531a_57dd_4fd5_aaa7_385abf57d785;
+        const MF_FRAMESERVER_VCAMEVENT_EXTENDED_CUSTOM_EVENT: GUID = 0x6e59489c_47d3_4467_83ef_12d34e871665;
+        const MF_FRAMESERVER_VCAMEVENT_EXTENDED_PIPELINE_SHUTDOWN: GUID = 0x45a81b31_43f8_4e5d_8ce2_22dce026996d;
+        const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_INITIALIZE: GUID = 0xe52c4dff_e46d_4d0b_bc75_ddd4c8723f96;
+        const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_START: GUID = 0xb1eeb989_b456_4f4a_ae40_079c28e24af8;
+        const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_STOP: GUID = 0xb7fe7a61_fe91_415e_8608_d37dedb1a58b;
+        const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_UNINITIALIZE: GUID = 0xa0ebaba7_a422_4e33_8401_b37d2800aa67;
+        const MF_VIRTUALCAMERA_ASSOCIATED_CAMERA_SOURCES: GUID = 0x1bb79e7c_5d83_438c_94d8_e5f0df6d3279;
+        const MF_VIRTUALCAMERA_CONFIGURATION_APP_PACKAGE_FAMILY_NAME: GUID = 0x658abe51_8044_462e_97ea_e676fd72055f;
+        const MF_VIRTUALCAMERA_PROVIDE_ASSOCIATED_CAMERA_SOURCES: GUID = 0xf0273718_4a4d_4ac5_a15d_305eb5e90667;
         type PMFVirtualCameraAccess = *mut MFVirtualCameraAccess;
         type PMFVirtualCameraLifetime = *mut MFVirtualCameraLifetime;
         type PMFVirtualCameraType = *mut MFVirtualCameraType;

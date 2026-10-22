@@ -22,27 +22,27 @@ mod Windows {
         }
         const PRINTTICKET_ISTREAM_APIS: i32 = 1;
         #[library("prntvpt.dll")]
-        extern fn PTCloseProvider(hProvider: HPTPROVIDER) -> HRESULT;
+        extern fn PTCloseProvider(#[in] hProvider: HPTPROVIDER) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTConvertDevModeToPrintTicket(hProvider: HPTPROVIDER, cbDevmode: u32, pDevmode: PDEVMODE, scope: EPrintTicketScope, pPrintTicket: IStream) -> HRESULT;
+        extern fn PTConvertDevModeToPrintTicket(#[in] hProvider: HPTPROVIDER, cbDevmode: ULONG, #[in] pDevmode: PDEVMODE, #[in] scope: EPrintTicketScope, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pPrintTicket: IStream) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTConvertPrintTicketToDevMode(hProvider: HPTPROVIDER, pPrintTicket: IStream, baseDevmodeType: EDefaultDevmodeType, scope: EPrintTicketScope, pcbDevmode: *mut u32, ppDevmode: *mut PDEVMODE, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTConvertPrintTicketToDevMode(#[in] hProvider: HPTPROVIDER, #[in] pPrintTicket: IStream, baseDevmodeType: EDefaultDevmodeType, #[in] scope: EPrintTicketScope, #[out] pcbDevmode: *mut ULONG, #[out] #[writable(success, bytes(*pcbDevmode), indirect)] ppDevmode: *mut PDEVMODE, #[out] #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTGetPrintCapabilities(hProvider: HPTPROVIDER, #[opt] pPrintTicket: IStream, pCapabilities: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTGetPrintCapabilities(#[in] hProvider: HPTPROVIDER, #[in] #[opt] pPrintTicket: IStream, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pCapabilities: IStream, #[out] #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTGetPrintDeviceCapabilities(hProvider: HPTPROVIDER, #[opt] pPrintTicket: IStream, pDeviceCapabilities: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTGetPrintDeviceCapabilities(#[in] hProvider: HPTPROVIDER, #[in] #[opt] pPrintTicket: IStream, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pDeviceCapabilities: IStream, #[out] #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTGetPrintDeviceResources(hProvider: HPTPROVIDER, pszLocaleName: PCWSTR, #[opt] pPrintTicket: IStream, pDeviceResources: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTGetPrintDeviceResources(#[in] hProvider: HPTPROVIDER, #[in] pszLocaleName: LPCWSTR, #[in] #[opt] pPrintTicket: IStream, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pDeviceResources: IStream, #[out] #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTMergeAndValidatePrintTicket(hProvider: HPTPROVIDER, pBaseTicket: IStream, #[opt] pDeltaTicket: IStream, scope: EPrintTicketScope, pResultTicket: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTMergeAndValidatePrintTicket(#[in] hProvider: HPTPROVIDER, #[in] pBaseTicket: IStream, #[in] #[opt] pDeltaTicket: IStream, #[in] scope: EPrintTicketScope, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] pResultTicket: IStream, #[out] #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTOpenProvider(pszPrinterName: PCWSTR, dwVersion: u32, phProvider: *mut HPTPROVIDER) -> HRESULT;
+        extern fn PTOpenProvider(#[in] pszPrinterName: PCWSTR, dwVersion: DWORD, #[out] phProvider: *mut HPTPROVIDER) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTOpenProviderEx(pszPrinterName: PCWSTR, dwMaxVersion: u32, dwPrefVersion: u32, phProvider: *mut HPTPROVIDER, pUsedVersion: *mut u32) -> HRESULT;
+        extern fn PTOpenProviderEx(#[in] pszPrinterName: PCWSTR, dwMaxVersion: DWORD, dwPrefVersion: DWORD, #[out] phProvider: *mut HPTPROVIDER, #[out] pUsedVersion: *mut DWORD) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTQuerySchemaVersionSupport(pszPrinterName: PCWSTR, pMaxVersion: *mut u32) -> HRESULT;
+        extern fn PTQuerySchemaVersionSupport(#[in] pszPrinterName: PCWSTR, #[out] pMaxVersion: *mut DWORD) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTReleaseMemory(#[in] pBuffer: *mut void) -> HRESULT;
+        extern fn PTReleaseMemory(#[in] pBuffer: PVOID) -> HRESULT;
         const S_PT_CONFLICT_RESOLVED: i32 = 262146;
         const S_PT_NO_CONFLICT: i32 = 262145;
     }

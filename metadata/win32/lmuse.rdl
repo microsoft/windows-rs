@@ -3,9 +3,9 @@ mod Windows {
     mod Win32 {
         struct BLOCK_NTLM_INFO {
             BlockNTLM: BOOLEAN,
-            Reserved1: u8,
-            Reserved2: u16,
-            Reserved3: u32,
+            Reserved1: BYTE,
+            Reserved2: USHORT,
+            Reserved3: ULONG,
         }
         const CREATE_BYPASS_CSC: i32 = 2;
         const CREATE_CRED_RESET: i32 = 4;
@@ -22,13 +22,13 @@ mod Windows {
         type LPUSE_INFO_4 = *mut USE_INFO_4;
         type LPUSE_INFO_5 = *mut USE_INFO_5;
         #[library("NETAPI32.dll")]
-        extern fn NetUseAdd(#[opt] servername: LPTSTR, LevelFlags: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
+        extern fn NetUseAdd(#[in] #[opt] servername: LPTSTR, #[in] LevelFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "USE_LEVEL(LevelFlags)== 0,_In_reads_bytes_(sizeof(USE_INFO_0))", "((LevelFlags) & 0xffff)== 0, _In_reads_bytes_(sizeof(USE_INFO_0))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "USE_LEVEL(LevelFlags)== 1,_In_reads_bytes_(sizeof(USE_INFO_1))", "((LevelFlags) & 0xffff)== 1, _In_reads_bytes_(sizeof(USE_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "USE_LEVEL(LevelFlags)== 2,_In_reads_bytes_(sizeof(USE_INFO_2))", "((LevelFlags) & 0xffff)== 2, _In_reads_bytes_(sizeof(USE_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "USE_LEVEL(LevelFlags)== 3,_In_reads_bytes_(sizeof(USE_INFO_3))", "((LevelFlags) & 0xffff)== 3, _In_reads_bytes_(sizeof(USE_INFO_3))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "USE_LEVEL(LevelFlags)== 4,_In_reads_bytes_(sizeof(USE_INFO_4))", "((LevelFlags) & 0xffff)== 4, _In_reads_bytes_(sizeof(USE_INFO_4))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "USE_LEVEL(LevelFlags)== 5,_In_reads_bytes_(sizeof(USE_INFO_5))", "((LevelFlags) & 0xffff)== 5, _In_reads_bytes_(sizeof(USE_INFO_5))")] buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUseDel(#[opt] UncServerName: PCWSTR, UseName: PCWSTR, ForceLevelFlags: u32) -> u32;
+        extern fn NetUseDel(#[in] #[opt] UncServerName: LPWSTR, #[in] UseName: LPWSTR, #[in] ForceLevelFlags: DWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUseEnum(#[opt] UncServerName: PCWSTR, LevelFlags: u32, BufPtr: *mut LPBYTE, PreferedMaximumSize: u32, #[out] #[opt] EntriesRead: LPDWORD, #[out] TotalEntries: LPDWORD, #[in] #[out] #[opt] ResumeHandle: LPDWORD) -> u32;
+        extern fn NetUseEnum(#[in] #[opt] UncServerName: LPWSTR, #[in] LevelFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_buffer_", "_Inexpressible_(EntriesRead)", "_Inexpressible_(EntriesRead)")] #[out] #[opt] BufPtr: *mut LPBYTE, #[in] PreferedMaximumSize: DWORD, #[out] #[opt] EntriesRead: LPDWORD, #[out] TotalEntries: LPDWORD, #[in] #[out] #[opt] ResumeHandle: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetUseGetInfo(#[opt] UncServerName: PCWSTR, UseName: PCWSTR, LevelFlags: u32, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetUseGetInfo(#[in] #[opt] UncServerName: LPWSTR, #[in] UseName: LPWSTR, #[in] LevelFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "USE_LEVEL(LevelFlags) == 0,_Outptr_opt_result_bytebuffer_(sizeof(USE_INFO_0))", "((LevelFlags) & 0xffff) == 0, _Outptr_opt_result_bytebuffer_(sizeof(USE_INFO_0))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "USE_LEVEL(LevelFlags) == 1,_Outptr_opt_result_bytebuffer_(sizeof(USE_INFO_1))", "((LevelFlags) & 0xffff) == 1, _Outptr_opt_result_bytebuffer_(sizeof(USE_INFO_1))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "USE_LEVEL(LevelFlags) == 2,_Outptr_opt_result_bytebuffer_(sizeof(USE_INFO_2))", "((LevelFlags) & 0xffff) == 2, _Outptr_opt_result_bytebuffer_(sizeof(USE_INFO_2))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "USE_LEVEL(LevelFlags) == 3,_Outptr_opt_result_bytebuffer_(sizeof(USE_INFO_3))", "((LevelFlags) & 0xffff) == 3, _Outptr_opt_result_bytebuffer_(sizeof(USE_INFO_3))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "USE_LEVEL(LevelFlags) == 4,_Outptr_opt_result_bytebuffer_(sizeof(USE_INFO_4))", "((LevelFlags) & 0xffff) == 4, _Outptr_opt_result_bytebuffer_(sizeof(USE_INFO_4))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "USE_LEVEL(LevelFlags) == 5,_Outptr_opt_result_bytebuffer_(sizeof(USE_INFO_5))", "((LevelFlags) & 0xffff) == 5, _Outptr_opt_result_bytebuffer_(sizeof(USE_INFO_5))")] bufptr: *mut LPBYTE) -> DWORD;
         type PBLOCK_NTLM_INFO = *mut BLOCK_NTLM_INFO;
         type PSMB_COMPRESSION_INFO = *mut SMB_COMPRESSION_INFO;
         type PSMB_TREE_CONNECT_PARAMETERS = *mut SMB_TREE_CONNECT_PARAMETERS;
@@ -49,28 +49,28 @@ mod Windows {
         type PUSE_OPTION_TRANSPORT_PARAMETERS = *mut USE_OPTION_TRANSPORT_PARAMETERS;
         struct SMB_COMPRESSION_INFO {
             Switch: BOOLEAN,
-            Reserved1: u8,
-            Reserved2: u16,
-            Reserved3: u32,
+            Reserved1: BYTE,
+            Reserved2: USHORT,
+            Reserved3: ULONG,
         }
         struct SMB_TREE_CONNECT_PARAMETERS {
-            EABufferOffset: u32,
-            EABufferLen: u32,
-            CreateOptions: u32,
-            TreeConnectAttributes: u32,
+            EABufferOffset: ULONG,
+            EABufferLen: DWORD,
+            CreateOptions: ULONG,
+            TreeConnectAttributes: ULONG,
         }
         struct SMB_USE_OPTION_COMPRESSION_PARAMETERS {
-            Tag: u32,
-            Length: u16,
-            Reserved: u16,
+            Tag: ULONG,
+            Length: USHORT,
+            Reserved: USHORT,
         }
         struct TRANSPORT_INFO {
             Type: TRANSPORT_TYPE,
             SkipCertificateCheck: BOOLEAN,
-            TcpPort: u16,
-            QuicPort: u16,
-            RdmaPort: u16,
-            Flags: u32,
+            TcpPort: USHORT,
+            QuicPort: USHORT,
+            RdmaPort: USHORT,
+            Flags: ULONG,
         }
         #[repr(i32)]
         enum TRANSPORT_INFO_FLAG {
@@ -96,45 +96,45 @@ mod Windows {
         const USE_FLAGS_PARMNUM: i32 = 7;
         const USE_FLAG_GLOBAL_MAPPING: i32 = 65536;
         struct USE_INFO_0 {
-            ui0_local: PWSTR,
-            ui0_remote: PWSTR,
+            ui0_local: LPWSTR,
+            ui0_remote: LPWSTR,
         }
         struct USE_INFO_1 {
-            ui1_local: PWSTR,
-            ui1_remote: PWSTR,
-            ui1_password: PWSTR,
-            ui1_status: u32,
-            ui1_asg_type: u32,
-            ui1_refcount: u32,
-            ui1_usecount: u32,
+            ui1_local: LPWSTR,
+            ui1_remote: LPWSTR,
+            ui1_password: LPWSTR,
+            ui1_status: DWORD,
+            ui1_asg_type: DWORD,
+            ui1_refcount: DWORD,
+            ui1_usecount: DWORD,
         }
         struct USE_INFO_2 {
-            ui2_local: PWSTR,
-            ui2_remote: PWSTR,
-            ui2_password: PWSTR,
-            ui2_status: u32,
-            ui2_asg_type: u32,
-            ui2_refcount: u32,
-            ui2_usecount: u32,
-            ui2_username: PWSTR,
-            ui2_domainname: PWSTR,
+            ui2_local: LPWSTR,
+            ui2_remote: LPWSTR,
+            ui2_password: LPWSTR,
+            ui2_status: DWORD,
+            ui2_asg_type: DWORD,
+            ui2_refcount: DWORD,
+            ui2_usecount: DWORD,
+            ui2_username: LPWSTR,
+            ui2_domainname: LPWSTR,
         }
         struct USE_INFO_3 {
             ui3_ui2: USE_INFO_2,
-            ui3_flags: u32,
+            ui3_flags: ULONG,
         }
         struct USE_INFO_4 {
             ui4_ui3: USE_INFO_3,
-            ui4_auth_identity_length: u32,
+            ui4_auth_identity_length: DWORD,
             ui4_auth_identity: PBYTE,
         }
         struct USE_INFO_5 {
             ui4_ui3: USE_INFO_3,
-            ui4_auth_identity_length: u32,
+            ui4_auth_identity_length: DWORD,
             ui4_auth_identity: PBYTE,
-            ui5_security_descriptor_length: u32,
+            ui5_security_descriptor_length: DWORD,
             ui5_security_descriptor: PBYTE,
-            ui5_use_options_length: u32,
+            ui5_use_options_length: DWORD,
             ui5_use_options: PBYTE,
         }
         const USE_IPC: i32 = 3;
@@ -143,32 +143,32 @@ mod Windows {
         const USE_OK: i32 = 0;
         const USE_OPTIONS_PARMNUM: i32 = 10;
         struct USE_OPTION_BLOCK_NTLM_PARAMETERS {
-            Tag: u32,
-            Length: u16,
-            Reserved: u16,
+            Tag: ULONG,
+            Length: USHORT,
+            Reserved: USHORT,
         }
         const USE_OPTION_BLOCK_NTLM_PARAMS: i32 = 1315925058;
         struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
-            Tag: u32,
-            Length: u16,
-            Reserved: u16,
+            Tag: ULONG,
+            Length: USHORT,
+            Reserved: USHORT,
         }
         const USE_OPTION_DEFERRED_CONNECTION_PARAMS: i32 = 1130784068;
         struct USE_OPTION_GENERIC {
-            Tag: u32,
-            Length: u16,
-            Reserved: u16,
+            Tag: ULONG,
+            Length: USHORT,
+            Reserved: USHORT,
         }
         struct USE_OPTION_PROPERTIES {
-            Tag: u32,
-            pInfo: *mut void,
-            Length: usize,
+            Tag: ULONG,
+            pInfo: PVOID,
+            Length: size_t,
         }
         const USE_OPTION_SMB_COMPRESSION_PARAMS: i32 = 1349349187;
         struct USE_OPTION_TRANSPORT_PARAMETERS {
-            Tag: u32,
-            Length: u16,
-            Reserved: u16,
+            Tag: ULONG,
+            Length: USHORT,
+            Reserved: USHORT,
         }
         const USE_OPTION_TRANSPORT_PARAMS: i32 = 1348563540;
         const USE_PASSWORD_PARMNUM: i32 = 3;
@@ -179,6 +179,6 @@ mod Windows {
         const USE_SESSLOST: i32 = 2;
         const USE_SPOOLDEV: i32 = 1;
         const USE_USERNAME_PARMNUM: i32 = 5;
-        const USE_WILDCARD: u32 = 4294967295;
+        const USE_WILDCARD: DWORD = 4294967295;
     }
 }

@@ -3,18 +3,24 @@ mod Windows {
     mod Win32 {
         const ACTIVEOBJECT_STRONG: i32 = 0;
         const ACTIVEOBJECT_WEAK: i32 = 1;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn BstrFromVector(#[in] psa: *mut SAFEARRAY, pbstr: *mut BSTR) -> HRESULT;
+        extern fn BstrFromVector(#[in] psa: *mut SAFEARRAY, #[out] pbstr: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn ClearCustData(pCustData: LPCUSTDATA);
+        #[must_use]
         #[library("OLEAUT32.dll")]
         extern fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: LCID, pptinfo: *mut ITypeInfo) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn CreateErrorInfo(pperrinfo: *mut ICreateErrorInfo) -> HRESULT;
+        extern fn CreateErrorInfo(#[out] #[out_ptr] pperrinfo: *mut ICreateErrorInfo) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
         extern fn CreateStdDispatch(punkOuter: IUnknown, pvThis: *mut void, ptinfo: ITypeInfo, ppunkStdDisp: *mut IUnknown) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
         extern fn CreateTypeLib(syskind: SYSKIND, szFile: LPCOLESTR, ppctlib: *mut ICreateTypeLib) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
         extern fn CreateTypeLib2(syskind: SYSKIND, szFile: LPCOLESTR, ppctlib: *mut ICreateTypeLib2) -> HRESULT;
         const DISPATCH_METHOD: i32 = 1;
@@ -22,65 +28,77 @@ mod Windows {
         const DISPATCH_PROPERTYPUT: i32 = 4;
         const DISPATCH_PROPERTYPUTREF: i32 = 8;
         #[library("OLEAUT32.dll")]
-        extern fn DispCallFunc(#[in] #[opt] pvInstance: *mut void, oVft: usize, cc: CALLCONV, vtReturn: VARTYPE, cActuals: u32, #[len_param(4)] #[in] prgvt: *mut VARTYPE, #[len_param(4)] #[in] prgpvarg: *mut *mut VARIANTARG, pvargResult: *mut VARIANT) -> HRESULT;
+        extern fn DispCallFunc(#[in] #[opt] pvInstance: *mut void, oVft: ULONG_PTR, cc: CALLCONV, vtReturn: VARTYPE, cActuals: UINT, #[in] #[readable(entry, cActuals)] prgvt: *mut VARTYPE, #[in] #[readable(entry, cActuals)] prgpvarg: *mut *mut VARIANTARG, #[out] pvargResult: *mut VARIANT) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn DispGetIDsOfNames(ptinfo: ITypeInfo, #[len_param(2)] #[in] rgszNames: *mut LPOLESTR, cNames: u32, #[len_param(2)] rgdispid: *mut DISPID) -> HRESULT;
+        extern fn DispGetIDsOfNames(ptinfo: ITypeInfo, #[in] #[readable(entry, cNames)] rgszNames: *mut LPOLESTR, cNames: UINT, #[out] #[writable(entry, cNames)] rgdispid: *mut DISPID) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn DispGetParam(#[in] pdispparams: *mut DISPPARAMS, position: u32, vtTarg: VARTYPE, pvarResult: *mut VARIANT, #[opt] puArgErr: *mut u32) -> HRESULT;
+        extern fn DispGetParam(#[in] pdispparams: *mut DISPPARAMS, position: UINT, vtTarg: VARTYPE, #[out] pvarResult: *mut VARIANT, #[out] #[opt] puArgErr: *mut UINT) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn DispInvoke(_this: *mut void, ptinfo: ITypeInfo, dispidMember: DISPID, wFlags: u16, pparams: *mut DISPPARAMS, pvarResult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puArgErr: *mut u32) -> HRESULT;
+        extern fn DispInvoke(_this: *mut void, ptinfo: ITypeInfo, dispidMember: DISPID, wFlags: WORD, pparams: *mut DISPPARAMS, pvarResult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puArgErr: *mut UINT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn DosDateTimeToVariantTime(wDosDate: u16, wDosTime: u16, pvtime: *mut f64) -> i32;
+        extern fn DosDateTimeToVariantTime(#[in] wDosDate: USHORT, #[in] wDosTime: USHORT, #[out] pvtime: *mut DOUBLE) -> INT;
         #[library("OLEAUT32.dll")]
-        extern fn GetActiveObject(rclsid: *const GUID, pvReserved: *mut void, ppunk: *mut IUnknown) -> HRESULT;
+        extern fn GetActiveObject(rclsid: &IID, pvReserved: *mut void, ppunk: *mut IUnknown) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn GetAltMonthNames(lcid: LCID, prgp: *mut *mut LPOLESTR) -> HRESULT;
+        extern fn GetAltMonthNames(lcid: LCID, #[out] #[writable(success, 13, indirect, nullable)] prgp: *mut *mut LPOLESTR) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn GetErrorInfo(dwReserved: u32, pperrinfo: *mut IErrorInfo) -> HRESULT;
+        extern fn GetErrorInfo(#[in] dwReserved: ULONG, #[out] #[out_ptr] pperrinfo: *mut IErrorInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn GetRecordInfoFromGuids(rGuidTypeLib: *const GUID, uVerMajor: u32, uVerMinor: u32, lcid: LCID, rGuidTypeInfo: *const GUID, ppRecInfo: *mut IRecordInfo) -> HRESULT;
+        extern fn GetRecordInfoFromGuids(rGuidTypeLib: &GUID, uVerMajor: ULONG, uVerMinor: ULONG, lcid: LCID, rGuidTypeInfo: &GUID, ppRecInfo: *mut IRecordInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn GetRecordInfoFromTypeInfo(pTypeInfo: ITypeInfo, ppRecInfo: *mut IRecordInfo) -> HRESULT;
         const ID_DEFAULTINST: i32 = -2;
+        #[packed(8)]
         struct INTERFACEDATA {
             pmethdata: *mut METHODDATA,
-            cMembers: u32,
+            cMembers: UINT,
         }
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn LHashValOfNameSys(syskind: SYSKIND, lcid: LCID, szName: *const OLECHAR) -> u32;
+        extern fn LHashValOfNameSys(syskind: SYSKIND, lcid: LCID, szName: *const OLECHAR) -> ULONG;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn LHashValOfNameSysA(syskind: SYSKIND, lcid: LCID, szName: PCSTR) -> u32;
+        extern fn LHashValOfNameSysA(syskind: SYSKIND, lcid: LCID, szName: LPCSTR) -> ULONG;
         const LOAD_TLB_AS_32BIT: i32 = 32;
         const LOAD_TLB_AS_64BIT: i32 = 64;
         const LOCALE_USE_NLS: i32 = 268435456;
         type LPINTERFACEDATA = *mut INTERFACEDATA;
         type LPMETHODDATA = *mut METHODDATA;
         type LPPARAMDATA = *mut PARAMDATA;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn LoadRegTypeLib(rguid: *const GUID, wVerMajor: u16, wVerMinor: u16, lcid: LCID, pptlib: *mut ITypeLib) -> HRESULT;
+        extern fn LoadRegTypeLib(rguid: &GUID, wVerMajor: WORD, wVerMinor: WORD, lcid: LCID, pptlib: *mut ITypeLib) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn LoadTypeLib(szFile: LPCOLESTR, pptlib: *mut ITypeLib) -> HRESULT;
+        extern fn LoadTypeLib(#[in] #[null_terminated(entry)] szFile: LPCOLESTR, pptlib: *mut ITypeLib) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
         extern fn LoadTypeLibEx(szFile: LPCOLESTR, regkind: REGKIND, pptlib: *mut ITypeLib) -> HRESULT;
         const MASK_TO_RESET_TLB_BITS: i32 = -97;
         const MEMBERID_NIL: i32 = -1;
+        #[packed(8)]
         struct METHODDATA {
             szName: *mut OLECHAR,
             ppdata: *mut PARAMDATA,
             dispid: DISPID,
-            iMeth: u32,
+            iMeth: UINT,
             cc: CALLCONV,
-            cArgs: u32,
-            wFlags: u16,
+            cArgs: UINT,
+            wFlags: WORD,
             vtReturn: VARTYPE,
         }
+        #[packed(8)]
         struct NUMPARSE {
-            cDig: i32,
-            dwInFlags: u32,
-            dwOutFlags: u32,
-            cchUsed: i32,
-            nBaseShift: i32,
-            nPwr10: i32,
+            cDig: INT,
+            dwInFlags: ULONG,
+            dwOutFlags: ULONG,
+            cchUsed: INT,
+            nBaseShift: INT,
+            nPwr10: INT,
         }
         const NUMPRS_CURRENCY: i32 = 1024;
         const NUMPRS_DECIMAL: i32 = 256;
@@ -99,29 +117,32 @@ mod Windows {
         const NUMPRS_TRAILING_WHITE: i32 = 2;
         const NUMPRS_USE_ALL: i32 = 4096;
         #[library("OLEAUT32.dll")]
-        extern fn OaBuildVersion() -> u32;
+        extern fn OaBuildVersion() -> ULONG;
         #[library("OLEAUT32.dll")]
         extern fn OaEnablePerUserTLibRegistration();
+        #[packed(8)]
         struct PARAMDATA {
             szName: *mut OLECHAR,
             vt: VARTYPE,
         }
         #[library("OLEAUT32.dll")]
-        extern fn QueryPathOfRegTypeLib(guid: *const GUID, wMaj: u16, wMin: u16, lcid: LCID, #[out] lpbstrPathName: LPBSTR) -> HRESULT;
+        extern fn QueryPathOfRegTypeLib(guid: &GUID, wMaj: USHORT, wMin: USHORT, lcid: LCID, #[out] lpbstrPathName: LPBSTR) -> HRESULT;
         #[repr(i32)]
         enum REGKIND {
             REGKIND_DEFAULT = 0,
             REGKIND_REGISTER = 1,
             REGKIND_NONE = 2,
         }
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn RegisterActiveObject(punk: IUnknown, rclsid: *const GUID, dwFlags: u32, pdwRegister: *mut u32) -> HRESULT;
+        extern fn RegisterActiveObject(punk: IUnknown, rclsid: &IID, dwFlags: DWORD, pdwRegister: *mut DWORD) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn RegisterTypeLib(ptlib: ITypeLib, szFullPath: LPCOLESTR, #[opt] szHelpDir: LPCOLESTR) -> HRESULT;
+        extern fn RegisterTypeLib(ptlib: ITypeLib, #[in] szFullPath: LPCOLESTR, #[in] #[opt] szHelpDir: LPCOLESTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn RegisterTypeLibForUser(ptlib: ITypeLib, #[in] szFullPath: *mut OLECHAR, #[in] #[opt] szHelpDir: *mut OLECHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn RevokeActiveObject(dwRegister: u32, pvReserved: *mut void) -> HRESULT;
+        extern fn RevokeActiveObject(dwRegister: DWORD, pvReserved: *mut void) -> HRESULT;
         const STDOLE2_LCID: i32 = 0;
         const STDOLE2_MAJORVERNUM: i32 = 2;
         const STDOLE2_MINORVERNUM: i32 = 0;
@@ -129,27 +150,29 @@ mod Windows {
         const STDOLE_MAJORVERNUM: i32 = 1;
         const STDOLE_MINORVERNUM: i32 = 0;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayAccessData(#[in] psa: *mut SAFEARRAY, ppvData: *mut *mut void) -> HRESULT;
+        extern fn SafeArrayAccessData(#[in] psa: *mut SAFEARRAY, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(psa->cbElements * product(psa->rgsabound[0..psa->cDims-1]->cElements))", "_Inexpressible_(psa->cbElements * product(psa->rgsabound[0..psa->cDims-1]->cElements))")] #[out] ppvData: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayAddRef(#[in] psa: *mut SAFEARRAY, ppDataToRelease: *mut *mut void) -> HRESULT;
+        extern fn SafeArrayAddRef(#[in] psa: *mut SAFEARRAY, #[out] ppDataToRelease: *mut PVOID) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayAllocData(#[in] psa: *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayAllocDescriptor(cDims: u32, ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
+        extern fn SafeArrayAllocDescriptor(#[in] cDims: UINT, #[out] #[out_ptr] ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayAllocDescriptorEx(vt: VARTYPE, cDims: u32, ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
+        extern fn SafeArrayAllocDescriptorEx(#[in] vt: VARTYPE, #[in] cDims: UINT, #[out] #[out_ptr] ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayCopy(#[in] psa: *mut SAFEARRAY, ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
+        extern fn SafeArrayCopy(#[in] psa: *mut SAFEARRAY, #[out] #[out_ptr] ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayCopyData(#[in] psaSource: *mut SAFEARRAY, #[in] psaTarget: *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayCreate(vt: VARTYPE, cDims: u32, #[in] rgsabound: *mut SAFEARRAYBOUND) -> *mut SAFEARRAY;
+        extern fn SafeArrayCreate(#[in] vt: VARTYPE, #[in] cDims: UINT, #[in] rgsabound: *mut SAFEARRAYBOUND) -> *mut SAFEARRAY;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayCreateEx(vt: VARTYPE, cDims: u32, #[in] rgsabound: *mut SAFEARRAYBOUND, #[in] pvExtra: *mut void) -> *mut SAFEARRAY;
+        extern fn SafeArrayCreateEx(#[in] vt: VARTYPE, #[in] cDims: UINT, #[in] rgsabound: *mut SAFEARRAYBOUND, #[in] pvExtra: PVOID) -> *mut SAFEARRAY;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayCreateVector(vt: VARTYPE, lLbound: i32, cElements: u32) -> *mut SAFEARRAY;
+        extern fn SafeArrayCreateVector(#[in] vt: VARTYPE, #[in] lLbound: LONG, #[in] cElements: ULONG) -> *mut SAFEARRAY;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayCreateVectorEx(vt: VARTYPE, lLbound: i32, cElements: u32, #[in] pvExtra: *mut void) -> *mut SAFEARRAY;
+        extern fn SafeArrayCreateVectorEx(#[in] vt: VARTYPE, #[in] lLbound: LONG, #[in] cElements: ULONG, #[in] pvExtra: PVOID) -> *mut SAFEARRAY;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayDestroy(#[in] psa: *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
@@ -157,73 +180,80 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayDestroyDescriptor(#[in] psa: *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayGetDim(#[in] psa: *mut SAFEARRAY) -> u32;
+        extern fn SafeArrayGetDim(#[in] psa: *mut SAFEARRAY) -> UINT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayGetElement(#[in] psa: *mut SAFEARRAY, #[in] rgIndices: *mut i32, pv: *mut void) -> HRESULT;
+        extern fn SafeArrayGetElement(#[in] psa: *mut SAFEARRAY, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(psa->cDims)", "_Inexpressible_(psa->cDims)")] #[in] rgIndices: *mut LONG, #[out] pv: *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayGetElemsize(#[in] psa: *mut SAFEARRAY) -> u32;
+        extern fn SafeArrayGetElemsize(#[in] psa: *mut SAFEARRAY) -> UINT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayGetIID(#[in] psa: *mut SAFEARRAY, pguid: *mut GUID) -> HRESULT;
+        extern fn SafeArrayGetIID(#[in] psa: *mut SAFEARRAY, #[out] pguid: *mut GUID) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayGetLBound(#[in] psa: *mut SAFEARRAY, nDim: u32, plLbound: *mut i32) -> HRESULT;
+        extern fn SafeArrayGetLBound(#[in] psa: *mut SAFEARRAY, #[in] nDim: UINT, #[out] plLbound: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayGetRecordInfo(#[in] psa: *mut SAFEARRAY, prinfo: *mut IRecordInfo) -> HRESULT;
+        extern fn SafeArrayGetRecordInfo(#[in] psa: *mut SAFEARRAY, #[out] #[out_ptr] prinfo: *mut IRecordInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayGetUBound(#[in] psa: *mut SAFEARRAY, nDim: u32, plUbound: *mut i32) -> HRESULT;
+        extern fn SafeArrayGetUBound(#[in] psa: *mut SAFEARRAY, #[in] nDim: UINT, #[out] plUbound: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayGetVartype(#[in] psa: *mut SAFEARRAY, pvt: *mut VARTYPE) -> HRESULT;
+        extern fn SafeArrayGetVartype(#[in] psa: *mut SAFEARRAY, #[out] pvt: *mut VARTYPE) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayLock(#[in] psa: *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayPtrOfIndex(#[in] psa: *mut SAFEARRAY, #[in] rgIndices: *mut i32, ppvData: *mut *mut void) -> HRESULT;
+        extern fn SafeArrayPtrOfIndex(#[in] psa: *mut SAFEARRAY, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "psa->cDims", "psa->cDims")] #[in] rgIndices: *mut LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "psa->cbElements", "psa->cbElements")] #[out] ppvData: *mut *mut void) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayPutElement(#[in] psa: *mut SAFEARRAY, #[in] rgIndices: *mut i32, #[in] pv: *mut void) -> HRESULT;
+        extern fn SafeArrayPutElement(#[in] psa: *mut SAFEARRAY, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(psa->cDims)", "_Inexpressible_(psa->cDims)")] #[in] rgIndices: *mut LONG, #[in] pv: *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayRedim(#[in] #[out] psa: *mut SAFEARRAY, #[in] psaboundNew: *mut SAFEARRAYBOUND) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArrayReleaseData(#[in] pData: *mut void);
+        extern fn SafeArrayReleaseData(#[in] pData: PVOID);
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayReleaseDescriptor(#[in] psa: *mut SAFEARRAY);
         #[library("OLEAUT32.dll")]
-        extern fn SafeArraySetIID(#[in] psa: *mut SAFEARRAY, guid: *const GUID) -> HRESULT;
+        extern fn SafeArraySetIID(#[in] psa: *mut SAFEARRAY, #[in] guid: &GUID) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SafeArraySetRecordInfo(#[in] psa: *mut SAFEARRAY, prinfo: IRecordInfo) -> HRESULT;
+        extern fn SafeArraySetRecordInfo(#[in] psa: *mut SAFEARRAY, #[in] prinfo: IRecordInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayUnaccessData(#[in] psa: *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayUnlock(#[in] psa: *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SetErrorInfo(dwReserved: u32, #[opt] perrinfo: IErrorInfo) -> HRESULT;
+        extern fn SetErrorInfo(#[in] dwReserved: ULONG, #[in] #[opt] perrinfo: IErrorInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SysAddRefString(bstrString: BSTR) -> HRESULT;
+        extern fn SysAddRefString(#[in] bstrString: BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SysAllocString(#[opt] psz: *const OLECHAR) -> BSTR;
+        extern fn SysAllocString(#[in] #[opt] #[null_terminated(entry)] psz: *const OLECHAR) -> BSTR;
         #[library("OLEAUT32.dll")]
-        extern fn SysAllocStringByteLen(#[opt] psz: PCSTR, len: u32) -> BSTR;
+        extern fn SysAllocStringByteLen(#[in] #[opt] #[null_terminated(entry)] psz: LPCSTR, #[in] len: UINT) -> BSTR;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Ret_writes_maybenull_z_", "ui+1", "ui+1")]
         #[library("OLEAUT32.dll")]
-        extern fn SysAllocStringLen(#[len_param(1)] #[opt] strIn: *const OLECHAR, ui: u32) -> BSTR;
+        extern fn SysAllocStringLen(#[in] #[opt] #[readable(entry, ui)] strIn: *const OLECHAR, ui: UINT) -> BSTR;
         #[library("OLEAUT32.dll")]
-        extern fn SysFreeString(bstrString: BSTR);
+        extern fn SysFreeString(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] bstrString: BSTR);
         #[library("OLEAUT32.dll")]
-        extern fn SysReAllocString(#[in] #[out] pbstr: *mut BSTR, #[opt] psz: *const OLECHAR) -> i32;
+        extern fn SysReAllocString(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*pbstr,_Pre_z_ _Post_z_ _Post_readable_size_(_String_length_(psz)+1)", "*pbstr, _Pre_z_ _Post_z_ _Post_readable_size_(_String_length_(psz)+1)")] #[in] #[out] pbstr: *mut BSTR, #[in] #[opt] #[null_terminated(entry)] psz: *const OLECHAR) -> INT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn SysReAllocStringLen(#[in] #[out] pbstr: *mut BSTR, #[opt] psz: *const OLECHAR, len: u32) -> i32;
+        extern fn SysReAllocStringLen(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*pbstr,_Pre_z_ _Post_z_ _Post_readable_size_(len+1)", "*pbstr, _Pre_z_ _Post_z_ _Post_readable_size_(len+1)")] #[in] #[out] pbstr: *mut BSTR, #[in] #[opt] #[null_terminated(entry)] psz: *const OLECHAR, #[in] len: u32) -> INT;
         #[library("OLEAUT32.dll")]
-        extern fn SysReleaseString(bstrString: BSTR);
+        extern fn SysReleaseString(#[in] bstrString: BSTR);
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_equal_to_", "_String_length_(bstr) * sizeof(OLECHAR)", "_String_length_(bstr) * sizeof(OLECHAR)")]
         #[library("OLEAUT32.dll")]
-        extern fn SysStringByteLen(#[opt] bstr: BSTR) -> u32;
+        extern fn SysStringByteLen(#[in] #[opt] bstr: BSTR) -> UINT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Post_equal_to_", "pbstr == 0 ? 0 : _String_length_(pbstr)", "pbstr == 0 ? 0 : _String_length_(pbstr)")]
         #[library("OLEAUT32.dll")]
-        extern fn SysStringLen(#[opt] pbstr: BSTR) -> u32;
+        extern fn SysStringLen(#[in] #[opt] pbstr: BSTR) -> UINT;
         #[library("OLEAUT32.dll")]
-        extern fn SystemTimeToVariantTime(lpSystemTime: LPSYSTEMTIME, pvtime: *mut f64) -> i32;
+        extern fn SystemTimeToVariantTime(#[in] lpSystemTime: LPSYSTEMTIME, #[out] pvtime: *mut DOUBLE) -> INT;
+        #[packed(8)]
         struct UDATE {
             st: SYSTEMTIME,
-            wDayOfYear: u16,
+            wDayOfYear: USHORT,
         }
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn UnRegisterTypeLib(libID: *const GUID, wVerMajor: u16, wVerMinor: u16, lcid: LCID, syskind: SYSKIND) -> HRESULT;
+        extern fn UnRegisterTypeLib(libID: &GUID, wVerMajor: WORD, wVerMinor: WORD, lcid: LCID, syskind: SYSKIND) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn UnRegisterTypeLibForUser(libID: *const GUID, wMajorVerNum: u16, wMinorVerNum: u16, lcid: LCID, syskind: SYSKIND) -> HRESULT;
+        extern fn UnRegisterTypeLibForUser(libID: &GUID, wMajorVerNum: WORD, wMinorVerNum: WORD, lcid: LCID, syskind: SYSKIND) -> HRESULT;
         const VARCMP_EQ: i32 = 1;
         const VARCMP_GT: i32 = 2;
         const VARCMP_LT: i32 = 0;
@@ -236,15 +266,15 @@ mod Windows {
         const VARIANT_NOUSEROVERRIDE: i32 = 4;
         const VARIANT_NOVALUEPROP: i32 = 1;
         const VARIANT_USE_NLS: i32 = 128;
-        const VAR_CALENDAR_GREGORIAN: u32 = 256;
-        const VAR_CALENDAR_HIJRI: u32 = 8;
-        const VAR_CALENDAR_THAI: u32 = 128;
-        const VAR_DATEVALUEONLY: u32 = 2;
-        const VAR_FORMAT_NOSUBSTITUTE: u32 = 32;
-        const VAR_FOURDIGITYEARS: u32 = 64;
-        const VAR_LOCALBOOL: u32 = 16;
-        const VAR_TIMEVALUEONLY: u32 = 1;
-        const VAR_VALIDDATE: u32 = 4;
+        const VAR_CALENDAR_GREGORIAN: DWORD = 256;
+        const VAR_CALENDAR_HIJRI: DWORD = 8;
+        const VAR_CALENDAR_THAI: DWORD = 128;
+        const VAR_DATEVALUEONLY: DWORD = 2;
+        const VAR_FORMAT_NOSUBSTITUTE: DWORD = 32;
+        const VAR_FOURDIGITYEARS: DWORD = 64;
+        const VAR_LOCALBOOL: DWORD = 16;
+        const VAR_TIMEVALUEONLY: DWORD = 1;
+        const VAR_VALIDDATE: DWORD = 4;
         const VTBIT_CY: i32 = 64;
         const VTBIT_DECIMAL: i32 = 16384;
         const VTBIT_I1: i32 = 65536;
@@ -261,592 +291,602 @@ mod Windows {
         const VTDATEGRE_MIN: i32 = -657434;
         const VT_HARDTYPE: VARENUM = 32768;
         #[library("OLEAUT32.dll")]
-        extern fn VarAbs(pvarIn: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarAbs(#[in] pvarIn: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarAdd(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarAdd(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarAnd(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarAnd(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromCy(cyIn: CY, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromCy(cyIn: CY, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromDate(dateIn: DATE, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromDate(dateIn: DATE, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromDec(pdecIn: *const DECIMAL, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromDec(#[in] pdecIn: *const DECIMAL, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromDisp(pdispIn: IDispatch, lcid: LCID, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromDisp(pdispIn: IDispatch, lcid: LCID, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromI1(cIn: i8, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromI1(cIn: CHAR, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromI2(sIn: i16, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromI2(#[in] sIn: SHORT, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromI4(lIn: i32, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromI4(lIn: LONG, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromI8(i64In: i64, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromI8(i64In: LONG64, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromR4(fltIn: f32, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromR4(fltIn: FLOAT, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromR8(dblIn: f64, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromR8(dblIn: DOUBLE, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromStr(#[in] strIn: LPCOLESTR, lcid: LCID, dwFlags: ULONG, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromUI1(bIn: u8, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromUI1(bIn: BYTE, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromUI2(uiIn: u16, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromUI2(uiIn: USHORT, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromUI4(ulIn: u32, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromUI4(ulIn: ULONG, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBoolFromUI8(i64In: u64, pboolOut: *mut VARIANT_BOOL) -> HRESULT;
+        extern fn VarBoolFromUI8(i64In: ULONG64, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrCat(bstrLeft: BSTR, bstrRight: BSTR, #[out] pbstrResult: LPBSTR) -> HRESULT;
+        extern fn VarBstrCat(#[in] bstrLeft: BSTR, #[in] bstrRight: BSTR, #[out] pbstrResult: LPBSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrCmp(bstrLeft: BSTR, bstrRight: BSTR, lcid: LCID, dwFlags: u32) -> HRESULT;
+        extern fn VarBstrCmp(#[in] bstrLeft: BSTR, #[in] bstrRight: BSTR, #[in] lcid: LCID, #[in] dwFlags: ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromBool(boolIn: VARIANT_BOOL, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromBool(boolIn: VARIANT_BOOL, lcid: LCID, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromCy(cyIn: CY, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromCy(cyIn: CY, lcid: LCID, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromDate(dateIn: DATE, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromDate(#[in] dateIn: DATE, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromDec(pdecIn: *const DECIMAL, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromDec(#[in] pdecIn: *const DECIMAL, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromDisp(pdispIn: IDispatch, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromDisp(pdispIn: IDispatch, lcid: LCID, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromI1(cIn: i8, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromI1(cIn: CHAR, lcid: LCID, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromI2(iVal: i16, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromI2(iVal: SHORT, lcid: LCID, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromI4(lIn: i32, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromI4(lIn: LONG, lcid: LCID, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromI8(i64In: i64, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromI8(i64In: LONG64, lcid: LCID, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromR4(fltIn: f32, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromR4(fltIn: FLOAT, lcid: LCID, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromR8(dblIn: f64, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromR8(dblIn: DOUBLE, lcid: LCID, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromUI1(bVal: u8, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromUI1(bVal: BYTE, lcid: LCID, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromUI2(uiIn: u16, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromUI2(uiIn: USHORT, lcid: LCID, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromUI4(ulIn: u32, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromUI4(ulIn: ULONG, lcid: LCID, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarBstrFromUI8(ui64In: u64, lcid: LCID, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarBstrFromUI8(ui64In: ULONG64, lcid: LCID, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCat(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarCat(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCmp(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, lcid: LCID, dwFlags: u32) -> HRESULT;
+        extern fn VarCmp(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[in] lcid: LCID, #[in] dwFlags: ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyAbs(cyIn: CY, #[out] pcyResult: LPCY) -> HRESULT;
+        extern fn VarCyAbs(#[in] cyIn: CY, #[out] pcyResult: LPCY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyAdd(cyLeft: CY, cyRight: CY, #[out] pcyResult: LPCY) -> HRESULT;
+        extern fn VarCyAdd(#[in] cyLeft: CY, #[in] cyRight: CY, #[out] pcyResult: LPCY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyCmp(cyLeft: CY, cyRight: CY) -> HRESULT;
+        extern fn VarCyCmp(#[in] cyLeft: CY, #[in] cyRight: CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyCmpR8(cyLeft: CY, dblRight: f64) -> HRESULT;
+        extern fn VarCyCmpR8(#[in] cyLeft: CY, #[in] dblRight: f64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFix(cyIn: CY, #[out] pcyResult: LPCY) -> HRESULT;
+        extern fn VarCyFix(#[in] cyIn: CY, #[out] pcyResult: LPCY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromBool(boolIn: VARIANT_BOOL, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromBool(boolIn: VARIANT_BOOL, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromDate(dateIn: DATE, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromDate(dateIn: DATE, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromDec(pdecIn: *const DECIMAL, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromDec(#[in] pdecIn: *const DECIMAL, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromDisp(pdispIn: IDispatch, lcid: LCID, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromDisp(#[in] pdispIn: IDispatch, lcid: LCID, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromI1(cIn: i8, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromI1(cIn: CHAR, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromI2(sIn: i16, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromI2(sIn: SHORT, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromI4(lIn: i32, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromI4(lIn: LONG, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromI8(i64In: i64, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromI8(i64In: LONG64, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromR4(fltIn: f32, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromR4(fltIn: FLOAT, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromR8(dblIn: f64, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromR8(dblIn: DOUBLE, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromStr(#[in] strIn: LPCOLESTR, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromUI1(bIn: u8, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromUI1(bIn: BYTE, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromUI2(uiIn: u16, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromUI2(uiIn: USHORT, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromUI4(ulIn: u32, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromUI4(ulIn: ULONG, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyFromUI8(ui64In: u64, pcyOut: *mut CY) -> HRESULT;
+        extern fn VarCyFromUI8(ui64In: ULONG64, #[out] pcyOut: *mut CY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyInt(cyIn: CY, #[out] pcyResult: LPCY) -> HRESULT;
+        extern fn VarCyInt(#[in] cyIn: CY, #[out] pcyResult: LPCY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyMul(cyLeft: CY, cyRight: CY, #[out] pcyResult: LPCY) -> HRESULT;
+        extern fn VarCyMul(#[in] cyLeft: CY, #[in] cyRight: CY, #[out] pcyResult: LPCY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyMulI4(cyLeft: CY, lRight: i32, #[out] pcyResult: LPCY) -> HRESULT;
+        extern fn VarCyMulI4(#[in] cyLeft: CY, #[in] lRight: LONG, #[out] pcyResult: LPCY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyMulI8(cyLeft: CY, lRight: i64, #[out] pcyResult: LPCY) -> HRESULT;
+        extern fn VarCyMulI8(#[in] cyLeft: CY, #[in] lRight: LONG64, #[out] pcyResult: LPCY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyNeg(cyIn: CY, #[out] pcyResult: LPCY) -> HRESULT;
+        extern fn VarCyNeg(#[in] cyIn: CY, #[out] pcyResult: LPCY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCyRound(cyIn: CY, cDecimals: i32, #[out] pcyResult: LPCY) -> HRESULT;
+        extern fn VarCyRound(#[in] cyIn: CY, #[in] cDecimals: i32, #[out] pcyResult: LPCY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarCySub(cyLeft: CY, cyRight: CY, #[out] pcyResult: LPCY) -> HRESULT;
+        extern fn VarCySub(#[in] cyLeft: CY, #[in] cyRight: CY, #[out] pcyResult: LPCY) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromBool(boolIn: VARIANT_BOOL, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromBool(boolIn: VARIANT_BOOL, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromCy(cyIn: CY, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromCy(cyIn: CY, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromDec(pdecIn: *const DECIMAL, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromDec(#[in] pdecIn: *const DECIMAL, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromDisp(pdispIn: IDispatch, lcid: LCID, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromDisp(pdispIn: IDispatch, lcid: LCID, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromI1(cIn: i8, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromI1(cIn: CHAR, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromI2(sIn: i16, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromI2(sIn: SHORT, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromI4(lIn: i32, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromI4(lIn: LONG, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromI8(i64In: i64, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromI8(i64In: LONG64, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromR4(fltIn: f32, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromR4(fltIn: FLOAT, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromR8(dblIn: f64, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromR8(dblIn: DOUBLE, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromStr(#[in] strIn: LPCOLESTR, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromUI1(bIn: u8, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromUI1(bIn: BYTE, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromUI2(uiIn: u16, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromUI2(uiIn: USHORT, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromUI4(ulIn: u32, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromUI4(ulIn: ULONG, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromUI8(ui64In: u64, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromUI8(ui64In: ULONG64, #[out] pdateOut: *mut DATE) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromUdate(#[in] pudateIn: *mut UDATE, dwFlags: u32, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromUdate(#[in] pudateIn: *mut UDATE, #[in] dwFlags: ULONG, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDateFromUdateEx(#[in] pudateIn: *mut UDATE, lcid: LCID, dwFlags: u32, pdateOut: *mut DATE) -> HRESULT;
+        extern fn VarDateFromUdateEx(#[in] pudateIn: *mut UDATE, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecAbs(pdecIn: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
+        extern fn VarDecAbs(#[in] pdecIn: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecAdd(pdecLeft: LPDECIMAL, pdecRight: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
+        extern fn VarDecAdd(#[in] pdecLeft: LPDECIMAL, #[in] pdecRight: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecCmp(pdecLeft: LPDECIMAL, pdecRight: LPDECIMAL) -> HRESULT;
+        extern fn VarDecCmp(#[in] pdecLeft: LPDECIMAL, #[in] pdecRight: LPDECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecCmpR8(pdecLeft: LPDECIMAL, dblRight: f64) -> HRESULT;
+        extern fn VarDecCmpR8(#[in] pdecLeft: LPDECIMAL, #[in] dblRight: f64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecDiv(pdecLeft: LPDECIMAL, pdecRight: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
+        extern fn VarDecDiv(#[in] pdecLeft: LPDECIMAL, #[in] pdecRight: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFix(pdecIn: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
+        extern fn VarDecFix(#[in] pdecIn: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromBool(boolIn: VARIANT_BOOL, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromBool(#[in] boolIn: VARIANT_BOOL, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromCy(cyIn: CY, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromCy(#[in] cyIn: CY, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromDate(dateIn: DATE, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromDate(#[in] dateIn: DATE, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromDisp(pdispIn: IDispatch, lcid: LCID, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromDisp(#[in] pdispIn: IDispatch, #[in] lcid: LCID, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromI1(cIn: i8, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromI1(#[in] cIn: CHAR, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromI2(uiIn: i16, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromI2(#[in] uiIn: SHORT, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromI4(lIn: i32, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromI4(#[in] lIn: LONG, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromI8(i64In: i64, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromI8(i64In: LONG64, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromR4(fltIn: f32, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromR4(#[in] fltIn: FLOAT, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromR8(dblIn: f64, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromR8(#[in] dblIn: DOUBLE, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromStr(#[in] strIn: LPCOLESTR, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromUI1(bIn: u8, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromUI1(#[in] bIn: BYTE, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromUI2(uiIn: u16, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromUI2(#[in] uiIn: USHORT, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromUI4(ulIn: u32, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromUI4(#[in] ulIn: ULONG, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecFromUI8(ui64In: u64, pdecOut: *mut DECIMAL) -> HRESULT;
+        extern fn VarDecFromUI8(ui64In: ULONG64, #[out] pdecOut: *mut DECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecInt(pdecIn: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
+        extern fn VarDecInt(#[in] pdecIn: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecMul(pdecLeft: LPDECIMAL, pdecRight: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
+        extern fn VarDecMul(#[in] pdecLeft: LPDECIMAL, #[in] pdecRight: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecNeg(pdecIn: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
+        extern fn VarDecNeg(#[in] pdecIn: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecRound(pdecIn: LPDECIMAL, cDecimals: i32, #[out] pdecResult: LPDECIMAL) -> HRESULT;
+        extern fn VarDecRound(#[in] pdecIn: LPDECIMAL, cDecimals: i32, #[out] pdecResult: LPDECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDecSub(pdecLeft: LPDECIMAL, pdecRight: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
+        extern fn VarDecSub(#[in] pdecLeft: LPDECIMAL, #[in] pdecRight: LPDECIMAL, #[out] pdecResult: LPDECIMAL) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarDiv(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarDiv(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarEqv(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarEqv(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarFix(pvarIn: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarFix(#[in] pvarIn: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarFormat(pvarIn: LPVARIANT, #[opt] pstrFormat: LPOLESTR, iFirstDay: i32, iFirstWeek: i32, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarFormat(#[in] pvarIn: LPVARIANT, #[in] #[opt] pstrFormat: LPOLESTR, iFirstDay: i32, iFirstWeek: i32, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarFormatCurrency(pvarIn: LPVARIANT, iNumDig: i32, iIncLead: i32, iUseParens: i32, iGroup: i32, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarFormatCurrency(#[in] pvarIn: LPVARIANT, iNumDig: i32, iIncLead: i32, iUseParens: i32, iGroup: i32, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarFormatDateTime(pvarIn: LPVARIANT, iNamedFormat: i32, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarFormatDateTime(#[in] pvarIn: LPVARIANT, iNamedFormat: i32, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarFormatFromTokens(pvarIn: LPVARIANT, #[opt] pstrFormat: LPOLESTR, pbTokCur: LPBYTE, dwFlags: u32, pbstrOut: *mut BSTR, lcid: LCID) -> HRESULT;
+        extern fn VarFormatFromTokens(#[in] pvarIn: LPVARIANT, #[in] #[opt] pstrFormat: LPOLESTR, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(\"from VarTokenizeFormatString\")", "_Inexpressible_(\"from VarTokenizeFormatString\")")] #[in] pbTokCur: LPBYTE, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR, lcid: LCID) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarFormatNumber(pvarIn: LPVARIANT, iNumDig: i32, iIncLead: i32, iUseParens: i32, iGroup: i32, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarFormatNumber(#[in] pvarIn: LPVARIANT, iNumDig: i32, iIncLead: i32, iUseParens: i32, iGroup: i32, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarFormatPercent(pvarIn: LPVARIANT, iNumDig: i32, iIncLead: i32, iUseParens: i32, iGroup: i32, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarFormatPercent(#[in] pvarIn: LPVARIANT, iNumDig: i32, iIncLead: i32, iUseParens: i32, iGroup: i32, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromBool(boolIn: VARIANT_BOOL, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromBool(#[in] boolIn: VARIANT_BOOL, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromCy(cyIn: CY, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromCy(#[in] cyIn: CY, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromDate(dateIn: DATE, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromDate(#[in] dateIn: DATE, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromDec(pdecIn: *const DECIMAL, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromDec(#[in] pdecIn: *const DECIMAL, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromDisp(pdispIn: IDispatch, lcid: LCID, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromDisp(#[in] pdispIn: IDispatch, #[in] lcid: LCID, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromI2(uiIn: i16, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromI2(#[in] uiIn: SHORT, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromI4(lIn: i32, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromI4(#[in] lIn: LONG, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromI8(i64In: i64, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromI8(#[in] i64In: LONG64, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromR4(fltIn: f32, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromR4(#[in] fltIn: FLOAT, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromR8(dblIn: f64, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromR8(#[in] dblIn: DOUBLE, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromStr(#[in] strIn: LPCOLESTR, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromUI1(bIn: u8, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromUI1(#[in] bIn: BYTE, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromUI2(uiIn: u16, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromUI2(#[in] uiIn: USHORT, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromUI4(ulIn: u32, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromUI4(#[in] ulIn: ULONG, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI1FromUI8(i64In: u64, pcOut: *mut i8) -> HRESULT;
+        extern fn VarI1FromUI8(#[in] i64In: ULONG64, #[out] pcOut: *mut CHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromBool(boolIn: VARIANT_BOOL, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromBool(boolIn: VARIANT_BOOL, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromCy(cyIn: CY, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromCy(cyIn: CY, psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromDate(dateIn: DATE, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromDate(dateIn: DATE, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromDec(pdecIn: *const DECIMAL, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromDec(#[in] pdecIn: *const DECIMAL, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromDisp(pdispIn: IDispatch, lcid: LCID, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromDisp(pdispIn: IDispatch, lcid: LCID, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromI1(cIn: i8, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromI1(cIn: CHAR, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromI4(lIn: i32, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromI4(lIn: LONG, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromI8(i64In: i64, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromI8(i64In: LONG64, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromR4(fltIn: f32, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromR4(fltIn: FLOAT, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromR8(dblIn: f64, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromR8(dblIn: DOUBLE, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromStr(#[in] strIn: LPCOLESTR, lcid: LCID, dwFlags: ULONG, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromUI1(bIn: u8, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromUI1(bIn: BYTE, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromUI2(uiIn: u16, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromUI2(uiIn: USHORT, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromUI4(ulIn: u32, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromUI4(ulIn: ULONG, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI2FromUI8(ui64In: u64, psOut: *mut i16) -> HRESULT;
+        extern fn VarI2FromUI8(ui64In: ULONG64, #[out] psOut: *mut SHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromBool(boolIn: VARIANT_BOOL, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromBool(boolIn: VARIANT_BOOL, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromCy(cyIn: CY, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromCy(cyIn: CY, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromDate(dateIn: DATE, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromDate(dateIn: DATE, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromDec(pdecIn: *const DECIMAL, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromDec(#[in] pdecIn: *const DECIMAL, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromDisp(pdispIn: IDispatch, lcid: LCID, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromDisp(pdispIn: IDispatch, #[in] lcid: LCID, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromI1(cIn: i8, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromI1(cIn: CHAR, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromI2(sIn: i16, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromI2(sIn: SHORT, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromI8(i64In: i64, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromI8(i64In: LONG64, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromR4(fltIn: f32, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromR4(fltIn: FLOAT, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromR8(dblIn: f64, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromR8(dblIn: DOUBLE, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromStr(#[in] strIn: LPCOLESTR, lcid: LCID, dwFlags: ULONG, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromUI1(bIn: u8, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromUI1(bIn: BYTE, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromUI2(uiIn: u16, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromUI2(uiIn: USHORT, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromUI4(ulIn: u32, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromUI4(ulIn: ULONG, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI4FromUI8(ui64In: u64, plOut: *mut i32) -> HRESULT;
+        extern fn VarI4FromUI8(ui64In: ULONG64, #[out] plOut: *mut LONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromBool(boolIn: VARIANT_BOOL, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromBool(boolIn: VARIANT_BOOL, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromCy(cyIn: CY, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromCy(#[in] cyIn: CY, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromDate(dateIn: DATE, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromDate(dateIn: DATE, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromDec(pdecIn: *const DECIMAL, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromDec(#[in] pdecIn: *const DECIMAL, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromDisp(pdispIn: IDispatch, lcid: LCID, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromDisp(pdispIn: IDispatch, #[in] lcid: LCID, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromI1(cIn: i8, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromI1(cIn: CHAR, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromI2(sIn: i16, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromI2(sIn: SHORT, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromR4(fltIn: f32, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromR4(fltIn: FLOAT, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromR8(dblIn: f64, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromR8(dblIn: DOUBLE, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromStr(#[in] strIn: LPCOLESTR, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromUI1(bIn: u8, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromUI1(bIn: BYTE, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromUI2(uiIn: u16, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromUI2(uiIn: USHORT, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromUI4(ulIn: u32, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromUI4(ulIn: ULONG, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarI8FromUI8(ui64In: u64, pi64Out: *mut i64) -> HRESULT;
+        extern fn VarI8FromUI8(ui64In: ULONG64, #[out] pi64Out: *mut LONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarIdiv(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarIdiv(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarImp(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarImp(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarInt(pvarIn: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarInt(#[in] pvarIn: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarMod(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarMod(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarMonthName(iMonth: i32, fAbbrev: i32, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarMonthName(iMonth: i32, fAbbrev: i32, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarMul(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarMul(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarNeg(pvarIn: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarNeg(#[in] pvarIn: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarNot(pvarIn: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarNot(#[in] pvarIn: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn VarNumFromParseNum(#[in] pnumprs: *mut NUMPARSE, #[in] rgbDig: *mut u8, dwVtBits: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn VarNumFromParseNum(#[in] pnumprs: *mut NUMPARSE, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "pnumprs->cDig", "pnumprs->cDig")] #[in] rgbDig: *mut BYTE, #[in] dwVtBits: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarOr(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarOr(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn VarParseNumFromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, #[in] #[out] pnumprs: *mut NUMPARSE, rgbDig: *mut u8) -> HRESULT;
+        extern fn VarParseNumFromStr(#[in] strIn: LPCOLESTR, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[in] #[out] pnumprs: *mut NUMPARSE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "pnumprs->cDig", "pnumprs->cDig")] #[out] rgbDig: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarPow(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarPow(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4CmpR8(fltLeft: f32, dblRight: f64) -> HRESULT;
+        extern fn VarR4CmpR8(#[in] fltLeft: f32, #[in] dblRight: f64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromBool(boolIn: VARIANT_BOOL, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromBool(boolIn: VARIANT_BOOL, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromCy(cyIn: CY, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromCy(cyIn: CY, pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromDate(dateIn: DATE, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromDate(dateIn: DATE, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromDec(pdecIn: *const DECIMAL, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromDec(#[in] pdecIn: *const DECIMAL, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromDisp(pdispIn: IDispatch, lcid: LCID, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromDisp(pdispIn: IDispatch, lcid: LCID, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromI1(cIn: i8, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromI1(cIn: CHAR, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromI2(sIn: i16, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromI2(sIn: SHORT, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromI4(lIn: i32, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromI4(lIn: LONG, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromI8(i64In: i64, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromI8(i64In: LONG64, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromR8(dblIn: f64, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromR8(dblIn: DOUBLE, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromStr(#[in] strIn: LPCOLESTR, lcid: LCID, dwFlags: ULONG, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromUI1(bIn: u8, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromUI1(bIn: BYTE, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromUI2(uiIn: u16, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromUI2(uiIn: USHORT, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromUI4(ulIn: u32, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromUI4(ulIn: ULONG, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR4FromUI8(ui64In: u64, pfltOut: *mut f32) -> HRESULT;
+        extern fn VarR4FromUI8(ui64In: ULONG64, #[out] pfltOut: *mut FLOAT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromBool(boolIn: VARIANT_BOOL, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromBool(boolIn: VARIANT_BOOL, #[out] pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromCy(cyIn: CY, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromCy(cyIn: CY, pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromDate(dateIn: DATE, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromDate(dateIn: DATE, #[out] pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromDec(pdecIn: *const DECIMAL, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromDec(#[in] pdecIn: *const DECIMAL, #[out] pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromDisp(pdispIn: IDispatch, lcid: LCID, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromDisp(pdispIn: IDispatch, lcid: LCID, #[out] pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromI1(cIn: i8, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromI1(cIn: CHAR, pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromI2(sIn: i16, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromI2(sIn: SHORT, #[out] pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromI4(lIn: i32, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromI4(lIn: LONG, #[out] pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromI8(i64In: i64, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromI8(i64In: LONG64, #[out] pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromR4(fltIn: f32, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromR4(fltIn: FLOAT, #[out] pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromStr(#[in] strIn: LPCOLESTR, lcid: LCID, dwFlags: ULONG, #[out] pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromUI1(bIn: u8, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromUI1(bIn: BYTE, #[out] pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromUI2(uiIn: u16, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromUI2(uiIn: USHORT, #[out] pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromUI4(ulIn: u32, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromUI4(ulIn: ULONG, #[out] pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8FromUI8(ui64In: u64, pdblOut: *mut f64) -> HRESULT;
+        extern fn VarR8FromUI8(ui64In: ULONG64, #[out] pdblOut: *mut DOUBLE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8Pow(dblLeft: f64, dblRight: f64, pdblResult: *mut f64) -> HRESULT;
+        extern fn VarR8Pow(#[in] dblLeft: f64, #[in] dblRight: f64, #[out] pdblResult: *mut f64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarR8Round(dblIn: f64, cDecimals: i32, pdblResult: *mut f64) -> HRESULT;
+        extern fn VarR8Round(#[in] dblIn: f64, #[in] cDecimals: i32, #[out] pdblResult: *mut f64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarRound(pvarIn: LPVARIANT, cDecimals: i32, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarRound(#[in] pvarIn: LPVARIANT, #[in] cDecimals: i32, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarSub(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarSub(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarTokenizeFormatString(#[opt] pstrFormat: LPOLESTR, #[len_param(2)] #[in] #[out] rgbTok: LPBYTE, cbTok: i32, iFirstDay: i32, iFirstWeek: i32, lcid: LCID, #[in] #[opt] pcbActual: *mut i32) -> HRESULT;
+        extern fn VarTokenizeFormatString(#[in] #[opt] pstrFormat: LPOLESTR, #[in] #[out] #[writable(entry, cbTok)] rgbTok: LPBYTE, cbTok: i32, iFirstDay: i32, iFirstWeek: i32, lcid: LCID, #[in] #[opt] pcbActual: *mut i32) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromBool(boolIn: VARIANT_BOOL, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromBool(boolIn: VARIANT_BOOL, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromCy(cyIn: CY, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromCy(cyIn: CY, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromDate(dateIn: DATE, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromDate(dateIn: DATE, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromDec(pdecIn: *const DECIMAL, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromDec(#[in] pdecIn: *const DECIMAL, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromDisp(pdispIn: IDispatch, lcid: LCID, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromDisp(pdispIn: IDispatch, lcid: LCID, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromI1(cIn: i8, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromI1(cIn: CHAR, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromI2(sIn: i16, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromI2(sIn: SHORT, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromI4(lIn: i32, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromI4(lIn: LONG, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromI8(i64In: i64, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromI8(i64In: LONG64, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromR4(fltIn: f32, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromR4(fltIn: FLOAT, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromR8(dblIn: f64, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromR8(dblIn: DOUBLE, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromStr(#[in] strIn: LPCOLESTR, lcid: LCID, dwFlags: ULONG, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromUI2(uiIn: u16, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromUI2(uiIn: USHORT, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromUI4(ulIn: u32, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromUI4(ulIn: ULONG, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI1FromUI8(ui64In: u64, pbOut: *mut u8) -> HRESULT;
+        extern fn VarUI1FromUI8(ui64In: ULONG64, #[out] pbOut: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromBool(boolIn: VARIANT_BOOL, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromBool(boolIn: VARIANT_BOOL, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromCy(cyIn: CY, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromCy(cyIn: CY, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromDate(dateIn: DATE, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromDate(dateIn: DATE, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromDec(pdecIn: *const DECIMAL, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromDec(#[in] pdecIn: *const DECIMAL, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromDisp(pdispIn: IDispatch, lcid: LCID, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromDisp(#[in] pdispIn: IDispatch, lcid: LCID, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromI1(cIn: i8, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromI1(cIn: CHAR, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromI2(uiIn: i16, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromI2(uiIn: SHORT, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromI4(lIn: i32, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromI4(lIn: LONG, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromI8(i64In: i64, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromI8(i64In: LONG64, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromR4(fltIn: f32, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromR4(fltIn: FLOAT, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromR8(dblIn: f64, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromR8(dblIn: DOUBLE, puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromStr(#[in] strIn: LPCOLESTR, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromUI1(bIn: u8, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromUI1(bIn: BYTE, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromUI4(ulIn: u32, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromUI4(ulIn: ULONG, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI2FromUI8(i64In: u64, puiOut: *mut u16) -> HRESULT;
+        extern fn VarUI2FromUI8(i64In: ULONG64, #[out] puiOut: *mut USHORT) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromBool(boolIn: VARIANT_BOOL, pulOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromBool(boolIn: VARIANT_BOOL, #[out] pulOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromCy(cyIn: CY, pulOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromCy(cyIn: CY, #[out] pulOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromDate(dateIn: DATE, pulOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromDate(dateIn: DATE, #[out] pulOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromDec(pdecIn: *const DECIMAL, pulOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromDec(#[in] pdecIn: *const DECIMAL, #[out] pulOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromDisp(pdispIn: IDispatch, lcid: LCID, pulOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromDisp(#[in] pdispIn: IDispatch, lcid: LCID, #[out] pulOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromI1(cIn: i8, pulOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromI1(cIn: CHAR, #[out] pulOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromI2(uiIn: i16, pulOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromI2(#[in] uiIn: SHORT, #[out] pulOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromI4(lIn: i32, pulOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromI4(lIn: LONG, #[out] pulOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromI8(i64In: i64, plOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromI8(i64In: LONG64, #[out] plOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromR4(fltIn: f32, pulOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromR4(fltIn: FLOAT, #[out] pulOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromR8(dblIn: f64, pulOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromR8(dblIn: DOUBLE, #[out] pulOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, pulOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromStr(#[in] strIn: LPCOLESTR, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[out] pulOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromUI1(bIn: u8, pulOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromUI1(bIn: BYTE, #[out] pulOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromUI2(uiIn: u16, pulOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromUI2(uiIn: USHORT, #[out] pulOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI4FromUI8(ui64In: u64, plOut: *mut u32) -> HRESULT;
+        extern fn VarUI4FromUI8(ui64In: ULONG64, #[out] plOut: *mut ULONG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromBool(boolIn: VARIANT_BOOL, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromBool(boolIn: VARIANT_BOOL, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromCy(cyIn: CY, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromCy(cyIn: CY, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromDate(dateIn: DATE, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromDate(dateIn: DATE, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromDec(pdecIn: *const DECIMAL, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromDec(#[in] pdecIn: *const DECIMAL, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromDisp(pdispIn: IDispatch, lcid: LCID, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromDisp(#[in] pdispIn: IDispatch, lcid: LCID, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromI1(cIn: i8, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromI1(cIn: CHAR, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromI2(sIn: i16, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromI2(sIn: SHORT, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromI8(ui64In: i64, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromI8(ui64In: LONG64, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromR4(fltIn: f32, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromR4(fltIn: FLOAT, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromR8(dblIn: f64, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromR8(dblIn: DOUBLE, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: u32, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromStr(#[in] strIn: LPCOLESTR, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromUI1(bIn: u8, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromUI1(bIn: BYTE, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromUI2(uiIn: u16, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromUI2(uiIn: USHORT, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarUI8FromUI4(ulIn: u32, pi64Out: *mut u64) -> HRESULT;
+        extern fn VarUI8FromUI4(ulIn: ULONG, #[out] pi64Out: *mut ULONG64) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn VarUdateFromDate(dateIn: DATE, dwFlags: u32, pudateOut: *mut UDATE) -> HRESULT;
+        extern fn VarUdateFromDate(#[in] dateIn: DATE, #[in] dwFlags: ULONG, #[out] pudateOut: *mut UDATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarWeekdayName(iWeekday: i32, fAbbrev: i32, iFirstDay: i32, dwFlags: u32, pbstrOut: *mut BSTR) -> HRESULT;
+        extern fn VarWeekdayName(iWeekday: i32, fAbbrev: i32, iFirstDay: i32, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VarXor(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        extern fn VarXor(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn VariantChangeType(#[in] #[out] pvargDest: *mut VARIANTARG, pvarSrc: *const VARIANTARG, wFlags: u16, vt: VARTYPE) -> HRESULT;
+        extern fn VariantChangeType(#[in] #[out] pvargDest: *mut VARIANTARG, #[in] pvarSrc: *const VARIANTARG, #[in] wFlags: USHORT, #[in] vt: VARTYPE) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn VariantChangeTypeEx(#[in] #[out] pvargDest: *mut VARIANTARG, pvarSrc: *const VARIANTARG, lcid: LCID, wFlags: u16, vt: VARTYPE) -> HRESULT;
+        extern fn VariantChangeTypeEx(#[in] #[out] pvargDest: *mut VARIANTARG, #[in] pvarSrc: *const VARIANTARG, #[in] lcid: LCID, #[in] wFlags: USHORT, #[in] vt: VARTYPE) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VariantClear(#[in] #[out] pvarg: *mut VARIANTARG) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn VariantCopy(#[in] #[out] pvargDest: *mut VARIANTARG, pvargSrc: *const VARIANTARG) -> HRESULT;
+        extern fn VariantCopy(#[in] #[out] pvargDest: *mut VARIANTARG, #[in] pvargSrc: *const VARIANTARG) -> HRESULT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn VariantCopyInd(#[in] #[out] pvarDest: *mut VARIANT, pvargSrc: *const VARIANTARG) -> HRESULT;
+        extern fn VariantCopyInd(#[in] #[out] pvarDest: *mut VARIANT, #[in] pvargSrc: *const VARIANTARG) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn VariantInit(pvarg: *mut VARIANTARG);
+        extern fn VariantInit(#[out] pvarg: *mut VARIANTARG);
         #[library("OLEAUT32.dll")]
-        extern fn VariantTimeToDosDateTime(vtime: f64, pwDosDate: *mut u16, pwDosTime: *mut u16) -> i32;
+        extern fn VariantTimeToDosDateTime(#[in] vtime: DOUBLE, #[out] pwDosDate: *mut USHORT, #[out] pwDosTime: *mut USHORT) -> INT;
         #[library("OLEAUT32.dll")]
-        extern fn VariantTimeToSystemTime(vtime: f64, #[out] lpSystemTime: LPSYSTEMTIME) -> i32;
+        extern fn VariantTimeToSystemTime(#[in] vtime: DOUBLE, #[out] lpSystemTime: LPSYSTEMTIME) -> INT;
+        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn VectorFromBstr(bstr: BSTR, ppsa: *mut *mut SAFEARRAY) -> HRESULT;
+        extern fn VectorFromBstr(#[in] bstr: BSTR, #[out] #[out_ptr] ppsa: *mut *mut SAFEARRAY) -> HRESULT;
     }
 }

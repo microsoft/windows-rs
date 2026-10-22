@@ -20,10 +20,10 @@ mod Windows {
         }
         struct DOT11_ADDITIONAL_IE {
             Header: NDIS_OBJECT_HEADER,
-            uBeaconIEsOffset: u32,
-            uBeaconIEsLength: u32,
-            uResponseIEsOffset: u32,
-            uResponseIEsLength: u32,
+            uBeaconIEsOffset: ULONG,
+            uBeaconIEsLength: ULONG,
+            uResponseIEsOffset: ULONG,
+            uResponseIEsLength: ULONG,
         }
         const DOT11_ADDITIONAL_IE_REVISION_1: i32 = 1;
         struct DOT11_AKM_CIPHER_PAIR {
@@ -34,7 +34,7 @@ mod Windows {
             Header: NDIS_OBJECT_HEADER,
             Status: DOT11_ANQP_QUERY_RESULT,
             hContext: HANDLE,
-            uResponseLength: u32,
+            uResponseLength: ULONG,
         }
         const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
         #[repr(i32)]
@@ -49,9 +49,9 @@ mod Windows {
             dot11_ANQP_query_result_access_issues = 7,
         }
         struct DOT11_AP_JOIN_REQUEST {
-            uJoinFailureTimeout: u32,
+            uJoinFailureTimeout: ULONG,
             OperationalRateSet: DOT11_RATE_SET,
-            uChCenterFrequency: u32,
+            uChCenterFrequency: ULONG,
             dot11BSSDescription: DOT11_BSS_DESCRIPTION,
         }
         struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
@@ -60,65 +60,65 @@ mod Windows {
             uStatus: DOT11_ASSOC_STATUS,
             bReAssocReq: BOOLEAN,
             bReAssocResp: BOOLEAN,
-            uAssocReqOffset: u32,
-            uAssocReqSize: u32,
-            uAssocRespOffset: u32,
-            uAssocRespSize: u32,
-            uBeaconOffset: u32,
-            uBeaconSize: u32,
-            uIHVDataOffset: u32,
-            uIHVDataSize: u32,
+            uAssocReqOffset: ULONG,
+            uAssocReqSize: ULONG,
+            uAssocRespOffset: ULONG,
+            uAssocRespSize: ULONG,
+            uBeaconOffset: ULONG,
+            uBeaconSize: ULONG,
+            uIHVDataOffset: ULONG,
+            uIHVDataSize: ULONG,
             AuthAlgo: DOT11_AUTH_ALGORITHM,
             UnicastCipher: DOT11_CIPHER_ALGORITHM,
             MulticastCipher: DOT11_CIPHER_ALGORITHM,
-            uActivePhyListOffset: u32,
-            uActivePhyListSize: u32,
+            uActivePhyListOffset: ULONG,
+            uActivePhyListSize: ULONG,
             bFourAddressSupported: BOOLEAN,
             bPortAuthorized: BOOLEAN,
-            ucActiveQoSProtocol: u8,
+            ucActiveQoSProtocol: UCHAR,
             DSInfo: DOT11_DS_INFO,
-            uEncapTableOffset: u32,
-            uEncapTableSize: u32,
+            uEncapTableOffset: ULONG,
+            uEncapTableSize: ULONG,
             MulticastMgmtCipher: DOT11_CIPHER_ALGORITHM,
-            uAssocComebackTime: u32,
+            uAssocComebackTime: ULONG,
         }
         const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_1: i32 = 1;
         const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_2: i32 = 2;
         struct DOT11_ASSOCIATION_INFO_EX {
             PeerMacAddress: DOT11_MAC_ADDRESS,
             BSSID: DOT11_MAC_ADDRESS,
-            usCapabilityInformation: u16,
-            usListenInterval: u16,
-            ucPeerSupportedRates: [u8; 255],
-            usAssociationID: u16,
+            usCapabilityInformation: USHORT,
+            usListenInterval: USHORT,
+            ucPeerSupportedRates: [UCHAR; 255],
+            usAssociationID: USHORT,
             dot11AssociationState: DOT11_ASSOCIATION_STATE,
             dot11PowerMode: DOT11_POWER_MODE,
             liAssociationUpTime: LARGE_INTEGER,
-            ullNumOfTxPacketSuccesses: u64,
-            ullNumOfTxPacketFailures: u64,
-            ullNumOfRxPacketSuccesses: u64,
-            ullNumOfRxPacketFailures: u64,
+            ullNumOfTxPacketSuccesses: ULONGLONG,
+            ullNumOfTxPacketFailures: ULONGLONG,
+            ullNumOfRxPacketSuccesses: ULONGLONG,
+            ullNumOfRxPacketFailures: ULONGLONG,
         }
         struct DOT11_ASSOCIATION_INFO_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             dot11AssocInfo: [DOT11_ASSOCIATION_INFO_EX; 1],
         }
         const DOT11_ASSOCIATION_INFO_LIST_REVISION_1: i32 = 1;
         struct DOT11_ASSOCIATION_PARAMS {
             Header: NDIS_OBJECT_HEADER,
             BSSID: DOT11_MAC_ADDRESS,
-            uAssocRequestIEsOffset: u32,
-            uAssocRequestIEsLength: u32,
+            uAssocRequestIEsOffset: ULONG,
+            uAssocRequestIEsLength: ULONG,
         }
         const DOT11_ASSOCIATION_PARAMS_REVISION_1: i32 = 1;
         struct DOT11_ASSOCIATION_START_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             MacAddr: DOT11_MAC_ADDRESS,
             SSID: DOT11_SSID,
-            uIHVDataOffset: u32,
-            uIHVDataSize: u32,
+            uIHVDataOffset: ULONG,
+            uIHVDataSize: ULONG,
         }
         const DOT11_ASSOCIATION_START_PARAMETERS_REVISION_1: i32 = 1;
         #[repr(i32)]
@@ -160,31 +160,32 @@ mod Windows {
         const DOT11_ASSOC_STATUS_UNREACHABLE: u32 = 2;
         struct DOT11_AUTH_ALGORITHM_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             AlgorithmIds: [DOT11_AUTH_ALGORITHM; 1],
         }
         const DOT11_AUTH_ALGORITHM_LIST_REVISION_1: i32 = 1;
         const DOT11_AUTH_ALGO_MICHAEL: i32 = 1;
         struct DOT11_AUTH_CIPHER_PAIR_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
+            #[writable(uNumOfEntries)]
             AuthCipherPairs: [DOT11_AUTH_CIPHER_PAIR; 1],
         }
         const DOT11_AUTH_CIPHER_PAIR_LIST_REVISION_1: i32 = 1;
         struct DOT11_AVAILABLE_CHANNEL_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
-            uChannelNumber: [u32; 1],
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
+            uChannelNumber: [ULONG; 1],
         }
         const DOT11_AVAILABLE_CHANNEL_LIST_REVISION_1: i32 = 1;
         struct DOT11_AVAILABLE_FREQUENCY_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
-            uFrequencyValue: [u32; 1],
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
+            uFrequencyValue: [ULONG; 1],
         }
         const DOT11_AVAILABLE_FREQUENCY_LIST_REVISION_1: i32 = 1;
         #[repr(i32)]
@@ -195,58 +196,58 @@ mod Windows {
         }
         struct DOT11_BSSID_CANDIDATE {
             BSSID: DOT11_MAC_ADDRESS,
-            uFlags: u32,
+            uFlags: ULONG,
         }
         struct DOT11_BSSID_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             BSSIDs: [DOT11_MAC_ADDRESS; 1],
         }
         const DOT11_BSSID_LIST_REVISION_1: i32 = 1;
         struct DOT11_BSS_DESCRIPTION {
-            uReserved: u32,
+            uReserved: ULONG,
             dot11BSSID: DOT11_MAC_ADDRESS,
             dot11BSSType: DOT11_BSS_TYPE,
-            usBeaconPeriod: u16,
-            ullTimestamp: u64,
-            usCapabilityInformation: u16,
-            uBufferLength: u32,
-            ucBuffer: [u8; 1],
+            usBeaconPeriod: USHORT,
+            ullTimestamp: ULONGLONG,
+            usCapabilityInformation: USHORT,
+            uBufferLength: ULONG,
+            ucBuffer: [UCHAR; 1],
         }
         struct DOT11_BSS_ENTRY {
-            uPhyId: u32,
+            uPhyId: ULONG,
             PhySpecificInfo: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO,
             dot11BSSID: DOT11_MAC_ADDRESS,
             dot11BSSType: DOT11_BSS_TYPE,
-            lRSSI: i32,
-            uLinkQuality: u32,
+            lRSSI: LONG,
+            uLinkQuality: ULONG,
             bInRegDomain: BOOLEAN,
-            usBeaconPeriod: u16,
-            ullTimestamp: u64,
-            ullHostTimestamp: u64,
-            usCapabilityInformation: u16,
-            uBufferLength: u32,
-            ucBuffer: [u8; 1],
+            usBeaconPeriod: USHORT,
+            ullTimestamp: ULONGLONG,
+            ullHostTimestamp: ULONGLONG,
+            usCapabilityInformation: USHORT,
+            uBufferLength: ULONG,
+            ucBuffer: [UCHAR; 1],
         }
         const DOT11_BSS_ENTRY_BYTE_ARRAY_REVISION_1: i32 = 1;
         union DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
-            uChCenterFrequency: u32,
+            uChCenterFrequency: ULONG,
             FHSS: struct {
-                uHopPattern: u32,
-                uHopSet: u32,
-                uDwellTime: u32,
+                uHopPattern: ULONG,
+                uHopSet: ULONG,
+                uDwellTime: ULONG,
             },
         }
         struct DOT11_BYTE_ARRAY {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfBytes: u32,
-            uTotalNumOfBytes: u32,
-            ucBuffer: [u8; 1],
+            uNumOfBytes: ULONG,
+            uTotalNumOfBytes: ULONG,
+            ucBuffer: [UCHAR; 1],
         }
         struct DOT11_CAN_SUSTAIN_AP_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
-            ulReason: u32,
+            ulReason: ULONG,
         }
         const DOT11_CAN_SUSTAIN_AP_PARAMETERS_REVISION_1: i32 = 1;
         const DOT11_CAN_SUSTAIN_AP_REASON_IHV_END: u32 = 4294967295;
@@ -268,24 +269,24 @@ mod Windows {
         const DOT11_CCA_MODE_HRCS_AND_ED: i32 = 16;
         struct DOT11_CHANNEL_HINT {
             Dot11PhyType: DOT11_PHY_TYPE,
-            uChannelNumber: u32,
+            uChannelNumber: ULONG,
         }
         struct DOT11_CIPHER_ALGORITHM_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             AlgorithmIds: [DOT11_CIPHER_ALGORITHM; 1],
         }
         const DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: i32 = 1;
         struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
             Header: NDIS_OBJECT_HEADER,
-            uKeyIndex: u32,
+            uKeyIndex: ULONG,
             AlgorithmId: DOT11_CIPHER_ALGORITHM,
             MacAddr: DOT11_MAC_ADDRESS,
             bDelete: BOOLEAN,
             bStatic: BOOLEAN,
-            usKeyLength: u16,
-            ucKey: [u8; 1],
+            usKeyLength: USHORT,
+            ucKey: [UCHAR; 1],
         }
         const DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: i32 = 1;
         struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
@@ -294,8 +295,8 @@ mod Windows {
             Direction: DOT11_DIRECTION,
             bDelete: BOOLEAN,
             bStatic: BOOLEAN,
-            usKeyLength: u16,
-            ucKey: [u8; 1],
+            usKeyLength: USHORT,
+            ucKey: [UCHAR; 1],
         }
         const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE_BYTE_ARRAY_REVISION_1: i32 = 1;
         const DOT11_CONF_ALGO_TKIP: i32 = 2;
@@ -320,38 +321,38 @@ mod Windows {
         const DOT11_CONNECTION_STATUS_PHY_POWER_DOWN: u32 = 3;
         const DOT11_CONNECTION_STATUS_SUCCESS: i32 = 0;
         struct DOT11_COUNTERS_ENTRY {
-            uTransmittedFragmentCount: u32,
-            uMulticastTransmittedFrameCount: u32,
-            uFailedCount: u32,
-            uRetryCount: u32,
-            uMultipleRetryCount: u32,
-            uFrameDuplicateCount: u32,
-            uRTSSuccessCount: u32,
-            uRTSFailureCount: u32,
-            uACKFailureCount: u32,
-            uReceivedFragmentCount: u32,
-            uMulticastReceivedFrameCount: u32,
-            uFCSErrorCount: u32,
-            uTransmittedFrameCount: u32,
+            uTransmittedFragmentCount: ULONG,
+            uMulticastTransmittedFrameCount: ULONG,
+            uFailedCount: ULONG,
+            uRetryCount: ULONG,
+            uMultipleRetryCount: ULONG,
+            uFrameDuplicateCount: ULONG,
+            uRTSSuccessCount: ULONG,
+            uRTSFailureCount: ULONG,
+            uACKFailureCount: ULONG,
+            uReceivedFragmentCount: ULONG,
+            uMulticastReceivedFrameCount: ULONG,
+            uFCSErrorCount: ULONG,
+            uTransmittedFrameCount: ULONG,
         }
         type DOT11_COUNTRY_OR_REGION_STRING = [u8; 3];
         struct DOT11_COUNTRY_OR_REGION_STRING_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             CountryOrRegionStrings: [DOT11_COUNTRY_OR_REGION_STRING; 1],
         }
         const DOT11_COUNTRY_OR_REGION_STRING_LIST_REVISION_1: i32 = 1;
         struct DOT11_CURRENT_OFFLOAD_CAPABILITY {
-            uReserved: u32,
-            uFlags: u32,
+            uReserved: ULONG,
+            uFlags: ULONG,
         }
         struct DOT11_CURRENT_OPERATION_MODE {
-            uReserved: u32,
-            uCurrentOpMode: u32,
+            uReserved: ULONG,
+            uCurrentOpMode: ULONG,
         }
         struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
-            uReserved: u32,
+            uReserved: ULONG,
             bDot11CFPollable: BOOLEAN,
             bDot11PCF: BOOLEAN,
             bDot11PCFMPDUTransferToPC: BOOLEAN,
@@ -359,40 +360,42 @@ mod Windows {
         }
         const DOT11_DATA_RATE_INDEX_MASK: u32 = 127;
         struct DOT11_DATA_RATE_MAPPING_ENTRY {
-            ucDataRateIndex: u8,
-            ucDataRateFlag: u8,
-            usDataRateValue: u16,
+            ucDataRateIndex: UCHAR,
+            ucDataRateFlag: UCHAR,
+            usDataRateValue: USHORT,
         }
         struct DOT11_DATA_RATE_MAPPING_TABLE {
             Header: NDIS_OBJECT_HEADER,
-            uDataRateMappingLength: u32,
+            uDataRateMappingLength: ULONG,
+            #[writable(126)]
+            #[readable(uDataRateMappingLength)]
             DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
         }
         const DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1: i32 = 1;
         const DOT11_DATA_RATE_NON_STANDARD: u32 = 1;
         struct DOT11_DEFAULT_WEP_OFFLOAD {
-            uReserved: u32,
+            uReserved: ULONG,
             hOffloadContext: HANDLE,
             hOffload: HANDLE,
-            dwIndex: u32,
+            dwIndex: ULONG,
             dot11OffloadType: DOT11_OFFLOAD_TYPE,
-            dwAlgorithm: u32,
-            uFlags: u32,
+            dwAlgorithm: ULONG,
+            uFlags: ULONG,
             dot11KeyDirection: DOT11_KEY_DIRECTION,
-            ucMacAddress: [u8; 6],
-            uNumOfRWsOnMe: u32,
+            ucMacAddress: [UCHAR; 6],
+            uNumOfRWsOnMe: ULONG,
             dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
-            usDot11RWBitMaps: [u16; 16],
-            usKeyLength: u16,
-            ucKey: [u8; 1],
+            usDot11RWBitMaps: [USHORT; 16],
+            usKeyLength: USHORT,
+            ucKey: [UCHAR; 1],
         }
         struct DOT11_DEFAULT_WEP_UPLOAD {
-            uReserved: u32,
+            uReserved: ULONG,
             dot11OffloadType: DOT11_OFFLOAD_TYPE,
             hOffload: HANDLE,
-            uNumOfRWsUsed: u32,
+            uNumOfRWsUsed: ULONG,
             dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
-            usDot11RWBitMaps: [u16; 16],
+            usDot11RWBitMaps: [USHORT; 16],
         }
         const DOT11_DEVICE_ENTRY_BYTE_ARRAY_REVISION_1: i32 = 1;
         type DOT11_DIALOG_TOKEN = u8;
@@ -405,15 +408,15 @@ mod Windows {
         struct DOT11_DISASSOCIATE_PEER_REQUEST {
             Header: NDIS_OBJECT_HEADER,
             PeerMacAddr: DOT11_MAC_ADDRESS,
-            usReason: u16,
+            usReason: USHORT,
         }
         const DOT11_DISASSOCIATE_PEER_REQUEST_REVISION_1: i32 = 1;
         struct DOT11_DISASSOCIATION_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             MacAddr: DOT11_MAC_ADDRESS,
             uReason: DOT11_ASSOC_STATUS,
-            uIHVDataOffset: u32,
-            uIHVDataSize: u32,
+            uIHVDataOffset: ULONG,
+            uIHVDataSize: ULONG,
         }
         const DOT11_DISASSOCIATION_PARAMETERS_REVISION_1: i32 = 1;
         const DOT11_DISASSOC_REASON_IHV_END: u32 = 4294967295;
@@ -425,12 +428,12 @@ mod Windows {
         const DOT11_DISASSOC_REASON_PHY_DISABLED: u32 = 4;
         const DOT11_DISASSOC_REASON_RADIO_OFF: u32 = 3;
         struct DOT11_DIVERSITY_SELECTION_RX {
-            uAntennaListIndex: u32,
+            uAntennaListIndex: ULONG,
             bDiversitySelectionRX: BOOLEAN,
         }
         struct DOT11_DIVERSITY_SELECTION_RX_LIST {
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             dot11DiversitySelectionRx: [DOT11_DIVERSITY_SELECTION_RX; 1],
         }
         #[repr(i32)]
@@ -448,8 +451,8 @@ mod Windows {
         }
         const DOT11_ENCAP_802_1H: i32 = 2;
         struct DOT11_ENCAP_ENTRY {
-            usEtherType: u16,
-            usEncapType: u16,
+            usEtherType: USHORT,
+            usEncapType: USHORT,
         }
         const DOT11_ENCAP_RFC_1042: i32 = 1;
         struct DOT11_ERP_PHY_ATTRIBUTES {
@@ -466,72 +469,54 @@ mod Windows {
         const DOT11_EXEMPT_UNICAST: i32 = 1;
         struct DOT11_EXTAP_ATTRIBUTES {
             Header: NDIS_OBJECT_HEADER,
-            uScanSSIDListSize: u32,
-            uDesiredSSIDListSize: u32,
-            uPrivacyExemptionListSize: u32,
-            uAssociationTableSize: u32,
-            uDefaultKeyTableSize: u32,
-            uWEPKeyValueMaxLength: u32,
+            uScanSSIDListSize: ULONG,
+            uDesiredSSIDListSize: ULONG,
+            uPrivacyExemptionListSize: ULONG,
+            uAssociationTableSize: ULONG,
+            uDefaultKeyTableSize: ULONG,
+            uWEPKeyValueMaxLength: ULONG,
             bStrictlyOrderedServiceClassImplemented: BOOLEAN,
-            uNumSupportedCountryOrRegionStrings: u32,
+            uNumSupportedCountryOrRegionStrings: ULONG,
             pSupportedCountryOrRegionStrings: PDOT11_COUNTRY_OR_REGION_STRING,
-            uInfraNumSupportedUcastAlgoPairs: u32,
+            uInfraNumSupportedUcastAlgoPairs: ULONG,
             pInfraSupportedUcastAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
-            uInfraNumSupportedMcastAlgoPairs: u32,
+            uInfraNumSupportedMcastAlgoPairs: ULONG,
             pInfraSupportedMcastAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
         }
         const DOT11_EXTAP_ATTRIBUTES_REVISION_1: i32 = 1;
-        struct DOT11_EXTAP_RECV_CONTEXT {
-            Header: NDIS_OBJECT_HEADER,
-            uReceiveFlags: u32,
-            uPhyId: u32,
-            uChCenterFrequency: u32,
-            usNumberOfMPDUsReceived: u16,
-            lRSSI: i32,
-            ucDataRate: u8,
-            uSizeMediaSpecificInfo: u32,
-            pvMediaSpecificInfo: *mut void,
-            ullTimestamp: u64,
-        }
+        type DOT11_EXTAP_RECV_CONTEXT = DOT11_EXTSTA_RECV_CONTEXT;
         const DOT11_EXTAP_RECV_CONTEXT_REVISION_1: i32 = 1;
-        struct DOT11_EXTAP_SEND_CONTEXT {
-            Header: NDIS_OBJECT_HEADER,
-            usExemptionActionType: u16,
-            uPhyId: u32,
-            uDelayedSleepValue: u32,
-            pvMediaSpecificInfo: *mut void,
-            uSendFlags: u32,
-        }
+        type DOT11_EXTAP_SEND_CONTEXT = DOT11_EXTSTA_SEND_CONTEXT;
         const DOT11_EXTAP_SEND_CONTEXT_REVISION_1: i32 = 1;
         struct DOT11_EXTSTA_ATTRIBUTES {
             Header: NDIS_OBJECT_HEADER,
-            uScanSSIDListSize: u32,
-            uDesiredBSSIDListSize: u32,
-            uDesiredSSIDListSize: u32,
-            uExcludedMacAddressListSize: u32,
-            uPrivacyExemptionListSize: u32,
-            uKeyMappingTableSize: u32,
-            uDefaultKeyTableSize: u32,
-            uWEPKeyValueMaxLength: u32,
-            uPMKIDCacheSize: u32,
-            uMaxNumPerSTADefaultKeyTables: u32,
+            uScanSSIDListSize: ULONG,
+            uDesiredBSSIDListSize: ULONG,
+            uDesiredSSIDListSize: ULONG,
+            uExcludedMacAddressListSize: ULONG,
+            uPrivacyExemptionListSize: ULONG,
+            uKeyMappingTableSize: ULONG,
+            uDefaultKeyTableSize: ULONG,
+            uWEPKeyValueMaxLength: ULONG,
+            uPMKIDCacheSize: ULONG,
+            uMaxNumPerSTADefaultKeyTables: ULONG,
             bStrictlyOrderedServiceClassImplemented: BOOLEAN,
-            ucSupportedQoSProtocolFlags: u8,
+            ucSupportedQoSProtocolFlags: UCHAR,
             bSafeModeImplemented: BOOLEAN,
-            uNumSupportedCountryOrRegionStrings: u32,
+            uNumSupportedCountryOrRegionStrings: ULONG,
             pSupportedCountryOrRegionStrings: PDOT11_COUNTRY_OR_REGION_STRING,
-            uInfraNumSupportedUcastAlgoPairs: u32,
+            uInfraNumSupportedUcastAlgoPairs: ULONG,
             pInfraSupportedUcastAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
-            uInfraNumSupportedMcastAlgoPairs: u32,
+            uInfraNumSupportedMcastAlgoPairs: ULONG,
             pInfraSupportedMcastAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
-            uAdhocNumSupportedUcastAlgoPairs: u32,
+            uAdhocNumSupportedUcastAlgoPairs: ULONG,
             pAdhocSupportedUcastAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
-            uAdhocNumSupportedMcastAlgoPairs: u32,
+            uAdhocNumSupportedMcastAlgoPairs: ULONG,
             pAdhocSupportedMcastAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
             bAutoPowerSaveMode: BOOLEAN,
-            uMaxNetworkOffloadListSize: u32,
+            uMaxNetworkOffloadListSize: ULONG,
             bMFPCapable: BOOLEAN,
-            uInfraNumSupportedMcastMgmtAlgoPairs: u32,
+            uInfraNumSupportedMcastMgmtAlgoPairs: ULONG,
             pInfraSupportedMcastMgmtAlgoPairs: PDOT11_AUTH_CIPHER_PAIR,
             bNeighborReportSupported: BOOLEAN,
             bAPChannelReportSupported: BOOLEAN,
@@ -548,19 +533,39 @@ mod Windows {
         const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_RESERVED: i32 = 12;
         struct DOT11_EXTSTA_CAPABILITY {
             Header: NDIS_OBJECT_HEADER,
-            uScanSSIDListSize: u32,
-            uDesiredBSSIDListSize: u32,
-            uDesiredSSIDListSize: u32,
-            uExcludedMacAddressListSize: u32,
-            uPrivacyExemptionListSize: u32,
-            uKeyMappingTableSize: u32,
-            uDefaultKeyTableSize: u32,
-            uWEPKeyValueMaxLength: u32,
-            uPMKIDCacheSize: u32,
-            uMaxNumPerSTADefaultKeyTables: u32,
+            uScanSSIDListSize: ULONG,
+            uDesiredBSSIDListSize: ULONG,
+            uDesiredSSIDListSize: ULONG,
+            uExcludedMacAddressListSize: ULONG,
+            uPrivacyExemptionListSize: ULONG,
+            uKeyMappingTableSize: ULONG,
+            uDefaultKeyTableSize: ULONG,
+            uWEPKeyValueMaxLength: ULONG,
+            uPMKIDCacheSize: ULONG,
+            uMaxNumPerSTADefaultKeyTables: ULONG,
         }
         const DOT11_EXTSTA_CAPABILITY_REVISION_1: i32 = 1;
+        struct DOT11_EXTSTA_RECV_CONTEXT {
+            Header: NDIS_OBJECT_HEADER,
+            uReceiveFlags: ULONG,
+            uPhyId: ULONG,
+            uChCenterFrequency: ULONG,
+            usNumberOfMPDUsReceived: USHORT,
+            lRSSI: LONG,
+            ucDataRate: UCHAR,
+            uSizeMediaSpecificInfo: ULONG,
+            pvMediaSpecificInfo: PVOID,
+            ullTimestamp: ULONGLONG,
+        }
         const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: i32 = 1;
+        struct DOT11_EXTSTA_SEND_CONTEXT {
+            Header: NDIS_OBJECT_HEADER,
+            usExemptionActionType: USHORT,
+            uPhyId: ULONG,
+            uDelayedSleepValue: ULONG,
+            pvMediaSpecificInfo: PVOID,
+            uSendFlags: ULONG,
+        }
         const DOT11_EXTSTA_SEND_CONTEXT_REVISION_1: i32 = 1;
         const DOT11_FLAGS_80211B_CHANNEL_AGILITY: i32 = 4;
         const DOT11_FLAGS_80211B_PBCC: i32 = 2;
@@ -571,8 +576,8 @@ mod Windows {
         const DOT11_FLAGS_80211G_USE_PROTECTION: i32 = 32;
         const DOT11_FLAGS_PS_ON: i32 = 8;
         struct DOT11_FRAGMENT_DESCRIPTOR {
-            uOffset: u32,
-            uLength: u32,
+            uOffset: ULONG,
+            uLength: ULONG,
         }
         const DOT11_FREQUENCY_BANDS_LOWER: i32 = 1;
         const DOT11_FREQUENCY_BANDS_MIDDLE: i32 = 2;
@@ -582,8 +587,8 @@ mod Windows {
             PeerDeviceAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
             Status: NDIS_STATUS,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
@@ -591,8 +596,8 @@ mod Windows {
             PeerDeviceAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
             Status: NDIS_STATUS,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
@@ -600,19 +605,19 @@ mod Windows {
             PeerDeviceAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
             Status: NDIS_STATUS,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
         type DOT11_HESSID = [u8; 6];
         const DOT11_HESSID_LENGTH: i32 = 6;
         struct DOT11_HOPPING_PATTERN_ENTRY {
-            uHoppingPatternIndex: u32,
-            uRandomTableFieldNumber: u32,
+            uHoppingPatternIndex: ULONG,
+            uRandomTableFieldNumber: ULONG,
         }
         struct DOT11_HOPPING_PATTERN_ENTRY_LIST {
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             dot11HoppingPatternEntry: [DOT11_HOPPING_PATTERN_ENTRY; 1],
         }
         #[repr(i32)]
@@ -625,7 +630,7 @@ mod Windows {
             bShortPreambleOptionImplemented: BOOLEAN,
             bPBCCOptionImplemented: BOOLEAN,
             bChannelAgilityPresent: BOOLEAN,
-            uHRCCAModeSupported: u32,
+            uHRCCAModeSupported: ULONG,
         }
         const DOT11_HR_CCA_MODE_CS_AND_ED: i32 = 4;
         const DOT11_HR_CCA_MODE_CS_ONLY: i32 = 2;
@@ -641,37 +646,37 @@ mod Windows {
         struct DOT11_IBSS_PARAMS {
             Header: NDIS_OBJECT_HEADER,
             bJoinOnly: BOOLEAN,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_IBSS_PARAMS_REVISION_1: i32 = 1;
         struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             PeerMacAddr: DOT11_MAC_ADDRESS,
-            uStatus: u32,
-            ucErrorSource: u8,
+            uStatus: ULONG,
+            ucErrorSource: UCHAR,
             bReAssocReq: BOOLEAN,
             bReAssocResp: BOOLEAN,
-            uAssocReqOffset: u32,
-            uAssocReqSize: u32,
-            uAssocRespOffset: u32,
-            uAssocRespSize: u32,
+            uAssocReqOffset: ULONG,
+            uAssocReqSize: ULONG,
+            uAssocRespOffset: ULONG,
+            uAssocRespSize: ULONG,
             AuthAlgo: DOT11_AUTH_ALGORITHM,
             UnicastCipher: DOT11_CIPHER_ALGORITHM,
             MulticastCipher: DOT11_CIPHER_ALGORITHM,
-            uActivePhyListOffset: u32,
-            uActivePhyListSize: u32,
-            uBeaconOffset: u32,
-            uBeaconSize: u32,
+            uActivePhyListOffset: ULONG,
+            uActivePhyListSize: ULONG,
+            uBeaconOffset: ULONG,
+            uBeaconSize: ULONG,
         }
         const DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_INCOMING_ASSOC_DECISION {
             Header: NDIS_OBJECT_HEADER,
             PeerMacAddr: DOT11_MAC_ADDRESS,
             bAccept: BOOLEAN,
-            usReasonCode: u16,
-            uAssocResponseIEsOffset: u32,
-            uAssocResponseIEsLength: u32,
+            usReasonCode: USHORT,
+            uAssocResponseIEsOffset: ULONG,
+            uAssocResponseIEsLength: ULONG,
         }
         const DOT11_INCOMING_ASSOC_DECISION_REVISION_1: i32 = 1;
         const DOT11_INCOMING_ASSOC_DECISION_REVISION_2: i32 = 2;
@@ -679,17 +684,17 @@ mod Windows {
             Header: NDIS_OBJECT_HEADER,
             PeerMacAddr: DOT11_MAC_ADDRESS,
             bAccept: BOOLEAN,
-            usReasonCode: u16,
-            uAssocResponseIEsOffset: u32,
-            uAssocResponseIEsLength: u32,
+            usReasonCode: USHORT,
+            uAssocResponseIEsOffset: ULONG,
+            uAssocResponseIEsLength: ULONG,
             WFDStatus: DOT11_WFD_STATUS_CODE,
         }
         struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             PeerMacAddr: DOT11_MAC_ADDRESS,
             bReAssocReq: BOOLEAN,
-            uAssocReqOffset: u32,
-            uAssocReqSize: u32,
+            uAssocReqOffset: ULONG,
+            uAssocReqSize: ULONG,
         }
         const DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
@@ -704,8 +709,8 @@ mod Windows {
             ReceiverAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
             Status: NDIS_STATUS,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
@@ -713,50 +718,50 @@ mod Windows {
             ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
             Status: NDIS_STATUS,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_IV48_COUNTER {
-            uIV32Counter: u32,
-            usIV16Counter: u16,
+            uIV32Counter: ULONG,
+            usIV16Counter: USHORT,
         }
         struct DOT11_JOIN_REQUEST {
-            uJoinFailureTimeout: u32,
+            uJoinFailureTimeout: ULONG,
             OperationalRateSet: DOT11_RATE_SET,
-            uChCenterFrequency: u32,
+            uChCenterFrequency: ULONG,
             dot11BSSDescription: DOT11_BSS_DESCRIPTION,
         }
         struct DOT11_KEY_ALGO_BIP {
-            ucIPN: [u8; 6],
-            ulBIPKeyLength: u32,
-            ucBIPKey: [u8; 1],
+            ucIPN: [UCHAR; 6],
+            ulBIPKeyLength: ULONG,
+            ucBIPKey: [UCHAR; 1],
         }
         struct DOT11_KEY_ALGO_BIP_GMAC_256 {
-            ucIPN: [u8; 6],
-            ulBIPGmac256KeyLength: u32,
-            ucBIPGmac256Key: [u8; 1],
+            ucIPN: [UCHAR; 6],
+            ulBIPGmac256KeyLength: ULONG,
+            ucBIPGmac256Key: [UCHAR; 1],
         }
         struct DOT11_KEY_ALGO_CCMP {
-            ucIV48Counter: [u8; 6],
-            ulCCMPKeyLength: u32,
-            ucCCMPKey: [u8; 1],
+            ucIV48Counter: [UCHAR; 6],
+            ulCCMPKeyLength: ULONG,
+            ucCCMPKey: [UCHAR; 1],
         }
         struct DOT11_KEY_ALGO_GCMP {
-            ucIV48Counter: [u8; 6],
-            ulGCMPKeyLength: u32,
-            ucGCMPKey: [u8; 1],
+            ucIV48Counter: [UCHAR; 6],
+            ulGCMPKeyLength: ULONG,
+            ucGCMPKey: [UCHAR; 1],
         }
         struct DOT11_KEY_ALGO_GCMP_256 {
-            ucIV48Counter: [u8; 6],
-            ulGCMP256KeyLength: u32,
-            ucGCMP256Key: [u8; 1],
+            ucIV48Counter: [UCHAR; 6],
+            ulGCMP256KeyLength: ULONG,
+            ucGCMP256Key: [UCHAR; 1],
         }
         struct DOT11_KEY_ALGO_TKIP_MIC {
-            ucIV48Counter: [u8; 6],
-            ulTKIPKeyLength: u32,
-            ulMICKeyLength: u32,
-            ucTKIPMICKeys: [u8; 1],
+            ucIV48Counter: [UCHAR; 6],
+            ulTKIPKeyLength: ULONG,
+            ulMICKeyLength: ULONG,
+            ucTKIPMICKeys: [UCHAR; 1],
         }
         #[repr(i32)]
         enum DOT11_KEY_DIRECTION {
@@ -766,54 +771,54 @@ mod Windows {
         }
         struct DOT11_LINK_QUALITY_ENTRY {
             PeerMacAddr: DOT11_MAC_ADDRESS,
-            ucLinkQuality: u8,
+            ucLinkQuality: UCHAR,
         }
         struct DOT11_LINK_QUALITY_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
-            uLinkQualityListSize: u32,
-            uLinkQualityListOffset: u32,
+            uLinkQualityListSize: ULONG,
+            uLinkQualityListOffset: ULONG,
         }
         const DOT11_LINK_QUALITY_PARAMETERS_REVISION_1: i32 = 1;
         type DOT11_MAC_ADDRESS = [u8; 6];
         struct DOT11_MAC_ADDRESS_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             MacAddrs: [DOT11_MAC_ADDRESS; 1],
         }
         const DOT11_MAC_ADDRESS_LIST_REVISION_1: i32 = 1;
         const DOT11_MAC_AUTO_CONFIG_ENABLED_FLAG: u32 = 2;
         struct DOT11_MAC_FRAME_STATISTICS {
-            ullTransmittedFrameCount: u64,
-            ullReceivedFrameCount: u64,
-            ullTransmittedFailureFrameCount: u64,
-            ullReceivedFailureFrameCount: u64,
-            ullWEPExcludedCount: u64,
-            ullTKIPLocalMICFailures: u64,
-            ullTKIPReplays: u64,
-            ullTKIPICVErrorCount: u64,
-            ullCCMPReplays: u64,
-            ullCCMPDecryptErrors: u64,
-            ullWEPUndecryptableCount: u64,
-            ullWEPICVErrorCount: u64,
-            ullDecryptSuccessCount: u64,
-            ullDecryptFailureCount: u64,
+            ullTransmittedFrameCount: ULONGLONG,
+            ullReceivedFrameCount: ULONGLONG,
+            ullTransmittedFailureFrameCount: ULONGLONG,
+            ullReceivedFailureFrameCount: ULONGLONG,
+            ullWEPExcludedCount: ULONGLONG,
+            ullTKIPLocalMICFailures: ULONGLONG,
+            ullTKIPReplays: ULONGLONG,
+            ullTKIPICVErrorCount: ULONGLONG,
+            ullCCMPReplays: ULONGLONG,
+            ullCCMPDecryptErrors: ULONGLONG,
+            ullWEPUndecryptableCount: ULONGLONG,
+            ullWEPICVErrorCount: ULONGLONG,
+            ullDecryptSuccessCount: ULONGLONG,
+            ullDecryptFailureCount: ULONGLONG,
         }
         struct DOT11_MAC_INFO {
-            uReserved: u32,
-            uNdisPortNumber: u32,
+            uReserved: ULONG,
+            uNdisPortNumber: ULONG,
             MacAddr: DOT11_MAC_ADDRESS,
         }
         struct DOT11_MAC_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
-            uOpmodeMask: u32,
+            uOpmodeMask: ULONG,
         }
         const DOT11_MAC_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             dot11ManufacturingCallbackType: DOT11_MANUFACTURING_CALLBACK_TYPE,
-            uStatus: u32,
-            pvContext: *mut void,
+            uStatus: ULONG,
+            pvContext: PVOID,
         }
         const DOT11_MANUFACTURING_CALLBACK_REVISION_1: i32 = 1;
         #[repr(i32)]
@@ -826,39 +831,39 @@ mod Windows {
         }
         struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
             Dot11Band: DOT11_BAND,
-            uChannel: u32,
-            ADCPowerLevel: i32,
+            uChannel: ULONG,
+            ADCPowerLevel: LONG,
         }
         struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
             bEnabled: BOOLEAN,
             Dot11Band: DOT11_BAND,
-            uChannel: u32,
-            PowerLevel: i32,
+            uChannel: ULONG,
+            PowerLevel: LONG,
         }
         struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
             bEnable: BOOLEAN,
             bOpenLoop: BOOLEAN,
             Dot11Band: DOT11_BAND,
-            uChannel: u32,
-            uSetPowerLevel: u32,
-            ADCPowerLevel: i32,
+            uChannel: ULONG,
+            uSetPowerLevel: ULONG,
+            ADCPowerLevel: LONG,
         }
         struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
             SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
-            uTestID: u32,
+            uTestID: ULONG,
             bResult: BOOLEAN,
-            uPinFailedBitMask: u32,
-            pvContext: *mut void,
-            uBytesWrittenOut: u32,
-            ucBufferOut: [u8; 1],
+            uPinFailedBitMask: ULONG,
+            pvContext: PVOID,
+            uBytesWrittenOut: ULONG,
+            ucBufferOut: [UCHAR; 1],
         }
         struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
             SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
-            uTestID: u32,
-            uPinBitMask: u32,
-            pvContext: *mut void,
-            uBufferLength: u32,
-            ucBufferIn: [u8; 1],
+            uTestID: ULONG,
+            uPinBitMask: ULONG,
+            pvContext: PVOID,
+            uBufferLength: ULONG,
+            ucBufferIn: [UCHAR; 1],
         }
         #[repr(i32)]
         enum DOT11_MANUFACTURING_SELF_TEST_TYPE {
@@ -868,26 +873,26 @@ mod Windows {
         }
         struct DOT11_MANUFACTURING_TEST {
             dot11ManufacturingTestType: DOT11_MANUFACTURING_TEST_TYPE,
-            uBufferLength: u32,
-            ucBuffer: [u8; 1],
+            uBufferLength: ULONG,
+            ucBuffer: [UCHAR; 1],
         }
         struct DOT11_MANUFACTURING_TEST_QUERY_DATA {
-            uKey: u32,
-            uOffset: u32,
-            uBufferLength: u32,
-            uBytesRead: u32,
-            ucBufferOut: [u8; 1],
+            uKey: ULONG,
+            uOffset: ULONG,
+            uBufferLength: ULONG,
+            uBytesRead: ULONG,
+            ucBufferOut: [UCHAR; 1],
         }
         const DOT11_MANUFACTURING_TEST_REVISION_1: i32 = 1;
         struct DOT11_MANUFACTURING_TEST_SET_DATA {
-            uKey: u32,
-            uOffset: u32,
-            uBufferLength: u32,
-            ucBufferIn: [u8; 1],
+            uKey: ULONG,
+            uOffset: ULONG,
+            uBufferLength: ULONG,
+            ucBufferIn: [UCHAR; 1],
         }
         struct DOT11_MANUFACTURING_TEST_SLEEP {
-            uSleepTime: u32,
-            pvContext: *mut void,
+            uSleepTime: ULONG,
+            pvContext: PVOID,
         }
         #[repr(i32)]
         enum DOT11_MANUFACTURING_TEST_TYPE {
@@ -911,43 +916,43 @@ mod Windows {
         const DOT11_MAX_PDU_SIZE: i32 = 2346;
         const DOT11_MAX_REQUESTED_SERVICE_INFORMATION_LENGTH: i32 = 255;
         struct DOT11_MD_CAPABILITY_ENTRY_LIST {
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             dot11MDCapabilityEntry: [DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY; 1],
         }
         const DOT11_MIN_PDU_SIZE: i32 = 256;
-        const DOT11_MIN_SIZEOF_OFFLOAD_NETWORK_LIST_INFO_REVISION_1: i32 = 24;
+        const DOT11_MIN_SIZEOF_OFFLOAD_NETWORK_LIST_INFO_REVISION_1: LONG = 24;
         struct DOT11_MPDU_MAX_LENGTH_INDICATION {
             Header: NDIS_OBJECT_HEADER,
-            uPhyId: u32,
-            uMPDUMaxLength: u32,
+            uPhyId: ULONG,
+            uMPDUMaxLength: ULONG,
         }
         const DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: i32 = 1;
         struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
-            uMultiDomainCapabilityIndex: u32,
-            uFirstChannelNumber: u32,
-            uNumberOfChannels: u32,
-            lMaximumTransmitPowerLevel: i32,
+            uMultiDomainCapabilityIndex: ULONG,
+            uFirstChannelNumber: ULONG,
+            uNumberOfChannels: ULONG,
+            lMaximumTransmitPowerLevel: LONG,
         }
         struct DOT11_NIC_SPECIFIC_EXTENSION {
-            uBufferLength: u32,
-            uTotalBufferLength: u32,
-            ucBuffer: [u8; 1],
+            uBufferLength: ULONG,
+            uTotalBufferLength: ULONG,
+            ucBuffer: [UCHAR; 1],
         }
         const DOT11_NLO_FLAG_SCAN_AT_SYSTEM_RESUME: i32 = 4;
         const DOT11_NLO_FLAG_SCAN_ON_AOAC_PLATFORM: i32 = 2;
         const DOT11_NLO_FLAG_STOP_NLO_INDICATION: i32 = 1;
         struct DOT11_OFDM_PHY_ATTRIBUTES {
-            uFrequencyBandsSupported: u32,
+            uFrequencyBandsSupported: ULONG,
         }
         struct DOT11_OFFLOAD_CAPABILITY {
-            uReserved: u32,
-            uFlags: u32,
-            uSupportedWEPAlgorithms: u32,
-            uNumOfReplayWindows: u32,
-            uMaxWEPKeyMappingLength: u32,
-            uSupportedAuthAlgorithms: u32,
-            uMaxAuthKeyMappingLength: u32,
+            uReserved: ULONG,
+            uFlags: ULONG,
+            uSupportedWEPAlgorithms: ULONG,
+            uNumOfReplayWindows: ULONG,
+            uMaxWEPKeyMappingLength: ULONG,
+            uSupportedAuthAlgorithms: ULONG,
+            uMaxAuthKeyMappingLength: ULONG,
         }
         struct DOT11_OFFLOAD_NETWORK {
             Ssid: DOT11_SSID,
@@ -957,11 +962,11 @@ mod Windows {
         }
         struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
             Header: NDIS_OBJECT_HEADER,
-            ulFlags: u32,
-            FastScanPeriod: u32,
-            FastScanIterations: u32,
-            SlowScanPeriod: u32,
-            uNumOfEntries: u32,
+            ulFlags: ULONG,
+            FastScanPeriod: ULONG,
+            FastScanIterations: ULONG,
+            SlowScanPeriod: ULONG,
+            uNumOfEntries: ULONG,
             offloadNetworkList: [DOT11_OFFLOAD_NETWORK; 1],
         }
         const DOT11_OFFLOAD_NETWORK_LIST_REVISION_1: i32 = 1;
@@ -977,12 +982,12 @@ mod Windows {
         }
         const DOT11_OPERATION_MODE_AP: i32 = 2;
         struct DOT11_OPERATION_MODE_CAPABILITY {
-            uReserved: u32,
-            uMajorVersion: u32,
-            uMinorVersion: u32,
-            uNumOfTXBuffers: u32,
-            uNumOfRXBuffers: u32,
-            uOpModeCapability: u32,
+            uReserved: ULONG,
+            uMajorVersion: ULONG,
+            uMinorVersion: ULONG,
+            uNumOfTXBuffers: ULONG,
+            uNumOfRXBuffers: ULONG,
+            uOpModeCapability: ULONG,
         }
         const DOT11_OPERATION_MODE_EXTENSIBLE_AP: i32 = 8;
         const DOT11_OPERATION_MODE_EXTENSIBLE_STATION: i32 = 4;
@@ -994,7 +999,7 @@ mod Windows {
         const DOT11_OPERATION_MODE_WFD_DEVICE: i32 = 16;
         const DOT11_OPERATION_MODE_WFD_GROUP_OWNER: i32 = 32;
         struct DOT11_OPTIONAL_CAPABILITY {
-            uReserved: u32,
+            uReserved: ULONG,
             bDot11PCF: BOOLEAN,
             bDot11PCFMPDUTransferToPC: BOOLEAN,
             bStrictlyOrderedServiceClass: BOOLEAN,
@@ -1017,14 +1022,14 @@ mod Windows {
         const DOT11_PACKET_TYPE_RESERVED: i32 = -32768;
         struct DOT11_PEER_INFO {
             MacAddress: DOT11_MAC_ADDRESS,
-            usCapabilityInformation: u16,
+            usCapabilityInformation: USHORT,
             AuthAlgo: DOT11_AUTH_ALGORITHM,
             UnicastCipherAlgo: DOT11_CIPHER_ALGORITHM,
             MulticastCipherAlgo: DOT11_CIPHER_ALGORITHM,
             bWpsEnabled: BOOLEAN,
-            usListenInterval: u16,
-            ucSupportedRates: [u8; 255],
-            usAssociationID: u16,
+            usListenInterval: USHORT,
+            ucSupportedRates: [UCHAR; 255],
+            usAssociationID: USHORT,
             AssociationState: DOT11_ASSOCIATION_STATE,
             PowerMode: DOT11_POWER_MODE,
             liAssociationUpTime: LARGE_INTEGER,
@@ -1032,25 +1037,25 @@ mod Windows {
         }
         struct DOT11_PEER_INFO_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             PeerInfo: [DOT11_PEER_INFO; 1],
         }
         const DOT11_PEER_INFO_LIST_REVISION_1: i32 = 1;
         struct DOT11_PEER_STATISTICS {
-            ullDecryptSuccessCount: u64,
-            ullDecryptFailureCount: u64,
-            ullTxPacketSuccessCount: u64,
-            ullTxPacketFailureCount: u64,
-            ullRxPacketSuccessCount: u64,
-            ullRxPacketFailureCount: u64,
+            ullDecryptSuccessCount: ULONGLONG,
+            ullDecryptFailureCount: ULONGLONG,
+            ullTxPacketSuccessCount: ULONGLONG,
+            ullTxPacketFailureCount: ULONGLONG,
+            ullRxPacketSuccessCount: ULONGLONG,
+            ullRxPacketFailureCount: ULONGLONG,
         }
         struct DOT11_PER_MSDU_COUNTERS {
-            uTransmittedFragmentCount: u32,
-            uRetryCount: u32,
-            uRTSSuccessCount: u32,
-            uRTSFailureCount: u32,
-            uACKFailureCount: u32,
+            uTransmittedFragmentCount: ULONG,
+            uRetryCount: ULONG,
+            uRTSSuccessCount: ULONG,
+            uRTSFailureCount: ULONG,
+            uACKFailureCount: ULONG,
         }
         struct DOT11_PHY_ATTRIBUTES {
             Header: NDIS_OBJECT_HEADER,
@@ -1058,7 +1063,7 @@ mod Windows {
             bHardwarePhyState: BOOLEAN,
             bSoftwarePhyState: BOOLEAN,
             bCFPollable: BOOLEAN,
-            uMPDUMaxLength: u32,
+            uMPDUMaxLength: ULONG,
             TempType: DOT11_TEMP_TYPE,
             DiversitySupport: DOT11_DIVERSITY_SUPPORT,
             PhySpecificAttributes: union {
@@ -1066,54 +1071,54 @@ mod Windows {
                 OFDMAttributes: DOT11_OFDM_PHY_ATTRIBUTES,
                 ERPAttributes: DOT11_ERP_PHY_ATTRIBUTES,
             },
-            uNumberSupportedPowerLevels: u32,
-            TxPowerLevels: [u32; 8],
-            uNumDataRateMappingEntries: u32,
+            uNumberSupportedPowerLevels: ULONG,
+            TxPowerLevels: [ULONG; 8],
+            uNumDataRateMappingEntries: ULONG,
             DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
             SupportedDataRatesValue: DOT11_SUPPORTED_DATA_RATES_VALUE_V2,
         }
         const DOT11_PHY_ATTRIBUTES_REVISION_1: i32 = 1;
         const DOT11_PHY_AUTO_CONFIG_ENABLED_FLAG: u32 = 1;
         struct DOT11_PHY_FRAME_STATISTICS {
-            ullTransmittedFrameCount: u64,
-            ullMulticastTransmittedFrameCount: u64,
-            ullFailedCount: u64,
-            ullRetryCount: u64,
-            ullMultipleRetryCount: u64,
-            ullMaxTXLifetimeExceededCount: u64,
-            ullTransmittedFragmentCount: u64,
-            ullRTSSuccessCount: u64,
-            ullRTSFailureCount: u64,
-            ullACKFailureCount: u64,
-            ullReceivedFrameCount: u64,
-            ullMulticastReceivedFrameCount: u64,
-            ullPromiscuousReceivedFrameCount: u64,
-            ullMaxRXLifetimeExceededCount: u64,
-            ullFrameDuplicateCount: u64,
-            ullReceivedFragmentCount: u64,
-            ullPromiscuousReceivedFragmentCount: u64,
-            ullFCSErrorCount: u64,
+            ullTransmittedFrameCount: ULONGLONG,
+            ullMulticastTransmittedFrameCount: ULONGLONG,
+            ullFailedCount: ULONGLONG,
+            ullRetryCount: ULONGLONG,
+            ullMultipleRetryCount: ULONGLONG,
+            ullMaxTXLifetimeExceededCount: ULONGLONG,
+            ullTransmittedFragmentCount: ULONGLONG,
+            ullRTSSuccessCount: ULONGLONG,
+            ullRTSFailureCount: ULONGLONG,
+            ullACKFailureCount: ULONGLONG,
+            ullReceivedFrameCount: ULONGLONG,
+            ullMulticastReceivedFrameCount: ULONGLONG,
+            ullPromiscuousReceivedFrameCount: ULONGLONG,
+            ullMaxRXLifetimeExceededCount: ULONGLONG,
+            ullFrameDuplicateCount: ULONGLONG,
+            ullReceivedFragmentCount: ULONGLONG,
+            ullPromiscuousReceivedFragmentCount: ULONGLONG,
+            ullFCSErrorCount: ULONGLONG,
         }
         struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
-            ulPhyId: u32,
+            ulPhyId: ULONG,
             Anonymous: union {
-                ulChannel: u32,
-                ulFrequency: u32,
+                ulChannel: ULONG,
+                ulFrequency: ULONG,
             },
         }
         const DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_REVISION_1: i32 = 1;
         const DOT11_PHY_ID_ANY: u32 = 4294967295;
         struct DOT11_PHY_ID_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
-            dot11PhyId: [u32; 1],
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
+            dot11PhyId: [ULONG; 1],
         }
         const DOT11_PHY_ID_LIST_REVISION_1: i32 = 1;
         struct DOT11_PHY_STATE_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
-            uPhyId: u32,
+            uPhyId: ULONG,
             bHardwarePhyState: BOOLEAN,
             bSoftwarePhyState: BOOLEAN,
         }
@@ -1139,36 +1144,36 @@ mod Windows {
         struct DOT11_PHY_TYPE_INFO {
             dot11PhyType: DOT11_PHY_TYPE,
             bUseParameters: BOOLEAN,
-            uProbeDelay: u32,
-            uMinChannelTime: u32,
-            uMaxChannelTime: u32,
+            uProbeDelay: ULONG,
+            uMinChannelTime: ULONG,
+            uMaxChannelTime: ULONG,
             ChDescriptionType: CH_DESCRIPTION_TYPE,
-            uChannelListSize: u32,
-            ucChannelListBuffer: [u8; 1],
+            uChannelListSize: ULONG,
+            ucChannelListBuffer: [UCHAR; 1],
         }
         struct DOT11_PHY_TYPE_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             dot11PhyType: [DOT11_PHY_TYPE; 1],
         }
         const DOT11_PHY_TYPE_LIST_REVISION_1: i32 = 1;
         struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
-            uCandidateListSize: u32,
-            uCandidateListOffset: u32,
+            uCandidateListSize: ULONG,
+            uCandidateListOffset: ULONG,
         }
         const DOT11_PMKID_CANDIDATE_LIST_PARAMETERS_REVISION_1: i32 = 1;
         const DOT11_PMKID_CANDIDATE_PREAUTH_ENABLED: u32 = 1;
         struct DOT11_PMKID_ENTRY {
             BSSID: DOT11_MAC_ADDRESS,
             PMKID: DOT11_PMKID_VALUE,
-            uFlags: u32,
+            uFlags: ULONG,
         }
         struct DOT11_PMKID_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             PMKIDs: [DOT11_PMKID_ENTRY; 1],
         }
         const DOT11_PMKID_LIST_REVISION_1: i32 = 1;
@@ -1186,15 +1191,15 @@ mod Windows {
         const DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1: i32 = 1;
         struct DOT11_POWER_MGMT_MODE {
             dot11PowerMode: DOT11_POWER_MODE,
-            uPowerSaveLevel: u32,
-            usListenInterval: u16,
-            usAID: u16,
+            uPowerSaveLevel: ULONG,
+            usListenInterval: USHORT,
+            usAID: USHORT,
             bReceiveDTIMs: BOOLEAN,
         }
         struct DOT11_POWER_MGMT_MODE_STATUS_INFO {
             Header: NDIS_OBJECT_HEADER,
             PowerSaveMode: DOT11_POWER_MODE,
-            uPowerSaveLevel: u32,
+            uPowerSaveLevel: ULONG,
             Reason: DOT11_POWER_MODE_REASON,
         }
         const DOT11_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: i32 = 1;
@@ -1222,14 +1227,14 @@ mod Windows {
         const DOT11_PRIORITY_CONTENTION: i32 = 0;
         const DOT11_PRIORITY_CONTENTION_FREE: i32 = 1;
         struct DOT11_PRIVACY_EXEMPTION {
-            usEtherType: u16,
-            usExemptionActionType: u16,
-            usExemptionPacketType: u16,
+            usEtherType: USHORT,
+            usExemptionActionType: USHORT,
+            usExemptionPacketType: USHORT,
         }
         struct DOT11_PRIVACY_EXEMPTION_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             PrivacyExemptionEntries: [DOT11_PRIVACY_EXEMPTION; 1],
         }
         const DOT11_PRIVACY_EXEMPTION_LIST_REVISION_1: i32 = 1;
@@ -1239,8 +1244,8 @@ mod Windows {
             ReceiverAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
             Status: NDIS_STATUS,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
@@ -1248,56 +1253,59 @@ mod Windows {
             ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
             Status: NDIS_STATUS,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_QOS_PARAMS {
             Header: NDIS_OBJECT_HEADER,
-            ucEnabledQoSProtocolFlags: u8,
+            ucEnabledQoSProtocolFlags: UCHAR,
         }
         const DOT11_QOS_PARAMS_REVISION_1: i32 = 1;
         const DOT11_QOS_PROTOCOL_FLAG_11E: u32 = 2;
         const DOT11_QOS_PROTOCOL_FLAG_WMM: u32 = 1;
         struct DOT11_QOS_TX_DURATION {
-            uNominalMSDUSize: u32,
-            uMinPHYRate: u32,
-            uDuration: u32,
+            uNominalMSDUSize: ULONG,
+            uMinPHYRate: ULONG,
+            uDuration: ULONG,
         }
         struct DOT11_QOS_TX_MEDIUM_TIME {
             dot11PeerAddress: DOT11_MAC_ADDRESS,
-            ucQoSPriority: u8,
-            uMediumTimeAdmited: u32,
+            ucQoSPriority: UCHAR,
+            uMediumTimeAdmited: ULONG,
         }
         struct DOT11_RATE_SET {
-            uRateSetLength: u32,
-            ucRateSet: [u8; 126],
+            #[range(<=126)]
+            uRateSetLength: ULONG,
+            #[writable(126)]
+            #[readable(uRateSetLength)]
+            ucRateSet: [UCHAR; 126],
         }
         const DOT11_RATE_SET_MAX_LENGTH: i32 = 126;
         struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             PeerDeviceAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             PeerDeviceAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
-            RequestContext: *mut void,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            RequestContext: PVOID,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             PeerDeviceAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
-            ResponseContext: *mut void,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            ResponseContext: PVOID,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
@@ -1305,9 +1313,9 @@ mod Windows {
             TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
             BSSID: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
-            RequestContext: *mut void,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            RequestContext: PVOID,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
@@ -1315,8 +1323,8 @@ mod Windows {
             TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
             BSSID: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
@@ -1324,9 +1332,9 @@ mod Windows {
             TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
             BSSID: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
-            RequestContext: *mut void,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            RequestContext: PVOID,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
@@ -1334,78 +1342,78 @@ mod Windows {
             TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
             BSSID: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_RECV_EXTENSION_INFO {
-            uVersion: u32,
-            pvReserved: *mut void,
+            uVersion: ULONG,
+            pvReserved: PVOID,
             dot11PhyType: DOT11_PHY_TYPE,
-            uChCenterFrequency: u32,
-            lRSSI: i32,
-            lRSSIMin: i32,
-            lRSSIMax: i32,
-            uRSSI: u32,
-            ucPriority: u8,
-            ucDataRate: u8,
-            ucPeerMacAddress: [u8; 6],
-            dwExtendedStatus: u32,
+            uChCenterFrequency: ULONG,
+            lRSSI: LONG,
+            lRSSIMin: LONG,
+            lRSSIMax: LONG,
+            uRSSI: ULONG,
+            ucPriority: UCHAR,
+            ucDataRate: UCHAR,
+            ucPeerMacAddress: [UCHAR; 6],
+            dwExtendedStatus: ULONG,
             hWEPOffloadContext: HANDLE,
             hAuthOffloadContext: HANDLE,
-            usWEPAppliedMask: u16,
-            usWPAMSDUPriority: u16,
+            usWEPAppliedMask: USHORT,
+            usWPAMSDUPriority: USHORT,
             dot11LowestIV48Counter: DOT11_IV48_COUNTER,
-            usDot11LeftRWBitMap: u16,
+            usDot11LeftRWBitMap: USHORT,
             dot11HighestIV48Counter: DOT11_IV48_COUNTER,
-            usDot11RightRWBitMap: u16,
-            usNumberOfMPDUsReceived: u16,
-            usNumberOfFragments: u16,
-            pNdisPackets: [*mut void; 1],
+            usDot11RightRWBitMap: USHORT,
+            usNumberOfMPDUsReceived: USHORT,
+            usNumberOfFragments: USHORT,
+            pNdisPackets: [PVOID; 1],
         }
         struct DOT11_RECV_EXTENSION_INFO_V2 {
-            uVersion: u32,
-            pvReserved: *mut void,
+            uVersion: ULONG,
+            pvReserved: PVOID,
             dot11PhyType: DOT11_PHY_TYPE,
-            uChCenterFrequency: u32,
-            lRSSI: i32,
-            uRSSI: u32,
-            ucPriority: u8,
-            ucDataRate: u8,
-            ucPeerMacAddress: [u8; 6],
-            dwExtendedStatus: u32,
+            uChCenterFrequency: ULONG,
+            lRSSI: LONG,
+            uRSSI: ULONG,
+            ucPriority: UCHAR,
+            ucDataRate: UCHAR,
+            ucPeerMacAddress: [UCHAR; 6],
+            dwExtendedStatus: ULONG,
             hWEPOffloadContext: HANDLE,
             hAuthOffloadContext: HANDLE,
-            usWEPAppliedMask: u16,
-            usWPAMSDUPriority: u16,
+            usWEPAppliedMask: USHORT,
+            usWPAMSDUPriority: USHORT,
             dot11LowestIV48Counter: DOT11_IV48_COUNTER,
-            usDot11LeftRWBitMap: u16,
+            usDot11LeftRWBitMap: USHORT,
             dot11HighestIV48Counter: DOT11_IV48_COUNTER,
-            usDot11RightRWBitMap: u16,
-            usNumberOfMPDUsReceived: u16,
-            usNumberOfFragments: u16,
-            pNdisPackets: [*mut void; 1],
+            usDot11RightRWBitMap: USHORT,
+            usNumberOfMPDUsReceived: USHORT,
+            usNumberOfFragments: USHORT,
+            pNdisPackets: [PVOID; 1],
         }
         const DOT11_RECV_FLAG_RAW_PACKET: u32 = 1;
         const DOT11_RECV_FLAG_RAW_PACKET_FCS_FAILURE: u32 = 2;
         const DOT11_RECV_FLAG_RAW_PACKET_TIMESTAMP: u32 = 4;
         struct DOT11_RECV_SENSITIVITY {
-            ucDataRate: u8,
-            lRSSIMin: i32,
-            lRSSIMax: i32,
+            ucDataRate: UCHAR,
+            lRSSIMin: LONG,
+            lRSSIMax: LONG,
         }
         struct DOT11_RECV_SENSITIVITY_LIST {
             Anonymous: union {
                 dot11PhyType: DOT11_PHY_TYPE,
-                uPhyId: u32,
+                uPhyId: ULONG,
             },
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             dot11RecvSensitivity: [DOT11_RECV_SENSITIVITY; 1],
         }
         struct DOT11_REG_DOMAINS_SUPPORT_VALUE {
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             dot11RegDomainValue: [DOT11_REG_DOMAIN_VALUE; 1],
         }
         const DOT11_REG_DOMAIN_DOC: i32 = 32;
@@ -1416,8 +1424,8 @@ mod Windows {
         const DOT11_REG_DOMAIN_OTHER: i32 = 0;
         const DOT11_REG_DOMAIN_SPAIN: i32 = 49;
         struct DOT11_REG_DOMAIN_VALUE {
-            uRegDomainsSupportIndex: u32,
-            uRegDomainsSupportValue: u32,
+            uRegDomainsSupportIndex: ULONG,
+            uRegDomainsSupportValue: ULONG,
         }
         struct DOT11_RESET_REQUEST {
             dot11ResetType: DOT11_RESET_TYPE,
@@ -1449,8 +1457,8 @@ mod Windows {
         const DOT11_ROAMING_START_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_RSSI_RANGE {
             dot11PhyType: DOT11_PHY_TYPE,
-            uRSSIMin: u32,
-            uRSSIMax: u32,
+            uRSSIMin: ULONG,
+            uRSSIMax: ULONG,
         }
         struct DOT11_SCAN_REQUEST {
             dot11BSSType: DOT11_BSS_TYPE,
@@ -1459,29 +1467,29 @@ mod Windows {
             dot11ScanType: DOT11_SCAN_TYPE,
             bRestrictedScan: BOOLEAN,
             bUseRequestIE: BOOLEAN,
-            uRequestIDsOffset: u32,
-            uNumOfRequestIDs: u32,
-            uPhyTypesOffset: u32,
-            uNumOfPhyTypes: u32,
-            uIEsOffset: u32,
-            uIEsLength: u32,
-            ucBuffer: [u8; 1],
+            uRequestIDsOffset: ULONG,
+            uNumOfRequestIDs: ULONG,
+            uPhyTypesOffset: ULONG,
+            uNumOfPhyTypes: ULONG,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
+            ucBuffer: [UCHAR; 1],
         }
         struct DOT11_SCAN_REQUEST_V2 {
             dot11BSSType: DOT11_BSS_TYPE,
             dot11BSSID: DOT11_MAC_ADDRESS,
             dot11ScanType: DOT11_SCAN_TYPE,
             bRestrictedScan: BOOLEAN,
-            udot11SSIDsOffset: u32,
-            uNumOfdot11SSIDs: u32,
+            udot11SSIDsOffset: ULONG,
+            uNumOfdot11SSIDs: ULONG,
             bUseRequestIE: BOOLEAN,
-            uRequestIDsOffset: u32,
-            uNumOfRequestIDs: u32,
-            uPhyTypeInfosOffset: u32,
-            uNumOfPhyTypeInfos: u32,
-            uIEsOffset: u32,
-            uIEsLength: u32,
-            ucBuffer: [u8; 1],
+            uRequestIDsOffset: ULONG,
+            uNumOfRequestIDs: ULONG,
+            uPhyTypeInfosOffset: ULONG,
+            uNumOfPhyTypeInfos: ULONG,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
+            ucBuffer: [UCHAR; 1],
         }
         #[repr(i32)]
         enum DOT11_SCAN_TYPE {
@@ -1494,35 +1502,35 @@ mod Windows {
             Header: NDIS_OBJECT_HEADER,
             PeerDeviceAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
-            ResponseContext: *mut void,
-            uSendTimeout: u32,
+            ResponseContext: PVOID,
+            uSendTimeout: ULONG,
             Status: DOT11_WFD_STATUS_CODE,
             GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
             GroupID: DOT11_WFD_GROUP_ID,
             bUseGroupID: BOOLEAN,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             PeerDeviceAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
-            uSendTimeout: u32,
+            uSendTimeout: ULONG,
             GroupOwnerIntent: DOT11_WFD_GO_INTENT,
             MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
             IntendedInterfaceAddress: DOT11_MAC_ADDRESS,
             GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             PeerDeviceAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
-            RequestContext: *mut void,
-            uSendTimeout: u32,
+            RequestContext: PVOID,
+            uSendTimeout: ULONG,
             Status: DOT11_WFD_STATUS_CODE,
             GroupOwnerIntent: DOT11_WFD_GO_INTENT,
             MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
@@ -1530,15 +1538,15 @@ mod Windows {
             GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
             GroupID: DOT11_WFD_GROUP_ID,
             bUseGroupID: BOOLEAN,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             DialogToken: DOT11_DIALOG_TOKEN,
             PeerDeviceAddress: DOT11_MAC_ADDRESS,
-            uSendTimeout: u32,
+            uSendTimeout: ULONG,
             MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
             InvitationFlags: DOT11_WFD_INVITATION_FLAGS,
             GroupBSSID: DOT11_MAC_ADDRESS,
@@ -1547,46 +1555,46 @@ mod Windows {
             bUseSpecifiedOperatingChannel: BOOLEAN,
             GroupID: DOT11_WFD_GROUP_ID,
             bLocalGO: BOOLEAN,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
-            RequestContext: *mut void,
-            uSendTimeout: u32,
+            RequestContext: PVOID,
+            uSendTimeout: ULONG,
             Status: DOT11_WFD_STATUS_CODE,
             MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
             GroupBSSID: DOT11_MAC_ADDRESS,
             bUseGroupBSSID: BOOLEAN,
             OperatingChannel: DOT11_WFD_CHANNEL,
             bUseSpecifiedOperatingChannel: BOOLEAN,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             DialogToken: DOT11_DIALOG_TOKEN,
             PeerDeviceAddress: DOT11_MAC_ADDRESS,
-            uSendTimeout: u32,
+            uSendTimeout: ULONG,
             GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
             GroupID: DOT11_WFD_GROUP_ID,
             bUseGroupID: BOOLEAN,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
             DialogToken: DOT11_DIALOG_TOKEN,
-            RequestContext: *mut void,
-            uSendTimeout: u32,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            RequestContext: PVOID,
+            uSendTimeout: ULONG,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
         }
         const DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
         const DOT11_SERVICE_CLASS_REORDERABLE_MULTICAST: i32 = 0;
@@ -1759,31 +1767,31 @@ mod Windows {
         const DOT11_SIZEOF_WFD_GROUP_START_PARAMETERS_REVISION_1: u64 = 10;
         #[arch(X86)]
         const DOT11_SIZEOF_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 10;
-        const DOT11_SIZEOF_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: i32 = 12;
+        const DOT11_SIZEOF_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: LONG = 12;
         struct DOT11_SSID_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             SSIDs: [DOT11_SSID; 1],
         }
         const DOT11_SSID_LIST_REVISION_1: i32 = 1;
         struct DOT11_START_REQUEST {
-            uStartFailureTimeout: u32,
+            uStartFailureTimeout: ULONG,
             OperationalRateSet: DOT11_RATE_SET,
-            uChCenterFrequency: u32,
+            uChCenterFrequency: ULONG,
             dot11BSSDescription: DOT11_BSS_DESCRIPTION,
         }
         struct DOT11_STATISTICS {
             Header: NDIS_OBJECT_HEADER,
-            ullFourWayHandshakeFailures: u64,
-            ullTKIPCounterMeasuresInvoked: u64,
-            ullReserved: u64,
+            ullFourWayHandshakeFailures: ULONGLONG,
+            ullTKIPCounterMeasuresInvoked: ULONGLONG,
+            ullReserved: ULONGLONG,
             MacUcastCounters: DOT11_MAC_FRAME_STATISTICS,
             MacMcastCounters: DOT11_MAC_FRAME_STATISTICS,
             PhyCounters: [DOT11_PHY_FRAME_STATISTICS; 1],
         }
         const DOT11_STATISTICS_REVISION_1: i32 = 1;
-        const DOT11_STATISTICS_UNKNOWN: u64 = 18446744073709551615;
+        const DOT11_STATISTICS_UNKNOWN: ULONGLONG = 18446744073709551615;
         const DOT11_STATUS_AP_JOIN_CONFIRM: i32 = 5;
         const DOT11_STATUS_AUTH_FAILED: i32 = 131072;
         const DOT11_STATUS_AUTH_NOT_VERIFIED: i32 = 32768;
@@ -1793,7 +1801,7 @@ mod Windows {
         const DOT11_STATUS_GENERATE_AUTH_FAILED: i32 = 16384;
         const DOT11_STATUS_ICV_VERIFIED: i32 = 2048;
         struct DOT11_STATUS_INDICATION {
-            uStatusType: u32,
+            uStatusType: ULONG,
             ndisStatus: NDIS_STATUS,
         }
         const DOT11_STATUS_JOIN_CONFIRM: i32 = 2;
@@ -1815,7 +1823,7 @@ mod Windows {
         const DOT11_STATUS_XMIT_MSDU_TIMER_EXPIRED: i32 = 64;
         struct DOT11_STOP_AP_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
-            ulReason: u32,
+            ulReason: ULONG,
         }
         const DOT11_STOP_AP_PARAMETERS_REVISION_1: i32 = 1;
         const DOT11_STOP_AP_REASON_AP_ACTIVE: i32 = 3;
@@ -1824,47 +1832,49 @@ mod Windows {
         const DOT11_STOP_AP_REASON_IHV_END: u32 = 4294967295;
         const DOT11_STOP_AP_REASON_IHV_START: u32 = 4278190080;
         struct DOT11_SUPPORTED_ANTENNA {
-            uAntennaListIndex: u32,
+            uAntennaListIndex: ULONG,
             bSupportedAntenna: BOOLEAN,
         }
         struct DOT11_SUPPORTED_ANTENNA_LIST {
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             dot11SupportedAntenna: [DOT11_SUPPORTED_ANTENNA; 1],
         }
         struct DOT11_SUPPORTED_DATA_RATES_VALUE {
-            ucSupportedTxDataRatesValue: [u8; 8],
-            ucSupportedRxDataRatesValue: [u8; 8],
+            ucSupportedTxDataRatesValue: [UCHAR; 8],
+            ucSupportedRxDataRatesValue: [UCHAR; 8],
         }
         type DOT11_SUPPORTED_DATA_RATES_VALUE_V1 = DOT11_SUPPORTED_DATA_RATES_VALUE_V2;
         struct DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
-            ucSupportedTxDataRatesValue: [u8; 255],
-            ucSupportedRxDataRatesValue: [u8; 255],
+            ucSupportedTxDataRatesValue: [UCHAR; 255],
+            ucSupportedRxDataRatesValue: [UCHAR; 255],
         }
         struct DOT11_SUPPORTED_DSSS_CHANNEL {
-            uChannel: u32,
+            uChannel: ULONG,
         }
         struct DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             dot11SupportedDSSSChannel: [DOT11_SUPPORTED_DSSS_CHANNEL; 1],
         }
         struct DOT11_SUPPORTED_OFDM_FREQUENCY {
-            uCenterFrequency: u32,
+            uCenterFrequency: ULONG,
         }
         struct DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             dot11SupportedOFDMFrequency: [DOT11_SUPPORTED_OFDM_FREQUENCY; 1],
         }
         struct DOT11_SUPPORTED_PHY_TYPES {
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             dot11PHYType: [DOT11_PHY_TYPE; 1],
         }
         struct DOT11_SUPPORTED_POWER_LEVELS {
-            uNumOfSupportedPowerLevels: u32,
-            uTxPowerLevelValues: [u32; 8],
+            uNumOfSupportedPowerLevels: ULONG,
+            #[writable(8)]
+            #[readable(uNumOfSupportedPowerLevels)]
+            uTxPowerLevelValues: [ULONG; 8],
         }
         #[repr(i32)]
         enum DOT11_TEMP_TYPE {
@@ -1875,14 +1885,14 @@ mod Windows {
         struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             bDefaultKeyFailure: BOOLEAN,
-            uKeyIndex: u32,
+            uKeyIndex: ULONG,
             PeerMac: DOT11_MAC_ADDRESS,
         }
         const DOT11_TKIPMIC_FAILURE_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_UPDATE_IE {
             dot11UpdateIEOp: DOT11_UPDATE_IE_OP,
-            uBufferLength: u32,
-            ucBuffer: [u8; 1],
+            uBufferLength: ULONG,
+            ucBuffer: [UCHAR; 1],
         }
         #[repr(i32)]
         enum DOT11_UPDATE_IE_OP {
@@ -1891,111 +1901,112 @@ mod Windows {
         }
         struct DOT11_VWIFI_ATTRIBUTES {
             Header: NDIS_OBJECT_HEADER,
-            uTotalNumOfEntries: u32,
+            uTotalNumOfEntries: ULONG,
             Combinations: [DOT11_VWIFI_COMBINATION; 1],
         }
         const DOT11_VWIFI_ATTRIBUTES_REVISION_1: i32 = 1;
         struct DOT11_VWIFI_COMBINATION {
             Header: NDIS_OBJECT_HEADER,
-            uNumInfrastructure: u32,
-            uNumAdhoc: u32,
-            uNumSoftAP: u32,
+            uNumInfrastructure: ULONG,
+            uNumAdhoc: ULONG,
+            uNumSoftAP: ULONG,
         }
         const DOT11_VWIFI_COMBINATION_REVISION_1: i32 = 1;
         const DOT11_VWIFI_COMBINATION_REVISION_2: i32 = 2;
         const DOT11_VWIFI_COMBINATION_REVISION_3: i32 = 3;
         struct DOT11_VWIFI_COMBINATION_V2 {
             Header: NDIS_OBJECT_HEADER,
-            uNumInfrastructure: u32,
-            uNumAdhoc: u32,
-            uNumSoftAP: u32,
-            uNumVirtualStation: u32,
+            uNumInfrastructure: ULONG,
+            uNumAdhoc: ULONG,
+            uNumSoftAP: ULONG,
+            uNumVirtualStation: ULONG,
         }
         struct DOT11_VWIFI_COMBINATION_V3 {
             Header: NDIS_OBJECT_HEADER,
-            uNumInfrastructure: u32,
-            uNumAdhoc: u32,
-            uNumSoftAP: u32,
-            uNumVirtualStation: u32,
-            uNumWFDGroup: u32,
+            uNumInfrastructure: ULONG,
+            uNumAdhoc: ULONG,
+            uNumSoftAP: ULONG,
+            uNumVirtualStation: ULONG,
+            uNumWFDGroup: ULONG,
         }
         struct DOT11_WEP_OFFLOAD {
-            uReserved: u32,
+            uReserved: ULONG,
             hOffloadContext: HANDLE,
             hOffload: HANDLE,
             dot11OffloadType: DOT11_OFFLOAD_TYPE,
-            dwAlgorithm: u32,
+            dwAlgorithm: ULONG,
             bRowIsOutbound: BOOLEAN,
             bUseDefault: BOOLEAN,
-            uFlags: u32,
-            ucMacAddress: [u8; 6],
-            uNumOfRWsOnPeer: u32,
-            uNumOfRWsOnMe: u32,
+            uFlags: ULONG,
+            ucMacAddress: [UCHAR; 6],
+            uNumOfRWsOnPeer: ULONG,
+            uNumOfRWsOnMe: ULONG,
             dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
-            usDot11RWBitMaps: [u16; 16],
-            usKeyLength: u16,
-            ucKey: [u8; 1],
+            usDot11RWBitMaps: [USHORT; 16],
+            usKeyLength: USHORT,
+            ucKey: [UCHAR; 1],
         }
         struct DOT11_WEP_UPLOAD {
-            uReserved: u32,
+            uReserved: ULONG,
             dot11OffloadType: DOT11_OFFLOAD_TYPE,
             hOffload: HANDLE,
-            uNumOfRWsUsed: u32,
+            uNumOfRWsUsed: ULONG,
             dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
-            usDot11RWBitMaps: [u16; 16],
+            usDot11RWBitMaps: [USHORT; 16],
         }
         struct DOT11_WFD_ADDITIONAL_IE {
             Header: NDIS_OBJECT_HEADER,
-            uBeaconIEsOffset: u32,
-            uBeaconIEsLength: u32,
-            uProbeResponseIEsOffset: u32,
-            uProbeResponseIEsLength: u32,
-            uDefaultRequestIEsOffset: u32,
-            uDefaultRequestIEsLength: u32,
+            uBeaconIEsOffset: ULONG,
+            uBeaconIEsLength: ULONG,
+            uProbeResponseIEsOffset: ULONG,
+            uProbeResponseIEsLength: ULONG,
+            uDefaultRequestIEsOffset: ULONG,
+            uDefaultRequestIEsLength: ULONG,
         }
         const DOT11_WFD_ADDITIONAL_IE_REVISION_1: i32 = 1;
         struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
-            AdvertisementID: u32,
-            ConfigMethods: u16,
-            ServiceNameLength: u8,
-            ServiceName: [u8; 255],
+            AdvertisementID: ULONG,
+            ConfigMethods: USHORT,
+            #[range(0..=255)]
+            ServiceNameLength: UCHAR,
+            ServiceName: [UCHAR; 255],
         }
         struct DOT11_WFD_ADVERTISED_SERVICE_LIST {
-            ServiceCount: u16,
+            ServiceCount: USHORT,
             AdvertisedService: [DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR; 1],
         }
         struct DOT11_WFD_ADVERTISEMENT_ID {
-            AdvertisementID: u32,
+            AdvertisementID: ULONG,
             ServiceAddress: DOT11_MAC_ADDRESS,
         }
         const DOT11_WFD_APS2_SERVICE_TYPE_MAX_LENGTH: i32 = 21;
         const DOT11_WFD_ASP2_INSTANCE_NAME_MAX_LENGTH: i32 = 63;
         struct DOT11_WFD_ATTRIBUTES {
             Header: NDIS_OBJECT_HEADER,
-            uNumConcurrentGORole: u32,
-            uNumConcurrentClientRole: u32,
-            WPSVersionsSupported: u32,
+            uNumConcurrentGORole: ULONG,
+            uNumConcurrentClientRole: ULONG,
+            WPSVersionsSupported: ULONG,
             bServiceDiscoverySupported: BOOLEAN,
             bClientDiscoverabilitySupported: BOOLEAN,
             bInfrastructureManagementSupported: BOOLEAN,
-            uMaxSecondaryDeviceTypeListSize: u32,
+            uMaxSecondaryDeviceTypeListSize: ULONG,
             DeviceAddress: DOT11_MAC_ADDRESS,
-            uInterfaceAddressListCount: u32,
+            uInterfaceAddressListCount: ULONG,
             pInterfaceAddressList: PDOT11_MAC_ADDRESS,
-            uNumSupportedCountryOrRegionStrings: u32,
+            uNumSupportedCountryOrRegionStrings: ULONG,
             pSupportedCountryOrRegionStrings: PDOT11_COUNTRY_OR_REGION_STRING,
-            uDiscoveryFilterListSize: u32,
-            uGORoleClientTableSize: u32,
+            uDiscoveryFilterListSize: ULONG,
+            uGORoleClientTableSize: ULONG,
         }
         const DOT11_WFD_ATTRIBUTES_REVISION_1: i32 = 1;
         struct DOT11_WFD_CHANNEL {
             CountryRegionString: DOT11_COUNTRY_OR_REGION_STRING,
-            OperatingClass: u8,
-            ChannelNumber: u8,
+            OperatingClass: UCHAR,
+            ChannelNumber: UCHAR,
         }
         struct DOT11_WFD_CONFIGURATION_TIMEOUT {
-            GOTimeout: u8,
-            ClientTimeout: u8,
+            GOTimeout: UCHAR,
+            ClientTimeout: UCHAR,
         }
         const DOT11_WFD_DEVICE_AUTO_AVAILABILITY: i32 = 16;
         const DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION: i32 = 4;
@@ -2007,7 +2018,7 @@ mod Windows {
             bInfrastructureManagementEnabled: BOOLEAN,
             bDeviceLimitReached: BOOLEAN,
             bInvitationProcedureEnabled: BOOLEAN,
-            WPSVersionsEnabled: u32,
+            WPSVersionsEnabled: ULONG,
         }
         const DOT11_WFD_DEVICE_CAPABILITY_CONFIG_REVISION_1: i32 = 1;
         const DOT11_WFD_DEVICE_CAPABILITY_P2P_CLIENT_DISCOVERABILITY: i32 = 2;
@@ -2018,67 +2029,67 @@ mod Windows {
         const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_7: i32 = 128;
         const DOT11_WFD_DEVICE_CAPABILITY_SERVICE_DISCOVERY: i32 = 1;
         struct DOT11_WFD_DEVICE_ENTRY {
-            uPhyId: u32,
+            uPhyId: ULONG,
             PhySpecificInfo: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO,
             dot11BSSID: DOT11_MAC_ADDRESS,
             dot11BSSType: DOT11_BSS_TYPE,
             TransmitterAddress: DOT11_MAC_ADDRESS,
-            lRSSI: i32,
-            uLinkQuality: u32,
-            usBeaconPeriod: u16,
-            ullTimestamp: u64,
-            ullBeaconHostTimestamp: u64,
-            ullProbeResponseHostTimestamp: u64,
-            usCapabilityInformation: u16,
-            uBeaconIEsOffset: u32,
-            uBeaconIEsLength: u32,
-            uProbeResponseIEsOffset: u32,
-            uProbeResponseIEsLength: u32,
+            lRSSI: LONG,
+            uLinkQuality: ULONG,
+            usBeaconPeriod: USHORT,
+            ullTimestamp: ULONGLONG,
+            ullBeaconHostTimestamp: ULONGLONG,
+            ullProbeResponseHostTimestamp: ULONGLONG,
+            usCapabilityInformation: USHORT,
+            uBeaconIEsOffset: ULONG,
+            uBeaconIEsLength: ULONG,
+            uProbeResponseIEsOffset: ULONG,
+            uProbeResponseIEsLength: ULONG,
         }
         const DOT11_WFD_DEVICE_HIGH_AVAILABILITY: i32 = 24;
         struct DOT11_WFD_DEVICE_INFO {
             Header: NDIS_OBJECT_HEADER,
             DeviceAddress: DOT11_MAC_ADDRESS,
-            ConfigMethods: u16,
+            ConfigMethods: USHORT,
             PrimaryDeviceType: DOT11_WFD_DEVICE_TYPE,
             DeviceName: DOT11_WPS_DEVICE_NAME,
         }
         const DOT11_WFD_DEVICE_INFO_REVISION_1: i32 = 1;
         struct DOT11_WFD_DEVICE_LISTEN_CHANNEL {
             Header: NDIS_OBJECT_HEADER,
-            ChannelNumber: u8,
+            ChannelNumber: UCHAR,
         }
         const DOT11_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1: i32 = 1;
         const DOT11_WFD_DEVICE_NOT_DISCOVERABLE: i32 = 0;
         struct DOT11_WFD_DEVICE_TYPE {
-            CategoryID: u16,
-            SubCategoryID: u16,
-            OUI: [u8; 4],
+            CategoryID: USHORT,
+            SubCategoryID: USHORT,
+            OUI: [UCHAR; 4],
         }
         const DOT11_WFD_DISCOVER_COMPLETE_MAX_LIST_SIZE: i32 = 128;
         struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             Status: NDIS_STATUS,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
-            uListOffset: u32,
-            uListLength: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
+            uListOffset: ULONG,
+            uListLength: ULONG,
         }
         const DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_WFD_DISCOVER_DEVICE_FILTER {
             DeviceID: DOT11_MAC_ADDRESS,
-            ucBitmask: u8,
+            ucBitmask: UCHAR,
             GroupSSID: DOT11_SSID,
         }
         struct DOT11_WFD_DISCOVER_REQUEST {
             Header: NDIS_OBJECT_HEADER,
             DiscoverType: DOT11_WFD_DISCOVER_TYPE,
             ScanType: DOT11_WFD_SCAN_TYPE,
-            uDiscoverTimeout: u32,
-            uDeviceFilterListOffset: u32,
-            uNumDeviceFilters: u32,
-            uIEsOffset: u32,
-            uIEsLength: u32,
+            uDiscoverTimeout: ULONG,
+            uDeviceFilterListOffset: ULONG,
+            uNumDeviceFilters: ULONG,
+            uIEsOffset: ULONG,
+            uIEsLength: ULONG,
             bForceScanLegacyNetworks: BOOLEAN,
         }
         const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: i32 = 1;
@@ -2092,8 +2103,8 @@ mod Windows {
         }
         struct DOT11_WFD_GO_INTENT {
             _bitfield: u8 {
-                TieBreaker: 1,
-                Intent: 7,
+                TieBreaker: UCHAR: 1,
+                Intent: UCHAR: 7,
             },
         }
         type DOT11_WFD_GROUP_CAPABILITY = u8;
@@ -2114,7 +2125,7 @@ mod Windows {
         struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
             Header: NDIS_OBJECT_HEADER,
             GOOperatingChannel: DOT11_WFD_CHANNEL,
-            GOConfigTime: u32,
+            GOConfigTime: ULONG,
             bInGroupFormation: BOOLEAN,
             bWaitForWPSReady: BOOLEAN,
         }
@@ -2126,7 +2137,7 @@ mod Windows {
             bCrossConnectionSupported: BOOLEAN,
             bPersistentReconnectSupported: BOOLEAN,
             bGroupFormationEnabled: BOOLEAN,
-            uMaximumGroupLimit: u32,
+            uMaximumGroupLimit: ULONG,
         }
         const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: i32 = 1;
         const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2: i32 = 2;
@@ -2137,7 +2148,7 @@ mod Windows {
             bCrossConnectionSupported: BOOLEAN,
             bPersistentReconnectSupported: BOOLEAN,
             bGroupFormationEnabled: BOOLEAN,
-            uMaximumGroupLimit: u32,
+            uMaximumGroupLimit: ULONG,
             bEapolKeyIpAddressAllocationSupported: BOOLEAN,
         }
         struct DOT11_WFD_GROUP_START_PARAMETERS {
@@ -2147,8 +2158,8 @@ mod Windows {
         const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: i32 = 1;
         struct DOT11_WFD_INVITATION_FLAGS {
             _bitfield: u8 {
-                InvitationType: 1,
-                Reserved: 7,
+                InvitationType: UCHAR: 1,
+                Reserved: UCHAR: 7,
             },
         }
         type DOT11_WFD_MINOR_REASON_CODE = u8;
@@ -2165,25 +2176,28 @@ mod Windows {
         }
         struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
             Header: NDIS_OBJECT_HEADER,
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             SecondaryDeviceTypes: [DOT11_WFD_DEVICE_TYPE; 1],
         }
         const DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: i32 = 1;
         type DOT11_WFD_SERVICE_HASH = [u8; 6];
         struct DOT11_WFD_SERVICE_HASH_LIST {
-            ServiceHashCount: u16,
+            ServiceHashCount: USHORT,
             ServiceHash: [DOT11_WFD_SERVICE_HASH; 1],
         }
         const DOT11_WFD_SERVICE_INFORMATION_MAX_LENGTH: i32 = 65535;
         const DOT11_WFD_SERVICE_NAME_MAX_LENGTH: i32 = 255;
         struct DOT11_WFD_SESSION_ID {
-            SessionID: u32,
+            SessionID: ULONG,
             SessionAddress: DOT11_MAC_ADDRESS,
         }
         struct DOT11_WFD_SESSION_INFO {
-            uSessionInfoLength: u16,
-            ucSessionInfo: [u8; 144],
+            #[range(<=144)]
+            uSessionInfoLength: USHORT,
+            #[writable(144)]
+            #[readable(uSessionInfoLength)]
+            ucSessionInfo: [UCHAR; 144],
         }
         const DOT11_WFD_SESSION_INFO_MAX_LENGTH: i32 = 144;
         type DOT11_WFD_STATUS_CODE = u8;
@@ -2201,28 +2215,28 @@ mod Windows {
         const DOT11_WFD_STATUS_SUCCESS: i32 = 0;
         const DOT11_WFD_STATUS_SUCCESS_ACCEPTED_BY_USER: i32 = 12;
         struct DOT11_WME_AC_PARAMETERS {
-            ucAccessCategoryIndex: u8,
-            ucAIFSN: u8,
-            ucECWmin: u8,
-            ucECWmax: u8,
-            usTXOPLimit: u16,
+            ucAccessCategoryIndex: UCHAR,
+            ucAIFSN: UCHAR,
+            ucECWmin: UCHAR,
+            ucECWmax: UCHAR,
+            usTXOPLimit: USHORT,
         }
         struct DOT11_WME_AC_PARAMETERS_LIST {
-            uNumOfEntries: u32,
-            uTotalNumOfEntries: u32,
+            uNumOfEntries: ULONG,
+            uTotalNumOfEntries: ULONG,
             dot11WMEACParameters: [DOT11_WME_AC_PARAMETERS; 1],
         }
         const DOT11_WME_PACKET: i32 = 256;
         struct DOT11_WME_UPDATE_IE {
-            uParamElemMinBeaconIntervals: u32,
-            uWMEInfoElemOffset: u32,
-            uWMEInfoElemLength: u32,
-            uWMEParamElemOffset: u32,
-            uWMEParamElemLength: u32,
-            ucBuffer: [u8; 1],
+            uParamElemMinBeaconIntervals: ULONG,
+            uWMEInfoElemOffset: ULONG,
+            uWMEInfoElemLength: ULONG,
+            uWMEParamElemOffset: ULONG,
+            uWMEParamElemLength: ULONG,
+            ucBuffer: [UCHAR; 1],
         }
         struct DOT11_WPA_TSC {
-            uReserved: u32,
+            uReserved: ULONG,
             dot11OffloadType: DOT11_OFFLOAD_TYPE,
             hOffload: HANDLE,
             dot11IV48Counter: DOT11_IV48_COUNTER,
@@ -2238,8 +2252,9 @@ mod Windows {
             DOT11_WPS_CONFIG_METHOD_WFDS_DEFAULT = 4096,
         }
         struct DOT11_WPS_DEVICE_NAME {
-            uDeviceNameLength: u32,
-            ucDeviceName: [u8; 32],
+            #[range(0..=32)]
+            uDeviceNameLength: ULONG,
+            ucDeviceName: [UCHAR; 32],
         }
         const DOT11_WPS_DEVICE_NAME_MAX_LENGTH: i32 = 32;
         #[repr(i32)]
@@ -2260,6 +2275,161 @@ mod Windows {
         const DOT11_WPS_MAX_PASSKEY_LENGTH: i32 = 8;
         const DOT11_WPS_VERSION_1_0: i32 = 1;
         const DOT11_WPS_VERSION_2_0: i32 = 2;
+        const GUID_NWF_ACTIVE_PHY_LIST: GUID = 0x6cb9a4d3_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_AP_JOIN_REQUEST: GUID = 0x6cb9a49b_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_ASSOCIATION_PARAMS: GUID = 0x6cb9a4dd_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_ATIM_WINDOW: GUID = 0x6cb9a448_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_AUTO_CONFIG_ENABLED: GUID = 0x6cb9a4b6_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_BEACON_PERIOD: GUID = 0x6cb9a459_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CCA_MODE_SUPPORTED: GUID = 0x6cb9a474_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CCA_WATCHDOG_COUNT_MAX: GUID = 0x6cb9a478_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CCA_WATCHDOG_COUNT_MIN: GUID = 0x6cb9a47a_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CCA_WATCHDOG_TIMER_MAX: GUID = 0x6cb9a477_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CCA_WATCHDOG_TIMER_MIN: GUID = 0x6cb9a479_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CFP_MAX_DURATION: GUID = 0x6cb9a456_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CFP_PERIOD: GUID = 0x6cb9a455_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CF_POLLABLE: GUID = 0x6cb9a454_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CHANNEL_AGILITY_ENABLED: GUID = 0x6cb9a486_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CHANNEL_AGILITY_PRESENT: GUID = 0x6cb9a485_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CIPHER_DEFAULT_KEY: GUID = 0x6cb9a4c9_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CIPHER_DEFAULT_KEY_ID: GUID = 0x6cb9a4c8_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CIPHER_KEY_MAPPING_KEY: GUID = 0x6cb9a4ca_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CONNECT_REQUEST: GUID = 0x6cb9a4bf_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_COUNTERS_ENTRY: GUID = 0x6cb9a463_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_COUNTRY_STRING: GUID = 0x6cb9a48a_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_ADDRESS: GUID = 0x6cb9a840_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_CCA_MODE: GUID = 0x6cb9a475_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_CHANNEL: GUID = 0x6cb9a473_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_CHANNEL_NUMBER: GUID = 0x6cb9a46d_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_DWELL_TIME: GUID = 0x6cb9a46f_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_FREQUENCY: GUID = 0x6cb9a480_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_INDEX: GUID = 0x6cb9a472_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_OFFLOAD_CAPABILITY: GUID = 0x6cb9a43f_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_OPERATION_MODE: GUID = 0x6cb9a446_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_OPTIONAL_CAPABILITY: GUID = 0x6cb9a451_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_PACKET_FILTER: GUID = 0x6cb9a447_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_PATTERN: GUID = 0x6cb9a471_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_PHY_ID: GUID = 0x6cb9a4d0_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_PHY_TYPE: GUID = 0x6cb9a44a_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_REG_DOMAIN: GUID = 0x6cb9a465_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_RX_ANTENNA: GUID = 0x6cb9a469_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_SET: GUID = 0x6cb9a470_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_TX_ANTENNA: GUID = 0x6cb9a467_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_CURRENT_TX_POWER_LEVEL: GUID = 0x6cb9a46b_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DATA_RATE_MAPPING_TABLE: GUID = 0x6cb9a4d5_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DEFAULT_WEP_OFFLOAD: GUID = 0x6cb9a442_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DEFAULT_WEP_UPLOAD: GUID = 0x6cb9a443_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DESIRED_BSSID_LIST: GUID = 0x6cb9a4bc_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DESIRED_BSS_TYPE: GUID = 0x6cb9a4bd_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DESIRED_COUNTRY_OR_REGION_STRING: GUID = 0x6cb9a4d7_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DESIRED_PHY_LIST: GUID = 0x6cb9a4cf_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DESIRED_SSID_LIST: GUID = 0x6cb9a4ba_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DISCONNECT_REQUEST: GUID = 0x6cb9a4cc_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DIVERSITY_SELECTION_RX: GUID = 0x6cb9a47e_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DIVERSITY_SUPPORT: GUID = 0x6cb9a468_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DSSS_OFDM_OPTION_ENABLED: GUID = 0x6cb9a49f_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DSSS_OFDM_OPTION_IMPLEMENTED: GUID = 0x6cb9a49e_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_DTIM_PERIOD: GUID = 0x6cb9a45a_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_ED_THRESHOLD: GUID = 0x6cb9a476_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_EHCC_CAPABILITY_ENABLED: GUID = 0x6cb9a48f_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_EHCC_CAPABILITY_IMPLEMENTED: GUID = 0x6cb9a48e_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_EHCC_NUMBER_OF_CHANNELS_FAMILY_INDEX: GUID = 0x6cb9a48d_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_EHCC_PRIME_RADIX: GUID = 0x6cb9a48c_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_ENABLED_AUTHENTICATION_ALGORITHM: GUID = 0x6cb9a4c3_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_ENABLED_MULTICAST_CIPHER_ALGORITHM: GUID = 0x6cb9a4c7_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_ENABLED_UNICAST_CIPHER_ALGORITHM: GUID = 0x6cb9a4c5_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_ENUM_ASSOCIATION_INFO: GUID = 0x6cb9a4cb_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_ENUM_BSS_LIST: GUID = 0x6cb9a4b7_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_ERP_PBCC_OPTION_ENABLED: GUID = 0x6cb9a49d_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_ERP_PBCC_OPTION_IMPLEMENTED: GUID = 0x6cb9a49c_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_EXCLUDED_MAC_ADDRESS_LIST: GUID = 0x6cb9a4bb_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_EXCLUDE_UNENCRYPTED: GUID = 0x6cb9a4c0_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_EXTSTA_CAPABILITY: GUID = 0x6cb9a4d4_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_FLUSH_BSS_LIST: GUID = 0x6cb9a4b8_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_FRAGMENTATION_THRESHOLD: GUID = 0x6cb9a460_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_FREQUENCY_BANDS_SUPPORTED: GUID = 0x6cb9a482_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_HIDDEN_NETWORK_ENABLED: GUID = 0x6cb9a4dc_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_HOPPING_PATTERN: GUID = 0x6cb9a495_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_HOP_ALGORITHM_ADOPTED: GUID = 0x6cb9a490_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_HOP_MODULUS: GUID = 0x6cb9a493_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_HOP_OFFSET: GUID = 0x6cb9a494_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_HOP_TIME: GUID = 0x6cb9a46c_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_HR_CCA_MODE_SUPPORTED: GUID = 0x6cb9a487_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_IBSS_PARAMS: GUID = 0x6cb9a4d9_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_JOIN_REQUEST: GUID = 0x6cb9a44b_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_LONG_RETRY_LIMIT: GUID = 0x6cb9a45f_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_MAC_ADDRESS: GUID = 0x6cb9a45c_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_MAXIMUM_LIST_SIZE: GUID = 0x6cb9a843_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_MAX_DWELL_TIME: GUID = 0x6cb9a46e_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_MAX_MAC_ADDRESS_STATES: GUID = 0x6cb9a4a2_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_MAX_RECEIVE_LIFETIME: GUID = 0x6cb9a462_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_MAX_TRANSMIT_MSDU_LIFETIME: GUID = 0x6cb9a461_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_MEDIA_STREAMING_ENABLED: GUID = 0x6cb9a4d1_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_MEDIUM_OCCUPANCY_LIMIT: GUID = 0x6cb9a453_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_MPDU_MAX_LENGTH: GUID = 0x6cb9a444_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_MULTICAST_LIST: GUID = 0x6cb9a842_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_MULTI_DOMAIN_CAPABILITY: GUID = 0x6cb9a48b_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_MULTI_DOMAIN_CAPABILITY_ENABLED: GUID = 0x6cb9a489_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_MULTI_DOMAIN_CAPABILITY_IMPLEMENTED: GUID = 0x6cb9a488_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_NIC_POWER_STATE: GUID = 0x6cb9a44f_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_NIC_SPECIFIC_EXTENSION: GUID = 0x6cb9a49a_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_NUMBER_OF_HOPPING_SETS: GUID = 0x6cb9a492_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_OFFLOAD_CAPABILITY: GUID = 0x6cb9a43e_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_OPERATIONAL_RATE_SET: GUID = 0x6cb9a458_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_OPERATION_MODE_CAPABILITY: GUID = 0x6cb9a445_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_OPTIONAL_CAPABILITY: GUID = 0x6cb9a450_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_PBCC_OPTION_IMPLEMENTED: GUID = 0x6cb9a484_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_PERMANENT_ADDRESS: GUID = 0x6cb9a841_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_PHY_STATE: GUID = 0x6cb9a4ce_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_PMKID_LIST: GUID = 0x6cb9a4be_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_PORT_STATE_NOTIFICATION: GUID = 0x6cb9a4d8_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_POWER_MGMT_MODE: GUID = 0x6cb9a457_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_POWER_MGMT_REQUEST: GUID = 0x6cb9a4b9_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_PRIVACY_EXEMPTION_LIST: GUID = 0x6cb9a4c2_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_QOS_PARAMS: GUID = 0x6cb9a4da_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_QOS_TX_DURATION: GUID = 0x6cb9a4a9_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_QOS_TX_MEDIUM_TIME: GUID = 0x6cb9a4aa_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_QOS_TX_QUEUES_SUPPORTED: GUID = 0x6cb9a4a8_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_RANDOM_TABLE_FIELD_NUMBER: GUID = 0x6cb9a496_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_RANDOM_TABLE_FLAG: GUID = 0x6cb9a491_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_RECV_SENSITIVITY_LIST: GUID = 0x6cb9a4a3_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_REG_DOMAINS_SUPPORT_VALUE: GUID = 0x6cb9a47b_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_RESET_REQUEST: GUID = 0x6cb9a44e_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_RF_USAGE: GUID = 0x6cb9a499_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_RSSI_RANGE: GUID = 0x6cb9a498_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_RTS_THRESHOLD: GUID = 0x6cb9a45d_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SAFE_MODE_ENABLED: GUID = 0x6cb9a4db_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SCAN_REQUEST: GUID = 0x6cb9a449_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SHORT_PREAMBLE_OPTION_IMPLEMENTED: GUID = 0x6cb9a483_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SHORT_RETRY_LIMIT: GUID = 0x6cb9a45e_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SHORT_SLOT_TIME_OPTION_ENABLED: GUID = 0x6cb9a4a1_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SHORT_SLOT_TIME_OPTION_IMPLEMENTED: GUID = 0x6cb9a4a0_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_START_REQUEST: GUID = 0x6cb9a44c_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_STATION_ID: GUID = 0x6cb9a452_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_STATISTICS: GUID = 0x6cb9a4c1_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SUPPORTED_COUNTRY_OR_REGION_STRING: GUID = 0x6cb9a4d6_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SUPPORTED_DATA_RATES_VALUE: GUID = 0x6cb9a47f_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SUPPORTED_DSSS_CHANNEL_LIST: GUID = 0x6cb9a4ac_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SUPPORTED_MULTICAST_ALGORITHM_PAIR: GUID = 0x6cb9a4c6_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SUPPORTED_OFDM_FREQUENCY_LIST: GUID = 0x6cb9a4ab_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SUPPORTED_PHY_TYPES: GUID = 0x6cb9a464_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SUPPORTED_POWER_LEVELS: GUID = 0x6cb9a46a_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SUPPORTED_RX_ANTENNA: GUID = 0x6cb9a47d_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SUPPORTED_TX_ANTENNA: GUID = 0x6cb9a47c_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_SUPPORTED_UNICAST_ALGORITHM_PAIR: GUID = 0x6cb9a4c4_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_TEMP_TYPE: GUID = 0x6cb9a466_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_TI_THRESHOLD: GUID = 0x6cb9a481_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_UNICAST_USE_GROUP_ENABLED: GUID = 0x6cb9a4cd_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_UNREACHABLE_DETECTION_THRESHOLD: GUID = 0x6cb9a4d2_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_UPDATE_IE: GUID = 0x6cb9a44d_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_WEP_ICV_ERROR_COUNT: GUID = 0x6cb9a45b_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_WEP_OFFLOAD: GUID = 0x6cb9a440_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_WEP_UPLOAD: GUID = 0x6cb9a441_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_WME_AC_PARAMETERS: GUID = 0x6cb9a4a6_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_WME_ENABLED: GUID = 0x6cb9a4a5_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_WME_IMPLEMENTED: GUID = 0x6cb9a4a4_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_WME_UPDATE_IE: GUID = 0x6cb9a4a7_c45f_4039_9fe6_d08cb057184c;
+        const GUID_NWF_WPA_TSC: GUID = 0x6cb9a497_c45f_4039_9fe6_d08cb057184c;
         const MAX_NUM_SUPPORTED_RATES: i32 = 8;
         const MAX_NUM_SUPPORTED_RATES_V2: i32 = 255;
         const NDIS_PACKET_TYPE_802_11_ALL_MULTICAST_DATA: i32 = 4;
@@ -2527,7 +2697,7 @@ mod Windows {
         type PDOT11_CONNECTION_COMPLETION_PARAMETERS = *mut DOT11_CONNECTION_COMPLETION_PARAMETERS;
         type PDOT11_CONNECTION_START_PARAMETERS = *mut DOT11_CONNECTION_START_PARAMETERS;
         type PDOT11_COUNTERS_ENTRY = *mut DOT11_COUNTERS_ENTRY;
-        type PDOT11_COUNTRY_OR_REGION_STRING = *mut DOT11_COUNTRY_OR_REGION_STRING;
+        type PDOT11_COUNTRY_OR_REGION_STRING = *mut [u8; 3];
         type PDOT11_COUNTRY_OR_REGION_STRING_LIST = *mut DOT11_COUNTRY_OR_REGION_STRING_LIST;
         type PDOT11_CURRENT_OFFLOAD_CAPABILITY = *mut DOT11_CURRENT_OFFLOAD_CAPABILITY;
         type PDOT11_CURRENT_OPERATION_MODE = *mut DOT11_CURRENT_OPERATION_MODE;
@@ -2546,17 +2716,17 @@ mod Windows {
         type PDOT11_ENCAP_ENTRY = *mut DOT11_ENCAP_ENTRY;
         type PDOT11_ERP_PHY_ATTRIBUTES = *mut DOT11_ERP_PHY_ATTRIBUTES;
         type PDOT11_EXTAP_ATTRIBUTES = *mut DOT11_EXTAP_ATTRIBUTES;
-        type PDOT11_EXTAP_RECV_CONTEXT = *mut DOT11_EXTAP_RECV_CONTEXT;
-        type PDOT11_EXTAP_SEND_CONTEXT = *mut DOT11_EXTAP_SEND_CONTEXT;
+        type PDOT11_EXTAP_RECV_CONTEXT = *mut DOT11_EXTSTA_RECV_CONTEXT;
+        type PDOT11_EXTAP_SEND_CONTEXT = *mut DOT11_EXTSTA_SEND_CONTEXT;
         type PDOT11_EXTSTA_ATTRIBUTES = *mut DOT11_EXTSTA_ATTRIBUTES;
         type PDOT11_EXTSTA_CAPABILITY = *mut DOT11_EXTSTA_CAPABILITY;
-        type PDOT11_EXTSTA_RECV_CONTEXT = *mut DOT11_EXTAP_RECV_CONTEXT;
-        type PDOT11_EXTSTA_SEND_CONTEXT = *mut DOT11_EXTAP_SEND_CONTEXT;
+        type PDOT11_EXTSTA_RECV_CONTEXT = *mut DOT11_EXTSTA_RECV_CONTEXT;
+        type PDOT11_EXTSTA_SEND_CONTEXT = *mut DOT11_EXTSTA_SEND_CONTEXT;
         type PDOT11_FRAGMENT_DESCRIPTOR = *mut DOT11_FRAGMENT_DESCRIPTOR;
         type PDOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS = *mut DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS;
         type PDOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS = *mut DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS;
         type PDOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS = *mut DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS;
-        type PDOT11_HESSID = *mut DOT11_HESSID;
+        type PDOT11_HESSID = *mut [u8; 6];
         type PDOT11_HOPPING_PATTERN_ENTRY = *mut DOT11_HOPPING_PATTERN_ENTRY;
         type PDOT11_HOPPING_PATTERN_ENTRY_LIST = *mut DOT11_HOPPING_PATTERN_ENTRY_LIST;
         type PDOT11_HOP_ALGO_ADOPTED = *mut DOT11_HOP_ALGO_ADOPTED;
@@ -2580,7 +2750,7 @@ mod Windows {
         type PDOT11_KEY_DIRECTION = *mut DOT11_KEY_DIRECTION;
         type PDOT11_LINK_QUALITY_ENTRY = *mut DOT11_LINK_QUALITY_ENTRY;
         type PDOT11_LINK_QUALITY_PARAMETERS = *mut DOT11_LINK_QUALITY_PARAMETERS;
-        type PDOT11_MAC_ADDRESS = *mut DOT11_MAC_ADDRESS;
+        type PDOT11_MAC_ADDRESS = *mut [u8; 6];
         type PDOT11_MAC_ADDRESS_LIST = *mut DOT11_MAC_ADDRESS_LIST;
         type PDOT11_MAC_FRAME_STATISTICS = *mut DOT11_MAC_FRAME_STATISTICS;
         type PDOT11_MAC_INFO = *mut DOT11_MAC_INFO;

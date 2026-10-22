@@ -2,12 +2,12 @@
 mod Windows {
     mod Win32 {
         #[library("dxgi.dll")]
-        extern fn CreateDXGIFactory2(Flags: u32, riid: *const GUID, #[iid_is] ppFactory: *mut *mut void) -> HRESULT;
+        extern fn CreateDXGIFactory2(Flags: UINT, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppFactory: *mut *mut void) -> HRESULT;
         #[library("dxgi.dll")]
-        extern fn DXGIGetDebugInterface1(Flags: u32, riid: *const GUID, #[iid_is] pDebug: *mut *mut void) -> HRESULT;
+        extern fn DXGIGetDebugInterface1(Flags: UINT, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] pDebug: *mut *mut void) -> HRESULT;
         const DXGI_CREATE_FACTORY_DEBUG: i32 = 1;
         struct DXGI_DECODE_SWAP_CHAIN_DESC {
-            Flags: u32,
+            Flags: UINT,
         }
         #[repr(i32)]
         enum DXGI_FRAME_PRESENTATION_MODE {
@@ -17,21 +17,21 @@ mod Windows {
             DXGI_FRAME_PRESENTATION_MODE_COMPOSITION_FAILURE = 3,
         }
         struct DXGI_FRAME_STATISTICS_MEDIA {
-            PresentCount: u32,
-            PresentRefreshCount: u32,
-            SyncRefreshCount: u32,
+            PresentCount: UINT,
+            PresentRefreshCount: UINT,
+            SyncRefreshCount: UINT,
             SyncQPCTime: LARGE_INTEGER,
             SyncGPUTime: LARGE_INTEGER,
             CompositionMode: DXGI_FRAME_PRESENTATION_MODE,
-            ApprovedPresentDuration: u32,
+            ApprovedPresentDuration: UINT,
         }
         struct DXGI_MATRIX_3X2_F {
-            _11: f32,
-            _12: f32,
-            _21: f32,
-            _22: f32,
-            _31: f32,
-            _32: f32,
+            _11: FLOAT,
+            _12: FLOAT,
+            _21: FLOAT,
+            _22: FLOAT,
+            _31: FLOAT,
+            _32: FLOAT,
         }
         #[repr(i32)]
         enum DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
@@ -46,13 +46,13 @@ mod Windows {
         }
         #[guid(0x2633066b_4514_4c7a_8fd8_12ea98059d18)]
         interface IDXGIDecodeSwapChain: IUnknown {
-            fn PresentBuffer(&self, BufferToPresent: u32, SyncInterval: u32, Flags: u32) -> HRESULT;
+            fn PresentBuffer(&self, BufferToPresent: UINT, SyncInterval: UINT, Flags: UINT) -> HRESULT;
             fn SetSourceRect(&self, pRect: *const RECT) -> HRESULT;
             fn SetTargetRect(&self, pRect: *const RECT) -> HRESULT;
-            fn SetDestSize(&self, Width: u32, Height: u32) -> HRESULT;
-            fn GetSourceRect(&self, pRect: *mut RECT) -> HRESULT;
-            fn GetTargetRect(&self, pRect: *mut RECT) -> HRESULT;
-            fn GetDestSize(&self, pWidth: *mut u32, pHeight: *mut u32) -> HRESULT;
+            fn SetDestSize(&self, Width: UINT, Height: UINT) -> HRESULT;
+            fn GetSourceRect(&self, #[out] pRect: *mut RECT) -> HRESULT;
+            fn GetTargetRect(&self, #[out] pRect: *mut RECT) -> HRESULT;
+            fn GetDestSize(&self, #[out] pWidth: *mut UINT, #[out] pHeight: *mut UINT) -> HRESULT;
             fn SetColorSpace(&self, ColorSpace: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS) -> HRESULT;
             fn GetColorSpace(&self) -> DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS;
         }
@@ -62,12 +62,12 @@ mod Windows {
         }
         #[guid(0x25483823_cd46_4c7d_86ca_47aa95b837bd)]
         interface IDXGIFactory3: IDXGIFactory2 {
-            fn GetCreationFlags(&self) -> u32;
+            fn GetCreationFlags(&self) -> UINT;
         }
         #[guid(0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12)]
         interface IDXGIFactoryMedia: IUnknown {
-            fn CreateSwapChainForCompositionSurfaceHandle(&self, pDevice: IUnknown, #[opt] hSurface: HANDLE, pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[opt] pRestrictToOutput: IDXGIOutput, ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
-            fn CreateDecodeSwapChainForCompositionSurfaceHandle(&self, pDevice: IUnknown, #[opt] hSurface: HANDLE, #[in] pDesc: *mut DXGI_DECODE_SWAP_CHAIN_DESC, pYuvDecodeBuffers: IDXGIResource, #[opt] pRestrictToOutput: IDXGIOutput, ppSwapChain: *mut IDXGIDecodeSwapChain) -> HRESULT;
+            fn CreateSwapChainForCompositionSurfaceHandle(&self, #[in] pDevice: IUnknown, #[in] #[opt] hSurface: HANDLE, #[in] pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[in] #[opt] pRestrictToOutput: IDXGIOutput, #[out] #[out_ptr(null_on_failure)] ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
+            fn CreateDecodeSwapChainForCompositionSurfaceHandle(&self, #[in] pDevice: IUnknown, #[in] #[opt] hSurface: HANDLE, #[in] pDesc: *mut DXGI_DECODE_SWAP_CHAIN_DESC, #[in] pYuvDecodeBuffers: IDXGIResource, #[in] #[opt] pRestrictToOutput: IDXGIOutput, #[out] #[out_ptr(null_on_failure)] ppSwapChain: *mut IDXGIDecodeSwapChain) -> HRESULT;
         }
         #[guid(0x595e39d1_2724_4663_99b1_da969de28364)]
         interface IDXGIOutput2: IDXGIOutput1 {
@@ -75,23 +75,31 @@ mod Windows {
         }
         #[guid(0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18)]
         interface IDXGIOutput3: IDXGIOutput2 {
-            fn CheckOverlaySupport(&self, EnumFormat: DXGI_FORMAT, pConcernedDevice: IUnknown, pFlags: *mut u32) -> HRESULT;
+            fn CheckOverlaySupport(&self, #[in] EnumFormat: DXGI_FORMAT, #[in] pConcernedDevice: IUnknown, #[out] pFlags: *mut UINT) -> HRESULT;
         }
         #[guid(0xa8be2ac4_199f_4946_b331_79599fb98de7)]
         interface IDXGISwapChain2: IDXGISwapChain1 {
-            fn SetSourceSize(&self, Width: u32, Height: u32) -> HRESULT;
-            fn GetSourceSize(&self, pWidth: *mut u32, pHeight: *mut u32) -> HRESULT;
-            fn SetMaximumFrameLatency(&self, MaxLatency: u32) -> HRESULT;
-            fn GetMaximumFrameLatency(&self, pMaxLatency: *mut u32) -> HRESULT;
+            fn SetSourceSize(&self, Width: UINT, Height: UINT) -> HRESULT;
+            fn GetSourceSize(&self, #[out] pWidth: *mut UINT, #[out] pHeight: *mut UINT) -> HRESULT;
+            fn SetMaximumFrameLatency(&self, MaxLatency: UINT) -> HRESULT;
+            fn GetMaximumFrameLatency(&self, #[out] pMaxLatency: *mut UINT) -> HRESULT;
             fn GetFrameLatencyWaitableObject(&self) -> HANDLE;
             fn SetMatrixTransform(&self, pMatrix: *const DXGI_MATRIX_3X2_F) -> HRESULT;
-            fn GetMatrixTransform(&self, pMatrix: *mut DXGI_MATRIX_3X2_F) -> HRESULT;
+            fn GetMatrixTransform(&self, #[out] pMatrix: *mut DXGI_MATRIX_3X2_F) -> HRESULT;
         }
         #[guid(0xdd95b90b_f05f_4f6a_bd65_25bfb264bd84)]
         interface IDXGISwapChainMedia: IUnknown {
-            fn GetFrameStatisticsMedia(&self, pStats: *mut DXGI_FRAME_STATISTICS_MEDIA) -> HRESULT;
-            fn SetPresentDuration(&self, Duration: u32) -> HRESULT;
-            fn CheckPresentDurationSupport(&self, DesiredPresentDuration: u32, pClosestSmallerPresentDuration: *mut u32, pClosestLargerPresentDuration: *mut u32) -> HRESULT;
+            fn GetFrameStatisticsMedia(&self, #[out] pStats: *mut DXGI_FRAME_STATISTICS_MEDIA) -> HRESULT;
+            fn SetPresentDuration(&self, Duration: UINT) -> HRESULT;
+            fn CheckPresentDurationSupport(&self, DesiredPresentDuration: UINT, #[out] pClosestSmallerPresentDuration: *mut UINT, #[out] pClosestLargerPresentDuration: *mut UINT) -> HRESULT;
         }
+        const IID_IDXGIDecodeSwapChain: GUID = 0x2633066b_4514_4c7a_8fd8_12ea98059d18;
+        const IID_IDXGIDevice3: GUID = 0x6007896c_3244_4afd_bf18_a6d3beda5023;
+        const IID_IDXGIFactory3: GUID = 0x25483823_cd46_4c7d_86ca_47aa95b837bd;
+        const IID_IDXGIFactoryMedia: GUID = 0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12;
+        const IID_IDXGIOutput2: GUID = 0x595e39d1_2724_4663_99b1_da969de28364;
+        const IID_IDXGIOutput3: GUID = 0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18;
+        const IID_IDXGISwapChain2: GUID = 0xa8be2ac4_199f_4946_b331_79599fb98de7;
+        const IID_IDXGISwapChainMedia: GUID = 0xdd95b90b_f05f_4f6a_bd65_25bfb264bd84;
     }
 }

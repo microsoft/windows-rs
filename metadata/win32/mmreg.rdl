@@ -21,148 +21,150 @@ mod Windows {
         #[packed(1)]
         struct ADPCMEWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wSamplesPerBlock: u16,
+            wSamplesPerBlock: WORD,
         }
         #[packed(1)]
-        struct ADPCMWAVEFORMAT {
-            wfx: WAVEFORMATEX,
-            wSamplesPerBlock: u16,
-            wNumCoef: u16,
-            aCoef: [ADPCMCOEFSET; 0],
-        }
         struct APTXWAVEFORMAT {
             wfx: WAVEFORMATEX,
         }
+        #[packed(1)]
         struct AUDIOFILE_AF10WAVEFORMAT {
             wfx: WAVEFORMATEX,
         }
+        #[packed(1)]
         struct AUDIOFILE_AF36WAVEFORMAT {
             wfx: WAVEFORMATEX,
         }
         const AVIIF_CONTROLFRAME: i32 = 512;
-        const BICOMP_CREATIVEYUV: u32 = 1987410275;
-        const BICOMP_IBMPHOTOMOTION: u32 = 1330464848;
-        const BICOMP_IBMULTIMOTION: u32 = 1230261333;
+        const BICOMP_CREATIVEYUV: DWORD = 1987410275;
+        const BICOMP_IBMPHOTOMOTION: DWORD = 1330464848;
+        const BICOMP_IBMULTIMOTION: DWORD = 1230261333;
         #[packed(1)]
         struct CONTRESCR10WAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wSamplesPerBlock: u16,
+            wSamplesPerBlock: WORD,
         }
         #[packed(1)]
         struct CONTRESVQLPCWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wSamplesPerBlock: u16,
+            wSamplesPerBlock: WORD,
         }
         #[packed(1)]
         struct CREATIVEADPCMWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wRevision: u16,
+            wRevision: WORD,
         }
         #[packed(1)]
         struct CREATIVEFASTSPEECH10WAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wRevision: u16,
+            wRevision: WORD,
         }
         #[packed(1)]
         struct CREATIVEFASTSPEECH8WAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wRevision: u16,
+            wRevision: WORD,
         }
         const CRYSTAL_NET_SFM_CODEC: i32 = 1;
+        #[packed(1)]
         struct CSIMAADPCMWAVEFORMAT {
             wfx: WAVEFORMATEX,
         }
+        #[packed(1)]
         struct DIALOGICOKIADPCMWAVEFORMAT {
             ewf: WAVEFORMATEX,
         }
         #[packed(1)]
         struct DIGIADPCMWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wSamplesPerBlock: u16,
+            wSamplesPerBlock: WORD,
         }
+        #[packed(1)]
         struct DIGIFIXWAVEFORMAT {
             wfx: WAVEFORMATEX,
         }
         #[packed(1)]
         struct DIGIREALWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wSamplesPerBlock: u16,
+            wSamplesPerBlock: WORD,
         }
+        #[packed(1)]
         struct DIGISTDWAVEFORMAT {
             wfx: WAVEFORMATEX,
         }
         #[packed(1)]
         struct DOLBYAC2WAVEFORMAT {
             wfx: WAVEFORMATEX,
-            nAuxBitsCode: u16,
+            nAuxBitsCode: WORD,
         }
         #[packed(1)]
         struct DRMWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wReserved: u16,
-            ulContentId: u32,
+            wReserved: WORD,
+            ulContentId: ULONG,
             wfxSecure: WAVEFORMATEX,
         }
         #[packed(1)]
         struct DVIADPCMWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wSamplesPerBlock: u16,
+            wSamplesPerBlock: WORD,
         }
+        #[packed(1)]
         struct ECHOSC1WAVEFORMAT {
             wfx: WAVEFORMATEX,
         }
         #[packed(1)]
         struct ECHOWAVEFILTER {
             wfltr: WAVEFILTER,
-            dwVolume: u32,
-            dwDelay: u32,
+            dwVolume: DWORD,
+            dwDelay: DWORD,
         }
         #[packed(1)]
         struct EXBMINFOHEADER {
             bmi: BITMAPINFOHEADER,
-            biExtDataOffset: u32,
+            biExtDataOffset: DWORD,
         }
         #[packed(1)]
         struct FMTOWNS_SND_WAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wRevision: u16,
+            wRevision: WORD,
         }
-        const FOURCC_RDSP: u32 = 1347634258;
+        const FOURCC_RDSP: DWORD = 1347634258;
         #[packed(1)]
         struct G721_ADPCMWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            nAuxBlockSize: u16,
+            nAuxBlockSize: WORD,
         }
         #[packed(1)]
         struct G723_ADPCMWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            cbExtraSize: u16,
-            nAuxBlockSize: u16,
+            cbExtraSize: WORD,
+            nAuxBlockSize: WORD,
         }
         #[packed(1)]
         struct GSM610WAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wSamplesPerBlock: u16,
+            wSamplesPerBlock: WORD,
         }
+        #[packed(1)]
         struct HEAACWAVEFORMAT {
             wfInfo: HEAACWAVEINFO,
-            pbAudioSpecificConfig: [u8; 1],
+            pbAudioSpecificConfig: [BYTE; 1],
         }
         #[packed(1)]
         struct HEAACWAVEINFO {
             wfx: WAVEFORMATEX,
-            wPayloadType: u16,
-            wAudioProfileLevelIndication: u16,
-            wStructType: u16,
-            wReserved1: u16,
-            dwReserved2: u32,
+            wPayloadType: WORD,
+            wAudioProfileLevelIndication: WORD,
+            wStructType: WORD,
+            wReserved1: WORD,
+            dwReserved2: DWORD,
         }
-        const ICTYPE_AUDIO: u32 = 1667528033;
-        const ICTYPE_VIDEO: u32 = 1667524982;
+        const ICTYPE_AUDIO: DWORD = 1667528033;
+        const ICTYPE_VIDEO: DWORD = 1667524982;
         #[packed(1)]
         struct IMAADPCMWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wSamplesPerBlock: u16,
+            wSamplesPerBlock: WORD,
         }
         const JIFMK_00: i32 = 65280;
         const JIFMK_APP0: i32 = 65504;
@@ -225,24 +227,21 @@ mod Windows {
         const JIFMK_TEM: i32 = 65281;
         #[packed(1)]
         struct JPEGINFOHEADER {
-            JPEGSize: u32,
-            JPEGProcess: u32,
-            JPEGColorSpaceID: u32,
-            JPEGBitsPerSample: u32,
-            JPEGHSubSampling: u32,
-            JPEGVSubSampling: u32,
+            JPEGSize: DWORD,
+            JPEGProcess: DWORD,
+            JPEGColorSpaceID: DWORD,
+            JPEGBitsPerSample: DWORD,
+            JPEGHSubSampling: DWORD,
+            JPEGVSubSampling: DWORD,
         }
-        const JPEG_DIB: u32 = 1195724874;
+        const JPEG_DIB: DWORD = 1195724874;
         const JPEG_PROCESS_BASELINE: i32 = 0;
         const JPEG_RGB: i32 = 3;
         const JPEG_Y: i32 = 1;
         const JPEG_YCbCr: i32 = 2;
         const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: GUID = 0x00000003_0000_0010_8000_00aa00389b71;
-        const KSDATAFORMAT_SUBTYPE_PCM: GUID = 0x00000001_0000_0010_8000_00aa00389b71;
-        const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: GUID = 0x00000000_0000_0010_8000_00aa00389b71;
         type LPADPCMCOEFSET = *mut ADPCMCOEFSET;
         type LPADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
-        type LPADPCMWAVEFORMAT = *mut ADPCMWAVEFORMAT;
         type LPAPTXWAVEFORMAT = *mut APTXWAVEFORMAT;
         type LPAUDIOFILE_AF10WAVEFORMAT = *mut AUDIOFILE_AF10WAVEFORMAT;
         type LPAUDIOFILE_AF36WAVEFORMAT = *mut AUDIOFILE_AF36WAVEFORMAT;
@@ -283,20 +282,20 @@ mod Windows {
         type LPTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
         type LPVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
         type LPWAVEFILTER = *mut WAVEFILTER;
-        type LPWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
-        type LPWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
+        type LPWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATEXTENSIBLE;
+        type LPWAVEFORMATPCMEX = *mut WAVEFORMATEXTENSIBLE;
         type LPWMAUDIO2WAVEFORMAT = *mut WMAUDIO2WAVEFORMAT;
         type LPWMAUDIO3WAVEFORMAT = *mut WMAUDIO3WAVEFORMAT;
         type LPYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
         #[packed(1)]
         struct MEDIASPACEADPCMWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wRevision: u16,
+            wRevision: WORD,
         }
         const MIXERCONTROL_CONTROLTYPE_SRS_MTS: i32 = 536936454;
         const MIXERCONTROL_CONTROLTYPE_SRS_ONOFF: i32 = 536936455;
         const MIXERCONTROL_CONTROLTYPE_SRS_SYNTHSELECT: i32 = 536936456;
-        const MJPG_DIB: u32 = 1196444237;
+        const MJPG_DIB: DWORD = 1196444237;
         const MM_3COM: i32 = 260;
         const MM_3COM_CB_MIXER: i32 = 1;
         const MM_3COM_CB_WAVEIN: i32 = 2;
@@ -1821,23 +1820,23 @@ mod Windows {
         #[packed(1)]
         struct MPEG1WAVEFORMAT {
             wfx: WAVEFORMATEX,
-            fwHeadLayer: u16,
-            dwHeadBitrate: u32,
-            fwHeadMode: u16,
-            fwHeadModeExt: u16,
-            wHeadEmphasis: u16,
-            fwHeadFlags: u16,
-            dwPTSLow: u32,
-            dwPTSHigh: u32,
+            fwHeadLayer: WORD,
+            dwHeadBitrate: DWORD,
+            fwHeadMode: WORD,
+            fwHeadModeExt: WORD,
+            wHeadEmphasis: WORD,
+            fwHeadFlags: WORD,
+            dwPTSLow: DWORD,
+            dwPTSHigh: DWORD,
         }
         #[packed(1)]
         struct MPEGLAYER3WAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wID: u16,
-            fdwFlags: u32,
-            nBlockSize: u16,
-            nFramesPerBlock: u16,
-            nCodecDelay: u16,
+            wID: WORD,
+            fdwFlags: DWORD,
+            nBlockSize: WORD,
+            nFramesPerBlock: WORD,
+            nCodecDelay: WORD,
         }
         const MPEGLAYER3_FLAG_PADDING_ISO: i32 = 0;
         const MPEGLAYER3_FLAG_PADDING_OFF: i32 = 2;
@@ -1849,8 +1848,8 @@ mod Windows {
         #[packed(1)]
         struct MSAUDIO1WAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wSamplesPerBlock: u16,
-            wEncodeOptions: u16,
+            wSamplesPerBlock: WORD,
+            wEncodeOptions: WORD,
         }
         const MSAUDIO1_BITS_PER_SAMPLE: i32 = 16;
         const MSAUDIO1_MAX_CHANNELS: i32 = 2;
@@ -1861,11 +1860,10 @@ mod Windows {
         #[packed(1)]
         struct NMS_VBXADPCMWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wSamplesPerBlock: u16,
+            wSamplesPerBlock: WORD,
         }
         type NPADPCMCOEFSET = *mut ADPCMCOEFSET;
         type NPADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
-        type NPADPCMWAVEFORMAT = *mut ADPCMWAVEFORMAT;
         type NPAPTXWAVEFORMAT = *mut APTXWAVEFORMAT;
         type NPAUDIOFILE_AF10WAVEFORMAT = *mut AUDIOFILE_AF10WAVEFORMAT;
         type NPAUDIOFILE_AF36WAVEFORMAT = *mut AUDIOFILE_AF36WAVEFORMAT;
@@ -1905,27 +1903,31 @@ mod Windows {
         type NPTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
         type NPVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
         type NPWAVEFILTER = *mut WAVEFILTER;
-        type NPWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
-        type NPWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
+        type NPWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATEXTENSIBLE;
+        type NPWAVEFORMATPCMEX = *mut WAVEFORMATEXTENSIBLE;
         type NPYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
+        #[packed(1)]
         struct OLIADPCMWAVEFORMAT {
             wfx: WAVEFORMATEX,
         }
+        #[packed(1)]
         struct OLICELPWAVEFORMAT {
             wfx: WAVEFORMATEX,
         }
+        #[packed(1)]
         struct OLIGSMWAVEFORMAT {
             wfx: WAVEFORMATEX,
         }
+        #[packed(1)]
         struct OLIOPRWAVEFORMAT {
             wfx: WAVEFORMATEX,
         }
+        #[packed(1)]
         struct OLISBCWAVEFORMAT {
             wfx: WAVEFORMATEX,
         }
         type PADPCMCOEFSET = *mut ADPCMCOEFSET;
         type PADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
-        type PADPCMWAVEFORMAT = *mut ADPCMWAVEFORMAT;
         type PAPTXWAVEFORMAT = *mut APTXWAVEFORMAT;
         type PAUDIOFILE_AF10WAVEFORMAT = *mut AUDIOFILE_AF10WAVEFORMAT;
         type PAUDIOFILE_AF36WAVEFORMAT = *mut AUDIOFILE_AF36WAVEFORMAT;
@@ -1965,53 +1967,52 @@ mod Windows {
         type PTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
         type PVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
         type PWAVEFILTER = *mut WAVEFILTER;
-        type PWAVEFORMATEXTENSIBLE = *mut WAVEFORMATEXTENSIBLE;
-        type PWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
-        type PWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
+        type PWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATEXTENSIBLE;
+        type PWAVEFORMATPCMEX = *mut WAVEFORMATEXTENSIBLE;
         type PYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
-        const RIFFCPPO: u32 = 1330663491;
-        const RIFFCPPO_byte: u32 = 1702132066;
-        const RIFFCPPO_char: u32 = 1918986339;
-        const RIFFCPPO_clsi: u32 = 1769172067;
-        const RIFFCPPO_clsr: u32 = 1920167011;
-        const RIFFCPPO_dbl: u32 = 543973988;
-        const RIFFCPPO_dwrd: u32 = 1685223268;
-        const RIFFCPPO_flt: u32 = 544500838;
-        const RIFFCPPO_int: u32 = 544501353;
-        const RIFFCPPO_long: u32 = 1735290732;
-        const RIFFCPPO_mbr: u32 = 544367213;
-        const RIFFCPPO_obji: u32 = 1768579695;
-        const RIFFCPPO_objr: u32 = 1919574639;
-        const RIFFCPPO_str: u32 = 544371827;
-        const RIFFCPPO_word: u32 = 1685221239;
-        const RIFFINFO_IARL: u32 = 1280459081;
-        const RIFFINFO_IART: u32 = 1414676809;
-        const RIFFINFO_ICMS: u32 = 1397572425;
-        const RIFFINFO_ICMT: u32 = 1414349641;
-        const RIFFINFO_ICOP: u32 = 1347371849;
-        const RIFFINFO_ICRD: u32 = 1146241865;
-        const RIFFINFO_ICRP: u32 = 1347568457;
-        const RIFFINFO_IDIM: u32 = 1296647241;
-        const RIFFINFO_IDIT: u32 = 1414087753;
-        const RIFFINFO_IDPI: u32 = 1229997129;
-        const RIFFINFO_IENG: u32 = 1196311881;
-        const RIFFINFO_IGNR: u32 = 1380861769;
-        const RIFFINFO_IKEY: u32 = 1497713481;
-        const RIFFINFO_ILGT: u32 = 1413958729;
-        const RIFFINFO_IMED: u32 = 1145392457;
-        const RIFFINFO_INAM: u32 = 1296125513;
-        const RIFFINFO_IPLT: u32 = 1414287433;
-        const RIFFINFO_IPRD: u32 = 1146245193;
-        const RIFFINFO_ISBJ: u32 = 1245860681;
-        const RIFFINFO_ISFT: u32 = 1413894985;
-        const RIFFINFO_ISHP: u32 = 1346917193;
-        const RIFFINFO_ISMP: u32 = 1347244873;
-        const RIFFINFO_ISRC: u32 = 1129468745;
-        const RIFFINFO_ISRF: u32 = 1179800393;
-        const RIFFINFO_ITCH: u32 = 1212372041;
-        const RIFFINFO_ITOC: u32 = 1129272393;
-        const RIFFINFO_ITRK: u32 = 1263686729;
-        const RIFFWAVE_inst: u32 = 1953721961;
+        const RIFFCPPO: DWORD = 1330663491;
+        const RIFFCPPO_byte: DWORD = 1702132066;
+        const RIFFCPPO_char: DWORD = 1918986339;
+        const RIFFCPPO_clsi: DWORD = 1769172067;
+        const RIFFCPPO_clsr: DWORD = 1920167011;
+        const RIFFCPPO_dbl: DWORD = 543973988;
+        const RIFFCPPO_dwrd: DWORD = 1685223268;
+        const RIFFCPPO_flt: DWORD = 544500838;
+        const RIFFCPPO_int: DWORD = 544501353;
+        const RIFFCPPO_long: DWORD = 1735290732;
+        const RIFFCPPO_mbr: DWORD = 544367213;
+        const RIFFCPPO_obji: DWORD = 1768579695;
+        const RIFFCPPO_objr: DWORD = 1919574639;
+        const RIFFCPPO_str: DWORD = 544371827;
+        const RIFFCPPO_word: DWORD = 1685221239;
+        const RIFFINFO_IARL: DWORD = 1280459081;
+        const RIFFINFO_IART: DWORD = 1414676809;
+        const RIFFINFO_ICMS: DWORD = 1397572425;
+        const RIFFINFO_ICMT: DWORD = 1414349641;
+        const RIFFINFO_ICOP: DWORD = 1347371849;
+        const RIFFINFO_ICRD: DWORD = 1146241865;
+        const RIFFINFO_ICRP: DWORD = 1347568457;
+        const RIFFINFO_IDIM: DWORD = 1296647241;
+        const RIFFINFO_IDIT: DWORD = 1414087753;
+        const RIFFINFO_IDPI: DWORD = 1229997129;
+        const RIFFINFO_IENG: DWORD = 1196311881;
+        const RIFFINFO_IGNR: DWORD = 1380861769;
+        const RIFFINFO_IKEY: DWORD = 1497713481;
+        const RIFFINFO_ILGT: DWORD = 1413958729;
+        const RIFFINFO_IMED: DWORD = 1145392457;
+        const RIFFINFO_INAM: DWORD = 1296125513;
+        const RIFFINFO_IPLT: DWORD = 1414287433;
+        const RIFFINFO_IPRD: DWORD = 1146245193;
+        const RIFFINFO_ISBJ: DWORD = 1245860681;
+        const RIFFINFO_ISFT: DWORD = 1413894985;
+        const RIFFINFO_ISHP: DWORD = 1346917193;
+        const RIFFINFO_ISMP: DWORD = 1347244873;
+        const RIFFINFO_ISRC: DWORD = 1129468745;
+        const RIFFINFO_ISRF: DWORD = 1179800393;
+        const RIFFINFO_ITCH: DWORD = 1212372041;
+        const RIFFINFO_ITOC: DWORD = 1129272393;
+        const RIFFINFO_ITRK: DWORD = 1263686729;
+        const RIFFWAVE_inst: DWORD = 1953721961;
         const ROCKWELL_WA1_MIXER: i32 = 103;
         const ROCKWELL_WA1_MPU401_IN: i32 = 104;
         const ROCKWELL_WA1_MPU401_OUT: i32 = 105;
@@ -2027,62 +2028,31 @@ mod Windows {
         #[packed(1)]
         struct SIERRAADPCMWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wRevision: u16,
+            wRevision: WORD,
         }
         #[packed(1)]
         struct SONARCWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wCompType: u16,
+            wCompType: WORD,
         }
-        const SPEAKER_ALL: u32 = 2147483648;
-        const SPEAKER_BACK_CENTER: i32 = 256;
-        const SPEAKER_BACK_LEFT: i32 = 16;
-        const SPEAKER_BACK_RIGHT: i32 = 32;
-        const SPEAKER_FRONT_CENTER: i32 = 4;
-        const SPEAKER_FRONT_LEFT: i32 = 1;
-        const SPEAKER_FRONT_LEFT_OF_CENTER: i32 = 64;
-        const SPEAKER_FRONT_RIGHT: i32 = 2;
-        const SPEAKER_FRONT_RIGHT_OF_CENTER: i32 = 128;
-        const SPEAKER_LOW_FREQUENCY: i32 = 8;
-        const SPEAKER_RESERVED: i32 = 2147221504;
-        const SPEAKER_SIDE_LEFT: i32 = 512;
-        const SPEAKER_SIDE_RIGHT: i32 = 1024;
-        const SPEAKER_TOP_BACK_CENTER: i32 = 65536;
-        const SPEAKER_TOP_BACK_LEFT: i32 = 32768;
-        const SPEAKER_TOP_BACK_RIGHT: i32 = 131072;
-        const SPEAKER_TOP_CENTER: i32 = 2048;
-        const SPEAKER_TOP_FRONT_CENTER: i32 = 8192;
-        const SPEAKER_TOP_FRONT_LEFT: i32 = 4096;
-        const SPEAKER_TOP_FRONT_RIGHT: i32 = 16384;
         #[packed(1)]
         struct TRUESPEECHWAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wRevision: u16,
-            nSamplesPerBlock: u16,
-            abReserved: [u8; 28],
+            wRevision: WORD,
+            nSamplesPerBlock: WORD,
+            abReserved: [BYTE; 28],
         }
         #[packed(1)]
         struct VOLUMEWAVEFILTER {
             wfltr: WAVEFILTER,
-            dwVolume: u32,
+            dwVolume: DWORD,
         }
         #[packed(1)]
         struct WAVEFILTER {
-            cbStruct: u32,
-            dwFilterTag: u32,
-            fdwFilter: u32,
-            dwReserved: [u32; 5],
-        }
-        #[packed(1)]
-        struct WAVEFORMATEXTENSIBLE {
-            Format: WAVEFORMATEX,
-            Samples: #[packed(1)] union {
-                wValidBitsPerSample: u16,
-                wSamplesPerBlock: u16,
-                wReserved: u16,
-            },
-            dwChannelMask: u32,
-            SubFormat: GUID,
+            cbStruct: DWORD,
+            dwFilterTag: DWORD,
+            fdwFilter: DWORD,
+            dwReserved: [DWORD; 5],
         }
         type WAVEFORMATIEEEFLOATEX = WAVEFORMATEXTENSIBLE;
         type WAVEFORMATPCMEX = WAVEFORMATEXTENSIBLE;
@@ -2135,7 +2105,6 @@ mod Windows {
         const WAVE_FORMAT_DOLBY_AC2: i32 = 48;
         const WAVE_FORMAT_DOLBY_AC3_SPDIF: i32 = 146;
         const WAVE_FORMAT_DOLBY_AC4: i32 = 44096;
-        const WAVE_FORMAT_DRM: i32 = 9;
         const WAVE_FORMAT_DSAT: i32 = 102;
         const WAVE_FORMAT_DSAT_DISPLAY: i32 = 103;
         const WAVE_FORMAT_DSPGROUP_TRUESPEECH: i32 = 34;
@@ -2149,7 +2118,6 @@ mod Windows {
         const WAVE_FORMAT_ENCORE_G726: i32 = 41223;
         const WAVE_FORMAT_ESPCM: i32 = 97;
         const WAVE_FORMAT_ESST_AC3: i32 = 577;
-        const WAVE_FORMAT_EXTENSIBLE: i32 = 65534;
         const WAVE_FORMAT_FAAD_AAC: i32 = 28781;
         const WAVE_FORMAT_FLAC: i32 = 61868;
         const WAVE_FORMAT_FM_TOWNS_SND: i32 = 768;
@@ -2361,9 +2329,9 @@ mod Windows {
         #[packed(1)]
         struct WMAUDIO2WAVEFORMAT {
             wfx: WAVEFORMATEX,
-            dwSamplesPerBlock: u32,
-            wEncodeOptions: u16,
-            dwSuperBlockAlign: u32,
+            dwSamplesPerBlock: DWORD,
+            wEncodeOptions: WORD,
+            dwSuperBlockAlign: DWORD,
         }
         const WMAUDIO2_BITS_PER_SAMPLE: i32 = 16;
         const WMAUDIO2_MAX_CHANNELS: i32 = 2;
@@ -2374,12 +2342,12 @@ mod Windows {
         #[packed(1)]
         struct WMAUDIO3WAVEFORMAT {
             wfx: WAVEFORMATEX,
-            wValidBitsPerSample: u16,
-            dwChannelMask: u32,
-            dwReserved1: u32,
-            dwReserved2: u32,
-            wEncodeOptions: u16,
-            wReserved3: u16,
+            wValidBitsPerSample: WORD,
+            dwChannelMask: DWORD,
+            dwReserved1: DWORD,
+            dwReserved2: DWORD,
+            wEncodeOptions: WORD,
+            wReserved3: WORD,
         }
         #[arch(X64 | Arm64)]
         const WMAUDIO3_WFX_EXTRA_BYTES: u64 = 18;
@@ -2387,20 +2355,22 @@ mod Windows {
         const WMAUDIO3_WFX_EXTRA_BYTES: u32 = 18;
         const WMAUDIO_BITS_PER_SAMPLE: i32 = 16;
         const WMAUDIO_MAX_CHANNELS: i32 = 2;
+        #[packed(1)]
         struct YAMAHA_ADPCMWAVEFORMAT {
             wfx: WAVEFORMATEX,
         }
         const _INC_MMREG: i32 = 158;
         type s_RIFFWAVE_inst = tag_s_RIFFWAVE_INST;
         struct tag_s_RIFFWAVE_INST {}
+        #[packed(1)]
         struct tag_s_RIFFWAVE_inst {
-            bUnshiftedNote: u8,
+            bUnshiftedNote: BYTE,
             chFineTune: i8,
             chGain: i8,
-            bLowNote: u8,
-            bHighNote: u8,
-            bLowVelocity: u8,
-            bHighVelocity: u8,
+            bLowNote: BYTE,
+            bHighNote: BYTE,
+            bLowVelocity: BYTE,
+            bHighVelocity: BYTE,
         }
     }
 }

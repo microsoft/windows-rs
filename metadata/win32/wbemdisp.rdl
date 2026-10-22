@@ -3,399 +3,273 @@ mod Windows {
     mod Win32 {
         #[guid(0x5e97458a_cf77_11d3_b38f_00105a1f473a)]
         interface ISWbemDateTime: IDispatch {
-            #[special]
-            fn get_Value(&self, #[retval] strValue: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_Value(&self, strValue: BSTR) -> HRESULT;
-            #[special]
-            fn get_Year(&self, #[retval] iYear: *mut i32) -> HRESULT;
-            #[special]
-            fn put_Year(&self, iYear: i32) -> HRESULT;
-            #[special]
-            fn get_YearSpecified(&self, #[retval] bYearSpecified: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_YearSpecified(&self, bYearSpecified: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_Month(&self, #[retval] iMonth: *mut i32) -> HRESULT;
-            #[special]
-            fn put_Month(&self, iMonth: i32) -> HRESULT;
-            #[special]
-            fn get_MonthSpecified(&self, #[retval] bMonthSpecified: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_MonthSpecified(&self, bMonthSpecified: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_Day(&self, #[retval] iDay: *mut i32) -> HRESULT;
-            #[special]
-            fn put_Day(&self, iDay: i32) -> HRESULT;
-            #[special]
-            fn get_DaySpecified(&self, #[retval] bDaySpecified: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_DaySpecified(&self, bDaySpecified: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_Hours(&self, #[retval] iHours: *mut i32) -> HRESULT;
-            #[special]
-            fn put_Hours(&self, iHours: i32) -> HRESULT;
-            #[special]
-            fn get_HoursSpecified(&self, #[retval] bHoursSpecified: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_HoursSpecified(&self, bHoursSpecified: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_Minutes(&self, #[retval] iMinutes: *mut i32) -> HRESULT;
-            #[special]
-            fn put_Minutes(&self, iMinutes: i32) -> HRESULT;
-            #[special]
-            fn get_MinutesSpecified(&self, #[retval] bMinutesSpecified: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_MinutesSpecified(&self, bMinutesSpecified: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_Seconds(&self, #[retval] iSeconds: *mut i32) -> HRESULT;
-            #[special]
-            fn put_Seconds(&self, iSeconds: i32) -> HRESULT;
-            #[special]
-            fn get_SecondsSpecified(&self, #[retval] bSecondsSpecified: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_SecondsSpecified(&self, bSecondsSpecified: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_Microseconds(&self, #[retval] iMicroseconds: *mut i32) -> HRESULT;
-            #[special]
-            fn put_Microseconds(&self, iMicroseconds: i32) -> HRESULT;
-            #[special]
-            fn get_MicrosecondsSpecified(&self, #[retval] bMicrosecondsSpecified: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_MicrosecondsSpecified(&self, bMicrosecondsSpecified: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_UTC(&self, #[retval] iUTC: *mut i32) -> HRESULT;
-            #[special]
-            fn put_UTC(&self, iUTC: i32) -> HRESULT;
-            #[special]
-            fn get_UTCSpecified(&self, #[retval] bUTCSpecified: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_UTCSpecified(&self, bUTCSpecified: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_IsInterval(&self, #[retval] bIsInterval: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_IsInterval(&self, bIsInterval: VARIANT_BOOL) -> HRESULT;
-            fn GetVarDate(&self, bIsLocal: VARIANT_BOOL, #[retval] dVarDate: *mut DATE) -> HRESULT;
-            fn SetVarDate(&self, dVarDate: DATE, bIsLocal: VARIANT_BOOL) -> HRESULT;
-            fn GetFileTime(&self, bIsLocal: VARIANT_BOOL, #[retval] strFileTime: *mut BSTR) -> HRESULT;
-            fn SetFileTime(&self, strFileTime: BSTR, bIsLocal: VARIANT_BOOL) -> HRESULT;
+            fn get_Value(&self, #[out] #[retval] strValue: *mut BSTR) -> HRESULT;
+            fn put_Value(&self, #[in] strValue: BSTR) -> HRESULT;
+            fn get_Year(&self, #[out] #[retval] iYear: *mut i32) -> HRESULT;
+            fn put_Year(&self, #[in] iYear: i32) -> HRESULT;
+            fn get_YearSpecified(&self, #[out] #[retval] bYearSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_YearSpecified(&self, #[in] bYearSpecified: VARIANT_BOOL) -> HRESULT;
+            fn get_Month(&self, #[out] #[retval] iMonth: *mut i32) -> HRESULT;
+            fn put_Month(&self, #[in] iMonth: i32) -> HRESULT;
+            fn get_MonthSpecified(&self, #[out] #[retval] bMonthSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_MonthSpecified(&self, #[in] bMonthSpecified: VARIANT_BOOL) -> HRESULT;
+            fn get_Day(&self, #[out] #[retval] iDay: *mut i32) -> HRESULT;
+            fn put_Day(&self, #[in] iDay: i32) -> HRESULT;
+            fn get_DaySpecified(&self, #[out] #[retval] bDaySpecified: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_DaySpecified(&self, #[in] bDaySpecified: VARIANT_BOOL) -> HRESULT;
+            fn get_Hours(&self, #[out] #[retval] iHours: *mut i32) -> HRESULT;
+            fn put_Hours(&self, #[in] iHours: i32) -> HRESULT;
+            fn get_HoursSpecified(&self, #[out] #[retval] bHoursSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_HoursSpecified(&self, #[in] bHoursSpecified: VARIANT_BOOL) -> HRESULT;
+            fn get_Minutes(&self, #[out] #[retval] iMinutes: *mut i32) -> HRESULT;
+            fn put_Minutes(&self, #[in] iMinutes: i32) -> HRESULT;
+            fn get_MinutesSpecified(&self, #[out] #[retval] bMinutesSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_MinutesSpecified(&self, #[in] bMinutesSpecified: VARIANT_BOOL) -> HRESULT;
+            fn get_Seconds(&self, #[out] #[retval] iSeconds: *mut i32) -> HRESULT;
+            fn put_Seconds(&self, #[in] iSeconds: i32) -> HRESULT;
+            fn get_SecondsSpecified(&self, #[out] #[retval] bSecondsSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_SecondsSpecified(&self, #[in] bSecondsSpecified: VARIANT_BOOL) -> HRESULT;
+            fn get_Microseconds(&self, #[out] #[retval] iMicroseconds: *mut i32) -> HRESULT;
+            fn put_Microseconds(&self, #[in] iMicroseconds: i32) -> HRESULT;
+            fn get_MicrosecondsSpecified(&self, #[out] #[retval] bMicrosecondsSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_MicrosecondsSpecified(&self, #[in] bMicrosecondsSpecified: VARIANT_BOOL) -> HRESULT;
+            fn get_UTC(&self, #[out] #[retval] iUTC: *mut i32) -> HRESULT;
+            fn put_UTC(&self, #[in] iUTC: i32) -> HRESULT;
+            fn get_UTCSpecified(&self, #[out] #[retval] bUTCSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_UTCSpecified(&self, #[in] bUTCSpecified: VARIANT_BOOL) -> HRESULT;
+            fn get_IsInterval(&self, #[out] #[retval] bIsInterval: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_IsInterval(&self, #[in] bIsInterval: VARIANT_BOOL) -> HRESULT;
+            fn GetVarDate(&self, #[in] bIsLocal: VARIANT_BOOL, #[out] #[retval] dVarDate: *mut DATE) -> HRESULT;
+            fn SetVarDate(&self, #[in] dVarDate: DATE, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("1")] bIsLocal: VARIANT_BOOL) -> HRESULT;
+            fn GetFileTime(&self, #[in] bIsLocal: VARIANT_BOOL, #[out] #[retval] strFileTime: *mut BSTR) -> HRESULT;
+            fn SetFileTime(&self, #[in] strFileTime: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("1")] bIsLocal: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x27d54d92_0ebe_11d2_8b22_00600806d9b6)]
         interface ISWbemEventSource: IDispatch {
-            fn NextEvent(&self, iTimeoutMs: i32, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
-            #[special]
-            fn get_Security_(&self, #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
+            fn NextEvent(&self, #[in] iTimeoutMs: i32, #[out] #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+            fn get_Security_(&self, #[out] #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
         }
         #[guid(0xd962db84_d4bb_11d1_8b09_00600806d9b6)]
         interface ISWbemLastError: ISWbemObject {}
         #[guid(0x76a6415b_cb41_11d1_8b02_00600806d9b6)]
         interface ISWbemLocator: IDispatch {
-            fn ConnectServer(&self, strServer: BSTR, strNamespace: BSTR, strUser: BSTR, strPassword: BSTR, strLocale: BSTR, strAuthority: BSTR, iSecurityFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemServices: *mut ISWbemServices) -> HRESULT;
-            #[special]
-            fn get_Security_(&self, #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
+            fn ConnectServer(&self, #[in] strServer: BSTR, #[in] strNamespace: BSTR, #[in] strUser: BSTR, #[in] strPassword: BSTR, #[in] strLocale: BSTR, #[in] strAuthority: BSTR, #[in] iSecurityFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemServices: *mut ISWbemServices) -> HRESULT;
+            fn get_Security_(&self, #[out] #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
         }
         #[guid(0x422e8e90_d955_11d1_8b09_00600806d9b6)]
         interface ISWbemMethod: IDispatch {
-            #[special]
-            fn get_Name(&self, #[retval] strName: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_Origin(&self, #[retval] strOrigin: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_InParameters(&self, #[retval] objWbemInParameters: *mut ISWbemObject) -> HRESULT;
-            #[special]
-            fn get_OutParameters(&self, #[retval] objWbemOutParameters: *mut ISWbemObject) -> HRESULT;
-            #[special]
-            fn get_Qualifiers_(&self, #[retval] objWbemQualifierSet: *mut ISWbemQualifierSet) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] strName: *mut BSTR) -> HRESULT;
+            fn get_Origin(&self, #[out] #[retval] strOrigin: *mut BSTR) -> HRESULT;
+            fn get_InParameters(&self, #[out] #[retval] objWbemInParameters: *mut ISWbemObject) -> HRESULT;
+            fn get_OutParameters(&self, #[out] #[retval] objWbemOutParameters: *mut ISWbemObject) -> HRESULT;
+            fn get_Qualifiers_(&self, #[out] #[retval] objWbemQualifierSet: *mut ISWbemQualifierSet) -> HRESULT;
         }
         #[guid(0xc93ba292_d955_11d1_8b09_00600806d9b6)]
         interface ISWbemMethodSet: IDispatch {
-            #[special]
-            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
-            fn Item(&self, strName: BSTR, iFlags: i32, #[retval] objWbemMethod: *mut ISWbemMethod) -> HRESULT;
-            #[special]
-            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] strName: BSTR, #[in] iFlags: i32, #[out] #[retval] objWbemMethod: *mut ISWbemMethod) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] iCount: *mut i32) -> HRESULT;
         }
         #[guid(0x76a64164_cb41_11d1_8b02_00600806d9b6)]
         interface ISWbemNamedValue: IDispatch {
-            #[special]
-            fn get_Value(&self, #[retval] varValue: *mut VARIANT) -> HRESULT;
-            #[special]
+            fn get_Value(&self, #[out] #[retval] varValue: *mut VARIANT) -> HRESULT;
             fn put_Value(&self, #[in] varValue: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_Name(&self, #[retval] strName: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] strName: *mut BSTR) -> HRESULT;
         }
         #[guid(0xcf2376ea_ce8c_11d1_8b05_00600806d9b6)]
         interface ISWbemNamedValueSet: IDispatch {
-            #[special]
-            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
-            fn Item(&self, strName: BSTR, iFlags: i32, #[retval] objWbemNamedValue: *mut ISWbemNamedValue) -> HRESULT;
-            #[special]
-            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
-            fn Add(&self, strName: BSTR, #[in] varValue: *mut VARIANT, iFlags: i32, #[retval] objWbemNamedValue: *mut ISWbemNamedValue) -> HRESULT;
-            fn Remove(&self, strName: BSTR, iFlags: i32) -> HRESULT;
-            fn Clone(&self, #[retval] objWbemNamedValueSet: *mut ISWbemNamedValueSet) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] strName: BSTR, #[in] iFlags: i32, #[out] #[retval] objWbemNamedValue: *mut ISWbemNamedValue) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] iCount: *mut i32) -> HRESULT;
+            fn Add(&self, #[in] strName: BSTR, #[in] varValue: *mut VARIANT, #[in] iFlags: i32, #[out] #[retval] objWbemNamedValue: *mut ISWbemNamedValue) -> HRESULT;
+            fn Remove(&self, #[in] strName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32) -> HRESULT;
+            fn Clone(&self, #[out] #[retval] objWbemNamedValueSet: *mut ISWbemNamedValueSet) -> HRESULT;
             fn DeleteAll(&self) -> HRESULT;
         }
         #[guid(0x76a6415a_cb41_11d1_8b02_00600806d9b6)]
         interface ISWbemObject: IDispatch {
-            fn Put_(&self, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectPath: *mut ISWbemObjectPath) -> HRESULT;
-            fn PutAsync_(&self, objWbemSink: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn Delete_(&self, iFlags: i32, objWbemNamedValueSet: IDispatch) -> HRESULT;
-            fn DeleteAsync_(&self, objWbemSink: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn Instances_(&self, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn InstancesAsync_(&self, objWbemSink: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn Subclasses_(&self, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn SubclassesAsync_(&self, objWbemSink: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn Associators_(&self, strAssocClass: BSTR, strResultClass: BSTR, strResultRole: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredAssocQualifier: BSTR, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn AssociatorsAsync_(&self, objWbemSink: IDispatch, strAssocClass: BSTR, strResultClass: BSTR, strResultRole: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredAssocQualifier: BSTR, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn References_(&self, strResultClass: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn ReferencesAsync_(&self, objWbemSink: IDispatch, strResultClass: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn ExecMethod_(&self, strMethodName: BSTR, objWbemInParameters: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemOutParameters: *mut ISWbemObject) -> HRESULT;
-            fn ExecMethodAsync_(&self, objWbemSink: IDispatch, strMethodName: BSTR, objWbemInParameters: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn Clone_(&self, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
-            fn GetObjectText_(&self, iFlags: i32, #[retval] strObjectText: *mut BSTR) -> HRESULT;
-            fn SpawnDerivedClass_(&self, iFlags: i32, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
-            fn SpawnInstance_(&self, iFlags: i32, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
-            fn CompareTo_(&self, objWbemObject: IDispatch, iFlags: i32, #[retval] bResult: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_Qualifiers_(&self, #[retval] objWbemQualifierSet: *mut ISWbemQualifierSet) -> HRESULT;
-            #[special]
-            fn get_Properties_(&self, #[retval] objWbemPropertySet: *mut ISWbemPropertySet) -> HRESULT;
-            #[special]
-            fn get_Methods_(&self, #[retval] objWbemMethodSet: *mut ISWbemMethodSet) -> HRESULT;
-            #[special]
-            fn get_Derivation_(&self, #[retval] strClassNameArray: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_Path_(&self, #[retval] objWbemObjectPath: *mut ISWbemObjectPath) -> HRESULT;
-            #[special]
-            fn get_Security_(&self, #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
+            fn Put_(&self, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectPath: *mut ISWbemObjectPath) -> HRESULT;
+            fn PutAsync_(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("wbemChangeFlagCreateOrUpdate")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Delete_(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch) -> HRESULT;
+            fn DeleteAsync_(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Instances_(&self, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn InstancesAsync_(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Subclasses_(&self, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn SubclassesAsync_(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("wbemQueryFlagDeep")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Associators_(&self, #[in] strAssocClass: BSTR, #[in] strResultClass: BSTR, #[in] strResultRole: BSTR, #[in] strRole: BSTR, #[in] bClassesOnly: VARIANT_BOOL, #[in] bSchemaOnly: VARIANT_BOOL, #[in] strRequiredAssocQualifier: BSTR, #[in] strRequiredQualifier: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn AssociatorsAsync_(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strAssocClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strResultClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strResultRole: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRole: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bClassesOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bSchemaOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRequiredAssocQualifier: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRequiredQualifier: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn References_(&self, #[in] strResultClass: BSTR, #[in] strRole: BSTR, #[in] bClassesOnly: VARIANT_BOOL, #[in] bSchemaOnly: VARIANT_BOOL, #[in] strRequiredQualifier: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn ReferencesAsync_(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strResultClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRole: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bClassesOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bSchemaOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRequiredQualifier: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ExecMethod_(&self, #[in] strMethodName: BSTR, #[in] objWbemInParameters: IDispatch, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemOutParameters: *mut ISWbemObject) -> HRESULT;
+            fn ExecMethodAsync_(&self, #[in] objWbemSink: IDispatch, #[in] strMethodName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemInParameters: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Clone_(&self, #[out] #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+            fn GetObjectText_(&self, #[in] iFlags: i32, #[out] #[retval] strObjectText: *mut BSTR) -> HRESULT;
+            fn SpawnDerivedClass_(&self, #[in] iFlags: i32, #[out] #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+            fn SpawnInstance_(&self, #[in] iFlags: i32, #[out] #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+            fn CompareTo_(&self, #[in] objWbemObject: IDispatch, #[in] iFlags: i32, #[out] #[retval] bResult: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_Qualifiers_(&self, #[out] #[retval] objWbemQualifierSet: *mut ISWbemQualifierSet) -> HRESULT;
+            fn get_Properties_(&self, #[out] #[retval] objWbemPropertySet: *mut ISWbemPropertySet) -> HRESULT;
+            fn get_Methods_(&self, #[out] #[retval] objWbemMethodSet: *mut ISWbemMethodSet) -> HRESULT;
+            fn get_Derivation_(&self, #[out] #[retval] strClassNameArray: *mut VARIANT) -> HRESULT;
+            fn get_Path_(&self, #[out] #[retval] objWbemObjectPath: *mut ISWbemObjectPath) -> HRESULT;
+            fn get_Security_(&self, #[out] #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
         }
         #[guid(0x269ad56a_8a67_4129_bc8c_0506dcfe9880)]
         interface ISWbemObjectEx: ISWbemObject {
-            fn Refresh_(&self, iFlags: i32, objWbemNamedValueSet: IDispatch) -> HRESULT;
-            #[special]
-            fn get_SystemProperties_(&self, #[retval] objWbemPropertySet: *mut ISWbemPropertySet) -> HRESULT;
-            fn GetText_(&self, iObjectTextFormat: WbemObjectTextFormatEnum, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] bsText: *mut BSTR) -> HRESULT;
-            fn SetFromText_(&self, bsText: BSTR, iObjectTextFormat: WbemObjectTextFormatEnum, iFlags: i32, objWbemNamedValueSet: IDispatch) -> HRESULT;
+            fn Refresh_(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch) -> HRESULT;
+            fn get_SystemProperties_(&self, #[out] #[retval] objWbemPropertySet: *mut ISWbemPropertySet) -> HRESULT;
+            fn GetText_(&self, #[in] iObjectTextFormat: WbemObjectTextFormatEnum, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] bsText: *mut BSTR) -> HRESULT;
+            fn SetFromText_(&self, #[in] bsText: BSTR, #[in] iObjectTextFormat: WbemObjectTextFormatEnum, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch) -> HRESULT;
         }
         #[guid(0x5791bc27_ce9c_11d1_97bf_0000f81e849c)]
         interface ISWbemObjectPath: IDispatch {
-            #[special]
-            fn get_Path(&self, #[retval] strPath: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_Path(&self, strPath: BSTR) -> HRESULT;
-            #[special]
-            fn get_RelPath(&self, #[retval] strRelPath: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_RelPath(&self, strRelPath: BSTR) -> HRESULT;
-            #[special]
-            fn get_Server(&self, #[retval] strServer: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_Server(&self, strServer: BSTR) -> HRESULT;
-            #[special]
-            fn get_Namespace(&self, #[retval] strNamespace: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_Namespace(&self, strNamespace: BSTR) -> HRESULT;
-            #[special]
-            fn get_ParentNamespace(&self, #[retval] strParentNamespace: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_DisplayName(&self, #[retval] strDisplayName: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_DisplayName(&self, strDisplayName: BSTR) -> HRESULT;
-            #[special]
-            fn get_Class(&self, #[retval] strClass: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_Class(&self, strClass: BSTR) -> HRESULT;
-            #[special]
-            fn get_IsClass(&self, #[retval] bIsClass: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_Path(&self, #[out] #[retval] strPath: *mut BSTR) -> HRESULT;
+            fn put_Path(&self, #[in] strPath: BSTR) -> HRESULT;
+            fn get_RelPath(&self, #[out] #[retval] strRelPath: *mut BSTR) -> HRESULT;
+            fn put_RelPath(&self, #[in] strRelPath: BSTR) -> HRESULT;
+            fn get_Server(&self, #[out] #[retval] strServer: *mut BSTR) -> HRESULT;
+            fn put_Server(&self, #[in] strServer: BSTR) -> HRESULT;
+            fn get_Namespace(&self, #[out] #[retval] strNamespace: *mut BSTR) -> HRESULT;
+            fn put_Namespace(&self, #[in] strNamespace: BSTR) -> HRESULT;
+            fn get_ParentNamespace(&self, #[out] #[retval] strParentNamespace: *mut BSTR) -> HRESULT;
+            fn get_DisplayName(&self, #[out] #[retval] strDisplayName: *mut BSTR) -> HRESULT;
+            fn put_DisplayName(&self, #[in] strDisplayName: BSTR) -> HRESULT;
+            fn get_Class(&self, #[out] #[retval] strClass: *mut BSTR) -> HRESULT;
+            fn put_Class(&self, #[in] strClass: BSTR) -> HRESULT;
+            fn get_IsClass(&self, #[out] #[retval] bIsClass: *mut VARIANT_BOOL) -> HRESULT;
             fn SetAsClass(&self) -> HRESULT;
-            #[special]
-            fn get_IsSingleton(&self, #[retval] bIsSingleton: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_IsSingleton(&self, #[out] #[retval] bIsSingleton: *mut VARIANT_BOOL) -> HRESULT;
             fn SetAsSingleton(&self) -> HRESULT;
-            #[special]
-            fn get_Keys(&self, #[retval] objWbemNamedValueSet: *mut ISWbemNamedValueSet) -> HRESULT;
-            #[special]
-            fn get_Security_(&self, #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
-            #[special]
-            fn get_Locale(&self, #[retval] strLocale: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_Locale(&self, strLocale: BSTR) -> HRESULT;
-            #[special]
-            fn get_Authority(&self, #[retval] strAuthority: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_Authority(&self, strAuthority: BSTR) -> HRESULT;
+            fn get_Keys(&self, #[out] #[retval] objWbemNamedValueSet: *mut ISWbemNamedValueSet) -> HRESULT;
+            fn get_Security_(&self, #[out] #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
+            fn get_Locale(&self, #[out] #[retval] strLocale: *mut BSTR) -> HRESULT;
+            fn put_Locale(&self, #[in] strLocale: BSTR) -> HRESULT;
+            fn get_Authority(&self, #[out] #[retval] strAuthority: *mut BSTR) -> HRESULT;
+            fn put_Authority(&self, #[in] strAuthority: BSTR) -> HRESULT;
         }
         #[guid(0x76a6415f_cb41_11d1_8b02_00600806d9b6)]
         interface ISWbemObjectSet: IDispatch {
-            #[special]
-            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
-            fn Item(&self, strObjectPath: BSTR, iFlags: i32, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
-            #[special]
-            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
-            #[special]
-            fn get_Security_(&self, #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
-            fn ItemIndex(&self, lIndex: i32, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] strObjectPath: BSTR, #[in] iFlags: i32, #[out] #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] iCount: *mut i32) -> HRESULT;
+            fn get_Security_(&self, #[out] #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
+            fn ItemIndex(&self, #[in] lIndex: i32, #[out] #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
         }
         #[guid(0x26ee67bd_5804_11d2_8b4a_00600806d9b6)]
         interface ISWbemPrivilege: IDispatch {
-            #[special]
-            fn get_IsEnabled(&self, #[retval] bIsEnabled: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_IsEnabled(&self, bIsEnabled: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_Name(&self, #[retval] strDisplayName: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_DisplayName(&self, #[retval] strDisplayName: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_Identifier(&self, #[retval] iPrivilege: *mut WbemPrivilegeEnum) -> HRESULT;
+            fn get_IsEnabled(&self, #[out] #[retval] bIsEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_IsEnabled(&self, #[in] bIsEnabled: VARIANT_BOOL) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] strDisplayName: *mut BSTR) -> HRESULT;
+            fn get_DisplayName(&self, #[out] #[retval] strDisplayName: *mut BSTR) -> HRESULT;
+            fn get_Identifier(&self, #[out] #[retval] iPrivilege: *mut WbemPrivilegeEnum) -> HRESULT;
         }
         #[guid(0x26ee67bf_5804_11d2_8b4a_00600806d9b6)]
         interface ISWbemPrivilegeSet: IDispatch {
-            #[special]
-            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
-            fn Item(&self, iPrivilege: WbemPrivilegeEnum, #[retval] objWbemPrivilege: *mut ISWbemPrivilege) -> HRESULT;
-            #[special]
-            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
-            fn Add(&self, iPrivilege: WbemPrivilegeEnum, bIsEnabled: VARIANT_BOOL, #[retval] objWbemPrivilege: *mut ISWbemPrivilege) -> HRESULT;
-            fn Remove(&self, iPrivilege: WbemPrivilegeEnum) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] iPrivilege: WbemPrivilegeEnum, #[out] #[retval] objWbemPrivilege: *mut ISWbemPrivilege) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] iCount: *mut i32) -> HRESULT;
+            fn Add(&self, #[in] iPrivilege: WbemPrivilegeEnum, #[in] bIsEnabled: VARIANT_BOOL, #[out] #[retval] objWbemPrivilege: *mut ISWbemPrivilege) -> HRESULT;
+            fn Remove(&self, #[in] iPrivilege: WbemPrivilegeEnum) -> HRESULT;
             fn DeleteAll(&self) -> HRESULT;
-            fn AddAsString(&self, strPrivilege: BSTR, bIsEnabled: VARIANT_BOOL, #[retval] objWbemPrivilege: *mut ISWbemPrivilege) -> HRESULT;
+            fn AddAsString(&self, #[in] strPrivilege: BSTR, #[in] bIsEnabled: VARIANT_BOOL, #[out] #[retval] objWbemPrivilege: *mut ISWbemPrivilege) -> HRESULT;
         }
         #[guid(0x1a388f98_d4ba_11d1_8b09_00600806d9b6)]
         interface ISWbemProperty: IDispatch {
-            #[special]
-            fn get_Value(&self, #[retval] varValue: *mut VARIANT) -> HRESULT;
-            #[special]
+            fn get_Value(&self, #[out] #[retval] varValue: *mut VARIANT) -> HRESULT;
             fn put_Value(&self, #[in] varValue: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_Name(&self, #[retval] strName: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_IsLocal(&self, #[retval] bIsLocal: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_Origin(&self, #[retval] strOrigin: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_CIMType(&self, #[retval] iCimType: *mut WbemCimtypeEnum) -> HRESULT;
-            #[special]
-            fn get_Qualifiers_(&self, #[retval] objWbemQualifierSet: *mut ISWbemQualifierSet) -> HRESULT;
-            #[special]
-            fn get_IsArray(&self, #[retval] bIsArray: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] strName: *mut BSTR) -> HRESULT;
+            fn get_IsLocal(&self, #[out] #[retval] bIsLocal: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_Origin(&self, #[out] #[retval] strOrigin: *mut BSTR) -> HRESULT;
+            fn get_CIMType(&self, #[out] #[retval] iCimType: *mut WbemCimtypeEnum) -> HRESULT;
+            fn get_Qualifiers_(&self, #[out] #[retval] objWbemQualifierSet: *mut ISWbemQualifierSet) -> HRESULT;
+            fn get_IsArray(&self, #[out] #[retval] bIsArray: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xdea0a7b2_d4ba_11d1_8b09_00600806d9b6)]
         interface ISWbemPropertySet: IDispatch {
-            #[special]
-            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
-            fn Item(&self, strName: BSTR, iFlags: i32, #[retval] objWbemProperty: *mut ISWbemProperty) -> HRESULT;
-            #[special]
-            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
-            fn Add(&self, strName: BSTR, iCIMType: WbemCimtypeEnum, bIsArray: VARIANT_BOOL, iFlags: i32, #[retval] objWbemProperty: *mut ISWbemProperty) -> HRESULT;
-            fn Remove(&self, strName: BSTR, iFlags: i32) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] strName: BSTR, #[in] iFlags: i32, #[out] #[retval] objWbemProperty: *mut ISWbemProperty) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] iCount: *mut i32) -> HRESULT;
+            fn Add(&self, #[in] strName: BSTR, #[in] iCIMType: WbemCimtypeEnum, #[in] bIsArray: VARIANT_BOOL, #[in] iFlags: i32, #[out] #[retval] objWbemProperty: *mut ISWbemProperty) -> HRESULT;
+            fn Remove(&self, #[in] strName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32) -> HRESULT;
         }
         #[guid(0x79b05932_d3b7_11d1_8b06_00600806d9b6)]
         interface ISWbemQualifier: IDispatch {
-            #[special]
-            fn get_Value(&self, #[retval] varValue: *mut VARIANT) -> HRESULT;
-            #[special]
+            fn get_Value(&self, #[out] #[retval] varValue: *mut VARIANT) -> HRESULT;
             fn put_Value(&self, #[in] varValue: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_Name(&self, #[retval] strName: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_IsLocal(&self, #[retval] bIsLocal: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_PropagatesToSubclass(&self, #[retval] bPropagatesToSubclass: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_PropagatesToSubclass(&self, bPropagatesToSubclass: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_PropagatesToInstance(&self, #[retval] bPropagatesToInstance: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_PropagatesToInstance(&self, bPropagatesToInstance: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_IsOverridable(&self, #[retval] bIsOverridable: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_IsOverridable(&self, bIsOverridable: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_IsAmended(&self, #[retval] bIsAmended: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] strName: *mut BSTR) -> HRESULT;
+            fn get_IsLocal(&self, #[out] #[retval] bIsLocal: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_PropagatesToSubclass(&self, #[out] #[retval] bPropagatesToSubclass: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_PropagatesToSubclass(&self, #[in] bPropagatesToSubclass: VARIANT_BOOL) -> HRESULT;
+            fn get_PropagatesToInstance(&self, #[out] #[retval] bPropagatesToInstance: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_PropagatesToInstance(&self, #[in] bPropagatesToInstance: VARIANT_BOOL) -> HRESULT;
+            fn get_IsOverridable(&self, #[out] #[retval] bIsOverridable: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_IsOverridable(&self, #[in] bIsOverridable: VARIANT_BOOL) -> HRESULT;
+            fn get_IsAmended(&self, #[out] #[retval] bIsAmended: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x9b16ed16_d3df_11d1_8b08_00600806d9b6)]
         interface ISWbemQualifierSet: IDispatch {
-            #[special]
-            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
-            fn Item(&self, name: BSTR, iFlags: i32, #[retval] objWbemQualifier: *mut ISWbemQualifier) -> HRESULT;
-            #[special]
-            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
-            fn Add(&self, strName: BSTR, #[in] varVal: *mut VARIANT, bPropagatesToSubclass: VARIANT_BOOL, bPropagatesToInstance: VARIANT_BOOL, bIsOverridable: VARIANT_BOOL, iFlags: i32, #[retval] objWbemQualifier: *mut ISWbemQualifier) -> HRESULT;
-            fn Remove(&self, strName: BSTR, iFlags: i32) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] name: BSTR, #[in] iFlags: i32, #[out] #[retval] objWbemQualifier: *mut ISWbemQualifier) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] iCount: *mut i32) -> HRESULT;
+            fn Add(&self, #[in] strName: BSTR, #[in] varVal: *mut VARIANT, #[in] bPropagatesToSubclass: VARIANT_BOOL, #[in] bPropagatesToInstance: VARIANT_BOOL, #[in] bIsOverridable: VARIANT_BOOL, #[in] iFlags: i32, #[out] #[retval] objWbemQualifier: *mut ISWbemQualifier) -> HRESULT;
+            fn Remove(&self, #[in] strName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32) -> HRESULT;
         }
         #[guid(0x5ad4bf92_daab_11d3_b38f_00105a1f473a)]
         interface ISWbemRefreshableItem: IDispatch {
-            #[special]
-            fn get_Index(&self, #[retval] iIndex: *mut i32) -> HRESULT;
-            #[special]
-            fn get_Refresher(&self, #[retval] objWbemRefresher: *mut ISWbemRefresher) -> HRESULT;
-            #[special]
-            fn get_IsSet(&self, #[retval] bIsSet: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_Object(&self, #[retval] objWbemObject: *mut ISWbemObjectEx) -> HRESULT;
-            #[special]
-            fn get_ObjectSet(&self, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn Remove(&self, iFlags: i32) -> HRESULT;
+            fn get_Index(&self, #[out] #[retval] iIndex: *mut i32) -> HRESULT;
+            fn get_Refresher(&self, #[out] #[retval] objWbemRefresher: *mut ISWbemRefresher) -> HRESULT;
+            fn get_IsSet(&self, #[out] #[retval] bIsSet: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_Object(&self, #[out] #[retval] objWbemObject: *mut ISWbemObjectEx) -> HRESULT;
+            fn get_ObjectSet(&self, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn Remove(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32) -> HRESULT;
         }
         #[guid(0x14d8250e_d9c2_11d3_b38f_00105a1f473a)]
         interface ISWbemRefresher: IDispatch {
-            #[special]
-            fn get__NewEnum(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
-            fn Item(&self, iIndex: i32, #[retval] objWbemRefreshableItem: *mut ISWbemRefreshableItem) -> HRESULT;
-            #[special]
-            fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
-            fn Add(&self, objWbemServices: ISWbemServicesEx, bsInstancePath: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemRefreshableItem: *mut ISWbemRefreshableItem) -> HRESULT;
-            fn AddEnum(&self, objWbemServices: ISWbemServicesEx, bsClassName: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemRefreshableItem: *mut ISWbemRefreshableItem) -> HRESULT;
-            fn Remove(&self, iIndex: i32, iFlags: i32) -> HRESULT;
-            fn Refresh(&self, iFlags: i32) -> HRESULT;
-            #[special]
-            fn get_AutoReconnect(&self, #[retval] bCount: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_AutoReconnect(&self, bCount: VARIANT_BOOL) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] iIndex: i32, #[out] #[retval] objWbemRefreshableItem: *mut ISWbemRefreshableItem) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] iCount: *mut i32) -> HRESULT;
+            fn Add(&self, #[in] objWbemServices: ISWbemServicesEx, #[in] bsInstancePath: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemRefreshableItem: *mut ISWbemRefreshableItem) -> HRESULT;
+            fn AddEnum(&self, #[in] objWbemServices: ISWbemServicesEx, #[in] bsClassName: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemRefreshableItem: *mut ISWbemRefreshableItem) -> HRESULT;
+            fn Remove(&self, #[in] iIndex: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32) -> HRESULT;
+            fn Refresh(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32) -> HRESULT;
+            fn get_AutoReconnect(&self, #[out] #[retval] bCount: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_AutoReconnect(&self, #[in] bCount: VARIANT_BOOL) -> HRESULT;
             fn DeleteAll(&self) -> HRESULT;
         }
         #[guid(0xb54d66e6_2287_11d2_8b33_00600806d9b6)]
         interface ISWbemSecurity: IDispatch {
-            #[special]
-            fn get_ImpersonationLevel(&self, #[retval] iImpersonationLevel: *mut WbemImpersonationLevelEnum) -> HRESULT;
-            #[special]
-            fn put_ImpersonationLevel(&self, iImpersonationLevel: WbemImpersonationLevelEnum) -> HRESULT;
-            #[special]
-            fn get_AuthenticationLevel(&self, #[retval] iAuthenticationLevel: *mut WbemAuthenticationLevelEnum) -> HRESULT;
-            #[special]
-            fn put_AuthenticationLevel(&self, iAuthenticationLevel: WbemAuthenticationLevelEnum) -> HRESULT;
-            #[special]
-            fn get_Privileges(&self, #[retval] objWbemPrivilegeSet: *mut ISWbemPrivilegeSet) -> HRESULT;
+            fn get_ImpersonationLevel(&self, #[out] #[retval] iImpersonationLevel: *mut WbemImpersonationLevelEnum) -> HRESULT;
+            fn put_ImpersonationLevel(&self, #[in] iImpersonationLevel: WbemImpersonationLevelEnum) -> HRESULT;
+            fn get_AuthenticationLevel(&self, #[out] #[retval] iAuthenticationLevel: *mut WbemAuthenticationLevelEnum) -> HRESULT;
+            fn put_AuthenticationLevel(&self, #[in] iAuthenticationLevel: WbemAuthenticationLevelEnum) -> HRESULT;
+            fn get_Privileges(&self, #[out] #[retval] objWbemPrivilegeSet: *mut ISWbemPrivilegeSet) -> HRESULT;
         }
         #[guid(0x76a6415c_cb41_11d1_8b02_00600806d9b6)]
         interface ISWbemServices: IDispatch {
-            fn Get(&self, strObjectPath: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
-            fn GetAsync(&self, objWbemSink: IDispatch, strObjectPath: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn Delete(&self, strObjectPath: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch) -> HRESULT;
-            fn DeleteAsync(&self, objWbemSink: IDispatch, strObjectPath: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn InstancesOf(&self, strClass: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn InstancesOfAsync(&self, objWbemSink: IDispatch, strClass: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn SubclassesOf(&self, strSuperclass: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn SubclassesOfAsync(&self, objWbemSink: IDispatch, strSuperclass: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn ExecQuery(&self, strQuery: BSTR, strQueryLanguage: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn ExecQueryAsync(&self, objWbemSink: IDispatch, strQuery: BSTR, strQueryLanguage: BSTR, lFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn AssociatorsOf(&self, strObjectPath: BSTR, strAssocClass: BSTR, strResultClass: BSTR, strResultRole: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredAssocQualifier: BSTR, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn AssociatorsOfAsync(&self, objWbemSink: IDispatch, strObjectPath: BSTR, strAssocClass: BSTR, strResultClass: BSTR, strResultRole: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredAssocQualifier: BSTR, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn ReferencesTo(&self, strObjectPath: BSTR, strResultClass: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn ReferencesToAsync(&self, objWbemSink: IDispatch, strObjectPath: BSTR, strResultClass: BSTR, strRole: BSTR, bClassesOnly: VARIANT_BOOL, bSchemaOnly: VARIANT_BOOL, strRequiredQualifier: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn ExecNotificationQuery(&self, strQuery: BSTR, strQueryLanguage: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemEventSource: *mut ISWbemEventSource) -> HRESULT;
-            fn ExecNotificationQueryAsync(&self, objWbemSink: IDispatch, strQuery: BSTR, strQueryLanguage: BSTR, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn ExecMethod(&self, strObjectPath: BSTR, strMethodName: BSTR, objWbemInParameters: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemOutParameters: *mut ISWbemObject) -> HRESULT;
-            fn ExecMethodAsync(&self, objWbemSink: IDispatch, strObjectPath: BSTR, strMethodName: BSTR, objWbemInParameters: IDispatch, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
-            #[special]
-            fn get_Security_(&self, #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
+            fn Get(&self, #[in] strObjectPath: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
+            fn GetAsync(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strObjectPath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Delete(&self, #[in] strObjectPath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch) -> HRESULT;
+            fn DeleteAsync(&self, #[in] objWbemSink: IDispatch, #[in] strObjectPath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn InstancesOf(&self, #[in] strClass: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn InstancesOfAsync(&self, #[in] objWbemSink: IDispatch, #[in] strClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn SubclassesOf(&self, #[in] strSuperclass: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn SubclassesOfAsync(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strSuperclass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("wbemQueryFlagDeep")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ExecQuery(&self, #[in] strQuery: BSTR, #[in] strQueryLanguage: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn ExecQueryAsync(&self, #[in] objWbemSink: IDispatch, #[in] strQuery: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"WQL\"")] strQueryLanguage: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] lFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn AssociatorsOf(&self, #[in] strObjectPath: BSTR, #[in] strAssocClass: BSTR, #[in] strResultClass: BSTR, #[in] strResultRole: BSTR, #[in] strRole: BSTR, #[in] bClassesOnly: VARIANT_BOOL, #[in] bSchemaOnly: VARIANT_BOOL, #[in] strRequiredAssocQualifier: BSTR, #[in] strRequiredQualifier: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn AssociatorsOfAsync(&self, #[in] objWbemSink: IDispatch, #[in] strObjectPath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strAssocClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strResultClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strResultRole: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRole: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bClassesOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bSchemaOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRequiredAssocQualifier: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRequiredQualifier: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ReferencesTo(&self, #[in] strObjectPath: BSTR, #[in] strResultClass: BSTR, #[in] strRole: BSTR, #[in] bClassesOnly: VARIANT_BOOL, #[in] bSchemaOnly: VARIANT_BOOL, #[in] strRequiredQualifier: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
+            fn ReferencesToAsync(&self, #[in] objWbemSink: IDispatch, #[in] strObjectPath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strResultClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRole: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bClassesOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bSchemaOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRequiredQualifier: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ExecNotificationQuery(&self, #[in] strQuery: BSTR, #[in] strQueryLanguage: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemEventSource: *mut ISWbemEventSource) -> HRESULT;
+            fn ExecNotificationQueryAsync(&self, #[in] objWbemSink: IDispatch, #[in] strQuery: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"WQL\"")] strQueryLanguage: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ExecMethod(&self, #[in] strObjectPath: BSTR, #[in] strMethodName: BSTR, #[in] objWbemInParameters: IDispatch, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemOutParameters: *mut ISWbemObject) -> HRESULT;
+            fn ExecMethodAsync(&self, #[in] objWbemSink: IDispatch, #[in] strObjectPath: BSTR, #[in] strMethodName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemInParameters: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn get_Security_(&self, #[out] #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
         }
         #[guid(0xd2f68443_85dc_427e_91d8_366554cc754c)]
         interface ISWbemServicesEx: ISWbemServices {
-            fn Put(&self, objWbemObject: ISWbemObjectEx, iFlags: i32, objWbemNamedValueSet: IDispatch, #[retval] objWbemObjectPath: *mut ISWbemObjectPath) -> HRESULT;
-            fn PutAsync(&self, objWbemSink: ISWbemSink, objWbemObject: ISWbemObjectEx, iFlags: i32, objWbemNamedValueSet: IDispatch, objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Put(&self, #[in] objWbemObject: ISWbemObjectEx, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectPath: *mut ISWbemObjectPath) -> HRESULT;
+            fn PutAsync(&self, #[in] objWbemSink: ISWbemSink, #[in] objWbemObject: ISWbemObjectEx, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("wbemChangeFlagCreateOrUpdate")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
         }
         #[guid(0x75718c9f_f029_11d1_a1ac_00c04fb6c223)]
         interface ISWbemSink: IDispatch {

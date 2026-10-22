@@ -1,53 +1,61 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return <= nSize", "return != 0 && return <= nSize")]
         #[library("KERNEL32.dll")]
-        extern fn ExpandEnvironmentStringsA(lpSrc: PCSTR, #[len_param(2)] #[out] #[opt] lpDst: PSTR, nSize: u32) -> u32;
+        extern fn ExpandEnvironmentStringsA(#[in] lpSrc: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return", "nSize,return")] #[out] #[opt] #[writable(entry, nSize)] lpDst: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return <= nSize", "return != 0 && return <= nSize")]
         #[library("KERNEL32.dll")]
-        extern fn ExpandEnvironmentStringsW(lpSrc: PCWSTR, #[len_param(2)] #[out] #[opt] lpDst: PWSTR, nSize: u32) -> u32;
+        extern fn ExpandEnvironmentStringsW(#[in] lpSrc: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return", "nSize,return")] #[out] #[opt] #[writable(entry, nSize)] lpDst: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn FreeEnvironmentStringsA(penv: LPCH) -> BOOL;
+        extern fn FreeEnvironmentStringsA(#[in] #[null_terminated(double_entry)] penv: LPCH) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn FreeEnvironmentStringsW(penv: LPWCH) -> BOOL;
+        extern fn FreeEnvironmentStringsW(#[in] #[null_terminated(double_entry)] penv: LPWCH) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetCommandLineA() -> PSTR;
+        extern fn GetCommandLineA() -> LPSTR;
         #[library("KERNEL32.dll")]
-        extern fn GetCommandLineW() -> PWSTR;
+        extern fn GetCommandLineW() -> LPWSTR;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < nBufferLength", "return != 0 && return < nBufferLength")]
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentDirectoryA(nBufferLength: u32, #[len_param(0)] #[out] #[opt] lpBuffer: PSTR) -> u32;
+        extern fn GetCurrentDirectoryA(#[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[out] #[opt] #[writable(entry, nBufferLength)] lpBuffer: LPSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < nBufferLength", "return != 0 && return < nBufferLength")]
         #[library("KERNEL32.dll")]
-        extern fn GetCurrentDirectoryW(nBufferLength: u32, #[len_param(0)] #[out] #[opt] lpBuffer: PWSTR) -> u32;
+        extern fn GetCurrentDirectoryW(#[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[out] #[opt] #[writable(entry, nBufferLength)] lpBuffer: LPWSTR) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_NullNull_terminated_", "", "")]
         #[library("KERNEL32.dll")]
         extern fn GetEnvironmentStrings() -> LPCH;
+        #[Windows::Win32::Metadata::NativeSal("2", "_NullNull_terminated_", "", "")]
         #[library("KERNEL32.dll")]
         extern fn GetEnvironmentStringsW() -> LPWCH;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < nSize", "return != 0 && return < nSize")]
         #[library("KERNEL32.dll")]
-        extern fn GetEnvironmentVariableA(#[opt] lpName: PCSTR, #[len_param(2)] #[out] #[opt] lpBuffer: PSTR, nSize: u32) -> u32;
+        extern fn GetEnvironmentVariableA(#[in] #[opt] lpName: LPCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return + 1", "nSize,return + 1")] #[out] #[opt] #[writable(entry, nSize)] lpBuffer: LPSTR, #[in] nSize: DWORD) -> DWORD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < nSize", "return != 0 && return < nSize")]
         #[library("KERNEL32.dll")]
-        extern fn GetEnvironmentVariableW(#[opt] lpName: PCWSTR, #[len_param(2)] #[out] #[opt] lpBuffer: PWSTR, nSize: u32) -> u32;
+        extern fn GetEnvironmentVariableW(#[in] #[opt] lpName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nSize,return + 1", "nSize,return + 1")] #[out] #[opt] #[writable(entry, nSize)] lpBuffer: LPWSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn GetStdHandle(nStdHandle: u32) -> HANDLE;
+        extern fn GetStdHandle(#[in] nStdHandle: DWORD) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn NeedCurrentDirectoryForExePathA(ExeName: PCSTR) -> BOOL;
+        extern fn NeedCurrentDirectoryForExePathA(#[in] ExeName: LPCSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn NeedCurrentDirectoryForExePathW(ExeName: PCWSTR) -> BOOL;
+        extern fn NeedCurrentDirectoryForExePathW(#[in] ExeName: LPCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SearchPathA(#[opt] lpPath: PCSTR, lpFileName: PCSTR, #[opt] lpExtension: PCSTR, nBufferLength: u32, #[len_param(3)] #[out] #[opt] lpBuffer: PSTR, #[opt] lpFilePart: *mut PSTR) -> u32;
+        extern fn SearchPathA(#[in] #[opt] lpPath: LPCSTR, #[in] lpFileName: LPCSTR, #[in] #[opt] lpExtension: LPCSTR, #[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[out] #[opt] #[writable(entry, nBufferLength)] lpBuffer: LPSTR, #[out] #[opt] lpFilePart: *mut LPSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn SearchPathW(#[opt] lpPath: PCWSTR, lpFileName: PCWSTR, #[opt] lpExtension: PCWSTR, nBufferLength: u32, #[len_param(3)] #[out] #[opt] lpBuffer: PWSTR, #[opt] lpFilePart: *mut PWSTR) -> u32;
+        extern fn SearchPathW(#[in] #[opt] lpPath: LPCWSTR, #[in] lpFileName: LPCWSTR, #[in] #[opt] lpExtension: LPCWSTR, #[in] nBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBufferLength,return + 1", "nBufferLength,return + 1")] #[out] #[opt] #[writable(entry, nBufferLength)] lpBuffer: LPWSTR, #[out] #[opt] lpFilePart: *mut LPWSTR) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn SetCurrentDirectoryA(lpPathName: PCSTR) -> BOOL;
+        extern fn SetCurrentDirectoryA(#[in] lpPathName: LPCSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetCurrentDirectoryW(lpPathName: PCWSTR) -> BOOL;
+        extern fn SetCurrentDirectoryW(#[in] lpPathName: LPCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetEnvironmentStringsW(NewEnvironment: LPWCH) -> BOOL;
+        extern fn SetEnvironmentStringsW(#[in] #[null_terminated(double_entry)] NewEnvironment: LPWCH) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetEnvironmentVariableA(lpName: PCSTR, #[opt] lpValue: PCSTR) -> BOOL;
+        extern fn SetEnvironmentVariableA(#[in] lpName: LPCSTR, #[in] #[opt] lpValue: LPCSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetEnvironmentVariableW(lpName: PCWSTR, #[opt] lpValue: PCWSTR) -> BOOL;
+        extern fn SetEnvironmentVariableW(#[in] lpName: LPCWSTR, #[in] #[opt] lpValue: LPCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetStdHandle(nStdHandle: u32, hHandle: HANDLE) -> BOOL;
+        extern fn SetStdHandle(#[in] nStdHandle: DWORD, #[in] hHandle: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetStdHandleEx(nStdHandle: u32, hHandle: HANDLE, #[out] #[opt] phPrevValue: PHANDLE) -> BOOL;
+        extern fn SetStdHandleEx(#[in] nStdHandle: DWORD, #[in] hHandle: HANDLE, #[out] #[opt] phPrevValue: PHANDLE) -> BOOL;
     }
 }

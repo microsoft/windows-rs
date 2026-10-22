@@ -33,192 +33,131 @@ mod Windows {
         const FSRM_DISPID_SETTING: i32 = 20971520;
         #[guid(0x40002314_590b_45a5_8e1b_8c05da527e52)]
         interface IFsrmAccessDeniedRemediationClient: IDispatch {
-            fn Show(&self, parentWnd: usize, accessPath: BSTR, errorType: AdrClientErrorType, flags: i32, windowTitle: BSTR, windowMessage: BSTR, #[retval] result: *mut i32) -> HRESULT;
+            fn Show(&self, #[in] parentWnd: ULONG_PTR, #[in] accessPath: BSTR, #[in] errorType: AdrClientErrorType, #[in] flags: i32, #[in] windowTitle: BSTR, #[in] windowMessage: BSTR, #[out] #[retval] result: *mut i32) -> HRESULT;
         }
         #[guid(0x6cd6408a_ae60_463b_9ef1_e117534d69dc)]
         interface IFsrmAction: IDispatch {
-            #[special]
-            fn get_Id(&self, #[retval] id: *mut FSRM_OBJECT_ID) -> HRESULT;
-            #[special]
-            fn get_ActionType(&self, #[retval] actionType: *mut FsrmActionType) -> HRESULT;
-            #[special]
-            fn get_RunLimitInterval(&self, #[retval] minutes: *mut i32) -> HRESULT;
-            #[special]
-            fn put_RunLimitInterval(&self, minutes: i32) -> HRESULT;
+            fn get_Id(&self, #[out] #[retval] id: *mut FSRM_OBJECT_ID) -> HRESULT;
+            fn get_ActionType(&self, #[out] #[retval] actionType: *mut FsrmActionType) -> HRESULT;
+            fn get_RunLimitInterval(&self, #[out] #[retval] minutes: *mut i32) -> HRESULT;
+            fn put_RunLimitInterval(&self, #[in] minutes: i32) -> HRESULT;
             fn Delete(&self) -> HRESULT;
         }
         #[guid(0x12937789_e247_4917_9c20_f3ee9c7ee783)]
         interface IFsrmActionCommand: IFsrmAction {
-            #[special]
-            fn get_ExecutablePath(&self, #[retval] executablePath: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_ExecutablePath(&self, executablePath: BSTR) -> HRESULT;
-            #[special]
-            fn get_Arguments(&self, #[retval] arguments: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_Arguments(&self, arguments: BSTR) -> HRESULT;
-            #[special]
-            fn get_Account(&self, #[retval] account: *mut FsrmAccountType) -> HRESULT;
-            #[special]
-            fn put_Account(&self, account: FsrmAccountType) -> HRESULT;
-            #[special]
-            fn get_WorkingDirectory(&self, #[retval] workingDirectory: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_WorkingDirectory(&self, workingDirectory: BSTR) -> HRESULT;
-            #[special]
-            fn get_MonitorCommand(&self, #[retval] monitorCommand: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_MonitorCommand(&self, monitorCommand: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_KillTimeOut(&self, #[retval] minutes: *mut i32) -> HRESULT;
-            #[special]
-            fn put_KillTimeOut(&self, minutes: i32) -> HRESULT;
-            #[special]
-            fn get_LogResult(&self, #[retval] logResults: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_LogResult(&self, logResults: VARIANT_BOOL) -> HRESULT;
+            fn get_ExecutablePath(&self, #[out] #[retval] #[out_ptr] executablePath: *mut BSTR) -> HRESULT;
+            fn put_ExecutablePath(&self, #[in] executablePath: BSTR) -> HRESULT;
+            fn get_Arguments(&self, #[out] #[retval] #[out_ptr] arguments: *mut BSTR) -> HRESULT;
+            fn put_Arguments(&self, #[in] arguments: BSTR) -> HRESULT;
+            fn get_Account(&self, #[out] #[retval] account: *mut FsrmAccountType) -> HRESULT;
+            fn put_Account(&self, #[in] account: FsrmAccountType) -> HRESULT;
+            fn get_WorkingDirectory(&self, #[out] #[retval] #[out_ptr] workingDirectory: *mut BSTR) -> HRESULT;
+            fn put_WorkingDirectory(&self, #[in] workingDirectory: BSTR) -> HRESULT;
+            fn get_MonitorCommand(&self, #[out] #[retval] monitorCommand: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_MonitorCommand(&self, #[in] monitorCommand: VARIANT_BOOL) -> HRESULT;
+            fn get_KillTimeOut(&self, #[out] #[retval] minutes: *mut i32) -> HRESULT;
+            fn put_KillTimeOut(&self, #[in] minutes: i32) -> HRESULT;
+            fn get_LogResult(&self, #[out] #[retval] logResults: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_LogResult(&self, #[in] logResults: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xd646567d_26ae_4caa_9f84_4e0aad207fca)]
         interface IFsrmActionEmail: IFsrmAction {
-            #[special]
-            fn get_MailFrom(&self, #[retval] mailFrom: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_MailFrom(&self, mailFrom: BSTR) -> HRESULT;
-            #[special]
-            fn get_MailReplyTo(&self, #[retval] mailReplyTo: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_MailReplyTo(&self, mailReplyTo: BSTR) -> HRESULT;
-            #[special]
-            fn get_MailTo(&self, #[retval] mailTo: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_MailTo(&self, mailTo: BSTR) -> HRESULT;
-            #[special]
-            fn get_MailCc(&self, #[retval] mailCc: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_MailCc(&self, mailCc: BSTR) -> HRESULT;
-            #[special]
-            fn get_MailBcc(&self, #[retval] mailBcc: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_MailBcc(&self, mailBcc: BSTR) -> HRESULT;
-            #[special]
-            fn get_MailSubject(&self, #[retval] mailSubject: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_MailSubject(&self, mailSubject: BSTR) -> HRESULT;
-            #[special]
-            fn get_MessageText(&self, #[retval] messageText: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_MessageText(&self, messageText: BSTR) -> HRESULT;
+            fn get_MailFrom(&self, #[out] #[retval] #[out_ptr] mailFrom: *mut BSTR) -> HRESULT;
+            fn put_MailFrom(&self, #[in] mailFrom: BSTR) -> HRESULT;
+            fn get_MailReplyTo(&self, #[out] #[retval] #[out_ptr] mailReplyTo: *mut BSTR) -> HRESULT;
+            fn put_MailReplyTo(&self, #[in] mailReplyTo: BSTR) -> HRESULT;
+            fn get_MailTo(&self, #[out] #[retval] #[out_ptr] mailTo: *mut BSTR) -> HRESULT;
+            fn put_MailTo(&self, #[in] mailTo: BSTR) -> HRESULT;
+            fn get_MailCc(&self, #[out] #[retval] #[out_ptr] mailCc: *mut BSTR) -> HRESULT;
+            fn put_MailCc(&self, #[in] mailCc: BSTR) -> HRESULT;
+            fn get_MailBcc(&self, #[out] #[retval] #[out_ptr] mailBcc: *mut BSTR) -> HRESULT;
+            fn put_MailBcc(&self, #[in] mailBcc: BSTR) -> HRESULT;
+            fn get_MailSubject(&self, #[out] #[retval] #[out_ptr] mailSubject: *mut BSTR) -> HRESULT;
+            fn put_MailSubject(&self, #[in] mailSubject: BSTR) -> HRESULT;
+            fn get_MessageText(&self, #[out] #[retval] #[out_ptr] messageText: *mut BSTR) -> HRESULT;
+            fn put_MessageText(&self, #[in] messageText: BSTR) -> HRESULT;
         }
         #[guid(0x8276702f_2532_4839_89bf_4872609a2ea4)]
         interface IFsrmActionEmail2: IFsrmActionEmail {
-            #[special]
-            fn get_AttachmentFileListSize(&self, #[retval] attachmentFileListSize: *mut i32) -> HRESULT;
-            #[special]
-            fn put_AttachmentFileListSize(&self, attachmentFileListSize: i32) -> HRESULT;
+            fn get_AttachmentFileListSize(&self, #[out] #[retval] attachmentFileListSize: *mut i32) -> HRESULT;
+            fn put_AttachmentFileListSize(&self, #[in] attachmentFileListSize: i32) -> HRESULT;
         }
         #[guid(0x4c8f96c3_5d94_4f37_a4f4_f56ab463546f)]
         interface IFsrmActionEventLog: IFsrmAction {
-            #[special]
-            fn get_EventType(&self, #[retval] eventType: *mut FsrmEventType) -> HRESULT;
-            #[special]
-            fn put_EventType(&self, eventType: FsrmEventType) -> HRESULT;
-            #[special]
-            fn get_MessageText(&self, #[retval] messageText: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_MessageText(&self, messageText: BSTR) -> HRESULT;
+            fn get_EventType(&self, #[out] #[retval] eventType: *mut FsrmEventType) -> HRESULT;
+            fn put_EventType(&self, #[in] eventType: FsrmEventType) -> HRESULT;
+            fn get_MessageText(&self, #[out] #[retval] #[out_ptr] messageText: *mut BSTR) -> HRESULT;
+            fn put_MessageText(&self, #[in] messageText: BSTR) -> HRESULT;
         }
         #[guid(0x2dbe63c4_b340_48a0_a5b0_158e07fc567e)]
         interface IFsrmActionReport: IFsrmAction {
-            #[special]
-            fn get_ReportTypes(&self, #[retval] reportTypes: *mut *mut SAFEARRAY) -> HRESULT;
-            #[special]
+            fn get_ReportTypes(&self, #[out] #[retval] #[out_ptr] reportTypes: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_ReportTypes(&self, #[in] reportTypes: *mut SAFEARRAY) -> HRESULT;
-            #[special]
-            fn get_MailTo(&self, #[retval] mailTo: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_MailTo(&self, mailTo: BSTR) -> HRESULT;
+            fn get_MailTo(&self, #[out] #[retval] #[out_ptr] mailTo: *mut BSTR) -> HRESULT;
+            fn put_MailTo(&self, #[in] mailTo: BSTR) -> HRESULT;
         }
         #[guid(0xf76fbf3b_8ddd_4b42_b05a_cb1c3ff1fee8)]
         interface IFsrmCollection: IDispatch {
-            #[special]
-            fn get__NewEnum(&self, #[retval] unknown: *mut IUnknown) -> HRESULT;
-            #[special]
-            fn get_Item(&self, index: i32, #[retval] item: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_Count(&self, #[retval] count: *mut i32) -> HRESULT;
-            #[special]
-            fn get_State(&self, #[retval] state: *mut FsrmCollectionState) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] unknown: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] index: i32, #[out] #[retval] item: *mut VARIANT) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] count: *mut i32) -> HRESULT;
+            fn get_State(&self, #[out] #[retval] state: *mut FsrmCollectionState) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
-            fn WaitForCompletion(&self, waitSeconds: i32, #[retval] completed: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetById(&self, id: FSRM_OBJECT_ID, #[retval] entry: *mut VARIANT) -> HRESULT;
+            fn WaitForCompletion(&self, #[in] waitSeconds: i32, #[out] #[retval] completed: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetById(&self, #[in] id: FSRM_OBJECT_ID, #[out] #[retval] entry: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x96deb3b5_8b91_4a2a_9d93_80a35d8aa847)]
         interface IFsrmCommittableCollection: IFsrmMutableCollection {
-            fn Commit(&self, options: FsrmCommitOptions, #[retval] results: *mut IFsrmCollection) -> HRESULT;
+            fn Commit(&self, #[in] options: FsrmCommitOptions, #[out] #[retval] #[out_ptr] results: *mut IFsrmCollection) -> HRESULT;
         }
         #[guid(0x39322a2d_38ee_4d0d_8095_421a80849a82)]
         interface IFsrmDerivedObjectsResult: IDispatch {
-            #[special]
-            fn get_DerivedObjects(&self, #[retval] derivedObjects: *mut IFsrmCollection) -> HRESULT;
-            #[special]
-            fn get_Results(&self, #[retval] results: *mut IFsrmCollection) -> HRESULT;
+            fn get_DerivedObjects(&self, #[out] #[retval] #[out_ptr] derivedObjects: *mut IFsrmCollection) -> HRESULT;
+            fn get_Results(&self, #[out] #[retval] #[out_ptr] results: *mut IFsrmCollection) -> HRESULT;
         }
         #[guid(0xefcb0ab1_16c4_4a79_812c_725614c3306b)]
         interface IFsrmExportImport: IDispatch {
-            fn ExportFileGroups(&self, filePath: BSTR, #[in] fileGroupNamesSafeArray: *mut VARIANT, remoteHost: BSTR) -> HRESULT;
-            fn ImportFileGroups(&self, filePath: BSTR, #[in] fileGroupNamesSafeArray: *mut VARIANT, remoteHost: BSTR, #[retval] fileGroups: *mut IFsrmCommittableCollection) -> HRESULT;
-            fn ExportFileScreenTemplates(&self, filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, remoteHost: BSTR) -> HRESULT;
-            fn ImportFileScreenTemplates(&self, filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, remoteHost: BSTR, #[retval] templates: *mut IFsrmCommittableCollection) -> HRESULT;
-            fn ExportQuotaTemplates(&self, filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, remoteHost: BSTR) -> HRESULT;
-            fn ImportQuotaTemplates(&self, filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, remoteHost: BSTR, #[retval] templates: *mut IFsrmCommittableCollection) -> HRESULT;
+            fn ExportFileGroups(&self, #[in] filePath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fileGroupNamesSafeArray: *mut VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] remoteHost: BSTR) -> HRESULT;
+            fn ImportFileGroups(&self, #[in] filePath: BSTR, #[in] fileGroupNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR, #[out] #[retval] #[out_ptr] fileGroups: *mut IFsrmCommittableCollection) -> HRESULT;
+            fn ExportFileScreenTemplates(&self, #[in] filePath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] templateNamesSafeArray: *mut VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] remoteHost: BSTR) -> HRESULT;
+            fn ImportFileScreenTemplates(&self, #[in] filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR, #[out] #[retval] #[out_ptr] templates: *mut IFsrmCommittableCollection) -> HRESULT;
+            fn ExportQuotaTemplates(&self, #[in] filePath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] templateNamesSafeArray: *mut VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] remoteHost: BSTR) -> HRESULT;
+            fn ImportQuotaTemplates(&self, #[in] filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR, #[out] #[retval] #[out_ptr] templates: *mut IFsrmCommittableCollection) -> HRESULT;
         }
         #[guid(0x1bb617b8_3886_49dc_af82_a6c90fa35dda)]
         interface IFsrmMutableCollection: IFsrmCollection {
-            fn Add(&self, item: VARIANT) -> HRESULT;
-            fn Remove(&self, index: i32) -> HRESULT;
-            fn RemoveById(&self, id: FSRM_OBJECT_ID) -> HRESULT;
-            fn Clone(&self, #[retval] collection: *mut IFsrmMutableCollection) -> HRESULT;
+            fn Add(&self, #[in] item: VARIANT) -> HRESULT;
+            fn Remove(&self, #[in] index: i32) -> HRESULT;
+            fn RemoveById(&self, #[in] id: FSRM_OBJECT_ID) -> HRESULT;
+            fn Clone(&self, #[out] #[retval] #[out_ptr] collection: *mut IFsrmMutableCollection) -> HRESULT;
         }
         #[guid(0x22bcef93_4a3f_4183_89f9_2f8b8a628aee)]
         interface IFsrmObject: IDispatch {
-            #[special]
-            fn get_Id(&self, #[retval] id: *mut FSRM_OBJECT_ID) -> HRESULT;
-            #[special]
-            fn get_Description(&self, #[retval] description: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_Description(&self, description: BSTR) -> HRESULT;
+            fn get_Id(&self, #[out] #[retval] id: *mut FSRM_OBJECT_ID) -> HRESULT;
+            fn get_Description(&self, #[out] #[retval] #[out_ptr] description: *mut BSTR) -> HRESULT;
+            fn put_Description(&self, #[in] description: BSTR) -> HRESULT;
             fn Delete(&self) -> HRESULT;
             fn Commit(&self) -> HRESULT;
         }
         #[guid(0x6f4dbfff_6920_4821_a6c3_b7e94c1fd60c)]
         interface IFsrmPathMapper: IDispatch {
-            fn GetSharePathsForLocalPath(&self, localPath: BSTR, #[retval] sharePaths: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetSharePathsForLocalPath(&self, #[in] localPath: BSTR, #[out] #[retval] #[out_ptr] sharePaths: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xf411d4fd_14be_4260_8c40_03b7c95e608a)]
         interface IFsrmSetting: IDispatch {
-            #[special]
-            fn get_SmtpServer(&self, #[retval] smtpServer: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_SmtpServer(&self, smtpServer: BSTR) -> HRESULT;
-            #[special]
-            fn get_MailFrom(&self, #[retval] mailFrom: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_MailFrom(&self, mailFrom: BSTR) -> HRESULT;
-            #[special]
-            fn get_AdminEmail(&self, #[retval] adminEmail: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_AdminEmail(&self, adminEmail: BSTR) -> HRESULT;
-            #[special]
-            fn get_DisableCommandLine(&self, #[retval] disableCommandLine: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_DisableCommandLine(&self, disableCommandLine: VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_EnableScreeningAudit(&self, #[retval] enableScreeningAudit: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn put_EnableScreeningAudit(&self, enableScreeningAudit: VARIANT_BOOL) -> HRESULT;
-            fn EmailTest(&self, mailTo: BSTR) -> HRESULT;
-            fn SetActionRunLimitInterval(&self, actionType: FsrmActionType, delayTimeMinutes: i32) -> HRESULT;
-            fn GetActionRunLimitInterval(&self, actionType: FsrmActionType, #[retval] delayTimeMinutes: *mut i32) -> HRESULT;
+            fn get_SmtpServer(&self, #[out] #[retval] #[out_ptr] smtpServer: *mut BSTR) -> HRESULT;
+            fn put_SmtpServer(&self, #[in] smtpServer: BSTR) -> HRESULT;
+            fn get_MailFrom(&self, #[out] #[retval] #[out_ptr] mailFrom: *mut BSTR) -> HRESULT;
+            fn put_MailFrom(&self, #[in] mailFrom: BSTR) -> HRESULT;
+            fn get_AdminEmail(&self, #[out] #[retval] #[out_ptr] adminEmail: *mut BSTR) -> HRESULT;
+            fn put_AdminEmail(&self, #[in] adminEmail: BSTR) -> HRESULT;
+            fn get_DisableCommandLine(&self, #[out] #[retval] disableCommandLine: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_DisableCommandLine(&self, #[in] disableCommandLine: VARIANT_BOOL) -> HRESULT;
+            fn get_EnableScreeningAudit(&self, #[out] #[retval] enableScreeningAudit: *mut VARIANT_BOOL) -> HRESULT;
+            fn put_EnableScreeningAudit(&self, #[in] enableScreeningAudit: VARIANT_BOOL) -> HRESULT;
+            fn EmailTest(&self, #[in] mailTo: BSTR) -> HRESULT;
+            fn SetActionRunLimitInterval(&self, #[in] actionType: FsrmActionType, #[in] delayTimeMinutes: i32) -> HRESULT;
+            fn GetActionRunLimitInterval(&self, #[in] actionType: FsrmActionType, #[out] #[retval] delayTimeMinutes: *mut i32) -> HRESULT;
         }
     }
 }

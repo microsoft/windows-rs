@@ -62,30 +62,31 @@ mod Windows {
         struct DNS_AAAA_DATA {
             Ip6Address: IP6_ADDRESS,
         }
+        #[packed(1)]
         struct DNS_ADDR {
-            MaxSa: [i8; 32],
+            MaxSa: [CHAR; 32],
             Data: #[packed(1)] union {
-                DnsAddrUserDword: [u32; 8],
+                DnsAddrUserDword: [DWORD; 8],
             },
         }
         #[packed(1)]
         struct DNS_ADDR_ARRAY {
-            MaxCount: u32,
-            AddrCount: u32,
-            Tag: u32,
-            Family: u16,
-            WordReserved: u16,
-            Flags: u32,
-            MatchFlag: u32,
-            Reserved1: u32,
-            Reserved2: u32,
+            MaxCount: DWORD,
+            AddrCount: DWORD,
+            Tag: DWORD,
+            Family: WORD,
+            WordReserved: WORD,
+            Flags: DWORD,
+            MatchFlag: DWORD,
+            Reserved1: DWORD,
+            Reserved2: DWORD,
             AddrArray: [DNS_ADDR; 1],
         }
         const DNS_ADDR_MAX_SOCKADDR_LENGTH: i32 = 32;
         const DNS_ATMA_AESA_ADDR_LENGTH: i32 = 20;
         struct DNS_ATMA_DATA {
-            AddressType: u8,
-            Address: [u8; 20],
+            AddressType: BYTE,
+            Address: [BYTE; 20],
         }
         const DNS_ATMA_FORMAT_AESA: i32 = 2;
         const DNS_ATMA_FORMAT_E164: i32 = 1;
@@ -102,15 +103,15 @@ mod Windows {
             DnsCharSetAnsi = 3,
         }
         struct DNS_CUSTOM_SERVER {
-            dwServerType: u32,
-            ullFlags: u64,
+            dwServerType: DWORD,
+            ullFlags: ULONG64,
             Anonymous: union {
                 pwszTemplate: PWSTR,
                 pwszHostname: PWSTR,
             },
             Anonymous2: union {
                 ServerAddr: SOCKADDR_INET,
-                MaxSa: [i8; 32],
+                MaxSa: [CHAR; 32],
             },
         }
         const DNS_CUSTOM_SERVER_TYPE_DOH: i32 = 2;
@@ -119,63 +120,64 @@ mod Windows {
         const DNS_CUSTOM_SERVER_UDP_FALLBACK: i32 = 1;
         const DNS_CUSTOM_SERVER_UPGRADE_FROM_WELL_KNOWN_SERVERS: i32 = 2;
         struct DNS_DHCID_DATA {
-            dwByteCount: u32,
-            DHCID: [u8; 1],
+            dwByteCount: DWORD,
+            DHCID: [BYTE; 1],
         }
-        struct DNS_DNSKEY_DATA {
-            wFlags: u16,
-            chProtocol: u8,
-            chAlgorithm: u8,
-            wKeyLength: u16,
-            wPad: u16,
-            Key: [u8; 1],
-        }
+        type DNS_DNSKEY_DATA = DNS_KEY_DATA;
         struct DNS_DS_DATA {
-            wKeyTag: u16,
-            chAlgorithm: u8,
-            chDigestType: u8,
-            wDigestLength: u16,
-            wPad: u16,
-            Digest: [u8; 1],
+            wKeyTag: WORD,
+            chAlgorithm: BYTE,
+            chDigestType: BYTE,
+            wDigestLength: WORD,
+            wPad: WORD,
+            Digest: [BYTE; 1],
         }
         #[packed(1)]
         struct DNS_HEADER {
-            Xid: u16,
+            Xid: WORD,
             _bitfield1: u8 {
-                RecursionDesired: 1,
-                Truncation: 1,
-                Authoritative: 1,
-                Opcode: 4,
-                IsResponse: 1,
+                RecursionDesired: BYTE: 1,
+                Truncation: BYTE: 1,
+                Authoritative: BYTE: 1,
+                Opcode: BYTE: 4,
+                IsResponse: BYTE: 1,
             },
             _bitfield2: u8 {
-                ResponseCode: 4,
-                CheckingDisabled: 1,
-                AuthenticatedData: 1,
-                Reserved: 1,
-                RecursionAvailable: 1,
+                ResponseCode: BYTE: 4,
+                CheckingDisabled: BYTE: 1,
+                AuthenticatedData: BYTE: 1,
+                Reserved: BYTE: 1,
+                RecursionAvailable: BYTE: 1,
             },
-            QuestionCount: u16,
-            AnswerCount: u16,
-            NameServerCount: u16,
-            AdditionalCount: u16,
+            QuestionCount: WORD,
+            AnswerCount: WORD,
+            NameServerCount: WORD,
+            AdditionalCount: WORD,
         }
         struct DNS_HEADER_EXT {
             _bitfield: u16 {
-                Reserved: 15,
-                DnssecOk: 1,
+                Reserved: WORD: 15,
+                DnssecOk: WORD: 1,
             },
-            chRcode: u8,
-            chVersion: u8,
+            chRcode: BYTE,
+            chVersion: BYTE,
+        }
+        struct DNS_KEY_DATA {
+            wFlags: WORD,
+            chProtocol: BYTE,
+            chAlgorithm: BYTE,
+            wKeyLength: WORD,
+            wPad: WORD,
+            Key: [BYTE; 1],
         }
         struct DNS_LOC_DATA {
-            wVersion: u16,
-            wSize: u16,
-            wHorPrec: u16,
-            wVerPrec: u16,
-            dwLatitude: u32,
-            dwLongitude: u32,
-            dwAltitude: u32,
+            wVersion: WORD,
+            wSize: WORD,
+            wHorPrec: WORD,
+            wVerPrec: WORD,
+            dwLatitude: DWORD,
+            dwLongitude: DWORD,
+            dwAltitude: DWORD,
         }
         const DNS_MAX_LABEL_BUFFER_LENGTH: i32 = 64;
         const DNS_MAX_LABEL_LENGTH: i32 = 63;
@@ -183,7 +185,7 @@ mod Windows {
         const DNS_MAX_NAME_LENGTH: i32 = 255;
         struct DNS_MESSAGE_BUFFER {
             MessageHead: DNS_HEADER,
-            MessageBody: [i8; 1],
+            MessageBody: [CHAR; 1],
         }
         type DNS_MINFO_DATA = DNS_MINFO_DATAA;
         struct DNS_MINFO_DATAA {
@@ -197,80 +199,80 @@ mod Windows {
         type DNS_MX_DATA = DNS_MX_DATAA;
         struct DNS_MX_DATAA {
             pNameExchange: PSTR,
-            wPreference: u16,
-            Pad: u16,
+            wPreference: WORD,
+            Pad: WORD,
         }
         struct DNS_MX_DATAW {
             pNameExchange: PWSTR,
-            wPreference: u16,
-            Pad: u16,
+            wPreference: WORD,
+            Pad: WORD,
         }
         type DNS_NAPTR_DATA = DNS_NAPTR_DATAA;
         struct DNS_NAPTR_DATAA {
-            wOrder: u16,
-            wPreference: u16,
+            wOrder: WORD,
+            wPreference: WORD,
             pFlags: PSTR,
             pService: PSTR,
             pRegularExpression: PSTR,
             pReplacement: PSTR,
         }
         struct DNS_NAPTR_DATAW {
-            wOrder: u16,
-            wPreference: u16,
+            wOrder: WORD,
+            wPreference: WORD,
             pFlags: PWSTR,
             pService: PWSTR,
             pRegularExpression: PWSTR,
             pReplacement: PWSTR,
         }
         struct DNS_NSEC3PARAM_DATA {
-            chAlgorithm: u8,
-            bFlags: u8,
-            wIterations: u16,
-            bSaltLength: u8,
-            bPad: [u8; 3],
-            pbSalt: [u8; 1],
+            chAlgorithm: BYTE,
+            bFlags: BYTE,
+            wIterations: WORD,
+            bSaltLength: BYTE,
+            bPad: [BYTE; 3],
+            pbSalt: [BYTE; 1],
         }
         struct DNS_NSEC3_DATA {
-            chAlgorithm: u8,
-            bFlags: u8,
-            wIterations: u16,
-            bSaltLength: u8,
-            bHashLength: u8,
-            wTypeBitMapsLength: u16,
-            chData: [u8; 1],
+            chAlgorithm: BYTE,
+            bFlags: BYTE,
+            wIterations: WORD,
+            bSaltLength: BYTE,
+            bHashLength: BYTE,
+            wTypeBitMapsLength: WORD,
+            chData: [BYTE; 1],
         }
         type DNS_NSEC_DATA = DNS_NSEC_DATAA;
         struct DNS_NSEC_DATAA {
             pNextDomainName: PSTR,
-            wTypeBitMapsLength: u16,
-            wPad: u16,
-            TypeBitMaps: [u8; 1],
+            wTypeBitMapsLength: WORD,
+            wPad: WORD,
+            TypeBitMaps: [BYTE; 1],
         }
         struct DNS_NSEC_DATAW {
             pNextDomainName: PWSTR,
-            wTypeBitMapsLength: u16,
-            wPad: u16,
-            TypeBitMaps: [u8; 1],
+            wTypeBitMapsLength: WORD,
+            wPad: WORD,
+            TypeBitMaps: [BYTE; 1],
         }
         struct DNS_NULL_DATA {
-            dwByteCount: u32,
-            Data: [u8; 1],
+            dwByteCount: DWORD,
+            Data: [BYTE; 1],
         }
         type DNS_NXT_DATA = DNS_NXT_DATAA;
         struct DNS_NXT_DATAA {
             pNameNext: PSTR,
-            wNumTypes: u16,
-            wTypes: [u16; 1],
+            wNumTypes: WORD,
+            wTypes: [WORD; 1],
         }
         struct DNS_NXT_DATAW {
             pNameNext: PWSTR,
-            wNumTypes: u16,
-            wTypes: [u16; 1],
+            wNumTypes: WORD,
+            wTypes: [WORD; 1],
         }
         struct DNS_OPT_DATA {
-            wDataLength: u16,
-            wPad: u16,
-            Data: [u8; 1],
+            wDataLength: WORD,
+            wPad: WORD,
+            Data: [BYTE; 1],
         }
         type DNS_PTR_DATA = DNS_PTR_DATAA;
         struct DNS_PTR_DATAA {
@@ -280,17 +282,18 @@ mod Windows {
             pNameHost: PWSTR,
         }
         type DNS_RECORD = DNS_RECORDA;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "((LONG)__builtin_offsetof(struct _DnsRecordA, Data)) + wDataLength", "((LONG)__builtin_offsetof(struct _DnsRecordA, Data)) + wDataLength", TypedefName = "DNS_RECORDA")]
         struct DNS_RECORDA {
             pNext: *mut DNS_RECORDA,
             pName: PSTR,
-            wType: u16,
-            wDataLength: u16,
+            wType: WORD,
+            wDataLength: WORD,
             Flags: union {
-                DW: u32,
+                DW: DWORD,
                 S: DNS_RECORD_FLAGS,
             },
-            dwTtl: u32,
-            dwReserved: u32,
+            dwTtl: DWORD,
+            dwReserved: DWORD,
             Data: union {
                 A: DNS_A_DATA,
                 SOA: DNS_SOA_DATAA,
@@ -334,10 +337,10 @@ mod Windows {
                 WKS: DNS_WKS_DATA,
                 Wks: DNS_WKS_DATA,
                 AAAA: DNS_AAAA_DATA,
-                KEY: DNS_DNSKEY_DATA,
-                Key: DNS_DNSKEY_DATA,
-                SIG: DNS_RRSIG_DATAA,
-                Sig: DNS_RRSIG_DATAA,
+                KEY: DNS_KEY_DATA,
+                Key: DNS_KEY_DATA,
+                SIG: DNS_SIG_DATAA,
+                Sig: DNS_SIG_DATAA,
                 ATMA: DNS_ATMA_DATA,
                 Atma: DNS_ATMA_DATA,
                 NXT: DNS_NXT_DATAA,
@@ -380,17 +383,18 @@ mod Windows {
                 pDataPtr: PBYTE,
             },
         }
+        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "((LONG)__builtin_offsetof(struct _DnsRecordW, Data)) + wDataLength", "((LONG)__builtin_offsetof(struct _DnsRecordW, Data)) + wDataLength", TypedefName = "DNS_RECORDW")]
         struct DNS_RECORDW {
             pNext: *mut DNS_RECORDW,
             pName: PWSTR,
-            wType: u16,
-            wDataLength: u16,
+            wType: WORD,
+            wDataLength: WORD,
             Flags: union {
-                DW: u32,
+                DW: DWORD,
                 S: DNS_RECORD_FLAGS,
             },
-            dwTtl: u32,
-            dwReserved: u32,
+            dwTtl: DWORD,
+            dwReserved: DWORD,
             Data: union {
                 A: DNS_A_DATA,
                 SOA: DNS_SOA_DATAW,
@@ -434,10 +438,10 @@ mod Windows {
                 WKS: DNS_WKS_DATA,
                 Wks: DNS_WKS_DATA,
                 AAAA: DNS_AAAA_DATA,
-                KEY: DNS_DNSKEY_DATA,
-                Key: DNS_DNSKEY_DATA,
-                SIG: DNS_RRSIG_DATAW,
-                Sig: DNS_RRSIG_DATAW,
+                KEY: DNS_KEY_DATA,
+                Key: DNS_KEY_DATA,
+                SIG: DNS_SIG_DATAW,
+                Sig: DNS_SIG_DATAW,
                 ATMA: DNS_ATMA_DATA,
                 Atma: DNS_ATMA_DATA,
                 NXT: DNS_NXT_DATAW,
@@ -481,31 +485,31 @@ mod Windows {
             },
         }
         #[arch(X64 | Arm64)]
-        const DNS_RECORD_FIXED_SIZE: i32 = 32;
+        const DNS_RECORD_FIXED_SIZE: LONG = 32;
         #[arch(X86)]
-        const DNS_RECORD_FIXED_SIZE: i32 = 24;
+        const DNS_RECORD_FIXED_SIZE: LONG = 24;
         struct DNS_RECORD_FLAGS {
             _bitfield: u32 {
-                Section: 2,
-                Delete: 1,
-                CharSet: 2,
-                Unused: 3,
-                Reserved: 24,
+                Section: DWORD: 2,
+                Delete: DWORD: 1,
+                CharSet: DWORD: 2,
+                Unused: DWORD: 3,
+                Reserved: DWORD: 24,
             },
         }
         type DNS_RECORD_OPT = DNS_RECORD_OPTA;
         struct DNS_RECORD_OPTA {
             pNext: *mut DNS_RECORDA,
             pName: PSTR,
-            wType: u16,
-            wDataLength: u16,
+            wType: WORD,
+            wDataLength: WORD,
             Flags: union {
-                DW: u32,
+                DW: DWORD,
                 S: DNS_RECORD_FLAGS,
             },
             ExtHeader: DNS_HEADER_EXT,
-            wPayloadSize: u16,
-            wReserved: u16,
+            wPayloadSize: WORD,
+            wReserved: WORD,
             Data: union {
                 OPT: DNS_OPT_DATA,
                 Opt: DNS_OPT_DATA,
@@ -514,46 +518,24 @@ mod Windows {
         struct DNS_RECORD_OPTW {
             pNext: *mut DNS_RECORDW,
             pName: PWSTR,
-            wType: u16,
-            wDataLength: u16,
+            wType: WORD,
+            wDataLength: WORD,
             Flags: union {
-                DW: u32,
+                DW: DWORD,
                 S: DNS_RECORD_FLAGS,
             },
             ExtHeader: DNS_HEADER_EXT,
-            wPayloadSize: u16,
-            wReserved: u16,
+            wPayloadSize: WORD,
+            wReserved: WORD,
             Data: union {
                 OPT: DNS_OPT_DATA,
                 Opt: DNS_OPT_DATA,
             },
         }
         const DNS_RFC_MAX_UDP_PACKET_LENGTH: i32 = 512;
-        type DNS_RRSIG_DATA = DNS_RRSIG_DATAA;
-        struct DNS_RRSIG_DATAA {
-            wTypeCovered: u16,
-            chAlgorithm: u8,
-            chLabelCount: u8,
-            dwOriginalTtl: u32,
-            dwExpiration: u32,
-            dwTimeSigned: u32,
-            wKeyTag: u16,
-            wSignatureLength: u16,
-            pNameSigner: PSTR,
-            Signature: [u8; 1],
-        }
-        struct DNS_RRSIG_DATAW {
-            wTypeCovered: u16,
-            chAlgorithm: u8,
-            chLabelCount: u8,
-            dwOriginalTtl: u32,
-            dwExpiration: u32,
-            dwTimeSigned: u32,
-            wKeyTag: u16,
-            wSignatureLength: u16,
-            pNameSigner: PWSTR,
-            Signature: [u8; 1],
-        }
+        type DNS_RRSIG_DATA = DNS_SIG_DATAA;
+        type DNS_RRSIG_DATAA = DNS_SIG_DATAA;
+        type DNS_RRSIG_DATAW = DNS_SIG_DATAW;
         const DNS_RTYPE_A: i32 = 256;
         const DNS_RTYPE_A6: i32 = 9728;
         const DNS_RTYPE_AAAA: i32 = 7168;
@@ -624,80 +606,105 @@ mod Windows {
             DnsSectionAuthority = 2,
             DnsSectionAddtional = 3,
         }
-        type DNS_SIG_DATA = DNS_RRSIG_DATAA;
+        type DNS_SIG_DATA = DNS_SIG_DATAA;
+        struct DNS_SIG_DATAA {
+            wTypeCovered: WORD,
+            chAlgorithm: BYTE,
+            chLabelCount: BYTE,
+            dwOriginalTtl: DWORD,
+            dwExpiration: DWORD,
+            dwTimeSigned: DWORD,
+            wKeyTag: WORD,
+            wSignatureLength: WORD,
+            pNameSigner: PSTR,
+            Signature: [BYTE; 1],
+        }
+        struct DNS_SIG_DATAW {
+            wTypeCovered: WORD,
+            chAlgorithm: BYTE,
+            chLabelCount: BYTE,
+            dwOriginalTtl: DWORD,
+            dwExpiration: DWORD,
+            dwTimeSigned: DWORD,
+            wKeyTag: WORD,
+            wSignatureLength: WORD,
+            pNameSigner: PWSTR,
+            Signature: [BYTE; 1],
+        }
         type DNS_SOA_DATA = DNS_SOA_DATAA;
         struct DNS_SOA_DATAA {
             pNamePrimaryServer: PSTR,
             pNameAdministrator: PSTR,
-            dwSerialNo: u32,
-            dwRefresh: u32,
-            dwRetry: u32,
-            dwExpire: u32,
-            dwDefaultTtl: u32,
+            dwSerialNo: DWORD,
+            dwRefresh: DWORD,
+            dwRetry: DWORD,
+            dwExpire: DWORD,
+            dwDefaultTtl: DWORD,
         }
         struct DNS_SOA_DATAW {
             pNamePrimaryServer: PWSTR,
             pNameAdministrator: PWSTR,
-            dwSerialNo: u32,
-            dwRefresh: u32,
-            dwRetry: u32,
-            dwExpire: u32,
-            dwDefaultTtl: u32,
+            dwSerialNo: DWORD,
+            dwRefresh: DWORD,
+            dwRetry: DWORD,
+            dwExpire: DWORD,
+            dwDefaultTtl: DWORD,
         }
         type DNS_SRV_DATA = DNS_SRV_DATAA;
         struct DNS_SRV_DATAA {
             pNameTarget: PSTR,
-            wPriority: u16,
-            wWeight: u16,
-            wPort: u16,
-            Pad: u16,
+            wPriority: WORD,
+            wWeight: WORD,
+            wPort: WORD,
+            Pad: WORD,
         }
         struct DNS_SRV_DATAW {
             pNameTarget: PWSTR,
-            wPriority: u16,
-            wWeight: u16,
-            wPort: u16,
-            Pad: u16,
+            wPriority: WORD,
+            wWeight: WORD,
+            wPort: WORD,
+            Pad: WORD,
         }
+        #[success(return == 0)]
         type DNS_STATUS = i32;
         struct DNS_SVCB_DATA {
-            wSvcPriority: u16,
+            wSvcPriority: WORD,
             pszTargetName: PSTR,
-            cSvcParams: u16,
+            cSvcParams: WORD,
             pSvcParams: *mut DNS_SVCB_PARAM,
         }
         struct DNS_SVCB_PARAM {
-            wSvcParamKey: u16,
+            wSvcParamKey: WORD,
             Anonymous: union {
                 pIpv4Hints: *mut DNS_SVCB_PARAM_IPV4,
                 pIpv6Hints: *mut DNS_SVCB_PARAM_IPV6,
                 pMandatory: *mut DNS_SVCB_PARAM_MANDATORY,
                 pAlpn: *mut DNS_SVCB_PARAM_ALPN,
-                wPort: u16,
+                wPort: WORD,
                 pUnknown: *mut DNS_SVCB_PARAM_UNKNOWN,
                 pszDohPath: PSTR,
-                pReserved: *mut void,
+                pReserved: PVOID,
             },
         }
         struct DNS_SVCB_PARAM_ALPN {
-            cIds: u16,
+            cIds: WORD,
             rgIds: [DNS_SVCB_PARAM_ALPN_ID; 1],
         }
         struct DNS_SVCB_PARAM_ALPN_ID {
-            cBytes: u8,
-            pbId: *mut u8,
+            cBytes: BYTE,
+            pbId: *mut BYTE,
         }
         struct DNS_SVCB_PARAM_IPV4 {
-            cIps: u16,
+            cIps: WORD,
             rgIps: [IP4_ADDRESS; 1],
         }
         struct DNS_SVCB_PARAM_IPV6 {
-            cIps: u16,
+            cIps: WORD,
             rgIps: [IP6_ADDRESS; 1],
         }
         struct DNS_SVCB_PARAM_MANDATORY {
-            cMandatoryKeys: u16,
-            rgwMandatoryKeys: [u16; 1],
+            cMandatoryKeys: WORD,
+            rgwMandatoryKeys: [WORD; 1],
         }
         #[repr(i32)]
         enum DNS_SVCB_PARAM_TYPE {
@@ -712,8 +719,8 @@ mod Windows {
             DnsSvcbParamDohPathOpenDns = 65432,
         }
         struct DNS_SVCB_PARAM_UNKNOWN {
-            cBytes: u16,
-            pbSvcParamValue: [u8; 1],
+            cBytes: WORD,
+            pbSvcParamValue: [BYTE; 1],
         }
         type DNS_TKEY_DATA = DNS_TKEY_DATAA;
         struct DNS_TKEY_DATAA {
@@ -721,13 +728,13 @@ mod Windows {
             pAlgorithmPacket: PBYTE,
             pKey: PBYTE,
             pOtherData: PBYTE,
-            dwCreateTime: u32,
-            dwExpireTime: u32,
-            wMode: u16,
-            wError: u16,
-            wKeyLength: u16,
-            wOtherLength: u16,
-            cAlgNameLength: u8,
+            dwCreateTime: DWORD,
+            dwExpireTime: DWORD,
+            wMode: WORD,
+            wError: WORD,
+            wKeyLength: WORD,
+            wOtherLength: WORD,
+            cAlgNameLength: UCHAR,
             bPacketPointers: BOOL,
         }
         struct DNS_TKEY_DATAW {
@@ -735,13 +742,13 @@ mod Windows {
             pAlgorithmPacket: PBYTE,
             pKey: PBYTE,
             pOtherData: PBYTE,
-            dwCreateTime: u32,
-            dwExpireTime: u32,
-            wMode: u16,
-            wError: u16,
-            wKeyLength: u16,
-            wOtherLength: u16,
-            cAlgNameLength: u8,
+            dwCreateTime: DWORD,
+            dwExpireTime: DWORD,
+            wMode: WORD,
+            wError: WORD,
+            wKeyLength: WORD,
+            wOtherLength: WORD,
+            cAlgNameLength: UCHAR,
             bPacketPointers: BOOL,
         }
         const DNS_TKEY_MODE_DIFFIE_HELLMAN: i32 = 2;
@@ -749,12 +756,12 @@ mod Windows {
         const DNS_TKEY_MODE_RESOLVER_ASSIGN: i32 = 4;
         const DNS_TKEY_MODE_SERVER_ASSIGN: i32 = 1;
         struct DNS_TLSA_DATA {
-            bCertUsage: u8,
-            bSelector: u8,
-            bMatchingType: u8,
-            bCertificateAssociationDataLength: u16,
-            bPad: [u8; 3],
-            bCertificateAssociationData: [u8; 1],
+            bCertUsage: BYTE,
+            bSelector: BYTE,
+            bMatchingType: BYTE,
+            bCertificateAssociationDataLength: WORD,
+            bPad: [BYTE; 3],
+            bCertificateAssociationData: [BYTE; 1],
         }
         type DNS_TSIG_DATA = DNS_TSIG_DATAA;
         struct DNS_TSIG_DATAA {
@@ -762,13 +769,13 @@ mod Windows {
             pAlgorithmPacket: PBYTE,
             pSignature: PBYTE,
             pOtherData: PBYTE,
-            i64CreateTime: i64,
-            wFudgeTime: u16,
-            wOriginalXid: u16,
-            wError: u16,
-            wSigLength: u16,
-            wOtherLength: u16,
-            cAlgNameLength: u8,
+            i64CreateTime: LONGLONG,
+            wFudgeTime: WORD,
+            wOriginalXid: WORD,
+            wError: WORD,
+            wSigLength: WORD,
+            wOtherLength: WORD,
+            cAlgNameLength: UCHAR,
             bPacketPointers: BOOL,
         }
         struct DNS_TSIG_DATAW {
@@ -776,22 +783,22 @@ mod Windows {
             pAlgorithmPacket: PBYTE,
             pSignature: PBYTE,
             pOtherData: PBYTE,
-            i64CreateTime: i64,
-            wFudgeTime: u16,
-            wOriginalXid: u16,
-            wError: u16,
-            wSigLength: u16,
-            wOtherLength: u16,
-            cAlgNameLength: u8,
+            i64CreateTime: LONGLONG,
+            wFudgeTime: WORD,
+            wOriginalXid: WORD,
+            wError: WORD,
+            wSigLength: WORD,
+            wOtherLength: WORD,
+            cAlgNameLength: UCHAR,
             bPacketPointers: BOOL,
         }
         type DNS_TXT_DATA = DNS_TXT_DATAA;
         struct DNS_TXT_DATAA {
-            dwStringCount: u32,
+            dwStringCount: DWORD,
             pStringArray: [PSTR; 1],
         }
         struct DNS_TXT_DATAW {
-            dwStringCount: u32,
+            dwStringCount: DWORD,
             pStringArray: [PWSTR; 1],
         }
         const DNS_TYPE_A: i32 = 1;
@@ -863,33 +870,33 @@ mod Windows {
         const DNS_TYPE_X25: i32 = 19;
         const DNS_TYPE_ZERO: i32 = 0;
         struct DNS_UNKNOWN_DATA {
-            dwByteCount: u32,
-            bData: [u8; 1],
+            dwByteCount: DWORD,
+            bData: [BYTE; 1],
         }
         type DNS_WINSR_DATA = DNS_WINSR_DATAA;
         struct DNS_WINSR_DATAA {
-            dwMappingFlag: u32,
-            dwLookupTimeout: u32,
-            dwCacheTimeout: u32,
+            dwMappingFlag: DWORD,
+            dwLookupTimeout: DWORD,
+            dwCacheTimeout: DWORD,
             pNameResultDomain: PSTR,
         }
         struct DNS_WINSR_DATAW {
-            dwMappingFlag: u32,
-            dwLookupTimeout: u32,
-            dwCacheTimeout: u32,
+            dwMappingFlag: DWORD,
+            dwLookupTimeout: DWORD,
+            dwCacheTimeout: DWORD,
             pNameResultDomain: PWSTR,
         }
         struct DNS_WINS_DATA {
-            dwMappingFlag: u32,
-            dwLookupTimeout: u32,
-            dwCacheTimeout: u32,
-            cWinsServerCount: u32,
+            dwMappingFlag: DWORD,
+            dwLookupTimeout: DWORD,
+            dwCacheTimeout: DWORD,
+            cWinsServerCount: DWORD,
             WinsServers: [IP4_ADDRESS; 1],
         }
         struct DNS_WKS_DATA {
             IpAddress: IP4_ADDRESS,
-            chProtocol: u8,
-            BitMask: [u8; 1],
+            chProtocol: UCHAR,
+            BitMask: [BYTE; 1],
         }
         const DnsSectionPrereq: DNS_SECTION = 1;
         const DnsSectionUpdate: DNS_SECTION = 2;
@@ -899,16 +906,16 @@ mod Windows {
         const IP4_ADDRESS_STRING_LENGTH: i32 = 16;
         #[arch(X64 | Arm64)]
         union IP6_ADDRESS {
-            IP6Qword: [u64; 2],
-            IP6Dword: [u32; 4],
-            IP6Word: [u16; 8],
-            IP6Byte: [u8; 16],
+            IP6Qword: [QWORD; 2],
+            IP6Dword: [DWORD; 4],
+            IP6Word: [WORD; 8],
+            IP6Byte: [BYTE; 16],
         }
         #[arch(X86)]
         union IP6_ADDRESS {
-            IP6Dword: [u32; 4],
-            IP6Word: [u16; 8],
-            IP6Byte: [u8; 16],
+            IP6Dword: [DWORD; 4],
+            IP6Word: [WORD; 8],
+            IP6Byte: [BYTE; 16],
         }
         type PDNS_AAAA_DATA = *mut DNS_AAAA_DATA;
         type PDNS_ADDR = *mut DNS_ADDR;
@@ -916,11 +923,11 @@ mod Windows {
         type PDNS_ATMA_DATA = *mut DNS_ATMA_DATA;
         type PDNS_A_DATA = *mut DNS_A_DATA;
         type PDNS_DHCID_DATA = *mut DNS_DHCID_DATA;
-        type PDNS_DNSKEY_DATA = *mut DNS_DNSKEY_DATA;
+        type PDNS_DNSKEY_DATA = *mut DNS_KEY_DATA;
         type PDNS_DS_DATA = *mut DNS_DS_DATA;
         type PDNS_HEADER = *mut DNS_HEADER;
         type PDNS_HEADER_EXT = *mut DNS_HEADER_EXT;
-        type PDNS_KEY_DATA = *mut DNS_DNSKEY_DATA;
+        type PDNS_KEY_DATA = *mut DNS_KEY_DATA;
         type PDNS_LOC_DATA = *mut DNS_LOC_DATA;
         type PDNS_MESSAGE_BUFFER = *mut DNS_MESSAGE_BUFFER;
         type PDNS_MINFO_DATA = *mut DNS_MINFO_DATAA;
@@ -946,24 +953,26 @@ mod Windows {
         type PDNS_PTR_DATAA = *mut DNS_PTR_DATAA;
         type PDNS_PTR_DATAW = *mut DNS_PTR_DATAW;
         type PDNS_RECORD = *mut DNS_RECORDA;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "((LONG)__builtin_offsetof(struct _DnsRecordA, Data)) + wDataLength", "((LONG)__builtin_offsetof(struct _DnsRecordA, Data)) + wDataLength")]
         type PDNS_RECORDA = *mut DNS_RECORDA;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "((LONG)__builtin_offsetof(struct _DnsRecordW, Data)) + wDataLength", "((LONG)__builtin_offsetof(struct _DnsRecordW, Data)) + wDataLength")]
         type PDNS_RECORDW = *mut DNS_RECORDW;
         type PDNS_RECORD_OPT = *mut DNS_RECORD_OPTA;
         type PDNS_RECORD_OPTA = *mut DNS_RECORD_OPTA;
         type PDNS_RECORD_OPTW = *mut DNS_RECORD_OPTW;
-        type PDNS_RRSIG_DATA = *mut DNS_RRSIG_DATAA;
-        type PDNS_RRSIG_DATAA = *mut DNS_RRSIG_DATAA;
-        type PDNS_RRSIG_DATAW = *mut DNS_RRSIG_DATAW;
-        type PDNS_SIG_DATA = *mut DNS_RRSIG_DATAA;
-        type PDNS_SIG_DATAA = *mut DNS_RRSIG_DATAA;
-        type PDNS_SIG_DATAW = *mut DNS_RRSIG_DATAW;
+        type PDNS_RRSIG_DATA = *mut DNS_SIG_DATAA;
+        type PDNS_RRSIG_DATAA = *mut DNS_SIG_DATAA;
+        type PDNS_RRSIG_DATAW = *mut DNS_SIG_DATAW;
+        type PDNS_SIG_DATA = *mut DNS_SIG_DATAA;
+        type PDNS_SIG_DATAA = *mut DNS_SIG_DATAA;
+        type PDNS_SIG_DATAW = *mut DNS_SIG_DATAW;
         type PDNS_SOA_DATA = *mut DNS_SOA_DATAA;
         type PDNS_SOA_DATAA = *mut DNS_SOA_DATAA;
         type PDNS_SOA_DATAW = *mut DNS_SOA_DATAW;
         type PDNS_SRV_DATA = *mut DNS_SRV_DATAA;
         type PDNS_SRV_DATAA = *mut DNS_SRV_DATAA;
         type PDNS_SRV_DATAW = *mut DNS_SRV_DATAW;
-        type PDNS_STATUS = *mut DNS_STATUS;
+        type PDNS_STATUS = *mut i32;
         type PDNS_TKEY_DATA = *mut DNS_TKEY_DATAA;
         type PDNS_TKEY_DATAA = *mut DNS_TKEY_DATAA;
         type PDNS_TKEY_DATAW = *mut DNS_TKEY_DATAW;
@@ -984,9 +993,9 @@ mod Windows {
         type PIP6_ADDRESS = *mut IP6_ADDRESS;
         type PQWORD = *mut u64;
         #[arch(X64 | Arm64)]
-        const SIZEOF_DNS_RECORD_HEADER: i32 = 32;
+        const SIZEOF_DNS_RECORD_HEADER: LONG = 32;
         #[arch(X86)]
-        const SIZEOF_DNS_RECORD_HEADER: i32 = 24;
+        const SIZEOF_DNS_RECORD_HEADER: LONG = 24;
         const SIZEOF_IP4_ADDRESS: i32 = 4;
     }
 }

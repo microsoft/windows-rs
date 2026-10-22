@@ -25,136 +25,98 @@ mod Windows {
         const ICF_EXISTINGROW: i32 = 131072;
         #[guid(0x34df6950_7fb6_11d0_8817_00a0c903b83c)]
         interface ICertAdmin: IDispatch {
-            fn IsValidCertificate(&self, strConfig: BSTR, strSerialNumber: BSTR, #[retval] pDisposition: *mut i32) -> HRESULT;
-            fn GetRevocationReason(&self, #[retval] pReason: *mut i32) -> HRESULT;
-            fn RevokeCertificate(&self, strConfig: BSTR, strSerialNumber: BSTR, Reason: i32, Date: DATE) -> HRESULT;
-            fn SetRequestAttributes(&self, strConfig: BSTR, RequestId: i32, strAttributes: BSTR) -> HRESULT;
-            fn SetCertificateExtension(&self, strConfig: BSTR, RequestId: i32, strExtensionName: BSTR, Type: i32, Flags: i32, pvarValue: *const VARIANT) -> HRESULT;
-            fn DenyRequest(&self, strConfig: BSTR, RequestId: i32) -> HRESULT;
-            fn ResubmitRequest(&self, strConfig: BSTR, RequestId: i32, #[retval] pDisposition: *mut i32) -> HRESULT;
-            fn PublishCRL(&self, strConfig: BSTR, Date: DATE) -> HRESULT;
-            fn GetCRL(&self, strConfig: BSTR, Flags: i32, #[retval] pstrCRL: *mut BSTR) -> HRESULT;
-            fn ImportCertificate(&self, strConfig: BSTR, strCertificate: BSTR, Flags: i32, #[retval] pRequestId: *mut i32) -> HRESULT;
+            fn IsValidCertificate(&self, #[in] strConfig: BSTR, #[in] strSerialNumber: BSTR, #[out] #[retval] pDisposition: *mut LONG) -> HRESULT;
+            fn GetRevocationReason(&self, #[out] #[retval] pReason: *mut LONG) -> HRESULT;
+            fn RevokeCertificate(&self, #[in] strConfig: BSTR, #[in] strSerialNumber: BSTR, #[in] Reason: LONG, #[in] Date: DATE) -> HRESULT;
+            fn SetRequestAttributes(&self, #[in] strConfig: BSTR, #[in] RequestId: LONG, #[in] strAttributes: BSTR) -> HRESULT;
+            fn SetCertificateExtension(&self, #[in] strConfig: BSTR, #[in] RequestId: LONG, #[in] strExtensionName: BSTR, #[in] Type: LONG, #[in] Flags: LONG, #[in] pvarValue: *const VARIANT) -> HRESULT;
+            fn DenyRequest(&self, #[in] strConfig: BSTR, #[in] RequestId: LONG) -> HRESULT;
+            fn ResubmitRequest(&self, #[in] strConfig: BSTR, #[in] RequestId: LONG, #[out] #[retval] pDisposition: *mut LONG) -> HRESULT;
+            fn PublishCRL(&self, #[in] strConfig: BSTR, #[in] Date: DATE) -> HRESULT;
+            fn GetCRL(&self, #[in] strConfig: BSTR, #[in] Flags: LONG, #[out] #[retval] #[out_ptr] pstrCRL: *mut BSTR) -> HRESULT;
+            fn ImportCertificate(&self, #[in] strConfig: BSTR, #[in] strCertificate: BSTR, #[in] Flags: LONG, #[out] #[retval] pRequestId: *mut LONG) -> HRESULT;
         }
         #[guid(0xf7c3ac41_b8ce_4fb4_aa58_3d1dc0e36b39)]
         interface ICertAdmin2: ICertAdmin {
-            fn PublishCRLs(&self, strConfig: BSTR, Date: DATE, CRLFlags: i32) -> HRESULT;
-            fn GetCAProperty(&self, strConfig: BSTR, PropId: i32, PropIndex: i32, PropType: i32, Flags: i32, #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
-            fn SetCAProperty(&self, strConfig: BSTR, PropId: i32, PropIndex: i32, PropType: i32, #[in] pvarPropertyValue: *mut VARIANT) -> HRESULT;
-            fn GetCAPropertyFlags(&self, strConfig: BSTR, PropId: i32, #[retval] pPropFlags: *mut i32) -> HRESULT;
-            fn GetCAPropertyDisplayName(&self, strConfig: BSTR, PropId: i32, #[retval] pstrDisplayName: *mut BSTR) -> HRESULT;
-            fn GetArchivedKey(&self, strConfig: BSTR, RequestId: i32, Flags: i32, #[retval] pstrArchivedKey: *mut BSTR) -> HRESULT;
-            fn GetConfigEntry(&self, strConfig: BSTR, strNodePath: BSTR, strEntryName: BSTR, #[retval] pvarEntry: *mut VARIANT) -> HRESULT;
-            fn SetConfigEntry(&self, strConfig: BSTR, strNodePath: BSTR, strEntryName: BSTR, #[in] pvarEntry: *mut VARIANT) -> HRESULT;
-            fn ImportKey(&self, strConfig: BSTR, RequestId: i32, strCertHash: BSTR, Flags: i32, strKey: BSTR) -> HRESULT;
-            fn GetMyRoles(&self, strConfig: BSTR, #[retval] pRoles: *mut i32) -> HRESULT;
-            fn DeleteRow(&self, strConfig: BSTR, Flags: i32, Date: DATE, Table: i32, RowId: i32, #[retval] pcDeleted: *mut i32) -> HRESULT;
+            fn PublishCRLs(&self, #[in] strConfig: BSTR, #[in] Date: DATE, #[in] CRLFlags: LONG) -> HRESULT;
+            fn GetCAProperty(&self, #[in] strConfig: BSTR, #[in] PropId: LONG, #[in] PropIndex: LONG, #[in] PropType: LONG, #[in] Flags: LONG, #[out] #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
+            fn SetCAProperty(&self, #[in] strConfig: BSTR, #[in] PropId: LONG, #[in] PropIndex: LONG, #[in] PropType: LONG, #[in] pvarPropertyValue: *mut VARIANT) -> HRESULT;
+            fn GetCAPropertyFlags(&self, #[in] strConfig: BSTR, #[in] PropId: LONG, #[out] #[retval] pPropFlags: *mut LONG) -> HRESULT;
+            fn GetCAPropertyDisplayName(&self, #[in] strConfig: BSTR, #[in] PropId: LONG, #[out] #[retval] #[out_ptr] pstrDisplayName: *mut BSTR) -> HRESULT;
+            fn GetArchivedKey(&self, #[in] strConfig: BSTR, #[in] RequestId: LONG, #[in] Flags: LONG, #[out] #[retval] #[out_ptr] pstrArchivedKey: *mut BSTR) -> HRESULT;
+            fn GetConfigEntry(&self, #[in] strConfig: BSTR, #[in] strNodePath: BSTR, #[in] strEntryName: BSTR, #[out] #[retval] pvarEntry: *mut VARIANT) -> HRESULT;
+            fn SetConfigEntry(&self, #[in] strConfig: BSTR, #[in] strNodePath: BSTR, #[in] strEntryName: BSTR, #[in] pvarEntry: *mut VARIANT) -> HRESULT;
+            fn ImportKey(&self, #[in] strConfig: BSTR, #[in] RequestId: LONG, #[in] strCertHash: BSTR, #[in] Flags: LONG, #[in] strKey: BSTR) -> HRESULT;
+            fn GetMyRoles(&self, #[in] strConfig: BSTR, #[out] #[retval] pRoles: *mut LONG) -> HRESULT;
+            fn DeleteRow(&self, #[in] strConfig: BSTR, #[in] Flags: LONG, #[in] Date: DATE, #[in] Table: LONG, #[in] RowId: LONG, #[out] #[retval] pcDeleted: *mut LONG) -> HRESULT;
         }
         const IKF_OVERWRITE: i32 = 65536;
         #[guid(0x322e830d_67db_4fe9_9577_4596d9f09294)]
         interface IOCSPAdmin: IDispatch {
-            #[special]
-            fn get_OCSPServiceProperties(&self, #[retval] ppVal: *mut IOCSPPropertyCollection) -> HRESULT;
-            #[special]
-            fn get_OCSPCAConfigurationCollection(&self, #[retval] pVal: *mut IOCSPCAConfigurationCollection) -> HRESULT;
-            fn GetConfiguration(&self, bstrServerName: BSTR, bForce: VARIANT_BOOL) -> HRESULT;
-            fn SetConfiguration(&self, bstrServerName: BSTR, bForce: VARIANT_BOOL) -> HRESULT;
-            fn GetMyRoles(&self, bstrServerName: BSTR, #[retval] pRoles: *mut i32) -> HRESULT;
-            fn Ping(&self, bstrServerName: BSTR) -> HRESULT;
-            fn SetSecurity(&self, bstrServerName: BSTR, bstrVal: BSTR) -> HRESULT;
-            fn GetSecurity(&self, bstrServerName: BSTR, #[retval] pVal: *mut BSTR) -> HRESULT;
-            fn GetSigningCertificates(&self, bstrServerName: BSTR, pCACertVar: *const VARIANT, #[retval] pVal: *mut VARIANT) -> HRESULT;
-            fn GetHashAlgorithms(&self, bstrServerName: BSTR, bstrCAId: BSTR, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn get_OCSPServiceProperties(&self, #[out] #[retval] #[out_ptr] ppVal: *mut IOCSPPropertyCollection) -> HRESULT;
+            fn get_OCSPCAConfigurationCollection(&self, #[out] #[retval] #[out_ptr] pVal: *mut IOCSPCAConfigurationCollection) -> HRESULT;
+            fn GetConfiguration(&self, #[in] bstrServerName: BSTR, #[in] bForce: VARIANT_BOOL) -> HRESULT;
+            fn SetConfiguration(&self, #[in] bstrServerName: BSTR, #[in] bForce: VARIANT_BOOL) -> HRESULT;
+            fn GetMyRoles(&self, #[in] bstrServerName: BSTR, #[out] #[retval] pRoles: *mut LONG) -> HRESULT;
+            fn Ping(&self, #[in] bstrServerName: BSTR) -> HRESULT;
+            fn SetSecurity(&self, #[in] bstrServerName: BSTR, #[in] bstrVal: BSTR) -> HRESULT;
+            fn GetSecurity(&self, #[in] bstrServerName: BSTR, #[out] #[retval] #[out_ptr] pVal: *mut BSTR) -> HRESULT;
+            fn GetSigningCertificates(&self, #[in] bstrServerName: BSTR, #[in] pCACertVar: *const VARIANT, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn GetHashAlgorithms(&self, #[in] bstrServerName: BSTR, #[in] bstrCAId: BSTR, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xaec92b40_3d46_433f_87d1_b84d5c1e790d)]
         interface IOCSPCAConfiguration: IDispatch {
-            #[special]
-            fn get_Identifier(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_CACertificate(&self, #[retval] pVal: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_HashAlgorithm(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_HashAlgorithm(&self, newVal: BSTR) -> HRESULT;
-            #[special]
-            fn get_SigningFlags(&self, #[retval] pVal: *mut u32) -> HRESULT;
-            #[special]
-            fn put_SigningFlags(&self, newVal: u32) -> HRESULT;
-            #[special]
-            fn get_SigningCertificate(&self, #[retval] pVal: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn put_SigningCertificate(&self, newVal: VARIANT) -> HRESULT;
-            #[special]
-            fn get_ReminderDuration(&self, #[retval] pVal: *mut u32) -> HRESULT;
-            #[special]
-            fn put_ReminderDuration(&self, newVal: u32) -> HRESULT;
-            #[special]
-            fn get_ErrorCode(&self, #[retval] pVal: *mut u32) -> HRESULT;
-            #[special]
-            fn get_CSPName(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_KeySpec(&self, #[retval] pVal: *mut u32) -> HRESULT;
-            #[special]
-            fn get_ProviderCLSID(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_ProviderCLSID(&self, newVal: BSTR) -> HRESULT;
-            #[special]
-            fn get_ProviderProperties(&self, #[retval] pVal: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn put_ProviderProperties(&self, newVal: VARIANT) -> HRESULT;
-            #[special]
-            fn get_Modified(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
-            #[special]
-            fn get_LocalRevocationInformation(&self, #[retval] pVal: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn put_LocalRevocationInformation(&self, newVal: VARIANT) -> HRESULT;
-            #[special]
-            fn get_SigningCertificateTemplate(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_SigningCertificateTemplate(&self, newVal: BSTR) -> HRESULT;
-            #[special]
-            fn get_CAConfig(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn put_CAConfig(&self, newVal: BSTR) -> HRESULT;
+            fn get_Identifier(&self, #[out] #[retval] #[out_ptr] pVal: *mut BSTR) -> HRESULT;
+            fn get_CACertificate(&self, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn get_HashAlgorithm(&self, #[out] #[retval] #[out_ptr] pVal: *mut BSTR) -> HRESULT;
+            fn put_HashAlgorithm(&self, #[in] newVal: BSTR) -> HRESULT;
+            fn get_SigningFlags(&self, #[out] #[retval] pVal: *mut ULONG) -> HRESULT;
+            fn put_SigningFlags(&self, #[in] newVal: ULONG) -> HRESULT;
+            fn get_SigningCertificate(&self, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn put_SigningCertificate(&self, #[in] newVal: VARIANT) -> HRESULT;
+            fn get_ReminderDuration(&self, #[out] #[retval] pVal: *mut ULONG) -> HRESULT;
+            fn put_ReminderDuration(&self, #[in] newVal: ULONG) -> HRESULT;
+            fn get_ErrorCode(&self, #[out] #[retval] pVal: *mut ULONG) -> HRESULT;
+            fn get_CSPName(&self, #[out] #[retval] #[out_ptr] pVal: *mut BSTR) -> HRESULT;
+            fn get_KeySpec(&self, #[out] #[retval] pVal: *mut ULONG) -> HRESULT;
+            fn get_ProviderCLSID(&self, #[out] #[retval] #[out_ptr] pVal: *mut BSTR) -> HRESULT;
+            fn put_ProviderCLSID(&self, #[in] newVal: BSTR) -> HRESULT;
+            fn get_ProviderProperties(&self, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn put_ProviderProperties(&self, #[in] newVal: VARIANT) -> HRESULT;
+            fn get_Modified(&self, #[out] #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_LocalRevocationInformation(&self, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn put_LocalRevocationInformation(&self, #[in] newVal: VARIANT) -> HRESULT;
+            fn get_SigningCertificateTemplate(&self, #[out] #[retval] #[out_ptr] pVal: *mut BSTR) -> HRESULT;
+            fn put_SigningCertificateTemplate(&self, #[in] newVal: BSTR) -> HRESULT;
+            fn get_CAConfig(&self, #[out] #[retval] #[out_ptr] pVal: *mut BSTR) -> HRESULT;
+            fn put_CAConfig(&self, #[in] newVal: BSTR) -> HRESULT;
         }
         #[guid(0x2bebea0b_5ece_4f28_a91c_86b4bb20f0d3)]
         interface IOCSPCAConfigurationCollection: IDispatch {
-            #[special]
-            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
-            #[special]
-            fn get_Item(&self, Index: i32, #[retval] pVal: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn get_ItemByName(&self, bstrIdentifier: BSTR, #[retval] pVal: *mut VARIANT) -> HRESULT;
-            fn CreateCAConfiguration(&self, bstrIdentifier: BSTR, varCACert: VARIANT, #[retval] ppVal: *mut IOCSPCAConfiguration) -> HRESULT;
-            fn DeleteCAConfiguration(&self, bstrIdentifier: BSTR) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] pVal: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn get_ItemByName(&self, #[in] bstrIdentifier: BSTR, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn CreateCAConfiguration(&self, #[in] bstrIdentifier: BSTR, #[in] varCACert: VARIANT, #[out] #[retval] #[out_ptr] ppVal: *mut IOCSPCAConfiguration) -> HRESULT;
+            fn DeleteCAConfiguration(&self, #[in] bstrIdentifier: BSTR) -> HRESULT;
         }
         #[guid(0x66fb7839_5f04_4c25_ad18_9ff1a8376ee0)]
         interface IOCSPProperty: IDispatch {
-            #[special]
-            fn get_Name(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
-            #[special]
-            fn get_Value(&self, #[retval] pVal: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn put_Value(&self, newVal: VARIANT) -> HRESULT;
-            #[special]
-            fn get_Modified(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_Name(&self, #[out] #[retval] #[out_ptr] pVal: *mut BSTR) -> HRESULT;
+            fn get_Value(&self, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn put_Value(&self, #[in] newVal: VARIANT) -> HRESULT;
+            fn get_Modified(&self, #[out] #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x2597c18d_54e6_4b74_9fa9_a6bfda99cbbe)]
         interface IOCSPPropertyCollection: IDispatch {
-            #[special]
-            fn get__NewEnum(&self, #[retval] ppVal: *mut IUnknown) -> HRESULT;
-            #[special]
-            fn get_Item(&self, Index: i32, #[retval] pVal: *mut VARIANT) -> HRESULT;
-            #[special]
-            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
-            #[special]
-            fn get_ItemByName(&self, bstrPropName: BSTR, #[retval] pVal: *mut VARIANT) -> HRESULT;
-            fn CreateProperty(&self, bstrPropName: BSTR, pVarPropValue: *const VARIANT, #[retval] ppVal: *mut IOCSPProperty) -> HRESULT;
-            fn DeleteProperty(&self, bstrPropName: BSTR) -> HRESULT;
-            fn InitializeFromProperties(&self, pVarProperties: *const VARIANT) -> HRESULT;
-            fn GetAllProperties(&self, #[retval] pVarProperties: *mut VARIANT) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppVal: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] Index: LONG, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn get_Count(&self, #[out] #[retval] pVal: *mut LONG) -> HRESULT;
+            fn get_ItemByName(&self, #[in] bstrPropName: BSTR, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn CreateProperty(&self, #[in] bstrPropName: BSTR, #[in] pVarPropValue: *const VARIANT, #[out] #[retval] #[out_ptr] ppVal: *mut IOCSPProperty) -> HRESULT;
+            fn DeleteProperty(&self, #[in] bstrPropName: BSTR) -> HRESULT;
+            fn InitializeFromProperties(&self, #[in] pVarProperties: *const VARIANT) -> HRESULT;
+            fn GetAllProperties(&self, #[out] #[retval] pVarProperties: *mut VARIANT) -> HRESULT;
         }
         const KRA_DISP_EXPIRED: i32 = 0;
         const KRA_DISP_INVALID: i32 = 4;

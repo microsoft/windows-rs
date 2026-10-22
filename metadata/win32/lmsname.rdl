@@ -1,0 +1,151 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[encoding("ansi")]
+        const NWSAP_DISPLAY_NAME: String = "NW Sap Agent";
+        #[encoding("ansi")]
+        const SERVCE_LM20_W32TIME: String = "w32time";
+        #[encoding("ansi")]
+        const SERVER_DISPLAY_NAME: String = "Server";
+        #[encoding("ansi")]
+        const SERVICE_ADWS: String = "ADWS";
+        #[encoding("ansi")]
+        const SERVICE_AFP: String = "AFP";
+        #[encoding("ansi")]
+        const SERVICE_ALERTER: String = "ALERTER";
+        #[encoding("ansi")]
+        const SERVICE_BROWSER: String = "BROWSER";
+        #[encoding("ansi")]
+        const SERVICE_DHCP: String = "DHCP";
+        #[encoding("ansi")]
+        const SERVICE_DNS_CACHE: String = "DnsCache";
+        #[encoding("ansi")]
+        const SERVICE_DSROLE: String = "DsRoleSvc";
+        #[encoding("ansi")]
+        const SERVICE_ISMSERV: String = "IsmServ";
+        #[encoding("ansi")]
+        const SERVICE_KDC: String = "kdc";
+        #[encoding("ansi")]
+        const SERVICE_LM20_AFP: String = "AFP";
+        #[encoding("ansi")]
+        const SERVICE_LM20_ALERTER: String = "ALERTER";
+        #[encoding("ansi")]
+        const SERVICE_LM20_BROWSER: String = "BROWSER";
+        #[encoding("ansi")]
+        const SERVICE_LM20_DHCP: String = "DHCP";
+        #[encoding("ansi")]
+        const SERVICE_LM20_DSROLE: String = "DsRoleSvc";
+        #[encoding("ansi")]
+        const SERVICE_LM20_ISMSERV: String = "IsmServ";
+        #[encoding("ansi")]
+        const SERVICE_LM20_KDC: String = "kdc";
+        #[encoding("ansi")]
+        const SERVICE_LM20_LMHOSTS: String = "LMHOSTS";
+        #[encoding("ansi")]
+        const SERVICE_LM20_LOCALKDC: String = "localkdc";
+        #[encoding("ansi")]
+        const SERVICE_LM20_MESSENGER: String = "MESSENGER";
+        #[encoding("ansi")]
+        const SERVICE_LM20_NBT: String = "NBT";
+        #[encoding("ansi")]
+        const SERVICE_LM20_NETLOGON: String = "NETLOGON";
+        #[encoding("ansi")]
+        const SERVICE_LM20_NETPOPUP: String = "NETPOPUP";
+        #[encoding("ansi")]
+        const SERVICE_LM20_NETRUN: String = "NETRUN";
+        #[encoding("ansi")]
+        const SERVICE_LM20_NTDS: String = "NTDS";
+        #[encoding("ansi")]
+        const SERVICE_LM20_NTFRS: String = "NtFrs";
+        #[encoding("ansi")]
+        const SERVICE_LM20_NWSAP: String = "NwSapAgent";
+        #[encoding("ansi")]
+        const SERVICE_LM20_REPL: String = "REPLICATOR";
+        #[encoding("ansi")]
+        const SERVICE_LM20_RIPL: String = "REMOTEBOOT";
+        #[encoding("ansi")]
+        const SERVICE_LM20_RPCLOCATOR: String = "RPCLOCATOR";
+        #[encoding("ansi")]
+        const SERVICE_LM20_SCHEDULE: String = "Schedule";
+        #[encoding("ansi")]
+        const SERVICE_LM20_SERVER: String = "SERVER";
+        #[encoding("ansi")]
+        const SERVICE_LM20_SPOOLER: String = "SPOOLER";
+        #[encoding("ansi")]
+        const SERVICE_LM20_SQLSERVER: String = "SQLSERVER";
+        #[encoding("ansi")]
+        const SERVICE_LM20_TCPIP: String = "TCPIP";
+        #[encoding("ansi")]
+        const SERVICE_LM20_TELNET: String = "Telnet";
+        #[encoding("ansi")]
+        const SERVICE_LM20_TIMESOURCE: String = "TIMESOURCE";
+        #[encoding("ansi")]
+        const SERVICE_LM20_TRKSVR: String = "TrkSvr";
+        #[encoding("ansi")]
+        const SERVICE_LM20_TRKWKS: String = "TrkWks";
+        #[encoding("ansi")]
+        const SERVICE_LM20_UPS: String = "UPS";
+        #[encoding("ansi")]
+        const SERVICE_LM20_WORKSTATION: String = "WORKSTATION";
+        #[encoding("ansi")]
+        const SERVICE_LM20_XACTSRV: String = "XACTSRV";
+        #[encoding("ansi")]
+        const SERVICE_LMHOSTS: String = "LMHOSTS";
+        #[encoding("ansi")]
+        const SERVICE_LOCALKDC: String = "localkdc";
+        #[encoding("ansi")]
+        const SERVICE_MESSENGER: String = "MESSENGER";
+        #[encoding("ansi")]
+        const SERVICE_NBT: String = "NBT";
+        #[encoding("ansi")]
+        const SERVICE_NETLOGON: String = "NETLOGON";
+        #[encoding("ansi")]
+        const SERVICE_NETPOPUP: String = "NETPOPUP";
+        #[encoding("ansi")]
+        const SERVICE_NETRUN: String = "NETRUN";
+        #[encoding("ansi")]
+        const SERVICE_NTDS: String = "NTDS";
+        #[encoding("ansi")]
+        const SERVICE_NTFRS: String = "NtFrs";
+        #[encoding("ansi")]
+        const SERVICE_NTLMSSP: String = "NtLmSsp";
+        #[encoding("ansi")]
+        const SERVICE_NWCS: String = "NWCWorkstation";
+        #[encoding("ansi")]
+        const SERVICE_NWSAP: String = "NwSapAgent";
+        #[encoding("ansi")]
+        const SERVICE_REPL: String = "REPLICATOR";
+        #[encoding("ansi")]
+        const SERVICE_RIPL: String = "REMOTEBOOT";
+        #[encoding("ansi")]
+        const SERVICE_RPCLOCATOR: String = "RPCLOCATOR";
+        #[encoding("ansi")]
+        const SERVICE_SCHEDULE: String = "Schedule";
+        #[encoding("ansi")]
+        const SERVICE_SERVER: String = "LanmanServer";
+        #[encoding("ansi")]
+        const SERVICE_SPOOLER: String = "SPOOLER";
+        #[encoding("ansi")]
+        const SERVICE_SQLSERVER: String = "SQLSERVER";
+        #[encoding("ansi")]
+        const SERVICE_TCPIP: String = "TCPIP";
+        #[encoding("ansi")]
+        const SERVICE_TELNET: String = "Telnet";
+        #[encoding("ansi")]
+        const SERVICE_TIMESOURCE: String = "TIMESOURCE";
+        #[encoding("ansi")]
+        const SERVICE_TRKSVR: String = "TrkSvr";
+        #[encoding("ansi")]
+        const SERVICE_TRKWKS: String = "TrkWks";
+        #[encoding("ansi")]
+        const SERVICE_UPS: String = "UPS";
+        #[encoding("ansi")]
+        const SERVICE_W32TIME: String = "w32time";
+        #[encoding("ansi")]
+        const SERVICE_WORKSTATION: String = "LanmanWorkstation";
+        #[encoding("ansi")]
+        const SERVICE_XACTSRV: String = "XACTSRV";
+        #[encoding("ansi")]
+        const WORKSTATION_DISPLAY_NAME: String = "Workstation";
+    }
+}
