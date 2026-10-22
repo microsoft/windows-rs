@@ -4400,15 +4400,13 @@ impl Planner<'_, '_> {
             .iter()
             .find(|contract| contract.id == relation)
             .unwrap();
-        // A retiring child keeps its native slot, so it cannot fade out of items that an index
-        // selects.
+        // A retiring child keeps its native slot and stays selectable, so it cannot fade out of a
+        // selector's items.
+        let kind = self.retained.get(parent).unwrap().kind;
         if contract.cardinality != Cardinality::Many
             || contract.realization != Realization::Owned
-            || index_for_items(
-                self.retained.get(parent).unwrap().kind,
-                IndexItems::Relation(relation),
-            )
-            .is_some()
+            || index_for_items(kind, IndexItems::Relation(relation)).is_some()
+            || selection_for_relation(kind, relation).is_some()
         {
             return Err(GraphError::ExitTransitionUnsupported);
         }

@@ -150,8 +150,8 @@ A declared `selected_index` on `ListView`, `GridView`, `ComboBox`, `RadioButtons
 moves those items, it applies the index again, and the native selection moves in between are not
 reported. An index past the end selects nothing, except on `Pivot`, which always shows an item and
 falls back to the first. Without a declared index, `on_selection_changed` reports the selection that
-results from item changes. Items that an index selects cannot use an exit transition, since a fading
-item would keep its native slot; such a removal fails with `ExitTransitionUnsupported`.
+results from item changes. Selector items cannot use an exit transition, since a fading item would
+keep its native slot and stay selectable; such a removal fails with `ExitTransitionUnsupported`.
 
 ## Split up the view
 

@@ -383,7 +383,7 @@ fn index_is_written_after_its_items_and_reasserted_when_they_change() {
 }
 
 #[test]
-fn indexed_items_reject_exit_transitions() {
+fn selector_items_reject_exit_transitions() {
     let item = |key: &'static str| {
         TextBlock::new()
             .text(key)
@@ -418,6 +418,23 @@ fn indexed_items_reject_exit_transitions() {
     runtime.update(grid(&["a", "b"])).unwrap();
     assert_eq!(
         runtime.update(grid(&["b"])),
+        Err(UpdateError::Graph(GraphError::ExitTransitionUnsupported))
+    );
+
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    let list = |keys: &[&'static str]| {
+        ListBox::new().keyed_items(keys.iter().map(|key| {
+            keyed(
+                *key,
+                ListBoxItem::new()
+                    .content(*key)
+                    .exit_fade(Duration::from_millis(100)),
+            )
+        }))
+    };
+    runtime.update(list(&["a", "b"])).unwrap();
+    assert_eq!(
+        runtime.update(list(&["b"])),
         Err(UpdateError::Graph(GraphError::ExitTransitionUnsupported))
     );
 }
