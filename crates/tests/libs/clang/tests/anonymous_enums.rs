@@ -138,10 +138,10 @@ fn shared_constants() {
     let output = projection::generate(&inputs, "Fixture").unwrap();
     assert_eq!(output.constants, 3);
     assert_eq!(
-        output.partitions["foundation"].rdl,
+        output.partitions["shared"].rdl,
         "#[win32]\nmod Fixture {\n    const Common: i32 = 4;\n}\n"
     );
-    assert_eq!(output.partitions["foundation"].headers.len(), 2);
+    assert_eq!(output.partitions["shared"].headers.len(), 2);
     assert!(
         output.partitions["anonymous_enum_a"]
             .rdl

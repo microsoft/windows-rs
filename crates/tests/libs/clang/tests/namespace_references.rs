@@ -17,7 +17,6 @@ fn authoritative_namespace_references() {
         .unwrap();
     let metadata = windows_metadata::reader::Index::read(&reference).unwrap();
     let references = projection::References {
-        global_namespace: None,
         metadata: &metadata,
         native_prefixes: &["", "ABI"],
         delegate_prefix: Some("I"),
@@ -122,7 +121,7 @@ fn authoritative_namespace_references() {
             projection::project_with_options(&merge(&collisions).unwrap(), "External", &options)
                 .unwrap_err()
                 .to_string();
-        assert!(error.contains("collides with external metadata"), "{error}");
+        assert!(error.contains("UUID differs"), "{error}");
         let unsupported_path = scratch.join("unsupported.winmd");
         windows_rdl::reader()
             .input(input_dir().join("namespace_reference_unsupported.rdl"))
@@ -131,7 +130,6 @@ fn authoritative_namespace_references() {
             .unwrap();
         let unsupported = windows_metadata::reader::Index::read(&unsupported_path).unwrap();
         let references = projection::References {
-            global_namespace: None,
             metadata: &unsupported,
             native_prefixes: &["ABI"],
             delegate_prefix: Some("I"),

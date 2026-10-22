@@ -88,16 +88,16 @@ impl ControllerOptions {
 
         if let Some(profile_name) = &self.profile_name {
             let profile_name = HSTRING::from(profile_name);
-            unsafe { options.SetProfileName(&profile_name).ok()? };
+            unsafe { options.put_ProfileName(&profile_name).ok()? };
         }
         unsafe {
             options
-                .SetIsInPrivateModeEnabled(self.is_in_private_mode)
+                .put_IsInPrivateModeEnabled(self.is_in_private_mode)
                 .ok()?;
         };
         if let Some(color) = self.default_background_color {
             let options: ICoreWebView2ControllerOptions3 = options.cast()?;
-            unsafe { options.SetDefaultBackgroundColor(color.to_raw()).ok()? };
+            unsafe { options.put_DefaultBackgroundColor(color.to_raw()).ok()? };
         }
 
         let handler = handler::ControllerCompleted::create(handler);
@@ -113,14 +113,14 @@ pub struct Controller(pub(crate) ICoreWebView2Controller);
 impl Controller {
     /// Returns the [`WebView`] used to navigate and script the hosted browser.
     pub fn webview(&self) -> Result<WebView> {
-        unsafe { Ok(WebView(self.0.CoreWebView2()?)) }
+        unsafe { Ok(WebView(self.0.get_CoreWebView2()?)) }
     }
 
     /// Sets the bounds of the browser within the parent window, in pixels.
     pub fn set_bounds(&self, left: i32, top: i32, right: i32, bottom: i32) -> Result<()> {
         unsafe {
             self.0
-                .SetBounds(RECT {
+                .put_Bounds(RECT {
                     left,
                     top,
                     right,
@@ -132,7 +132,7 @@ impl Controller {
 
     /// Shows or hides the browser.
     pub fn set_visible(&self, visible: bool) -> Result<()> {
-        unsafe { self.0.SetIsVisible(visible) }.ok()
+        unsafe { self.0.put_IsVisible(visible) }.ok()
     }
 
     /// Closes the browser and releases its resources.
@@ -150,31 +150,33 @@ impl Controller {
     /// dropped onto the browser.
     pub fn allow_external_drop(&self) -> Result<bool> {
         let source: ICoreWebView2Controller4 = self.0.cast()?;
-        Ok(unsafe { source.AllowExternalDrop()? }.as_bool())
+        Ok(unsafe { source.get_AllowExternalDrop()? }.as_bool())
     }
 
     /// Sets whether files dragged from outside the application can be dropped
     /// onto the browser. Disable it when the host wants to handle drops itself.
     pub fn set_allow_external_drop(&self, allow: bool) -> Result<()> {
         let source: ICoreWebView2Controller4 = self.0.cast()?;
-        unsafe { source.SetAllowExternalDrop(allow) }.ok()
+        unsafe { source.put_AllowExternalDrop(allow) }.ok()
     }
 
     /// Returns the zoom factor applied to the page, where `1.0` is 100%.
     pub fn zoom_factor(&self) -> f64 {
-        unsafe { self.0.ZoomFactor() }.unwrap_or(1.0)
+        unsafe { self.0.get_ZoomFactor() }.unwrap_or(1.0)
     }
 
     /// Sets the zoom factor applied to the page, where `1.0` is 100%.
     pub fn set_zoom_factor(&self, zoom_factor: f64) -> Result<()> {
-        unsafe { self.0.SetZoomFactor(zoom_factor) }.ok()
+        unsafe { self.0.put_ZoomFactor(zoom_factor) }.ok()
     }
 
     /// Returns the color painted behind the page before content loads and
     /// wherever the page is transparent.
     pub fn default_background_color(&self) -> Result<Color> {
         let source: ICoreWebView2Controller2 = self.0.cast()?;
-        Ok(Color::from_raw(unsafe { source.DefaultBackgroundColor()? }))
+        Ok(Color::from_raw(unsafe {
+            source.get_DefaultBackgroundColor()?
+        }))
     }
 
     /// Sets the color painted behind the page before content loads and wherever
@@ -183,14 +185,14 @@ impl Controller {
     /// (`a = 0`) colors are supported.
     pub fn set_default_background_color(&self, color: Color) -> Result<()> {
         let source: ICoreWebView2Controller2 = self.0.cast()?;
-        unsafe { source.SetDefaultBackgroundColor(color.to_raw()) }.ok()
+        unsafe { source.put_DefaultBackgroundColor(color.to_raw()) }.ok()
     }
 
     /// Returns the scale used to rasterize page content, which the browser
     /// derives from the monitor DPI.
     pub fn rasterization_scale(&self) -> Result<f64> {
         let source: ICoreWebView2Controller3 = self.0.cast()?;
-        unsafe { source.RasterizationScale() }
+        unsafe { source.get_RasterizationScale() }
     }
 
     /// Sets the scale used to rasterize page content.
@@ -199,7 +201,7 @@ impl Controller {
     /// override this value.
     pub fn set_rasterization_scale(&self, scale: f64) -> Result<()> {
         let source: ICoreWebView2Controller3 = self.0.cast()?;
-        unsafe { source.SetRasterizationScale(scale) }.ok()
+        unsafe { source.put_RasterizationScale(scale) }.ok()
     }
 
     /// Returns `true` if the browser updates the
@@ -207,7 +209,7 @@ impl Controller {
     /// monitor DPI changes.
     pub fn should_detect_monitor_scale_changes(&self) -> Result<bool> {
         let source: ICoreWebView2Controller3 = self.0.cast()?;
-        Ok(unsafe { source.ShouldDetectMonitorScaleChanges()? }.as_bool())
+        Ok(unsafe { source.get_ShouldDetectMonitorScaleChanges()? }.as_bool())
     }
 
     /// Sets whether the browser updates the
@@ -215,7 +217,7 @@ impl Controller {
     /// monitor DPI changes. Disable it to manage the scale yourself.
     pub fn set_should_detect_monitor_scale_changes(&self, detect: bool) -> Result<()> {
         let source: ICoreWebView2Controller3 = self.0.cast()?;
-        unsafe { source.SetShouldDetectMonitorScaleChanges(detect) }.ok()
+        unsafe { source.put_ShouldDetectMonitorScaleChanges(detect) }.ok()
     }
 
     /// Moves focus into the browser, as if focus arrived for the given

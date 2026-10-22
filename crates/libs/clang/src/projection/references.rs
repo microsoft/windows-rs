@@ -4,26 +4,24 @@ use windows_metadata::{AsRow, MethodImplAttributes, ParamAttributes, TypeAttribu
 
 /// Authoritative metadata and explicitly configured native namespace wrappers.
 ///
+/// Global native names are looked up across all supplied metadata namespaces.
 /// An empty prefix maps the metadata namespace directly; `"ABI"` maps its SDK ABI wrapper.
 /// Fully captured definitions support scalar method validation. Explicitly external definitions
 /// retain native identity and use-site checks; their member contracts belong to this metadata.
 pub struct References<'a> {
     pub metadata: &'a Index,
-    /// Metadata namespace subtree owning unqualified native COM names.
-    pub global_namespace: Option<&'a str>,
     pub native_prefixes: &'a [&'a str],
     /// A configured prefix on native delegate type names, such as the SDK's `"I"`.
     pub delegate_prefix: Option<&'a str>,
 }
 
 impl<'a> References<'a> {
-    fn is_global_namespace(&self, namespace: &str) -> bool {
-        self.global_namespace.is_some_and(|root| {
-            namespace == root
-                || namespace
-                    .strip_prefix(root)
-                    .is_some_and(|tail| tail.starts_with('.'))
-        })
+    pub fn new(metadata: &'a Index) -> Self {
+        Self {
+            metadata,
+            native_prefixes: &[""],
+            delegate_prefix: None,
+        }
     }
 
     /// Native COM names whose definitions can be owned by this metadata during capture.
@@ -35,15 +33,7 @@ impl<'a> References<'a> {
             .filter(|definition| com_type(*definition))
         {
             let namespace = definition.namespace().replace('.', "::");
-            if self.is_global_namespace(definition.namespace()) {
-                let native = definition.name().to_string();
-                if self.get(&native)? != Some(definition) {
-                    return Err(Error(format!(
-                        "external metadata identity differs for `{native}`"
-                    )));
-                }
-                names.insert(native);
-            }
+            names.insert(definition.name().to_string());
             let mut leaves = vec![definition.name().to_string()];
             if definition.category() == TypeCategory::Delegate
                 && let Some(prefix) = self.delegate_prefix
@@ -57,11 +47,6 @@ impl<'a> References<'a> {
                     } else {
                         format!("{prefix}::{namespace}::{leaf}")
                     };
-                    if self.get(&native)? != Some(definition) {
-                        return Err(Error(format!(
-                            "external metadata identity differs for `{native}`"
-                        )));
-                    }
                     names.insert(native);
                 }
             }
@@ -69,50 +54,55 @@ impl<'a> References<'a> {
         Ok(names)
     }
 
-    pub(super) fn get(&self, native: &str) -> Result<Option<TypeDef<'a>>, Error> {
+    fn get(&self, native: &str, target: Target) -> Result<Option<TypeDef<'a>>, Error> {
+        let mut candidates = Vec::new();
         if !native.contains("::") {
-            if self.global_namespace.is_none() {
-                return Ok(None);
+            candidates.extend(
+                self.metadata
+                    .namespaces()
+                    .flat_map(|namespace| self.metadata.get(namespace, native)),
+            );
+        } else {
+            for prefix in self.native_prefixes {
+                let qualified = if prefix.is_empty() {
+                    Some(native)
+                } else {
+                    native
+                        .strip_prefix(prefix)
+                        .and_then(|rest| rest.strip_prefix("::"))
+                };
+                let Some((namespace, name)) = qualified.and_then(|name| name.rsplit_once("::"))
+                else {
+                    continue;
+                };
+                let namespace = namespace.replace("::", ".");
+                let delegates = self
+                    .delegate_prefix
+                    .and_then(|prefix| name.strip_prefix(prefix))
+                    .into_iter()
+                    .flat_map(|name| self.metadata.get(&namespace, name))
+                    .filter(|definition| definition.category() == TypeCategory::Delegate);
+                candidates.extend(self.metadata.get(&namespace, name).chain(delegates));
             }
-            let mut definitions = self
-                .metadata
-                .namespaces()
-                .filter(|namespace| self.is_global_namespace(namespace))
-                .flat_map(|namespace| self.metadata.get(namespace, native))
-                .filter(|def| com_type(*def));
-            let result = definitions.next();
-            if definitions.next().is_some() {
-                return Err(Error(format!(
-                    "ambiguous external metadata ownership for `{native}`"
-                )));
-            }
-            return Ok(result);
         }
+        let architecture = match target {
+            Target::X86 => 1,
+            Target::X64 => 2,
+            Target::Arm64 => 4,
+        };
+        candidates.sort_by_key(|definition| (definition.namespace(), definition.name()));
         let mut result = None;
-        for prefix in self.native_prefixes {
-            let qualified = if prefix.is_empty() {
-                Some(native)
-            } else {
-                native
-                    .strip_prefix(prefix)
-                    .and_then(|rest| rest.strip_prefix("::"))
-            };
-            let Some((namespace, name)) = qualified.and_then(|name| name.rsplit_once("::")) else {
+        for definition in candidates {
+            if definition.arches() != 0 && definition.arches() & architecture == 0 {
                 continue;
-            };
-            let namespace = namespace.replace("::", ".");
-            let delegates = self
-                .delegate_prefix
-                .and_then(|prefix| name.strip_prefix(prefix))
-                .into_iter()
-                .flat_map(|name| self.metadata.get(&namespace, name))
-                .filter(|definition| definition.category() == TypeCategory::Delegate);
-            for definition in self.metadata.get(&namespace, name).chain(delegates) {
-                if result.replace(definition).is_some() {
-                    return Err(Error(format!(
-                        "ambiguous external metadata ownership for `{native}`"
-                    )));
-                }
+            }
+            if result == Some(definition) {
+                continue;
+            }
+            if let Some(previous) = result.replace(definition) {
+                return Err(Error(format!(
+                    "ambiguous external metadata ownership for `{native}`: {previous:?} and {definition:?}"
+                )));
             }
         }
         Ok(result)
@@ -122,8 +112,7 @@ impl<'a> References<'a> {
         &self,
         resolution: &Resolution<'_>,
         plan: &Plan,
-        rejected: &mut Option<&mut partial::Issues>,
-    ) -> Result<BTreeMap<usize, TypeDef<'a>>, Error> {
+    ) -> Result<Bindings<'a>, Error> {
         for prefix in self.native_prefixes {
             if !prefix.is_empty() {
                 for part in prefix.split("::") {
@@ -134,70 +123,139 @@ impl<'a> References<'a> {
         if let Some(prefix) = self.delegate_prefix {
             ident(prefix)?;
         }
-        let mut result = BTreeMap::new();
-        for group in &resolution.groups {
-            let name = resolution.name(group);
-            let Some(definition) = self.get(name)? else {
-                continue;
-            };
-            let reference = group.records[0];
-            let family = plan.family(reference.snapshot, reference.record);
-            if plan.families[family].len() != 1 || plan.owned[family] {
-                return Err(Error(format!(
-                    "external type `{name}` has a local public family"
-                )));
-            }
-            result.insert(family, definition);
-        }
-        for group in &resolution.enums {
-            let first = group.enums[0];
-            let name = &resolution.snapshots[first.snapshot].enums[first.enumeration.0].name;
-            if self.get(name)?.is_some() {
-                reject(
-                    rejected,
-                    [partial::Key::Tag(name.clone())],
-                    Error(format!("unsupported external enum contract for `{name}`")),
-                )?;
-            }
-        }
+        let target = resolution.snapshots[0].target;
+        let mut result = Bindings::default();
         for alias in &resolution.aliases {
-            let Some(definition) = self.get(&alias.name)? else {
+            if let Some(definition) = self.get(&alias.name, target)? {
+                result.aliases.insert(alias.name.clone(), definition);
+            }
+        }
+        for (family, groups) in plan.families.iter().enumerate() {
+            if groups.is_empty() || plan.owned[family] {
                 continue;
-            };
-            for reference in &alias.observations {
-                let snapshot = resolution.snapshots[reference.snapshot];
-                let observation =
-                    &snapshot.aliases[reference.alias.0].observations[reference.observation];
-                let TypeKind::Record(record) = snapshot.types[observation.canonical.0].kind else {
-                    reject(
-                        rejected,
-                        [partial::Key::Alias(alias.name.clone())],
-                        Error(format!(
-                            "unsupported external alias contract for `{}`",
-                            alias.name
-                        )),
-                    )?;
-                    continue;
-                };
-                if result.get(&plan.family(reference.snapshot, record)) != Some(&definition) {
+            }
+            let name = &plan.names[family];
+            let mut definition = self.get(name, target)?;
+            if definition.is_none() {
+                for &group in groups {
+                    if let Some(found) =
+                        self.get(resolution.name(&resolution.groups[group]), target)?
+                        && definition
+                            .replace(found)
+                            .is_some_and(|previous| previous != found)
+                    {
+                        return Err(Error(format!(
+                            "external family `{name}` changes metadata identity"
+                        )));
+                    }
+                }
+            }
+            if let Some(definition) = definition {
+                if com_type(definition) && groups.len() != 1 {
                     return Err(Error(format!(
-                        "external alias `{}` changes metadata identity",
-                        alias.name
+                        "external type `{name}` has a local public family"
                     )));
                 }
+                result.records.insert(family, definition);
+            }
+        }
+        for (family, groups) in plan.families.iter().enumerate() {
+            if groups.is_empty() || !plan.owned[family] {
+                continue;
+            }
+            let record = resolution.groups[groups[0]].records[0];
+            let snapshot = resolution.snapshots[record.snapshot];
+            let (owner, _) = snapshot.record_path(record.record);
+            let Some(&parent) = result.records.get(&plan.family(record.snapshot, owner)) else {
+                continue;
+            };
+            let mut definition = parent;
+            for name in plan.names[family].split('/').skip(1) {
+                definition = self
+                    .metadata
+                    .nested(definition)
+                    .find(|child| child.name() == name)
+                    .ok_or_else(|| {
+                        Error(format!(
+                            "missing referenced nested type `{}`",
+                            plan.names[family]
+                        ))
+                    })?;
+            }
+            result.records.insert(family, definition);
+        }
+        for (id, name) in plan.enum_names.iter().enumerate() {
+            if !plan.enum_constants(resolution, id)
+                && let Some(definition) = self.get(name, target)?
+            {
+                result.enums.insert(id, definition);
             }
         }
         Ok(result)
     }
 }
 
+#[derive(Default)]
+pub(super) struct Bindings<'a> {
+    pub records: BTreeMap<usize, TypeDef<'a>>,
+    pub enums: BTreeMap<usize, TypeDef<'a>>,
+    pub aliases: BTreeMap<String, TypeDef<'a>>,
+}
+
+impl Bindings<'_> {
+    pub fn definitions(&self) -> impl Iterator<Item = &TypeDef<'_>> {
+        self.records
+            .values()
+            .chain(self.enums.values())
+            .chain(self.aliases.values())
+    }
+
+    pub fn contains_alias(&self, snapshot: &Snapshot, id: TypeId) -> bool {
+        match snapshot.types[id.0].kind {
+            TypeKind::Alias(id) => {
+                let alias = &snapshot.aliases[id.0];
+                self.aliases.contains_key(&alias.name)
+                    || alias
+                        .observations
+                        .iter()
+                        .any(|observation| self.contains_alias(snapshot, observation.underlying))
+            }
+            TypeKind::Pointer(inner)
+            | TypeKind::Pointer64(inner)
+            | TypeKind::LValueReference(inner)
+            | TypeKind::Array { element: inner, .. }
+            | TypeKind::Attributed {
+                modified: inner, ..
+            } => self.contains_alias(snapshot, inner),
+            _ => false,
+        }
+    }
+}
+
+pub(super) fn metadata_type(definition: TypeDef<'_>) -> MetadataType {
+    match definition.category() {
+        TypeCategory::Struct | TypeCategory::Enum => {
+            MetadataType::ValueName(definition.full_name())
+        }
+        _ => MetadataType::ClassName(definition.full_name()),
+    }
+}
+
 impl Projector<'_, '_> {
     pub(super) fn interface_type(&self, snapshot: usize, record: RecordId) -> MetadataType {
         let family = self.plan.family(snapshot, record);
-        if let Some(definition) = self.external.get(&family) {
-            MetadataType::class_named(definition.namespace(), definition.name())
+        if let Some(definition) = self.external.records.get(&family) {
+            metadata_type(*definition)
         } else {
             MetadataType::class_named(self.namespace, &self.plan.names[family])
+        }
+    }
+
+    pub(super) fn callback_type(&self, name: &str) -> MetadataType {
+        if let Some(definition) = self.external.aliases.get(name) {
+            metadata_type(*definition)
+        } else {
+            MetadataType::class_named(self.namespace, name)
         }
     }
 
@@ -210,6 +268,7 @@ impl Projector<'_, '_> {
                 if record.external
                     && !self
                         .external
+                        .records
                         .contains_key(&self.plan.family(snapshot_id, RecordId(id)))
                 {
                     return Err(Error(format!(
@@ -219,7 +278,13 @@ impl Projector<'_, '_> {
                 }
             }
         }
-        for (&family, &metadata) in self.external {
+        for (&family, &metadata) in &self.external.records {
+            if matches!(
+                metadata.category(),
+                TypeCategory::Struct | TypeCategory::Enum
+            ) {
+                continue;
+            }
             let group = &self.resolution.groups[self.plan.families[family][0]];
             let name = self.resolution.name(group);
             if matches!(

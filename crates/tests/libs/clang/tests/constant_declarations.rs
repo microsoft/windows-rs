@@ -39,7 +39,7 @@ fn declarations_and_definitions() {
     for _ in 0..2 {
         let output = projection::generate(&inputs, "Fixture").unwrap();
         assert_eq!(output.constants, 3);
-        assert_eq!(output.partitions["foundation"].rdl, expected);
+        assert_eq!(output.partitions["shared"].rdl, expected);
         let partial = projection::generate_partial(&inputs, "Fixture").unwrap();
         assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
         assert_eq!(output, partial.output);

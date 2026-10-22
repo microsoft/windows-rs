@@ -7,8 +7,7 @@ pub(crate) const WEB_RESOURCE_CONTEXT_ALL: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 0
 
 /// Request sources matching every kind (`COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL`),
 /// so a filter also intercepts requests from iframes and workers.
-const WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
-    u32::MAX;
+const WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = -1;
 
 /// Registers a filter for every request source when the runtime supports it.
 pub(crate) unsafe fn add_requested_filter(
@@ -52,12 +51,12 @@ pub struct WebResourceRequest(pub(crate) ICoreWebView2WebResourceRequest);
 impl WebResourceRequest {
     /// Returns the absolute URI of the requested resource.
     pub fn uri(&self) -> String {
-        unsafe { string::take_result(self.0.Uri()) }
+        unsafe { string::take_result(self.0.get_Uri()) }
     }
 
     /// Returns the HTTP method of the request, such as `GET` or `POST`.
     pub fn method(&self) -> String {
-        unsafe { string::take_result(self.0.Method()) }
+        unsafe { string::take_result(self.0.get_Method()) }
     }
 
     /// Returns the request headers as `(name, value)` pairs.
@@ -66,10 +65,10 @@ impl WebResourceRequest {
     }
 
     unsafe fn collect_headers(&self) -> Result<Vec<(String, String)>> {
-        let iterator = unsafe { self.0.Headers()?.GetIterator()? };
+        let iterator = unsafe { self.0.get_Headers()?.GetIterator()? };
         let mut headers = Vec::new();
 
-        while unsafe { iterator.HasCurrentHeader()? }.as_bool() {
+        while unsafe { iterator.get_HasCurrentHeader()? }.as_bool() {
             let mut name = PWSTR::null();
             let mut value = PWSTR::null();
             unsafe { iterator.GetCurrentHeader(&mut name, &mut value).ok()? };
@@ -190,11 +189,11 @@ impl ICoreWebView2WebResourceRequestedEventHandler_Impl for WebResourceRequested
         args: Ref<ICoreWebView2WebResourceRequestedEventArgs>,
     ) -> Result<()> {
         let args = args.ok()?;
-        let request = WebResourceRequest(unsafe { args.Request()? });
+        let request = WebResourceRequest(unsafe { args.get_Request()? });
 
         if let Some(response) = (*self.handler.borrow_mut())(request) {
             let response = unsafe { response.into_response(&self.environment)? };
-            unsafe { args.SetResponse(&response).ok()? };
+            unsafe { args.put_Response(&response).ok()? };
         }
 
         Ok(())

@@ -303,7 +303,6 @@ fn sdk_namespaces_case(consumers: bool) {
     let reference_path = root.join("crates\\libs\\default\\Windows.winmd");
     let metadata = windows_metadata::reader::Index::read(&reference_path).unwrap();
     let references = projection::References {
-        global_namespace: None,
         metadata: &metadata,
         native_prefixes: &["", "ABI"],
         delegate_prefix: Some("I"),

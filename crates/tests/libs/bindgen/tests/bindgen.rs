@@ -39,6 +39,62 @@ fn run(name: &str) {
 }
 
 #[test]
+fn nested_dependency_styles() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("nested_dependency_styles");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/struct_nested_dependency.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    for style in ["default", "minimal", "sys"] {
+        for (flat, filter) in [
+            (false, "Consumer.Value"),
+            (true, "Consumer.Value"),
+            (false, "Consumer"),
+        ] {
+            let output = scratch.join(format!("{style}-{flat}-{filter}.rs"));
+            let mut builder = windows_bindgen::builder();
+            builder.input(&winmd).filter(filter).output(&output);
+            match style {
+                "minimal" => {
+                    builder.minimal();
+                }
+                "sys" => {
+                    builder.sys();
+                }
+                _ => {}
+            }
+            if flat {
+                builder.flat();
+            }
+            builder.write();
+            let result = std::process::Command::new("rustc")
+                .args([
+                    "--crate-name",
+                    "nested_dependency",
+                    "--crate-type=lib",
+                    "--edition=2024",
+                    "--emit=metadata",
+                    "-Dwarnings",
+                    "-Anonstandard_style",
+                ])
+                .arg(&output)
+                .arg("-o")
+                .arg(scratch.join("output.rmeta"))
+                .output()
+                .unwrap();
+            assert!(
+                result.status.success(),
+                "{style} {flat} {filter}: {}",
+                String::from_utf8_lossy(&result.stderr)
+            );
+        }
+    }
+}
+
+#[test]
 fn fixed_pointer_styles() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("fixed_pointer_styles");
     std::fs::create_dir_all(&scratch).unwrap();

@@ -152,6 +152,15 @@ impl CombineClosure for Type {
             return;
         }
 
+        if let Self::CppStruct(ty) = ty
+            && let Some(owner) = ty.enclosing
+        {
+            for owner in reader.with_full_name(owner.namespace(), owner.name()) {
+                owner.combine_closure(types, reader, references);
+            }
+            return;
+        }
+
         // Referenced crates own the outer type, but generic arguments may be local.
         let tn = ty.type_name();
         if !tn.namespace().is_empty() && references.contains(tn).is_some() {
@@ -210,11 +219,7 @@ impl CombineClosure for Type {
                 }
             }
             Self::CppStruct(s) => {
-                for field in s.def.fields() {
-                    let field_ty = field.field_type(Some(s), reader);
-                    field_ty.combine_closure(types, reader, references);
-                }
-                for ty in s.bitfield_types(reader) {
+                for ty in s.definition_types(reader) {
                     ty.combine_closure(types, reader, references);
                 }
             }

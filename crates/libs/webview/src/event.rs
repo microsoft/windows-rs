@@ -7,12 +7,12 @@ pub struct NavigationCompletedArgs(pub(crate) ICoreWebView2NavigationCompletedEv
 impl NavigationCompletedArgs {
     /// Returns `true` if the navigation succeeded.
     pub fn is_success(&self) -> bool {
-        unsafe { self.0.IsSuccess() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_IsSuccess() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Returns the unique identifier for the navigation.
     pub fn navigation_id(&self) -> u64 {
-        unsafe { self.0.NavigationId() }.unwrap_or(0)
+        unsafe { self.0.get_NavigationId() }.unwrap_or(0)
     }
 }
 
@@ -22,33 +22,33 @@ pub struct NavigationStartingArgs(pub(crate) ICoreWebView2NavigationStartingEven
 impl NavigationStartingArgs {
     /// Returns the URI the navigation is targeting.
     pub fn uri(&self) -> String {
-        unsafe { string::take_result(self.0.Uri()) }
+        unsafe { string::take_result(self.0.get_Uri()) }
     }
 
     /// Returns `true` if the navigation was initiated by the user (for example a
     /// link click) rather than by script.
     pub fn is_user_initiated(&self) -> bool {
-        unsafe { self.0.IsUserInitiated() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_IsUserInitiated() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Returns `true` if the navigation is a redirect.
     pub fn is_redirected(&self) -> bool {
-        unsafe { self.0.IsRedirected() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_IsRedirected() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Returns the unique identifier for the navigation.
     pub fn navigation_id(&self) -> u64 {
-        unsafe { self.0.NavigationId() }.unwrap_or(0)
+        unsafe { self.0.get_NavigationId() }.unwrap_or(0)
     }
 
     /// Returns `true` if the navigation is currently marked to be canceled.
     pub fn is_cancelled(&self) -> bool {
-        unsafe { self.0.Cancel() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_Cancel() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Sets whether the navigation is canceled.
     pub fn set_cancel(&self, cancel: bool) -> Result<()> {
-        unsafe { self.0.SetCancel(cancel) }.ok()
+        unsafe { self.0.put_Cancel(cancel) }.ok()
     }
 }
 
@@ -59,13 +59,13 @@ pub struct WebMessageReceivedArgs(pub(crate) ICoreWebView2WebMessageReceivedEven
 impl WebMessageReceivedArgs {
     /// Returns the URI of the document that sent the message.
     pub fn source(&self) -> String {
-        unsafe { string::take_result(self.0.Source()) }
+        unsafe { string::take_result(self.0.get_Source()) }
     }
 
     /// Returns the message serialized as a JSON string. Messages sent with
     /// `window.chrome.webview.postMessage` arrive here regardless of type.
     pub fn web_message_as_json(&self) -> String {
-        unsafe { string::take_result(self.0.WebMessageAsJson()) }
+        unsafe { string::take_result(self.0.get_WebMessageAsJson()) }
     }
 
     /// Returns the message as a string. Fails if the page posted a value that is
@@ -83,12 +83,12 @@ pub struct ContentLoadingArgs(pub(crate) ICoreWebView2ContentLoadingEventArgs);
 impl ContentLoadingArgs {
     /// Returns `true` if the loading content is the error page.
     pub fn is_error_page(&self) -> bool {
-        unsafe { self.0.IsErrorPage() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_IsErrorPage() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Returns the unique identifier for the navigation.
     pub fn navigation_id(&self) -> u64 {
-        unsafe { self.0.NavigationId() }.unwrap_or(0)
+        unsafe { self.0.get_NavigationId() }.unwrap_or(0)
     }
 }
 
@@ -98,31 +98,31 @@ pub struct NewWindowRequestedArgs(pub(crate) ICoreWebView2NewWindowRequestedEven
 impl NewWindowRequestedArgs {
     /// Returns the URI the new window would navigate to.
     pub fn uri(&self) -> String {
-        unsafe { string::take_result(self.0.Uri()) }
+        unsafe { string::take_result(self.0.get_Uri()) }
     }
 
     /// Returns `true` if the request was initiated by the user rather than by
     /// script.
     pub fn is_user_initiated(&self) -> bool {
-        unsafe { self.0.IsUserInitiated() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_IsUserInitiated() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Returns `true` if the request has been marked as handled.
     pub fn is_handled(&self) -> bool {
-        unsafe { self.0.Handled() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_Handled() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Marks the request as handled, suppressing the creation of a default new
     /// window. Set this (without providing a [new window](Self::set_new_window))
     /// to block the popup entirely.
     pub fn set_handled(&self, handled: bool) -> Result<()> {
-        unsafe { self.0.SetHandled(handled) }.ok()
+        unsafe { self.0.put_Handled(handled) }.ok()
     }
 
     /// Provides an existing [`WebView`] to host the requested content instead of
     /// creating a new window.
     pub fn set_new_window(&self, webview: &WebView) -> Result<()> {
-        unsafe { self.0.SetNewWindow(&webview.0) }.ok()
+        unsafe { self.0.put_NewWindow(&webview.0) }.ok()
     }
 
     /// Takes a [`Deferral`] so the request can be resolved after the handler
@@ -222,28 +222,29 @@ pub struct PermissionRequestedArgs(pub(crate) ICoreWebView2PermissionRequestedEv
 impl PermissionRequestedArgs {
     /// Returns the URI of the page requesting the permission.
     pub fn uri(&self) -> String {
-        unsafe { string::take_result(self.0.Uri()) }
+        unsafe { string::take_result(self.0.get_Uri()) }
     }
 
     /// Returns the kind of permission being requested.
     pub fn kind(&self) -> PermissionKind {
-        unsafe { self.0.PermissionKind() }.map_or(PermissionKind::Unknown, PermissionKind::from_raw)
+        unsafe { self.0.get_PermissionKind() }
+            .map_or(PermissionKind::Unknown, PermissionKind::from_raw)
     }
 
     /// Returns `true` if the request was initiated by the user rather than by
     /// script.
     pub fn is_user_initiated(&self) -> bool {
-        unsafe { self.0.IsUserInitiated() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_IsUserInitiated() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Returns the current resolution state of the request.
     pub fn state(&self) -> PermissionState {
-        unsafe { self.0.State() }.map_or(PermissionState::Default, PermissionState::from_raw)
+        unsafe { self.0.get_State() }.map_or(PermissionState::Default, PermissionState::from_raw)
     }
 
     /// Sets how the request should be resolved.
     pub fn set_state(&self, state: PermissionState) -> Result<()> {
-        unsafe { self.0.SetState(state.to_raw()) }.ok()
+        unsafe { self.0.put_State(state.to_raw()) }.ok()
     }
 
     /// Takes a [`Deferral`] so the request can be resolved after the handler
@@ -307,7 +308,7 @@ pub struct ProcessFailedArgs(pub(crate) ICoreWebView2ProcessFailedEventArgs);
 impl ProcessFailedArgs {
     /// Returns which kind of process failed.
     pub fn kind(&self) -> ProcessFailedKind {
-        unsafe { self.0.ProcessFailedKind() }
+        unsafe { self.0.get_ProcessFailedKind() }
             .map_or(ProcessFailedKind::Unknown, ProcessFailedKind::from_raw)
     }
 }
@@ -348,18 +349,19 @@ pub struct MoveFocusRequestedArgs(pub(crate) ICoreWebView2MoveFocusRequestedEven
 impl MoveFocusRequestedArgs {
     /// Returns the direction focus is moving.
     pub fn reason(&self) -> MoveFocusReason {
-        unsafe { self.0.Reason() }.map_or(MoveFocusReason::Programmatic, MoveFocusReason::from_raw)
+        unsafe { self.0.get_Reason() }
+            .map_or(MoveFocusReason::Programmatic, MoveFocusReason::from_raw)
     }
 
     /// Returns `true` if the request has been marked as handled.
     pub fn is_handled(&self) -> bool {
-        unsafe { self.0.Handled() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_Handled() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Marks the request as handled, indicating the host moved focus itself and
     /// WebView2 should not apply its default focus behavior.
     pub fn set_handled(&self, handled: bool) -> Result<()> {
-        unsafe { self.0.SetHandled(handled) }.ok()
+        unsafe { self.0.put_Handled(handled) }.ok()
     }
 }
 
@@ -394,23 +396,23 @@ impl AcceleratorKeyPressedArgs {
     /// Returns whether the key was pressed or released, and whether it is a
     /// system key.
     pub fn key_event_kind(&self) -> KeyEventKind {
-        unsafe { self.0.KeyEventKind() }.map_or(KeyEventKind::KeyDown, KeyEventKind::from_raw)
+        unsafe { self.0.get_KeyEventKind() }.map_or(KeyEventKind::KeyDown, KeyEventKind::from_raw)
     }
 
     /// Returns the Win32 virtual-key code of the key.
     pub fn virtual_key(&self) -> u32 {
-        unsafe { self.0.VirtualKey() }.unwrap_or(0)
+        unsafe { self.0.get_VirtualKey() }.unwrap_or(0)
     }
 
     /// Returns `true` if the key has been marked as handled.
     pub fn is_handled(&self) -> bool {
-        unsafe { self.0.Handled() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_Handled() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Marks the key as handled, preventing WebView2's default processing so the
     /// host can act on the shortcut itself.
     pub fn set_handled(&self, handled: bool) -> Result<()> {
-        unsafe { self.0.SetHandled(handled) }.ok()
+        unsafe { self.0.put_Handled(handled) }.ok()
     }
 }
 
@@ -425,7 +427,7 @@ impl DevToolsProtocolEventReceivedArgs {
     /// Returns the event's parameter object as a JSON string, matching the
     /// `params` of the corresponding CDP event.
     pub fn parameter_object_as_json(&self) -> String {
-        unsafe { string::take_result(self.0.ParameterObjectAsJson()) }
+        unsafe { string::take_result(self.0.get_ParameterObjectAsJson()) }
     }
 }
 

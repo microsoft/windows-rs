@@ -16,7 +16,6 @@ fn native_definition_ownership() {
     let metadata = windows_metadata::reader::Index::read(&path).unwrap();
     let references = projection::References {
         metadata: &metadata,
-        global_namespace: Some("External"),
         native_prefixes: &[],
         delegate_prefix: None,
     };
@@ -102,11 +101,21 @@ fn native_definition_ownership() {
         metadata: &metadata,
         ..references
     };
+    let mut input = selected_fixture("native_reference", &["Local"]);
+    input.external_interfaces = references.native_interfaces().unwrap();
+    let snapshots = capture(&[input], &[Target::X86, Target::X64, Target::Arm64]).unwrap();
+    let error = projection::project_with_options(
+        &merge(&snapshots).unwrap(),
+        "Fixture",
+        &projection::Options {
+            references: Some(&references),
+            ..Default::default()
+        },
+    )
+    .unwrap_err()
+    .to_string();
     assert!(
-        references
-            .native_interfaces()
-            .unwrap_err()
-            .to_string()
-            .contains("ambiguous external metadata ownership")
+        error.contains("ambiguous external metadata ownership"),
+        "{error}"
     );
 }

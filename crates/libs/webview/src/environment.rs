@@ -36,7 +36,7 @@ impl Environment {
         handler: F,
     ) -> Result<()> {
         validate_parent(parent)?;
-        let handler = handler::ControllerCompleted::create(handler);
+        let handler = Some(handler::ControllerCompleted::create(handler));
         unsafe { self.0.CreateCoreWebView2Controller(parent.cast(), &handler) }.ok()
     }
 

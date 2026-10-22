@@ -823,7 +823,7 @@ fn rejections() {
     let mut second = selected_fixture("projection_types", &["Node"]);
     second.name = "other.h".into();
     let output = projection::generate(&[first, second], "Fixture").unwrap();
-    assert!(output.partitions["foundation"].rdl.contains("struct Node"));
+    assert!(output.partitions["shared"].rdl.contains("struct Node"));
     let input = selected_fixture("projection", &["Node"]);
     let snapshots = capture(&[input], &[Target::X86]).unwrap();
     assert!(projection::project(&merge(&snapshots).unwrap(), "Fixture").is_err());

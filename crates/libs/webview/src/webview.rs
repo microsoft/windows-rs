@@ -123,7 +123,7 @@ impl WebView {
     /// supply.
     pub fn navigate_with_request(&self, request: &NavigationRequest) -> Result<()> {
         let source: ICoreWebView2_2 = self.0.cast()?;
-        let environment: ICoreWebView2Environment2 = unsafe { source.Environment()? }.cast()?;
+        let environment: ICoreWebView2Environment2 = unsafe { source.get_Environment()? }.cast()?;
 
         let uri = HSTRING::from(&request.uri);
         let method = HSTRING::from(&request.method);
@@ -176,12 +176,12 @@ impl WebView {
 
     /// Returns the URI of the current top-level document.
     pub fn source(&self) -> String {
-        unsafe { string::take_result(self.0.Source()) }
+        unsafe { string::take_result(self.0.get_Source()) }
     }
 
     /// Returns the title of the current top-level document.
     pub fn document_title(&self) -> String {
-        unsafe { string::take_result(self.0.DocumentTitle()) }
+        unsafe { string::take_result(self.0.get_DocumentTitle()) }
     }
 
     /// Maps a virtual host name to a local folder so the page can load its files
@@ -215,27 +215,27 @@ impl WebView {
     /// browser's cookies.
     pub fn cookie_manager(&self) -> Result<CookieManager> {
         let source: ICoreWebView2_2 = self.0.cast()?;
-        Ok(CookieManager(unsafe { source.CookieManager()? }))
+        Ok(CookieManager(unsafe { source.get_CookieManager()? }))
     }
 
     /// Returns the [`Profile`] this browser belongs to, exposing its color
     /// scheme, download folder, and browsing-data controls.
     pub fn profile(&self) -> Result<Profile> {
         let source: ICoreWebView2_13 = self.0.cast()?;
-        Ok(Profile(unsafe { source.Profile()? }))
+        Ok(Profile(unsafe { source.get_Profile()? }))
     }
 
     /// Returns `true` if the page currently has an element displayed full screen
     /// (for example a video using the HTML Fullscreen API).
     pub fn contains_fullscreen_element(&self) -> bool {
-        unsafe { self.0.ContainsFullScreenElement() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_ContainsFullScreenElement() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Returns the memory-usage level WebView2 is targeting.
     pub fn memory_usage_target_level(&self) -> Result<MemoryUsageTargetLevel> {
         let source: ICoreWebView2_19 = self.0.cast()?;
         Ok(MemoryUsageTargetLevel::from_raw(unsafe {
-            source.MemoryUsageTargetLevel()?
+            source.get_MemoryUsageTargetLevel()?
         }))
     }
 
@@ -244,13 +244,13 @@ impl WebView {
     /// browser can trim memory, and back to `Normal` when it is shown again.
     pub fn set_memory_usage_target_level(&self, level: MemoryUsageTargetLevel) -> Result<()> {
         let source: ICoreWebView2_19 = self.0.cast()?;
-        unsafe { source.SetMemoryUsageTargetLevel(level.to_raw()) }.ok()
+        unsafe { source.put_MemoryUsageTargetLevel(level.to_raw()) }.ok()
     }
 
     /// Returns the [`Settings`] controlling features such as JavaScript, the dev
     /// tools, and context menus.
     pub fn settings(&self) -> Result<Settings> {
-        unsafe { Ok(Settings(self.0.Settings()?)) }
+        unsafe { Ok(Settings(self.0.get_Settings()?)) }
     }
 
     /// Asynchronously runs JavaScript in the context of the current page. The
@@ -458,7 +458,7 @@ impl WebView {
     where
         F: FnMut(WebResourceRequest) -> Option<WebResourceResponse> + 'static,
     {
-        let environment = unsafe { self.0.cast::<ICoreWebView2_2>()?.Environment()? };
+        let environment = unsafe { self.0.cast::<ICoreWebView2_2>()?.get_Environment()? };
         let filter = HSTRING::from(uri_filter);
         unsafe { protocol::add_requested_filter(&self.0, &filter)? };
         let handler = protocol::WebResourceRequested::create(environment, handler);

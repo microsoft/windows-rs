@@ -207,7 +207,7 @@ pub fn generate(inputs: &[Input], namespace: &str) -> Result<Output, Error> {
 /// Projects supported definitions, preserving target variants and checking metadata ABI layout.
 ///
 /// Checked by-value alias families share a public record, without merging native identities.
-/// Other reachable value names remain transparent aliases. Shared ownership uses foundation.rdl.
+/// Other reachable value names remain transparent aliases. Shared ownership uses shared.rdl.
 pub fn project(merged: &Merged<'_>, namespace: &str) -> Result<Output, Error> {
     project_with_imports(merged, namespace, &Imports::default())
 }
@@ -269,12 +269,12 @@ fn project_impl(
         let plan = Plan::new(resolution)?;
         let external = options
             .references
-            .map(|references| references.bind(resolution, &plan, &mut rejected))
+            .map(|references| references.bind(resolution, &plan))
             .transpose()?
             .unwrap_or_default();
         external_names.extend(
             external
-                .values()
+                .definitions()
                 .filter(|definition| definition.namespace() == namespace)
                 .map(|definition| definition.name().to_string()),
         );
@@ -339,7 +339,6 @@ fn project_impl(
         publication::aliases(
             &projector,
             target,
-            options.references,
             &root_aliases,
             &mut published,
             &mut declarations,
@@ -457,7 +456,7 @@ struct Projector<'a, 'b> {
     namespace: &'a str,
     resolution: &'a Resolution<'b>,
     plan: &'a Plan,
-    external: &'a BTreeMap<usize, windows_metadata::reader::TypeDef<'a>>,
+    external: &'a references::Bindings<'a>,
 }
 
 fn publishable_alias(snapshot: &Snapshot, observation: &AliasObservation) -> bool {
@@ -791,6 +790,9 @@ impl Projector<'_, '_> {
             self.interface_type(snapshot_id, record)
         } else if callback_parameters(snapshot, observation).is_some()
             || has_fixed_pointer(snapshot, observation.underlying)
+            || self
+                .external
+                .contains_alias(snapshot, observation.underlying)
             || !inherited.is_empty()
         {
             self.written_ty(snapshot_id, observation.underlying, observation.canonical)?
@@ -999,7 +1001,7 @@ impl Projector<'_, '_> {
         {
             checked_type(snapshot, canonical)?;
             if let Some(name) = function_alias_name(snapshot, written) {
-                return Ok(MetadataType::class_named(self.namespace, name));
+                return Ok(self.callback_type(name));
             }
             return self.function_pointer(
                 snapshot_id,
@@ -1047,12 +1049,27 @@ impl Projector<'_, '_> {
             || matches!(native.kind, TypeKind::Pointer64(_));
         Ok(match &snapshot.types[written.0].kind {
             TypeKind::Alias(id)
-                if snapshot.aliases[id.0]
-                    .observations
-                    .iter()
-                    .any(|observation| publishable_alias(snapshot, observation)) =>
+                if self
+                    .external
+                    .aliases
+                    .contains_key(&snapshot.aliases[id.0].name)
+                    || snapshot.aliases[id.0]
+                        .observations
+                        .iter()
+                        .any(|observation| publishable_alias(snapshot, observation)) =>
             {
                 let alias = &snapshot.aliases[id.0];
+                if let Some(definition) = self.external.aliases.get(&alias.name) {
+                    if let TypeKind::Record(record) = native.kind
+                        && self.interface_record(snapshot_id, record)
+                    {
+                        return Err(Error("interface values require a native pointer".into()));
+                    }
+                    if matches!(native.kind, TypeKind::Function(_)) {
+                        return Err(Error("function values require a native pointer".into()));
+                    }
+                    return Ok(references::metadata_type(*definition));
+                }
                 if callback_parameters(snapshot, &alias.observations[0]).is_none() {
                     self.ty(snapshot_id, canonical)?;
                 }
@@ -1098,7 +1115,7 @@ impl Projector<'_, '_> {
                 }
                 if let TypeKind::Function(function) = &snapshot.types[pointee.0].kind {
                     if let Some(name) = function_alias_name(snapshot, *written) {
-                        return Ok(MetadataType::class_named(self.namespace, name));
+                        return Ok(self.callback_type(name));
                     }
                     self.function_pointer(
                         snapshot_id,
@@ -1156,7 +1173,7 @@ impl Projector<'_, '_> {
             })
             .conventions(self.resolution.snapshots[snapshot])?;
         if let Some(name) = self.plan.callbacks[snapshot].get(&(id, conventions)) {
-            Ok(MetadataType::class_named(self.namespace, name))
+            Ok(self.callback_type(name))
         } else if function.noreturn {
             Err(Error(
                 "noreturn function pointer requires a named callback to retain its contract".into(),
@@ -1264,6 +1281,14 @@ impl Projector<'_, '_> {
                     .map_err(|_| Error("array extent exceeds host size".into()))?,
             ),
             TypeKind::Record(record) => {
+                if let Some(definition) = self
+                    .external
+                    .records
+                    .get(&self.plan.family(snapshot_id, *record))
+                    && !self.interface_record(snapshot_id, *record)
+                {
+                    return Ok(references::metadata_type(*definition));
+                }
                 if self
                     .uuid_tag(self.resolution.group(RecordRef {
                         snapshot: snapshot_id,
@@ -1281,6 +1306,9 @@ impl Projector<'_, '_> {
             }
             TypeKind::Enum(id) => {
                 let group = self.resolution.enum_groups[snapshot_id][id.0];
+                if let Some(definition) = self.external.enums.get(&group) {
+                    return Ok(references::metadata_type(*definition));
+                }
                 if self.plan.enum_constants(self.resolution, group) {
                     return Err(Error("anonymous enum has no public type name".into()));
                 }
@@ -1464,7 +1492,7 @@ fn insert(
     }
     let shared = headers.len() > 1;
     let stem = if shared {
-        "foundation".to_string()
+        "shared".to_string()
     } else {
         let header = headers.first().unwrap();
         let stem = std::path::Path::new(header)
@@ -1479,9 +1507,9 @@ fn insert(
         if stem.is_empty() {
             return Err(Error(format!("empty header partition for `{header}`")));
         }
-        if stem == "foundation" {
+        if stem == "shared" {
             return Err(Error(format!(
-                "header `{header}` collides with reserved foundation partition"
+                "header `{header}` collides with reserved shared partition"
             )));
         }
         stem

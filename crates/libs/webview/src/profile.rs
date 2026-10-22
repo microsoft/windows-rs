@@ -36,40 +36,40 @@ pub struct Profile(pub(crate) ICoreWebView2Profile);
 impl Profile {
     /// Returns the profile's name.
     pub fn name(&self) -> String {
-        unsafe { string::take_result(self.0.ProfileName()) }
+        unsafe { string::take_result(self.0.get_ProfileName()) }
     }
 
     /// Returns `true` if the profile runs in private (incognito) mode.
     pub fn is_in_private_mode(&self) -> bool {
-        unsafe { self.0.IsInPrivateModeEnabled() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_IsInPrivateModeEnabled() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Returns the absolute path of the profile's on-disk directory.
     pub fn path(&self) -> String {
-        unsafe { string::take_result(self.0.ProfilePath()) }
+        unsafe { string::take_result(self.0.get_ProfilePath()) }
     }
 
     /// Returns the folder downloads are saved to by default.
     pub fn default_download_folder_path(&self) -> String {
-        unsafe { string::take_result(self.0.DefaultDownloadFolderPath()) }
+        unsafe { string::take_result(self.0.get_DefaultDownloadFolderPath()) }
     }
 
     /// Sets the folder downloads are saved to by default.
     pub fn set_default_download_folder_path(&self, path: &str) -> Result<()> {
         let path = HSTRING::from(path);
-        unsafe { self.0.SetDefaultDownloadFolderPath(&path) }.ok()
+        unsafe { self.0.put_DefaultDownloadFolderPath(&path) }.ok()
     }
 
     /// Returns the color scheme reported to pages.
     pub fn preferred_color_scheme(&self) -> PreferredColorScheme {
-        unsafe { self.0.PreferredColorScheme() }
+        unsafe { self.0.get_PreferredColorScheme() }
             .map_or(PreferredColorScheme::Auto, PreferredColorScheme::from_raw)
     }
 
     /// Sets the color scheme reported to pages through `prefers-color-scheme`,
     /// driving a site's light/dark theme.
     pub fn set_preferred_color_scheme(&self, scheme: PreferredColorScheme) -> Result<()> {
-        unsafe { self.0.SetPreferredColorScheme(scheme.to_raw()) }.ok()
+        unsafe { self.0.put_PreferredColorScheme(scheme.to_raw()) }.ok()
     }
 
     /// Asynchronously clears all of the profile's browsing data (cookies, cache,

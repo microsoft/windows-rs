@@ -69,19 +69,19 @@ impl Cookie {
 
     fn from_com(cookie: &ICoreWebView2Cookie) -> Result<Self> {
         unsafe {
-            let expires = if cookie.IsSession()?.as_bool() {
+            let expires = if cookie.get_IsSession()?.as_bool() {
                 None
             } else {
-                Some(cookie.Expires()?)
+                Some(cookie.get_Expires()?)
             };
             Ok(Self {
-                name: string::take(cookie.Name()?),
-                value: string::take(cookie.Value()?),
-                domain: string::take(cookie.Domain()?),
-                path: string::take(cookie.Path()?),
-                is_secure: cookie.IsSecure()?.as_bool(),
-                is_http_only: cookie.IsHttpOnly()?.as_bool(),
-                same_site: SameSite::from_raw(cookie.SameSite()?),
+                name: string::take(cookie.get_Name()?),
+                value: string::take(cookie.get_Value()?),
+                domain: string::take(cookie.get_Domain()?),
+                path: string::take(cookie.get_Path()?),
+                is_secure: cookie.get_IsSecure()?.as_bool(),
+                is_http_only: cookie.get_IsHttpOnly()?.as_bool(),
+                same_site: SameSite::from_raw(cookie.get_SameSite()?),
                 expires,
             })
         }
@@ -115,11 +115,11 @@ impl CookieManager {
         let path = HSTRING::from(&cookie.path);
         unsafe {
             let raw = self.0.CreateCookie(&name, &value, &domain, &path)?;
-            raw.SetIsSecure(cookie.is_secure).ok()?;
-            raw.SetIsHttpOnly(cookie.is_http_only).ok()?;
-            raw.SetSameSite(cookie.same_site.to_raw()).ok()?;
+            raw.put_IsSecure(cookie.is_secure).ok()?;
+            raw.put_IsHttpOnly(cookie.is_http_only).ok()?;
+            raw.put_SameSite(cookie.same_site.to_raw()).ok()?;
             if let Some(expires) = cookie.expires {
-                raw.SetExpires(expires).ok()?;
+                raw.put_Expires(expires).ok()?;
             }
             self.0.AddOrUpdateCookie(&raw).ok()
         }
@@ -152,7 +152,7 @@ impl CookieManager {
 }
 
 pub(crate) fn collect(list: &ICoreWebView2CookieList) -> Result<Vec<Cookie>> {
-    let count = unsafe { list.Count()? };
+    let count = unsafe { list.get_Count()? };
     let mut cookies = Vec::with_capacity(count as usize);
     for index in 0..count {
         let cookie = unsafe { list.GetValueAtIndex(index)? };

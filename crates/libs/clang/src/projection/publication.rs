@@ -281,7 +281,7 @@ pub(super) fn records<'a>(
     let plan = projector.plan;
     let external = projector.external;
     for (id, family) in plan.families.iter().enumerate() {
-        if family.is_empty() || plan.owned[id] || external.contains_key(&id) {
+        if family.is_empty() || plan.owned[id] || external.records.contains_key(&id) {
             continue;
         }
         if projector.uuid_tag(&resolution.groups[family[0]]).is_some() {
@@ -376,6 +376,9 @@ pub(super) fn enums<'a>(
     let resolution = projector.resolution;
     let plan = projector.plan;
     for (id, group) in resolution.enums.iter().enumerate() {
+        if projector.external.enums.contains_key(&id) {
+            continue;
+        }
         let name = &plan.enum_names[id];
         if plan.enum_constants(resolution, id) {
             let first = group.enums[0];
@@ -495,7 +498,6 @@ pub(super) fn enums<'a>(
 pub(super) fn aliases<'a>(
     projector: &Projector<'a, '_>,
     target: Target,
-    references: Option<&References<'_>>,
     root_aliases: &HashSet<&str>,
     published: &mut HashSet<&'a str>,
     declarations: &mut BTreeMap<PublicName, Declaration>,
@@ -505,6 +507,9 @@ pub(super) fn aliases<'a>(
     let plan = projector.plan;
     let external = projector.external;
     for (id, alias) in resolution.aliases.iter().enumerate() {
+        if external.aliases.contains_key(&alias.name) {
+            continue;
+        }
         if alias.observations.iter().any(|reference| {
             !resolve::alignments(
                 &resolution.snapshots[reference.snapshot].aliases[reference.alias.0].observations
@@ -521,26 +526,6 @@ pub(super) fn aliases<'a>(
                     alias.name
                 )),
             )?;
-            continue;
-        }
-        if let Some(references) = references
-            && references.get(&alias.name)?.is_some()
-        {
-            if alias.observations.iter().any(|reference| {
-                !resolution.snapshots[reference.snapshot].aliases[reference.alias.0].observations
-                    [reference.observation]
-                    .attributes
-                    .is_empty()
-            }) {
-                reject(
-                    rejected,
-                    [partial::Key::Alias(alias.name.clone())],
-                    Error(format!(
-                        "attributed external alias `{}` is unsupported",
-                        alias.name
-                    )),
-                )?;
-            }
             continue;
         }
         let first = alias_source(resolution, alias).unwrap_or(alias.observations[0]);
@@ -599,7 +584,7 @@ pub(super) fn aliases<'a>(
             || (!root_aliases.contains(alias.name.as_str())
                 && !publishable_alias(snapshot, observation))
             || plan.aliases[id].is_some_and(|family| {
-                plan.names[family] == alias.name && !external.contains_key(&family)
+                plan.names[family] == alias.name && !external.records.contains_key(&family)
             })
             || plan.enum_aliases[id].is_some_and(|group| plan.enum_names[group] == alias.name)
         {

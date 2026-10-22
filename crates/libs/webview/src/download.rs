@@ -136,45 +136,45 @@ pub struct DownloadOperation(pub(crate) ICoreWebView2DownloadOperation);
 impl DownloadOperation {
     /// Returns the URI the content is being downloaded from.
     pub fn uri(&self) -> String {
-        unsafe { string::take_result(self.0.Uri()) }
+        unsafe { string::take_result(self.0.get_Uri()) }
     }
 
     /// Returns the `Content-Disposition` header value from the download's HTTP
     /// response, if any.
     pub fn content_disposition(&self) -> String {
-        unsafe { string::take_result(self.0.ContentDisposition()) }
+        unsafe { string::take_result(self.0.get_ContentDisposition()) }
     }
 
     /// Returns the MIME type of the downloaded content.
     pub fn mime_type(&self) -> String {
-        unsafe { string::take_result(self.0.MimeType()) }
+        unsafe { string::take_result(self.0.get_MimeType()) }
     }
 
     /// Returns the expected total size of the download in bytes, or `0` if it is
     /// unknown.
     pub fn total_bytes_to_receive(&self) -> i64 {
-        unsafe { self.0.TotalBytesToReceive() }.unwrap_or(0)
+        unsafe { self.0.get_TotalBytesToReceive() }.unwrap_or(0)
     }
 
     /// Returns the number of bytes received so far.
     pub fn bytes_received(&self) -> i64 {
-        unsafe { self.0.BytesReceived() }.unwrap_or(0)
+        unsafe { self.0.get_BytesReceived() }.unwrap_or(0)
     }
 
     /// Returns the absolute path the download is being written to.
     pub fn result_file_path(&self) -> String {
-        unsafe { string::take_result(self.0.ResultFilePath()) }
+        unsafe { string::take_result(self.0.get_ResultFilePath()) }
     }
 
     /// Returns the current [`DownloadState`].
     pub fn state(&self) -> DownloadState {
-        unsafe { self.0.State() }.map_or(DownloadState::InProgress, DownloadState::from_raw)
+        unsafe { self.0.get_State() }.map_or(DownloadState::InProgress, DownloadState::from_raw)
     }
 
     /// Returns why the download was interrupted, or
     /// [`DownloadInterruptReason::None`] if it has not been interrupted.
     pub fn interrupt_reason(&self) -> DownloadInterruptReason {
-        unsafe { self.0.InterruptReason() }.map_or(
+        unsafe { self.0.get_InterruptReason() }.map_or(
             DownloadInterruptReason::None,
             DownloadInterruptReason::from_raw,
         )
@@ -183,7 +183,7 @@ impl DownloadOperation {
     /// Returns `true` if an [interrupted](DownloadState::Interrupted) download can
     /// be [resumed](Self::resume).
     pub fn can_resume(&self) -> bool {
-        unsafe { self.0.CanResume() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_CanResume() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Cancels the download. The file is deleted if it was not yet complete.
@@ -225,41 +225,41 @@ pub struct DownloadStartingArgs(pub(crate) ICoreWebView2DownloadStartingEventArg
 impl DownloadStartingArgs {
     /// Returns the [`DownloadOperation`] for the download.
     pub fn download_operation(&self) -> Result<DownloadOperation> {
-        unsafe { Ok(DownloadOperation(self.0.DownloadOperation()?)) }
+        unsafe { Ok(DownloadOperation(self.0.get_DownloadOperation()?)) }
     }
 
     /// Returns `true` if the download is currently marked to be canceled.
     pub fn is_cancelled(&self) -> bool {
-        unsafe { self.0.Cancel() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_Cancel() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Sets whether the download is canceled.
     pub fn set_cancel(&self, cancel: bool) -> Result<()> {
-        unsafe { self.0.SetCancel(cancel) }.ok()
+        unsafe { self.0.put_Cancel(cancel) }.ok()
     }
 
     /// Returns the absolute path the download will be written to.
     pub fn result_file_path(&self) -> String {
-        unsafe { string::take_result(self.0.ResultFilePath()) }
+        unsafe { string::take_result(self.0.get_ResultFilePath()) }
     }
 
     /// Overrides the absolute path the download is written to, choosing a custom
     /// destination instead of the default.
     pub fn set_result_file_path(&self, path: &str) -> Result<()> {
         let path = HSTRING::from(path);
-        unsafe { self.0.SetResultFilePath(&path) }.ok()
+        unsafe { self.0.put_ResultFilePath(&path) }.ok()
     }
 
     /// Returns `true` if the host has marked the download as handled,
     /// suppressing the default download dialog.
     pub fn is_handled(&self) -> bool {
-        unsafe { self.0.Handled() }.is_ok_and(|value| value.as_bool())
+        unsafe { self.0.get_Handled() }.is_ok_and(|value| value.as_bool())
     }
 
     /// Marks the download as handled, suppressing the default download dialog so
     /// the host can present its own UI.
     pub fn set_handled(&self, handled: bool) -> Result<()> {
-        unsafe { self.0.SetHandled(handled) }.ok()
+        unsafe { self.0.put_Handled(handled) }.ok()
     }
 
     /// Takes a [`Deferral`] so the download can be resolved after the handler

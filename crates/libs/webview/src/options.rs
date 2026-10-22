@@ -172,55 +172,55 @@ impl OptionsObject {
 }
 
 impl ICoreWebView2EnvironmentOptions_Impl for OptionsObject_Impl {
-    fn AdditionalBrowserArguments(&self) -> Result<PWSTR> {
+    fn get_AdditionalBrowserArguments(&self) -> Result<PWSTR> {
         unsafe { string::allocate(&self.additional_browser_arguments) }
     }
 
-    fn SetAdditionalBrowserArguments(&self, _value: &PCWSTR) -> Result<()> {
+    fn put_AdditionalBrowserArguments(&self, _value: &PCWSTR) -> Result<()> {
         Ok(())
     }
 
-    fn Language(&self) -> Result<PWSTR> {
+    fn get_Language(&self) -> Result<PWSTR> {
         unsafe { string::allocate(&self.language) }
     }
 
-    fn SetLanguage(&self, _value: &PCWSTR) -> Result<()> {
+    fn put_Language(&self, _value: &PCWSTR) -> Result<()> {
         Ok(())
     }
 
-    fn TargetCompatibleBrowserVersion(&self) -> Result<PWSTR> {
+    fn get_TargetCompatibleBrowserVersion(&self) -> Result<PWSTR> {
         unsafe { string::allocate(&self.target_compatible_browser_version) }
     }
 
-    fn SetTargetCompatibleBrowserVersion(&self, _value: &PCWSTR) -> Result<()> {
+    fn put_TargetCompatibleBrowserVersion(&self, _value: &PCWSTR) -> Result<()> {
         Ok(())
     }
 
-    fn AllowSingleSignOnUsingOSPrimaryAccount(&self) -> Result<BOOL> {
+    fn get_AllowSingleSignOnUsingOSPrimaryAccount(&self) -> Result<BOOL> {
         Ok(self.allow_single_sign_on_using_os_primary_account)
     }
 
-    fn SetAllowSingleSignOnUsingOSPrimaryAccount(&self, _allow: BOOL) -> Result<()> {
+    fn put_AllowSingleSignOnUsingOSPrimaryAccount(&self, _allow: BOOL) -> Result<()> {
         Ok(())
     }
 }
 
 impl ICoreWebView2EnvironmentOptions6_Impl for OptionsObject_Impl {
-    fn AreBrowserExtensionsEnabled(&self) -> Result<BOOL> {
+    fn get_AreBrowserExtensionsEnabled(&self) -> Result<BOOL> {
         Ok(self.are_browser_extensions_enabled)
     }
 
-    fn SetAreBrowserExtensionsEnabled(&self, _value: BOOL) -> Result<()> {
+    fn put_AreBrowserExtensionsEnabled(&self, _value: BOOL) -> Result<()> {
         Ok(())
     }
 }
 
 impl ICoreWebView2EnvironmentOptions8_Impl for OptionsObject_Impl {
-    fn ScrollBarStyle(&self) -> Result<COREWEBVIEW2_SCROLLBAR_STYLE> {
+    fn get_ScrollBarStyle(&self) -> Result<COREWEBVIEW2_SCROLLBAR_STYLE> {
         Ok(self.scrollbar_style)
     }
 
-    fn SetScrollBarStyle(&self, _value: COREWEBVIEW2_SCROLLBAR_STYLE) -> Result<()> {
+    fn put_ScrollBarStyle(&self, _value: COREWEBVIEW2_SCROLLBAR_STYLE) -> Result<()> {
         Ok(())
     }
 }

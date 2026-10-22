@@ -182,14 +182,21 @@ impl Type {
             return;
         }
 
-        let nested = matches!(ty, Self::CppStruct(s) if s.def.namespace().is_empty());
+        if let Self::CppStruct(ty) = ty
+            && let Some(owner) = ty.enclosing
+        {
+            for owner in reader.with_full_name(owner.namespace(), owner.name()) {
+                owner.combine_sys(dependencies, reader);
+            }
+            return;
+        }
         let (ty, generics) = ty.split_generic(reader);
 
         for ty in generics {
             ty.combine_sys(dependencies, reader);
         }
 
-        if !nested && !dependencies.insert(ty.clone()) {
+        if !dependencies.insert(ty.clone()) {
             return;
         }
 
@@ -222,10 +229,8 @@ impl Type {
             }
             Self::CppFn(ty) => ty.combine_sys(dependencies, reader),
             Self::CppStruct(ty) => {
-                for field in ty.def.fields() {
-                    field
-                        .field_type(Some(ty), reader)
-                        .combine_sys(dependencies, reader);
+                for ty in ty.definition_types(reader) {
+                    ty.combine_sys(dependencies, reader);
                 }
             }
             _ => {}
@@ -332,10 +337,10 @@ impl Type {
             match name {
                 "GUID" => return Remap::Type(Self::GUID),
                 "HRESULT" => return Remap::Type(Self::HRESULT),
-                "PSTR" => return Remap::Type(Self::PSTR),
-                "PWSTR" => return Remap::Type(Self::PWSTR),
-                "PCSTR" => return Remap::Type(Self::PCSTR),
-                "PCWSTR" => return Remap::Type(Self::PCWSTR),
+                "PSTR" | "LPSTR" => return Remap::Type(Self::PSTR),
+                "PWSTR" | "LPWSTR" => return Remap::Type(Self::PWSTR),
+                "PCSTR" | "LPCSTR" => return Remap::Type(Self::PCSTR),
+                "PCWSTR" | "LPCWSTR" => return Remap::Type(Self::PCWSTR),
                 "BSTR" => return Remap::Type(Self::BSTR),
                 "HSTRING" => return Remap::Type(Self::String),
                 "IInspectable" => return Remap::Type(Self::Object),
@@ -1339,12 +1344,13 @@ impl Dependencies for Type {
             return;
         }
 
-        let mut nested = false;
-
         if let Self::CppStruct(ty) = ty
-            && ty.def.namespace().is_empty()
+            && let Some(owner) = ty.enclosing
         {
-            nested = true;
+            for owner in reader.with_full_name(owner.namespace(), owner.name()) {
+                owner.combine(dependencies, reader);
+            }
+            return;
         }
 
         let (ty, generics) = ty.split_generic(reader);
@@ -1353,7 +1359,7 @@ impl Dependencies for Type {
             ty.combine(dependencies, reader);
         }
 
-        if !nested && !dependencies.insert(ty.clone()) {
+        if !dependencies.insert(ty.clone()) {
             return;
         }
 

@@ -40,7 +40,6 @@ fn main() {
         windows_metadata::reader::File::read("crates\\libs\\default\\Windows.Win32.winmd").unwrap(),
     ]);
     let references = projection::References {
-        global_namespace: Some("Windows.Win32"),
         metadata: &metadata,
         native_prefixes: &["", "ABI"],
         delegate_prefix: Some("I"),

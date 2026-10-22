@@ -34,6 +34,12 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if !Path::new("metadata\\metadata.rdl").is_file() {
         return Err("run tool-win32 from the repository root".into());
     }
+    if std::env::args().nth(1).as_deref() == Some("--compile") {
+        if std::env::args().len() != 2 {
+            return Err("--compile cannot be combined with generation arguments".into());
+        }
+        return compile_metadata(Path::new("."));
+    }
     if std::env::args().nth(1).as_deref() == Some("--compare-constants") {
         if std::env::args().len() != 2 {
             return Err("--compare-constants cannot be combined with generation arguments".into());
@@ -104,7 +110,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
         } else if argument.starts_with('-') {
             return Err(format!(
-                "unknown option `{argument}`; use --compare-constants, --compare-functions, or --refresh-named-exports alone; or --partial, --sdk-imports, --sdk-macros, --dry-run, --first=N, --import=Function=library.dll, --macro=NAME, --macro-header=header.h, or header names"
+                "unknown option `{argument}`; use --compile, --compare-constants, --compare-functions, or --refresh-named-exports alone; or --partial, --sdk-imports, --sdk-macros, --dry-run, --first=N, --import=Function=library.dll, --macro=NAME, --macro-header=header.h, or header names"
             )
             .into());
         } else {
@@ -164,7 +170,6 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let reference_metadata = windows_metadata::reader::Index::read(reference_path)
         .ok_or("failed to read authoritative WinRT metadata")?;
     let references = projection::References {
-        global_namespace: None,
         metadata: &reference_metadata,
         native_prefixes: &native_prefixes,
         delegate_prefix,
@@ -402,6 +407,91 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         destination.display()
     );
     Ok(())
+}
+
+fn compile_metadata(root: &Path) -> Result<(), Box<dyn std::error::Error>> {
+    let scratch = root.join("target\\win32");
+    std::fs::create_dir_all(&scratch)?;
+    let winrt = root.join("crates\\libs\\default\\Windows.winmd");
+    let um = scratch.join("Windows.Win32.um.winmd");
+    let km = scratch.join("Windows.Win32.km.winmd");
+    let merged = scratch.join("Windows.Win32.merged.winmd");
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input(root.join("metadata\\win32"))
+        .reference(&winrt)
+        .output(&um)
+        .write()?;
+    windows_rdl::reader()
+        .input(root.join("metadata\\wdk"))
+        .reference(&um)
+        .reference(&winrt)
+        .output(&km)
+        .write()?;
+    windows_metadata::merge()
+        .input(&um)
+        .input(&km)
+        .union_enums()
+        .assembly_name("Windows.Win32")
+        .output(&merged)
+        .merge()?;
+    let destination = root.join("crates\\libs\\default\\Windows.Win32.winmd");
+    std::fs::copy(merged, &destination)?;
+    println!(
+        "Compiled existing Win32 and WDK RDL into {}",
+        destination.display()
+    );
+    Ok(())
+}
+
+#[test]
+fn compile_existing_metadata() {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\target\\test-win32-compile");
+    for directory in ["metadata\\win32", "metadata\\wdk", "crates\\libs\\default"] {
+        std::fs::create_dir_all(root.join(directory)).unwrap();
+    }
+    windows_rdl::reader()
+        .input_text("#[winrt] mod Windows { mod Foundation { struct Token { value: i64, } } }")
+        .output(root.join("crates\\libs\\default\\Windows.winmd"))
+        .write()
+        .unwrap();
+    std::fs::write(root.join("metadata\\metadata.rdl"), "").unwrap();
+    let user = "#[win32] mod Windows { mod Win32 {
+        type HRESULT = i32;
+        #[repr(i32)] enum Mode { Common = 0, }
+        struct User { token: Windows::Foundation::Token, }
+    } }";
+    std::fs::write(root.join("metadata\\win32\\user.rdl"), user).unwrap();
+    let kernel = "#[win32] mod Windows { mod Win32 {
+        #[repr(i32)] enum Mode { Common = 0, Kernel = 1, }
+        struct Kernel { user: User, result: HRESULT, token: Windows::Foundation::Token, }
+    } }";
+    std::fs::write(root.join("metadata\\wdk\\kernel.rdl"), kernel).unwrap();
+    compile_metadata(&root).unwrap();
+    let destination = root.join("crates\\libs\\default\\Windows.Win32.winmd");
+    let bytes = std::fs::read(&destination).unwrap();
+    let index = windows_metadata::reader::Index::read(&destination).unwrap();
+    for name in ["User", "Kernel", "HRESULT"] {
+        assert!(index.contains("Windows.Win32", name), "{name}");
+    }
+    assert_eq!(
+        index
+            .expect("Windows.Win32", "Mode")
+            .fields()
+            .filter(|field| field.name() != "value__")
+            .map(|field| field.name())
+            .collect::<Vec<_>>(),
+        ["Common", "Kernel"],
+    );
+    compile_metadata(&root).unwrap();
+    assert_eq!(bytes, std::fs::read(&destination).unwrap());
+    std::fs::write(root.join("metadata\\wdk\\kernel.rdl"), "invalid RDL").unwrap();
+    assert!(compile_metadata(&root).is_err());
+    assert_eq!(bytes, std::fs::read(&destination).unwrap());
+    assert_eq!(
+        std::fs::read_to_string(root.join("metadata\\win32\\user.rdl")).unwrap(),
+        user
+    );
 }
 
 fn configure_roots(inputs: &mut [Input], headers: &[String], include: &Path) {

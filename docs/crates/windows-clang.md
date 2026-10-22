@@ -6,6 +6,19 @@ Unpublished native capture and metadata projection. See the
 [acceptance evidence](../clang-evidence.md) for required-surface accounting and qualification limits.
 A successful partial run is not replacement acceptance.
 
+## Rebuilding the default WinMD
+
+`cargo run -p tool-win32 -- --compile` compiles the existing `metadata/win32` RDL and metadata
+attribute definitions against `Windows.winmd`, then compiles `metadata/wdk` against both references.
+It merges the results with same-named enums unioned and writes
+`crates/libs/default/Windows.Win32.winmd` only after compilation and merging succeed.
+Intermediate WinMDs are written under `target/win32`.
+
+This command does not scrape headers, refresh WDK declarations, or rewrite RDL. It cannot be combined
+with scrape options. Partial and selected-header scrape runs still write their RDL and validation
+WinMD without replacing the default WinMD. Compiling that RDL is an explicit publication step, not
+a claim that the captured SDK surface is complete.
+
 ## Architecture
 
 `Headers -> owned native IR -> reconciliation -> publication -> RDL/WinMD -> Rust bindings`
@@ -63,9 +76,14 @@ definition. Other reachable aliases remain published.
 
 Alias ownership prefers a unique header containing the native definition; otherwise all declaration
 headers remain candidates. Ownership is combined across targets before partitioning. One owner keeps
-its partition; multiple owners use reserved `foundation.rdl`. `Partition::headers` retains real
-source headers. Missing owners and ordinary filename collisions fail. No canonical-metadata or
-per-name routing preference enters projection.
+its partition; multiple owners use reserved `shared.rdl`. Repeated inclusion of one source header
+does not create shared ownership. `Partition::headers` retains real source headers. Missing owners
+and ordinary filename collisions fail. No canonical-metadata or per-name routing preference enters
+projection.
+
+Win32 partitions merge into the same `Windows.Win32` namespace. The shared filename does not give
+their declarations different type identities. Package generation separately derives namespaces and
+features from RDL filenames, so it observes partition renames even when flat WinMD identities match.
 
 Nested records use `Record::owner`. Named children correspond by scoped name; unnamed children use
 their first owning native field. `Snapshot::record_identity` supplies the same owner-relative key to
@@ -79,7 +97,7 @@ definition, not independent copies. Promoted fields receive checked `Anonymous`,
 names; collisions fail. Nested enums and aliases declared inside records remain unsupported.
 Semantic ownership also distinguishes member-introduced global tags from true nested records.
 
-Fixtures: `primary*`, `foundation`, `public_names`, `record_alias_*`, `namespace*`, `nested_records`
+Fixtures: `primary*`, `shared`, `public_names`, `record_alias_*`, `namespace*`, `nested_records`
 and `elaborated_records`. They cover native conflicts, owner families, architecture-specific
 record/alias variants, metadata round trips and selected Rust assignability.
 
@@ -96,19 +114,33 @@ record/alias variants, metadata round trips and selected Rust assignability.
 All observations remain available for native agreement and dependencies. Generated macro-probe
 declarations cannot become roots; authored expansions outside exact probe offsets retain theirs.
 
-`projection::Options` separates imports from `References`. References supply an authoritative
-metadata index and explicit namespace wrappers: empty means the metadata namespace directly, `ABI`
-means the SDK ABI wrapper. A configured delegate prefix maps `IName` only to metadata delegate
-`Name`. `global_namespace` maps unqualified native COM names to a configured metadata namespace
-subtree. Ambiguous names fail; namespace spelling, an `I` prefix and IInspectable inheritance alone
-do not establish ownership.
+`projection::Options` separates imports from `References`. `References::new(&index)` uses the
+caller-supplied WinMD index as an external authority. Global native names are looked up across its
+metadata namespaces; matched definitions retain their full metadata identities rather than the
+local output namespace. Architecture variants are selected before checking ambiguity. Multiple
+matches fail when the name is used; unused ambiguous names do not prevent other references.
 
-`References::native_interfaces()` derives explicit names for capture. Externally owned definitions
+References cover value typedefs, enums, records and their nested types, callbacks, and interfaces.
+Matched definitions are not emitted locally. Distinct local aliases retain links to referenced
+types, including through pointers and callback signatures. The referenced metadata owns the
+published contracts; native observations remain available for native reconciliation. There is no
+HRESULT, BOOL, or string-type normalization policy. Missing matches follow ordinary local
+publication, including its unsupported-type diagnostics.
+
+Actual C++ scopes remain distinct. Explicit namespace wrappers support SDK spellings: empty means
+the metadata namespace directly, `ABI` means the SDK ABI wrapper. A configured delegate prefix
+maps `IName` only to metadata delegate `Name`. Namespace spelling, an `I` prefix and IInspectable
+inheritance alone do not establish ownership without supplied metadata.
+
+`References::native_interfaces()` derives global and qualified COM names for capture. These definitions
 retain native identity, UUID, attributes, layout and bases without traversing member definitions.
 Reconciliation rejects inconsistent local/external ownership. Publication requires matching
 authority, UUID and pointer-sized interface storage. WinRT references require their
 IUnknown/IInspectable base; native COM references require the metadata's explicit base identity.
 Pointer shape, qualifiers and local calling conventions remain native use-site contracts.
+Capture ownership hints are not target-specific: each hinted interface needs matching metadata
+on every target where it is captured. Ordinary value definitions still undergo full native capture;
+references do not bypass unsupported capture diagnostics.
 
 Local interfaces can derive from explicitly external native COM interfaces. Metadata supplies the
 inherited slot prefix, which local compiler-reported slots must follow. Multiple metadata bases,
@@ -119,8 +151,14 @@ Ordinary capture with references instead validates supported scalar member contr
 convention, HRESULT, scalar widths/signedness and output indirection. This is not general WinRT ABI
 lowering. Missing authority, incomplete definitions, by-value use and local inheritance from
 external WinRT definitions remain rejected. There is no local stand-in after failure. Referenced
-definitions and same-identity aliases are not emitted locally; distinct authored aliases remain, and
-their attributes cannot be discarded.
+definitions and same-identity aliases are not emitted locally; distinct authored aliases retain
+their own attributes.
+
+`reference_types` compiles a producer header to WinMD, then consumes its definitions from another
+header and output namespace. It covers ordinary names alongside HRESULT, aliases, target variants,
+nested records, callbacks, constants, local fallback, ambiguity and native conflicts. Both
+`Arbitrary.Types` and `Windows.Win32` producer namespaces are exercised. Raw Rust consumers select
+only the consumer record; bindgen includes its referenced nested record's enclosing definition.
 
 `external_references`, `namespaces` and `composition_interop` cover identity/ABI conflicts, use-site
 rejection and the memorybuffer/robuffer helpers with authoritative WinRT references. Composition

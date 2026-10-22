@@ -639,16 +639,24 @@ input order, alias-owned contracts, and constant-owned attributes through RDL an
 
 ### clang public ownership
 
+Explicit WinMD references own matched native names. Global names are looked up across all supplied
+metadata namespaces; retain the matched metadata identity without local redefinition. Check target
+availability before ambiguity, and reject multiple matches for a used name rather than choosing by
+file order. Unmatched names use ordinary local publication. No HRESULT/BOOL/string canonicalization
+belongs in clang. Actual C++ scopes remain distinct; SDK namespace wrappers are explicit.
+Referenced definitions own published contracts; native observations still participate in native
+reconciliation. `test_clang` `reference_types.rs` covers producer-to-consumer value references.
+
 After native and public compatibility checks, declarations with several candidate header owners
-go to `foundation.rdl`. Candidate owners are combined across targets before partitioning, so a
+go to `shared.rdl`. Candidate owners are combined across targets before partitioning, so a
 declaration cannot land in different files on different architectures. A unique alias header
 containing its native definition remains preferred; otherwise all declaration headers participate.
 Uniquely owned declarations keep their header partitions. `Partition::headers` retains the real
-source-header set, including for foundation, rather than inventing a source filename.
+source-header set, including for shared declarations, rather than inventing a source filename.
 
-The foundation stem is reserved for shared declarations. Missing owners and unrelated headers
+The shared stem is reserved for shared declarations. Missing owners and unrelated headers
 colliding in one ordinary partition remain errors. No per-name/header preferences or routing
-seeded from canonical metadata are used. `test_clang` `foundation.rs` covers shared aliases,
+seeded from canonical metadata are used. `test_clang` `shared.rs` covers shared aliases,
 records, enums, callbacks, cross-target ownership, dependent consumers, ordering, and conflicts.
 
 ### clang primary naming

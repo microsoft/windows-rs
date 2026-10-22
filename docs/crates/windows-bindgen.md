@@ -62,6 +62,11 @@ return type. Select an interface or its members explicitly when you also need to
 Structural C/stdcall `FNPTR` signatures become `Option<unsafe extern "C"/"system" fn(...)>`.
 Their result and parameter dependencies are included without creating public callback names.
 
+Nested record references retain their metadata owner. Selecting a consumer of `Outer/Inner` includes
+the enclosing record that emits `Outer_0`, its architecture variants, and dependencies of its nested
+declarations. Cross-namespace and reference-crate paths use the enclosing record's ownership rather
+than the nested TypeDef's empty namespace. Both precise and namespace-wide filters follow this rule.
+
 Native callable byrefs use pointer ABI: const references become `*const T`, mutable references
 become `*mut T`, and written pointee aliases remain intact. This applies to imports, named and
 structural callbacks, and COM methods. WinRT byref projection has a separate path. Native
@@ -97,6 +102,10 @@ The bundled Win32 metadata places APIs in `Windows.Win32`. Bare names such as `G
 qualified names such as `Windows.Win32.GetTickCount` both work. The subsystem paths used by
 `windows` and `windows-sys` package features, such as `Win32_System_Com`, are not metadata
 namespaces: do not turn them into filters such as `Windows.Win32.System.Com`.
+
+Win32 `LPSTR`/`LPCSTR` and `LPWSTR`/`LPCWSTR` project to the same string pointer types as
+`PSTR`/`PCSTR` and `PWSTR`/`PCWSTR`. This is a Rust projection rule; metadata retains the native
+typedefs. Unrelated pointer typedefs and raw character buffers are not inferred to be strings.
 
 Filters accept dots or `::` between path segments and `{...}` for grouped names:
 

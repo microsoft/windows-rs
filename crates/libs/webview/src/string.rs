@@ -28,7 +28,7 @@ pub(crate) unsafe fn take(value: PWSTR) -> String {
 /// the buffer with `CoTaskMemFree`.
 pub(crate) unsafe fn allocate(value: &str) -> Result<PWSTR> {
     let encoded: Vec<u16> = value.encode_utf16().chain(std::iter::once(0)).collect();
-    let bytes = encoded.len() * size_of::<u16>();
+    let bytes = (encoded.len() * size_of::<u16>()).try_into().unwrap();
 
     let buffer = unsafe { CoTaskMemAlloc(bytes) } as *mut u16;
 
@@ -38,4 +38,13 @@ pub(crate) unsafe fn allocate(value: &str) -> Result<PWSTR> {
 
     unsafe { std::ptr::copy_nonoverlapping(encoded.as_ptr(), buffer, encoded.len()) };
     Ok(PWSTR(buffer))
+}
+
+#[test]
+fn allocated_strings_roundtrip() {
+    for value in ["", "WebView2", "\u{03bb}\u{1f600}"] {
+        let buffer = unsafe { allocate(value).unwrap() };
+        assert!(!buffer.is_null());
+        assert_eq!(unsafe { take(buffer) }, value);
+    }
 }

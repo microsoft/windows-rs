@@ -9,6 +9,20 @@
 
 include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));
 
+#[test]
+fn string_alias_projections() {
+    use string_aliases::IStringAliases;
+    use windows_core::{HRESULT, HSTRING, PCSTR, PSTR, PWSTR, Result};
+
+    let _: unsafe fn(&IStringAliases) -> Result<PWSTR> = IStringAliases::get_Language;
+    let _: unsafe fn(&IStringAliases, &HSTRING) -> HRESULT =
+        |interface, value| unsafe { interface.put_Language(value) };
+    let _: unsafe fn(&IStringAliases) -> Result<PSTR> = IStringAliases::get_Ansi;
+    let _: unsafe fn(&IStringAliases, PCSTR) -> HRESULT = IStringAliases::put_Ansi::<PCSTR>;
+    let _: unsafe fn(&IStringAliases, *const u16) -> HRESULT = IStringAliases::Buffer;
+    let _: string_aliases::LPCWSTR = core::ptr::null();
+}
+
 #[cfg(target_pointer_width = "32")]
 const _: unsafe fn() -> i32 = package_arches::Windows::Win32::legacy::GetWindowLongPtrA;
 #[cfg(target_pointer_width = "32")]

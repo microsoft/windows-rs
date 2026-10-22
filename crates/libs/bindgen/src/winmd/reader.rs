@@ -146,10 +146,12 @@ impl Reader {
                                     index: &'static windows_metadata::reader::Index,
                                     def: TypeDef,
                                     name: &'static str,
+                                    enclosing: Option<TypeName>,
                                 ) -> CppStruct {
                                     let mut ty = CppStruct {
                                         def,
                                         name,
+                                        enclosing,
                                         nested: BTreeMap::new(),
                                     };
 
@@ -163,6 +165,7 @@ impl Reader {
                                                     index,
                                                     nested_def,
                                                     format!("{}_{idx}", ty.name).leak(),
+                                                    Some(enclosing.unwrap_or(ty.type_name())),
                                                 ),
                                             );
                                         }
@@ -171,7 +174,7 @@ impl Reader {
                                     ty
                                 }
 
-                                insert(types, name, Type::CppStruct(make(index, def, name)));
+                                insert(types, name, Type::CppStruct(make(index, def, name, None)));
                             }
                         }
                     }

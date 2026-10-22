@@ -1,9 +1,8 @@
-windows_core::link!("ole32.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
-windows_core::link!("ole32.dll" "system" fn CoTaskMemFree(pv : *mut core::ffi::c_void));
-windows_core::link!("webview2loader.dll" "system" fn CreateCoreWebView2Environment(environmentcreatedhandler : *mut core::ffi::c_void) -> HRESULT);
-windows_core::link!("webview2loader.dll" "system" fn CreateCoreWebView2EnvironmentWithOptions(browserexecutablefolder : PCWSTR, userdatafolder : PCWSTR, environmentoptions : *mut core::ffi::c_void, environmentcreatedhandler : *mut core::ffi::c_void) -> HRESULT);
-windows_core::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const u8, cbinit : u32) -> Option < IStream >);
-pub type BOOL = i32;
+windows_core::link!("ole32.dll" "system" fn CoTaskMemAlloc(cb : SIZE_T) -> LPVOID);
+windows_core::link!("ole32.dll" "system" fn CoTaskMemFree(pv : LPVOID));
+windows_core::link!("webview2loader.dll" "system" fn CreateCoreWebView2Environment(environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "system" fn CreateCoreWebView2EnvironmentWithOptions(browserexecutablefolder : windows_core::PCWSTR, userdatafolder : windows_core::PCWSTR, environmentoptions : *mut core::ffi::c_void, environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const BYTE, cbinit : UINT) -> Option < IStream >);
 pub type BYTE = u8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -31,12 +30,6 @@ pub const E_ABORT: windows_core::HRESULT = windows_core::HRESULT(0x80004004_u32 
 pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
 pub const E_OUTOFMEMORY: windows_core::HRESULT = windows_core::HRESULT(0x8007000E_u32 as _);
 pub const E_PENDING: windows_core::HRESULT = windows_core::HRESULT(0x8000000A_u32 as _);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EventRegistrationToken {
-    pub value: i64,
-}
-pub type HRESULT = i32;
 pub type HWND = *mut HWND__;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -50,61 +43,66 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2, windows_core::IUnknown);
 impl ICoreWebView2 {
-    pub(crate) unsafe fn get_Settings(
-        &self,
-        settings: *mut Option<ICoreWebView2Settings>,
-    ) -> HRESULT {
+    pub(crate) unsafe fn get_Settings(&self) -> windows_core::Result<ICoreWebView2Settings> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Settings)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(settings),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub(crate) unsafe fn get_Source(&self, uri: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_Source(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Source)(
                 windows_core::Interface::as_raw(self),
-                uri as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn Navigate(&self, uri: LPCWSTR) -> HRESULT {
+    pub(crate) unsafe fn Navigate<P0>(&self, uri: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).Navigate)(
                 windows_core::Interface::as_raw(self),
-                uri,
+                uri.param().abi(),
             )
         }
     }
-    pub(crate) unsafe fn NavigateToString(&self, htmlcontent: LPCWSTR) -> HRESULT {
+    pub(crate) unsafe fn NavigateToString<P0>(&self, htmlcontent: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).NavigateToString)(
                 windows_core::Interface::as_raw(self),
-                htmlcontent,
+                htmlcontent.param().abi(),
             )
         }
     }
     pub(crate) unsafe fn add_NavigationStarting<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2NavigationStartingEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_NavigationStarting)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_NavigationStarting(
-        &self,
-        token: EventRegistrationToken,
-    ) -> HRESULT {
+    pub(crate) unsafe fn remove_NavigationStarting(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_NavigationStarting)(
                 windows_core::Interface::as_raw(self),
@@ -115,20 +113,21 @@ impl ICoreWebView2 {
     pub(crate) unsafe fn add_ContentLoading<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2ContentLoadingEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_ContentLoading)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_ContentLoading(&self, token: EventRegistrationToken) -> HRESULT {
+    pub(crate) unsafe fn remove_ContentLoading(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_ContentLoading)(
                 windows_core::Interface::as_raw(self),
@@ -139,23 +138,21 @@ impl ICoreWebView2 {
     pub(crate) unsafe fn add_NavigationCompleted<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2NavigationCompletedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_NavigationCompleted)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_NavigationCompleted(
-        &self,
-        token: EventRegistrationToken,
-    ) -> HRESULT {
+    pub(crate) unsafe fn remove_NavigationCompleted(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_NavigationCompleted)(
                 windows_core::Interface::as_raw(self),
@@ -166,23 +163,21 @@ impl ICoreWebView2 {
     pub(crate) unsafe fn add_PermissionRequested<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2PermissionRequestedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_PermissionRequested)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_PermissionRequested(
-        &self,
-        token: EventRegistrationToken,
-    ) -> HRESULT {
+    pub(crate) unsafe fn remove_PermissionRequested(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_PermissionRequested)(
                 windows_core::Interface::as_raw(self),
@@ -190,23 +185,21 @@ impl ICoreWebView2 {
             )
         }
     }
-    pub(crate) unsafe fn add_ProcessFailed<P0>(
-        &self,
-        eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    pub(crate) unsafe fn add_ProcessFailed<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2ProcessFailedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_ProcessFailed)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_ProcessFailed(&self, token: EventRegistrationToken) -> HRESULT {
+    pub(crate) unsafe fn remove_ProcessFailed(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_ProcessFailed)(
                 windows_core::Interface::as_raw(self),
@@ -214,83 +207,102 @@ impl ICoreWebView2 {
             )
         }
     }
-    pub(crate) unsafe fn AddScriptToExecuteOnDocumentCreated<P1>(
+    pub(crate) unsafe fn AddScriptToExecuteOnDocumentCreated<P0, P1>(
         &self,
-        javascript: LPCWSTR,
+        javascript: P0,
         handler: P1,
-    ) -> HRESULT
+    ) -> windows_core::HRESULT
     where
+        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler>,
     {
         unsafe {
             (windows_core::Interface::vtable(self).AddScriptToExecuteOnDocumentCreated)(
                 windows_core::Interface::as_raw(self),
-                javascript,
+                javascript.param().abi(),
                 handler.param().abi(),
             )
         }
     }
-    pub(crate) unsafe fn RemoveScriptToExecuteOnDocumentCreated(&self, id: LPCWSTR) -> HRESULT {
+    pub(crate) unsafe fn RemoveScriptToExecuteOnDocumentCreated<P0>(
+        &self,
+        id: P0,
+    ) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).RemoveScriptToExecuteOnDocumentCreated)(
                 windows_core::Interface::as_raw(self),
-                id,
+                id.param().abi(),
             )
         }
     }
-    pub(crate) unsafe fn ExecuteScript<P1>(&self, javascript: LPCWSTR, handler: P1) -> HRESULT
+    pub(crate) unsafe fn ExecuteScript<P0, P1>(
+        &self,
+        javascript: P0,
+        handler: P1,
+    ) -> windows_core::HRESULT
     where
+        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<ICoreWebView2ExecuteScriptCompletedHandler>,
     {
         unsafe {
             (windows_core::Interface::vtable(self).ExecuteScript)(
                 windows_core::Interface::as_raw(self),
-                javascript,
+                javascript.param().abi(),
                 handler.param().abi(),
             )
         }
     }
-    pub(crate) unsafe fn Reload(&self) -> HRESULT {
+    pub(crate) unsafe fn Reload(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self))
         }
     }
-    pub(crate) unsafe fn PostWebMessageAsJson(&self, webmessageasjson: LPCWSTR) -> HRESULT {
+    pub(crate) unsafe fn PostWebMessageAsJson<P0>(
+        &self,
+        webmessageasjson: P0,
+    ) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).PostWebMessageAsJson)(
                 windows_core::Interface::as_raw(self),
-                webmessageasjson,
+                webmessageasjson.param().abi(),
             )
         }
     }
-    pub(crate) unsafe fn PostWebMessageAsString(&self, webmessageasstring: LPCWSTR) -> HRESULT {
+    pub(crate) unsafe fn PostWebMessageAsString<P0>(
+        &self,
+        webmessageasstring: P0,
+    ) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).PostWebMessageAsString)(
                 windows_core::Interface::as_raw(self),
-                webmessageasstring,
+                webmessageasstring.param().abi(),
             )
         }
     }
-    pub(crate) unsafe fn add_WebMessageReceived<P0>(
-        &self,
-        handler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    pub(crate) unsafe fn add_WebMessageReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2WebMessageReceivedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_WebMessageReceived)(
                 windows_core::Interface::as_raw(self),
                 handler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_WebMessageReceived(
-        &self,
-        token: EventRegistrationToken,
-    ) -> HRESULT {
+    pub(crate) unsafe fn remove_WebMessageReceived(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_WebMessageReceived)(
                 windows_core::Interface::as_raw(self),
@@ -298,48 +310,54 @@ impl ICoreWebView2 {
             )
         }
     }
-    pub(crate) unsafe fn CallDevToolsProtocolMethod<P2>(
+    pub(crate) unsafe fn CallDevToolsProtocolMethod<P0, P1, P2>(
         &self,
-        methodname: LPCWSTR,
-        parametersasjson: LPCWSTR,
+        methodname: P0,
+        parametersasjson: P1,
         handler: P2,
-    ) -> HRESULT
+    ) -> windows_core::HRESULT
     where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<ICoreWebView2CallDevToolsProtocolMethodCompletedHandler>,
     {
         unsafe {
             (windows_core::Interface::vtable(self).CallDevToolsProtocolMethod)(
                 windows_core::Interface::as_raw(self),
-                methodname,
-                parametersasjson,
+                methodname.param().abi(),
+                parametersasjson.param().abi(),
                 handler.param().abi(),
             )
         }
     }
-    pub(crate) unsafe fn GoBack(&self) -> HRESULT {
+    pub(crate) unsafe fn GoBack(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GoBack)(windows_core::Interface::as_raw(self))
         }
     }
-    pub(crate) unsafe fn GoForward(&self) -> HRESULT {
+    pub(crate) unsafe fn GoForward(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GoForward)(windows_core::Interface::as_raw(self))
         }
     }
-    pub(crate) unsafe fn GetDevToolsProtocolEventReceiver(
+    pub(crate) unsafe fn GetDevToolsProtocolEventReceiver<P0>(
         &self,
-        eventname: LPCWSTR,
-        receiver: *mut Option<ICoreWebView2DevToolsProtocolEventReceiver>,
-    ) -> HRESULT {
+        eventname: P0,
+    ) -> windows_core::Result<ICoreWebView2DevToolsProtocolEventReceiver>
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDevToolsProtocolEventReceiver)(
                 windows_core::Interface::as_raw(self),
-                eventname,
-                core::mem::transmute(receiver),
+                eventname.param().abi(),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub(crate) unsafe fn Stop(&self) -> HRESULT {
+    pub(crate) unsafe fn Stop(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self))
         }
@@ -347,23 +365,21 @@ impl ICoreWebView2 {
     pub(crate) unsafe fn add_NewWindowRequested<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2NewWindowRequestedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_NewWindowRequested)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_NewWindowRequested(
-        &self,
-        token: EventRegistrationToken,
-    ) -> HRESULT {
+    pub(crate) unsafe fn remove_NewWindowRequested(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_NewWindowRequested)(
                 windows_core::Interface::as_raw(self),
@@ -374,23 +390,21 @@ impl ICoreWebView2 {
     pub(crate) unsafe fn add_DocumentTitleChanged<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2DocumentTitleChangedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_DocumentTitleChanged)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_DocumentTitleChanged(
-        &self,
-        token: EventRegistrationToken,
-    ) -> HRESULT {
+    pub(crate) unsafe fn remove_DocumentTitleChanged(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_DocumentTitleChanged)(
                 windows_core::Interface::as_raw(self),
@@ -398,15 +412,17 @@ impl ICoreWebView2 {
             )
         }
     }
-    pub(crate) unsafe fn get_DocumentTitle(&self, title: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_DocumentTitle(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_DocumentTitle)(
                 windows_core::Interface::as_raw(self),
-                title as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn OpenDevToolsWindow(&self) -> HRESULT {
+    pub(crate) unsafe fn OpenDevToolsWindow(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).OpenDevToolsWindow)(
                 windows_core::Interface::as_raw(self),
@@ -416,23 +432,24 @@ impl ICoreWebView2 {
     pub(crate) unsafe fn add_ContainsFullScreenElementChanged<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2ContainsFullScreenElementChangedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_ContainsFullScreenElementChanged)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
     pub(crate) unsafe fn remove_ContainsFullScreenElementChanged(
         &self,
-        token: EventRegistrationToken,
-    ) -> HRESULT {
+        token: i64,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_ContainsFullScreenElementChanged)(
                 windows_core::Interface::as_raw(self),
@@ -442,35 +459,34 @@ impl ICoreWebView2 {
     }
     pub(crate) unsafe fn get_ContainsFullScreenElement(
         &self,
-        containsfullscreenelement: *mut BOOL,
-    ) -> HRESULT {
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ContainsFullScreenElement)(
                 windows_core::Interface::as_raw(self),
-                containsfullscreenelement as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
     pub(crate) unsafe fn add_WebResourceRequested<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2WebResourceRequestedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_WebResourceRequested)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_WebResourceRequested(
-        &self,
-        token: EventRegistrationToken,
-    ) -> HRESULT {
+    pub(crate) unsafe fn remove_WebResourceRequested(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_WebResourceRequested)(
                 windows_core::Interface::as_raw(self),
@@ -478,28 +494,34 @@ impl ICoreWebView2 {
             )
         }
     }
-    pub(crate) unsafe fn AddWebResourceRequestedFilter(
+    pub(crate) unsafe fn AddWebResourceRequestedFilter<P0>(
         &self,
-        uri: LPCWSTR,
+        uri: P0,
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
-    ) -> HRESULT {
+    ) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).AddWebResourceRequestedFilter)(
                 windows_core::Interface::as_raw(self),
-                uri,
+                uri.param().abi(),
                 resourcecontext,
             )
         }
     }
-    pub(crate) unsafe fn RemoveWebResourceRequestedFilter(
+    pub(crate) unsafe fn RemoveWebResourceRequestedFilter<P0>(
         &self,
-        uri: LPCWSTR,
+        uri: P0,
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
-    ) -> HRESULT {
+    ) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).RemoveWebResourceRequestedFilter)(
                 windows_core::Interface::as_raw(self),
-                uri,
+                uri.param().abi(),
                 resourcecontext,
             )
         }
@@ -507,23 +529,21 @@ impl ICoreWebView2 {
     pub(crate) unsafe fn add_WindowCloseRequested<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2WindowCloseRequestedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_WindowCloseRequested)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_WindowCloseRequested(
-        &self,
-        token: EventRegistrationToken,
-    ) -> HRESULT {
+    pub(crate) unsafe fn remove_WindowCloseRequested(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_WindowCloseRequested)(
                 windows_core::Interface::as_raw(self),
@@ -535,25 +555,36 @@ impl ICoreWebView2 {
 #[repr(C)]
 pub struct ICoreWebView2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_Settings:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
-    pub get_Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub Navigate: unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> HRESULT,
-    pub NavigateToString: unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> HRESULT,
+    pub get_Settings: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_Source: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub Navigate: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
+    pub NavigateToString: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
     pub add_NavigationStarting: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_NavigationStarting:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub add_ContentLoading: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_ContentLoading:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     add_SourceChanged: usize,
     remove_SourceChanged: usize,
     add_HistoryChanged: usize,
@@ -561,10 +592,10 @@ pub struct ICoreWebView2_Vtbl {
     pub add_NavigationCompleted: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_NavigationCompleted:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     add_FrameNavigationStarting: usize,
     remove_FrameNavigationStarting: usize,
     add_FrameNavigationCompleted: usize,
@@ -574,110 +605,125 @@ pub struct ICoreWebView2_Vtbl {
     pub add_PermissionRequested: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_PermissionRequested:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub add_ProcessFailed: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_ProcessFailed:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub AddScriptToExecuteOnDocumentCreated: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        LPCWSTR,
+        windows_core::PCWSTR,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
-    pub RemoveScriptToExecuteOnDocumentCreated:
-        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> HRESULT,
+    )
+        -> windows_core::HRESULT,
+    pub RemoveScriptToExecuteOnDocumentCreated: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    )
+        -> windows_core::HRESULT,
     pub ExecuteScript: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        LPCWSTR,
+        windows_core::PCWSTR,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
     CapturePreview: usize,
-    pub Reload: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
-    pub PostWebMessageAsJson: unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> HRESULT,
-    pub PostWebMessageAsString:
-        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> HRESULT,
+    pub Reload: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PostWebMessageAsJson: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
+    pub PostWebMessageAsString: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
     pub add_WebMessageReceived: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_WebMessageReceived:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub CallDevToolsProtocolMethod: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        LPCWSTR,
-        LPCWSTR,
+        windows_core::PCWSTR,
+        windows_core::PCWSTR,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
     get_BrowserProcessId: usize,
     get_CanGoBack: usize,
     get_CanGoForward: usize,
-    pub GoBack: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
-    pub GoForward: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
+    pub GoBack: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GoForward: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDevToolsProtocolEventReceiver: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        LPCWSTR,
+        windows_core::PCWSTR,
         *mut *mut core::ffi::c_void,
-    ) -> HRESULT,
-    pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
+    ) -> windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub add_NewWindowRequested: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_NewWindowRequested:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub add_DocumentTitleChanged: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_DocumentTitleChanged:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
-    pub get_DocumentTitle:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub get_DocumentTitle: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
     AddHostObjectToScript: usize,
     RemoveHostObjectFromScript: usize,
-    pub OpenDevToolsWindow: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
+    pub OpenDevToolsWindow:
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub add_ContainsFullScreenElementChanged: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    )
+        -> windows_core::HRESULT,
     pub remove_ContainsFullScreenElementChanged:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
-    pub get_ContainsFullScreenElement:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub get_ContainsFullScreenElement: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
     pub add_WebResourceRequested: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_WebResourceRequested:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub AddWebResourceRequestedFilter: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        LPCWSTR,
+        windows_core::PCWSTR,
         COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
     pub RemoveWebResourceRequestedFilter: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        LPCWSTR,
+        windows_core::PCWSTR,
         COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
     pub add_WindowCloseRequested: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_WindowCloseRequested:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2AcceleratorKeyPressedEventArgs,
@@ -691,36 +737,41 @@ windows_core::imp::interface_hierarchy!(
 impl ICoreWebView2AcceleratorKeyPressedEventArgs {
     pub(crate) unsafe fn get_KeyEventKind(
         &self,
-        keyeventkind: *mut COREWEBVIEW2_KEY_EVENT_KIND,
-    ) -> HRESULT {
+    ) -> windows_core::Result<COREWEBVIEW2_KEY_EVENT_KIND> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_KeyEventKind)(
                 windows_core::Interface::as_raw(self),
-                keyeventkind as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_VirtualKey(&self, virtualkey: *mut UINT) -> HRESULT {
+    pub(crate) unsafe fn get_VirtualKey(&self) -> windows_core::Result<UINT> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_VirtualKey)(
                 windows_core::Interface::as_raw(self),
-                virtualkey as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_Handled(&self, handled: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_Handled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Handled)(
                 windows_core::Interface::as_raw(self),
-                handled as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_Handled(&self, handled: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_Handled(&self, handled: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_Handled)(
                 windows_core::Interface::as_raw(self),
-                handled,
+                handled.into(),
             )
         }
     }
@@ -731,12 +782,19 @@ pub struct ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
     pub get_KeyEventKind: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut COREWEBVIEW2_KEY_EVENT_KIND,
-    ) -> HRESULT,
-    pub get_VirtualKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT) -> HRESULT,
+    ) -> windows_core::HRESULT,
+    pub get_VirtualKey:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT) -> windows_core::HRESULT,
     get_KeyEventLParam: usize,
     get_PhysicalKeyStatus: usize,
-    pub get_Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_Handled: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+    pub get_Handled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_Handled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2AcceleratorKeyPressedEventHandler,
@@ -754,14 +812,14 @@ pub struct ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2AcceleratorKeyPressedEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2Controller>,
         args: windows_core::Ref<ICoreWebView2AcceleratorKeyPressedEventArgs>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
     pub const fn new<
@@ -775,7 +833,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -784,6 +842,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -808,12 +867,20 @@ windows_core::imp::interface_hierarchy!(
 #[repr(C)]
 pub struct ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, HRESULT, LPCWSTR) -> HRESULT,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::HRESULT,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl:
     windows_core::IUnknownImpl
 {
-    fn Invoke(&self, errorcode: HRESULT, result: LPCWSTR) -> HRESULT;
+    fn Invoke(
+        &self,
+        errorcode: windows_core::HRESULT,
+        result: &windows_core::PCWSTR,
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
     pub const fn new<
@@ -825,17 +892,18 @@ impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            errorcode: HRESULT,
-            result: LPCWSTR,
-        ) -> HRESULT {
+            errorcode: windows_core::HRESULT,
+            result: windows_core::PCWSTR,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl::Invoke(
                     this,
                     core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
+                    core::mem::transmute(&result),
                 )
+                .into()
             }
         }
         Self {
@@ -867,14 +935,14 @@ pub struct ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2BytesReceivedChangedEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2DownloadOperation>,
         args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
     pub const fn new<
@@ -888,7 +956,7 @@ impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -897,6 +965,7 @@ impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -921,12 +990,20 @@ windows_core::imp::interface_hierarchy!(
 #[repr(C)]
 pub struct ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, HRESULT, LPCWSTR) -> HRESULT,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::HRESULT,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl:
     windows_core::IUnknownImpl
 {
-    fn Invoke(&self, errorcode: HRESULT, result: LPCWSTR) -> HRESULT;
+    fn Invoke(
+        &self,
+        errorcode: windows_core::HRESULT,
+        result: &windows_core::PCWSTR,
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
     pub const fn new<
@@ -938,17 +1015,18 @@ impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            errorcode: HRESULT,
-            result: LPCWSTR,
-        ) -> HRESULT {
+            errorcode: windows_core::HRESULT,
+            result: windows_core::PCWSTR,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl::Invoke(
                     this,
                     core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
+                    core::mem::transmute(&result),
                 )
+                .into()
             }
         }
         Self {
@@ -973,10 +1051,13 @@ windows_core::imp::interface_hierarchy!(
 #[repr(C)]
 pub struct ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, HRESULT) -> HRESULT,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2ClearBrowsingDataCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, errorcode: HRESULT) -> HRESULT;
+    fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
     pub const fn new<
@@ -988,8 +1069,8 @@ impl ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            errorcode: HRESULT,
-        ) -> HRESULT {
+            errorcode: windows_core::HRESULT,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -997,6 +1078,7 @@ impl ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
                     this,
                     core::mem::transmute_copy(&errorcode),
                 )
+                .into()
             }
         }
         Self {
@@ -1025,7 +1107,7 @@ pub struct ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl:
     windows_core::IUnknownImpl
@@ -1034,7 +1116,7 @@ pub trait ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl:
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
     pub const fn new<
@@ -1048,7 +1130,7 @@ impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1057,6 +1139,7 @@ impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -1079,28 +1162,36 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown
 );
 impl ICoreWebView2ContentLoadingEventArgs {
-    pub(crate) unsafe fn get_IsErrorPage(&self, value: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsErrorPage(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsErrorPage)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_NavigationId(&self, value: *mut UINT64) -> HRESULT {
+    pub(crate) unsafe fn get_NavigationId(&self) -> windows_core::Result<UINT64> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_NavigationId)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2ContentLoadingEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_IsErrorPage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub get_NavigationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT64) -> HRESULT,
+    pub get_IsErrorPage: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_NavigationId:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2ContentLoadingEventHandler,
@@ -1118,14 +1209,14 @@ pub struct ICoreWebView2ContentLoadingEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2ContentLoadingEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2ContentLoadingEventArgs>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ContentLoadingEventHandler_Vtbl {
     pub const fn new<
@@ -1139,7 +1230,7 @@ impl ICoreWebView2ContentLoadingEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1148,6 +1239,7 @@ impl ICoreWebView2ContentLoadingEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -1167,15 +1259,15 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Controller, windows_core::IUnknown);
 impl ICoreWebView2Controller {
-    pub(crate) unsafe fn put_IsVisible(&self, isvisible: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsVisible(&self, isvisible: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsVisible)(
                 windows_core::Interface::as_raw(self),
-                isvisible,
+                isvisible.into(),
             )
         }
     }
-    pub(crate) unsafe fn put_Bounds(&self, bounds: RECT) -> HRESULT {
+    pub(crate) unsafe fn put_Bounds(&self, bounds: RECT) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_Bounds)(
                 windows_core::Interface::as_raw(self),
@@ -1183,15 +1275,17 @@ impl ICoreWebView2Controller {
             )
         }
     }
-    pub(crate) unsafe fn get_ZoomFactor(&self, zoomfactor: *mut f64) -> HRESULT {
+    pub(crate) unsafe fn get_ZoomFactor(&self) -> windows_core::Result<f64> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ZoomFactor)(
                 windows_core::Interface::as_raw(self),
-                zoomfactor as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_ZoomFactor(&self, zoomfactor: f64) -> HRESULT {
+    pub(crate) unsafe fn put_ZoomFactor(&self, zoomfactor: f64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_ZoomFactor)(
                 windows_core::Interface::as_raw(self),
@@ -1199,7 +1293,10 @@ impl ICoreWebView2Controller {
             )
         }
     }
-    pub(crate) unsafe fn MoveFocus(&self, reason: COREWEBVIEW2_MOVE_FOCUS_REASON) -> HRESULT {
+    pub(crate) unsafe fn MoveFocus(
+        &self,
+        reason: COREWEBVIEW2_MOVE_FOCUS_REASON,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).MoveFocus)(
                 windows_core::Interface::as_raw(self),
@@ -1210,23 +1307,21 @@ impl ICoreWebView2Controller {
     pub(crate) unsafe fn add_MoveFocusRequested<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2MoveFocusRequestedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_MoveFocusRequested)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_MoveFocusRequested(
-        &self,
-        token: EventRegistrationToken,
-    ) -> HRESULT {
+    pub(crate) unsafe fn remove_MoveFocusRequested(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_MoveFocusRequested)(
                 windows_core::Interface::as_raw(self),
@@ -1234,23 +1329,21 @@ impl ICoreWebView2Controller {
             )
         }
     }
-    pub(crate) unsafe fn add_GotFocus<P0>(
-        &self,
-        eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    pub(crate) unsafe fn add_GotFocus<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2FocusChangedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_GotFocus)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_GotFocus(&self, token: EventRegistrationToken) -> HRESULT {
+    pub(crate) unsafe fn remove_GotFocus(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_GotFocus)(
                 windows_core::Interface::as_raw(self),
@@ -1258,23 +1351,21 @@ impl ICoreWebView2Controller {
             )
         }
     }
-    pub(crate) unsafe fn add_LostFocus<P0>(
-        &self,
-        eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    pub(crate) unsafe fn add_LostFocus<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2FocusChangedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_LostFocus)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_LostFocus(&self, token: EventRegistrationToken) -> HRESULT {
+    pub(crate) unsafe fn remove_LostFocus(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_LostFocus)(
                 windows_core::Interface::as_raw(self),
@@ -1285,23 +1376,21 @@ impl ICoreWebView2Controller {
     pub(crate) unsafe fn add_AcceleratorKeyPressed<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2AcceleratorKeyPressedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_AcceleratorKeyPressed)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_AcceleratorKeyPressed(
-        &self,
-        token: EventRegistrationToken,
-    ) -> HRESULT {
+    pub(crate) unsafe fn remove_AcceleratorKeyPressed(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_AcceleratorKeyPressed)(
                 windows_core::Interface::as_raw(self),
@@ -1309,27 +1398,26 @@ impl ICoreWebView2Controller {
             )
         }
     }
-    pub(crate) unsafe fn NotifyParentWindowPositionChanged(&self) -> HRESULT {
+    pub(crate) unsafe fn NotifyParentWindowPositionChanged(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).NotifyParentWindowPositionChanged)(
                 windows_core::Interface::as_raw(self),
             )
         }
     }
-    pub(crate) unsafe fn Close(&self) -> HRESULT {
+    pub(crate) unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self))
         }
     }
-    pub(crate) unsafe fn get_CoreWebView2(
-        &self,
-        corewebview2: *mut Option<ICoreWebView2>,
-    ) -> HRESULT {
+    pub(crate) unsafe fn get_CoreWebView2(&self) -> windows_core::Result<ICoreWebView2> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_CoreWebView2)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(corewebview2),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1337,53 +1425,61 @@ impl ICoreWebView2Controller {
 pub struct ICoreWebView2Controller_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     get_IsVisible: usize,
-    pub put_IsVisible: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+    pub put_IsVisible: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
     get_Bounds: usize,
-    pub put_Bounds: unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> HRESULT,
-    pub get_ZoomFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> HRESULT,
-    pub put_ZoomFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> HRESULT,
+    pub put_Bounds:
+        unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> windows_core::HRESULT,
+    pub get_ZoomFactor:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub put_ZoomFactor:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     add_ZoomFactorChanged: usize,
     remove_ZoomFactorChanged: usize,
     SetBoundsAndZoomFactor: usize,
     pub MoveFocus: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_MOVE_FOCUS_REASON,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
     pub add_MoveFocusRequested: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_MoveFocusRequested:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub add_GotFocus: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_GotFocus:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub add_LostFocus: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_LostFocus:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub add_AcceleratorKeyPressed: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_AcceleratorKeyPressed:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     get_ParentWindow: usize,
     put_ParentWindow: usize,
     pub NotifyParentWindowPositionChanged:
-        unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
-    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
-    pub get_CoreWebView2:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_CoreWebView2: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Controller2,
@@ -1404,16 +1500,20 @@ windows_core::imp::interface_hierarchy!(
 impl ICoreWebView2Controller2 {
     pub(crate) unsafe fn get_DefaultBackgroundColor(
         &self,
-        value: *mut COREWEBVIEW2_COLOR,
-    ) -> HRESULT {
+    ) -> windows_core::Result<COREWEBVIEW2_COLOR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_DefaultBackgroundColor)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_DefaultBackgroundColor(&self, value: COREWEBVIEW2_COLOR) -> HRESULT {
+    pub(crate) unsafe fn put_DefaultBackgroundColor(
+        &self,
+        value: COREWEBVIEW2_COLOR,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_DefaultBackgroundColor)(
                 windows_core::Interface::as_raw(self),
@@ -1425,10 +1525,14 @@ impl ICoreWebView2Controller2 {
 #[repr(C)]
 pub struct ICoreWebView2Controller2_Vtbl {
     pub base__: ICoreWebView2Controller_Vtbl,
-    pub get_DefaultBackgroundColor:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut COREWEBVIEW2_COLOR) -> HRESULT,
-    pub put_DefaultBackgroundColor:
-        unsafe extern "system" fn(*mut core::ffi::c_void, COREWEBVIEW2_COLOR) -> HRESULT,
+    pub get_DefaultBackgroundColor: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut COREWEBVIEW2_COLOR,
+    ) -> windows_core::HRESULT,
+    pub put_DefaultBackgroundColor: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        COREWEBVIEW2_COLOR,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Controller3,
@@ -1448,15 +1552,17 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2Controller2
 );
 impl ICoreWebView2Controller3 {
-    pub(crate) unsafe fn get_RasterizationScale(&self, scale: *mut f64) -> HRESULT {
+    pub(crate) unsafe fn get_RasterizationScale(&self) -> windows_core::Result<f64> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_RasterizationScale)(
                 windows_core::Interface::as_raw(self),
-                scale as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_RasterizationScale(&self, scale: f64) -> HRESULT {
+    pub(crate) unsafe fn put_RasterizationScale(&self, scale: f64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_RasterizationScale)(
                 windows_core::Interface::as_raw(self),
@@ -1464,19 +1570,26 @@ impl ICoreWebView2Controller3 {
             )
         }
     }
-    pub(crate) unsafe fn get_ShouldDetectMonitorScaleChanges(&self, value: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_ShouldDetectMonitorScaleChanges(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ShouldDetectMonitorScaleChanges)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_ShouldDetectMonitorScaleChanges(&self, value: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_ShouldDetectMonitorScaleChanges(
+        &self,
+        value: bool,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_ShouldDetectMonitorScaleChanges)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.into(),
             )
         }
     }
@@ -1485,12 +1598,19 @@ impl ICoreWebView2Controller3 {
 pub struct ICoreWebView2Controller3_Vtbl {
     pub base__: ICoreWebView2Controller2_Vtbl,
     pub get_RasterizationScale:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> HRESULT,
-    pub put_RasterizationScale: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> HRESULT,
-    pub get_ShouldDetectMonitorScaleChanges:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_ShouldDetectMonitorScaleChanges:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub put_RasterizationScale:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub get_ShouldDetectMonitorScaleChanges: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    )
+        -> windows_core::HRESULT,
+    pub put_ShouldDetectMonitorScaleChanges: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    )
+        -> windows_core::HRESULT,
     add_RasterizationScaleChanged: usize,
     remove_RasterizationScaleChanged: usize,
     get_BoundsMode: usize,
@@ -1515,19 +1635,21 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2Controller3
 );
 impl ICoreWebView2Controller4 {
-    pub(crate) unsafe fn get_AllowExternalDrop(&self, value: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_AllowExternalDrop(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_AllowExternalDrop)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_AllowExternalDrop(&self, value: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_AllowExternalDrop(&self, value: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_AllowExternalDrop)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.into(),
             )
         }
     }
@@ -1535,9 +1657,14 @@ impl ICoreWebView2Controller4 {
 #[repr(C)]
 pub struct ICoreWebView2Controller4_Vtbl {
     pub base__: ICoreWebView2Controller3_Vtbl,
-    pub get_AllowExternalDrop:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_AllowExternalDrop: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+    pub get_AllowExternalDrop: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_AllowExternalDrop: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2ControllerOptions,
@@ -1546,19 +1673,22 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2ControllerOptions, windows_core::IUnknown);
 impl ICoreWebView2ControllerOptions {
-    pub(crate) unsafe fn put_ProfileName(&self, value: LPCWSTR) -> HRESULT {
+    pub(crate) unsafe fn put_ProfileName<P0>(&self, value: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).put_ProfileName)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.param().abi(),
             )
         }
     }
-    pub(crate) unsafe fn put_IsInPrivateModeEnabled(&self, value: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsInPrivateModeEnabled(&self, value: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsInPrivateModeEnabled)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.into(),
             )
         }
     }
@@ -1567,10 +1697,15 @@ impl ICoreWebView2ControllerOptions {
 pub struct ICoreWebView2ControllerOptions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     get_ProfileName: usize,
-    pub put_ProfileName: unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> HRESULT,
+    pub put_ProfileName: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
     get_IsInPrivateModeEnabled: usize,
-    pub put_IsInPrivateModeEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+    pub put_IsInPrivateModeEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2ControllerOptions2,
@@ -1612,7 +1747,10 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2ControllerOptions2
 );
 impl ICoreWebView2ControllerOptions3 {
-    pub(crate) unsafe fn put_DefaultBackgroundColor(&self, value: COREWEBVIEW2_COLOR) -> HRESULT {
+    pub(crate) unsafe fn put_DefaultBackgroundColor(
+        &self,
+        value: COREWEBVIEW2_COLOR,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_DefaultBackgroundColor)(
                 windows_core::Interface::as_raw(self),
@@ -1625,8 +1763,10 @@ impl ICoreWebView2ControllerOptions3 {
 pub struct ICoreWebView2ControllerOptions3_Vtbl {
     pub base__: ICoreWebView2ControllerOptions2_Vtbl,
     get_DefaultBackgroundColor: usize,
-    pub put_DefaultBackgroundColor:
-        unsafe extern "system" fn(*mut core::ffi::c_void, COREWEBVIEW2_COLOR) -> HRESULT,
+    pub put_DefaultBackgroundColor: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        COREWEBVIEW2_COLOR,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Cookie,
@@ -1635,47 +1775,57 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Cookie, windows_core::IUnknown);
 impl ICoreWebView2Cookie {
-    pub(crate) unsafe fn get_Name(&self, name: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_Name(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Name)(
                 windows_core::Interface::as_raw(self),
-                name as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_Value(&self, value: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_Value(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Value)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_Domain(&self, domain: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_Domain(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Domain)(
                 windows_core::Interface::as_raw(self),
-                domain as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_Path(&self, path: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_Path(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Path)(
                 windows_core::Interface::as_raw(self),
-                path as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_Expires(&self, expires: *mut f64) -> HRESULT {
+    pub(crate) unsafe fn get_Expires(&self) -> windows_core::Result<f64> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Expires)(
                 windows_core::Interface::as_raw(self),
-                expires as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_Expires(&self, expires: f64) -> HRESULT {
+    pub(crate) unsafe fn put_Expires(&self, expires: f64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_Expires)(
                 windows_core::Interface::as_raw(self),
@@ -1683,37 +1833,40 @@ impl ICoreWebView2Cookie {
             )
         }
     }
-    pub(crate) unsafe fn get_IsHttpOnly(&self, ishttponly: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsHttpOnly(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsHttpOnly)(
                 windows_core::Interface::as_raw(self),
-                ishttponly as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_IsHttpOnly(&self, ishttponly: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsHttpOnly(&self, ishttponly: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsHttpOnly)(
                 windows_core::Interface::as_raw(self),
-                ishttponly,
+                ishttponly.into(),
             )
         }
     }
     pub(crate) unsafe fn get_SameSite(
         &self,
-        samesite: *mut COREWEBVIEW2_COOKIE_SAME_SITE_KIND,
-    ) -> HRESULT {
+    ) -> windows_core::Result<COREWEBVIEW2_COOKIE_SAME_SITE_KIND> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_SameSite)(
                 windows_core::Interface::as_raw(self),
-                samesite as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
     pub(crate) unsafe fn put_SameSite(
         &self,
         samesite: COREWEBVIEW2_COOKIE_SAME_SITE_KIND,
-    ) -> HRESULT {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_SameSite)(
                 windows_core::Interface::as_raw(self),
@@ -1721,54 +1874,87 @@ impl ICoreWebView2Cookie {
             )
         }
     }
-    pub(crate) unsafe fn get_IsSecure(&self, issecure: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsSecure(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsSecure)(
                 windows_core::Interface::as_raw(self),
-                issecure as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_IsSecure(&self, issecure: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsSecure(&self, issecure: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsSecure)(
                 windows_core::Interface::as_raw(self),
-                issecure,
+                issecure.into(),
             )
         }
     }
-    pub(crate) unsafe fn get_IsSession(&self, issession: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsSession(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsSession)(
                 windows_core::Interface::as_raw(self),
-                issession as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2Cookie_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub get_Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
+    pub get_Name: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub get_Value: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
     put_Value: usize,
-    pub get_Domain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub get_Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub get_Expires: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> HRESULT,
-    pub put_Expires: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> HRESULT,
-    pub get_IsHttpOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_IsHttpOnly: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+    pub get_Domain: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub get_Path: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub get_Expires:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub put_Expires:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub get_IsHttpOnly: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_IsHttpOnly: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
     pub get_SameSite: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut COREWEBVIEW2_COOKIE_SAME_SITE_KIND,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
     pub put_SameSite: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_COOKIE_SAME_SITE_KIND,
-    ) -> HRESULT,
-    pub get_IsSecure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_IsSecure: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub get_IsSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
+    ) -> windows_core::HRESULT,
+    pub get_IsSecure: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_IsSecure: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_IsSession: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2CookieList,
@@ -1777,37 +1963,41 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2CookieList, windows_core::IUnknown);
 impl ICoreWebView2CookieList {
-    pub(crate) unsafe fn get_Count(&self, value: *mut UINT32) -> HRESULT {
+    pub(crate) unsafe fn get_Count(&self) -> windows_core::Result<UINT32> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Count)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
     pub(crate) unsafe fn GetValueAtIndex(
         &self,
         index: UINT32,
-        value: *mut Option<ICoreWebView2Cookie>,
-    ) -> HRESULT {
+    ) -> windows_core::Result<ICoreWebView2Cookie> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetValueAtIndex)(
                 windows_core::Interface::as_raw(self),
                 index,
-                core::mem::transmute(value),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2CookieList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT32) -> HRESULT,
+    pub get_Count:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT32) -> windows_core::HRESULT,
     pub GetValueAtIndex: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         UINT32,
         *mut *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2CookieManager,
@@ -1816,38 +2006,46 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2CookieManager, windows_core::IUnknown);
 impl ICoreWebView2CookieManager {
-    pub(crate) unsafe fn CreateCookie(
+    pub(crate) unsafe fn CreateCookie<P0, P1, P2, P3>(
         &self,
-        name: LPCWSTR,
-        value: LPCWSTR,
-        domain: LPCWSTR,
-        path: LPCWSTR,
-        cookie: *mut Option<ICoreWebView2Cookie>,
-    ) -> HRESULT {
+        name: P0,
+        value: P1,
+        domain: P2,
+        path: P3,
+    ) -> windows_core::Result<ICoreWebView2Cookie>
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateCookie)(
                 windows_core::Interface::as_raw(self),
-                name,
-                value,
-                domain,
-                path,
-                core::mem::transmute(cookie),
+                name.param().abi(),
+                value.param().abi(),
+                domain.param().abi(),
+                path.param().abi(),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub(crate) unsafe fn GetCookies<P1>(&self, uri: LPCWSTR, handler: P1) -> HRESULT
+    pub(crate) unsafe fn GetCookies<P0, P1>(&self, uri: P0, handler: P1) -> windows_core::HRESULT
     where
+        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<ICoreWebView2GetCookiesCompletedHandler>,
     {
         unsafe {
             (windows_core::Interface::vtable(self).GetCookies)(
                 windows_core::Interface::as_raw(self),
-                uri,
+                uri.param().abi(),
                 handler.param().abi(),
             )
         }
     }
-    pub(crate) unsafe fn AddOrUpdateCookie<P0>(&self, cookie: P0) -> HRESULT
+    pub(crate) unsafe fn AddOrUpdateCookie<P0>(&self, cookie: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ICoreWebView2Cookie>,
     {
@@ -1858,31 +2056,40 @@ impl ICoreWebView2CookieManager {
             )
         }
     }
-    pub(crate) unsafe fn DeleteCookies(&self, name: LPCWSTR, uri: LPCWSTR) -> HRESULT {
+    pub(crate) unsafe fn DeleteCookies<P0, P1>(&self, name: P0, uri: P1) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).DeleteCookies)(
                 windows_core::Interface::as_raw(self),
-                name,
-                uri,
+                name.param().abi(),
+                uri.param().abi(),
             )
         }
     }
-    pub(crate) unsafe fn DeleteCookiesWithDomainAndPath(
+    pub(crate) unsafe fn DeleteCookiesWithDomainAndPath<P0, P1, P2>(
         &self,
-        name: LPCWSTR,
-        domain: LPCWSTR,
-        path: LPCWSTR,
-    ) -> HRESULT {
+        name: P0,
+        domain: P1,
+        path: P2,
+    ) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).DeleteCookiesWithDomainAndPath)(
                 windows_core::Interface::as_raw(self),
-                name,
-                domain,
-                path,
+                name.param().abi(),
+                domain.param().abi(),
+                path.param().abi(),
             )
         }
     }
-    pub(crate) unsafe fn DeleteAllCookies(&self) -> HRESULT {
+    pub(crate) unsafe fn DeleteAllCookies(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).DeleteAllCookies)(
                 windows_core::Interface::as_raw(self),
@@ -1895,26 +2102,36 @@ pub struct ICoreWebView2CookieManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateCookie: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        LPCWSTR,
-        LPCWSTR,
-        LPCWSTR,
-        LPCWSTR,
+        windows_core::PCWSTR,
+        windows_core::PCWSTR,
+        windows_core::PCWSTR,
+        windows_core::PCWSTR,
         *mut *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
     CopyCookie: usize,
     pub GetCookies: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        LPCWSTR,
+        windows_core::PCWSTR,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
-    pub AddOrUpdateCookie:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> HRESULT,
+    ) -> windows_core::HRESULT,
+    pub AddOrUpdateCookie: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     DeleteCookie: usize,
-    pub DeleteCookies:
-        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR, LPCWSTR) -> HRESULT,
-    pub DeleteCookiesWithDomainAndPath:
-        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR, LPCWSTR, LPCWSTR) -> HRESULT,
-    pub DeleteAllCookies: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
+    pub DeleteCookies: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
+    pub DeleteCookiesWithDomainAndPath: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+        windows_core::PCWSTR,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
+    pub DeleteAllCookies:
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2CreateCoreWebView2ControllerCompletedHandler,
@@ -1930,18 +2147,18 @@ pub struct ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        HRESULT,
+        windows_core::HRESULT,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl:
     windows_core::IUnknownImpl
 {
     fn Invoke(
         &self,
-        errorcode: HRESULT,
+        errorcode: windows_core::HRESULT,
         result: windows_core::Ref<ICoreWebView2Controller>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
     pub const fn new<
@@ -1953,9 +2170,9 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            errorcode: HRESULT,
+            errorcode: windows_core::HRESULT,
             result: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1964,6 +2181,7 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
                     core::mem::transmute_copy(&errorcode),
                     core::mem::transmute_copy(&result),
                 )
+                .into()
             }
         }
         Self {
@@ -1990,18 +2208,18 @@ pub struct ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        HRESULT,
+        windows_core::HRESULT,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl:
     windows_core::IUnknownImpl
 {
     fn Invoke(
         &self,
-        errorcode: HRESULT,
+        errorcode: windows_core::HRESULT,
         result: windows_core::Ref<ICoreWebView2Environment>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
     pub const fn new<
@@ -2013,9 +2231,9 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            errorcode: HRESULT,
+            errorcode: windows_core::HRESULT,
             result: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2024,6 +2242,7 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
                     core::mem::transmute_copy(&errorcode),
                     core::mem::transmute_copy(&result),
                 )
+                .into()
             }
         }
         Self {
@@ -2043,7 +2262,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Deferral, windows_core::IUnknown);
 impl ICoreWebView2Deferral {
-    pub(crate) unsafe fn Complete(&self) -> HRESULT {
+    pub(crate) unsafe fn Complete(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Complete)(windows_core::Interface::as_raw(self))
         }
@@ -2052,7 +2271,7 @@ impl ICoreWebView2Deferral {
 #[repr(C)]
 pub struct ICoreWebView2Deferral_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
+    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2DevToolsProtocolEventReceivedEventArgs,
@@ -2064,20 +2283,26 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown
 );
 impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs {
-    pub(crate) unsafe fn get_ParameterObjectAsJson(&self, value: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_ParameterObjectAsJson(
+        &self,
+    ) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ParameterObjectAsJson)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_ParameterObjectAsJson:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
+    pub get_ParameterObjectAsJson: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2DevToolsProtocolEventReceivedEventHandler,
@@ -2095,7 +2320,7 @@ pub struct ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl:
     windows_core::IUnknownImpl
@@ -2104,7 +2329,7 @@ pub trait ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl:
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2DevToolsProtocolEventReceivedEventArgs>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
     pub const fn new<
@@ -2118,7 +2343,7 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2127,6 +2352,7 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -2152,23 +2378,24 @@ impl ICoreWebView2DevToolsProtocolEventReceiver {
     pub(crate) unsafe fn add_DevToolsProtocolEventReceived<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2DevToolsProtocolEventReceivedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_DevToolsProtocolEventReceived)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
     pub(crate) unsafe fn remove_DevToolsProtocolEventReceived(
         &self,
-        token: EventRegistrationToken,
-    ) -> HRESULT {
+        token: i64,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_DevToolsProtocolEventReceived)(
                 windows_core::Interface::as_raw(self),
@@ -2183,10 +2410,10 @@ pub struct ICoreWebView2DevToolsProtocolEventReceiver_Vtbl {
     pub add_DevToolsProtocolEventReceived: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_DevToolsProtocolEventReceived:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2DocumentTitleChangedEventHandler,
@@ -2204,14 +2431,14 @@ pub struct ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2DocumentTitleChangedEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
     pub const fn new<
@@ -2225,7 +2452,7 @@ impl ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2234,6 +2461,7 @@ impl ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -2256,23 +2484,21 @@ impl ICoreWebView2DownloadOperation {
     pub(crate) unsafe fn add_BytesReceivedChanged<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2BytesReceivedChangedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_BytesReceivedChanged)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_BytesReceivedChanged(
-        &self,
-        token: EventRegistrationToken,
-    ) -> HRESULT {
+    pub(crate) unsafe fn remove_BytesReceivedChanged(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_BytesReceivedChanged)(
                 windows_core::Interface::as_raw(self),
@@ -2280,23 +2506,21 @@ impl ICoreWebView2DownloadOperation {
             )
         }
     }
-    pub(crate) unsafe fn add_StateChanged<P0>(
-        &self,
-        eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    pub(crate) unsafe fn add_StateChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2StateChangedEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_StateChanged)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_StateChanged(&self, token: EventRegistrationToken) -> HRESULT {
+    pub(crate) unsafe fn remove_StateChanged(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_StateChanged)(
                 windows_core::Interface::as_raw(self),
@@ -2304,100 +2528,113 @@ impl ICoreWebView2DownloadOperation {
             )
         }
     }
-    pub(crate) unsafe fn get_Uri(&self, uri: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_Uri(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Uri)(
                 windows_core::Interface::as_raw(self),
-                uri as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_ContentDisposition(&self, contentdisposition: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_ContentDisposition(
+        &self,
+    ) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ContentDisposition)(
                 windows_core::Interface::as_raw(self),
-                contentdisposition as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_MimeType(&self, mimetype: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_MimeType(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_MimeType)(
                 windows_core::Interface::as_raw(self),
-                mimetype as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_TotalBytesToReceive(
-        &self,
-        totalbytestoreceive: *mut INT64,
-    ) -> HRESULT {
+    pub(crate) unsafe fn get_TotalBytesToReceive(&self) -> windows_core::Result<INT64> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_TotalBytesToReceive)(
                 windows_core::Interface::as_raw(self),
-                totalbytestoreceive as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_BytesReceived(&self, bytesreceived: *mut INT64) -> HRESULT {
+    pub(crate) unsafe fn get_BytesReceived(&self) -> windows_core::Result<INT64> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_BytesReceived)(
                 windows_core::Interface::as_raw(self),
-                bytesreceived as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_ResultFilePath(&self, resultfilepath: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_ResultFilePath(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ResultFilePath)(
                 windows_core::Interface::as_raw(self),
-                resultfilepath as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_State(
-        &self,
-        downloadstate: *mut COREWEBVIEW2_DOWNLOAD_STATE,
-    ) -> HRESULT {
+    pub(crate) unsafe fn get_State(&self) -> windows_core::Result<COREWEBVIEW2_DOWNLOAD_STATE> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_State)(
                 windows_core::Interface::as_raw(self),
-                downloadstate as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
     pub(crate) unsafe fn get_InterruptReason(
         &self,
-        interruptreason: *mut COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON,
-    ) -> HRESULT {
+    ) -> windows_core::Result<COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_InterruptReason)(
                 windows_core::Interface::as_raw(self),
-                interruptreason as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn Cancel(&self) -> HRESULT {
+    pub(crate) unsafe fn Cancel(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self))
         }
     }
-    pub(crate) unsafe fn Pause(&self) -> HRESULT {
+    pub(crate) unsafe fn Pause(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self))
         }
     }
-    pub(crate) unsafe fn Resume(&self) -> HRESULT {
+    pub(crate) unsafe fn Resume(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self))
         }
     }
-    pub(crate) unsafe fn get_CanResume(&self, canresume: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_CanResume(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_CanResume)(
                 windows_core::Interface::as_raw(self),
-                canresume as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
 }
@@ -2407,41 +2644,55 @@ pub struct ICoreWebView2DownloadOperation_Vtbl {
     pub add_BytesReceivedChanged: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_BytesReceivedChanged:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     add_EstimatedEndTimeChanged: usize,
     remove_EstimatedEndTimeChanged: usize,
     pub add_StateChanged: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_StateChanged:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
-    pub get_Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub get_ContentDisposition:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub get_MimeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub get_Uri: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub get_ContentDisposition: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub get_MimeType: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
     pub get_TotalBytesToReceive:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut INT64) -> HRESULT,
-    pub get_BytesReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut INT64) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut INT64) -> windows_core::HRESULT,
+    pub get_BytesReceived:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut INT64) -> windows_core::HRESULT,
     get_EstimatedEndTime: usize,
-    pub get_ResultFilePath:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
+    pub get_ResultFilePath: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
     pub get_State: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut COREWEBVIEW2_DOWNLOAD_STATE,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
     pub get_InterruptReason: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON,
-    ) -> HRESULT,
-    pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
-    pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
-    pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
-    pub get_CanResume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
+    ) -> windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_CanResume: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2DownloadStartingEventArgs,
@@ -2455,89 +2706,119 @@ windows_core::imp::interface_hierarchy!(
 impl ICoreWebView2DownloadStartingEventArgs {
     pub(crate) unsafe fn get_DownloadOperation(
         &self,
-        downloadoperation: *mut Option<ICoreWebView2DownloadOperation>,
-    ) -> HRESULT {
+    ) -> windows_core::Result<ICoreWebView2DownloadOperation> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_DownloadOperation)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(downloadoperation),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub(crate) unsafe fn get_Cancel(&self, cancel: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_Cancel(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Cancel)(
                 windows_core::Interface::as_raw(self),
-                cancel as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_Cancel(&self, cancel: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_Cancel(&self, cancel: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_Cancel)(
                 windows_core::Interface::as_raw(self),
-                cancel,
+                cancel.into(),
             )
         }
     }
-    pub(crate) unsafe fn get_ResultFilePath(&self, resultfilepath: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_ResultFilePath(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ResultFilePath)(
                 windows_core::Interface::as_raw(self),
-                resultfilepath as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_ResultFilePath(&self, resultfilepath: LPCWSTR) -> HRESULT {
+    pub(crate) unsafe fn put_ResultFilePath<P0>(&self, resultfilepath: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).put_ResultFilePath)(
                 windows_core::Interface::as_raw(self),
-                resultfilepath,
+                resultfilepath.param().abi(),
             )
         }
     }
-    pub(crate) unsafe fn get_Handled(&self, handled: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_Handled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Handled)(
                 windows_core::Interface::as_raw(self),
-                handled as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_Handled(&self, handled: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_Handled(&self, handled: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_Handled)(
                 windows_core::Interface::as_raw(self),
-                handled,
+                handled.into(),
             )
         }
     }
-    pub(crate) unsafe fn GetDeferral(
-        &self,
-        deferral: *mut Option<ICoreWebView2Deferral>,
-    ) -> HRESULT {
+    pub(crate) unsafe fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDeferral)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(deferral),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2DownloadStartingEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_DownloadOperation:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
-    pub get_Cancel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_Cancel: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub get_ResultFilePath:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub put_ResultFilePath: unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> HRESULT,
-    pub get_Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_Handled: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub GetDeferral:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+    pub get_DownloadOperation: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_Cancel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_Cancel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_ResultFilePath: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub put_ResultFilePath: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
+    pub get_Handled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_Handled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2DownloadStartingEventHandler,
@@ -2555,14 +2836,14 @@ pub struct ICoreWebView2DownloadStartingEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2DownloadStartingEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2DownloadStartingEventArgs>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2DownloadStartingEventHandler_Vtbl {
     pub const fn new<
@@ -2576,7 +2857,7 @@ impl ICoreWebView2DownloadStartingEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2585,6 +2866,7 @@ impl ICoreWebView2DownloadStartingEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -2608,7 +2890,7 @@ impl ICoreWebView2Environment {
         &self,
         parentwindow: HWND,
         handler: &Option<ICoreWebView2CreateCoreWebView2ControllerCompletedHandler>,
-    ) -> HRESULT {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).CreateCoreWebView2Controller)(
                 windows_core::Interface::as_raw(self),
@@ -2617,42 +2899,48 @@ impl ICoreWebView2Environment {
             )
         }
     }
-    pub(crate) unsafe fn CreateWebResourceResponse<P0>(
+    pub(crate) unsafe fn CreateWebResourceResponse<P0, P2, P3>(
         &self,
         content: P0,
         statuscode: i32,
-        reasonphrase: LPCWSTR,
-        headers: LPCWSTR,
-        response: *mut Option<ICoreWebView2WebResourceResponse>,
-    ) -> HRESULT
+        reasonphrase: P2,
+        headers: P3,
+    ) -> windows_core::Result<ICoreWebView2WebResourceResponse>
     where
         P0: windows_core::Param<IStream>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateWebResourceResponse)(
                 windows_core::Interface::as_raw(self),
                 content.param().abi(),
                 statuscode,
-                reasonphrase,
-                headers,
-                core::mem::transmute(response),
+                reasonphrase.param().abi(),
+                headers.param().abi(),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2Environment_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub CreateCoreWebView2Controller:
-        unsafe extern "system" fn(*mut core::ffi::c_void, HWND, *mut core::ffi::c_void) -> HRESULT,
+    pub CreateCoreWebView2Controller: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        HWND,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub CreateWebResourceResponse: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         i32,
-        LPCWSTR,
-        LPCWSTR,
+        windows_core::PCWSTR,
+        windows_core::PCWSTR,
         *mut *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
     get_BrowserVersionString: usize,
     add_NewBrowserVersionAvailable: usize,
     remove_NewBrowserVersionAvailable: usize,
@@ -2684,13 +2972,14 @@ windows_core::imp::interface_hierarchy!(
 impl ICoreWebView2Environment10 {
     pub(crate) unsafe fn CreateCoreWebView2ControllerOptions(
         &self,
-        value: *mut Option<ICoreWebView2ControllerOptions>,
-    ) -> HRESULT {
+    ) -> windows_core::Result<ICoreWebView2ControllerOptions> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateCoreWebView2ControllerOptions)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(value),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateCoreWebView2ControllerWithOptions<P1, P2>(
@@ -2698,7 +2987,7 @@ impl ICoreWebView2Environment10 {
         parentwindow: HWND,
         options: P1,
         handler: P2,
-    ) -> HRESULT
+    ) -> windows_core::HRESULT
     where
         P1: windows_core::Param<ICoreWebView2ControllerOptions>,
         P2: windows_core::Param<ICoreWebView2CreateCoreWebView2ControllerCompletedHandler>,
@@ -2716,14 +3005,18 @@ impl ICoreWebView2Environment10 {
 #[repr(C)]
 pub struct ICoreWebView2Environment10_Vtbl {
     pub base__: ICoreWebView2Environment9_Vtbl,
-    pub CreateCoreWebView2ControllerOptions:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+    pub CreateCoreWebView2ControllerOptions: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    )
+        -> windows_core::HRESULT,
     pub CreateCoreWebView2ControllerWithOptions: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         HWND,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    )
+        -> windows_core::HRESULT,
     CreateCoreWebView2CompositionControllerWithOptions: usize,
 }
 windows_core::imp::define_interface!(
@@ -2743,26 +3036,30 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2Environment
 );
 impl ICoreWebView2Environment2 {
-    pub(crate) unsafe fn CreateWebResourceRequest<P2>(
+    pub(crate) unsafe fn CreateWebResourceRequest<P0, P1, P2, P3>(
         &self,
-        uri: LPCWSTR,
-        method: LPCWSTR,
+        uri: P0,
+        method: P1,
         postdata: P2,
-        headers: LPCWSTR,
-        value: *mut Option<ICoreWebView2WebResourceRequest>,
-    ) -> HRESULT
+        headers: P3,
+    ) -> windows_core::Result<ICoreWebView2WebResourceRequest>
     where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<IStream>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateWebResourceRequest)(
                 windows_core::Interface::as_raw(self),
-                uri,
-                method,
+                uri.param().abi(),
+                method.param().abi(),
                 postdata.param().abi(),
-                headers,
-                core::mem::transmute(value),
+                headers.param().abi(),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2771,12 +3068,12 @@ pub struct ICoreWebView2Environment2_Vtbl {
     pub base__: ICoreWebView2Environment_Vtbl,
     pub CreateWebResourceRequest: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        LPCWSTR,
-        LPCWSTR,
+        windows_core::PCWSTR,
+        windows_core::PCWSTR,
         *mut core::ffi::c_void,
-        LPCWSTR,
+        windows_core::PCWSTR,
         *mut *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Environment3,
@@ -2966,30 +3263,61 @@ windows_core::imp::interface_hierarchy!(ICoreWebView2EnvironmentOptions, windows
 #[repr(C)]
 pub struct ICoreWebView2EnvironmentOptions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_AdditionalBrowserArguments:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub put_AdditionalBrowserArguments:
-        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> HRESULT,
-    pub get_Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub put_Language: unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> HRESULT,
-    pub get_TargetCompatibleBrowserVersion:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub put_TargetCompatibleBrowserVersion:
-        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> HRESULT,
+    pub get_AdditionalBrowserArguments: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub put_AdditionalBrowserArguments: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
+    pub get_Language: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub put_Language: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
+    pub get_TargetCompatibleBrowserVersion: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub put_TargetCompatibleBrowserVersion: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
     pub get_AllowSingleSignOnUsingOSPrimaryAccount:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
+        unsafe extern "system" fn(
+            *mut core::ffi::c_void,
+            *mut windows_core::BOOL,
+        ) -> windows_core::HRESULT,
     pub put_AllowSingleSignOnUsingOSPrimaryAccount:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+        unsafe extern "system" fn(
+            *mut core::ffi::c_void,
+            windows_core::BOOL,
+        ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2EnvironmentOptions_Impl: windows_core::IUnknownImpl {
-    fn get_AdditionalBrowserArguments(&self, value: *mut LPWSTR) -> HRESULT;
-    fn put_AdditionalBrowserArguments(&self, value: LPCWSTR) -> HRESULT;
-    fn get_Language(&self, value: *mut LPWSTR) -> HRESULT;
-    fn put_Language(&self, value: LPCWSTR) -> HRESULT;
-    fn get_TargetCompatibleBrowserVersion(&self, value: *mut LPWSTR) -> HRESULT;
-    fn put_TargetCompatibleBrowserVersion(&self, value: LPCWSTR) -> HRESULT;
-    fn get_AllowSingleSignOnUsingOSPrimaryAccount(&self, allow: *mut BOOL) -> HRESULT;
-    fn put_AllowSingleSignOnUsingOSPrimaryAccount(&self, allow: BOOL) -> HRESULT;
+    fn get_AdditionalBrowserArguments(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn put_AdditionalBrowserArguments(
+        &self,
+        value: &windows_core::PCWSTR,
+    ) -> windows_core::Result<()>;
+    fn get_Language(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn put_Language(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn get_TargetCompatibleBrowserVersion(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn put_TargetCompatibleBrowserVersion(
+        &self,
+        value: &windows_core::PCWSTR,
+    ) -> windows_core::Result<()>;
+    fn get_AllowSingleSignOnUsingOSPrimaryAccount(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL>;
+    fn put_AllowSingleSignOnUsingOSPrimaryAccount(
+        &self,
+        allow: windows_core::BOOL,
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2EnvironmentOptions_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions_Impl, const OFFSET: isize>() -> Self
@@ -2999,15 +3327,18 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: *mut LPWSTR,
-        ) -> HRESULT {
+            value: *mut windows_core::PWSTR,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions_Impl::get_AdditionalBrowserArguments(
-                    this,
-                    core::mem::transmute_copy(&value),
-                )
+                match ICoreWebView2EnvironmentOptions_Impl::get_AdditionalBrowserArguments(this) {
+                    Ok(ok__) => {
+                        value.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn put_AdditionalBrowserArguments<
@@ -3015,15 +3346,16 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: LPCWSTR,
-        ) -> HRESULT {
+            value: windows_core::PCWSTR,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICoreWebView2EnvironmentOptions_Impl::put_AdditionalBrowserArguments(
                     this,
-                    core::mem::transmute_copy(&value),
+                    core::mem::transmute(&value),
                 )
+                .into()
             }
         }
         unsafe extern "system" fn get_Language<
@@ -3031,15 +3363,18 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: *mut LPWSTR,
-        ) -> HRESULT {
+            value: *mut windows_core::PWSTR,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions_Impl::get_Language(
-                    this,
-                    core::mem::transmute_copy(&value),
-                )
+                match ICoreWebView2EnvironmentOptions_Impl::get_Language(this) {
+                    Ok(ok__) => {
+                        value.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn put_Language<
@@ -3047,15 +3382,16 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: LPCWSTR,
-        ) -> HRESULT {
+            value: windows_core::PCWSTR,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICoreWebView2EnvironmentOptions_Impl::put_Language(
                     this,
-                    core::mem::transmute_copy(&value),
+                    core::mem::transmute(&value),
                 )
+                .into()
             }
         }
         unsafe extern "system" fn get_TargetCompatibleBrowserVersion<
@@ -3063,15 +3399,19 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: *mut LPWSTR,
-        ) -> HRESULT {
+            value: *mut windows_core::PWSTR,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions_Impl::get_TargetCompatibleBrowserVersion(
-                    this,
-                    core::mem::transmute_copy(&value),
-                )
+                match ICoreWebView2EnvironmentOptions_Impl::get_TargetCompatibleBrowserVersion(this)
+                {
+                    Ok(ok__) => {
+                        value.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn put_TargetCompatibleBrowserVersion<
@@ -3079,15 +3419,16 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: LPCWSTR,
-        ) -> HRESULT {
+            value: windows_core::PCWSTR,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICoreWebView2EnvironmentOptions_Impl::put_TargetCompatibleBrowserVersion(
                     this,
-                    core::mem::transmute_copy(&value),
+                    core::mem::transmute(&value),
                 )
+                .into()
             }
         }
         unsafe extern "system" fn get_AllowSingleSignOnUsingOSPrimaryAccount<
@@ -3095,15 +3436,12 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            allow: *mut BOOL,
-        ) -> HRESULT {
+            allow: *mut windows_core::BOOL,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions_Impl::get_AllowSingleSignOnUsingOSPrimaryAccount(
-                    this,
-                    core::mem::transmute_copy(&allow),
-                )
+                match ICoreWebView2EnvironmentOptions_Impl::get_AllowSingleSignOnUsingOSPrimaryAccount (this ,) { Ok (ok__) => { allow . write (ok__) ; windows_core::HRESULT (0) } Err (err) => err . into () }
             }
         }
         unsafe extern "system" fn put_AllowSingleSignOnUsingOSPrimaryAccount<
@@ -3111,8 +3449,8 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            allow: BOOL,
-        ) -> HRESULT {
+            allow: windows_core::BOOL,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3120,6 +3458,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                     this,
                     core::mem::transmute_copy(&allow),
                 )
+                .into()
             }
         }
         Self {
@@ -3160,14 +3499,21 @@ windows_core::imp::interface_hierarchy!(ICoreWebView2EnvironmentOptions6, window
 #[repr(C)]
 pub struct ICoreWebView2EnvironmentOptions6_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_AreBrowserExtensionsEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_AreBrowserExtensionsEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+    pub get_AreBrowserExtensionsEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_AreBrowserExtensionsEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2EnvironmentOptions6_Impl: windows_core::IUnknownImpl {
-    fn get_AreBrowserExtensionsEnabled(&self, value: *mut BOOL) -> HRESULT;
-    fn put_AreBrowserExtensionsEnabled(&self, value: BOOL) -> HRESULT;
+    fn get_AreBrowserExtensionsEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn put_AreBrowserExtensionsEnabled(
+        &self,
+        value: windows_core::BOOL,
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2EnvironmentOptions6_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions6_Impl, const OFFSET: isize>() -> Self
@@ -3177,15 +3523,18 @@ impl ICoreWebView2EnvironmentOptions6_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: *mut BOOL,
-        ) -> HRESULT {
+            value: *mut windows_core::BOOL,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions6_Impl::get_AreBrowserExtensionsEnabled(
-                    this,
-                    core::mem::transmute_copy(&value),
-                )
+                match ICoreWebView2EnvironmentOptions6_Impl::get_AreBrowserExtensionsEnabled(this) {
+                    Ok(ok__) => {
+                        value.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn put_AreBrowserExtensionsEnabled<
@@ -3193,8 +3542,8 @@ impl ICoreWebView2EnvironmentOptions6_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: BOOL,
-        ) -> HRESULT {
+            value: windows_core::BOOL,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3202,6 +3551,7 @@ impl ICoreWebView2EnvironmentOptions6_Vtbl {
                     this,
                     core::mem::transmute_copy(&value),
                 )
+                .into()
             }
         }
         Self {
@@ -3227,13 +3577,15 @@ pub struct ICoreWebView2EnvironmentOptions8_Vtbl {
     pub get_ScrollBarStyle: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut COREWEBVIEW2_SCROLLBAR_STYLE,
-    ) -> HRESULT,
-    pub put_ScrollBarStyle:
-        unsafe extern "system" fn(*mut core::ffi::c_void, COREWEBVIEW2_SCROLLBAR_STYLE) -> HRESULT,
+    ) -> windows_core::HRESULT,
+    pub put_ScrollBarStyle: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        COREWEBVIEW2_SCROLLBAR_STYLE,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2EnvironmentOptions8_Impl: windows_core::IUnknownImpl {
-    fn get_ScrollBarStyle(&self, value: *mut COREWEBVIEW2_SCROLLBAR_STYLE) -> HRESULT;
-    fn put_ScrollBarStyle(&self, value: COREWEBVIEW2_SCROLLBAR_STYLE) -> HRESULT;
+    fn get_ScrollBarStyle(&self) -> windows_core::Result<COREWEBVIEW2_SCROLLBAR_STYLE>;
+    fn put_ScrollBarStyle(&self, value: COREWEBVIEW2_SCROLLBAR_STYLE) -> windows_core::Result<()>;
 }
 impl ICoreWebView2EnvironmentOptions8_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions8_Impl, const OFFSET: isize>() -> Self
@@ -3244,14 +3596,17 @@ impl ICoreWebView2EnvironmentOptions8_Vtbl {
         >(
             this: *mut core::ffi::c_void,
             value: *mut COREWEBVIEW2_SCROLLBAR_STYLE,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions8_Impl::get_ScrollBarStyle(
-                    this,
-                    core::mem::transmute_copy(&value),
-                )
+                match ICoreWebView2EnvironmentOptions8_Impl::get_ScrollBarStyle(this) {
+                    Ok(ok__) => {
+                        value.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn put_ScrollBarStyle<
@@ -3260,7 +3615,7 @@ impl ICoreWebView2EnvironmentOptions8_Vtbl {
         >(
             this: *mut core::ffi::c_void,
             value: COREWEBVIEW2_SCROLLBAR_STYLE,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3268,6 +3623,7 @@ impl ICoreWebView2EnvironmentOptions8_Vtbl {
                     this,
                     core::mem::transmute_copy(&value),
                 )
+                .into()
             }
         }
         Self {
@@ -3293,10 +3649,18 @@ windows_core::imp::interface_hierarchy!(
 #[repr(C)]
 pub struct ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, HRESULT, LPCWSTR) -> HRESULT,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::HRESULT,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2ExecuteScriptCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, errorcode: HRESULT, result: LPCWSTR) -> HRESULT;
+    fn Invoke(
+        &self,
+        errorcode: windows_core::HRESULT,
+        result: &windows_core::PCWSTR,
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
     pub const fn new<
@@ -3308,17 +3672,18 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            errorcode: HRESULT,
-            result: LPCWSTR,
-        ) -> HRESULT {
+            errorcode: windows_core::HRESULT,
+            result: windows_core::PCWSTR,
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICoreWebView2ExecuteScriptCompletedHandler_Impl::Invoke(
                     this,
                     core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
+                    core::mem::transmute(&result),
                 )
+                .into()
             }
         }
         Self {
@@ -3347,14 +3712,14 @@ pub struct ICoreWebView2FocusChangedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2FocusChangedEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2Controller>,
         args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FocusChangedEventHandler_Vtbl {
     pub const fn new<Identity: ICoreWebView2FocusChangedEventHandler_Impl, const OFFSET: isize>()
@@ -3366,7 +3731,7 @@ impl ICoreWebView2FocusChangedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3375,6 +3740,7 @@ impl ICoreWebView2FocusChangedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -3401,16 +3767,16 @@ pub struct ICoreWebView2GetCookiesCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        HRESULT,
+        windows_core::HRESULT,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2GetCookiesCompletedHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
-        errorcode: HRESULT,
+        errorcode: windows_core::HRESULT,
         result: windows_core::Ref<ICoreWebView2CookieList>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
     pub const fn new<
@@ -3422,9 +3788,9 @@ impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            errorcode: HRESULT,
+            errorcode: windows_core::HRESULT,
             result: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3433,6 +3799,7 @@ impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
                     core::mem::transmute_copy(&errorcode),
                     core::mem::transmute_copy(&result),
                 )
+                .into()
             }
         }
         Self {
@@ -3455,7 +3822,11 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown
 );
 impl ICoreWebView2HttpHeadersCollectionIterator {
-    pub(crate) unsafe fn GetCurrentHeader(&self, name: *mut LPWSTR, value: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn GetCurrentHeader(
+        &self,
+        name: *mut windows_core::PWSTR,
+        value: *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetCurrentHeader)(
                 windows_core::Interface::as_raw(self),
@@ -3464,31 +3835,43 @@ impl ICoreWebView2HttpHeadersCollectionIterator {
             )
         }
     }
-    pub(crate) unsafe fn get_HasCurrentHeader(&self, hascurrent: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_HasCurrentHeader(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_HasCurrentHeader)(
                 windows_core::Interface::as_raw(self),
-                hascurrent as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn MoveNext(&self, hasnext: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveNext)(
                 windows_core::Interface::as_raw(self),
-                hasnext as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2HttpHeadersCollectionIterator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetCurrentHeader:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR, *mut LPWSTR) -> HRESULT,
-    pub get_HasCurrentHeader:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
+    pub GetCurrentHeader: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub get_HasCurrentHeader: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2HttpRequestHeaders,
@@ -3499,13 +3882,14 @@ windows_core::imp::interface_hierarchy!(ICoreWebView2HttpRequestHeaders, windows
 impl ICoreWebView2HttpRequestHeaders {
     pub(crate) unsafe fn GetIterator(
         &self,
-        value: *mut Option<ICoreWebView2HttpHeadersCollectionIterator>,
-    ) -> HRESULT {
+    ) -> windows_core::Result<ICoreWebView2HttpHeadersCollectionIterator> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIterator)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(value),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3517,8 +3901,10 @@ pub struct ICoreWebView2HttpRequestHeaders_Vtbl {
     Contains: usize,
     SetHeader: usize,
     RemoveHeader: usize,
-    pub GetIterator:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+    pub GetIterator: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Interop2,
@@ -3527,23 +3913,24 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Interop2, windows_core::IUnknown);
 impl ICoreWebView2Interop2 {
-    pub(crate) unsafe fn GetComICoreWebView2(
-        &self,
-        corewebview2: *mut Option<ICoreWebView2>,
-    ) -> HRESULT {
+    pub(crate) unsafe fn GetComICoreWebView2(&self) -> windows_core::Result<ICoreWebView2> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetComICoreWebView2)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(corewebview2),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2Interop2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetComICoreWebView2:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+    pub GetComICoreWebView2: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2MoveFocusRequestedEventArgs,
@@ -3555,27 +3942,31 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown
 );
 impl ICoreWebView2MoveFocusRequestedEventArgs {
-    pub(crate) unsafe fn get_Reason(&self, reason: *mut COREWEBVIEW2_MOVE_FOCUS_REASON) -> HRESULT {
+    pub(crate) unsafe fn get_Reason(&self) -> windows_core::Result<COREWEBVIEW2_MOVE_FOCUS_REASON> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Reason)(
                 windows_core::Interface::as_raw(self),
-                reason as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_Handled(&self, value: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_Handled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Handled)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_Handled(&self, value: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_Handled(&self, value: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_Handled)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.into(),
             )
         }
     }
@@ -3586,9 +3977,15 @@ pub struct ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
     pub get_Reason: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut COREWEBVIEW2_MOVE_FOCUS_REASON,
-    ) -> HRESULT,
-    pub get_Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_Handled: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+    ) -> windows_core::HRESULT,
+    pub get_Handled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_Handled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2MoveFocusRequestedEventHandler,
@@ -3606,14 +4003,14 @@ pub struct ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2MoveFocusRequestedEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2Controller>,
         args: windows_core::Ref<ICoreWebView2MoveFocusRequestedEventArgs>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
     pub const fn new<
@@ -3627,7 +4024,7 @@ impl ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3636,6 +4033,7 @@ impl ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -3658,29 +4056,37 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown
 );
 impl ICoreWebView2NavigationCompletedEventArgs {
-    pub(crate) unsafe fn get_IsSuccess(&self, issuccess: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsSuccess(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsSuccess)(
                 windows_core::Interface::as_raw(self),
-                issuccess as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_NavigationId(&self, navigationid: *mut UINT64) -> HRESULT {
+    pub(crate) unsafe fn get_NavigationId(&self) -> windows_core::Result<UINT64> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_NavigationId)(
                 windows_core::Interface::as_raw(self),
-                navigationid as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2NavigationCompletedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_IsSuccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
+    pub get_IsSuccess: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
     get_WebErrorStatus: usize,
-    pub get_NavigationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT64) -> HRESULT,
+    pub get_NavigationId:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2NavigationCompletedEventHandler,
@@ -3698,14 +4104,14 @@ pub struct ICoreWebView2NavigationCompletedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2NavigationCompletedEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2NavigationCompletedEventArgs>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
     pub const fn new<
@@ -3719,7 +4125,7 @@ impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3728,6 +4134,7 @@ impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -3750,66 +4157,91 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown
 );
 impl ICoreWebView2NavigationStartingEventArgs {
-    pub(crate) unsafe fn get_Uri(&self, uri: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_Uri(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Uri)(
                 windows_core::Interface::as_raw(self),
-                uri as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_IsUserInitiated(&self, isuserinitiated: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsUserInitiated(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsUserInitiated)(
                 windows_core::Interface::as_raw(self),
-                isuserinitiated as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_IsRedirected(&self, isredirected: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsRedirected(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsRedirected)(
                 windows_core::Interface::as_raw(self),
-                isredirected as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_Cancel(&self, cancel: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_Cancel(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Cancel)(
                 windows_core::Interface::as_raw(self),
-                cancel as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_Cancel(&self, cancel: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_Cancel(&self, cancel: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_Cancel)(
                 windows_core::Interface::as_raw(self),
-                cancel,
+                cancel.into(),
             )
         }
     }
-    pub(crate) unsafe fn get_NavigationId(&self, navigationid: *mut UINT64) -> HRESULT {
+    pub(crate) unsafe fn get_NavigationId(&self) -> windows_core::Result<UINT64> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_NavigationId)(
                 windows_core::Interface::as_raw(self),
-                navigationid as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2NavigationStartingEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub get_IsUserInitiated:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub get_IsRedirected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
+    pub get_Uri: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub get_IsUserInitiated: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_IsRedirected: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
     get_RequestHeaders: usize,
-    pub get_Cancel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_Cancel: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub get_NavigationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT64) -> HRESULT,
+    pub get_Cancel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_Cancel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_NavigationId:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2NavigationStartingEventHandler,
@@ -3827,14 +4259,14 @@ pub struct ICoreWebView2NavigationStartingEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2NavigationStartingEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2NavigationStartingEventArgs>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
     pub const fn new<
@@ -3848,7 +4280,7 @@ impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3857,6 +4289,7 @@ impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -3879,15 +4312,17 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown
 );
 impl ICoreWebView2NewWindowRequestedEventArgs {
-    pub(crate) unsafe fn get_Uri(&self, uri: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_Uri(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Uri)(
                 windows_core::Interface::as_raw(self),
-                uri as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_NewWindow<P0>(&self, newwindow: P0) -> HRESULT
+    pub(crate) unsafe fn put_NewWindow<P0>(&self, newwindow: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ICoreWebView2>,
     {
@@ -3898,55 +4333,73 @@ impl ICoreWebView2NewWindowRequestedEventArgs {
             )
         }
     }
-    pub(crate) unsafe fn put_Handled(&self, handled: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_Handled(&self, handled: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_Handled)(
                 windows_core::Interface::as_raw(self),
-                handled,
+                handled.into(),
             )
         }
     }
-    pub(crate) unsafe fn get_Handled(&self, handled: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_Handled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Handled)(
                 windows_core::Interface::as_raw(self),
-                handled as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_IsUserInitiated(&self, isuserinitiated: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsUserInitiated(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsUserInitiated)(
                 windows_core::Interface::as_raw(self),
-                isuserinitiated as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn GetDeferral(
-        &self,
-        deferral: *mut Option<ICoreWebView2Deferral>,
-    ) -> HRESULT {
+    pub(crate) unsafe fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDeferral)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(deferral),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub put_NewWindow:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> HRESULT,
+    pub get_Uri: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub put_NewWindow: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     get_NewWindow: usize,
-    pub put_Handled: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub get_Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub get_IsUserInitiated:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub GetDeferral:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+    pub put_Handled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_Handled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_IsUserInitiated: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     get_WindowFeatures: usize,
 }
 windows_core::imp::define_interface!(
@@ -3965,14 +4418,14 @@ pub struct ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2NewWindowRequestedEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2NewWindowRequestedEventArgs>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
     pub const fn new<
@@ -3986,7 +4439,7 @@ impl ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3995,6 +4448,7 @@ impl ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -4017,42 +4471,52 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown
 );
 impl ICoreWebView2PermissionRequestedEventArgs {
-    pub(crate) unsafe fn get_Uri(&self, uri: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_Uri(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Uri)(
                 windows_core::Interface::as_raw(self),
-                uri as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
     pub(crate) unsafe fn get_PermissionKind(
         &self,
-        permissionkind: *mut COREWEBVIEW2_PERMISSION_KIND,
-    ) -> HRESULT {
+    ) -> windows_core::Result<COREWEBVIEW2_PERMISSION_KIND> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_PermissionKind)(
                 windows_core::Interface::as_raw(self),
-                permissionkind as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_IsUserInitiated(&self, isuserinitiated: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsUserInitiated(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsUserInitiated)(
                 windows_core::Interface::as_raw(self),
-                isuserinitiated as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_State(&self, state: *mut COREWEBVIEW2_PERMISSION_STATE) -> HRESULT {
+    pub(crate) unsafe fn get_State(&self) -> windows_core::Result<COREWEBVIEW2_PERMISSION_STATE> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_State)(
                 windows_core::Interface::as_raw(self),
-                state as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_State(&self, state: COREWEBVIEW2_PERMISSION_STATE) -> HRESULT {
+    pub(crate) unsafe fn put_State(
+        &self,
+        state: COREWEBVIEW2_PERMISSION_STATE,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_State)(
                 windows_core::Interface::as_raw(self),
@@ -4060,36 +4524,44 @@ impl ICoreWebView2PermissionRequestedEventArgs {
             )
         }
     }
-    pub(crate) unsafe fn GetDeferral(
-        &self,
-        deferral: *mut Option<ICoreWebView2Deferral>,
-    ) -> HRESULT {
+    pub(crate) unsafe fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDeferral)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(deferral),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2PermissionRequestedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
+    pub get_Uri: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
     pub get_PermissionKind: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut COREWEBVIEW2_PERMISSION_KIND,
-    ) -> HRESULT,
-    pub get_IsUserInitiated:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
+    ) -> windows_core::HRESULT,
+    pub get_IsUserInitiated: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
     pub get_State: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut COREWEBVIEW2_PERMISSION_STATE,
-    ) -> HRESULT,
-    pub put_State:
-        unsafe extern "system" fn(*mut core::ffi::c_void, COREWEBVIEW2_PERMISSION_STATE) -> HRESULT,
-    pub GetDeferral:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+    ) -> windows_core::HRESULT,
+    pub put_State: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        COREWEBVIEW2_PERMISSION_STATE,
+    ) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2PermissionRequestedEventHandler,
@@ -4107,14 +4579,14 @@ pub struct ICoreWebView2PermissionRequestedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2PermissionRequestedEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2PermissionRequestedEventArgs>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2PermissionRequestedEventHandler_Vtbl {
     pub const fn new<
@@ -4128,7 +4600,7 @@ impl ICoreWebView2PermissionRequestedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4137,6 +4609,7 @@ impl ICoreWebView2PermissionRequestedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -4161,13 +4634,14 @@ windows_core::imp::interface_hierarchy!(
 impl ICoreWebView2ProcessFailedEventArgs {
     pub(crate) unsafe fn get_ProcessFailedKind(
         &self,
-        value: *mut COREWEBVIEW2_PROCESS_FAILED_KIND,
-    ) -> HRESULT {
+    ) -> windows_core::Result<COREWEBVIEW2_PROCESS_FAILED_KIND> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ProcessFailedKind)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
 }
@@ -4177,7 +4651,7 @@ pub struct ICoreWebView2ProcessFailedEventArgs_Vtbl {
     pub get_ProcessFailedKind: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut COREWEBVIEW2_PROCESS_FAILED_KIND,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2ProcessFailedEventHandler,
@@ -4195,14 +4669,14 @@ pub struct ICoreWebView2ProcessFailedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2ProcessFailedEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2ProcessFailedEventArgs>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
     pub const fn new<Identity: ICoreWebView2ProcessFailedEventHandler_Impl, const OFFSET: isize>()
@@ -4214,7 +4688,7 @@ impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4223,6 +4697,7 @@ impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -4242,61 +4717,80 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Profile, windows_core::IUnknown);
 impl ICoreWebView2Profile {
-    pub(crate) unsafe fn get_ProfileName(&self, value: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_ProfileName(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ProfileName)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_IsInPrivateModeEnabled(&self, value: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsInPrivateModeEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsInPrivateModeEnabled)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_ProfilePath(&self, value: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_ProfilePath(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ProfilePath)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_DefaultDownloadFolderPath(&self, value: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_DefaultDownloadFolderPath(
+        &self,
+    ) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_DefaultDownloadFolderPath)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_DefaultDownloadFolderPath(&self, value: LPCWSTR) -> HRESULT {
+    pub(crate) unsafe fn put_DefaultDownloadFolderPath<P0>(
+        &self,
+        value: P0,
+    ) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).put_DefaultDownloadFolderPath)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.param().abi(),
             )
         }
     }
     pub(crate) unsafe fn get_PreferredColorScheme(
         &self,
-        value: *mut COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
-    ) -> HRESULT {
+    ) -> windows_core::Result<COREWEBVIEW2_PREFERRED_COLOR_SCHEME> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_PreferredColorScheme)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
     pub(crate) unsafe fn put_PreferredColorScheme(
         &self,
         value: COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
-    ) -> HRESULT {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_PreferredColorScheme)(
                 windows_core::Interface::as_raw(self),
@@ -4308,22 +4802,34 @@ impl ICoreWebView2Profile {
 #[repr(C)]
 pub struct ICoreWebView2Profile_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_ProfileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub get_IsInPrivateModeEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub get_ProfilePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub get_DefaultDownloadFolderPath:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub put_DefaultDownloadFolderPath:
-        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> HRESULT,
+    pub get_ProfileName: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub get_IsInPrivateModeEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_ProfilePath: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub get_DefaultDownloadFolderPath: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub put_DefaultDownloadFolderPath: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
     pub get_PreferredColorScheme: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
     pub put_PreferredColorScheme: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Profile2,
@@ -4342,7 +4848,7 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2Profile
 );
 impl ICoreWebView2Profile2 {
-    pub(crate) unsafe fn ClearBrowsingDataAll<P0>(&self, handler: P0) -> HRESULT
+    pub(crate) unsafe fn ClearBrowsingDataAll<P0>(&self, handler: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ICoreWebView2ClearBrowsingDataCompletedHandler>,
     {
@@ -4359,8 +4865,10 @@ pub struct ICoreWebView2Profile2_Vtbl {
     pub base__: ICoreWebView2Profile_Vtbl,
     ClearBrowsingData: usize,
     ClearBrowsingDataInTimeRange: usize,
-    pub ClearBrowsingDataAll:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> HRESULT,
+    pub ClearBrowsingDataAll: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Settings,
@@ -4369,153 +4877,198 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Settings, windows_core::IUnknown);
 impl ICoreWebView2Settings {
-    pub(crate) unsafe fn get_IsScriptEnabled(&self, isscriptenabled: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsScriptEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsScriptEnabled)(
                 windows_core::Interface::as_raw(self),
-                isscriptenabled as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_IsScriptEnabled(&self, isscriptenabled: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsScriptEnabled(
+        &self,
+        isscriptenabled: bool,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsScriptEnabled)(
                 windows_core::Interface::as_raw(self),
-                isscriptenabled,
+                isscriptenabled.into(),
             )
         }
     }
-    pub(crate) unsafe fn get_IsWebMessageEnabled(&self, iswebmessageenabled: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsWebMessageEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsWebMessageEnabled)(
                 windows_core::Interface::as_raw(self),
-                iswebmessageenabled as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_IsWebMessageEnabled(&self, iswebmessageenabled: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsWebMessageEnabled(
+        &self,
+        iswebmessageenabled: bool,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsWebMessageEnabled)(
                 windows_core::Interface::as_raw(self),
-                iswebmessageenabled,
+                iswebmessageenabled.into(),
             )
         }
     }
     pub(crate) unsafe fn get_AreDefaultScriptDialogsEnabled(
         &self,
-        aredefaultscriptdialogsenabled: *mut BOOL,
-    ) -> HRESULT {
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_AreDefaultScriptDialogsEnabled)(
                 windows_core::Interface::as_raw(self),
-                aredefaultscriptdialogsenabled as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
     pub(crate) unsafe fn put_AreDefaultScriptDialogsEnabled(
         &self,
-        aredefaultscriptdialogsenabled: BOOL,
-    ) -> HRESULT {
+        aredefaultscriptdialogsenabled: bool,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_AreDefaultScriptDialogsEnabled)(
                 windows_core::Interface::as_raw(self),
-                aredefaultscriptdialogsenabled,
+                aredefaultscriptdialogsenabled.into(),
             )
         }
     }
-    pub(crate) unsafe fn get_IsStatusBarEnabled(&self, isstatusbarenabled: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsStatusBarEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsStatusBarEnabled)(
                 windows_core::Interface::as_raw(self),
-                isstatusbarenabled as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_IsStatusBarEnabled(&self, isstatusbarenabled: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsStatusBarEnabled(
+        &self,
+        isstatusbarenabled: bool,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsStatusBarEnabled)(
                 windows_core::Interface::as_raw(self),
-                isstatusbarenabled,
+                isstatusbarenabled.into(),
             )
         }
     }
-    pub(crate) unsafe fn get_AreDevToolsEnabled(&self, aredevtoolsenabled: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_AreDevToolsEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_AreDevToolsEnabled)(
                 windows_core::Interface::as_raw(self),
-                aredevtoolsenabled as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_AreDevToolsEnabled(&self, aredevtoolsenabled: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_AreDevToolsEnabled(
+        &self,
+        aredevtoolsenabled: bool,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_AreDevToolsEnabled)(
                 windows_core::Interface::as_raw(self),
-                aredevtoolsenabled,
+                aredevtoolsenabled.into(),
             )
         }
     }
-    pub(crate) unsafe fn get_AreDefaultContextMenusEnabled(&self, enabled: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_AreDefaultContextMenusEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_AreDefaultContextMenusEnabled)(
                 windows_core::Interface::as_raw(self),
-                enabled as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_AreDefaultContextMenusEnabled(&self, enabled: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_AreDefaultContextMenusEnabled(
+        &self,
+        enabled: bool,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_AreDefaultContextMenusEnabled)(
                 windows_core::Interface::as_raw(self),
-                enabled,
+                enabled.into(),
             )
         }
     }
-    pub(crate) unsafe fn get_AreHostObjectsAllowed(&self, allowed: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_AreHostObjectsAllowed(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_AreHostObjectsAllowed)(
                 windows_core::Interface::as_raw(self),
-                allowed as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_AreHostObjectsAllowed(&self, allowed: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_AreHostObjectsAllowed(&self, allowed: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_AreHostObjectsAllowed)(
                 windows_core::Interface::as_raw(self),
-                allowed,
+                allowed.into(),
             )
         }
     }
-    pub(crate) unsafe fn get_IsZoomControlEnabled(&self, enabled: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsZoomControlEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsZoomControlEnabled)(
                 windows_core::Interface::as_raw(self),
-                enabled as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_IsZoomControlEnabled(&self, enabled: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsZoomControlEnabled(&self, enabled: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsZoomControlEnabled)(
                 windows_core::Interface::as_raw(self),
-                enabled,
+                enabled.into(),
             )
         }
     }
-    pub(crate) unsafe fn get_IsBuiltInErrorPageEnabled(&self, enabled: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsBuiltInErrorPageEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsBuiltInErrorPageEnabled)(
                 windows_core::Interface::as_raw(self),
-                enabled as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_IsBuiltInErrorPageEnabled(&self, enabled: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsBuiltInErrorPageEnabled(
+        &self,
+        enabled: bool,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsBuiltInErrorPageEnabled)(
                 windows_core::Interface::as_raw(self),
-                enabled,
+                enabled.into(),
             )
         }
     }
@@ -4523,38 +5076,78 @@ impl ICoreWebView2Settings {
 #[repr(C)]
 pub struct ICoreWebView2Settings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_IsScriptEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_IsScriptEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub get_IsWebMessageEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_IsWebMessageEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub get_AreDefaultScriptDialogsEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_AreDefaultScriptDialogsEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub get_IsStatusBarEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_IsStatusBarEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub get_AreDevToolsEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_AreDevToolsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub get_AreDefaultContextMenusEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_AreDefaultContextMenusEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub get_AreHostObjectsAllowed:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_AreHostObjectsAllowed:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub get_IsZoomControlEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_IsZoomControlEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub get_IsBuiltInErrorPageEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_IsBuiltInErrorPageEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+    pub get_IsScriptEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_IsScriptEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_IsWebMessageEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_IsWebMessageEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_AreDefaultScriptDialogsEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_AreDefaultScriptDialogsEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_IsStatusBarEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_IsStatusBarEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_AreDevToolsEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_AreDevToolsEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_AreDefaultContextMenusEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_AreDefaultContextMenusEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_AreHostObjectsAllowed: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_AreHostObjectsAllowed: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_IsZoomControlEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_IsZoomControlEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_IsBuiltInErrorPageEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_IsBuiltInErrorPageEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Settings2,
@@ -4573,19 +5166,24 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2Settings
 );
 impl ICoreWebView2Settings2 {
-    pub(crate) unsafe fn get_UserAgent(&self, value: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_UserAgent(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_UserAgent)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_UserAgent(&self, value: LPCWSTR) -> HRESULT {
+    pub(crate) unsafe fn put_UserAgent<P0>(&self, value: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).put_UserAgent)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.param().abi(),
             )
         }
     }
@@ -4593,8 +5191,14 @@ impl ICoreWebView2Settings2 {
 #[repr(C)]
 pub struct ICoreWebView2Settings2_Vtbl {
     pub base__: ICoreWebView2Settings_Vtbl,
-    pub get_UserAgent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub put_UserAgent: unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> HRESULT,
+    pub get_UserAgent: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub put_UserAgent: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Settings3,
@@ -4614,19 +5218,26 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2Settings2
 );
 impl ICoreWebView2Settings3 {
-    pub(crate) unsafe fn get_AreBrowserAcceleratorKeysEnabled(&self, value: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_AreBrowserAcceleratorKeysEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_AreBrowserAcceleratorKeysEnabled)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_AreBrowserAcceleratorKeysEnabled(&self, value: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_AreBrowserAcceleratorKeysEnabled(
+        &self,
+        value: bool,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_AreBrowserAcceleratorKeysEnabled)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.into(),
             )
         }
     }
@@ -4634,10 +5245,16 @@ impl ICoreWebView2Settings3 {
 #[repr(C)]
 pub struct ICoreWebView2Settings3_Vtbl {
     pub base__: ICoreWebView2Settings2_Vtbl,
-    pub get_AreBrowserAcceleratorKeysEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_AreBrowserAcceleratorKeysEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+    pub get_AreBrowserAcceleratorKeysEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    )
+        -> windows_core::HRESULT,
+    pub put_AreBrowserAcceleratorKeysEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    )
+        -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Settings4,
@@ -4658,35 +5275,46 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2Settings3
 );
 impl ICoreWebView2Settings4 {
-    pub(crate) unsafe fn get_IsPasswordAutosaveEnabled(&self, value: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsPasswordAutosaveEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsPasswordAutosaveEnabled)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_IsPasswordAutosaveEnabled(&self, value: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsPasswordAutosaveEnabled(
+        &self,
+        value: bool,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsPasswordAutosaveEnabled)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.into(),
             )
         }
     }
-    pub(crate) unsafe fn get_IsGeneralAutofillEnabled(&self, value: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsGeneralAutofillEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsGeneralAutofillEnabled)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_IsGeneralAutofillEnabled(&self, value: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsGeneralAutofillEnabled(&self, value: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsGeneralAutofillEnabled)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.into(),
             )
         }
     }
@@ -4694,14 +5322,22 @@ impl ICoreWebView2Settings4 {
 #[repr(C)]
 pub struct ICoreWebView2Settings4_Vtbl {
     pub base__: ICoreWebView2Settings3_Vtbl,
-    pub get_IsPasswordAutosaveEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_IsPasswordAutosaveEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
-    pub get_IsGeneralAutofillEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_IsGeneralAutofillEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+    pub get_IsPasswordAutosaveEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_IsPasswordAutosaveEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub get_IsGeneralAutofillEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_IsGeneralAutofillEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Settings5,
@@ -4723,19 +5359,21 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2Settings4
 );
 impl ICoreWebView2Settings5 {
-    pub(crate) unsafe fn get_IsPinchZoomEnabled(&self, value: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsPinchZoomEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsPinchZoomEnabled)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_IsPinchZoomEnabled(&self, value: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsPinchZoomEnabled(&self, value: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsPinchZoomEnabled)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.into(),
             )
         }
     }
@@ -4743,9 +5381,14 @@ impl ICoreWebView2Settings5 {
 #[repr(C)]
 pub struct ICoreWebView2Settings5_Vtbl {
     pub base__: ICoreWebView2Settings4_Vtbl,
-    pub get_IsPinchZoomEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_IsPinchZoomEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+    pub get_IsPinchZoomEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_IsPinchZoomEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Settings6,
@@ -4768,19 +5411,23 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2Settings5
 );
 impl ICoreWebView2Settings6 {
-    pub(crate) unsafe fn get_IsSwipeNavigationEnabled(&self, value: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsSwipeNavigationEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsSwipeNavigationEnabled)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_IsSwipeNavigationEnabled(&self, value: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsSwipeNavigationEnabled(&self, value: bool) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsSwipeNavigationEnabled)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.into(),
             )
         }
     }
@@ -4788,10 +5435,14 @@ impl ICoreWebView2Settings6 {
 #[repr(C)]
 pub struct ICoreWebView2Settings6_Vtbl {
     pub base__: ICoreWebView2Settings5_Vtbl,
-    pub get_IsSwipeNavigationEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_IsSwipeNavigationEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+    pub get_IsSwipeNavigationEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub put_IsSwipeNavigationEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Settings7,
@@ -4872,19 +5523,26 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2Settings8
 );
 impl ICoreWebView2Settings9 {
-    pub(crate) unsafe fn get_IsNonClientRegionSupportEnabled(&self, value: *mut BOOL) -> HRESULT {
+    pub(crate) unsafe fn get_IsNonClientRegionSupportEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsNonClientRegionSupportEnabled)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn put_IsNonClientRegionSupportEnabled(&self, value: BOOL) -> HRESULT {
+    pub(crate) unsafe fn put_IsNonClientRegionSupportEnabled(
+        &self,
+        value: bool,
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsNonClientRegionSupportEnabled)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.into(),
             )
         }
     }
@@ -4892,10 +5550,16 @@ impl ICoreWebView2Settings9 {
 #[repr(C)]
 pub struct ICoreWebView2Settings9_Vtbl {
     pub base__: ICoreWebView2Settings8_Vtbl,
-    pub get_IsNonClientRegionSupportEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut BOOL) -> HRESULT,
-    pub put_IsNonClientRegionSupportEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, BOOL) -> HRESULT,
+    pub get_IsNonClientRegionSupportEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    )
+        -> windows_core::HRESULT,
+    pub put_IsNonClientRegionSupportEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    )
+        -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2StateChangedEventHandler,
@@ -4913,14 +5577,14 @@ pub struct ICoreWebView2StateChangedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2StateChangedEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2DownloadOperation>,
         args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2StateChangedEventHandler_Vtbl {
     pub const fn new<Identity: ICoreWebView2StateChangedEventHandler_Impl, const OFFSET: isize>()
@@ -4932,7 +5596,7 @@ impl ICoreWebView2StateChangedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4941,6 +5605,7 @@ impl ICoreWebView2StateChangedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -4963,39 +5628,54 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown
 );
 impl ICoreWebView2WebMessageReceivedEventArgs {
-    pub(crate) unsafe fn get_Source(&self, value: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_Source(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Source)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_WebMessageAsJson(&self, value: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_WebMessageAsJson(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_WebMessageAsJson)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn TryGetWebMessageAsString(&self, value: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn TryGetWebMessageAsString(
+        &self,
+    ) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TryGetWebMessageAsString)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2WebMessageReceivedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub get_WebMessageAsJson:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
-    pub TryGetWebMessageAsString:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
+    pub get_Source: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub get_WebMessageAsJson: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub TryGetWebMessageAsString: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2WebMessageReceivedEventHandler,
@@ -5013,14 +5693,14 @@ pub struct ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2WebMessageReceivedEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2WebMessageReceivedEventArgs>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
     pub const fn new<
@@ -5034,7 +5714,7 @@ impl ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5043,6 +5723,7 @@ impl ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -5062,45 +5743,58 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2WebResourceRequest, windows_core::IUnknown);
 impl ICoreWebView2WebResourceRequest {
-    pub(crate) unsafe fn get_Uri(&self, uri: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_Uri(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Uri)(
                 windows_core::Interface::as_raw(self),
-                uri as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn get_Method(&self, method: *mut LPWSTR) -> HRESULT {
+    pub(crate) unsafe fn get_Method(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Method)(
                 windows_core::Interface::as_raw(self),
-                method as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
     pub(crate) unsafe fn get_Headers(
         &self,
-        headers: *mut Option<ICoreWebView2HttpRequestHeaders>,
-    ) -> HRESULT {
+    ) -> windows_core::Result<ICoreWebView2HttpRequestHeaders> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Headers)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(headers),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2WebResourceRequest_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
+    pub get_Uri: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
     put_Uri: usize,
-    pub get_Method: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> HRESULT,
+    pub get_Method: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
     put_Method: usize,
     get_Content: usize,
     put_Content: usize,
-    pub get_Headers:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+    pub get_Headers: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2WebResourceRequestedEventArgs,
@@ -5114,16 +5808,17 @@ windows_core::imp::interface_hierarchy!(
 impl ICoreWebView2WebResourceRequestedEventArgs {
     pub(crate) unsafe fn get_Request(
         &self,
-        request: *mut Option<ICoreWebView2WebResourceRequest>,
-    ) -> HRESULT {
+    ) -> windows_core::Result<ICoreWebView2WebResourceRequest> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Request)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(request),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub(crate) unsafe fn put_Response<P0>(&self, response: P0) -> HRESULT
+    pub(crate) unsafe fn put_Response<P0>(&self, response: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ICoreWebView2WebResourceResponse>,
     {
@@ -5138,11 +5833,15 @@ impl ICoreWebView2WebResourceRequestedEventArgs {
 #[repr(C)]
 pub struct ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub get_Request:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+    pub get_Request: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     get_Response: usize,
-    pub put_Response:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> HRESULT,
+    pub put_Response: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     GetDeferral: usize,
     get_ResourceContext: usize,
 }
@@ -5162,14 +5861,14 @@ pub struct ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2WebResourceRequestedEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<ICoreWebView2WebResourceRequestedEventArgs>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
     pub const fn new<
@@ -5183,7 +5882,7 @@ impl ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5192,6 +5891,7 @@ impl ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -5237,14 +5937,14 @@ pub struct ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2WindowCloseRequestedEventHandler_Impl: windows_core::IUnknownImpl {
     fn Invoke(
         &self,
         sender: windows_core::Ref<ICoreWebView2>,
         args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> HRESULT;
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
     pub const fn new<
@@ -5258,7 +5958,7 @@ impl ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
             this: *mut core::ffi::c_void,
             sender: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> HRESULT {
+        ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5267,6 +5967,7 @@ impl ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
                     core::mem::transmute_copy(&sender),
                     core::mem::transmute_copy(&args),
                 )
+                .into()
             }
         }
         Self {
@@ -5402,20 +6103,24 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2_12
 );
 impl ICoreWebView2_13 {
-    pub(crate) unsafe fn get_Profile(&self, value: *mut Option<ICoreWebView2Profile>) -> HRESULT {
+    pub(crate) unsafe fn get_Profile(&self) -> windows_core::Result<ICoreWebView2Profile> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Profile)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(value),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
 #[repr(C)]
 pub struct ICoreWebView2_13_Vtbl {
     pub base__: ICoreWebView2_12_Vtbl,
-    pub get_Profile:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+    pub get_Profile: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2_14,
@@ -5636,19 +6341,20 @@ windows_core::imp::interface_hierarchy!(
 impl ICoreWebView2_19 {
     pub(crate) unsafe fn get_MemoryUsageTargetLevel(
         &self,
-        value: *mut COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
-    ) -> HRESULT {
+    ) -> windows_core::Result<COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_MemoryUsageTargetLevel)(
                 windows_core::Interface::as_raw(self),
-                value as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
     pub(crate) unsafe fn put_MemoryUsageTargetLevel(
         &self,
         value: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
-    ) -> HRESULT {
+    ) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).put_MemoryUsageTargetLevel)(
                 windows_core::Interface::as_raw(self),
@@ -5663,11 +6369,11 @@ pub struct ICoreWebView2_19_Vtbl {
     pub get_MemoryUsageTargetLevel: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
     pub put_MemoryUsageTargetLevel: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
-    ) -> HRESULT,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2_2,
@@ -5682,7 +6388,10 @@ impl core::ops::Deref for ICoreWebView2_2 {
 }
 windows_core::imp::interface_hierarchy!(ICoreWebView2_2, windows_core::IUnknown, ICoreWebView2);
 impl ICoreWebView2_2 {
-    pub(crate) unsafe fn NavigateWithWebResourceRequest<P0>(&self, request: P0) -> HRESULT
+    pub(crate) unsafe fn NavigateWithWebResourceRequest<P0>(
+        &self,
+        request: P0,
+    ) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ICoreWebView2WebResourceRequest>,
     {
@@ -5695,24 +6404,24 @@ impl ICoreWebView2_2 {
     }
     pub(crate) unsafe fn get_CookieManager(
         &self,
-        cookiemanager: *mut Option<ICoreWebView2CookieManager>,
-    ) -> HRESULT {
+    ) -> windows_core::Result<ICoreWebView2CookieManager> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_CookieManager)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(cookiemanager),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub(crate) unsafe fn get_Environment(
-        &self,
-        environment: *mut Option<ICoreWebView2Environment>,
-    ) -> HRESULT {
+    pub(crate) unsafe fn get_Environment(&self) -> windows_core::Result<ICoreWebView2Environment> {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Environment)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(environment),
+                &mut result__,
             )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5721,14 +6430,20 @@ pub struct ICoreWebView2_2_Vtbl {
     pub base__: ICoreWebView2_Vtbl,
     add_WebResourceResponseReceived: usize,
     remove_WebResourceResponseReceived: usize,
-    pub NavigateWithWebResourceRequest:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> HRESULT,
+    pub NavigateWithWebResourceRequest: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     add_DOMContentLoaded: usize,
     remove_DOMContentLoaded: usize,
-    pub get_CookieManager:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
-    pub get_Environment:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> HRESULT,
+    pub get_CookieManager: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_Environment: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2_20,
@@ -5846,33 +6561,39 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2_21
 );
 impl ICoreWebView2_22 {
-    pub(crate) unsafe fn AddWebResourceRequestedFilterWithRequestSourceKinds(
+    pub(crate) unsafe fn AddWebResourceRequestedFilterWithRequestSourceKinds<P0>(
         &self,
-        uri: LPCWSTR,
+        uri: P0,
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
         requestsourcekinds: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
-    ) -> HRESULT {
+    ) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self)
                 .AddWebResourceRequestedFilterWithRequestSourceKinds)(
                 windows_core::Interface::as_raw(self),
-                uri,
+                uri.param().abi(),
                 resourcecontext,
                 requestsourcekinds,
             )
         }
     }
-    pub(crate) unsafe fn RemoveWebResourceRequestedFilterWithRequestSourceKinds(
+    pub(crate) unsafe fn RemoveWebResourceRequestedFilterWithRequestSourceKinds<P0>(
         &self,
-        uri: LPCWSTR,
+        uri: P0,
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
         requestsourcekinds: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
-    ) -> HRESULT {
+    ) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self)
                 .RemoveWebResourceRequestedFilterWithRequestSourceKinds)(
                 windows_core::Interface::as_raw(self),
-                uri,
+                uri.param().abi(),
                 resourcecontext,
                 requestsourcekinds,
             )
@@ -5882,20 +6603,20 @@ impl ICoreWebView2_22 {
 #[repr(C)]
 pub struct ICoreWebView2_22_Vtbl {
     pub base__: ICoreWebView2_21_Vtbl,
-    pub AddWebResourceRequestedFilterWithRequestSourceKinds: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        LPCWSTR,
-        COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
-        COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
-    )
-        -> HRESULT,
+    pub AddWebResourceRequestedFilterWithRequestSourceKinds:
+        unsafe extern "system" fn(
+            *mut core::ffi::c_void,
+            windows_core::PCWSTR,
+            COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
+            COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
+        ) -> windows_core::HRESULT,
     pub RemoveWebResourceRequestedFilterWithRequestSourceKinds:
         unsafe extern "system" fn(
             *mut core::ffi::c_void,
-            LPCWSTR,
+            windows_core::PCWSTR,
             COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
             COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
-        ) -> HRESULT,
+        ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2_3,
@@ -5915,26 +6636,36 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2_2
 );
 impl ICoreWebView2_3 {
-    pub(crate) unsafe fn SetVirtualHostNameToFolderMapping(
+    pub(crate) unsafe fn SetVirtualHostNameToFolderMapping<P0, P1>(
         &self,
-        hostname: LPCWSTR,
-        folderpath: LPCWSTR,
+        hostname: P0,
+        folderpath: P1,
         accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
-    ) -> HRESULT {
+    ) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).SetVirtualHostNameToFolderMapping)(
                 windows_core::Interface::as_raw(self),
-                hostname,
-                folderpath,
+                hostname.param().abi(),
+                folderpath.param().abi(),
                 accesskind,
             )
         }
     }
-    pub(crate) unsafe fn ClearVirtualHostNameToFolderMapping(&self, hostname: LPCWSTR) -> HRESULT {
+    pub(crate) unsafe fn ClearVirtualHostNameToFolderMapping<P0>(
+        &self,
+        hostname: P0,
+    ) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
         unsafe {
             (windows_core::Interface::vtable(self).ClearVirtualHostNameToFolderMapping)(
                 windows_core::Interface::as_raw(self),
-                hostname,
+                hostname.param().abi(),
             )
         }
     }
@@ -5947,12 +6678,15 @@ pub struct ICoreWebView2_3_Vtbl {
     get_IsSuspended: usize,
     pub SetVirtualHostNameToFolderMapping: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        LPCWSTR,
-        LPCWSTR,
+        windows_core::PCWSTR,
+        windows_core::PCWSTR,
         COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
-    ) -> HRESULT,
-    pub ClearVirtualHostNameToFolderMapping:
-        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> HRESULT,
+    ) -> windows_core::HRESULT,
+    pub ClearVirtualHostNameToFolderMapping: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    )
+        -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2_4,
@@ -5976,20 +6710,21 @@ impl ICoreWebView2_4 {
     pub(crate) unsafe fn add_DownloadStarting<P0>(
         &self,
         eventhandler: P0,
-        token: *mut EventRegistrationToken,
-    ) -> HRESULT
+    ) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<ICoreWebView2DownloadStartingEventHandler>,
     {
         unsafe {
+            let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).add_DownloadStarting)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
-                token as _,
+                &mut result__,
             )
+            .map(|| result__)
         }
     }
-    pub(crate) unsafe fn remove_DownloadStarting(&self, token: EventRegistrationToken) -> HRESULT {
+    pub(crate) unsafe fn remove_DownloadStarting(&self, token: i64) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).remove_DownloadStarting)(
                 windows_core::Interface::as_raw(self),
@@ -6006,10 +6741,10 @@ pub struct ICoreWebView2_4_Vtbl {
     pub add_DownloadStarting: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *mut EventRegistrationToken,
-    ) -> HRESULT,
+        *mut i64,
+    ) -> windows_core::HRESULT,
     pub remove_DownloadStarting:
-        unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2_5,
@@ -6195,9 +6930,7 @@ pub struct IStream_Vtbl {
     Clone: usize,
 }
 pub type LONG = i32;
-pub type LPCWSTR = *const u16;
-pub type LPWSTR = *mut u16;
-pub type PCWSTR = *const u16;
+pub type LPVOID = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECT {
@@ -6206,6 +6939,14 @@ pub struct RECT {
     pub right: LONG,
     pub bottom: LONG,
 }
+#[cfg(target_arch = "x86")]
+pub type SIZE_T = u32;
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+pub type SIZE_T = u64;
 pub type UINT = u32;
 pub type UINT32 = u32;
 pub type UINT64 = u64;

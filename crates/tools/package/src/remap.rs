@@ -12,7 +12,8 @@
 //! curated allowlist of header-name prefixes (`FOLD_PREFIXES`) that fold obviously-related headers
 //! into one family namespace (`d2d1`, `d2d1_1`, `d2d1effects` -> `Windows.d2d`). There is no
 //! automatic name heuristic (it mis-groups prefix collisions like `msinkaut` under `msi`), no
-//! synthetic catch-all bucket, and no preserved `Win32_Foundation` special case.
+//! fallback bucket for unknown ownership, and no preserved `Win32_Foundation` special case.
+//! The projection's `shared.rdl` partition follows the same filename-based routing as headers.
 
 use std::collections::HashMap;
 

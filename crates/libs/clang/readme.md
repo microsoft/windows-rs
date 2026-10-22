@@ -86,15 +86,23 @@ as ECMA-335 `FNPTR` signatures. No public callback names are synthesized.
 
 Named namespaces remain distinct in native evidence. Local publication uses flat Win32 names and
 rejects collisions instead of renaming or merging unrelated declarations. `projection::Options`
-can supply authoritative metadata through `References`, separately from import policy. Explicit
-namespace wrappers resolve external WinRT ownership; namespace spelling alone does not.
-`References::native_interfaces()` supplies the qualified names for `Input.external_interfaces`.
+can supply authoritative metadata through `References::new(&index)`, separately from import policy.
+Global native names match definitions across the supplied WinMD namespaces. Referenced typedefs,
+enums, records, nested types, callbacks and interfaces retain their metadata identities and are not
+defined again locally. Architecture variants are selected before checking ambiguity; multiple
+matches for a used name fail. Unmatched names follow ordinary local publication. The caller selects
+the reference files; their definitions own the published contracts. Native observations still
+participate in native reconciliation. HRESULT and other familiar types need no special policy here.
+Explicit namespace wrappers resolve qualified SDK names; namespace spelling alone does not establish
+ownership. `References::native_interfaces()` supplies global and qualified COM names for
+`Input.external_interfaces`.
 These explicitly external COM definitions retain native identity, attributes, layout and bases,
 but their member definitions belong to the supplied metadata. `Record.external` records that
 boundary; inconsistent ownership across inputs fails. Publication requires matching UUID and
 native interface storage/base evidence. Pointer shape and qualifiers remain checked at use sites.
-Incomplete external definitions, by-value use and local inheritance from external definitions
-remain unsupported.
+Incomplete external COM definitions and by-value COM use remain unsupported. Local inheritance
+from external native COM definitions uses their metadata vtable prefix; external WinRT inheritance
+remains unsupported.
 
 Without external capture ownership, references validate non-generic scalar interface/delegate
 methods against their native ABI. A configured SDK delegate-name prefix applies only to metadata
@@ -389,9 +397,9 @@ unique common defining typedef, or a unique common alias when none defines a tag
 error. Other reachable value names remain aliases. Pointer aliases cannot establish equivalence.
 Header ownership prefers the unique alias header containing its native definition, otherwise it
 retains all declaration headers as candidates. A single owner keeps its header partition; multiple
-owners use `foundation.rdl`. Ownership evidence is combined across architectures before routing,
+owners use `shared.rdl`. Ownership evidence is combined across architectures before routing,
 and `Partition::headers` retains the real source-header set. Native identities and source
-observations remain distinct; foundation routing never resolves a type conflict.
+observations remain distinct; shared routing never resolves a type conflict.
 `tool-win32` supplies the SDK configuration and writes canonical files.
 
 `capture_partial` and `projection::generate_partial` return supported output plus omission reports.

@@ -307,8 +307,9 @@ impl DocumentTitleChanged {
 
 impl ICoreWebView2DocumentTitleChangedEventHandler_Impl for DocumentTitleChanged_Impl {
     fn Invoke(&self, sender: Ref<ICoreWebView2>, _args: Ref<IUnknown>) -> Result<()> {
-        let title =
-            unsafe { string::take_result(sender.ok().and_then(|sender| sender.DocumentTitle())) };
+        let title = unsafe {
+            string::take_result(sender.ok().and_then(|sender| sender.get_DocumentTitle()))
+        };
         (*self.0.borrow_mut())(title);
         Ok(())
     }
@@ -335,7 +336,7 @@ impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl
     fn Invoke(&self, sender: Ref<ICoreWebView2>, _args: Ref<IUnknown>) -> Result<()> {
         let contains = sender
             .ok()
-            .and_then(|sender| unsafe { sender.ContainsFullScreenElement() })
+            .and_then(|sender| unsafe { sender.get_ContainsFullScreenElement() })
             .is_ok_and(|value| value.as_bool());
         (*self.0.borrow_mut())(contains);
         Ok(())

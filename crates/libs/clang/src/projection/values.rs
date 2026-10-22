@@ -356,6 +356,9 @@ impl Projector<'_, '_> {
                 | TypeKind::Array { element: inner, .. } => pending.push((snapshot, inner)),
                 TypeKind::Alias(id) => {
                     let name = &source.aliases[id.0].name;
+                    if self.external.aliases.contains_key(name) {
+                        return false;
+                    }
                     let index = self
                         .resolution
                         .aliases
@@ -610,11 +613,16 @@ impl Projector<'_, '_> {
     }
 
     pub(super) fn interface_record(&self, snapshot: usize, record: RecordId) -> bool {
-        if self
+        if let Some(definition) = self
             .external
-            .contains_key(&self.plan.family(snapshot, record))
+            .records
+            .get(&self.plan.family(snapshot, record))
         {
-            return true;
+            return matches!(
+                definition.category(),
+                windows_metadata::reader::TypeCategory::Interface
+                    | windows_metadata::reader::TypeCategory::Delegate
+            );
         }
         let group = self.resolution.group(RecordRef { snapshot, record });
         group.definition.is_some_and(|reference| {
@@ -686,7 +694,7 @@ impl Projector<'_, '_> {
                     .external
                 {
                     let family = self.plan.family(reference.snapshot, inherited.record);
-                    let metadata = self.external.get(&family).ok_or_else(|| {
+                    let metadata = self.external.records.get(&family).ok_or_else(|| {
                         Error(format!(
                             "externally owned interface `{}` requires authoritative metadata",
                             self.resolution.name(group)

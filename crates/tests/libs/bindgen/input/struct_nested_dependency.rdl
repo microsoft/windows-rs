@@ -1,0 +1,39 @@
+//! --filter Consumer.Value
+#[win32]
+mod Producer {
+    struct Dependency {
+        value: i32,
+    }
+    #[arch(X86)]
+    struct Owner {
+        tag: u32,
+        struct Inner {
+            value: u32,
+            owner: *mut Owner,
+        }
+    }
+    #[arch(X64 | Arm64)]
+    struct Owner {
+        tag: u32,
+        struct Inner {
+            value: u64,
+            owner: *mut Owner,
+        }
+    }
+    struct Other {
+        tag: u32,
+        struct Inner {
+            value: Dependency,
+            struct Deep {
+                value: u16,
+            }
+        }
+    }
+}
+#[win32]
+mod Consumer {
+    struct Value {
+        first: Producer::Owner::Inner,
+        second: [Producer::Other::Inner::Deep; 2],
+    }
+}

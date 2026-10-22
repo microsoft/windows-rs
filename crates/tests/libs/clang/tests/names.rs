@@ -161,7 +161,7 @@ fn ownership() {
     assert_eq!((result.output.records, result.output.aliases), (2, 1));
     assert!(result.omissions.is_empty());
     assert!(
-        result.output.partitions["foundation"]
+        result.output.partitions["shared"]
             .rdl
             .contains("type Count = u32;")
     );

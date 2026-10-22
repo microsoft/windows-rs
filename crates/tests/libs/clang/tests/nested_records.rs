@@ -156,7 +156,7 @@ fn nested_records_case(consumer: bool) {
     inputs.reverse();
     let reverse = projection::generate(&inputs, "Fixture").unwrap();
     assert_eq!(forward, reverse);
-    assert_eq!(forward.partitions["foundation"].rdl, expected);
+    assert_eq!(forward.partitions["shared"].rdl, expected);
 }
 
 #[test]
@@ -296,7 +296,7 @@ fn nested_completion_across_translation_units() {
     let output = projection::generate(&inputs, "Fixture").unwrap();
     assert_eq!(output.records, 1);
     assert!(
-        output.partitions["foundation"]
+        output.partitions["shared"]
             .rdl
             .contains("value: *mut Outer::Inner")
     );

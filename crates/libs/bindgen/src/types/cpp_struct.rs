@@ -4,6 +4,7 @@ use super::*;
 pub struct CppStruct {
     pub def: TypeDef,
     pub name: &'static str,
+    pub enclosing: Option<TypeName>,
     pub nested: BTreeMap<&'static str, Self>,
 }
 
@@ -34,11 +35,35 @@ impl std::hash::Hash for CppStruct {
 }
 
 impl CppStruct {
+    pub fn definition_types(&self, reader: &Reader) -> Vec<Type> {
+        let mut types: Vec<_> = self
+            .def
+            .fields()
+            .map(|field| field.field_type(Some(self), reader))
+            .collect();
+        types.extend(self.bitfield_types(reader));
+        for nested in self.nested.values() {
+            types.extend(nested.definition_types(reader));
+        }
+        types
+    }
+
     pub fn type_name(&self) -> TypeName {
-        TypeName(self.def.namespace(), self.name)
+        TypeName(
+            self.enclosing
+                .map_or(self.def.namespace(), |owner| owner.namespace()),
+            self.name,
+        )
     }
 
     pub fn write_name(&self, config: &Config) -> TokenStream {
+        if let Some(owner) = self.enclosing
+            && config.self_ty != Some(self.type_name())
+        {
+            let namespace = config.write_namespace(owner);
+            let name = to_ident(self.name);
+            return quote! { #namespace #name };
+        }
         self.type_name().write(config, &[])
     }
 
@@ -1047,12 +1072,7 @@ impl BitfieldBacking {
 
 impl Dependencies for CppStruct {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        for field in self.def.fields() {
-            field
-                .field_type(Some(self), reader)
-                .combine(dependencies, reader);
-        }
-        for ty in self.bitfield_types(reader) {
+        for ty in self.definition_types(reader) {
             ty.combine(dependencies, reader);
         }
     }

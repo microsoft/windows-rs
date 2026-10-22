@@ -3,12 +3,12 @@ use windows_clang::*;
 use windows_metadata::{Type, reader};
 
 #[test]
-fn foundation() {
+fn shared() {
     helpers::ensure_libclang();
     let mut inputs = [
-        selected_fixture("foundation_a", &[]),
-        selected_fixture("foundation_b", &[]),
-        selected_fixture("foundation_consumer", &[]),
+        selected_fixture("shared_owner_a", &[]),
+        selected_fixture("shared_owner_b", &[]),
+        selected_fixture("shared_consumer", &[]),
     ];
     for input in &mut inputs {
         input.source = format!("#include \"{}\"", input.name);
@@ -16,15 +16,19 @@ fn foundation() {
     let output = projection::generate(&inputs, "Fixture").unwrap();
     assert_eq!((output.records, output.enums, output.aliases), (2, 1, 3));
     assert_eq!(output.partitions.len(), 2);
-    for stem in ["foundation", "foundation_consumer"] {
+    for stem in ["shared", "shared_consumer"] {
+        let expected = input_dir().join(format!("{stem}.rdl"));
+        if std::env::var_os("UPDATE_CLANG_RDL").is_some() {
+            std::fs::write(&expected, &output.partitions[stem].rdl).unwrap();
+        }
         assert_eq!(
             output.partitions[stem].rdl,
-            std::fs::read_to_string(input_dir().join(format!("{stem}.rdl")))
+            std::fs::read_to_string(expected)
                 .unwrap()
                 .replace("\r\n", "\n")
         );
     }
-    let owners: Vec<_> = output.partitions["foundation"]
+    let owners: Vec<_> = output.partitions["shared"]
         .headers
         .iter()
         .map(|header| {
@@ -35,8 +39,8 @@ fn foundation() {
                 .unwrap()
         })
         .collect();
-    assert_eq!(owners, ["foundation_a.h", "foundation_b.h"]);
-    assert_eq!(output.partitions["foundation_consumer"].headers.len(), 1);
+    assert_eq!(owners, ["shared_owner_a.h", "shared_owner_b.h"]);
+    assert_eq!(output.partitions["shared_consumer"].headers.len(), 1);
     assert_eq!(
         projection::generate_partial(&inputs, "Fixture")
             .unwrap()
@@ -50,7 +54,7 @@ fn foundation() {
     assert_eq!(projection::generate(&inputs, "Fixture").unwrap(), output);
 
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
-    let winmd = root.join("target\\test-clang-foundation.winmd");
+    let winmd = root.join("target\\test-clang-shared.winmd");
     windows_rdl::reader()
         .input(root.join("metadata\\metadata.rdl"))
         .input_texts(output.partitions.values().map(|partition| &partition.rdl))
@@ -76,7 +80,7 @@ fn foundation() {
             Type::value_named("Fixture", "Count")
         );
     }
-    let bindings = root.join("target\\test-clang-foundation.rs");
+    let bindings = root.join("target\\test-clang-shared.rs");
     windows_bindgen::builder()
         .input(&winmd)
         .filter("Fixture")
@@ -94,11 +98,11 @@ fn foundation() {
          };\n",
     );
     std::fs::write(&bindings, rust).unwrap();
-    let compiled = root.join("target\\test-clang-foundation.rmeta");
+    let compiled = root.join("target\\test-clang-shared.rmeta");
     let result = std::process::Command::new("rustc")
         .args([
             "--crate-name",
-            "test_clang_foundation",
+            "test_clang_shared",
             "--crate-type=lib",
             "--emit=metadata",
             "--edition=2024",
@@ -117,16 +121,16 @@ fn foundation() {
         std::fs::remove_file(path).unwrap();
     }
 
-    let mut conflict = selected_fixture("foundation_b", &[]);
-    conflict.source = "#define CONFLICT\n#include \"foundation_b.h\"".into();
+    let mut conflict = selected_fixture("shared_owner_b", &[]);
+    conflict.source = "#define CONFLICT\n#include \"shared_owner_b.h\"".into();
     let error = projection::generate_partial(
-        &[selected_fixture("foundation_a", &[]), conflict],
+        &[selected_fixture("shared_owner_a", &[]), conflict],
         "Fixture",
     )
     .unwrap_err()
     .to_string();
     assert!(error.contains("native field types differ"), "{error}");
-    for names in [("a\\same.h", "b\\same.h"), ("foundation.h", "other.h")] {
+    for names in [("a\\same.h", "b\\same.h"), ("shared.h", "other.h")] {
         let inputs = [
             Input {
                 name: names.0.into(),
@@ -144,4 +148,20 @@ fn foundation() {
             .to_string();
         assert!(error.contains("collide"), "{error}");
     }
+}
+
+#[test]
+fn one_header_in_multiple_translation_units() {
+    helpers::ensure_libclang();
+    let mut inputs = [
+        selected_fixture("shared_owner_a", &[]),
+        selected_fixture("shared_owner_a", &[]),
+    ];
+    for (index, input) in inputs.iter_mut().enumerate() {
+        input.name = format!("consumer_{index}.h");
+        input.source = "#include \"shared_owner_a.h\"".into();
+    }
+    let output = projection::generate(&inputs, "Fixture").unwrap();
+    assert_eq!(output.partitions.len(), 1);
+    assert_eq!(output.partitions["shared_owner_a"].headers.len(), 1);
 }

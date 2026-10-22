@@ -17,7 +17,6 @@ fn external_definition_ownership() {
         .unwrap();
     let metadata = windows_metadata::reader::Index::read(&reference).unwrap();
     let references = projection::References {
-        global_namespace: None,
         metadata: &metadata,
         native_prefixes: &["", "ABI"],
         delegate_prefix: Some("I"),
@@ -81,7 +80,7 @@ fn external_definition_ownership() {
     let snapshots = capture(&[input(0), other], &TARGETS).unwrap();
     let output =
         projection::project_with_options(&merge(&snapshots).unwrap(), "Fixture", &options).unwrap();
-    assert_eq!(output.partitions["foundation"].rdl, expected);
+    assert_eq!(output.partitions["shared"].rdl, expected);
 
     for case in 0..2 {
         let mut input = selected_fixture("external_forward", &["ForwardConsumer"]);
@@ -126,10 +125,9 @@ fn external_definition_ownership() {
         "typedef IBuffer IBuffer __attribute__((deprecated(\"external alias\")));",
     );
     let snapshots = capture(&[attributed], &TARGETS).unwrap();
-    let error = projection::project_with_options(&merge(&snapshots).unwrap(), "Fixture", &options)
-        .unwrap_err()
-        .to_string();
-    assert!(error.contains("attributed external alias"), "{error}");
+    let output =
+        projection::project_with_options(&merge(&snapshots).unwrap(), "Fixture", &options).unwrap();
+    assert_eq!(output.partitions["namespace_reference"].rdl, expected);
     let partial = projection::project_partial_with_options(
         PartialCapture {
             snapshots,
@@ -139,12 +137,8 @@ fn external_definition_ownership() {
         &options,
     )
     .unwrap();
-    assert!(
-        partial
-            .omissions
-            .iter()
-            .any(|message| message.contains("attributed external alias"))
-    );
+    assert!(partial.omissions.is_empty());
+    assert_eq!(partial.output, output);
 
     for conflict in 0..3 {
         let mut other = input(0);
