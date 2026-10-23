@@ -203,15 +203,6 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             input.root_paths, input.source,
         ));
     }
-    let evidence = sdk_imports
-        .then(named_exports::Evidence::load)
-        .transpose()?;
-    if evidence.is_some() {
-        configuration.push_str(&format!(
-            "\nNamed-linkage baseline: {}\n",
-            named_exports::BASELINE
-        ));
-    }
     std::fs::write(scratch.join("capture-configuration.txt"), &configuration)?;
     let captured = if dry_run {
         windows_clang::PartialCapture {
@@ -236,7 +227,6 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     };
     let mut import_evidence = String::new();
     if sdk_imports {
-        let evidence = evidence.as_ref().unwrap();
         for target in [Target::X86, Target::X64, Target::Arm64] {
             let (arch, _) = import_target(target);
             let directory =
@@ -247,7 +237,6 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 &mut imports,
                 target,
                 discovered,
-                evidence,
                 &captured.snapshots,
             )?);
         }
@@ -665,13 +654,17 @@ fn add_sdk_imports(
     imports: &mut projection::Imports,
     target: Target,
     discovered: BTreeMap<String, windows_rdl::implib::Import>,
-    evidence: &named_exports::Evidence,
     snapshots: &[windows_clang::Snapshot],
 ) -> Result<String, String> {
     let mut omitted = String::new();
-    let native = named_exports::native_symbols(snapshots, target)?;
+    let native = native_symbols(snapshots, target)?;
     let symbols = imports.symbols.entry(target).or_default();
     for (symbol, import) in discovered {
+        if import.machine != import_target(target).1 || import.symbol != symbol {
+            return Err(format!(
+                "{target:?}: invalid native import evidence: {import:?}"
+            ));
+        }
         if import.kind != windows_rdl::implib::ImportKind::Code {
             omitted.push_str(&format!(
                 "{target:?} {symbol}: {} {:?} import is not a function\n",
@@ -691,17 +684,17 @@ fn add_sdk_imports(
                     ));
                     continue;
                 }
-                let Some(name) = evidence.resolve(target, &import, &native)? else {
+                let Some(source) = native.get(&symbol) else {
                     omitted.push_str(&format!(
-                        "{target:?} {symbol}: {}!#{ordinal} has no matching native/baseline named-export evidence\n",
+                        "{target:?} {symbol}: {}!#{ordinal} has no matching native C declaration\n",
                         import.dll,
                     ));
                     continue;
                 };
+                let name = source.rsplit("::").next().unwrap();
                 omitted.push_str(&format!(
-                    "{target:?} {symbol}: {}!#{ordinal} publishes by baseline export name `{name}` ({})\n",
+                    "{target:?} {symbol}: {}!#{ordinal} publishes by native declaration name `{name}`\n",
                     import.dll,
-                    named_exports::BASELINE,
                 ));
                 name.into()
             }
@@ -715,6 +708,46 @@ fn add_sdk_imports(
         );
     }
     Ok(omitted)
+}
+
+fn native_symbols(
+    snapshots: &[windows_clang::Snapshot],
+    target: Target,
+) -> Result<BTreeMap<String, String>, String> {
+    let mut result = BTreeMap::new();
+    for snapshot in snapshots
+        .iter()
+        .filter(|snapshot| snapshot.target == target)
+    {
+        for value in &snapshot.values {
+            for observation in &value.observations {
+                if let windows_clang::ValueKind::Function {
+                    alias: None,
+                    language: windows_clang::LanguageLinkage::C,
+                    mangling,
+                    stdcall_candidate,
+                    ..
+                } = &observation.kind
+                {
+                    for mangling in std::iter::once(mangling).chain(
+                        stdcall_candidate
+                            .iter()
+                            .map(|candidate| &candidate.mangling),
+                    ) {
+                        if let Some(previous) = result.insert(mangling.clone(), value.name.clone())
+                            && previous != value.name
+                        {
+                            return Err(format!(
+                                "{target:?} native symbol `{mangling}` has conflicting names `{previous}` and `{}`",
+                                value.name
+                            ));
+                        }
+                    }
+                }
+            }
+        }
+    }
+    Ok(result)
 }
 
 fn import_target(target: Target) -> (&'static str, u16) {
@@ -985,15 +1018,9 @@ mod tests {
                 )
             })
             .collect();
-        let evidence = named_exports::Evidence::load().unwrap();
-        let omitted =
-            add_sdk_imports(&mut imports, Target::X64, discovered, &evidence, &[]).unwrap();
-        assert!(omitted.contains(
-            "Ordinal: sdk.dll!#123 has no matching native/baseline named-export evidence"
-        ));
-        assert!(omitted.contains(
-            "Override: sdk.dll!#456 has no matching native/baseline named-export evidence"
-        ));
+        let omitted = add_sdk_imports(&mut imports, Target::X64, discovered, &[]).unwrap();
+        assert!(omitted.contains("Ordinal: sdk.dll!#123 has no matching native C declaration"));
+        assert!(omitted.contains("Override: sdk.dll!#456 has no matching native C declaration"));
         let symbols = &imports.symbols[&Target::X64];
         assert_eq!(symbols.len(), 3);
         assert_eq!(symbols["Original"].name.as_deref(), Some("Original"));
@@ -1015,7 +1042,6 @@ mod tests {
             &mut imports,
             Target::X64,
             [("Data".into(), data)].into_iter().collect(),
-            &evidence,
             &[],
         )
         .unwrap();
@@ -1024,9 +1050,138 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "requires the native companion"]
+    fn sdk_ordinal_import_names() {
+        helpers::ensure_libclang();
+        let input = Input {
+            name: "ordinal_imports.h".into(),
+            source: include_str!("..\\..\\..\\tests\\libs\\clang\\input\\ordinal_imports.h").into(),
+            ..Default::default()
+        };
+        let mut snapshots = windows_clang::capture(
+            std::slice::from_ref(&input),
+            &[Target::X86, Target::X64, Target::Arm64],
+        )
+        .unwrap();
+        for snapshot in &snapshots {
+            let target = snapshot.target;
+            let mut discovered = BTreeMap::new();
+            for value in &snapshot.values {
+                let windows_clang::ValueKind::Function { mangling, .. } =
+                    &value.observations[0].kind
+                else {
+                    panic!("expected a function");
+                };
+                discovered.insert(
+                    mangling.clone(),
+                    Import {
+                        machine: import_target(target).1,
+                        kind: ImportKind::Code,
+                        symbol: mangling.clone(),
+                        dll: "native.dll".into(),
+                        name: ImportName::Ordinal(17),
+                    },
+                );
+            }
+            discovered.insert(
+                "_Missing@4".into(),
+                Import {
+                    machine: import_target(target).1,
+                    kind: ImportKind::Code,
+                    symbol: "_Missing@4".into(),
+                    dll: "native.dll".into(),
+                    name: ImportName::Ordinal(19),
+                },
+            );
+            let mut imports = projection::Imports::default();
+            let report =
+                add_sdk_imports(&mut imports, target, discovered.clone(), &snapshots).unwrap();
+            assert!(report.contains("has no matching native C declaration"));
+            let exports: BTreeSet<_> = imports.symbols[&target]
+                .values()
+                .map(|import| {
+                    assert_eq!(import.library, "native.dll");
+                    import.name.as_deref().unwrap()
+                })
+                .collect();
+            assert_eq!(exports, ["NewSdkApi", "ScopedApi", "_Underscored"].into());
+            let symbols = native_symbols(&snapshots, target).unwrap();
+            let symbol = symbols
+                .iter()
+                .find(|(_, name)| *name == "NewSdkApi")
+                .unwrap()
+                .0;
+            let original = &discovered[symbol];
+            for kind in [ImportKind::Data, ImportKind::Const] {
+                let mut imports = projection::Imports::default();
+                let mut changed = original.clone();
+                changed.kind = kind;
+                add_sdk_imports(
+                    &mut imports,
+                    target,
+                    [(symbol.clone(), changed)].into(),
+                    &snapshots,
+                )
+                .unwrap();
+                assert!(imports.symbols[&target].is_empty());
+            }
+            let mut changed = original.clone();
+            changed.machine = if target == Target::X86 { 0x8664 } else { 0x14c };
+            assert!(
+                add_sdk_imports(
+                    &mut projection::Imports::default(),
+                    target,
+                    [(symbol.clone(), changed)].into(),
+                    &snapshots,
+                )
+                .is_err()
+            );
+            let mut changed = original.clone();
+            changed.symbol.push_str("_unmatched");
+            let mut imports = projection::Imports::default();
+            add_sdk_imports(
+                &mut imports,
+                target,
+                [(changed.symbol.clone(), changed)].into(),
+                &snapshots,
+            )
+            .unwrap();
+            assert!(imports.symbols[&target].is_empty());
+            imports.functions.insert(
+                "NewSdkApi".into(),
+                projection::Import {
+                    library: "explicit.dll".into(),
+                    name: Some("ExplicitExport".into()),
+                },
+            );
+            let report = add_sdk_imports(&mut imports, target, discovered, &snapshots).unwrap();
+            assert!(report.contains("explicit import for `NewSdkApi` takes precedence"));
+            assert!(!imports.symbols[&target].contains_key(symbol));
+            assert_eq!(
+                imports.functions["NewSdkApi"].name.as_deref(),
+                Some("ExplicitExport")
+            );
+        }
+        let mut conflicting = windows_clang::capture(&[input], &[Target::X86])
+            .unwrap()
+            .remove(0);
+        conflicting
+            .values
+            .iter_mut()
+            .find(|value| value.name == "NewSdkApi")
+            .unwrap()
+            .name = "ConflictingName".into();
+        snapshots.push(conflicting);
+        assert!(
+            native_symbols(&snapshots, Target::X86)
+                .unwrap_err()
+                .contains("conflicting names")
+        );
+    }
+
+    #[test]
     #[ignore = "requires the pinned Windows SDK headers, import libraries, and native companion"]
     fn sdk_library_policy() {
-        let evidence = named_exports::Evidence::load().unwrap();
         let mut discovered = BTreeMap::new();
         for target in [Target::X86, Target::X64, Target::Arm64] {
             let (arch, machine) = import_target(target);
@@ -1077,9 +1232,29 @@ mod tests {
         }
         let fixtures =
             Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\tests\\libs\\clang\\input");
-        let adshlp = evidence.names(Target::X64, "activeds.dll");
+        let fixture_functions = |name: &str| {
+            let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..");
+            let scratch = root.join("target\\test-win32-fixture-roots");
+            std::fs::create_dir_all(&scratch).unwrap();
+            let path = scratch.join(name).with_extension("winmd");
+            windows_rdl::reader()
+                .input(root.join("metadata\\metadata.rdl"))
+                .input(fixtures.join(name))
+                .output(&path)
+                .write()
+                .unwrap();
+            let metadata = windows_metadata::reader::Index::read(path).unwrap();
+            metadata
+                .iter_items()
+                .filter(|(_, _, item)| matches!(item, windows_metadata::reader::Item::Fn(_)))
+                .map(|(_, name, _)| name.to_string())
+                .collect::<BTreeSet<_>>()
+                .into_iter()
+                .collect::<Vec<_>>()
+        };
+        let adshlp = fixture_functions("sdk_adshlp.rdl");
         assert_eq!(adshlp.len(), 22);
-        let winsock = evidence.names(Target::X64, "ws2_32.dll");
+        let winsock = fixture_functions("sdk_winsock.rdl");
         assert_eq!(winsock.len(), 125);
         for (header, golden, mut roots) in [
             (
@@ -1282,7 +1457,6 @@ mod tests {
                     &mut explicit,
                     Target::X64,
                     [("htons".into(), raw)].into(),
-                    &evidence,
                     &snapshots,
                 )
                 .unwrap();
@@ -1296,7 +1470,6 @@ mod tests {
                     &mut published,
                     target,
                     discovered[&target].clone(),
-                    &evidence,
                     &snapshots,
                 )
                 .unwrap();
@@ -1315,7 +1488,7 @@ mod tests {
                             published.symbols[&target][symbol].name.as_deref(),
                             Some(name)
                         );
-                        assert!(publication.contains(&format!("baseline export name `{name}`")));
+                        assert!(publication.contains(&format!("native declaration name `{name}`")));
                     }
                 }
             }
@@ -1424,14 +1597,13 @@ mod tests {
     fn sdk_stdcall() {
         let targets = [Target::X86, Target::X64, Target::Arm64];
         let mut imports = projection::Imports::default();
-        let evidence = named_exports::Evidence::load().unwrap();
         for target in targets {
             let (arch, _) = import_target(target);
             let directory =
                 helpers::nuget_package(&format!("microsoft.windows.sdk.cpp.{arch}"), SDK_VERSION)
                     .join("c");
             let discovered = read_sdk_imports(&directory, target, &mut String::new()).unwrap();
-            add_sdk_imports(&mut imports, target, discovered, &evidence, &[]).unwrap();
+            add_sdk_imports(&mut imports, target, discovered, &[]).unwrap();
         }
         let fixtures =
             Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\tests\\libs\\clang\\input");
@@ -1529,7 +1701,6 @@ mod tests {
             assert_eq!(count, 34);
         }
         assert_eq!(aliases.len(), 34);
-        let evidence = named_exports::Evidence::load().unwrap();
         let mut imports = projection::Imports::default();
         for target in [Target::X86, Target::X64, Target::Arm64] {
             let (arch, _) = import_target(target);
@@ -1537,7 +1708,7 @@ mod tests {
                 helpers::nuget_package(&format!("microsoft.windows.sdk.cpp.{arch}"), SDK_VERSION)
                     .join("c");
             let discovered = read_sdk_imports(&directory, target, &mut String::new()).unwrap();
-            add_sdk_imports(&mut imports, target, discovered, &evidence, &snapshots).unwrap();
+            add_sdk_imports(&mut imports, target, discovered, &snapshots).unwrap();
         }
         let selected = function_aliases::selection().unwrap();
         let output = projection::project_with_options(
@@ -1667,7 +1838,6 @@ mod tests {
                 );
             }
         }
-        let evidence = named_exports::Evidence::load().unwrap();
         let mut imports = projection::Imports::default();
         for target in [Target::X86, Target::X64, Target::Arm64] {
             let (arch, _) = import_target(target);
@@ -1675,7 +1845,7 @@ mod tests {
                 helpers::nuget_package(&format!("microsoft.windows.sdk.cpp.{arch}"), SDK_VERSION)
                     .join("c");
             let discovered = read_sdk_imports(&directory, target, &mut String::new()).unwrap();
-            add_sdk_imports(&mut imports, target, discovered, &evidence, &snapshots).unwrap();
+            add_sdk_imports(&mut imports, target, discovered, &snapshots).unwrap();
         }
         let output = projection::project_with_imports(
             &windows_clang::merge(&snapshots).unwrap(),

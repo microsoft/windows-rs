@@ -107,13 +107,11 @@ pub fn run() -> Result<(), Box<dyn std::error::Error>> {
     let captured =
         windows_clang::capture_partial(&inputs, &[Target::X86, Target::X64, Target::Arm64])?;
     let mut imports = projection::Imports::default();
-    let named = named_exports::Evidence::load()?;
     for (target, discovered) in discovered {
         evidence.push_str(&add_sdk_imports(
             &mut imports,
             target,
             discovered,
-            &named,
             &captured.snapshots,
         )?);
     }

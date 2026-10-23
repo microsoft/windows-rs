@@ -1,7 +1,5 @@
 use super::*;
-use windows_clang::{Snapshot, ValueKind};
 use windows_metadata::reader::{self, HasAttributes};
-use windows_rdl::implib::{Import, ImportKind};
 
 pub const BASELINE: &str = "6e68e56081340eaa932f4dbc92ec54c56ed51473";
 const SOURCE: &str = "metadata/win32";
@@ -12,10 +10,10 @@ struct Export {
     name: String,
 }
 
-pub struct Evidence(BTreeMap<(Target, String), Export>);
+struct Evidence(BTreeMap<(Target, String), Export>);
 
 impl Evidence {
-    pub fn load() -> Result<Self, Box<dyn std::error::Error>> {
+    fn load() -> Result<Self, Box<dyn std::error::Error>> {
         Self::parse(&std::fs::read_to_string(
             Path::new(env!("CARGO_MANIFEST_DIR")).join("src\\named-exports.txt"),
         )?)
@@ -63,80 +61,6 @@ impl Evidence {
         }
         Ok(Self(entries))
     }
-
-    #[cfg(test)]
-    pub fn names(&self, target: Target, library: &str) -> Vec<String> {
-        self.0
-            .iter()
-            .filter(|((t, _), export)| *t == target && export.library.eq_ignore_ascii_case(library))
-            .map(|((_, name), _)| name.clone())
-            .collect()
-    }
-
-    pub fn resolve<'a>(
-        &'a self,
-        target: Target,
-        import: &Import,
-        native: &BTreeMap<String, String>,
-    ) -> Result<Option<&'a str>, String> {
-        if import.machine != import_target(target).1 || import.kind != ImportKind::Code {
-            return Err(format!(
-                "{target:?}: invalid native import evidence: {import:?}"
-            ));
-        }
-        let Some(source) = native.get(&import.symbol) else {
-            return Ok(None);
-        };
-        let Some(export) = self.0.get(&(target, source.clone())) else {
-            return Ok(None);
-        };
-        if !import.dll.eq_ignore_ascii_case(&export.library) {
-            return Err(format!(
-                "{target:?} `{source}`: SDK provider `{}` conflicts with baseline named provider `{}`",
-                import.dll, export.library
-            ));
-        }
-        Ok(Some(&export.name))
-    }
-}
-
-pub fn native_symbols(
-    snapshots: &[Snapshot],
-    target: Target,
-) -> Result<BTreeMap<String, String>, String> {
-    let mut result = BTreeMap::new();
-    for snapshot in snapshots
-        .iter()
-        .filter(|snapshot| snapshot.target == target)
-    {
-        for value in &snapshot.values {
-            for observation in &value.observations {
-                if let ValueKind::Function {
-                    alias: None,
-                    mangling,
-                    stdcall_candidate,
-                    ..
-                } = &observation.kind
-                {
-                    for mangling in std::iter::once(mangling).chain(
-                        stdcall_candidate
-                            .iter()
-                            .map(|candidate| &candidate.mangling),
-                    ) {
-                        if let Some(previous) = result.insert(mangling.clone(), value.name.clone())
-                            && previous != value.name
-                        {
-                            return Err(format!(
-                                "{target:?} native symbol `{mangling}` has conflicting names `{previous}` and `{}`",
-                                value.name
-                            ));
-                        }
-                    }
-                }
-            }
-        }
-    }
-    Ok(result)
 }
 
 pub fn refresh() -> Result<(), Box<dyn std::error::Error>> {
@@ -477,7 +401,6 @@ pub fn compare() -> Result<(), Box<dyn std::error::Error>> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use windows_rdl::implib::ImportName;
 
     #[test]
     fn selected_function_aliases_preserve_required_public_names() {
@@ -698,66 +621,6 @@ mod tests {
             validate_corrections(&corrections, &baseline, &current)
                 .unwrap_err()
                 .contains("function is present")
-        );
-    }
-
-    #[test]
-    fn exact_evidence() {
-        let evidence = Evidence::parse(&format!(
-            "# {BASELINE}:{SOURCE}\n3\tFunction\tprovider.dll\tPublicExport\n"
-        ))
-        .unwrap();
-        let import = Import {
-            machine: 0x14c,
-            kind: ImportKind::Code,
-            symbol: "_Function@8".into(),
-            dll: "PROVIDER.dll".into(),
-            name: ImportName::Ordinal(9),
-        };
-        let native = [(import.symbol.clone(), "Function".into())].into();
-        assert_eq!(
-            evidence.resolve(Target::X86, &import, &native).unwrap(),
-            Some("PublicExport")
-        );
-        assert_eq!(
-            evidence
-                .resolve(Target::X86, &import, &BTreeMap::new())
-                .unwrap(),
-            None
-        );
-        for symbol in ["_Function", "_Function@4", "Function"] {
-            let changed = Import {
-                symbol: symbol.into(),
-                ..import.clone()
-            };
-            assert_eq!(
-                evidence.resolve(Target::X86, &changed, &native).unwrap(),
-                None
-            );
-        }
-        for changed in [
-            Import {
-                machine: 0x8664,
-                ..import.clone()
-            },
-            Import {
-                kind: ImportKind::Data,
-                ..import.clone()
-            },
-            Import {
-                dll: "other.dll".into(),
-                ..import.clone()
-            },
-        ] {
-            assert!(evidence.resolve(Target::X86, &changed, &native).is_err());
-        }
-        let arm = Import {
-            machine: 0xaa64,
-            ..import
-        };
-        assert_eq!(
-            evidence.resolve(Target::Arm64, &arm, &native).unwrap(),
-            None
         );
     }
 

@@ -686,11 +686,15 @@ selection; ARM64EC is not ARM64. Code/data/const kinds stay distinct; non-code e
 through to another provider. Known absent x86 winhvplatform/vertdll libraries are checked cases;
 other missing/malformed libraries fail. Native capture does not guess providers.
 
-`named-exports.txt` preserves the frozen Win32 RDL's target/name/DLL/export tuples, not signatures.
-Exact native symbols and matching SDK provider evidence allow named publication of ordinal-backed
-entries. New names need exact named SDK imports; unmatched ordinals remain omissions. No decorated
-name parsing or baseline ABI copying. Normal generation needs no Git history; refresh requires the
-pinned history and tar, and CI rejects snapshot drift.
+Named import records retain their recorded export names. For ordinal-backed records, an exact
+target-native compiler symbol identifies the C declaration; publication uses that declaration's
+unqualified name and the library's DLL. This is the SDK named-publication policy, not proof from a
+DLL export table. Ordinals remain in the evidence report; records without a matching declaration
+remain omissions. No decorated-name parsing, frozen-name lookup or ordinal consumer support is
+involved. Explicit public mappings still take precedence.
+
+`named-exports.txt` is a frozen comparison control, not a generation input. Its refresh command
+requires the pinned Git history and tar; normal generation and the generation CI job do not.
 
 Eligible implicit C imports on x86 can carry Clang-generated stdcall alternatives. Keep original
 observations; capture proves only the outer convention differs. Explicit mappings and ordinary

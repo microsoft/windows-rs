@@ -278,12 +278,14 @@ and WinMD. The SDK case uses `GetCurrentProcessId`, `IUnknown`, `IClassFactory`,
 `UIA_InvokePatternId`, and `MAX_PATH`. Keep DLL ownership in publication policy and macro
 evaluation distinct from ordinary declaration capture.
 `tool-win32 --partial --sdk-imports` reads each target's pinned SDK libraries with the shared
-`tool-win32/src/imports.rs` policy. Preserve library order and checked overrides. Explicit public
+`tool-win32/src/import_policy.rs` policy. Preserve library order and checked overrides. Explicit public
 imports win over exact compiler linker symbols in target-specific maps. Filter short-import members
 by machine before ordered selection; ARM64 archives also contain ARM64EC members. Code/data/const
-kinds remain distinct. Keep ordinal archive evidence, but publish established exports by name
-through checked SDK policy. Unreviewed ordinal records remain explicit omissions; do not add
-ordinal consumer support or infer names by undecorating symbols. Consumer fixtures check API
+kinds remain distinct. Keep ordinal archive evidence. Named records retain their export names;
+ordinal-backed records use the C declaration's unqualified name after exact target-native compiler
+symbol matching. This is named-publication policy, not DLL export-table proof. Frozen metadata is
+comparison-only; do not add ordinal consumer support or infer names by undecorating symbols.
+Consumer fixtures check API
 presence, ABI, execution, and named PE imports independently of std's import libraries.
 The first target-native import run exposes 182 missing x86 mappings: 94 declarations use default
 cdecl while their libraries contain stdcall symbols, and 88 have no matching entry in the selected
