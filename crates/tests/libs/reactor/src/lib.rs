@@ -22,6 +22,7 @@ mod tab;
 mod text;
 mod timer;
 mod tray;
+mod tree;
 mod typography;
 mod window;
 
@@ -309,6 +310,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "selection-index" => App::run_component::<selection::IndexSelectionFixture>(())?,
         "tab" => App::run_component::<tab::TabFixture>(())?,
         "timer" => App::run_component::<timer::TimerFixture>(())?,
+        "tree" => App::run_component::<tree::TreeFixture>(())?,
         "menu" => App::run_component::<MenuFixture>(MenuSurface::Button)?,
         "menu-dropdown" => App::run_component::<MenuFixture>(MenuSurface::DropDown)?,
         "menu-bar" => App::run_component::<MenuFixture>(MenuSurface::MenuBar)?,

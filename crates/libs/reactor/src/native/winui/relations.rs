@@ -319,11 +319,6 @@ impl WinUiAdapter {
                     }
                 }
                 Realization::Structural => {
-                    let tree = self.tree_owner(parent)?;
-                    let template = self.tree_template()?;
-                    let tree2 = tree.cast::<native::ITreeView2>()?;
-                    tree2.SetItemTemplate(None::<&native::DataTemplate>)?;
-                    tree.cast::<native::IUIElement>()?.UpdateLayout()?;
                     let values = self.tree_nodes(parent)?;
                     for movement in moves {
                         let child = self.tree_node(movement.child)?;
@@ -344,7 +339,6 @@ impl WinUiAdapter {
                         };
                         values.InsertAt(index, &child)?;
                     }
-                    tree2.SetItemTemplate(&template)?;
                 }
                 Realization::Container => {
                     let values = self.items(parent)?;
@@ -587,27 +581,6 @@ impl WinUiAdapter {
         }
     }
 
-    fn tree_owner(&self, object: ObjectId) -> Result<native::TreeView, WinUiError> {
-        let mut current = object;
-        loop {
-            match self
-                .handles
-                .get(&current)
-                .ok_or(WinUiError::MissingObject(current))?
-            {
-                Handle::TreeView(tree) => return Ok(tree.value.clone()),
-                Handle::TreeNode(_) => {
-                    current = self
-                        .owners
-                        .get(&current)
-                        .map(|(parent, _)| *parent)
-                        .ok_or(WinUiError::StillOwned(current))?;
-                }
-                _ => return Err(WinUiError::InvalidObject(current)),
-            }
-        }
-    }
-
     fn items(&self, object: ObjectId) -> Result<native::ItemCollection, WinUiError> {
         match self
             .handles
@@ -635,9 +608,11 @@ impl WinUiAdapter {
         if let Some(template) = &self.tree_template {
             return Ok(template.clone());
         }
+        // A ContentPresenter root would take its text content as its own DataContext, so the
+        // binding would stop following the node: renamed or recycled items kept stale text.
         let template = native::XamlReader::Load(
             "<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>\
-             <ContentPresenter Content='{Binding Content}'/>\
+             <ContentControl IsTabStop='False' Content='{Binding Content}'/>\
              </DataTemplate>",
         )?
         .cast::<native::DataTemplate>()?;
