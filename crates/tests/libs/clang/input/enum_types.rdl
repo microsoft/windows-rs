@@ -1,16 +1,16 @@
 #[win32]
 mod Fixture {
-    #[arch(X86)]
-    #[repr(u32)]
-    #[scoped]
-    enum ArchValue {
-        Arch_Maximum = 4294967295,
-    }
     #[arch(X64 | Arm64)]
     #[repr(u64)]
     #[scoped]
     enum ArchValue {
         Arch_Maximum = 18446744073709551615,
+    }
+    #[arch(X86)]
+    #[repr(u32)]
+    #[scoped]
+    enum ArchValue {
+        Arch_Maximum = 4294967295,
     }
     #[repr(u32)]
     enum Empty {}

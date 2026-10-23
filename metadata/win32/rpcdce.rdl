@@ -45,13 +45,6 @@ mod Windows {
         const RPC_BHO_NONCAUSAL: i32 = 1;
         const RPC_BHT_OBJECT_UUID_VALID: i32 = 1;
         type RPC_BINDING_HANDLE = *mut void;
-        #[arch(X86)]
-        struct RPC_BINDING_HANDLE_OPTIONS_V1 {
-            Version: u32,
-            Flags: u32,
-            ComTimeout: u32,
-            CallTimeout: u32,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct RPC_BINDING_HANDLE_OPTIONS_V1 {
@@ -61,13 +54,11 @@ mod Windows {
             CallTimeout: u32,
         }
         #[arch(X86)]
-        struct RPC_BINDING_HANDLE_SECURITY_V1_A {
+        struct RPC_BINDING_HANDLE_OPTIONS_V1 {
             Version: u32,
-            ServerPrincName: *mut u8,
-            AuthnLevel: u32,
-            AuthnSvc: u32,
-            AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_A,
-            SecurityQos: *mut RPC_SECURITY_QOS,
+            Flags: u32,
+            ComTimeout: u32,
+            CallTimeout: u32,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -80,12 +71,12 @@ mod Windows {
             SecurityQos: *mut RPC_SECURITY_QOS,
         }
         #[arch(X86)]
-        struct RPC_BINDING_HANDLE_SECURITY_V1_W {
+        struct RPC_BINDING_HANDLE_SECURITY_V1_A {
             Version: u32,
-            ServerPrincName: *mut u16,
+            ServerPrincName: *mut u8,
             AuthnLevel: u32,
             AuthnSvc: u32,
-            AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_W,
+            AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_A,
             SecurityQos: *mut RPC_SECURITY_QOS,
         }
         #[arch(X64 | Arm64)]
@@ -99,16 +90,13 @@ mod Windows {
             SecurityQos: *mut RPC_SECURITY_QOS,
         }
         #[arch(X86)]
-        struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
+        struct RPC_BINDING_HANDLE_SECURITY_V1_W {
             Version: u32,
-            Flags: u32,
-            ProtocolSequence: u32,
-            NetworkAddress: *mut u8,
-            StringEndpoint: *mut u8,
-            u1: union {
-                Reserved: *mut u8,
-            },
-            ObjectUuid: UUID,
+            ServerPrincName: *mut u16,
+            AuthnLevel: u32,
+            AuthnSvc: u32,
+            AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_W,
+            SecurityQos: *mut RPC_SECURITY_QOS,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -124,14 +112,14 @@ mod Windows {
             ObjectUuid: UUID,
         }
         #[arch(X86)]
-        struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
+        struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
             Version: u32,
             Flags: u32,
             ProtocolSequence: u32,
-            NetworkAddress: *mut u16,
-            StringEndpoint: *mut u16,
+            NetworkAddress: *mut u8,
+            StringEndpoint: *mut u8,
             u1: union {
-                Reserved: *mut u16,
+                Reserved: *mut u8,
             },
             ObjectUuid: UUID,
         }
@@ -149,10 +137,16 @@ mod Windows {
             ObjectUuid: UUID,
         }
         #[arch(X86)]
-        struct RPC_BINDING_VECTOR {
-            Count: u32,
-            #[writable(Count)]
-            BindingH: [RPC_BINDING_HANDLE; 1],
+        struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
+            Version: u32,
+            Flags: u32,
+            ProtocolSequence: u32,
+            NetworkAddress: *mut u16,
+            StringEndpoint: *mut u16,
+            u1: union {
+                Reserved: *mut u16,
+            },
+            ObjectUuid: UUID,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -162,14 +156,20 @@ mod Windows {
             BindingH: [RPC_BINDING_HANDLE; 1],
         }
         #[arch(X86)]
+        struct RPC_BINDING_VECTOR {
+            Count: u32,
+            #[writable(Count)]
+            BindingH: [RPC_BINDING_HANDLE; 1],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_CLIENT_INFORMATION1 {
             UserName: *mut u8,
             ComputerName: *mut u8,
             Privilege: u16,
             AuthFlags: u32,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_CLIENT_INFORMATION1 {
             UserName: *mut u8,
             ComputerName: *mut u8,
@@ -296,14 +296,6 @@ mod Windows {
         const RPC_C_VERS_EXACT: i32 = 3;
         const RPC_C_VERS_MAJOR_ONLY: i32 = 4;
         const RPC_C_VERS_UPTO: i32 = 5;
-        #[arch(X86)]
-        struct RPC_ENDPOINT_TEMPLATEA {
-            Version: u32,
-            ProtSeq: RPC_CSTR,
-            Endpoint: RPC_CSTR,
-            SecurityDescriptor: *mut void,
-            Backlog: u32,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct RPC_ENDPOINT_TEMPLATEA {
@@ -314,6 +306,15 @@ mod Windows {
             Backlog: u32,
         }
         #[arch(X86)]
+        struct RPC_ENDPOINT_TEMPLATEA {
+            Version: u32,
+            ProtSeq: RPC_CSTR,
+            Endpoint: RPC_CSTR,
+            SecurityDescriptor: *mut void,
+            Backlog: u32,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_ENDPOINT_TEMPLATEW {
             Version: u32,
             ProtSeq: RPC_WSTR,
@@ -321,8 +322,7 @@ mod Windows {
             SecurityDescriptor: *mut void,
             Backlog: u32,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_ENDPOINT_TEMPLATEW {
             Version: u32,
             ProtSeq: RPC_WSTR,
@@ -341,15 +341,6 @@ mod Windows {
             RPCHTTP_RS_ACCESS_2 = 4,
             RPCHTTP_RS_INTERFACE = 5,
         }
-        #[arch(X86)]
-        struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
-            TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
-            Flags: u32,
-            AuthenticationTarget: u32,
-            NumberOfAuthnSchemes: u32,
-            AuthnSchemes: *mut u32,
-            ServerCertificateSubject: *mut u8,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
@@ -361,16 +352,13 @@ mod Windows {
             ServerCertificateSubject: *mut u8,
         }
         #[arch(X86)]
-        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+        struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
             TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
             Flags: u32,
             AuthenticationTarget: u32,
             NumberOfAuthnSchemes: u32,
             AuthnSchemes: *mut u32,
             ServerCertificateSubject: *mut u8,
-            ProxyCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
-            NumberOfProxyAuthnSchemes: u32,
-            ProxyAuthnSchemes: *mut u32,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -386,17 +374,15 @@ mod Windows {
             ProxyAuthnSchemes: *mut u32,
         }
         #[arch(X86)]
-        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
-            TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
+        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+            TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
             Flags: u32,
             AuthenticationTarget: u32,
             NumberOfAuthnSchemes: u32,
-            #[writable(NumberOfAuthnSchemes)]
             AuthnSchemes: *mut u32,
-            ServerCertificateSubject: *mut u16,
-            ProxyCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
+            ServerCertificateSubject: *mut u8,
+            ProxyCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
             NumberOfProxyAuthnSchemes: u32,
-            #[writable(NumberOfProxyAuthnSchemes)]
             ProxyAuthnSchemes: *mut u32,
         }
         #[arch(X64 | Arm64)]
@@ -415,15 +401,15 @@ mod Windows {
             ProxyAuthnSchemes: *mut u32,
         }
         #[arch(X86)]
-        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
-            TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
+        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+            TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
             Flags: u32,
             AuthenticationTarget: u32,
             NumberOfAuthnSchemes: u32,
             #[writable(NumberOfAuthnSchemes)]
             AuthnSchemes: *mut u32,
-            ServerCertificateSubject: *mut u8,
-            ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
+            ServerCertificateSubject: *mut u16,
+            ProxyCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
             NumberOfProxyAuthnSchemes: u32,
             #[writable(NumberOfProxyAuthnSchemes)]
             ProxyAuthnSchemes: *mut u32,
@@ -444,14 +430,14 @@ mod Windows {
             ProxyAuthnSchemes: *mut u32,
         }
         #[arch(X86)]
-        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
             TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
             Flags: u32,
             AuthenticationTarget: u32,
             NumberOfAuthnSchemes: u32,
             #[writable(NumberOfAuthnSchemes)]
             AuthnSchemes: *mut u32,
-            ServerCertificateSubject: *mut u16,
+            ServerCertificateSubject: *mut u8,
             ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
             NumberOfProxyAuthnSchemes: u32,
             #[writable(NumberOfProxyAuthnSchemes)]
@@ -473,6 +459,21 @@ mod Windows {
             ProxyAuthnSchemes: *mut u32,
         }
         #[arch(X86)]
+        struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+            TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
+            Flags: u32,
+            AuthenticationTarget: u32,
+            NumberOfAuthnSchemes: u32,
+            #[writable(NumberOfAuthnSchemes)]
+            AuthnSchemes: *mut u32,
+            ServerCertificateSubject: *mut u16,
+            ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
+            NumberOfProxyAuthnSchemes: u32,
+            #[writable(NumberOfProxyAuthnSchemes)]
+            ProxyAuthnSchemes: *mut u32,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
             TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
             Flags: u32,
@@ -481,8 +482,7 @@ mod Windows {
             AuthnSchemes: *mut u32,
             ServerCertificateSubject: *mut u16,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
             TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
             Flags: u32,
@@ -500,12 +500,6 @@ mod Windows {
         #[success(return == 0)]
         extern fn RPC_IF_CALLBACK_FN(#[in] InterfaceUuid: RPC_IF_HANDLE, #[in] Context: *mut void) -> RPC_STATUS;
         type RPC_IF_HANDLE = *mut void;
-        #[arch(X86)]
-        struct RPC_IF_ID {
-            Uuid: UUID,
-            VersMajor: u16,
-            VersMinor: u16,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct RPC_IF_ID {
@@ -514,12 +508,18 @@ mod Windows {
             VersMinor: u16,
         }
         #[arch(X86)]
+        struct RPC_IF_ID {
+            Uuid: UUID,
+            VersMajor: u16,
+            VersMinor: u16,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_IF_ID_VECTOR {
             Count: u32,
             IfId: [*mut RPC_IF_ID; 1],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_IF_ID_VECTOR {
             Count: u32,
             IfId: [*mut RPC_IF_ID; 1],
@@ -529,20 +529,6 @@ mod Windows {
         const RPC_IF_SEC_NO_CACHE: i32 = 64;
         type RPC_INTERFACE_GROUP = *mut void;
         extern fn RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN(#[in] IfGroup: RPC_INTERFACE_GROUP, #[in] IdleCallbackContext: *mut void, #[in] IsGroupIdle: u32);
-        #[arch(X86)]
-        struct RPC_INTERFACE_TEMPLATEA {
-            Version: u32,
-            IfSpec: RPC_IF_HANDLE,
-            MgrTypeUuid: *mut UUID,
-            MgrEpv: *mut void,
-            Flags: u32,
-            MaxCalls: u32,
-            MaxRpcSize: u32,
-            IfCallback: RPC_IF_CALLBACK_FN,
-            UuidVector: *mut UUID_VECTOR,
-            Annotation: RPC_CSTR,
-            SecurityDescriptor: *mut void,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct RPC_INTERFACE_TEMPLATEA {
@@ -559,6 +545,21 @@ mod Windows {
             SecurityDescriptor: *mut void,
         }
         #[arch(X86)]
+        struct RPC_INTERFACE_TEMPLATEA {
+            Version: u32,
+            IfSpec: RPC_IF_HANDLE,
+            MgrTypeUuid: *mut UUID,
+            MgrEpv: *mut void,
+            Flags: u32,
+            MaxCalls: u32,
+            MaxRpcSize: u32,
+            IfCallback: RPC_IF_CALLBACK_FN,
+            UuidVector: *mut UUID_VECTOR,
+            Annotation: RPC_CSTR,
+            SecurityDescriptor: *mut void,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_INTERFACE_TEMPLATEW {
             Version: u32,
             IfSpec: RPC_IF_HANDLE,
@@ -572,8 +573,7 @@ mod Windows {
             Annotation: RPC_WSTR,
             SecurityDescriptor: *mut void,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_INTERFACE_TEMPLATEW {
             Version: u32,
             IfSpec: RPC_IF_HANDLE,
@@ -590,14 +590,14 @@ mod Windows {
         extern fn RPC_MGMT_AUTHORIZATION_FN(#[in] ClientBinding: RPC_BINDING_HANDLE, #[in] RequestedMgmtOperation: u32, #[out] Status: *mut RPC_STATUS) -> i32;
         extern fn RPC_NEW_HTTP_PROXY_CHANNEL(#[in] RedirectorStage: RPC_HTTP_REDIRECTOR_STAGE, #[in] ServerName: RPC_WSTR, #[in] ServerPort: RPC_WSTR, #[in] #[opt] RemoteUser: RPC_WSTR, #[in] #[opt] AuthType: RPC_WSTR, #[in] #[out] ResourceUuid: *mut void, #[in] #[out] SessionId: *mut void, #[in] #[opt] Interface: *mut void, #[in] #[opt] Reserved: *mut void, #[in] Flags: u32, #[opt] #[out] #[out_ptr] NewServerName: *mut RPC_WSTR, #[opt] #[out] #[out_ptr] NewServerPort: *mut RPC_WSTR) -> RPC_STATUS;
         extern fn RPC_OBJECT_INQ_FN(#[in] ObjectUuid: *mut UUID, #[out] TypeUuid: *mut UUID, #[out] Status: *mut RPC_STATUS);
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_POLICY {
             Length: u32,
             EndpointFlags: u32,
             NICFlags: u32,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_POLICY {
             Length: u32,
             EndpointFlags: u32,
@@ -607,11 +607,6 @@ mod Windows {
         const RPC_PROTSEQ_LRPC: i32 = 3;
         const RPC_PROTSEQ_NMP: i32 = 2;
         const RPC_PROTSEQ_TCP: i32 = 1;
-        #[arch(X86)]
-        struct RPC_PROTSEQ_VECTORA {
-            Count: u32,
-            Protseq: [*mut u8; 1],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct RPC_PROTSEQ_VECTORA {
@@ -619,24 +614,22 @@ mod Windows {
             Protseq: [*mut u8; 1],
         }
         #[arch(X86)]
+        struct RPC_PROTSEQ_VECTORA {
+            Count: u32,
+            Protseq: [*mut u8; 1],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_PROTSEQ_VECTORW {
             Count: u32,
             Protseq: [*mut u16; 1],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_PROTSEQ_VECTORW {
             Count: u32,
             Protseq: [*mut u16; 1],
         }
         extern fn RPC_SECURITY_CALLBACK_FN(#[in] Context: *mut void);
-        #[arch(X86)]
-        struct RPC_SECURITY_QOS {
-            Version: u32,
-            Capabilities: u32,
-            IdentityTracking: u32,
-            ImpersonationType: u32,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct RPC_SECURITY_QOS {
@@ -646,15 +639,11 @@ mod Windows {
             ImpersonationType: u32,
         }
         #[arch(X86)]
-        struct RPC_SECURITY_QOS_V2_A {
+        struct RPC_SECURITY_QOS {
             Version: u32,
             Capabilities: u32,
             IdentityTracking: u32,
             ImpersonationType: u32,
-            AdditionalSecurityInfoType: u32,
-            u: union {
-                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
-            },
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -669,14 +658,14 @@ mod Windows {
             },
         }
         #[arch(X86)]
-        struct RPC_SECURITY_QOS_V2_W {
+        struct RPC_SECURITY_QOS_V2_A {
             Version: u32,
             Capabilities: u32,
             IdentityTracking: u32,
             ImpersonationType: u32,
             AdditionalSecurityInfoType: u32,
             u: union {
-                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
             },
         }
         #[arch(X64 | Arm64)]
@@ -692,16 +681,15 @@ mod Windows {
             },
         }
         #[arch(X86)]
-        struct RPC_SECURITY_QOS_V3_A {
+        struct RPC_SECURITY_QOS_V2_W {
             Version: u32,
             Capabilities: u32,
             IdentityTracking: u32,
             ImpersonationType: u32,
             AdditionalSecurityInfoType: u32,
             u: union {
-                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
             },
-            Sid: *mut void,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -717,14 +705,14 @@ mod Windows {
             Sid: *mut void,
         }
         #[arch(X86)]
-        struct RPC_SECURITY_QOS_V3_W {
+        struct RPC_SECURITY_QOS_V3_A {
             Version: u32,
             Capabilities: u32,
             IdentityTracking: u32,
             ImpersonationType: u32,
             AdditionalSecurityInfoType: u32,
             u: union {
-                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
             },
             Sid: *mut void,
         }
@@ -742,17 +730,16 @@ mod Windows {
             Sid: *mut void,
         }
         #[arch(X86)]
-        struct RPC_SECURITY_QOS_V4_A {
+        struct RPC_SECURITY_QOS_V3_W {
             Version: u32,
             Capabilities: u32,
             IdentityTracking: u32,
             ImpersonationType: u32,
             AdditionalSecurityInfoType: u32,
             u: union {
-                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
             },
             Sid: *mut void,
-            EffectiveOnly: u32,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -769,14 +756,14 @@ mod Windows {
             EffectiveOnly: u32,
         }
         #[arch(X86)]
-        struct RPC_SECURITY_QOS_V4_W {
+        struct RPC_SECURITY_QOS_V4_A {
             Version: u32,
             Capabilities: u32,
             IdentityTracking: u32,
             ImpersonationType: u32,
             AdditionalSecurityInfoType: u32,
             u: union {
-                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
             },
             Sid: *mut void,
             EffectiveOnly: u32,
@@ -796,18 +783,17 @@ mod Windows {
             EffectiveOnly: u32,
         }
         #[arch(X86)]
-        struct RPC_SECURITY_QOS_V5_A {
+        struct RPC_SECURITY_QOS_V4_W {
             Version: u32,
             Capabilities: u32,
             IdentityTracking: u32,
             ImpersonationType: u32,
             AdditionalSecurityInfoType: u32,
             u: union {
-                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
             },
             Sid: *mut void,
             EffectiveOnly: u32,
-            ServerSecurityDescriptor: *mut void,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -825,14 +811,14 @@ mod Windows {
             ServerSecurityDescriptor: *mut void,
         }
         #[arch(X86)]
-        struct RPC_SECURITY_QOS_V5_W {
+        struct RPC_SECURITY_QOS_V5_A {
             Version: u32,
             Capabilities: u32,
             IdentityTracking: u32,
             ImpersonationType: u32,
             AdditionalSecurityInfoType: u32,
             u: union {
-                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
             },
             Sid: *mut void,
             EffectiveOnly: u32,
@@ -854,12 +840,26 @@ mod Windows {
             ServerSecurityDescriptor: *mut void,
         }
         #[arch(X86)]
+        struct RPC_SECURITY_QOS_V5_W {
+            Version: u32,
+            Capabilities: u32,
+            IdentityTracking: u32,
+            ImpersonationType: u32,
+            AdditionalSecurityInfoType: u32,
+            u: union {
+                HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
+            },
+            Sid: *mut void,
+            EffectiveOnly: u32,
+            ServerSecurityDescriptor: *mut void,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_STATS_VECTOR {
             Count: u32,
             Stats: [u32; 1],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_STATS_VECTOR {
             Count: u32,
             Stats: [u32; 1],
@@ -1215,7 +1215,8 @@ mod Windows {
         #[library("RPCRT4.dll")]
         #[must_use]
         extern fn RpcTestCancel() -> RPC_STATUS;
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SEC_WINNT_AUTH_IDENTITY_A {
             #[writable(UserLength + 1)]
             User: *mut u8,
@@ -1228,8 +1229,7 @@ mod Windows {
             PasswordLength: u32,
             Flags: u32,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct SEC_WINNT_AUTH_IDENTITY_A {
             #[writable(UserLength + 1)]
             User: *mut u8,
@@ -1244,7 +1244,8 @@ mod Windows {
         }
         const SEC_WINNT_AUTH_IDENTITY_ANSI: i32 = 1;
         const SEC_WINNT_AUTH_IDENTITY_UNICODE: i32 = 2;
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SEC_WINNT_AUTH_IDENTITY_W {
             #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(UserLength+1)*sizeof(WCHAR)", "(UserLength+1)*sizeof(WCHAR)")]
             User: *mut u16,
@@ -1257,8 +1258,7 @@ mod Windows {
             PasswordLength: u32,
             Flags: u32,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct SEC_WINNT_AUTH_IDENTITY_W {
             #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(UserLength+1)*sizeof(WCHAR)", "(UserLength+1)*sizeof(WCHAR)")]
             User: *mut u16,
@@ -1272,14 +1272,14 @@ mod Windows {
             Flags: u32,
         }
         type UUID = GUID;
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct UUID_VECTOR {
             Count: u32,
             #[writable(Count)]
             Uuid: [*mut UUID; 1],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct UUID_VECTOR {
             Count: u32,
             #[writable(Count)]

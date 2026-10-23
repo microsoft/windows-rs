@@ -27,6 +27,7 @@ pub struct Writer {
     input: Vec<PathBuf>,
     input_default: bool,
     input_bytes: Vec<Vec<u8>>,
+    reference: Vec<PathBuf>,
     filter: Vec<String>,
     output: PathBuf,
     split: bool,
@@ -66,6 +67,24 @@ impl Writer {
     /// Adds the default Windows metadata inputs.
     pub fn input_default(&mut self) -> &mut Self {
         self.input_default = true;
+        self
+    }
+
+    /// Adds a `.winmd` reference file or directory for resolution, without emitting its definitions.
+    pub fn reference(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.reference.push(input.as_ref().to_path_buf());
+        self
+    }
+
+    /// Adds multiple resolution-only `.winmd` reference files or directories.
+    pub fn references<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<Path>,
+    {
+        for input in inputs {
+            self.reference(input);
+        }
         self
     }
 
@@ -149,8 +168,25 @@ impl Writer {
             );
         }
 
+        let input_files = files.len();
+        for file_name in &expand_input_files(&self.reference, "winmd")? {
+            let source = file_name.to_string_lossy();
+            files.push(
+                metadata::reader::File::read(file_name)
+                    .ok_or_else(|| Error::new("invalid reference", &source, 0, 0))?,
+            );
+        }
+
         let index = metadata::reader::Index::new(files);
         let rules = resolve_filter(&self.filter, &index);
+        let is_input = |item: metadata::reader::Item<'_>| {
+            let file = match item {
+                metadata::reader::Item::Type(item) => item.to_row().file,
+                metadata::reader::Item::Fn(item) => item.to_row().file,
+                metadata::reader::Item::Const(item) => item.to_row().file,
+            };
+            file < input_files
+        };
 
         if let Some(map) = &self.partition {
             if let Ok(entries) = std::fs::read_dir(&self.output) {
@@ -171,7 +207,7 @@ impl Writer {
                     continue;
                 }
                 for (name, item) in index.namespace_items(namespace) {
-                    if !item_included(&rules, namespace, name) {
+                    if !is_input(item) || !item_included(&rules, namespace, name) {
                         continue;
                     }
                     let Some(stem) = map.get(name) else {
@@ -221,7 +257,7 @@ impl Writer {
                 let mut layout = Layout::new();
 
                 for (name, item) in index.namespace_items(namespace) {
-                    if !item_included(&rules, namespace, name) {
+                    if !is_input(item) || !item_included(&rules, namespace, name) {
                         continue;
                     }
                     for (item_name, tokens) in write_items(namespace, item)? {
@@ -246,7 +282,7 @@ impl Writer {
 
             for namespace in index.namespaces() {
                 for (name, item) in index.namespace_items(namespace) {
-                    if !item_included(&rules, namespace, name) {
+                    if !is_input(item) || !item_included(&rules, namespace, name) {
                         continue;
                     }
                     for (item_name, tokens) in write_items(namespace, item)? {
@@ -758,13 +794,21 @@ fn metadata_underlying(
         if !seen.insert((name.namespace.clone(), name.name.clone())) {
             return None;
         }
-        let Some(def) = index
-            .get(&name.namespace, &name.name)
-            .find(|def| def.has_attribute("NativeTypedefAttribute"))
-        else {
+        let mut definitions = index.get(&name.namespace, &name.name);
+        let Some(def) = definitions.next() else {
             return Some(ty);
         };
-        ty = def.underlying_type()?;
+        if !def.has_attribute("NativeTypedefAttribute") {
+            return Some(ty);
+        }
+        let underlying = def.underlying_type()?;
+        if definitions.any(|other| {
+            !other.has_attribute("NativeTypedefAttribute")
+                || other.underlying_type().as_ref() != Some(&underlying)
+        }) {
+            return None;
+        }
+        ty = underlying;
     }
     Some(ty)
 }
@@ -974,6 +1018,11 @@ fn write_enum_value(
         metadata::Value::I32(n) => *n,
         _ => return Ok(write_value(namespace, inner)),
     };
+
+    // A name from one definition may be absent or have a different value in another.
+    if index.get(&tn.namespace, &tn.name).nth(1).is_some() {
+        return Ok(write_value(namespace, inner));
+    }
 
     let mut found_in_index = false;
     for typedef in index.get(&tn.namespace, &tn.name) {

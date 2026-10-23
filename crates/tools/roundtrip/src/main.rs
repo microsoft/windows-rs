@@ -42,13 +42,19 @@ fn main() {
         WIN32_UM_WINMD,
         "Win32",
     );
-    partitioned("Win32", WIN32_UM_WINMD, WIN32_RDL, Some(WIN32_SEED));
+    partitioned(
+        "Win32",
+        WIN32_UM_WINMD,
+        &[WINRT_RESOLUTION],
+        WIN32_RDL,
+        Some(WIN32_SEED),
+    );
 
     // WDK: compile the committed km RDL against the um winmd (its Win32 dependencies resolve
     // there), then decompile it back. Only WDK-defined types are emitted, so the round-trip
     // reproduces `metadata/wdk`.
     compile(&[WDK_RDL], &[WIN32_UM_WINMD], WDK_KM_WINMD, "WDK");
-    partitioned("WDK", WDK_KM_WINMD, WDK_RDL, None);
+    partitioned("WDK", WDK_KM_WINMD, &[WIN32_UM_WINMD], WDK_RDL, None);
 
     println!(
         "roundtripped WinRT, Win32 and WDK metadata in {:.2}s",
@@ -90,7 +96,7 @@ fn winrt() {
 /// outside `rdl_dir` (the partition writer clears every `*.rdl` in it), so restoring it merely
 /// rewrites identical bytes. This validates that the winmd's *content* round-trips to the
 /// committed RDL under the committed layout.
-fn partitioned(label: &str, winmd: &str, rdl_dir: &str, seed: Option<&str>) {
+fn partitioned(label: &str, winmd: &str, references: &[&str], rdl_dir: &str, seed: Option<&str>) {
     let seed_name = seed.and_then(|path| {
         std::path::Path::new(path)
             .file_name()
@@ -129,6 +135,7 @@ fn partitioned(label: &str, winmd: &str, rdl_dir: &str, seed: Option<&str>) {
 
     writer()
         .input(winmd)
+        .references(references)
         .partition(map)
         .output(rdl_dir)
         .write()

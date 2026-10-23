@@ -15,13 +15,6 @@ mod Windows {
         const AUTO_PROXY_FLAG_DONT_CACHE_PROXY_RESULT: i32 = 16;
         const AUTO_PROXY_FLAG_MIGRATED: i32 = 8;
         const AUTO_PROXY_FLAG_USER_SET: i32 = 1;
-        #[arch(X86)]
-        #[packed(4)]
-        struct AUTO_PROXY_SCRIPT_BUFFER {
-            dwStructSize: DWORD,
-            lpszScriptBuffer: LPSTR,
-            dwScriptBufferSize: DWORD,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct AUTO_PROXY_SCRIPT_BUFFER {
@@ -31,8 +24,10 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct AutoProxyHelperFunctions {
-            lpVtbl: *const AutoProxyHelperVtbl,
+        struct AUTO_PROXY_SCRIPT_BUFFER {
+            dwStructSize: DWORD,
+            lpszScriptBuffer: LPSTR,
+            dwScriptBufferSize: DWORD,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -41,6 +36,11 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct AutoProxyHelperFunctions {
+            lpVtbl: *const AutoProxyHelperVtbl,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct AutoProxyHelperVtbl {
             IsResolvable: CALINFO_ENUMPROCA,
             GetIPAddress: extern fn(LPSTR, LPDWORD) -> DWORD,
@@ -52,8 +52,8 @@ mod Windows {
             IsInNetEx: extern fn(LPSTR, LPSTR) -> BOOL,
             SortIpList: extern fn(LPSTR, LPSTR, LPDWORD) -> DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct AutoProxyHelperVtbl {
             IsResolvable: CALINFO_ENUMPROCA,
             GetIPAddress: extern fn(LPSTR, LPDWORD) -> DWORD,
@@ -93,14 +93,14 @@ mod Windows {
         extern fn CommitUrlCacheEntryA(#[in] lpszUrlName: LPCSTR, #[in] #[opt] lpszLocalFileName: LPCSTR, #[in] ExpireTime: FILETIME, #[in] LastModifiedTime: FILETIME, #[in] CacheEntryType: DWORD, #[in] #[opt] #[readable(entry, cchHeaderInfo)] lpHeaderInfo: LPBYTE, #[in] cchHeaderInfo: DWORD, #[reserved] lpszFileExtension: LPCSTR, #[in] #[opt] lpszOriginalUrl: LPCSTR) -> BOOL;
         #[library("WININET.dll")]
         extern fn CommitUrlCacheEntryW(#[in] lpszUrlName: LPCWSTR, #[in] #[opt] lpszLocalFileName: LPCWSTR, #[in] ExpireTime: FILETIME, #[in] LastModifiedTime: FILETIME, #[in] CacheEntryType: DWORD, #[in] #[opt] #[readable(entry, cchHeaderInfo)] lpszHeaderInfo: LPWSTR, #[in] cchHeaderInfo: DWORD, #[reserved] lpszFileExtension: LPCWSTR, #[in] #[opt] lpszOriginalUrl: LPCWSTR) -> BOOL;
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct CookieDecision {
             dwCookieState: DWORD,
             fAllowSession: BOOL,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct CookieDecision {
             dwCookieState: DWORD,
             fAllowSession: BOOL,
@@ -310,14 +310,14 @@ mod Windows {
         extern fn FtpSetCurrentDirectoryW(#[in] hConnect: HINTERNET, #[in] lpszDirectory: LPCWSTR) -> BOOL;
         #[encoding("ansi")]
         const GOPHER_ABSTRACT_ATTRIBUTE: String = "Abstract";
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
             ShortAbstract: LPCTSTR,
             AbstractFile: LPCTSTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
             ShortAbstract: LPCTSTR,
             AbstractFile: LPCTSTR,
@@ -326,28 +326,28 @@ mod Windows {
         const GOPHER_ABSTRACT_CATEGORY: String = "+ABSTRACT";
         #[encoding("ansi")]
         const GOPHER_ADMIN_ATTRIBUTE: String = "Admin";
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
             Comment: LPCTSTR,
             EmailAddress: LPCTSTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
             Comment: LPCTSTR,
             EmailAddress: LPCTSTR,
         }
         #[encoding("ansi")]
         const GOPHER_ADMIN_CATEGORY: String = "+ADMIN";
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_ASK_ATTRIBUTE_TYPE {
             QuestionType: LPCTSTR,
             QuestionText: LPCTSTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_ASK_ATTRIBUTE_TYPE {
             QuestionType: LPCTSTR,
             QuestionText: LPCTSTR,
@@ -371,12 +371,12 @@ mod Windows {
         const GOPHER_ATTRIBUTE_ID_UNKNOWN: u32 = 2882325529;
         const GOPHER_ATTRIBUTE_ID_VERSION: u32 = 2882325525;
         const GOPHER_ATTRIBUTE_ID_VIEW: u32 = 2882325527;
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_ATTRIBUTE_TYPE {
             CategoryId: DWORD,
             AttributeId: DWORD,
-            AttributeType: #[packed(4)] union {
+            AttributeType: #[packed(8)] union {
                 Admin: GOPHER_ADMIN_ATTRIBUTE_TYPE,
                 ModDate: GOPHER_MOD_DATE_ATTRIBUTE_TYPE,
                 Ttl: GOPHER_TTL_ATTRIBUTE_TYPE,
@@ -396,12 +396,12 @@ mod Windows {
                 Unknown: GOPHER_UNKNOWN_ATTRIBUTE_TYPE,
             },
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_ATTRIBUTE_TYPE {
             CategoryId: DWORD,
             AttributeId: DWORD,
-            AttributeType: #[packed(8)] union {
+            AttributeType: #[packed(4)] union {
                 Admin: GOPHER_ADMIN_ATTRIBUTE_TYPE,
                 ModDate: GOPHER_MOD_DATE_ATTRIBUTE_TYPE,
                 Ttl: GOPHER_TTL_ATTRIBUTE_TYPE,
@@ -430,16 +430,6 @@ mod Windows {
         const GOPHER_CATEGORY_ID_VERONICA: u32 = 2882325510;
         const GOPHER_CATEGORY_ID_VIEWS: u32 = 2882325508;
         type GOPHER_FIND_DATA = GOPHER_FIND_DATAA;
-        #[arch(X86)]
-        #[packed(4)]
-        struct GOPHER_FIND_DATAA {
-            DisplayString: [CHAR; 129],
-            GopherType: DWORD,
-            SizeLow: DWORD,
-            SizeHigh: DWORD,
-            LastModificationTime: FILETIME,
-            Locator: [CHAR; 654],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct GOPHER_FIND_DATAA {
@@ -452,13 +442,13 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct GOPHER_FIND_DATAW {
-            DisplayString: [WCHAR; 129],
+        struct GOPHER_FIND_DATAA {
+            DisplayString: [CHAR; 129],
             GopherType: DWORD,
             SizeLow: DWORD,
             SizeHigh: DWORD,
             LastModificationTime: FILETIME,
-            Locator: [WCHAR; 654],
+            Locator: [CHAR; 654],
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -472,6 +462,16 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct GOPHER_FIND_DATAW {
+            DisplayString: [WCHAR; 129],
+            GopherType: DWORD,
+            SizeLow: DWORD,
+            SizeHigh: DWORD,
+            LastModificationTime: FILETIME,
+            Locator: [WCHAR; 654],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
             DegreesNorth: INT,
             MinutesNorth: INT,
@@ -480,8 +480,8 @@ mod Windows {
             MinutesEast: INT,
             SecondsEast: INT,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
             DegreesNorth: INT,
             MinutesNorth: INT,
@@ -496,23 +496,18 @@ mod Windows {
         const GOPHER_INFO_CATEGORY: String = "+INFO";
         #[encoding("ansi")]
         const GOPHER_LOCATION_ATTRIBUTE: String = "Loc";
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
             Location: LPCTSTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
             Location: LPCTSTR,
         }
         #[encoding("ansi")]
         const GOPHER_MOD_DATE_ATTRIBUTE: String = "Mod-Date";
-        #[arch(X86)]
-        #[packed(4)]
-        struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
-            DateAndTime: FILETIME,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
@@ -520,11 +515,16 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
+            DateAndTime: FILETIME,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
             Organization: LPCTSTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
             Organization: LPCTSTR,
         }
@@ -532,13 +532,13 @@ mod Windows {
         const GOPHER_ORG_ATTRIBUTE: String = "Org";
         #[encoding("ansi")]
         const GOPHER_PROVIDER_ATTRIBUTE: String = "Provider";
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
             Provider: LPCTSTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
             Provider: LPCTSTR,
         }
@@ -546,11 +546,6 @@ mod Windows {
         const GOPHER_RANGE_ATTRIBUTE: String = "Score-range";
         #[encoding("ansi")]
         const GOPHER_SCORE_ATTRIBUTE: String = "Score";
-        #[arch(X86)]
-        #[packed(4)]
-        struct GOPHER_SCORE_ATTRIBUTE_TYPE {
-            Score: INT,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct GOPHER_SCORE_ATTRIBUTE_TYPE {
@@ -558,37 +553,42 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct GOPHER_SCORE_ATTRIBUTE_TYPE {
+            Score: INT,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
             LowerBound: INT,
             UpperBound: INT,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
             LowerBound: INT,
             UpperBound: INT,
         }
         #[encoding("ansi")]
         const GOPHER_SITE_ATTRIBUTE: String = "Site";
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_SITE_ATTRIBUTE_TYPE {
             Site: LPCTSTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_SITE_ATTRIBUTE_TYPE {
             Site: LPCTSTR,
         }
         #[encoding("ansi")]
         const GOPHER_TIMEZONE_ATTRIBUTE: String = "TZ";
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
             Zone: INT,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
             Zone: INT,
         }
@@ -596,13 +596,13 @@ mod Windows {
         const GOPHER_TREEWALK_ATTRIBUTE: String = "treewalk";
         #[encoding("ansi")]
         const GOPHER_TTL_ATTRIBUTE: String = "TTL";
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_TTL_ATTRIBUTE_TYPE {
             Ttl: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_TTL_ATTRIBUTE_TYPE {
             Ttl: DWORD,
         }
@@ -631,11 +631,6 @@ mod Windows {
         const GOPHER_TYPE_TN3270: i32 = 2048;
         const GOPHER_TYPE_UNIX_UUENCODED: i32 = 64;
         const GOPHER_TYPE_UNKNOWN: i32 = 536870912;
-        #[arch(X86)]
-        #[packed(4)]
-        struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
-            Text: LPCTSTR,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
@@ -643,11 +638,16 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
+            Text: LPCTSTR,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
             TreeWalk: BOOL,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
             TreeWalk: BOOL,
         }
@@ -655,13 +655,13 @@ mod Windows {
         const GOPHER_VERONICA_CATEGORY: String = "+VERONICA";
         #[encoding("ansi")]
         const GOPHER_VERSION_ATTRIBUTE: String = "Version";
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_VERSION_ATTRIBUTE_TYPE {
             Version: LPCTSTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_VERSION_ATTRIBUTE_TYPE {
             Version: LPCTSTR,
         }
@@ -669,15 +669,15 @@ mod Windows {
         const GOPHER_VIEWS_CATEGORY: String = "+VIEWS";
         #[encoding("ansi")]
         const GOPHER_VIEW_ATTRIBUTE: String = "View";
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct GOPHER_VIEW_ATTRIBUTE_TYPE {
             ContentType: LPCTSTR,
             Language: LPCTSTR,
             Size: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct GOPHER_VIEW_ATTRIBUTE_TYPE {
             ContentType: LPCTSTR,
             Language: LPCTSTR,
@@ -936,12 +936,6 @@ mod Windows {
         const INTERENT_GOONLINE_MASK: i32 = 3;
         const INTERENT_GOONLINE_NOPROMPT: i32 = 2;
         const INTERENT_GOONLINE_REFRESH: i32 = 1;
-        #[arch(X86)]
-        #[packed(4)]
-        struct INTERNET_ASYNC_RESULT {
-            dwResult: DWORD_PTR,
-            dwError: DWORD,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct INTERNET_ASYNC_RESULT {
@@ -950,14 +944,20 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct INTERNET_ASYNC_RESULT {
+            dwResult: DWORD_PTR,
+            dwError: DWORD,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct INTERNET_AUTH_NOTIFY_DATA {
             cbStruct: DWORD,
             dwOptions: DWORD,
             pfnNotify: PFN_AUTH_NOTIFY,
             dwContext: DWORD_PTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct INTERNET_AUTH_NOTIFY_DATA {
             cbStruct: DWORD,
             dwOptions: DWORD,
@@ -970,20 +970,6 @@ mod Windows {
         const INTERNET_AUTODIAL_FORCE_UNATTENDED: i32 = 2;
         const INTERNET_AUTODIAL_OVERRIDE_NET_PRESENT: i32 = 8;
         type INTERNET_BUFFERS = INTERNET_BUFFERSA;
-        #[arch(X86)]
-        #[packed(4)]
-        struct INTERNET_BUFFERSA {
-            dwStructSize: DWORD,
-            Next: *mut INTERNET_BUFFERSA,
-            lpcszHeader: LPCSTR,
-            dwHeadersLength: DWORD,
-            dwHeadersTotal: DWORD,
-            lpvBuffer: LPVOID,
-            dwBufferLength: DWORD,
-            dwBufferTotal: DWORD,
-            dwOffsetLow: DWORD,
-            dwOffsetHigh: DWORD,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct INTERNET_BUFFERSA {
@@ -1000,6 +986,20 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct INTERNET_BUFFERSA {
+            dwStructSize: DWORD,
+            Next: *mut INTERNET_BUFFERSA,
+            lpcszHeader: LPCSTR,
+            dwHeadersLength: DWORD,
+            dwHeadersTotal: DWORD,
+            lpvBuffer: LPVOID,
+            dwBufferLength: DWORD,
+            dwBufferTotal: DWORD,
+            dwOffsetLow: DWORD,
+            dwOffsetHigh: DWORD,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct INTERNET_BUFFERSW {
             dwStructSize: DWORD,
             Next: *mut INTERNET_BUFFERSW,
@@ -1012,8 +1012,8 @@ mod Windows {
             dwOffsetLow: DWORD,
             dwOffsetHigh: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct INTERNET_BUFFERSW {
             dwStructSize: DWORD,
             Next: *mut INTERNET_BUFFERSW,
@@ -1027,29 +1027,6 @@ mod Windows {
             dwOffsetHigh: DWORD,
         }
         type INTERNET_CACHE_ENTRY_INFO = INTERNET_CACHE_ENTRY_INFOA;
-        #[arch(X86)]
-        #[packed(4)]
-        struct INTERNET_CACHE_ENTRY_INFOA {
-            dwStructSize: DWORD,
-            lpszSourceUrlName: LPSTR,
-            lpszLocalFileName: LPSTR,
-            CacheEntryType: DWORD,
-            dwUseCount: DWORD,
-            dwHitRate: DWORD,
-            dwSizeLow: DWORD,
-            dwSizeHigh: DWORD,
-            LastModifiedTime: FILETIME,
-            ExpireTime: FILETIME,
-            LastAccessTime: FILETIME,
-            LastSyncTime: FILETIME,
-            lpHeaderInfo: LPSTR,
-            dwHeaderInfoSize: DWORD,
-            lpszFileExtension: LPSTR,
-            Anonymous: #[packed(4)] union {
-                dwReserved: DWORD,
-                dwExemptDelta: DWORD,
-            },
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct INTERNET_CACHE_ENTRY_INFOA {
@@ -1075,10 +1052,10 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct INTERNET_CACHE_ENTRY_INFOW {
+        struct INTERNET_CACHE_ENTRY_INFOA {
             dwStructSize: DWORD,
-            lpszSourceUrlName: LPWSTR,
-            lpszLocalFileName: LPWSTR,
+            lpszSourceUrlName: LPSTR,
+            lpszLocalFileName: LPSTR,
             CacheEntryType: DWORD,
             dwUseCount: DWORD,
             dwHitRate: DWORD,
@@ -1088,9 +1065,9 @@ mod Windows {
             ExpireTime: FILETIME,
             LastAccessTime: FILETIME,
             LastSyncTime: FILETIME,
-            lpHeaderInfo: LPWSTR,
+            lpHeaderInfo: LPSTR,
             dwHeaderInfoSize: DWORD,
-            lpszFileExtension: LPWSTR,
+            lpszFileExtension: LPSTR,
             Anonymous: #[packed(4)] union {
                 dwReserved: DWORD,
                 dwExemptDelta: DWORD,
@@ -1115,23 +1092,35 @@ mod Windows {
             dwHeaderInfoSize: DWORD,
             lpszFileExtension: LPWSTR,
             Anonymous: #[packed(8)] union {
+                dwReserved: DWORD,
+                dwExemptDelta: DWORD,
+            },
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct INTERNET_CACHE_ENTRY_INFOW {
+            dwStructSize: DWORD,
+            lpszSourceUrlName: LPWSTR,
+            lpszLocalFileName: LPWSTR,
+            CacheEntryType: DWORD,
+            dwUseCount: DWORD,
+            dwHitRate: DWORD,
+            dwSizeLow: DWORD,
+            dwSizeHigh: DWORD,
+            LastModifiedTime: FILETIME,
+            ExpireTime: FILETIME,
+            LastAccessTime: FILETIME,
+            LastSyncTime: FILETIME,
+            lpHeaderInfo: LPWSTR,
+            dwHeaderInfoSize: DWORD,
+            lpszFileExtension: LPWSTR,
+            Anonymous: #[packed(4)] union {
                 dwReserved: DWORD,
                 dwExemptDelta: DWORD,
             },
         }
         const INTERNET_CACHE_GROUP_ADD: i32 = 0;
         type INTERNET_CACHE_GROUP_INFO = INTERNET_CACHE_GROUP_INFOA;
-        #[arch(X86)]
-        #[packed(4)]
-        struct INTERNET_CACHE_GROUP_INFOA {
-            dwGroupSize: DWORD,
-            dwGroupFlags: DWORD,
-            dwGroupType: DWORD,
-            dwDiskUsage: DWORD,
-            dwDiskQuota: DWORD,
-            dwOwnerStorage: [DWORD; 4],
-            szGroupName: [CHAR; 120],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct INTERNET_CACHE_GROUP_INFOA {
@@ -1145,6 +1134,17 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct INTERNET_CACHE_GROUP_INFOA {
+            dwGroupSize: DWORD,
+            dwGroupFlags: DWORD,
+            dwGroupType: DWORD,
+            dwDiskUsage: DWORD,
+            dwDiskQuota: DWORD,
+            dwOwnerStorage: [DWORD; 4],
+            szGroupName: [CHAR; 120],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct INTERNET_CACHE_GROUP_INFOW {
             dwGroupSize: DWORD,
             dwGroupFlags: DWORD,
@@ -1154,8 +1154,8 @@ mod Windows {
             dwOwnerStorage: [DWORD; 4],
             szGroupName: [WCHAR; 120],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct INTERNET_CACHE_GROUP_INFOW {
             dwGroupSize: DWORD,
             dwGroupFlags: DWORD,
@@ -1166,12 +1166,6 @@ mod Windows {
             szGroupName: [WCHAR; 120],
         }
         const INTERNET_CACHE_GROUP_REMOVE: i32 = 1;
-        #[arch(X86)]
-        #[packed(4)]
-        struct INTERNET_CACHE_TIMESTAMPS {
-            ftExpires: FILETIME,
-            ftLastModified: FILETIME,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct INTERNET_CACHE_TIMESTAMPS {
@@ -1180,15 +1174,9 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct INTERNET_CERTIFICATE_INFO {
-            ftExpiry: FILETIME,
-            ftStart: FILETIME,
-            lpszSubjectInfo: LPTSTR,
-            lpszIssuerInfo: LPTSTR,
-            lpszProtocolName: LPTSTR,
-            lpszSignatureAlgName: LPTSTR,
-            lpszEncryptionAlgName: LPTSTR,
-            dwKeySize: DWORD,
+        struct INTERNET_CACHE_TIMESTAMPS {
+            ftExpires: FILETIME,
+            ftLastModified: FILETIME,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1204,12 +1192,24 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct INTERNET_CERTIFICATE_INFO {
+            ftExpiry: FILETIME,
+            ftStart: FILETIME,
+            lpszSubjectInfo: LPTSTR,
+            lpszIssuerInfo: LPTSTR,
+            lpszProtocolName: LPTSTR,
+            lpszSignatureAlgName: LPTSTR,
+            lpszEncryptionAlgName: LPTSTR,
+            dwKeySize: DWORD,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct INTERNET_CONNECTED_INFO {
             dwConnectedState: DWORD,
             dwFlags: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct INTERNET_CONNECTED_INFO {
             dwConnectedState: DWORD,
             dwFlags: DWORD,
@@ -1220,8 +1220,8 @@ mod Windows {
         const INTERNET_CONNECTION_MODEM_BUSY: i32 = 8;
         const INTERNET_CONNECTION_OFFLINE: i32 = 32;
         const INTERNET_CONNECTION_PROXY: i32 = 4;
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct INTERNET_COOKIE2 {
             pwszName: PWSTR,
             pwszValue: PWSTR,
@@ -1231,8 +1231,8 @@ mod Windows {
             ftExpires: FILETIME,
             fExpiresSet: BOOL,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct INTERNET_COOKIE2 {
             pwszName: PWSTR,
             pwszValue: PWSTR,
@@ -1272,16 +1272,16 @@ mod Windows {
         const INTERNET_DEFAULT_HTTPS_PORT: i32 = 443;
         const INTERNET_DEFAULT_HTTP_PORT: i32 = 80;
         const INTERNET_DEFAULT_SOCKS_PORT: i32 = 1080;
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct INTERNET_DIAGNOSTIC_SOCKET_INFO {
             Socket: DWORD_PTR,
             SourcePort: DWORD,
             DestPort: DWORD,
             Flags: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct INTERNET_DIAGNOSTIC_SOCKET_INFO {
             Socket: DWORD_PTR,
             SourcePort: DWORD,
@@ -1490,16 +1490,6 @@ mod Windows {
         const INTERNET_PER_CONN_FLAGS: i32 = 1;
         const INTERNET_PER_CONN_FLAGS_UI: i32 = 10;
         type INTERNET_PER_CONN_OPTION = INTERNET_PER_CONN_OPTIONA;
-        #[arch(X86)]
-        #[packed(4)]
-        struct INTERNET_PER_CONN_OPTIONA {
-            dwOption: DWORD,
-            Value: #[packed(4)] union {
-                dwValue: DWORD,
-                pszValue: LPSTR,
-                ftValue: FILETIME,
-            },
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct INTERNET_PER_CONN_OPTIONA {
@@ -1512,34 +1502,35 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct INTERNET_PER_CONN_OPTIONW {
+        struct INTERNET_PER_CONN_OPTIONA {
             dwOption: DWORD,
             Value: #[packed(4)] union {
+                dwValue: DWORD,
+                pszValue: LPSTR,
+                ftValue: FILETIME,
+            },
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
+        struct INTERNET_PER_CONN_OPTIONW {
+            dwOption: DWORD,
+            Value: #[packed(8)] union {
                 dwValue: DWORD,
                 pszValue: LPWSTR,
                 ftValue: FILETIME,
             },
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct INTERNET_PER_CONN_OPTIONW {
             dwOption: DWORD,
-            Value: #[packed(8)] union {
+            Value: #[packed(4)] union {
                 dwValue: DWORD,
                 pszValue: LPWSTR,
                 ftValue: FILETIME,
             },
         }
         type INTERNET_PER_CONN_OPTION_LIST = INTERNET_PER_CONN_OPTION_LISTA;
-        #[arch(X86)]
-        #[packed(4)]
-        struct INTERNET_PER_CONN_OPTION_LISTA {
-            dwSize: DWORD,
-            pszConnection: LPSTR,
-            dwOptionCount: DWORD,
-            dwOptionError: DWORD,
-            pOptions: LPINTERNET_PER_CONN_OPTIONA,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct INTERNET_PER_CONN_OPTION_LISTA {
@@ -1551,6 +1542,15 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct INTERNET_PER_CONN_OPTION_LISTA {
+            dwSize: DWORD,
+            pszConnection: LPSTR,
+            dwOptionCount: DWORD,
+            dwOptionError: DWORD,
+            pOptions: LPINTERNET_PER_CONN_OPTIONA,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct INTERNET_PER_CONN_OPTION_LISTW {
             dwSize: DWORD,
             pszConnection: LPWSTR,
@@ -1558,8 +1558,8 @@ mod Windows {
             dwOptionError: DWORD,
             pOptions: LPINTERNET_PER_CONN_OPTIONW,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct INTERNET_PER_CONN_OPTION_LISTW {
             dwSize: DWORD,
             pszConnection: LPWSTR,
@@ -1570,15 +1570,15 @@ mod Windows {
         const INTERNET_PER_CONN_PROXY_BYPASS: i32 = 3;
         const INTERNET_PER_CONN_PROXY_SERVER: i32 = 2;
         const INTERNET_PRIORITY_FOREGROUND: i32 = 1000;
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct INTERNET_PROXY_INFO {
             dwAccessType: DWORD,
             lpszProxy: LPCTSTR,
             lpszProxyBypass: LPCTSTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct INTERNET_PROXY_INFO {
             dwAccessType: DWORD,
             lpszProxy: LPCTSTR,
@@ -1632,14 +1632,14 @@ mod Windows {
         const INTERNET_SUPPRESS_COOKIE_POLICY: i32 = 1;
         const INTERNET_SUPPRESS_COOKIE_POLICY_RESET: i32 = 2;
         const INTERNET_SUPPRESS_RESET_ALL: i32 = 0;
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct INTERNET_VERSION_INFO {
             dwMajorVersion: DWORD,
             dwMinorVersion: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct INTERNET_VERSION_INFO {
             dwMajorVersion: DWORD,
             dwMinorVersion: DWORD,
@@ -1652,8 +1652,8 @@ mod Windows {
         const ISO_GLOBAL: i32 = 1;
         const ISO_REGISTRY: i32 = 2;
         const ISO_VALID_FLAGS: i32 = 3;
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct IncomingCookieState {
             cSession: i32,
             cPersistent: i32,
@@ -1663,8 +1663,8 @@ mod Windows {
             cBlocked: i32,
             pszLocation: *const i8,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct IncomingCookieState {
             cSession: i32,
             cPersistent: i32,
@@ -1706,16 +1706,16 @@ mod Windows {
         extern fn InternetConnectA(#[in] hInternet: HINTERNET, #[in] lpszServerName: LPCSTR, #[in] nServerPort: INTERNET_PORT, #[in] #[opt] lpszUserName: LPCSTR, #[in] #[opt] lpszPassword: LPCSTR, #[in] dwService: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
         #[library("WININET.dll")]
         extern fn InternetConnectW(#[in] hInternet: HINTERNET, #[in] lpszServerName: LPCWSTR, #[in] nServerPort: INTERNET_PORT, #[in] #[opt] lpszUserName: LPCWSTR, #[in] #[opt] lpszPassword: LPCWSTR, #[in] dwService: DWORD, #[in] dwFlags: DWORD, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct InternetCookieHistory {
             fAccepted: BOOL,
             fLeashed: BOOL,
             fDowngraded: BOOL,
             fRejected: BOOL,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct InternetCookieHistory {
             fAccepted: BOOL,
             fLeashed: BOOL,
@@ -1923,15 +1923,15 @@ mod Windows {
         const MAX_GOPHER_SELECTOR_TEXT: i32 = 256;
         const MIN_GOPHER_ATTRIBUTE_LENGTH: i32 = 256;
         const NORMAL_CACHE_ENTRY: i32 = 1;
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct OutgoingCookieState {
             cSent: i32,
             cSuppressed: i32,
             pszLocation: *const i8,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct OutgoingCookieState {
             cSent: i32,
             cSuppressed: i32,
@@ -2022,8 +2022,8 @@ mod Windows {
         const TRACK_ONLINE_CACHE_ENTRY: i32 = 32;
         const URLCACHE_FIND_DEFAULT_FILTER: i32 = 3145781;
         const URLHISTORY_CACHE_ENTRY: i32 = 2097152;
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct URL_COMPONENTSA {
             dwStructSize: DWORD,
             lpszScheme: LPSTR,
@@ -2041,8 +2041,8 @@ mod Windows {
             lpszExtraInfo: LPSTR,
             dwExtraInfoLength: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct URL_COMPONENTSA {
             dwStructSize: DWORD,
             lpszScheme: LPSTR,

@@ -68,7 +68,7 @@ impl Layout {
 
         for items in self.winrt.values().chain(self.win32.values()) {
             let mut items = items.clone();
-            items.sort();
+            items.sort_by_cached_key(|item| formatter::format(item));
             for tokens in &items {
                 output.push_str(tokens);
             }
@@ -100,7 +100,7 @@ impl Layout {
 
             for items in self.winrt.values() {
                 let mut items = items.clone();
-                items.sort();
+                items.sort_by_cached_key(|item| formatter::format(item));
                 for tokens in &items {
                     output.push_str(tokens);
                 }
@@ -122,7 +122,7 @@ impl Layout {
 
             for items in self.win32.values() {
                 let mut items = items.clone();
-                items.sort();
+                items.sort_by_cached_key(|item| formatter::format(item));
                 for tokens in &items {
                     output.push_str(tokens);
                 }
@@ -151,7 +151,7 @@ impl Layout {
 
             for items in self.winrt.values() {
                 let mut items = items.clone();
-                items.sort();
+                items.sort_by_cached_key(|item| formatter::format(item));
                 for tokens in &items {
                     output.push_str(tokens);
                 }
@@ -167,7 +167,7 @@ impl Layout {
 
             for items in self.win32.values() {
                 let mut items = items.clone();
-                items.sort();
+                items.sort_by_cached_key(|item| formatter::format(item));
                 for tokens in &items {
                     output.push_str(tokens);
                 }

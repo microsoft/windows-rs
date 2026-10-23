@@ -21,6 +21,165 @@ const SCHEMA: &str = r#"
 "#;
 
 #[test]
+fn writer_references_resolve_without_emitting_definitions() {
+    let out = std::path::Path::new(env!("OUT_DIR")).join("writer-references");
+    std::fs::create_dir_all(&out).unwrap();
+    let reference = out.join("reference.winmd");
+    let input = out.join("input.winmd");
+    windows_rdl::reader()
+        .input_text(&format!(
+            r#"{SCHEMA}
+            #[win32] mod Test {{
+                type Text = *const u16;
+                type TextAlias = Text;
+                type Scalar = *const u16;
+                type Record = *const u16;
+                #[arch(X86)] type Variant = *const u16;
+                #[arch(X64 | Arm64)] type Variant = u64;
+                const Colliding: u32 = 10;
+                #[repr(i32)] enum Shared {{ ReferenceMember = 2, }}
+                attribute ChoiceAttribute {{ fn(#[in] value: Shared); }}
+                #[library("reference.dll")] extern fn Call(value: i32);
+            }}
+            #[win32] mod ReferenceOnly {{ struct Hidden {{ value: i32, }} }}
+            "#
+        ))
+        .output(&reference)
+        .write()
+        .unwrap();
+    let full =
+        "#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)]";
+    windows_rdl::reader()
+        .reference(&reference)
+        .input_text(&format!(
+            r#"#[win32] mod Test {{
+                type Scalar = u32;
+                struct Record {{ value: u32, }}
+                #[Choice(2)] struct Colliding {{ value: u32, }}
+                #[repr(i32)] enum Shared {{ LocalMember = 1, }}
+                #[library("local.dll")]
+                extern fn Call(
+                    #[in] #[null_terminated(entry)] text: TextAlias,
+                    {full} scalar: Scalar,
+                    {full} record: Record,
+                    {full} variant: Variant,
+                );
+            }}"#
+        ))
+        .output(&input)
+        .write()
+        .unwrap();
+
+    let unresolved = out.join("unresolved.rdl");
+    windows_rdl::writer()
+        .input(&input)
+        .output(&unresolved)
+        .write()
+        .unwrap();
+    assert!(
+        !std::fs::read_to_string(unresolved)
+            .unwrap()
+            .contains("#[null_terminated(")
+    );
+
+    let mut expected = None;
+    for mode in ["single", "split", "partition"] {
+        let destination = if mode == "single" {
+            out.join("single.rdl")
+        } else {
+            out.join(mode)
+        };
+        let mut writer = windows_rdl::writer();
+        writer
+            .input_bytes(&std::fs::read(&input).unwrap())
+            .references([&reference])
+            .output(&destination);
+        let path = match mode {
+            "split" => {
+                writer.split();
+                destination.join("Test.rdl")
+            }
+            "partition" => {
+                writer.partition(
+                    [
+                        "Call",
+                        "Scalar",
+                        "Record",
+                        "Colliding",
+                        "Shared",
+                        "Text",
+                        "Hidden",
+                    ]
+                    .map(|name| (name.to_string(), "test".to_string()))
+                    .into(),
+                );
+                destination.join("test.rdl")
+            }
+            _ => destination.clone(),
+        };
+        writer.write().unwrap();
+        if mode != "single" {
+            assert_eq!(std::fs::read_dir(&destination).unwrap().count(), 1);
+        }
+        let text = std::fs::read_to_string(&path).unwrap();
+        assert_eq!(text.matches("#[null_terminated(").count(), 1, "{text}");
+        assert!(text.contains("#[in] #[null_terminated(entry)] text: TextAlias"));
+        assert_eq!(text.matches("::NativeNullTerminated(").count(), 3, "{text}");
+        assert!(text.contains("LocalMember = 1"));
+        assert!(text.contains("struct Colliding"));
+        for absent in [
+            "ReferenceMember",
+            "ReferenceOnly",
+            "reference.dll",
+            "type Text",
+        ] {
+            assert!(!text.contains(absent), "{text}");
+        }
+        if let Some(expected) = &expected {
+            assert_eq!(&text, expected);
+        }
+        expected = Some(text);
+        let again = out.join(format!("{mode}.winmd"));
+        windows_rdl::reader()
+            .input(&path)
+            .reference(&reference)
+            .output(&again)
+            .write()
+            .unwrap();
+        let before = reader::Index::read(&input).unwrap();
+        let after = reader::Index::read(&again).unwrap();
+        assert_eq!(
+            before
+                .expect("Test", "Colliding")
+                .find_attribute("ChoiceAttribute")
+                .unwrap()
+                .value(),
+            after
+                .expect("Test", "Colliding")
+                .find_attribute("ChoiceAttribute")
+                .unwrap()
+                .value()
+        );
+        let before = before.expect("Test", "Apis").methods().next().unwrap();
+        let after = after.expect("Test", "Apis").methods().next().unwrap();
+        assert_eq!(before.signature(&[]), after.signature(&[]));
+        for (before, after) in before.params().zip(after.params()) {
+            assert_eq!(before.flags(), after.flags());
+            assert_eq!(
+                before
+                    .find_attribute("NativeNullTerminatedAttribute")
+                    .unwrap()
+                    .value(),
+                after
+                    .find_attribute("NativeNullTerminatedAttribute")
+                    .unwrap()
+                    .value()
+            );
+        }
+    }
+}
+
+#[test]
 fn termination_preserves_phases_and_properties() {
     let mut full = format!("{SCHEMA} #[win32] mod Test {{");
     let mut compact = full.clone();

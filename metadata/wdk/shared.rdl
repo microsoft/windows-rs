@@ -46,7 +46,7 @@ mod Windows {
         const RESULT_ZERO: i32 = 16384;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         #[library("ntdll.dll")]
-        extern fn RtlInitUTF8StringEx(#[out] DestinationString: PUTF8_STRING, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[opt] SourceString: PCSZ) -> NTSTATUS;
+        extern fn RtlInitUTF8StringEx(#[out] DestinationString: PUTF8_STRING, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[null_terminated(entry)] #[opt] SourceString: PCSZ) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlIsUntrustedObject(#[in] #[opt] Handle: HANDLE, #[in] #[opt] Object: PVOID, #[out] UntrustedObject: PBOOLEAN) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]

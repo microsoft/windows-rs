@@ -2,15 +2,6 @@
 mod Windows {
     mod Win32 {
         type CABINET_INFO = CABINET_INFO_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct CABINET_INFO_A {
-            CabinetPath: PCSTR,
-            CabinetFile: PCSTR,
-            DiskName: PCSTR,
-            SetId: USHORT,
-            CabinetNumber: USHORT,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct CABINET_INFO_A {
@@ -22,10 +13,10 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
-        struct CABINET_INFO_W {
-            CabinetPath: PCWSTR,
-            CabinetFile: PCWSTR,
-            DiskName: PCWSTR,
+        struct CABINET_INFO_A {
+            CabinetPath: PCSTR,
+            CabinetFile: PCSTR,
+            DiskName: PCSTR,
             SetId: USHORT,
             CabinetNumber: USHORT,
         }
@@ -40,13 +31,22 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct CABINET_INFO_W {
+            CabinetPath: PCWSTR,
+            CabinetFile: PCWSTR,
+            DiskName: PCWSTR,
+            SetId: USHORT,
+            CabinetNumber: USHORT,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct COINSTALLER_CONTEXT_DATA {
             PostProcessing: BOOL,
             InstallResult: DWORD,
             PrivateData: PVOID,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct COINSTALLER_CONTEXT_DATA {
             PostProcessing: BOOL,
             InstallResult: DWORD,
@@ -401,16 +401,16 @@ mod Windows {
         const FILEOP_RETRY: i32 = 1;
         const FILEOP_SKIP: i32 = 2;
         type FILEPATHS = FILEPATHS_A;
-        #[arch(X86)]
-        #[packed(1)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct FILEPATHS_A {
             Target: PCSTR,
             Source: PCSTR,
             Win32Error: UINT,
             Flags: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct FILEPATHS_A {
             Target: PCSTR,
             Source: PCSTR,
@@ -418,17 +418,6 @@ mod Windows {
             Flags: DWORD,
         }
         type FILEPATHS_SIGNERINFO = FILEPATHS_SIGNERINFO_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct FILEPATHS_SIGNERINFO_A {
-            Target: PCSTR,
-            Source: PCSTR,
-            Win32Error: UINT,
-            Flags: DWORD,
-            DigitalSigner: PCSTR,
-            Version: PCSTR,
-            CatalogFile: PCSTR,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct FILEPATHS_SIGNERINFO_A {
@@ -442,14 +431,14 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
-        struct FILEPATHS_SIGNERINFO_W {
-            Target: PCWSTR,
-            Source: PCWSTR,
+        struct FILEPATHS_SIGNERINFO_A {
+            Target: PCSTR,
+            Source: PCSTR,
             Win32Error: UINT,
             Flags: DWORD,
-            DigitalSigner: PCWSTR,
-            Version: PCWSTR,
-            CatalogFile: PCWSTR,
+            DigitalSigner: PCSTR,
+            Version: PCSTR,
+            CatalogFile: PCSTR,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -464,14 +453,25 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct FILEPATHS_SIGNERINFO_W {
+            Target: PCWSTR,
+            Source: PCWSTR,
+            Win32Error: UINT,
+            Flags: DWORD,
+            DigitalSigner: PCWSTR,
+            Version: PCWSTR,
+            CatalogFile: PCWSTR,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct FILEPATHS_W {
             Target: PCWSTR,
             Source: PCWSTR,
             Win32Error: UINT,
             Flags: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct FILEPATHS_W {
             Target: PCWSTR,
             Source: PCWSTR,
@@ -483,17 +483,6 @@ mod Windows {
         const FILE_COMPRESSION_NTCAB: i32 = 3;
         const FILE_COMPRESSION_WINLZA: i32 = 1;
         type FILE_IN_CABINET_INFO = FILE_IN_CABINET_INFO_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct FILE_IN_CABINET_INFO_A {
-            NameInCabinet: PCSTR,
-            FileSize: DWORD,
-            Win32Error: DWORD,
-            DosDate: WORD,
-            DosTime: WORD,
-            DosAttribs: WORD,
-            FullTargetName: [CHAR; 260],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct FILE_IN_CABINET_INFO_A {
@@ -507,6 +496,17 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct FILE_IN_CABINET_INFO_A {
+            NameInCabinet: PCSTR,
+            FileSize: DWORD,
+            Win32Error: DWORD,
+            DosDate: WORD,
+            DosTime: WORD,
+            DosAttribs: WORD,
+            FullTargetName: [CHAR; 260],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct FILE_IN_CABINET_INFO_W {
             NameInCabinet: PCWSTR,
             FileSize: DWORD,
@@ -516,8 +516,8 @@ mod Windows {
             DosAttribs: WORD,
             FullTargetName: [WCHAR; 260],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct FILE_IN_CABINET_INFO_W {
             NameInCabinet: PCWSTR,
             FileSize: DWORD,
@@ -616,16 +616,16 @@ mod Windows {
         const IDI_RESOURCELAST: i32 = 161;
         const IDI_RESOURCEOVERLAYFIRST: i32 = 161;
         const IDI_RESOURCEOVERLAYLAST: i32 = 161;
-        #[arch(X86)]
-        #[packed(1)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct INFCONTEXT {
             Inf: PVOID,
             CurrentInf: PVOID,
             Section: UINT,
             Line: UINT,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct INFCONTEXT {
             Inf: PVOID,
             CurrentInf: PVOID,
@@ -793,16 +793,6 @@ mod Windows {
         const SIGNERSCORE_W9X_SUSPECT: u32 = 3221225472;
         const SIGNERSCORE_WHQL: i32 = 218103813;
         type SOURCE_MEDIA = SOURCE_MEDIA_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SOURCE_MEDIA_A {
-            Reserved: PCSTR,
-            Tagfile: PCSTR,
-            Description: PCSTR,
-            SourcePath: PCSTR,
-            SourceFile: PCSTR,
-            Flags: DWORD,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SOURCE_MEDIA_A {
@@ -815,6 +805,16 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SOURCE_MEDIA_A {
+            Reserved: PCSTR,
+            Tagfile: PCSTR,
+            Description: PCSTR,
+            SourcePath: PCSTR,
+            SourceFile: PCSTR,
+            Flags: DWORD,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SOURCE_MEDIA_W {
             Reserved: PCWSTR,
             Tagfile: PCWSTR,
@@ -823,8 +823,8 @@ mod Windows {
             SourceFile: PCWSTR,
             Flags: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SOURCE_MEDIA_W {
             Reserved: PCWSTR,
             Tagfile: PCWSTR,
@@ -1002,16 +1002,6 @@ mod Windows {
         const SP_ALTPLATFORM_FLAGS_SUITE_MASK: i32 = 2;
         const SP_ALTPLATFORM_FLAGS_VERSION_RANGE: i32 = 1;
         type SP_ALTPLATFORM_INFO = SP_ALTPLATFORM_INFO_V2;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_ALTPLATFORM_INFO_V1 {
-            cbSize: DWORD,
-            Platform: DWORD,
-            MajorVersion: DWORD,
-            MinorVersion: DWORD,
-            ProcessorArchitecture: WORD,
-            Reserved: WORD,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_ALTPLATFORM_INFO_V1 {
@@ -1024,18 +1014,13 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
-        struct SP_ALTPLATFORM_INFO_V2 {
+        struct SP_ALTPLATFORM_INFO_V1 {
             cbSize: DWORD,
             Platform: DWORD,
             MajorVersion: DWORD,
             MinorVersion: DWORD,
             ProcessorArchitecture: WORD,
-            Anonymous: #[packed(1)] union {
-                Reserved: WORD,
-                Flags: WORD,
-            },
-            FirstValidatedMajorVersion: DWORD,
-            FirstValidatedMinorVersion: DWORD,
+            Reserved: WORD,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1054,13 +1039,28 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
-        struct SP_ALTPLATFORM_INFO_V3 {
+        struct SP_ALTPLATFORM_INFO_V2 {
             cbSize: DWORD,
             Platform: DWORD,
             MajorVersion: DWORD,
             MinorVersion: DWORD,
             ProcessorArchitecture: WORD,
             Anonymous: #[packed(1)] union {
+                Reserved: WORD,
+                Flags: WORD,
+            },
+            FirstValidatedMajorVersion: DWORD,
+            FirstValidatedMinorVersion: DWORD,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
+        struct SP_ALTPLATFORM_INFO_V3 {
+            cbSize: DWORD,
+            Platform: DWORD,
+            MajorVersion: DWORD,
+            MinorVersion: DWORD,
+            ProcessorArchitecture: WORD,
+            Anonymous: #[packed(8)] union {
                 Reserved: WORD,
                 Flags: WORD,
             },
@@ -1070,15 +1070,15 @@ mod Windows {
             SuiteMask: WORD,
             BuildNumber: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_ALTPLATFORM_INFO_V3 {
             cbSize: DWORD,
             Platform: DWORD,
             MajorVersion: DWORD,
             MinorVersion: DWORD,
             ProcessorArchitecture: WORD,
-            Anonymous: #[packed(8)] union {
+            Anonymous: #[packed(1)] union {
                 Reserved: WORD,
                 Flags: WORD,
             },
@@ -1094,13 +1094,6 @@ mod Windows {
         type SP_BACKUP_QUEUE_PARAMS = SP_BACKUP_QUEUE_PARAMS_V2_A;
         type SP_BACKUP_QUEUE_PARAMS_A = SP_BACKUP_QUEUE_PARAMS_V2_A;
         type SP_BACKUP_QUEUE_PARAMS_V1 = SP_BACKUP_QUEUE_PARAMS_V1_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_BACKUP_QUEUE_PARAMS_V1_A {
-            cbSize: DWORD,
-            FullInfPath: [CHAR; 260],
-            FilenameOffset: INT,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_BACKUP_QUEUE_PARAMS_V1_A {
@@ -1110,27 +1103,26 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_BACKUP_QUEUE_PARAMS_V1_A {
+            cbSize: DWORD,
+            FullInfPath: [CHAR; 260],
+            FilenameOffset: INT,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_BACKUP_QUEUE_PARAMS_V1_W {
             cbSize: DWORD,
             FullInfPath: [WCHAR; 260],
             FilenameOffset: INT,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_BACKUP_QUEUE_PARAMS_V1_W {
             cbSize: DWORD,
             FullInfPath: [WCHAR; 260],
             FilenameOffset: INT,
         }
         type SP_BACKUP_QUEUE_PARAMS_V2 = SP_BACKUP_QUEUE_PARAMS_V2_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_BACKUP_QUEUE_PARAMS_V2_A {
-            cbSize: DWORD,
-            FullInfPath: [CHAR; 260],
-            FilenameOffset: INT,
-            ReinstallInstance: [CHAR; 260],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_BACKUP_QUEUE_PARAMS_V2_A {
@@ -1141,14 +1133,22 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_BACKUP_QUEUE_PARAMS_V2_A {
+            cbSize: DWORD,
+            FullInfPath: [CHAR; 260],
+            FilenameOffset: INT,
+            ReinstallInstance: [CHAR; 260],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_BACKUP_QUEUE_PARAMS_V2_W {
             cbSize: DWORD,
             FullInfPath: [WCHAR; 260],
             FilenameOffset: INT,
             ReinstallInstance: [WCHAR; 260],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_BACKUP_QUEUE_PARAMS_V2_W {
             cbSize: DWORD,
             FullInfPath: [WCHAR; 260],
@@ -1157,13 +1157,6 @@ mod Windows {
         }
         type SP_BACKUP_QUEUE_PARAMS_W = SP_BACKUP_QUEUE_PARAMS_V2_W;
         const SP_BACKUP_SPECIAL: i32 = 4;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_CLASSIMAGELIST_DATA {
-            cbSize: DWORD,
-            ImageList: HIMAGELIST,
-            Reserved: ULONG_PTR,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_CLASSIMAGELIST_DATA {
@@ -1173,12 +1166,19 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_CLASSIMAGELIST_DATA {
+            cbSize: DWORD,
+            ImageList: HIMAGELIST,
+            Reserved: ULONG_PTR,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_CLASSINSTALL_HEADER {
             cbSize: DWORD,
             InstallFunction: DI_FUNCTION,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_CLASSINSTALL_HEADER {
             cbSize: DWORD,
             InstallFunction: DI_FUNCTION,
@@ -1211,13 +1211,6 @@ mod Windows {
         const SP_COPY_SOURCE_ABSOLUTE: i32 = 64;
         const SP_COPY_WARNIFSKIP: i32 = 16384;
         const SP_COPY_WINDOWS_SIGNED: i32 = 16777216;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_DETECTDEVICE_PARAMS {
-            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-            DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
-            ProgressNotifyParam: PVOID,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_DETECTDEVICE_PARAMS {
@@ -1227,14 +1220,21 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_DETECTDEVICE_PARAMS {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
+            ProgressNotifyParam: PVOID,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_DEVICE_INTERFACE_DATA {
             cbSize: DWORD,
             InterfaceClassGuid: GUID,
             Flags: DWORD,
             Reserved: ULONG_PTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_DEVICE_INTERFACE_DATA {
             cbSize: DWORD,
             InterfaceClassGuid: GUID,
@@ -1242,12 +1242,6 @@ mod Windows {
             Reserved: ULONG_PTR,
         }
         type SP_DEVICE_INTERFACE_DETAIL_DATA = SP_DEVICE_INTERFACE_DETAIL_DATA_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-            cbSize: DWORD,
-            DevicePath: [CHAR; 1],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
@@ -1256,9 +1250,9 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
-        struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+        struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
             cbSize: DWORD,
-            DevicePath: [WCHAR; 1],
+            DevicePath: [CHAR; 1],
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1268,14 +1262,20 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+            cbSize: DWORD,
+            DevicePath: [WCHAR; 1],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_DEVINFO_DATA {
             cbSize: DWORD,
             ClassGuid: GUID,
             DevInst: DWORD,
             Reserved: ULONG_PTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_DEVINFO_DATA {
             cbSize: DWORD,
             ClassGuid: GUID,
@@ -1283,14 +1283,6 @@ mod Windows {
             Reserved: ULONG_PTR,
         }
         type SP_DEVINFO_LIST_DETAIL_DATA = SP_DEVINFO_LIST_DETAIL_DATA_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_DEVINFO_LIST_DETAIL_DATA_A {
-            cbSize: DWORD,
-            ClassGuid: GUID,
-            RemoteMachineHandle: HANDLE,
-            RemoteMachineName: [CHAR; 263],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_DEVINFO_LIST_DETAIL_DATA_A {
@@ -1301,14 +1293,22 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_DEVINFO_LIST_DETAIL_DATA_A {
+            cbSize: DWORD,
+            ClassGuid: GUID,
+            RemoteMachineHandle: HANDLE,
+            RemoteMachineName: [CHAR; 263],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_DEVINFO_LIST_DETAIL_DATA_W {
             cbSize: DWORD,
             ClassGuid: GUID,
             RemoteMachineHandle: HANDLE,
             RemoteMachineName: [WCHAR; 263],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_DEVINFO_LIST_DETAIL_DATA_W {
             cbSize: DWORD,
             ClassGuid: GUID,
@@ -1316,20 +1316,6 @@ mod Windows {
             RemoteMachineName: [WCHAR; 263],
         }
         type SP_DEVINSTALL_PARAMS = SP_DEVINSTALL_PARAMS_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_DEVINSTALL_PARAMS_A {
-            cbSize: DWORD,
-            Flags: DWORD,
-            FlagsEx: DWORD,
-            hwndParent: HWND,
-            InstallMsgHandler: PSP_FILE_CALLBACK_A,
-            InstallMsgHandlerContext: PVOID,
-            FileQueue: HSPFILEQ,
-            ClassInstallReserved: ULONG_PTR,
-            Reserved: DWORD,
-            DriverPath: [CHAR; 260],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_DEVINSTALL_PARAMS_A {
@@ -1346,6 +1332,20 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_DEVINSTALL_PARAMS_A {
+            cbSize: DWORD,
+            Flags: DWORD,
+            FlagsEx: DWORD,
+            hwndParent: HWND,
+            InstallMsgHandler: PSP_FILE_CALLBACK_A,
+            InstallMsgHandlerContext: PVOID,
+            FileQueue: HSPFILEQ,
+            ClassInstallReserved: ULONG_PTR,
+            Reserved: DWORD,
+            DriverPath: [CHAR; 260],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_DEVINSTALL_PARAMS_W {
             cbSize: DWORD,
             Flags: DWORD,
@@ -1358,8 +1358,8 @@ mod Windows {
             Reserved: DWORD,
             DriverPath: [WCHAR; 260],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_DEVINSTALL_PARAMS_W {
             cbSize: DWORD,
             Flags: DWORD,
@@ -1375,16 +1375,6 @@ mod Windows {
         type SP_DRVINFO_DATA = SP_DRVINFO_DATA_V2_A;
         type SP_DRVINFO_DATA_A = SP_DRVINFO_DATA_V2_A;
         type SP_DRVINFO_DATA_V1 = SP_DRVINFO_DATA_V1_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_DRVINFO_DATA_V1_A {
-            cbSize: DWORD,
-            DriverType: DWORD,
-            Reserved: ULONG_PTR,
-            Description: [CHAR; 256],
-            MfgName: [CHAR; 256],
-            ProviderName: [CHAR; 256],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_DRVINFO_DATA_V1_A {
@@ -1397,6 +1387,16 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_DRVINFO_DATA_V1_A {
+            cbSize: DWORD,
+            DriverType: DWORD,
+            Reserved: ULONG_PTR,
+            Description: [CHAR; 256],
+            MfgName: [CHAR; 256],
+            ProviderName: [CHAR; 256],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_DRVINFO_DATA_V1_W {
             cbSize: DWORD,
             DriverType: DWORD,
@@ -1405,8 +1405,8 @@ mod Windows {
             MfgName: [WCHAR; 256],
             ProviderName: [WCHAR; 256],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_DRVINFO_DATA_V1_W {
             cbSize: DWORD,
             DriverType: DWORD,
@@ -1416,18 +1416,6 @@ mod Windows {
             ProviderName: [WCHAR; 256],
         }
         type SP_DRVINFO_DATA_V2 = SP_DRVINFO_DATA_V2_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_DRVINFO_DATA_V2_A {
-            cbSize: DWORD,
-            DriverType: DWORD,
-            Reserved: ULONG_PTR,
-            Description: [CHAR; 256],
-            MfgName: [CHAR; 256],
-            ProviderName: [CHAR; 256],
-            DriverDate: FILETIME,
-            DriverVersion: DWORDLONG,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_DRVINFO_DATA_V2_A {
@@ -1442,6 +1430,18 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_DRVINFO_DATA_V2_A {
+            cbSize: DWORD,
+            DriverType: DWORD,
+            Reserved: ULONG_PTR,
+            Description: [CHAR; 256],
+            MfgName: [CHAR; 256],
+            ProviderName: [CHAR; 256],
+            DriverDate: FILETIME,
+            DriverVersion: DWORDLONG,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_DRVINFO_DATA_V2_W {
             cbSize: DWORD,
             DriverType: DWORD,
@@ -1452,8 +1452,8 @@ mod Windows {
             DriverDate: FILETIME,
             DriverVersion: DWORDLONG,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_DRVINFO_DATA_V2_W {
             cbSize: DWORD,
             DriverType: DWORD,
@@ -1466,19 +1466,6 @@ mod Windows {
         }
         type SP_DRVINFO_DATA_W = SP_DRVINFO_DATA_V2_W;
         type SP_DRVINFO_DETAIL_DATA = SP_DRVINFO_DETAIL_DATA_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_DRVINFO_DETAIL_DATA_A {
-            cbSize: DWORD,
-            InfDate: FILETIME,
-            CompatIDsOffset: DWORD,
-            CompatIDsLength: DWORD,
-            Reserved: ULONG_PTR,
-            SectionName: [CHAR; 256],
-            InfFileName: [CHAR; 260],
-            DrvDescription: [CHAR; 256],
-            HardwareID: [CHAR; 1],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_DRVINFO_DETAIL_DATA_A {
@@ -1494,16 +1481,16 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
-        struct SP_DRVINFO_DETAIL_DATA_W {
+        struct SP_DRVINFO_DETAIL_DATA_A {
             cbSize: DWORD,
             InfDate: FILETIME,
             CompatIDsOffset: DWORD,
             CompatIDsLength: DWORD,
             Reserved: ULONG_PTR,
-            SectionName: [WCHAR; 256],
-            InfFileName: [WCHAR; 260],
-            DrvDescription: [WCHAR; 256],
-            HardwareID: [WCHAR; 1],
+            SectionName: [CHAR; 256],
+            InfFileName: [CHAR; 260],
+            DrvDescription: [CHAR; 256],
+            HardwareID: [CHAR; 1],
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1520,12 +1507,16 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
-        struct SP_DRVINSTALL_PARAMS {
+        struct SP_DRVINFO_DETAIL_DATA_W {
             cbSize: DWORD,
-            Rank: DWORD,
-            Flags: DWORD,
-            PrivateData: DWORD_PTR,
-            Reserved: DWORD,
+            InfDate: FILETIME,
+            CompatIDsOffset: DWORD,
+            CompatIDsLength: DWORD,
+            Reserved: ULONG_PTR,
+            SectionName: [WCHAR; 256],
+            InfFileName: [WCHAR; 260],
+            DrvDescription: [WCHAR; 256],
+            HardwareID: [WCHAR; 1],
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1538,35 +1529,28 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_DRVINSTALL_PARAMS {
+            cbSize: DWORD,
+            Rank: DWORD,
+            Flags: DWORD,
+            PrivateData: DWORD_PTR,
+            Reserved: DWORD,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_ENABLECLASS_PARAMS {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
             ClassGuid: GUID,
             EnableMessage: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_ENABLECLASS_PARAMS {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
             ClassGuid: GUID,
             EnableMessage: DWORD,
         }
         type SP_FILE_COPY_PARAMS = SP_FILE_COPY_PARAMS_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_FILE_COPY_PARAMS_A {
-            cbSize: DWORD,
-            QueueHandle: HSPFILEQ,
-            SourceRootPath: PCSTR,
-            SourcePath: PCSTR,
-            SourceFilename: PCSTR,
-            SourceDescription: PCSTR,
-            SourceTagfile: PCSTR,
-            TargetDirectory: PCSTR,
-            TargetFilename: PCSTR,
-            CopyStyle: DWORD,
-            LayoutInf: HINF,
-            SecurityDescriptor: PCSTR,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_FILE_COPY_PARAMS_A {
@@ -1585,6 +1569,22 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_FILE_COPY_PARAMS_A {
+            cbSize: DWORD,
+            QueueHandle: HSPFILEQ,
+            SourceRootPath: PCSTR,
+            SourcePath: PCSTR,
+            SourceFilename: PCSTR,
+            SourceDescription: PCSTR,
+            SourceTagfile: PCSTR,
+            TargetDirectory: PCSTR,
+            TargetFilename: PCSTR,
+            CopyStyle: DWORD,
+            LayoutInf: HINF,
+            SecurityDescriptor: PCSTR,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_FILE_COPY_PARAMS_W {
             cbSize: DWORD,
             QueueHandle: HSPFILEQ,
@@ -1599,8 +1599,8 @@ mod Windows {
             LayoutInf: HINF,
             SecurityDescriptor: PCWSTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_FILE_COPY_PARAMS_W {
             cbSize: DWORD,
             QueueHandle: HSPFILEQ,
@@ -1616,15 +1616,15 @@ mod Windows {
             SecurityDescriptor: PCWSTR,
         }
         const SP_FLAG_CABINETCONTINUATION: i32 = 2048;
-        #[arch(X86)]
-        #[packed(1)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_INF_INFORMATION {
             InfStyle: DWORD,
             InfCount: DWORD,
             VersionData: [BYTE; 1],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_INF_INFORMATION {
             InfStyle: DWORD,
             InfCount: DWORD,
@@ -1633,14 +1633,6 @@ mod Windows {
         type SP_INF_SIGNER_INFO = SP_INF_SIGNER_INFO_V2_A;
         type SP_INF_SIGNER_INFO_A = SP_INF_SIGNER_INFO_V2_A;
         type SP_INF_SIGNER_INFO_V1 = SP_INF_SIGNER_INFO_V1_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_INF_SIGNER_INFO_V1_A {
-            cbSize: DWORD,
-            CatalogFile: [CHAR; 260],
-            DigitalSigner: [CHAR; 260],
-            DigitalSignerVersion: [CHAR; 260],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_INF_SIGNER_INFO_V1_A {
@@ -1651,14 +1643,22 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_INF_SIGNER_INFO_V1_A {
+            cbSize: DWORD,
+            CatalogFile: [CHAR; 260],
+            DigitalSigner: [CHAR; 260],
+            DigitalSignerVersion: [CHAR; 260],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_INF_SIGNER_INFO_V1_W {
             cbSize: DWORD,
             CatalogFile: [WCHAR; 260],
             DigitalSigner: [WCHAR; 260],
             DigitalSignerVersion: [WCHAR; 260],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_INF_SIGNER_INFO_V1_W {
             cbSize: DWORD,
             CatalogFile: [WCHAR; 260],
@@ -1666,15 +1666,6 @@ mod Windows {
             DigitalSignerVersion: [WCHAR; 260],
         }
         type SP_INF_SIGNER_INFO_V2 = SP_INF_SIGNER_INFO_V2_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_INF_SIGNER_INFO_V2_A {
-            cbSize: DWORD,
-            CatalogFile: [CHAR; 260],
-            DigitalSigner: [CHAR; 260],
-            DigitalSignerVersion: [CHAR; 260],
-            SignerScore: DWORD,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_INF_SIGNER_INFO_V2_A {
@@ -1686,6 +1677,15 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_INF_SIGNER_INFO_V2_A {
+            cbSize: DWORD,
+            CatalogFile: [CHAR; 260],
+            DigitalSigner: [CHAR; 260],
+            DigitalSignerVersion: [CHAR; 260],
+            SignerScore: DWORD,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_INF_SIGNER_INFO_V2_W {
             cbSize: DWORD,
             CatalogFile: [WCHAR; 260],
@@ -1693,8 +1693,8 @@ mod Windows {
             DigitalSignerVersion: [WCHAR; 260],
             SignerScore: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_INF_SIGNER_INFO_V2_W {
             cbSize: DWORD,
             CatalogFile: [WCHAR; 260],
@@ -1703,8 +1703,8 @@ mod Windows {
             SignerScore: DWORD,
         }
         type SP_INF_SIGNER_INFO_W = SP_INF_SIGNER_INFO_V2_W;
-        #[arch(X86)]
-        #[packed(1)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_INSTALLWIZARD_DATA {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
             Flags: DWORD,
@@ -1715,8 +1715,8 @@ mod Windows {
             PrivateData: LPARAM,
             hwndWizardDlg: HWND,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_INSTALLWIZARD_DATA {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
             Flags: DWORD,
@@ -1732,8 +1732,8 @@ mod Windows {
         type SP_INTERFACE_DEVICE_DETAIL_DATA_A = SP_DEVICE_INTERFACE_DETAIL_DATA_A;
         type SP_INTERFACE_DEVICE_DETAIL_DATA_W = SP_DEVICE_INTERFACE_DETAIL_DATA_W;
         const SP_MAX_MACHINENAME_LENGTH: i32 = 263;
-        #[arch(X86)]
-        #[packed(1)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_NEWDEVICEWIZARD_DATA {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
             Flags: DWORD,
@@ -1741,8 +1741,8 @@ mod Windows {
             NumDynamicPages: DWORD,
             hwndWizardDlg: HWND,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_NEWDEVICEWIZARD_DATA {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
             Flags: DWORD,
@@ -1751,13 +1751,6 @@ mod Windows {
             hwndWizardDlg: HWND,
         }
         type SP_ORIGINAL_FILE_INFO = SP_ORIGINAL_FILE_INFO_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_ORIGINAL_FILE_INFO_A {
-            cbSize: DWORD,
-            OriginalInfName: [CHAR; 260],
-            OriginalCatalogName: [CHAR; 260],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_ORIGINAL_FILE_INFO_A {
@@ -1767,25 +1760,26 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_ORIGINAL_FILE_INFO_A {
+            cbSize: DWORD,
+            OriginalInfName: [CHAR; 260],
+            OriginalCatalogName: [CHAR; 260],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_ORIGINAL_FILE_INFO_W {
             cbSize: DWORD,
             OriginalInfName: [WCHAR; 260],
             OriginalCatalogName: [WCHAR; 260],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_ORIGINAL_FILE_INFO_W {
             cbSize: DWORD,
             OriginalInfName: [WCHAR; 260],
             OriginalCatalogName: [WCHAR; 260],
         }
         type SP_POWERMESSAGEWAKE_PARAMS = SP_POWERMESSAGEWAKE_PARAMS_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_POWERMESSAGEWAKE_PARAMS_A {
-            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-            PowerMessageWake: [CHAR; 512],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_POWERMESSAGEWAKE_PARAMS_A {
@@ -1794,9 +1788,9 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
-        struct SP_POWERMESSAGEWAKE_PARAMS_W {
+        struct SP_POWERMESSAGEWAKE_PARAMS_A {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-            PowerMessageWake: [WCHAR; 512],
+            PowerMessageWake: [CHAR; 512],
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1806,11 +1800,9 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
-        struct SP_PROPCHANGE_PARAMS {
+        struct SP_POWERMESSAGEWAKE_PARAMS_W {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-            StateChange: DWORD,
-            Scope: DWORD,
-            HwProfile: DWORD,
+            PowerMessageWake: [WCHAR; 512],
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1822,14 +1814,22 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_PROPCHANGE_PARAMS {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            StateChange: DWORD,
+            Scope: DWORD,
+            HwProfile: DWORD,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_PROPSHEETPAGE_REQUEST {
             cbSize: DWORD,
             PageRequested: DWORD,
             DeviceInfoSet: HDEVINFO,
             DeviceInfoData: PSP_DEVINFO_DATA,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_PROPSHEETPAGE_REQUEST {
             cbSize: DWORD,
             PageRequested: DWORD,
@@ -1837,14 +1837,6 @@ mod Windows {
             DeviceInfoData: PSP_DEVINFO_DATA,
         }
         type SP_REGISTER_CONTROL_STATUS = SP_REGISTER_CONTROL_STATUSA;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_REGISTER_CONTROL_STATUSA {
-            cbSize: DWORD,
-            FileName: PCSTR,
-            Win32Error: DWORD,
-            FailureCode: DWORD,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_REGISTER_CONTROL_STATUSA {
@@ -1855,9 +1847,9 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
-        struct SP_REGISTER_CONTROL_STATUSW {
+        struct SP_REGISTER_CONTROL_STATUSA {
             cbSize: DWORD,
-            FileName: PCWSTR,
+            FileName: PCSTR,
             Win32Error: DWORD,
             FailureCode: DWORD,
         }
@@ -1871,29 +1863,27 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_REGISTER_CONTROL_STATUSW {
+            cbSize: DWORD,
+            FileName: PCWSTR,
+            Win32Error: DWORD,
+            FailureCode: DWORD,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_REMOVEDEVICE_PARAMS {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
             Scope: DWORD,
             HwProfile: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_REMOVEDEVICE_PARAMS {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
             Scope: DWORD,
             HwProfile: DWORD,
         }
         type SP_SELECTDEVICE_PARAMS = SP_SELECTDEVICE_PARAMS_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_SELECTDEVICE_PARAMS_A {
-            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-            Title: [CHAR; 60],
-            Instructions: [CHAR; 256],
-            ListLabel: [CHAR; 30],
-            SubTitle: [CHAR; 256],
-            Reserved: [BYTE; 2],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_SELECTDEVICE_PARAMS_A {
@@ -1906,6 +1896,16 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_SELECTDEVICE_PARAMS_A {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            Title: [CHAR; 60],
+            Instructions: [CHAR; 256],
+            ListLabel: [CHAR; 30],
+            SubTitle: [CHAR; 256],
+            Reserved: [BYTE; 2],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_SELECTDEVICE_PARAMS_W {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
             Title: [WCHAR; 60],
@@ -1913,8 +1913,8 @@ mod Windows {
             ListLabel: [WCHAR; 30],
             SubTitle: [WCHAR; 256],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_SELECTDEVICE_PARAMS_W {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
             Title: [WCHAR; 60],
@@ -1923,13 +1923,6 @@ mod Windows {
             SubTitle: [WCHAR; 256],
         }
         type SP_TROUBLESHOOTER_PARAMS = SP_TROUBLESHOOTER_PARAMS_A;
-        #[arch(X86)]
-        #[packed(1)]
-        struct SP_TROUBLESHOOTER_PARAMS_A {
-            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-            ChmFile: [CHAR; 260],
-            HtmlTroubleShooter: [CHAR; 260],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SP_TROUBLESHOOTER_PARAMS_A {
@@ -1939,10 +1932,10 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
-        struct SP_TROUBLESHOOTER_PARAMS_W {
+        struct SP_TROUBLESHOOTER_PARAMS_A {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-            ChmFile: [WCHAR; 260],
-            HtmlTroubleShooter: [WCHAR; 260],
+            ChmFile: [CHAR; 260],
+            HtmlTroubleShooter: [CHAR; 260],
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1953,13 +1946,20 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(1)]
+        struct SP_TROUBLESHOOTER_PARAMS_W {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            ChmFile: [WCHAR; 260],
+            HtmlTroubleShooter: [WCHAR; 260],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SP_UNREMOVEDEVICE_PARAMS {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
             Scope: DWORD,
             HwProfile: DWORD,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(1)]
         struct SP_UNREMOVEDEVICE_PARAMS {
             ClassInstallHeader: SP_CLASSINSTALL_HEADER,
             Scope: DWORD,

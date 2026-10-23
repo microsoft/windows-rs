@@ -1,13 +1,13 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct BinaryParam {
             Buffer: *mut void,
             Size: i16,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct BinaryParam {
             Buffer: *mut void,
             Size: i16,
@@ -51,25 +51,6 @@ mod Windows {
             RpcClientDisconnect = 3,
             RpcClientCancel = 4,
         }
-        #[arch(X86)]
-        union RPC_ASYNC_NOTIFICATION_INFO {
-            APC: struct {
-                NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
-                hThread: HANDLE,
-            },
-            IOC: struct {
-                hIOPort: HANDLE,
-                dwNumberOfBytesTransferred: DWORD,
-                dwCompletionKey: DWORD_PTR,
-                lpOverlapped: LPOVERLAPPED,
-            },
-            HWND: struct {
-                hWnd: HWND,
-                Msg: UINT,
-            },
-            hEvent: HANDLE,
-            NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         union RPC_ASYNC_NOTIFICATION_INFO {
@@ -91,6 +72,26 @@ mod Windows {
             NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
         }
         #[arch(X86)]
+        union RPC_ASYNC_NOTIFICATION_INFO {
+            APC: struct {
+                NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
+                hThread: HANDLE,
+            },
+            IOC: struct {
+                hIOPort: HANDLE,
+                dwNumberOfBytesTransferred: DWORD,
+                dwCompletionKey: DWORD_PTR,
+                lpOverlapped: LPOVERLAPPED,
+            },
+            HWND: struct {
+                hWnd: HWND,
+                Msg: UINT,
+            },
+            hEvent: HANDLE,
+            NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_ASYNC_STATE {
             Size: u32,
             Signature: u32,
@@ -104,8 +105,7 @@ mod Windows {
             u: RPC_ASYNC_NOTIFICATION_INFO,
             Reserved: [LONG_PTR; 4],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_ASYNC_STATE {
             Size: u32,
             Signature: u32,
@@ -124,18 +124,6 @@ mod Windows {
         #[arch(X86)]
         const RPC_ASYNC_VERSION_1_0: u32 = 68;
         type RPC_CALL_ATTRIBUTES = RPC_CALL_ATTRIBUTES_V3_A;
-        #[arch(X86)]
-        struct RPC_CALL_ATTRIBUTES_V1_A {
-            Version: u32,
-            Flags: u32,
-            ServerPrincipalNameBufferLength: u32,
-            ServerPrincipalName: *mut u8,
-            ClientPrincipalNameBufferLength: u32,
-            ClientPrincipalName: *mut u8,
-            AuthenticationLevel: u32,
-            AuthenticationService: u32,
-            NullSession: BOOL,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct RPC_CALL_ATTRIBUTES_V1_A {
@@ -150,13 +138,13 @@ mod Windows {
             NullSession: BOOL,
         }
         #[arch(X86)]
-        struct RPC_CALL_ATTRIBUTES_V1_W {
+        struct RPC_CALL_ATTRIBUTES_V1_A {
             Version: u32,
             Flags: u32,
             ServerPrincipalNameBufferLength: u32,
-            ServerPrincipalName: *mut u16,
+            ServerPrincipalName: *mut u8,
             ClientPrincipalNameBufferLength: u32,
-            ClientPrincipalName: *mut u16,
+            ClientPrincipalName: *mut u8,
             AuthenticationLevel: u32,
             AuthenticationService: u32,
             NullSession: BOOL,
@@ -175,25 +163,16 @@ mod Windows {
             NullSession: BOOL,
         }
         #[arch(X86)]
-        struct RPC_CALL_ATTRIBUTES_V2_A {
+        struct RPC_CALL_ATTRIBUTES_V1_W {
             Version: u32,
             Flags: u32,
             ServerPrincipalNameBufferLength: u32,
-            ServerPrincipalName: *mut u8,
+            ServerPrincipalName: *mut u16,
             ClientPrincipalNameBufferLength: u32,
-            ClientPrincipalName: *mut u8,
+            ClientPrincipalName: *mut u16,
             AuthenticationLevel: u32,
             AuthenticationService: u32,
             NullSession: BOOL,
-            KernelModeCaller: BOOL,
-            ProtocolSequence: u32,
-            IsClientLocal: u32,
-            ClientPID: HANDLE,
-            CallStatus: u32,
-            CallType: RpcCallType,
-            CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
-            OpNum: u16,
-            InterfaceUuid: UUID,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -218,19 +197,19 @@ mod Windows {
             InterfaceUuid: UUID,
         }
         #[arch(X86)]
-        struct RPC_CALL_ATTRIBUTES_V2_W {
+        struct RPC_CALL_ATTRIBUTES_V2_A {
             Version: u32,
             Flags: u32,
             ServerPrincipalNameBufferLength: u32,
-            ServerPrincipalName: *mut u16,
+            ServerPrincipalName: *mut u8,
             ClientPrincipalNameBufferLength: u32,
-            ClientPrincipalName: *mut u16,
+            ClientPrincipalName: *mut u8,
             AuthenticationLevel: u32,
             AuthenticationService: u32,
             NullSession: BOOL,
             KernelModeCaller: BOOL,
             ProtocolSequence: u32,
-            IsClientLocal: RpcCallClientLocality,
+            IsClientLocal: u32,
             ClientPID: HANDLE,
             CallStatus: u32,
             CallType: RpcCallType,
@@ -261,27 +240,25 @@ mod Windows {
             InterfaceUuid: UUID,
         }
         #[arch(X86)]
-        struct RPC_CALL_ATTRIBUTES_V3_A {
+        struct RPC_CALL_ATTRIBUTES_V2_W {
             Version: u32,
             Flags: u32,
             ServerPrincipalNameBufferLength: u32,
-            ServerPrincipalName: *mut u8,
+            ServerPrincipalName: *mut u16,
             ClientPrincipalNameBufferLength: u32,
-            ClientPrincipalName: *mut u8,
+            ClientPrincipalName: *mut u16,
             AuthenticationLevel: u32,
             AuthenticationService: u32,
             NullSession: BOOL,
             KernelModeCaller: BOOL,
             ProtocolSequence: u32,
-            IsClientLocal: u32,
+            IsClientLocal: RpcCallClientLocality,
             ClientPID: HANDLE,
             CallStatus: u32,
             CallType: RpcCallType,
             CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
             OpNum: u16,
             InterfaceUuid: UUID,
-            ClientIdentifierBufferLength: u32,
-            ClientIdentifier: *mut u8,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -308,6 +285,30 @@ mod Windows {
             ClientIdentifier: *mut u8,
         }
         #[arch(X86)]
+        struct RPC_CALL_ATTRIBUTES_V3_A {
+            Version: u32,
+            Flags: u32,
+            ServerPrincipalNameBufferLength: u32,
+            ServerPrincipalName: *mut u8,
+            ClientPrincipalNameBufferLength: u32,
+            ClientPrincipalName: *mut u8,
+            AuthenticationLevel: u32,
+            AuthenticationService: u32,
+            NullSession: BOOL,
+            KernelModeCaller: BOOL,
+            ProtocolSequence: u32,
+            IsClientLocal: u32,
+            ClientPID: HANDLE,
+            CallStatus: u32,
+            CallType: RpcCallType,
+            CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
+            OpNum: u16,
+            InterfaceUuid: UUID,
+            ClientIdentifierBufferLength: u32,
+            ClientIdentifier: *mut u8,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_CALL_ATTRIBUTES_V3_W {
             Version: u32,
             Flags: u32,
@@ -330,8 +331,7 @@ mod Windows {
             ClientIdentifierBufferLength: u32,
             ClientIdentifier: *mut u8,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_CALL_ATTRIBUTES_V3_W {
             Version: u32,
             Flags: u32,
@@ -355,15 +355,15 @@ mod Windows {
             ClientIdentifier: *mut u8,
         }
         const RPC_CALL_ATTRIBUTES_VERSION: i32 = 3;
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_CALL_LOCAL_ADDRESS_V1 {
             Version: u32,
             Buffer: *mut void,
             BufferSize: u32,
             AddressFormat: RpcLocalAddressFormat,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_CALL_LOCAL_ADDRESS_V1 {
             Version: u32,
             Buffer: *mut void,
@@ -375,18 +375,6 @@ mod Windows {
         const RPC_C_INFINITE_TIMEOUT: u32 = 4294967295;
         const RPC_C_NOTIFY_ON_SEND_COMPLETE: i32 = 1;
         const RPC_EEINFO_VERSION: i32 = 1;
-        #[arch(X86)]
-        struct RPC_EE_INFO_PARAM {
-            ParameterType: ExtendedErrorParamTypes,
-            u: union {
-                AnsiString: LPSTR,
-                UnicodeString: LPWSTR,
-                LVal: i32,
-                SVal: i16,
-                PVal: ULONGLONG,
-                BVal: BinaryParam,
-            },
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct RPC_EE_INFO_PARAM {
@@ -401,10 +389,16 @@ mod Windows {
             },
         }
         #[arch(X86)]
-        struct RPC_ERROR_ENUM_HANDLE {
-            Signature: ULONG,
-            CurrentPos: *mut void,
-            Head: *mut void,
+        struct RPC_EE_INFO_PARAM {
+            ParameterType: ExtendedErrorParamTypes,
+            u: union {
+                AnsiString: LPSTR,
+                UnicodeString: LPWSTR,
+                LVal: i32,
+                SVal: i16,
+                PVal: ULONGLONG,
+                BVal: BinaryParam,
+            },
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -414,11 +408,18 @@ mod Windows {
             Head: *mut void,
         }
         #[arch(X86)]
+        struct RPC_ERROR_ENUM_HANDLE {
+            Signature: ULONG,
+            CurrentPos: *mut void,
+            Head: *mut void,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_EXTENDED_ERROR_INFO {
             Version: ULONG,
             ComputerName: LPWSTR,
             ProcessID: ULONG,
-            u: union {
+            u: #[packed(8)] union {
                 SystemTime: SYSTEMTIME,
                 FileTime: FILETIME,
             },
@@ -429,13 +430,12 @@ mod Windows {
             NumberOfParameters: i32,
             Parameters: [RPC_EE_INFO_PARAM; 4],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_EXTENDED_ERROR_INFO {
             Version: ULONG,
             ComputerName: LPWSTR,
             ProcessID: ULONG,
-            u: #[packed(8)] union {
+            u: union {
                 SystemTime: SYSTEMTIME,
                 FileTime: FILETIME,
             },

@@ -1,11 +1,11 @@
 #[win32]
 mod Fixture {
-    #[arch(X86)]
-    #[guid(0x00000004_0000_0000_0000_000000000000)]
-    const ARCH_DEVICE_KEY: DEVPROPKEY = 4;
     #[arch(X64 | Arm64)]
     #[guid(0x00000008_0000_0000_0000_000000000000)]
     const ARCH_DEVICE_KEY: DEVPROPKEY = 8;
+    #[arch(X86)]
+    #[guid(0x00000004_0000_0000_0000_000000000000)]
+    const ARCH_DEVICE_KEY: DEVPROPKEY = 4;
     #[arch(X64 | Arm64)]
     const ARCH_GUID: GUID = 0x00000008_0000_0000_0000_000000000000;
     #[arch(X86)]

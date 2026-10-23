@@ -95,7 +95,8 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn I_RpcPauseExecution(Milliseconds: u32);
         extern fn I_RpcPerformCalloutFn(Context: *mut void, CallOutState: *mut RDR_CALLOUT_STATE, Stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS;
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct I_RpcProxyCallbackInterface {
             IsValidMachineFn: I_RpcProxyIsValidMachineFn,
             GetClientAddressFn: I_RpcProxyGetClientAddressFn,
@@ -107,8 +108,7 @@ mod Windows {
             RpcProxyUpdatePerfCounterFn: I_RpcProxyUpdatePerfCounterFn,
             RpcProxyUpdatePerfCounterBackendServerFn: I_RpcProxyUpdatePerfCounterBackendServerFn,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct I_RpcProxyCallbackInterface {
             IsValidMachineFn: I_RpcProxyIsValidMachineFn,
             GetClientAddressFn: I_RpcProxyGetClientAddressFn,
@@ -209,7 +209,8 @@ mod Windows {
         type PRPC_SEC_CONTEXT_KEY_INFO = *mut RPC_SEC_CONTEXT_KEY_INFO;
         type PRPC_SERVER_INTERFACE = *mut RPC_SERVER_INTERFACE;
         type PRPC_SYNTAX_IDENTIFIER = *mut RPC_SYNTAX_IDENTIFIER;
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RDR_CALLOUT_STATE {
             LastError: RPC_STATUS,
             LastEEInfo: *mut void,
@@ -226,8 +227,7 @@ mod Windows {
             Interface: RPC_SYNTAX_IDENTIFIER,
             CertContext: *mut void,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RDR_CALLOUT_STATE {
             LastError: RPC_STATUS,
             LastEEInfo: *mut void,
@@ -273,7 +273,8 @@ mod Windows {
         const RPC_BUFFER_EXTRA: i32 = 16384;
         const RPC_BUFFER_NONOTIFY: i32 = 65536;
         const RPC_BUFFER_PARTIAL: i32 = 8192;
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_CLIENT_INTERFACE {
             Length: u32,
             InterfaceId: RPC_SYNTAX_IDENTIFIER,
@@ -285,8 +286,7 @@ mod Windows {
             InterpreterInfo: *const void,
             Flags: u32,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_CLIENT_INTERFACE {
             Length: u32,
             InterfaceId: RPC_SYNTAX_IDENTIFIER,
@@ -307,14 +307,14 @@ mod Windows {
         const RPC_CONTEXT_HANDLE_FLAGS: u32 = 805306368;
         const RPC_CONTEXT_HANDLE_SERIALIZE: u32 = 268435456;
         const RPC_C_OPT_COOKIE_AUTH: i32 = 7;
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
             BufferSize: u32,
             #[writable(bytes(BufferSize))]
             Buffer: *mut i8,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
             BufferSize: u32,
             #[writable(bytes(BufferSize))]
@@ -326,14 +326,14 @@ mod Windows {
         const RPC_C_OPT_RESOURCE_TYPE_UUID: i32 = 8;
         const RPC_C_OPT_SESSION_ID: i32 = 6;
         extern fn RPC_DISPATCH_FUNCTION(Message: PRPC_MESSAGE);
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_DISPATCH_TABLE {
             DispatchTableCount: u32,
             DispatchTable: *mut RPC_DISPATCH_FUNCTION,
             Reserved: LONG_PTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_DISPATCH_TABLE {
             DispatchTableCount: u32,
             DispatchTable: *mut RPC_DISPATCH_FUNCTION,
@@ -342,7 +342,8 @@ mod Windows {
         const RPC_FLAGS_VALID_BIT: i32 = 32768;
         extern fn RPC_FORWARD_FUNCTION(InterfaceId: *mut UUID, InterfaceVersion: *mut RPC_VERSION, ObjectId: *mut UUID, Rpcpro: *mut u8, ppDestEndpoint: *mut *mut void) -> RPC_STATUS;
         const RPC_INTERFACE_HAS_PIPES: i32 = 1;
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_MESSAGE {
             Handle: RPC_BINDING_HANDLE,
             DataRepresentation: u32,
@@ -356,8 +357,7 @@ mod Windows {
             ImportContext: *mut void,
             RpcFlags: u32,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_MESSAGE {
             Handle: RPC_BINDING_HANDLE,
             DataRepresentation: u32,
@@ -375,13 +375,13 @@ mod Windows {
         const RPC_NCA_FLAGS_DEFAULT: i32 = 0;
         const RPC_NCA_FLAGS_IDEMPOTENT: i32 = 1;
         const RPC_NCA_FLAGS_MAYBE: i32 = 4;
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_PROTSEQ_ENDPOINT {
             RpcProtocolSequence: *mut u8,
             Endpoint: *mut u8,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_PROTSEQ_ENDPOINT {
             RpcProtocolSequence: *mut u8,
             Endpoint: *mut u8,
@@ -390,12 +390,6 @@ mod Windows {
         const RPC_PROXY_CONNECTION_TYPE_OUT_PROXY: i32 = 1;
         const RPC_P_ADDR_FORMAT_TCP_IPV4: i32 = 1;
         const RPC_P_ADDR_FORMAT_TCP_IPV6: i32 = 2;
-        #[arch(X86)]
-        struct RPC_SEC_CONTEXT_KEY_INFO {
-            EncryptAlgorithm: u32,
-            KeySize: u32,
-            SignatureAlgorithm: u32,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct RPC_SEC_CONTEXT_KEY_INFO {
@@ -404,6 +398,13 @@ mod Windows {
             SignatureAlgorithm: u32,
         }
         #[arch(X86)]
+        struct RPC_SEC_CONTEXT_KEY_INFO {
+            EncryptAlgorithm: u32,
+            KeySize: u32,
+            SignatureAlgorithm: u32,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_SERVER_INTERFACE {
             Length: u32,
             InterfaceId: RPC_SYNTAX_IDENTIFIER,
@@ -415,8 +416,7 @@ mod Windows {
             InterpreterInfo: *const void,
             Flags: u32,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_SERVER_INTERFACE {
             Length: u32,
             InterfaceId: RPC_SYNTAX_IDENTIFIER,
@@ -429,13 +429,13 @@ mod Windows {
             Flags: u32,
         }
         extern "C" fn RPC_SETFILTER_FUNC(pfnFilter: RPCLT_PDU_FILTER_FUNC);
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_SYNTAX_IDENTIFIER {
             SyntaxGUID: GUID,
             SyntaxVersion: RPC_VERSION,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_SYNTAX_IDENTIFIER {
             SyntaxGUID: GUID,
             SyntaxVersion: RPC_VERSION,
@@ -444,14 +444,14 @@ mod Windows {
         const RPC_SYSTEM_HANDLE_FREE_ERROR_ON_CLOSE: i32 = 4;
         const RPC_SYSTEM_HANDLE_FREE_RETRIEVED: i32 = 2;
         const RPC_SYSTEM_HANDLE_FREE_UNRETRIEVED: i32 = 1;
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_TRANSFER_SYNTAX {
             Uuid: UUID,
             VersMajor: u16,
             VersMinor: u16,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_TRANSFER_SYNTAX {
             Uuid: UUID,
             VersMajor: u16,
@@ -459,13 +459,13 @@ mod Windows {
         }
         const RPC_TYPE_DISCONNECT_EVENT_CONTEXT_HANDLE: u32 = 2147483648;
         const RPC_TYPE_STRICT_CONTEXT_HANDLE: u32 = 1073741824;
-        #[arch(X86)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_VERSION {
             MajorVersion: u16,
             MinorVersion: u16,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
         struct RPC_VERSION {
             MajorVersion: u16,
             MinorVersion: u16,

@@ -42,6 +42,12 @@ implementation support. `crates/samples/robot/component_cpp` sends the same kind
 Reader references resolve names but are not emitted as definitions. Use `reference_default` for
 the bundled standard metadata, or the path and byte reference methods for custom dependencies.
 Writer inputs are definitions to render; `input_default` renders the bundled metadata.
+Writer `reference` and `references` methods add resolution-only WinMD files or directories.
+Supply dependencies when rendering contracts on external typedefs. Referenced definitions are
+excluded from single-file, split and partitioned output, even when their names collide with inputs.
+Unresolved or conflicting alias definitions retain full termination attributes rather than
+asserting pointer storage. Ambiguous enum definitions retain numeric attribute values rather than
+choosing a member name from one definition.
 
 Writer filters accept namespace prefixes, qualified or unqualified names, and `!` exclusions.
 `split` writes one file per namespace. `partition` accepts an item-name -> file-stem map and writes
@@ -55,6 +61,7 @@ value, or architecture equivalence.
 The shared formatter sorts each owner's attributes alphabetically by full name, case-sensitively.
 This applies to both clang publication and metadata-to-RDL output. Equal-name attributes retain
 their relative order because some reader paths use the first occurrence. Arguments are not sorted.
+Same-name declaration variants are sorted by canonical formatted text, not raw producer token order.
 
 Win32 parameter direction is explicit: `in`, `out`, both, or neither. No attributes means unspecified
 direction, regardless of pointer mutability or typedef spelling. `opt` is independent. The writer

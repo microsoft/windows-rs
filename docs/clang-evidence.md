@@ -93,7 +93,7 @@ and cutover sequence are not approvals; downstream obligations remain deferred, 
 | Duplicate normalized/residual buffers | Addressed for the supported D36-D37 contracts. Capacity, initialized length, phases and returned storage share the extent model. Unsupported combinations retain evidence. | Do not discard residual SAL merely because part of a macro has a canonical representation. |
 | Unspecified direction in bindgen | Raw-pointer, alias, COM and callback fixtures preserve absent direction without mutable-to-const or output-conversion guesses. Native named-import consumers pass. | Keep direction evidence separate from type/ownership handling; do not infer direction in clang to compensate. |
 | COM argument ownership | Direct interface arguments retain borrowed references, including optional values and producer parameters without direction flags. The lifetime fixture verifies caller ownership and release; raw buffer restrictions remain in place. | Residual evidence still cannot authorize slice, query or retval conversion. BSTR ownership is unchanged. |
-| Generation drift | The shared RDL formatter orders attributes alphabetically by full name and preserves equal-name order. Native generation and `tool-roundtrip` agree on `comcat.rdl` and all WinRT files. Four files still drift: architecture-variant declaration order in `winuser.rdl`, and short/full termination spelling in WDK `ntddk.rdl`, `shared.rdl` and `wdm.rdl`. Workspace builds also leave both tracked robot WinMD files changed. | Resolve the remaining declaration-order and reference-dependent spelling differences, then rerun the CI clean-diff gates. Alphabetical attribute ordering does not establish full generation cleanliness. |
+| Generation drift | Native generation and `tool-roundtrip` produce byte-identical WinRT, Win32 and WDK RDL. Shared attribute formatting, canonical variant sort keys and resolution-only writer references preserve generated spelling and ordering. | Workspace-build drift in the tracked robot WinMD files and full generator qualification remain open. Clean RDL roundtrips do not establish replacement readiness. |
 | Direction-repair generation | Package, internal binding and Reactor regeneration introduce no generated changes. Composition regeneration refreshes retained native aliases in both stacks. WebView capture stops before binding generation because only three of five loader imports survive dependency pruning. | Keep the Composition diff visible and investigate WebView capture separately from WinRT direction validation. Full generator qualification remains open. |
 | Proposed analysis-only removals | Not approved as a group. Pointer invalidation, allocation and execution-context annotations can carry useful contracts. Result inspection also has non-return owners. | Review meaning and ownership individually; lack of a consumer is not enough. SAL1 result checking remains a separate equivalence decision. |
 | CI generation input | `gen.yml` runs full SDK/WDK generation and checks tracked metadata drift with a shallow checkout. | Consumer jobs use committed metadata. Full package qualification remains separate from successful generation. |
@@ -123,10 +123,17 @@ signatures versus callers expecting projected return values. Reactor's functiona
 
 Clang publication and metadata writing use the same attribute formatter. It sorts full names
 case-sensitively without changing argument order or the relative order of repeated attributes.
-The native-to-roundtrip comparison leaves four changed files: `winuser.rdl` reorders four
-architecture-variant function families; three WDK files expand termination contracts on referenced
-aliases to full metadata attributes. Package, internal binding and Reactor regeneration add no
-generated binding changes. The remaining generated differences stay visible for review.
+Clang's `projection::variants` and RDL's writer layout sort variants by canonical formatted text,
+not producer-specific token order. `variant_order` covers architecture-specific import names and
+signatures through native capture, RDL and WinMD.
+
+`tool-roundtrip` supplies compilation references to the writer as resolution-only inputs.
+Referenced typedefs support short termination spelling without leaking SDK declarations into WDK
+partitions. The writer excludes reference rows by source-file identity, not by public name.
+The `null_terminated` reference fixture covers colliding functions, constants, records and enums
+in single-file, split and partitioned output. Conflicting aliases retain full attributes; ambiguous
+enum definitions retain numeric attribute values. Native generation followed by roundtripping
+leaves every canonical RDL file byte-identical.
 
 | Current missing surface | Verified diagnostic boundary |
 | --- | --- |

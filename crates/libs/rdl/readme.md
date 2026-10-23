@@ -40,3 +40,7 @@ windows_rdl::writer()
     .write()
     .unwrap();
 ```
+
+When writing RDL that uses external typedefs or attribute types, add their WinMD files with
+`writer.reference("dependency.winmd")`. References support resolution without emitting their
+definitions.

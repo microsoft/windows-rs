@@ -1566,6 +1566,6 @@ fn variants(bodies: BTreeMap<String, (Body, Vec<Target>)>) -> TokenStream {
             quote! { #attributes #arch #declaration }
         })
         .collect();
-    rendered.sort_by_key(ToString::to_string);
+    rendered.sort_by_cached_key(|tokens| windows_rdl::formatter::format(&tokens.to_string()));
     rendered.into_iter().collect()
 }

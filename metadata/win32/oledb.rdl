@@ -95,14 +95,14 @@ mod Windows {
             DBASYNCHPHASE_COMPLETE = 2,
             DBASYNCHPHASE_CANCELED = 3,
         }
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBBINDEXT {
             pExtension: *mut BYTE,
             ulExtension: DBCOUNTITEM,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBBINDEXT {
             pExtension: *mut BYTE,
             ulExtension: DBCOUNTITEM,
@@ -112,8 +112,8 @@ mod Windows {
         enum DBBINDFLAGENUM {
             DBBINDFLAG_HTML = 1,
         }
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBBINDING {
             iOrdinal: DBORDINAL,
             obValue: DBBYTEOFFSET,
@@ -131,8 +131,8 @@ mod Windows {
             bPrecision: BYTE,
             bScale: BYTE,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBBINDING {
             iOrdinal: DBORDINAL,
             obValue: DBBYTEOFFSET,
@@ -204,19 +204,6 @@ mod Windows {
         type DBBYTEOFFSET = u64;
         #[arch(X86)]
         type DBBYTEOFFSET = u32;
-        #[arch(X86)]
-        #[packed(2)]
-        struct DBCOLUMNACCESS {
-            pData: *mut void,
-            columnid: DBID,
-            cbDataLen: DBLENGTH,
-            dwStatus: DBSTATUS,
-            cbMaxLen: DBLENGTH,
-            dwReserved: DB_DWRESERVE,
-            wType: DBTYPE,
-            bPrecision: BYTE,
-            bScale: BYTE,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct DBCOLUMNACCESS {
@@ -232,6 +219,19 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(2)]
+        struct DBCOLUMNACCESS {
+            pData: *mut void,
+            columnid: DBID,
+            cbDataLen: DBLENGTH,
+            dwStatus: DBSTATUS,
+            cbMaxLen: DBLENGTH,
+            dwReserved: DB_DWRESERVE,
+            wType: DBTYPE,
+            bPrecision: BYTE,
+            bScale: BYTE,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBCOLUMNDESC {
             pwszTypeName: LPOLESTR,
             pTypeInfo: ITypeInfo,
@@ -244,8 +244,8 @@ mod Windows {
             bPrecision: BYTE,
             bScale: BYTE,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBCOLUMNDESC {
             pwszTypeName: LPOLESTR,
             pTypeInfo: ITypeInfo,
@@ -308,8 +308,8 @@ mod Windows {
             DBCOLUMNFLAGS_ISROW = 2097152,
             DBCOLUMNFLAGS_ROWSPECIFICCOLUMN = 4194304,
         }
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBCOLUMNINFO {
             pwszName: LPOLESTR,
             pTypeInfo: ITypeInfo,
@@ -321,8 +321,8 @@ mod Windows {
             bScale: BYTE,
             columnid: DBID,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBCOLUMNINFO {
             pwszName: LPOLESTR,
             pTypeInfo: ITypeInfo,
@@ -377,8 +377,8 @@ mod Windows {
         const DBCOMPUTEMODE_COMPUTED: i32 = 1;
         const DBCOMPUTEMODE_DYNAMIC: i32 = 2;
         const DBCOMPUTEMODE_NOTCOMPUTED: i32 = 3;
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBCONSTRAINTDESC {
             pConstraintID: *mut DBID,
             ConstraintType: DBCONSTRAINTTYPE,
@@ -395,8 +395,8 @@ mod Windows {
             cReserved: DB_URESERVE,
             rgReserved: *mut DBPROPSET,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBCONSTRAINTDESC {
             pConstraintID: *mut DBID,
             ConstraintType: DBCONSTRAINTTYPE,
@@ -446,15 +446,15 @@ mod Windows {
         type DBCOUNTITEM = u64;
         #[arch(X86)]
         type DBCOUNTITEM = u32;
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBDATE {
             year: SHORT,
             month: USHORT,
             day: USHORT,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBDATE {
             year: SHORT,
             month: USHORT,
@@ -481,15 +481,15 @@ mod Windows {
             DBEVENTPHASE_FAILEDTODO = 3,
             DBEVENTPHASE_DIDEVENT = 4,
         }
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBFAILUREINFO {
             hRow: HROW,
             iColumn: DBORDINAL,
             failure: HRESULT,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBFAILUREINFO {
             hRow: HROW,
             iColumn: DBORDINAL,
@@ -499,19 +499,6 @@ mod Windows {
         type DBHASHVALUE = u64;
         #[arch(X86)]
         type DBHASHVALUE = u32;
-        #[arch(X86)]
-        #[packed(2)]
-        struct DBID {
-            uGuid: #[packed(2)] union {
-                guid: GUID,
-                pguid: *mut GUID,
-            },
-            eKind: DBKIND,
-            uName: #[packed(2)] union {
-                pwszName: LPOLESTR,
-                ulPropid: ULONG,
-            },
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct DBID {
@@ -527,10 +514,16 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(2)]
-        struct DBIMPLICITSESSION {
-            pUnkOuter: IUnknown,
-            piid: *mut IID,
-            pSession: IUnknown,
+        struct DBID {
+            uGuid: #[packed(2)] union {
+                guid: GUID,
+                pguid: *mut GUID,
+            },
+            eKind: DBKIND,
+            uName: #[packed(2)] union {
+                pwszName: LPOLESTR,
+                ulPropid: ULONG,
+            },
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -541,12 +534,19 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(2)]
+        struct DBIMPLICITSESSION {
+            pUnkOuter: IUnknown,
+            piid: *mut IID,
+            pSession: IUnknown,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBINDEXCOLUMNDESC {
             pColumnID: *mut DBID,
             eIndexColOrder: DBINDEX_COL_ORDER,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBINDEXCOLUMNDESC {
             pColumnID: *mut DBID,
             eIndexColOrder: DBINDEX_COL_ORDER,
@@ -613,8 +613,8 @@ mod Windows {
             DBLITERAL_ESCAPE_PERCENT_SUFFIX = 29,
             DBLITERAL_ESCAPE_UNDERSCORE_SUFFIX = 30,
         }
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBLITERALINFO {
             pwszLiteralValue: LPOLESTR,
             pwszInvalidChars: LPOLESTR,
@@ -623,8 +623,8 @@ mod Windows {
             fSupported: BOOL,
             cchMaxLen: ULONG,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBLITERALINFO {
             pwszLiteralValue: LPOLESTR,
             pwszInvalidChars: LPOLESTR,
@@ -658,14 +658,14 @@ mod Windows {
             DBMOVE_ALLOW_EMULATION = 1024,
             DBMOVE_ATOMIC = 4096,
         }
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBOBJECT {
             dwFlags: DWORD,
             iid: IID,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBOBJECT {
             dwFlags: DWORD,
             iid: IID,
@@ -674,8 +674,8 @@ mod Windows {
         type DBORDINAL = u64;
         #[arch(X86)]
         type DBORDINAL = u32;
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBPARAMBINDINFO {
             pwszDataSourceType: LPOLESTR,
             pwszName: LPOLESTR,
@@ -684,8 +684,8 @@ mod Windows {
             bPrecision: BYTE,
             bScale: BYTE,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBPARAMBINDINFO {
             pwszDataSourceType: LPOLESTR,
             pwszName: LPOLESTR,
@@ -707,8 +707,8 @@ mod Windows {
         enum DBPARAMFLAGSENUM20 {
             DBPARAMFLAGS_SCALEISNEGATIVE = 256,
         }
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBPARAMINFO {
             dwFlags: DBPARAMFLAGS,
             iOrdinal: DBORDINAL,
@@ -719,8 +719,8 @@ mod Windows {
             bPrecision: BYTE,
             bScale: BYTE,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBPARAMINFO {
             dwFlags: DBPARAMFLAGS,
             iOrdinal: DBORDINAL,
@@ -738,15 +738,15 @@ mod Windows {
             DBPARAMIO_INPUT = 1,
             DBPARAMIO_OUTPUT = 2,
         }
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBPARAMS {
             pData: *mut void,
             cParamSets: DB_UPARAMS,
             hAccessor: HACCESSOR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBPARAMS {
             pData: *mut void,
             cParamSets: DB_UPARAMS,
@@ -785,8 +785,8 @@ mod Windows {
         const DBPROMPT_COMPLETEREQUIRED: i32 = 3;
         const DBPROMPT_NOPROMPT: i32 = 4;
         const DBPROMPT_PROMPT: i32 = 1;
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBPROP {
             dwPropertyID: DBPROPID,
             dwOptions: DBPROPOPTIONS,
@@ -794,8 +794,8 @@ mod Windows {
             colid: DBID,
             vValue: VARIANT,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBPROP {
             dwPropertyID: DBPROPID,
             dwOptions: DBPROPOPTIONS,
@@ -1102,13 +1102,6 @@ mod Windows {
             DBPROPFLAGS_STREAM = 32768,
         }
         type DBPROPID = u32;
-        #[arch(X86)]
-        #[packed(2)]
-        struct DBPROPIDSET {
-            rgPropertyIDs: *mut DBPROPID,
-            cPropertyIDs: ULONG,
-            guidPropertySet: GUID,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct DBPROPIDSET {
@@ -1118,12 +1111,10 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(2)]
-        struct DBPROPINFO {
-            pwszDescription: LPOLESTR,
-            dwPropertyID: DBPROPID,
-            dwFlags: DBPROPFLAGS,
-            vtType: VARTYPE,
-            vValues: VARIANT,
+        struct DBPROPIDSET {
+            rgPropertyIDs: *mut DBPROPID,
+            cPropertyIDs: ULONG,
+            guidPropertySet: GUID,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1136,13 +1127,22 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(2)]
+        struct DBPROPINFO {
+            pwszDescription: LPOLESTR,
+            dwPropertyID: DBPROPID,
+            dwFlags: DBPROPFLAGS,
+            vtType: VARTYPE,
+            vValues: VARIANT,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBPROPINFOSET {
             rgPropertyInfos: PDBPROPINFO,
             cPropertyInfos: ULONG,
             guidPropertySet: GUID,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBPROPINFOSET {
             rgPropertyInfos: PDBPROPINFO,
             cPropertyInfos: ULONG,
@@ -1155,15 +1155,15 @@ mod Windows {
             DBPROPOPTIONS_SETIFCHEAP = 1,
             DBPROPOPTIONS_OPTIONAL = 1,
         }
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBPROPSET {
             rgProperties: *mut DBPROP,
             cProperties: ULONG,
             guidPropertySet: GUID,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBPROPSET {
             rgProperties: *mut DBPROP,
             cProperties: ULONG,
@@ -1554,13 +1554,6 @@ mod Windows {
             DBSTAT_COLUMN_CARDINALITY = 2,
             DBSTAT_TUPLE_CARDINALITY = 4,
         }
-        #[arch(X86)]
-        #[packed(2)]
-        struct DBTIME {
-            hour: USHORT,
-            minute: USHORT,
-            second: USHORT,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct DBTIME {
@@ -1570,6 +1563,13 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(2)]
+        struct DBTIME {
+            hour: USHORT,
+            minute: USHORT,
+            second: USHORT,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBTIMESTAMP {
             year: SHORT,
             month: USHORT,
@@ -1579,8 +1579,8 @@ mod Windows {
             second: USHORT,
             fraction: ULONG,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBTIMESTAMP {
             year: SHORT,
             month: USHORT,
@@ -1658,14 +1658,14 @@ mod Windows {
             DBUPDELRULE_SETNULL = 2,
             DBUPDELRULE_SETDEFAULT = 3,
         }
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DBVECTOR {
             size: DBLENGTH,
             ptr: *mut void,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DBVECTOR {
             size: DBLENGTH,
             ptr: *mut void,
@@ -1722,16 +1722,16 @@ mod Windows {
         const DB_NULL_HACCESSOR: i32 = 0;
         const DB_NULL_HCHAPTER: i32 = 0;
         const DB_NULL_HROW: i32 = 0;
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct DB_NUMERIC {
             precision: BYTE,
             scale: BYTE,
             sign: BYTE,
             val: [BYTE; 16],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct DB_NUMERIC {
             precision: BYTE,
             scale: BYTE,
@@ -1758,14 +1758,6 @@ mod Windows {
         type DB_URESERVE = u64;
         #[arch(X86)]
         type DB_URESERVE = u32;
-        #[arch(X86)]
-        #[packed(2)]
-        struct DB_VARNUMERIC {
-            precision: BYTE,
-            scale: SBYTE,
-            sign: BYTE,
-            val: [BYTE; 1],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct DB_VARNUMERIC {
@@ -1776,6 +1768,14 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(2)]
+        struct DB_VARNUMERIC {
+            precision: BYTE,
+            scale: SBYTE,
+            sign: BYTE,
+            val: [BYTE; 1],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct ERRORINFO {
             hrError: HRESULT,
             dwMinor: DWORD,
@@ -1783,8 +1783,8 @@ mod Windows {
             iid: IID,
             dispid: DISPID,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct ERRORINFO {
             hrError: HRESULT,
             dwMinor: DWORD,
@@ -2237,8 +2237,8 @@ mod Windows {
             fn GetSortOrder(&self, #[out] pcValues: *mut DBORDINAL, #[out] #[writable(success, *pcValues, indirect)] prgColumns: *mut *mut DBORDINAL, #[out] #[writable(success, *pcValues, indirect)] prgOrders: *mut *mut DBSORT) -> HRESULT;
             fn SetSortOrder(&self, #[in] cValues: DBORDINAL, #[in] #[readable(entry, cValues)] rgColumns: *const DBORDINAL, #[in] #[readable(entry, cValues)] rgOrders: *const DBSORT) -> HRESULT;
         }
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct MDAXISINFO {
             cbSize: DBLENGTH,
             iAxis: DBCOUNTITEM,
@@ -2247,8 +2247,8 @@ mod Windows {
             rgcColumns: *mut DBORDINAL,
             rgpwszDimensionNames: *mut LPOLESTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct MDAXISINFO {
             cbSize: DBLENGTH,
             iAxis: DBCOUNTITEM,
@@ -2407,8 +2407,8 @@ mod Windows {
         const OLEDBVER: i32 = 624;
         type PDBPROPINFO = *mut DBPROPINFO;
         const PERM_DESIGN: ACCESS_MASKENUM = 2048;
-        #[arch(X86)]
-        #[packed(2)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RMTPACK {
             pISeqStream: ISequentialStream,
             cbData: ULONG,
@@ -2425,8 +2425,8 @@ mod Windows {
             cArray: ULONG,
             rgArray: *mut VARIANT,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct RMTPACK {
             pISeqStream: ISequentialStream,
             cbData: ULONG,
@@ -2444,12 +2444,6 @@ mod Windows {
             rgArray: *mut VARIANT,
         }
         type SBYTE = i8;
-        #[arch(X86)]
-        #[packed(2)]
-        struct SEC_OBJECT {
-            cObjects: DWORD,
-            prgObjects: *mut SEC_OBJECT_ELEMENT,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct SEC_OBJECT {
@@ -2458,12 +2452,18 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(2)]
+        struct SEC_OBJECT {
+            cObjects: DWORD,
+            prgObjects: *mut SEC_OBJECT_ELEMENT,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SEC_OBJECT_ELEMENT {
             guidObjectType: GUID,
             ObjectID: DBID,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(2)]
         struct SEC_OBJECT_ELEMENT {
             guidObjectType: GUID,
             ObjectID: DBID,

@@ -49,21 +49,6 @@ mod Windows {
         type JET_CBTYP = u32;
         type JET_CHAR = i8;
         type JET_COLTYP = u32;
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_COLUMNBASE_A {
-            cbStruct: JET_UINT32,
-            columnid: JET_COLUMNID,
-            coltyp: JET_COLTYP,
-            wCountry: JET_UINT16,
-            langid: JET_LANGID,
-            cp: JET_CP,
-            wFiller: JET_UINT16,
-            cbMax: JET_UINT32,
-            grbit: JET_GRBIT,
-            szBaseTableName: [JET_CHAR; 256],
-            szBaseColumnName: [JET_CHAR; 256],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_COLUMNBASE_A {
@@ -81,7 +66,7 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_COLUMNBASE_W {
+        struct JET_COLUMNBASE_A {
             cbStruct: JET_UINT32,
             columnid: JET_COLUMNID,
             coltyp: JET_COLTYP,
@@ -91,8 +76,8 @@ mod Windows {
             wFiller: JET_UINT16,
             cbMax: JET_UINT32,
             grbit: JET_GRBIT,
-            szBaseTableName: [JET_WCHAR; 256],
-            szBaseColumnName: [JET_WCHAR; 256],
+            szBaseTableName: [JET_CHAR; 256],
+            szBaseColumnName: [JET_CHAR; 256],
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -111,17 +96,18 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_COLUMNCREATE_A {
+        struct JET_COLUMNBASE_W {
             cbStruct: JET_UINT32,
-            szColumnName: JET_PSTR,
+            columnid: JET_COLUMNID,
             coltyp: JET_COLTYP,
+            wCountry: JET_UINT16,
+            langid: JET_LANGID,
+            cp: JET_CP,
+            wFiller: JET_UINT16,
             cbMax: JET_UINT32,
             grbit: JET_GRBIT,
-            pvDefault: JET_PVOID,
-            cbDefault: JET_UINT32,
-            cp: JET_UINT32,
-            columnid: JET_COLUMNID,
-            err: JET_ERR,
+            szBaseTableName: [JET_WCHAR; 256],
+            szBaseColumnName: [JET_WCHAR; 256],
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -139,9 +125,9 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_COLUMNCREATE_W {
+        struct JET_COLUMNCREATE_A {
             cbStruct: JET_UINT32,
-            szColumnName: JET_PWSTR,
+            szColumnName: JET_PSTR,
             coltyp: JET_COLTYP,
             cbMax: JET_UINT32,
             grbit: JET_GRBIT,
@@ -167,6 +153,20 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct JET_COLUMNCREATE_W {
+            cbStruct: JET_UINT32,
+            szColumnName: JET_PWSTR,
+            coltyp: JET_COLTYP,
+            cbMax: JET_UINT32,
+            grbit: JET_GRBIT,
+            pvDefault: JET_PVOID,
+            cbDefault: JET_UINT32,
+            cp: JET_UINT32,
+            columnid: JET_COLUMNID,
+            err: JET_ERR,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_COLUMNDEF {
             cbStruct: JET_UINT32,
             columnid: JET_COLUMNID,
@@ -178,8 +178,8 @@ mod Windows {
             cbMax: JET_UINT32,
             grbit: JET_GRBIT,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_COLUMNDEF {
             cbStruct: JET_UINT32,
             columnid: JET_COLUMNID,
@@ -192,27 +192,6 @@ mod Windows {
             grbit: JET_GRBIT,
         }
         type JET_COLUMNID = u32;
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_COLUMNLIST {
-            cbStruct: JET_UINT32,
-            tableid: JET_TABLEID,
-            cRecord: JET_UINT32,
-            columnidPresentationOrder: JET_COLUMNID,
-            columnidcolumnname: JET_COLUMNID,
-            columnidcolumnid: JET_COLUMNID,
-            columnidcoltyp: JET_COLUMNID,
-            columnidCountry: JET_COLUMNID,
-            columnidLangid: JET_COLUMNID,
-            columnidCp: JET_COLUMNID,
-            columnidCollate: JET_COLUMNID,
-            columnidcbMax: JET_COLUMNID,
-            columnidgrbit: JET_COLUMNID,
-            columnidDefault: JET_COLUMNID,
-            columnidBaseTableName: JET_COLUMNID,
-            columnidBaseColumnName: JET_COLUMNID,
-            columnidDefinitionName: JET_COLUMNID,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_COLUMNLIST {
@@ -236,10 +215,24 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_COMMIT_ID {
-            signLog: JET_SIGNATURE,
-            reserved: JET_INT32,
-            commitId: JET_INT64,
+        struct JET_COLUMNLIST {
+            cbStruct: JET_UINT32,
+            tableid: JET_TABLEID,
+            cRecord: JET_UINT32,
+            columnidPresentationOrder: JET_COLUMNID,
+            columnidcolumnname: JET_COLUMNID,
+            columnidcolumnid: JET_COLUMNID,
+            columnidcoltyp: JET_COLUMNID,
+            columnidCountry: JET_COLUMNID,
+            columnidLangid: JET_COLUMNID,
+            columnidCp: JET_COLUMNID,
+            columnidCollate: JET_COLUMNID,
+            columnidcbMax: JET_COLUMNID,
+            columnidgrbit: JET_COLUMNID,
+            columnidDefault: JET_COLUMNID,
+            columnidBaseTableName: JET_COLUMNID,
+            columnidBaseColumnName: JET_COLUMNID,
+            columnidDefinitionName: JET_COLUMNID,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -250,10 +243,10 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_CONDITIONALCOLUMN_A {
-            cbStruct: JET_UINT32,
-            szColumnName: JET_PSTR,
-            grbit: JET_GRBIT,
+        struct JET_COMMIT_ID {
+            signLog: JET_SIGNATURE,
+            reserved: JET_INT32,
+            commitId: JET_INT64,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -264,9 +257,9 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_CONDITIONALCOLUMN_W {
+        struct JET_CONDITIONALCOLUMN_A {
             cbStruct: JET_UINT32,
-            szColumnName: JET_PWSTR,
+            szColumnName: JET_PSTR,
             grbit: JET_GRBIT,
         }
         #[arch(X64 | Arm64)]
@@ -278,16 +271,10 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_CONVERT_A {
-            szOldDll: JET_PSTR,
-            Anonymous: #[packed(4)] union {
-                fFlags: JET_UINT32,
-                Anonymous: #[packed(4)] struct {
-                    _bitfield: u32 {
-                        fSchemaChangesOnly: JET_UINT32: 1,
-                    },
-                },
-            },
+        struct JET_CONDITIONALCOLUMN_W {
+            cbStruct: JET_UINT32,
+            szColumnName: JET_PWSTR,
+            grbit: JET_GRBIT,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -304,8 +291,8 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_CONVERT_W {
-            szOldDll: JET_PWSTR,
+        struct JET_CONVERT_A {
+            szOldDll: JET_PSTR,
             Anonymous: #[packed(4)] union {
                 fFlags: JET_UINT32,
                 Anonymous: #[packed(4)] struct {
@@ -322,6 +309,19 @@ mod Windows {
             Anonymous: #[packed(8)] union {
                 fFlags: JET_UINT32,
                 Anonymous: #[packed(8)] struct {
+                    _bitfield: u32 {
+                        fSchemaChangesOnly: JET_UINT32: 1,
+                    },
+                },
+            },
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct JET_CONVERT_W {
+            szOldDll: JET_PWSTR,
+            Anonymous: #[packed(4)] union {
+                fFlags: JET_UINT32,
+                Anonymous: #[packed(4)] struct {
                     _bitfield: u32 {
                         fSchemaChangesOnly: JET_UINT32: 1,
                     },
@@ -342,31 +342,6 @@ mod Windows {
         const JET_ColInfoSysTabCursor: u32 = 3;
         type JET_DATESERIAL = f64;
         type JET_DBID = u32;
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_DBINFOMISC {
-            ulVersion: JET_UINT32,
-            ulUpdate: JET_UINT32,
-            signDb: JET_SIGNATURE,
-            dbstate: JET_UINT32,
-            lgposConsistent: JET_LGPOS,
-            logtimeConsistent: JET_LOGTIME,
-            logtimeAttach: JET_LOGTIME,
-            lgposAttach: JET_LGPOS,
-            logtimeDetach: JET_LOGTIME,
-            lgposDetach: JET_LGPOS,
-            signLog: JET_SIGNATURE,
-            bkinfoFullPrev: JET_BKINFO,
-            bkinfoIncPrev: JET_BKINFO,
-            bkinfoFullCur: JET_BKINFO,
-            fShadowingDisabled: JET_UINT32,
-            fUpgradeDb: JET_UINT32,
-            dwMajorVersion: JET_UINT32,
-            dwMinorVersion: JET_UINT32,
-            dwBuildNumber: JET_UINT32,
-            lSPNumber: JET_INT32,
-            cbPageSize: JET_UINT32,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_DBINFOMISC {
@@ -394,7 +369,7 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_DBINFOMISC2 {
+        struct JET_DBINFOMISC {
             ulVersion: JET_UINT32,
             ulUpdate: JET_UINT32,
             signDb: JET_SIGNATURE,
@@ -416,21 +391,6 @@ mod Windows {
             dwBuildNumber: JET_UINT32,
             lSPNumber: JET_INT32,
             cbPageSize: JET_UINT32,
-            genMinRequired: JET_UINT32,
-            genMaxRequired: JET_UINT32,
-            logtimeGenMaxCreate: JET_LOGTIME,
-            ulRepairCount: JET_UINT32,
-            logtimeRepair: JET_LOGTIME,
-            ulRepairCountOld: JET_UINT32,
-            ulECCFixSuccess: JET_UINT32,
-            logtimeECCFixSuccess: JET_LOGTIME,
-            ulECCFixSuccessOld: JET_UINT32,
-            ulECCFixFail: JET_UINT32,
-            logtimeECCFixFail: JET_LOGTIME,
-            ulECCFixFailOld: JET_UINT32,
-            ulBadChecksum: JET_UINT32,
-            logtimeBadChecksum: JET_LOGTIME,
-            ulBadChecksumOld: JET_UINT32,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -474,7 +434,7 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_DBINFOMISC3 {
+        struct JET_DBINFOMISC2 {
             ulVersion: JET_UINT32,
             ulUpdate: JET_UINT32,
             signDb: JET_SIGNATURE,
@@ -511,7 +471,6 @@ mod Windows {
             ulBadChecksum: JET_UINT32,
             logtimeBadChecksum: JET_LOGTIME,
             ulBadChecksumOld: JET_UINT32,
-            genCommitted: JET_UINT32,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -556,7 +515,7 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_DBINFOMISC4 {
+        struct JET_DBINFOMISC3 {
             ulVersion: JET_UINT32,
             ulUpdate: JET_UINT32,
             signDb: JET_SIGNATURE,
@@ -594,8 +553,6 @@ mod Windows {
             logtimeBadChecksum: JET_LOGTIME,
             ulBadChecksumOld: JET_UINT32,
             genCommitted: JET_UINT32,
-            bkinfoCopyPrev: JET_BKINFO,
-            bkinfoDiffPrev: JET_BKINFO,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -642,22 +599,46 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_DBINFOUPGRADE {
-            cbStruct: JET_UINT32,
-            cbFilesizeLow: JET_UINT32,
-            cbFilesizeHigh: JET_UINT32,
-            cbFreeSpaceRequiredLow: JET_UINT32,
-            cbFreeSpaceRequiredHigh: JET_UINT32,
-            csecToUpgrade: JET_UINT32,
-            Anonymous: #[packed(4)] union {
-                ulFlags: JET_UINT32,
-                Anonymous: #[packed(4)] struct {
-                    _bitfield: u32 {
-                        fUpgradable: JET_UINT32: 1,
-                        fAlreadyUpgraded: JET_UINT32: 1,
-                    },
-                },
-            },
+        struct JET_DBINFOMISC4 {
+            ulVersion: JET_UINT32,
+            ulUpdate: JET_UINT32,
+            signDb: JET_SIGNATURE,
+            dbstate: JET_UINT32,
+            lgposConsistent: JET_LGPOS,
+            logtimeConsistent: JET_LOGTIME,
+            logtimeAttach: JET_LOGTIME,
+            lgposAttach: JET_LGPOS,
+            logtimeDetach: JET_LOGTIME,
+            lgposDetach: JET_LGPOS,
+            signLog: JET_SIGNATURE,
+            bkinfoFullPrev: JET_BKINFO,
+            bkinfoIncPrev: JET_BKINFO,
+            bkinfoFullCur: JET_BKINFO,
+            fShadowingDisabled: JET_UINT32,
+            fUpgradeDb: JET_UINT32,
+            dwMajorVersion: JET_UINT32,
+            dwMinorVersion: JET_UINT32,
+            dwBuildNumber: JET_UINT32,
+            lSPNumber: JET_INT32,
+            cbPageSize: JET_UINT32,
+            genMinRequired: JET_UINT32,
+            genMaxRequired: JET_UINT32,
+            logtimeGenMaxCreate: JET_LOGTIME,
+            ulRepairCount: JET_UINT32,
+            logtimeRepair: JET_LOGTIME,
+            ulRepairCountOld: JET_UINT32,
+            ulECCFixSuccess: JET_UINT32,
+            logtimeECCFixSuccess: JET_LOGTIME,
+            ulECCFixSuccessOld: JET_UINT32,
+            ulECCFixFail: JET_UINT32,
+            logtimeECCFixFail: JET_LOGTIME,
+            ulECCFixFailOld: JET_UINT32,
+            ulBadChecksum: JET_UINT32,
+            logtimeBadChecksum: JET_LOGTIME,
+            ulBadChecksumOld: JET_UINT32,
+            genCommitted: JET_UINT32,
+            bkinfoCopyPrev: JET_BKINFO,
+            bkinfoDiffPrev: JET_BKINFO,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -671,6 +652,25 @@ mod Windows {
             Anonymous: #[packed(8)] union {
                 ulFlags: JET_UINT32,
                 Anonymous: #[packed(8)] struct {
+                    _bitfield: u32 {
+                        fUpgradable: JET_UINT32: 1,
+                        fAlreadyUpgraded: JET_UINT32: 1,
+                    },
+                },
+            },
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct JET_DBINFOUPGRADE {
+            cbStruct: JET_UINT32,
+            cbFilesizeLow: JET_UINT32,
+            cbFilesizeHigh: JET_UINT32,
+            cbFreeSpaceRequiredLow: JET_UINT32,
+            cbFreeSpaceRequiredHigh: JET_UINT32,
+            csecToUpgrade: JET_UINT32,
+            Anonymous: #[packed(4)] union {
+                ulFlags: JET_UINT32,
+                Anonymous: #[packed(4)] struct {
                     _bitfield: u32 {
                         fUpgradable: JET_UINT32: 1,
                         fAlreadyUpgraded: JET_UINT32: 1,
@@ -698,22 +698,6 @@ mod Windows {
         const JET_DbInfoTransactions: i32 = 7;
         const JET_DbInfoUpgrade: i32 = 13;
         const JET_DbInfoVersion: i32 = 8;
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_ENUMCOLUMN {
-            columnid: JET_COLUMNID,
-            err: JET_ERR,
-            Anonymous: #[packed(4)] union {
-                Anonymous: #[packed(4)] struct {
-                    cEnumColumnValue: JET_UINT32,
-                    rgEnumColumnValue: *mut JET_ENUMCOLUMNVALUE,
-                },
-                Anonymous2: #[packed(4)] struct {
-                    cbData: JET_UINT32,
-                    pvData: JET_PVOID,
-                },
-            },
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_ENUMCOLUMN {
@@ -732,10 +716,19 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_ENUMCOLUMNID {
+        struct JET_ENUMCOLUMN {
             columnid: JET_COLUMNID,
-            ctagSequence: JET_UINT32,
-            rgtagSequence: *mut JET_UINT32,
+            err: JET_ERR,
+            Anonymous: #[packed(4)] union {
+                Anonymous: #[packed(4)] struct {
+                    cEnumColumnValue: JET_UINT32,
+                    rgEnumColumnValue: *mut JET_ENUMCOLUMNVALUE,
+                },
+                Anonymous2: #[packed(4)] struct {
+                    cbData: JET_UINT32,
+                    pvData: JET_PVOID,
+                },
+            },
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -746,14 +739,21 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct JET_ENUMCOLUMNID {
+            columnid: JET_COLUMNID,
+            ctagSequence: JET_UINT32,
+            rgtagSequence: *mut JET_UINT32,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_ENUMCOLUMNVALUE {
             itagSequence: JET_UINT32,
             err: JET_ERR,
             cbData: JET_UINT32,
             pvData: JET_PVOID,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_ENUMCOLUMNVALUE {
             itagSequence: JET_UINT32,
             err: JET_ERR,
@@ -783,8 +783,8 @@ mod Windows {
             JET_errcatObsolete = 16,
             JET_errcatMax = 17,
         }
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_ERRINFOBASIC_W {
             cbStruct: JET_UINT32,
             errValue: JET_ERR,
@@ -793,8 +793,8 @@ mod Windows {
             lSourceLine: JET_UINT32,
             rgszSourceFile: [JET_WCHAR; 64],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_ERRINFOBASIC_W {
             cbStruct: JET_UINT32,
             errValue: JET_ERR,
@@ -825,29 +825,6 @@ mod Windows {
             JET_IndexCheckingDeferToOpenTable = 2,
             JET_IndexCheckingMax = 3,
         }
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_INDEXCREATE2_A {
-            cbStruct: JET_UINT32,
-            szIndexName: JET_PSTR,
-            szKey: JET_PSTR,
-            cbKey: JET_UINT32,
-            grbit: JET_GRBIT,
-            ulDensity: JET_UINT32,
-            Anonymous: #[packed(4)] union {
-                lcid: JET_LCID,
-                pidxunicode: *mut JET_UNICODEINDEX,
-            },
-            Anonymous2: #[packed(4)] union {
-                cbVarSegMac: JET_UINT32,
-                ptuplelimits: *mut JET_TUPLELIMITS,
-            },
-            rgconditionalcolumn: *mut JET_CONDITIONALCOLUMN_A,
-            cConditionalColumn: JET_UINT32,
-            err: JET_ERR,
-            cbKeyMost: JET_UINT32,
-            pSpacehints: *mut JET_SPACEHINTS,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_INDEXCREATE2_A {
@@ -873,10 +850,10 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_INDEXCREATE2_W {
+        struct JET_INDEXCREATE2_A {
             cbStruct: JET_UINT32,
-            szIndexName: JET_PWSTR,
-            szKey: JET_PWSTR,
+            szIndexName: JET_PSTR,
+            szKey: JET_PSTR,
             cbKey: JET_UINT32,
             grbit: JET_GRBIT,
             ulDensity: JET_UINT32,
@@ -888,7 +865,7 @@ mod Windows {
                 cbVarSegMac: JET_UINT32,
                 ptuplelimits: *mut JET_TUPLELIMITS,
             },
-            rgconditionalcolumn: *mut JET_CONDITIONALCOLUMN_W,
+            rgconditionalcolumn: *mut JET_CONDITIONALCOLUMN_A,
             cConditionalColumn: JET_UINT32,
             err: JET_ERR,
             cbKeyMost: JET_UINT32,
@@ -919,19 +896,22 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_INDEXCREATE3_A {
+        struct JET_INDEXCREATE2_W {
             cbStruct: JET_UINT32,
-            szIndexName: JET_PSTR,
-            szKey: JET_PSTR,
+            szIndexName: JET_PWSTR,
+            szKey: JET_PWSTR,
             cbKey: JET_UINT32,
             grbit: JET_GRBIT,
             ulDensity: JET_UINT32,
-            pidxunicode: *mut JET_UNICODEINDEX2,
             Anonymous: #[packed(4)] union {
+                lcid: JET_LCID,
+                pidxunicode: *mut JET_UNICODEINDEX,
+            },
+            Anonymous2: #[packed(4)] union {
                 cbVarSegMac: JET_UINT32,
                 ptuplelimits: *mut JET_TUPLELIMITS,
             },
-            rgconditionalcolumn: *mut JET_CONDITIONALCOLUMN_A,
+            rgconditionalcolumn: *mut JET_CONDITIONALCOLUMN_W,
             cConditionalColumn: JET_UINT32,
             err: JET_ERR,
             cbKeyMost: JET_UINT32,
@@ -952,6 +932,46 @@ mod Windows {
                 ptuplelimits: *mut JET_TUPLELIMITS,
             },
             rgconditionalcolumn: *mut JET_CONDITIONALCOLUMN_A,
+            cConditionalColumn: JET_UINT32,
+            err: JET_ERR,
+            cbKeyMost: JET_UINT32,
+            pSpacehints: *mut JET_SPACEHINTS,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct JET_INDEXCREATE3_A {
+            cbStruct: JET_UINT32,
+            szIndexName: JET_PSTR,
+            szKey: JET_PSTR,
+            cbKey: JET_UINT32,
+            grbit: JET_GRBIT,
+            ulDensity: JET_UINT32,
+            pidxunicode: *mut JET_UNICODEINDEX2,
+            Anonymous: #[packed(4)] union {
+                cbVarSegMac: JET_UINT32,
+                ptuplelimits: *mut JET_TUPLELIMITS,
+            },
+            rgconditionalcolumn: *mut JET_CONDITIONALCOLUMN_A,
+            cConditionalColumn: JET_UINT32,
+            err: JET_ERR,
+            cbKeyMost: JET_UINT32,
+            pSpacehints: *mut JET_SPACEHINTS,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
+        struct JET_INDEXCREATE3_W {
+            cbStruct: JET_UINT32,
+            szIndexName: JET_PWSTR,
+            szKey: JET_PWSTR,
+            cbKey: JET_UINT32,
+            grbit: JET_GRBIT,
+            ulDensity: JET_UINT32,
+            pidxunicode: *mut JET_UNICODEINDEX2,
+            Anonymous: #[packed(8)] union {
+                cbVarSegMac: JET_UINT32,
+                ptuplelimits: *mut JET_TUPLELIMITS,
+            },
+            rgconditionalcolumn: *mut JET_CONDITIONALCOLUMN_W,
             cConditionalColumn: JET_UINT32,
             err: JET_ERR,
             cbKeyMost: JET_UINT32,
@@ -979,48 +999,6 @@ mod Windows {
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
-        struct JET_INDEXCREATE3_W {
-            cbStruct: JET_UINT32,
-            szIndexName: JET_PWSTR,
-            szKey: JET_PWSTR,
-            cbKey: JET_UINT32,
-            grbit: JET_GRBIT,
-            ulDensity: JET_UINT32,
-            pidxunicode: *mut JET_UNICODEINDEX2,
-            Anonymous: #[packed(8)] union {
-                cbVarSegMac: JET_UINT32,
-                ptuplelimits: *mut JET_TUPLELIMITS,
-            },
-            rgconditionalcolumn: *mut JET_CONDITIONALCOLUMN_W,
-            cConditionalColumn: JET_UINT32,
-            err: JET_ERR,
-            cbKeyMost: JET_UINT32,
-            pSpacehints: *mut JET_SPACEHINTS,
-        }
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_INDEXCREATE_A {
-            cbStruct: JET_UINT32,
-            szIndexName: JET_PSTR,
-            szKey: JET_PSTR,
-            cbKey: JET_UINT32,
-            grbit: JET_GRBIT,
-            ulDensity: JET_UINT32,
-            Anonymous: #[packed(4)] union {
-                lcid: JET_LCID,
-                pidxunicode: *mut JET_UNICODEINDEX,
-            },
-            Anonymous2: #[packed(4)] union {
-                cbVarSegMac: JET_UINT32,
-                ptuplelimits: *mut JET_TUPLELIMITS,
-            },
-            rgconditionalcolumn: *mut JET_CONDITIONALCOLUMN_A,
-            cConditionalColumn: JET_UINT32,
-            err: JET_ERR,
-            cbKeyMost: JET_UINT32,
-        }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
         struct JET_INDEXCREATE_A {
             cbStruct: JET_UINT32,
             szIndexName: JET_PSTR,
@@ -1043,10 +1021,10 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_INDEXCREATE_W {
+        struct JET_INDEXCREATE_A {
             cbStruct: JET_UINT32,
-            szIndexName: JET_PWSTR,
-            szKey: JET_PWSTR,
+            szIndexName: JET_PSTR,
+            szKey: JET_PSTR,
             cbKey: JET_UINT32,
             grbit: JET_GRBIT,
             ulDensity: JET_UINT32,
@@ -1058,7 +1036,7 @@ mod Windows {
                 cbVarSegMac: JET_UINT32,
                 ptuplelimits: *mut JET_TUPLELIMITS,
             },
-            rgconditionalcolumn: *mut JET_CONDITIONALCOLUMN_W,
+            rgconditionalcolumn: *mut JET_CONDITIONALCOLUMN_A,
             cConditionalColumn: JET_UINT32,
             err: JET_ERR,
             cbKeyMost: JET_UINT32,
@@ -1087,9 +1065,25 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_INDEXID {
+        struct JET_INDEXCREATE_W {
             cbStruct: JET_UINT32,
-            rgbIndexId: [JET_BYTE; 12],
+            szIndexName: JET_PWSTR,
+            szKey: JET_PWSTR,
+            cbKey: JET_UINT32,
+            grbit: JET_GRBIT,
+            ulDensity: JET_UINT32,
+            Anonymous: #[packed(4)] union {
+                lcid: JET_LCID,
+                pidxunicode: *mut JET_UNICODEINDEX,
+            },
+            Anonymous2: #[packed(4)] union {
+                cbVarSegMac: JET_UINT32,
+                ptuplelimits: *mut JET_TUPLELIMITS,
+            },
+            rgconditionalcolumn: *mut JET_CONDITIONALCOLUMN_W,
+            cConditionalColumn: JET_UINT32,
+            err: JET_ERR,
+            cbKeyMost: JET_UINT32,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1099,26 +1093,9 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_INDEXLIST {
+        struct JET_INDEXID {
             cbStruct: JET_UINT32,
-            tableid: JET_TABLEID,
-            cRecord: JET_UINT32,
-            columnidindexname: JET_COLUMNID,
-            columnidgrbitIndex: JET_COLUMNID,
-            columnidcKey: JET_COLUMNID,
-            columnidcEntry: JET_COLUMNID,
-            columnidcPage: JET_COLUMNID,
-            columnidcColumn: JET_COLUMNID,
-            columnidiColumn: JET_COLUMNID,
-            columnidcolumnid: JET_COLUMNID,
-            columnidcoltyp: JET_COLUMNID,
-            columnidCountry: JET_COLUMNID,
-            columnidLangid: JET_COLUMNID,
-            columnidCp: JET_COLUMNID,
-            columnidCollate: JET_COLUMNID,
-            columnidgrbitColumn: JET_COLUMNID,
-            columnidcolumnname: JET_COLUMNID,
-            columnidLCMapFlags: JET_COLUMNID,
+            rgbIndexId: [JET_BYTE; 12],
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1145,6 +1122,36 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct JET_INDEXLIST {
+            cbStruct: JET_UINT32,
+            tableid: JET_TABLEID,
+            cRecord: JET_UINT32,
+            columnidindexname: JET_COLUMNID,
+            columnidgrbitIndex: JET_COLUMNID,
+            columnidcKey: JET_COLUMNID,
+            columnidcEntry: JET_COLUMNID,
+            columnidcPage: JET_COLUMNID,
+            columnidcColumn: JET_COLUMNID,
+            columnidiColumn: JET_COLUMNID,
+            columnidcolumnid: JET_COLUMNID,
+            columnidcoltyp: JET_COLUMNID,
+            columnidCountry: JET_COLUMNID,
+            columnidLangid: JET_COLUMNID,
+            columnidCp: JET_COLUMNID,
+            columnidCollate: JET_COLUMNID,
+            columnidgrbitColumn: JET_COLUMNID,
+            columnidcolumnname: JET_COLUMNID,
+            columnidLCMapFlags: JET_COLUMNID,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
+        struct JET_INDEXRANGE {
+            cbStruct: JET_UINT32,
+            tableid: JET_TABLEID,
+            grbit: JET_GRBIT,
+        }
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_INDEXRANGE {
             cbStruct: JET_UINT32,
             tableid: JET_TABLEID,
@@ -1152,9 +1159,11 @@ mod Windows {
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
-        struct JET_INDEXRANGE {
-            cbStruct: JET_UINT32,
-            tableid: JET_TABLEID,
+        struct JET_INDEX_COLUMN {
+            columnid: JET_COLUMNID,
+            relop: JET_RELOP,
+            pv: JET_PVOID,
+            cb: JET_UINT32,
             grbit: JET_GRBIT,
         }
         #[arch(X86)]
@@ -1168,23 +1177,14 @@ mod Windows {
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
-        struct JET_INDEX_COLUMN {
-            columnid: JET_COLUMNID,
-            relop: JET_RELOP,
-            pv: JET_PVOID,
-            cb: JET_UINT32,
-            grbit: JET_GRBIT,
-        }
-        #[arch(X86)]
-        #[packed(4)]
         struct JET_INDEX_RANGE {
             rgStartColumns: *mut JET_INDEX_COLUMN,
             cStartColumns: JET_UINT32,
             rgEndColumns: *mut JET_INDEX_COLUMN,
             cEndColumns: JET_UINT32,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_INDEX_RANGE {
             rgStartColumns: *mut JET_INDEX_COLUMN,
             cStartColumns: JET_UINT32,
@@ -1195,16 +1195,6 @@ mod Windows {
         type JET_INSTANCE = u64;
         #[arch(X86)]
         type JET_INSTANCE = u32;
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_INSTANCE_INFO_A {
-            hInstanceId: JET_INSTANCE,
-            szInstanceName: JET_PSTR,
-            cDatabases: JET_API_PTR,
-            szDatabaseFileName: *mut JET_PSTR,
-            szDatabaseDisplayName: *mut JET_PSTR,
-            szDatabaseSLVFileName_Obsolete: *mut JET_PSTR,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_INSTANCE_INFO_A {
@@ -1217,6 +1207,16 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct JET_INSTANCE_INFO_A {
+            hInstanceId: JET_INSTANCE,
+            szInstanceName: JET_PSTR,
+            cDatabases: JET_API_PTR,
+            szDatabaseFileName: *mut JET_PSTR,
+            szDatabaseDisplayName: *mut JET_PSTR,
+            szDatabaseSLVFileName_Obsolete: *mut JET_PSTR,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INSTANCE_INFO_W {
             hInstanceId: JET_INSTANCE,
             szInstanceName: JET_PWSTR,
@@ -1225,8 +1225,8 @@ mod Windows {
             szDatabaseDisplayName: *mut JET_PWSTR,
             szDatabaseSLVFileName_Obsolete: *mut JET_PWSTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_INSTANCE_INFO_W {
             hInstanceId: JET_INSTANCE,
             szInstanceName: JET_PWSTR,
@@ -1266,14 +1266,6 @@ mod Windows {
             isec: JET_UINT16,
             lGeneration: JET_INT32,
         }
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_LOGINFO_A {
-            cbSize: JET_UINT32,
-            ulGenLow: JET_UINT32,
-            ulGenHigh: JET_UINT32,
-            szBaseName: [JET_CHAR; 4],
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_LOGINFO_A {
@@ -1284,14 +1276,22 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct JET_LOGINFO_A {
+            cbSize: JET_UINT32,
+            ulGenLow: JET_UINT32,
+            ulGenHigh: JET_UINT32,
+            szBaseName: [JET_CHAR; 4],
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_LOGINFO_W {
             cbSize: JET_UINT32,
             ulGenLow: JET_UINT32,
             ulGenHigh: JET_UINT32,
             szBaseName: [JET_WCHAR; 4],
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_LOGINFO_W {
             cbSize: JET_UINT32,
             ulGenLow: JET_UINT32,
@@ -1339,18 +1339,6 @@ mod Windows {
         const JET_MoveLast: i32 = 2147483647;
         const JET_MoveNext: i32 = 1;
         const JET_MovePrevious: i32 = -1;
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_OBJECTINFO {
-            cbStruct: JET_UINT32,
-            objtyp: JET_OBJTYP,
-            dtCreate: JET_DATESERIAL,
-            dtUpdate: JET_DATESERIAL,
-            grbit: JET_GRBIT,
-            flags: JET_UINT32,
-            cRecord: JET_UINT32,
-            cPage: JET_UINT32,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_OBJECTINFO {
@@ -1365,6 +1353,18 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct JET_OBJECTINFO {
+            cbStruct: JET_UINT32,
+            objtyp: JET_OBJTYP,
+            dtCreate: JET_DATESERIAL,
+            dtUpdate: JET_DATESERIAL,
+            grbit: JET_GRBIT,
+            flags: JET_UINT32,
+            cRecord: JET_UINT32,
+            cPage: JET_UINT32,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_OBJECTLIST {
             cbStruct: JET_UINT32,
             tableid: JET_TABLEID,
@@ -1379,8 +1379,8 @@ mod Windows {
             columnidcRecord: JET_COLUMNID,
             columnidcPage: JET_COLUMNID,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_OBJECTLIST {
             cbStruct: JET_UINT32,
             tableid: JET_TABLEID,
@@ -1396,19 +1396,6 @@ mod Windows {
             columnidcPage: JET_COLUMNID,
         }
         type JET_OBJTYP = u32;
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_OPENTEMPORARYTABLE {
-            cbStruct: JET_UINT32,
-            prgcolumndef: *const JET_COLUMNDEF,
-            ccolumn: JET_UINT32,
-            pidxunicode: *mut JET_UNICODEINDEX,
-            grbit: JET_GRBIT,
-            prgcolumnid: *mut JET_COLUMNID,
-            cbKeyMost: JET_UINT32,
-            cbVarSegMac: JET_UINT32,
-            tableid: JET_TABLEID,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_OPENTEMPORARYTABLE {
@@ -1424,11 +1411,11 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_OPENTEMPORARYTABLE2 {
+        struct JET_OPENTEMPORARYTABLE {
             cbStruct: JET_UINT32,
             prgcolumndef: *const JET_COLUMNDEF,
             ccolumn: JET_UINT32,
-            pidxunicode: *mut JET_UNICODEINDEX2,
+            pidxunicode: *mut JET_UNICODEINDEX,
             grbit: JET_GRBIT,
             prgcolumnid: *mut JET_COLUMNID,
             cbKeyMost: JET_UINT32,
@@ -1450,6 +1437,19 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct JET_OPENTEMPORARYTABLE2 {
+            cbStruct: JET_UINT32,
+            prgcolumndef: *const JET_COLUMNDEF,
+            ccolumn: JET_UINT32,
+            pidxunicode: *mut JET_UNICODEINDEX2,
+            grbit: JET_GRBIT,
+            prgcolumnid: *mut JET_COLUMNID,
+            cbKeyMost: JET_UINT32,
+            cbVarSegMac: JET_UINT32,
+            tableid: JET_TABLEID,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_OPERATIONCONTEXT {
             ulUserID: JET_UINT32,
             nOperationID: JET_BYTE,
@@ -1457,8 +1457,8 @@ mod Windows {
             nClientType: JET_BYTE,
             fFlags: JET_BYTE,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_OPERATIONCONTEXT {
             ulUserID: JET_UINT32,
             nOperationID: JET_BYTE,
@@ -1497,14 +1497,6 @@ mod Windows {
         type JET_PVOID = *mut void;
         #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type JET_PWSTR = *mut u16;
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_RECORDLIST {
-            cbStruct: JET_UINT32,
-            tableid: JET_TABLEID,
-            cRecord: JET_UINT32,
-            columnidBookmark: JET_COLUMNID,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_RECORDLIST {
@@ -1515,11 +1507,11 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_RECPOS {
+        struct JET_RECORDLIST {
             cbStruct: JET_UINT32,
-            centriesLT: JET_UINT32,
-            centriesInRange: JET_UINT32,
-            centriesTotal: JET_UINT32,
+            tableid: JET_TABLEID,
+            cRecord: JET_UINT32,
+            columnidBookmark: JET_COLUMNID,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1531,13 +1523,11 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_RECPOS2 {
+        struct JET_RECPOS {
             cbStruct: JET_UINT32,
-            centriesLTDeprecated: JET_UINT32,
-            centriesInRangeDeprecated: JET_UINT32,
-            centriesTotalDeprecated: JET_UINT32,
-            centriesLT: JET_UINT64,
-            centriesTotal: JET_UINT64,
+            centriesLT: JET_UINT32,
+            centriesInRange: JET_UINT32,
+            centriesTotal: JET_UINT32,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1551,15 +1541,13 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_RECSIZE {
-            cbData: JET_UINT64,
-            cbLongValueData: JET_UINT64,
-            cbOverhead: JET_UINT64,
-            cbLongValueOverhead: JET_UINT64,
-            cNonTaggedColumns: JET_UINT64,
-            cTaggedColumns: JET_UINT64,
-            cLongValues: JET_UINT64,
-            cMultiValues: JET_UINT64,
+        struct JET_RECPOS2 {
+            cbStruct: JET_UINT32,
+            centriesLTDeprecated: JET_UINT32,
+            centriesInRangeDeprecated: JET_UINT32,
+            centriesTotalDeprecated: JET_UINT32,
+            centriesLT: JET_UINT64,
+            centriesTotal: JET_UINT64,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1575,6 +1563,18 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct JET_RECSIZE {
+            cbData: JET_UINT64,
+            cbLongValueData: JET_UINT64,
+            cbOverhead: JET_UINT64,
+            cbLongValueOverhead: JET_UINT64,
+            cNonTaggedColumns: JET_UINT64,
+            cTaggedColumns: JET_UINT64,
+            cLongValues: JET_UINT64,
+            cMultiValues: JET_UINT64,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_RECSIZE2 {
             cbData: JET_UINT64,
             cbLongValueData: JET_UINT64,
@@ -1588,8 +1588,8 @@ mod Windows {
             cbDataCompressed: JET_UINT64,
             cbLongValueDataCompressed: JET_UINT64,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_RECSIZE2 {
             cbData: JET_UINT64,
             cbLongValueData: JET_UINT64,
@@ -1615,14 +1615,6 @@ mod Windows {
             JET_relopBitmaskEqualsZero = 7,
             JET_relopBitmaskNotEqualsZero = 8,
         }
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_RETINFO {
-            cbStruct: JET_UINT32,
-            ibLongValue: JET_UINT32,
-            itagSequence: JET_UINT32,
-            columnidNextTagged: JET_COLUMNID,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_RETINFO {
@@ -1633,16 +1625,11 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_RETRIEVECOLUMN {
-            columnid: JET_COLUMNID,
-            pvData: JET_PVOID,
-            cbData: JET_UINT32,
-            cbActual: JET_UINT32,
-            grbit: JET_GRBIT,
+        struct JET_RETINFO {
+            cbStruct: JET_UINT32,
             ibLongValue: JET_UINT32,
             itagSequence: JET_UINT32,
             columnidNextTagged: JET_COLUMNID,
-            err: JET_ERR,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1659,13 +1646,16 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_RSTINFO_A {
-            cbStruct: JET_UINT32,
-            rgrstmap: *mut JET_RSTMAP_A,
-            crstmap: JET_INT32,
-            lgposStop: JET_LGPOS,
-            logtimeStop: JET_LOGTIME,
-            pfnStatus: JET_PFNSTATUS,
+        struct JET_RETRIEVECOLUMN {
+            columnid: JET_COLUMNID,
+            pvData: JET_PVOID,
+            cbData: JET_UINT32,
+            cbActual: JET_UINT32,
+            grbit: JET_GRBIT,
+            ibLongValue: JET_UINT32,
+            itagSequence: JET_UINT32,
+            columnidNextTagged: JET_COLUMNID,
+            err: JET_ERR,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1679,9 +1669,9 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_RSTINFO_W {
+        struct JET_RSTINFO_A {
             cbStruct: JET_UINT32,
-            rgrstmap: *mut JET_RSTMAP_W,
+            rgrstmap: *mut JET_RSTMAP_A,
             crstmap: JET_INT32,
             lgposStop: JET_LGPOS,
             logtimeStop: JET_LOGTIME,
@@ -1699,9 +1689,13 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_RSTMAP_A {
-            szDatabaseName: JET_PSTR,
-            szNewDatabaseName: JET_PSTR,
+        struct JET_RSTINFO_W {
+            cbStruct: JET_UINT32,
+            rgrstmap: *mut JET_RSTMAP_W,
+            crstmap: JET_INT32,
+            lgposStop: JET_LGPOS,
+            logtimeStop: JET_LOGTIME,
+            pfnStatus: JET_PFNSTATUS,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1711,12 +1705,18 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct JET_RSTMAP_A {
+            szDatabaseName: JET_PSTR,
+            szNewDatabaseName: JET_PSTR,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_RSTMAP_W {
             szDatabaseName: JET_PWSTR,
             szNewDatabaseName: JET_PWSTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_RSTMAP_W {
             szDatabaseName: JET_PWSTR,
             szNewDatabaseName: JET_PWSTR,
@@ -1725,17 +1725,6 @@ mod Windows {
         type JET_SESID = u64;
         #[arch(X86)]
         type JET_SESID = u32;
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_SETCOLUMN {
-            columnid: JET_COLUMNID,
-            pvData: JET_PCVOID,
-            cbData: JET_UINT32,
-            grbit: JET_GRBIT,
-            ibLongValue: JET_UINT32,
-            itagSequence: JET_UINT32,
-            err: JET_ERR,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_SETCOLUMN {
@@ -1749,10 +1738,14 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_SETINFO {
-            cbStruct: JET_UINT32,
+        struct JET_SETCOLUMN {
+            columnid: JET_COLUMNID,
+            pvData: JET_PCVOID,
+            cbData: JET_UINT32,
+            grbit: JET_GRBIT,
             ibLongValue: JET_UINT32,
             itagSequence: JET_UINT32,
+            err: JET_ERR,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1760,6 +1753,21 @@ mod Windows {
             cbStruct: JET_UINT32,
             ibLongValue: JET_UINT32,
             itagSequence: JET_UINT32,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct JET_SETINFO {
+            cbStruct: JET_UINT32,
+            ibLongValue: JET_UINT32,
+            itagSequence: JET_UINT32,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
+        struct JET_SETSYSPARAM_A {
+            paramid: JET_UINT32,
+            lParam: JET_API_PTR,
+            sz: JET_PCSTR,
+            err: JET_ERR,
         }
         #[arch(X86)]
         #[packed(4)]
@@ -1771,22 +1779,14 @@ mod Windows {
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
-        struct JET_SETSYSPARAM_A {
-            paramid: JET_UINT32,
-            lParam: JET_API_PTR,
-            sz: JET_PCSTR,
-            err: JET_ERR,
-        }
-        #[arch(X86)]
-        #[packed(4)]
         struct JET_SETSYSPARAM_W {
             paramid: JET_UINT32,
             lParam: JET_API_PTR,
             sz: JET_PCWSTR,
             err: JET_ERR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_SETSYSPARAM_W {
             paramid: JET_UINT32,
             lParam: JET_API_PTR,
@@ -1800,33 +1800,21 @@ mod Windows {
             szComputerName: [JET_CHAR; 16],
         }
         type JET_SNP = u32;
-        #[arch(X86)]
-        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_SNPROG {
             cbStruct: JET_UINT32,
             cunitDone: JET_UINT32,
             cunitTotal: JET_UINT32,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_SNPROG {
             cbStruct: JET_UINT32,
             cunitDone: JET_UINT32,
             cunitTotal: JET_UINT32,
         }
         type JET_SNT = u32;
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_SPACEHINTS {
-            cbStruct: JET_UINT32,
-            ulInitialDensity: JET_UINT32,
-            cbInitial: JET_UINT32,
-            grbit: JET_GRBIT,
-            ulMaintDensity: JET_UINT32,
-            ulGrowth: JET_UINT32,
-            cbMinExtent: JET_UINT32,
-            cbMaxExtent: JET_UINT32,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_SPACEHINTS {
@@ -1841,21 +1829,15 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_TABLECREATE2_A {
+        struct JET_SPACEHINTS {
             cbStruct: JET_UINT32,
-            szTableName: JET_PSTR,
-            szTemplateTableName: JET_PSTR,
-            ulPages: JET_UINT32,
-            ulDensity: JET_UINT32,
-            rgcolumncreate: *mut JET_COLUMNCREATE_A,
-            cColumns: JET_UINT32,
-            rgindexcreate: *mut JET_INDEXCREATE_A,
-            cIndexes: JET_UINT32,
-            szCallback: JET_PSTR,
-            cbtyp: JET_CBTYP,
+            ulInitialDensity: JET_UINT32,
+            cbInitial: JET_UINT32,
             grbit: JET_GRBIT,
-            tableid: JET_TABLEID,
-            cCreated: JET_UINT32,
+            ulMaintDensity: JET_UINT32,
+            ulGrowth: JET_UINT32,
+            cbMinExtent: JET_UINT32,
+            cbMaxExtent: JET_UINT32,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -1877,17 +1859,17 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_TABLECREATE2_W {
+        struct JET_TABLECREATE2_A {
             cbStruct: JET_UINT32,
-            szTableName: JET_PWSTR,
-            szTemplateTableName: JET_PWSTR,
+            szTableName: JET_PSTR,
+            szTemplateTableName: JET_PSTR,
             ulPages: JET_UINT32,
             ulDensity: JET_UINT32,
-            rgcolumncreate: *mut JET_COLUMNCREATE_W,
+            rgcolumncreate: *mut JET_COLUMNCREATE_A,
             cColumns: JET_UINT32,
-            rgindexcreate: *mut JET_INDEXCREATE_W,
+            rgindexcreate: *mut JET_INDEXCREATE_A,
             cIndexes: JET_UINT32,
-            szCallback: JET_PWSTR,
+            szCallback: JET_PSTR,
             cbtyp: JET_CBTYP,
             grbit: JET_GRBIT,
             tableid: JET_TABLEID,
@@ -1913,22 +1895,19 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_TABLECREATE3_A {
+        struct JET_TABLECREATE2_W {
             cbStruct: JET_UINT32,
-            szTableName: JET_PSTR,
-            szTemplateTableName: JET_PSTR,
+            szTableName: JET_PWSTR,
+            szTemplateTableName: JET_PWSTR,
             ulPages: JET_UINT32,
             ulDensity: JET_UINT32,
-            rgcolumncreate: *mut JET_COLUMNCREATE_A,
+            rgcolumncreate: *mut JET_COLUMNCREATE_W,
             cColumns: JET_UINT32,
-            rgindexcreate: *mut JET_INDEXCREATE2_A,
+            rgindexcreate: *mut JET_INDEXCREATE_W,
             cIndexes: JET_UINT32,
-            szCallback: JET_PSTR,
+            szCallback: JET_PWSTR,
             cbtyp: JET_CBTYP,
             grbit: JET_GRBIT,
-            pSeqSpacehints: *mut JET_SPACEHINTS,
-            pLVSpacehints: *mut JET_SPACEHINTS,
-            cbSeparateLV: JET_UINT32,
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
@@ -1955,17 +1934,17 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_TABLECREATE3_W {
+        struct JET_TABLECREATE3_A {
             cbStruct: JET_UINT32,
-            szTableName: JET_PWSTR,
-            szTemplateTableName: JET_PWSTR,
+            szTableName: JET_PSTR,
+            szTemplateTableName: JET_PSTR,
             ulPages: JET_UINT32,
             ulDensity: JET_UINT32,
-            rgcolumncreate: *mut JET_COLUMNCREATE_W,
+            rgcolumncreate: *mut JET_COLUMNCREATE_A,
             cColumns: JET_UINT32,
-            rgindexcreate: *mut JET_INDEXCREATE2_W,
+            rgindexcreate: *mut JET_INDEXCREATE2_A,
             cIndexes: JET_UINT32,
-            szCallback: JET_PWSTR,
+            szCallback: JET_PSTR,
             cbtyp: JET_CBTYP,
             grbit: JET_GRBIT,
             pSeqSpacehints: *mut JET_SPACEHINTS,
@@ -1997,17 +1976,17 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_TABLECREATE4_A {
+        struct JET_TABLECREATE3_W {
             cbStruct: JET_UINT32,
-            szTableName: JET_PSTR,
-            szTemplateTableName: JET_PSTR,
+            szTableName: JET_PWSTR,
+            szTemplateTableName: JET_PWSTR,
             ulPages: JET_UINT32,
             ulDensity: JET_UINT32,
-            rgcolumncreate: *mut JET_COLUMNCREATE_A,
+            rgcolumncreate: *mut JET_COLUMNCREATE_W,
             cColumns: JET_UINT32,
-            rgindexcreate: *mut JET_INDEXCREATE3_A,
+            rgindexcreate: *mut JET_INDEXCREATE2_W,
             cIndexes: JET_UINT32,
-            szCallback: JET_PSTR,
+            szCallback: JET_PWSTR,
             cbtyp: JET_CBTYP,
             grbit: JET_GRBIT,
             pSeqSpacehints: *mut JET_SPACEHINTS,
@@ -2029,6 +2008,48 @@ mod Windows {
             rgindexcreate: *mut JET_INDEXCREATE3_A,
             cIndexes: JET_UINT32,
             szCallback: JET_PSTR,
+            cbtyp: JET_CBTYP,
+            grbit: JET_GRBIT,
+            pSeqSpacehints: *mut JET_SPACEHINTS,
+            pLVSpacehints: *mut JET_SPACEHINTS,
+            cbSeparateLV: JET_UINT32,
+            tableid: JET_TABLEID,
+            cCreated: JET_UINT32,
+        }
+        #[arch(X86)]
+        #[packed(4)]
+        struct JET_TABLECREATE4_A {
+            cbStruct: JET_UINT32,
+            szTableName: JET_PSTR,
+            szTemplateTableName: JET_PSTR,
+            ulPages: JET_UINT32,
+            ulDensity: JET_UINT32,
+            rgcolumncreate: *mut JET_COLUMNCREATE_A,
+            cColumns: JET_UINT32,
+            rgindexcreate: *mut JET_INDEXCREATE3_A,
+            cIndexes: JET_UINT32,
+            szCallback: JET_PSTR,
+            cbtyp: JET_CBTYP,
+            grbit: JET_GRBIT,
+            pSeqSpacehints: *mut JET_SPACEHINTS,
+            pLVSpacehints: *mut JET_SPACEHINTS,
+            cbSeparateLV: JET_UINT32,
+            tableid: JET_TABLEID,
+            cCreated: JET_UINT32,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
+        struct JET_TABLECREATE4_W {
+            cbStruct: JET_UINT32,
+            szTableName: JET_PWSTR,
+            szTemplateTableName: JET_PWSTR,
+            ulPages: JET_UINT32,
+            ulDensity: JET_UINT32,
+            rgcolumncreate: *mut JET_COLUMNCREATE_W,
+            cColumns: JET_UINT32,
+            rgindexcreate: *mut JET_INDEXCREATE3_W,
+            cIndexes: JET_UINT32,
+            szCallback: JET_PWSTR,
             cbtyp: JET_CBTYP,
             grbit: JET_GRBIT,
             pSeqSpacehints: *mut JET_SPACEHINTS,
@@ -2060,22 +2081,17 @@ mod Windows {
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
-        struct JET_TABLECREATE4_W {
+        struct JET_TABLECREATE_A {
             cbStruct: JET_UINT32,
-            szTableName: JET_PWSTR,
-            szTemplateTableName: JET_PWSTR,
+            szTableName: JET_PSTR,
+            szTemplateTableName: JET_PSTR,
             ulPages: JET_UINT32,
             ulDensity: JET_UINT32,
-            rgcolumncreate: *mut JET_COLUMNCREATE_W,
+            rgcolumncreate: *mut JET_COLUMNCREATE_A,
             cColumns: JET_UINT32,
-            rgindexcreate: *mut JET_INDEXCREATE3_W,
+            rgindexcreate: *mut JET_INDEXCREATE_A,
             cIndexes: JET_UINT32,
-            szCallback: JET_PWSTR,
-            cbtyp: JET_CBTYP,
             grbit: JET_GRBIT,
-            pSeqSpacehints: *mut JET_SPACEHINTS,
-            pLVSpacehints: *mut JET_SPACEHINTS,
-            cbSeparateLV: JET_UINT32,
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
@@ -2097,22 +2113,6 @@ mod Windows {
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
-        struct JET_TABLECREATE_A {
-            cbStruct: JET_UINT32,
-            szTableName: JET_PSTR,
-            szTemplateTableName: JET_PSTR,
-            ulPages: JET_UINT32,
-            ulDensity: JET_UINT32,
-            rgcolumncreate: *mut JET_COLUMNCREATE_A,
-            cColumns: JET_UINT32,
-            rgindexcreate: *mut JET_INDEXCREATE_A,
-            cIndexes: JET_UINT32,
-            grbit: JET_GRBIT,
-            tableid: JET_TABLEID,
-            cCreated: JET_UINT32,
-        }
-        #[arch(X86)]
-        #[packed(4)]
         struct JET_TABLECREATE_W {
             cbStruct: JET_UINT32,
             szTableName: JET_PWSTR,
@@ -2127,8 +2127,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_TABLECREATE_W {
             cbStruct: JET_UINT32,
             szTableName: JET_PWSTR,
@@ -2147,18 +2147,6 @@ mod Windows {
         type JET_TABLEID = u64;
         #[arch(X86)]
         type JET_TABLEID = u32;
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_THREADSTATS {
-            cbStruct: JET_UINT32,
-            cPageReferenced: JET_UINT32,
-            cPageRead: JET_UINT32,
-            cPagePreread: JET_UINT32,
-            cPageDirtied: JET_UINT32,
-            cPageRedirtied: JET_UINT32,
-            cLogRecord: JET_UINT32,
-            cbLogRecord: JET_UINT32,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_THREADSTATS {
@@ -2173,7 +2161,7 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_THREADSTATS2 {
+        struct JET_THREADSTATS {
             cbStruct: JET_UINT32,
             cPageReferenced: JET_UINT32,
             cPageRead: JET_UINT32,
@@ -2182,8 +2170,6 @@ mod Windows {
             cPageRedirtied: JET_UINT32,
             cLogRecord: JET_UINT32,
             cbLogRecord: JET_UINT32,
-            cusecPageCacheMiss: JET_UINT64,
-            cPageCacheMiss: JET_UINT32,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -2201,6 +2187,20 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct JET_THREADSTATS2 {
+            cbStruct: JET_UINT32,
+            cPageReferenced: JET_UINT32,
+            cPageRead: JET_UINT32,
+            cPagePreread: JET_UINT32,
+            cPageDirtied: JET_UINT32,
+            cPageRedirtied: JET_UINT32,
+            cLogRecord: JET_UINT32,
+            cbLogRecord: JET_UINT32,
+            cusecPageCacheMiss: JET_UINT64,
+            cPageCacheMiss: JET_UINT32,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_TUPLELIMITS {
             chLengthMin: JET_UINT32,
             chLengthMax: JET_UINT32,
@@ -2208,8 +2208,8 @@ mod Windows {
             cchIncrement: JET_UINT32,
             ichStart: JET_UINT32,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_TUPLELIMITS {
             chLengthMin: JET_UINT32,
             chLengthMax: JET_UINT32,
@@ -2234,12 +2234,6 @@ mod Windows {
         type JET_UINT32 = u32;
         type JET_UINT64 = u64;
         type JET_UINT8 = u8;
-        #[arch(X86)]
-        #[packed(4)]
-        struct JET_UNICODEINDEX {
-            lcid: JET_LCID,
-            dwMapFlags: JET_UINT32,
-        }
         #[arch(X64 | Arm64)]
         #[packed(8)]
         struct JET_UNICODEINDEX {
@@ -2248,9 +2242,8 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_UNICODEINDEX2 {
-            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
-            szLocaleName: JET_PWSTR,
+        struct JET_UNICODEINDEX {
+            lcid: JET_LCID,
             dwMapFlags: JET_UINT32,
         }
         #[arch(X64 | Arm64)]
@@ -2262,11 +2255,10 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
-        struct JET_USERDEFINEDDEFAULT_A {
-            szCallback: JET_PSTR,
-            pbUserData: *mut JET_BYTE,
-            cbUserData: JET_UINT32,
-            szDependantColumns: JET_PSTR,
+        struct JET_UNICODEINDEX2 {
+            #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
+            szLocaleName: JET_PWSTR,
+            dwMapFlags: JET_UINT32,
         }
         #[arch(X64 | Arm64)]
         #[packed(8)]
@@ -2278,14 +2270,22 @@ mod Windows {
         }
         #[arch(X86)]
         #[packed(4)]
+        struct JET_USERDEFINEDDEFAULT_A {
+            szCallback: JET_PSTR,
+            pbUserData: *mut JET_BYTE,
+            cbUserData: JET_UINT32,
+            szDependantColumns: JET_PSTR,
+        }
+        #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_USERDEFINEDDEFAULT_W {
             szCallback: JET_PWSTR,
             pbUserData: *mut JET_BYTE,
             cbUserData: JET_UINT32,
             szDependantColumns: JET_PWSTR,
         }
-        #[arch(X64 | Arm64)]
-        #[packed(8)]
+        #[arch(X86)]
+        #[packed(4)]
         struct JET_USERDEFINEDDEFAULT_W {
             szCallback: JET_PWSTR,
             pbUserData: *mut JET_BYTE,

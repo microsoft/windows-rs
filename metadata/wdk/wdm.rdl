@@ -1166,11 +1166,11 @@ mod Windows {
         const DRVO_UNLOAD_INVOKED: i32 = 1;
         const DUPLICATE_SAME_ATTRIBUTES: i32 = 4;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrint(#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] Format: PCSTR, ...) -> ULONG;
+        extern "C" fn DbgPrint(#[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[null_terminated(entry)] Format: PCSTR, ...) -> ULONG;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] Format: PCSTR, ...) -> ULONG;
+        extern "C" fn DbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[null_terminated(entry)] Format: PCSTR, ...) -> ULONG;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrintReturnControlC(#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] Format: PCCH, ...) -> ULONG;
+        extern "C" fn DbgPrintReturnControlC(#[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[null_terminated(entry)] Format: PCCH, ...) -> ULONG;
         #[library("ntdll.dll")]
         extern fn DbgQueryDebugFilterState(#[in] ComponentId: ULONG, #[in] Level: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -6049,7 +6049,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "RTL_QUERY_REGISTRY_ROUTINE", "RTL_QUERY_REGISTRY_ROUTINE", TypedefName = "RTL_QUERY_REGISTRY_ROUTINE")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0", TypedefName = "RTL_QUERY_REGISTRY_ROUTINE")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "RTL_QUERY_REGISTRY_ROUTINE")]
-        extern fn PRTL_QUERY_REGISTRY_ROUTINE(#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] ValueName: PWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
+        extern fn PRTL_QUERY_REGISTRY_ROUTINE(#[in] #[null_terminated(entry)] ValueName: PWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
         type PRTL_QUERY_REGISTRY_TABLE = *mut RTL_QUERY_REGISTRY_TABLE;
         type PSCATTER_GATHER_ELEMENT = *mut SCATTER_GATHER_ELEMENT;
         type PSDEV_IDENTIFIER_INTERFACE = *mut SDEV_IDENTIFIER_INTERFACE;
@@ -6384,7 +6384,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "RTL_QUERY_REGISTRY_ROUTINE", "RTL_QUERY_REGISTRY_ROUTINE")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
-        extern fn RTL_QUERY_REGISTRY_ROUTINE(#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] ValueName: PWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
+        extern fn RTL_QUERY_REGISTRY_ROUTINE(#[in] #[null_terminated(entry)] ValueName: PWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
         const RTL_QUERY_REGISTRY_SUBKEY: i32 = 1;
         struct RTL_QUERY_REGISTRY_TABLE {
             QueryRoutine: PRTL_QUERY_REGISTRY_ROUTINE,
@@ -6447,7 +6447,7 @@ mod Windows {
         extern fn RtlCreateSecurityDescriptor(#[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] Revision: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
-        extern fn RtlDeleteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] ValueName: PCWSTR) -> NTSTATUS;
+        extern fn RtlDeleteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[in] #[null_terminated(entry)] ValueName: PCWSTR) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn RtlDowncaseUnicodeChar(#[in] SourceCharacter: WCHAR) -> WCHAR;
@@ -6509,7 +6509,7 @@ mod Windows {
         extern fn RtlGetVersion(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "lpVersionInformation->dwOSVersionInfoSize,_Pre_ _Valid_", "lpVersionInformation->dwOSVersionInfoSize, _Pre_ _Valid_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpVersionInformation->dwOSVersionInfoSize == sizeof(RTL_OSVERSIONINFOEXW),_At_((PRTL_OSVERSIONINFOEXW)lpVersionInformation, _Out_)", "lpVersionInformation->dwOSVersionInfoSize == sizeof(RTL_OSVERSIONINFOEXW), _At_((PRTL_OSVERSIONINFOEXW)lpVersionInformation, _Out_)")] #[out] lpVersionInformation: PRTL_OSVERSIONINFOW) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         #[library("ntdll.dll")]
-        extern fn RtlInitUTF8String(#[out] DestinationString: PUTF8_STRING, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[opt] SourceString: PCSZ);
+        extern fn RtlInitUTF8String(#[out] DestinationString: PUTF8_STRING, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[null_terminated(entry)] #[opt] SourceString: PCSZ);
         #[library("ntdll.dll")]
         extern fn RtlInitializeBitMap(#[out] BitMapHeader: PRTL_BITMAP, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[opt] BitMapBuffer: PULONG, #[in] #[opt] SizeOfBitMap: ULONG);
         #[library("ntdll.dll")]
@@ -6566,7 +6566,7 @@ mod Windows {
         extern fn RtlVerifyVersionInfo(#[in] VersionInfo: PRTL_OSVERSIONINFOEXW, #[in] TypeMask: ULONG, #[in] ConditionMask: ULONGLONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
-        extern fn RtlWriteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] ValueName: PCWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG) -> NTSTATUS;
+        extern fn RtlWriteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[in] #[null_terminated(entry)] ValueName: PCWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn RtlxAnsiStringToUnicodeSize(#[in] AnsiString: PCANSI_STRING) -> ULONG;
@@ -7174,8 +7174,8 @@ mod Windows {
         type __prefast_analysis_mode_flag1 = i32;
         const __string_type: i32 = 0;
         #[library("ntdll.dll")]
-        extern fn vDbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] Format: PCCH, #[in] arglist: va_list) -> ULONG;
+        extern fn vDbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated(entry)] Format: PCCH, #[in] arglist: va_list) -> ULONG;
         #[library("ntdll.dll")]
-        extern fn vDbgPrintExWithPrefix(#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] Prefix: PCCH, #[in] ComponentId: ULONG, #[in] Level: ULONG, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] Format: PCCH, #[in] arglist: va_list) -> ULONG;
+        extern fn vDbgPrintExWithPrefix(#[in] #[null_terminated(entry)] Prefix: PCCH, #[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated(entry)] Format: PCCH, #[in] arglist: va_list) -> ULONG;
     }
 }

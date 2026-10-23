@@ -106,6 +106,9 @@ does not create shared ownership. `Partition::headers` retains real source heade
 and ordinary filename collisions fail. No canonical-metadata or per-name routing preference enters
 projection.
 
+Architecture variants are sorted by canonical formatted RDL, matching the metadata writer.
+Attribute token order before formatting does not affect declaration order.
+
 Win32 partitions merge into the same `Windows.Win32` namespace. The shared filename does not give
 their declarations different type identities. Package generation separately derives namespaces and
 features from RDL filenames, so it observes partition renames even when flat WinMD identities match.
