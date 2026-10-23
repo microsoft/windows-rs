@@ -125,7 +125,7 @@ Handle `Message::SetName(name)` in `update` by assigning `self.name = name`. Onl
 properties are controlled. If `update` rejects a change, the next render restores the declared
 value. Collections work the same way: a user reorder reports the item keys in their new order,
 and the state must be sorted to match. The [`controlled`](../../crates/samples/reactor/controlled)
-sample shows the pattern for toggles, ranges, selection, and text.
+sample shows the pattern for text and numeric input.
 
 ## Split up the view
 
@@ -174,7 +174,7 @@ Use `context.window_visuals` for size, placement, theme, and backdrop, and obser
 | Sample | Shows |
 | --- | --- |
 | [`image-sources`](../../crates/samples/reactor/image-sources) | URI, file, bitmap, and SVG sources for images and icons |
-| [`translation-transition`](../../crates/samples/reactor/translation-transition) | `Border` opacity, scale, and translation transitions |
+| [`translation-transition`](../../crates/samples/reactor/translation-transition) | `Border` translation transition and reversal |
 
 ## Choose a deployment model
 
