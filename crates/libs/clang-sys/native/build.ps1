@@ -31,7 +31,7 @@ function Get-NativeBuildInputs($SourceRoot, $Version, $Triple) {
 
 function Get-NativeBuildOutputs($Bin) {
     $outputs = @()
-    foreach ($name in @('libclang.dll', 'libClangSharp.dll')) {
+    foreach ($name in @('libclang.dll', 'windows_clang.dll')) {
         $path = Join-Path $Bin $name
         if (!(Test-Path -LiteralPath $path -PathType Leaf)) { return $null }
         $outputs += "$name=$(Get-NativeFileHash $path)"
@@ -83,7 +83,6 @@ $root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..\..\..\..'))
 $versionSource = Get-Content (Join-Path $PSScriptRoot '..\src\lib.rs') -Raw
 $version = [regex]::Match($versionSource, 'LIBCLANG_VERSION: &str = "([^"]+)"').Groups[1].Value
 if (!$version) { throw 'LIBCLANG_VERSION is missing' }
-$commit = '0c1c4098a7aab7cb392a2367b75d447bbac05d58'
 $arch = if ($Architecture) { $Architecture } else {
     [Runtime.InteropServices.RuntimeInformation]::OSArchitecture.ToString()
 }
@@ -94,7 +93,6 @@ $triple = switch ($arch) {
 }
 $cache = Join-Path $root "target\tool-clang\native\$version\$triple"
 $sdk = Join-Path $cache 'llvm'
-$source = Join-Path $cache "ClangSharp-$commit"
 $build = Join-Path $cache 'build'
 $bin = Join-Path $cache 'bin'
 
@@ -115,10 +113,6 @@ Invoke-NativeBuild $PSScriptRoot $bin $version $triple -Ensure:$Ensure -BuildAct
             "https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/clang%2Bllvm-$version-$triple.tar.xz" `
             (Join-Path $cache 'llvm.tar.xz') $sdk
     }
-    if (!(Test-Path (Join-Path $source 'CMakeLists.txt'))) {
-        Fetch-Archive "https://api.github.com/repos/dotnet/ClangSharp/tarball/$commit" `
-            (Join-Path $cache "clangsharp-$commit.tar.gz") $source
-    }
     $vswhere = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio\Installer\vswhere.exe'
     $vs = & $vswhere -latest -prerelease -property installationPath
     if (!$vs) { throw 'Visual Studio C++ build tools are required' }
@@ -132,15 +126,13 @@ Invoke-NativeBuild $PSScriptRoot $bin $version $triple -Ensure:$Ensure -BuildAct
     $command = "set `"PATH=$(Split-Path $vswhere);%PATH%`" && " +
         "call `"$devcmd`" -arch=$nativeArch -host_arch=$hostArch >nul && " +
         "`"$cmake`" -S `"$PSScriptRoot`" -B `"$build`" -G Ninja -DCMAKE_BUILD_TYPE=Release " +
-        "`"-DPATH_TO_LLVM=$sdk`" `"-DCLANGSHARP_SOURCE=$source`" && " +
-        "`"$cmake`" --build `"$build`" --target ClangSharp --clean-first --parallel 4"
+        "`"-DPATH_TO_LLVM=$sdk`" && " +
+        "`"$cmake`" --build `"$build`" --target windows_clang --clean-first --parallel 4"
     & $env:ComSpec /d /c $command
     if ($LASTEXITCODE) { throw 'Native build failed' }
     New-Item -ItemType Directory -Force $bin | Out-Null
     Copy-Item (Join-Path $sdk 'bin\libclang.dll') $bin -Force
-    Copy-Item (Join-Path $build 'bin\libClangSharp.dll') $bin -Force
-    Copy-Item (Join-Path $source 'LICENSE.md') (Join-Path $bin 'ClangSharp-LICENSE.md') -Force
-    Copy-Item (Join-Path $source 'NOTICE.md') (Join-Path $bin 'ClangSharp-NOTICE.md') -Force
+    Copy-Item (Join-Path $build 'windows_clang.dll') $bin -Force
     Copy-Item (Join-Path $sdk 'include\llvm\Support\LICENSE.TXT') (Join-Path $bin 'LLVM-LICENSE.txt') -Force
 }
 Write-Output $bin

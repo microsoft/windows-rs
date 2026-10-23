@@ -5,61 +5,65 @@
 mod bindings;
 pub use bindings::*;
 
-use std::cell::RefCell;
 use std::ffi::CStr;
 use std::path::Path;
-use std::sync::Arc;
+use std::sync::{Mutex, OnceLock};
 
 /// LLVM version shared by the native bridge, runtime, and resource headers.
 pub const LIBCLANG_VERSION: &str = "22.1.8";
 
-/// Keeps both native libraries alive. Compiler handles must not outlive this owner.
-pub struct SharedLibrary {
-    functions: Functions,
-    _extension: libloading::Library,
-    _base: libloading::Library,
+const BASE: &str = "libclang.dll";
+const EXTENSION: &str = "windows_clang.dll";
+
+// Loaded once per process and never unloaded, so compiler handles cannot outlive the libraries.
+static FUNCTIONS: OnceLock<Functions> = OnceLock::new();
+
+fn functions() -> &'static Functions {
+    FUNCTIONS.get().unwrap()
 }
 
-thread_local! {
-    static LIBRARY: RefCell<Option<Arc<SharedLibrary>>> = const { RefCell::new(None) };
+/// Loads the version-matched DLL pair for the process. Later calls return immediately.
+///
+/// `LIBCLANG_PATH` names the directory (or a file within it); otherwise `PATH` is searched.
+pub fn load() -> Result<(), String> {
+    static LOADING: Mutex<()> = Mutex::new(());
+    let _loading = LOADING.lock().unwrap();
+    if FUNCTIONS.get().is_none() {
+        _ = FUNCTIONS.set(load_from(&directory()?)?);
+    }
+    Ok(())
 }
 
-fn with_library<T>(callback: impl FnOnce(&SharedLibrary) -> T) -> T {
-    let library = LIBRARY.with(|slot| slot.borrow().clone()).unwrap();
-    callback(&library)
-}
-
-/// Replaces this thread's binding, returning its previous owner.
-pub fn set_library(library: Option<Arc<SharedLibrary>>) -> Option<Arc<SharedLibrary>> {
-    LIBRARY.with(|slot| slot.replace(library))
-}
-
-/// Loads the version-matched DLL pair without binding it to the calling thread.
-pub fn load_manually() -> Result<SharedLibrary, String> {
+fn directory() -> Result<std::path::PathBuf, String> {
     if let Some(path) = std::env::var_os("LIBCLANG_PATH") {
         let path = Path::new(&path);
-        return load_from(if path.is_file() {
+        return Ok(if path.is_file() {
             path.parent().unwrap()
         } else {
             path
-        });
+        }
+        .to_path_buf());
     }
     if let Some(paths) = std::env::var_os("PATH") {
         for path in std::env::split_paths(&paths) {
-            if path.join("libclang.dll").is_file() && path.join("libClangSharp.dll").is_file() {
-                return load_from(&path);
+            if path.join(BASE).is_file() && path.join(EXTENSION).is_file() {
+                return Ok(path);
             }
         }
     }
-    Err("set LIBCLANG_PATH to the version-matched libclang.dll/libClangSharp.dll directory".into())
+    Err(format!(
+        "set LIBCLANG_PATH to the version-matched {BASE}/{EXTENSION} directory"
+    ))
 }
 
 /// Loads both DLLs from one directory and checks the extension ABI and LLVM version.
-pub fn load_from(directory: &Path) -> Result<SharedLibrary, String> {
-    let base = unsafe { libloading::Library::new(directory.join("libclang.dll")) }
-        .map_err(|error| format!("{}: {error}", directory.display()))?;
-    let extension = unsafe { libloading::Library::new(directory.join("libClangSharp.dll")) }
-        .map_err(|error| format!("{}: {error}", directory.display()))?;
+fn load_from(directory: &Path) -> Result<Functions, String> {
+    let open = |name| {
+        unsafe { libloading::Library::new(directory.join(name)) }
+            .map_err(|error| format!("{}: {error}", directory.display()))
+    };
+    let base = open(BASE)?;
+    let extension = open(EXTENSION)?;
     let functions = unsafe { Functions::load(&base, &extension)? };
     let abi = unsafe { (functions.windows_clang_getABIVersion)() };
     if abi != 20 {
@@ -89,24 +93,16 @@ pub fn load_from(directory: &Path) -> Result<SharedLibrary, String> {
     if !matches {
         return Err(format!("libclang runtime requires LLVM {LIBCLANG_VERSION}"));
     }
-    Ok(SharedLibrary {
-        functions,
-        _extension: extension,
-        _base: base,
-    })
+    // The function pointers remain valid for the life of the process.
+    std::mem::forget(extension);
+    std::mem::forget(base);
+    Ok(functions)
 }
 
-/// Loads and binds the libraries to this thread.
-pub fn load() -> Result<(), String> {
-    if LIBRARY.with(|slot| slot.borrow().is_none()) {
-        set_library(Some(Arc::new(load_manually()?)));
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn missing_directory() {
+        assert!(super::load_from(std::path::Path::new("missing-native-clang-directory")).is_err());
     }
-    Ok(())
-}
-
-/// Releases this thread's binding. All of its compiler handles must already be disposed.
-pub fn unload() -> Result<(), String> {
-    set_library(None)
-        .map(|_| ())
-        .ok_or_else(|| "libclang is not loaded on this thread".into())
 }

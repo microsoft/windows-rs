@@ -598,8 +598,8 @@ caller storage contract or changing layout. NativeDeprecated retains messages/re
 including empty payloads and original typedef ownership, but does not request Rust diagnostics.
 Unknown kinds/payloads remain errors, never inferred from empty tokens or matching layouts.
 
-The stock LLVM 23.1.3 C API also lacks the packing payload accessor. ClangSharp's getMaxAlignment
-reads explicit AlignedAttr, not pragma packing. Runtime/resource-header upgrades remain separate
+The stock C API also lacks the packing payload accessor; the companion reads
+`MaxFieldAlignmentAttr`, not explicit `AlignedAttr`. Runtime/resource-header upgrades remain separate
 from declaration work. See [windows-clang-sys](windows-clang-sys.md), `opaque_packing`,
 `opaque_callbacks`, `visibility*`, `initialization` and `deprecations` for native boundary checks.
 

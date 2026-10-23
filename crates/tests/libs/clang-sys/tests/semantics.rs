@@ -1,14 +1,12 @@
 #![allow(non_upper_case_globals)]
 
 use std::ffi::{CStr, CString};
-use std::sync::Arc;
 use windows_clang_sys::*;
 
 #[test]
 fn native_semantics() {
     helpers::ensure_libclang();
-    let library = Arc::new(load_manually().unwrap());
-    let previous = set_library(Some(Arc::clone(&library)));
+    load().unwrap();
     for target in [
         "i686-pc-windows-msvc",
         "x86_64-pc-windows-msvc",
@@ -970,20 +968,15 @@ fn native_semantics() {
     }
     std::thread::scope(|scope| {
         for _ in 0..3 {
-            let library = Arc::clone(&library);
-            scope.spawn(move || {
-                let previous = set_library(Some(library));
+            scope.spawn(|| {
                 assert_eq!(unsafe { windows_clang_getABIVersion() }, 20);
                 assert_eq!(
                     native_name(unsafe { windows_clang_getLLVMVersion() }),
                     LIBCLANG_VERSION
                 );
-                set_library(previous);
             });
         }
     });
-    set_library(previous);
-    assert!(load_from(std::path::Path::new("missing-native-clang-directory")).is_err());
 }
 
 fn import_conventions(target: &str, find: &impl Fn(&str) -> CXCursor) {
