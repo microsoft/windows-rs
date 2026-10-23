@@ -141,9 +141,9 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 
 - WinUI backend ownership is split across `crates/libs/reactor/src/native/winui/mod.rs` and
   `crates/libs/reactor/src/native/winui/`.
-- The TOML config (`crates/tools/reactor/src/schema.toml`) declares 79 WinUI controls. Keys are
-  WinUI metadata names; the tool infers types, setter patterns, and event handlers from `.winmd`
-  files.
+- The TOML config (`crates/tools/reactor/src/schema.toml`) declares each wrapped WinUI object as an
+  `[[objects]]` entry. Keys are WinUI metadata names; the tool infers types, setter patterns, and
+  event handlers from `.winmd` files.
 - COM casts: classes Deref to their default interface (zero-cost). Only cast to non-default parent
   interfaces. The `Param` trait handles parent-class conversions automatically.
 
@@ -239,20 +239,25 @@ propagation; investigate the behavior before adding a focused public-API regress
 
 ### Reactor live coverage gaps (test-reactor fixtures)
 
-About 42 of the 81 schema objects have no live `test-reactor` coverage. Add contract-style fixtures
-in priority order. Verify indirect coverage (for example `CommandBar` via the menu fixture) before
-adding a case. The `controlled` fixtures cover toggles, grouped `RadioButton`s, `Expander`, ranged
-values, `PasswordBox`, `ColorPicker`, and `CalendarDatePicker`; the `transform` fixtures cover
-`TextBox`, `AutoSuggestBox`, and `RichEditBox`; the `tree` fixture covers `TreeView` and
-`TreeNode`.
+Many schema objects have no live `test-reactor` coverage. Add contract-style fixtures in priority
+order. Verify indirect coverage (for example `CommandBar` via the menu fixture) before adding a
+case. The `controlled` fixtures cover toggles, grouped `RadioButton`s, `Expander`, ranged values,
+`PasswordBox`, `ColorPicker`, and `CalendarDatePicker`; the `text` fixtures cover `TextBox`,
+`AutoSuggestBox`, and `RichEditBox`; the `tree` fixture covers `TreeView` and `TreeNode`; the
+`selection` fixtures cover index selectors including `GridView`.
 
 | Priority | Area | Contracts to check |
 | --- | --- | --- |
-| 1 | Panes: `SplitView`, `NavigationView` `is_pane_open` | `SplitView` observes only `PaneClosed`; WinUI has no user-driven open, so likely fine |
-| 3 | Item-flag selectors: `ListBox`, `SelectorBar`, `NavigationView`, `BreadcrumbBar` | Selection shape differs from index selectors |
-| 3 | Selector edge cases | Index reassert during retire / exit animation, async intermediate events, `GridView` vs `ListView` parity |
-| 4 | Open/close surfaces: `InfoBar`, `TeachingTip`, `ToolTip` | Open state and close callbacks |
-| 5 | Display-only: shapes, icons, `ProgressBar`, `ProgressRing`, `Viewbox`, panels | Low risk; smoke only |
+| 1 | Item-flag selectors: `ListBox`, `SelectorBar`, `NavigationView`, `BreadcrumbBar` | Selection shape differs from index selectors |
+| 2 | Selector edge cases | Async intermediate selection events |
+| 3 | Open/close surfaces: `InfoBar`, `TeachingTip`, `ToolTip` | Open state and close callbacks |
+| 4 | Panes: `SplitView`, `NavigationView` `is_pane_open` | `SplitView` observes only `PaneClosed` |
+| 5 | Display-only: shapes, icons, `ProgressBar`, `ProgressRing`, `Viewbox`, panels | Smoke only |
+
+### Intermittent drag restart timeout
+
+The ignored `test-reactor` case `cancelled_drag_can_be_restarted` intermittently fails with a UIA
+timeout (`0x80131505`). The cause is unconfirmed.
 
 ### Repo-wide dead-code / quality audit (2026-07)
 
