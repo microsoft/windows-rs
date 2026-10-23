@@ -201,6 +201,10 @@ external WinRT definitions remain rejected. There is no local stand-in after fai
 definitions and same-identity aliases are not emitted locally; distinct authored aliases retain
 their own attributes.
 
+Unqualified, unannotated native COM typedefs are checked against the referenced interface's nominal
+identity, not as by-value storage. UUID, base and layout validation still applies to the interface.
+Actual by-value uses remain rejected.
+
 `reference_types` compiles a producer header to WinMD, then consumes its definitions from another
 header and output namespace. It covers ordinary names alongside HRESULT, aliases, target variants,
 nested records, callbacks, constants, local fallback, ambiguity and native conflicts. Both
@@ -212,6 +216,8 @@ rejection and the memorybuffer/robuffer helpers with authoritative WinRT referen
 requires the desktop header's complete `IDesktopWindowTarget`, not its interop forward alone.
 `native_reference_ownership` covers global COM references, local inheritance, metadata round trips,
 UUID/base mismatches, slot-count disagreement and ambiguous metadata ownership on all targets.
+Its `native_reference_aliases` fixture covers explicit interface typedefs, pointer-containing records,
+dependent imports, by-value rejection and annotated aliases.
 Consumers check ten interop vtables, casts, shared buffers, HRESULT errors, delegates and real
 dispatcher-queue creation/shutdown. x86/x64 execute on an x64 host; ARM64 is compile-only there.
 

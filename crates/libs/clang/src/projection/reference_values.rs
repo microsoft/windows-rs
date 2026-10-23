@@ -154,14 +154,24 @@ impl Projector<'_, '_> {
                             }),
                             metadata,
                         )?;
-                    } else if !metadata.flags().contains(TypeAttributes::WindowsRuntime)
-                        && self.ty(reference.snapshot, observation.canonical)?
-                            != references::metadata_type(metadata)
-                    {
-                        return Err(Error(format!(
-                            "external alias `{}` nominal type differs from metadata",
-                            alias.name,
-                        )));
+                    } else if !metadata.flags().contains(TypeAttributes::WindowsRuntime) {
+                        let native = checked_type(snapshot, observation.canonical)?;
+                        // A typedef names the interface; it does not store an interface value.
+                        let actual = if let TypeKind::Record(record) = native.kind
+                            && self.interface_record(reference.snapshot, record)
+                            && native.qualifiers == Qualifiers::default()
+                            && observation.attributes.is_empty()
+                        {
+                            self.interface_type(reference.snapshot, record)
+                        } else {
+                            self.ty(reference.snapshot, observation.canonical)?
+                        };
+                        if actual != references::metadata_type(metadata) {
+                            return Err(Error(format!(
+                                "external alias `{}` nominal type differs from metadata",
+                                alias.name,
+                            )));
+                        }
                     }
                 }
                 Ok(())

@@ -94,7 +94,7 @@ and cutover sequence are not approvals; downstream obligations remain deferred, 
 | Unspecified direction in bindgen | Raw-pointer, alias, COM and callback fixtures preserve absent direction without mutable-to-const or output-conversion guesses. Native named-import consumers pass. | Keep direction evidence separate from type/ownership handling; do not infer direction in clang to compensate. |
 | COM argument ownership | Direct interface arguments retain borrowed references, including optional values and producer parameters without direction flags. The lifetime fixture verifies caller ownership and release; raw buffer restrictions remain in place. | Residual evidence still cannot authorize slice, query or retval conversion. BSTR ownership is unchanged. |
 | Generation drift | Native generation and `tool-roundtrip` produce byte-identical WinRT, Win32 and WDK RDL. Shared attribute formatting, canonical variant sort keys and resolution-only writer references preserve generated spelling and ordering. | Workspace-build drift in the tracked robot WinMD files and full generator qualification remain open. Clean RDL roundtrips do not establish replacement readiness. |
-| Direction-repair generation | Package, internal binding and Reactor regeneration introduce no generated changes. Composition regeneration refreshes retained native aliases in both stacks. WebView capture stops before binding generation because only three of five loader imports survive dependency pruning. | Keep the Composition diff visible and investigate WebView capture separately from WinRT direction validation. Full generator qualification remains open. |
+| Direction-repair generation | Package, internal binding and Reactor regeneration introduce no generated changes. Composition regeneration refreshes retained native aliases in both stacks. WebView generation retains all five loader imports after nominal COM typedef validation; its 33 live host/browser fixtures pass with regenerated bindings. Canonical SDK/WDK output is unchanged. | WebView retains 69 explicit omissions for RPC proxy/stub import ownership, LIBID definitions and C++ helper operators. Full generator qualification remains open. |
 | Proposed analysis-only removals | Not approved as a group. Pointer invalidation, allocation and execution-context annotations can carry useful contracts. Result inspection also has non-return owners. | Review meaning and ownership individually; lack of a consumer is not enough. SAL1 result checking remains a separate equivalence decision. |
 | CI generation input | `gen.yml` runs full SDK/WDK generation and checks tracked metadata drift with a shallow checkout. | Consumer jobs use committed metadata. Full package qualification remains separate from successful generation. |
 | Required missing APIs | The 198-pair/70-name total remains historical. Current metadata and diagnostics reconfirm WaitOnAddress, MiniDumpWriteDump, XAudio2Create, IsEqualGUID, CfRegisterSyncRoot and RoGetActivatableClassRegistration gaps. `RtlCaptureContext2` remains x64-only. Missing `ACCESS_STATE` also breaks the rich/raw layout tests. | Classify native support, public requirements and baseline correctness. Fix or obtain a justified disposition; do not treat zero differences as the goal. |
@@ -134,6 +134,18 @@ The `null_terminated` reference fixture covers colliding functions, constants, r
 in single-file, split and partitioned output. Conflicting aliases retain full attributes; ambiguous
 enum definitions retain numeric attribute values. Native generation followed by roundtripping
 leaves every canonical RDL file byte-identical.
+
+`projection::reference_values::validate_value_references` compares unqualified, unannotated COM
+typedefs through `interface_type`, not the by-value storage path. Nominal identity, UUID, base and
+native layout checks remain required. The `native_reference_aliases` header/RDL fixture covers a
+pointer-containing record and imported consumer on all three targets, along with by-value,
+annotated-alias, UUID, base and slot rejection. Referenced definitions remain external through both
+metadata roundtrips.
+
+WebView generation retains all five loader imports and emits the native `EventRegistrationToken`
+struct. Its 33 live host/browser fixtures pass. The remaining 69 omissions comprise 60 target-specific
+RPC proxy/stub import-ownership diagnostics, two LIBID declarations without definitions, and seven
+C++ flag operators. They are not interface-alias dependency cascades and remain explicit.
 
 | Current missing surface | Verified diagnostic boundary |
 | --- | --- |
