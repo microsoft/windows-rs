@@ -2,8 +2,9 @@ use super::*;
 
 #[derive(Clone, Copy, PartialEq)]
 pub(super) enum TextControl {
-    TextBox,
-    AutoSuggestBox,
+    Text,
+    Suggest,
+    Rich,
 }
 
 /// Uppercases every edit so the native control receives a different value than the user typed.
@@ -47,7 +48,7 @@ impl Component for TransformFixture {
             .header
             .then(|| TextBox::new().automation_id("header").text("Header"));
         let input: View = match control {
-            TextControl::TextBox => {
+            TextControl::Text => {
                 let mut input = TextBox::new()
                     .automation_id("input")
                     .text(self.text.clone())
@@ -57,8 +58,18 @@ impl Component for TransformFixture {
                 }
                 input.into()
             }
-            TextControl::AutoSuggestBox => {
+            TextControl::Suggest => {
                 let mut input = AutoSuggestBox::new()
+                    .automation_id("input")
+                    .text(self.text.clone())
+                    .on_text_changed(context.callback(TransformMessage::Changed));
+                if let Some(header) = header {
+                    input = input.header(header);
+                }
+                input.into()
+            }
+            TextControl::Rich => {
+                let mut input = RichEditBox::new()
                     .automation_id("input")
                     .text(self.text.clone())
                     .on_text_changed(context.callback(TransformMessage::Changed));
@@ -69,8 +80,9 @@ impl Component for TransformFixture {
             }
         };
         let title = match control {
-            TextControl::TextBox => "Reactor UI fixture: text-transform",
-            TextControl::AutoSuggestBox => "Reactor UI fixture: suggest-transform",
+            TextControl::Text => "Reactor UI fixture: text-transform",
+            TextControl::Suggest => "Reactor UI fixture: suggest-transform",
+            TextControl::Rich => "Reactor UI fixture: rich-transform",
         };
         context.window_frame(
             title,

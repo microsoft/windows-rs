@@ -25,6 +25,8 @@ mod tray;
 mod typography;
 mod window;
 
+pub use controlled::date;
+
 #[derive(Clone, Copy, PartialEq)]
 enum MenuSurface {
     Button,
@@ -285,6 +287,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "canvas" => App::run_component::<canvas::CanvasFixture>(())?,
         "controlled" => App::run_component::<controlled::ControlledFixture>(())?,
         "radio" => App::run_component::<controlled::RadioFixture>(())?,
+        "controlled-input" => App::run_component::<controlled::InputFixture>(())?,
         "flyout" => App::run_component::<flyout::FlyoutFixture>(())?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,
         "dialog-theme-light" => {
@@ -320,10 +323,13 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         )?,
         "text" => App::run_component::<TextFixture>(())?,
         "text-transform" => {
-            App::run_component::<text::TransformFixture>(text::TextControl::TextBox)?;
+            App::run_component::<text::TransformFixture>(text::TextControl::Text)?;
         }
         "suggest-transform" => {
-            App::run_component::<text::TransformFixture>(text::TextControl::AutoSuggestBox)?;
+            App::run_component::<text::TransformFixture>(text::TextControl::Suggest)?;
+        }
+        "rich-transform" => {
+            App::run_component::<text::TransformFixture>(text::TextControl::Rich)?;
         }
         "typography" => App::run_component::<typography::TypographyFixture>(())?,
         "typography-inherited" => {

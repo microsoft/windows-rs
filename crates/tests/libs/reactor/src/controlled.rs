@@ -291,3 +291,168 @@ impl Component for RadioFixture {
             .into()
     }
 }
+
+/// Local noon on a day in March 2024. `to_local` applies today's UTC offset, which may differ
+/// from March's by a DST hour, so noon keeps the local day correct in every time zone. The picker
+/// keeps this time of day when the user picks another date.
+pub fn date(day: u32) -> DateTime {
+    let utc = DateTime::from_unix_secs(1_709_294_400 + (i64::from(day) - 1) * 86_400);
+    DateTime::from_ticks(2 * utc.ticks() - utc.to_local().ticks())
+}
+
+fn show_date(value: Option<DateTime>) -> String {
+    value.map(DateTime::to_local).map_or_else(
+        || "none".to_string(),
+        |value| format!("{}-{:02}-{:02}", value.year(), value.month(), value.day()),
+    )
+}
+
+/// Controlled text and picker values, logged and rejected like `ControlledFixture`. Narrow moves
+/// the date range past the programmed date so writing it is coerced.
+pub(super) struct InputFixture {
+    password: Rc<str>,
+    color: Color,
+    date: Option<DateTime>,
+    narrow: bool,
+    accept: bool,
+    calls: Vec<String>,
+}
+
+#[derive(Clone)]
+pub(super) enum InputMessage {
+    Password(Rc<str>),
+    Color(Color),
+    Date(Option<DateTime>),
+    Program,
+    Reject,
+    Narrow,
+    Widen,
+}
+
+impl Component for InputFixture {
+    type Input = ();
+    type Message = InputMessage;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            password: Rc::from("secret"),
+            color: Color::rgb(0x11, 0x22, 0x33),
+            date: Some(date(15)),
+            narrow: false,
+            accept: true,
+            calls: Vec::new(),
+        }
+    }
+
+    fn update(&mut self, message: InputMessage, _: &ComponentContext<Self>) {
+        use InputMessage as M;
+        let call = match &message {
+            M::Password(value) => format!("password {value}"),
+            M::Color(value) => format!("color {:02x}{:02x}{:02x}", value.r, value.g, value.b),
+            M::Date(value) => format!("date {}", show_date(*value)),
+            M::Program | M::Reject | M::Narrow | M::Widen => String::new(),
+        };
+        if !call.is_empty() {
+            self.calls.push(call);
+            if !self.accept {
+                return;
+            }
+        }
+        match message {
+            M::Password(value) => self.password = value,
+            M::Color(value) => self.color = value,
+            M::Date(value) => self.date = value,
+            M::Program => {
+                self.password = Rc::from("program");
+                self.color = Color::rgb(0x44, 0x55, 0x66);
+                self.date = Some(date(10));
+            }
+            M::Reject => self.accept = false,
+            M::Narrow => self.narrow = true,
+            M::Widen => self.narrow = false,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        use InputMessage as M;
+        let (min, max) = if self.narrow {
+            (date(20), date(25))
+        } else {
+            (date(1), date(28))
+        };
+        let controls: [View; 3] = [
+            PasswordBox::new()
+                .automation_id("password")
+                .password(&*self.password)
+                .password_reveal_mode(PasswordRevealMode::Visible)
+                .on_password_changed(context.callback(M::Password))
+                .into(),
+            ColorPicker::new()
+                .automation_id("color")
+                .color(self.color)
+                .on_color_changed(context.callback(M::Color))
+                .into(),
+            CalendarDatePicker::new()
+                .automation_id("date")
+                .date(self.date)
+                .min_date(min)
+                .max_date(max)
+                .on_date_changed(context.callback(M::Date))
+                .into(),
+        ];
+        let commands: [View; 6] = [
+            Button::new()
+                .automation_id("program")
+                .content("Program")
+                .on_click(context.message(M::Program))
+                .into(),
+            Button::new()
+                .automation_id("reject")
+                .content("Reject")
+                .on_click(context.message(M::Reject))
+                .into(),
+            Button::new()
+                .automation_id("narrow")
+                .content("Narrow")
+                .on_click(context.message(M::Narrow))
+                .into(),
+            Button::new()
+                .automation_id("widen")
+                .content("Widen")
+                .on_click(context.message(M::Widen))
+                .into(),
+            TextBlock::new()
+                .automation_id("state")
+                .text(format!(
+                    "{} {:02x}{:02x}{:02x} {}",
+                    self.password,
+                    self.color.r,
+                    self.color.g,
+                    self.color.b,
+                    show_date(self.date)
+                ))
+                .into(),
+            TextBlock::new()
+                .automation_id("calls")
+                .text(self.calls.join("; "))
+                .into(),
+        ];
+        context.window_title("Reactor UI fixture: controlled-input");
+        context.window_visuals(WindowVisuals::new().client_size(900.0, 800.0));
+        StackPanel::new()
+            .orientation(Orientation::Horizontal)
+            .margin(20.0)
+            .spacing(20.0)
+            .children((
+                StackPanel::new()
+                    .width(400.0)
+                    .spacing(8.0)
+                    .children(controls),
+                StackPanel::new()
+                    .width(400.0)
+                    .spacing(8.0)
+                    .children(commands),
+            ))
+            .into()
+    }
+}

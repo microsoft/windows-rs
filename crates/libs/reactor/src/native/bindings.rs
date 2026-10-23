@@ -18140,6 +18140,16 @@ impl windows_core::RuntimeType for ITextDocument {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ITextDocument {
+    pub(crate) fn Selection(&self) -> windows_core::Result<ITextSelection> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Selection)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
     pub(crate) fn GetText(
         &self,
         options: TextGetOptions,
@@ -18172,7 +18182,10 @@ pub struct ITextDocument_Vtbl {
     SetCaretType: usize,
     DefaultTabStop: usize,
     SetDefaultTabStop: usize,
-    Selection: usize,
+    pub Selection: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     UndoLimit: usize,
     SetUndoLimit: usize,
     CanCopy: usize,
@@ -18246,6 +18259,130 @@ pub struct ITextElement_Vtbl {
     FontStyle: usize,
     pub SetFontStyle:
         unsafe extern "system" fn(*mut core::ffi::c_void, FontStyle) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ITextRange,
+    ITextRange_Vtbl,
+    0x06d4abcf_0c06_5d12_a743_85537efd09ea
+);
+impl windows_core::RuntimeType for ITextRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(
+    ITextRange,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl ITextRange {
+    pub(crate) fn EndPosition(&self) -> windows_core::Result<i32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EndPosition)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn StartPosition(&self) -> windows_core::Result<i32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).StartPosition)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetRange(
+        &self,
+        startposition: i32,
+        endposition: i32,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetRange)(
+                windows_core::Interface::as_raw(self),
+                startposition,
+                endposition,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ITextRange_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Character: usize,
+    SetCharacter: usize,
+    CharacterFormat: usize,
+    SetCharacterFormat: usize,
+    FormattedText: usize,
+    SetFormattedText: usize,
+    pub EndPosition:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    SetEndPosition: usize,
+    Gravity: usize,
+    SetGravity: usize,
+    Length: usize,
+    Link: usize,
+    SetLink: usize,
+    ParagraphFormat: usize,
+    SetParagraphFormat: usize,
+    pub StartPosition:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    SetStartPosition: usize,
+    StoryLength: usize,
+    Text: usize,
+    SetText: usize,
+    CanPaste: usize,
+    ChangeCase: usize,
+    Collapse: usize,
+    Copy: usize,
+    Cut: usize,
+    Delete: usize,
+    EndOf: usize,
+    Expand: usize,
+    FindText: usize,
+    GetCharacterUtf32: usize,
+    GetClone: usize,
+    GetIndex: usize,
+    GetPoint: usize,
+    GetRect: usize,
+    GetText: usize,
+    GetTextViaStream: usize,
+    InRange: usize,
+    InsertImage: usize,
+    InStory: usize,
+    IsEqual: usize,
+    Move: usize,
+    MoveEnd: usize,
+    MoveStart: usize,
+    Paste: usize,
+    ScrollIntoView: usize,
+    MatchSelection: usize,
+    SetIndex: usize,
+    SetPoint: usize,
+    pub SetRange:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ITextSelection,
+    ITextSelection_Vtbl,
+    0x8f5e6cb1_2b04_589f_bd24_54e5cd8dd399
+);
+impl windows_core::RuntimeType for ITextSelection {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(
+    ITextSelection,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+#[repr(C)]
+pub struct ITextSelection_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
     ITimePicker,

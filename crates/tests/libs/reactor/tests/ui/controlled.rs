@@ -111,6 +111,103 @@ fn radio_group_restores_declared_choice() -> Result<()> {
     })
 }
 
+/// Password, color, and date follow the same contract as the other controlled values. Each
+/// control reports user input once, and programmatic or rejected values are not reported.
+#[test]
+fn controlled_inputs_follow_declared_state() -> Result<()> {
+    process::run("controlled-input", |ui| {
+        inputs(ui, "secret", "#112233", 15)?;
+        ui.name("state", "secret 112233 2024-03-15")?;
+        ui.name_stays("calls", "", Duration::from_millis(500))?;
+
+        let user = "password secretx; color abcdef; date 2024-03-16";
+        input_changes(ui, 16)?;
+        ui.name("calls", user)?;
+        ui.name("state", "secretx abcdef 2024-03-16")?;
+        inputs(ui, "secretx", "#ABCDEF", 16)?;
+
+        ui.invoke("program")?;
+        inputs(ui, "program", "#445566", 10)?;
+        ui.name_stays("calls", user, Duration::from_millis(500))?;
+
+        ui.invoke("reject")?;
+        input_changes(ui, 12)?;
+        let calls = format!("{user}; password programx; color abcdef; date 2024-03-12");
+        ui.name("calls", &calls)?;
+        inputs(ui, "program", "#445566", 10)?;
+        ui.name_stays("calls", &calls, Duration::from_millis(500))
+    })
+}
+
+/// Writing a date outside the range coerces the picker without reporting it, and the declared
+/// date returns once the range allows it.
+#[test]
+fn controlled_date_range_keeps_declared_date() -> Result<()> {
+    process::run("controlled-input", |ui| {
+        inputs(ui, "secret", "#112233", 15)?;
+        ui.invoke("narrow")?;
+        ui.invoke("program")?;
+        date(ui, 20)?;
+        ui.invoke("widen")?;
+        date(ui, 10)?;
+        ui.name("state", "program 445566 2024-03-10")?;
+        ui.name_stays("calls", "", Duration::from_millis(500))
+    })
+}
+
+fn inputs(ui: &Automation, password: &str, color: &str, day: u32) -> Result<()> {
+    ui.value("password", password)?;
+    ui.value("HexTextBox", color)?;
+    date(ui, day)
+}
+
+/// Compares the picker text with the same date formatted the way the picker formats it, so the
+/// check holds in any locale and calendar.
+fn date(ui: &Automation, day: u32) -> Result<()> {
+    let expected =
+        DateTimeFormatter::CreateDateTimeFormatter("shortdate")?.Format(test_reactor::date(day))?;
+    let text = ui.element("DateText")?;
+    ui.wait(
+        &format!("picker shows {expected}"),
+        || unsafe { text.CurrentName() },
+        |shown| *shown == *expected,
+    )?;
+    Ok(())
+}
+
+fn input_changes(ui: &Automation, day: u32) -> Result<()> {
+    ui.press_keys("password", &[VK_END])?;
+    ui.type_text("password", "x")?;
+    ui.set_value("HexTextBox", "#abcdef")?;
+    ui.invoke("date")?;
+    let calendar = ui.element("CalendarView")?;
+    let name = day.to_string();
+    let item = ui.wait(
+        &format!("find calendar day {day}"),
+        || unsafe {
+            let all = ui.client.CreateTrueCondition()?;
+            let items = calendar.FindAll(TreeScope_Descendants, &all)?;
+            for index in 0..items.Length()? {
+                let item = items.GetElement(index)?;
+                if item.CurrentControlType()? == DATA_ITEM && item.CurrentName()? == name.as_str() {
+                    return Ok(Some(item));
+                }
+            }
+            Ok(None)
+        },
+        Option::is_some,
+    )?;
+    // Select with the keyboard: a pointer click races the popup animation on CI, and the day's
+    // SelectionItem peer clears the date before selecting, which a user never sees.
+    let item = item.unwrap();
+    unsafe { item.SetFocus().ok()? };
+    ui.press_keys_on(&item, &name, &[VK_SPACE])?;
+    ui.gone("CalendarView")
+}
+
+const DATA_ITEM: i32 = 50029;
+const VK_END: i32 = 0x23;
+const VK_SPACE: i32 = 0x20;
 const RANGE_VALUE_PATTERN: i32 = 10003;
 const EXPAND_COLLAPSE_PATTERN: i32 = 10005;
 const SELECTION_ITEM_PATTERN: i32 = 10010;

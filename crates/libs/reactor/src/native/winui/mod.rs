@@ -2487,12 +2487,18 @@ fn set_rich_edit_text(value: &native::RichEditBox, text: &str) -> Result<(), Win
         return Ok(());
     }
     let document = value.Document()?;
+    // Like `set_edit_text`, keep the caret and selection where the user left them. SetText moves
+    // them to the start, and the document clamps the restored range to the new text.
+    let selection = document.Selection()?.cast::<native::ITextRange>()?;
+    let start = selection.StartPosition()?;
+    let end = selection.EndPosition()?;
     let read_only = value.IsReadOnly()?;
     if read_only {
         value.SetIsReadOnly(false)?;
     }
     let write = document
         .SetText(native::TextSetOptions::None, text)
+        .and_then(|()| selection.SetRange(start, end))
         .map_err(WinUiError::from);
     let restore = if read_only {
         value.SetIsReadOnly(true).map_err(WinUiError::from)

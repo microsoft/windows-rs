@@ -3955,14 +3955,14 @@ impl GeneratedHandle {
             )),
             (ObjectType::PasswordBox, PropertyId::Password, Some(value)) => Some((
                 EventId::PasswordChanged,
-                FeedbackExpectation::Exact(Property {
+                FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::Password,
                     value: value.clone(),
                 }),
             )),
             (ObjectType::PasswordBox, PropertyId::Password, None) => Some((
                 EventId::PasswordChanged,
-                FeedbackExpectation::Exact(Property {
+                FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::Password,
                     value: PropertyValue::String(Rc::from("")),
                 }),

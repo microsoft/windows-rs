@@ -1,6 +1,5 @@
 use super::*;
 
-const TEXT_PATTERN: i32 = 10014;
 const FOREGROUND_COLOR: i32 = 40008;
 
 fn foreground(range: &IUIAutomationTextRange) -> windows_core::Result<i32> {
