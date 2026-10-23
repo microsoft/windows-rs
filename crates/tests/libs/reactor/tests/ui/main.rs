@@ -37,6 +37,7 @@ mod selection;
 mod tab;
 mod text;
 mod timer;
+mod tree;
 mod typography;
 mod window;
 

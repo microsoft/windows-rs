@@ -16,7 +16,7 @@ fn main() {
             "IUIAutomation5::AddNotificationEventHandler",
             "IUIAutomationEventHandler",
             "IUIAutomationNotificationEventHandler",
-            "IUIAutomationElement::{FindAll,CurrentName,CurrentAutomationId,CurrentControlType,CurrentIsOffscreen,CurrentNativeWindowHandle,CurrentBoundingRectangle,GetCurrentPatternAs,SetFocus,CurrentHelpText}",
+            "IUIAutomationElement::{FindAll,CurrentName,CurrentAutomationId,CurrentControlType,CurrentIsOffscreen,CurrentNativeWindowHandle,CurrentBoundingRectangle,GetCurrentPatternAs,SetFocus,CurrentHelpText,GetCurrentPropertyValue}",
             "IUIAutomationElement2::CurrentLiveSetting",
             "IUIAutomationElement6::CurrentFullDescription",
             "IUIAutomationElementArray::{Length,GetElement}",

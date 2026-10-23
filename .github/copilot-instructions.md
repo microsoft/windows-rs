@@ -239,16 +239,16 @@ propagation; investigate the behavior before adding a focused public-API regress
 
 ### Reactor live coverage gaps (test-reactor fixtures)
 
-About 44 of the 81 schema objects have no live `test-reactor` coverage. Add contract-style fixtures
+About 42 of the 81 schema objects have no live `test-reactor` coverage. Add contract-style fixtures
 in priority order. Verify indirect coverage (for example `CommandBar` via the menu fixture) before
 adding a case. The `controlled` fixtures cover toggles, grouped `RadioButton`s, `Expander`, ranged
 values, `PasswordBox`, `ColorPicker`, and `CalendarDatePicker`; the `transform` fixtures cover
-`TextBox`, `AutoSuggestBox`, and `RichEditBox`.
+`TextBox`, `AutoSuggestBox`, and `RichEditBox`; the `tree` fixture covers `TreeView` and
+`TreeNode`.
 
 | Priority | Area | Contracts to check |
 | --- | --- | --- |
 | 1 | Panes: `SplitView`, `NavigationView` `is_pane_open` | `SplitView` observes only `PaneClosed`; WinUI has no user-driven open, so likely fine |
-| 2 | `TreeView` / `TreeNode` | Insert, remove, reorder, expand state, item invoke; no live tests exist |
 | 3 | Item-flag selectors: `ListBox`, `SelectorBar`, `NavigationView`, `BreadcrumbBar` | Selection shape differs from index selectors |
 | 3 | Selector edge cases | Index reassert during retire / exit animation, async intermediate events, `GridView` vs `ListView` parity |
 | 4 | Open/close surfaces: `InfoBar`, `TeachingTip`, `ToolTip` | Open state and close callbacks |
