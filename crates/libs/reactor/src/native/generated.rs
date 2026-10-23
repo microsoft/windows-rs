@@ -4462,16 +4462,12 @@ impl GeneratedHandle {
         match self {
             Self::TextBox(object) => Some((|| {
                 if clear.contains(&EventId::TextChanged) {
-                    let mut native_event = object.text_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.text_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::TextChanged, EventValue::String(callback)) => {
-                            let mut native_event = object.text_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object.text_changed.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4480,18 +4476,12 @@ impl GeneratedHandle {
             })()),
             Self::Button(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    let mut native_event = object.click.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.click.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.click.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4501,26 +4491,21 @@ impl GeneratedHandle {
             })()),
             Self::CheckBox(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    let mut native_event = object.click.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::IsCheckedChanged) {
-                    let mut native_event = object.is_checked_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.is_checked_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            let mut native_event = object.click.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object.click.borrow_mut().set(Some(callback.clone()));
                         }
                         (EventId::IsCheckedChanged, EventValue::OptionalBool(callback)) => {
-                            let mut native_event = object.is_checked_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .is_checked_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4529,213 +4514,144 @@ impl GeneratedHandle {
             })()),
             Self::Border(object) => Some((|| {
                 if clear.contains(&EventId::PointerPressed) {
-                    let mut native_event = object.pointer_pressed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.pointer_pressed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PointerMoved) {
-                    let mut native_event = object.pointer_moved.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.pointer_moved.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PointerEntered) {
-                    let mut native_event = object.pointer_entered.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.pointer_entered.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PointerExited) {
-                    let mut native_event = object.pointer_exited.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.pointer_exited.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PointerReleased) {
-                    let mut native_event = object.pointer_released.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.pointer_released.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PointerCaptureLost) {
-                    let mut native_event = object.pointer_capture_lost.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.pointer_capture_lost.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PointerCanceled) {
-                    let mut native_event = object.pointer_canceled.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.pointer_canceled.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PreviewKeyDown) {
-                    let mut native_event = object.preview_key_down.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.preview_key_down.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::KeyUp) {
-                    let mut native_event = object.key_up.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.key_up.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::CharacterReceived) {
-                    let mut native_event = object.character_received.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.character_received.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::GotFocus) {
-                    let mut native_event = object.got_focus.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.got_focus.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::LostFocus) {
-                    let mut native_event = object.lost_focus.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.lost_focus.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::DragEnter) {
-                    let mut native_event = object.drag_enter.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.drag_enter.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::DragOver) {
-                    let mut native_event = object.drag_over.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.drag_over.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::DragLeave) {
-                    let mut native_event = object.drag_leave.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.drag_leave.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::Drop) {
-                    let mut native_event = object.drop.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.drop.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::PointerPressed, EventValue::PointerEventInfo(callback)) => {
-                            {
-                                let mut native_event = object.pointer_pressed.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .pointer_pressed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_pressed(object_id, context)?;
                         }
                         (EventId::PointerMoved, EventValue::PointerEventInfo(callback)) => {
-                            {
-                                let mut native_event = object.pointer_moved.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .pointer_moved
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_moved(object_id, context)?;
                         }
                         (EventId::PointerEntered, EventValue::PointerEventInfo(callback)) => {
-                            {
-                                let mut native_event = object.pointer_entered.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .pointer_entered
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_entered(object_id, context)?;
                         }
                         (EventId::PointerExited, EventValue::PointerEventInfo(callback)) => {
-                            {
-                                let mut native_event = object.pointer_exited.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .pointer_exited
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_exited(object_id, context)?;
                         }
                         (EventId::PointerReleased, EventValue::PointerEventInfo(callback)) => {
-                            {
-                                let mut native_event = object.pointer_released.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .pointer_released
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_released(object_id, context)?;
                         }
                         (EventId::PointerCaptureLost, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.pointer_capture_lost.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .pointer_capture_lost
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_capture_lost(object_id, context)?;
                         }
                         (EventId::PointerCanceled, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.pointer_canceled.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .pointer_canceled
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_canceled(object_id, context)?;
                         }
                         (EventId::PreviewKeyDown, EventValue::KeyEventInfo(callback)) => {
-                            {
-                                let mut native_event = object.preview_key_down.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .preview_key_down
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_preview_key_down(object_id, context)?;
                         }
                         (EventId::KeyUp, EventValue::KeyEventInfo(callback)) => {
-                            {
-                                let mut native_event = object.key_up.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.key_up.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_key_up(object_id, context)?;
                         }
                         (EventId::CharacterReceived, EventValue::CharacterEventInfo(callback)) => {
-                            {
-                                let mut native_event = object.character_received.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .character_received
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_character_received(object_id, context)?;
                         }
                         (EventId::GotFocus, EventValue::FocusEventInfo(callback)) => {
-                            {
-                                let mut native_event = object.got_focus.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.got_focus.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_got_focus(object_id, context)?;
                         }
                         (EventId::LostFocus, EventValue::FocusEventInfo(callback)) => {
-                            {
-                                let mut native_event = object.lost_focus.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.lost_focus.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_lost_focus(object_id, context)?;
                         }
                         (EventId::DragEnter, EventValue::DragKind(callback)) => {
-                            {
-                                let mut native_event = object.drag_enter.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.drag_enter.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_drag_enter(object_id, context)?;
                         }
                         (EventId::DragOver, EventValue::DragKind(callback)) => {
-                            {
-                                let mut native_event = object.drag_over.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.drag_over.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_drag_over(object_id, context)?;
                         }
                         (EventId::DragLeave, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.drag_leave.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.drag_leave.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_drag_leave(object_id, context)?;
                         }
                         (EventId::Drop, EventValue::DroppedData(callback)) => {
-                            {
-                                let mut native_event = object.drop.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.drop.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_drop(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4745,31 +4661,25 @@ impl GeneratedHandle {
             })()),
             Self::TitleBar(object) => Some((|| {
                 if clear.contains(&EventId::BackRequested) {
-                    let mut native_event = object.back_requested.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.back_requested.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PaneToggleRequested) {
-                    let mut native_event = object.pane_toggle_requested.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.pane_toggle_requested.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::BackRequested, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.back_requested.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .back_requested
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_back_requested(object_id, context)?;
                         }
                         (EventId::PaneToggleRequested, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.pane_toggle_requested.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .pane_toggle_requested
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pane_toggle_requested(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4779,16 +4689,15 @@ impl GeneratedHandle {
             })()),
             Self::Slider(object) => Some((|| {
                 if clear.contains(&EventId::ValueChanged) {
-                    let mut native_event = object.value_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.value_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ValueChanged, EventValue::F64(callback)) => {
-                            let mut native_event = object.value_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .value_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4797,26 +4706,24 @@ impl GeneratedHandle {
             })()),
             Self::ListView(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    let mut native_event = object.selection_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::DragItemsCompleted) {
-                    let mut native_event = object.drag_items_completed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.drag_items_completed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            let mut native_event = object.selection_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         (EventId::DragItemsCompleted, EventValue::Keys(callback)) => {
-                            let mut native_event = object.drag_items_completed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .drag_items_completed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4825,18 +4732,12 @@ impl GeneratedHandle {
             })()),
             Self::HyperlinkButton(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    let mut native_event = object.click.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.click.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.click.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4846,18 +4747,12 @@ impl GeneratedHandle {
             })()),
             Self::RepeatButton(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    let mut native_event = object.click.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.click.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.click.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4867,18 +4762,12 @@ impl GeneratedHandle {
             })()),
             Self::BreadcrumbBar(object) => Some((|| {
                 if clear.contains(&EventId::ItemClicked) {
-                    let mut native_event = object.item_clicked.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.item_clicked.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ItemClicked, EventValue::String(callback)) => {
-                            {
-                                let mut native_event = object.item_clicked.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.item_clicked.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_item_clicked(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4888,28 +4777,21 @@ impl GeneratedHandle {
             })()),
             Self::AutoSuggestBox(object) => Some((|| {
                 if clear.contains(&EventId::TextChanged) {
-                    let mut native_event = object.text_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.text_changed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::SuggestionChosen) {
-                    let mut native_event = object.suggestion_chosen.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.suggestion_chosen.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::TextChanged, EventValue::String(callback)) => {
-                            let mut native_event = object.text_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object.text_changed.borrow_mut().set(Some(callback.clone()));
                         }
                         (EventId::SuggestionChosen, EventValue::String(callback)) => {
-                            {
-                                let mut native_event = object.suggestion_chosen.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .suggestion_chosen
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_suggestion_chosen(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4919,16 +4801,15 @@ impl GeneratedHandle {
             })()),
             Self::PasswordBox(object) => Some((|| {
                 if clear.contains(&EventId::PasswordChanged) {
-                    let mut native_event = object.password_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.password_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::PasswordChanged, EventValue::String(callback)) => {
-                            let mut native_event = object.password_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .password_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4937,16 +4818,15 @@ impl GeneratedHandle {
             })()),
             Self::NumberBox(object) => Some((|| {
                 if clear.contains(&EventId::ValueChanged) {
-                    let mut native_event = object.value_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.value_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ValueChanged, EventValue::OptionalF64(callback)) => {
-                            let mut native_event = object.value_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .value_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4955,41 +4835,36 @@ impl GeneratedHandle {
             })()),
             Self::NavigationView(object) => Some((|| {
                 if clear.contains(&EventId::IsPaneOpenChanged) {
-                    let mut native_event = object.is_pane_open_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.is_pane_open_changed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::SelectionChanged) {
-                    let mut native_event = object.selection_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::DisplayModeChanged) {
-                    let mut native_event = object.display_mode_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.display_mode_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::IsPaneOpenChanged, EventValue::Bool(callback)) => {
-                            let mut native_event = object.is_pane_open_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .is_pane_open_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         (EventId::SelectionChanged, EventValue::Selection(callback)) => {
-                            let mut native_event = object.selection_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         (
                             EventId::DisplayModeChanged,
                             EventValue::NavigationViewDisplayMode(callback),
                         ) => {
-                            {
-                                let mut native_event = object.display_mode_changed.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .display_mode_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_display_mode_changed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4999,16 +4874,12 @@ impl GeneratedHandle {
             })()),
             Self::SplitView(object) => Some((|| {
                 if clear.contains(&EventId::PaneClosed) {
-                    let mut native_event = object.pane_closed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.pane_closed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::PaneClosed, EventValue::Bool(callback)) => {
-                            let mut native_event = object.pane_closed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object.pane_closed.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5017,16 +4888,12 @@ impl GeneratedHandle {
             })()),
             Self::ToggleSwitch(object) => Some((|| {
                 if clear.contains(&EventId::Toggled) {
-                    let mut native_event = object.toggled.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.toggled.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Toggled, EventValue::Bool(callback)) => {
-                            let mut native_event = object.toggled.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object.toggled.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5035,16 +4902,15 @@ impl GeneratedHandle {
             })()),
             Self::ToggleButton(object) => Some((|| {
                 if clear.contains(&EventId::IsCheckedChanged) {
-                    let mut native_event = object.is_checked_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.is_checked_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::IsCheckedChanged, EventValue::OptionalBool(callback)) => {
-                            let mut native_event = object.is_checked_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .is_checked_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5053,26 +4919,18 @@ impl GeneratedHandle {
             })()),
             Self::RadioButton(object) => Some((|| {
                 if clear.contains(&EventId::Checked) {
-                    let mut native_event = object.checked.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.checked.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::Unchecked) {
-                    let mut native_event = object.unchecked.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.unchecked.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Checked, EventValue::OptionalBool(callback)) => {
-                            let mut native_event = object.checked.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object.checked.borrow_mut().set(Some(callback.clone()));
                         }
                         (EventId::Unchecked, EventValue::OptionalBool(callback)) => {
-                            let mut native_event = object.unchecked.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object.unchecked.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5081,16 +4939,15 @@ impl GeneratedHandle {
             })()),
             Self::RadioButtons(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    let mut native_event = object.selection_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            let mut native_event = object.selection_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5099,18 +4956,12 @@ impl GeneratedHandle {
             })()),
             Self::InfoBar(object) => Some((|| {
                 if clear.contains(&EventId::Closed) {
-                    let mut native_event = object.closed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.closed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Closed, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.closed.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.closed.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_closed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5120,26 +4971,18 @@ impl GeneratedHandle {
             })()),
             Self::Image(object) => Some((|| {
                 if clear.contains(&EventId::ImageOpened) {
-                    let mut native_event = object.image_opened.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.image_opened.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::ImageFailed) {
-                    let mut native_event = object.image_failed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.image_failed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ImageOpened, EventValue::Unit(callback)) => {
-                            let mut native_event = object.image_opened.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object.image_opened.borrow_mut().set(Some(callback.clone()));
                         }
                         (EventId::ImageFailed, EventValue::Unit(callback)) => {
-                            let mut native_event = object.image_failed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object.image_failed.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5148,16 +4991,15 @@ impl GeneratedHandle {
             })()),
             Self::ListBox(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    let mut native_event = object.selection_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::Selection(callback)) => {
-                            let mut native_event = object.selection_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5166,16 +5008,15 @@ impl GeneratedHandle {
             })()),
             Self::RatingControl(object) => Some((|| {
                 if clear.contains(&EventId::ValueChanged) {
-                    let mut native_event = object.value_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.value_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ValueChanged, EventValue::OptionalF64(callback)) => {
-                            let mut native_event = object.value_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .value_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5184,16 +5025,15 @@ impl GeneratedHandle {
             })()),
             Self::Expander(object) => Some((|| {
                 if clear.contains(&EventId::IsExpandedChanged) {
-                    let mut native_event = object.is_expanded_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.is_expanded_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::IsExpandedChanged, EventValue::Bool(callback)) => {
-                            let mut native_event = object.is_expanded_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .is_expanded_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5202,16 +5042,15 @@ impl GeneratedHandle {
             })()),
             Self::ComboBox(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    let mut native_event = object.selection_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            let mut native_event = object.selection_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5220,16 +5059,15 @@ impl GeneratedHandle {
             })()),
             Self::Pivot(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    let mut native_event = object.selection_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            let mut native_event = object.selection_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5238,16 +5076,15 @@ impl GeneratedHandle {
             })()),
             Self::FlipView(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    let mut native_event = object.selection_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            let mut native_event = object.selection_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5256,16 +5093,15 @@ impl GeneratedHandle {
             })()),
             Self::SelectorBar(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    let mut native_event = object.selection_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::Selection(callback)) => {
-                            let mut native_event = object.selection_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5274,52 +5110,44 @@ impl GeneratedHandle {
             })()),
             Self::TabView(object) => Some((|| {
                 if clear.contains(&EventId::AddTabButtonClick) {
-                    let mut native_event = object.add_tab_button_click.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.add_tab_button_click.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::SelectionChanged) {
-                    let mut native_event = object.selection_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::TabCloseRequested) {
-                    let mut native_event = object.tab_close_requested.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.tab_close_requested.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::TabItemsChanged) {
-                    let mut native_event = object.tab_items_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.tab_items_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::AddTabButtonClick, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.add_tab_button_click.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .add_tab_button_click
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_add_tab_button_click(object_id, context)?;
                         }
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            let mut native_event = object.selection_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         (EventId::TabCloseRequested, EventValue::Key(callback)) => {
-                            {
-                                let mut native_event = object.tab_close_requested.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .tab_close_requested
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_tab_close_requested(object_id, context)?;
                         }
                         (EventId::TabItemsChanged, EventValue::Keys(callback)) => {
-                            let mut native_event = object.tab_items_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .tab_items_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5328,31 +5156,22 @@ impl GeneratedHandle {
             })()),
             Self::TeachingTip(object) => Some((|| {
                 if clear.contains(&EventId::Closed) {
-                    let mut native_event = object.closed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.closed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::ActionButtonClick) {
-                    let mut native_event = object.action_button_click.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.action_button_click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Closed, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.closed.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.closed.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_closed(object_id, context)?;
                         }
                         (EventId::ActionButtonClick, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.action_button_click.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .action_button_click
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_action_button_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5362,18 +5181,12 @@ impl GeneratedHandle {
             })()),
             Self::DropDownButton(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    let mut native_event = object.click.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.click.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.click.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5383,18 +5196,12 @@ impl GeneratedHandle {
             })()),
             Self::AppBarButton(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    let mut native_event = object.click.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.click.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.click.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5404,18 +5211,12 @@ impl GeneratedHandle {
             })()),
             Self::SplitButton(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    let mut native_event = object.click.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.click.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object.click.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5425,16 +5226,15 @@ impl GeneratedHandle {
             })()),
             Self::ColorPicker(object) => Some((|| {
                 if clear.contains(&EventId::ColorChanged) {
-                    let mut native_event = object.color_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.color_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ColorChanged, EventValue::Color(callback)) => {
-                            let mut native_event = object.color_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .color_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5443,18 +5243,15 @@ impl GeneratedHandle {
             })()),
             Self::DatePicker(object) => Some((|| {
                 if clear.contains(&EventId::SelectedDateChanged) {
-                    let mut native_event = object.selected_date_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.selected_date_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectedDateChanged, EventValue::OptionalDateTime(callback)) => {
-                            {
-                                let mut native_event = object.selected_date_changed.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .selected_date_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_selected_date_changed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5464,18 +5261,15 @@ impl GeneratedHandle {
             })()),
             Self::TimePicker(object) => Some((|| {
                 if clear.contains(&EventId::SelectedTimeChanged) {
-                    let mut native_event = object.selected_time_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.selected_time_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectedTimeChanged, EventValue::OptionalTimeSpan(callback)) => {
-                            {
-                                let mut native_event = object.selected_time_changed.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .selected_time_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_selected_time_changed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5485,16 +5279,12 @@ impl GeneratedHandle {
             })()),
             Self::CalendarDatePicker(object) => Some((|| {
                 if clear.contains(&EventId::DateChanged) {
-                    let mut native_event = object.date_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.date_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::DateChanged, EventValue::OptionalDateTime(callback)) => {
-                            let mut native_event = object.date_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object.date_changed.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5503,16 +5293,12 @@ impl GeneratedHandle {
             })()),
             Self::ContentDialog(object) => Some((|| {
                 if clear.contains(&EventId::Closed) {
-                    let mut native_event = object.closed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.closed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Closed, EventValue::ContentDialogResult(callback)) => {
-                            let mut native_event = object.closed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object.closed.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5521,18 +5307,15 @@ impl GeneratedHandle {
             })()),
             Self::CalendarView(object) => Some((|| {
                 if clear.contains(&EventId::SelectedDatesChanged) {
-                    let mut native_event = object.selected_dates_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.selected_dates_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectedDatesChanged, EventValue::Unit(callback)) => {
-                            {
-                                let mut native_event = object.selected_dates_changed.borrow_mut();
-                                native_event.revision = native_event.revision.wrapping_add(1);
-                                native_event.callback = Some(callback.clone());
-                            }
+                            object
+                                .selected_dates_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_selected_dates_changed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5542,26 +5325,24 @@ impl GeneratedHandle {
             })()),
             Self::GridView(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    let mut native_event = object.selection_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::DragItemsCompleted) {
-                    let mut native_event = object.drag_items_completed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.drag_items_completed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            let mut native_event = object.selection_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         (EventId::DragItemsCompleted, EventValue::Keys(callback)) => {
-                            let mut native_event = object.drag_items_completed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object
+                                .drag_items_completed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5570,16 +5351,12 @@ impl GeneratedHandle {
             })()),
             Self::RichEditBox(object) => Some((|| {
                 if clear.contains(&EventId::TextChanged) {
-                    let mut native_event = object.text_changed.borrow_mut();
-                    native_event.revision = native_event.revision.wrapping_add(1);
-                    native_event.callback = None;
+                    object.text_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::TextChanged, EventValue::String(callback)) => {
-                            let mut native_event = object.text_changed.borrow_mut();
-                            native_event.revision = native_event.revision.wrapping_add(1);
-                            native_event.callback = Some(callback.clone());
+                            object.text_changed.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5997,494 +5774,6 @@ impl GeneratedHandle {
                     .SetHeader(None::<&IInspectable>)
                     .map_err(Into::into),
             }),
-            _ => None,
-        }
-    }
-    fn event_callback(&self, event: EventId, revision: u64) -> Option<EventValue> {
-        match (self, event) {
-            (Self::TextBox(object), EventId::TextChanged) => {
-                let event = object.text_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::String)
-            }
-            (Self::Button(object), EventId::Click) => {
-                let event = object.click.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::CheckBox(object), EventId::Click) => {
-                let event = object.click.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::CheckBox(object), EventId::IsCheckedChanged) => {
-                let event = object.is_checked_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::OptionalBool)
-            }
-            (Self::Border(object), EventId::PointerPressed) => {
-                let event = object.pointer_pressed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::PointerEventInfo)
-            }
-            (Self::Border(object), EventId::PointerMoved) => {
-                let event = object.pointer_moved.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::PointerEventInfo)
-            }
-            (Self::Border(object), EventId::PointerEntered) => {
-                let event = object.pointer_entered.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::PointerEventInfo)
-            }
-            (Self::Border(object), EventId::PointerExited) => {
-                let event = object.pointer_exited.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::PointerEventInfo)
-            }
-            (Self::Border(object), EventId::PointerReleased) => {
-                let event = object.pointer_released.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::PointerEventInfo)
-            }
-            (Self::Border(object), EventId::PointerCaptureLost) => {
-                let event = object.pointer_capture_lost.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::Border(object), EventId::PointerCanceled) => {
-                let event = object.pointer_canceled.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::Border(object), EventId::PreviewKeyDown) => {
-                let event = object.preview_key_down.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::KeyEventInfo)
-            }
-            (Self::Border(object), EventId::KeyUp) => {
-                let event = object.key_up.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::KeyEventInfo)
-            }
-            (Self::Border(object), EventId::CharacterReceived) => {
-                let event = object.character_received.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::CharacterEventInfo)
-            }
-            (Self::Border(object), EventId::GotFocus) => {
-                let event = object.got_focus.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::FocusEventInfo)
-            }
-            (Self::Border(object), EventId::LostFocus) => {
-                let event = object.lost_focus.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::FocusEventInfo)
-            }
-            (Self::Border(object), EventId::DragEnter) => {
-                let event = object.drag_enter.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::DragKind)
-            }
-            (Self::Border(object), EventId::DragOver) => {
-                let event = object.drag_over.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::DragKind)
-            }
-            (Self::Border(object), EventId::DragLeave) => {
-                let event = object.drag_leave.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::Border(object), EventId::Drop) => {
-                let event = object.drop.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::DroppedData)
-            }
-            (Self::TitleBar(object), EventId::BackRequested) => {
-                let event = object.back_requested.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::TitleBar(object), EventId::PaneToggleRequested) => {
-                let event = object.pane_toggle_requested.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::Slider(object), EventId::ValueChanged) => {
-                let event = object.value_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::F64)
-            }
-            (Self::ListView(object), EventId::SelectionChanged) => {
-                let event = object.selection_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::SelectionIndex)
-            }
-            (Self::ListView(object), EventId::DragItemsCompleted) => {
-                let event = object.drag_items_completed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Keys)
-            }
-            (Self::HyperlinkButton(object), EventId::Click) => {
-                let event = object.click.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::RepeatButton(object), EventId::Click) => {
-                let event = object.click.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::BreadcrumbBar(object), EventId::ItemClicked) => {
-                let event = object.item_clicked.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::String)
-            }
-            (Self::AutoSuggestBox(object), EventId::TextChanged) => {
-                let event = object.text_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::String)
-            }
-            (Self::AutoSuggestBox(object), EventId::SuggestionChosen) => {
-                let event = object.suggestion_chosen.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::String)
-            }
-            (Self::PasswordBox(object), EventId::PasswordChanged) => {
-                let event = object.password_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::String)
-            }
-            (Self::NumberBox(object), EventId::ValueChanged) => {
-                let event = object.value_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::OptionalF64)
-            }
-            (Self::NavigationView(object), EventId::IsPaneOpenChanged) => {
-                let event = object.is_pane_open_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Bool)
-            }
-            (Self::NavigationView(object), EventId::SelectionChanged) => {
-                let event = object.selection_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Selection)
-            }
-            (Self::NavigationView(object), EventId::DisplayModeChanged) => {
-                let event = object.display_mode_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::NavigationViewDisplayMode)
-            }
-            (Self::SplitView(object), EventId::PaneClosed) => {
-                let event = object.pane_closed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Bool)
-            }
-            (Self::ToggleSwitch(object), EventId::Toggled) => {
-                let event = object.toggled.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Bool)
-            }
-            (Self::ToggleButton(object), EventId::IsCheckedChanged) => {
-                let event = object.is_checked_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::OptionalBool)
-            }
-            (Self::RadioButton(object), EventId::Checked) => {
-                let event = object.checked.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::OptionalBool)
-            }
-            (Self::RadioButton(object), EventId::Unchecked) => {
-                let event = object.unchecked.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::OptionalBool)
-            }
-            (Self::RadioButtons(object), EventId::SelectionChanged) => {
-                let event = object.selection_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::SelectionIndex)
-            }
-            (Self::InfoBar(object), EventId::Closed) => {
-                let event = object.closed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::Image(object), EventId::ImageOpened) => {
-                let event = object.image_opened.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::Image(object), EventId::ImageFailed) => {
-                let event = object.image_failed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::ListBox(object), EventId::SelectionChanged) => {
-                let event = object.selection_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Selection)
-            }
-            (Self::RatingControl(object), EventId::ValueChanged) => {
-                let event = object.value_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::OptionalF64)
-            }
-            (Self::Expander(object), EventId::IsExpandedChanged) => {
-                let event = object.is_expanded_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Bool)
-            }
-            (Self::ComboBox(object), EventId::SelectionChanged) => {
-                let event = object.selection_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::SelectionIndex)
-            }
-            (Self::Pivot(object), EventId::SelectionChanged) => {
-                let event = object.selection_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::SelectionIndex)
-            }
-            (Self::FlipView(object), EventId::SelectionChanged) => {
-                let event = object.selection_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::SelectionIndex)
-            }
-            (Self::SelectorBar(object), EventId::SelectionChanged) => {
-                let event = object.selection_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Selection)
-            }
-            (Self::TabView(object), EventId::AddTabButtonClick) => {
-                let event = object.add_tab_button_click.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::TabView(object), EventId::SelectionChanged) => {
-                let event = object.selection_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::SelectionIndex)
-            }
-            (Self::TabView(object), EventId::TabCloseRequested) => {
-                let event = object.tab_close_requested.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Key)
-            }
-            (Self::TabView(object), EventId::TabItemsChanged) => {
-                let event = object.tab_items_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Keys)
-            }
-            (Self::TeachingTip(object), EventId::Closed) => {
-                let event = object.closed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::TeachingTip(object), EventId::ActionButtonClick) => {
-                let event = object.action_button_click.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::DropDownButton(object), EventId::Click) => {
-                let event = object.click.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::AppBarButton(object), EventId::Click) => {
-                let event = object.click.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::SplitButton(object), EventId::Click) => {
-                let event = object.click.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::ColorPicker(object), EventId::ColorChanged) => {
-                let event = object.color_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Color)
-            }
-            (Self::DatePicker(object), EventId::SelectedDateChanged) => {
-                let event = object.selected_date_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::OptionalDateTime)
-            }
-            (Self::TimePicker(object), EventId::SelectedTimeChanged) => {
-                let event = object.selected_time_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::OptionalTimeSpan)
-            }
-            (Self::CalendarDatePicker(object), EventId::DateChanged) => {
-                let event = object.date_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::OptionalDateTime)
-            }
-            (Self::ContentDialog(object), EventId::Closed) => {
-                let event = object.closed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::ContentDialogResult)
-            }
-            (Self::CalendarView(object), EventId::SelectedDatesChanged) => {
-                let event = object.selected_dates_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Unit)
-            }
-            (Self::GridView(object), EventId::SelectionChanged) => {
-                let event = object.selection_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::SelectionIndex)
-            }
-            (Self::GridView(object), EventId::DragItemsCompleted) => {
-                let event = object.drag_items_completed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::Keys)
-            }
-            (Self::RichEditBox(object), EventId::TextChanged) => {
-                let event = object.text_changed.borrow();
-                (event.revision == revision)
-                    .then(|| event.callback.clone())
-                    .flatten()
-                    .map(EventValue::String)
-            }
             _ => None,
         }
     }

@@ -845,53 +845,86 @@ fn invalid_generated_enum_observation_panics() {
     runtime.update(StackPanel::new());
 }
 
-#[test]
-fn stale_queued_event_does_not_reach_replacement_callback() {
-    let first_count = Rc::new(Cell::new(0));
-    let first_count_for_callback = Rc::clone(&first_count);
-    let first = Callback::new(move |_: Rc<str>| {
-        first_count_for_callback.set(first_count_for_callback.get() + 1);
-    });
-    let second_count = Rc::new(Cell::new(0));
-    let second_count_for_callback = Rc::clone(&second_count);
-    let second = Callback::new(move |_: Rc<str>| {
-        second_count_for_callback.set(second_count_for_callback.get() + 1);
-    });
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(TextBox::new().text("Text").on_text_changed(first.clone()));
-    let root = runtime.graph().root().unwrap();
-    for value in ["First", "Stale"] {
+fn counting_callback() -> (Callback<Rc<str>>, Rc<RefCell<Vec<Rc<str>>>>) {
+    let values = Rc::new(RefCell::new(Vec::new()));
+    let values_for_callback = Rc::clone(&values);
+    let callback = Callback::new(move |value| values_for_callback.borrow_mut().push(value));
+    (callback, values)
+}
+
+fn queue_text_changes(
+    runtime: &mut Runtime<RecordingAdapter>,
+    root: ObjectId,
+    callback: &Callback<Rc<str>>,
+    values: &[&str],
+) {
+    for value in values {
         runtime.adapter_mut().queue_native_event(
             Some(Observation::SetProperty {
                 object: root,
                 property: Property {
                     id: PropertyId::Text,
-                    value: PropertyValue::String(Rc::from(value)),
+                    value: PropertyValue::String(Rc::from(*value)),
                 },
             }),
             Some(EventDispatch::new(
                 root,
                 EventId::TextChanged,
-                EventValue::String(first.clone()),
-                EventPayload::String(Rc::from(value)),
+                EventValue::String(callback.clone()),
+                EventPayload::String(Rc::from(*value)),
             )),
         );
     }
+}
+
+#[test]
+fn queued_event_reaches_callback_subscribed_when_it_fired() {
+    let (first, first_values) = counting_callback();
+    let (second, second_values) = counting_callback();
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(TextBox::new().text("Text").on_text_changed(first.clone()));
+    let root = runtime.graph().root().unwrap();
+    queue_text_changes(&mut runtime, root, &first, &["a", "ab"]);
     let mut active = runtime.next_native_event().unwrap();
     active.invoke();
-    runtime.update(TextBox::new().text("First").on_text_changed(second.clone()));
+    // The render after the first change replaces the callback, as a capturing closure does.
+    runtime.update(TextBox::new().text("a").on_text_changed(second.clone()));
+    drop(active);
+
+    assert_eq!(runtime.dispatch_native_events(), 1);
+    assert_eq!(*first_values.borrow(), [Rc::from("a"), Rc::from("ab")]);
+    assert!(second_values.borrow().is_empty());
+    assert_eq!(
+        runtime.graph().properties(root).unwrap()[0].value,
+        PropertyValue::String(Rc::from("ab"))
+    );
+
+    queue_text_changes(&mut runtime, root, &second, &["abc"]);
+    assert_eq!(runtime.dispatch_native_events(), 1);
+    assert_eq!(*second_values.borrow(), [Rc::from("abc")]);
+}
+
+#[test]
+fn queued_event_is_dropped_when_subscription_is_removed() {
+    let (callback, values) = counting_callback();
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(
+        TextBox::new()
+            .text("Text")
+            .on_text_changed(callback.clone()),
+    );
+    let root = runtime.graph().root().unwrap();
+    queue_text_changes(&mut runtime, root, &callback, &["a", "ab"]);
+    let mut active = runtime.next_native_event().unwrap();
+    active.invoke();
+    runtime.update(TextBox::new().text("a"));
     drop(active);
 
     assert_eq!(runtime.dispatch_native_events(), 0);
+    assert_eq!(*values.borrow(), [Rc::from("a")]);
+    // The observation still records the native value.
     assert_eq!(
         runtime.graph().properties(root).unwrap()[0].value,
-        PropertyValue::String(Rc::from("Stale"))
+        PropertyValue::String(Rc::from("ab"))
     );
-    assert!(
-        runtime
-            .update(TextBox::new().text("Stale").on_text_changed(second))
-            .is_empty()
-    );
-    assert_eq!(first_count.get(), 1);
-    assert_eq!(second_count.get(), 0);
 }

@@ -1076,17 +1076,18 @@ impl RetainedGraph {
             }
             _ => None,
         };
-        let current = object
+        // An occurrence reaches the callback subscribed when it fired, even if a render has since
+        // replaced that callback. Removing the subscription drops occurrences still queued.
+        let subscribed = object
             .events
             .as_deref()
             .into_iter()
             .flatten()
-            .find(|event| event.id == dispatch.event)
-            .is_some_and(|event| event.value == dispatch.callback);
-        if current && let Some(resolved) = resolved {
+            .any(|event| event.id == dispatch.event);
+        if subscribed && let Some(resolved) = resolved {
             dispatch.payload = resolved;
         }
-        current
+        subscribed
     }
 
     fn get(&self, object: ObjectId) -> Option<&RetainedObject> {
@@ -2674,6 +2675,15 @@ impl Planner<'_> {
         if let Some(reference) = retained.reference.take() {
             self.references
                 .push(ReferenceChange::Clear { reference, object });
+        }
+        // Ending the replaced control's subscriptions drops its pending occurrences, which would
+        // otherwise reach the replacement through the preserved ID.
+        if let Some(events) = retained.events.take() {
+            self.mutations.push(Mutation::SetEvents {
+                object,
+                set: Rc::from([]),
+                clear: events.iter().map(|event| event.id).collect(),
+            });
         }
         if let Some(reference) = &declaration.reference {
             self.references.push(ReferenceChange::Set {

@@ -547,6 +547,36 @@ fn recording_adapter_rejects_incompatible_tree_node_replacement() {
 }
 
 #[test]
+fn subtree_root_type_replacement_ends_event_subscriptions() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(
+        Grid::new().keyed_children([keyed("child", Border::new().on_drop(Callback::new(|_| {})))]),
+    );
+    let root = runtime.graph().root().unwrap();
+    let child = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()[0];
+
+    let mutations = runtime.update_subtree(child, TextBlock::new());
+
+    assert_eq!(
+        mutations,
+        vec![
+            Mutation::SetEvents {
+                object: child,
+                set: Rc::from([]),
+                clear: Rc::from([EventId::Drop]),
+            },
+            Mutation::Replace {
+                object: child,
+                kind: ObjectType::TextBlock,
+            },
+        ]
+    );
+}
+
+#[test]
 fn replacement_discards_observations_and_events_from_the_old_native_object() {
     let calls = Rc::new(Cell::new(0));
     let callback_calls = Rc::clone(&calls);

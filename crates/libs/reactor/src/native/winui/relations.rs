@@ -782,39 +782,22 @@ impl WinUiAdapter {
             order = Some(EventPayload::Items(native));
         }
         let event = queued.event.as_ref().and_then(|queued| {
-            if queued.event == EventId::MenuItemInvoked {
-                let menu = self.menus.get(&queued.object)?;
-                return (menu.revision == queued.revision).then(|| {
-                    EventDispatch::new(
-                        queued.object,
-                        queued.event,
-                        EventValue::Key(menu.menu.on_click.clone()),
-                        queued.payload.clone(),
-                    )
-                });
-            }
-            if queued.event == EventId::CommandInvoked {
-                let flyout = self.command_bar_flyouts.get(&queued.object)?;
-                return (flyout.revision == queued.revision).then(|| {
-                    EventDispatch::new(
-                        queued.object,
-                        queued.event,
-                        EventValue::Key(flyout.flyout.on_click.clone()),
-                        queued.payload.clone(),
-                    )
-                });
-            }
-            let callback = match (self.handles.get(&queued.object), queued.event) {
-                (Some(Handle::TreeView(tree)), EventId::ItemInvoked) => {
-                    let event = tree.item_invoked.borrow();
-                    (event.revision == queued.revision)
-                        .then(|| event.callback.clone().map(EventValue::String))
-                        .flatten()
+            let callback = match (&queued.handler, queued.event) {
+                (QueuedHandler::Presentation(revision), EventId::MenuItemInvoked) => {
+                    let menu = self.menus.get(&queued.object)?;
+                    (menu.revision == *revision).then(|| EventValue::Key(menu.menu.on_click.clone()))
                 }
-                (Some(Handle::Generated(handle)), event) => {
-                    handle.event_callback(event, queued.revision)
+                (QueuedHandler::Presentation(revision), EventId::CommandInvoked) => {
+                    let flyout = self.command_bar_flyouts.get(&queued.object)?;
+                    (flyout.revision == *revision)
+                        .then(|| EventValue::Key(flyout.flyout.on_click.clone()))
                 }
-                _ => None,
+                (QueuedHandler::Callback { callback, live }, _) => {
+                    live.get().then(|| callback.clone())
+                }
+                (QueuedHandler::Presentation(_), event) => {
+                    unreachable!("{event:?} has no presentation")
+                }
             }?;
             Some(EventDispatch::new(
                 queued.object,

@@ -209,7 +209,7 @@ impl WinUiAdapter {
             && let Some(Handle::Generated(GeneratedHandle::Image(control))) =
                 self.handles.get(&object)
         {
-            control.invalidate_source_events();
+            self.event_queue.discard_events(object, &IMAGE_SOURCE_EVENTS);
             control.source.set(false);
         }
         match (property, value) {
@@ -399,7 +399,7 @@ impl WinUiAdapter {
         let callback = match self.handles.get(&object) {
             Some(Handle::Generated(GeneratedHandle::Image(control))) => {
                 control.value.SetSource(&image.value)?;
-                control.invalidate_source_events();
+                self.event_queue.discard_events(object, &IMAGE_SOURCE_EVENTS);
                 control.source.set(true);
                 let opened = Rc::clone(&control.image_opened);
                 let failed = Rc::clone(&control.image_failed);

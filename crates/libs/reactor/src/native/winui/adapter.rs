@@ -526,7 +526,7 @@ impl WinUiAdapter {
                             .as_ref()
                             .map(|source| source.cast::<native::ImageSource>())
                             .transpose()?;
-                        control.invalidate_source_events();
+                        self.event_queue.discard_events(object, &IMAGE_SOURCE_EVENTS);
                         let managed = control.source.replace(false);
                         if let Err(error) = control.value.SetSource(source.as_ref()) {
                             control.source.set(managed);

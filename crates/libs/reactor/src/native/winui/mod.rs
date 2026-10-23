@@ -23,30 +23,65 @@ struct NativeTreeNode {
 }
 
 struct NativeValueEvent<T> {
-    revision: u64,
-    callback: Option<Callback<T>>,
+    subscription: Option<NativeSubscription<T>>,
+}
+
+/// A subscribed native event. Replacing the callback keeps the subscription; removing it ends the
+/// subscription and invalidates occurrences still queued or pending under it.
+struct NativeSubscription<T> {
+    callback: Callback<T>,
+    live: Rc<Cell<bool>>,
 }
 
 impl<T> Default for NativeValueEvent<T> {
     fn default() -> Self {
-        Self {
-            revision: 0,
-            callback: None,
+        Self { subscription: None }
+    }
+}
+
+impl<T> NativeValueEvent<T> {
+    fn set(&mut self, callback: Option<Callback<T>>) {
+        match (&mut self.subscription, callback) {
+            (Some(subscription), Some(callback)) => subscription.callback = callback,
+            (_, callback) => {
+                if let Some(subscription) = self.subscription.take() {
+                    subscription.live.set(false);
+                }
+                self.subscription = callback.map(|callback| NativeSubscription {
+                    callback,
+                    live: Rc::new(Cell::new(true)),
+                });
+            }
         }
+    }
+
+    /// The handler for an occurrence firing now under the current subscription.
+    fn handler(&self) -> Option<QueuedHandler>
+    where
+        Callback<T>: IntoEventValue,
+    {
+        self.subscription
+            .as_ref()
+            .map(|subscription| QueuedHandler::Callback {
+                callback: subscription.callback.clone().into_event_value(),
+                live: Rc::clone(&subscription.live),
+            })
     }
 }
 
 struct NativeRoutedValueEvent<T> {
-    revision: u64,
     callback: Option<RoutedCallback<T>>,
 }
 
 impl<T> Default for NativeRoutedValueEvent<T> {
     fn default() -> Self {
-        Self {
-            revision: 0,
-            callback: None,
-        }
+        Self { callback: None }
+    }
+}
+
+impl<T> NativeRoutedValueEvent<T> {
+    fn set(&mut self, callback: Option<RoutedCallback<T>>) {
+        self.callback = callback;
     }
 }
 
@@ -171,11 +206,28 @@ macro_rules! generated_collection {
 
 include!("../generated.rs");
 
+/// Image load results that describe the current source; a source change discards queued results.
+const IMAGE_SOURCE_EVENTS: [EventId; 2] = [EventId::ImageOpened, EventId::ImageFailed];
+
 struct QueuedEvent {
     object: ObjectId,
     event: EventId,
-    revision: u64,
+    handler: QueuedHandler,
     payload: EventPayload,
+}
+
+enum QueuedHandler {
+    /// The callback subscribed when the native event fired. Delivering to it keeps an occurrence
+    /// queued behind a render from being lost when that render replaces the callback. `live`
+    /// is cleared when the subscription ends, so removing or re-adding the event, or replacing
+    /// the control, drops the occurrence.
+    Callback {
+        callback: EventValue,
+        live: Rc<Cell<bool>>,
+    },
+    /// The menu or command bar flyout presentation that raised the click. Callback-only updates
+    /// keep the presentation, so the click resolves to the current `on_click`.
+    Presentation(u64),
 }
 
 struct QueuedNativeEvent {
@@ -321,6 +373,16 @@ impl NativeEventQueue {
                     .is_none_or(|observation| observation.object() != object)
         });
         self.feedback.borrow_mut().remove_object(object);
+    }
+
+    /// Drops queued occurrences of an object's events whose source has been replaced.
+    fn discard_events(&self, object: ObjectId, events: &[EventId]) {
+        self.events.borrow_mut().retain(|queued| {
+            queued
+                .event
+                .as_ref()
+                .is_none_or(|event| event.object != object || !events.contains(&event.event))
+        });
     }
 
     fn item_object(&self, owner: ObjectId, value: &IInspectable) -> Option<ObjectId> {
@@ -1256,15 +1318,6 @@ impl std::hash::Hash for ImageKey {
     }
 }
 
-impl GeneratedImage {
-    fn invalidate_source_events(&self) {
-        for event in [&self.image_opened, &self.image_failed] {
-            let mut event = event.borrow_mut();
-            event.revision = event.revision.wrapping_add(1);
-        }
-    }
-}
-
 #[derive(Default)]
 struct ImageLoadState {
     result: Cell<Option<bool>>,
@@ -1463,7 +1516,7 @@ fn build_menu_items(
                         Some(QueuedEvent {
                             object: target,
                             event: EventId::MenuItemInvoked,
-                            revision,
+                            handler: QueuedHandler::Presentation(revision),
                             payload: EventPayload::Key(clicked_key.clone()),
                         }),
                     );

@@ -270,36 +270,3 @@ fn pointer_motion_events_use_the_shared_typed_payload() {
         ]
     );
 }
-
-#[test]
-fn stale_pointer_event_does_not_reach_replacement_callback() {
-    let first_count = Rc::new(Cell::new(0));
-    let first_count_for_callback = Rc::clone(&first_count);
-    let first = Callback::new(move |_: PointerEventInfo| {
-        first_count_for_callback.set(first_count_for_callback.get() + 1);
-    });
-    let second_count = Rc::new(Cell::new(0));
-    let second_count_for_callback = Rc::clone(&second_count);
-    let second = Callback::new(move |_: PointerEventInfo| {
-        second_count_for_callback.set(second_count_for_callback.get() + 1);
-    });
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(Border::new().on_pointer_released(first.clone()));
-    let border = runtime.graph().root().unwrap();
-    for _ in 0..2 {
-        runtime.adapter_mut().queue_event(EventDispatch::new(
-            border,
-            EventId::PointerReleased,
-            EventValue::PointerEventInfo(first.clone()),
-            EventPayload::PointerEventInfo(PointerEventInfo::default()),
-        ));
-    }
-    let mut active = runtime.next_native_event().unwrap();
-    active.invoke();
-    runtime.update(Border::new().on_pointer_released(second));
-    drop(active);
-
-    assert_eq!(runtime.dispatch_native_events(), 0);
-    assert_eq!(first_count.get(), 1);
-    assert_eq!(second_count.get(), 0);
-}

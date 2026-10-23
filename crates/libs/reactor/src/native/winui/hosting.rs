@@ -733,7 +733,7 @@ impl WinUiAdapter {
                         Some(QueuedEvent {
                             object: target,
                             event: EventId::CommandInvoked,
-                            revision,
+                            handler: QueuedHandler::Presentation(revision),
                             payload: EventPayload::Key(clicked_key.clone()),
                         }),
                     );

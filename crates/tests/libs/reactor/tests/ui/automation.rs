@@ -623,10 +623,7 @@ impl Automation {
         }
     }
 
-    pub fn pointer_button(&self, down: bool) -> Result<()> {
-        eprintln!("left mouse button {}", if down { "down" } else { "up" });
-        let _coordinates = PhysicalCoordinates::new()?;
-        let mut pressed = self.pressed.lock().unwrap();
+    fn pointer_over_process(&self) -> Result<()> {
         unsafe {
             let mut point = POINT::default();
             GetCursorPos(&mut point).ok()?;
@@ -641,7 +638,14 @@ impl Automation {
                 .into());
             }
         }
-        self.pointer_ready()?;
+        self.pointer_ready()
+    }
+
+    pub fn pointer_button(&self, down: bool) -> Result<()> {
+        eprintln!("left mouse button {}", if down { "down" } else { "up" });
+        let _coordinates = PhysicalCoordinates::new()?;
+        let mut pressed = self.pressed.lock().unwrap();
+        self.pointer_over_process()?;
         if *pressed == down {
             return Err("unbalanced pointer button action".into());
         }
@@ -658,6 +662,24 @@ impl Automation {
             0,
         )?;
         *pressed = down;
+        Ok(())
+    }
+
+    /// Clicks the left button `count` times without waiting for the UI thread in between.
+    pub fn pointer_clicks(&self, count: usize) -> Result<()> {
+        eprintln!("click left mouse button {count} times");
+        let _coordinates = PhysicalCoordinates::new()?;
+        let mut pressed = self.pressed.lock().unwrap();
+        self.pointer_over_process()?;
+        if *pressed || unsafe { GetAsyncKeyState(0x01) } & i16::MIN != 0 {
+            return Err("left mouse button is already held".into());
+        }
+        for _ in 0..count {
+            send_mouse(MOUSEEVENTF_LEFTDOWN, 0, 0)?;
+            *pressed = true;
+            send_mouse(MOUSEEVENTF_LEFTUP, 0, 0)?;
+            *pressed = false;
+        }
         Ok(())
     }
 

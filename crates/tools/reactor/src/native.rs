@@ -57,8 +57,6 @@ pub fn generate_native(
 
     emit_set_content(&mut output, &objects, metadata);
 
-    emit_event_callback(&mut output, &objects);
-
     output.push_str("}\n");
     output.push_str(&lazy_subscriptions);
     output
@@ -1195,11 +1193,9 @@ fn emit_set_events(output: &mut String, objects: &[&Object]) {
         for event in &object.events {
             let field = snake_case(&event.name);
             output.push_str(&format!(
-                            "if clear.contains(&EventId::{}) {{ let mut native_event = \
-                             object.{field}.borrow_mut(); native_event.revision = \
-                             native_event.revision.wrapping_add(1); native_event.callback = None; }}\n",
-                            event.name
-                        ));
+                "if clear.contains(&EventId::{}) {{ object.{field}.borrow_mut().set(None); }}\n",
+                event.name
+            ));
         }
         output.push_str("for event in set { match (event.id, &event.value) {\n");
         for event in &object.events {
@@ -1210,10 +1206,8 @@ fn emit_set_events(output: &mut String, objects: &[&Object]) {
                 String::new()
             };
             output.push_str(&format!(
-                "(EventId::{}, EventValue::{}(callback)) => {{ {{ let mut native_event = \
-                             object.{field}.borrow_mut(); native_event.revision = \
-                             native_event.revision.wrapping_add(1); native_event.callback = \
-                             Some(callback.clone()); }} {subscribe} }}\n",
+                "(EventId::{}, EventValue::{}(callback)) => {{ \
+                 object.{field}.borrow_mut().set(Some(callback.clone())); {subscribe} }}\n",
                 event.name, event.value
             ));
         }
@@ -1315,25 +1309,6 @@ fn emit_set_content(
             output.push_str(&format!(
                 "(Self::{}(object), RelationId::{}) => Some({relation_call}),\n",
                 object.name, relation.name
-            ));
-        }
-    }
-    output.push_str("_ => None,\n} }\n");
-}
-
-fn emit_event_callback(output: &mut String, objects: &[&Object]) {
-    output.push_str(
-        "fn event_callback(&self, event: EventId, revision: u64) -> Option<EventValue> { \
-                     match (self, event) {\n",
-    );
-    for object in objects {
-        for event in &object.events {
-            let field = snake_case(&event.name);
-            output.push_str(&format!(
-                "(Self::{}(object), EventId::{}) => {{ let event = object.{field}.borrow(); \
-                             (event.revision == revision).then(|| event.callback.clone()).flatten()\
-                             .map(EventValue::{}) }},\n",
-                object.name, event.name, event.value
             ));
         }
     }
