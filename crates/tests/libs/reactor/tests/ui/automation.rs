@@ -758,9 +758,18 @@ impl Automation {
     }
 
     pub fn press_keys(&self, id: &str, keys: &[i32]) -> Result<()> {
+        self.press_keys_on(&self.focus(id)?, id, keys)
+    }
+
+    /// Presses keys into an element that has no automation ID, after focusing it.
+    pub fn press_keys_on(
+        &self,
+        element: &IUIAutomationElement,
+        id: &str,
+        keys: &[i32],
+    ) -> Result<()> {
         eprintln!("press virtual keys {keys:x?} into {id:?}");
         assert!(!keys.is_empty());
-        let element = self.focus(id)?;
         let input = |key: i32, flags| INPUT {
             r#type: INPUT_KEYBOARD as u32,
             Anonymous: INPUT_0 {
@@ -783,7 +792,7 @@ impl Automation {
         unsafe {
             assert!(
                 self.client
-                    .CompareElements(&self.client.GetFocusedElement()?, &element)?
+                    .CompareElements(&self.client.GetFocusedElement()?, element)?
                     .as_bool(),
                 "keyboard focus changed; refusing input"
             );

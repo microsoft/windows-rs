@@ -197,25 +197,17 @@ fn input_changes(ui: &Automation, day: u32) -> Result<()> {
         },
         Option::is_some,
     )?;
-    // Click only after the opening animation stops moving the day.
+    // Select with the keyboard: a pointer click races the popup animation on CI, and the day's
+    // SelectionItem peer clears the date before selecting, which a user never sees.
     let item = item.unwrap();
-    let mut last = None;
-    ui.wait(
-        &format!("calendar day {day} stops moving"),
-        || unsafe {
-            let bounds = item.CurrentBoundingRectangle()?;
-            let bounds = (bounds.left, bounds.top, bounds.right, bounds.bottom);
-            Ok(last.replace(bounds) == Some(bounds))
-        },
-        |settled| *settled,
-    )?;
-    ui.pointer_move_to(&item, &name, 0.5, 0.5)?;
-    ui.pointer_clicks(1)?;
+    unsafe { item.SetFocus().ok()? };
+    ui.press_keys_on(&item, &name, &[VK_SPACE])?;
     ui.gone("CalendarView")
 }
 
 const DATA_ITEM: i32 = 50029;
 const VK_END: i32 = 0x23;
+const VK_SPACE: i32 = 0x20;
 const RANGE_VALUE_PATTERN: i32 = 10003;
 const EXPAND_COLLAPSE_PATTERN: i32 = 10005;
 const SELECTION_ITEM_PATTERN: i32 = 10010;
