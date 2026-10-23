@@ -19,7 +19,8 @@ Microsoft::UI::Dispatching::IDispatcherQueue::{CreateTimer, TryEnqueueWithPriori
 Microsoft::UI::Dispatching::IDispatcherQueueTimer::{add_Tick, put_Interval, put_IsRepeating, remove_Tick, Start, Stop}
 Microsoft::UI::Input::IPointerPoint::{get_PointerId, get_Position, get_Properties}
 Microsoft::UI::Input::IPointerPointProperties::{get_IsLeftButtonPressed, get_IsMiddleButtonPressed, get_IsRightButtonPressed}
-Microsoft::UI::Text::ITextDocument::{GetText, SetText}
+Microsoft::UI::Text::ITextDocument::{get_Selection, GetText, SetText}
+Microsoft::UI::Text::ITextRange::{get_EndPosition, get_StartPosition, SetRange}
 Microsoft::UI::Text::TextGetOptions
 Microsoft::UI::Text::TextSetOptions
 Microsoft::UI::Windowing::IAppWindow::{add_Changed, get_Presenter, get_Size, get_TitleBar, remove_Changed, Resize, SetIcon}

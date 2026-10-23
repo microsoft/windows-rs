@@ -22,7 +22,7 @@ fn main() {
             "IUIAutomationElementArray::{Length,GetElement}",
             "IUIAutomationInvokePattern::Invoke",
             "IUIAutomationTextPattern::DocumentRange",
-            "IUIAutomationTextRange::GetAttributeValue",
+            "IUIAutomationTextRange::{GetAttributeValue,GetText}",
             "IUIAutomationValuePattern::{CurrentValue,SetValue}",
             "IUIAutomationSelectionPattern::GetCurrentSelection",
             "IUIAutomationSelectionItemPattern::{Select,CurrentIsSelected}",

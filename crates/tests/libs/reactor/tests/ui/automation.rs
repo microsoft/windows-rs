@@ -7,6 +7,7 @@ use windows_core::{HRESULT, Interface};
 pub const ELEMENT_UNAVAILABLE: HRESULT = HRESULT(0x80040201u32 as i32);
 pub const INVOKE_PATTERN: i32 = 10000;
 const VALUE_PATTERN: i32 = 10002;
+pub(super) const TEXT_PATTERN: i32 = 10014;
 const SELECTION_PATTERN: i32 = 10001;
 const PROCESS_ID: i32 = 30002;
 pub(super) const LIST_ITEM: i32 = 50007;
@@ -498,6 +499,24 @@ impl Automation {
         Ok(())
     }
 
+    pub fn text(&self, id: &str, expected: &str) -> Result<()> {
+        self.wait(
+            &format!("{id:?} text becomes {expected:?}"),
+            || unsafe {
+                self.find(id, false)?
+                    .map(|element| {
+                        element
+                            .GetCurrentPatternAs::<IUIAutomationTextPattern>(TEXT_PATTERN)?
+                            .DocumentRange()?
+                            .GetText(-1)
+                    })
+                    .transpose()
+            },
+            |text| text.as_ref().is_some_and(|text| text == expected),
+        )?;
+        Ok(())
+    }
+
     pub fn set_value(&self, id: &str, value: &str) -> Result<()> {
         eprintln!("set UIA value {id:?} to {value:?}");
         unsafe {
@@ -561,9 +580,19 @@ impl Automation {
     }
 
     pub fn pointer_move(&self, id: &str, x: f64, y: f64) -> Result<()> {
+        self.pointer_move_to(&self.element(id)?, id, x, y)
+    }
+
+    pub fn pointer_move_to(
+        &self,
+        element: &IUIAutomationElement,
+        id: &str,
+        x: f64,
+        y: f64,
+    ) -> Result<()> {
         eprintln!("move pointer to {id:?}");
         let _coordinates = PhysicalCoordinates::new()?;
-        let bounds = unsafe { self.element(id)?.CurrentBoundingRectangle()? };
+        let bounds = unsafe { element.CurrentBoundingRectangle()? };
         if bounds.right <= bounds.left || bounds.bottom <= bounds.top {
             return Err(format!("{id:?} has no pointer target area").into());
         }

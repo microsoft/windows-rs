@@ -810,7 +810,7 @@ name = "IsEnabled"
 [[objects.properties]]
 name = "Password"
 controlled = "PasswordChanged"
-feedback = "exact"
+feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Header"
