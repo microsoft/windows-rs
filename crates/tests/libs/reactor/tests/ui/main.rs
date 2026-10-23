@@ -117,6 +117,18 @@ fn pointer_focus_policy_added_to_existing_border() -> Result<()> {
     process::run("pointer-focus-added", |ui| focus_policy(ui, true))
 }
 
+#[test]
+fn queued_clicks_reach_the_callback_they_fired_under() -> Result<()> {
+    process::run("pointer-clicks", |ui| {
+        ui.name("clicks", "Clicks 0")?;
+        ui.pointer_move("button", 0.5, 0.5)?;
+        // Clicks queued behind a render that replaces the callback are still delivered.
+        ui.pointer_clicks(5)?;
+        ui.name("clicks", "Clicks 5")?;
+        ui.name_stays("clicks", "Clicks 5", Duration::from_millis(500))
+    })
+}
+
 fn enable_pointer_policy(ui: &Automation) -> Result<()> {
     let original = ui.element("left")?;
     ui.name("policy", "Absent")?;

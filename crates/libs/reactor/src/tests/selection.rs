@@ -486,7 +486,7 @@ fn index_over_a_list_property_is_written_after_it_and_reasserted_when_it_changes
     assert_eq!(writes(&stats), ["index Some(0)"]);
 }
 #[test]
-fn tree_view_selection_mode_and_item_invocation_replace_remove_and_reject_stale_events() {
+fn tree_view_selection_mode_and_item_invocation_replace_and_remove() {
     let first = Rc::new(RefCell::new(Vec::new()));
     let first_callback = {
         let values = Rc::clone(&first);
@@ -526,11 +526,12 @@ fn tree_view_selection_mode_and_item_invocation_replace_remove_and_reject_stale_
             .nodes([TreeNode::new("root", "Root")])
             .on_item_invoked(second_callback.clone()),
     );
+    // An invocation queued before the replacement reaches the callback it fired under.
     runtime.adapter_mut().queue_event(EventDispatch::new(
         tree,
         EventId::ItemInvoked,
         EventValue::String(first_callback),
-        EventPayload::String(Rc::from("Stale")),
+        EventPayload::String(Rc::from("Queued")),
     ));
     runtime.adapter_mut().queue_event(EventDispatch::new(
         tree,
@@ -538,7 +539,8 @@ fn tree_view_selection_mode_and_item_invocation_replace_remove_and_reject_stale_
         EventValue::String(second_callback.clone()),
         EventPayload::String(Rc::from("Current")),
     ));
-    assert_eq!(runtime.dispatch_native_events(), 1);
+    assert_eq!(runtime.dispatch_native_events(), 2);
+    assert_eq!(&*first.borrow(), &[Rc::from("Root"), Rc::from("Queued")]);
     assert_eq!(&*second.borrow(), &[Rc::from("Current")]);
 
     let mutations = runtime.update(TreeView::new().nodes([TreeNode::new("root", "Root")]));
@@ -807,7 +809,7 @@ fn reorder_rejects_echoed_stale_and_partial_native_orders() {
     ));
     assert_eq!(runtime.dispatch_native_events(), 0);
 
-    // A replaced callback receives the observation but the old callback does not.
+    // A drag queued before a callback replacement reaches the callback it fired under.
     runtime.update(data_list(&["a", "b", "c"], &second));
     drag(
         &mut runtime,
@@ -817,7 +819,11 @@ fn reorder_rejects_echoed_stale_and_partial_native_orders() {
         &first,
         vec![items[1], items[0], items[2]],
     );
-    assert_eq!(runtime.dispatch_native_events(), 0);
+    assert_eq!(runtime.dispatch_native_events(), 1);
+    assert_eq!(
+        *first_values.borrow(),
+        [vec![Key::from("b"), Key::from("a"), Key::from("c")]]
+    );
     assert_eq!(
         runtime.graph().children(list, RelationId::Items).unwrap(),
         [items[1], items[0], items[2]]
@@ -831,7 +837,7 @@ fn reorder_rejects_echoed_stale_and_partial_native_orders() {
         vec![items[0], items[1], items[2]],
     );
     assert_eq!(runtime.dispatch_native_events(), 1);
-    assert!(first_values.borrow().is_empty());
+    assert_eq!(first_values.borrow().len(), 1);
     assert_eq!(
         *second_values.borrow(),
         [vec![Key::from("a"), Key::from("b"), Key::from("c")]]
@@ -958,7 +964,7 @@ fn reorder_observation_for_an_untracked_relation_panics() {
 }
 
 #[test]
-fn list_view_selection_callbacks_replace_remove_and_reject_stale_events() {
+fn list_view_selection_callbacks_replace_and_remove() {
     let (first_values, first) = recorder();
     let (second_values, second) = recorder();
     let mut runtime = Runtime::new(RecordingAdapter::default());
@@ -987,6 +993,7 @@ fn list_view_selection_callbacks_replace_remove_and_reject_stale_events() {
             .selected_index(Some(1))
             .on_selection_changed(second.clone()),
     );
+    // A change queued before the replacement reaches the callback it fired under.
     for callback in [&first, &second] {
         runtime.adapter_mut().queue_event(EventDispatch::new(
             list,
@@ -995,7 +1002,8 @@ fn list_view_selection_callbacks_replace_remove_and_reject_stale_events() {
             EventPayload::SelectionIndex(None),
         ));
     }
-    assert_eq!(runtime.dispatch_native_events(), 1);
+    assert_eq!(runtime.dispatch_native_events(), 2);
+    assert_eq!(*first_values.borrow(), [Some(1), None]);
     assert_eq!(*second_values.borrow(), [None]);
 
     runtime.update(ListView::new());

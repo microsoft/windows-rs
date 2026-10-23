@@ -45,7 +45,7 @@ fn native_queue_preview_uses_current_callback_and_preserves_order() {
         Some(QueuedEvent {
             object,
             event: EventId::MenuItemInvoked,
-            revision: 0,
+            handler: QueuedHandler::Presentation(0),
             payload: EventPayload::Key("stale".into()),
         }),
     );
@@ -55,7 +55,7 @@ fn native_queue_preview_uses_current_callback_and_preserves_order() {
         Some(QueuedEvent {
             object,
             event: EventId::MenuItemInvoked,
-            revision: 1,
+            handler: QueuedHandler::Presentation(1),
             payload: EventPayload::Key("current".into()),
         }),
     );
@@ -88,6 +88,41 @@ fn native_queue_preview_uses_current_callback_and_preserves_order() {
         Some(NativeEvent::new(Some(observation), None))
     );
     assert_eq!(adapter.pop_native_event(), None);
+}
+
+#[test]
+fn image_source_change_discards_only_queued_load_results() {
+    let image = ObjectId::test(1);
+    let other = ObjectId::test(2);
+    let queue = NativeEventQueue::default();
+    let event = |object, event| QueuedEvent {
+        object,
+        event,
+        handler: QueuedHandler::Callback(EventValue::Unit(Callback::new(|()| {}))),
+        payload: EventPayload::Unit,
+    };
+    queue.queue(None, Some(event(image, EventId::ImageOpened)));
+    queue.queue(None, Some(event(image, EventId::ImageFailed)));
+    queue.queue(None, Some(event(image, EventId::PointerPressed)));
+    queue.queue(None, Some(event(other, EventId::ImageOpened)));
+
+    queue.discard_events(image, &IMAGE_SOURCE_EVENTS);
+
+    let events = queue.events.borrow();
+    let remaining: Vec<_> = events
+        .iter()
+        .map(|queued| {
+            let event = queued.event.as_ref().unwrap();
+            (event.object, event.event)
+        })
+        .collect();
+    assert_eq!(
+        remaining,
+        [
+            (image, EventId::PointerPressed),
+            (other, EventId::ImageOpened)
+        ]
+    );
 }
 
 #[test]
@@ -498,13 +533,13 @@ fn window_visual_changes_detect_icon_removal() {
 }
 
 #[test]
-fn pointer_event_queue_preserves_payload_and_revision() {
+fn pointer_event_queue_preserves_payload_and_callback() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime.update(Border::new());
     let object = runtime.graph().root().unwrap();
+    let callback = Callback::new(|_| {});
     let event = Rc::new(RefCell::new(NativePointerEventInfoEvent {
-        revision: 7,
-        callback: Some(Callback::new(|_| {})),
+        callback: Some(callback.clone()),
     }));
     let event_queue = Rc::new(NativeEventQueue::default());
     let payload = PointerEventInfo {
@@ -529,7 +564,10 @@ fn pointer_event_queue_preserves_payload_and_revision() {
     let event = queued[0].event.as_ref().unwrap();
     assert_eq!(event.object, object);
     assert_eq!(event.event, EventId::PointerReleased);
-    assert_eq!(event.revision, 7);
+    assert!(matches!(
+        &event.handler,
+        QueuedHandler::Callback(EventValue::PointerEventInfo(queued)) if *queued == callback
+    ));
     assert_eq!(event.payload, EventPayload::PointerEventInfo(payload));
 }
 

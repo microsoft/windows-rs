@@ -1076,17 +1076,18 @@ impl RetainedGraph {
             }
             _ => None,
         };
-        let current = object
+        // An occurrence reaches the callback subscribed when it fired, even if a render has since
+        // replaced that callback. Removing the subscription drops occurrences still queued.
+        let subscribed = object
             .events
             .as_deref()
             .into_iter()
             .flatten()
-            .find(|event| event.id == dispatch.event)
-            .is_some_and(|event| event.value == dispatch.callback);
-        if current && let Some(resolved) = resolved {
+            .any(|event| event.id == dispatch.event);
+        if subscribed && let Some(resolved) = resolved {
             dispatch.payload = resolved;
         }
-        current
+        subscribed
     }
 
     fn get(&self, object: ObjectId) -> Option<&RetainedObject> {

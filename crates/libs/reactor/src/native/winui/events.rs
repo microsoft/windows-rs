@@ -38,6 +38,42 @@ into_event_payload! {
     Vec<ObjectId> => Items,
 }
 
+trait IntoEventValue {
+    fn into_event_value(self) -> EventValue;
+}
+
+macro_rules! into_event_value {
+    ($($type:ty => $variant:ident,)*) => {
+        $(impl IntoEventValue for Callback<$type> {
+            fn into_event_value(self) -> EventValue {
+                EventValue::$variant(self)
+            }
+        })*
+    };
+}
+
+into_event_value! {
+    () => Unit,
+    bool => Bool,
+    Color => Color,
+    ContentDialogResult => ContentDialogResult,
+    DragKind => DragKind,
+    DroppedData => DroppedData,
+    f64 => F64,
+    FocusEventInfo => FocusEventInfo,
+    Key => Key,
+    NavigationViewDisplayMode => NavigationViewDisplayMode,
+    Option<bool> => OptionalBool,
+    Option<DateTime> => OptionalDateTime,
+    Option<f64> => OptionalF64,
+    Option<Rc<str>> => Selection,
+    Option<TimeSpan> => OptionalTimeSpan,
+    Option<usize> => SelectionIndex,
+    PointerEventInfo => PointerEventInfo,
+    Rc<str> => String,
+    Vec<Key> => Keys,
+}
+
 impl WinUiAdapter {
     fn dispatch<T, P: IntoEventPayload>(
         event: &Rc<RefCell<NativeValueEvent<T>>>,
@@ -46,7 +82,9 @@ impl WinUiAdapter {
         event_id: EventId,
         observation: Option<Observation>,
         value: P,
-    ) {
+    ) where
+        Callback<T>: IntoEventValue,
+    {
         if Self::queue_event(event, event_queue, object, event_id, observation, value) {
             Self::schedule_event_wake(event_queue);
         }
@@ -59,12 +97,14 @@ impl WinUiAdapter {
         event_id: EventId,
         observation: Option<Observation>,
         value: P,
-    ) -> bool {
-        let event = event.borrow();
-        let queued = event.callback.is_some().then(|| QueuedEvent {
+    ) -> bool
+    where
+        Callback<T>: IntoEventValue,
+    {
+        let queued = event.borrow().callback.clone().map(|callback| QueuedEvent {
             object,
             event: event_id,
-            revision: event.revision,
+            handler: QueuedHandler::Callback(callback.into_event_value()),
             payload: value.into_payload(),
         });
         let queue = observation.is_some() || queued.is_some();
@@ -140,8 +180,7 @@ impl WinUiAdapter {
             return Ok(());
         };
         args.SetAcceptedOperation(Self::native_drag_operation(action.operation))?;
-        let revision = event.borrow().revision;
-        let subscribed = event.borrow().callback.is_some();
+        let callback = event.borrow().callback.clone();
         let result = Arc::new(Mutex::new(None::<windows_core::Result<DroppedData>>));
         let result_for_handler = Arc::clone(&result);
         let event_queue = Rc::clone(event_queue);
@@ -154,13 +193,13 @@ impl WinUiAdapter {
                 .take()
                 .unwrap()
                 .unwrap_or(DroppedData::Unsupported);
-            if subscribed {
+            if let Some(callback) = callback {
                 event_queue.queue(
                     observation,
                     Some(QueuedEvent {
                         object,
                         event: event_id,
-                        revision,
+                        handler: QueuedHandler::Callback(EventValue::DroppedData(callback)),
                         payload: EventPayload::DroppedData(value),
                     }),
                 );
@@ -250,13 +289,13 @@ impl WinUiAdapter {
         let value = selected.as_ref().and_then(|selected| {
             GeneratedHandle::selection_payload(payload_property, selected).unwrap()
         });
-        let event = event.borrow();
+        let callback = event.borrow().callback.clone();
         event_queue.queue(
             Some(observation),
-            event.callback.is_some().then(|| QueuedEvent {
+            callback.map(|callback| QueuedEvent {
                 object,
                 event: event_id,
-                revision: event.revision,
+                handler: QueuedHandler::Callback(EventValue::Selection(callback)),
                 payload: EventPayload::Selection(SelectionChange {
                     item: selected_object,
                     value,
@@ -488,13 +527,11 @@ impl WinUiAdapter {
             Handle::TreeView(value) => {
                 let mut native_event = value.item_invoked.borrow_mut();
                 if clear.contains(&EventId::ItemInvoked) {
-                    native_event.revision = native_event.revision.wrapping_add(1);
                     native_event.callback = None;
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ItemInvoked, EventValue::String(callback)) => {
-                            native_event.revision = native_event.revision.wrapping_add(1);
                             native_event.callback = Some(callback.clone());
                         }
                         _ => return Err(WinUiError::InvalidEvent(object, event.id)),

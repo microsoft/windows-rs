@@ -144,3 +144,43 @@ impl Component for Fixture {
 pub fn run(capture: bool, enabled: bool) -> windows_core::Result<()> {
     App::run_component::<Fixture>((capture, enabled))
 }
+
+struct ClickFixture {
+    clicks: usize,
+}
+
+impl Component for ClickFixture {
+    type Input = ();
+    type Message = usize;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self { clicks: 0 }
+    }
+
+    fn update(&mut self, _: usize, _: &ComponentContext<Self>) {
+        // A slow update keeps the UI thread busy so a burst of clicks queues behind one render.
+        std::thread::sleep(std::time::Duration::from_millis(50));
+        self.clicks += 1;
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        // Capturing render state gives the callback a new identity on every render.
+        let seen = self.clicks;
+        context.window_frame(
+            "Reactor UI fixture: pointer-clicks",
+            StackPanel::new().margin(20.0).spacing(12.0).children((
+                Button::new()
+                    .automation_id("button")
+                    .content("Click")
+                    .on_click(context.callback(move |()| seen)),
+                TextBlock::new()
+                    .automation_id("clicks")
+                    .text(format!("Clicks {}", self.clicks)),
+            )),
+        )
+    }
+}
+
+pub fn run_clicks() -> windows_core::Result<()> {
+    App::run_component::<ClickFixture>(())
+}
