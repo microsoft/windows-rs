@@ -10,138 +10,49 @@
 
 ## When to use it
 
-Use `windows-reactor-setup` only when a
-[`windows-reactor`](windows-reactor.md) executable must carry a private Windows App SDK runtime
-beside the executable. It is a build dependency called from `build.rs`; it is not a runtime API and
-does not belong in `[dependencies]`.
+Use `windows-reactor-setup` when a [`windows-reactor`](windows-reactor.md) executable must carry a
+private Windows App SDK runtime. It is a build dependency called from `build.rs`, not a runtime
+API. Framework-dependent applications and plain `windows-webview` `HWND` hosts do not need it.
 
-Do not use it for a framework-dependent Reactor application. `windows-reactor` already contains
-the framework bootstrap that resolves an installed Windows App SDK framework package at startup.
-That deployment model stages no private runtime files.
+## Make a self-contained build
 
-Do not use it for a plain `windows-webview` `HWND` host. The WebView2 Evergreen runtime supplies
-that COM-only path. Reactor's XAML WebView2 control has an additional projection DLL requirement,
-which this setup helper handles for self-contained Reactor apps.
+```toml
+[build-dependencies]
+windows-reactor-setup = "0.100"
+```
+
+```rust,ignore
+fn main() {
+    windows_reactor_setup::as_self_contained();
+}
+```
+
+Build normally with Cargo. The build step downloads the pinned Windows App SDK runtime and WebView2
+NuGet packages, copies the runtime files beside the executable, and embeds a manifest that tells
+Reactor to use them. To deploy, copy the executable together with every staged file and directory
+from the Cargo profile output directory, preserving their layout.
+
+The [`reactor/self_contained`](../../crates/samples/reactor/self_contained) sample is the reference
+layout, and [`webview/reactor`](../../crates/samples/webview/reactor) adds the XAML WebView2 control.
 
 ## Prerequisites
 
-- The Cargo target OS must be Windows.
-- The build needs network access the first time each pinned NuGet package is staged.
-- `%SystemRoot%\System32\curl.exe` and `tar.exe` must be available.
-- The target must use MSVC, or the LLVM-based GNU ABI supported by the manifest linker arguments.
-- Supported target architecture mappings are `x86` -> `x86`, `aarch64` -> `arm64`, and other
-  Rust target architectures -> `x64`.
+- A Windows target using MSVC or the LLVM-based GNU ABI.
+- Network access for the first build; packages are then cached under
+  `%LOCALAPPDATA%\windows-reactor-setup`.
+- `%SystemRoot%\System32\curl.exe` and `tar.exe`.
 
-The README contains the build-dependency declaration and one-line `build.rs`.
+Staging errors panic and fail the build. `cargo clean` does not remove the package cache; delete it
+manually to force a fresh download.
 
-## First workflow: produce a self-contained build
+## Contributing
 
-1. Add `windows-reactor-setup` under `[build-dependencies]`.
-2. Create `build.rs` and call `windows_reactor_setup::as_self_contained()`.
-3. Build the application normally with Cargo.
-4. Run the executable from its Cargo profile output directory to confirm the staged runtime is
-   used.
-5. Package the executable together with all staged DLLs and runtime directories from that output
-   directory. Preserve their relative layout.
-6. Test the packaged directory on a machine that does not provide the framework package expected
-   by a framework-dependent build.
+| Item | Location |
+| --- | --- |
+| Runtime file allow-list | `assets/runtime.txt`; keep in sync with the pinned runtime |
+| Manifest template | `assets/app.manifest` |
+| Package versions | Pinned in the crate; keep WebView2 compatible with `windows-webview` |
 
-The [`reactor/self_contained`](../../crates/samples/reactor/self_contained) sample is the reference
-project layout. The [`webview/reactor`](../../crates/samples/webview/reactor) sample shows the same
-setup for a Reactor app containing the XAML WebView2 control.
-
-## What the build step does
-
-`as_self_contained` performs these operations during the application build:
-
-1. Resolve Cargo's profile output directory from `OUT_DIR` and `PROFILE`.
-2. Download and cache the pinned `Microsoft.WindowsAppSDK.Runtime` NuGet package.
-3. Extract the MSIX for the target architecture.
-4. Copy the allow-listed Windows App Runtime files to the profile output directory.
-5. Download and cache the pinned `Microsoft.Web.WebView2` NuGet package.
-6. Copy the target architecture's `native_uap/Microsoft.Web.WebView2.Core.dll` beside the
-   executable.
-7. Write an application manifest containing the self-contained deployment marker.
-8. Pass linker arguments that embed the manifest in binary targets.
-
-Downloads and extracted packages are cached under
-`%LOCALAPPDATA%\windows-reactor-setup\temp\v1` when `LOCALAPPDATA` is available. Cargo may rerun the
-build script, but the cached package and extraction directories avoid downloading on every build.
-The versioned cache does not reuse unchecked entries in the parent `temp` directory. Its first
-use requires a fresh download. MSIX extraction caches are separate for each target architecture.
-
-## Deployment and shared target directories
-
-The Cargo profile directory can contain outputs from several packages. Stage the application from
-a clean, known build profile and copy every runtime file and subdirectory required beside the
-executable. Copying only the `.exe` does not produce a self-contained deployment.
-
-A destination-owned file lock serializes runtime and WebView2 copying by build scripts sharing
-the same Cargo profile directory. Cache locks alone do not protect this shared output.
-
-The embedded manifest includes a `windows-reactor-self-contained` description marker. Reactor reads
-that marker to select the private runtime. A framework-dependent executable ignores private files
-left by a self-contained build in the same Cargo target directory and uses its inlined framework
-bootstrap instead.
-
-`Microsoft.Web.WebView2.Core.dll` is always staged. This allows a self-contained app to add
-`windows-webview`'s `reactor` feature without another deployment step. It is the WinRT projection
-assembly used by the XAML control, not the `webview2loader.dll` used by COM-only hosting.
-
-## Failures and cleanup
-
-`as_self_contained` has no `Result` return. Unsupported target configuration, missing Cargo
-environment variables, and staging errors panic during the build. Download, extraction, directory
-access, and copy errors stop staging before the helper emits manifest linker arguments. Diagnostics
-include the failing path or command.
-
-Cache entries are published only after extraction succeeds and required files are present.
-Failed or interrupted staging leaves an unpublished `.partial` directory, which the next attempt
-discards and rebuilds. A failed copy can leave some files in the Cargo output directory, but the
-build fails and the next attempt copies the runtime again.
-
-The first build therefore requires reliable NuGet access. In offline build environments, populate
-the helper's package cache before disconnecting or use a build environment with the required cache.
-Do not delete the cache while another build is using it.
-
-Staged files live in the Cargo profile output directory, outside the package's `OUT_DIR`.
-`cargo clean` removes the target output but not the package cache under `LOCALAPPDATA`. Remove that
-specific cache directory manually only when forcing a fresh package download.
-
-The helper copies fixed package versions. Update the crate rather than replacing staged files by
-hand so the manifest, runtime allow-list, and WebView2 projection stay compatible.
-
----
-
-## Internal documentation
-
-This section is for contributors to `windows-reactor-setup`.
-
-`as_self_contained` validates `CARGO_CFG_TARGET_OS`, derives the target directory from the nearest
-ancestor matching `PROFILE`, and falls back to the conventional ancestor depth. The unit tests
-cover standard and split-package `OUT_DIR` layouts.
-
-`stage_pkg` downloads a `.nupkg` inside a staging directory, extracts it, verifies the requested
-architecture's MSIX or WebView2 DLL, and removes the archive before publishing the directory.
-Runtime MSIX extraction uses `.msix_extract-<arch>` and checks for the core runtime and XAML DLLs
-before publication.
-
-`cached_dir` holds a file lock for each cache entry while checking, populating, and publishing it.
-Extraction happens in a sibling `.partial` directory, followed by a rename to the final name.
-The lock is released when its file handle is dropped, including after a failed or terminated build.
-Concurrent builds share the completed entry rather than modifying the same staging directory.
-
-`copy_runtime_to` copies only top-level entries named in `assets/runtime.txt`, then recursively
-preserves any selected directory. Keep that allow-list in sync with the pinned Windows App SDK
-runtime. Filesystem tests cover architecture isolation, failed extraction and retry, required-file
-checks, concurrent cache publication, concurrent deployment processes, and copy failures.
-Archive tests use local ZIP fixtures and the system `tar.exe`; they do not download packages or
-launch WinUI.
-
-The application manifest template is `assets/app.manifest`. The function inserts the deployment
-marker after the opening assembly element, writes the result to `OUT_DIR`, and emits binary-only
-manifest linker arguments for MSVC or LLVM GNU targets.
-
-`deploy_webview2` copies `Microsoft.Web.WebView2.Core.dll` from the pinned WebView2 package's
-per-architecture `native_uap` directory. Keep its package version compatible with the WinRT
-metadata and XAML WebView2 bridge used by `windows-webview` and Reactor.
+Cache entries are populated under a per-entry file lock in a `.partial` directory and renamed when
+complete. Copying into the shared Cargo profile directory is serialized by a destination lock.
+Tests use local ZIP fixtures and do not download packages or launch WinUI.

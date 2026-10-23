@@ -1,3 +1,13 @@
+# Reactor schema. Keys are WinUI metadata names; tool-reactor infers types, setters, and events.
+#
+# Controlled-value keys:
+#
+# - `indexes = "<target>"`: controlled index, written after the named items change.
+# - `coerces = "<property>"`: range property; the named value is rewritten after range changes.
+# - `requires_selection = true`: an index past the end selects the first item.
+# - `realize_items = true`: run layout before writing the index, since only realized items select.
+# - `observe_only = true`: the event records its `observes` property but has no callback.
+
 [[attached_properties]]
 name = "CanvasLeft"
 owner = "Microsoft.UI.Xaml.Controls.Canvas"
