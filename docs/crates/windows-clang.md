@@ -31,10 +31,11 @@ Only functions selected by target-native `ntdll.lib` and `offreg.lib` symbols be
 The pinned WDK has no x86 Offreg import library; this is an import-evidence gap, not proof that the
 API cannot exist on x86. Configuration, library evidence and omissions are under `target/win32/wdk`.
 
-Shared type reuse remains a coverage boundary. WDK aliases for `UNICODE_STRING` and
-`OBJECT_ATTRIBUTES` connect types that SDK metadata publishes separately. `STRING` also carries WDK
-buffer contracts absent from its SDK definition. These declarations and dependent APIs are omitted
-rather than rebound to a different type or given weaker contracts.
+Shared type reuse remains a coverage boundary. WDK `STRING` supplies field-buffer facts absent from
+the SDK definition; reuse leaves that metadata unspecified rather than adding promises. WDK
+`UNICODE_STRING.Buffer` uses a counted `PWCH` buffer, while the SDK uses `PWSTR` with null-termination
+typedef evidence. That distinction remains an omission, including dependent `OBJECT_ATTRIBUTES`
+APIs. Typedef-owned return contracts through `PNTSTATUS` also remain unproven.
 
 The final merge rejects overlapping non-enum ownership, conflicting shared enum values and duplicate
 items on any target before replacing the default WinMD.
@@ -150,13 +151,19 @@ metadata owns the published contracts; native observations remain available for 
 There is no HRESULT, BOOL, or string-type normalization policy. Missing matches follow ordinary local
 publication, including its unsupported-type diagnostics.
 
-Value records are checked for field identity, types, layout and projected field contracts before
-reuse. Referenced pointer aliases can establish the metadata identity of their native pointee, but
-do not bypass record validation. Unsupported shared shapes, including bitfield records, remain
-omissions with their dependents. Value aliases must retain their underlying types. Callbacks and
-already-owned functions/constants require matching projected declarations; a different written
-contract is rejected rather than assumed equivalent. Native forward-enum declarations may omit SAL
-present on the definition, but cannot add conflicting evidence.
+Reference reuse separates canonical ownership, ABI checks and contract checks:
+
+| Boundary | Rule |
+| --- | --- |
+| Ownership | A direct record binding is stable. Alias-derived ownership requires a unique candidate when no direct binding exists. |
+| Secondary aliases | An alias may name a separate metadata record after field, type, layout and contract checks. Alias rejection does not invalidate canonical ownership. |
+| ABI | Field names/order, signedness, pointer shape, packing, alignment and layout must agree. Unsupported shared shapes, including bitfields, remain omissions. |
+| Contracts | Unannotated reference fields/typedefs stay unspecified. Existing annotation sets must match; annotated typedef identities are not erased by ABI normalization. |
+| Callbacks | Matching declarations remain valid. A bounded positional comparison also checks calling convention, result/parameter types and simple direction flags. Unspecified direction may accept native direction facts; explicit direction and optionality must agree. Complex contracts still require exact declarations. |
+
+Reference metadata is not enriched or rewritten by native-only evidence. Already-owned
+functions/constants still require matching projected declarations. Native forward-enum declarations
+may omit SAL present on the definition, but cannot add conflicting evidence.
 
 Actual C++ scopes remain distinct. Explicit namespace wrappers support SDK spellings: empty means
 the metadata namespace directly, `ABI` means the SDK ABI wrapper. A configured delegate prefix

@@ -166,6 +166,7 @@ impl<'a> References<'a> {
                 result.records.insert(family, definition);
             }
         }
+        let mut candidates = BTreeMap::new();
         for alias in &resolution.aliases {
             let Some(&metadata) = result.aliases.get(&alias.name) else {
                 continue;
@@ -191,9 +192,24 @@ impl<'a> References<'a> {
                         observation.canonical,
                         ty,
                         plan,
-                        &mut result,
+                        &mut candidates,
                     )?;
                 }
+            }
+        }
+        for (family, definitions) in candidates {
+            if result.records.contains_key(&family) {
+                continue;
+            }
+            result.records.insert(family, definitions[0]);
+            if definitions.len() != 1 {
+                result.invalid_records.insert(
+                    family,
+                    format!(
+                        "external record `{}` has ambiguous alias ownership",
+                        plan.names[family]
+                    ),
+                );
             }
         }
         for (family, groups) in plan.families.iter().enumerate() {
@@ -288,7 +304,7 @@ impl<'a> References<'a> {
         mut native: TypeId,
         mut ty: MetadataType,
         plan: &Plan,
-        bindings: &mut Bindings<'a>,
+        record_candidates: &mut BTreeMap<usize, Vec<TypeDef<'a>>>,
     ) -> Result<(), Error> {
         let bit = match snapshot.target {
             Target::X86 => 1,
@@ -335,16 +351,9 @@ impl<'a> References<'a> {
                         && definition.category() == TypeCategory::Struct
                     {
                         let family = plan.family(snapshot_id, record);
-                        if let Some(previous) = bindings.records.insert(family, definition)
-                            && previous != definition
-                        {
-                            bindings.invalid_records.insert(
-                                family,
-                                format!(
-                                    "external record `{}` has conflicting alias identities",
-                                    plan.names[family],
-                                ),
-                            );
+                        let definitions = record_candidates.entry(family).or_default();
+                        if !definitions.contains(&definition) {
+                            definitions.push(definition);
                         }
                     }
                     return Ok(());

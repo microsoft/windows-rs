@@ -406,6 +406,9 @@ observations remain distinct; shared routing never resolves a type conflict.
 `--wdk --partial` refreshes WDK against the current SDK RDL. WDK function roots use exact
 target-native import symbols; shared records and enum extensions are checked before metadata reuse.
 Incompatible declarations remain explicit omissions, not copies from retained RDL.
+Shared-reference reuse keeps canonical ownership separate from alias compatibility and ABI checks.
+Unspecified reference contracts are not new guarantees; existing contracts and annotated typedefs
+remain checked. Unsupported differences stay omitted rather than being normalized away.
 
 `capture_partial` and `projection::generate_partial` return supported output plus omission reports.
 `projection::project_partial` accepts an existing partial capture without reparsing.

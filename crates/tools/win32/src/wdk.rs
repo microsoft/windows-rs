@@ -318,3 +318,69 @@ fn target_native_imports() {
         );
     }
 }
+
+#[test]
+fn user_mode_metadata_surface() {
+    use windows_metadata::Type;
+    use windows_metadata::reader::{File, Index};
+    let path = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("..\\..\\..\\crates\\libs\\default\\Windows.Win32.winmd");
+    for bit in [1, 2, 4] {
+        let index = Index::new_for_architecture(vec![File::read(&path).unwrap()], bit);
+        for name in [
+            "NtClose",
+            "NtReadFile",
+            "NtWriteFile",
+            "ZwReadFile",
+            "ZwWriteFile",
+            "RtlCompareString",
+            "RtlEqualString",
+        ] {
+            let items: Vec<_> = index.get_item("Windows.Win32", name).collect();
+            let [Item::Fn(method)] = items.as_slice() else {
+                panic!("missing or ambiguous {name} on architecture {bit}");
+            };
+            let import = method.impl_map().unwrap();
+            assert_eq!(import.import_name(), name);
+            assert!(
+                import
+                    .import_scope()
+                    .name()
+                    .eq_ignore_ascii_case("ntdll.dll")
+            );
+            if name == "RtlCompareString" {
+                let signature = method.signature(&[]);
+                assert_eq!(
+                    signature.return_type,
+                    Type::value_named("Windows.Win32", "LONG")
+                );
+                assert_eq!(
+                    signature.types,
+                    [
+                        Type::PtrConst(Box::new(Type::value_named("Windows.Win32", "STRING")), 1),
+                        Type::PtrConst(Box::new(Type::value_named("Windows.Win32", "STRING")), 1),
+                        Type::value_named("Windows.Win32", "BOOLEAN"),
+                    ]
+                );
+            }
+        }
+        for name in ["OROpenHive", "ORCloseHive"] {
+            let items: Vec<_> = index.get_item("Windows.Win32", name).collect();
+            if bit == 1 {
+                assert!(items.is_empty());
+            } else {
+                let [Item::Fn(method)] = items.as_slice() else {
+                    panic!("missing or ambiguous {name} on architecture {bit}");
+                };
+                let import = method.impl_map().unwrap();
+                assert_eq!(import.import_name(), name);
+                assert!(
+                    import
+                        .import_scope()
+                        .name()
+                        .eq_ignore_ascii_case("offreg.dll")
+                );
+            }
+        }
+    }
+}

@@ -66,22 +66,36 @@ impl Projector<'_, '_> {
                                 alias.name
                             ))
                         })?;
-                        let actual = self.ty(reference.snapshot, observation.canonical)?;
-                        let actual = normalize_type(
-                            actual,
-                            metadata.index(),
-                            snapshot.target,
-                            &mut HashSet::new(),
-                        )?;
-                        let expected = normalize_type(
+                        self.validate_alias_type(
+                            reference.snapshot,
+                            observation.canonical,
+                            observation.underlying,
                             expected,
                             metadata.index(),
-                            snapshot.target,
-                            &mut HashSet::new(),
                         )?;
-                        if actual != expected {
+                        let body = self.alias(
+                            reference.snapshot,
+                            observation,
+                            &alias.name,
+                            &observation.attributes,
+                        )?;
+                        let rendered = windows_rdl::emit::write_item(
+                            self.namespace,
+                            windows_metadata::reader::Item::Type(metadata),
+                        )
+                        .map_err(|error| Error(error.to_string()))?;
+                        let [(_, expected)] = rendered.as_slice() else {
                             return Err(Error(format!(
-                                "external alias `{}` underlying type differs from metadata: {actual:?} vs {expected:?}",
+                                "external alias `{}` has no unique declaration",
+                                alias.name
+                            )));
+                        };
+                        if !contracts_supported(
+                            attribute_set(body.attributes),
+                            declaration_key(expected.clone()).0,
+                        ) {
+                            return Err(Error(format!(
+                                "external alias `{}` contracts are not supported by native evidence",
                                 alias.name
                             )));
                         }
@@ -114,14 +128,32 @@ impl Projector<'_, '_> {
                                 alias.name
                             )));
                         };
-                        if declaration_key(quote! { #attributes #declaration })
-                            != declaration_key(expected.clone())
-                        {
-                            return Err(Error(format!(
-                                "external callback `{}` declaration differs from metadata",
-                                alias.name
-                            )));
+                        let actual_key = declaration_key(quote! { #attributes #declaration });
+                        let expected_key = declaration_key(expected.clone());
+                        if actual_key != expected_key {
+                            if actual_key.0 != expected_key.0 {
+                                return Err(Error(format!(
+                                    "external callback `{}` declaration contracts differ from metadata",
+                                    alias.name
+                                )));
+                            }
+                            self.validate_simple_callback(
+                                reference.snapshot,
+                                observation,
+                                metadata,
+                            )?;
                         }
+                    } else if metadata.category() == TypeCategory::Struct
+                        && let TypeKind::Record(record) =
+                            snapshot.types[observation.canonical.0].kind
+                    {
+                        self.validate_reference_record(
+                            self.resolution.group(RecordRef {
+                                snapshot: reference.snapshot,
+                                record,
+                            }),
+                            metadata,
+                        )?;
                     } else if !metadata.flags().contains(TypeAttributes::WindowsRuntime)
                         && self.ty(reference.snapshot, observation.canonical)?
                             != references::metadata_type(metadata)
@@ -139,6 +171,239 @@ impl Projector<'_, '_> {
             }
         }
         Ok(())
+    }
+
+    fn validate_simple_callback(
+        &self,
+        snapshot_id: usize,
+        observation: &AliasObservation,
+        metadata: TypeDef<'_>,
+    ) -> Result<(), Error> {
+        use windows_metadata::ParamAttributes;
+        use windows_metadata::reader::ParamDirection;
+        let fail = |reason| Error(format!("external callback `{}` {reason}", metadata.name()));
+        let snapshot = self.resolution.snapshots[snapshot_id];
+        let function = callback(snapshot, observation.canonical)
+            .ok_or_else(|| fail("has no native pointer prototype"))?;
+        let written = written_function(snapshot, observation.underlying)?;
+        let convention = match metadata.find_attribute("UnmanagedFunctionPointerAttribute") {
+            None => CallingConvention::Stdcall,
+            Some(attribute) => match attribute.value().as_slice() {
+                [(_, Value::EnumValue(_, value))] => match value.as_ref() {
+                    Value::I32(1) => CallingConvention::Stdcall,
+                    Value::I32(2) => CallingConvention::C,
+                    _ => return Err(fail("has an unsupported metadata calling convention")),
+                },
+                _ => return Err(fail("has malformed calling convention metadata")),
+            },
+        };
+        if written.convention != convention {
+            return Err(fail("calling convention differs from metadata"));
+        }
+        let method = metadata
+            .methods()
+            .find(|method| method.name() == "Invoke")
+            .ok_or_else(|| fail("has no Invoke method"))?;
+        let expected = method.signature(&[]);
+        if expected.flags.0 & 0x0f != 0 || metadata.generic_params().next().is_some() {
+            return Err(fail("has an unsupported metadata prototype"));
+        }
+        let actual = self.signature(snapshot_id, function, Some(written))?;
+        if actual.types.len() != expected.types.len() {
+            return Err(fail("parameter count differs from metadata"));
+        }
+        for (actual, expected) in std::iter::once((&actual.return_type, &expected.return_type))
+            .chain(actual.types.iter().zip(&expected.types))
+        {
+            for preserve_contracts in [false, true] {
+                let actual = normalize_reference_type(
+                    actual.clone(),
+                    metadata.index(),
+                    snapshot.target,
+                    &mut HashSet::new(),
+                    preserve_contracts,
+                )?;
+                let expected = normalize_reference_type(
+                    expected.clone(),
+                    metadata.index(),
+                    snapshot.target,
+                    &mut HashSet::new(),
+                    preserve_contracts,
+                )?;
+                if actual != expected {
+                    return Err(fail(
+                        "signature types or typedef contracts differ from metadata",
+                    ));
+                }
+            }
+        }
+        let parameters = callback_parameters(snapshot, observation)
+            .ok_or_else(|| fail("has no native parameter declarations"))?;
+        if parameters.len() != actual.types.len() {
+            return Err(fail(
+                "native parameter declarations differ from its signature",
+            ));
+        }
+        let rows = method
+            .params_by_sequence(expected.types.len())
+            .map_err(|error| Error(error.to_string()))?;
+        let attributes = annotations::write_callback(
+            self.resolution,
+            snapshot,
+            observation.underlying,
+            function.result,
+            &observation.attributes,
+            parameters,
+        )?;
+        if !attributes.result.is_empty()
+            || method.attributes().next().is_some()
+            || rows.return_param().is_some_and(|row| {
+                row.flags() != ParamAttributes::default() || row.attributes().next().is_some()
+            })
+        {
+            return Err(fail("requires exact matching result or method contracts"));
+        }
+        for (parameter, row) in self
+            .parameters(snapshot_id, function, parameters)?
+            .into_iter()
+            .zip(rows.params())
+        {
+            let attributes = declaration_key(parameter).0;
+            if attributes
+                .iter()
+                .any(|attribute| !matches!(attribute.as_str(), "r#in" | "out" | "opt"))
+                || row.is_some_and(|row| {
+                    row.attributes().next().is_some()
+                        || row.flags().0
+                            & !(ParamAttributes::In
+                                | ParamAttributes::Out
+                                | ParamAttributes::Optional)
+                                .0
+                            != 0
+                })
+            {
+                return Err(fail("requires exact matching complex parameter contracts"));
+            }
+            let input = attributes.contains("r#in");
+            let output = attributes.contains("out");
+            let optional = attributes.contains("opt");
+            let direction = row.map_or(ParamDirection::Unspecified, |row| row.direction());
+            let agrees = match direction {
+                ParamDirection::Unspecified => true,
+                ParamDirection::Input => input && !output,
+                ParamDirection::Output => output && !input,
+                ParamDirection::InputOutput => input && output,
+            };
+            if !agrees || optional != row.is_some_and(|row| row.is_optional()) {
+                return Err(fail(
+                    "parameter direction or optionality differs from metadata",
+                ));
+            }
+        }
+        Ok(())
+    }
+
+    fn validate_alias_type(
+        &self,
+        snapshot_id: usize,
+        native: TypeId,
+        written: TypeId,
+        expected: MetadataType,
+        metadata: &Index,
+    ) -> Result<(), Error> {
+        let snapshot = self.resolution.snapshots[snapshot_id];
+        for preserve_contracts in [false, true] {
+            let actual = if preserve_contracts {
+                self.written_ty(snapshot_id, written, native)?
+            } else {
+                self.ty(snapshot_id, native)?
+            };
+            let actual = normalize_reference_type(
+                actual,
+                metadata,
+                snapshot.target,
+                &mut HashSet::new(),
+                preserve_contracts,
+            )?;
+            let expected = normalize_reference_type(
+                expected.clone(),
+                metadata,
+                snapshot.target,
+                &mut HashSet::new(),
+                preserve_contracts,
+            )?;
+            self.validate_alias_shape(snapshot_id, native, actual, expected, metadata)?;
+        }
+        Ok(())
+    }
+
+    fn validate_alias_shape(
+        &self,
+        snapshot_id: usize,
+        mut native: TypeId,
+        mut actual: MetadataType,
+        mut expected: MetadataType,
+        metadata: &Index,
+    ) -> Result<(), Error> {
+        let snapshot = self.resolution.snapshots[snapshot_id];
+        if actual == expected {
+            return Ok(());
+        }
+        loop {
+            match (actual, expected) {
+                (MetadataType::PtrMut(a, ac), MetadataType::PtrMut(b, bc))
+                | (MetadataType::PtrConst(a, ac), MetadataType::PtrConst(b, bc))
+                    if ac == bc =>
+                {
+                    for _ in 0..ac {
+                        let TypeKind::Pointer(inner) = snapshot.types[native.0].kind else {
+                            return Err(Error(
+                                "external alias pointer shape differs from metadata".into(),
+                            ));
+                        };
+                        native = inner;
+                    }
+                    actual = *a;
+                    expected = *b;
+                }
+                (MetadataType::ValueName(_), MetadataType::ValueName(name))
+                    if matches!(snapshot.types[native.0].kind, TypeKind::Record(_)) =>
+                {
+                    let TypeKind::Record(record) = snapshot.types[native.0].kind else {
+                        unreachable!()
+                    };
+                    let bit = match snapshot.target {
+                        Target::X86 => 1,
+                        Target::X64 => 2,
+                        Target::Arm64 => 4,
+                    };
+                    let mut definitions =
+                        metadata
+                            .get(&name.namespace, &name.name)
+                            .filter(|definition| {
+                                definition.arches() == 0 || definition.arches() & bit != 0
+                            });
+                    let definition = definitions
+                        .next()
+                        .ok_or_else(|| Error("missing external alias record".into()))?;
+                    if definitions.next().is_some() {
+                        return Err(Error("ambiguous external alias record".into()));
+                    }
+                    return self.validate_reference_record(
+                        self.resolution.group(RecordRef {
+                            snapshot: snapshot_id,
+                            record,
+                        }),
+                        definition,
+                    );
+                }
+                (actual, expected) => {
+                    return Err(Error(format!(
+                        "external alias underlying type differs from metadata: {actual:?} vs {expected:?}"
+                    )));
+                }
+            }
+        }
     }
 
     fn validate_reference_enum(&self, id: usize, metadata: TypeDef<'_>) -> Result<(), Error> {
@@ -294,11 +559,30 @@ impl Projector<'_, '_> {
                     "external record `{name}` field `{native_name}` type differs: {actual:?} vs {expected:?}"
                 )));
             }
+            let actual = normalize_reference_type(
+                self.written_ty(reference.snapshot, native.written, native.canonical)?,
+                metadata.index(),
+                snapshot.target,
+                &mut HashSet::new(),
+                true,
+            )?;
+            let expected = normalize_reference_type(
+                metadata_field.ty(),
+                metadata.index(),
+                snapshot.target,
+                &mut HashSet::new(),
+                true,
+            )?;
+            if actual != expected {
+                return Err(Error(format!(
+                    "external record `{name}` field `{native_name}` typedef contracts differ from metadata"
+                )));
+            }
             let actual = annotations::field(snapshot, native, &definition.fields, false)?;
             let expected =
                 windows_rdl::emit::write_field_attributes(metadata_field, self.namespace)
                     .map_err(|error| Error(error.to_string()))?;
-            if attribute_set(actual) != attribute_set(expected) {
+            if !contracts_supported(attribute_set(actual), attribute_set(expected)) {
                 return Err(Error(format!(
                     "external record `{name}` field `{native_name}` contracts differ from metadata"
                 )));
@@ -338,6 +622,11 @@ impl Projector<'_, '_> {
     }
 }
 
+fn contracts_supported(actual: BTreeSet<String>, expected: BTreeSet<String>) -> bool {
+    // Missing reference facts remain unspecified; existing facts are never weakened or extended.
+    expected.is_empty() || actual == expected
+}
+
 fn attribute_set(tokens: TokenStream) -> BTreeSet<String> {
     tokens
         .into_iter()
@@ -371,6 +660,16 @@ fn normalize_type(
     target: Target,
     seen: &mut HashSet<(String, String)>,
 ) -> Result<MetadataType, Error> {
+    normalize_reference_type(ty, metadata, target, seen, false)
+}
+
+fn normalize_reference_type(
+    ty: MetadataType,
+    metadata: &Index,
+    target: Target,
+    seen: &mut HashSet<(String, String)>,
+    preserve_contracts: bool,
+) -> Result<MetadataType, Error> {
     Ok(match ty {
         MetadataType::ValueName(ref name) => {
             let bit = match target {
@@ -388,6 +687,16 @@ fn normalize_type(
             if let Some(definition) = definition
                 && definition.has_attribute("NativeTypedefAttribute")
             {
+                if preserve_contracts
+                    && definition.attributes().any(|attribute| {
+                        !matches!(
+                            attribute.name(),
+                            "NativeTypedefAttribute" | "SupportedArchitectureAttribute"
+                        )
+                    })
+                {
+                    return Ok(ty);
+                }
                 let key = (name.namespace.clone(), name.name.clone());
                 if !seen.insert(key.clone()) {
                     return Err(Error(format!("cyclic referenced alias `{name:?}`")));
@@ -395,7 +704,13 @@ fn normalize_type(
                 let underlying = definition
                     .underlying_type()
                     .ok_or_else(|| Error(format!("referenced alias `{name:?}` has no type")))?;
-                let result = normalize_type(underlying, metadata, target, seen)?;
+                let result = normalize_reference_type(
+                    underlying,
+                    metadata,
+                    target,
+                    seen,
+                    preserve_contracts,
+                )?;
                 seen.remove(&key);
                 result
             } else {
@@ -416,13 +731,14 @@ fn normalize_type(
                 MetadataType::U64
             }
         }
-        MetadataType::PtrMut(inner, count) => match normalize_type(*inner, metadata, target, seen)?
-        {
-            MetadataType::PtrMut(inner, nested) => MetadataType::PtrMut(inner, count + nested),
-            inner => MetadataType::PtrMut(Box::new(inner), count),
-        },
+        MetadataType::PtrMut(inner, count) => {
+            match normalize_reference_type(*inner, metadata, target, seen, preserve_contracts)? {
+                MetadataType::PtrMut(inner, nested) => MetadataType::PtrMut(inner, count + nested),
+                inner => MetadataType::PtrMut(Box::new(inner), count),
+            }
+        }
         MetadataType::PtrConst(inner, count) => {
-            match normalize_type(*inner, metadata, target, seen)? {
+            match normalize_reference_type(*inner, metadata, target, seen, preserve_contracts)? {
                 MetadataType::PtrConst(inner, nested) => {
                     MetadataType::PtrConst(inner, count + nested)
                 }
@@ -430,11 +746,23 @@ fn normalize_type(
             }
         }
         MetadataType::Ptr64(inner, constant) => MetadataType::Ptr64(
-            Box::new(normalize_type(*inner, metadata, target, seen)?),
+            Box::new(normalize_reference_type(
+                *inner,
+                metadata,
+                target,
+                seen,
+                preserve_contracts,
+            )?),
             constant,
         ),
         MetadataType::ArrayFixed(inner, count) => MetadataType::ArrayFixed(
-            Box::new(normalize_type(*inner, metadata, target, seen)?),
+            Box::new(normalize_reference_type(
+                *inner,
+                metadata,
+                target,
+                seen,
+                preserve_contracts,
+            )?),
             count,
         ),
         _ => ty,

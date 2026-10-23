@@ -3585,7 +3585,6 @@ mod Windows {
         type PFILE_NAME_INFORMATION = *mut FILE_NAME_INFORMATION;
         type PFILE_VALID_DATA_LENGTH_INFORMATION = *mut FILE_VALID_DATA_LENGTH_INFORMATION;
         extern "C" fn PFNFTH(#[in] #[out] SystemFirmwareTableInfo: PSYSTEM_FIRMWARE_TABLE_INFORMATION) -> NTSTATUS;
-        extern "C" fn PFN_IN_USE_PAGE_OFFLINE_NOTIFY(#[in] Page: PFN_NUMBER, #[in] Poisoned: BOOLEAN, #[in] #[out] Context: PVOID, #[out] CallbackStatus: PNTSTATUS) -> BOOLEAN;
         extern "C" fn PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER(#[in] Context: PVOID, #[in] OsSelRecord: PIPMI_OS_SEL_RECORD) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[must_use]
@@ -4628,8 +4627,14 @@ mod Windows {
             RightChild: *mut RTL_SPLAY_LINKS,
         }
         const RTL_STACK_WALKING_MODE_FRAMES_TO_SKIP_SHIFT: i32 = 8;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[must_use]
+        #[library("ntdll.dll")]
+        extern fn RtlCompareString(#[in] String1: *const STRING, #[in] String2: *const STRING, #[in] CaseInSensitive: BOOLEAN) -> LONG;
         #[library("ntdll.dll")]
         extern fn RtlContractHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE) -> BOOLEAN;
+        #[library("ntdll.dll")]
+        extern fn RtlCopyString(#[out] DestinationString: PSTRING, #[in] #[opt] SourceString: *const STRING);
         #[must_use]
         #[success(return != 0)]
         #[library("ntdll.dll")]
@@ -4674,6 +4679,10 @@ mod Windows {
         #[must_use]
         #[library("ntdll.dll")]
         extern fn RtlEnumerateGenericTableWithoutSplayingAvl(#[in] Table: PRTL_AVL_TABLE, #[in] #[out] RestartKey: *mut PVOID) -> PVOID;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[must_use]
+        #[library("ntdll.dll")]
+        extern fn RtlEqualString(#[in] String1: *const STRING, #[in] String2: *const STRING, #[in] CaseInSensitive: BOOLEAN) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlExpandHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE) -> BOOLEAN;
         #[library("ntdll.dll")]
@@ -4810,6 +4819,9 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn RtlUpperChar(#[in] Character: CHAR) -> CHAR;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[library("ntdll.dll")]
+        extern fn RtlUpperString(#[in] #[out] DestinationString: PSTRING, #[in] SourceString: *const STRING);
         #[library("ntdll.dll")]
         extern fn RtlWalkFrameChain(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "Count - (Flags >> 8)", "Count - (Flags >> 8)")] #[out] Callers: *mut PVOID, #[in] Count: ULONG, #[in] Flags: ULONG) -> ULONG;
         #[must_use]
