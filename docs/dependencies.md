@@ -30,7 +30,7 @@ libclang library and is **not** a shared home for SDK/runtime versions.
 | --- | --- | --- | --- | --- |
 | libclang | `22.1.8` | `LIBCLANG_VERSION` - `crates/libs/clang/src/provision.rs` | download (NuGet: `libclang.runtime.win-<arch>` + `git` sparse checkout of LLVM headers) | `tool-clang` validator + runtime assert |
 | Windows SDK | `10.0.28000.2270` | `SDK_VERSION` - `crates/tools/win32/src/main.rs` | download (NuGet) | `tool-win32` zero-diff regen |
-| Windows WDK | `10.0.28000.1839` | `WDK_VERSION` - `crates/tools/win32/src/km.rs` | download (NuGet) | `tool-win32` zero-diff regen |
+| Windows WDK | `10.0.28000.1839` | `VERSION` - `crates/tools/win32/src/wdk.rs` | download (NuGet) | `tool-win32` zero-diff regen |
 | SDK Contracts (WinRT) | `10.0.28000.2270` | `CONTRACTS_VERSION` - `crates/tools/winrt/src/main.rs` | download (NuGet) | `tool-winrt` zero-diff regen |
 | WebView2 SDK headers | `1.0.4078.44` | `WEBVIEW2_VERSION` - `crates/tools/webview/src/main.rs` | download (NuGet) | `tool-webview` zero-diff regen |
 | WinUI / Windows App SDK metadata (`.winmd` files) | `2.5.1` | `WINDOWS_APP_SDK_VERSION` - `crates/tools/reactor-metadata/src/main.rs` | download (NuGet) | `tool-reactor-metadata` zero-diff regen of the committed metadata |
@@ -85,13 +85,15 @@ metadata files.
 | Package | Owner (pin) | Produces |
 | --- | --- | --- |
 | `Microsoft.Windows.SDK.CPP[.<arch>]` | `SDK_VERSION` - `tool-win32` | um scrape half of `Windows.Win32.winmd` |
-| `Microsoft.Windows.WDK.x64` | `WDK_VERSION` - `tool-win32` | km scrape half of `Windows.Win32.winmd` |
+| `Microsoft.Windows.WDK.<arch>` | `wdk::VERSION` - `tool-win32` | WDK headers and target-native import evidence |
 | `Microsoft.Windows.SDK.Contracts` | `CONTRACTS_VERSION` - `tool-winrt` | `Windows.winmd` |
 
 - **Obtained:** `windows_clang::nuget_package(id, version)` restores from the NuGet global cache or
   downloads from nuget.org (`NUGET_PACKAGES` overrides the cache).
-- **`tool-win32` runs both scrapes**, so the WDK km scrape reuses the same `SDK_VERSION` headers as
-  the um scrape (they share the crate); `WDK_VERSION` is a separate pin in `km.rs`.
+- **`tool-win32 --partial --sdk-imports --sdk-macros` runs both scrapes** and publishes the combined
+  WinMD. WDK capture reuses the same `SDK_VERSION` support headers; `wdk::VERSION` is a separate pin.
+  WDK headers come from the x64 package; import libraries come from each target's package.
+  The current x86 WDK package does not provide `offreg.lib`.
 - The "marketing" include/lib folder nested in each package (e.g. `10.0.28000.0`) is **derived**
   from the version via `helpers::marketing_dir` (first three components + `.0`), so the version is
   the single edit - never a second folder constant to keep in sync.
@@ -189,7 +191,7 @@ Two independent NuGet paths, both using `https://www.nuget.org/api/v2/package/{i
 
 | Tool | Proves | How |
 | --- | --- | --- |
-| `tool-win32` | `SDK_VERSION`, `WDK_VERSION` | zero-diff regen of `Windows.Win32.winmd` (um + km scrapes and their merge) |
+| `tool-win32` | `SDK_VERSION`, `wdk::VERSION` | zero-diff regen of `Windows.Win32.winmd` (SDK + WDK captures and their merge) |
 | `tool-winrt` | `CONTRACTS_VERSION` | zero-diff regen of `Windows.winmd` |
 | `tool-webview` | `WEBVIEW2_VERSION` | zero-diff regen of `webview/src/bindings.rs` |
 | `tool-clang` | `LIBCLANG_VERSION` (drives NuGet DLL + `llvmorg-<ver>` header tag) | pure-check assertion |

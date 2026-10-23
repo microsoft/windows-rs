@@ -2,6 +2,60 @@ use windows_clang::*;
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
+#[test]
+fn native_function_symbols_select_roots_without_hiding_selected_conflicts() {
+    helpers::ensure_libclang();
+    let input = || {
+        let mut input = test_clang::selected_fixture("function_scope", &[]);
+        input.macros = ["SelectedAlias", "IgnoredAlias", "ScopeConstant"]
+            .map(String::from)
+            .into();
+        input.function_symbols = Some(
+            [
+                (Target::X86, "_Selected@4"),
+                (Target::X64, "Selected"),
+                (Target::Arm64, "Selected"),
+            ]
+            .into_iter()
+            .map(|(target, symbol)| (target, [symbol.to_string()].into()))
+            .collect(),
+        );
+        input
+    };
+    let snapshots = capture(&[input()], &TARGETS).unwrap();
+    for snapshot in &snapshots {
+        let names: std::collections::BTreeSet<_> = snapshot
+            .values
+            .iter()
+            .map(|value| value.name.as_str())
+            .collect();
+        assert_eq!(names, ["Selected", "SelectedAlias", "ScopeConstant"].into());
+        assert_eq!(snapshot.records[0].name, "Dependency");
+    }
+    merge(&snapshots).unwrap();
+    let mut explicit = input();
+    explicit.roots.push("Ignored".into());
+    assert!(capture_partial(&[explicit], &TARGETS).is_err());
+    let mut unfiltered = input();
+    unfiltered.function_symbols = None;
+    assert!(capture_partial(&[unfiltered], &TARGETS).is_err());
+    let mut selected = input();
+    for (target, symbol) in [
+        (Target::X86, "_Ignored@4"),
+        (Target::X64, "Ignored"),
+        (Target::Arm64, "Ignored"),
+    ] {
+        selected
+            .function_symbols
+            .as_mut()
+            .unwrap()
+            .get_mut(&target)
+            .unwrap()
+            .insert(symbol.into());
+    }
+    assert!(capture_partial(&[selected], &TARGETS).is_err());
+}
+
 fn input() -> Input {
     let mut input = test_clang::selected_fixture("root_scope", &[]);
     input.root_paths = Some(Vec::new());

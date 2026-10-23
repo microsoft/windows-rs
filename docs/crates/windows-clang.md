@@ -8,6 +8,12 @@ A successful partial run is not replacement acceptance.
 
 ## Rebuilding the default WinMD
 
+`cargo run -p tool-win32 -- --partial --sdk-imports --sdk-macros` captures the full SDK manifest,
+then captures the WDK against the freshly compiled SDK metadata and publishes the combined WinMD.
+Selected-header and `--first` runs do not trigger WDK capture or replace the default WinMD.
+`cargo run -p tool-win32 -- --wdk --partial` refreshes only WDK headers against the current SDK RDL,
+then compiles and publishes both surfaces.
+
 `cargo run -p tool-win32 -- --compile` compiles the existing `metadata/win32` RDL and metadata
 attribute definitions against `Windows.winmd`, then compiles `metadata/wdk` against both references.
 It merges the results with same-named enums unioned and writes
@@ -15,9 +21,23 @@ It merges the results with same-named enums unioned and writes
 Intermediate WinMDs are written under `target/win32`.
 
 This command does not scrape headers, refresh WDK declarations, or rewrite RDL. It cannot be combined
-with scrape options. Partial and selected-header scrape runs still write their RDL and validation
-WinMD without replacing the default WinMD. Compiling that RDL is an explicit publication step, not
-a claim that the captured SDK surface is complete.
+with scrape options. Publication does not establish complete SDK or WDK coverage. Unsupported
+declarations and incompatible shared definitions remain explicit omissions; retained legacy WDK
+declarations are not copied into fresh output.
+
+WDK capture uses `ntifs.h` before `wdm.h`, with kernel architecture macros derived from the compiler
+target. A separate Offreg input includes real Windows headers rather than synthetic Win32 typedefs.
+Only functions selected by target-native `ntdll.lib` and `offreg.lib` symbols become automatic roots.
+The pinned WDK has no x86 Offreg import library; this is an import-evidence gap, not proof that the
+API cannot exist on x86. Configuration, library evidence and omissions are under `target/win32/wdk`.
+
+Shared type reuse remains a coverage boundary. WDK aliases for `UNICODE_STRING` and
+`OBJECT_ATTRIBUTES` connect types that SDK metadata publishes separately. `STRING` also carries WDK
+buffer contracts absent from its SDK definition. These declarations and dependent APIs are omitted
+rather than rebound to a different type or given weaker contracts.
+
+The final merge rejects overlapping non-enum ownership, conflicting shared enum values and duplicate
+items on any target before replacing the default WinMD.
 
 ## Architecture
 
@@ -108,6 +128,7 @@ record/alias variants, metadata round trips and selected Rust assignability.
 | `roots` | Explicit qualified names and their dependency closure; empty enables automatic roots |
 | `root_paths` | Canonical files/directories eligible for automatic roots; `None` permits all, empty permits only source/explicit selections |
 | `namespace_headers` | Header filenames eligible for automatic named-namespace roots; does not restrict global roots or dependencies |
+| `function_symbols` | Exact target-native linker symbols eligible as automatic function roots, including macro aliases |
 | `external_interfaces` | Explicit native COM definitions whose members belong to authoritative metadata |
 | `macros` / `macro_headers` | Explicit object-like macros / active definitions owned by selected headers |
 
@@ -122,11 +143,20 @@ checking ambiguity. Multiple matches fail when the name is used; unused ambiguou
 other references.
 
 References cover value typedefs, enums, records and their nested types, callbacks, and interfaces.
-Matched definitions are not emitted locally. Distinct local aliases retain links to referenced
-types, including through pointers and callback signatures. The referenced metadata owns the
-published contracts; native observations remain available for native reconciliation. There is no
-HRESULT, BOOL, or string-type normalization policy. Missing matches follow ordinary local
+Matched definitions are not emitted locally, except checked enum extensions in the owner's namespace.
+Shared enum members must agree; extra members survive the SDK/WDK merge. Distinct local aliases retain
+links to referenced types, including through pointers and callback signatures. The referenced
+metadata owns the published contracts; native observations remain available for native reconciliation.
+There is no HRESULT, BOOL, or string-type normalization policy. Missing matches follow ordinary local
 publication, including its unsupported-type diagnostics.
+
+Value records are checked for field identity, types, layout and projected field contracts before
+reuse. Referenced pointer aliases can establish the metadata identity of their native pointee, but
+do not bypass record validation. Unsupported shared shapes, including bitfield records, remain
+omissions with their dependents. Value aliases must retain their underlying types. Callbacks and
+already-owned functions/constants require matching projected declarations; a different written
+contract is rejected rather than assumed equivalent. Native forward-enum declarations may omit SAL
+present on the definition, but cannot add conflicting evidence.
 
 Actual C++ scopes remain distinct. Explicit namespace wrappers support SDK spellings: empty means
 the metadata namespace directly, `ABI` means the SDK ABI wrapper. A configured delegate prefix
@@ -608,9 +638,9 @@ from declaration work. See [windows-clang-sys](windows-clang-sys.md), `opaque_pa
 
 ## SDK driver and accounting
 
-`tool-win32` shares `tool-win32`'s header manifest. It captures all three targets, merges,
+`tool-win32` owns the SDK and WDK capture configurations. It captures all three targets, merges,
 projects and compiles before replacing tracked `metadata/win32` partitions, preserving the readme.
-Partial output, including deletions, stays visible for review; it is not production metadata.
+Partial output, including deletions, stays visible for review; it is not evidence of full coverage.
 Compiler errors and native conflicts remain fatal.
 
 | Option/output | Meaning |

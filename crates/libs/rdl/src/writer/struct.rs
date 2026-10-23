@@ -158,14 +158,8 @@ fn write_field_scoped(
         return Ok(quote! { #(#field_attrs)* #name: #ty { #(#block)* }, });
     }
 
-    let field_attrs = write_custom_attributes_with_names(
-        item.attributes(),
-        namespace,
-        item.index(),
-        &[],
-        Some(ExtentOwner::Field),
-    )?;
-    Ok(quote! { #(#field_attrs)* #name: #ty, })
+    let field_attrs = write_field_attributes(*item, namespace)?;
+    Ok(quote! { #field_attrs #name: #ty, })
 }
 
 struct BitfieldMember {

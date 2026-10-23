@@ -1,5 +1,27 @@
 use super::*;
 
+pub(super) fn function_alias_target(cursor: CXCursor) -> Result<CXCursor, Error> {
+    let mut expression = unsafe { clang_Cursor_getVarDeclInitializer(cursor) };
+    while expression.kind == CXCursor_ParenExpr {
+        let operands = children(expression);
+        let [operand] = operands.as_slice() else {
+            return Err(unsupported(
+                expression,
+                "invalid parenthesized function alias",
+            ));
+        };
+        expression = *operand;
+    }
+    let target = unsafe { clang_getCursorReferenced(expression) };
+    if expression.kind != CXCursor_DeclRefExpr || target.kind != CXCursor_FunctionDecl {
+        return Err(unsupported(
+            cursor,
+            "function macro must directly reference a function",
+        ));
+    }
+    Ok(target)
+}
+
 pub(super) fn language_linkage(cursor: CXCursor) -> Result<LanguageLinkage, Error> {
     let mut language = WindowsClangNoLanguageLinkage;
     let status = unsafe { windows_clang_getLanguageLinkage(cursor, &raw mut language) };
@@ -42,24 +64,7 @@ impl Capture<'_> {
     pub(super) fn value_observation(&mut self, id: ValueId, cursor: CXCursor) -> Result<(), Error> {
         let key = Cursor(unsafe { clang_getCanonicalCursor(cursor) });
         let observation = if self.function_probes.contains(&key) {
-            let mut expression = unsafe { clang_Cursor_getVarDeclInitializer(cursor) };
-            while expression.kind == CXCursor_ParenExpr {
-                let operands = children(expression);
-                let [operand] = operands.as_slice() else {
-                    return Err(unsupported(
-                        expression,
-                        "invalid parenthesized function alias",
-                    ));
-                };
-                expression = *operand;
-            }
-            let target = unsafe { clang_getCursorReferenced(expression) };
-            if expression.kind != CXCursor_DeclRefExpr || target.kind != CXCursor_FunctionDecl {
-                return Err(unsupported(
-                    cursor,
-                    "function macro must directly reference a function",
-                ));
-            }
+            let target = function_alias_target(cursor)?;
             let target_key = Cursor(unsafe { clang_getCanonicalCursor(target) });
             if !self.values.contains_key(&target_key)
                 && !self.declarations.contains_key(&target_key)

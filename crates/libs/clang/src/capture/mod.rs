@@ -166,8 +166,25 @@ pub(super) fn read(
                 root_files.insert(file, included);
             }
         }
+        let selected_function = input.function_symbols.as_ref().is_none_or(|targets| {
+            let function = if kind == CXCursor_FunctionDecl {
+                Some(cursor)
+            } else if capture.function_probes.contains(&key) {
+                // Invalid probes stay selected so capture reports their errors.
+                values::function_alias_target(cursor).ok()
+            } else {
+                None
+            };
+            function.is_none_or(|function| {
+                let symbol = text(unsafe { clang_Cursor_getMangling(function) });
+                targets
+                    .get(&capture.snapshot.target)
+                    .is_some_and(|symbols| symbols.contains(&symbol))
+            })
+        });
         let automatic_root = !synthetic
             && included
+            && selected_function
             && namespace_headers.is_none_or(|headers| {
                 let mut parent = unsafe { clang_getCursorSemanticParent(cursor) };
                 while unsafe { clang_getCursorKind(parent) } == CXCursor_LinkageSpec {

@@ -13,6 +13,7 @@ mod integer_expression;
 mod plan;
 mod publication;
 mod records;
+mod reference_values;
 mod references;
 mod values;
 use plan::Plan;
@@ -269,7 +270,7 @@ fn project_impl(
         let plan = Plan::new(resolution)?;
         let external = options
             .references
-            .map(|references| references.bind(resolution, &plan))
+            .map(|references| references.bind(resolution, &plan, namespace))
             .transpose()?
             .unwrap_or_default();
         external_names.extend(
@@ -301,6 +302,12 @@ fn project_impl(
             external: &external,
         };
         projector.validate_references(&mut rejected)?;
+        if rejected
+            .as_deref()
+            .is_some_and(|issues| !issues.excluded.is_empty())
+        {
+            continue;
+        }
         let mut published = HashSet::new();
         let mut constants = HashMap::new();
         let unpublished_values = publication::values(

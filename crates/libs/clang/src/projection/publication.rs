@@ -171,15 +171,35 @@ pub(super) fn values<'a>(
                 }
             }
             Ok((bodies, false)) => {
-                publish(
-                    declarations,
-                    target,
-                    &value.name,
-                    bodies.into_iter().next().unwrap(),
-                    headers,
-                    keys,
-                    kind,
-                )?;
+                let body = bodies.into_iter().next().unwrap();
+                if let Some(item) = projector.external.values.get(&value.name) {
+                    let rendered = windows_rdl::emit::write_item(projector.namespace, *item)
+                        .map_err(|error| Error(error.to_string()))?;
+                    let [(_, expected)] = rendered.as_slice() else {
+                        return Err(Error(format!(
+                            "external value `{}` has no unique declaration",
+                            value.name
+                        )));
+                    };
+                    let Body {
+                        attributes,
+                        declaration,
+                    } = &body;
+                    if reference_values::declaration_key(quote! { #attributes #declaration })
+                        != reference_values::declaration_key(expected.clone())
+                    {
+                        reject(
+                            rejected,
+                            keys,
+                            Error(format!(
+                                "external value `{}` declaration differs from metadata",
+                                value.name
+                            )),
+                        )?;
+                    }
+                    continue;
+                }
+                publish(declarations, target, &value.name, body, headers, keys, kind)?;
                 unpublished_values.remove(value.name.as_str());
             }
             Err(error) => {
@@ -376,7 +396,9 @@ pub(super) fn enums<'a>(
     let resolution = projector.resolution;
     let plan = projector.plan;
     for (id, group) in resolution.enums.iter().enumerate() {
-        if projector.external.enums.contains_key(&id) {
+        if projector.external.enums.contains_key(&id)
+            && !projector.external.extended_enums.contains(&id)
+        {
             continue;
         }
         let name = &plan.enum_names[id];

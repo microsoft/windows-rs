@@ -5,6 +5,44 @@ use windows_metadata::{HasAttributes, Type, Value, reader};
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 #[test]
+fn enum_forward() {
+    helpers::ensure_libclang();
+    let snapshots = capture(&[selected_fixture("enum_forward", &[])], &TARGETS).unwrap();
+    for snapshot in &snapshots {
+        let observations = &snapshot.enums[0].observations;
+        assert_eq!(observations.len(), 2);
+        assert!(observations[0].attributes.is_empty());
+        assert_eq!(observations[1].attributes.len(), 1);
+        assert_eq!(observations[0].layout, observations[1].layout);
+        assert_eq!(
+            snapshot.types[observations[0].canonical.0],
+            snapshot.types[observations[1].canonical.0]
+        );
+    }
+    merge(&snapshots).unwrap();
+    let mut inputs = [
+        selected_fixture("enum_forward", &[]),
+        selected_fixture("enum_forward", &[]),
+    ];
+    inputs[1].name = "second.h".into();
+    inputs[1].source.insert_str(0, "#define FORWARD_ONLY\n");
+    projection::generate(&inputs, "Fixture").unwrap();
+    inputs.reverse();
+    projection::generate(&inputs, "Fixture").unwrap();
+    inputs[0].source.insert_str(
+        0,
+        "#define FORWARD_CONTRACT __attribute__((annotate(\"windows_clang:sal:2:Other\\n()\\n()\")))\n",
+    );
+    assert!(merge(&capture(&inputs, &TARGETS).unwrap()).is_err());
+    inputs[0] = selected_fixture("enum_forward", &[]);
+    inputs[0].name = "second.h".into();
+    inputs[0]
+        .source
+        .insert_str(0, "#define DEFINITION_CONTRACT\n");
+    assert!(merge(&capture(&inputs, &TARGETS).unwrap()).is_err());
+}
+
+#[test]
 fn enum_projection() {
     helpers::ensure_libclang();
     values();

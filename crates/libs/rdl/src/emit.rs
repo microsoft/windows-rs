@@ -7,6 +7,22 @@ use proc_macro2::{Literal, TokenStream};
 use quote::{format_ident, quote};
 use windows_metadata as metadata;
 
+/// Renders field-owned metadata contracts using the same spelling as the RDL writer.
+pub fn write_field_attributes(
+    field: metadata::reader::Field<'_>,
+    namespace: &str,
+) -> Result<TokenStream, crate::Error> {
+    crate::writer::write_field_attributes(field, namespace)
+}
+
+/// Renders a metadata item using the same declarations as the RDL writer.
+pub fn write_item(
+    namespace: &str,
+    item: metadata::reader::Item<'_>,
+) -> Result<Vec<(String, TokenStream)>, crate::Error> {
+    crate::writer::write_items(namespace, item)
+}
+
 /// Bounded predicates for ordinary postconditions on callable results.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 #[repr(i32)]

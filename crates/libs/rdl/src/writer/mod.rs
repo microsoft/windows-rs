@@ -356,7 +356,7 @@ fn item_winrt(item: metadata::reader::Item) -> bool {
     }
 }
 
-fn write_items(
+pub(crate) fn write_items(
     namespace: &str,
     item: metadata::reader::Item,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
@@ -716,6 +716,21 @@ fn write_custom_attributes<'a>(
     index: &windows_metadata::reader::Index,
 ) -> Result<Vec<TokenStream>, Error> {
     write_custom_attributes_except(attributes, item_namespace, index, &[])
+}
+
+pub(crate) fn write_field_attributes(
+    field: metadata::reader::Field<'_>,
+    namespace: &str,
+) -> Result<TokenStream, Error> {
+    Ok(write_custom_attributes_with_names(
+        field.attributes(),
+        namespace,
+        field.index(),
+        &[],
+        Some(ExtentOwner::Field),
+    )?
+    .into_iter()
+    .collect())
 }
 
 fn write_custom_attributes_except<'a>(

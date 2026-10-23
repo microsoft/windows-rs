@@ -118,6 +118,7 @@ impl<'a> References<'a> {
         &self,
         resolution: &Resolution<'_>,
         plan: &Plan,
+        namespace: &str,
     ) -> Result<Bindings<'a>, Error> {
         for prefix in self.native_prefixes {
             if !prefix.is_empty() {
@@ -165,6 +166,36 @@ impl<'a> References<'a> {
                 result.records.insert(family, definition);
             }
         }
+        for alias in &resolution.aliases {
+            let Some(&metadata) = result.aliases.get(&alias.name) else {
+                continue;
+            };
+            for reference in &alias.observations {
+                let snapshot = resolution.snapshots[reference.snapshot];
+                let observation =
+                    &snapshot.aliases[reference.alias.0].observations[reference.observation];
+                let ty = if metadata.has_attribute("NativeTypedefAttribute") {
+                    metadata.underlying_type()
+                } else if matches!(
+                    metadata.category(),
+                    TypeCategory::Struct | TypeCategory::Enum
+                ) {
+                    Some(metadata_type(metadata))
+                } else {
+                    None
+                };
+                if let Some(ty) = ty {
+                    self.bind_alias_pointee(
+                        snapshot,
+                        reference.snapshot,
+                        observation.canonical,
+                        ty,
+                        plan,
+                        &mut result,
+                    )?;
+                }
+            }
+        }
         for (family, groups) in plan.families.iter().enumerate() {
             if groups.is_empty() || !plan.owned[family] {
                 continue;
@@ -177,27 +208,150 @@ impl<'a> References<'a> {
             };
             let mut definition = parent;
             for name in plan.names[family].split('/').skip(1) {
-                definition = self
+                let found = self
                     .metadata
                     .nested(definition)
-                    .find(|child| child.name() == name)
-                    .ok_or_else(|| {
-                        Error(format!(
-                            "missing referenced nested type `{}`",
-                            plan.names[family]
-                        ))
-                    })?;
+                    .find(|child| child.name() == name);
+                let Some(found) = found else {
+                    result.invalid_records.insert(
+                        plan.family(record.snapshot, owner),
+                        format!("missing referenced nested type `{}`", plan.names[family]),
+                    );
+                    break;
+                };
+                definition = found;
             }
-            result.records.insert(family, definition);
+            if !result
+                .invalid_records
+                .contains_key(&plan.family(record.snapshot, owner))
+            {
+                result.records.insert(family, definition);
+            }
         }
         for (id, name) in plan.enum_names.iter().enumerate() {
             if !plan.enum_constants(resolution, id)
                 && let Some(definition) = self.get(name, target)?
             {
                 result.enums.insert(id, definition);
+                if definition.namespace() == namespace
+                    && definition.category() == TypeCategory::Enum
+                    && let Some(reference) = resolution.enums[id].definition
+                {
+                    let observation = &resolution.snapshots[reference.snapshot].enums
+                        [reference.enumeration.0]
+                        .observations[reference.observation];
+                    let members: BTreeSet<_> = definition
+                        .fields()
+                        .filter(|field| field.constant().is_some())
+                        .map(|field| field.name())
+                        .collect();
+                    if observation
+                        .members
+                        .as_ref()
+                        .unwrap()
+                        .iter()
+                        .any(|member| !members.contains(member.name.as_str()))
+                    {
+                        result.extended_enums.insert(id);
+                    }
+                }
+            }
+        }
+        let bit = match target {
+            Target::X86 => 1,
+            Target::X64 => 2,
+            Target::Arm64 => 4,
+        };
+        let names: BTreeSet<_> = resolution.values.iter().map(|value| &value.name).collect();
+        for name in names {
+            for item in self.metadata.get_item(namespace, name) {
+                let arches = match item {
+                    windows_metadata::reader::Item::Fn(item) => item.arches(),
+                    windows_metadata::reader::Item::Const(item) => item.arches(),
+                    windows_metadata::reader::Item::Type(_) => continue,
+                };
+                if arches != 0 && arches & bit == 0 {
+                    continue;
+                }
+                if result.values.insert(name.clone(), item).is_some() {
+                    return Err(Error(format!("ambiguous external value `{name}`")));
+                }
             }
         }
         Ok(result)
+    }
+
+    fn bind_alias_pointee(
+        &self,
+        snapshot: &Snapshot,
+        snapshot_id: usize,
+        mut native: TypeId,
+        mut ty: MetadataType,
+        plan: &Plan,
+        bindings: &mut Bindings<'a>,
+    ) -> Result<(), Error> {
+        let bit = match snapshot.target {
+            Target::X86 => 1,
+            Target::X64 => 2,
+            Target::Arm64 => 4,
+        };
+        let mut seen = BTreeSet::new();
+        loop {
+            match ty {
+                MetadataType::PtrMut(inner, count) | MetadataType::PtrConst(inner, count) => {
+                    for _ in 0..count {
+                        let TypeKind::Pointer(pointee) = snapshot.types[native.0].kind else {
+                            return Ok(());
+                        };
+                        native = pointee;
+                    }
+                    ty = *inner;
+                }
+                MetadataType::ValueName(name) => {
+                    if !seen.insert((name.namespace.clone(), name.name.clone())) {
+                        return Err(Error(format!("cyclic referenced alias `{name:?}`")));
+                    }
+                    let mut candidates =
+                        self.metadata
+                            .get(&name.namespace, &name.name)
+                            .filter(|definition| {
+                                definition.arches() == 0 || definition.arches() & bit != 0
+                            });
+                    let Some(definition) = candidates.next() else {
+                        return Ok(());
+                    };
+                    if candidates.next().is_some() {
+                        return Err(Error(format!("ambiguous referenced alias type `{name:?}`")));
+                    }
+                    if definition.has_attribute("NativeTypedefAttribute") {
+                        ty = definition.underlying_type().ok_or_else(|| {
+                            Error(format!(
+                                "referenced alias `{name:?}` has no underlying type"
+                            ))
+                        })?;
+                        continue;
+                    }
+                    if let TypeKind::Record(record) = snapshot.types[native.0].kind
+                        && definition.category() == TypeCategory::Struct
+                    {
+                        let family = plan.family(snapshot_id, record);
+                        if let Some(previous) = bindings.records.insert(family, definition)
+                            && previous != definition
+                        {
+                            bindings.invalid_records.insert(
+                                family,
+                                format!(
+                                    "external record `{}` has conflicting alias identities",
+                                    plan.names[family],
+                                ),
+                            );
+                        }
+                    }
+                    return Ok(());
+                }
+                _ => return Ok(()),
+            }
+        }
     }
 }
 
@@ -206,6 +360,9 @@ pub(super) struct Bindings<'a> {
     pub records: BTreeMap<usize, TypeDef<'a>>,
     pub enums: BTreeMap<usize, TypeDef<'a>>,
     pub aliases: BTreeMap<String, TypeDef<'a>>,
+    pub invalid_records: BTreeMap<usize, String>,
+    pub extended_enums: BTreeSet<usize>,
+    pub values: BTreeMap<String, windows_metadata::reader::Item<'a>>,
 }
 
 impl Bindings<'_> {
@@ -214,6 +371,12 @@ impl Bindings<'_> {
             .values()
             .chain(self.enums.values())
             .chain(self.aliases.values())
+            .filter(|definition| {
+                !self
+                    .extended_enums
+                    .iter()
+                    .any(|id| self.enums[id] == **definition)
+            })
     }
 
     pub fn contains_alias(&self, snapshot: &Snapshot, id: TypeId) -> bool {
@@ -269,6 +432,7 @@ impl Projector<'_, '_> {
         &self,
         rejected: &mut Option<&mut partial::Issues>,
     ) -> Result<(), Error> {
+        self.validate_value_references(rejected)?;
         for (snapshot_id, snapshot) in self.resolution.snapshots.iter().enumerate() {
             for (id, record) in snapshot.records.iter().enumerate() {
                 if record.external

@@ -1,0 +1,61 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type NODE_REQUIREMENT = ULONG;
+        type PBUS_HANDLER = *mut _BUS_HANDLER;
+        type PCALLBACK_OBJECT = *mut _CALLBACK_OBJECT;
+        #[arch(Arm64)]
+        type PCMC_EXCEPTION = PVOID;
+        #[arch(X86 | X64)]
+        type PCMC_EXCEPTION = *mut MCA_EXCEPTION;
+        #[arch(Arm64)]
+        type PCPE_EXCEPTION = PVOID;
+        #[arch(X86 | X64)]
+        type PCPE_EXCEPTION = *mut MCA_EXCEPTION;
+        type PDEVICE_HANDLER_OBJECT = *mut _DEVICE_HANDLER_OBJECT;
+        type PEPROCESS = *mut _KPROCESS;
+        type PETHREAD = *mut _KTHREAD;
+        type PIO_TIMER = *mut _IO_TIMER;
+        type PKAFFINITY_EX = *mut _KAFFINITY_EX;
+        type PKINTERRUPT = *mut _KINTERRUPT;
+        type PKPROCESS = *mut _KPROCESS;
+        type PKTHREAD = *mut _KTHREAD;
+        type POBJECT_TYPE = *mut _OBJECT_TYPE;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "POWER_SETTING_CALLBACK", "POWER_SETTING_CALLBACK")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
+        extern "C" fn POWER_SETTING_CALLBACK(#[in] SettingGuid: LPCGUID, #[in] #[readable(entry, bytes(ValueLength))] Value: PVOID, #[in] ValueLength: ULONG, #[in] #[out] #[opt] Context: PVOID) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "POWER_SETTING_CALLBACK", "POWER_SETTING_CALLBACK", TypedefName = "POWER_SETTING_CALLBACK")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "POWER_SETTING_CALLBACK")]
+        extern "C" fn PPOWER_SETTING_CALLBACK(#[in] SettingGuid: LPCGUID, #[in] #[readable(entry, bytes(ValueLength))] Value: PVOID, #[in] ValueLength: ULONG, #[in] #[out] #[opt] Context: PVOID) -> NTSTATUS;
+        type PRKPROCESS = *mut _KPROCESS;
+        type PRKTHREAD = *mut _KTHREAD;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PS_AVAILABLE_CPUS_CHANGE_CALLBACK", "PS_AVAILABLE_CPUS_CHANGE_CALLBACK")]
+        extern "C" fn PS_AVAILABLE_CPUS_CHANGE_CALLBACK(#[in] Parameter: PVOID);
+        type PS_AVAILABLE_CPUS_CHANGE_REGISTRATION = PVOID;
+        #[arch(X64 | Arm64)]
+        const RESULT_NEGATIVE: i32 = 1;
+        #[arch(X86)]
+        const RESULT_NEGATIVE: i32 = 32768;
+        #[arch(X64 | Arm64)]
+        const RESULT_POSITIVE: i32 = 2;
+        #[arch(X86)]
+        const RESULT_POSITIVE: i32 = 0;
+        #[arch(X64 | Arm64)]
+        const RESULT_ZERO: i32 = 0;
+        #[arch(X86)]
+        const RESULT_ZERO: i32 = 16384;
+        #[library("ntdll.dll")]
+        extern fn RtlIsUntrustedObject(#[in] #[opt] Handle: HANDLE, #[in] #[opt] Object: PVOID, #[out] UntrustedObject: PBOOLEAN) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[must_use]
+        #[library("ntdll.dll")]
+        extern fn RtlUTF8ToUnicodeN(#[out] #[writable(entry, bytes(UnicodeStringMaxByteCount))] #[readable(success, bytes(*UnicodeStringActualByteCount))] UnicodeStringDestination: PWSTR, #[in] UnicodeStringMaxByteCount: ULONG, #[out] UnicodeStringActualByteCount: PULONG, #[in] #[readable(entry, bytes(UTF8StringByteCount))] UTF8StringSource: PCCH, #[in] UTF8StringByteCount: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[must_use]
+        #[library("ntdll.dll")]
+        extern fn RtlUnicodeToUTF8N(#[out] #[writable(entry, bytes(UTF8StringMaxByteCount))] #[readable(success, bytes(*UTF8StringActualByteCount))] UTF8StringDestination: PCHAR, #[in] UTF8StringMaxByteCount: ULONG, #[out] UTF8StringActualByteCount: PULONG, #[in] #[readable(entry, bytes(UnicodeStringByteCount))] UnicodeStringSource: PCWCH, #[in] UnicodeStringByteCount: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[library("ntdll.dll")]
+        extern fn ZwQueryVolumeInformationFile(#[in] FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(Length))] FsInformation: PVOID, #[in] Length: ULONG, #[in] FsInformationClass: FS_INFORMATION_CLASS) -> NTSTATUS;
+    }
+}

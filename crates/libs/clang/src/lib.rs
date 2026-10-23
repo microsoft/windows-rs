@@ -50,6 +50,9 @@ pub struct Input {
     /// None selects all headers.
     /// The input source, explicit roots, macros and dependencies remain eligible.
     pub root_paths: Option<Vec<std::path::PathBuf>>,
+    /// Restrict automatic function roots (including macro aliases) to exact compiler linker
+    /// symbols for each target. None selects every function. Explicit roots remain eligible.
+    pub function_symbols: Option<BTreeMap<Target, BTreeSet<String>>>,
     /// Explicitly externally owned COM types, using qualified native names.
     /// Capture retains identity, attributes, layout and bases, but not member definitions.
     pub external_interfaces: BTreeSet<String>,

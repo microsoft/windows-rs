@@ -73,6 +73,16 @@ pub(super) fn resolve(
             });
             continue;
         };
+        let first = observations
+            .iter()
+            .copied()
+            .find(|reference| {
+                snapshots[reference.snapshot].enums[reference.enumeration.0].observations
+                    [reference.observation]
+                    .members
+                    .is_some()
+            })
+            .unwrap_or(first);
         let a =
             &snapshots[first.snapshot].enums[first.enumeration.0].observations[first.observation];
         let mut definition: Option<EnumObservationRef> = None;
@@ -83,10 +93,19 @@ pub(super) fn resolve(
             attributes(snapshots, owner, &b.attributes)?;
             if reference != first {
                 work.enum_pairs += 1;
+                let annotations_match = if a.members.is_some() && b.members.is_none() {
+                    let definition = sal(&a.attributes);
+                    sal(&b.attributes)
+                        .iter()
+                        .all(|annotation| definition.contains(annotation))
+                } else {
+                    sal(&a.attributes) == sal(&b.attributes)
+                };
                 if a.scoped != b.scoped
                     || a.anonymous != b.anonymous
                     || a.layout != b.layout
-                    || !attributes_equal(&a.attributes, &b.attributes)
+                    || !abi_attributes_equal(&a.attributes, &b.attributes)
+                    || !annotations_match
                     || snapshots[first.snapshot].types[a.canonical.0]
                         != snapshot.types[b.canonical.0]
                 {

@@ -401,7 +401,11 @@ retains all declaration headers as candidates. A single owner keeps its header p
 owners use `shared.rdl`. Ownership evidence is combined across architectures before routing,
 and `Partition::headers` retains the real source-header set. Native identities and source
 observations remain distinct; shared routing never resolves a type conflict.
-`tool-win32` supplies the SDK configuration and writes canonical files.
+`tool-win32` supplies SDK and WDK configurations and writes canonical files. Full
+`--partial --sdk-imports --sdk-macros` runs refresh both header sets and the combined WinMD.
+`--wdk --partial` refreshes WDK against the current SDK RDL. WDK function roots use exact
+target-native import symbols; shared records and enum extensions are checked before metadata reuse.
+Incompatible declarations remain explicit omissions, not copies from retained RDL.
 
 `capture_partial` and `projection::generate_partial` return supported output plus omission reports.
 `projection::project_partial` accepts an existing partial capture without reparsing.

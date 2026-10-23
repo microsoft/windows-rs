@@ -6,6 +6,7 @@ mod headers;
 mod import_availability;
 mod import_policy;
 mod named_exports;
+mod wdk;
 
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::Path;
@@ -33,6 +34,14 @@ fn main() {
 fn run() -> Result<(), Box<dyn std::error::Error>> {
     if !Path::new("metadata\\metadata.rdl").is_file() {
         return Err("run tool-win32 from the repository root".into());
+    }
+    if std::env::args().nth(1).as_deref() == Some("--wdk") {
+        let arguments: Vec<_> = std::env::args().skip(2).collect();
+        if arguments.as_slice() != ["--partial"] {
+            return Err("use --wdk --partial to regenerate WDK metadata".into());
+        }
+        wdk::run()?;
+        return compile_metadata(Path::new("."));
     }
     if std::env::args().nth(1).as_deref() == Some("--compile") {
         if std::env::args().len() != 2 {
@@ -110,7 +119,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
         } else if argument.starts_with('-') {
             return Err(format!(
-                "unknown option `{argument}`; use --compile, --compare-constants, --compare-functions, or --refresh-named-exports alone; or --partial, --sdk-imports, --sdk-macros, --dry-run, --first=N, --import=Function=library.dll, --macro=NAME, --macro-header=header.h, or header names"
+                "unknown option `{argument}`; use --compile, --compare-constants, --compare-functions, or --refresh-named-exports alone; --wdk --partial; or --partial, --sdk-imports, --sdk-macros, --dry-run, --first=N, --import=Function=library.dll, --macro=NAME, --macro-header=header.h, or header names"
             )
             .into());
         } else {
@@ -120,6 +129,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if first.is_some() && !headers.is_empty() {
         return Err("--first cannot be combined with explicit header names".into());
     }
+    let complete = headers.is_empty() && first.is_none() && sdk_imports && sdk_macros;
     if headers.is_empty() {
         headers.extend(
             headers::HEADERS
@@ -367,6 +377,35 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let compiled = started.elapsed();
 
     let destination = Path::new("metadata\\win32");
+    write_partitions(destination, &output.partitions)?;
+    function_aliases::write(scratch, &function_origins, &output.partitions)?;
+    println!(
+        "SDK projection: {} records, {} enums, {} aliases, {} constants, {} functions, {} interfaces, {} partitions; capture/merge/project {:.3}s, compile {:.3}s",
+        output.records,
+        output.enums,
+        output.aliases,
+        output.constants,
+        output.functions,
+        output.interfaces,
+        output.partitions.len(),
+        generated.as_secs_f64(),
+        compiled.as_secs_f64()
+    );
+    println!(
+        "Rebuilt {}. Validation WinMD: target\\win32\\Windows.Win32.winmd",
+        destination.display()
+    );
+    if complete {
+        wdk::run()?;
+        compile_metadata(Path::new("."))?;
+    }
+    Ok(())
+}
+
+fn write_partitions(
+    destination: &Path,
+    partitions: &BTreeMap<String, projection::Partition>,
+) -> Result<(), Box<dyn std::error::Error>> {
     std::fs::create_dir_all(destination)?;
     let previous = std::fs::read_dir(destination)?
         .map(|entry| entry.map(|entry| entry.path()))
@@ -386,26 +425,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     for path in previous {
         std::fs::remove_file(path)?;
     }
-    for (stem, partition) in &output.partitions {
+    for (stem, partition) in partitions {
         std::fs::write(destination.join(format!("{stem}.rdl")), &partition.rdl)?;
     }
-    function_aliases::write(scratch, &function_origins, &output.partitions)?;
-    println!(
-        "SDK projection: {} records, {} enums, {} aliases, {} constants, {} functions, {} interfaces, {} partitions; capture/merge/project {:.3}s, compile {:.3}s",
-        output.records,
-        output.enums,
-        output.aliases,
-        output.constants,
-        output.functions,
-        output.interfaces,
-        output.partitions.len(),
-        generated.as_secs_f64(),
-        compiled.as_secs_f64()
-    );
-    println!(
-        "Rebuilt {}. Validation WinMD: target\\win32\\Windows.Win32.winmd",
-        destination.display()
-    );
     Ok(())
 }
 
@@ -428,6 +450,7 @@ fn compile_metadata(root: &Path) -> Result<(), Box<dyn std::error::Error>> {
         .reference(&winrt)
         .output(&km)
         .write()?;
+    wdk::validate_additions(&um, &km)?;
     windows_metadata::merge()
         .input(&um)
         .input(&km)
@@ -435,6 +458,7 @@ fn compile_metadata(root: &Path) -> Result<(), Box<dyn std::error::Error>> {
         .assembly_name("Windows.Win32")
         .output(&merged)
         .merge()?;
+    wdk::validate_unique_items(&merged)?;
     let destination = root.join("crates\\libs\\default\\Windows.Win32.winmd");
     std::fs::copy(merged, &destination)?;
     println!(
@@ -485,6 +509,14 @@ fn compile_existing_metadata() {
     );
     compile_metadata(&root).unwrap();
     assert_eq!(bytes, std::fs::read(&destination).unwrap());
+    for invalid in [
+        "#[win32] mod Windows { mod Win32 { struct User { wrong: i32, } } }",
+        "#[win32] mod Windows { mod Win32 { #[repr(i32)] enum Mode { Common = 7, } } }",
+    ] {
+        std::fs::write(root.join("metadata\\wdk\\kernel.rdl"), invalid).unwrap();
+        assert!(compile_metadata(&root).is_err());
+        assert_eq!(bytes, std::fs::read(&destination).unwrap());
+    }
     std::fs::write(root.join("metadata\\wdk\\kernel.rdl"), "invalid RDL").unwrap();
     assert!(compile_metadata(&root).is_err());
     assert_eq!(bytes, std::fs::read(&destination).unwrap());
